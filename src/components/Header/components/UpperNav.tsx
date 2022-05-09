@@ -2,18 +2,9 @@ import React from "react";
 import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Button from "../../Button/Button";
-import { ButtonTypes } from "../../Button/ButtonTypes";
 import Icon from "../../Icons/Icon";
-import {
-  IconAlign,
-  IconColors,
-  IconNames,
-  IconSizes,
-} from "../../Icons/IconTypes";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import { ListTypes } from "../../List/ListTypes";
-import { LinkTypes } from "../../Link/LinkTypes";
 
 const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
@@ -25,7 +16,7 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
       listItems={[
         <>
           <Button
-            buttonType={ButtonTypes.Link}
+            buttonType="link"
             className="withIcon"
             id={logInOpen ? "closeLogInButton" : "logInButton"}
             key={logInOpen ? "closeLogInButton" : "logInButton"}
@@ -33,28 +24,23 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
           >
             {logInOpen ? "Close" : "Log In"}
             <Icon
-              align={IconAlign.Right}
-              name={logInOpen ? IconNames.Close : IconNames.Arrow}
-              size={IconSizes.Small}
+              align="right"
+              name={logInOpen ? "close" : "arrow"}
+              size="small"
             />
           </Button>
           <List
             id={logInOpen ? "logInMenuOpen" : "logInMenuClosed"}
             noStyling
-            type={ListTypes.Unordered}
+            type="ul"
             listItems={[
-              <Link
-                id="logInCatalog"
-                key="logInCatalog"
-                href="#"
-                type={LinkTypes.Button}
-              >
+              <Link id="logInCatalog" key="logInCatalog" href="#" type="button">
                 <Icon
-                  align={IconAlign.Left}
-                  color={IconColors.UiWhite}
+                  align="left"
+                  color="ui.white"
                   id="log-in-catalog-icon"
-                  name={IconNames.UtilityAccountFilled}
-                  size={IconSizes.Medium}
+                  name="utilityAccountFilled"
+                  size="medium"
                   title="Log in to your account"
                 />
                 Log Into The Catalog
@@ -63,14 +49,14 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
                 id="logInResearchCatalog"
                 key="logInResearchCatalog"
                 href="#"
-                type={LinkTypes.Button}
+                type="button"
               >
                 <Icon
-                  align={IconAlign.Left}
-                  color={IconColors.UiWhite}
+                  align="left"
+                  color="ui.white"
                   id="log-in-research-icon"
-                  name={IconNames.ActionHelpDefault}
-                  size={IconSizes.Medium}
+                  name="actionHelpDefault"
+                  size="medium"
                   title="Log in to your account"
                 />
                 Log Into The Research Catalog
@@ -92,18 +78,10 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
         >
           <>
             Get Email Updates
-            <Icon
-              name={IconNames.Arrow}
-              align={IconAlign.Right}
-              size={IconSizes.Small}
-            />
+            <Icon name="arrow" align="right" size="small" />
           </>
         </Link>,
-        <Button
-          buttonType={ButtonTypes.Callout}
-          id="donateButton"
-          key="donateButton"
-        >
+        <Button buttonType="callout" id="donateButton" key="donateButton">
           Donate
         </Button>,
         <Link href="#" key="shopLink">
@@ -111,7 +89,7 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
         </Link>,
       ]}
       noStyling
-      type={ListTypes.Unordered}
+      type="ul"
     />
   );
 });

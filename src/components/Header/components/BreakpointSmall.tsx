@@ -9,9 +9,7 @@ import {
 
 import Link from "../../Link/Link";
 import Icon from "../../Icons/Icon";
-import { IconNames, IconSizes } from "../../Icons/IconTypes";
 import Logo from "../../Logo/Logo";
-import { LogoNames, LogoSizes } from "../../Logo/LogoTypes";
 
 const HeaderBreakpointSmall = chakra(() => {
   const styles = useMultiStyleConfig("Header", {});
@@ -21,8 +19,8 @@ const HeaderBreakpointSmall = chakra(() => {
         <Logo
           __css={{ height: "30px" }}
           id="header-nypl-logo"
-          name={LogoNames.NYPLLionBlack}
-          size={LogoSizes.ExtraExtraSmall}
+          name="nyplLionBlack"
+          size="xxsmall"
           title="NYPL Header Logo"
         />
       </Link>
@@ -30,26 +28,21 @@ const HeaderBreakpointSmall = chakra(() => {
       <HStack __css={styles.icons}>
         <Icon
           id="log-in-icon"
-          name={IconNames.UtilityAccountUnfilled}
-          size={IconSizes.Medium}
+          name="utilityAccountUnfilled"
+          size="medium"
           title="Log in to your account"
         />
         <Icon
           id="locator-icon"
-          name={IconNames.ActionHelpOutline}
-          size={IconSizes.Medium}
+          name="actionHelpOutline"
+          size="medium"
           title="NYPL Locator"
         />
-        <Icon
-          id="search-icon"
-          name={IconNames.Search}
-          size={IconSizes.Medium}
-          title="Search"
-        />
+        <Icon id="search-icon" name="search" size="medium" title="Search" />
         <Icon
           id="hamburger-icon"
-          name={IconNames.UtilityHamburger}
-          size={IconSizes.Medium}
+          name="utilityHamburger"
+          size="medium"
           title="Menu"
         />
       </HStack>

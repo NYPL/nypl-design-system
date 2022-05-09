@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import { chakra, useMultiStyleConfig, HStack } from "@chakra-ui/react";
 
 import Button from "../../Button/Button";
-import { ButtonTypes } from "../../Button/ButtonTypes";
 import Icon from "../../Icons/Icon";
-import {
-  IconAlign,
-  IconColors,
-  IconNames,
-  IconSizes,
-} from "../../Icons/IconTypes";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import { ListTypes } from "../../List/ListTypes";
 import TextInput from "../../TextInput/TextInput";
 
 const HeaderLowerNav = chakra(() => {
@@ -49,7 +41,7 @@ const HeaderLowerNav = chakra(() => {
         </Link>,
         <>
           <Button
-            buttonType={ButtonTypes.Link}
+            buttonType="link"
             id={searchOpen ? "closeSearchButton" : "searchButton"}
             key={searchOpen ? "closeSearchButton" : "searchButton"}
             // Commenting out the following event for this PR.
@@ -57,9 +49,9 @@ const HeaderLowerNav = chakra(() => {
           >
             {searchOpen ? "Close" : "Search"}
             <Icon
-              name={searchOpen ? IconNames.Close : IconNames.Search}
-              align={IconAlign.Right}
-              size={IconSizes.Small}
+              name={searchOpen ? "close" : "search"}
+              align="right"
+              size="small"
             />
           </Button>
           <HStack id={searchOpen ? "searchOpen" : "searchClosed"}>
@@ -68,16 +60,12 @@ const HeaderLowerNav = chakra(() => {
               labelText="Enter Search Keyword"
               placeholder="What would you like to find?"
             />
-            <Icon
-              name={IconNames.Search}
-              size={IconSizes.Medium}
-              color={IconColors.UiWhite}
-            />
+            <Icon name="search" size="medium" color="ui.white" />
           </HStack>
         </>,
       ]}
       noStyling
-      type={ListTypes.Unordered}
+      type="ul"
     />
   );
 });

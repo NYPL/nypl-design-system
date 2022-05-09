@@ -10,13 +10,12 @@ import {
 
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
-import { LogoNames, LogoSizes } from "../Logo/LogoTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Notification from "../Notification/Notification";
 import useWindowSize from "../../hooks/useWindowSize";
-import HeaderUpperNav from "./components/HeaderUpperNav";
-import HeaderLowerNav from "./components/HeaderLowerNav";
-import HeaderBreakpointSmall from "./components/HeaderBreakpointSmall";
+import HeaderUpperNav from "./components/UpperNav";
+import HeaderLowerNav from "./components/LowerNav";
+import HeaderBreakpointSmall from "./components/BreakpointSmall";
 
 export const Header = chakra(() => {
   const windowDimensions = useWindowSize();
@@ -56,13 +55,11 @@ export const Header = chakra(() => {
               id="header-nypl-logo"
               name={
                 windowDimensions.width > breakpointLarge
-                  ? LogoNames.NYPLBlack
-                  : LogoNames.NYPLLionBlack
+                  ? "nyplFullBlack"
+                  : "nyplLionBlack"
               }
               size={
-                windowDimensions.width > breakpointLarge
-                  ? LogoSizes.Small
-                  : LogoSizes.ExtraExtraSmall
+                windowDimensions.width > breakpointLarge ? "small" : "xxsmall"
               }
               title="NYPL Header Logo"
             />
