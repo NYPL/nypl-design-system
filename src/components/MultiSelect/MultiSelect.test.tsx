@@ -2,73 +2,29 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
-//import renderer from "react-test-renderer";
+import renderer from "react-test-renderer";
+// Component
 import MultiSelect from "./MultiSelect";
+// Type
 import { MultiSelectItem } from "./MultiSelectTypes";
 
 const items = [
+  { id: "dogs", name: "Dogs" },
+  { id: "cats", name: "Cats" },
+  { id: "cars", name: "Cars" },
   {
-    id: "art",
-    name: "Art",
-  },
-  {
-    id: "architecture",
-    name: "Architecture",
-  },
-  {
-    id: "art_history",
-    name: "Art History",
-  },
-  {
-    id: "design",
-    name: "Design",
+    id: "colors",
+    name: "Colors",
     children: [
-      {
-        id: "fashion",
-        name: "Fashion",
-      },
-      {
-        id: "ux",
-        name: "User Experience",
-      },
+      { id: "red", name: "Red" },
+      { id: "blue", name: "Blue" },
     ],
   },
-  {
-    id: "business",
-    name: "Business",
-  },
-  {
-    id: "advertising",
-    name: "Advertising",
-  },
-  {
-    id: "government_and_law",
-    name: "Government and Law",
-  },
-  {
-    id: "civil_rights",
-    name: "Civil Rights",
-  },
-  {
-    id: "history",
-    name: "History",
-  },
-  {
-    id: "atlases",
-    name: "Atlases",
-  },
-  {
-    id: "cartography",
-    name: "Cartography",
-  },
-  {
-    id: "geology",
-    name: "Geology",
-  },
+  { id: "plants", name: "Plants" },
+  { id: "furniture", name: "Furniture" },
 ];
 
-function MultiSelectDialogTestComponent() {
-  const multiSelectId = "multiselect-dialog-test";
+const MultiSelectTestComponent = (componentId) => {
   const [selectedItems, setSelectedItems] = React.useState({});
 
   function handleChange(multiSelectId: string, itemId: string) {
@@ -97,8 +53,8 @@ function MultiSelectDialogTestComponent() {
       },
     });
   }
-
   function handleMixedStateChange(parentId: string) {
+    const multiSelectId = componentId;
     // Build an array of child items.
     let childItems = [];
     items.map((item) => {
@@ -135,58 +91,34 @@ function MultiSelectDialogTestComponent() {
       },
     });
   }
-
   return (
     <MultiSelect
-      id={multiSelectId}
-      label="MultiSelect Dialog"
+      id={componentId}
+      label="MultiSelect Label"
       variant="dialog"
       items={items}
-      defaultIsOpen={false}
       selectedItems={selectedItems}
-      onChange={(e) => handleChange(multiSelectId, e.target.id)}
+      onChange={(e) => handleChange(componentId, e.target.id)}
       onMixedStateChange={(e) => {
         handleMixedStateChange(e.target.id);
       }}
-      onApply={() => {
-        console.log("onApply from consuming!");
-      }}
-      onClear={() => {
-        setSelectedItems({});
-      }}
+      onClear={() => setSelectedItems({})}
+      onApply={() => null}
     />
   );
-}
+};
 
 describe("MultiSelect Dialog", () => {
-  it("should check all children items if parent is checked", async () => {
-    render(<MultiSelectDialogTestComponent />);
-
-    // Open the multiselect menu.
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /multiSelect dialog/i,
-      })
-    );
-
-    // User event to check parent item "Design".
-    userEvent.click(screen.getByText("Design"));
-    expect(screen.getByLabelText("Design")).toBeChecked();
-
-    // Test that the child checkboxes are also checked.
-    expect(screen.getByLabelText("Fashion")).toBeChecked();
-    expect(screen.getByLabelText("User Experience")).toBeChecked();
-  });
-
+  let selectedTestItems;
+  beforeEach(() => (selectedTestItems = {}));
   it("should have no axe violations", async () => {
-    const selectedItems = {};
     const { container } = render(
       <MultiSelect
         id="test"
         label="multiSelect-accessibility"
         variant="dialog"
         items={items}
-        selectedItems={selectedItems}
+        selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
@@ -196,36 +128,31 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should initially render with provided id", () => {
-    const selectedItems = {};
-
-    render(
+    const { container } = render(
       <MultiSelect
         id="some-id"
         label="MultiSelect Label"
         variant="dialog"
         items={items}
-        selectedItems={selectedItems}
+        selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
       />
     );
-
-    //screen.debug();
-
+    expect(container.querySelector("#some-id")).toBeInTheDocument();
+    // @QUESTION: what would be a better way of testing this?
     // @TODO how to do this?
   });
 
   it("should initially render with a given label", () => {
-    const selectedItems = {};
-
     render(
       <MultiSelect
         id="some-id"
         label="MultiSelect Test Label"
         variant="dialog"
         items={items}
-        selectedItems={selectedItems}
+        selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
@@ -236,21 +163,35 @@ describe("MultiSelect Dialog", () => {
       screen.getByRole("button", {
         name: /multiselect test label/i,
       })
-    );
+    ).toBeInTheDocument();
   });
 
-  it("should initially render with open menu if defaultIsOpen prop is true", async () => {});
+  it("should initially render with open menu if defaultIsOpen prop is true", async () => {
+    render(
+      <MultiSelect
+        id="some-id"
+        label="MultiSelect Test Label"
+        variant="dialog"
+        items={items}
+        defaultIsOpen={true}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+        onApply={() => null}
+      />
+    );
+
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
+  });
 
   it("should open menu when user clicks menu button", () => {
-    const selectedItems = {};
-
     render(
       <MultiSelect
         id="some-id"
         label="MultiSelect Label"
         variant="dialog"
         items={items}
-        selectedItems={selectedItems}
+        selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
@@ -263,19 +204,36 @@ describe("MultiSelect Dialog", () => {
       })
     );
 
-    expect(screen.getByRole("dialog"));
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
   });
+  // Not sure this can be tested
+  // it("should have block behavior if isBlockElement is true", () => {
+  //   const { container } = render(
+  //     <MultiSelect
+  //       id="some-id"
+  //       label="MultiSelect Label"
+  //       variant="dialog"
+  //       items={items}
+  //       isBlockElement={true}
+  //       selectedItems={selectedTestItems}
+  //       onChange={() => null}
+  //       onClear={() => null}
+  //       onApply={() => null}
+  //     />
+  //   );
+  //   console.log(getComputedStyle(container.querySelector("[role='dialog']")));
+  //   // screen.logTestingPlaygroundURL();
+  // });
 
   it("should allow user to toggle menu by clicking menu button", () => {
-    const selectedItems = {};
-
-    render(
+    const { container } = render(
       <MultiSelect
         id="some-id"
         label="MultiSelect Label"
         variant="dialog"
         items={items}
-        selectedItems={selectedItems}
+        selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
@@ -288,7 +246,11 @@ describe("MultiSelect Dialog", () => {
         name: /multiselect label/i,
       })
     );
-    expect(screen.getByRole("dialog"));
+
+    expect(screen.queryByRole("dialog")).toBeInTheDocument();
+    expect(
+      container.querySelector("#some-id").getAttribute("aria-modal")
+    ).toEqual("true");
 
     // Close
     userEvent.click(
@@ -296,21 +258,314 @@ describe("MultiSelect Dialog", () => {
         name: /multiselect label/i,
       })
     );
-    screen.debug();
-    //expect(screen.getByRole("dialog")).toBe("false");
+
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(
+      container.querySelector("#some-id").getAttribute("aria-modal")
+    ).toEqual("false");
+  });
+
+  it("should have inteterminated state for parent item if not all child items are checked", () => {
+    render(<MultiSelectTestComponent id="some-id" />);
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Check the child
+    userEvent.click(screen.getByText("Red"));
+    // Child is checked
+    expect(screen.getByLabelText("Red")).toBeChecked();
+    // Parent is indeterminated
+    expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
+  });
+
+  it("should check all child items if parent is checked", () => {
+    render(<MultiSelectTestComponent id="some-id" />);
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Check the parent item
+    userEvent.click(screen.getByText("Colors"));
+    // Parent is checked
+    expect(screen.getByLabelText("Colors")).toBeChecked();
+    // Children are checked
+    expect(screen.getByLabelText("Red")).toBeChecked();
+    expect(screen.getByLabelText("Blue")).toBeChecked();
+  });
+
+  it("should check parent item if all child items are checked", () => {
+    selectedTestItems = {
+      "some-id": { items: ["red", "blue"] },
+    };
+
+    render(
+      <MultiSelect
+        id="some-id"
+        label="MultiSelect Label"
+        variant="dialog"
+        items={items}
+        defaultIsOpen={true}
+        selectedItems={selectedTestItems}
+        onMixedStateChange={() => null}
+        onChange={() => null}
+        onClear={() => null}
+        onApply={() => null}
+      />
+    );
+    expect(screen.getByLabelText("Colors")).toBeChecked();
+  });
+
+  it("should render the UI snapshot correctly", () => {
+    const defaultDialog = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    const isOpen = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    selectedTestItems = { "some-id": { items: ["red"] } };
+    const mixedState = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onMixedStateChange={() => null}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    selectedTestItems = { "some-id": { items: ["red", "blue"] } };
+    const allChecked = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onMixedStateChange={() => null}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    expect(defaultDialog).toMatchSnapshot();
+    expect(isOpen).toMatchSnapshot();
+    expect(mixedState).toMatchSnapshot();
+    expect(allChecked).toMatchSnapshot();
   });
 });
 
 describe("MultiSelect Listbox", () => {
-  it("should have no axe violations", async () => {});
+  let selectedTestItems;
+  beforeEach(() => (selectedTestItems = {}));
+  it("should have no axe violations", async () => {
+    const { container } = render(
+      <MultiSelect
+        id="test"
+        label="multiSelect-accessibility"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 
-  it("should initially render with provided id", async () => {});
+  it("should initially render with provided id", async () => {
+    const { container } = render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(container.querySelector("#test")).toBeInTheDocument();
+  });
 
-  it("should initially render with a given label", async () => {});
+  it("should initially render with a given label", async () => {
+    render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+  });
 
-  it("should initially render with open menu if defaultIsOpen prop is true", async () => {});
+  it("should initially render with open menu if defaultIsOpen prop is true", () => {
+    render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        defaultIsOpen={true}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
 
-  it("should open menu when user clicks menu button", async () => {});
+    const ul = screen.getByRole("listbox");
+    const list = ul[`${Object.keys(ul)[1]}`].children;
+    expect(list).toHaveLength(6);
+  });
 
-  it("should allow user to toggle menu by clicking menu button", async () => {});
+  it("should open menu when user clicks menu button", () => {
+    render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(screen.getAllByRole("checkbox")).toHaveLength(6);
+  });
+
+  it("should allow user to toggle menu by clicking menu button", () => {
+    const { container } = render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    // When first rendered menu is not expanded
+    expect(screen.queryByRole("listbox")).toBeNull();
+
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+
+    expect(
+      container.querySelector('[aria-expanded="true"][aria-haspopup="listbox"]')
+    ).toBeInstanceOf(HTMLElement);
+    expect(screen.getAllByRole("option")).toHaveLength(6);
+
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+    expect(
+      container.querySelector(
+        '[aria-expanded="false"][aria-haspopup="listbox"]'
+      )
+    ).toBeInstanceOf(HTMLElement);
+    expect(screen.queryAllByRole("option")).toHaveLength(0);
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const defaultListbox = renderer
+      .create(
+        <MultiSelect
+          id="test"
+          label="MultiSelect Label"
+          variant="listbox"
+          items={items}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+        />
+      )
+      .toJSON();
+
+    const isOpen = renderer
+      .create(
+        <MultiSelect
+          id="test"
+          label="MultiSelect Label"
+          variant="listbox"
+          defaultIsOpen={true}
+          items={items}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+        />
+      )
+      .toJSON();
+
+    selectedTestItems = { test: { items: ["cats", "dogs"] } };
+    const selection = renderer
+      .create(
+        <MultiSelect
+          id="test"
+          label="MultiSelect Label"
+          variant="listbox"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+        />
+      )
+      .toJSON();
+
+    expect(defaultListbox).toMatchSnapshot();
+    expect(isOpen).toMatchSnapshot();
+    expect(selection).toMatchSnapshot();
+  });
 });
