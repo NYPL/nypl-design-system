@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label Renders the UI snapshot correctly 1`] = `
+<nav
+  aria-label="Skip Navigation"
+  className="css-1xdhyk6"
+>
+  <ul
+    className="css-1xdhyk6"
+  >
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="#mainContent"
+        rel={null}
+        target={null}
+      >
+        Skip to Main Content
+      </a>
+    </li>
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/accessibility"
+        rel={null}
+        target={null}
+      >
+        Click to learn about accessibility at the Library
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Label Renders the UI snapshot correctly 2`] = `
+<nav
+  aria-label="Skip Navigation"
+  className="css-1xdhyk6"
+>
+  <ul
+    className="css-1xdhyk6"
+  >
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="customId"
+        rel={null}
+        target={null}
+      >
+        Skip to Main Content
+      </a>
+    </li>
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/accessibility"
+        rel={null}
+        target={null}
+      >
+        Click to learn about accessibility at the Library
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Label Renders the UI snapshot correctly 3`] = `
+<nav
+  aria-label="Skip Navigation"
+  className="css-kle7zy"
+>
+  <ul
+    className="css-1xdhyk6"
+  >
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="#mainContent"
+        rel={null}
+        target={null}
+      >
+        Skip to Main Content
+      </a>
+    </li>
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/accessibility"
+        rel={null}
+        target={null}
+      >
+        Click to learn about accessibility at the Library
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Label Renders the UI snapshot correctly 4`] = `
+<nav
+  aria-label="Skip Navigation"
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <ul
+    className="css-1xdhyk6"
+  >
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="#mainContent"
+        rel={null}
+        target={null}
+      >
+        Skip to Main Content
+      </a>
+    </li>
+    <li>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/accessibility"
+        rel={null}
+        target={null}
+      >
+        Click to learn about accessibility at the Library
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
