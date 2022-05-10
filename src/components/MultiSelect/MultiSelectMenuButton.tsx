@@ -76,9 +76,7 @@ const MultiSelectMenuButton = React.forwardRef<
     <Button
       id="multiselect-menu-button"
       ref={ref}
-      attributes={{
-        ...styles.menuButton,
-      }}
+      __css={styles.menuButton}
       buttonType="secondary"
       onClick={onMenuToggle}
       {...props}

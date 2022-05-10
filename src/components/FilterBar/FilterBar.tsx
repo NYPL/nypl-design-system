@@ -100,9 +100,7 @@ function FilterBar({
                 {Object.keys(selectedItems).length > 0 && (
                   <Button
                     id="filter-bar-clear-all-button"
-                    attributes={{
-                      ...styles.clearFilters,
-                    }}
+                    __css={styles.clearFilters}
                     type="submit"
                     buttonType="link"
                     mouseDown={false}
