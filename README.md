@@ -10,7 +10,7 @@ _Note: This library is still in beta. Until we release the stable `1.0.0` versio
 
 Storybook documentation
 
-- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page)
+- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page)
 - [Development - deployed to Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page)
 
 | Table of Contents |                                                                                     |
@@ -194,7 +194,7 @@ The list of re-exported Chakra components can be found in the main [index.ts](/s
 Find more information about the Design System's internal use of Chakra to create and refactor components in the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
-- [Storybook page](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page)
+- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page)
 
 Chakra was integrated into the Design System in version `0.25.0`. For those looking to update to a version greater than or equal `0.25.0`, check out our [Chakra Migration Guide](/CHAKRA_MIGRATION_GUIDE.md).
 
@@ -216,7 +216,7 @@ You can check out a working Codepen with unpkg [here](https://codepen.io/edwingu
 
 ## Storybook
 
-The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
+The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
 
 ### Documentation Instances
 
@@ -224,7 +224,7 @@ There are currently two main instances of the Reservoir Design System Storybook 
 
 **Production**
 
-The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
+The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
 
 As of July, 2021, the Github Pages production site gets deployed every two weeks on the same schedule as npm releases.
 
@@ -261,13 +261,13 @@ To help consuming application developers understand which version of the DS is r
 
 ### Static Build
 
-There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). In the event that you do run the static Storybook npm script, run:
+There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). In the event that you do run the static Storybook npm script, run:
 
 ```sh
-$ npm run build-storybook
+$ npm run build-storybook:v1
 ```
 
-You can then view `/storybook-static/index.html` in your browser. _Make sure not to commit this directory_.
+You can then view `/reservoir/v1/index.html` in your browser. _Make sure not to commit this directory_.
 
 ## Typescript Usage
 
