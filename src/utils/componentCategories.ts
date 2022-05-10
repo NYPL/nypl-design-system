@@ -53,6 +53,7 @@ const categories = {
     title: "Components/Form Elements",
     components: [
       "Button",
+      "ButtonGroup",
       "Checkbox",
       "CheckboxGroup",
       "DatePicker",
@@ -108,7 +109,14 @@ const categories = {
   },
   navigation: {
     title: "Components/Navigation",
-    components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
+    components: [
+      "Breadcrumbs",
+      "Link",
+      "Menu",
+      "Pagination",
+      "SkipNavigation",
+      "Subnavigation",
+    ],
   },
   styleguide: {
     title: "Style Guide",

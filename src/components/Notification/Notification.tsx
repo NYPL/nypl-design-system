@@ -137,17 +137,17 @@ export const Notification = chakra((props: NotificationProps) => {
     const iconProps = {
       announcement: {
         color: "section.research.secondary",
-        name: "speaker_notes",
+        name: "speakerNotes",
         title: "Notification announcement icon",
       } as IconProps,
       standard: {
         color: "ui.black",
-        name: "alert_notification_important",
+        name: "alertNotificationImportant",
         title: "Notification standard icon",
       } as IconProps,
       warning: {
         color: "brand.primary",
-        name: "error_filled",
+        name: "errorFilled",
         title: "Notification warning icon",
       } as IconProps,
     };

@@ -149,7 +149,7 @@ const FishExample = () => {
   const renderSuggestion = (suggestion) => (
     <span>
       {suggestion}
-      <Icon name="check" />
+      <Icon name="check" size="medium" />
     </span>
   );
   const getSuggestionValue = (suggestion) => suggestion;

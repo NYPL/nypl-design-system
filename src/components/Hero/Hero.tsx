@@ -1,7 +1,7 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import Image from "../Image/Image";
+import Image, { ComponentImageProps } from "../Image/Image";
 
 export type HeroTypes =
   | "primary"
@@ -13,7 +13,6 @@ export type HeroTypes =
   | "tertiary"
   | "campaign"
   | "fiftyFifty";
-
 // Only used for internal purposes.
 export const heroSecondaryTypes = [
   "secondary",
@@ -22,6 +21,8 @@ export const heroSecondaryTypes = [
   "secondaryResearch",
   "secondaryWhatsOn",
 ];
+export interface HeroImageProps
+  extends Pick<ComponentImageProps, "alt" | "src"> {}
 export interface HeroProps {
   /** Optional hex color value used to override the default background
    * color for a given `Hero` variation.
@@ -39,14 +40,14 @@ export interface HeroProps {
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
-  /** Text description of the image; to follow best practices for accessibility,
-   * this prop should not be left blank if `imageSrc` is passed. */
-  imageAlt?: string;
-  /** Optional `imageSrc` used for SECONDARY, fiftyFifty and CAMPAIGN
-   * `Hero` types; Note: `imageSrc` can only be used in conjunction with
-   * `backgroundImageSrc` for the CAMPAIGN `Hero` type.
-   * Note: not all `Hero` variations utilize this prop. */
-  imageSrc?: string;
+  /** Object used to create and render the `Image` component. Note that only
+   * `src` and `alt` are the available attributes to pass. If `imageProps.alt`
+   * is left blank, a warning will be logged to the console and will cause
+   * accessibility issues. For `imageProps.src`, it will only work for the
+   * "secondary", "fiftyFifty" and "campaign" `Hero` types; Note: `imageProps.src`
+   * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
+   * `Hero` type. Note: not all `Hero` variations utilize this prop. */
+  imageProps?: HeroImageProps;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
   locationDetails?: JSX.Element;
@@ -63,8 +64,10 @@ export const Hero = chakra(
       foregroundColor,
       heading,
       heroType,
-      imageAlt,
-      imageSrc,
+      imageProps = {
+        alt: "",
+        src: "",
+      },
       locationDetails,
       subHeaderText,
       ...rest
@@ -77,9 +80,9 @@ export const Hero = chakra(
     let backgroundImageStyle = {};
     let contentBoxStyling = {};
 
-    if (imageSrc && !imageAlt) {
+    if (imageProps.src && !imageProps.alt) {
       console.warn(
-        `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+        `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
       );
     }
 
@@ -90,9 +93,9 @@ export const Hero = chakra(
             "prop for the `'primary'` `heroType` variant."
         );
       }
-      if (imageAlt && imageSrc) {
+      if (imageProps.alt && imageProps.src) {
         console.warn(
-          "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been " +
+          "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been " +
             "passed, but the `'primary'` `heroType` variant will not use it."
         );
       }
@@ -108,16 +111,16 @@ export const Hero = chakra(
           "but the `'secondary'` `heroType` variant will not use it."
       );
     }
-    if (heroType === "tertiary" && (backgroundImageSrc || imageSrc)) {
+    if (heroType === "tertiary" && (backgroundImageSrc || imageProps.src)) {
       console.warn(
         "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
           "will not use any of the image props."
       );
     }
-    if (heroType === "campaign" && (!backgroundImageSrc || !imageSrc)) {
+    if (heroType === "campaign" && (!backgroundImageSrc || !imageProps.src)) {
       console.warn(
         "NYPL Reservoir Hero: It is recommended to use both the " +
-          "`backgroundImageSrc` and `imageSrc` props for the " +
+          "`backgroundImageSrc` and `imageProps.src` props for the " +
           "`'campaign'` `heroType` variant."
       );
     }
@@ -156,7 +159,7 @@ export const Hero = chakra(
     const childrenToRender =
       heroType === "campaign" ? (
         <>
-          <Image alt={imageAlt} src={imageSrc} />
+          <Image alt={imageProps.alt} src={imageProps.src} />
           <Box __css={styles.interior}>
             {finalHeading}
             {subHeaderText}
@@ -165,7 +168,7 @@ export const Hero = chakra(
       ) : (
         <>
           {heroType !== "primary" && heroType !== "tertiary" && (
-            <Image alt={imageAlt} src={imageSrc} />
+            <Image alt={imageProps.alt} src={imageProps.src} />
           )}
           {finalHeading}
           {heroType === "tertiary" && subHeaderText ? (
@@ -191,7 +194,6 @@ export const Hero = chakra(
         >
           {childrenToRender}
         </Box>
-        {locationDetails}
       </Box>
     );
   },
