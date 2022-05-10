@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+
 ## 0.28.0 (May 9, 2022)
 
 ### Adds
@@ -36,10 +40,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes all Typescript enum objects in favor of string literal types.
 - Remove the bottom margin attribute that is applied to the parent element for the `Select` component.
 - Removes the `attributes` prop from: `Button`, `Link`, and `TextInput` components.
-
-### Fixes
-
-- Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
 
 ## 0.27.0 (April 27, 2022)
 
