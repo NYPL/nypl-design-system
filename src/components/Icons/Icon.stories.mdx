@@ -130,7 +130,7 @@ export const iconRow = (iconName, opts = {}) => {
     displayValue = iconName,
   } = opts;
   let key = iconName;
-  if (iconName.indexOf("Negative") !== -1 || color.indexOf("white") !== -1) {
+  if (iconName.indexOf("Negative") !== -1 || color.indexOf("White") !== -1) {
     styles.backgroundColor = "#000";
     styles.padding = "1rem";
   }
@@ -187,36 +187,36 @@ export const iconColorsValues = [
   "section.whats-on.secondary",
 ];
 export const iconNamesValues = [
-  "accessibility_full",
-  "accessibility_partial",
-  "action_check_circle",
-  "action_help_default",
-  "action_help_outline",
-  "alert_notification_important",
-  "action_launch",
+  "accessibilityFull",
+  "accessibilityPartial",
+  "actionCheckCircle",
+  "actionHelpDefault",
+  "actionHelpOutline",
+  "alertNotificationImportant",
+  "actionLaunch",
   "arrow",
   "check",
   "clock",
   "close",
   "download",
-  "error_filled",
-  "error_outline",
-  "file_type_audio",
-  "file_type_doc",
-  "file_type_generic_doc",
-  "file_type_image",
-  "file_type_pdf",
-  "file_type_spreadsheet",
-  "file_type_video",
+  "errorFilled",
+  "errorOutline",
+  "fileTypeAudio",
+  "fileTypeDoc",
+  "fileTypeGenericDoc",
+  "fileTypeImage",
+  "fileTypePdf",
+  "fileTypeSpreadsheet",
+  "fileTypeVideo",
   "headset",
   "minus",
   "plus",
   "search",
-  "speaker_notes",
-  "utility_account_filled",
-  "utility_account_unfilled",
-  "utility_hamburger",
-  "utility_search",
+  "speakerNotes",
+  "utilityAccountFilled",
+  "utilityAccountUnfilled",
+  "utilityHamburger",
+  "utilitySearch",
 ];
 export const iconRotationTypesValues = [
   "rotate0",
@@ -252,7 +252,7 @@ for (const iconRotation in iconRotationTypesValues) {
 }
 for (const iconColor in iconColorsValues) {
   colors.push(
-    iconRow("error_filled", {
+    iconRow("errorFilled", {
       color: iconColorsValues[iconColor],
       displayValue: iconColorsValues[iconColor],
       size: "xxlarge",
@@ -261,7 +261,7 @@ for (const iconColor in iconColorsValues) {
 }
 for (const iconSize in iconSizesValues) {
   sizes.push(
-    iconRow("action_check_circle", {
+    iconRow("actionCheckCircle", {
       displayValue: iconSizesValues[iconSize],
       size: iconSizesValues[iconSize],
     })
@@ -354,15 +354,15 @@ fill the full width of the parent element.
 ## All Display Icons
 
 The following icons are for generic purposes. All the available icon names can
-be found in the `IconNames` type. They are: `"accessibility_full"`,
-`"accessibility_partial"`, `"action_check_circle"`, `"action_help_default"`,
-`"action_help_outline"`, `"alert_notification_important"`, `"action_launch"`,
-`"arrow"`, `"check"`, `"clock"`, `"close"`, `"download"`, `"error_filled"`,
-`"error_outline"`, `"file_type_audio"`, `"file_type_doc"`,
-`"file_type_generic_doc"`, `"file_type_image"`, `"file_type_pdf"`,
-`"file_type_spreadsheet"`, `"file_type_video"`, `"headset"`, `"minus"`,
-`"plus"`, `"search"`, `"speaker_notes"`, `"utility_account_filled"`,
-`"utility_account_unfilled"`, `"utility_hamburger"`, `"utility_search"`.
+be found in the `IconNames` type. They are: `"accessibilityFull"`,
+`"accessibilityPartial"`, `"actionCheckCircle"`, `"actionHelpDefault"`,
+`"actionHelpOutline"`, `"alertNotificationImportant"`, `"actionLaunch"`,
+`"arrow"`, `"check"`, `"clock"`, `"close"`, `"download"`, `"errorFilled"`,
+`"errorOutline"`, `"fileTypeAudio"`, `"fileTypeDoc"`,
+`"fileTypeGenericDoc"`, `"fileTypeImage"`, `"fileTypePdf"`,
+`"fileTypeSpreadsheet"`, `"fileTypeVideo"`, `"headset"`, `"minus"`,
+`"plus"`, `"search"`, `"speakerNotes"`, `"utilityAccountFilled"`,
+`"utilityAccountUnfilled"`, `"utilityHamburger"`, `"utilitySearch"`.
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.

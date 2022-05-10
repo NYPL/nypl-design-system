@@ -1,4 +1,3 @@
-import { ButtonGroup } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,6 +8,7 @@ import {
 import { useState } from "react";
 
 import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import { ModalTrigger, useModal } from "./Modal";
@@ -60,12 +60,12 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
-    bodyContent="body text"
-    closeButtonLabel="Close Button"
-    headingText="Modal Heading Text"
-    onClose={() => {
+    bodyContent: "body text",
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
       console.log("custom close");
-    }}
+    },
   }}
 />;
 ```

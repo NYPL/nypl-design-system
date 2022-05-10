@@ -1580,3 +1580,124 @@ exports[`Table renders the UI snapshot correctly 7`] = `
   </tbody>
 </table>
 `;
+
+exports[`Table renders the UI snapshot correctly 8`] = `
+<table
+  className="chakra-table css-1xdhyk6"
+  id="jsx-example"
+  role="table"
+>
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Avatar
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Tom
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Nook
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <img
+          alt="Tom Nook"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Isabelle
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        -
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <img
+          alt="Isabelle"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        K.K.
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Slider
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <img
+          alt="K.K Slider"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
