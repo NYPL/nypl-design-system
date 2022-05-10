@@ -4,7 +4,6 @@ import "./styles.scss";
 // components for usage in consuming applications.
 export {
   Box,
-  ButtonGroup,
   Center,
   Circle,
   Flex,
@@ -25,6 +24,7 @@ export {
   BreadcrumbsTypes,
 } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button, ButtonTypes } from "./components/Button/Button";
+export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export {
   default as Card,
   CardActions,
@@ -99,6 +99,7 @@ export {
   default as SkeletonLoader,
   SkeletonLoaderImageRatios,
 } from "./components/SkeletonLoader/SkeletonLoader";
+export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
 export {
   default as StatusBadge,

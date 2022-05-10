@@ -226,6 +226,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
   </label>
   <input
     className="chakra-input css-0"
+    data-testid="props"
     disabled={false}
     id="props"
     onBlur={[Function]}

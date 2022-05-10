@@ -17,8 +17,6 @@ export type ButtonTypes =
   | "noBrand";
 
 interface ButtonProps {
-  /** Additional attributes passed to the button. */
-  attributes?: { [key: string]: any };
   /** The button variation to render based on the `ButtonTypes` type.*/
   buttonType?: ButtonTypes;
   /** Additional className to use. */
@@ -44,7 +42,6 @@ export const Button = chakra(
   React.forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
-        attributes,
         buttonType = "primary",
         children,
         className = "",
@@ -67,17 +64,17 @@ export const Button = chakra(
         );
       }
 
-      React.Children.map(children, (child: React.ReactElement) => {
-        childCount++;
-        if (child !== undefined && child !== null) {
-          if (
-            child.type === Icon ||
-            (child.props && child.props.mdxType === "Icon")
-          ) {
-            hasIcon = true;
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement) => {
+          childCount++;
+          if (child !== undefined && child !== null) {
+            if (child.type === Icon || child?.props?.mdxType === "Icon") {
+              hasIcon = true;
+            }
           }
         }
-      });
+      );
 
       if (childCount === 1 && hasIcon) {
         variant = "iconOnly";
@@ -93,7 +90,6 @@ export const Button = chakra(
           className={className}
           type={type}
           isDisabled={isDisabled}
-          {...attributes}
           {...btnCallback}
           __css={styles}
           {...rest}

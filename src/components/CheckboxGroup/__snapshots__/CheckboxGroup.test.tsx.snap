@@ -9,7 +9,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     column
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="column"
@@ -149,7 +148,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     row
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1objuxj"
     data-testid="checkbox-group"
     id="row"
@@ -429,7 +427,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     helperText
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="helperText"
@@ -581,7 +578,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     invalidText
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="invalidText"
@@ -721,7 +717,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     no optional or required label
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="noRequiredLabel"
@@ -864,7 +859,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     </span>
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="required"
@@ -1004,7 +998,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     invalid
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="invalid"
@@ -1150,7 +1143,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     disabled
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="disabled"
@@ -1296,7 +1288,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     jsxLabels
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="jsxLabels"
@@ -1460,7 +1451,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     chakraProps
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="chakraProps"
@@ -1601,7 +1591,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     otherProps
   </legend>
   <div
-    aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="otherProps"

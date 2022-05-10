@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
+import Image from "../Image/Image";
 import Table from "./Table";
 
 export const columnHeaders = [
@@ -14,7 +15,6 @@ export const columnHeaders = [
   "Zipcode",
   "State",
 ];
-
 export const tableData = [
   ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
   ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
@@ -27,6 +27,41 @@ export const tableData = [
     "New York",
     "09873",
     "NY",
+  ],
+];
+export const characterHeaders = ["First Name", "Last Name", "Avatar"];
+export const charactersData = [
+  [
+    "Tom",
+    "Nook",
+    <Image
+      alt="Tom Nook"
+      key="tom"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "Isabelle",
+    "-",
+    ,
+    <Image
+      alt="Isabelle"
+      key="isa"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "K.K.",
+    "Slider",
+    ,
+    <Image
+      alt="K.K Slider"
+      key="kk"
+      size="small"
+      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
   ],
 ];
 
@@ -78,6 +113,17 @@ describe("Table", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
     );
+  });
+
+  it("renders JSX elements from the data array", () => {
+    render(
+      <Table
+        columnHeaders={characterHeaders}
+        id="jsx-example"
+        tableData={charactersData}
+      />
+    );
+    expect(screen.getAllByRole("img")).toHaveLength(3);
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -140,6 +186,15 @@ describe("Table", () => {
     const withOtherProps = renderer
       .create(<Table id="props" tableData={tableData} data-testid="props" />)
       .toJSON();
+    const withJSXData = renderer
+      .create(
+        <Table
+          columnHeaders={characterHeaders}
+          id="jsx-example"
+          tableData={charactersData}
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withCaption).toMatchSnapshot();
@@ -148,5 +203,6 @@ describe("Table", () => {
     expect(withCustomHeaderColors).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withJSXData).toMatchSnapshot();
   });
 });

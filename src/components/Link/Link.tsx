@@ -11,8 +11,6 @@ export type LinkTypes =
   | "external"
   | "forwards";
 export interface LinkProps {
-  /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
-  attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Additional class name to render in the `Link` component. */
@@ -29,7 +27,11 @@ export interface LinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `"backwards"` or `"forwards"` `linkType` value.
  */
-function getWithDirectionIcon(children, type: LinkTypes, linkId) {
+function getWithDirectionIcon(
+  children: JSX.Element,
+  type: LinkTypes,
+  linkId: string
+) {
   let iconRotation;
   let iconAlign;
   let icon = null;
@@ -66,14 +68,14 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   );
 }
 
-function getExternalIcon(children, linkId) {
+function getExternalIcon(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
       align={"right"}
       className="more-link"
       id={iconId}
-      name="action_launch"
+      name="actionLaunch"
       size="medium"
     />
   );
@@ -92,22 +94,14 @@ function getExternalIcon(children, linkId) {
  */
 export const Link = chakra(
   React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
-    const {
-      attributes,
-      children,
-      className,
-      href,
-      id,
-      type = "default",
-      ...rest
-    } = props;
+    const { children, className, href, id, type = "default", ...rest } = props;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
     const linkProps = {
       id,
       href,
-      ...attributes,
+      ...rest,
     };
     // The "default" type.
     let variant = "link";
@@ -127,17 +121,16 @@ export const Link = chakra(
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
+    const rel = type === "external" ? "nofollow" : null;
+    const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
     // Forwards or Backwards.  Or render with the launch icon
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children, type, id)) ||
-      (type === "external" && getExternalIcon(children, id)) ||
+        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+      (type === "external" && getExternalIcon(children as JSX.Element, id)) ||
       children;
-
-    const rel = type === "external" ? "nofollow" : null;
-    const target = type === "external" ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:
@@ -149,7 +142,7 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style} {...rest}>
+        <Box as="span" __css={style}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -174,7 +167,6 @@ export const Link = chakra(
           target={target}
           {...linkProps}
           __css={style}
-          {...rest}
         >
           {newChildren}
         </Box>

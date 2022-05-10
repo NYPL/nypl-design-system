@@ -25,7 +25,6 @@ import DSProvider from "../../theme/provider";
     jest: ["Link.test.tsx"],
   }}
   argTypes={{
-    attributes: { control: false },
     children: { table: { disable: true } },
     key: { table: { disable: true } },
     ref: { table: { disable: true } },
@@ -61,10 +60,6 @@ import DSProvider from "../../theme/provider";
   <Story
     name="Link with Controls"
     args={{
-      attributes: {
-        rel: "nofollow",
-        onClick: (e) => e.preventDefault(),
-      },
       className: "custom-class",
       href: "https://nypl.org",
       id: "nypl-link",

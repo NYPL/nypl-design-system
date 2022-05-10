@@ -68,7 +68,7 @@ import { getCategory } from "../../utils/componentCategories";
       className: undefined,
       decorative: true,
       id: "logo-id",
-      name: "logo_nypl_full_black",
+      name: "nyplFullBlack",
       size: "large",
       title: undefined,
     }}
@@ -101,7 +101,7 @@ export const logoRow = (logo, opts = {}) => {
   const styles = { textAlign: "center" };
   const { size = "large", displayValue } = opts;
   let key = logo;
-  if (logo.indexOf("white") !== -1 || logo.indexOf("negative") !== -1) {
+  if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
     styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
     styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";
@@ -120,45 +120,45 @@ export const logoRow = (logo, opts = {}) => {
 export const logos = [];
 export const sizes = [];
 export const logoNameValues = [
-  "logo_bpl_black",
-  "logo_bpl_white",
-  "logo_clever_color",
-  "logo_clever_white",
-  "logo_firstbook_color",
-  "logo_firstbook_color_negative",
-  "logo_lpa_color",
-  "logo_lpa_black",
-  "logo_lpa_white",
-  "logo_mln_black",
-  "logo_mln_white",
-  "logo_nypl_full_black",
-  "logo_nypl_full_white",
-  "logo_nypl_lion_black",
-  "logo_nypl_lion_white",
-  "logo_openebooks_color",
-  "logo_openebooks_negative",
-  "logo_openebooks_wtext_color",
-  "logo_openebooks_wtext_negative",
-  "logo_qpl_color",
-  "logo_qpl_black",
-  "logo_qpl_white",
-  "logo_qpl_alt_black",
-  "logo_qpl_alt_white",
-  "logo_reservoir_icon_color",
-  "logo_reservoir_vertical_color",
-  "logo_schomburg_color",
-  "logo_schomburg_black",
-  "logo_schomburg_white",
-  "logo_schomburg_circle_color",
-  "logo_schomburg_circle_black",
-  "logo_schomburg_circle_white",
-  "logo_simplye_color",
-  "logo_simplye_black",
-  "logo_simplye_white",
-  "logo_snfl_black",
-  "logo_snfl_white",
-  "logo_treasures_color",
-  "logo_treasures_color_negative",
+  "bplBlack",
+  "bplWhite",
+  "cleverColor",
+  "cleverWhite",
+  "firstbookColor",
+  "firstbookColorNegative",
+  "lpaColor",
+  "lpaBlack",
+  "lpaWhite",
+  "mlnBlack",
+  "mlnWhite",
+  "nyplFullBlack",
+  "nyplFullWhite",
+  "nyplLionBlack",
+  "nyplLionWhite",
+  "openebooksColor",
+  "openebooksNegative",
+  "openebooksWithTextColor",
+  "openebooksWithTextNegative",
+  "qplColor",
+  "qplBlack",
+  "qplWhite",
+  "qplAltBlack",
+  "qplAltWhite",
+  "reservoirIconColor",
+  "reservoirVerticalColor",
+  "schomburgColor",
+  "schomburgBlack",
+  "schomburgWhite",
+  "schomburgCircleColor",
+  "schomburgCircleBlack",
+  "schomburgCircleWhite",
+  "simplyeColor",
+  "simplyeBlack",
+  "simplyeWhite",
+  "snflBlack",
+  "snflWhite",
+  "treasuresColor",
+  "treasuresColorNegative",
 ];
 export const logoSizeValues = [
   "default",
@@ -175,7 +175,7 @@ for (const logo in logoNameValues) {
 }
 for (const logoSize in logoSizeValues) {
   sizes.push(
-    logoRow("logo_nypl_full_black", {
+    logoRow("nyplFullBlack", {
       displayValue: logoSizeValues[logoSize],
       size: logoSizeValues[logoSize],
     })
@@ -216,7 +216,7 @@ fill the full width of the parent element.
 
 ```jsx
 // Example
-<Logo name="logo_nypl_full_black" size="large" />
+<Logo name="nyplFullBlack" size="large" />
 ```
 
 <Canvas>
@@ -226,21 +226,17 @@ fill the full width of the parent element.
 ## All Logos
 
 Update the icon of the `Logo` component by passing the `name` prop with a value
-from the `LogoNames` type. The values are `"logo_bpl_black"`, `"logo_bpl_white"`,
-`"logo_clever_color"`, `"logo_clever_white"`, `"logo_firstbook_color"`,
-`"logo_firstbook_color_negative"`, `"logo_lpa_color"`, `"logo_lpa_black"`,
-`"logo_lpa_white"`, `"logo_mln_black"`, `"logo_mln_white"`,
-`"logo_nypl_full_black"`, `"logo_nypl_full_white"`, `"logo_nypl_lion_black"`,
-`"logo_nypl_lion_white"`, `"logo_openebooks_color"`,
-`"logo_openebooks_negative"`, `"logo_openebooks_wtext_color"`,
-`"logo_openebooks_wtext_negative"`, `"logo_qpl_color"`, `"logo_qpl_black"`,
-`"logo_qpl_white"`, `"logo_qpl_alt_black"`, `"logo_qpl_alt_white"`,
-`"logo_reservoir_icon_color"`, `"logo_reservoir_vertical_color"`,
-`"logo_schomburg_color"`, `"logo_schomburg_black"`, `"logo_schomburg_white"`,
-`"logo_schomburg_circle_color"`, `"logo_schomburg_circle_black"`,
-`"logo_schomburg_circle_white"`, `"logo_simplye_color"`, `"logo_simplye_black"`,
-`"logo_simplye_white"`, `"logo_snfl_black"`, `"logo_snfl_white"`,
-`"logo_treasures_color"`, `"logo_treasures_color_negative"`.
+from the `LogoNames` type. The values are `"bplBlack"`, `"bplWhite"`,
+`"cleverColor"`, `"cleverWhite"`, `"firstbookColor"`, `"firstbookColorNegative"`,
+`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnWhite"`,
+`"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`,
+`"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
+`"openebooksWithTextNegative"`, `"qplAltBlack"`, `"qplAltWhite"`, `"qplBlack"`,
+`"qplColor"`, `"qplWhite"`, `"reservoirIconColor"`, `"reservoirVerticalColor"`,
+`"schomburgBlack"`, `"schomburgCircleBlack"`, `"schomburgCircleColor"`,
+`"schomburgCircleWhite"`, `"schomburgColor"`, `"schomburgWhite"`, `"simplyeBlack"`,
+`"simplyeWhite"`, `"simplyeColor"`, `"snflBlack"`, `"snflWhite"`, `"treasuresColor"`,
+`"treasuresColorNegative"`.
 
 If you feel a necessary logo should be added to the `Logo` component, please
 reach out to the DS team.

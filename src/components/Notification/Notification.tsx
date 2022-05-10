@@ -119,9 +119,9 @@ export const Notification = chakra((props: NotificationProps) => {
       size: "large" as IconSizes,
       __css: styles.icon,
     };
-    // If the icon should not display, return null.
+    // If the icon should not display, return undefined.
     if (!showIcon) {
-      return null;
+      return undefined;
     }
     // If a custom icon is passed, add specific `Notification` styles.
     if (icon)
@@ -137,17 +137,17 @@ export const Notification = chakra((props: NotificationProps) => {
     const iconProps = {
       announcement: {
         color: "section.research.secondary",
-        name: "speaker_notes",
+        name: "speakerNotes",
         title: "Notification announcement icon",
       } as IconProps,
       standard: {
         color: "ui.black",
-        name: "alert_notification_important",
+        name: "alertNotificationImportant",
         title: "Notification standard icon",
       } as IconProps,
       warning: {
         color: "brand.primary",
-        name: "error_filled",
+        name: "errorFilled",
         title: "Notification warning icon",
       } as IconProps,
     };
@@ -161,9 +161,7 @@ export const Notification = chakra((props: NotificationProps) => {
   };
   const dismissibleButton = dismissible && (
     <Button
-      attributes={{
-        "aria-label": "Close the notification",
-      }}
+      aria-label="Close the notification"
       buttonType="link"
       id={`${id}-notification-dismissible-button`}
       onClick={handleClose}
@@ -189,11 +187,11 @@ export const Notification = chakra((props: NotificationProps) => {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !isCentered);
+  const alignText = !!(childHeading && showIcon && (!!icon || !isCentered));
   const childContent = (
     <NotificationContent
       alignText={alignText}
-      icon={!childHeading ? iconElem : null}
+      icon={!childHeading ? iconElem : undefined}
       notificationType={notificationType}
     >
       {notificationContent}

@@ -38,7 +38,7 @@ export const ComponentWrapper = chakra(
     } = props;
     const hasChildren = !!children;
     const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
+    const footnote = isInvalid ? invalidText : helperText;
 
     // Note: Typescript warns when there are no children passed and
     // doesn't compile. This is meant to log in non-Typescript apps.
