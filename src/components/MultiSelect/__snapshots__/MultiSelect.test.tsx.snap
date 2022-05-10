@@ -42,10 +42,16 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="some-id-button"
+      isOpen={false}
+      label="MultiSelect Test Label"
+      multiSelectId="some-id"
+      onClear={[Function]}
       onClick={[Function]}
+      onMenuToggle={[Function]}
+      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -55,7 +61,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="some-id-icon"
         role="img"
@@ -156,10 +162,16 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
     onFocus={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="some-id-button"
+      isOpen={true}
+      label="MultiSelect Test Label"
+      multiSelectId="some-id"
+      onClear={[Function]}
       onClick={[Function]}
+      onMenuToggle={[Function]}
+      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -169,7 +181,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="some-id-icon"
         role="img"
@@ -212,7 +224,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -276,7 +288,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -340,7 +352,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -404,7 +416,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -471,7 +483,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 onClick={[Function]}
               >
                 <input
@@ -535,7 +547,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 onClick={[Function]}
               >
                 <input
@@ -601,7 +613,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -665,7 +677,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -726,6 +738,28 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </label>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-18u47k0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply Filters
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -788,10 +822,24 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
     onFocus={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="some-id-button"
+      isOpen={true}
+      label="MultiSelect Test Label"
+      multiSelectId="some-id"
+      onClear={[Function]}
       onClick={[Function]}
+      onMenuToggle={[Function]}
+      selectedItems={
+        Object {
+          "some-id": Object {
+            "items": Array [
+              "red",
+            ],
+          },
+        }
+      }
       type="button"
     >
       <span
@@ -808,9 +856,9 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="some-id-icon"
+          id="some-id-selected-items-count-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -846,7 +894,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="some-id-icon"
         role="img"
@@ -889,7 +937,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -953,7 +1001,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1017,7 +1065,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1081,7 +1129,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1170,7 +1218,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 data-checked=""
                 onClick={[Function]}
               >
@@ -1237,7 +1285,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 onClick={[Function]}
               >
                 <input
@@ -1303,7 +1351,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1367,7 +1415,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1428,6 +1476,28 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </label>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-18u47k0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply Filters
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -1490,10 +1560,25 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
     onFocus={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="some-id-button"
+      isOpen={true}
+      label="MultiSelect Test Label"
+      multiSelectId="some-id"
+      onClear={[Function]}
       onClick={[Function]}
+      onMenuToggle={[Function]}
+      selectedItems={
+        Object {
+          "some-id": Object {
+            "items": Array [
+              "red",
+              "blue",
+            ],
+          },
+        }
+      }
       type="button"
     >
       <span
@@ -1510,9 +1595,9 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="some-id-icon"
+          id="some-id-selected-items-count-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -1548,7 +1633,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="some-id-icon"
         role="img"
@@ -1591,7 +1676,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1655,7 +1740,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1719,7 +1804,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -1783,7 +1868,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             data-checked=""
             onClick={[Function]}
           >
@@ -1853,7 +1938,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 data-checked=""
                 onClick={[Function]}
               >
@@ -1920,7 +2005,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               className="css-z07a8f"
             >
               <label
-                className="chakra-checkbox css-g8du1g"
+                className="chakra-checkbox css-scawxr"
                 data-checked=""
                 onClick={[Function]}
               >
@@ -1989,7 +2074,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -2053,7 +2138,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           className="css-z07a8f"
         >
           <label
-            className="chakra-checkbox css-g8du1g"
+            className="chakra-checkbox css-scawxr"
             onClick={[Function]}
           >
             <input
@@ -2114,6 +2199,28 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </label>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-18u47k0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          data-testid="button"
+          id="multiselect-dialog-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply Filters
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -2148,9 +2255,13 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     onKeyDown={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="test-button"
+      label="MultiSelect Label"
+      multiSelectId="test"
+      onClear={[Function]}
+      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -2160,7 +2271,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="test-icon"
         role="img"
@@ -2225,9 +2336,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     onKeyDown={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="test-button"
+      isOpen={true}
+      label="MultiSelect Label"
+      multiSelectId="test"
+      onClear={[Function]}
+      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -2237,7 +2353,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="test-icon"
         role="img"
@@ -2293,7 +2409,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2363,7 +2479,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2433,7 +2549,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2503,7 +2619,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2573,7 +2689,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2643,7 +2759,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -2723,9 +2839,23 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     onKeyDown={[Function]}
   >
     <button
-      className="chakra-button css-0"
+      className="chakra-button css-1xdhyk6"
       data-testid="button"
       id="test-button"
+      isOpen={true}
+      label="MultiSelect Label"
+      multiSelectId="test"
+      onClear={[Function]}
+      selectedItems={
+        Object {
+          "test": Object {
+            "items": Array [
+              "cats",
+              "dogs",
+            ],
+          },
+        }
+      }
       type="button"
     >
       <span
@@ -2742,9 +2872,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="test-icon"
+          id="test-selected-items-count-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -2780,7 +2910,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="test-icon"
         role="img"
@@ -2836,7 +2966,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           data-checked=""
           onClick={[Function]}
         >
@@ -2909,7 +3039,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           data-checked=""
           onClick={[Function]}
         >
@@ -2982,7 +3112,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -3052,7 +3182,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -3122,7 +3252,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
@@ -3192,7 +3322,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         style={Object {}}
       >
         <label
-          className="chakra-checkbox css-g8du1g"
+          className="chakra-checkbox css-scawxr"
           onClick={[Function]}
         >
           <input
