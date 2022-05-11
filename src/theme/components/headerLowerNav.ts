@@ -1,11 +1,11 @@
 const lowerNav = {
   alignItems: "center",
-  fontSize: "18px",
+  fontSize: "1",
   marginLeft: "auto",
   whiteSpace: "nowrap",
   li: {
     letterSpacing: ".02em",
-    marginLeft: "var(--nypl-space-xxs)",
+    marginLeft: "xxs",
   },
   "li > a": {
     color: "ui.black",

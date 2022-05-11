@@ -3,8 +3,8 @@ import { chakra, Flex, HStack, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Icon from "../../Icons/Icon";
 
-const BreakpointSmall = chakra(() => {
-  const styles = useMultiStyleConfig("HeaderBreakpointSmall", {});
+const Mobile = chakra(() => {
+  const styles = useMultiStyleConfig("HeaderMobile", {});
   return (
     <Flex>
       <HStack __css={styles.icons}>
@@ -32,4 +32,4 @@ const BreakpointSmall = chakra(() => {
   );
 });
 
-export default BreakpointSmall;
+export default Mobile;

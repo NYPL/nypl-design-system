@@ -1,4 +1,4 @@
-const HeaderBreakpointSmall = {
+const HeaderMobile = {
   baseStyle: {
     icons: {
       marginTop: "var(--nypl-space-xs)",
@@ -9,4 +9,4 @@ const HeaderBreakpointSmall = {
   },
 };
 
-export default HeaderBreakpointSmall;
+export default HeaderMobile;

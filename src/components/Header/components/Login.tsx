@@ -5,11 +5,7 @@ import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-
-interface LoginProps {
-  loginOpen: boolean;
-  setLoginOpen: (boolean) => void;
-}
+import { LoginProps } from "./UpperNav";
 
 const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
   return (
@@ -24,7 +20,8 @@ const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
         <Icon align="right" name={loginOpen ? "close" : "arrow"} size="small" />
       </Button>
       <List
-        id={loginOpen ? "logInMenuOpen" : "logInMenuClosed"}
+        id="login"
+        className={loginOpen ? "logInMenuOpen" : "logInMenuClosed"}
         noStyling
         type="ul"
         listItems={[

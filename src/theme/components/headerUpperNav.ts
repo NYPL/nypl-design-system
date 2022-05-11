@@ -1,7 +1,7 @@
 const upperNav = {
   alignItems: "baseline",
   display: "flex",
-  marginTop: "var(--nypl-space-s)",
+  marginTop: "s",
   whiteSpace: "nowrap",
   li: {
     fontSize: "13px",
@@ -45,6 +45,7 @@ const upperNav = {
   ".withIcon": {
     alignItems: "baseline",
     color: "ui.black",
+    width: "75px",
     svg: {
       height: "5px",
     },
@@ -52,10 +53,10 @@ const upperNav = {
       borderRadius: "none",
     },
   },
-  "#logInMenuClosed": {
+  ".logInMenuClosed": {
     display: "none",
   },
-  "#logInMenuOpen": {
+  ".logInMenuOpen": {
     bg: "#1B7FA7",
     display: "flex",
     flexDirection: "column",
@@ -89,7 +90,7 @@ const upperNav = {
   "#closeLogInButton": {
     bg: "#135772",
     color: "ui.white",
-    paddingX: "var(--nypl-space-xs)",
+    width: "75px",
     svg: {
       position: "relative",
       height: "8px",
@@ -99,7 +100,7 @@ const upperNav = {
   "#donateButton": {
     alignItems: "center",
     bg: "#ed1c24",
-    borderRadius: "var(--nypl-space-xxs)",
+    borderRadius: "headerDonate",
     maxHeight: "1.8rem",
     paddingX: "13px",
     _hover: {

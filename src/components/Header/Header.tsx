@@ -15,7 +15,7 @@ import Notification from "../Notification/Notification";
 import useWindowSize from "../../hooks/useWindowSize";
 import UpperNav from "./components/UpperNav";
 import LowerNav from "./components/LowerNav";
-import BreakpointSmall from "./components/BreakpointSmall";
+import Mobile from "./components/Mobile";
 
 export const Header = chakra(() => {
   const windowDimensions = useWindowSize();
@@ -52,7 +52,11 @@ export const Header = chakra(() => {
         marginX={windowDimensions.width > breakpointLarge ? "50px" : "0px"}
         justifyContent="space-between"
       >
-        <Link href="/" __css={styles.logo}>
+        <Link
+          aria-label="The New York Public Library"
+          href="/"
+          __css={styles.logo}
+        >
           <Logo
             id="header-nypl-logo"
             name={
@@ -73,7 +77,7 @@ export const Header = chakra(() => {
             <LowerNav />
           </VStack>
         ) : (
-          <BreakpointSmall />
+          <Mobile />
         )}
       </HStack>
       <HorizontalRule __css={styles.horizontalRule} />
