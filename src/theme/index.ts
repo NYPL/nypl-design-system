@@ -21,6 +21,7 @@ import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Header from "./components/header";
+import HeaderBreakpointSmall from "./components/headerBreakpointSmall";
 import HeaderLowerNav from "./components/headerLowerNav";
 import HeaderUpperNav from "./components/headerUpperNav";
 import Heading from "./components/heading";
@@ -96,6 +97,7 @@ const theme = extendTheme({
     DatePicker,
     Fieldset,
     Header,
+    HeaderBreakpointSmall,
     HeaderLowerNav,
     HeaderUpperNav,
     Heading,

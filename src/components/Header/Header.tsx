@@ -13,9 +13,9 @@ import Logo from "../Logo/Logo";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Notification from "../Notification/Notification";
 import useWindowSize from "../../hooks/useWindowSize";
-import HeaderUpperNav from "./components/UpperNav";
-import HeaderLowerNav from "./components/LowerNav";
-import HeaderBreakpointSmall from "./components/BreakpointSmall";
+import UpperNav from "./components/UpperNav";
+import LowerNav from "./components/LowerNav";
+import BreakpointSmall from "./components/BreakpointSmall";
 
 export const Header = chakra(() => {
   const windowDimensions = useWindowSize();
@@ -24,9 +24,12 @@ export const Header = chakra(() => {
   const breakpointMedium = 600;
   const breakpointLarge = 960;
 
-  const styles = useMultiStyleConfig("Header", {});
+  const styles = useMultiStyleConfig("Header", {
+    width: windowDimensions.width,
+    breakpointMedium,
+  });
 
-  const [logInOpen, setLogInOpen] = useState<boolean>(false);
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
   return (
     <Box __css={styles.container}>
@@ -45,34 +48,34 @@ export const Header = chakra(() => {
         }
         showIcon={false}
       />
-      {windowDimensions.width > breakpointMedium ? (
-        <HStack
-          marginX={windowDimensions.width > breakpointLarge ? "50px" : "0px"}
-          justifyContent="space-between"
-        >
-          <Link href="/" __css={styles.logo}>
-            <Logo
-              id="header-nypl-logo"
-              name={
-                windowDimensions.width > breakpointLarge
-                  ? "nyplFullBlack"
-                  : "nyplLionBlack"
-              }
-              size={
-                windowDimensions.width > breakpointLarge ? "small" : "xxsmall"
-              }
-              title="NYPL Header Logo"
-            />
-          </Link>
-          <Spacer />
+      <HStack
+        marginX={windowDimensions.width > breakpointLarge ? "50px" : "0px"}
+        justifyContent="space-between"
+      >
+        <Link href="/" __css={styles.logo}>
+          <Logo
+            id="header-nypl-logo"
+            name={
+              windowDimensions.width > breakpointLarge
+                ? "nyplFullBlack"
+                : "nyplLionBlack"
+            }
+            size={
+              windowDimensions.width > breakpointLarge ? "small" : "xxsmall"
+            }
+            title="NYPL Header Logo"
+          />
+        </Link>
+        <Spacer />
+        {windowDimensions.width > breakpointMedium ? (
           <VStack spacing="65px">
-            <HeaderUpperNav logInOpen={logInOpen} setLogInOpen={setLogInOpen} />
-            <HeaderLowerNav />
+            <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <LowerNav />
           </VStack>
-        </HStack>
-      ) : (
-        <HeaderBreakpointSmall />
-      )}
+        ) : (
+          <BreakpointSmall />
+        )}
+      </HStack>
       <HorizontalRule __css={styles.horizontalRule} />
     </Box>
   );

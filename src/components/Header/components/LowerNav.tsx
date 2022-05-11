@@ -7,7 +7,7 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import TextInput from "../../TextInput/TextInput";
 
-const HeaderLowerNav = chakra(() => {
+const LowerNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderLowerNav", {});
 
   const [searchOpen] = useState<boolean>(false);
@@ -70,4 +70,4 @@ const HeaderLowerNav = chakra(() => {
   );
 });
 
-export default HeaderLowerNav;
+export default LowerNav;

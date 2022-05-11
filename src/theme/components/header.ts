@@ -20,22 +20,6 @@ const notification = {
   },
 };
 
-const logo = {
-  marginRight: "auto",
-  _focus: {
-    outlineColor: "#135772",
-    outlineStyle: "solid",
-    outlineWidth: "0.1875em",
-  },
-};
-
-const icons = {
-  marginTop: "var(--nypl-space-xs)",
-  svg: {
-    marginLeft: "var(--nypl-space-m)",
-  },
-};
-
 const horizontalRule = {
   bg: "#ed1c24",
   position: "relative",
@@ -43,16 +27,24 @@ const horizontalRule = {
 };
 
 const Header = {
-  parts: ["container", "notification", "logo", "icons", "horizontalRule"],
-  baseStyle: () => {
-    return {
-      container,
-      notification,
-      logo,
-      icons,
-      horizontalRule,
-    };
-  },
+  parts: ["container", "notification", "logo", "horizontalRule"],
+  baseStyle: ({ width, breakpointMedium }) => ({
+    container,
+    notification,
+    logo: {
+      marginTop: width < breakpointMedium && "10px",
+      marginRight: "auto",
+      svg: {
+        height: width < breakpointMedium && "25px",
+      },
+      _focus: {
+        outlineColor: "#135772",
+        outlineStyle: "solid",
+        outlineWidth: "0.1875em",
+      },
+    },
+    horizontalRule,
+  }),
 };
 
 export default Header;

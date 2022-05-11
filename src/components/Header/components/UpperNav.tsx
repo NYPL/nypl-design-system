@@ -3,10 +3,16 @@ import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
+import Login from "./Login";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 
-const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
+interface UpperNavProps {
+  loginOpen: boolean;
+  setLoginOpen: (boolean) => void;
+}
+
+const UpperNav = chakra(({ loginOpen, setLoginOpen }: UpperNavProps) => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
   return (
     <List
@@ -14,56 +20,7 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
       id="header-nav-upper"
       inline
       listItems={[
-        <>
-          <Button
-            buttonType="link"
-            className="withIcon"
-            id={logInOpen ? "closeLogInButton" : "logInButton"}
-            key={logInOpen ? "closeLogInButton" : "logInButton"}
-            onClick={() => setLogInOpen(!logInOpen)}
-          >
-            {logInOpen ? "Close" : "Log In"}
-            <Icon
-              align="right"
-              name={logInOpen ? "close" : "arrow"}
-              size="small"
-            />
-          </Button>
-          <List
-            id={logInOpen ? "logInMenuOpen" : "logInMenuClosed"}
-            noStyling
-            type="ul"
-            listItems={[
-              <Link id="logInCatalog" key="logInCatalog" href="#" type="button">
-                <Icon
-                  align="left"
-                  color="ui.white"
-                  id="log-in-catalog-icon"
-                  name="utilityAccountFilled"
-                  size="medium"
-                  title="Log in to your account"
-                />
-                Log Into The Catalog
-              </Link>,
-              <Link
-                id="logInResearchCatalog"
-                key="logInResearchCatalog"
-                href="#"
-                type="button"
-              >
-                <Icon
-                  align="left"
-                  color="ui.white"
-                  id="log-in-research-icon"
-                  name="actionHelpDefault"
-                  size="medium"
-                  title="Log in to your account"
-                />
-                Log Into The Research Catalog
-              </Link>,
-            ]}
-          />
-        </>,
+        <Login key="login" loginOpen={loginOpen} setLoginOpen={setLoginOpen} />,
         <Link href="#" key="locationsLink">
           Locations
         </Link>,
@@ -94,4 +51,4 @@ const HeaderUpperNav = chakra(({ logInOpen, setLogInOpen }) => {
   );
 });
 
-export default HeaderUpperNav;
+export default UpperNav;

@@ -1,30 +1,12 @@
 import React from "react";
-import {
-  chakra,
-  Flex,
-  HStack,
-  Spacer,
-  useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { chakra, Flex, HStack, useMultiStyleConfig } from "@chakra-ui/react";
 
-import Link from "../../Link/Link";
 import Icon from "../../Icons/Icon";
-import Logo from "../../Logo/Logo";
 
-const HeaderBreakpointSmall = chakra(() => {
-  const styles = useMultiStyleConfig("Header", {});
+const BreakpointSmall = chakra(() => {
+  const styles = useMultiStyleConfig("HeaderBreakpointSmall", {});
   return (
     <Flex>
-      <Link href="/" __css={{ ...styles.logo, marginTop: "13px" }}>
-        <Logo
-          __css={{ height: "30px" }}
-          id="header-nypl-logo"
-          name="nyplLionBlack"
-          size="xxsmall"
-          title="NYPL Header Logo"
-        />
-      </Link>
-      <Spacer />
       <HStack __css={styles.icons}>
         <Icon
           id="log-in-icon"
@@ -50,4 +32,4 @@ const HeaderBreakpointSmall = chakra(() => {
   );
 });
 
-export default HeaderBreakpointSmall;
+export default BreakpointSmall;
