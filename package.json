@@ -57,8 +57,9 @@
     }
   ],
   "dependencies": {
-    "@chakra-ui/react": ">=1.8.5",
-    "@chakra-ui/system": ">=1.11.0",
+    "@chakra-ui/focus-lock": ">=1.2.6",
+    "@chakra-ui/react": ">=1.8.0",
+    "@chakra-ui/system": ">=1.10.0",
     "@emotion/react": ">=11.4.1",
     "@emotion/styled": ">=11.3.0",
     "framer-motion": "^4.1.17",
@@ -68,6 +69,7 @@
     "typescript": "4.3.5"
   },
   "peerDependencies": {
+    "@chakra-ui/focus-lock": ">=1.2.6",
     "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.10.0",
     "@emotion/react": ">=11.4.1",
