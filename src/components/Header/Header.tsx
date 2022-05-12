@@ -27,8 +27,6 @@ export const Header = chakra(() => {
   const isWidthMobile = windowDimensions.width < breakpointMedium;
   const isWidthLarge = windowDimensions.width > breakpointLarge;
 
-  console.log("isWidthLarge -->", isWidthLarge);
-
   const styles = useMultiStyleConfig("Header", {
     isWidthMobile,
     isWidthLarge,
