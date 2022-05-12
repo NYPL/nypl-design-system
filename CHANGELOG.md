@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes the extra margin added by the `SkipNavigation` component.
+
 ## 1.0.0 (May 12, 2022)
 
 This is the first stable release of the NYPL Reservoir Design System! We've been looking forward to this moment for over two years.
