@@ -1,15 +1,8 @@
-import { ButtonGroup } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
-import {
-  IconAlign,
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-} from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -28,13 +21,13 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Use the [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic)
+Use the [Button](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-button--button-with-controls)
 component to render form buttons.
 
 ```jsx
-import { Button, ButtonTypes } from "@nypl/design-system-react-components";
+import { Button } from "@nypl/design-system-react-components";
 
-<Button buttonType={ButtonTypes.Primary}>Button Text</Button>;
+<Button id="btn">Button Text</Button>;
 ```
 
 ## Guidelines
@@ -64,26 +57,24 @@ can be achieved by using the `Form` component to wrap the `Button`s.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
-      <Button buttonType={ButtonTypes.Primary}>
-        <Icon
-          name={IconNames.Search}
-          size={IconSizes.Small}
-          align={IconAlign.Left}
-        />
+      <Button id="basic">Button Text</Button>
+      <Button id="btn-search">
+        <Icon name="search" size="small" align="left" />
         Button Text
       </Button>
-      <Button buttonType={ButtonTypes.Primary}>
-        <Icon name={IconNames.Close} size={IconSizes.Medium} />
+      <Button id="only-icon">
+        <Icon name="close" size="medium" />
       </Button>
-      <Button buttonType={ButtonTypes.Callout}>Donate</Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType="callout" id="donate">
+        Donate
+      </Button>
+      <Button buttonType="secondary" id="btn-back-to-top">
         Back to Top
         <Icon
-          name={IconNames.Arrow}
-          size={IconSizes.Small}
-          align={IconAlign.Right}
-          iconRotation={IconRotationTypes.Rotate180}
+          name="arrow"
+          size="small"
+          align="right"
+          iconRotation="rotate180"
         />
       </Button>
     </ButtonGroup>
@@ -98,44 +89,56 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
-      <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
-      <Button buttonType={ButtonTypes.Callout}>Callout Button</Button>
-      <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
-      <Button buttonType={ButtonTypes.Link}>Link Button</Button>
-      <Button buttonType={ButtonTypes.NoBrand}>NoBrand Button</Button>
+      <Button buttonType="primary" id="primary">
+        Primary Button
+      </Button>
+      <Button buttonType="secondary" id="secondary">
+        Secondary Button
+      </Button>
+      <Button buttonType="callout" id="callout">
+        Callout Button
+      </Button>
+      <Button buttonType="pill" id="pill">
+        Pill Button
+      </Button>
+      <Button buttonType="link" id="link">
+        Link Button
+      </Button>
+      <Button buttonType="noBrand" id="noBrand">
+        NoBrand Button
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
 
-### ButtonTypes.Primary
+### Primary
 
 - used for actions that move the user forward
 - Visual Treatment: rectangular, filled
 
-### ButtonTypes.Secondary
+### Secondary
 
 - used for actions that move the user back, such as a form cancel button
 - often paired with a Primary button
 - Visual Treatment: rectangular, outlined
 
-### ButtonTypes.Callout
+### Callout
 
 - used for call to actions such as donation buttons
 - Visual Treatment: rectangular, NYPL red background
 
-### ButtonTypes.Pill
+### Pill
 
 - used for equally weighted actions
 - should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
 - Visual Treatment: rounded, outlined
 
-### ButtonTypes.Link
+### Link
 
 - used for equally weighted actions
 - Visual Treatment: text link with underline
 
-### ButtonTypes.NoBrand
+### NoBrand
 
 - used in cases where there is no brand color
 - Visual Treatment: rectangular, filled with a black background
@@ -144,43 +147,40 @@ component.
 
 - Buttons are blue by default.
 - Buttons that are intended as a call out (i.e. Donation buttons) should be set
-  as `ButtonTypes.Callout`.
-- The "Back to Top" button must be set as `ButtonTypes.Secondary` and must
-  include an up arrow icon.
-- Previous and Next buttons should be set as `ButtonTypes.Secondary` and be
-  wrapped in a `ButtonGroup`.
-- Only use the `ButtonTypes.NoBrand` style where there is no brand color. _This
-  should be rarely used._
+  as `"callout"`.
+- The "Back to Top" button must be set as `"secondary"` and must include an up
+  arrow icon.
+- Previous and Next buttons should be set as `"secondary"` and be wrapped in a
+  `ButtonGroup`.
+- Only use the `"noBrand"` style where there is no brand color. _This should be
+  rarely used._
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType="callout" id="callout2">
+        Donate to this library
+      </Button>
+      <Button buttonType="secondary" id="secondary2">
         Back to Top
         <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate180}
-          size={IconSizes.Small}
-          align={IconAlign.Right}
+          align="right"
+          iconRotation="rotate180"
+          name="arrow"
+          size="small"
         />
       </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
-        <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate90}
-          align={IconAlign.Left}
-          size={IconSizes.Small}
-        />
+      <Button buttonType="secondary" id="previous">
+        <Icon align="left" iconRotation="rotate90" name="arrow" size="small" />
         Previous
       </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType="secondary" id="next">
         Next
         <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate270}
-          align={IconAlign.Right}
-          size={IconSizes.Small}
+          align="right"
+          iconRotation="rotate270"
+          name="arrow"
+          size="small"
         />
       </Button>
     </ButtonGroup>

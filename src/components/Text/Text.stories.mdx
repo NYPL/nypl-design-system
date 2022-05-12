@@ -8,11 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Text from "./Text";
-import { TextSizes } from "./TextTypes";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(TextSizes, "TextSizes");
 
 <Meta
   title={getCategory("Text")}
@@ -30,9 +26,7 @@ export const enumValues = getStorybookEnumValues(TextSizes, "TextSizes");
     isItalic: { table: { defaultValue: { summary: false } } },
     noSpace: { table: { defaultValue: { summary: false } } },
     size: {
-      control: { type: "select" },
-      options: enumValues.options,
-      table: { defaultValue: { summary: "TextSizes.Default" } },
+      table: { defaultValue: { summary: "default" } },
     },
   }}
 />
@@ -42,7 +36,7 @@ export const enumValues = getStorybookEnumValues(TextSizes, "TextSizes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -64,7 +58,7 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the
     name="Text"
     args={{
       className: undefined,
-      size: "TextSizes.Default",
+      size: "default",
       isBold: false,
       isItalic: false,
       noSpace: false,
@@ -72,7 +66,7 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the
   >
     {(args) => (
       <>
-        <Text {...args} size={enumValues.getValue(args.size)}>
+        <Text {...args}>
           Animal Crossing[a] is a social simulation video game series developed
           and published by Nintendo. The series was conceptualized and created
           by Katsuya Eguchi and Hisashi Nogami. In Animal Crossing, the player
@@ -82,7 +76,7 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the
           open-ended gameplay and use of the video game console's internal clock
           and calendar to simulate real passage of time.
         </Text>
-        <Text {...args} size={enumValues.getValue(args.size)}>
+        <Text {...args}>
           Since its initial release in 2001, five Animal Crossing games have
           been released worldwide, one each for the Nintendo 64/iQue Player
           (enhanced and reissued for the GameCube), Nintendo DS, Wii, Nintendo

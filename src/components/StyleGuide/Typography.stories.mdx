@@ -1,11 +1,8 @@
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Heading from "../Heading/Heading";
-import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
-import { TextSizes } from "../Text/TextTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -43,10 +40,10 @@ set the specific `<h>` tag that you require.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.One}>Heading Level 1</Heading>
-    <Heading level={HeadingLevels.Two}>Heading Level 2</Heading>
-    <Heading level={HeadingLevels.Three}>Heading Level 3</Heading>
-    <Heading level={HeadingLevels.Four}>Heading Level 4</Heading>
+    <Heading level="one">Heading Level 1</Heading>
+    <Heading level="two">Heading Level 2</Heading>
+    <Heading level="three">Heading Level 3</Heading>
+    <Heading level="four">Heading Level 4</Heading>
   </DSProvider>
 </Canvas>
 
@@ -61,7 +58,7 @@ elements. For example, the `h1` element has the `Primary` style applied by defau
 but a new style can be applied through the `size` prop. Any `size` style can be
 applied to any `Heading` element.
 
-<Heading level={HeadingLevels.One} size={HeadingSizes.Primary}>
+<Heading level="one" size="primary">
   Primary Heading
 </Heading>
 
@@ -71,7 +68,7 @@ applied to any `Heading` element.
 | **Font Weight** | `300`     | `fontWeight: "heading.primary"` | `font-weight: var(--nypl-fontWeights-heading-primary)` |
 | **Line Height** | `1.1`     | n/a                             | n/a                                                    |
 
-<Heading level={HeadingLevels.One} size={HeadingSizes.Secondary}>
+<Heading level="one" size="secondary">
   Secondary Heading
 </Heading>
 
@@ -81,7 +78,7 @@ applied to any `Heading` element.
 | **Font Weight** | `500`     | `fontWeight: "heading.secondary"` | `font-weight: var(--nypl-fontWeights-heading-secondary)` |
 | **Line Height** | `1.25`    | n/a                               | n/a                                                      |
 
-<Heading level={HeadingLevels.One} size={HeadingSizes.Tertiary}>
+<Heading level="one" size="tertiary">
   Tertiary Heading
 </Heading>
 
@@ -91,7 +88,7 @@ applied to any `Heading` element.
 | **Font Weight** | `500`      | `fontWeight: "heading.tertiary"` | `font-weight: var(--nypl-fontWeights-heading-tertiary)` |
 | **Line Height** | `1.25`     | n/a                              | n/a                                                     |
 
-<Heading level={HeadingLevels.One} size={HeadingSizes.Callout}>
+<Heading level="one" size="callout">
   Callout Heading
 </Heading>
 
@@ -129,7 +126,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 - [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
 - [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
 
-<Text size={TextSizes.Default}>Default</Text>
+<Text size="default">Default</Text>
 
 |                 | Value  | JS Theme Object              | CSS Variable                                        |
 | --------------- | ------ | ---------------------------- | --------------------------------------------------- |
@@ -137,7 +134,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 | **Font Weight** | `300`  | `fontWeight: "text.default"` | `font-weight: var(--nypl-fontWeights-text-default)` |
 | **Line Height** | `1.5`  | `fontWeight: 1.5`            | `font-weight: 1.5`                                  |
 
-<Text size={TextSizes.Caption}>Caption</Text>
+<Text size="caption">Caption</Text>
 
 |                 | Value      | JS Theme Object              | CSS Variable                                        |
 | --------------- | ---------- | ---------------------------- | --------------------------------------------------- |
@@ -145,7 +142,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 | **Font Weight** | `300`      | `fontWeight: "text.caption"` | `font-weight: var(--nypl-fontWeights-text-caption)` |
 | **Line Height** | `1.25`     | `fontWeight: 1.25`           | `font-weight: 1.25`                                 |
 
-<Text size={TextSizes.Tag}>Tag</Text>
+<Text size="tag">Tag</Text>
 
 |                 | Value     | JS Theme Object          | CSS Variable                                    |
 | --------------- | --------- | ------------------------ | ----------------------------------------------- |
@@ -153,7 +150,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 | **Font Weight** | `400`     | `fontWeight: "text.tag"` | `font-weight: var(--nypl-fontWeights-text-tag)` |
 | **Line Height** | `1.5`     | `fontWeight: 1.5`        | `font-weight: 1.5`                              |
 
-<Text size={TextSizes.Mini}>Mini</Text>
+<Text size="mini">Mini</Text>
 
 |                 | Value      | JS Theme Object           | CSS Variable                                     |
 | --------------- | ---------- | ------------------------- | ------------------------------------------------ |
@@ -195,7 +192,7 @@ black on a white background.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Default Heading Color</Heading>
+    <Heading level="three">Default Heading Color</Heading>
     <Text>
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -208,7 +205,7 @@ black on a white background.
 
 In cases where specific colors must be applied to text elements, the DS
 provides CSS variables for the full NYPL color palette. Refer to the
-[Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand)
+[Colors](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--page)
 section of the Style Guide for details.
 
 ## Font Weight
@@ -359,7 +356,7 @@ prepositions do not get capital letters unless they start the title. For example
 
 <Canvas>
   <DSProvider>
-    <List type={ListTypes.Unordered}>
+    <List type="ul">
       <li>Snow White and the Seven Dwarfs</li>
       <li>The Last of the Mohicans</li>
       <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
@@ -377,7 +374,7 @@ prepositions do not get capital letters unless they start the title. For example
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>
+    <Heading level="three">
       This is a Long Title to Show What 58 Characters Looks Like
     </Heading>
   </DSProvider>

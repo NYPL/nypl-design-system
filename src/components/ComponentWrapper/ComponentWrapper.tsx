@@ -2,7 +2,6 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -39,7 +38,7 @@ export const ComponentWrapper = chakra(
     } = props;
     const hasChildren = !!children;
     const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
+    const footnote = isInvalid ? invalidText : helperText;
 
     // Note: Typescript warns when there are no children passed and
     // doesn't compile. This is meant to log in non-Typescript apps.
@@ -49,13 +48,7 @@ export const ComponentWrapper = chakra(
 
     return (
       <Box __css={styles} {...rest}>
-        {headingText && (
-          <Heading
-            id={`${id}-heading`}
-            level={HeadingLevels.Two}
-            text={headingText}
-          />
-        )}
+        {headingText && <Heading id={`${id}-heading`} text={headingText} />}
         {descriptionText && <Text>{descriptionText}</Text>}
         {children}
         {footnote && (

@@ -6,9 +6,55 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
+export type LogoNames =
+  | "bplBlack"
+  | "bplWhite"
+  | "cleverColor"
+  | "cleverWhite"
+  | "firstbookColor"
+  | "firstbookColorNegative"
+  | "lpaBlack"
+  | "lpaColor"
+  | "lpaWhite"
+  | "mlnBlack"
+  | "mlnWhite"
+  | "nyplFullBlack"
+  | "nyplFullWhite"
+  | "nyplLionBlack"
+  | "nyplLionWhite"
+  | "openebooksColor"
+  | "openebooksNegative"
+  | "openebooksWithTextColor"
+  | "openebooksWithTextNegative"
+  | "qplAltBlack"
+  | "qplAltWhite"
+  | "qplBlack"
+  | "qplColor"
+  | "qplWhite"
+  | "reservoirIconColor"
+  | "reservoirVerticalColor"
+  | "schomburgBlack"
+  | "schomburgCircleBlack"
+  | "schomburgCircleColor"
+  | "schomburgCircleWhite"
+  | "schomburgColor"
+  | "schomburgWhite"
+  | "simplyeBlack"
+  | "simplyeWhite"
+  | "simplyeColor"
+  | "snflBlack"
+  | "snflWhite"
+  | "treasuresColor"
+  | "treasuresColorNegative";
+export type LogoSizes =
+  | "default"
+  | "xxsmall"
+  | "xsmall"
+  | "small"
+  | "medium"
+  | "large";
 export interface LogoProps {
   /** Optional className that will be added to the parent element */
   className?: string;
@@ -38,7 +84,7 @@ export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
     decorative = false,
     id,
     name,
-    size = LogoSizes.Medium,
+    size = "medium",
     title = `${name} logo`,
     ...rest
   } = props;

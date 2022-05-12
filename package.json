@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.27.0",
+  "version": "1.0.0",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
-    "build-storybook:v0": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v0",
+    "build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",
     "prebuild:storybook": "npm run test:generate-output"
   },
   "lint-staged": {
@@ -126,7 +126,7 @@
     "prettier": "2.4.1",
     "react": "17.0.2",
     "react-autosuggest": "10.0.2",
-    "react-docgen-typescript-loader": "3.1.0",
+    "react-docgen-typescript-loader": "3.7.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",
     "rollup-plugin-postcss": "4.0.0",

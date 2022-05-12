@@ -3,9 +3,12 @@ import * as React from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
-import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
-import { getVariant } from "../../utils/utils";
 
+export type VideoPlayerTypes = "vimeo" | "youtube";
+export type VideoPlayerAspectRatios =
+  | "fourByThree"
+  | "sixteenByNine"
+  | "square";
 export interface VideoPlayerProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if
    * omitted, the video player defaults to `sixteen-by-nine` */
@@ -57,12 +60,12 @@ export const VideoPlayer = chakra(
     } = props;
 
     const iframeTitleFinal =
-      videoType === VideoPlayerTypes.Vimeo
+      videoType === "vimeo"
         ? iframeTitle || "Vimeo video player"
         : iframeTitle || "YouTube video player";
 
     const videoSrc =
-      videoType === VideoPlayerTypes.Vimeo
+      videoType === "vimeo"
         ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
         : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
@@ -138,9 +141,7 @@ export const VideoPlayer = chakra(
       isInvalid = true;
     }
 
-    const variant = isInvalid
-      ? "invalid"
-      : getVariant(aspectRatio, VideoPlayerAspectRatios);
+    const variant = isInvalid ? "invalid" : aspectRatio;
     const styles = useMultiStyleConfig("VideoPlayer", { variant });
 
     const embedElement = embedCodeFinal ? (
@@ -169,9 +170,11 @@ export const VideoPlayer = chakra(
           <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
         ) : (
           <ComponentWrapper
-            headingText={headingText ? headingText : null}
-            descriptionText={descriptionText ? descriptionText : null}
-            helperText={helperText && showHelperInvalidText ? helperText : null}
+            headingText={headingText ? headingText : undefined}
+            descriptionText={descriptionText ? descriptionText : undefined}
+            helperText={
+              helperText && showHelperInvalidText ? helperText : undefined
+            }
             id={`${id}-componentWrapper`}
           >
             <Box __css={styles.inside}>{embedElement}</Box>

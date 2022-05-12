@@ -2,10 +2,6 @@ import { Box } from "@chakra-ui/react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import {
-  VideoPlayerAspectRatios,
-  VideoPlayerTypes,
-} from "../VideoPlayer/VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -18,7 +14,7 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.24.0`   |
 
 Note: This needs the use of the `DSProvider` component. See the
-[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
+[README](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
 This component is directly exported from Chakra UI. The `Box` is a simple and
@@ -48,8 +44,8 @@ guide on the Chakra UI site.
     <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
       <VideoPlayer
         videoId="nm-dD2tx6bk"
-        videoType={VideoPlayerTypes.YouTube}
-        aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
+        videoType="youTube"
+        aspectRatio="sixteenByNine"
       />
     </Box>
   </DSProvider>

@@ -53,6 +53,7 @@ const categories = {
     title: "Components/Form Elements",
     components: [
       "Button",
+      "ButtonGroup",
       "Checkbox",
       "CheckboxGroup",
       "DatePicker",
@@ -108,7 +109,14 @@ const categories = {
   },
   navigation: {
     title: "Components/Navigation",
-    components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
+    components: [
+      "Breadcrumbs",
+      "Link",
+      "Menu",
+      "Pagination",
+      "SkipNavigation",
+      "Subnavigation",
+    ],
   },
   styleguide: {
     title: "Style Guide",
@@ -131,11 +139,11 @@ const categories = {
   },
 };
 
-export const getCategory = (component) => {
+export const getCategory = (component: string) => {
   let catPath = component;
-  Object.keys(categories).forEach((key) => {
-    const t = categories[key].title;
-    const c = categories[key].components;
+  Object.keys(categories).forEach((key: string) => {
+    const t = categories[key as keyof typeof categories].title;
+    const c = categories[key as keyof typeof categories].components;
     if (c.includes(component)) {
       catPath = `${t}/${component}`;
     }

@@ -2,7 +2,6 @@ import { Stack } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Icon from "../Icons/Icon";
-import { IconColors, IconSizes, IconNames } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -21,124 +20,107 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Use the Reservoir Design System (DS) [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+Use the Reservoir Design System (DS) [Icon](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-media-icons-icon--icon-with-controls)
 component to render and control icons as `<svg>` elements within consuming apps.
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
 
 ## Icon Examples
 
-The graphic of the `Icon` component is handled through the `IconNames` enum. To see all graphic options
-for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+The graphic of the `Icon` component is handled through the `name` prop. To see
+all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-media-icons-icon--icon-with-controls)
 Storybook page.
 
 <Canvas>
   <DSProvider>
     <Stack spacing="s" direction="row">
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={IconNames.Check}
-      />
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={IconNames.Close}
-      />
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={IconNames.ErrorOutline}
-      />
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={IconNames.SpeakerNotes}
-      />
+      <Icon decorative size="xxxlarge" name="check" />
+      <Icon decorative size="xxxlarge" name="close" />
+      <Icon decorative size="xxxlarge" name="errorOutline" />
+      <Icon decorative size="xxxlarge" name="speakerNotes" />
     </Stack>
   </DSProvider>
 </Canvas>
 
-| Enum Values for Examples Above |
-| ------------------------------ |
-| `IconNames.Check`              |
-| `IconNames.Close`              |
-| `IconNames.ErrorOutline`       |
-| `IconNames.SpeakerNotes`       |
+| Values for Examples Above |
+| ------------------------- |
+| `check`                   |
+| `close`                   |
+| `errorOutline`            |
+| `speakerNotes`            |
 
 ## Icon Sizes
 
-The size of the `Icon` component is handled through the `IconSizes` enum.
+The size of the `Icon` component is handled through the `size` prop.
 
 <Canvas>
   <DSProvider>
     <Stack spacing="s" direction="row" alignItems="center">
-      <Icon size={IconSizes.Small} name={IconNames.Check} />
-      <Icon size={IconSizes.Medium} name={IconNames.Check} />
-      <Icon size={IconSizes.Large} name={IconNames.Check} />
-      <Icon size={IconSizes.ExtraLarge} name={IconNames.Check} />
-      <Icon size={IconSizes.ExtraExtraLarge} name={IconNames.Check} />
-      <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
+      <Icon size="small" name="check" />
+      <Icon size="medium" name="check" />
+      <Icon size="large" name="check" />
+      <Icon size="xlarge" name="check" />
+      <Icon size="xxlarge" name="check" />
+      <Icon size="xxxlarge" name="check" />
     </Stack>
   </DSProvider>
 </Canvas>
 
-| IconSizes Enum Value             | CSS Value         | CSS Variable       |
-| -------------------------------- | ----------------- | ------------------ |
-| `IconSizes.Small`                | `0.875rem` (14px) | n/a                |
-| `IconSizes.Medium`               | `1.125rem` (18px) | n/a                |
-| `IconSizes.Large`                | `1.5rem` (24px)   | `--nypl-space-m`   |
-| `IconSizes.ExtraLarge`           | `2rem` (32px)     | `--nypl-space-l`   |
-| `IconSizes.ExtraExtraLarge`      | `3rem` (48px)     | `--nypl-space-xl`  |
-| `IconSizes.ExtraExtraExtraLarge` | `4rem` (64px)     | `--nypl-space-xxl` |
+| Value      | CSS Value         | CSS Variable       |
+| ---------- | ----------------- | ------------------ |
+| `small`    | `0.875rem` (14px) | n/a                |
+| `medium`   | `1.125rem` (18px) | n/a                |
+| `large`    | `1.5rem` (24px)   | `--nypl-space-m`   |
+| `xlarge`   | `2rem` (32px)     | `--nypl-space-l`   |
+| `xxlarge`  | `3rem` (48px)     | `--nypl-space-xl`  |
+| `xxxlarge` | `4rem` (64px)     | `--nypl-space-xxl` |
 
 ## Icon Colors
 
-The color of the `Icon` component is handled through the `IconColors` enum.
-Icons in NYPL projects should always be rendered with one color.
+The color of the `Icon` component is handled through the `color` prop. Icons in
+NYPL projects should always be rendered with one color.
 
 <Canvas>
   <DSProvider>
     <Stack spacing="s" direction="row">
-      <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
+      <Icon size="xxxlarge" name="check" />
+      <Icon name="check" size="xxxlarge" color="brand.primary" />
+      <Icon name="check" size="xxxlarge" color="section.research.primary" />
       <Icon
-        name={IconNames.Check}
-        size={IconSizes.ExtraExtraExtraLarge}
-        color={IconColors.BrandPrimary}
+        name="check"
+        size="xxxlarge"
+        color="section.research-library.schwartzman"
       />
       <Icon
-        name={IconNames.Check}
-        size={IconSizes.ExtraExtraExtraLarge}
-        color={IconColors.SectionResearchPrimary}
-      />
-      <Icon
-        name={IconNames.Check}
-        size={IconSizes.ExtraExtraExtraLarge}
-        color={IconColors.SectionResearchLibrarySchwartzman}
-      />
-      <Icon
-        name={IconNames.Check}
-        size={IconSizes.ExtraExtraExtraLarge}
-        color={IconColors.SectionResearchLibrarySchomburg}
+        name="check"
+        size="xxxlarge"
+        color="section.research-library.schomburg"
       />
     </Stack>
   </DSProvider>
 </Canvas>
 
-| IconColors Enum Value                          | CSS Variable                                         |
-| ---------------------------------------------- | ---------------------------------------------------- |
-| `IconColors.UiBlack`                           | `--nypl-colors-ui-black`                             |
-| `IconColors.UiWhite`                           | `--nypl-colors-ui-white`                             |
-| `IconColors.BrandPrimary`                      | `--nypl-colors-brand-primary`                        |
-| `IconColors.BrandSecondary`                    | `--nypl-colors-brand-secondary`                      |
-| `IconColors.SectionWhatsOnPrimary`             | `--nypl-colors-section-whats-on-primary`             |
-| `IconColors.SectionBooksAndMorePrimary`        | `--nypl-colors-section-books-and-more-primary`       |
-| `IconColors.SectionResearchPrimary`            | `--nypl-colors-section-research-primary`             |
-| `IconColors.SectionResearchSecondary`          | `--nypl-colors-section-research-secondary`           |
-| `IconColors.SectionLocationsPrimary`           | `--nypl-colors-section-locations-primary`            |
-| `IconColors.SectionResearchLibraryLpa`         | `--nypl-colors-section-research-library-lpa`         |
-| `IconColors.SectionResearchLibrarySchomburg`   | `--nypl-colors-section-research-library-schomburg`   |
-| `IconColors.SectionResearchLibrarySchwartzman` | `--nypl-colors-section-research-library-schwartzman` |
+| Value                                  | CSS Variable                                         |
+| -------------------------------------- | ---------------------------------------------------- |
+| `ui.black`                             | `--nypl-colors-ui-black`                             |
+| `ui.white`                             | `--nypl-colors-ui-white`                             |
+| `brand.primary`                        | `--nypl-colors-brand-primary`                        |
+| `brand.secondary`                      | `--nypl-colors-brand-secondary`                      |
+| `section.blogs.primary`                | `--nypl-colors-section-blogs-primary`                |
+| `section.blogs.secondary`              | `--nypl-colors-section-blogs-secondary`              |
+| `section.books-and-more.primary`       | `--nypl-colors-section-books-and-more-primary`       |
+| `section.books-and-more.secondary`     | `--nypl-colors-section-books-and-more-secondary`     |
+| `section.education.primary`            | `--nypl-colors-section-education-primary`            |
+| `section.education.secondary`          | `--nypl-colors-section-education-secondary`          |
+| `section.locations.primary`            | `--nypl-colors-section-locations-primary`            |
+| `section.locations.secondary`          | `--nypl-colors-section-locations-secondary`          |
+| `section.research.primary`             | `--nypl-colors-section-research-primary`             |
+| `section.research.secondary`           | `--nypl-colors-section-research-secondary`           |
+| `section.research-library.lpa`         | `--nypl-colors-section-research-library-lpa`         |
+| `section.research.library.schomburg`   | `--nypl-colors-section-research-library-schomburg`   |
+| `section.research.library.schwartzman` | `--nypl-colors-section-research-library-schwartzman` |
+| `section.whats-on.primary`             | `--nypl-colors-section-whats-on-primary`             |
+| `section.whats-on.secondary`           | `--nypl-colors-section-whats-on-secondary`           |
 
 ## Development Notes
 

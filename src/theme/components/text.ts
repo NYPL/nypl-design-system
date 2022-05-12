@@ -1,3 +1,10 @@
+interface TextBaseStyle {
+  isBold: boolean;
+  isItalic: boolean;
+  noSpace: boolean;
+  variant: string;
+}
+
 const variants = {
   default: {},
   caption: {
@@ -11,18 +18,18 @@ const variants = {
   },
 };
 const Text = {
-  baseStyle: (props) => {
-    const fontWeight = props.isBold
-      ? props.variant === "tag" || props.variant === "mini"
+  baseStyle: ({ isBold, isItalic, noSpace, variant }: TextBaseStyle) => {
+    const fontWeight = isBold
+      ? variant === "tag" || variant === "mini"
         ? "medium"
         : "bold"
       : null;
-    const fontStyle = props.isItalic ? "italic" : null;
+    const fontStyle = isItalic ? "italic" : null;
 
     return {
       fontStyle: fontStyle,
       fontWeight: fontWeight,
-      marginBottom: props.noSpace ? "0 !important" : null,
+      marginBottom: noSpace ? "0 !important" : null,
     };
   },
   variants,
