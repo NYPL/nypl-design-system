@@ -8,9 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Updates various component implementations on story and documentation pages to remove inadvertent console errors and warnings.
+
+## 1.0.0 (May 12, 2022)
+
+This is the first stable release of the NYPL Reservoir Design System! We've been looking forward to this moment for over two years.
+
+### Updates
+
+- Updates all links throughout the documentation to point to the new production URLs.
+
+## 0.28.0 (May 9, 2022)
+
 ### Adds
 
 - Adds `max`, `maxLength`, `min`, and `onClick` props to the `TextInput` component.
+- Adds the `SkipNavigation` component and adds this component inside the `TemplateAppContainer` component. The `SkipNavigation` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
+- Adds the `ButtonGroup` component for `Button` layout.
 
 ### Updates
 
@@ -21,7 +35,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how the `DatePicker` and `Slider` components internally use `TextInput`.
 - Updates how the `Pagination` component internally uses `Link`.
 - Updates how the `Tabs` component internally uses `Button`.
-- Updates various component implementations on story and documentation pages to remove inadvertent console errors and warnings.
+- Updates how images are passed to the `Hero` component. Instead of `imageAlt` and `imageSrc` props, now an object must be passed to the `imageProps` prop.
+- Updates the values for the `name` prop for the `Icon` and `Logo` components.
+- Updates the `Table` component to allow JSX elements to be rendered in the data cells.
 
 ### Removals
 
