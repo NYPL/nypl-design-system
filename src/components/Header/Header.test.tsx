@@ -2,6 +2,7 @@ import * as React from "react";
 import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
+import userEvent from "@testing-library/user-event";
 
 import Header from "./Header";
 
@@ -43,21 +44,36 @@ describe("Header", () => {
     const upperList = screen.getAllByRole("list")[0];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
-    expect(upperLinks.length).toEqual(6);
+    expect(upperLinks.length).toEqual(8);
     expect(upperLinks[0]).toHaveTextContent(/log in/i);
-    expect(upperLinks[5]).toHaveTextContent(/shop/i);
+    expect(upperLinks[1]).toHaveTextContent(/log into/i);
+    expect(upperLinks[7]).toHaveTextContent(/shop/i);
   });
 
   it("renders the lower links", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const lowerList = screen.getAllByRole("list")[1];
+    const lowerList = screen.getAllByRole("list")[2];
     const lowerLinks = within(lowerList).getAllByRole("listitem");
 
     expect(lowerLinks.length).toEqual(8);
     expect(lowerLinks[0]).toHaveTextContent(/books/i);
     expect(lowerLinks[7]).toHaveTextContent(/search/i);
+  });
+
+  it("changes the log in button to a close button on click", () => {
+    // Removes automatically added, unused Chakra toast elements.
+    document.getElementById("chakra-toast-portal")?.remove();
+
+    const upperList = screen.getAllByRole("list")[0];
+    const upperLinks = within(upperList).getAllByRole("listitem");
+
+    const logInButton = within(upperLinks[0]).getByRole("button");
+
+    userEvent.click(logInButton);
+
+    expect(upperLinks[0]).toHaveTextContent(/close/i);
   });
 
   it("renders the horizontal rule", () => {

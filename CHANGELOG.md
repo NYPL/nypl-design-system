@@ -8,7 +8,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Header Feature
 
-- Adds static `Header` component (functionality to be added later).
+- Adds static `Header` component with login dropdown (functionality to be added later).
 
 ## Prerelease
 
