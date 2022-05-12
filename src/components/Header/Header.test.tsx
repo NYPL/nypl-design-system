@@ -20,6 +20,14 @@ describe("Header", () => {
   beforeEach(() => {
     render(<Header />);
   });
+  it("renders a skip navigation", () => {
+    const skipNavigation = screen.getAllByRole("navigation")[0];
+    const { getByRole } = within(skipNavigation);
+
+    expect(skipNavigation).toBeInTheDocument();
+    expect(skipNavigation).toHaveAttribute("aria-label", "Skip Navigation");
+    expect(getByRole("list")).toBeInTheDocument();
+  });
   it("renders a notification", () => {
     const notification = screen.getByRole("complementary");
     const { getByText } = within(notification);
@@ -41,7 +49,9 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const upperList = screen.getAllByRole("list")[0];
+    // The first list is the skip navigation.
+    // The second list is the upper navigation.
+    const upperList = screen.getAllByRole("list")[1];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
     expect(upperLinks.length).toEqual(8);
@@ -54,7 +64,11 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const lowerList = screen.getAllByRole("list")[2];
+    // The first list is the skip navigation.
+    // The second list is the upper navigation.
+    // The third list is the login list.
+    // the fourth list is the lower navigation.
+    const lowerList = screen.getAllByRole("list")[3];
     const lowerLinks = within(lowerList).getAllByRole("listitem");
 
     expect(lowerLinks.length).toEqual(8);
@@ -66,7 +80,7 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const upperList = screen.getAllByRole("list")[0];
+    const upperList = screen.getAllByRole("list")[1];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
     const logInButton = within(upperLinks[0]).getByRole("button");

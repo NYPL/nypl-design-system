@@ -9,6 +9,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Header Feature
 
 - Adds static `Header` component with login dropdown (functionality to be added later).
+- Adds the `SkipNavigation` to the `Header` component.
 
 ## Prerelease
 
