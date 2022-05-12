@@ -1,7 +1,3 @@
-const container = {
-  fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
-};
-
 const notification = {
   bg: "#fee249",
   width: "100%",
@@ -28,14 +24,19 @@ const horizontalRule = {
 
 const Header = {
   parts: ["container", "notification", "logo", "horizontalRule"],
-  baseStyle: ({ width, breakpointMedium }) => ({
-    container,
+  baseStyle: ({ isWidthMobile, isWidthLarge }) => ({
+    container: {
+      fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+      "#headerMain": {
+        marginX: isWidthLarge && "50px",
+      },
+    },
     notification,
     logo: {
-      marginTop: width < breakpointMedium && "10px",
+      marginTop: isWidthMobile && "10px",
       marginRight: "auto",
       svg: {
-        height: width < breakpointMedium && "25px",
+        height: isWidthMobile && "25px",
       },
       _focus: {
         outlineColor: "#135772",

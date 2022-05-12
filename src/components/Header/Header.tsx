@@ -24,9 +24,14 @@ export const Header = chakra(() => {
   const breakpointMedium = 600;
   const breakpointLarge = 960;
 
+  const isWidthMobile = windowDimensions.width < breakpointMedium;
+  const isWidthLarge = windowDimensions.width > breakpointLarge;
+
+  console.log("isWidthLarge -->", isWidthLarge);
+
   const styles = useMultiStyleConfig("Header", {
-    width: windowDimensions.width,
-    breakpointMedium,
+    isWidthMobile,
+    isWidthLarge,
   });
 
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
@@ -49,7 +54,8 @@ export const Header = chakra(() => {
         showIcon={false}
       />
       <HStack
-        marginX={windowDimensions.width > breakpointLarge ? "50px" : "0px"}
+        // marginX={isWidthLarge ? "50px" : "0px"}
+        id="headerMain"
         justifyContent="space-between"
       >
         <Link
@@ -59,19 +65,13 @@ export const Header = chakra(() => {
         >
           <Logo
             id="header-nypl-logo"
-            name={
-              windowDimensions.width > breakpointLarge
-                ? "nyplFullBlack"
-                : "nyplLionBlack"
-            }
-            size={
-              windowDimensions.width > breakpointLarge ? "small" : "xxsmall"
-            }
+            name={isWidthLarge ? "nyplFullBlack" : "nyplLionBlack"}
+            size={isWidthLarge ? "small" : "xxsmall"}
             title="NYPL Header Logo"
           />
         </Link>
         <Spacer />
-        {windowDimensions.width > breakpointMedium ? (
+        {!isWidthMobile ? (
           <VStack spacing="65px">
             <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
             <LowerNav />
