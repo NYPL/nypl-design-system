@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds static `Header` component with login dropdown (functionality to be added later).
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
-- Implements focus lock in `Login` component.
+- Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
 
 ## Prerelease
 
