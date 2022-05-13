@@ -5,7 +5,6 @@ export default function useMultiSelectState(multiSelectId, items) {
   const [selectedItems, setSelectedItems] = useState({});
 
   function handleChange(itemId: string) {
-    console.log("handleChange");
     let itemIds;
     // Check if the id already exists in the state
     if (selectedItems[multiSelectId] !== undefined) {
@@ -33,7 +32,6 @@ export default function useMultiSelectState(multiSelectId, items) {
   }
 
   function handleMixedStateChange(parentId: string) {
-    console.log("handleMixedStateChange");
     // Build an array of child items.
     let childItems = [];
     items.map((item) => {
@@ -72,7 +70,6 @@ export default function useMultiSelectState(multiSelectId, items) {
   }
 
   function handleClear() {
-    console.log("handleClear");
     setSelectedItems({});
   }
 

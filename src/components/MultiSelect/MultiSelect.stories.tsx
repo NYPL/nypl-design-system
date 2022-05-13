@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 //import { MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
@@ -67,52 +67,24 @@ const items = [
 ];
 
 export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
-  const [selectedItems, setSelectedItems] = useState({});
-
-  function handleChange(multiSelectId: string, itemId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[multiSelectId] !== undefined) {
-      let itemIdExists =
-        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If id exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id !== itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
-    });
-  }
+  // Example with custom hook useMultiSelectState.
+  const { onChange, onClear, selectedItems } = useMultiSelectState(
+    args.id,
+    items
+  );
 
   return (
     <>
       <MultiSelect
         {...args}
-        //variant="listbox"
         items={items}
         selectedItems={selectedItems}
-        onChange={(selectedItem) => {
-          handleChange(args.id, selectedItem.id);
+        onChange={(selectedItem) => onChange(selectedItem.id)}
+        onClear={() => {
+          onClear();
+          console.log("onClear from consuming!");
         }}
-        onClear={() => setSelectedItems({})}
       />
-      <div>
-        If you already have props as an object, and you want to pass it in JSX,
-        you can use ... as a “spread” operator to pass the whole props object.
-        These two components are equivalent:
-      </div>
     </>
   );
 };
@@ -141,11 +113,6 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
           console.log(selectedItems);
         }}
       />
-      <div>
-        If you already have props as an object, and you want to pass it in JSX,
-        you can use ... as a “spread” operator to pass the whole props object.
-        These two components are equivalent:
-      </div>
     </>
   );
 };
