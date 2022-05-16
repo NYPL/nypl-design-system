@@ -1,14 +1,23 @@
-import * as React from "react";
-import { render, screen, within } from "@testing-library/react";
-import { axe } from "jest-axe";
-import renderer from "react-test-renderer";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
 import Header from "./Header";
+import { refineryResponse } from "./components/SitewideAlerts.test";
 
 describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Header />);
+    // Mock the fetch API call in `SitewideAlerts`.
+    (global as any).fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(refineryResponse),
+      })
+    ) as jest.Mock;
+
+    const { container } = await waitFor(() => render(<Header />));
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -17,8 +26,16 @@ describe("Header Accessibility", () => {
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
 describe("Header", () => {
-  beforeEach(() => {
-    render(<Header />);
+  beforeEach(async () => {
+    // Mock the fetch API call in `SitewideAlerts`.
+    (global as any).fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(refineryResponse),
+      })
+    ) as jest.Mock;
+
+    await waitFor(() => render(<Header />));
   });
   it("renders a notification", () => {
     const notification = screen.getByRole("complementary");
@@ -41,7 +58,9 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const upperList = screen.getAllByRole("list")[0];
+    // The first list is the list of alerts in the `SitewideAlerts` component.
+    // The second list is the upper navigation links.
+    const upperList = screen.getAllByRole("list")[1];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
     expect(upperLinks.length).toEqual(8);
@@ -54,7 +73,8 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const lowerList = screen.getAllByRole("list")[2];
+    // The fourth list is the lower navigation links.
+    const lowerList = screen.getAllByRole("list")[3];
     const lowerLinks = within(lowerList).getAllByRole("listitem");
 
     expect(lowerLinks.length).toEqual(8);
@@ -66,7 +86,7 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const upperList = screen.getAllByRole("list")[0];
+    const upperList = screen.getAllByRole("list")[1];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
     const logInButton = within(upperLinks[0]).getByRole("button");

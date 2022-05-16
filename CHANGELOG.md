@@ -9,6 +9,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Header Feature
 
 - Adds static `Header` component with login dropdown (functionality to be added later).
+- Adds the `SitewideAlerts` component used internally in the `Header component. This component dynamically fetches and renders NYPL sitewide alerts.
 
 ## Prerelease
 

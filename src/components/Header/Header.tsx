@@ -11,11 +11,11 @@ import {
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import Notification from "../Notification/Notification";
-import useWindowSize from "../../hooks/useWindowSize";
 import UpperNav from "./components/UpperNav";
 import LowerNav from "./components/LowerNav";
 import Mobile from "./components/Mobile";
+import SitewideAlerts from "./components/SitewideAlerts";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export const Header = chakra(() => {
   const windowDimensions = useWindowSize();
@@ -36,29 +36,11 @@ export const Header = chakra(() => {
 
   return (
     <Box __css={styles.container}>
-      <Notification
-        __css={styles.notification}
-        id="above-header-notification"
-        isCentered
-        noMargin
-        notificationContent={
-          <>
-            Masks are encouraged at all NYPL locations.{" "}
-            <Link href="https://nypl.org/reopening" id="reopening-link">
-              Learn more and find information about our hours and services.
-            </Link>
-          </>
-        }
-        showIcon={false}
-      />
-      <HStack
-        // marginX={isWidthLarge ? "50px" : "0px"}
-        id="headerMain"
-        justifyContent="space-between"
-      >
+      <SitewideAlerts />
+      <HStack id="headerMain" justifyContent="space-between">
         <Link
           aria-label="The New York Public Library"
-          href="/"
+          href="https://nypl.org"
           __css={styles.logo}
         >
           <Logo
