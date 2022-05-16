@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `noSpace` prop to the `Heading` component.
 - Adds validation for equal headers and data column to the `Table` component.
 
+### Updates
+
+- Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+
 ### Fixes
 
 - Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
