@@ -41,14 +41,7 @@ export const tableDataUneven = [
   ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
   ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
   ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"],
-  [
-    "Sonny",
-    "Resetti",
-    "Risetto san",
-    "Village Road",
-    "New York",
-    "09873",
-  ],
+  ["Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873"],
 ];
 export const characterHeaders = ["First Name", "Last Name", "Avatar"];
 export const charactersData = [
