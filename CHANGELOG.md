@@ -10,6 +10,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `noSpace` prop to the `Heading` component.
+
+### Fixes
+
+- Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+
+## 1.0.0 (May 12, 2022)
+
+This is the first stable release of the NYPL Reservoir Design System! We've been looking forward to this moment for over two years.
+
+### Updates
+
+- Updates all links throughout the documentation to point to the new production URLs.
+
+## 0.28.0 (May 9, 2022)
+
+### Adds
+
 - Adds `max`, `maxLength`, `min`, and `onClick` props to the `TextInput` component.
 - Adds the `SkipNavigation` component and adds this component inside the `TemplateAppContainer` component. The `SkipNavigation` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
 - Adds the `ButtonGroup` component for `Button` layout.
