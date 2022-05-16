@@ -54,10 +54,9 @@ describe("Header", () => {
     const upperList = screen.getAllByRole("list")[1];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
-    expect(upperLinks.length).toEqual(8);
+    expect(upperLinks.length).toEqual(6);
     expect(upperLinks[0]).toHaveTextContent(/log in/i);
-    expect(upperLinks[1]).toHaveTextContent(/log into/i);
-    expect(upperLinks[7]).toHaveTextContent(/shop/i);
+    expect(upperLinks[5]).toHaveTextContent(/shop/i);
   });
 
   it("renders the lower links", () => {
@@ -66,9 +65,8 @@ describe("Header", () => {
 
     // The first list is the skip navigation.
     // The second list is the upper navigation.
-    // The third list is the login list.
-    // the fourth list is the lower navigation.
-    const lowerList = screen.getAllByRole("list")[3];
+    // The third list is the lower navigation.
+    const lowerList = screen.getAllByRole("list")[2];
     const lowerLinks = within(lowerList).getAllByRole("listitem");
 
     expect(lowerLinks.length).toEqual(8);
@@ -76,18 +74,28 @@ describe("Header", () => {
     expect(lowerLinks[7]).toHaveTextContent(/search/i);
   });
 
-  it("changes the log in button to a close button on click", () => {
+  it("opens the login menu", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    const upperList = screen.getAllByRole("list")[1];
-    const upperLinks = within(upperList).getAllByRole("listitem");
+    let upperList = screen.getAllByRole("list")[1];
+    let upperLinks = within(upperList).getAllByRole("listitem");
+
+    expect(upperLinks.length).toEqual(6);
 
     const logInButton = within(upperLinks[0]).getByRole("button");
+    expect(upperLinks[0]).toHaveTextContent(/log in/i);
+    expect(upperLinks[1]).toHaveTextContent(/locations/i);
 
     userEvent.click(logInButton);
 
+    upperList = screen.getAllByRole("list")[1];
+    upperLinks = within(upperList).getAllByRole("listitem");
+
+    // Login menu opens, revealing two additional list items.
+    expect(upperLinks.length).toEqual(8);
     expect(upperLinks[0]).toHaveTextContent(/close/i);
+    expect(upperLinks[1]).toHaveTextContent(/log into/i);
   });
 
   it("renders the horizontal rule", () => {
