@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `noSpace` prop to the `Heading` component.
+
 ### Fixes
 
 - Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
@@ -24,11 +28,9 @@ This is the first stable release of the NYPL Reservoir Design System! We've been
 
 ### Adds
 
-- Adds `noSpace` prop to the `Heading` component.
 - Adds `max`, `maxLength`, `min`, and `onClick` props to the `TextInput` component.
 - Adds the `SkipNavigation` component and adds this component inside the `TemplateAppContainer` component. The `SkipNavigation` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
 - Adds the `ButtonGroup` component for `Button` layout.
-
 
 ### Updates
 
