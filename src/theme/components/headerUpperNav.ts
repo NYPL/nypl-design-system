@@ -10,7 +10,7 @@ const upperNav = {
     position: "relative",
     textTransform: "uppercase",
   },
-  "li > a": {
+  "li a": {
     color: "ui.black",
     padding: "12px",
     position: "relative",
@@ -25,7 +25,7 @@ const upperNav = {
       outlineWidth: "0.1875em",
     },
   },
-  "li > button": {
+  "li button": {
     display: "flex",
     fontSize: "inherit",
     fontWeight: "inherit",
@@ -53,10 +53,7 @@ const upperNav = {
       borderRadius: "none",
     },
   },
-  ".logInMenuClosed": {
-    display: "none",
-  },
-  ".logInMenuOpen": {
+  ".loginMenu": {
     bg: "#1B7FA7",
     display: "flex",
     flexDirection: "column",
@@ -87,13 +84,17 @@ const upperNav = {
       },
     },
   },
-  "#closeLogInButton": {
+  ".closeLoginButton": {
     bg: "#135772",
     color: "ui.white",
     width: "75px",
+    _hover: {
+      bg: "#135772",
+      color: "ui.white",
+    },
     svg: {
       position: "relative",
-      height: "8px",
+      height: "11px",
       top: "1px",
     },
   },
