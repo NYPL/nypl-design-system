@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `noSpace` prop to the `Heading` component.
+- Adds validation for equal headers and data column to the `Table` component.
 
 ### Fixes
 
