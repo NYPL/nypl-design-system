@@ -79,6 +79,7 @@ export {
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelectTypes";
+export { default as useMultiSelectState } from "./components/MultiSelect/useMultiSelectState";
 
 export {
   default as Notification,
