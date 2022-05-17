@@ -1,4 +1,4 @@
-import { chakra } from "@chakra-ui/react";
+import { chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 
 import List from "../../List/List";
@@ -11,9 +11,10 @@ import { Alert, alertsApiUrl, parseAlertsData } from "../headerUtils";
  * isolation, it is already rendered in the DS Header component.
  */
 export const SitewideAlerts = chakra(() => {
+  const [alerts, setAlerts] = useState<Alert[]>([]);
+  const styles = useStyleConfig("SitewideAlerts");
   const fetchErrorMessage =
     "NYPL Reservoir SitewideAlerts: There was an error fetching NYPL sitewide alerts.";
-  const [alerts, setAlerts] = useState<Alert[]>([]);
 
   // Make a request to the NYPL API endpoint for sitewide alerts, parse
   // the data, and set it to the local state.
@@ -41,21 +42,7 @@ export const SitewideAlerts = chakra(() => {
   // contain HTML which is rendered as-is.
   const getAlertsElems = (data: Alert[]) => {
     return (
-      <List
-        noStyling
-        type="ul"
-        __css={{
-          marginBottom: "0",
-          // Target any anchor and paragraph HTML passed in from
-          // the API response in `alert.description`.
-          a: {
-            textDecoration: "underline",
-          },
-          p: {
-            marginBottom: "0",
-          },
-        }}
-      >
+      <List noStyling type="ul">
         {data.map((alert: Alert) => (
           <li
             key={alert.id}
@@ -74,6 +61,7 @@ export const SitewideAlerts = chakra(() => {
       noMargin
       notificationContent={getAlertsElems(alerts)}
       showIcon={false}
+      __css={styles}
     />
   ) : null;
 });
