@@ -2248,9 +2248,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 >
   <div
     aria-haspopup="listbox"
-    aria-labelledby="downshift-9-label downshift-9-toggle-button"
+    aria-labelledby="test-label test-toggle-button"
     className="css-0"
-    id="downshift-9-toggle-button"
+    id="test-toggle-botton"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -2307,9 +2307,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     className="css-1hyfx7x"
   >
     <ul
-      aria-labelledby="downshift-9-label"
+      aria-labelledby="test-label"
       className="css-10ns9zz"
-      id="downshift-9-menu"
+      id="test-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -2329,9 +2329,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
   <div
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-10-label downshift-10-toggle-button"
+    aria-labelledby="test-label test-toggle-button"
     className="css-0"
-    id="downshift-10-toggle-button"
+    id="test-toggle-botton"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -2389,9 +2389,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="downshift-10-label"
+      aria-labelledby="test-label"
       className="css-10ns9zz"
-      id="downshift-10-menu"
+      id="test-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -2402,7 +2402,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-0"
+        id="test-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2472,7 +2472,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-1"
+        id="test-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2542,7 +2542,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-2"
+        id="test-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2612,7 +2612,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-3"
+        id="test-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2682,7 +2682,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-4"
+        id="test-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2752,7 +2752,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-10-item-5"
+        id="test-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2832,9 +2832,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
   <div
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-11-label downshift-11-toggle-button"
+    aria-labelledby="test-label test-toggle-button"
     className="css-0"
-    id="downshift-11-toggle-button"
+    id="test-toggle-botton"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -2946,9 +2946,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="downshift-11-label"
+      aria-labelledby="test-label"
       className="css-10ns9zz"
-      id="downshift-11-menu"
+      id="test-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -2959,7 +2959,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-0"
+        id="test-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3032,7 +3032,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-1"
+        id="test-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3105,7 +3105,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-2"
+        id="test-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3175,7 +3175,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-3"
+        id="test-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3245,7 +3245,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-4"
+        id="test-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3315,7 +3315,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-11-item-5"
+        id="test-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"

@@ -65,7 +65,13 @@ function MultiSelectListbox({
 
   return (
     <Box id={id} __css={styles}>
-      <Box {...getToggleButtonProps()}>
+      <Box
+        {...getToggleButtonProps({
+          // @TODO add short prefix to avoid id starting with number
+          id: `${id}-toggle-botton`,
+          "aria-labelledby": `${id}-label ${id}-toggle-button`,
+        })}
+      >
         <MultiSelectMenuButton
           multiSelectId={id}
           label={label}
@@ -78,7 +84,11 @@ function MultiSelectListbox({
         <UnorderedList
           styleType="none"
           marginInlineStart="0"
-          {...getMenuProps()}
+          {...getMenuProps({
+            // @TODO add short prefix to avoid id starting with number
+            id: `${id}-menu`,
+            "aria-labelledby": `${id}-label`,
+          })}
           // @FIX This prevents the menu from closing when checkbox or label is clicked.
           onClick={(e) => e.preventDefault()}
           __css={styles.menu}
@@ -91,6 +101,8 @@ function MultiSelectListbox({
                 // error  Missing "key" prop for element in iterator  react/jsx-key
                 key={item.id}
                 {...getItemProps({
+                  // @TODO add short prefix to avoid id starting with number
+                  id: `${id}-item-${index}`,
                   key: item.id,
                   item,
                   index,
