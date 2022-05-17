@@ -29,27 +29,7 @@ const MultiSelectMenuButton = React.forwardRef<
   const styles = useMultiStyleConfig("MultiSelect", {});
   const iconType = isOpen ? "minus" : "plus";
 
-  // Sets the ListBoxMenuButton label, including a count of selected items.
-  /*function getButtonLabel(multiSelectId: string) {
-    if (selectedItems[multiSelectId]?.items.length > 0) {
-      return `${label} (${selectedItems[multiSelectId].items.length})`;
-    }
-    return label;
-  }
-  */
-
-  /*function hasSelectedItems() {
-    if (
-      (selectedItems[id] !== undefined && selectedItems[id].items.length) ||
-      isOpen
-    ) {
-      return true;
-    }
-    return false;
-
-    // Background color is #e0e0e0
-  }
-  */
+  // Sets the selected items count on the menu button
   function getSelectedItemsCount(multiSelectId: string) {
     if (selectedItems[multiSelectId]?.items.length > 0) {
       return `${selectedItems[multiSelectId].items.length}`;
