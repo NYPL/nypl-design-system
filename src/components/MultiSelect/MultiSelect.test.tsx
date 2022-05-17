@@ -265,6 +265,78 @@ describe("MultiSelect Dialog", () => {
     ).toEqual("false");
   });
 
+  it("should call onChange when an item without child items or a child item is selected/unselected", () => {
+    // Create mock functions
+    const onChangeMock = jest.fn();
+    const onMixedStateChangeMock = jest.fn();
+
+    render(
+      <MultiSelect
+        id="some-id"
+        label="MultiSelect Label"
+        variant="dialog"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={onChangeMock}
+        onMixedStateChange={onMixedStateChangeMock}
+        onClear={() => null}
+        onApply={() => null}
+      />
+    );
+    // Open menu
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+
+    expect(screen.getByRole("checkbox", { name: /dogs/i })).toBeInTheDocument();
+    userEvent.click(screen.getByRole("checkbox", { name: /dogs/i }));
+    expect(onChangeMock).toBeCalledTimes(1);
+
+    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    userEvent.click(screen.getByRole("checkbox", { name: /plants/i }));
+    expect(onChangeMock).toBeCalledTimes(3);
+
+    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    expect(onChangeMock).toBeCalledTimes(4);
+  });
+
+  it("should call onMixedStateChange when a parent item is selected/unselected", () => {
+    // Create mock functions
+    const onChangeMock = jest.fn();
+    const onMixedStateChangeMock = jest.fn();
+
+    render(
+      <MultiSelect
+        id="some-id"
+        label="MultiSelect Label"
+        variant="dialog"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={onChangeMock}
+        onMixedStateChange={onMixedStateChangeMock}
+        onClear={() => null}
+        onApply={() => null}
+      />
+    );
+    // Open menu
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+
+    expect(
+      screen.getByRole("checkbox", { name: /colors/i })
+    ).toBeInTheDocument();
+    userEvent.click(screen.getByRole("checkbox", { name: /colors/i }));
+    expect(onMixedStateChangeMock).toBeCalledTimes(1);
+
+    userEvent.click(screen.getByRole("checkbox", { name: /colors/i }));
+    expect(onMixedStateChangeMock).toBeCalledTimes(2);
+  });
+
   it("should have inteterminated state for parent item if not all child items are checked", () => {
     render(<MultiSelectTestComponent id="some-id" />);
     // Open menu
@@ -518,6 +590,37 @@ describe("MultiSelect Listbox", () => {
     expect(screen.queryAllByRole("option")).toHaveLength(0);
   });
 
+  it("should call onChange when an item gets selected/unselected", () => {
+    const onChangeMock = jest.fn();
+    render(
+      <MultiSelect
+        id="test"
+        label="MultiSelect Label"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={onChangeMock}
+        onClear={() => null}
+      />
+    );
+    // Open menu
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+    expect(screen.getByRole("option", { name: /dogs/i })).toBeInTheDocument();
+    // Check item
+    userEvent.click(screen.getByRole("option", { name: /dogs/i }));
+    expect(onChangeMock).toBeCalledTimes(1);
+    // Check more items
+    userEvent.click(screen.getByRole("option", { name: /plants/i }));
+    userEvent.click(screen.getByRole("option", { name: /colors/i }));
+    expect(onChangeMock).toBeCalledTimes(3);
+    // Uncheck item
+    userEvent.click(screen.getByRole("option", { name: /colors/i }));
+    expect(onChangeMock).toBeCalledTimes(4);
+  });
   it("Renders the UI snapshot correctly", () => {
     const defaultListbox = renderer
       .create(
