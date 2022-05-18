@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+- Fixes the extra margin added by the `SkipNavigation` component.
 
 ## 1.0.0 (May 12, 2022)
 
