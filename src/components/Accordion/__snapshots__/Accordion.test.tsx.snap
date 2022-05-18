@@ -11,7 +11,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1l67k39"
+      className="chakra-accordion__button css-ilurlz"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -20,7 +20,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>
@@ -133,7 +133,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1l67k39"
+      className="chakra-accordion__button css-ilurlz"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -142,7 +142,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>
@@ -255,7 +255,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1l67k39"
+      className="chakra-accordion__button css-ilurlz"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -264,7 +264,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>
@@ -378,7 +378,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1l67k39"
+      className="chakra-accordion__button css-ilurlz"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -387,7 +387,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>
@@ -500,7 +500,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1uqlcgc"
+      className="chakra-accordion__button css-gne4sq"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -509,7 +509,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>
@@ -622,7 +622,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1ld1swj"
+      className="chakra-accordion__button css-11hvvs4"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -631,7 +631,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       type="button"
     >
       <div
-        className="css-1eziwv"
+        className="css-ox82o1"
       >
         Gerry Kellman
       </div>

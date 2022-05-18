@@ -118,10 +118,11 @@ const Card = {
         marginLeft: { base: "0", md: "m" },
         marginTop: { base: "xs", md: "0" },
         maxWidth: { base: "100%", md: "180px" },
+        width: "100%",
       },
       body: {
         display: { md: "block" },
-        flexBasis: { sm: isAlignedRightActions ? "100%" : null },
+        flexBasis: { sm: isRow ? "100%" : null },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
