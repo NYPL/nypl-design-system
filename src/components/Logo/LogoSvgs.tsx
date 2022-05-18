@@ -3,6 +3,7 @@ import appleAppStoreBlack from "../../../icons/svg/logo-apple-app-store-black.sv
 import appleAppStoreWhite from "../../../icons/svg/logo-apple-app-store-white.svg";
 import bplBlack from "../../../icons/svg/logo-bpl-black.svg";
 import bplWhite from "../../../icons/svg/logo-bpl-white.svg";
+import cleverBadgeColor from "../../../icons/svg/logo-clever-badge-color.svg";
 import cleverColor from "../../../icons/svg/logo-clever-color.svg";
 import cleverWhite from "../../../icons/svg/logo-clever-white.svg";
 import firstbookColor from "../../../icons/svg/logo-firstbook-color.svg";
@@ -47,6 +48,7 @@ export default {
   appleAppStoreWhite,
   bplBlack,
   bplWhite,
+  cleverBadgeColor,
   cleverColor,
   cleverWhite,
   firstbookColor,

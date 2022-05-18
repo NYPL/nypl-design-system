@@ -13,6 +13,7 @@ export type LogoNames =
   | "appleAppStoreWhite"
   | "bplBlack"
   | "bplWhite"
+  | "cleverBadgeColor"
   | "cleverColor"
   | "cleverWhite"
   | "firstbookColor"
