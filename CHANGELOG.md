@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+- Updates all QA urls from Tugboat QA to Vercel.
 
 ### Fixes
 
