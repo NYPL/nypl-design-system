@@ -8,9 +8,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
-import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
+/** Internal Header-only components */
 import UpperNav from "./components/UpperNav";
 import LowerNav from "./components/LowerNav";
 import Mobile from "./components/Mobile";
@@ -36,31 +38,34 @@ export const Header = chakra(() => {
 
   return (
     <Box __css={styles.container}>
+      <SkipNavigation />
       <SitewideAlerts />
-      <HStack id="headerMain" justifyContent="space-between">
-        <Link
-          aria-label="The New York Public Library"
-          href="https://nypl.org"
-          __css={styles.logo}
-        >
-          <Logo
-            id="header-nypl-logo"
-            name={isWidthLarge ? "nyplFullBlack" : "nyplLionBlack"}
-            size={isWidthLarge ? "small" : "xxsmall"}
-            title="NYPL Header Logo"
-          />
-        </Link>
-        <Spacer />
-        {!isWidthMobile ? (
-          <VStack spacing="65px">
-            <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
-            <LowerNav />
-          </VStack>
-        ) : (
-          <Mobile />
-        )}
-      </HStack>
-      <HorizontalRule __css={styles.horizontalRule} />
+      <header>
+        <HStack id="headerMain" justifyContent="space-between">
+          <Link
+            aria-label="The New York Public Library"
+            href="https://nypl.org"
+            __css={styles.logo}
+          >
+            <Logo
+              id="header-nypl-logo"
+              name={isWidthLarge ? "nyplFullBlack" : "nyplLionBlack"}
+              size={isWidthLarge ? "small" : "xxsmall"}
+              title="NYPL Header Logo"
+            />
+          </Link>
+          <Spacer />
+          {!isWidthMobile ? (
+            <VStack spacing="65px">
+              <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+              <LowerNav />
+            </VStack>
+          ) : (
+            <Mobile />
+          )}
+        </HStack>
+        <HorizontalRule __css={styles.horizontalRule} />
+      </header>
     </Box>
   );
 });

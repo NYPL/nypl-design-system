@@ -11,9 +11,25 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds static `Header` component with login dropdown (functionality to be added later).
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
 - Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
+- Adds the `SkipNavigation` to the `Header` component.
 - Adds the `SitewideAlerts` component used internally in the `Header component. This component dynamically fetches and renders NYPL sitewide alerts.
 
 ## Prerelease
+
+### Adds
+
+- Adds `noSpace` prop to the `Heading` component.
+- Adds validation for equal headers and data column to the `Table` component.
+
+### Updates
+
+- Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+- Updates all QA urls from Tugboat QA to Vercel.
+
+### Fixes
+
+- Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+- Fixes the extra margin added by the `SkipNavigation` component.
 
 ## 1.0.0 (May 12, 2022)
 
