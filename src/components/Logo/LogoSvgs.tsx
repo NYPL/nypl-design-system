@@ -1,10 +1,13 @@
 /* eslint-disable camelcase */
+import appleAppStoreBlack from "../../../icons/svg/logo-apple-app-store-black.svg";
+import appleAppStoreWhite from "../../../icons/svg/logo-apple-app-store-white.svg";
 import bplBlack from "../../../icons/svg/logo-bpl-black.svg";
 import bplWhite from "../../../icons/svg/logo-bpl-white.svg";
 import cleverColor from "../../../icons/svg/logo-clever-color.svg";
 import cleverWhite from "../../../icons/svg/logo-clever-white.svg";
 import firstbookColor from "../../../icons/svg/logo-firstbook-color.svg";
 import firstbookColorNegative from "../../../icons/svg/logo-firstbook-color-negative.svg";
+import googlePlayBlack from "../../../icons/svg/logo-google-play-black.svg";
 import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
 import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
 import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
@@ -40,12 +43,15 @@ import treasuresColor from "../../../icons/svg/logo-treasures-color.svg";
 import treasuresColorNegative from "../../../icons/svg/logo-treasures-color-negative.svg";
 
 export default {
+  appleAppStoreBlack,
+  appleAppStoreWhite,
   bplBlack,
   bplWhite,
   cleverColor,
   cleverWhite,
   firstbookColor,
   firstbookColorNegative,
+  googlePlayBlack,
   lpaBlack,
   lpaColor,
   lpaWhite,
