@@ -1,5 +1,8 @@
 const SkipNavigation = {
   baseStyle: {
+    ul: {
+      margin: "0",
+    },
     // Don't display links by default...
     a: {
       backgroundColor: "ui.white",
@@ -13,10 +16,10 @@ const SkipNavigation = {
       _focus: {
         border: "1px solid var(—nypl-colors-ui-gray-dark)",
         height: "auto",
-        left: "2rem",
+        left: "1.5rem",
         padding:
           "var(--nypl-space-inset-extranarrow) var(--nypl-space-inset-narrow)",
-        top: "3rem",
+        top: "0.5rem",
         width: "auto",
       },
     },
