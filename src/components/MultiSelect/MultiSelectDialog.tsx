@@ -110,7 +110,12 @@ function MultiSelectDialog({
   };
 
   return (
-    <Box id={id} ref={ref} __css={styles} aria-modal={isOpen}>
+    <Box
+      id={id}
+      ref={ref}
+      __css={styles}
+      {...(isOpen && { "aria-modal": true })}
+    >
       <FocusLock isDisabled={!isOpen}>
         <MultiSelectMenuButton
           multiSelectId={id}

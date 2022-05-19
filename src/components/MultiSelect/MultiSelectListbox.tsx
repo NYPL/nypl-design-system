@@ -65,21 +65,18 @@ function MultiSelectListbox({
 
   return (
     <Box id={id} __css={styles}>
-      <Box
+      <MultiSelectMenuButton
+        multiSelectId={id}
+        label={label}
+        isOpen={isOpen}
+        selectedItems={selectedItems}
+        onClear={onClear}
         {...getToggleButtonProps({
           // @TODO add short prefix to avoid id starting with number
-          id: `${id}-toggle-botton`,
+          id: `${id}-toggle-button`,
           "aria-labelledby": `${id}-label ${id}-toggle-button`,
         })}
-      >
-        <MultiSelectMenuButton
-          multiSelectId={id}
-          label={label}
-          isOpen={isOpen}
-          selectedItems={selectedItems}
-          onClear={onClear}
-        />
-      </Box>
+      />
       <Box __css={styles.menuContainer} {...(!isOpen && { display: "none" })}>
         <UnorderedList
           styleType="none"
