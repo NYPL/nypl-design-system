@@ -23,7 +23,7 @@ import Fieldset from "./components/fieldset";
 import Header from "./components/header";
 import HeaderLowerNav from "./components/headerLowerNav";
 import HeaderMobile from "./components/headerMobile";
-import HeaderSearchBox from "./components/headerSearchBox";
+import HeaderSearchForm from "./components/headerSearchForm";
 import HeaderSearchButton from "./components/headerSearchButton";
 import HeaderUpperNav from "./components/headerUpperNav";
 import Heading from "./components/heading";
@@ -101,7 +101,7 @@ const theme = extendTheme({
     Header,
     HeaderLowerNav,
     HeaderMobile,
-    HeaderSearchBox,
+    HeaderSearchForm,
     HeaderSearchButton,
     HeaderUpperNav,
     Heading,

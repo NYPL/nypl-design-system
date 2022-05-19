@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
 - Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
 - Adds the `SkipNavigation` to the `Header` component.
+- Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
 
 ## Prerelease
 

@@ -1,4 +1,4 @@
-const HeaderSearchBox = {
+const HeaderSearchForm = {
   parts: ["button", "form", "textInput", "radio"],
   baseStyle: {
     whiteSpace: "initial",
@@ -43,4 +43,4 @@ const HeaderSearchBox = {
   },
 };
 
-export default HeaderSearchBox;
+export default HeaderSearchForm;

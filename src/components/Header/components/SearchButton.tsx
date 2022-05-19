@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
-import SearchBox from "./SearchBox";
+import SearchForm from "./SearchForm";
 
 const SearchButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,7 +23,7 @@ const SearchButton = chakra(() => {
         {isOpen ? "Close" : "Search"}
         <Icon align="right" name={isOpen ? "close" : "search"} size="small" />
       </Button>
-      {isOpen && <SearchBox />}
+      {isOpen && <SearchForm />}
     </FocusLock>
   );
 });
