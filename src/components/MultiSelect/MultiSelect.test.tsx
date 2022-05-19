@@ -262,7 +262,7 @@ describe("MultiSelect Dialog", () => {
     expect(screen.queryByRole("dialog")).toBeNull();
     expect(
       container.querySelector("#some-id").getAttribute("aria-modal")
-    ).toEqual("false");
+    ).toBeNull();
   });
 
   it("should call onChange when an item without child items or a child item is selected/unselected", () => {
