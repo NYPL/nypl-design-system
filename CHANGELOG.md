@@ -16,11 +16,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+- Updates all QA urls from Tugboat QA to Vercel.
 - Updates the `Logo` component to include new variants for `Apple App Store`, `Clever Badge` and `Google Play`.
 
 ### Fixes
 
 - Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+- Fixes the extra margin added by the `SkipNavigation` component.
 
 ## 1.0.0 (May 12, 2022)
 
