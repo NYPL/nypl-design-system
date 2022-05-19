@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
 - Updates all QA urls from Tugboat QA to Vercel.
 - Updates the `Logo` component to include new variants for `Apple App Store`, `Clever Badge` and `Google Play`.
+- Pins the Chakra UI "react" and "system" packages to a certain range since Chakra v2 uses React 18 and creates backwards compatibility issues.
 
 ### Fixes
 
