@@ -248,6 +248,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   const styles = useMultiStyleConfig("Card", {
     hasImage,
     imageIsAtEnd: imageProps.isAtEnd,
+    isAlignedRightActions,
     isBordered,
     isCentered,
     layout,

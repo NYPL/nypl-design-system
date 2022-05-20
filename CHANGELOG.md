@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
 - Fixes the extra margin added by the `SkipNavigation` component.
 - Updates various component implementations in Storybook documentation pages to remove inadvertent console errors and warnings.
+- Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
 
 ## 1.0.0 (May 12, 2022)
 
