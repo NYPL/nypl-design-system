@@ -11,6 +11,7 @@ import { HStack } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
+import useMultiSelectState from "./useMultiSelectState";
 import * as stories from "./MultiSelect.stories.tsx";
 
 <Meta
@@ -22,10 +23,19 @@ import * as stories from "./MultiSelect.stories.tsx";
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
     },
-    //jest: ["Checkbox.test.tsx"],
+    jest: ["MultiSelect.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
+    id: {
+      control: false,
+    },
+    label: { table: { default: "" } },
+    variant: { table: { default: "listbox" } },
+    items: { control: false },
+    selectedItems: { control: false },
+    width: { table: { default: "default" } },
+    defaultIsOpen: { table: { default: false } },
+    isBlockElement: { table: { default: false } },
   }}
 />
 
@@ -36,9 +46,20 @@ import * as stories from "./MultiSelect.stories.tsx";
 | Added             | `0.25.0`   |
 | Latest            | `0.25.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Dialog Variant](#dialog-variant)
+- [Accessibility](#accessibility)
+- [Using the items prop](#use-the-items-prop)
+- [Using useMultiSelectState](#use-useMultiSelectState)
+
+## Overview
+
 <Description of={MultiSelect} />
 
-This component renders a MultiSelect form element.
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -56,6 +77,8 @@ This component renders a MultiSelect form element.
 
 <ArgsTable story="MultiSelect ListBox" />
 
+## Dialog Variant
+
 <Canvas withToolbar>
   <Story
     name="MultiSelect Dialog"
@@ -64,10 +87,85 @@ This component renders a MultiSelect form element.
       label: "Subject Specialities",
       variant: "dialog",
       width: "default",
+      defaultIsOpen: false,
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="MultiSelect Dialog" />
+## Accessibility
+
+The MultiSelect variant `"listbox"` levarages `downshift.js` to insure full accesibility.
+See the [downshift.js documentation](https://www.downshift-js.com/) for more information about it's functionality.
+
+The MultiSelect variant `"dialog"` gets a `aria-modal` attribute added when open.
+Each items checkbox gets rendered along with a Checkbox from the Reservoir Design System to ensure accessibility of each item. Parent items have and additional `isIndeterminated`
+attribute to provide information about possible cheched child items.
+
+Resources:
+
+- [downshift.js documentation](https://www.downshift-js.com/)
+- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
+- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
+- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
+
+## Using the items prop
+
+The options rendered in the MultiSelect are passed into the component's items prop.
+The expected data structure is an array of objects, in the following format:
+
+```tsx
+<MultiSelect
+  id="group1"
+  label="Subject Specialities"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
+    },
+  ]}
+/>
+```
+
+You can also add a second level of child items, in the following format:
+
+```tsx
+<MultiSelect
+  id="group1"
+  label="Subject Specialities"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "parent_option",
+      name: "Parent option",
+      children: [
+        {
+          id: "child_1",
+          name: "Child 1",
+        },
+        {
+          id: "child_2",
+          name: "Child 2",
+        },
+      ],
+    },
+  ]}
+/>
+```
+
+## Use useMultiSelectState
+
+The hook `useMultiSelectState` returns an object containing all the functions needed to handle the selectedItems.
+That includes: `onChange`, `onClear`, `onMixedStateChange` and `selectedItems`.
