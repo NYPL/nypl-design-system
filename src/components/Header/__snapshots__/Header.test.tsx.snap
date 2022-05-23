@@ -33,35 +33,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
       </li>
     </ul>
   </nav>
-  <aside
-    className="css-1xdhyk6"
-    data-type="standard"
-    id="above-header-notification"
-  >
-    <div
-      className="css-0"
-    >
-      <div
-        className="css-1xdhyk6"
-      >
-        <div
-          className="css-0"
-        >
-          Masks are encouraged at all NYPL locations.
-           
-          <a
-            className="css-1xdhyk6"
-            href="https://nypl.org/reopening"
-            id="reopening-link"
-            rel={null}
-            target={null}
-          >
-            Learn more and find information about our hours and services.
-          </a>
-        </div>
-      </div>
-    </div>
-  </aside>
   <header>
     <div
       className="chakra-stack css-1oeb4ru"
@@ -70,7 +41,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
       <a
         aria-label="The New York Public Library"
         className="css-1xdhyk6"
-        href="/"
+        href="https://nypl.org"
         rel={null}
         target={null}
       >
@@ -253,3 +224,5 @@ exports[`Header renders the UI snapshot correctly 1`] = `
   </header>
 </div>
 `;
+
+exports[`SitewideAlerts Successful API request renders the UI snapshot correctly 1`] = `null`;
