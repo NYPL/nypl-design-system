@@ -103,7 +103,8 @@ array keys are used for navigating through the multiselect options.
 
 The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionally differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
 
-Additionally, the dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox to function as a check/uncheck all toggle.
+Additionally, the dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
+If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
 
 Resources:
 
