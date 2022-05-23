@@ -1,14 +1,23 @@
-import * as React from "react";
-import { render, screen, within } from "@testing-library/react";
-import { axe } from "jest-axe";
-import renderer from "react-test-renderer";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
 import Header from "./Header";
+import { refineryResponse } from "./components/SitewideAlerts.test";
 
 describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Header />);
+    // Mock the fetch API call in `SitewideAlerts`.
+    (global as any).fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(refineryResponse),
+      })
+    ) as jest.Mock;
+
+    const { container } = await waitFor(() => render(<Header />));
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -17,8 +26,16 @@ describe("Header Accessibility", () => {
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
 describe("Header", () => {
-  beforeEach(() => {
-    render(<Header />);
+  beforeEach(async () => {
+    // Mock the fetch API call in `SitewideAlerts`.
+    (global as any).fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(refineryResponse),
+      })
+    ) as jest.Mock;
+
+    await waitFor(() => render(<Header />));
   });
   it("renders a skip navigation", () => {
     const skipNavigation = screen.getAllByRole("navigation")[0];
@@ -50,8 +67,9 @@ describe("Header", () => {
     document.getElementById("chakra-toast-portal")?.remove();
 
     // The first list is the skip navigation.
-    // The second list is the upper navigation.
-    const upperList = screen.getAllByRole("list")[1];
+    // The second list is the list of alerts in the `SitewideAlerts` component.
+    // The third list is the upper navigation.
+    const upperList = screen.getAllByRole("list")[2];
     const upperLinks = within(upperList).getAllByRole("listitem");
 
     expect(upperLinks.length).toEqual(6);
@@ -64,9 +82,10 @@ describe("Header", () => {
     document.getElementById("chakra-toast-portal")?.remove();
 
     // The first list is the skip navigation.
-    // The second list is the upper navigation.
-    // The third list is the lower navigation.
-    const lowerList = screen.getAllByRole("list")[2];
+    // The second list is the list of alerts in the `SitewideAlerts` component.
+    // The third list is the upper navigation.
+    // The fourth list is the lower navigation.
+    const lowerList = screen.getAllByRole("list")[3];
     const lowerLinks = within(lowerList).getAllByRole("listitem");
 
     expect(lowerLinks.length).toEqual(8);
@@ -78,7 +97,8 @@ describe("Header", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
 
-    let upperList = screen.getAllByRole("list")[1];
+    // The third list is the upper navigation links.
+    let upperList = screen.getAllByRole("list")[2];
     let upperLinks = within(upperList).getAllByRole("listitem");
 
     expect(upperLinks.length).toEqual(6);
@@ -89,7 +109,7 @@ describe("Header", () => {
 
     userEvent.click(logInButton);
 
-    upperList = screen.getAllByRole("list")[1];
+    upperList = screen.getAllByRole("list")[2];
     upperLinks = within(upperList).getAllByRole("listitem");
 
     // Login menu opens, revealing two additional list items.

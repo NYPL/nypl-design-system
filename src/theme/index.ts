@@ -39,6 +39,7 @@ import ProgressIndicator from "./components/progressIndicator";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
+import SitewideAlerts from "./components/sitewideAlerts";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
@@ -115,6 +116,7 @@ const theme = extendTheme({
     Radio,
     RadioGroup,
     SearchBar,
+    SitewideAlerts,
     Skeleton,
     SkeletonLoader,
     SkipNavigation,
