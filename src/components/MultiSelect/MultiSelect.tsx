@@ -47,7 +47,8 @@ export type MultiSelectProps = MultiSelectCommonProps &
   MultiSelectVariantsProps;
 
 /**
- * The `MultiSelect` component renders great stuff.
+ * The MultiSelect component is a form input element that presents a list
+ * of Checkbox components from which a user can make one or multiple selections.
  */
 export default function MultiSelect({
   id,
