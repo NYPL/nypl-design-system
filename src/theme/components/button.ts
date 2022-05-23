@@ -88,6 +88,7 @@ const iconOnly = {
   color: "inherit",
   _hover: {
     bg: "ui.gray.xx-light-cool",
+    borderColor: "ui.gray.medium",
   },
   paddingInlineStart: "inset.narrow",
   paddingInlineEnd: "inset.narrow",
