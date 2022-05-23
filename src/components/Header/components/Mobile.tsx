@@ -2,6 +2,7 @@ import React from "react";
 import { chakra, Flex, HStack, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Icon from "../../Icons/Icon";
+import SearchButton from "./SearchButton";
 
 const Mobile = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobile", {});
@@ -20,7 +21,7 @@ const Mobile = chakra(() => {
           size="medium"
           title="NYPL Locator"
         />
-        <Icon id="search-icon" name="search" size="medium" title="Search" />
+        <SearchButton isMobile />
         <Icon
           id="hamburger-icon"
           name="utilityHamburger"

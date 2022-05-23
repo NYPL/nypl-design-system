@@ -1,14 +1,21 @@
 const HeaderSearchButton = {
-  baseStyle: ({ isOpen }) => ({
-    minWidth: "80px",
+  baseStyle: ({ isMobile, isOpen }) => ({
     alignItems: "center",
-    fontSize: "inherit",
-    fontWeight: 500,
     backgroundColor: isOpen ? "#1B7FA7" : "transparent",
     color: isOpen ? "ui.white" : null,
+    fontSize: "inherit",
+    fontWeight: 500,
+    minHeight: isMobile ? "50px" : null,
+    minWidth: isMobile ? "50px" : "80px",
+    svg: {
+      marginLeft: isMobile ? "0" : null,
+    },
     _hover: {
       backgroundColor: isOpen ? "#1B7FA7" : "transparent",
       color: isOpen ? "ui.white" : "initial",
+      svg: {
+        fill: isOpen ? "ui.white" : "ui.black",
+      },
     },
     _focus: {
       borderRadius: "none",

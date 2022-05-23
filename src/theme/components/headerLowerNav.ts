@@ -1,6 +1,7 @@
 const lowerNav = {
   alignItems: "center",
   fontSize: "1",
+  marginBottom: "xxs",
   marginLeft: "auto",
   whiteSpace: "nowrap",
   li: {

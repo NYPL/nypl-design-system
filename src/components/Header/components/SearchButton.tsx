@@ -6,24 +6,40 @@ import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import SearchForm from "./SearchForm";
 
-const SearchButton = chakra(() => {
+interface SearchButtonProps {
+  isMobile?: boolean;
+}
+
+const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const styles = useStyleConfig("HeaderSearchButton", { isOpen });
+  const styles = useStyleConfig("HeaderSearchButton", { isMobile, isOpen });
+  const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
+  const buttonTextColor = isOpen
+    ? "ui.white"
+    : isMobile
+    ? "ui.black"
+    : "ui.focus";
 
   return (
     <FocusLock isDisabled={!isOpen}>
       <Button
         aria-haspopup="true"
+        aria-label={isOpen ? "Close Search" : "Open Search"}
         aria-expanded={isOpen ? true : null}
         buttonType="link"
         id="searchButton"
         onClick={() => setIsOpen(!isOpen)}
         __css={styles}
       >
-        {isOpen ? "Close" : "Search"}
-        <Icon align="right" name={isOpen ? "close" : "search"} size="small" />
+        {buttonText}
+        <Icon
+          align={isMobile ? "none" : "right"}
+          color={buttonTextColor}
+          name={isOpen ? "close" : "search"}
+          size={isMobile ? "large" : "medium"}
+        />
       </Button>
-      {isOpen && <SearchForm />}
+      {isOpen && <SearchForm isMobile={isMobile} />}
     </FocusLock>
   );
 });
