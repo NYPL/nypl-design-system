@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `SkipNavigation` to the `Header` component.
 - Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
 - Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
+- Refactors `SearchButton` and `SearchForm` to implement the mobile search form.
 
 ## Prerelease
 

@@ -11,6 +11,11 @@ describe("SearchForm Accessibility", () => {
     const { container } = render(<SearchForm />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for mobile view", async () => {
+    const { container } = render(<SearchForm isMobile />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("SearchForm", () => {
@@ -39,66 +44,114 @@ describe("SearchForm", () => {
     };
   });
 
-  beforeEach(() => {
-    render(<SearchForm />);
-  });
-
   afterAll(() => {
     // Restore the `window.location.assign` method.
     window.location = realLocation;
     // Restore the `Date` class.
     (global as any).Date = realDate;
   });
+  describe("Desktop", () => {
+    beforeEach(() => {
+      render(<SearchForm />);
+    });
 
-  it("renders a form with an input, radio inputs, and a search button", () => {
-    const searchInput = screen.getByRole("textbox");
-    const radioGroup = screen.getByRole("radiogroup");
-    const searchBtn = screen.getByRole("button");
+    it("renders a form with an input, radio inputs, and a search button", () => {
+      const searchInput = screen.getByRole("textbox");
+      const radioGroup = screen.getByRole("radiogroup");
+      const searchBtn = screen.getByRole("button");
 
-    expect(screen.getByRole("form")).toBeInTheDocument();
-    expect(searchInput).toBeInTheDocument();
-    expect(radioGroup).toBeInTheDocument();
-    expect(searchBtn).toBeInTheDocument();
-    expect(searchBtn).toHaveAttribute("aria-label", "Search");
+      expect(screen.getByRole("form")).toBeInTheDocument();
+      expect(searchInput).toBeInTheDocument();
+      expect(radioGroup).toBeInTheDocument();
+      expect(searchBtn).toBeInTheDocument();
+      expect(searchBtn).toHaveAttribute("aria-label", "Search");
+    });
+
+    it("makes a request to the Encore catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const searchBtn = screen.getByRole("button");
+
+      // The default value of the radio button is set to "Search the Catalog".
+      userEvent.type(searchInput, "cats");
+      userEvent.click(searchBtn);
+
+      // The second call to `window.location.assign` should be...
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        1,
+        "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
+    it("makes a request to the web catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const webRadio = screen.getByText("Search NYPL.org");
+      const searchBtn = screen.getByRole("button");
+
+      userEvent.type(searchInput, "cats");
+      // Select the "Search NYPL.org" radio button.
+      userEvent.click(webRadio);
+      userEvent.click(searchBtn);
+
+      // We mock `window.location.assign` before ALL tests and restore after
+      // ALL tests. So we should have two calls to `window.location.assign`.
+      // The second call to `window.location.assign` should be...
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        2,
+        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
+      );
+    });
   });
 
-  it("makes a request to the Encore catalog", () => {
-    const searchInput = screen.getByRole("textbox");
-    const searchBtn = screen.getByRole("button");
+  describe("Mobile", () => {
+    beforeEach(() => {
+      render(<SearchForm isMobile />);
+    });
 
-    // The default value of the radio button is set to "Search the Catalog".
-    userEvent.type(searchInput, "cats");
-    userEvent.click(searchBtn);
+    it("renders a form with an input and two buttons on mobile", () => {
+      const searchInput = screen.getByRole("textbox");
+      const buttons = screen.getAllByRole("button");
 
-    // The second call to `window.location.assign` should be...
-    expect(window.location.assign).toHaveBeenNthCalledWith(
-      1,
-      "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
-    );
-  });
+      expect(screen.getByRole("form")).toBeInTheDocument();
+      expect(searchInput).toBeInTheDocument();
+      expect(buttons).toHaveLength(2);
+      expect(buttons[0]).toHaveTextContent("CATALOG");
+      expect(buttons[1]).toHaveTextContent("NYPL.ORG");
+    });
 
-  it("makes a request to the web catalog", () => {
-    const searchInput = screen.getByRole("textbox");
-    const webRadio = screen.getByText("Search NYPL.org");
-    const searchBtn = screen.getByRole("button");
+    it("makes a request to the Encore catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const catalogButton = screen.getAllByRole("button")[0];
 
-    userEvent.type(searchInput, "cats");
-    // Select the "Search NYPL.org" radio button.
-    userEvent.click(webRadio);
-    userEvent.click(searchBtn);
+      userEvent.type(searchInput, "cats");
+      // Click on the "CATALOG" button.
+      userEvent.click(catalogButton);
 
-    // We mock `window.location.assign` before ALL tests and restore after
-    // ALL tests. So we should have two calls to `window.location.assign`.
-    // The second call to `window.location.assign` should be...
-    expect(window.location.assign).toHaveBeenNthCalledWith(
-      2,
-      "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
-    );
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        3,
+        "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
+    it("makes a request to the web catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const websiteButton = screen.getAllByRole("button")[1];
+
+      userEvent.type(searchInput, "cats");
+      // Click on the "NYPL.ORG" button.
+      userEvent.click(websiteButton);
+
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        4,
+        "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
+      );
+    });
   });
 
   it("renders the UI snapshot correctly", () => {
     const searchForm = renderer.create(<SearchForm />).toJSON();
+    const searchFormMobile = renderer.create(<SearchForm isMobile />).toJSON();
 
     expect(searchForm).toMatchSnapshot();
+    expect(searchFormMobile).toMatchSnapshot();
   });
 });

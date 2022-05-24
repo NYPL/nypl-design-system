@@ -12,24 +12,34 @@ import TextInput from "../../TextInput/TextInput";
 
 import { getEncoreUrl, getCatalogUrl } from "../headerUtils";
 
-const SearchForm = chakra(({ isMobile = false }) => {
+interface SearchFormProps {
+  isMobile?: boolean;
+}
+
+/**
+ * Displays the search form for the Header's search interface. On mobile, two
+ * buttons are displayed and on desktop, two radio inputs are displayed.
+ */
+const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
   const [placeholder, setPlaceholder] = useState<string>(
     "What would you like to find?"
   );
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchOption, setSearchOption] = useState<string>("catalog");
   const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: any, mobileType = "") => {
     e.preventDefault();
     let requestUrl;
 
     // If there is a search input, make the request.
     if (searchInput !== "") {
-      if (searchOption === "catalog") {
+      if (searchOption === "catalog" || mobileType === "catalog") {
         requestUrl = getEncoreUrl(searchInput);
-      } else {
+      }
+      if (searchOption === "website" || mobileType === "website") {
         requestUrl = getCatalogUrl(searchInput);
       }
+
       if (requestUrl) {
         window.location.assign(requestUrl);
         return true;
@@ -92,18 +102,18 @@ const SearchForm = chakra(({ isMobile = false }) => {
               <HStack spacing="0" align="stretch" height="45px">
                 <Button
                   id="mobile-catalog"
-                  onClick={onSubmit}
+                  onClick={(e) => onSubmit(e, "catalog")}
                   __css={styles.mobileBtns}
                 >
-                  Catalog
+                  CATALOG
                   <Icon name="arrow" size="small" iconRotation="rotate270" />
                 </Button>
                 <Button
                   id="mobile-website"
-                  onClick={onSubmit}
+                  onClick={(e) => onSubmit(e, "website")}
                   __css={styles.mobileBtns}
                 >
-                  NYPL.org
+                  NYPL.ORG
                   <Icon name="arrow" size="small" iconRotation="rotate270" />
                 </Button>
               </HStack>
