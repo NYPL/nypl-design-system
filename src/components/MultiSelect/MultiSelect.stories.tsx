@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { action } from "@storybook/addon-actions";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
-//import { MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
 import useMultiSelectState from "./useMultiSelectState";
 
@@ -73,6 +73,13 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
     items
   );
 
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action("onChange")(selectedItems);
+    }
+  }, [selectedItems]);
+
   return (
     <>
       <MultiSelect
@@ -82,7 +89,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
         onChange={(selectedItem) => onChange(selectedItem.id)}
         onClear={() => {
           onClear();
-          console.log("onClear from consuming!");
+          action("onClear")({});
         }}
       />
     </>
@@ -94,6 +101,13 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelectState(args.id, items);
 
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action("onChange")(selectedItems);
+    }
+  }, [selectedItems]);
+
   return (
     <>
       <MultiSelect
@@ -102,15 +116,16 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
         items={items}
         defaultIsOpen={false}
         selectedItems={selectedItems}
-        onChange={(e) => onChange(e.target.id)}
+        onChange={(e) => {
+          onChange(e.target.id);
+        }}
         onMixedStateChange={(e) => onMixedStateChange(e.target.id)}
         onClear={() => {
           onClear();
-          console.log("onClear from consuming!");
+          action("onClear")({});
         }}
         onApply={() => {
-          console.log("onApply from consuming!");
-          console.log(selectedItems);
+          action("onApply")(selectedItems);
         }}
       />
     </>
