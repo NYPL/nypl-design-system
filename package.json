@@ -57,7 +57,7 @@
     }
   ],
   "dependencies": {
-    "@chakra-ui/focus-lock": "1.2.6",
+    "@chakra-ui/focus-lock": ">=1.2.6",
     "@chakra-ui/react": ">=1.8.5 <=1.8.8",
     "@chakra-ui/system": ">=1.11.0 <=1.12.1",
     "@emotion/react": ">=11.4.1",
@@ -69,7 +69,7 @@
     "typescript": "4.3.5"
   },
   "peerDependencies": {
-    "@chakra-ui/focus-lock": "1.2.6",
+    "@chakra-ui/focus-lock": ">=1.2.6",
     "@chakra-ui/react": ">=1.8.5 <=1.8.8",
     "@chakra-ui/system": ">=1.11.0 <=1.12.1",
     "@emotion/react": ">=11.4.1",
