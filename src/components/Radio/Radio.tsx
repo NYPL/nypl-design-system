@@ -4,11 +4,11 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
-import { AriaAttributes } from "../../utils/interfaces";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
+
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
@@ -70,7 +70,13 @@ export const Radio = chakra(
     } = props;
     const styles = useMultiStyleConfig("Radio", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const ariaAttributes: AriaAttributes = {};
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Radio",
+      showLabel,
+    });
 
     if (!id) {
       console.warn(
@@ -78,22 +84,16 @@ export const Radio = chakra(
       );
     }
 
-    if (!showLabel) {
-      if (typeof labelText !== "string") {
-        console.warn(
-          "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
-        );
-      }
-      ariaAttributes["aria-label"] =
-        labelText && footnote
-          ? `${labelText} - ${footnote}`
-          : (labelText as string);
-    } else if (footnote) {
-      ariaAttributes["aria-describedby"] = `${id}-helperText`;
-    }
-
     return (
-      <>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        showHelperInvalidText={showHelperInvalidText}
+        {...rest}
+      >
         <ChakraRadio
           className={className}
           id={id}
@@ -103,24 +103,15 @@ export const Radio = chakra(
           isRequired={isRequired}
           name={name}
           onChange={onChange}
-          value={value}
           ref={ref}
+          value={value}
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
-          {...rest}
         >
           {showLabel && labelText}
         </ChakraRadio>
-        {footnote && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-            __css={styles.helperErrorText}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );
