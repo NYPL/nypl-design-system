@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "./../Button/Button";
-//import { ButtonTypes } from "./../Button/ButtonTypes";
 import Icon from "./../Icons/Icon";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./MultiSelectTypes";

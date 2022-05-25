@@ -61,9 +61,6 @@ const MultiSelect = {
       paddingBottom: "m",
     },
     menu: {
-      /*styleType: "none",
-      marginInlineStart: "0px",
-      */
       paddingX: "xs",
       // Controls the height of the multiselect menu, before scroll bar.
       maxHeight: {
@@ -76,8 +73,6 @@ const MultiSelect = {
       overflowY: {
         base: "auto",
       },
-      // @TODO we need important here to override a focus style coming from
-      // focus.scss file.
       _focus: {
         outline: "0px !important",
       },
