@@ -13,10 +13,9 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
 export interface SliderProps {
@@ -120,7 +119,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
   }
-  const footnote = finalIsInvalid ? invalidText : helperText;
+  // const footnote = finalIsInvalid ? invalidText : helperText;
   const styles = useMultiStyleConfig("CustomSlider", {
     isDisabled,
     isInvalid: finalIsInvalid,
@@ -276,7 +275,16 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   };
 
   return (
-    <Box className={className} __css={styles} {...rest}>
+    <ComponentWrapper
+      className={className}
+      helperText={helperText}
+      id={id}
+      invalidText={invalidText}
+      isInvalid={finalIsInvalid}
+      showHelperInvalidText={showHelperInvalidText}
+      __css={styles}
+      {...rest}
+    >
       {showLabel && (
         <Label
           id={`${id}-label`}
@@ -307,15 +315,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
 
         {showBoxes && getTextInput("end")}
       </Box>
-
-      {footnote && showHelperInvalidText && (
-        <HelperErrorText
-          id={`${id}-helperText`}
-          isInvalid={finalIsInvalid}
-          text={footnote}
-        />
-      )}
-    </Box>
+    </ComponentWrapper>
   );
 });
 

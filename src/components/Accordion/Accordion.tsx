@@ -49,7 +49,8 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
   };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
-  const multiplePadding = data?.length > 1 ? "4" : "initial";
+  const multipleFontSize = data?.length > 1 ? "text.default" : "text.caption";
+  const multiplePadding = data?.length > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -97,7 +98,7 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
                   borderColor: "ui.gray.dark",
                 }}
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" fontSize={multipleFontSize} textAlign="left">
                   {content.label}
                 </Box>
                 {getIcon(isExpanded, index, id)}
