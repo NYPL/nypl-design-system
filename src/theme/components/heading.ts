@@ -4,7 +4,6 @@ const margins = {
   marginTop: "0",
   marginLeft: "0",
   marginRight: "0",
-  marginBottom: "s",
 };
 
 // Heading Styles
@@ -62,11 +61,12 @@ const variants = {
 };
 
 const Heading = {
-  baseStyle: {
+  baseStyle: ({ noSpace }) => ({
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
     a: baseLinkStyles,
-  },
+    marginBottom: noSpace ? "0" : "s",
+  }),
   // Available variants:
   // h1, h2, h3, h4, h5, h6,
   // primary, secondary, tertiary, callout

@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
@@ -7,10 +6,10 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
 
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export type TextInputTypes =
@@ -147,7 +146,13 @@ export const TextInput = chakra(
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
-      let ariaAttributes = {};
+      const ariaAttributes = getAriaAttrs({
+        footnote,
+        id,
+        labelText,
+        name: "TextInput",
+        showLabel,
+      });
       let fieldOutput;
       let options;
 
@@ -155,13 +160,6 @@ export const TextInput = chakra(
         console.warn(
           "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
         );
-      }
-
-      if (!showLabel) {
-        ariaAttributes["aria-label"] =
-          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-      } else if (helperText) {
-        ariaAttributes["aria-describedby"] = `${id}-helperText`;
       }
 
       if (type === "tel" || type === "url" || type === "email") {
@@ -213,7 +211,16 @@ export const TextInput = chakra(
       }
 
       return (
-        <Box __css={styles} className={className} {...rest}>
+        <ComponentWrapper
+          className={className}
+          helperText={helperText}
+          id={id}
+          invalidText={finalInvalidText}
+          isInvalid={isInvalid}
+          showHelperInvalidText={showHelperInvalidText && !isHidden}
+          __css={styles}
+          {...rest}
+        >
           {labelText && showLabel && !isHidden && (
             <Label
               htmlFor={id}
@@ -224,14 +231,7 @@ export const TextInput = chakra(
             </Label>
           )}
           {fieldOutput}
-          {footnote && showHelperInvalidText && !isHidden && (
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          )}
-        </Box>
+        </ComponentWrapper>
       );
     }
   )

@@ -6,7 +6,7 @@ const ComponentWrapper = {
   parts: ["helperErrorText"],
   baseStyle: ({ hasChildren }: ComponentWrapperProps) => ({
     helperErrorText: {
-      marginTop: hasChildren ? "xs" : "0",
+      marginTop: hasChildren ? null : "0",
     },
   }),
 };
