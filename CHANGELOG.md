@@ -30,6 +30,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates various component implementations in Storybook documentation pages to remove inadvertent console errors and warnings.
 - Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
 - Allows `Button`s in the `ButtonGroup` to manage their own `isDisabled` state.
+- Fixes how the `onChange` prop is set in `Checkbox` so it only gets called once per rendering.
 
 ## 1.0.0 (May 12, 2022)
 
