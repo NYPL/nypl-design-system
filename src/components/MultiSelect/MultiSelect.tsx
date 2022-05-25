@@ -16,12 +16,12 @@ interface MultiSelectCommonProps {
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
   width?: "default" | "fitContent" | "full";
-  /** The action to perform for clear/reset button of multiselect.. */
-  onClear?: () => void;
   /** Set the default open or closed state of the multiselect. */
   defaultIsOpen?: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements. */
   isBlockElement?: boolean;
+  /** The action to perform for clear/reset button of multiselect.. */
+  onClear?: () => void;
 }
 
 type MultiSelectVariantsProps =
@@ -71,9 +71,9 @@ export default function MultiSelect({
     items: items,
     selectedItems: selectedItems,
     width: width,
-    onClear: onClear,
     defaultIsOpen: defaultIsOpen,
     isBlockElement: isBlockElement,
+    onClear: onClear,
   };
 
   if (variant === "listbox") {

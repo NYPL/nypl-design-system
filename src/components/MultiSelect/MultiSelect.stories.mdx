@@ -26,9 +26,6 @@ import * as stories from "./MultiSelect.stories.tsx";
     jest: ["MultiSelect.test.tsx"],
   }}
   argTypes={{
-    id: {
-      control: false,
-    },
     label: { table: { default: "" } },
     variant: { table: { default: "listbox" } },
     items: { control: false },
@@ -36,6 +33,18 @@ import * as stories from "./MultiSelect.stories.tsx";
     width: { table: { default: "default" } },
     defaultIsOpen: { table: { default: false } },
     isBlockElement: { table: { default: false } },
+    onApply: {
+      description:
+        "The action to perform for save/apply button of multiselect. `onApply: () => void;`",
+    },
+    onChange: {
+      description:
+        "The action to perform on the checkbox's onChange function. <br /> For dialog: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> For listbox: `onChange: (selectedItem: MultiSelectItem, id: string) => void;`",
+    },
+    onMixedStateChange: {
+      description:
+        "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+    },
   }}
 />
 
@@ -43,8 +52,8 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
-| Added             | `0.25.0`   |
-| Latest            | `0.25.0`   |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
 
 ## Table of Contents
 
@@ -61,12 +70,16 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 ## Component Props
 
+<ArgsTable story="MultiSelect ListBox" />
+
+## MultiSelect Listbox Variant
+
 <Canvas withToolbar>
   <Story
     name="MultiSelect ListBox"
     args={{
       id: "multiselect-listbox",
-      label: "Subject Specialities",
+      label: "MultiSelect Listbox",
       variant: "listbox",
       width: "default",
     }}
@@ -75,16 +88,14 @@ import * as stories from "./MultiSelect.stories.tsx";
   </Story>
 </Canvas>
 
-<ArgsTable story="MultiSelect ListBox" />
-
-## Dialog Variant
+## MultiSelect Dialog Variant
 
 <Canvas withToolbar>
   <Story
     name="MultiSelect Dialog"
     args={{
       id: "multiselect-dialog",
-      label: "Subject Specialities",
+      label: "MultiSelect Dialog",
       variant: "dialog",
       width: "default",
       defaultIsOpen: false,
