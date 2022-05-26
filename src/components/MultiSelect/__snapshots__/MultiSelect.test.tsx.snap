@@ -225,7 +225,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="dogs-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -295,7 +294,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="cats-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -365,7 +363,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="cars-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -435,7 +432,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="colors-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -508,7 +504,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               <div
                 className="css-1xdhyk6"
                 id="red-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -578,7 +573,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               <div
                 className="css-1xdhyk6"
                 id="blue-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -650,7 +644,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="plants-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -720,7 +713,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           <div
             className="css-1xdhyk6"
             id="furniture-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -986,7 +978,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="dogs-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1056,7 +1047,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="cats-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1126,7 +1116,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="cars-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1196,7 +1185,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="colors-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1291,7 +1279,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               <div
                 className="css-1xdhyk6"
                 id="red-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -1364,7 +1351,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               <div
                 className="css-1xdhyk6"
                 id="blue-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -1436,7 +1422,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="plants-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1506,7 +1491,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           <div
             className="css-1xdhyk6"
             id="furniture-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1773,7 +1757,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="dogs-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1843,7 +1826,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="cats-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1913,7 +1895,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="cars-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -1983,7 +1964,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="colors-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -2059,7 +2039,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               <div
                 className="css-1xdhyk6"
                 id="red-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -2132,7 +2111,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               <div
                 className="css-1xdhyk6"
                 id="blue-wrapper"
-                onChange={[Function]}
               >
                 <label
                   className="chakra-checkbox css-scawxr"
@@ -2207,7 +2185,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="plants-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -2277,7 +2254,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           <div
             className="css-1xdhyk6"
             id="furniture-wrapper"
-            onChange={[Function]}
           >
             <label
               className="chakra-checkbox css-scawxr"
@@ -2544,7 +2520,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="dogs-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -2620,7 +2595,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="cats-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -2696,7 +2670,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="cars-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -2772,7 +2745,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="colors-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -2848,7 +2820,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="plants-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -2924,7 +2895,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="furniture-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3132,7 +3102,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="dogs-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3211,7 +3180,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="cats-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3290,7 +3258,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="cars-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3366,7 +3333,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="colors-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3442,7 +3408,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="plants-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
@@ -3518,7 +3483,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="furniture-wrapper"
-          onChange={[Function]}
         >
           <label
             className="chakra-checkbox css-scawxr"
