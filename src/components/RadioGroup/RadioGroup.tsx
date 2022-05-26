@@ -147,9 +147,10 @@ export const RadioGroup = chakra(
           legendText={labelText}
           showRequiredLabel={showRequiredLabel}
           {...rest}
+          __css={styles}
         >
           <ChakraRadioGroup {...radioGroupProps}>
-            <Stack direction={[layout]} spacing={spacingProp} sx={styles.stack}>
+            <Stack direction={[layout]} spacing={spacingProp}>
               {newChildren}
             </Stack>
           </ChakraRadioGroup>

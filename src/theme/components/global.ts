@@ -45,7 +45,7 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
   helperErrorText: {
     marginTop: "xs",
   },
-  stack: {
+  label: {
     width: isFullWidth ? "100%" : "fit-content",
   },
 });
