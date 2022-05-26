@@ -7,6 +7,22 @@ import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
 
+// function ControlledCheckbox() {
+//   const [checked, setChecked] = React.useState(false);
+
+//   return (
+//     <Checkbox
+//       id="controlled-checkbox"
+//       onChange={(e) => {
+//         setChecked(!checked);
+//       }}
+//       labelText="ControlledCheckbox"
+//       showLabel={true}
+//       isChecked={checked}
+//     />
+//   );
+// }
+
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(
@@ -214,6 +230,28 @@ describe("Checkbox", () => {
 
     userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(isChecked).toEqual(false);
+  });
+
+  // This test will fail, because when isChecked is passed along w/ onChange,
+  // onChange is always called twice.
+  it("should call onChange only once when checkbox is clicked", () => {
+    const onChangeMock = jest.fn();
+
+    render(
+      <Checkbox
+        id="onChangeCalledOnce"
+        onChange={onChangeMock}
+        labelText="onChangeTest"
+        showLabel={true}
+        isChecked={false}
+      />
+    );
+
+    expect(
+      screen.getByRole("checkbox", { name: /onchangetest/i })
+    ).toBeInTheDocument();
+    userEvent.click(screen.getByRole("checkbox", { name: /onchangetest/i }));
+    expect(onChangeMock).toBeCalledTimes(1);
   });
 
   it("logs a warning if `labelText` is not a string and `showLabel` is false", () => {
