@@ -48,3 +48,38 @@ export const parseAlertsData = (data: any): Alert[] => {
 
   return filteredAlerts;
 };
+
+export const fetchPatronData = (accessToken, cb) => {
+  const patronApiUrl = "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
+  const fetchErrorMessage =
+    "NYPL Reservoir Header: There was an error fetching NYPL patron data.";
+
+  fetch(`${patronApiUrl}${accessToken}`)
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        throw new Error(fetchErrorMessage);
+      }
+    })
+    .then(cb)
+    .catch((response) => {
+      console.warn(response.message);
+    });
+};
+
+export const extractPatronName = (data) => {
+  try {
+    const {
+      data: {
+        patron: {
+          names: [patronName],
+        },
+      },
+    } = data;
+
+    return patronName;
+  } catch (e) {
+    return null;
+  }
+};

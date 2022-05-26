@@ -1,23 +1,50 @@
 import React from "react";
-import { chakra } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
+import Text from "../../Text/Text";
 import { LoginProps } from "./UpperNav";
 
-const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
+const Login = chakra(({ loginOpen, patronName, setLoginOpen }: LoginProps) => {
+  const PatronGreeting = () =>
+    patronName && (
+      <Box id="patronGreeting">
+        <Text className="greeting">You are logged in as: </Text>
+        <Text className="name">{patronName}</Text>
+      </Box>
+    );
+
+  const LogoutLink = () =>
+    patronName && (
+      <Link
+        href="https://login.nypl.org/auth/logout?redirect_uri=https://browse.nypl.org/iii/encore/myaccount?lang=eng"
+        id="logoutButton"
+        type="button"
+      >
+        <Icon align="left" color="#1B7FA7" name="actionLaunch" size="medium" />
+        Log Out
+      </Link>
+    );
+
   return (
     <FocusLock isDisabled={!loginOpen}>
       <Button
         buttonType="link"
-        className={`withIcon ${loginOpen ? "closeLoginButton" : "loginButton"}`}
+        className={`withIcon ${
+          loginOpen
+            ? "closeLoginButton"
+            : patronName
+            ? "accountButton"
+            : "loginButton"
+        }`}
         id="loginButton"
         onClick={() => setLoginOpen(!loginOpen)}
       >
-        {loginOpen ? "Close" : "Log In"}
+        {loginOpen ? "Close" : patronName ? "My Account" : "Log In"}
         <Icon align="right" name={loginOpen ? "close" : "arrow"} size="small" />
       </Button>
       {loginOpen && (
@@ -27,7 +54,13 @@ const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
           noStyling
           type="ul"
           listItems={[
-            <Link id="logInCatalog" key="logInCatalog" href="#" type="button">
+            <PatronGreeting key="patronGreeting" />,
+            <Link
+              id="logInCatalog"
+              key="logInCatalog"
+              href="https://browse.nypl.org/iii/encore/myaccount"
+              type="button"
+            >
               <Icon
                 align="left"
                 color="ui.white"
@@ -36,7 +69,7 @@ const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
                 size="medium"
                 title="Log in to your account"
               />
-              Log Into The Catalog
+              {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
             </Link>,
             <Link
               id="logInResearchCatalog"
@@ -52,8 +85,11 @@ const Login = chakra(({ loginOpen, setLoginOpen }: LoginProps) => {
                 size="medium"
                 title="Log in to your account"
               />
-              Log Into The Research Catalog
+              {patronName
+                ? "Go To The Research Catalog"
+                : "Log Into The Research Catalog"}
             </Link>,
+            <LogoutLink key="logoutLink" />,
           ]}
         />
       )}

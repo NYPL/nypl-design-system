@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import {
   chakra,
   Box,
@@ -8,6 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import { extractPatronName, fetchPatronData } from "./headerUtils";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
@@ -35,6 +37,23 @@ export const Header = chakra(() => {
   });
 
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
+  const [patronName, setPatronName] = useState<string>("");
+
+  useEffect(() => {
+    const hasCookie = Cookies.get("nyplIdentityPatron");
+
+    if (hasCookie) {
+      const accessToken = JSON.parse(hasCookie).access_token;
+      if (!patronDataReceived) {
+        fetchPatronData(accessToken, (data) => {
+          const fullName = extractPatronName(data);
+          setPatronName(fullName);
+          setPatronDataReceived(true);
+        });
+      }
+    }
+  }, []);
 
   return (
     <Box __css={styles.container}>
@@ -56,8 +75,12 @@ export const Header = chakra(() => {
           </Link>
           <Spacer />
           {!isWidthMobile ? (
-            <VStack spacing="65px">
-              <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <VStack alignItems="end" spacing="65px">
+              <UpperNav
+                patronName={patronName}
+                loginOpen={loginOpen}
+                setLoginOpen={setLoginOpen}
+              />
               <LowerNav />
             </VStack>
           ) : (
