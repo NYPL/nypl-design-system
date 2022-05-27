@@ -28,7 +28,7 @@ const MultiSelectMenuButton = React.forwardRef<
   const styles = useMultiStyleConfig("MultiSelect", {});
   const iconType = isOpen ? "minus" : "plus";
 
-  // Sets the selected items count on the menu button
+  // Sets the selected items count on the menu button.
   function getSelectedItemsCount(multiSelectId: string) {
     if (selectedItems[multiSelectId]?.items.length > 0) {
       return `${selectedItems[multiSelectId].items.length}`;

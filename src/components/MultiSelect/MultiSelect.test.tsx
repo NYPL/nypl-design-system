@@ -3,9 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
-// Component
 import MultiSelect from "./MultiSelect";
-// Type
 import { MultiSelectItem } from "./MultiSelectTypes";
 
 const items = [
@@ -53,6 +51,7 @@ const MultiSelectTestComponent = (componentId) => {
       },
     });
   }
+
   function handleMixedStateChange(parentId: string) {
     const multiSelectId = componentId;
     // Build an array of child items.
@@ -91,6 +90,7 @@ const MultiSelectTestComponent = (componentId) => {
       },
     });
   }
+
   return (
     <MultiSelect
       id={componentId}
@@ -207,6 +207,7 @@ describe("MultiSelect Dialog", () => {
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
   });
+
   // Not sure this can be tested
   // it("should have block behavior if isBlockElement is true", () => {
   //   const { container } = render(
@@ -240,7 +241,7 @@ describe("MultiSelect Dialog", () => {
       />
     );
 
-    // Open
+    // Open multiselect.
     userEvent.click(
       screen.getByRole("button", {
         name: /multiselect label/i,
@@ -252,7 +253,7 @@ describe("MultiSelect Dialog", () => {
       container.querySelector("#some-id").getAttribute("aria-modal")
     ).toEqual("true");
 
-    // Close
+    // Close multiselect.
     userEvent.click(
       screen.getByRole("button", {
         name: /multiselect label/i,
@@ -266,7 +267,6 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should call onChange when an item without child items or a child item is selected/unselected", () => {
-    // Create mock functions
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
 
@@ -283,7 +283,7 @@ describe("MultiSelect Dialog", () => {
         onApply={() => null}
       />
     );
-    // Open menu
+    // Open multiselect menu.
     userEvent.click(
       screen.getByRole("button", {
         name: /multiselect label/i,
@@ -303,7 +303,6 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should call onMixedStateChange when a parent item is selected/unselected", () => {
-    // Create mock functions
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
 

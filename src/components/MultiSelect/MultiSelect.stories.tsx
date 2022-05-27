@@ -4,7 +4,6 @@ import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import { Story } from "@storybook/react/types-6-0";
 import useMultiSelectState from "./useMultiSelectState";
 
-// @TODO export this, so FilterBar story can use it.
 const items = [
   {
     id: "art",
@@ -81,18 +80,16 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
   }, [selectedItems]);
 
   return (
-    <>
-      <MultiSelect
-        {...args}
-        items={items}
-        selectedItems={selectedItems}
-        onChange={(selectedItem) => onChange(selectedItem.id)}
-        onClear={() => {
-          onClear();
-          action("onClear")({});
-        }}
-      />
-    </>
+    <MultiSelect
+      {...args}
+      items={items}
+      selectedItems={selectedItems}
+      onChange={(selectedItem) => onChange(selectedItem.id)}
+      onClear={() => {
+        onClear();
+        action("onClear")({});
+      }}
+    />
   );
 };
 
@@ -109,25 +106,23 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   }, [selectedItems]);
 
   return (
-    <>
-      <MultiSelect
-        {...args}
-        variant="dialog"
-        items={items}
-        defaultIsOpen={false}
-        selectedItems={selectedItems}
-        onChange={(e) => {
-          onChange(e.target.id);
-        }}
-        onMixedStateChange={(e) => onMixedStateChange(e.target.id)}
-        onClear={() => {
-          onClear();
-          action("onClear")({});
-        }}
-        onApply={() => {
-          action("onApply")(selectedItems);
-        }}
-      />
-    </>
+    <MultiSelect
+      {...args}
+      variant="dialog"
+      items={items}
+      defaultIsOpen={false}
+      selectedItems={selectedItems}
+      onChange={(e) => {
+        onChange(e.target.id);
+      }}
+      onMixedStateChange={(e) => onMixedStateChange(e.target.id)}
+      onClear={() => {
+        onClear();
+        action("onClear")({});
+      }}
+      onApply={() => {
+        action("onApply")(selectedItems);
+      }}
+    />
   );
 };

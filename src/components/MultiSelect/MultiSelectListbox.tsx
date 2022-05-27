@@ -30,7 +30,7 @@ function MultiSelectListbox({
     width,
     isBlockElement,
   });
-  // Downshift
+  // Downshift.
   const {
     isOpen,
     getToggleButtonProps,
