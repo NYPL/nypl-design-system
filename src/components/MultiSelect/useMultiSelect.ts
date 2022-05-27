@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { MultiSelectItem } from "./MultiSelectTypes";
+import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
-export default function useMultiSelectState(multiSelectId, items) {
-  const [selectedItems, setSelectedItems] = useState({});
+export default function useMultiSelect(multiSelectId, items) {
+  const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>({});
 
   function handleChange(itemId: string) {
     let itemIds;
-    // Check if the id already exists in the state
+    // Check if the id already exists in the state.
     if (selectedItems[multiSelectId] !== undefined) {
       let itemIdExists =
         selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
+      // Make a copy of the existing items array.
       itemIds = selectedItems[multiSelectId].items.slice();
       // If id exists, remove it from the array.
       if (itemIdExists) {
@@ -23,6 +23,7 @@ export default function useMultiSelectState(multiSelectId, items) {
       itemIds = [];
       itemIds.push(itemId);
     }
+
     setSelectedItems({
       ...selectedItems,
       [multiSelectId]: {
@@ -61,6 +62,7 @@ export default function useMultiSelectState(multiSelectId, items) {
     } else {
       newItems = childItems;
     }
+
     setSelectedItems({
       ...selectedItems,
       [multiSelectId]: {

@@ -11,7 +11,7 @@ import { HStack } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
-import useMultiSelectState from "./useMultiSelectState";
+import useMultiSelect from "./useMultiSelect";
 import * as stories from "./MultiSelect.stories.tsx";
 
 <Meta
@@ -62,7 +62,7 @@ import * as stories from "./MultiSelect.stories.tsx";
 - [Dialog Variant](#dialog-variant)
 - [Accessibility](#accessibility)
 - [Using the items prop](#use-the-items-prop)
-- [Using useMultiSelectState](#use-useMultiSelectState)
+- [Using useMultiSelect](#use-useMultiSelect)
 
 ## Overview
 
@@ -282,9 +282,9 @@ function MultiSelectControlledExample() {
 export default MultiSelectControlledExample;
 ```
 
-## useMultiSelectState Hook
+## useMultiSelect Hook
 
-`useMultiSelectState` is an optional hook provided by the component, for
+`useMultiSelect` is an optional hook provided by the component, for
 cases where managing the state of the component in the consuming app is less
 of a concern and general ease of use is prefered.
 
@@ -295,13 +295,13 @@ the `selectedItems` state for use in your consuming application.
 ```jsx
 import React from "react";
 import MultiSelect from "./MultiSelect";
-import useMultiSelectState from "./MultiSelect/useMultiSelectState";
+import useMultiSelect from "./MultiSelect/useMultiSelect";
 
 export default function MultiSelectWithHookExample() {
   const multiSelectId = "multi-select-1";
   // Without this hook, you'd have to add handlers for onChange and onClear,
   // and also manage the selectedItems state yourself.
-  const { onChange, onClear, selectedItems } = useMultiSelectState(
+  const { onChange, onClear, selectedItems } = useMultiSelect(
     multiSelectId,
     items
   );

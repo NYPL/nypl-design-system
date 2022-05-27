@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { action } from "@storybook/addon-actions";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import { Story } from "@storybook/react/types-6-0";
-import useMultiSelectState from "./useMultiSelectState";
+import useMultiSelect from "./useMultiSelect";
 
 const items = [
   {
@@ -66,11 +66,8 @@ const items = [
 ];
 
 export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
-  // Example with custom hook useMultiSelectState.
-  const { onChange, onClear, selectedItems } = useMultiSelectState(
-    args.id,
-    items
-  );
+  // Example with custom hook useMultiSelect.
+  const { onChange, onClear, selectedItems } = useMultiSelect(args.id, items);
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -94,9 +91,9 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
 };
 
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
-  // Example with custom hook useMultiSelectState.
+  // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
-    useMultiSelectState(args.id, items);
+    useMultiSelect(args.id, items);
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
