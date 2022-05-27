@@ -21,7 +21,6 @@ import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
-import FilterBar from "./components/filterBar";
 import MultiSelect from "./components/multiSelect";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -94,7 +93,6 @@ const theme = extendTheme({
     CustomSelect,
     DatePicker,
     Fieldset,
-    FilterBar,
     Heading,
     HelperErrorText,
     Hero,
