@@ -44,6 +44,7 @@ const MultiSelectTestComponent = (componentId) => {
       itemIds = [];
       itemIds.push(itemId);
     }
+
     setSelectedItems({
       ...selectedItems,
       [multiSelectId]: {
@@ -83,6 +84,7 @@ const MultiSelectTestComponent = (componentId) => {
     } else {
       newItems = childItems;
     }
+
     setSelectedItems({
       ...selectedItems,
       [multiSelectId]: {
