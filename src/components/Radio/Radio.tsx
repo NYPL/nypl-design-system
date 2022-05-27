@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
@@ -68,7 +69,7 @@ export const Radio = chakra(
       value,
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("Radio", {});
+    const styles = useMultiStyleConfig("Radio", { showLabel });
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
@@ -77,6 +78,9 @@ export const Radio = chakra(
       name: "Radio",
       showLabel,
     });
+    // We can't use the aria-label because of how Chakra renders its
+    // Radio component. Instead, we'll visually hide the label.
+    delete ariaAttributes["aria-label"];
 
     if (!id) {
       console.warn(
@@ -109,7 +113,9 @@ export const Radio = chakra(
           __css={styles}
           {...ariaAttributes}
         >
-          {showLabel && labelText}
+          <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>
+            {labelText}
+          </Box>
         </ChakraRadio>
       </ComponentWrapper>
     );

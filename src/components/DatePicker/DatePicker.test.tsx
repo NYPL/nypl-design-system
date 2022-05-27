@@ -35,12 +35,35 @@ describe("DatePicker Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility with hidden label", async () => {
+    const { container } = render(
+      <DatePicker
+        id="datePicker"
+        labelText="Select the date you want to visit NYPL"
+        showLabel={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility for a date range", async () => {
     const { container } = render(
       <DatePicker
         id="datePicker"
-        labelText="Select the date range you want to visit NYPL"
         isDateRange
+        labelText="Select the date range you want to visit NYPL"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for a date range with hidden label", async () => {
+    const { container } = render(
+      <DatePicker
+        id="datePicker"
+        isDateRange
+        labelText="Select the date range you want to visit NYPL"
+        showLabel={false}
       />
     );
     expect(await axe(container)).toHaveNoViolations();

@@ -10,6 +10,13 @@ import Checkbox from "./Checkbox";
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(
+      <Checkbox id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
       <Checkbox
         id="inputID"
         onChange={jest.fn()}
