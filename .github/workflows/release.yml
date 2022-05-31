@@ -57,6 +57,6 @@ jobs:
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Publish
-        run: npm publish --access public
+        run: npm install -g npm@latest && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
