@@ -118,7 +118,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
     console.warn(
-      "NYPL Reservoir Slider: The RangeSlider's first value is larger than the second value."
+      "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
     );
   }
   if (min > max) {

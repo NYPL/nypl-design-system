@@ -648,7 +648,7 @@ describe("Slider", () => {
         "true"
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Slider: The RangeSlider's first value is larger than the second value."
+        "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
       );
     });
 
