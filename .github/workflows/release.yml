@@ -54,9 +54,7 @@ jobs:
         with:
           node-version: 14.x
           registry-url: "https://registry.npmjs.org"
-      - name: Cache and install node modules
-        uses: bahmutov/npm-install@v1
       - name: Publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
