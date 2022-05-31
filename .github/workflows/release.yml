@@ -54,6 +54,7 @@ jobs:
         with:
           node-version: 14.x
           registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest && npm install
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
