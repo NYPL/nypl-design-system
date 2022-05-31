@@ -37,6 +37,7 @@ interface CardLinkBoxProps {
   id?: string;
   /** Main link to use when the full `Card` component should be clickable. */
   mainActionLink?: string;
+  /** Additional object for styling the `Card`'s `div` wrapper. */
   styles?: any;
 }
 
