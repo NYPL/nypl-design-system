@@ -2,7 +2,8 @@
 
 exports[`Select Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -96,7 +97,8 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
 
 exports[`Select Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -191,7 +193,8 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
 
 exports[`Select Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -211,6 +214,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       className="chakra-select__wrapper css-42b2qy"
     >
       <select
+        aria-describedby="select-helperText"
         aria-invalid={true}
         className="chakra-select css-1ik61og"
         disabled={false}
@@ -284,7 +288,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1mpebub"
+    className="css-1sax8hu"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Tom doesn't count as a sibling :(.",
@@ -298,7 +302,8 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
 
 exports[`Select Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -391,7 +396,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className="css-1mpebub"
+    className="css-1sax8hu"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Remember, Logan will judge you no matter who you pick.",
@@ -405,7 +410,8 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
 
 exports[`Select Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -503,7 +509,8 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
 
 exports[`Select Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -601,7 +608,8 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
 
 exports[`Select Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="select-wrapper"
 >
   <div
     className="css-0"
@@ -697,7 +705,8 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
 
 exports[`Select Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-kle7zy"
+  className="css-1y4kn3e"
+  id="chakra-wrapper"
 >
   <div
     className="css-0"
@@ -791,8 +800,9 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
 
 exports[`Select Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="props"
+  id="props-wrapper"
 >
   <div
     className="css-0"

@@ -6,12 +6,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState, useRef } from "react";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
-import { AriaAttributes } from "../../utils/interfaces";
+import { getAriaAttrs } from "../../utils/utils";
 
 export type SelectTypes = "default" | "searchbar";
 export type LabelPositions = "default" | "inline";
@@ -89,7 +88,6 @@ export const Select = chakra(
         value = "",
         ...rest
       } = props;
-      const ariaAttributes: AriaAttributes = {};
       const [labelWidth, setLabelWidth] = useState<number>(0);
       const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("CustomSelect", {
@@ -100,6 +98,13 @@ export const Select = chakra(
         ? invalidText
         : "There is an error related to this field.";
       const footnote = isInvalid ? finalInvalidText : helperText;
+      const ariaAttributes = getAriaAttrs({
+        footnote,
+        id,
+        labelText,
+        name: "Select",
+        showLabel,
+      });
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};
@@ -107,13 +112,6 @@ export const Select = chakra(
       // The number of pixels between the label and select elements
       // when the labelPosition is inline (equivalent to --nypl-space-xs).
       const labelSelectGap = 8;
-
-      if (!showLabel) {
-        ariaAttributes["aria-label"] =
-          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-      } else if (helperText) {
-        ariaAttributes["aria-describedby"] = `${id}-helperText`;
-      }
 
       if (!id) {
         console.warn(
@@ -133,7 +131,19 @@ export const Select = chakra(
       }, [labelPosition]);
 
       return (
-        <Box className={className} __css={styles} {...rest}>
+        <ComponentWrapper
+          className={className}
+          helperText={helperText}
+          helperTextStyles={{
+            marginLeft: { sm: "auto", md: `${labelWidth}px` },
+          }}
+          id={id}
+          invalidText={finalInvalidText}
+          isInvalid={isInvalid}
+          showHelperInvalidText={showHelperInvalidText}
+          __css={styles}
+          {...rest}
+        >
           <Box __css={labelPosition === "inline" && styles.inline}>
             {showLabel && (
               <Box ref={labelRef}>
@@ -164,15 +174,7 @@ export const Select = chakra(
               {children}
             </ChakraSelect>
           </Box>
-          {footnote && showHelperInvalidText && (
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-              ml={{ sm: "auto", md: `${labelWidth}px` }}
-            />
-          )}
-        </Box>
+        </ComponentWrapper>
       );
     }
   )

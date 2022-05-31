@@ -100,6 +100,16 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       return null;
     }
 
+    for (let i = 1; i < tableData.length; i++) {
+      if (tableData[0].length !== tableData[i].length) {
+        console.warn(
+          "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
+            "The `Table` component may not render properly."
+        );
+        break;
+      }
+    }
+
     return (
       <ChakraTbody>
         {tableData.map((row, index) => (
@@ -118,6 +128,17 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       </ChakraTbody>
     );
   };
+
+  for (let j = 0; j < tableData.length; j++) {
+    if (columnHeaders.length !== tableData[j].length) {
+      console.warn(
+        "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
+          "to the number of columns in the data table. " +
+          "The `Table` component may not render properly."
+      );
+      break;
+    }
+  }
 
   return (
     <ChakraTable id={id} sx={styles} className={className} {...rest}>

@@ -15,6 +15,14 @@ export const columnHeaders = [
   "Zipcode",
   "State",
 ];
+export const columnHeadersUneven = [
+  "First Name",
+  "Last Name",
+  "Nick Name",
+  "Address1",
+  "City",
+  "Zipcode",
+];
 export const tableData = [
   ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
   ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
@@ -28,6 +36,12 @@ export const tableData = [
     "09873",
     "NY",
   ],
+];
+export const tableDataUneven = [
+  ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
+  ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
+  ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"],
+  ["Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873"],
 ];
 export const characterHeaders = ["First Name", "Last Name", "Avatar"];
 export const charactersData = [
@@ -112,6 +126,25 @@ describe("Table", () => {
     render(<Table tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
+    );
+  });
+
+  it("logs a warning when the columns in each `tableData` row are not identical", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table tableData={tableDataUneven} columnHeaders={columnHeaders} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
+        "The `Table` component may not render properly."
+    );
+  });
+
+  it("logs a warning when the column headers `columnHeaders` is not equal the number of columns in the data table", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table tableData={tableData} columnHeaders={columnHeadersUneven} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
+        "to the number of columns in the data table. " +
+        "The `Table` component may not render properly."
     );
   });
 
