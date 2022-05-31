@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 export interface Alert {
   id: string;
   link: string;
@@ -49,6 +50,23 @@ export const parseAlertsData = (data: any): Alert[] => {
   return filteredAlerts;
 };
 
+/**
+ * getCookieValue uses the js.cookie package to get the value
+ * of the nyplIdentityPatron cookie (if it exists) and extract
+ * the cookie's access_token.
+ */
+export const getCookieValue = () => {
+  const cookieValue = Cookies.get("nyplIdentityPatron");
+  const accessToken = cookieValue ? JSON.parse(cookieValue).access_token : "";
+
+  return { cookieValue, accessToken };
+};
+
+/**
+ * fetchPatronData uses the patronApiUrl combined with the
+ * access_token from the nyplIdentityPatron cookie to fetch
+ * the patron's information from the server.
+ */
 export const fetchPatronData = (accessToken, cb) => {
   const patronApiUrl = "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
   const fetchErrorMessage =
@@ -63,8 +81,8 @@ export const fetchPatronData = (accessToken, cb) => {
       }
     })
     .then(cb)
-    .catch((response) => {
-      console.warn(response.message);
+    .catch(() => {
+      console.warn(fetchErrorMessage);
     });
 };
 
@@ -80,6 +98,6 @@ export const extractPatronName = (data) => {
 
     return patronName;
   } catch (e) {
-    return null;
+    return "";
   }
 };

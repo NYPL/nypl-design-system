@@ -83,6 +83,7 @@ const upperNav = {
       },
     },
     "#patronGreeting": {
+      alignSelf: "flex-start",
       color: "ui.white",
       fontSize: "14px",
       fontWeight: 500,
@@ -97,6 +98,7 @@ const upperNav = {
       },
     },
     "#logoutButton": {
+      alignSelf: "flex-start",
       bg: "ui.white",
       color: "#1B7FA7",
     },

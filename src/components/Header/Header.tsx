@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import {
   chakra,
   Box,
@@ -9,7 +8,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import { extractPatronName, fetchPatronData } from "./headerUtils";
+import {
+  extractPatronName,
+  fetchPatronData,
+  getCookieValue,
+  // modelPatronName,
+} from "./headerUtils";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
@@ -41,10 +45,8 @@ export const Header = chakra(() => {
   const [patronName, setPatronName] = useState<string>("");
 
   useEffect(() => {
-    const hasCookie = Cookies.get("nyplIdentityPatron");
-
-    if (hasCookie) {
-      const accessToken = JSON.parse(hasCookie).access_token;
+    const { cookieValue, accessToken } = getCookieValue();
+    if (cookieValue) {
       if (!patronDataReceived) {
         fetchPatronData(accessToken, (data) => {
           const fullName = extractPatronName(data);
