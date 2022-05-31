@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.1 (May 31, 2022)
+
 ### Adds
 
 - Adds `noSpace` prop to the `Heading` component.
@@ -20,8 +22,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates all QA urls from Tugboat QA to Vercel.
 - Updates the `Logo` component to include new variants for `Apple App Store`, `Clever Badge` and `Google Play`.
 - Pins the Chakra UI "react" and "system" packages to a certain range since Chakra v2 uses React 18 and creates backwards compatibility issues.
-- Updates buttons setup as icon only to get the same hover styles as `secondary` button in the Button component.
-- Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider, `TextInput`, and `Toggle`components to use the`ComponentWrapper` component for similar DOM structure.
+- Updates buttons setup as icon only to get the same hover styles as `secondary` button in the `Button` component.
+- Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components to use the `ComponentWrapper` component for similar DOM structure.
 - Updates how `CheckboxGroup` and `RadioGroup` handle `Checkbox` and `Radio` components when `isFullWidth` is true and there is JSX as labels.
 
 ### Fixes
