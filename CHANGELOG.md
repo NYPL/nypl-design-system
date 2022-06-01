@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
 - Adds the `SkipNavigation` to the `Header` component.
 - Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
+- Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
 
 ## Prerelease
 
