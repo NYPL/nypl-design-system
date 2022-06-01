@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.2 (June 1, 2022)
+
 ### Adds
 
 - Adds `noSpace` prop to the `Heading` component.
@@ -20,8 +22,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates all QA urls from Tugboat QA to Vercel.
 - Updates the `Logo` component to include new variants for `Apple App Store`, `Clever Badge` and `Google Play`.
 - Pins the Chakra UI "react" and "system" packages to a certain range since Chakra v2 uses React 18 and creates backwards compatibility issues.
-- Updates buttons setup as icon only to get the same hover styles as `secondary` button in the Button component.
-- Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider, `TextInput`, and `Toggle`components to use the`ComponentWrapper` component for similar DOM structure.
+- Updates buttons setup as icon only to get the same hover styles as `secondary` button in the `Button` component.
+- Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components to use the `ComponentWrapper` component for similar DOM structure.
+- Updates how `CheckboxGroup` and `RadioGroup` handle `Checkbox` and `Radio` components when `isFullWidth` is true and there is JSX as labels.
 
 ### Fixes
 
@@ -30,6 +33,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates various component implementations in Storybook documentation pages to remove inadvertent console errors and warnings.
 - Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
 - Allows `Button`s in the `ButtonGroup` to manage their own `isDisabled` state.
+- Fixes how the `onChange` prop is set in `Checkbox` so it only gets called once per rendering.
+
+## 1.0.1 (May 31, 2022)
+
+_NOTE_: This version number was previously released in 2019 and is marked as deprecated in npm. The next version bump from `1.0.0` is `1.0.2`.
 
 ## 1.0.0 (May 12, 2022)
 

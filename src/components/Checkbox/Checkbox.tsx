@@ -55,10 +55,6 @@ export interface CheckboxProps extends CheckboxIconProps {
   value?: string;
 }
 
-export const onChangeDefault = () => {
-  return;
-};
-
 function CheckboxIcon(props: CheckboxIconProps) {
   // We don't need the `isIndeterminate` or `isChecked` props but it
   // causes rendering issues on the SVG element, so we remove them
@@ -89,6 +85,7 @@ export const Checkbox = chakra(
       isRequired = false,
       labelText,
       name,
+      onChange,
       showHelperInvalidText = true,
       showLabel = true,
       value,
@@ -96,7 +93,6 @@ export const Checkbox = chakra(
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const onChange = props.onChange || onChangeDefault;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
     const ariaAttributes = getAriaAttrs({
