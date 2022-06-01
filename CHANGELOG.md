@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
+- Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
 
 ## 1.0.2 (June 1, 2022)
 
@@ -33,7 +34,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates buttons setup as icon only to get the same hover styles as `secondary` button in the `Button` component.
 - Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components to use the `ComponentWrapper` component for similar DOM structure.
 - Updates how `CheckboxGroup` and `RadioGroup` handle `Checkbox` and `Radio` components when `isFullWidth` is true and there is JSX as labels.
-- Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
 
 ### Fixes
 
