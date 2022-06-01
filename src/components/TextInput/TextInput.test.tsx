@@ -21,6 +21,21 @@ describe("TextInput Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <TextInput
+        id="textInput"
+        isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        showLabel={false}
+        type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
