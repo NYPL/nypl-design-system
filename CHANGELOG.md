@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
+
 ## 1.0.2 (June 1, 2022)
 
 ### Adds
