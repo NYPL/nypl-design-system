@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
+- Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
 
 ### Updates
 
@@ -24,7 +25,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `noSpace` prop to the `Heading` component.
 - Adds validation for equal headers and data column to the `Table` component.
 - Adds `className`, `helperTextStyles`, and `showHelperInvalidText` props to the `ComponentWrapper` component.
-- Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
 
 ### Updates
 
