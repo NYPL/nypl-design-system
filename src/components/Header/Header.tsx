@@ -12,7 +12,6 @@ import {
   extractPatronName,
   fetchPatronData,
   getCookieValue,
-  // modelPatronName,
 } from "./headerUtils";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
