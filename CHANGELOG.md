@@ -8,7 +8,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 1.0.1 (May 31, 2022)
+## 1.0.2 (June 1, 2022)
 
 ### Adds
 
@@ -34,6 +34,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
 - Allows `Button`s in the `ButtonGroup` to manage their own `isDisabled` state.
 - Fixes how the `onChange` prop is set in `Checkbox` so it only gets called once per rendering.
+
+## 1.0.1 (May 31, 2022)
+
+_NOTE_: This version number was previously released in 2019 and is marked as deprecated in npm. The next version bump from `1.0.0` is `1.0.2`.
 
 ## 1.0.0 (May 12, 2022)
 
