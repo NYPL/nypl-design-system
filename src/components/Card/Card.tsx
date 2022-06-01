@@ -30,7 +30,7 @@ interface CardBaseProps {
   layout?: LayoutTypes;
 }
 
-interface CardLinkBoxProps {
+interface CardWrapperProps {
   /** Optional CSS class name to add. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -62,7 +62,7 @@ interface CardImageComponentProps extends CardBaseProps, ImageProps {
   isAtEnd?: boolean;
 }
 
-export interface CardProps extends CardBaseProps, CardLinkBoxProps {
+export interface CardProps extends CardBaseProps, CardWrapperProps {
   /** Optional hex color value used to set the card background color. */
   backgroundColor?: string;
   /** Optional hex color value used to override the default text color. */
@@ -158,7 +158,7 @@ export const CardActions = chakra(
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-const CardLinkBox = chakra(
+const CardWrapper = chakra(
   ({
     className,
     children,
@@ -166,8 +166,8 @@ const CardLinkBox = chakra(
     mainActionLink,
     styles,
     ...rest
-  }: React.PropsWithChildren<CardLinkBoxProps>) => {
-    return mainActionLink ? (
+  }: React.PropsWithChildren<CardWrapperProps>) =>
+    mainActionLink ? (
       <ChakraLinkBox id={id} className={className} sx={styles} {...rest}>
         {children}
       </ChakraLinkBox>
@@ -175,21 +175,20 @@ const CardLinkBox = chakra(
       <Box id={id} className={className} __css={styles} {...rest}>
         {children}
       </Box>
-    );
-  }
+    )
 );
 
 /**
  * If `mainActionLink` is passed, then this adds Chakra's `LinkOverlay` around
  * text that should be linked, in this case the `CardHeading` text. This works
- * together with the `CardLinkBox` component to provide a clickable overlay to
+ * together with the `CardWrapper` component to provide a clickable overlay to
  * the `Card` component while still allowing links in the `CardActions` to be
  * clickable.
  */
 function CardLinkOverlay({
   children,
   mainActionLink,
-}: React.PropsWithChildren<CardLinkBoxProps>) {
+}: React.PropsWithChildren<CardWrapperProps>) {
   return mainActionLink ? (
     <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
   ) : (
@@ -316,7 +315,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   );
 
   return (
-    <CardLinkBox
+    <CardWrapper
       id={id}
       className={className}
       mainActionLink={mainActionLink}
@@ -350,7 +349,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
           {cardRightContents}
         </Box>
       ) : null}
-    </CardLinkBox>
+    </CardWrapper>
   );
 });
 
