@@ -225,7 +225,7 @@ describe("Patron API call fails", () => {
 
     document.getElementById("chakra-toast-portal")?.remove();
 
-    // If call fails, the Header should render the logged out state.
+    // If the call fails, the Header should render the logged out state.
     const upperList = await screen.getAllByRole("list")[2];
     const upperLinks = within(upperList).getAllByRole("listitem");
     const firstListElement = within(upperLinks[0]).getByRole("button");

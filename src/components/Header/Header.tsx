@@ -55,7 +55,7 @@ export const Header = chakra(() => {
         });
       }
     }
-  }, []);
+  }, [patronDataReceived]);
 
   return (
     <Box __css={styles.container}>
