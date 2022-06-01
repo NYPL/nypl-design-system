@@ -44,6 +44,17 @@ export const Header = chakra(() => {
   const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
 
+  // Allows user to use esc key to close the login menu.
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        setLoginOpen(false);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   useEffect(() => {
     const { cookieValue, accessToken } = getCookieValue();
     if (cookieValue) {
