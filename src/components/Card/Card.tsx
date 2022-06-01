@@ -10,12 +10,7 @@ import * as React from "react";
 
 import { LayoutTypes } from "../../helpers/types";
 import Heading from "../Heading/Heading";
-import Image, {
-  ComponentImageProps,
-  ImageProps,
-  ImageSizes,
-} from "../Image/Image";
-import useWindowSize from "../../hooks/useWindowSize";
+import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 
 interface CustomColorProps {
   backgroundColor?: string;
@@ -210,16 +205,12 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     ...rest
   } = props;
   const hasImage = imageProps.src || imageProps.component;
-  const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
-    imageProps.size || "default"
-  );
   const finalImageAspectRatio = imageProps.component
     ? "original"
     : imageProps.aspectRatio;
   const customColors: CustomColorProps = {};
   const cardContents: JSX.Element[] = [];
   const cardRightContents: JSX.Element[] = [];
-  const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
   if (imageProps.component && imageProps.aspectRatio) {
@@ -229,18 +220,6 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
         "of the aspect ratio on `imageProps.component` prop."
     );
   }
-
-  // The `Card`'s image should always display as 100% width on mobile. To
-  // achieve this, we set the size to `"default"` only when the
-  // viewport is less than "600px". Otherwise, we set the size to
-  // the value passed in via `imageSize`.
-  React.useEffect(() => {
-    if (windowDimensions.width < 600) {
-      setFinalImageSize("default");
-    } else {
-      setFinalImageSize(imageProps.size);
-    }
-  }, [windowDimensions.width, imageProps.size]);
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
@@ -323,7 +302,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
             credit={imageProps.credit}
             isAtEnd={imageProps.isAtEnd}
             layout={layout}
-            size={finalImageSize}
+            size={imageProps.size}
             src={imageProps.src ? imageProps.src : undefined}
           />
         )}
