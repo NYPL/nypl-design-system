@@ -65,6 +65,7 @@ const categories = {
       "Form",
       "Label",
       "MultiSelect",
+      "MultiSelectGroup",
       "NumberInput",
       "Radio",
       "RadioGroup",

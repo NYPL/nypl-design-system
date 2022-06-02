@@ -1,0 +1,86 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import MultiSelectGroup from "./MultiSelectGroup";
+import * as stories from "./MultiSelectGroup.stories";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("MultiSelectGroup")}
+  component={MultiSelectGroup}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultisSelectGroup.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    layout: { table: { defaultValue: { summary: "row" } } },
+    multiSelectWidth: { tabel: { defaultValue: { summary: "default" } } },
+  }}
+/>
+
+# MultiSelectGroup
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.0.1`    |
+| Latest            | `1.0.1`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+
+## Overview
+
+<Description of={MultiSelectGroup} />
+
+Note: The `MultiSelectGroup` component does not come from Chakra because we want to
+display the `MultiSelect`s in a column layout as an option.
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="MultiSelectGroup"
+    args={{
+      id: "multiselect-group",
+      labelText: "Label Text",
+      showLabelText: true,
+      multiSelectWidth: "fitContent",
+    }}
+  >
+    {(args) => <stories.MultiSelectGroupStory {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="MultiSelectGroup" />
+
+## Accessibility
+
+The `MultiSelectGroup` renders a group of `MultiSelect` components that are wrapped in
+a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
+can be visually hidden through the `showLabel` prop. If the `<legend>` is hidden the `aria-label`
+attribute will be added to the `MultiSelectGroup` component.
+
+## Layout Patterns
+
+<Canvas>
+  <DSProvider>
+    <stories.MultiSelectGroupLayoutStory />
+  </DSProvider>
+</Canvas>
