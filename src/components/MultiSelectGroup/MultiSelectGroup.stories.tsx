@@ -242,7 +242,6 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
               variant="dialog"
               items={group.items}
               selectedItems={selectedItems}
-              isBlockElement={true}
               onChange={(e) => {
                 handleChange(e.target.id, group.id);
               }}
@@ -274,6 +273,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
               label={group.name}
               variant="dialog"
               items={group.items}
+              isBlockElement={true}
               selectedItems={selectedItems}
               onChange={(e) => {
                 handleChange(e.target.id, `${group.id}-2`);
