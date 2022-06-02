@@ -30,10 +30,11 @@ const MultiSelect = {
   baseStyle: ({ width = "default", isBlockElement }) => ({
     ...multiSelectWidths[width],
     position: "relative",
-    margin: {
-      base: ".75rem 0",
-      md: "0 2em 0 0",
-    },
+    // Set margin/spacing in MultiSelectGroup
+    // margin: {
+    //   base: ".75rem 0",
+    //   md: "0 2em 0 0",
+    // },
     menuButton: {
       width: "100%",
       justifyContent: "space-between",
