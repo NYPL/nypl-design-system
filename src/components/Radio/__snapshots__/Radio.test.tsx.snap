@@ -47,7 +47,11 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -103,7 +107,11 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -157,7 +165,11 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -214,7 +226,11 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -271,7 +287,11 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -325,19 +345,23 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      <div
-        className="css-k008qs"
+      <span
+        className="css-0"
       >
-        <span>
-          Arts
-        </span>
         <div
-          className="css-17xejub"
-        />
-        <span>
-          4
-        </span>
-      </div>
+          className="css-k008qs"
+        >
+          <span>
+            Arts
+          </span>
+          <div
+            className="css-17xejub"
+          />
+          <span>
+            4
+          </span>
+        </div>
+      </span>
     </span>
   </label>
 </div>
@@ -390,7 +414,11 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
@@ -444,7 +472,11 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       onMouseDown={[Function]}
       onTouchStart={[Function]}
     >
-      Test Label
+      <span
+        className="css-0"
+      >
+        Test Label
+      </span>
     </span>
   </label>
 </div>
