@@ -242,6 +242,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
               variant="dialog"
               items={group.items}
               selectedItems={selectedItems}
+              isBlockElement={true}
               onChange={(e) => {
                 handleChange(e.target.id, group.id);
               }}
@@ -261,7 +262,6 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
       <br />
       <MultiSelectGroup
         showLabelText={true}
-        multiSelectWidth="fitContent"
         id="coumn"
         layout="column"
         labelText="Column"
