@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "DSD-997-beta",
+  "version": "1.0.3-beta",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
