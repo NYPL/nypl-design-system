@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.0.2",
+  "version": "DSD-997-beta",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -10,8 +10,7 @@
   "types": "dist/index.d.ts",
   "module": "dist/design-system-react-components.esm.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">10"
