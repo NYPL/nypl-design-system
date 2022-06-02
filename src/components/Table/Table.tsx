@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
@@ -10,6 +11,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
+import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -62,10 +64,15 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
   const styles = useMultiStyleConfig("CustomTable", {
+    columnHeadersBackgroundColor,
     columnHeadersTextColor,
     showRowDividers,
     useRowHeaders,
   });
+
+  // Based on --nypl-breakpoint-medium
+  const breakpointMedium = 600;
+  const windowDimensions = useWindowSize();
 
   const tableCaption = titleText && (
     <ChakraTableCaption>{titleText}</ChakraTableCaption>
@@ -110,6 +117,17 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       }
     }
 
+    const cellContent = (key: number, column: string | JSX.Element) => {
+      return windowDimensions.width <= breakpointMedium ? (
+        <>
+          <Box as="span">{columnHeaders[key]}</Box>
+          <Box as="span">{column}</Box>
+        </>
+      ) : (
+        column
+      );
+    };
+
     return (
       <ChakraTbody>
         {tableData.map((row, index) => (
@@ -117,10 +135,10 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
             {row.map((column, key) =>
               key === 0 && useRowHeaders ? (
                 <ChakraTh scope="row" key={key}>
-                  {column}
+                  {cellContent(key, column)}
                 </ChakraTh>
               ) : (
-                <ChakraTd key={key}>{column}</ChakraTd>
+                <ChakraTd key={key}>{cellContent(key, column)}</ChakraTd>
               )
             )}
           </ChakraTr>

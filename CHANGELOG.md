@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
 - Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
+- Updates the `Table` component to be responsive for a mobile viewport.
 
 ## 1.0.2 (June 1, 2022)
 
