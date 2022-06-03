@@ -11,13 +11,13 @@ import useWindowSize from "../../hooks/useWindowSize";
 export interface MultiSelectGroupProps {
   id: string;
   /** Width will be passed on each `MultiSelect` component. */
-  multiSelectWidth?: "default" | "fitContent" | "full";
+  multiSelectWidth: "default" | "fitContent" | "full";
   /** Additional className to use. */
   className?: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
   labelText: string;
-  showLabelText: boolean;
+  showLabel: boolean;
   children: React.ReactNode;
 }
 
@@ -34,8 +34,8 @@ export const MultiSelectGroup = chakra(
       className = "",
       layout = "row",
       labelText,
-      showLabelText,
-      multiSelectWidth = "default",
+      showLabel,
+      multiSelectWidth,
       children,
     } = props;
     const newChildren: JSX.Element[] = [];
@@ -63,7 +63,13 @@ export const MultiSelectGroup = chakra(
       }
       if (child !== undefined && child !== null) {
         newChildren.push(
-          React.cloneElement(child, { width: multiSelectWidth })
+          React.cloneElement(child, {
+            width: `${
+              windowDimensions.width <= breakpointMedium
+                ? "full"
+                : `${multiSelectWidth}`
+            }`,
+          })
         );
       }
     });
@@ -71,15 +77,14 @@ export const MultiSelectGroup = chakra(
       <Fieldset
         id={`${id}-multiselect-group`}
         legendText={labelText}
-        isLegendHidden={!showLabelText}
+        isLegendHidden={!showLabel}
       >
         <Stack
           id={id}
           data-testId="multi-select-group"
-          {...(!showLabelText && { "aria-label": labelText })}
+          {...(!showLabel && { "aria-label": labelText })}
           className={className}
           direction={finalLayout}
-          // @TODO check if this should not be passed through as a prop instead
           spacing="xs"
         >
           {newChildren}

@@ -59,7 +59,8 @@ describe("MulitSelectGroup Accessibility", () => {
       <MultiSelectGroup
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
-        showLabelText={true}
+        showLabel={true}
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
@@ -83,7 +84,8 @@ describe("MulitSelectGroup Accessibility", () => {
       <MultiSelectGroup
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
-        showLabelText={true}
+        showLabel={true}
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
@@ -108,7 +110,8 @@ describe("MulitSelectGroup Accessibility", () => {
       <MultiSelectGroup
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
-        showLabelText={false}
+        showLabel={false}
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
@@ -134,8 +137,9 @@ describe("MulitSelectGroup Accessibility", () => {
     render(
       <MultiSelectGroup
         labelText="Not a MultiSelect child!"
-        showLabelText={true}
+        showLabel={true}
         id="wrong-child"
+        multiSelectWidth="default"
       >
         <p>I pretend to be a MultiSelect!</p>
       </MultiSelectGroup>
@@ -151,8 +155,9 @@ describe("MulitSelectGroup Accessibility", () => {
       .create(
         <MultiSelectGroup
           id="MultiSelectGroup"
+          multiSelectWidth="default"
           labelText="MultiSelectGroup example"
-          showLabelText={true}
+          showLabel={true}
         >
           {multiSelectItems.map((multiSelectItem) => (
             <MultiSelect
@@ -175,8 +180,9 @@ describe("MulitSelectGroup Accessibility", () => {
       .create(
         <MultiSelectGroup
           id="MultiSelectGroup"
+          multiSelectWidth="default"
           labelText="MultiSelectGroup example"
-          showLabelText={false}
+          showLabel={false}
         >
           {multiSelectItems.map((multiSelectItem) => (
             <MultiSelect

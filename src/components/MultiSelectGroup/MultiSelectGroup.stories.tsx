@@ -228,7 +228,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
   return (
     <>
       <MultiSelectGroup
-        showLabelText={true}
+        showLabel={true}
         multiSelectWidth="fitContent"
         id="row"
         labelText="Row (default)"
@@ -260,10 +260,11 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
       </MultiSelectGroup>
       <br />
       <MultiSelectGroup
-        showLabelText={true}
-        id="coumn"
+        showLabel={true}
+        id="column"
         layout="column"
         labelText="Column"
+        multiSelectWidth="default"
       >
         {multiSelectItems &&
           multiSelectItems.map((group) => (
