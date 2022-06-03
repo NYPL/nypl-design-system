@@ -1,8 +1,8 @@
 import * as React from "react";
 import { chakra, Stack } from "@chakra-ui/react";
 // Components
-import MultiSelect from "../MultiSelect/MultiSelect";
 import Fieldset from "../Fieldset/Fieldset";
+import MultiSelect from "../MultiSelect/MultiSelect";
 // Types
 import { LayoutTypes } from "../../helpers/types";
 // Hooks
@@ -65,6 +65,7 @@ export const MultiSelectGroup = chakra(
         newChildren.push(
           React.cloneElement(child, {
             width: `${
+              // When on a mobile device or narrow window, always set the width to full.
               windowDimensions.width <= breakpointMedium
                 ? "full"
                 : `${multiSelectWidth}`

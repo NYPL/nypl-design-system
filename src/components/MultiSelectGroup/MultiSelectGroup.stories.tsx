@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
-// Components
+
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
 
@@ -10,10 +10,7 @@ const multiSelectItems = [
     name: "Colors",
     items: [
       { id: "red", name: "Red" },
-      {
-        id: "blue",
-        name: "Blue",
-      },
+      { id: "blue", name: "Blue" },
       { id: "yellow", name: "Yellow" },
     ],
   },
@@ -58,7 +55,7 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
 
   function handleChange(itemId: string, groupId: string) {
     let itemIds;
-    // Check if the tid already exists in the state
+    // Check if the id already exists in the state
     if (
       selectedItems[groupId] !== undefined &&
       // @TODO Temporary hack to make availability multiselect use radios.
@@ -124,6 +121,7 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
     }
     setSelectedItems(newSelectedItems);
   }
+
   return (
     <MultiSelectGroup {...args}>
       {multiSelectItems &&
@@ -159,7 +157,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
 
   function handleChange(itemId: string, groupId: string) {
     let itemIds;
-    // Check if the tid already exists in the state
+    // Check if the id already exists in the state
     if (
       selectedItems[groupId] !== undefined &&
       // @TODO Temporary hack to make availability multiselect use radios.

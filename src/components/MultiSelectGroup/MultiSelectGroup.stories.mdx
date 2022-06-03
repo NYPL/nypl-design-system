@@ -7,10 +7,10 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import DSProvider from "../../theme/provider";
+import { getCategory } from "../../utils/componentCategories";
 import MultiSelectGroup from "./MultiSelectGroup";
 import * as stories from "./MultiSelectGroup.stories";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("MultiSelectGroup")}
@@ -21,7 +21,7 @@ import DSProvider from "../../theme/provider";
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
     },
-    jest: ["MultisSelectGroup.test.tsx"],
+    jest: ["MultiSelectGroup.test.tsx"],
   }}
   argTypes={{
     className: { control: false },
@@ -76,8 +76,8 @@ attribute will be added to the `MultiSelectGroup` component.
 
 ## Layout Patterns
 
-The width of the MultiSelec components can be passed thorugh the `multiSelectWidth` prop.
-On screens under 600px width the `layout` is automatically set to "column" and the `multiSelectWidth` to "full".
+The width of the MultiSelect components can be passed through the `multiSelectWidth` prop.
+On screen width under 600px width the `layout` is automatically set to "column" and the `multiSelectWidth` to "full".
 
 <Canvas>
   <DSProvider>
