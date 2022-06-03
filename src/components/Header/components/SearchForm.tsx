@@ -10,7 +10,7 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreUrl, getCatalogUrl } from "../headerUtils";
+import { getEncoreCatalogUrl, getNYPLSearchURl } from "../headerUtils";
 
 interface SearchFormProps {
   isMobile?: boolean;
@@ -32,12 +32,12 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
     let requestUrl;
 
     // If there is a search input, make the request.
-    if (searchInput !== "") {
+    if (searchInput) {
       if (searchOption === "catalog" || mobileType === "catalog") {
-        requestUrl = getEncoreUrl(searchInput);
+        requestUrl = getEncoreCatalogUrl(searchInput);
       }
       if (searchOption === "website" || mobileType === "website") {
-        requestUrl = getCatalogUrl(searchInput);
+        requestUrl = getNYPLSearchURl(searchInput);
       }
 
       if (requestUrl) {
@@ -46,7 +46,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
       }
     }
     // Otherwise, don't do anything and update the placeholder message.
-    setPlaceholder("Please enter a search term");
+    setPlaceholder("Please enter a search term.");
     return false;
   };
 
@@ -61,7 +61,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
         <FormRow>
           <FormField gridColumn="1 / 3">
             <Fieldset
-              id="someid"
+              id="fieldset-search"
               isLegendHidden
               legendText="Enter a keyword, then choose to search either the catalog or the website"
             >
@@ -90,7 +90,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                   onClick={onSubmit}
                   __css={styles.desktopSearchBtn}
                 >
-                  <Icon name="search" size="large" />
+                  <Icon name="search" size="medium" />
                 </Button>
               </ButtonGroup>
             </FormField>
@@ -101,6 +101,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
             {isMobile ? (
               <HStack spacing="0" align="stretch" height="45px">
                 <Button
+                  aria-label="Submit Catalog Search"
                   id="mobile-catalog"
                   onClick={(e) => onSubmit(e, "catalog")}
                   __css={styles.mobileBtns}
@@ -109,6 +110,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                   <Icon name="arrow" size="small" iconRotation="rotate270" />
                 </Button>
                 <Button
+                  aria-label="Submit NYPL Website Search"
                   id="mobile-website"
                   onClick={(e) => onSubmit(e, "website")}
                   __css={styles.mobileBtns}
