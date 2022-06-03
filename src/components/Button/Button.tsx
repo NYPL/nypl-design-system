@@ -37,7 +37,6 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-// @TODO Had to update this to forwardRefs on button for MultiSelect
 export const Button = chakra(
   React.forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {

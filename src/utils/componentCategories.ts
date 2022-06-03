@@ -78,7 +78,12 @@ const categories = {
   },
   hooks: {
     title: "Hooks",
-    components: ["useCarouselStyles", "useNYPLTheme", "useWindowSize"],
+    components: [
+      "useCarouselStyles",
+      "useMultiSelect",
+      "useNYPLTheme",
+      "useWindowSize",
+    ],
   },
   layout: {
     title: "Components/Page Layout",

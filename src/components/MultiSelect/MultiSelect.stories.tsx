@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { action } from "@storybook/addon-actions";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import { Story } from "@storybook/react/types-6-0";
-import useMultiSelect from "./useMultiSelect";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const items = [
   {
