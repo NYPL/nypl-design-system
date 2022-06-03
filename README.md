@@ -6,8 +6,6 @@
 
 The Reservoir Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
 
-_Note: This library is still in beta. Until we release the stable `1.0.0` version, we are loosely using semantic versioning._
-
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page)
