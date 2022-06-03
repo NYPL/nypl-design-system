@@ -299,6 +299,7 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
             className="chakra-stack css-nf0nk5"
           >
             <button
+              aria-label="Submit Catalog Search"
               className="chakra-button css-1xdhyk6"
               data-testid="button"
               id="mobile-catalog"
@@ -339,6 +340,7 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
               </svg>
             </button>
             <button
+              aria-label="Submit NYPL Website Search"
               className="chakra-button css-1xdhyk6"
               data-testid="button"
               id="mobile-website"

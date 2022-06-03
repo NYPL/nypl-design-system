@@ -90,7 +90,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                   onClick={onSubmit}
                   __css={styles.desktopSearchBtn}
                 >
-                  <Icon name="search" size="large" />
+                  <Icon name="search" size="medium" />
                 </Button>
               </ButtonGroup>
             </FormField>
@@ -101,6 +101,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
             {isMobile ? (
               <HStack spacing="0" align="stretch" height="45px">
                 <Button
+                  aria-label="Submit Catalog Search"
                   id="mobile-catalog"
                   onClick={(e) => onSubmit(e, "catalog")}
                   __css={styles.mobileBtns}
@@ -109,6 +110,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                   <Icon name="arrow" size="small" iconRotation="rotate270" />
                 </Button>
                 <Button
+                  aria-label="Submit NYPL Website Search"
                   id="mobile-website"
                   onClick={(e) => onSubmit(e, "website")}
                   __css={styles.mobileBtns}

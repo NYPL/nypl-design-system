@@ -14,11 +14,6 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderSearchButton", { isMobile, isOpen });
   const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
-  const buttonTextColor = isOpen
-    ? "ui.white"
-    : isMobile
-    ? "ui.black"
-    : "ui.focus";
 
   return (
     <FocusLock isDisabled={!isOpen}>
@@ -34,7 +29,6 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
         {buttonText}
         <Icon
           align={isMobile ? "none" : "right"}
-          color={buttonTextColor}
           name={isOpen ? "close" : "search"}
           size={isMobile ? "large" : "medium"}
         />
