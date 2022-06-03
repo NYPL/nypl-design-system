@@ -69,17 +69,25 @@ const MobileNav = chakra(() => {
           href="#"
           borderTop="1px solid rgb(54, 54, 54)"
           borderRight="1px solid rgb(54, 54, 54)"
-          gridColumn="2 / 1"
+          gridColumn="1 / span 1"
         >
           Get a Library Card
         </Link>
-        <Link href="#" borderTop="1px solid rgb(54, 54, 54)" gridColumn="2 / 2">
+        <Link
+          href="#"
+          borderTop="1px solid rgb(54, 54, 54)"
+          gridColumn="2 / span 1"
+        >
           Get Email Updates
         </Link>
-        <Link href="#" borderTop="1px solid rgb(54, 54, 54)" gridColumn="1 / 3">
+        <Link
+          href="#"
+          borderTop="1px solid rgb(54, 54, 54)"
+          gridColumn="1 / span 2"
+        >
           Shop NYPL
         </Link>
-        <Link href="#" gridColumn="1 / 3">
+        <Link href="#" gridColumn="1 / span 2">
           Donate
         </Link>
       </SimpleGrid>

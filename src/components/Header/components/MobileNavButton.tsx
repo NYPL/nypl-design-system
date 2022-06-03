@@ -9,7 +9,6 @@ import MobileNav from "./MobileNav";
 const mobileNav = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
-  const buttonTextColor = isOpen ? "ui.white" : "ui.black";
 
   return (
     <FocusLock isDisabled={!isOpen}>
@@ -24,7 +23,6 @@ const mobileNav = chakra(() => {
       >
         <Icon
           align="none"
-          color={buttonTextColor}
           name={isOpen ? "close" : "utilityHamburger"}
           size="large"
         />

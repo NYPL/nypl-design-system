@@ -130,7 +130,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
     data-testid="bottomLinks"
   >
     <a
-      className="css-gycobi"
+      className="css-g8syzw"
       href="#"
       rel={null}
       target={null}
@@ -138,7 +138,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
       Get a Library Card
     </a>
     <a
-      className="css-r4vexk"
+      className="css-1i5qkun"
       href="#"
       rel={null}
       target={null}
@@ -146,7 +146,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
       Get Email Updates
     </a>
     <a
-      className="css-1r9wdse"
+      className="css-1hbu0qa"
       href="#"
       rel={null}
       target={null}
@@ -154,7 +154,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
       Shop NYPL
     </a>
     <a
-      className="css-345wwt"
+      className="css-847rpw"
       href="#"
       rel={null}
       target={null}
