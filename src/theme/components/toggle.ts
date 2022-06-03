@@ -27,6 +27,7 @@ const Switch = {
       alignItems: "start",
       opacity: 0.4,
       track: {
+        backgroundColor: "ui.gray.medium",
         border: "1px solid",
         borderColor: "ui.gray.medium",
         p: "1px",

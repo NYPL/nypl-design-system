@@ -37,7 +37,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `1.0.2`    |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -48,6 +48,7 @@ import { getCategory } from "../../utils/componentCategories";
 - [With Row Dividers](#with-row-dividers)
 - [With Row Headers](#with-row-headers)
 - [With Custom Header Colors](#with-custom-header-colors)
+- [Without columnHeaders](#without-columnheaders)
 - [With JSX Elements](#with-jsx-elements)
 
 ## Overview
@@ -190,6 +191,18 @@ color contrast.
       tableData={tableData}
       useRowHeaders
     />
+  </DSProvider>
+</Canvas>
+
+## Without columnHeaders
+
+Column headers are optional and don't need to be set. It is recommended that if
+column headers are not needed, to set row headers through the `useRowHeaders`
+prop.
+
+<Canvas>
+  <DSProvider>
+    <Table id="no-columnHeaders-table" tableData={tableData} useRowHeaders />
   </DSProvider>
 </Canvas>
 
