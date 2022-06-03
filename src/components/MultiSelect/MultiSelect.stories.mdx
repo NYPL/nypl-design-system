@@ -88,7 +88,7 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
       width: "default",
     }}
   >
-    {(args) => <stories.MultiSelectStory {...args} />}
+    {(args) => <stories.MultiSelectListboxStory {...args} />}
   </Story>
 </Canvas>
 
@@ -117,7 +117,6 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
     args={{
       id: "multiselect-dialog",
       label: "MultiSelect Dialog",
-      variant: "dialog",
       width: "default",
       defaultIsOpen: false,
     }}

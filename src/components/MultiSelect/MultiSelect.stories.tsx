@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { action } from "@storybook/addon-actions";
-import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import { Story } from "@storybook/react/types-6-0";
+
+import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
 const items = [
@@ -20,6 +21,7 @@ const items = [
   {
     id: "design",
     name: "Design",
+    // Children array will only be renderd in a "dialog" variant
     children: [
       {
         id: "fashion",
@@ -65,7 +67,7 @@ const items = [
   },
 ];
 
-export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
+export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onClear, selectedItems } = useMultiSelect(args.id, items);
 

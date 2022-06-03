@@ -109,11 +109,26 @@ const MultiSelectTestComponent = (componentId) => {
     />
   );
 };
-
-describe("MultiSelect Dialog", () => {
+describe("MultiSelect Accessibility", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
-  it("should have no axe violations", async () => {
+
+  it("should have no axe violations for the 'listbox' variant", async () => {
+    const { container } = render(
+      <MultiSelect
+        id="test"
+        label="multiSelect-accessibility"
+        variant="listbox"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("should have no axe violations for the 'dialog' variant", async () => {
     const { container } = render(
       <MultiSelect
         id="test"
@@ -128,6 +143,11 @@ describe("MultiSelect Dialog", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+});
+
+describe("MultiSelect Dialog", () => {
+  let selectedTestItems;
+  beforeEach(() => (selectedTestItems = {}));
 
   it("should initially render with provided id", () => {
     const { container } = render(
@@ -463,20 +483,6 @@ describe("MultiSelect Dialog", () => {
 describe("MultiSelect Listbox", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
-  it("should have no axe violations", async () => {
-    const { container } = render(
-      <MultiSelect
-        id="test"
-        label="multiSelect-accessibility"
-        variant="listbox"
-        items={items}
-        selectedItems={selectedTestItems}
-        onChange={() => null}
-        onClear={() => null}
-      />
-    );
-    expect(await axe(container)).toHaveNoViolations();
-  });
 
   it("should initially render with provided id", async () => {
     const { container } = render(
@@ -622,6 +628,7 @@ describe("MultiSelect Listbox", () => {
     userEvent.click(screen.getByRole("option", { name: /colors/i }));
     expect(onChangeMock).toBeCalledTimes(4);
   });
+
   it("Renders the UI snapshot correctly", () => {
     const defaultListbox = renderer
       .create(
