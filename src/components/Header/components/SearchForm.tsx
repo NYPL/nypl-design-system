@@ -10,7 +10,7 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreUrl, getCatalogUrl } from "../headerUtils";
+import { getEncoreCatalogUrl, getNYPLSearchURl } from "../headerUtils";
 
 const SearchForm = chakra(() => {
   const [placeholder, setPlaceholder] = useState<string>(
@@ -24,11 +24,11 @@ const SearchForm = chakra(() => {
     let requestUrl;
 
     // If there is a search input, make the request.
-    if (searchInput !== "") {
+    if (searchInput) {
       if (searchOption === "catalog") {
-        requestUrl = getEncoreUrl(searchInput);
+        requestUrl = getEncoreCatalogUrl(searchInput);
       } else {
-        requestUrl = getCatalogUrl(searchInput);
+        requestUrl = getNYPLSearchURl(searchInput);
       }
       if (requestUrl) {
         window.location.assign(requestUrl);
@@ -36,7 +36,7 @@ const SearchForm = chakra(() => {
       }
     }
     // Otherwise, don't do anything and update the placeholder message.
-    setPlaceholder("Please enter a search term");
+    setPlaceholder("Please enter a search term.");
     return false;
   };
 
@@ -51,7 +51,7 @@ const SearchForm = chakra(() => {
         >
           <FormField>
             <Fieldset
-              id="someid"
+              id="fieldset-search"
               isLegendHidden
               legendText="Enter a keyword, then choose to search either the catalog or the website"
             >

@@ -47,7 +47,7 @@ const generateQueriesForGA = () => {
 /**
  * Returns the final URL for the NYPL Encore search.
  */
-export const getEncoreUrl = (searchValue) => {
+export const getEncoreCatalogUrl = (searchValue) => {
   const encodedSearchInput = encoreEncodeSearchString(searchValue);
   const rootUrl = "https://browse.nypl.org/iii/encore/search/";
   let finalEncoreUrl;
@@ -64,7 +64,7 @@ export const getEncoreUrl = (searchValue) => {
 /**
  * Returns the final URL for the NYPL catalog search.
  */
-export const getCatalogUrl = (searchString) => {
+export const getNYPLSearchURl = (searchString) => {
   const catalogUrl = "//www.nypl.org/search/";
 
   if (searchString) {
