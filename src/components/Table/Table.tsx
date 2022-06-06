@@ -154,7 +154,7 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
   };
 
   for (let j = 0; j < tableData.length; j++) {
-    if (columnHeaders.length !== tableData[j].length) {
+    if (columnHeaders.length && columnHeaders.length !== tableData[j].length) {
       console.warn(
         "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
           "to the number of columns in the data table. " +
