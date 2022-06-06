@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
 - Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
+- Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 
 ### Updates
 
