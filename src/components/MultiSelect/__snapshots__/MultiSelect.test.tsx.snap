@@ -3,7 +3,7 @@
 exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
 <div
   className="css-0"
-  id="some-id"
+  id="multiselect-dialog-test-id"
 >
   <div
     data-focus-guard={true}
@@ -43,10 +43,10 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="some-id-button"
+      id="multiselect-dialog-test-id-button"
       isOpen={false}
       label="MultiSelect Test Label"
-      multiSelectId="some-id"
+      multiSelectId="multiselect-dialog-test-id"
       onClear={[Function]}
       onClick={[Function]}
       onMenuToggle={[Function]}
@@ -62,7 +62,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="some-id-icon"
+        id="multiselect-dialog-test-id-icon"
         role="img"
         title="plus icon"
         viewBox="0 0 24 24"
@@ -123,7 +123,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
 <div
   aria-modal={true}
   className="css-0"
-  id="some-id"
+  id="multiselect-dialog-test-id"
 >
   <div
     data-focus-guard={true}
@@ -163,10 +163,10 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="some-id-button"
+      id="multiselect-dialog-test-id-button"
       isOpen={true}
       label="MultiSelect Test Label"
-      multiSelectId="some-id"
+      multiSelectId="multiselect-dialog-test-id"
       onClear={[Function]}
       onClick={[Function]}
       onMenuToggle={[Function]}
@@ -182,7 +182,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="some-id-icon"
+        id="multiselect-dialog-test-id-icon"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -823,7 +823,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
 <div
   aria-modal={true}
   className="css-0"
-  id="some-id"
+  id="multiselect-dialog-test-id"
 >
   <div
     data-focus-guard={true}
@@ -863,16 +863,16 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="some-id-button"
+      id="multiselect-dialog-test-id-button"
       isOpen={true}
       label="MultiSelect Test Label"
-      multiSelectId="some-id"
+      multiSelectId="multiselect-dialog-test-id"
       onClear={[Function]}
       onClick={[Function]}
       onMenuToggle={[Function]}
       selectedItems={
         Object {
-          "some-id": Object {
+          "multiselect-dialog-test-id": Object {
             "items": Array [
               "red",
             ],
@@ -897,7 +897,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           aria-hidden={true}
           className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="some-id-selected-items-count-icon"
+          id="multiselect-dialog-test-id-selected-items-count-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -935,7 +935,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="some-id-icon"
+        id="multiselect-dialog-test-id-icon"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -1601,7 +1601,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
 <div
   aria-modal={true}
   className="css-0"
-  id="some-id"
+  id="multiselect-dialog-test-id"
 >
   <div
     data-focus-guard={true}
@@ -1641,16 +1641,16 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="some-id-button"
+      id="multiselect-dialog-test-id-button"
       isOpen={true}
       label="MultiSelect Test Label"
-      multiSelectId="some-id"
+      multiSelectId="multiselect-dialog-test-id"
       onClear={[Function]}
       onClick={[Function]}
       onMenuToggle={[Function]}
       selectedItems={
         Object {
-          "some-id": Object {
+          "multiselect-dialog-test-id": Object {
             "items": Array [
               "red",
               "blue",
@@ -1676,7 +1676,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           aria-hidden={true}
           className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="some-id-selected-items-count-icon"
+          id="multiselect-dialog-test-id-selected-items-count-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -1714,7 +1714,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="some-id-icon"
+        id="multiselect-dialog-test-id-icon"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -2363,16 +2363,16 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
-  id="test"
+  id="multiselect-listbox-test-id"
 >
   <button
     aria-haspopup="listbox"
-    aria-labelledby="test-label test-toggle-button"
+    aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="test-toggle-button"
+    id="multiselect-listbox-test-id-toggle-button"
     label="MultiSelect Label"
-    multiSelectId="test"
+    multiSelectId="multiselect-listbox-test-id"
     onClear={[Function]}
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -2388,7 +2388,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-1grhd2q"
       focusable={false}
-      id="test-icon"
+      id="multiselect-listbox-test-id-icon"
       role="img"
       title="plus icon"
       viewBox="0 0 24 24"
@@ -2421,9 +2421,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     className="css-1hyfx7x"
   >
     <ul
-      aria-labelledby="test-label"
+      aria-labelledby="multiselect-listbox-test-id-label"
       className="css-10ns9zz"
-      id="test-menu"
+      id="multiselect-listbox-test-id-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -2438,18 +2438,18 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
-  id="test"
+  id="multiselect-listbox-test-id"
 >
   <button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="test-label test-toggle-button"
+    aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="test-toggle-button"
+    id="multiselect-listbox-test-id-toggle-button"
     isOpen={true}
     label="MultiSelect Label"
-    multiSelectId="test"
+    multiSelectId="multiselect-listbox-test-id"
     onClear={[Function]}
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -2465,7 +2465,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-1grhd2q"
       focusable={false}
-      id="test-icon"
+      id="multiselect-listbox-test-id-icon"
       role="img"
       title="minus icon"
       viewBox="0 0 24 24"
@@ -2498,9 +2498,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="test-label"
+      aria-labelledby="multiselect-listbox-test-id-label"
       className="css-10ns9zz"
-      id="test-menu"
+      id="multiselect-listbox-test-id-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -2511,7 +2511,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-0"
+        id="multiselect-listbox-test-id-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2586,7 +2586,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-1"
+        id="multiselect-listbox-test-id-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2661,7 +2661,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-2"
+        id="multiselect-listbox-test-id-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2736,7 +2736,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-3"
+        id="multiselect-listbox-test-id-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2811,7 +2811,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-4"
+        id="multiselect-listbox-test-id-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2886,7 +2886,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-5"
+        id="multiselect-listbox-test-id-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2966,24 +2966,24 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
-  id="test"
+  id="multiselect-listbox-test-id"
 >
   <button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="test-label test-toggle-button"
+    aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="test-toggle-button"
+    id="multiselect-listbox-test-id-toggle-button"
     isOpen={true}
     label="MultiSelect Label"
-    multiSelectId="test"
+    multiSelectId="multiselect-listbox-test-id"
     onClear={[Function]}
     onClick={[Function]}
     onKeyDown={[Function]}
     selectedItems={
       Object {
-        "test": Object {
+        "multiselect-listbox-test-id": Object {
           "items": Array [
             "cats",
             "dogs",
@@ -3009,7 +3009,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="test-selected-items-count-icon"
+        id="multiselect-listbox-test-id-selected-items-count-icon"
         role="img"
         title="close icon"
         viewBox="0 0 24 24"
@@ -3047,7 +3047,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-1grhd2q"
       focusable={false}
-      id="test-icon"
+      id="multiselect-listbox-test-id-icon"
       role="img"
       title="minus icon"
       viewBox="0 0 24 24"
@@ -3080,9 +3080,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="test-label"
+      aria-labelledby="multiselect-listbox-test-id-label"
       className="css-10ns9zz"
-      id="test-menu"
+      id="multiselect-listbox-test-id-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -3093,7 +3093,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-0"
+        id="multiselect-listbox-test-id-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3171,7 +3171,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-1"
+        id="multiselect-listbox-test-id-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3249,7 +3249,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-2"
+        id="multiselect-listbox-test-id-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3324,7 +3324,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-3"
+        id="multiselect-listbox-test-id-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3399,7 +3399,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-4"
+        id="multiselect-listbox-test-id-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -3474,7 +3474,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="test-item-5"
+        id="multiselect-listbox-test-id-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
