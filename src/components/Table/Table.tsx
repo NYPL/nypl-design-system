@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
@@ -20,8 +19,9 @@ interface CustomColors {
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
-  /** Array of string values used to populate the `Table` column headers. */
-  columnHeaders?: string[];
+  /** Array of string values used to populate the `Table` column headers.
+   * For improved accessibility, column headers are required. */
+  columnHeaders: string[];
   /** Hex value to set the background color of the column headers. */
   columnHeadersBackgroundColor?: string;
   /** Hex value to set the text color of the column headers. */
@@ -78,17 +78,23 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
     <ChakraTableCaption>{titleText}</ChakraTableCaption>
   );
 
-  const columnHeadersElems = columnHeaders?.length > 0 && (
-    <ChakraTHead>
-      <ChakraTr>
-        {columnHeaders.map((child, key) => (
-          <ChakraTh key={key} scope="col" sx={customColors}>
-            {child}
-          </ChakraTh>
-        ))}
-      </ChakraTr>
-    </ChakraTHead>
-  );
+  const columnHeadersElems =
+    columnHeaders.length > 0 ? (
+      <ChakraTHead>
+        <ChakraTr>
+          {columnHeaders.map((child, key) => (
+            <ChakraTh key={key} scope="col" sx={customColors}>
+              {child}
+            </ChakraTh>
+          ))}
+        </ChakraTr>
+      </ChakraTHead>
+    ) : (
+      console.warn(
+        "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
+          "column headers are required."
+      )
+    );
 
   /**
    * This renders a normal `tbody` DOM element structure if the `tableData`
@@ -120,8 +126,8 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
     const cellContent = (key: number, column: string | JSX.Element) => {
       return windowDimensions.width <= breakpointMedium ? (
         <>
-          <Box as="span">{columnHeaders[key]}</Box>
-          <Box as="span">{column}</Box>
+          <span>{columnHeaders[key]}</span>
+          <span>{column}</span>
         </>
       ) : (
         column

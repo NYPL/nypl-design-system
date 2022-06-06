@@ -12,7 +12,8 @@ const cellBorderColorStyles = {
 
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
-  showRowDividers = false
+  showRowDividers = false,
+  useRowHeaders = false
 ) => ({
   borderBottom: { base: "2px solid", md: 0 },
   borderColor: "ui.gray.medium",
@@ -22,7 +23,7 @@ export const baseTRStyles = (
       ? 0
       : { base: "s", md: "0" },
   paddingTop:
-    showRowDividers || columnHeadersBackgroundColor
+    showRowDividers || columnHeadersBackgroundColor || useRowHeaders
       ? 0
       : { base: "s", md: "0" },
   _first: {
@@ -33,7 +34,8 @@ export const baseTRStyles = (
 export const baseCellStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  showRowDividers = false
+  showRowDividers = false,
+  useRowHeaders = false
 ) => ({
   border: showRowDividers ? undefined : "none",
   borderBottom: showRowDividers ? "1px solid" : "0",
@@ -64,7 +66,6 @@ export const baseCellStyles = (
   "> span": {
     flexBasis: "50%",
     paddingBottom: { base: "s", md: "0" },
-    // paddingLeft: "0",
     paddingRight: showRowDividers ? "s" : "0",
     paddingTop: { base: "s", md: "0" },
     _first: {
@@ -74,19 +75,23 @@ export const baseCellStyles = (
       color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
       fontWeight: "medium",
       paddingLeft:
-        columnHeadersBackgroundColor || showRowDividers ? "s" : undefined,
+        columnHeadersBackgroundColor || showRowDividers || useRowHeaders
+          ? "s"
+          : undefined,
     },
   },
 });
 export const baseTHStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  showRowDividers = false
+  showRowDividers = false,
+  useRowHeaders = false
 ) => ({
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers
+    showRowDividers,
+    useRowHeaders
   ),
   color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
   fontWeight: "medium",
@@ -107,7 +112,8 @@ export const baseTDStyles = (
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers
+    showRowDividers,
+    useRowHeaders
   ),
   _first: {
     paddingLeft:
@@ -137,16 +143,24 @@ export const baseStyle = ({
   tbody: {
     th: {
       color: "var(--nypl-colors-ui-black)",
+      backgroundColor: useRowHeaders
+        ? { base: "ui.gray.x-light-cool", md: "unset" }
+        : undefined,
     },
   },
   thead: {
     display: { base: "none", md: "table-header-group" },
   },
-  tr: baseTRStyles(columnHeadersBackgroundColor, showRowDividers),
+  tr: baseTRStyles(
+    columnHeadersBackgroundColor,
+    showRowDividers,
+    useRowHeaders
+  ),
   th: baseTHStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers
+    showRowDividers,
+    useRowHeaders
   ),
   td: baseTDStyles(
     columnHeadersBackgroundColor,
