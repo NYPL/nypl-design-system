@@ -6,6 +6,57 @@ exports[`Table renders the UI snapshot correctly 1`] = `
   id="basic"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -17,12 +68,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Tom
         </span>
       </td>
@@ -30,12 +79,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Nook
         </span>
       </td>
@@ -43,12 +90,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Tanukichi
         </span>
       </td>
@@ -56,12 +101,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Main Street
         </span>
       </td>
@@ -69,12 +112,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -82,12 +123,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           23458
         </span>
       </td>
@@ -95,12 +134,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -113,12 +150,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Isabelle
         </span>
       </td>
@@ -126,12 +161,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           -
         </span>
       </td>
@@ -139,12 +172,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Shizue
         </span>
       </td>
@@ -152,12 +183,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Walnut Street
         </span>
       </td>
@@ -165,12 +194,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -178,12 +205,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           23458
         </span>
       </td>
@@ -191,12 +216,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -209,12 +232,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           K.K.
         </span>
       </td>
@@ -222,12 +243,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Slider
         </span>
       </td>
@@ -235,12 +254,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Totakeke
         </span>
       </td>
@@ -248,12 +265,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Niper Place
         </span>
       </td>
@@ -261,12 +276,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -274,12 +287,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           98765
         </span>
       </td>
@@ -287,12 +298,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -305,12 +314,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Sonny
         </span>
       </td>
@@ -318,12 +325,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Resetti
         </span>
       </td>
@@ -331,12 +336,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Risetto san
         </span>
       </td>
@@ -344,12 +347,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Village Road
         </span>
       </td>
@@ -357,12 +358,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -370,12 +369,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           09873
         </span>
       </td>
@@ -383,12 +380,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -408,6 +403,57 @@ exports[`Table renders the UI snapshot correctly 2`] = `
   >
     this is the caption
   </caption>
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -676,14 +722,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Tom
         </span>
       </td>
@@ -691,14 +733,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Nook
         </span>
       </td>
@@ -706,14 +744,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Tanukichi
         </span>
       </td>
@@ -721,14 +755,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Main Street
         </span>
       </td>
@@ -736,14 +766,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -751,14 +777,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           23458
         </span>
       </td>
@@ -766,14 +788,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -786,14 +804,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Isabelle
         </span>
       </td>
@@ -801,14 +815,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           -
         </span>
       </td>
@@ -816,14 +826,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Shizue
         </span>
       </td>
@@ -831,14 +837,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Walnut Street
         </span>
       </td>
@@ -846,14 +848,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -861,14 +859,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           23458
         </span>
       </td>
@@ -876,14 +870,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -896,14 +886,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           K.K.
         </span>
       </td>
@@ -911,14 +897,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Slider
         </span>
       </td>
@@ -926,14 +908,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Totakeke
         </span>
       </td>
@@ -941,14 +919,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Niper Place
         </span>
       </td>
@@ -956,14 +930,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -971,14 +941,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           98765
         </span>
       </td>
@@ -986,14 +952,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1006,14 +968,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Sonny
         </span>
       </td>
@@ -1021,14 +979,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Resetti
         </span>
       </td>
@@ -1036,14 +990,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Risetto san
         </span>
       </td>
@@ -1051,14 +1001,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Village Road
         </span>
       </td>
@@ -1066,14 +1012,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -1081,14 +1023,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           09873
         </span>
       </td>
@@ -1096,14 +1034,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1442,14 +1376,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Tom
         </span>
       </th>
@@ -1457,14 +1387,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Nook
         </span>
       </td>
@@ -1472,14 +1398,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Tanukichi
         </span>
       </td>
@@ -1487,14 +1409,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Main Street
         </span>
       </td>
@@ -1502,14 +1420,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -1517,14 +1431,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           23458
         </span>
       </td>
@@ -1532,14 +1442,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1552,14 +1458,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Isabelle
         </span>
       </th>
@@ -1567,14 +1469,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           -
         </span>
       </td>
@@ -1582,14 +1480,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Shizue
         </span>
       </td>
@@ -1597,14 +1491,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Walnut Street
         </span>
       </td>
@@ -1612,14 +1502,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -1627,14 +1513,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           23458
         </span>
       </td>
@@ -1642,14 +1524,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1662,14 +1540,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           K.K.
         </span>
       </th>
@@ -1677,14 +1551,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Slider
         </span>
       </td>
@@ -1692,14 +1562,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Totakeke
         </span>
       </td>
@@ -1707,14 +1573,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Niper Place
         </span>
       </td>
@@ -1722,14 +1584,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -1737,14 +1595,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           98765
         </span>
       </td>
@@ -1752,14 +1606,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1772,14 +1622,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           First Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Sonny
         </span>
       </th>
@@ -1787,14 +1633,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Last Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Resetti
         </span>
       </td>
@@ -1802,14 +1644,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Nick Name
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Risetto san
         </span>
       </td>
@@ -1817,14 +1655,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Address1
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           Village Road
         </span>
       </td>
@@ -1832,14 +1666,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           City
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           New York
         </span>
       </td>
@@ -1847,14 +1677,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           Zipcode
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           09873
         </span>
       </td>
@@ -1862,14 +1688,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        >
+        <span>
           State
         </span>
-        <span
-          className="css-0"
-        >
+        <span>
           NY
         </span>
       </td>
@@ -1884,6 +1706,57 @@ exports[`Table renders the UI snapshot correctly 6`] = `
   id="chakra"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -2086,6 +1959,57 @@ exports[`Table renders the UI snapshot correctly 7`] = `
   id="props"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -2097,12 +2021,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Tom
         </span>
       </td>
@@ -2110,12 +2032,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Nook
         </span>
       </td>
@@ -2123,12 +2043,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Tanukichi
         </span>
       </td>
@@ -2136,12 +2054,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Main Street
         </span>
       </td>
@@ -2149,12 +2065,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -2162,12 +2076,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           23458
         </span>
       </td>
@@ -2175,12 +2087,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -2193,12 +2103,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Isabelle
         </span>
       </td>
@@ -2206,12 +2114,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           -
         </span>
       </td>
@@ -2219,12 +2125,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Shizue
         </span>
       </td>
@@ -2232,12 +2136,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Walnut Street
         </span>
       </td>
@@ -2245,12 +2147,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -2258,12 +2158,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           23458
         </span>
       </td>
@@ -2271,12 +2169,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -2289,12 +2185,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           K.K.
         </span>
       </td>
@@ -2302,12 +2196,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Slider
         </span>
       </td>
@@ -2315,12 +2207,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Totakeke
         </span>
       </td>
@@ -2328,12 +2218,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Niper Place
         </span>
       </td>
@@ -2341,12 +2229,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -2354,12 +2240,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           98765
         </span>
       </td>
@@ -2367,12 +2251,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
@@ -2385,12 +2267,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          First Name
+        </span>
+        <span>
           Sonny
         </span>
       </td>
@@ -2398,12 +2278,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Last Name
+        </span>
+        <span>
           Resetti
         </span>
       </td>
@@ -2411,12 +2289,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Nick Name
+        </span>
+        <span>
           Risetto san
         </span>
       </td>
@@ -2424,12 +2300,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Address1
+        </span>
+        <span>
           Village Road
         </span>
       </td>
@@ -2437,12 +2311,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          City
+        </span>
+        <span>
           New York
         </span>
       </td>
@@ -2450,12 +2322,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          Zipcode
+        </span>
+        <span>
           09873
         </span>
       </td>
@@ -2463,12 +2333,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        <span
-          className="css-0"
-        />
-        <span
-          className="css-0"
-        >
+        <span>
+          State
+        </span>
+        <span>
           NY
         </span>
       </td>
