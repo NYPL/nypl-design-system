@@ -21,6 +21,9 @@ const useNYPLBreakpoints = () => {
   return {
     isLargerThanSmall,
     isLargerThanMedium,
+    // NYPL uses the medium 600px breakpoint to determine if the screen is
+    // in the mobile view. This is the recommended boolean value to use.
+    isLargerThanMobile: isLargerThanMedium,
     isLargerThanLarge,
     isLargerThanXLarge,
   };

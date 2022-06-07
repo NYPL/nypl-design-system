@@ -155,7 +155,7 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   const initTabWidth = 65;
   // An estimate for the tab width for larger device widths.
   const mediumTabWidth = 40;
-  const { isLargerThanSmall, isLargerThanMedium } = useNYPLBreakpoints();
+  const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
   const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
 
   const { tabs, panels }: any = tabsData
@@ -179,10 +179,10 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
 
   React.useEffect(() => {
     // If we are on larger viewports, reset the carousel so all tabs display.
-    if (isLargerThanMedium) {
+    if (isLargerThanMobile) {
       goToStart();
     }
-  }, [goToStart, isLargerThanMedium]);
+  }, [goToStart, isLargerThanMobile]);
 
   const previousButton = (
     <Button

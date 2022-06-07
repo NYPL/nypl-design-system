@@ -39,9 +39,9 @@ export const ButtonGroup = chakra(
       ...rest
     } = props;
     const newChildren: JSX.Element[] = [];
-    const { isLargerThanMedium } = useNYPLBreakpoints();
-    const finalLayout = isLargerThanMedium ? layout : "column";
-    const finalButtonWidth = isLargerThanMedium ? buttonWidth : "full";
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    const finalLayout = isLargerThanMobile ? layout : "column";
+    const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
     const styles = useStyleConfig("ButtonGroup", {
       buttonWidth: finalButtonWidth,
     });

@@ -29,6 +29,7 @@ describe("useNYPLBreakpoints", () => {
     expect(result.current).toEqual({
       isLargerThanSmall: false,
       isLargerThanMedium: false,
+      isLargerThanMobile: false,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
     });
@@ -37,6 +38,7 @@ describe("useNYPLBreakpoints", () => {
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: false,
+      isLargerThanMobile: false,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
     });
@@ -45,6 +47,7 @@ describe("useNYPLBreakpoints", () => {
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
+      isLargerThanMobile: true,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
     });
@@ -53,6 +56,7 @@ describe("useNYPLBreakpoints", () => {
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
+      isLargerThanMobile: true,
       isLargerThanLarge: true,
       isLargerThanXLarge: false,
     });
@@ -61,6 +65,7 @@ describe("useNYPLBreakpoints", () => {
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
+      isLargerThanMobile: true,
       isLargerThanLarge: true,
       isLargerThanXLarge: true,
     });

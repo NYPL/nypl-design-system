@@ -44,9 +44,9 @@ const BaseModal = chakra(
   }: React.PropsWithChildren<BaseModalProps>) => {
     const xlarge = "xl";
     const fullSize = "full";
-    const { isLargerThanMedium } = useNYPLBreakpoints();
+    const { isLargerThanMobile } = useNYPLBreakpoints();
     // For larger screens, set the size to xl, otherwise set it to full.
-    const size = isLargerThanMedium ? xlarge : fullSize;
+    const size = isLargerThanMobile ? xlarge : fullSize;
 
     return (
       <ChakraModal
