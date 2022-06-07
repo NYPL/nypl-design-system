@@ -7,6 +7,7 @@ import Login from "./Login";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 export interface LoginProps {
+  isMobile?: boolean;
   loginOpen: boolean;
   patronName: string;
   setLoginOpen: (boolean) => void;

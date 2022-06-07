@@ -96,7 +96,11 @@ export const Header = chakra(() => {
               <LowerNav />
             </VStack>
           ) : (
-            <Mobile />
+            <Mobile
+              patronName={patronName}
+              loginOpen={loginOpen}
+              setLoginOpen={setLoginOpen}
+            />
           )}
         </HStack>
         <HorizontalRule __css={styles.horizontalRule} />
