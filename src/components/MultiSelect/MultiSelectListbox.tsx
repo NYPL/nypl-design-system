@@ -6,7 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelect";
 import { MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import { useSelect } from "downshift";
@@ -18,7 +18,7 @@ type MultiSelectListboxProps = Omit<MultiSelectProps, "onChange"> & {
 function MultiSelectListbox({
   id,
   label,
-  defaultIsOpen,
+  isDefaultOpen,
   items,
   onChange,
   selectedItems,
@@ -60,7 +60,7 @@ function MultiSelectListbox({
     onSelectedItemChange: ({ selectedItem }) => {
       onChange(selectedItem, id);
     },
-    initialIsOpen: defaultIsOpen,
+    initialIsOpen: isDefaultOpen,
   });
 
   return (

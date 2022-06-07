@@ -1,34 +1,45 @@
 import React from "react";
 import MultiSelectListBox from "./MultiSelectListbox";
 import MultiSelectDialog from "./MultiSelectDialog";
-import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
-interface MultiSelectCommonProps {
-  /** The id of the multiSelect. */
+export interface MultiSelectItem {
   id: string;
-  /** The label of the multiSelect. */
+  name: string;
+  children?: MultiSelectItem[];
+}
+
+export interface SelectedItems {
+  [name: string]: { items: string[] };
+}
+interface MultiSelectCommonProps {
+  /** The id of the MultiSelect. */
+  id: string;
+  /** The label of the MultiSelect. */
   label: string;
-  /** The variant of the multiSelect. */
+  /** The variant of the MultiSelect. */
   variant: "listbox" | "dialog";
-  /** The items to be rendered in the multiselect as options. */
+  /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
   width?: "default" | "fitContent" | "full";
-  /** Set the default open or closed state of the multiselect. */
-  defaultIsOpen?: boolean;
-  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements. */
+  /** Set the default open or closed state of the Multiselect. */
+  isDefaultOpen?: boolean;
+  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
+   * The default value is false. */
   isBlockElement?: boolean;
-  /** The action to perform for clear/reset button of multiselect.. */
+  /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
 }
+type ListboxOnChange = (selectedItem: MultiSelectItem, id: string) => void;
+type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 type MultiSelectVariantsProps =
   | {
       variant: "listbox";
       /** The action to perform for downshift's onSelectedItemChange function. */
-      onChange: (selectedItem: MultiSelectItem, id: string) => void;
+      onChange: ListboxOnChange;
       // These are props that are never allowed on the listbox variant.
       onMixedStateChange?: never;
       onApply?: never;
@@ -36,7 +47,7 @@ type MultiSelectVariantsProps =
   | {
       variant: "dialog";
       /** The action to perform on the checkbox's onChange function.  */
-      onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onChange: DialogOnChange;
       /** The action to perform for a mixed state checkbox (parent checkbox). */
       onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
       /** The action to perform for save/apply button of multiselect. */
@@ -61,34 +72,29 @@ export default function MultiSelect({
   onClear,
   onApply,
   onMixedStateChange,
-  defaultIsOpen,
+  isDefaultOpen = false,
   isBlockElement = false,
 }: MultiSelectProps) {
   const commonProps = {
-    id: id,
-    label: label,
-    variant: variant,
-    items: items,
-    selectedItems: selectedItems,
-    width: width,
-    defaultIsOpen: defaultIsOpen,
-    isBlockElement: isBlockElement,
-    onClear: onClear,
+    id,
+    label,
+    variant,
+    items,
+    selectedItems,
+    width,
+    isDefaultOpen,
+    isBlockElement,
+    onClear,
   };
 
   if (variant === "listbox") {
-    const listboxOnChange = onChange as (
-      selectedItem: MultiSelectItem,
-      id: string
-    ) => void;
+    const listboxOnChange = onChange as ListboxOnChange;
 
     return <MultiSelectListBox {...commonProps} onChange={listboxOnChange} />;
   }
 
   if (variant === "dialog") {
-    const dialogOnChange = onChange as (
-      event: React.ChangeEvent<HTMLInputElement>
-    ) => void;
+    const dialogOnChange = onChange as DialogOnChange;
 
     return (
       <MultiSelectDialog

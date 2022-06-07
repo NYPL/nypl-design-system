@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 import MultiSelect from "./MultiSelect";
-import { MultiSelectItem } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelect";
 
 const items = [
   { id: "dogs", name: "Dogs" },
@@ -188,7 +188,7 @@ describe("MultiSelect Dialog", () => {
     ).toBeInTheDocument();
   });
 
-  it("should initially render with a closed menu when the defaultIsOpen is omitted or set to false", () => {
+  it("should initially render with a closed menu when the isDefaultOpen is omitted or set to false", () => {
     const { rerender } = render(
       <MultiSelect
         id="multiselect-dialog-test-id"
@@ -210,7 +210,7 @@ describe("MultiSelect Dialog", () => {
         label="MultiSelect Test Label"
         variant="dialog"
         items={items}
-        defaultIsOpen={false}
+        isDefaultOpen={false}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -221,14 +221,14 @@ describe("MultiSelect Dialog", () => {
     expect(screen.queryByRole("checkbox")).toBeNull();
   });
 
-  it("should initially render with open menu if defaultIsOpen prop is true", () => {
+  it("should initially render with open menu if isDefaultOpen prop is true", () => {
     render(
       <MultiSelect
         id="multiselect-dialog-test-id"
         label="MultiSelect Test Label"
         variant="dialog"
         items={items}
-        defaultIsOpen={true}
+        isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -447,7 +447,7 @@ describe("MultiSelect Dialog", () => {
         label="MultiSelect Label"
         variant="dialog"
         items={items}
-        defaultIsOpen={true}
+        isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onMixedStateChange={() => null}
         onChange={() => null}
@@ -481,7 +481,7 @@ describe("MultiSelect Dialog", () => {
           label="MultiSelect Test Label"
           variant="dialog"
           items={items}
-          defaultIsOpen={true}
+          isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onChange={() => null}
           onClear={() => null}
@@ -498,7 +498,7 @@ describe("MultiSelect Dialog", () => {
           label="MultiSelect Test Label"
           variant="dialog"
           items={items}
-          defaultIsOpen={true}
+          isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}
@@ -518,7 +518,7 @@ describe("MultiSelect Dialog", () => {
           label="MultiSelect Test Label"
           variant="dialog"
           items={items}
-          defaultIsOpen={true}
+          isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}
@@ -575,14 +575,14 @@ describe("MultiSelect Listbox", () => {
     );
   });
 
-  it("should initially render with open menu if defaultIsOpen prop is true", () => {
+  it("should initially render with open menu if isDefaultOpen prop is true", () => {
     render(
       <MultiSelect
         id="multiselect-listbox-test-id"
         label="MultiSelect Label"
         variant="listbox"
         items={items}
-        defaultIsOpen={true}
+        isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -686,7 +686,7 @@ describe("MultiSelect Listbox", () => {
           id="multiselect-listbox-test-id"
           label="MultiSelect Label"
           variant="listbox"
-          defaultIsOpen={true}
+          isDefaultOpen={true}
           items={items}
           selectedItems={selectedTestItems}
           onChange={() => null}
@@ -705,7 +705,7 @@ describe("MultiSelect Listbox", () => {
           label="MultiSelect Label"
           variant="listbox"
           items={items}
-          defaultIsOpen={true}
+          isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onChange={() => null}
           onClear={() => null}

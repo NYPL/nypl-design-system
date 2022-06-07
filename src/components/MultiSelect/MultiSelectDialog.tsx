@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./../Button/Button";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelect";
 import { MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import {
@@ -24,7 +24,7 @@ function MultiSelectDialog({
   id,
   label,
   items,
-  defaultIsOpen = false,
+  isDefaultOpen = false,
   onChange,
   onMixedStateChange,
   selectedItems,
@@ -50,7 +50,7 @@ function MultiSelectDialog({
   }, [windowDimensions.width]);
 
   // Control the open or closed state of the multiselect.
-  const [isOpen, setIsOpen] = useState(defaultIsOpen);
+  const [isOpen, setIsOpen] = useState(isDefaultOpen);
   // Create a ref that we add to the element for which we want to detect outside clicks.
   const ref = useRef();
   // Closes the multiselect if user clicks outside.

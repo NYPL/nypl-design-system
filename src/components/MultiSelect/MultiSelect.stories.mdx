@@ -30,7 +30,7 @@ import * as stories from "./MultiSelect.stories.tsx";
     items: { control: false },
     selectedItems: { control: false },
     width: { table: { default: "default" } },
-    defaultIsOpen: { table: { default: false } },
+    isDefaultOpen: { table: { default: false } },
     isBlockElement: { table: { default: false } },
     onApply: {
       description:
@@ -118,7 +118,7 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
       id: "multiselect-dialog",
       label: "MultiSelect Dialog",
       width: "default",
-      defaultIsOpen: false,
+      isDefaultOpen: false,
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}

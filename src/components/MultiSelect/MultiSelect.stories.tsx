@@ -69,7 +69,10 @@ const items = [
 
 export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onClear, selectedItems } = useMultiSelect(args.id, items);
+  const { onChange, onClear, selectedItems } = useMultiSelect({
+    multiSelectId: args.id,
+    items,
+  });
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -95,7 +98,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
-    useMultiSelect(args.id, items);
+    useMultiSelect({ multiSelectId: args.id, items });
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -109,7 +112,7 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
       {...args}
       variant="dialog"
       items={items}
-      defaultIsOpen={false}
+      isDefaultOpen={false}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id);

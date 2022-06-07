@@ -73,11 +73,9 @@ export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export {
   default as MultiSelect,
   MultiSelectProps,
-} from "./components/MultiSelect/MultiSelect";
-export {
   MultiSelectItem,
   SelectedItems,
-} from "./components/MultiSelect/MultiSelectTypes";
+} from "./components/MultiSelect/MultiSelect";
 export {
   default as Notification,
   NotificationTypes,
