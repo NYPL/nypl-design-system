@@ -1,7 +1,8 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Image from "../Image/Image";
 import Table from "./Table";
@@ -173,6 +174,9 @@ describe("Table", () => {
         tableData={charactersData}
       />
     );
+    // The data contains images. Mock that they are in view
+    // so they can render.
+    mockAllIsIntersecting(true);
     expect(screen.getAllByRole("img")).toHaveLength(3);
   });
 

@@ -82,15 +82,13 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>
@@ -204,15 +202,13 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>
@@ -326,15 +322,13 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>
@@ -449,15 +443,13 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>
@@ -571,15 +563,13 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>
@@ -693,15 +683,13 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                <div
+                  className="the-crop css-0"
                 />
               </div>
             </div>

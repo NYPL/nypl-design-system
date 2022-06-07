@@ -1,5 +1,7 @@
+import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
 
 export type ImageRatios =
   | "fourByThree"
@@ -115,11 +117,20 @@ export const Image = chakra((props: ImageProps) => {
     src,
     ...rest
   } = props;
+  // Check if the native browser lazy loading is supported.
+  const supportsLazyLoading = useNativeLazyLoading();
+  // If it is (mostly Chromium-based browsers), then skip creating
+  // the IntersectionObserver object.
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    skip: supportsLazyLoading,
+  });
   const useImageWrapper = aspectRatio !== "original";
   const styles = useMultiStyleConfig("CustomImage", {
     variant: imageType,
     size,
   });
+  let imageComponent: JSX.Element | null = null;
 
   if (alt && alt.length > 300) {
     throw new Error(
@@ -127,16 +138,19 @@ export const Image = chakra((props: ImageProps) => {
     );
   }
 
-  const imageComponent: JSX.Element = component ? (
-    component
-  ) : (
-    <Box
-      as="img"
-      src={src}
-      alt={alt}
-      __css={{ ...styles.img, ...additionalImageStyles }}
-    />
-  );
+  if (inView || supportsLazyLoading) {
+    imageComponent = component ? (
+      component
+    ) : (
+      <Box
+        as="img"
+        alt={alt}
+        loading="lazy"
+        src={src}
+        __css={{ ...styles.img, ...additionalImageStyles }}
+      />
+    );
+  }
   const finalImage = useImageWrapper ? (
     <ImageWrapper
       additionalWrapperStyles={additionalWrapperStyles}
@@ -151,20 +165,24 @@ export const Image = chakra((props: ImageProps) => {
     imageComponent
   );
 
-  return caption || credit ? (
-    <Box
-      as="figure"
-      __css={{ ...styles.figure, ...additionalFigureStyles }}
-      {...rest}
-    >
-      {finalImage}
-      <Box as="figcaption" __css={styles.figcaption}>
-        {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
-        {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
-      </Box>
+  return (
+    <Box ref={ref}>
+      {caption || credit ? (
+        <Box
+          as="figure"
+          __css={{ ...styles.figure, ...additionalFigureStyles }}
+          {...rest}
+        >
+          {finalImage}
+          <Box as="figcaption" __css={styles.figcaption}>
+            {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
+            {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+          </Box>
+        </Box>
+      ) : (
+        finalImage
+      )}
     </Box>
-  ) : (
-    finalImage
   );
 });
 

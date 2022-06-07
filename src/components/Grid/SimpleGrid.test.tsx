@@ -1,7 +1,8 @@
-import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import SimpleGrid from "./SimpleGrid";
@@ -51,6 +52,9 @@ describe("Grid Accessibility", () => {
         </Card>
       </SimpleGrid>
     );
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
+
     expect(await axe(container)).toHaveNoViolations();
   });
 });
