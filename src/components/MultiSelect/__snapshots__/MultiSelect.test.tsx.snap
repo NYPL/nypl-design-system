@@ -2366,11 +2366,13 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
   id="multiselect-listbox-test-id"
 >
   <button
+    aria-expanded={false}
     aria-haspopup="listbox"
     aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
     id="multiselect-listbox-test-id-toggle-button"
+    isOpen={false}
     label="MultiSelect Label"
     multiSelectId="multiselect-listbox-test-id"
     onClear={[Function]}
