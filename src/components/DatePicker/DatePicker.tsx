@@ -2,6 +2,8 @@ import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
 import HelperErrorText, {
