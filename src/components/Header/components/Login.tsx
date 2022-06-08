@@ -42,7 +42,7 @@ const Login = chakra(({ loginOpen, patronName, setLoginOpen }: LoginProps) => {
               id="patronGreeting"
               data-testid="patronGreeting"
               ref={greeting}
-              tabIndex={-1}
+              tabIndex={0}
             >
               <Text className="greeting">You are logged in as: </Text>
               <Text className="name">{patronName}</Text>

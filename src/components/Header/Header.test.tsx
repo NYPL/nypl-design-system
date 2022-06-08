@@ -176,7 +176,7 @@ describe("Patron is logged in", () => {
   afterAll(() => {
     Cookies.get = realGet;
   });
-  it.only("displays logged in view", async () => {
+  it("displays logged in view", async () => {
     document.getElementById("chakra-toast-portal")?.remove();
 
     expect(Cookies.get).toHaveBeenCalledWith("nyplIdentityPatron");
