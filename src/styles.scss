@@ -1,8 +1,8 @@
 // Better style reset
 @import "~normalize.css/normalize";
-// A cleaner way to do breakpoints/media queries:
-//  http://breakpoint-sass.com/
+// System fonts
 @import "~system-font-css/_system-font.scss";
+// The `react-datepicker` styles. We'll compile and minimize it ourselves.
 @import "~react-datepicker/src/stylesheets/datepicker.scss";
 
 // Base styles
