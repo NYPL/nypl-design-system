@@ -69,7 +69,7 @@ const upperNav = {
       display: "inline-block",
       color: "ui.white",
       fontSize: "14px",
-      fontWeight: 400,
+      fontWeight: "regular",
       letterSpacing: ".03em",
       marginTop: "14px",
       padding: "10px 20px",
@@ -90,7 +90,12 @@ const upperNav = {
       lineHeight: "1.2em",
       textAlign: "left",
       textTransform: "none",
+      _focus: {
+        boxShadow: "1px 1px 2px 2px #0f465c",
+        outline: "none",
+      },
       ".greeting": {
+        fontStyle: "italic",
         margin: "0 0 6px 0",
       },
       ".name": {

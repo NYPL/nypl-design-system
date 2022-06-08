@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, chakra, VStack } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
@@ -20,6 +20,13 @@ const Login = chakra(
       : patronName
       ? "My Account"
       : "Log In";
+    const greeting = useRef(null);
+
+    useEffect(() => {
+      if (patronName && loginOpen) {
+        greeting.current.focus();
+      }
+    }, [loginOpen, patronName]);
 
     return (
       <FocusLock isDisabled={!loginOpen}>
@@ -46,7 +53,12 @@ const Login = chakra(
         {loginOpen && (
           <VStack className="loginMenu">
             {patronName && (
-              <Box id="patronGreeting">
+              <Box
+                id="patronGreeting"
+                data-testid="patronGreeting"
+                ref={greeting}
+                tabIndex={0}
+              >
                 <Text className="greeting">You are logged in as: </Text>
                 <Text className="name">{patronName}</Text>
               </Box>

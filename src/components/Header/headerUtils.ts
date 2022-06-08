@@ -62,13 +62,15 @@ export const getCookieValue = () => {
   return { cookieValue, accessToken };
 };
 
+export const patronApiUrl =
+  "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
+
 /**
  * fetchPatronData uses the patronApiUrl combined with the
  * access_token from the nyplIdentityPatron cookie to fetch
  * the patron's information from the server.
  */
 export const fetchPatronData = (accessToken, cb) => {
-  const patronApiUrl = "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
   const fetchErrorMessage =
     "NYPL Reservoir Header: There was an error fetching NYPL patron data.";
 
@@ -86,7 +88,11 @@ export const fetchPatronData = (accessToken, cb) => {
     });
 };
 
-export const extractPatronName = (data) => {
+/**
+ * extractPatronName locates and returns the patronName
+ * from the nested object that is returned from fetchPatronData.
+ */
+export const extractPatronName = (data: any) => {
   try {
     const {
       data: {

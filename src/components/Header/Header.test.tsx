@@ -147,13 +147,15 @@ describe("Header", () => {
 });
 
 describe("Patron is logged in", () => {
+  const realGet = Cookies.get;
   beforeAll(async () => {
-    jest.spyOn(Cookies, "get").mockReturnValue(mockCookieValue);
-
+    Cookies.get = jest.fn().mockReturnValue(mockCookieValue);
     // This is assuming that the sitewide alerts fetch call runs
     // before the patron information call. If the alerts call runs
     // after the patron information call, the wrong response will be
     // returned for each and this test will fail.
+
+    // TODO: fix the indeterministic fetch calls.
     (global as any).fetch = jest
       .fn()
       .mockReturnValueOnce(
@@ -171,8 +173,13 @@ describe("Patron is logged in", () => {
 
     await waitFor(() => render(<Header />));
   });
+  afterAll(() => {
+    Cookies.get = realGet;
+  });
   it("displays logged in view", async () => {
     document.getElementById("chakra-toast-portal")?.remove();
+
+    expect(Cookies.get).toHaveBeenCalledWith("nyplIdentityPatron");
 
     // The third list is the upper navigation links.
     const upperList = await screen.getAllByRole("list")[2];

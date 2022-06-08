@@ -46,7 +46,8 @@ export const Header = chakra(() => {
   // Allows user to use esc key to close the login menu.
   useEffect(() => {
     const close = (e) => {
-      if (e.keyCode === 27) {
+      const key = e.key || e.keyCode;
+      if (key === "Escape" || key === "Esc" || key === 27) {
         setLoginOpen(false);
       }
     };
