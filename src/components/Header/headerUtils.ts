@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 export interface Alert {
   id: string;
   link: string;
@@ -47,4 +48,62 @@ export const parseAlertsData = (data: any): Alert[] => {
   });
 
   return filteredAlerts;
+};
+
+/**
+ * getCookieValue uses the js.cookie package to get the value
+ * of the nyplIdentityPatron cookie (if it exists) and extract
+ * the cookie's access_token.
+ */
+export const getCookieValue = () => {
+  const cookieValue = Cookies.get("nyplIdentityPatron");
+  const accessToken = cookieValue ? JSON.parse(cookieValue).access_token : "";
+
+  return { cookieValue, accessToken };
+};
+
+export const patronApiUrl =
+  "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
+
+/**
+ * fetchPatronData uses the patronApiUrl combined with the
+ * access_token from the nyplIdentityPatron cookie to fetch
+ * the patron's information from the server.
+ */
+export const fetchPatronData = (accessToken, cb) => {
+  const fetchErrorMessage =
+    "NYPL Reservoir Header: There was an error fetching NYPL patron data.";
+
+  fetch(`${patronApiUrl}${accessToken}`)
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        throw new Error(fetchErrorMessage);
+      }
+    })
+    .then(cb)
+    .catch(() => {
+      console.warn(fetchErrorMessage);
+    });
+};
+
+/**
+ * extractPatronName locates and returns the patronName
+ * from the nested object that is returned from fetchPatronData.
+ */
+export const extractPatronName = (data: any) => {
+  try {
+    const {
+      data: {
+        patron: {
+          names: [patronName],
+        },
+      },
+    } = data;
+
+    return patronName;
+  } catch (e) {
+    return "";
+  }
 };
