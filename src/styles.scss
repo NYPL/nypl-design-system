@@ -3,6 +3,7 @@
 // A cleaner way to do breakpoints/media queries:
 //  http://breakpoint-sass.com/
 @import "~system-font-css/_system-font.scss";
+@import "~react-datepicker/src/stylesheets/datepicker.scss";
 
 // Base styles
 @import "./styles/base/_01-breakpoints";
