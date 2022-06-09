@@ -30,7 +30,8 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="searchInput-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -61,7 +62,7 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
           id="search-header-child0-grandchild1"
         >
           <div
-            className="chakra-stack css-ytb711"
+            className="chakra-stack css-6dfzd0"
           >
             <button
               aria-label="Search"
@@ -129,103 +130,121 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
               <div
                 className="chakra-stack css-1objuxj"
               >
-                <label
-                  className="chakra-radio css-13p0l12"
-                  data-checked=""
+                <div
+                  className="css-1xdhyk6"
+                  id="catalogSearch-wrapper"
                 >
-                  <input
-                    checked={true}
-                    className="chakra-radio__input"
-                    disabled={false}
-                    id="catalogSearch"
-                    name="catalogWebsiteSearch"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    required={false}
-                    style={
-                      Object {
-                        "border": "0px",
-                        "clip": "rect(0px, 0px, 0px, 0px)",
-                        "height": "1px",
-                        "margin": "-1px",
-                        "overflow": "hidden",
-                        "padding": "0px",
-                        "position": "absolute",
-                        "whiteSpace": "nowrap",
-                        "width": "1px",
-                      }
-                    }
-                    type="radio"
-                    value="catalog"
-                  />
-                  <span
-                    aria-hidden={true}
-                    className="css-14wybg9"
+                  <label
+                    className="chakra-radio css-13p0l12"
                     data-checked=""
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                  />
-                  <span
-                    className="chakra-radio__label css-1y8kf23"
-                    data-checked=""
-                    onMouseDown={[Function]}
-                    onTouchStart={[Function]}
                   >
-                    Search the Catalog
-                  </span>
-                </label>
-                <label
-                  className="chakra-radio css-13p0l12"
+                    <input
+                      checked={true}
+                      className="chakra-radio__input"
+                      disabled={false}
+                      id="catalogSearch"
+                      name="catalogWebsiteSearch"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      required={false}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                      value="catalog"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="css-14wybg9"
+                      data-checked=""
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1y8kf23"
+                      data-checked=""
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      <span
+                        className="css-0"
+                      >
+                        Search the Catalog
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="css-1xdhyk6"
+                  id="websiteSearch-wrapper"
                 >
-                  <input
-                    checked={false}
-                    className="chakra-radio__input"
-                    disabled={false}
-                    id="websiteSearch"
-                    name="catalogWebsiteSearch"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    required={false}
-                    style={
-                      Object {
-                        "border": "0px",
-                        "clip": "rect(0px, 0px, 0px, 0px)",
-                        "height": "1px",
-                        "margin": "-1px",
-                        "overflow": "hidden",
-                        "padding": "0px",
-                        "position": "absolute",
-                        "whiteSpace": "nowrap",
-                        "width": "1px",
-                      }
-                    }
-                    type="radio"
-                    value="website"
-                  />
-                  <span
-                    aria-hidden={true}
-                    className="css-14wybg9"
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                  />
-                  <span
-                    className="chakra-radio__label css-1y8kf23"
-                    onMouseDown={[Function]}
-                    onTouchStart={[Function]}
+                  <label
+                    className="chakra-radio css-13p0l12"
                   >
-                    Search NYPL.org
-                  </span>
-                </label>
+                    <input
+                      checked={false}
+                      className="chakra-radio__input"
+                      disabled={false}
+                      id="websiteSearch"
+                      name="catalogWebsiteSearch"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      required={false}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                      value="website"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="css-14wybg9"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1y8kf23"
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      <span
+                        className="css-0"
+                      >
+                        Search NYPL.org
+                      </span>
+                    </span>
+                  </label>
+                </div>
               </div>
             </div>
           </fieldset>
@@ -266,7 +285,8 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
               Enter a keyword, then choose to search either the catalog or the website
             </legend>
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="searchInput-wrapper"
             >
               <input
                 aria-label="Enter Search Keyword"
