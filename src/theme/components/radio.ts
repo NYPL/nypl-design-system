@@ -3,6 +3,7 @@ import {
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
+  screenreaderOnly,
 } from "./global";
 
 // Style object for the Radio's "control" or visual icon.
@@ -78,6 +79,7 @@ const baseStyle = {
   label: baseStyleLabel,
   // Custom element in the DS Radio component.
   helperErrorText: baseStyleHelperErrorText,
+  hiddenLabel: screenreaderOnly,
 };
 
 // Sticking to "md" for the default size.
@@ -91,7 +93,7 @@ const sizes = {
 };
 
 const Radio = {
-  parts: ["control", "helperErrorText", "label"],
+  parts: ["control", "helperErrorText", "hiddenLabel", "label"],
   baseStyle,
   sizes,
   // Default values

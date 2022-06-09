@@ -1,3 +1,31 @@
+interface CardBaseStyleProps {
+  hasImage: boolean;
+  imageIsAtEnd: boolean;
+  isAlignedRightActions: boolean;
+  isBordered: boolean;
+  isCentered: boolean;
+  layout: string;
+  mainActionLink: boolean;
+}
+interface BodyPaddingProps {
+  hasImage: boolean;
+  imageIsAtEnd: boolean;
+  isBordered: boolean;
+  isRow: boolean;
+}
+interface CardImageBaseStyleProps {
+  imageIsAtEnd: boolean;
+  isCentered: boolean;
+  size: keyof typeof imageSizes;
+  layout: string;
+}
+interface CardActionsBaseStyleProps {
+  bottomBorder: boolean;
+  isCentered: boolean;
+  layout: string;
+  topBorder: boolean;
+}
+
 const imageSizes = {
   xxsmall: { flex: { base: "0 0 100%", md: "0 0 64px" }, width: "100%" },
   xsmall: { flex: { md: "0 0 96px" } },
@@ -8,10 +36,10 @@ const imageSizes = {
 // This is complicated and can be refactored later...
 const getBodyPaddingStyles = ({
   hasImage,
-  isBordered,
   imageIsAtEnd,
+  isBordered,
   isRow,
-}) => {
+}: BodyPaddingProps) => {
   let bodyPadding = null;
   if (isBordered) {
     bodyPadding = "inset.default";
@@ -39,15 +67,15 @@ const getBodyPaddingStyles = ({
 };
 const Card = {
   parts: ["actions", "body", "heading"],
-  baseStyle: (props) => {
-    const {
-      hasImage,
-      imageIsAtEnd,
-      isBordered,
-      isCentered,
-      layout,
-      mainActionLink,
-    } = props;
+  baseStyle: ({
+    hasImage,
+    imageIsAtEnd,
+    isAlignedRightActions,
+    isBordered,
+    isCentered,
+    layout,
+    mainActionLink,
+  }: CardBaseStyleProps) => {
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -86,15 +114,19 @@ const Card = {
       flexFlow: "column wrap",
       textAlign: isCentered ? "center" : null,
       actions: {
-        width: ["100%", "100%", "180px"],
-        marginLeft: ["0", "0", "m"],
-        marginTop: ["xs", "xs", "0"],
+        flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
+        marginLeft: { base: "0", md: "m" },
+        marginTop: { base: "xs", md: "0" },
+        maxWidth: { base: "100%", md: "180px" },
+        width: "100%",
       },
       body: {
         display: { md: "block" },
+        flexBasis: { sm: isRow ? "100%" : null },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
+        width: { base: "100%", md: "auto" },
       },
       heading: {
         marginBottom: "xs",
@@ -107,8 +139,12 @@ const Card = {
 };
 
 const CardActions = {
-  baseStyle: (props) => {
-    const { bottomBorder, isCentered, layout, topBorder } = props;
+  baseStyle: ({
+    bottomBorder,
+    isCentered,
+    layout,
+    topBorder,
+  }: CardActionsBaseStyleProps) => {
     let justifyContent = null;
     // Only center in the column layout.
     if (layout === "row") {
@@ -154,9 +190,14 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ imageIsAtEnd, isCentered, layout, size }) => {
+  baseStyle: ({
+    imageIsAtEnd,
+    isCentered,
+    layout,
+    size,
+  }: CardImageBaseStyleProps) => {
     // These sizes are only for the "row" layout.
-    const imageSize = imageSizes[size] || {};
+    const imageSize = size ? imageSizes[size] : {};
     const layoutStyles =
       layout === "row"
         ? {

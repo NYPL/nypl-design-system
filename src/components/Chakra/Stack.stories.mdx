@@ -2,7 +2,6 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
 
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -15,7 +14,7 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.24.0`   |
 
 Note: This needs the use of the `DSProvider` component. See the
-[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
+[README](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
 These components are directly exported from Chakra UI. The `Stack`, `HStack`,
@@ -53,13 +52,13 @@ elements both horizontally and vertically through the `direction` prop and the
     {(args) => (
       <Stack {...args}>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
+          <Icon name="errorFilled" size="large" />
         </Circle>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
+          <Icon name="errorOutline" size="large" />
         </Circle>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.Check} size={IconSizes.Large} />
+          <Icon name="check" size="large" />
         </Circle>
       </Stack>
     )}
@@ -75,13 +74,13 @@ a `direction` value of `"row"`.
   <DSProvider>
     <HStack spacing="s">
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
+        <Icon name="errorFilled" size="large" />
       </Circle>
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
+        <Icon name="errorOutline" size="large" />
       </Circle>
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.Check} size={IconSizes.Large} />
+        <Icon name="check" size="large" />
       </Circle>
     </HStack>
   </DSProvider>
@@ -97,13 +96,13 @@ all the elements in the stack.
   <DSProvider>
     <VStack align="left" spacing="s">
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
+        <Icon name="errorFilled" size="large" />
       </Circle>
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
+        <Icon name="errorOutline" size="large" />
       </Circle>
       <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-        <Icon name={IconNames.Check} size={IconSizes.Large} />
+        <Icon name="check" size="large" />
       </Circle>
     </VStack>
   </DSProvider>

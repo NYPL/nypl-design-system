@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
-import { LabelPositions } from "./SelectTypes";
 
 const baseProps = {
   helperText: "This is the helper text.",
@@ -25,6 +24,15 @@ const baseOptions = (
 describe("Select Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <Select {...baseProps} showLabel={false}>
+        {baseOptions}
+      </Select>
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -178,23 +186,23 @@ describe("Select", () => {
       </Select>
     );
 
-    expect(selectRef.current.value).toEqual("red");
+    expect(selectRef.current?.value).toEqual("red");
 
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: "blue" },
     });
-    expect(selectRef.current.value).toEqual("blue");
+    expect(selectRef.current?.value).toEqual("blue");
 
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: "white" },
     });
-    expect(selectRef.current.value).toEqual("white");
+    expect(selectRef.current?.value).toEqual("white");
   });
 
   it("calls the onChange callback function", () => {
     let value = "";
-    const changeCallback = (e) => {
-      value = e.target.value;
+    const changeCallback = (e: React.FormEvent) => {
+      value = (e.target as HTMLInputElement).value;
     };
     render(
       <Select {...baseProps} onChange={changeCallback} value={value}>
@@ -300,7 +308,7 @@ describe("Select", () => {
         <Select
           id="select"
           isRequired
-          labelPosition={LabelPositions.Inline}
+          labelPosition="inline"
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >

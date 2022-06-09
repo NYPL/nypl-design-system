@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import List from "./List";
-import { ListTypes } from "./ListTypes";
 
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
 const fishDescriptions = [
@@ -21,32 +20,32 @@ const fishDescriptions = [
 describe("List Accessibility", () => {
   it("passes axe accessibility test for unordered list", async () => {
     const { container, rerender } = render(
-      <List type={ListTypes.Unordered}>
+      <List type="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List type={ListTypes.Unordered} listItems={fishArray} />);
+    rerender(<List type="ul" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test for ordered list", async () => {
     const { container, rerender } = render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List type={ListTypes.Ordered} listItems={fishArray} />);
+    rerender(<List type="ol" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test for description list", async () => {
     const { container } = render(
       <List
-        type={ListTypes.Description}
+        type="dl"
         title="Animal Crossing Fish"
         listItems={fishDescriptions}
       />
@@ -58,7 +57,7 @@ describe("List Accessibility", () => {
 describe("List", () => {
   it("renders unordered list", () => {
     render(
-      <List type={ListTypes.Unordered}>
+      <List type="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -70,7 +69,7 @@ describe("List", () => {
   });
 
   it("renders unordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Unordered} listItems={fishArray} />);
+    render(<List type="ul" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -81,7 +80,7 @@ describe("List", () => {
 
   it("renders ordered list", () => {
     render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -93,7 +92,7 @@ describe("List", () => {
   });
 
   it("renders ordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Ordered} listItems={fishArray} />);
+    render(<List type="ol" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -104,7 +103,7 @@ describe("List", () => {
 
   it("returns description list", () => {
     render(
-      <List type={ListTypes.Description}>
+      <List type="dl">
         <dt>Mahi-mahi</dt>
         <dd>The mahi-mahi is an ocean fish known...</dd>
       </List>
@@ -119,7 +118,7 @@ describe("List", () => {
   it("returns description list with the `listItems` prop", () => {
     render(
       <List
-        type={ListTypes.Description}
+        type="dl"
         title="Animal Crossing Fish"
         listItems={fishDescriptions}
       />
@@ -130,7 +129,7 @@ describe("List", () => {
   it("consoles a warning when children and the `listItems` prop are both passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Ordered} listItems={fishArray}>
+      <List type="ol" listItems={fishArray}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
         <li>Rainbowfish</li>
@@ -145,7 +144,7 @@ describe("List", () => {
 
   it("consoles a warning when no children are passed or the `listItems` prop is not passed", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<List type={ListTypes.Ordered}></List>);
+    render(<List type="ol"></List>);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
         "the `listItems` prop, not both."
@@ -155,7 +154,7 @@ describe("List", () => {
   it("consoles a warning when you pass an ordered or unordered list children that aren't <li>s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
@@ -169,7 +168,7 @@ describe("List", () => {
   it("consoles a warning when you pass a description list children that aren't `<dt>`s or `<dd>`s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Description}>
+      <List type="dl">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
@@ -183,34 +182,21 @@ describe("List", () => {
 
   it("Renders the UI snapshot correctly", () => {
     const unordered = renderer
-      .create(
-        <List id="unordered" type={ListTypes.Unordered} listItems={fishArray} />
-      )
+      .create(<List id="unordered" type="ul" listItems={fishArray} />)
       .toJSON();
     const unorderedNoStyling = renderer
-      .create(
-        <List
-          id="ordered"
-          type={ListTypes.Unordered}
-          listItems={fishArray}
-          noStyling
-        />
-      )
+      .create(<List id="ordered" type="ul" listItems={fishArray} noStyling />)
       .toJSON();
     const ordered = renderer
       .create(
-        <List
-          id="unordered-no-styling"
-          type={ListTypes.Ordered}
-          listItems={fishArray}
-        />
+        <List id="unordered-no-styling" type="ol" listItems={fishArray} />
       )
       .toJSON();
     const orderedNoStyling = renderer
       .create(
         <List
           id="ordered-no-styling"
-          type={ListTypes.Ordered}
+          type="ol"
           listItems={fishArray}
           noStyling
         />
@@ -220,7 +206,7 @@ describe("List", () => {
       .create(
         <List
           id="description"
-          type={ListTypes.Description}
+          type="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
         />
@@ -230,7 +216,7 @@ describe("List", () => {
       .create(
         <List
           id="chakra"
-          type={ListTypes.Unordered}
+          type="ul"
           listItems={fishArray}
           p="20px"
           color="ui.error.primary"
@@ -239,19 +225,14 @@ describe("List", () => {
       .toJSON();
     const withOtherPropsUnordered = renderer
       .create(
-        <List
-          id="other"
-          type={ListTypes.Unordered}
-          listItems={fishArray}
-          data-testid="other"
-        />
+        <List id="other" type="ul" listItems={fishArray} data-testid="other" />
       )
       .toJSON();
     const withChakraPropsDescription = renderer
       .create(
         <List
           id="chakra"
-          type={ListTypes.Description}
+          type="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
           p="20px"
@@ -263,7 +244,7 @@ describe("List", () => {
       .create(
         <List
           id="other"
-          type={ListTypes.Description}
+          type="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
           data-testid="other"

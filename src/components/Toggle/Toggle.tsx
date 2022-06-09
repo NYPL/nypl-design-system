@@ -7,13 +7,12 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
-import { ToggleSizes } from "./ToggleTypes";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
+
+export type ToggleSizes = "default" | "small";
 export interface ToggleProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
@@ -57,7 +56,6 @@ export const onChangeDefault = () => {
 export const Toggle = chakra(
   React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
-      additionalStyles = {},
       defaultChecked = false,
       helperText,
       id,
@@ -69,15 +67,19 @@ export const Toggle = chakra(
       labelText,
       name,
       onChange = onChangeDefault,
-      size = ToggleSizes.Default,
+      size = "default",
       ...rest
     } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
-    ariaAttributes["aria-label"] =
-      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+    const footnote = isInvalid ? invalidText : helperText;
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Toggle",
+      showLabel: true,
+    });
 
     if (!id) {
       console.warn(
@@ -86,16 +88,23 @@ export const Toggle = chakra(
     }
 
     return (
-      <>
-        <Box __css={{ ...styles, ...additionalStyles }} {...rest}>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        {...rest}
+      >
+        <Box __css={styles}>
           <Switch
             id={id}
-            name={name || "default"}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            name={name || "default"}
             ref={ref}
-            size={size === ToggleSizes.Default ? "lg" : "sm"}
+            size={size === "default" ? "lg" : "sm"}
             lineHeight="1.5"
             {...(isChecked !== undefined
               ? {
@@ -111,15 +120,7 @@ export const Toggle = chakra(
             {labelText}
           </Switch>
         </Box>
-        {footnote && (
-          <HelperErrorText
-            additionalStyles={styles.helperErrorText}
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );

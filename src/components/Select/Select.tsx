@@ -6,16 +6,15 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState, useRef } from "react";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
-import { SelectTypes, LabelPositions } from "./SelectTypes";
+import { getAriaAttrs } from "../../utils/utils";
+
+export type SelectTypes = "default" | "searchbar";
+export type LabelPositions = "default" | "inline";
 export interface SelectProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
@@ -69,7 +68,6 @@ export const Select = chakra(
   React.forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {
-        additionalStyles = {},
         children,
         className,
         helperText,
@@ -78,21 +76,20 @@ export const Select = chakra(
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
-        labelPosition = LabelPositions.Default,
+        labelPosition = "default",
         labelText,
         name,
         onChange,
         placeholder,
-        selectType = SelectTypes.Default,
+        selectType = "default",
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
         value = "",
         ...rest
       } = props;
-      const ariaAttributes = {};
       const [labelWidth, setLabelWidth] = useState<number>(0);
-      const labelRef = useRef<HTMLInputElement>();
+      const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
         labelPosition,
@@ -100,9 +97,14 @@ export const Select = chakra(
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
-      const footnote: HelperErrorTextType = isInvalid
-        ? finalInvalidText
-        : helperText;
+      const footnote = isInvalid ? finalInvalidText : helperText;
+      const ariaAttributes = getAriaAttrs({
+        footnote,
+        id,
+        labelText,
+        name: "Select",
+        showLabel,
+      });
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};
@@ -111,13 +113,6 @@ export const Select = chakra(
       // when the labelPosition is inline (equivalent to --nypl-space-xs).
       const labelSelectGap = 8;
 
-      if (!showLabel) {
-        ariaAttributes["aria-label"] =
-          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-      } else if (helperText) {
-        ariaAttributes["aria-describedby"] = `${id}-helperText`;
-      }
-
       if (!id) {
         console.warn(
           "NYPL Reservoir Select: This component's required `id` prop was not passed."
@@ -125,7 +120,7 @@ export const Select = chakra(
       }
 
       useEffect(() => {
-        if (labelPosition === LabelPositions.Inline) {
+        if (labelPosition === "inline") {
           if (labelRef.current) {
             const width = labelRef.current.clientWidth + labelSelectGap;
             setLabelWidth(width);
@@ -136,12 +131,20 @@ export const Select = chakra(
       }, [labelPosition]);
 
       return (
-        <Box
+        <ComponentWrapper
           className={className}
-          __css={{ ...styles, ...additionalStyles }}
+          helperText={helperText}
+          helperTextStyles={{
+            marginLeft: { sm: "auto", md: `${labelWidth}px` },
+          }}
+          id={id}
+          invalidText={finalInvalidText}
+          isInvalid={isInvalid}
+          showHelperInvalidText={showHelperInvalidText}
+          __css={styles}
           {...rest}
         >
-          <Box __css={labelPosition === LabelPositions.Inline && styles.inline}>
+          <Box __css={labelPosition === "inline" && styles.inline}>
             {showLabel && (
               <Box ref={labelRef}>
                 <Label
@@ -165,27 +168,13 @@ export const Select = chakra(
               ref={ref}
               {...controlledProps}
               {...ariaAttributes}
-              icon={
-                <Icon
-                  id={`${id}-icon`}
-                  name={IconNames.Arrow}
-                  size={IconSizes.Medium}
-                />
-              }
+              icon={<Icon id={`${id}-icon`} name="arrow" size="medium" />}
               __css={styles.select}
             >
               {children}
             </ChakraSelect>
           </Box>
-          {footnote && showHelperInvalidText && (
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-              ml={{ sm: "auto", md: `${labelWidth}px` }}
-            />
-          )}
-        </Box>
+        </ComponentWrapper>
       );
     }
   )

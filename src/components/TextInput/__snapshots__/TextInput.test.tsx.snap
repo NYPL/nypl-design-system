@@ -2,7 +2,33 @@
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextarea-wrapper"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextarea"
+    id="myTextarea-label"
+  >
+    Custom textarea Label
+  </label>
+  <textarea
+    className="chakra-textarea css-0"
+    disabled={false}
+    id="myTextarea"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Textarea Placeholder"
+    required={false}
+    step={null}
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
+<div
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -29,9 +55,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -54,9 +81,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <input
     aria-label="Custom Input Label"
@@ -74,9 +102,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -116,9 +145,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -131,6 +161,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     </span>
   </label>
   <input
+    aria-describedby="myTextInput-helperText"
     aria-invalid={true}
     aria-required={true}
     className="chakra-input css-0"
@@ -158,9 +189,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -187,9 +219,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
-  className="css-kle7zy"
+  className="css-1y4kn3e"
+  id="chakra-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -212,10 +245,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="props"
+  id="props-wrapper"
 >
   <label
     className="css-1xdhyk6"
@@ -226,6 +260,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
   </label>
   <input
     className="chakra-input css-0"
+    data-testid="props"
     disabled={false}
     id="props"
     onBlur={[Function]}
@@ -234,30 +269,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     required={false}
     step={null}
     type="text"
-  />
-</div>
-`;
-
-exports[`UI Snapshots renders the textarea UI snapshot correctly 1`] = `
-<div
-  className="css-1xdhyk6"
->
-  <label
-    className="css-1xdhyk6"
-    htmlFor="myTextarea"
-    id="myTextarea-label"
-  >
-    Custom textarea Label
-  </label>
-  <textarea
-    className="chakra-textarea css-0"
-    disabled={false}
-    id="myTextarea"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    placeholder="Textarea Placeholder"
-    required={false}
-    step={null}
   />
 </div>
 `;

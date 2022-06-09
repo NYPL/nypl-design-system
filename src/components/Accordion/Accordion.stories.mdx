@@ -9,11 +9,7 @@ import ReactDOMServer from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
 
 import Accordion from "./Accordion";
-import { AccordionTypes } from "./AccordionTypes";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import { ImageRatios } from "../Image/ImageTypes";
-import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -39,7 +35,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -66,22 +62,25 @@ Note that you can pass in a string or DOM elements into the `panel` property in 
 object. This approach is needed because, internally, we deal with the logic to render
 the necessary icon, Chakra components, and styles. Additionally, the `accordionType`
 prop can be used to change the accordion button's background color. It takes a value
-from the AccordionTypes enum: AccordionTypes.Default is `ui.white`, AccordionTypes.Warning
-is `ui.status.primary`, and AccordionTypes.Error is `ui.status.secondary`.
+of `"default"` for `"ui.white"`, `"warning"` for `"ui.status.primary"`, and
+`"error"` for `"ui.status.secondary"`.
 
 ```jsx
 const accordionData = [
   {
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
-        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level="four" id="heading1">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -101,62 +100,21 @@ const accordionData = [
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="Accordion with Controls"
-    args={{
-      accordionData: [
-        {
-          accordionType: AccordionTypes.Default,
-          label: "Tom Nook",
-          panel: (
-            <Card
-              imageProps={{
-                alt: "Alt text",
-                aspectRatio: ImageRatios.TwoByOne,
-                src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
-              }}
-              isCentered
-              layout={LayoutTypes.Row}
-            >
-              <CardHeading level={HeadingLevels.Four} id="heading1">
-                Tom Nook
-              </CardHeading>
-              <CardContent>
-                Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
-                character in the Animal Crossing series who operates the village
-                store.
-              </CardContent>
-            </Card>
-          ),
-        },
-      ],
-      id: "accordion-id",
-      isDefaultOpen: false,
-    }}
-  >
-    {(args) => <Accordion {...args} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Accordion with Controls" />
-
-```jsx
-const accordionData = [
+export const accordionData = [
   {
-    accordionType: AccordionTypes.Default,
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level="four" id="heading1">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -167,7 +125,20 @@ const accordionData = [
     ),
   },
 ];
-```
+
+<Canvas withToolbar>
+  <Story
+    name="Accordion with Controls"
+    args={{
+      id: "accordion-id",
+      isDefaultOpen: false,
+    }}
+  >
+    {(args) => <Accordion accordionData={accordionData} {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Accordion with Controls" />
 
 ## Accessibility
 
@@ -192,19 +163,19 @@ Resources:
 
 export const faqContent = [
   {
-    accordionType: AccordionTypes.Default,
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-tom">
+        <CardHeading level="four" id="heading1-tom">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -215,19 +186,19 @@ export const faqContent = [
     ),
   },
   {
-    accordionType: AccordionTypes.Warning,
+    accordionType: "warning",
     label: "Isabelle",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
+        <CardHeading level="four" id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -240,19 +211,19 @@ export const faqContent = [
     ),
   },
   {
-    accordionType: AccordionTypes.Error,
+    accordionType: "error",
     label: "K.K. Slider",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
+        <CardHeading level="four" id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>
@@ -280,19 +251,19 @@ one object in the array passed into the `accordionData` prop.
 ```jsx
 export const faqContent = [
   {
-    accordionType: AccordionTypes.Default,
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-tom">
+        <CardHeading level="four" id="heading1-tom">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -303,19 +274,19 @@ export const faqContent = [
     ),
   },
   {
-    accordionType: AccordionTypes.Warning,
+    accordionType: "warning",
     label: "Isabelle",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
+        <CardHeading level="four" id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -328,19 +299,19 @@ export const faqContent = [
     ),
   },
   {
-    accordionType: AccordionTypes.Error,
+    accordionType: "error",
     label: "K.K. Slider",
     panel: (
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
+        <CardHeading level="four" id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>

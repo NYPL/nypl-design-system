@@ -1,82 +1,94 @@
 /* eslint-disable camelcase */
-import logo_bpl_black from "../../../icons/svg/logo_bpl_black.svg";
-import logo_bpl_white from "../../../icons/svg/logo_bpl_white.svg";
-import logo_clever_color from "../../../icons/svg/logo_clever_color.svg";
-import logo_clever_white from "../../../icons/svg/logo_clever_white.svg";
-import logo_firstbook_color from "../../../icons/svg/logo_firstbook_color.svg";
-import logo_firstbook_color_negative from "../../../icons/svg/logo_firstbook_color_negative.svg";
-import logo_lpa_color from "../../../icons/svg/logo_lpa_color.svg";
-import logo_lpa_black from "../../../icons/svg/logo_lpa_black.svg";
-import logo_lpa_white from "../../../icons/svg/logo_lpa_white.svg";
-import logo_mln_black from "../../../icons/svg/logo_mln_black.svg";
-import logo_mln_white from "../../../icons/svg/logo_mln_white.svg";
-import logo_nypl_full_black from "../../../icons/svg/logo_nypl_full_black.svg";
-import logo_nypl_full_white from "../../../icons/svg/logo_nypl_full_white.svg";
-import logo_nypl_lion_black from "../../../icons/svg/logo_nypl_lion_black.svg";
-import logo_nypl_lion_white from "../../../icons/svg/logo_nypl_lion_white.svg";
-import logo_openebooks_color from "../../../icons/svg/logo_openebooks_color.svg";
-import logo_openebooks_negative from "../../../icons/svg/logo_openebooks_negative.svg";
-import logo_openebooks_wtext_color from "../../../icons/svg/logo_openebooks_wtext_color.svg";
-import logo_openebooks_wtext_negative from "../../../icons/svg/logo_openebooks_wtext_negative.svg";
-import logo_qpl_alt_black from "../../../icons/svg/logo_qpl_alt_black.svg";
-import logo_qpl_alt_white from "../../../icons/svg/logo_qpl_alt_white.svg";
-import logo_qpl_black from "../../../icons/svg/logo_qpl_black.svg";
-import logo_qpl_color from "../../../icons/svg/logo_qpl_color.svg";
-import logo_qpl_white from "../../../icons/svg/logo_qpl_white.svg";
-import logo_reservoir_icon_color from "../../../icons/svg/logo_reservoir_icon_color.svg";
-import logo_reservoir_vertical_color from "../../../icons/svg/logo_reservoir_vertical_color.svg";
-import logo_schomburg_black from "../../../icons/svg/logo_schomburg_black.svg";
-import logo_schomburg_circle_black from "../../../icons/svg/logo_schomburg_circle_black.svg";
-import logo_schomburg_circle_color from "../../../icons/svg/logo_schomburg_circle_color.svg";
-import logo_schomburg_circle_white from "../../../icons/svg/logo_schomburg_circle_white.svg";
-import logo_schomburg_color from "../../../icons/svg/logo_schomburg_color.svg";
-import logo_schomburg_white from "../../../icons/svg/logo_schomburg_white.svg";
-import logo_simplye_black from "../../../icons/svg/logo_simplye_black.svg";
-import logo_simplye_white from "../../../icons/svg/logo_simplye_white.svg";
-import logo_simplye_color from "../../../icons/svg/logo_simplye_color.svg";
-import logo_snfl_black from "../../../icons/svg/logo_snfl_black.svg";
-import logo_snfl_white from "../../../icons/svg/logo_snfl_white.svg";
-import logo_treasures_color from "../../../icons/svg/logo_treasures_color.svg";
-import logo_treasures_color_negative from "../../../icons/svg/logo_treasures_color_negative.svg";
+import appleAppStoreBlack from "../../../icons/svg/logo-apple-app-store-black.svg";
+import appleAppStoreWhite from "../../../icons/svg/logo-apple-app-store-white.svg";
+import bplBlack from "../../../icons/svg/logo-bpl-black.svg";
+import bplWhite from "../../../icons/svg/logo-bpl-white.svg";
+import cleverBadgeColor from "../../../icons/svg/logo-clever-badge-color.svg";
+import cleverColor from "../../../icons/svg/logo-clever-color.svg";
+import cleverWhite from "../../../icons/svg/logo-clever-white.svg";
+import firstbookColor from "../../../icons/svg/logo-firstbook-color.svg";
+import firstbookColorNegative from "../../../icons/svg/logo-firstbook-color-negative.svg";
+import googlePlayBlack from "../../../icons/svg/logo-google-play-black.svg";
+import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
+import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
+import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
+import mlnBlack from "../../../icons/svg/logo-mln-black.svg";
+import mlnWhite from "../../../icons/svg/logo-mln-white.svg";
+import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
+import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
+import nyplLionBlack from "../../../icons/svg/logo-nypl-lion-black.svg";
+import nyplLionWhite from "../../../icons/svg/logo-nypl-lion-white.svg";
+import nyplTextBlack from "../../../icons/svg/logo-nypl-text-black.svg";
+import nyplTextWhite from "../../../icons/svg/logo-nypl-text-white.svg";
+import openebooksColor from "../../../icons/svg/logo-openebooks-color.svg";
+import openebooksNegative from "../../../icons/svg/logo-openebooks-negative.svg";
+import openebooksWithTextColor from "../../../icons/svg/logo-openebooks-with-text-color.svg";
+import openebooksWithTextNegative from "../../../icons/svg/logo-openebooks-with-text-negative.svg";
+import qplAltBlack from "../../../icons/svg/logo-qpl-alt-black.svg";
+import qplAltWhite from "../../../icons/svg/logo-qpl-alt-white.svg";
+import qplBlack from "../../../icons/svg/logo-qpl-black.svg";
+import qplColor from "../../../icons/svg/logo-qpl-color.svg";
+import qplWhite from "../../../icons/svg/logo-qpl-white.svg";
+import reservoirIconColor from "../../../icons/svg/logo-reservoir-icon-color.svg";
+import reservoirVerticalColor from "../../../icons/svg/logo-reservoir-vertical-color.svg";
+import schomburgBlack from "../../../icons/svg/logo-schomburg-black.svg";
+import schomburgCircleBlack from "../../../icons/svg/logo-schomburg-circle-black.svg";
+import schomburgCircleColor from "../../../icons/svg/logo-schomburg-circle-color.svg";
+import schomburgCircleWhite from "../../../icons/svg/logo-schomburg-circle-white.svg";
+import schomburgColor from "../../../icons/svg/logo-schomburg-color.svg";
+import schomburgWhite from "../../../icons/svg/logo-schomburg-white.svg";
+import simplyeBlack from "../../../icons/svg/logo-simplye-black.svg";
+import simplyeWhite from "../../../icons/svg/logo-simplye-white.svg";
+import simplyeColor from "../../../icons/svg/logo-simplye-color.svg";
+import snflBlack from "../../../icons/svg/logo-snfl-black.svg";
+import snflWhite from "../../../icons/svg/logo-snfl-white.svg";
+import treasuresColor from "../../../icons/svg/logo-treasures-color.svg";
+import treasuresColorNegative from "../../../icons/svg/logo-treasures-color-negative.svg";
 
 export default {
-  logo_bpl_black,
-  logo_bpl_white,
-  logo_clever_color,
-  logo_clever_white,
-  logo_firstbook_color,
-  logo_firstbook_color_negative,
-  logo_lpa_black,
-  logo_lpa_color,
-  logo_lpa_white,
-  logo_mln_black,
-  logo_mln_white,
-  logo_nypl_full_black,
-  logo_nypl_full_white,
-  logo_nypl_lion_black,
-  logo_nypl_lion_white,
-  logo_openebooks_color,
-  logo_openebooks_negative,
-  logo_openebooks_wtext_color,
-  logo_openebooks_wtext_negative,
-  logo_qpl_alt_black,
-  logo_qpl_alt_white,
-  logo_qpl_black,
-  logo_qpl_color,
-  logo_qpl_white,
-  logo_reservoir_icon_color,
-  logo_reservoir_vertical_color,
-  logo_schomburg_black,
-  logo_schomburg_circle_black,
-  logo_schomburg_circle_color,
-  logo_schomburg_circle_white,
-  logo_schomburg_color,
-  logo_schomburg_white,
-  logo_simplye_black,
-  logo_simplye_white,
-  logo_simplye_color,
-  logo_snfl_black,
-  logo_snfl_white,
-  logo_treasures_color,
-  logo_treasures_color_negative,
+  appleAppStoreBlack,
+  appleAppStoreWhite,
+  bplBlack,
+  bplWhite,
+  cleverBadgeColor,
+  cleverColor,
+  cleverWhite,
+  firstbookColor,
+  firstbookColorNegative,
+  googlePlayBlack,
+  lpaBlack,
+  lpaColor,
+  lpaWhite,
+  mlnBlack,
+  mlnWhite,
+  nyplFullBlack,
+  nyplFullWhite,
+  nyplLionBlack,
+  nyplLionWhite,
+  nyplTextBlack,
+  nyplTextWhite,
+  openebooksColor,
+  openebooksNegative,
+  openebooksWithTextColor,
+  openebooksWithTextNegative,
+  qplAltBlack,
+  qplAltWhite,
+  qplBlack,
+  qplColor,
+  qplWhite,
+  reservoirIconColor,
+  reservoirVerticalColor,
+  schomburgBlack,
+  schomburgCircleBlack,
+  schomburgCircleColor,
+  schomburgCircleWhite,
+  schomburgColor,
+  schomburgWhite,
+  simplyeBlack,
+  simplyeWhite,
+  simplyeColor,
+  snflBlack,
+  snflWhite,
+  treasuresColor,
+  treasuresColorNegative,
 };

@@ -1,8 +1,7 @@
 import { chakra } from "@chakra-ui/react";
 import * as React from "react";
 
-import { FormGaps } from "./FormTypes";
-import SimpleGrid from "../Grid/SimpleGrid";
+import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
 
 interface FormBaseProps {
   /** className to be applied to FormRow, FormField, and Form */
@@ -10,7 +9,7 @@ interface FormBaseProps {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
-  gap?: FormGaps;
+  gap?: GridGaps;
   /** ID that other components can cross reference (internal use) */
   id: string;
 }
@@ -38,7 +37,7 @@ export const FormRow = chakra(
     const { children, className, gap, id, ...rest } = props;
     const count = React.Children.count(children);
     const alteredChildren = React.Children.map(
-      children,
+      children as JSX.Element,
       (child: React.ReactElement, i) => {
         if (!child) return null;
         if (child.type === FormField || child.props.mdxType === "FormField") {
@@ -83,7 +82,7 @@ export const Form = chakra(
       action,
       children,
       className,
-      gap = FormGaps.Large,
+      gap = "grid.l",
       id,
       isFileUploader = false,
       method,
@@ -96,7 +95,8 @@ export const Form = chakra(
         "NYPL Reservoir Form: This component's required `id` prop was not passed."
       );
     }
-    let attributes = {};
+
+    const attributes: Partial<FormProps> = {};
     action && (attributes["action"] = action);
 
     method &&
@@ -106,7 +106,7 @@ export const Form = chakra(
     isFileUploader && (attributes["enctype"] = "multipart/form-data");
 
     const alteredChildren = React.Children.map(
-      children,
+      children as JSX.Element,
       (child: React.ReactElement, i) => {
         return React.cloneElement(child, { gap, id: `${id}-child${i}` });
       }

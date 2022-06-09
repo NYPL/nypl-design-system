@@ -1,3 +1,7 @@
+interface LogoBaseStyle {
+  size: keyof typeof size;
+}
+
 const svgBase = {
   display: "inline-block",
   height: "auto",
@@ -35,7 +39,7 @@ const size = {
   },
 };
 const Logo = {
-  baseStyle: (props) => {
+  baseStyle: (props: LogoBaseStyle) => {
     const allStyles = {
       ...svgBase,
       ...size[props.size],

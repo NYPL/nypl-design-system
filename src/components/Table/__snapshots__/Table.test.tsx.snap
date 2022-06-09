@@ -6,6 +6,57 @@ exports[`Table renders the UI snapshot correctly 1`] = `
   id="basic"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -17,90 +68,78 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        Tom
+        <span>
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Nook
+        <span>
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Tanukichi
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Main Street
+        <span>
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        23458
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
-      </td>
-    </tr>
-    <tr
-      className="css-0"
-      role="row"
-    >
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Isabelle
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        -
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Shizue
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Walnut Street
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        23458
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -111,43 +150,78 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        K.K.
+        <span>
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Slider
+        <span>
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Totakeke
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Niper Place
+        <span>
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        98765
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -158,43 +232,160 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         className="css-0"
         role="gridcell"
       >
-        Sonny
+        <span>
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Resetti
+        <span>
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Risetto san
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Village Road
+        <span>
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        09873
+        <span>
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -212,6 +403,57 @@ exports[`Table renders the UI snapshot correctly 2`] = `
   >
     this is the caption
   </caption>
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -480,90 +722,78 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        Tom
+        <span>
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Nook
+        <span>
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Tanukichi
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Main Street
+        <span>
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        23458
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
-      </td>
-    </tr>
-    <tr
-      className="css-0"
-      role="row"
-    >
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Isabelle
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        -
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Shizue
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Walnut Street
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        23458
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -574,43 +804,78 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        K.K.
+        <span>
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Slider
+        <span>
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Totakeke
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Niper Place
+        <span>
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        98765
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -621,43 +886,160 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         className="css-0"
         role="gridcell"
       >
-        Sonny
+        <span>
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Resetti
+        <span>
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Risetto san
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Village Road
+        <span>
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        09873
+        <span>
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -994,43 +1376,78 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        Tom
+        <span>
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </th>
       <td
         className="css-0"
         role="gridcell"
       >
-        Nook
+        <span>
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Tanukichi
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Main Street
+        <span>
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        23458
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -1041,43 +1458,78 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        Isabelle
+        <span>
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </th>
       <td
         className="css-0"
         role="gridcell"
       >
-        -
+        <span>
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Shizue
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Walnut Street
+        <span>
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        23458
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -1088,43 +1540,78 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        K.K.
+        <span>
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </th>
       <td
         className="css-0"
         role="gridcell"
       >
-        Slider
+        <span>
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Totakeke
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Niper Place
+        <span>
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        98765
+        <span>
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
@@ -1135,43 +1622,78 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         className="css-0"
         scope="row"
       >
-        Sonny
+        <span>
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
       </th>
       <td
         className="css-0"
         role="gridcell"
       >
-        Resetti
+        <span>
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Risetto san
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        Village Road
+        <span>
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        New York
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        09873
+        <span>
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
       </td>
       <td
         className="css-0"
         role="gridcell"
       >
-        NY
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1184,6 +1706,57 @@ exports[`Table renders the UI snapshot correctly 6`] = `
   id="chakra"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -1386,6 +1959,425 @@ exports[`Table renders the UI snapshot correctly 7`] = `
   id="props"
   role="table"
 >
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Nick Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Address1
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        City
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Zipcode
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        State
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          City
+        </span>
+        <span>
+          New York
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        <span>
+          State
+        </span>
+        <span>
+          NY
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table renders the UI snapshot correctly 8`] = `
+<table
+  className="chakra-table css-1xdhyk6"
+  id="jsx-example"
+  role="table"
+>
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+        scope="col"
+      >
+        First Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Last Name
+      </th>
+      <th
+        className="css-0"
+        scope="col"
+      >
+        Avatar
+      </th>
+    </tr>
+  </thead>
   <tbody
     className="css-0"
   >
@@ -1409,31 +2401,11 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        Tanukichi
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Main Street
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        23458
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
+        <img
+          alt="Tom Nook"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
       </td>
     </tr>
     <tr
@@ -1456,31 +2428,11 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        Shizue
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Walnut Street
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        23458
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
+        <img
+          alt="Isabelle"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
       </td>
     </tr>
     <tr
@@ -1503,78 +2455,11 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         className="css-0"
         role="gridcell"
       >
-        Totakeke
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Niper Place
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        98765
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
-      </td>
-    </tr>
-    <tr
-      className="css-0"
-      role="row"
-    >
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Sonny
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Resetti
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Risetto san
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Village Road
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        New York
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        09873
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        NY
+        <img
+          alt="K.K Slider"
+          className="css-0"
+          src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        />
       </td>
     </tr>
   </tbody>

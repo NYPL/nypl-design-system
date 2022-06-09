@@ -11,15 +11,8 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Toggle from "./Toggle";
-import { ToggleSizes } from "./ToggleTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const sizeEnumValues = getStorybookEnumValues(
-  ToggleSizes,
-  "ToggleSizes"
-);
 
 <Meta
   title={getCategory("Toggle")}
@@ -33,7 +26,6 @@ export const sizeEnumValues = getStorybookEnumValues(
     jest: ["Toggle.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     defaultChecked: { control: false },
     id: { control: false },
     key: { table: { disable: true } },
@@ -42,9 +34,7 @@ export const sizeEnumValues = getStorybookEnumValues(
     ref: { table: { disable: true } },
     size: {
       control: {
-        type: "select",
-        table: { defaultValue: { summary: "ToggleSizes.Default" } },
-        options: sizeEnumValues.options,
+        table: { defaultValue: { summary: "default" } },
       },
     },
   }}
@@ -55,7 +45,7 @@ export const sizeEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.8`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -89,7 +79,6 @@ should be short and to the point, often three words or less.
   <Story
     name="Toggle"
     args={{
-      additionalStyles: undefined,
       defaultChecked: false,
       helperText: "This is the helper text!",
       id: "toggle-1",
@@ -104,7 +93,7 @@ should be short and to the point, often three words or less.
       size: "ToogleSizes.Large",
     }}
   >
-    {(args) => <Toggle {...args} size={sizeEnumValues.getValue(args.size)} />}
+    {(args) => <Toggle {...args} />}
   </Story>
 </Canvas>
 
@@ -143,10 +132,10 @@ Resources:
         <Toggle
           defaultChecked={true}
           id="small-checked"
-          size={ToggleSizes.Small}
+          size="small"
           labelText="On"
         />
-        <Toggle id="default-small" size={ToggleSizes.Small} labelText="Off" />
+        <Toggle id="default-small" size="small" labelText="Off" />
       </VStack>
     </SimpleGrid>
   </DSProvider>

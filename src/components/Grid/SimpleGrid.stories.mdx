@@ -8,24 +8,11 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid from "./SimpleGrid";
-import { GridGaps } from "./GridTypes";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
-import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import {
-  IconNames,
-  LogoNames,
-  IconSizes,
-  IconRotationTypes,
-} from "../Icons/IconTypes";
 import Image from "../Image/Image";
-import { ImageRatios } from "../Image/ImageTypes";
-import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 
 <Meta
   title={getCategory("SimpleGrid")}
@@ -45,8 +32,16 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
     },
     gap: {
       control: { type: "select" },
-      options: enumValues.options,
-      table: { defaultValue: { summary: "GridGaps.Large" } },
+      table: { defaultValue: { summary: "grid.l" } },
+      options: [
+        "grid.xxs",
+        "grid.xs",
+        "grid.s",
+        "grid.m",
+        "grid.l",
+        "grid.xl",
+        "grid.xxl",
+      ],
     },
     id: { control: false },
   }}
@@ -57,7 +52,7 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -87,20 +82,20 @@ will be triggered.
     args={{
       className: undefined,
       columns: undefined,
-      gap: "GridGaps.Large",
+      gap: "grid.l",
       id: "simpleGrid-id",
     }}
   >
     {(args) => (
-      <SimpleGrid {...args} gap={enumValues.getValue(args.gap)}>
+      <SimpleGrid {...args}>
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/220/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -109,11 +104,11 @@ will be triggered.
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/220/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -122,11 +117,11 @@ will be triggered.
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/240/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -135,11 +130,11 @@ will be triggered.
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/260/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -148,11 +143,11 @@ will be triggered.
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/320/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -161,11 +156,11 @@ will be triggered.
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/300/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -197,16 +192,41 @@ Resources:
 This example is rendering `Icon` components with the `columns` prop set to `5`.
 
 export const icons = [];
-for (const icon in IconNames) {
-  const iname = `Example icon: ${IconNames[icon]}`;
-  const iconRender = (
-    <Icon
-      key={icon}
-      name={IconNames[icon]}
-      size={IconSizes.ExtraExtraExtraLarge}
-      titleText={iname}
-    />
-  );
+export const iconNames = [
+  "accessibilityFull",
+  "accessibilityPartial",
+  "actionCheckCircle",
+  "actionHelpDefault",
+  "actionHelpOutline",
+  "alertNotificationImportant",
+  "actionLaunch",
+  "arrow",
+  "check",
+  "clock",
+  "close",
+  "download",
+  "errorFilled",
+  "errorOutline",
+  "fileTypeAudio",
+  "fileTypeDoc",
+  "fileTypeGenericDoc",
+  "fileTypeImage",
+  "fileTypePdf",
+  "fileTypeSpreadsheet",
+  "fileTypeVideo",
+  "headset",
+  "minus",
+  "plus",
+  "search",
+  "speakerNotes",
+  "utilityAccountFilled",
+  "utilityAccountUnfilled",
+  "utilityHamburger",
+  "utilitySearch",
+];
+for (const name in iconNames) {
+  const iname = `Example icon: ${iconNames[name]}`;
+  const iconRender = <Icon key={name} name={iconNames[name]} size="xxxlarge" />;
   icons.push(iconRender);
 }
 
@@ -218,7 +238,8 @@ for (const icon in IconNames) {
 
 ### Images
 
-This example is rendering square `Image` components with the `columns` prop set to `6`.
+This example is rendering square `Image` components with the `columns` prop set
+to `6`.
 
 <Canvas>
   <DSProvider>
@@ -247,7 +268,8 @@ This example is rendering square `Image` components with the `columns` prop set 
 
 ### Horizontal Cards
 
-This example is rendering horizontal `Card` components with the `columns` prop set to `1`.
+This example is rendering horizontal `Card` components with the `columns` prop
+set to `1`.
 
 <Canvas>
   <DSProvider>
@@ -255,14 +277,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.FourByThree,
+          aspectRatio: "fourByThree",
           src: "https://placeimg.com/400/200/animals",
         }}
         isBordered
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level="four" id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -274,14 +296,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.FourByThree,
+          aspectRatio: "fourByThree",
           src: "https://placeimg.com/410/210/animals",
         }}
         isBordered
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading2">
+        <CardHeading level="four" id="heading2">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -293,14 +315,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.FourByThree,
+          aspectRatio: "fourByThree",
           src: "https://placeimg.com/320/320/animals",
         }}
         isBordered
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="heading3">
+        <CardHeading level="four" id="heading3">
           Card Heading
         </CardHeading>
         <CardContent>

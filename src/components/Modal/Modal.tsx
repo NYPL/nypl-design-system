@@ -8,12 +8,12 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
-import useWindowSize from "../../hooks/useWindowSize";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface BaseModalProps {
   bodyContent?: string | JSX.Element;
@@ -42,19 +42,11 @@ const BaseModal = chakra(
     onClose,
     ...rest
   }: React.PropsWithChildren<BaseModalProps>) => {
-    // Based on --nypl-breakpoint-medium
-    const breakpointMedium = 600;
-    const defaultSize = "xl";
+    const xlarge = "xl";
     const fullSize = "full";
-    const [size, setSize] = React.useState<string>(defaultSize);
-    const windowDimensions = useWindowSize();
-    React.useEffect(() => {
-      if (windowDimensions.width <= breakpointMedium) {
-        setSize(fullSize);
-      } else {
-        setSize(defaultSize);
-      }
-    }, [windowDimensions.width]);
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    // For larger screens, set the size to xl, otherwise set it to full.
+    const size = isLargerThanMobile ? xlarge : fullSize;
 
     return (
       <ChakraModal

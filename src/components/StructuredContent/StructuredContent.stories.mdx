@@ -7,25 +7,9 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { ImageRatios, ImageSizes, ImageTypes } from "../Image/ImageTypes";
 import StructuredContent from "./StructuredContent";
-import { StructuredContentImagePosition } from "./StructuredContentTypes";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const imageAspectRatioEnumValues = getStorybookEnumValues(
-  ImageRatios,
-  "ImageRatios"
-);
-export const imagePositionEnumValues = getStorybookEnumValues(
-  StructuredContentImagePosition,
-  "StructuredContentImagePosition"
-);
-export const imageSizeEnumValues = getStorybookEnumValues(
-  ImageSizes,
-  "ImageSizes"
-);
 
 <Meta
   title={getCategory("StructuredContent")}
@@ -42,32 +26,20 @@ export const imageSizeEnumValues = getStorybookEnumValues(
     className: { control: false },
     id: { control: false },
     "imageProps.aspectRatio": {
-      control: {
-        type: "select",
-      },
       table: {
-        defaultValue: { summary: "ImageRatios.Square" },
+        defaultValue: { summary: "square" },
       },
-      options: imageAspectRatioEnumValues.options,
     },
     "imageProps.component": { control: false },
     "imageProps.position": {
-      control: {
-        type: "select",
-      },
       table: {
-        defaultValue: { summary: "StructuredContentImagePosition.Left" },
+        defaultValue: { summary: "left" },
       },
-      options: imagePositionEnumValues.options,
     },
     "imageProps.size": {
-      control: {
-        type: "select",
-      },
       table: {
-        defaultValue: { summary: "ImageSizes.Medium" },
+        defaultValue: { summary: "medium" },
       },
-      options: imageSizeEnumValues.options,
     },
   }}
 />
@@ -77,7 +49,7 @@ export const imageSizeEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -127,29 +99,29 @@ export const imageSizeEnumValues = getStorybookEnumValues(
       headingText: "Heading text",
       id: "structured-content",
       "imageProps.alt": "Image alt text",
-      "imageProps.aspectRatio": "ImageRatios.Square",
+      "imageProps.aspectRatio": "square",
       "imageProps.caption": "Image caption",
       "imageProps.component": undefined,
       "imageProps.credit": "Image credit",
-      "imageProps.position": "StructuredContentImagePosition.Left",
-      "imageProps.size": "ImageSizes.Medium",
+      "imageProps.position": "left",
+      "imageProps.size": "medium",
       "imageProps.src": "https://placeimg.com/400/300/animals",
     }}
   >
     {(args) => (
       <StructuredContent
-        {...args}
+        bodyContent={args.bodyContent}
+        calloutText={args.calloutText}
+        className={args.className}
+        headingText={args.headingText}
+        id={args.id}
         imageProps={{
           alt: args["imageProps.alt"],
-          aspectRatio: imageAspectRatioEnumValues.getValue(
-            args["imageProps.aspectRatio"]
-          ),
+          aspectRatio: args["imageProps.aspectRatio"],
           caption: args["imageProps.caption"],
           credit: args["imageProps.credit"],
-          position: imagePositionEnumValues.getValue(
-            args["imageProps.position"]
-          ),
-          size: imageSizeEnumValues.getValue(args["imageProps.size"]),
+          position: args["imageProps.position"],
+          size: args["imageProps.size"],
           src: args["imageProps.src"],
         }}
       />
@@ -187,11 +159,11 @@ includes HTML tags in the string.
       headingText="Heading text"
       imageProps={{
         alt: "Image alt text",
-        aspectRatio: ImageRatios.Original,
+        aspectRatio: "original",
         caption: "Image caption",
         credit: "Image credit",
-        position: StructuredContentImagePosition.Left,
-        size: ImageSizes.Medium,
+        position: "left",
+        size: "medium",
         src: "https://placeimg.com/400/300/animals",
       }}
       bodyContent={
@@ -236,11 +208,11 @@ The following content is passed as HTML DOM elements to the `bodyContent` prop.
       headingText="Heading text"
       imageProps={{
         alt: "Image alt text",
-        aspectRatio: ImageRatios.Original,
+        aspectRatio: "original",
         caption: "Image caption",
         credit: "Image credit",
-        position: StructuredContentImagePosition.Left,
-        size: ImageSizes.Medium,
+        position: "left",
+        size: "medium",
         src: "https://placeimg.com/400/300/animals",
       }}
       bodyContent={
@@ -419,11 +391,11 @@ but no callout content. The second component does not have an image.
       headingText="Heading text"
       imageProps={{
         alt: "Image alt text",
-        aspectRatio: ImageRatios.Original,
+        aspectRatio: "original",
         caption: "Image caption",
         credit: "Image credit",
-        position: StructuredContentImagePosition.Left,
-        size: ImageSizes.Medium,
+        position: "left",
+        size: "medium",
         src: "https://placeimg.com/400/300/animals",
       }}
       bodyContent={
@@ -485,11 +457,11 @@ The third one does not contain an image.
       headingText="Heading text"
       imageProps={{
         alt: "Image alt text",
-        aspectRatio: ImageRatios.Original,
+        aspectRatio: "original",
         caption: "Image caption",
         credit: "Image credit",
-        position: StructuredContentImagePosition.Left,
-        size: ImageSizes.Medium,
+        position: "left",
+        size: "medium",
         src: "https://placeimg.com/400/300/animals",
       }}
       bodyContent={
@@ -558,9 +530,9 @@ text content. The second one has a callout content and image spanning full width
       headingText="Heading text"
       imageProps={{
         alt: "Image alt text",
-        aspectRatio: ImageRatios.Original,
-        position: StructuredContentImagePosition.Center,
-        size: ImageSizes.Medium,
+        aspectRatio: "original",
+        position: "center",
+        size: "medium",
         src: "https://placeimg.com/400/300/animals",
       }}
       bodyContent={

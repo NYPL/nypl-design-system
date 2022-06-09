@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import StatusBadge from "./StatusBadge";
-import { StatusBadgeTypes } from "./StatusBadgeTypes";
 
 describe("StatusBadge Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -35,14 +34,14 @@ describe("StatusBadge", () => {
       .toJSON();
     const medium = renderer
       .create(
-        <StatusBadge id="medium" level={StatusBadgeTypes.Medium}>
+        <StatusBadge id="medium" level="medium">
           Registration Required
         </StatusBadge>
       )
       .toJSON();
     const high = renderer
       .create(
-        <StatusBadge id="high" level={StatusBadgeTypes.High}>
+        <StatusBadge id="high" level="high">
           Registration Required
         </StatusBadge>
       )

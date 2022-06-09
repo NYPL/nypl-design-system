@@ -73,7 +73,7 @@ describe("Tabs Accessibility", () => {
 });
 
 describe("Tabs", () => {
-  const getTabByName = (name) => screen.getByRole("tab", { name });
+  const getTabByName = (name: string) => screen.getByRole("tab", { name });
 
   it("renders all tabs but only one panel at a time with children", () => {
     render(
@@ -191,7 +191,7 @@ describe("Tabs", () => {
 
   it("invokes the callback function", () => {
     let selectedIndex = 0;
-    const onChange = (index) => (selectedIndex = index);
+    const onChange = (index: number) => (selectedIndex = index);
 
     render(<Tabs tabsData={animalCrossing} onChange={onChange} />);
 

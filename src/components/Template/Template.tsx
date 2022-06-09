@@ -1,6 +1,8 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
+
 export interface TemplateProps {}
 export interface TemplateHeaderProps {
   /** Flag to render an HTML header element. True by default. */
@@ -43,6 +45,8 @@ export interface TemplateAppContainerProps
   footer?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateHeader` component section. */
   header?: React.ReactElement;
+  /** Render the `SkipNavigation` component or not. False by default. */
+  renderSkipNavigation?: boolean;
 }
 
 /**
@@ -89,7 +93,7 @@ const TemplateHeader = ({
   if (renderHeaderElement) {
     // But if they passed in a component that renders an HTML `<header>`,
     // then log a warning.
-    React.Children.map(children, (child: React.ReactElement) => {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (child?.type === "header" || child?.props?.mdxType === "header") {
         console.warn(
           "NYPL Reservoir TemplateHeader: An HTML `header` element was passed " +
@@ -137,7 +141,7 @@ const TemplateContent = (
   // Manually pass in the `sidebar` prop to the `TemplateContentPrimary` and
   // `TemplateContentSidebar` components.
   const newChildren = React.Children.map(
-    children,
+    children as JSX.Element,
     (child: React.ReactElement) => {
       let newChild = child;
       if (
@@ -224,7 +228,7 @@ const TemplateFooter = ({
   // The user wants to render the `footer` HTML element.
   if (renderFooterElement) {
     // But give a warning if one was passed.
-    React.Children.map(children, (child: React.ReactElement) => {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (child?.type === "footer" || child?.props?.mdxType === "footer") {
         console.warn(
           "NYPL Reservoir TemplateFooter: An HTML `footer` element was passed " +
@@ -259,6 +263,7 @@ export const TemplateAppContainer = chakra(
       sidebar = "none",
       renderFooterElement = true,
       renderHeaderElement = true,
+      renderSkipNavigation = false,
       ...rest
     } = props;
     const aboveHeaderElem = aboveHeader && (
@@ -278,6 +283,7 @@ export const TemplateAppContainer = chakra(
     );
     return (
       <Template {...rest}>
+        {renderSkipNavigation ? <SkipNavigation /> : null}
         {aboveHeaderElem}
         {(header || breakoutElem) && (
           <TemplateHeader renderHeaderElement={renderHeaderElement}>

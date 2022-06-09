@@ -115,7 +115,7 @@ exports[`Link renders the UI snapshot correctly 4`] = `
     focusable={false}
     id="external-link-icon"
     role="img"
-    title="action_launch icon"
+    title="actionLaunch icon"
     viewBox="0 0 24 24"
   >
     <g
@@ -209,7 +209,6 @@ exports[`Link renders the UI snapshot correctly 7`] = `
     href="#existing-anchor-tag"
     id="anchor-link"
     rel={null}
-    style={Object {}}
     target={null}
   >
     check link

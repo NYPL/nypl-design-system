@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,16 +9,13 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Form from "../Form/Form";
 import Radio from "../Radio/Radio";
 import RadioGroup from "./RadioGroup";
-import { LayoutTypes } from "../../helpers/enums";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 
 <Meta
   title={getCategory("RadioGroup")}
@@ -48,9 +45,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       table: { defaultValue: { summary: false } },
     },
     layout: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "LayoutTypes.Column" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "column" } },
     },
     key: { table: { disable: true } },
     onChange: { control: false },
@@ -72,7 +67,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.0`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.2`    |
 
 ## Table of Contents
 
@@ -106,7 +101,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Radio Group",
-      layout: "LayoutTypes.Column",
+      layout: "column",
       name: "radio-story",
       onChange: undefined,
       showHelperInvalidText: true,
@@ -115,7 +110,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
     }}
   >
     {(args) => (
-      <RadioGroup {...args} layout={enumValues.getValue(args.layout)}>
+      <RadioGroup {...args}>
         <Radio id="main-2" labelText="Radio 2" value="2" />
         <Radio id="main-3" labelText="Radio 3" value="3" />
         <Radio id="main-4" labelText="Radio 4" value="4" />
@@ -163,7 +158,7 @@ a row.
       id="row"
       labelText="Row"
       name="row-example"
-      layout={LayoutTypes.Row}
+      layout="row"
     >
       <Radio id="row-2" labelText="Radio 2" value="2" />
       <Radio id="row-3" labelText="Radio 3" value="3" />
@@ -381,6 +376,7 @@ const submitForm = (formData) => {
 };
 
 <form
+  id="example-form"
   onSubmit={handleSubmit(submitForm)}
   method="post"
   action="/some/api/endpoint"
@@ -420,7 +416,7 @@ export function RadioGroupUncontrolledExample() {
     console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form id="form" onSubmit={onSubmit}>
       <SimpleGrid columns="1">
         <RadioGroup
           defaultValue="3"
@@ -434,7 +430,9 @@ export function RadioGroupUncontrolledExample() {
           <Radio id="4" labelText="Radio 4" value="4" />
         </RadioGroup>
         <ButtonGroup>
-          <Button type="submit">Submit</Button>
+          <Button id="submit" type="submit">
+            Submit
+          </Button>
         </ButtonGroup>
       </SimpleGrid>
     </Form>
@@ -451,7 +449,7 @@ export function RadioGroupUncontrolledExample() {
     console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form id="form" onSubmit={onSubmit}>
       <SimpleGrid columns="1">
         <RadioGroup
           defaultValue="3"
@@ -465,7 +463,9 @@ export function RadioGroupUncontrolledExample() {
           <Radio id="4" labelText="Radio 4" value="4" />
         </RadioGroup>
         <ButtonGroup>
-          <Button type="submit">Submit</Button>
+          <Button id="submit" type="submit">
+            Submit
+          </Button>
         </ButtonGroup>
       </SimpleGrid>
     </Form>

@@ -9,34 +9,15 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Heading from "../Heading/Heading";
-import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const imageRatiosEnumValues = getStorybookEnumValues(
-  ImageRatios,
-  "ImageRatios"
-);
-export const imageSizesEnumValues = getStorybookEnumValues(
-  ImageSizes,
-  "ImageSizes"
-);
-export const LayoutTypesEnumValues = getStorybookEnumValues(
-  LayoutTypes,
-  "LayoutTypes"
-);
 
 <Meta
   title={getCategory("Card")}
@@ -60,9 +41,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
       table: { defaultValue: { summary: "" } },
     },
     "imageProps.aspectRatio": {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageRatios.Square" } },
-      options: imageRatiosEnumValues.options,
+      table: { defaultValue: { summary: "square" } },
     },
     "imageProps.caption": { control: false },
     "imageProps.component": { control: false },
@@ -71,9 +50,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
       table: { defaultValue: { summary: false } },
     },
     "imageProps.size": {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageSizes.Default" } },
-      options: imageSizesEnumValues.options,
+      table: { defaultValue: { summary: "default" } },
     },
     "imageProps.src": {
       table: { defaultValue: { summary: "" } },
@@ -88,9 +65,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
       table: { defaultValue: { summary: false } },
     },
     layout: {
-      control: { type: "radio" },
-      table: { defaultValue: { summary: "LayoutTypes.Column" } },
-      options: LayoutTypesEnumValues.options,
+      table: { defaultValue: { summary: "column" } },
     },
   }}
 />
@@ -100,7 +75,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -132,7 +107,7 @@ grouped together and displayed in some type of grid layout.
 ### CardHeading
 
 The `CardHeading` component mirrors the standard Reservoir Design System (DS)
-`Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
+`Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-typography-styles-heading--heading-with-controls).
 
 ### CardActions
 
@@ -160,37 +135,42 @@ headings and CTAs.
       foregroundColor: undefined,
       id: "card-id",
       "imageProps.alt": "Alt text",
-      "imageProps.aspectRatio": "ImageRatios.Square",
+      "imageProps.aspectRatio": "square",
       "imageProps.component": undefined,
       "imageProps.isAtEnd": false,
-      "imageProps.size": "ImageSizes.Default",
+      "imageProps.size": "default",
       "imageProps.src": "https://placeimg.com/400/300/animals",
       isAlignedRightActions: false,
       isBordered: false,
       isCentered: false,
-      layout: "LayoutTypes.Row",
+      layout: "row",
       mainActionLink: undefined,
     }}
   >
     {(args) => (
       <Card
-        {...args}
+        backgroundColor={args.backgroundColor}
+        className={args.className}
+        foregroundColor={args.foregroundColor}
+        id={args.id}
         imageProps={{
           alt: args["imageProps.alt"],
-          aspectRatio: imageRatiosEnumValues.getValue(
-            args["imageProps.aspectRatio"]
-          ),
+          aspectRatio: args["imageProps.aspectRatio"],
           component: args["imageProps.component"],
           isAtEnd: args["imageProps.isAtEnd"],
-          size: imageSizesEnumValues.getValue(args["imageProps.size"]),
+          size: args["imageProps.size"],
           src: args["imageProps.src"],
         }}
-        layout={LayoutTypesEnumValues.getValue(args.layout)}
+        isAlignedRightActions={args.isAlignedRightActions}
+        isBordered={args.isBordered}
+        isCentered={args.isCentered}
+        layout={args.layout}
+        mainActionLink={args.mainActionLink}
       >
-        <CardHeading level={HeadingLevels.Two} id="main-heading1">
+        <CardHeading level="two" id="main-heading1">
           Optional Header
         </CardHeading>
-        <CardHeading level={HeadingLevels.Three} id="main-heading2">
+        <CardHeading level="three" id="main-heading2">
           Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
@@ -199,16 +179,11 @@ headings and CTAs.
           vel eu leo. Nulla vitae elit libero, a pharetra augue.
         </CardContent>
         <CardActions topBorder bottomBorder>
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="main-button1"
-            onClick={action("clicked")}
-            type="submit"
-          >
+          <Button id="main-button1" onClick={action("clicked")} type="submit">
             Primary
           </Button>
           <Button
-            buttonType={ButtonTypes.Secondary}
+            buttonType="secondary"
             id="main-button2"
             onClick={action("clicked")}
             type="submit"
@@ -238,18 +213,18 @@ sequential order with the proper `level` prop.
 
 ```tsx
 // Correct
-<CardHeading level={HeadingLevels.Three} id="headingthree">
+<CardHeading level="three" id="headingthree">
   Heading level three
 </CardHeading>
-<CardHeading level={HeadingLevels.Four} id="headingfour">
+<CardHeading level="four" id="headingfour">
   Heading level four
 </CardHeading>
 
 // Incorrect
-<CardHeading level={HeadingLevels.Two} id="headingtwo">
+<CardHeading level="two" id="headingtwo">
   Heading level Two
 </CardHeading>
-<CardHeading level={HeadingLevels.Four} id="headingfour">
+<CardHeading level="four" id="headingfour">
   Heading level four
 </CardHeading>
 ```
@@ -277,11 +252,11 @@ a `Card`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="props-heading1">
+        <CardHeading level="three" id="props-heading1">
           Image on Top (default)
         </CardHeading>
         <CardContent>
@@ -292,12 +267,12 @@ a `Card`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           isAtEnd: true,
           src: "https://placeimg.com/400/200/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="props-heading2">
+        <CardHeading level="three" id="props-heading2">
           Image on Bottom
         </CardHeading>
         <CardContent>
@@ -317,13 +292,13 @@ a `Card`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="row-heading1">
+        <CardHeading level="four" id="row-heading1">
           Image on Left (default)
         </CardHeading>
         <CardContent>
@@ -335,14 +310,14 @@ a `Card`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           isAtEnd: true,
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="row-heading2">
+        <CardHeading level="four" id="row-heading2">
           Image on Right
         </CardHeading>
         <CardContent>
@@ -369,16 +344,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
-          size: ImageSizes.ExtraExtraSmall,
+          aspectRatio: "square",
+          size: "xxsmall",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Extra Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 64px
         </CardHeading>
         <CardContent>
@@ -390,16 +365,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
-          size: ImageSizes.ExtraSmall,
+          aspectRatio: "square",
+          size: "xsmall",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 96px
         </CardHeading>
         <CardContent>
@@ -411,16 +386,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
-          size: ImageSizes.Small,
+          aspectRatio: "square",
+          size: "small",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -432,16 +407,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
-          size: ImageSizes.Medium,
+          aspectRatio: "square",
+          size: "medium",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column2-heading1">
+        <CardHeading level="three" id="column2-heading1">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column2-heading2">
+        <CardHeading level="four" id="column2-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -453,16 +428,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
-          size: ImageSizes.Large,
+          aspectRatio: "square",
+          size: "large",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column3-heading1">
+        <CardHeading level="three" id="column3-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column3-heading2">
+        <CardHeading level="four" id="column3-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -474,15 +449,15 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.Square,
+          aspectRatio: "square",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-4heading1">
+        <CardHeading level="three" id="column-4heading1">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-4heading2">
+        <CardHeading level="four" id="column-4heading2">
           Width: 100%
         </CardHeading>
         <CardContent>
@@ -502,17 +477,17 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          size: ImageSizes.ExtraExtraSmall,
+          aspectRatio: "twoByOne",
+          size: "xxsmall",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Extra Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 64px
         </CardHeading>
         <CardContent>
@@ -522,17 +497,17 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          size: ImageSizes.ExtraSmall,
+          aspectRatio: "twoByOne",
+          size: "xsmall",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 96px
         </CardHeading>
         <CardContent>
@@ -542,17 +517,17 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          size: ImageSizes.Small,
+          aspectRatio: "twoByOne",
+          size: "small",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -562,17 +537,17 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          size: ImageSizes.Medium,
+          aspectRatio: "twoByOne",
+          size: "medium",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row3-heading2">
+        <CardHeading level="three" id="row3-heading2">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row3-heading2">
+        <CardHeading level="four" id="row3-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -583,17 +558,17 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          size: ImageSizes.Large,
+          aspectRatio: "twoByOne",
+          size: "large",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row4-heading1">
+        <CardHeading level="three" id="row4-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row4-heading2">
+        <CardHeading level="four" id="row4-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -605,16 +580,16 @@ prop to override the default width.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row5-heading2">
+        <CardHeading level="three" id="row5-heading2">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row5-heading2">
+        <CardHeading level="four" id="row5-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -637,17 +612,15 @@ image component in using the `imageProps.component` prop.
     <Card
       imageProps={{
         alt: "Alt text",
-        aspectRatio: ImageRatios.SixteenByNine,
         component: (
           <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
         ),
-        src: "https://placeimg.com/400/200/animals",
       }}
     >
-      <CardHeading level={HeadingLevels.Two} id="img1-heading1">
+      <CardHeading level="two" id="img1-heading1">
         Card Component with Custom Image Component
       </CardHeading>
-      <CardHeading level={HeadingLevels.Three} id="img2-heading2">
+      <CardHeading level="three" id="img2-heading2">
         Secondary Heading
       </CardHeading>
       <CardContent>
@@ -658,10 +631,10 @@ image component in using the `imageProps.component` prop.
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type={LinkTypes.Button} href="#">
+        <Link type="button" href="#">
           Reserve
         </Link>
-        <Link href="#url" type={LinkTypes.Forwards}>
+        <Link href="#url" type="forwards">
           View Book Details
         </Link>
       </CardActions>
@@ -681,18 +654,14 @@ see both patterns.
     <Card
       imageProps={{
         alt: "Alt text",
-        aspectRatio: ImageRatios.TwoByOne,
+        aspectRatio: "twoByOne",
         src: "https://placeimg.com/400/200/animals",
       }}
     >
-      <CardHeading
-        level={HeadingLevels.Three}
-        id="link-heading1"
-        url="http://nypl.org"
-      >
+      <CardHeading level="three" id="link-heading1" url="http://nypl.org">
         Go to NYPL home page.
       </CardHeading>
-      <CardHeading level={HeadingLevels.Four} id="link-heading2">
+      <CardHeading level="four" id="link-heading2">
         <>
           Go to NYPL <Link href="http://nypl.org">home page</Link>.
         </>
@@ -703,10 +672,10 @@ see both patterns.
         clicking with a mouse.
       </CardContent>
       <CardActions>
-        <Link href="#" type={LinkTypes.Button}>
+        <Link href="#" type="button">
           Button
         </Link>
-        <Link href="#" type={LinkTypes.Forwards}>
+        <Link href="#" type="forwards">
           Other link
         </Link>
       </CardActions>
@@ -731,15 +700,15 @@ from being having the full-click functionality.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
+        <CardHeading level="three" id="fullclick1-heading1">
           Go to NYPL home page.
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="fullclick1-heading2">
+        <CardHeading level="four" id="fullclick1-heading2">
           Some other heading.
         </CardHeading>
         <CardContent>
@@ -748,10 +717,10 @@ from being having the full-click functionality.
           clicking with a mouse.
         </CardContent>
         <CardActions>
-          <Link href="#" type={LinkTypes.Button}>
+          <Link href="#" type="button">
             Button
           </Link>
-          <Link href="#" type={LinkTypes.Forwards}>
+          <Link href="#" type="forwards">
             Other link
           </Link>
         </CardActions>
@@ -759,13 +728,13 @@ from being having the full-click functionality.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           isAtEnd: true,
           src: "https://placeimg.com/410/210/animals",
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
+        <CardHeading level="three" id="fullclick2-heading1">
           Go to NYPL home page.
         </CardHeading>
         <CardContent>
@@ -776,10 +745,68 @@ from being having the full-click functionality.
   </Story>
 </Canvas>
 
+This example can be found in the [Turbine homepage](https://nypl-ds-test-app.vercel.app/).
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={3}>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/lunar-new-year#above-header-notification"
+      >
+        <CardHeading level="four">Lunar New Year Blog</CardHeading>
+        <CardContent>
+          A basic blog post, including text chracters outside a standard Western
+          font-set.
+        </CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/doc-chat-forty-two#above-header-notification"
+      >
+        <CardHeading level="four">Doc Chat Forty-Two Blog</CardHeading>
+        <CardContent>A blog post with an array of components.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/homepage#above-header-notification"
+      >
+        <CardHeading level="four">Homepage</CardHeading>
+        <CardContent>A layout to mimic a basic homepage structure.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/library-registry#above-header-notification"
+      >
+        <CardHeading level="four">Library Registry Interface</CardHeading>
+        <CardContent>A POC for the Library Registry admin tools.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/search-and-filter#above-header-notification"
+      >
+        <CardHeading level="four">Search and Filter</CardHeading>
+        <CardContent>
+          A functional form to showcase search filtering and content cards.
+        </CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/sign-up#above-header-notification"
+      >
+        <CardHeading level="four">Sign-Up</CardHeading>
+        <CardContent>
+          A functional form to utilize multiple form input components.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
 ## Card with Right Side CardActions
 
 It's possible to set only the `CardActions` component on the right side of the
-main content area of the `Card`. This is possible only in the "LayoutTypes.Row"
+main content area of the `Card`. This is possible only in the `layout="row"`
 layout and through the `Card` component's `isAlignedRightActions` prop which
 must be set to `true`.
 
@@ -788,18 +815,18 @@ must be set to `true`.
     <Card
       imageProps={{
         alt: "Alt text",
-        aspectRatio: ImageRatios.TwoByOne,
-        size: ImageSizes.Medium,
+        aspectRatio: "twoByOne",
+        size: "medium",
         src: "https://placeimg.com/400/200/animals",
       }}
       isAlignedRightActions
       isCentered
-      layout={LayoutTypes.Row}
+      layout="row"
     >
-      <CardHeading level={HeadingLevels.Two} id="main-heading1">
+      <CardHeading level="two" id="main-heading1">
         Optional Header
       </CardHeading>
-      <CardHeading level={HeadingLevels.Three} id="main-heading2">
+      <CardHeading level="three" id="main-heading2">
         Sollicitudin Lorem Tortor Purus Ornare
       </CardHeading>
       <CardContent>
@@ -808,18 +835,13 @@ must be set to `true`.
         eu leo. Nulla vitae elit libero, a pharetra augue.
       </CardContent>
       <CardActions topBorder bottomBorder>
-        <Button
-          onClick={action("clicked")}
-          id="main-button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={action("clicked")} id="main-button1" type="submit">
           Primary
         </Button>
         <Button
           onClick={action("clicked")}
           id="main-button2"
-          buttonType={ButtonTypes.Secondary}
+          buttonType="secondary"
           type="submit"
         >
           Secondary
@@ -841,11 +863,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid1-heading1">
+        <CardHeading level="three" id="grid1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -856,11 +878,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/410/210/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid2-heading1">
+        <CardHeading level="three" id="grid2-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -871,11 +893,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/420/220/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid3-heading1">
+        <CardHeading level="three" id="grid3-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -886,11 +908,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/430/230/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid4-heading1">
+        <CardHeading level="three" id="grid4-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -901,11 +923,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/440/200/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid5-heading1">
+        <CardHeading level="three" id="grid5-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -916,11 +938,11 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/450/200/animals",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="grid6-heading1">
+        <CardHeading level="three" id="grid6-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -940,13 +962,13 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/400/200/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="stack1-heading1">
+        <CardHeading level="four" id="stack1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -958,13 +980,13 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/410/210/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="stack2-heading2">
+        <CardHeading level="four" id="stack2-heading2">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -976,13 +998,13 @@ must be set to `true`.
       <Card
         imageProps={{
           alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
+          aspectRatio: "twoByOne",
           src: "https://placeimg.com/420/220/animals",
         }}
         isCentered
-        layout={LayoutTypes.Row}
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="stack3-heading3">
+        <CardHeading level="four" id="stack3-heading3">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1001,7 +1023,7 @@ must be set to `true`.
   <Story name="Cards Without Images">
     <SimpleGrid columns={3}>
       <Card isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img1-heading1">
+        <CardHeading level="three" id="no-img1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1011,7 +1033,7 @@ must be set to `true`.
         </CardContent>
       </Card>
       <Card isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img2-heading1">
+        <CardHeading level="three" id="no-img2-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1021,7 +1043,7 @@ must be set to `true`.
         </CardContent>
       </Card>
       <Card isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img3-heading1">
+        <CardHeading level="three" id="no-img3-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1033,8 +1055,8 @@ must be set to `true`.
     </SimpleGrid>
     <br />
     <SimpleGrid columns={1}>
-      <Card layout={LayoutTypes.Row} isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img4-heading1">
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img4-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1046,8 +1068,8 @@ must be set to `true`.
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={LayoutTypes.Row} isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img5-heading1">
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img5-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -1059,8 +1081,8 @@ must be set to `true`.
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={LayoutTypes.Row} isBordered>
-        <CardHeading level={HeadingLevels.Three} id="no-img6-heading1">
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img6-heading1">
           Card Heading
         </CardHeading>
         <CardContent>

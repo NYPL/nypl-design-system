@@ -1,5 +1,11 @@
 import { keyframes } from "@chakra-ui/system";
 
+interface SkeletonLoaderBaseStyle {
+  imageAspectRatio: keyof typeof imagePaddingBottomStyles;
+  isBordered: boolean;
+  showImage?: boolean;
+}
+
 const element = {
   borderRadius: "2px",
   boxSizing: "border-box",
@@ -23,7 +29,7 @@ const imageRowHeightStyles = {
 // NYPL's skeleton loader component.
 const SkeletonLoader = {
   parts: ["section", "image", "container", "heading", "content", "button"],
-  baseStyle: ({ imageAspectRatio, isBordered }) => {
+  baseStyle: ({ imageAspectRatio, isBordered }: SkeletonLoaderBaseStyle) => {
     const borderStyles = isBordered ? { ...borderRules } : {};
 
     return {
@@ -67,7 +73,7 @@ const SkeletonLoader = {
     };
   },
   variants: {
-    row: ({ imageAspectRatio, showImage }) => ({
+    row: ({ imageAspectRatio, showImage }: SkeletonLoaderBaseStyle) => ({
       alignItems: "flex-start",
       display: { md: "flex" },
       image: {

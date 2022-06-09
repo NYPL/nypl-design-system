@@ -498,105 +498,6 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
 <nav
   aria-label="Breadcrumb"
-  className="chakra-breadcrumb css-ruvqk2"
-  id="breadcrumbs-test"
->
-  <ol
-    className="chakra-breadcrumb__list css-0"
-  >
-    <li
-      className="chakra-breadcrumb__list-item css-18biwo"
-    >
-      <a
-        className="chakra-breadcrumb__link css-0"
-        href="#string1"
-      >
-        <span
-          className="breadcrumb-label"
-        >
-          string1
-        </span>
-      </a>
-      <span
-        className="css-t4q1nq"
-        role="presentation"
-      >
-        /
-      </span>
-    </li>
-    <li
-      className="chakra-breadcrumb__list-item css-18biwo"
-    >
-      <a
-        className="chakra-breadcrumb__link css-0"
-        href="#string2"
-      >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1grhd2q"
-          focusable={false}
-          id="breadcrumbs-test__backarrow"
-          role="img"
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-        <span
-          className="breadcrumb-label"
-        >
-          string2
-        </span>
-      </a>
-      <span
-        className="css-t4q1nq"
-        role="presentation"
-      >
-        /
-      </span>
-    </li>
-    <li
-      className="chakra-breadcrumb__list-item css-18biwo"
-    >
-      <span
-        aria-current="page"
-        className="chakra-breadcrumb__link css-0"
-      >
-        <span
-          className="breadcrumb-label"
-        >
-          string3
-        </span>
-      </span>
-    </li>
-  </ol>
-</nav>
-`;
-
-exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
-<nav
-  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-1t0bvx9"
   id="breadcrumbs-test"
 >
@@ -693,7 +594,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
 </nav>
 `;
 
-exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 8`] = `
+exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
 <nav
   aria-label="Breadcrumb"
   className="chakra-breadcrumb css-1xdhyk6"

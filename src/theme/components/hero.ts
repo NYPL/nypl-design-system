@@ -187,7 +187,7 @@ const campaign = {
     maxWidth: { md: "960px" },
   },
 };
-const fiftyfifty = {
+const fiftyFifty = {
   content: {
     ...wrapperStyles,
     alignItems: "center",
@@ -231,7 +231,7 @@ const Hero = {
     secondaryWhatsOn,
     tertiary,
     campaign,
-    fiftyfifty,
+    fiftyFifty,
   },
 };
 

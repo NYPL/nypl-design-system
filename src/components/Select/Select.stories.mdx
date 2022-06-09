@@ -11,19 +11,8 @@ import { withDesign } from "storybook-addon-designs";
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
 import Select from "./Select";
-import { SelectTypes, LabelPositions } from "./SelectTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const selectTypesEnumValues = getStorybookEnumValues(
-  SelectTypes,
-  "SelectTypes"
-);
-export const labelPositionsEnumValues = getStorybookEnumValues(
-  LabelPositions,
-  "LabelPositions"
-);
 
 <Meta
   title={getCategory("Select")}
@@ -49,9 +38,7 @@ export const labelPositionsEnumValues = getStorybookEnumValues(
       table: { defaultValue: { summary: false } },
     },
     labelPosition: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "LabelPositions.Default" } },
-      options: labelPositionsEnumValues.options,
+      table: { defaultValue: { summary: "default" } },
     },
     name: { control: false },
     key: { table: { disable: true } },
@@ -68,7 +55,7 @@ export const labelPositionsEnumValues = getStorybookEnumValues(
     },
     selectType: {
       control: false,
-      table: { defaultValue: { summary: "SelectTypes.Default" } },
+      table: { defaultValue: { summary: "default" } },
     },
     value: { control: false },
   }}
@@ -79,7 +66,7 @@ export const labelPositionsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `0.27.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -115,22 +102,19 @@ is left blank, a value will be generated for you.
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
-      labelPosition: "LabelPositions.Default",
+      labelPosition: "default",
       labelText: "What is your favorite color?",
       name: "color",
       onChange: undefined,
       showHelperInvalidText: undefined,
       showLabel: true,
       showRequiredLabel: true,
-      selectType: SelectTypes.Default,
+      selectType: "default",
       value: undefined,
     }}
   >
     {(args) => (
-      <Select
-        {...args}
-        labelPosition={labelPositionsEnumValues.getValue(args.labelPosition)}
-      >
+      <Select {...args}>
         <option value="red">Red</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
@@ -248,10 +232,11 @@ can be used to show or hide the "Required" text within the `label` element.
       </Select>
       <Select
         helperText="Display the label inline"
+        id="label-example5"
         isRequired
         labelText="What is your favorite color?"
         name="color"
-        labelPosition={LabelPositions.Inline}
+        labelPosition="inline"
       >
         <option value="red">Red</option>
         <option value="green">Green</option>

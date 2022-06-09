@@ -4,11 +4,10 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Icon from "./Icon";
-import { IconNames } from "./IconTypes";
 
 describe("Icon Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Icon name={IconNames.Download} />);
+    const { container } = render(<Icon name="download" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -17,7 +16,7 @@ describe("Icon", () => {
   it("consoles a warning if both name and children are passed to Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Icon name={IconNames.Download} decorative={true}>
+      <Icon name="download" decorative={true}>
         <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -52,7 +51,7 @@ describe("Icon", () => {
   });
 
   it("renders an icon based on the icon `name` prop", () => {
-    const { container } = render(<Icon name={IconNames.Download} />);
+    const { container } = render(<Icon name="download" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
   });
 
@@ -61,13 +60,13 @@ describe("Icon", () => {
   // In order to test this, we can check the `title` attribute in the svg
   // element itself. Inspect the `Icon` in Storybook to see the `title` element.
   it("renders a title element", () => {
-    const { container, rerender } = render(<Icon name={IconNames.Download} />);
+    const { container, rerender } = render(<Icon name="download" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "download icon"
     );
 
-    rerender(<Icon name={IconNames.Download} title="title content" />);
+    rerender(<Icon name="download" title="title content" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "title content"
@@ -90,9 +89,7 @@ describe("Icon", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const basic = renderer
-      .create(<Icon id="basic" name={IconNames.Download} />)
-      .toJSON();
+    const basic = renderer.create(<Icon id="basic" name="download" />).toJSON();
     const customIcon = renderer
       .create(
         <Icon id="customIcon">
@@ -108,16 +105,11 @@ describe("Icon", () => {
       .toJSON();
     const withChakraProps = renderer
       .create(
-        <Icon
-          id="chakra"
-          name={IconNames.Download}
-          p="20px"
-          color="ui.error.primary"
-        />
+        <Icon id="chakra" name="download" p="20px" color="ui.error.primary" />
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(<Icon id="props" name={IconNames.Download} data-testid="props" />)
+      .create(<Icon id="props" name="download" data-testid="props" />)
       .toJSON();
 
     expect(basic).toMatchSnapshot();

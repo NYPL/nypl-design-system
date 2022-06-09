@@ -1,14 +1,13 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { StatusBadgeTypes } from "./StatusBadgeTypes";
+export type StatusBadgeTypes = "low" | "medium" | "high";
 export interface StatusBadgeProps {
   /** Additional class for the component */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge through StatusBadgeTypes. Defaults to
-   * `StatusBadgeTypes.Low`. */
+  /** Level of the status badge. Defaults to `"low"`. */
   level?: StatusBadgeTypes;
 }
 
@@ -18,13 +17,7 @@ export interface StatusBadgeProps {
  */
 export const StatusBadge = chakra(
   (props: React.PropsWithChildren<StatusBadgeProps>) => {
-    const {
-      children,
-      className,
-      id,
-      level = StatusBadgeTypes.Low,
-      ...rest
-    } = props;
+    const { children, className, id, level = "low", ...rest } = props;
     const styles = useStyleConfig("StatusBadge", { variant: level });
 
     if (!children) {

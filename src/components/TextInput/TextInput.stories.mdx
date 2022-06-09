@@ -9,15 +9,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import TextInput from "./TextInput";
-import { TextInputTypes, TextInputVariants } from "./TextInputTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  TextInputTypes,
-  "TextInputTypes"
-);
 
 <Meta
   title={getCategory("TextInput")}
@@ -31,7 +24,6 @@ export const enumValues = getStorybookEnumValues(
     jest: ["TextInput.test.tsx"],
   }}
   argTypes={{
-    attributes: { control: false },
     id: { control: false },
     isDisabled: { table: { defaultValue: { summary: false } } },
     isInvalid: { table: { defaultValue: { summary: false } } },
@@ -45,12 +37,10 @@ export const enumValues = getStorybookEnumValues(
     step: { table: { defaultValue: { summary: 1 } } },
     textInputType: {
       control: false,
-      table: { defaultValue: { summary: "TextInputVariants.Default" } },
+      table: { defaultValue: { summary: "default" } },
     },
     type: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "TextInputTypes.text" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "text" } },
     },
     value: { control: false },
   }}
@@ -61,7 +51,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -69,6 +59,7 @@ export const enumValues = getStorybookEnumValues(
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [Labelling Variations](#labelling-variations)
+- [Number Type](#number-type)
 - [HTML in Helper Text](#html-in-helper-text)
 - [Textarea](#textarea)
 
@@ -88,8 +79,6 @@ is left blank, a value will be generated for you.
   <Story
     name="TextInput with Controls"
     args={{
-      additionalStyles: undefined,
-      attributes: undefined,
       className: undefined,
       defaultValue: undefined,
       helperText: "Choose wisely.",
@@ -106,12 +95,12 @@ is left blank, a value will be generated for you.
       showLabel: true,
       showRequiredLabel: true,
       step: 1,
-      type: "TextInputTypes.text",
+      type: "text",
       value: undefined,
-      textInputType: TextInputVariants.Default,
+      textInputType: "default",
     }}
   >
-    {(args) => <TextInput {...args} type={enumValues.getValue(args.type)} />}
+    {(args) => <TextInput {...args} />}
   </Story>
 </Canvas>
 
@@ -129,7 +118,7 @@ Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
 required `labelText` value.
 
-When the `type` prop is set to `TextInputTypes.textarea`, the `<textarea>` element
+When the `type` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
 accessibility rules described above.
 
@@ -216,6 +205,48 @@ within the `label` element.
   </DSProvider>
 </Canvas>
 
+## Number Type
+
+The `TextInput` component can be configured to render a number input by setting
+`type="number"`. In this input type, the `maxLength` prop does not restrict the
+length of the number that is passed to the input. This is the expected behavior
+as the native HTML input and `maxlength` attribute behave this way.
+
+For this type, the `min` and `max` props do restrict the value of the number
+input that is passed. This can be seen by using the up and down arrows to
+increase or decrease the number value, respectively. However, if the `max` prop
+is set to "200", for example, the user can still enter a number such as "400".
+The consuming application must handle validating the entered number value.
+
+If the `min` prop value is greater than the `max` prop value, it will trigger
+the invalid state.
+
+<Canvas>
+  <DSProvider>
+    <VStack align="stretch" spacing={12}>
+      <TextInput
+        helperText="The min value is 10 and the max value is 20."
+        id="number-type"
+        labelText="Enter a number"
+        max={20}
+        min={10}
+        placeholder="i.e. 1, 2, 3, etc."
+        type="number"
+      />
+      <TextInput
+        helperText="The min value is 30 and the max value is 5."
+        id="number-type"
+        invalidText="The min value is 30 and the max value is 5."
+        labelText="Enter a number"
+        max={5}
+        min={30}
+        placeholder="i.e. 1, 2, 3, etc."
+        type="number"
+      />
+    </VStack>
+  </DSProvider>
+</Canvas>
+
 ## HTML in Helper Text
 
 HTML can be passed into the `helperText` prop as a string or HTML.
@@ -251,8 +282,8 @@ helperText={<>Choose <b>wisely!</b></>}
 ## Textarea
 
 The TextInput component includes a multiline `textarea` form field. To render a
-`textarea` element, pass `TextInputTypes.textarea` for the `type` prop.
-All the variations described above are available for the `textarea` option.
+`textarea` element, pass `"textarea"` for the `type` prop. All the variations
+described above are available for the `textarea` option.
 
 <Canvas withToolbar>
   <Story
@@ -268,7 +299,7 @@ All the variations described above are available for the `textarea` option.
       placeholder: "Essay question...",
       showLabel: true,
       showRequiredLabel: true,
-      type: TextInputTypes.textarea,
+      type: "textarea",
     }}
     argTypes={{
       type: { control: false },

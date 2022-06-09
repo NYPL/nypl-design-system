@@ -1,8 +1,7 @@
 import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { TextSizes } from "./TextTypes";
-import { getVariant } from "../../utils/utils";
+export type TextSizes = "default" | "caption" | "tag" | "mini";
 
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
@@ -24,12 +23,11 @@ export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
     isBold,
     isItalic,
     noSpace,
-    size = TextSizes.Default,
+    size = "default",
     ...rest
   } = props;
-  const variant = getVariant(size, TextSizes, TextSizes.Default);
   const styles = useStyleConfig("Text", {
-    variant,
+    variant: size,
     isBold,
     isItalic,
     noSpace,

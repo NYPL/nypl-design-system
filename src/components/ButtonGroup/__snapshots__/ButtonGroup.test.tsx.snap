@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-6dfzd0"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-1"
+    type="button"
+  >
+    Button
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-2"
+    type="button"
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
+<div
+  className="chakra-stack css-6dfzd0"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-1"
+    type="button"
+  >
+    Button
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-2"
+    type="button"
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
+<div
+  className="chakra-stack css-6dfzd0"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-1"
+    type="button"
+  >
+    Button
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-2"
+    type="button"
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
+<div
+  className="chakra-stack css-1txj82p"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-1"
+    type="button"
+  >
+    Button
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-2"
+    type="button"
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup Snapshot renders the UI snapshot correctly 5`] = `
+<div
+  className="chakra-stack css-6dfzd0"
+  data-testid="testid"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-1"
+    type="button"
+  >
+    Button
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="button"
+    id="btn-2"
+    type="button"
+  >
+    Submit
+  </button>
+</div>
+`;

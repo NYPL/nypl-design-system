@@ -3,6 +3,7 @@
 exports[`SearchBar renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
+  id="basic-wrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -12,7 +13,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-basic-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -34,7 +36,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-basic"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -90,6 +91,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
 exports[`SearchBar renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  id="withSelect-wrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -99,7 +101,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-select-withSelect-wrapper"
     >
       <div
         className="css-0"
@@ -218,7 +221,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-withSelect-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -240,7 +244,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withSelect"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -296,6 +299,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
 exports[`SearchBar renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
+  id="withoutHelperText-wrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -305,7 +309,8 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-withoutHelperText-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -327,7 +332,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withoutHelperText"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -371,6 +375,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 exports[`SearchBar renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
+  id="invalidState-wrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -380,7 +385,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-invalidState-wrapper"
     >
       <input
         aria-invalid={true}
@@ -402,7 +408,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-invalidState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -446,6 +451,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 exports[`SearchBar renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
+  id="disabledState-wrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -455,7 +461,8 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-disabledState-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -478,7 +485,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-disabledState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -522,6 +528,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
+  id="requiredState-wrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -531,7 +538,8 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-requiredState-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -555,7 +563,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-requiredState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -599,6 +606,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
+  id="noBrandButtonType-wrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -608,7 +616,8 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-noBrandButtonType-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -632,7 +641,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-noBrandButtonType"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -676,6 +684,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
+  id="withHeading-wrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -694,7 +703,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withHeading"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -738,6 +746,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
+  id="withDescription-wrapper"
 >
   <p
     className="chakra-text css-1xdhyk6"
@@ -755,7 +764,6 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withDescription"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -799,6 +807,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
+  id="withHeadingAndDescription-wrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -822,7 +831,6 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withHeadingAndDescription"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -866,6 +874,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-1xdhyk6"
+  id="chakra-wrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -875,7 +884,8 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-chakra-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -897,7 +907,6 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-chakra"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -954,6 +963,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
+  id="props-wrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -963,7 +973,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     role="search"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
+      id="searchbar-textinput-props-wrapper"
     >
       <input
         aria-label="Item Search"
@@ -985,7 +996,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-props"
-      onClick={null}
       type="submit"
     >
       <svg

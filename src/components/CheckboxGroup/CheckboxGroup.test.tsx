@@ -7,7 +7,6 @@ import renderer from "react-test-renderer";
 
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
-import { LayoutTypes } from "../../helpers/enums";
 
 describe("CheckboxGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
@@ -305,12 +304,7 @@ describe("Checkbox", () => {
       .toJSON();
     const row = renderer
       .create(
-        <CheckboxGroup
-          labelText="row"
-          name="row"
-          id="row"
-          layout={LayoutTypes.Row}
-        >
+        <CheckboxGroup labelText="row" name="row" id="row" layout="row">
           <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
           <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>

@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
-// import { FormGaps } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
@@ -117,7 +116,7 @@ describe("Form", () => {
     );
     const form = screen.getByRole("form");
     const formRow = form.firstChild;
-    const formField = formRow.firstChild;
+    const formField = formRow?.firstChild;
     const textInput = screen.getByRole("textbox");
     expect(form).toBeInTheDocument();
     expect(formRow).toBeInTheDocument();
@@ -232,20 +231,4 @@ describe("Form", () => {
       "NYPL Reservoir Form: This component's required `id` prop was not passed."
     );
   });
-
-  // TO DO: There's somethign weird about checking for the "grid-gap" style.
-  // Other styles can be validated, but "grid-gap" is being ellusive.
-  // it("Renders a <form> element with spacing variant applied", () => {
-  //   render(
-  //     <Form gap={FormGaps.ExtraSmall}>
-  //       <FormRow />
-  //     </Form>
-  //   );
-  //   const form = screen.getByRole("form");
-  //   const formRow = form.firstChild;
-  //   expect(form).toBeInTheDocument();
-  //   expect(formRow).toHaveStyle({
-  //     "grid-gap": "var(--nypl-space-xs)",
-  //   });
-  // });
 });

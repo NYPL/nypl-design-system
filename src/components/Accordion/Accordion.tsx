@@ -1,22 +1,21 @@
 import {
   Accordion as ChakraAccordion,
-  AccordionItem,
   AccordionButton,
+  AccordionItem,
   AccordionPanel,
   Box,
   chakra,
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
+
+export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
-
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
@@ -30,14 +29,10 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false, index, id) => {
-  const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
+const getIcon = (isExpanded = false, index: number, id: string) => {
+  const iconName = isExpanded ? "minus" : "plus";
   return (
-    <Icon
-      id={`accordion-${id}-icon-${index}`}
-      name={iconName}
-      size={IconSizes.Small}
-    />
+    <Icon id={`accordion-${id}-icon-${index}`} name={iconName} size="small" />
   );
 };
 
@@ -46,15 +41,16 @@ const getIcon = (isExpanded = false, index, id) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromData = (data = [], id) => {
+const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
   const colorMap = {
-    [AccordionTypes.Default]: "ui.white",
-    [AccordionTypes.Warning]: "ui.status.primary",
-    [AccordionTypes.Error]: "ui.status.secondary",
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "ui.status.secondary",
   };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
-  const multiplePadding = data?.length > 1 ? 4 : null;
+  const multipleFontSize = data?.length > 1 ? "text.default" : "text.caption";
+  const multiplePadding = data?.length > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -80,6 +76,7 @@ const getElementsFromData = (data = [], id) => {
             <>
               <AccordionButton
                 id={`${id}-button-${index}`}
+                borderColor="ui.gray.medium"
                 padding={multiplePadding}
                 bg={
                   !content.accordionType
@@ -102,7 +99,12 @@ const getElementsFromData = (data = [], id) => {
                   borderColor: "ui.gray.dark",
                 }}
               >
-                <Box flex="1" textAlign="left">
+                <Box
+                  as="span"
+                  flex="1"
+                  fontSize={multipleFontSize}
+                  textAlign="left"
+                >
                   {content.label}
                 </Box>
                 {getIcon(isExpanded, index, id)}
@@ -124,11 +126,12 @@ export const Accordion = chakra((props: AccordionProps) => {
   const { accordionData, id, isDefaultOpen = false, ...rest } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
-  const openFirstAccordion = isDefaultOpen ? 0 : undefined;
+  const openFirstAccordion = isDefaultOpen ? [0] : undefined;
+
   return (
     <ChakraAccordion
       id={id}
-      defaultIndex={[openFirstAccordion]}
+      defaultIndex={openFirstAccordion}
       allowMultiple
       {...rest}
     >

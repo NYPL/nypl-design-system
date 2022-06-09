@@ -20,7 +20,7 @@ describe("useNYPLTheme", () => {
       wrapper: ({ children }) => <DSProvider>{children}</DSProvider>,
     });
     const allKeys = Object.keys(result.current);
-    const colorsKeys = Object.keys(result.current.colors);
+    const colorsKeys = Object.keys((result.current as any).colors);
 
     expect(allKeys).toEqual([
       "breakpoints",

@@ -10,50 +10,28 @@ Using interfaces and types declare the expected type value of an argument or pro
 
 _Note_: Typescript is not usable when creating Storybook documentation in MDX files. Until this configuration is updated, make sure to implement Design System components appropriately.
 
-## Enums
+## Type values
 
-Some of the Reservoir Design System React components have props that only accept a value from a specific set of values. The set of values are organized through a Typescript string `enum`. For example, the `Heading` component has an optional `displaySize` prop. Only values from the `HeadingDisplaySizes` string `enum` are allowed to be used.
+Some of the Reservoir Design System React components have props that only accept a value from a specific set of string literal values. The set of values are organized through Typescript string literal types.
 
 Following this pattern (assuming that the consuming app developer is also using Typescript):
 
-- allows component creators to map prop values to SCSS/CSS classes
+- allows component creators to map prop values to theme variants
 - allows component creators to define specific values that can be used
-- allows app developers to be explicit when implementing a Design System component and passing prop values
 - allows app developers to catch errors early in compilation time since Typescript throws an error if an unintended or wrong value was passed
 
-Even with these benefits, using `type`s are preferred over using `enum`s. If we _have_ to use `enum`s, the minimum best practice we can follow is to declare them as string `enum`s. Regular enums evaluate to a 0-indexed based array of values which can have undesired consequences when they are evaluated as prop values.
+### Heading `size` Example
 
-Resources:
-
-- https://fettblog.eu/tidy-typescript-avoid-enums/
-- https://react-typescript-cheatsheet.netlify.app/docs/basic/troubleshooting/types/#enum-types
-- https://basarat.gitbook.io/typescript/type-system/enums#string-enums
-
-### HeadingDisplaySizes Example
-
-The following is a full example of an `enum` variable used to declare the `displaySize` component prop.
+The following is an example of the type used to update the `size` prop for the `Heading` component. The available values declared by the `HeadingSizes` type are: `"primary"`, `"secondary"`, `"tertiary"`, `"callout"`.
 
 ```tsx
-// A string enum
-export enum HeadingDisplaySizes {
-  Primary = "primary",
-  Secondary = "secondary",
-  Tertiary = "tertiary",
-  Callout = "callout",
-}
+export type HeadingSizes = "primary" | "secondary" | "tertiary" | "callout";
 export interface HeadingProps {
-  displaySize?: HeadingDisplaySizes;
+  size?: HeadingSizes;
   // more props...
 }
 
-export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { displaySize, modifiers, ...rest } = props;
-
-  if (displaySize) {
-    modifiers.push(displaySize);
-  }
-  // the rest of the component...
-}
+export const Heading = ...
 ```
 
 Component usage in a consuming application that uses Typescript:
@@ -62,41 +40,27 @@ Component usage in a consuming application that uses Typescript:
 // No errors:
 <Heading
   id="h1"
-  level={HeadingLevels.One}
-  text="Heading with Secondary displaySize"
-  displaySize={HeadingDisplaySizes.Secondary}
+  level="one"
+  text="Heading with secondary size"
+  size="secondary"
 />
 
-// This will throw an error. `HeadingDisplaySizes.Secondary` evaluates to
-// "secondary" after the code compiles but we expect the explicit
-// `HeadingDisplaySizes` enum to be used while developing.
+// This will throw an error. "superLargeSize" is not a value declared in the `HeadingSizes` type set.
 <Heading
   id="h1"
-  level={HeadingLevels.One}
-  text="Heading with Secondary displaySize"
-  displaySize="secondary"
+  level="one"
+  text="Heading with bad size value"
+  displaySize="superLargeSize"
 />
 ```
 
-If the consuming application does not use Typescript, then the following won't throw an error. Also, because Typescript doesn't run in MDX files, the following will also not throw an error in MDX Storybook documentation files. Make sure to write documentation properly.
+If the consuming application does not use Typescript, then the following won't throw an error. The default style will render since it's not an appropriate value. Because Typescript doesn't run in MDX files, the following will also not throw an error in MDX Storybook documentation files. Make sure to write documentation properly.
 
 ```tsx
 <Heading
   id="h1"
   level={1}
-  text="Heading with Secondary displaySize"
-  displaySize="secondary"
+  text="Heading with bad size value"
+  displaySize="superLargeSize"
 />
-```
-
-### Converting to types
-
-Another way the `displaySize` can be implemented is through a `type`. This gives us the same Typescript prop type validation but is less explicit. For the time being, we want to write explicit prop values to make it easier to debug on non-Typescript applications that import the Reservoir Design System.
-
-```tsx
-export type HeadingDisplaySizes =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "callout";
 ```

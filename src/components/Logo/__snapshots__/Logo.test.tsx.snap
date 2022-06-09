@@ -7,7 +7,7 @@ exports[`Logo renders the UI snapshot correctly 1`] = `
   focusable={false}
   id="test-logo"
   role="img"
-  title="logo_nypl_full_black logo"
+  title="nyplFullBlack logo"
   viewBox="0 0 24 24"
 >
   <g
@@ -42,7 +42,7 @@ exports[`Logo renders the UI snapshot correctly 2`] = `
   focusable={false}
   id="test-logo-size"
   role="img"
-  title="logo_nypl_full_black logo"
+  title="nyplFullBlack logo"
   viewBox="0 0 24 24"
 >
   <g
@@ -77,7 +77,7 @@ exports[`Logo renders the UI snapshot correctly 3`] = `
   focusable={false}
   id="chakra"
   role="img"
-  title="logo_nypl_full_black logo"
+  title="nyplFullBlack logo"
   viewBox="0 0 24 24"
 >
   <g
@@ -113,7 +113,7 @@ exports[`Logo renders the UI snapshot correctly 4`] = `
   focusable={false}
   id="props"
   role="img"
-  title="logo_nypl_full_black logo"
+  title="nyplFullBlack logo"
   viewBox="0 0 24 24"
 >
   <g

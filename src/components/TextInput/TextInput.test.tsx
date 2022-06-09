@@ -1,11 +1,10 @@
 import * as React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
-import { TextInputTypes } from "./TextInputTypes";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
@@ -16,7 +15,22 @@ describe("TextInput Accessibility", () => {
         labelText="Custom input label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <TextInput
+        id="textInput"
+        isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        showLabel={false}
+        type="text"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -30,7 +44,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom textarea label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        type={TextInputTypes.textarea}
+        type="textarea"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -38,22 +52,20 @@ describe("TextInput Accessibility", () => {
 });
 
 describe("TextInput", () => {
-  let utils;
-  let changeHandler;
-  let focusHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
+  let utils: RenderResult;
 
   beforeEach(() => {
-    focusHandler = jest.fn();
     changeHandler = jest.fn();
     utils = render(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
+        helperText="Custom Helper Text"
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
       />
     );
   });
@@ -74,19 +86,75 @@ describe("TextInput", () => {
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showRequiredLabel={false}
-        type={TextInputTypes.text}
+        type="text"
       />
     );
 
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+  });
+
+  it("does not render the label but adds it as an aria-label attribute", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        isRequired
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showLabel={false}
+        type="text"
+      />
+    );
+
+    expect(screen.queryByText(/Custom Input Label/i)).not.toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-label",
+      "Custom Input Label"
+    );
+  });
+
+  it("renders the invalid state and shows the invalid text", () => {
+    utils.rerender(
+      <TextInput
+        helperText="Custom Helper Text"
+        id="myTextInputError"
+        invalidText="Custom Error Text"
+        isInvalid
+        labelText="Custom Input Label"
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+
+    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
+    expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-invalid"
+    );
+  });
+
+  it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
+    utils.rerender(
+      <TextInput
+        helperText="Custom Helper Text"
+        id="myTextInputError"
+        invalidText="Custom Error Text"
+        isInvalid
+        labelText="Custom Input Label"
+        placeholder="Input Placeholder"
+        showHelperInvalidText={false}
+        type="text"
+      />
+    );
+    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
+    expect(screen.queryByText("Custom Error Text")).not.toBeInTheDocument();
   });
 
   it("renders label's `for` attribute pointing at ID from input", () => {
@@ -108,17 +176,45 @@ describe("TextInput", () => {
     );
   });
 
-  it("allows user to pass in additional attributes", () => {
-    expect(focusHandler).toHaveBeenCalledTimes(0);
-    fireEvent.focus(screen.getByLabelText(/Custom Input Label/i));
-    expect(focusHandler).toHaveBeenCalledTimes(1);
-  });
-
-  it("changing the value calls the onChange handler", () => {
+  it("calls the onChange handler function", () => {
     expect(changeHandler).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
     // Called 5 times because "Hello" has length of 5.
     expect(changeHandler).toHaveBeenCalledTimes(5);
+  });
+
+  it("has a maxlength for the input element", () => {
+    const onChangeSpy = jest.fn();
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
+      "maxLength",
+      "10"
+    );
+  });
+
+  it("logs a warning for the number type when the min prop is greater than the max prop", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <TextInput
+        id="input-number"
+        labelText="Input Label"
+        max={20}
+        min={50}
+        type="number"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
+    );
   });
 
   it("logs a warning when there is no `id` passed", () => {
@@ -134,143 +230,6 @@ describe("TextInput", () => {
   });
 });
 
-describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-  beforeEach(() => {
-    render(
-      <TextInput
-        helperText="Custom Helper Text"
-        id="textInput"
-        isRequired
-        labelText="Custom Input Label"
-        placeholder="Input Placeholder"
-        showLabel={false}
-        type={TextInputTypes.text}
-      />
-    );
-  });
-
-  it("renders Input component", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("does not renders Label component", () => {
-    expect(screen.queryByText(/Custom Input Label/i)).not.toBeInTheDocument();
-  });
-
-  it("renders custom aria-label", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "aria-label",
-      "Custom Input Label - Custom Helper Text"
-    );
-  });
-
-  it("renders HelperErrorText component", () => {
-    expect(screen.getByText("Custom Helper Text")).toBeInTheDocument();
-  });
-});
-
-describe("TextInput shows error state", () => {
-  let rerender;
-  beforeEach(() => {
-    const utils = render(
-      <TextInput
-        helperText="Custom Helper Text"
-        id="myTextInputError"
-        invalidText="Custom Error Text"
-        isInvalid
-        labelText="Custom Input Label"
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
-      />
-    );
-
-    rerender = utils.rerender;
-  });
-
-  it("renders Input component", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("renders Label component", () => {
-    expect(screen.getByText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("renders HelperErrorText component", () => {
-    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
-    expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
-  });
-
-  it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
-    rerender(
-      <TextInput
-        helperText="Custom Helper Text"
-        id="myTextInputError"
-        invalidText="Custom Error Text"
-        isInvalid
-        labelText="Custom Input Label"
-        placeholder="Input Placeholder"
-        showHelperInvalidText={false}
-        type={TextInputTypes.text}
-      />
-    );
-    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
-    expect(screen.queryByText("Custom Error Text")).not.toBeInTheDocument();
-  });
-
-  it("input shows error state", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "aria-invalid"
-    );
-  });
-});
-
-describe("Renders HTML attributes passed through the `attributes` prop", () => {
-  const onChangeSpy = jest.fn();
-  const onBlurSpy = jest.fn();
-  beforeEach(() => {
-    render(
-      <TextInput
-        attributes={{
-          onChange: onChangeSpy,
-          onBlur: onBlurSpy,
-          maxLength: 10,
-          tabIndex: 0,
-        }}
-        id="inputID-attributes"
-        labelText="Input Label"
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
-      />
-    );
-  });
-
-  it("has a maxlength for the input element", () => {
-    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
-      "maxLength",
-      "10"
-    );
-  });
-
-  it("has a tabIndex", () => {
-    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
-      "tabIndex",
-      "0"
-    );
-  });
-
-  it("calls the onChange function", () => {
-    expect(onChangeSpy).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
-    expect(onChangeSpy).toHaveBeenCalledTimes(5);
-  });
-
-  it("calls the onBlur function", () => {
-    expect(onBlurSpy).toHaveBeenCalledTimes(0);
-    fireEvent.blur(screen.getByLabelText(/Input Label/i));
-    expect(onBlurSpy).toHaveBeenCalledTimes(1);
-  });
-});
-
 // TODO:
 // describe("Forwarding refs", () => {
 //   it("Passes the ref to the input element", () => {
@@ -280,7 +239,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 //         id="inputID-attributes"
 //         labelText="Input Label"
 //         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.text}
+//         type="text"
 //         ref={ref}
 //       />
 //     );
@@ -294,7 +253,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 //         id="inputID-attributes"
 //         labelText="Input Label"
 //         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.textarea}
+//         type="textarea"
 //         ref={ref}
 //       />
 //     );
@@ -308,7 +267,7 @@ describe("Hidden input", () => {
       <TextInput
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        type={TextInputTypes.hidden}
+        type="hidden"
         value="hidden"
       />
     );
@@ -328,7 +287,7 @@ describe("Hidden input", () => {
         helperText="Helper Text"
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        type={TextInputTypes.hidden}
+        type="hidden"
         value="hidden"
       />
     );
@@ -345,7 +304,7 @@ describe("Textarea element type", () => {
         id="myTextarea"
         labelText="Custom textarea Label"
         placeholder="Textarea Placeholder"
-        type={TextInputTypes.textarea}
+        type="textarea"
       />
     );
   });
@@ -361,6 +320,16 @@ describe("Textarea element type", () => {
 
 describe("UI Snapshots", () => {
   it("renders the text input UI snapshot correctly", () => {
+    const basicTextarea = renderer
+      .create(
+        <TextInput
+          id="myTextarea"
+          labelText="Custom textarea Label"
+          placeholder="Textarea Placeholder"
+          type="textarea"
+        />
+      )
+      .toJSON();
     const required = renderer
       .create(
         <TextInput
@@ -368,7 +337,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -378,7 +347,7 @@ describe("UI Snapshots", () => {
           id="myTextInput"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -390,7 +359,7 @@ describe("UI Snapshots", () => {
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
           showLabel={false}
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -402,7 +371,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -414,7 +383,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -426,7 +395,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -436,7 +405,7 @@ describe("UI Snapshots", () => {
           id="chakra"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
           p="20px"
           color="ui.error.primary"
         />
@@ -448,12 +417,13 @@ describe("UI Snapshots", () => {
           id="props"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
           data-testid="props"
         />
       )
       .toJSON();
 
+    expect(basicTextarea).toMatchSnapshot();
     expect(required).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
     expect(hiddenLabelText).toMatchSnapshot();
@@ -462,20 +432,5 @@ describe("UI Snapshots", () => {
     expect(disabledState).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
-  });
-
-  it("renders the textarea UI snapshot correctly", () => {
-    const basicTextarea = renderer
-      .create(
-        <TextInput
-          id="myTextarea"
-          labelText="Custom textarea Label"
-          placeholder="Textarea Placeholder"
-          type={TextInputTypes.textarea}
-        />
-      )
-      .toJSON();
-
-    expect(basicTextarea).toMatchSnapshot();
   });
 });

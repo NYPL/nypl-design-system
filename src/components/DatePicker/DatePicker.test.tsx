@@ -4,13 +4,12 @@ import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
 import renderer from "react-test-renderer";
 
-import DatePicker from "./DatePicker";
-import { DatePickerTypes } from "./DatePickerTypes";
+import DatePicker, { DatePickerTypes, FullDateType } from "./DatePicker";
 import { TextInputRefType } from "../TextInput/TextInput";
 
 /** This adds a "0" padding for date values under "10". */
-const strPad = (n) => String("0" + n).slice(-2);
-const monthArray = [
+const strPad = (n: number) => String("0" + n).slice(-2);
+const monthArray: string[] = [
   "January",
   "February",
   "March",
@@ -36,12 +35,35 @@ describe("DatePicker Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility with hidden label", async () => {
+    const { container } = render(
+      <DatePicker
+        id="datePicker"
+        labelText="Select the date you want to visit NYPL"
+        showLabel={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility for a date range", async () => {
     const { container } = render(
       <DatePicker
         id="datePicker"
-        labelText="Select the date range you want to visit NYPL"
         isDateRange
+        labelText="Select the date range you want to visit NYPL"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for a date range with hidden label", async () => {
+    const { container } = render(
+      <DatePicker
+        id="datePicker"
+        isDateRange
+        labelText="Select the date range you want to visit NYPL"
+        showLabel={false}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -58,11 +80,11 @@ describe("DatePicker", () => {
     return [year, month, day];
   };
   /** Returns today's date in string format based on the DatePicker type. */
-  const getTodaysDateDisplay = (type?) => {
+  const getTodaysDateDisplay = (type?: DatePickerTypes) => {
     const [year, month, day] = getTodaysValues();
-    if (DatePickerTypes.Year === type) {
+    if ("year" === type) {
       return `${year}`;
-    } else if (DatePickerTypes.Month === type) {
+    } else if ("month" === type) {
       return `${month}-${year}`;
     }
     return `${year}-${month}-${day}`;
@@ -106,12 +128,12 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           labelText="Select the month you want to visit NYPL"
         />
       );
       const [year, month] = getTodaysValues();
-      const date = getTodaysDateDisplay(DatePickerTypes.Month);
+      const date = getTodaysDateDisplay("month");
 
       expect(
         screen.getByLabelText(/Select the month you want to visit NYPL/i)
@@ -125,12 +147,12 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the month you want to visit NYPL"
         />
       );
       const [year] = getTodaysValues();
-      const date = getTodaysDateDisplay(DatePickerTypes.Year);
+      const date = getTodaysDateDisplay("year");
 
       expect(
         screen.getByLabelText(/Select the month you want to visit NYPL/i)
@@ -316,8 +338,11 @@ describe("DatePicker", () => {
     });
 
     it("should pass the value to the `onChange` function", () => {
-      let dateObject: any = {};
-      const onChange = (data) => {
+      let dateObject: FullDateType = {
+        startDate: new Date(),
+        endDate: new Date(),
+      };
+      const onChange = (data: FullDateType) => {
         dateObject = data;
       };
       render(
@@ -370,7 +395,7 @@ describe("DatePicker", () => {
     it("should throw a warning when `onChange` is passed as well as a `ref` prop.", () => {
       const warn = jest.spyOn(console, "warn");
       const ref = React.createRef<TextInputRefType>();
-      const onChange = (_data) => {};
+      const onChange = (_data: {}) => {};
       render(
         <DatePicker
           id="datePicker"
@@ -788,7 +813,7 @@ describe("DatePicker", () => {
       userEvent.click(screen.getByText(midMonthDay));
       // So only the month should change accordingly.
       const newMonthValue = `${newDayValue.substr(0, 5)}${strPad(
-        "10"
+        10
       )}${newDayValue.substr(7)}`;
       expect(screen.getByDisplayValue(newMonthValue)).toBeInTheDocument();
     });
@@ -797,7 +822,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           labelText="Select the month you want to visit NYPL"
         />
       );
@@ -824,7 +849,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           initialDate="4/1/1988"
           labelText="Select the month you want to visit NYPL"
         />
@@ -864,7 +889,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the year you want to visit NYPL"
         />
       );
@@ -902,7 +927,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the year you want to visit NYPL"
         />
       );

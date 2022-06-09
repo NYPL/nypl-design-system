@@ -8,18 +8,11 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Logo from "./Logo";
-import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const namesEnumValues = getStorybookEnumValues(LogoNames, "LogoNames");
-export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
 
 <Meta
   title={getCategory("Logo")}
@@ -36,14 +29,8 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
-    name: {
-      control: { type: "select" },
-      options: namesEnumValues.options,
-    },
     size: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "LogoSizes.Medium" } },
-      options: sizesEnumValues.options,
+      table: { defaultValue: { summary: "medium" } },
     },
     title: {
       control: false,
@@ -57,7 +44,7 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -78,12 +65,11 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
   <Story
     name="Logo with Controls"
     args={{
-      additionalStyles: undefined,
       className: undefined,
       decorative: true,
       id: "logo-id",
-      name: "LogoNames.NYPLBlack",
-      size: "LogoSizes.Large",
+      name: "nyplFullBlack",
+      size: "large",
       title: undefined,
     }}
   >
@@ -101,11 +87,7 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
             : undefined
         }
       >
-        <Logo
-          name={namesEnumValues.getValue(args.name)}
-          size={sizesEnumValues.getValue(args.size)}
-          title={args.title}
-        />
+        <Logo {...args} />
       </div>
     )}
   </Story>
@@ -117,7 +99,7 @@ export const logoRow = (logo, opts = {}) => {
   // We'll use this setup function to render all the logos in a list item.
   // Some logos display better with a dark background.
   const styles = { textAlign: "center" };
-  const { size = LogoSizes.Large, displayValue } = opts;
+  const { size = "large", displayValue } = opts;
   let key = logo;
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
     styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
@@ -125,26 +107,83 @@ export const logoRow = (logo, opts = {}) => {
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";
   }
-  if (size !== LogoSizes.Large) {
+  if (size !== "large") {
     key += `-${size}`;
   }
   return (
     <div style={styles} key={key}>
-      <Heading level={HeadingLevels.Four}>{displayValue}</Heading>
-      <Logo name={LogoNames[logo]} size={size} />
+      <Heading level="four">{displayValue}</Heading>
+      <Logo name={logo} size={size} />
     </div>
   );
 };
 export const logos = [];
 export const sizes = [];
-for (const logo in LogoNames) {
-  logos.push(logoRow(logo, { displayValue: `LogoNames.${logo}` }));
+export const logoNameValues = [
+  "appleAppStoreBlack",
+  "appleAppStoreWhite",
+  "bplBlack",
+  "bplWhite",
+  "cleverBadgeColor",
+  "cleverColor",
+  "cleverWhite",
+  "firstbookColor",
+  "firstbookColorNegative",
+  "googlePlayBlack",
+  "lpaColor",
+  "lpaBlack",
+  "lpaWhite",
+  "mlnBlack",
+  "mlnWhite",
+  "nyplFullBlack",
+  "nyplFullWhite",
+  "nyplLionBlack",
+  "nyplLionWhite",
+  "nyplTextBlack",
+  "nyplTextWhite",
+  "openebooksColor",
+  "openebooksNegative",
+  "openebooksWithTextColor",
+  "openebooksWithTextNegative",
+  "qplColor",
+  "qplBlack",
+  "qplWhite",
+  "qplAltBlack",
+  "qplAltWhite",
+  "reservoirIconColor",
+  "reservoirVerticalColor",
+  "schomburgColor",
+  "schomburgBlack",
+  "schomburgWhite",
+  "schomburgCircleColor",
+  "schomburgCircleBlack",
+  "schomburgCircleWhite",
+  "simplyeColor",
+  "simplyeBlack",
+  "simplyeWhite",
+  "snflBlack",
+  "snflWhite",
+  "treasuresColor",
+  "treasuresColorNegative",
+];
+export const logoSizeValues = [
+  "default",
+  "xxsmall",
+  "xsmall",
+  "small",
+  "medium",
+  "large",
+];
+for (const logo in logoNameValues) {
+  logos.push(
+    logoRow(logoNameValues[logo], { displayValue: logoNameValues[logo] })
+  );
 }
-for (const logoSize in LogoSizes) {
+for (const logoSize in logoSizeValues) {
   sizes.push(
-    logoRow("NYPLBlack", {
-      displayValue: `LogoSizes.${logoSize}`,
-      size: LogoSizes[logoSize],
+    logoRow("nyplFullBlack", {
+      displayValue: logoSizeValues[logoSize],
+      size: logoSizeValues[logoSize],
     })
   );
 }
@@ -155,11 +194,11 @@ export const allLogosGrid = (list) => (
 
 ## Accessibility
 
-For accessibility purposes, every Reservoir Design System (DS) `Logo` will 
-render the `svg` element with its `svg` file name in the `title` element. The 
-default text in the `title` element is the logo's code name. Pass in better 
-descriptive text in the `title` prop when using the `Logo` component in your 
-application. This will give screenreaders a better descriptive title for the 
+For accessibility purposes, every Reservoir Design System (DS) `Logo` will
+render the `svg` element with its `svg` file name in the `title` element. The
+default text in the `title` element is the logo's code name. Pass in better
+descriptive text in the `title` prop when using the `Logo` component in your
+application. This will give screenreaders a better descriptive title for the
 `svg` graphic.
 
 `Logos`s are decorative by default. This means that they are presentational and
@@ -174,15 +213,16 @@ Resources:
 
 ## Logo Sizes
 
-Update the size of the `Logo` component by passing the `size` prop with a value from
-`LogoSizes`. The `LogoSizes` enum can be found in`src/components/Logo/LogoTypes.tsx`.
+Update the size of the `Logo` component by passing the `size` prop with a value
+from the `LogoSizes` type. The values are `"default"`, `"xxsmall"`, `"xsmall"`,
+`"small"`, `"medium"`, and `"large"`.
 
-Note: `LogoSizes.Default` sets the width to `100%` and the rendered logo will expand to
+Note: `"default"` sets the width to `100%` and the rendered logo will expand to
 fill the full width of the parent element.
 
 ```jsx
 // Example
-<Logo name={LogoNames.NYPLBlack} size={LogoSizes.Large} />
+<Logo name="nyplFullBlack" size="large" />
 ```
 
 <Canvas>
@@ -191,11 +231,22 @@ fill the full width of the parent element.
 
 ## All Logos
 
-The `Logo` component contains the logos most commonly used by are listed available
-logos are listed in the `LogoNames` enum in `src/components/Logos/LogoTypes.tsx`.
+Update the icon of the `Logo` component by passing the `name` prop with a value
+from the `LogoNames` type. The values are `"appleAppStoreBlack"`,
+`"appleAppStoreWhite"`,`"bplBlack"`, `"bplWhite"`, `"cleverBadgeColor"`, `"cleverColor"`,
+`"cleverWhite"`, `"firstbookColor"`, `"firstbookColorNegative"`, `"googlePlayBlack"`,
+`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnWhite"`,
+`"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`, `"nyplTextBlack"`,
+`"nyplTextWhite"`, `"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
+`"openebooksWithTextNegative"`, `"qplAltBlack"`, `"qplAltWhite"`, `"qplBlack"`,
+`"qplColor"`, `"qplWhite"`, `"reservoirIconColor"`, `"reservoirVerticalColor"`,
+`"schomburgBlack"`, `"schomburgCircleBlack"`, `"schomburgCircleColor"`,
+`"schomburgCircleWhite"`, `"schomburgColor"`, `"schomburgWhite"`, `"simplyeBlack"`,
+`"simplyeWhite"`, `"simplyeColor"`, `"snflBlack"`, `"snflWhite"`, `"treasuresColor"`,
+`"treasuresColorNegative"`.
 
-If you feel a necessary logo should be added to the `Logo` component, please reach out
-to the DS team.
+If you feel a necessary logo should be added to the `Logo` component, please
+reach out to the DS team.
 
 <Canvas withToolbar>
   <Story name="All Logos">{allLogosGrid(logos)}</Story>
@@ -209,7 +260,7 @@ child to the `Logo` component.
 ```jsx
 <Logo {...props}>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.756 192.756">
-    <g fill-rule="evenodd" clip-rule="evenodd">
+    <g fillRule="evenodd" clipRule="evenodd">
       <path fill="#fff" d="M0 0h192.756v192.756H0V0z" />
       <path
         d="M59.73 117.578c-9.859-4.912-23.261-15.887-23.413-27.06C36.149 78.129 44.451 75.087 50 75.087c5.701 0 8.286 3.345 10.637 5.777 2.352-2.433 4.936-5.777 10.637-5.777 5.549 0 13.851 3.042 13.682 15.431-.151 11.173-13.553 22.148-23.412 27.06-.35.174-.629.262-.907.262s-.557-.088-.907-.262z"
@@ -225,13 +276,13 @@ child to the `Logo` component.
   <Story
     name="Custom Logos"
     args={{
-      size: LogoSizes.Large,
+      size: "large",
     }}
   >
     {(args) => (
       <Logo {...args}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.756 192.756">
-          <g fill-rule="evenodd" clip-rule="evenodd">
+          <g fillRule="evenodd" clipRule="evenodd">
             <path fill="#fff" d="M0 0h192.756v192.756H0V0z" />
             <path
               d="M59.73 117.578c-9.859-4.912-23.261-15.887-23.413-27.06C36.149 78.129 44.451 75.087 50 75.087c5.701 0 8.286 3.345 10.637 5.777 2.352-2.433 4.936-5.777 10.637-5.777 5.549 0 13.851 3.042 13.682 15.431-.151 11.173-13.553 22.148-23.412 27.06-.35.174-.629.262-.907.262s-.557-.088-.907-.262z"

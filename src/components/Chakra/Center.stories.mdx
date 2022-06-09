@@ -2,9 +2,7 @@ import { Box, Center, Circle, HStack, Square } from "@chakra-ui/react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
 import Icon from "../Icons/Icon";
-import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
 import Image from "../Image/Image";
-import { ImageSizes } from "../Image/ImageTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -17,7 +15,7 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.24.0`   |
 
 Note: This needs the use of the `DSProvider` component. See the
-[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
+[README](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
 These components are directly exported from Chakra UI. The `Center`, `Circle`,
@@ -54,7 +52,7 @@ guide on the Chakra UI site.
     <Center border="1px solid" borderColor="var(--nypl-colors-ui-gray-medium)">
       <Image
         alt="Centered Image"
-        size={ImageSizes.Medium}
+        size="medium"
         src="https://placeimg.com/300/400/arch"
       />
     </Center>
@@ -70,18 +68,10 @@ a circle.
   <DSProvider>
     <HStack spacing="s">
       <Circle size="50px" bg="var(--nypl-colors-brand-secondary)">
-        <Icon
-          name={IconNames.Download}
-          color={IconColors.UiWhite}
-          size={IconSizes.Large}
-        />
+        <Icon name="download" color="ui.white" size="large" />
       </Circle>
       <Circle size="50px" bg="var(--nypl-colors-ui-link-primary)">
-        <Icon
-          name={IconNames.Check}
-          color={IconColors.UiWhite}
-          size={IconSizes.Large}
-        />
+        <Icon name="check" color="ui.white" size="large" />
       </Circle>
     </HStack>
   </DSProvider>
@@ -96,18 +86,10 @@ and width.
   <DSProvider>
     <HStack spacing="s">
       <Square size="50px" bg="var(--nypl-colors-brand-secondary)">
-        <Icon
-          name={IconNames.Download}
-          color={IconColors.UiWhite}
-          size={IconSizes.Large}
-        />
+        <Icon name="download" color="ui.white" size="large" />
       </Square>
       <Square size="50px" bg="var(--nypl-colors-ui-link-primary)">
-        <Icon
-          name={IconNames.Check}
-          color={IconColors.UiWhite}
-          size={IconSizes.Large}
-        />
+        <Icon name="check" color="ui.white" size="large" />
       </Square>
     </HStack>
   </DSProvider>

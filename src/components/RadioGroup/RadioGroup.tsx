@@ -12,7 +12,8 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
-import { LayoutTypes } from "../../helpers/enums";
+import { LayoutTypes } from "../../helpers/types";
+
 export interface RadioGroupProps {
   /** Additional class name. */
   className?: string;
@@ -75,7 +76,7 @@ export const RadioGroup = chakra(
         isInvalid = false,
         isRequired = false,
         labelText,
-        layout = LayoutTypes.Column,
+        layout = "column",
         name,
         onChange,
         showHelperInvalidText = true,
@@ -87,7 +88,7 @@ export const RadioGroup = chakra(
       const footnote: HelperErrorTextType = isInvalid
         ? invalidText
         : helperText;
-      const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
+      const spacingProp = layout === "column" ? spacing.s : spacing.l;
       const newChildren: JSX.Element[] = [];
       // Get the Chakra-based styles for the custom elements in this component.
       const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
@@ -110,29 +111,32 @@ export const RadioGroup = chakra(
       }
 
       // Go through the Radio children and update them as needed.
-      React.Children.map(children, (child: React.ReactElement, key) => {
-        if (child?.type !== Radio) {
-          // Special case for Storybook MDX documentation.
-          if (child.props?.mdxType && child.props?.mdxType === "Radio") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
-                "inside the `RadioGroup` component."
-            );
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, key) => {
+          if (child?.type !== Radio) {
+            // Special case for Storybook MDX documentation.
+            if (child.props?.mdxType && child.props?.mdxType === "Radio") {
+              noop();
+            } else {
+              console.warn(
+                "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+                  "inside the `RadioGroup` component."
+              );
+            }
+          }
+
+          if (child !== undefined && child !== null) {
+            const newProps = {
+              key,
+              isDisabled,
+              isInvalid,
+              isRequired,
+            };
+            newChildren.push(React.cloneElement(child, newProps));
           }
         }
-
-        if (child !== undefined && child !== null) {
-          const newProps = {
-            key,
-            isDisabled,
-            isInvalid,
-            isRequired,
-          };
-          newChildren.push(React.cloneElement(child, newProps));
-        }
-      });
+      );
 
       return (
         <Fieldset
@@ -143,18 +147,19 @@ export const RadioGroup = chakra(
           legendText={labelText}
           showRequiredLabel={showRequiredLabel}
           {...rest}
+          __css={styles}
         >
           <ChakraRadioGroup {...radioGroupProps}>
-            <Stack direction={[layout]} spacing={spacingProp} sx={styles.stack}>
+            <Stack direction={[layout]} spacing={spacingProp}>
               {newChildren}
             </Stack>
           </ChakraRadioGroup>
           {footnote && showHelperInvalidText && (
             <HelperErrorText
-              additionalStyles={styles.helperErrorText}
               id={`${id}-helperErrorText`}
               isInvalid={isInvalid}
               text={footnote}
+              __css={styles.helperErrorText}
             />
           )}
         </Fieldset>

@@ -10,12 +10,10 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
-import Icon from "../Icons/Icon";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
+import Icon from "../Icons/Icon";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
-import useWindowSize from "../../hooks/useWindowSize";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -47,7 +45,7 @@ export interface TabsProps {
  * An internal function used to update the hash in the URL.
  * This function is only used when `useHash` is `true`.
  */
-const onClickHash = (tabHash) => {
+const onClickHash = (tabHash: string) => {
   window.location.hash = tabHash;
 };
 
@@ -55,9 +53,12 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromData = (data, useHash): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+const getElementsFromData = (
+  data: TabsDataProps[],
+  useHash: boolean
+): TabPanelProps => {
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!data?.length) {
     return { tabs: [], panels: [] };
@@ -76,7 +77,7 @@ const getElementsFromData = (data, useHash): TabPanelProps => {
       <Tab
         fontSize={["0", null, "1"]}
         key={index}
-        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : null}
+        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}
       >
         {tab.label}
       </Tab>
@@ -107,14 +108,14 @@ const getElementsFromData = (data, useHash): TabPanelProps => {
  * the DOM when building up the `Tabs` component using child component.
  */
 const getElementsFromChildren = (children): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!children?.length) {
     return { tabs: [], panels: [] };
   }
 
-  children.forEach((child) => {
+  children.forEach((child: JSX.Element) => {
     if (child.type === TabList || child.props.mdxType === "TabList") {
       tabs.push(child);
 
@@ -154,8 +155,9 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   const initTabWidth = 65;
   // An estimate for the tab width for larger device widths.
   const mediumTabWidth = 40;
-  const [tabWidth, setTabWidth] = React.useState(initTabWidth);
-  const windowDimensions = useWindowSize();
+  const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
+  const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
+
   const { tabs, panels }: any = tabsData
     ? getElementsFromData(tabsData, useHash)
     : getElementsFromChildren(children);
@@ -174,52 +176,47 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
     tabProps?.children?.length,
     tabWidth
   );
+
   React.useEffect(() => {
-    if (windowDimensions.width > 320) {
-      setTabWidth(mediumTabWidth);
-    } else {
-      setTabWidth(initTabWidth);
-    }
     // If we are on larger viewports, reset the carousel so all tabs display.
-    if (windowDimensions.width > 600) {
+    if (isLargerThanMobile) {
       goToStart();
     }
-  }, [goToStart, windowDimensions.width]);
+  }, [goToStart, isLargerThanMobile]);
+
   const previousButton = (
     <Button
-      attributes={{
-        "aria-label": "Previous",
+      aria-label="Previous"
+      id={`tabs-previous-${id}`}
+      onClick={prevSlide}
+      __css={{
         ...styles.buttonArrows,
         left: "0",
       }}
-      buttonType={ButtonTypes.Primary}
-      id={`tabs-previous-${id}`}
-      onClick={prevSlide}
     >
       <Icon
-        iconRotation={IconRotationTypes.Rotate90}
+        iconRotation="rotate90"
         id={`tabs-previous-icon-${id}`}
-        name={IconNames.Arrow}
-        size={IconSizes.Small}
+        name="arrow"
+        size="small"
       />
     </Button>
   );
   const nextButton = (
     <Button
-      attributes={{
-        "aria-label": "Next",
+      aria-label="Next"
+      id={`tabs-next-${id}`}
+      onClick={nextSlide}
+      __css={{
         ...styles.buttonArrows,
         right: "0",
       }}
-      buttonType={ButtonTypes.Primary}
-      id={`tabs-next-${id}`}
-      onClick={nextSlide}
     >
       <Icon
-        iconRotation={IconRotationTypes.Rotate270}
+        iconRotation="rotate270"
         id={`tabs-next-icon-${id}`}
-        name={IconNames.Arrow}
-        size={IconSizes.Small}
+        name="arrow"
+        size="small"
       />
     </Button>
   );

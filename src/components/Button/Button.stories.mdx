@@ -1,4 +1,4 @@
-import { ButtonGroup, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,19 +9,43 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button, { ButtonElementType } from "./Button";
-import { ButtonTypes } from "./ButtonTypes";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
-import {
-  IconAlign,
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-} from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
+export const iconNames = [
+  "accessibilityFull",
+  "accessibilityPartial",
+  "actionCheckCircle",
+  "actionHelpDefault",
+  "actionHelpOutline",
+  "alertNotificationImportant",
+  "actionLaunch",
+  "arrow",
+  "check",
+  "clock",
+  "close",
+  "download",
+  "errorFilled",
+  "errorOutline",
+  "fileTypeAudio",
+  "fileTypeDoc",
+  "fileTypeGenericDoc",
+  "fileTypeImage",
+  "fileTypePdf",
+  "fileTypeSpreadsheet",
+  "fileTypeVideo",
+  "headset",
+  "minus",
+  "plus",
+  "search",
+  "speakerNotes",
+  "utilityAccountFilled",
+  "utilityAccountUnfilled",
+  "utilityHamburger",
+  "utilitySearch",
+];
 
 <Meta
   title={getCategory("Button")}
@@ -35,13 +59,9 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
     jest: ["Button.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
-    attributes: { control: false },
     buttonText: { description: "Only used for Storybook" },
     buttonType: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ButtonTypes.Primary" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "primary" } },
     },
     className: { control: false },
     displayIcon: { description: "Only used for Storybook." },
@@ -50,7 +70,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
     },
     iconType: {
       control: { type: "select" },
-      options: Object.values(IconNames).map((value) => value),
+      options: iconNames,
       description: "Select the icon. Only used for Storybook.",
     },
     id: { control: false },
@@ -65,7 +85,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.2`    |
 
 ## Table of Contents
 
@@ -84,13 +104,13 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 Update the `buttonType` in the Controls section to see the types of buttons
 that can be rendered.
 
-- `ButtonTypes.Primary` is used for actions that move the user forward.
-- `ButtonTypes.Secondary` is used for actions that move the user back, such as cancellations.
-- `ButtonTypes.Callout` is used for call to action text such as "Donate".
-- `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set.
-- `ButtonTypes.Link` is used for equally weighted actions in a text based list.
-- `ButtonTypes.NoBrand` is a variant used when there is no brand and will display
-  the background color as black.
+- `"primary"` is used for actions that move the user forward. This is the default.
+- `"secondary"` is used for actions that move the user back, such as cancellations.
+- `"callout"` is used for call to action text such as "Donate".
+- `"pill"` is used for equally weighted actions within cards and always in a set.
+- `"link"` is used for equally weighted actions in a text based list.
+- `"noBrand"` is a variant used when there is no brand and will display the
+  background color as black.
 
 When one and only one `Icon` component is passed inside a `Button` component with
 no text, it will automatically be configured to use the `"iconOnly"` type.
@@ -101,14 +121,12 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   <Story
     name="Button with Controls"
     args={{
-      additionalStyles: undefined,
-      attributes: undefined,
       buttonText: "Button Text",
-      buttonType: "ButtonTypes.Primary",
+      buttonType: "primary",
       className: undefined,
       displayIcon: false,
       displayIconLeft: true,
-      iconType: IconNames.Search,
+      iconType: "search",
       id: "button-id",
       isDisabled: false,
       mouseDown: undefined,
@@ -118,9 +136,7 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   >
     {(args) => (
       <Button
-        additionalStyles={args.additionalStyles}
-        attributes={args.attributes}
-        buttonType={enumValues.getValue(args.buttonType)}
+        buttonType={args.buttonType}
         className={args.className}
         id={args.id}
         isDisabled={args.isDisabled}
@@ -129,19 +145,11 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
         type={args.type}
       >
         {args.displayIcon && args.displayIconLeft && (
-          <Icon
-            name={args.iconType}
-            align={IconAlign.Left}
-            size={IconSizes.Small}
-          />
+          <Icon name={args.iconType} align="left" size="small" />
         )}
         {args.buttonText}
         {args.displayIcon && !args.displayIconLeft && (
-          <Icon
-            name={args.iconType}
-            align={IconAlign.Right}
-            size={IconSizes.Small}
-          />
+          <Icon name={args.iconType} align="right" size="small" />
         )}
       </Button>
     )}
@@ -168,18 +176,15 @@ Resources:
 ## Button Groups
 
 Primary and secondary buttons should be grouped like in the following example.
-The `ButtonGroup` component, which is directly exported from Chakra UI, should
-be used to wrap the `Button` component.
+The `ButtonGroup` component should be used to wrap the `Button` component.
 
 <Canvas>
   <Story name="Button Groups">
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Secondary} id="group-1">
+      <Button buttonType="secondary" id="group-1">
         Button
       </Button>
-      <Button buttonType={ButtonTypes.Primary} id="group-2">
-        Submit
-      </Button>
+      <Button id="group-2">Submit</Button>
     </ButtonGroup>
   </Story>
 </Canvas>
@@ -187,27 +192,19 @@ be used to wrap the `Button` component.
 ## With Icons
 
 The `Icon` component collaborates great with the `Button` component. Check out
-[`src/components/Icons/IconTypes`](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Icons/IconTypes.tsx)
-to see the full list of icon and logo names that can be rendered.
+[`src/components/Icons/Icon.tsx`](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Icons/Icon.tsx)
+to see the full list of icon names that can be rendered.
 
 <Canvas>
   <Story name="With Icon">
     <VStack align="left" spacing="input.group.button.vstack" width="150px">
       <Button id="icon-1">
-        <Icon
-          name={IconNames.Search}
-          align={IconAlign.Left}
-          size={IconSizes.Small}
-        />
+        <Icon name="search" align="left" size="small" />
         Button Text
       </Button>
       <Button id="icon-2">
         Button Text
-        <Icon
-          name={IconNames.Search}
-          align={IconAlign.Right}
-          size={IconSizes.Small}
-        />
+        <Icon name="search" align="right" size="small" />
       </Button>
     </VStack>
   </Story>
@@ -218,22 +215,17 @@ The icon can be placed to the left or the right of the button text.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Secondary} id="icon-left">
-        <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate90}
-          align={IconAlign.Left}
-          size={IconSizes.Small}
-        />
+      <Button buttonType="secondary" id="icon-left">
+        <Icon name="arrow" iconRotation="rotate90" align="left" size="small" />
         Previous
       </Button>
-      <Button buttonType={ButtonTypes.Secondary} id="icon-right">
+      <Button buttonType="secondary" id="icon-right">
         Next
         <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate270}
-          align={IconAlign.Right}
-          size={IconSizes.Small}
+          name="arrow"
+          iconRotation="rotate270"
+          align="right"
+          size="small"
         />
       </Button>
     </ButtonGroup>
@@ -241,46 +233,19 @@ The icon can be placed to the left or the right of the button text.
 </Canvas>
 
 Text in a button is optional if an icon is rendered, but make sure that there
-is an `aria-label` passed to the `Button` component through the `attributes` prop:
-`attributes={{ "aria-label": "Previous" }}`
+is an `aria-label` passed to the `Button` component `aria-label="Previous"`.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        attributes={{
-          "aria-label": "Previous",
-        }}
-        buttonType={ButtonTypes.Secondary}
-        id="prev-btn"
-      >
-        <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate90}
-          size={IconSizes.Small}
-        />
+      <Button aria-label="Previous" buttonType="secondary" id="prev-btn">
+        <Icon name="arrow" iconRotation="rotate90" size="small" />
       </Button>
-      <Button
-        attributes={{
-          "aria-label": "Next",
-        }}
-        buttonType={ButtonTypes.Secondary}
-        id="next-btn"
-      >
-        <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate270}
-          size={IconSizes.Small}
-        />
+      <Button aria-label="Next" buttonType="secondary" id="next-btn">
+        <Icon name="arrow" iconRotation="rotate270" size="small" />
       </Button>
-      <Button
-        attributes={{
-          "aria-label": "Close",
-        }}
-        buttonType={ButtonTypes.Secondary}
-        id="close-btn"
-      >
-        <Icon name={IconNames.Close} size={IconSizes.Small} />
+      <Button aria-label="Close" buttonType="secondary" id="close-btn">
+        <Icon name="close" size="small" />
       </Button>
     </ButtonGroup>
   </DSProvider>
@@ -289,23 +254,23 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
 ## Patterns
 
 Buttons are blue by default but should be red when it is intended to be used as
-a call out. The "Back to Top" button must be of `ButtonTypes` `Secondary` and
+a call out. The "Back to Top" button must be of `buttonType="secondary"` and
 must include an up arrow icon on the right side.
 
 <Canvas>
   <Story name="Patterns">
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Callout} id="donate-btn">
+      <Button buttonType="callout" id="donate-btn">
         Donate to this library
       </Button>
-      <Button buttonType={ButtonTypes.Secondary} id="top-btn">
+      <Button buttonType="secondary" id="top-btn">
         Back to Top
         <Icon
-          name={IconNames.Arrow}
-          iconRotation={IconRotationTypes.Rotate180}
-          size={IconSizes.Small}
+          name="arrow"
+          iconRotation="rotate180"
+          size="small"
           className="right"
-          align={IconAlign.Right}
+          align="right"
         />
       </Button>
     </ButtonGroup>
@@ -314,28 +279,26 @@ must include an up arrow icon on the right side.
 
 ## Other Examples
 
-The different `ButtonTypes` modified by the `buttonType` prop:
+The variations modified by the `buttonType` prop:
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary} id="primary-btn">
-        Primary
+      <Button id="primary-btn">primary</Button>
+      <Button buttonType="secondary" id="secondary-btn">
+        secondary
       </Button>
-      <Button buttonType={ButtonTypes.Secondary} id="secondary-btn">
-        Secondary
+      <Button buttonType="callout" id="callout-btn">
+        callout
       </Button>
-      <Button buttonType={ButtonTypes.Callout} id="callout-btn">
-        Callout
+      <Button buttonType="pill" id="pill-btn">
+        pill
       </Button>
-      <Button buttonType={ButtonTypes.Pill} id="pill-btn">
-        Pill
+      <Button buttonType="link" id="link-btn">
+        link
       </Button>
-      <Button buttonType={ButtonTypes.Link} id="link-btn">
-        Link
-      </Button>
-      <Button buttonType={ButtonTypes.NoBrand} id="nobrand-btn">
-        NoBrand
+      <Button buttonType="noBrand" id="nobrand-btn">
+        noBrand
       </Button>
     </ButtonGroup>
   </DSProvider>

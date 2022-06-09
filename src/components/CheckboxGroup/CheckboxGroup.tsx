@@ -11,8 +11,9 @@ import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { LayoutTypes } from "../../helpers/enums";
+import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
+
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
@@ -73,7 +74,7 @@ export const CheckboxGroup = chakra(
       isInvalid = false,
       isRequired = false,
       labelText,
-      layout = LayoutTypes.Column,
+      layout = "column",
       name,
       onChange,
       showHelperInvalidText = true,
@@ -81,12 +82,12 @@ export const CheckboxGroup = chakra(
       showRequiredLabel = true,
       ...rest
     } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
+    const footnote = isInvalid ? invalidText : helperText;
+    const newChildren: JSX.Element[] = [];
     const spacingProp =
-      layout === LayoutTypes.Column
+      layout === "column"
         ? spacing.input.group.default.vstack
         : spacing.input.group.default.hstack;
-    const newChildren = [];
     const checkboxProps =
       defaultValue && onChange
         ? {
@@ -102,31 +103,34 @@ export const CheckboxGroup = chakra(
     }
 
     // Go through the Checkbox children and update them as needed.
-    React.Children.map(children, (child: React.ReactElement, i) => {
-      if (child.type !== Checkbox) {
-        // Special case for Storybook MDX documentation.
-        if (child.props.mdxType && child.props.mdxType === "Checkbox") {
-          noop();
-        } else {
-          console.warn(
-            "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
-              "allowed as children."
-          );
+    React.Children.map(
+      children as JSX.Element,
+      (child: React.ReactElement, i) => {
+        if (child.type !== Checkbox) {
+          // Special case for Storybook MDX documentation.
+          if (child.props.mdxType && child.props.mdxType === "Checkbox") {
+            noop();
+          } else {
+            console.warn(
+              "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+                "allowed as children."
+            );
+          }
+        }
+
+        if (child !== undefined && child !== null) {
+          const newProps = {
+            key: i,
+            id: `${id}-${i}`,
+            name,
+            isDisabled,
+            isInvalid,
+            isRequired,
+          };
+          newChildren.push(React.cloneElement(child, newProps));
         }
       }
-
-      if (child !== undefined && child !== null) {
-        const newProps = {
-          key: i,
-          id: `${id}-${i}`,
-          name,
-          isDisabled,
-          isInvalid,
-          isRequired,
-        };
-        newChildren.push(React.cloneElement(child, newProps));
-      }
-    });
+    );
 
     // Get the Chakra-based styles for the custom elements in this component.
     const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
@@ -139,6 +143,7 @@ export const CheckboxGroup = chakra(
         legendText={labelText}
         showRequiredLabel={showRequiredLabel}
         {...rest}
+        __css={styles}
       >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
@@ -147,18 +152,17 @@ export const CheckboxGroup = chakra(
             direction={[layout]}
             spacing={spacingProp}
             ref={ref}
-            aria-label={!showLabel ? labelText : null}
-            sx={styles.stack}
+            aria-label={!showLabel ? labelText : undefined}
           >
             {newChildren}
           </Stack>
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
           <HelperErrorText
-            additionalStyles={styles.helperErrorText}
             id={`${id}-helperErrorText`}
             isInvalid={isInvalid}
             text={footnote}
+            __css={styles.helperErrorText}
           />
         )}
       </Fieldset>

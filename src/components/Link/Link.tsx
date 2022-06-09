@@ -1,19 +1,16 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import {
-  IconRotationTypes,
-  IconNames,
-  IconAlign,
-  IconSizes,
-} from "../Icons/IconTypes";
+
+export type LinkTypes =
+  | "action"
+  | "backwards"
+  | "button"
+  | "default"
+  | "external"
+  | "forwards";
 export interface LinkProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
-  /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
-  attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Additional class name to render in the `Link` component. */
@@ -28,21 +25,25 @@ export interface LinkProps {
 
 /**
  * Renders the `Link` children components with a direction arrow icon based
- * on the `Backwards` or `Forwards` `LinkTypes` type.
+ * on the `"backwards"` or `"forwards"` `linkType` value.
  */
-function getWithDirectionIcon(children, type: LinkTypes, linkId) {
+function getWithDirectionIcon(
+  children: JSX.Element,
+  type: LinkTypes,
+  linkId: string
+) {
   let iconRotation;
   let iconAlign;
   let icon = null;
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
-  if (type === LinkTypes.Backwards) {
-    iconRotation = IconRotationTypes.Rotate90;
-    iconAlign = IconAlign.Left;
-  } else if (type === LinkTypes.Forwards) {
-    iconRotation = IconRotationTypes.Rotate270;
-    iconAlign = IconAlign.Right;
+  if (type === "backwards") {
+    iconRotation = "rotate90";
+    iconAlign = "left";
+  } else if (type === "forwards") {
+    iconRotation = "rotate270";
+    iconAlign = "right";
   }
 
   const iconId = `${linkId}-icon`;
@@ -53,29 +54,29 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
       className="more-link"
       iconRotation={iconRotation}
       id={iconId}
-      name={IconNames.Arrow}
-      size={IconSizes.Medium}
+      name="arrow"
+      size="medium"
     />
   );
 
   return (
     <>
-      {type === LinkTypes.Backwards && icon}
+      {type === "backwards" && icon}
       {children}
-      {type === LinkTypes.Forwards && icon}
+      {type === "forwards" && icon}
     </>
   );
 }
 
-function getExternalIcon(children, linkId) {
+function getExternalIcon(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
-      align={IconAlign.Right}
+      align={"right"}
       className="more-link"
       id={iconId}
-      name={IconNames.ActionLaunch}
-      size={IconSizes.Medium}
+      name="actionLaunch"
+      size="medium"
     />
   );
 
@@ -93,25 +94,16 @@ function getExternalIcon(children, linkId) {
  */
 export const Link = chakra(
   React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
-    const {
-      additionalStyles = {},
-      attributes,
-      children,
-      className,
-      href,
-      id,
-      type = LinkTypes.Default,
-      ...rest
-    } = props;
+    const { children, className, href, id, type = "default", ...rest } = props;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
     const linkProps = {
       id,
       href,
-      ...attributes,
+      ...rest,
     };
-    // The LinkTypes.Default type.
+    // The "default" type.
     let variant = "link";
 
     if (typeof children === "string" && !href) {
@@ -119,27 +111,26 @@ export const Link = chakra(
     }
 
     if (
-      type === LinkTypes.Action ||
-      type === LinkTypes.Forwards ||
-      type === LinkTypes.Backwards ||
-      type === LinkTypes.External
+      type === "action" ||
+      type === "forwards" ||
+      type === "backwards" ||
+      type === "external"
     ) {
       variant = "moreLink";
-    } else if (type === LinkTypes.Button) {
+    } else if (type === "button") {
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
+    const rel = type === "external" ? "nofollow" : null;
+    const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
     // Forwards or Backwards.  Or render with the launch icon
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
-      ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
-        getWithDirectionIcon(children, type, id)) ||
-      (type === LinkTypes.External && getExternalIcon(children, id)) ||
+      ((type === "forwards" || type === "backwards") &&
+        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+      (type === "external" && getExternalIcon(children as JSX.Element, id)) ||
       children;
-
-    const rel = type === LinkTypes.External ? "nofollow" : null;
-    const target = type === LinkTypes.External ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:
@@ -151,7 +142,7 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style} {...rest}>
+        <Box as="span" __css={style}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -161,9 +152,6 @@ export const Link = chakra(
               ref,
               rel,
               target,
-              // Useful if more styles are needed for the custom
-              // anchor element or link component.
-              style: additionalStyles,
             },
             [childrenToClone.props.children]
           )}
@@ -178,8 +166,7 @@ export const Link = chakra(
           rel={rel}
           target={target}
           {...linkProps}
-          __css={{ ...style, ...additionalStyles }}
-          {...rest}
+          __css={style}
         >
           {newChildren}
         </Box>

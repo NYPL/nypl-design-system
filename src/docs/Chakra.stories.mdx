@@ -92,8 +92,12 @@ wrap the elements in the `DSProvider` component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button isDisabled={false}>Enabled</Button>
-      <Button isDisabled>Disabled</Button>
+      <Button id="enabled" isDisabled={false}>
+        Enabled
+      </Button>
+      <Button id="disabled" isDisabled>
+        Disabled
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -259,7 +263,9 @@ const Button = {
 Now this variant can be rendered:
 
 ```tsx
-<Button buttonType={ButtonTypes.Secondary}>Press me</Button>
+<Button buttonType="secondary" id="secondary">
+  Press me
+</Button>
 ```
 
 ### Breakpoints
@@ -438,13 +444,13 @@ In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
 
 ```jsx
-<Button p="s" maxW="200px">
+<Button id="styled-button" p="s" maxH="none" maxW="200px">
   Button
 </Button>
 ```
 
 <DSProvider>
-  <Button p="s" maxW="200px">
+  <Button id="styled-button" p="s" maxH="none" maxW="200px">
     Button
   </Button>
 </DSProvider>
@@ -507,8 +513,7 @@ _Note: more patterns will be added._
 All DS components _should_ be used with their current styles. If a DS component
 needs an updated style, first contact the Design System and UX teams about this
 update. If you really _need_ to update a style and there is no available
-variant, then you can add styles directly to the `additionalStyles` prop. At the
-moment, not all DS components have this prop or feature.
+variant, then you can add styles directly as style prop.
 
 For example, if the `Heading` component should render the text in NYPL's green
 color used for "success primary" and add a bold font weight, then you can do
@@ -522,10 +527,8 @@ return (
   <div>
     <Heading
       level={2}
-      additionalStyles={{
-        color: theme.colors.ui.sucess.primary,
-        fontWeight: theme.fontWeights.bold,
-      }}
+      color={theme.colors.ui.success.primary}
+      fontWeight={theme.fontWeights.bold}
     >
       Get a Digital Library Card Today in a Few Easy Steps
     </Heading>

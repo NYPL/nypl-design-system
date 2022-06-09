@@ -5,11 +5,7 @@ import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import Accordion from "./Accordion";
-import { AccordionTypes } from "./AccordionTypes";
 import Card, { CardContent, CardHeading } from "../Card/Card";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import { ImageRatios } from "../Image/ImageTypes";
-import { LayoutTypes } from "../../helpers/enums";
 
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
@@ -166,13 +162,13 @@ describe("Accordion", () => {
             id="card"
             imageProps={{
               alt: "Alt text",
-              aspectRatio: ImageRatios.TwoByOne,
+              aspectRatio: "twoByOne",
               src: "https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit",
             }}
             isCentered
-            layout={LayoutTypes.Row}
+            layout="row"
           >
-            <CardHeading id="heading1" level={HeadingLevels.Four}>
+            <CardHeading id="heading1" level="four">
               Gerry Kellman
             </CardHeading>
             <CardContent>
@@ -196,9 +192,7 @@ describe("Accordion", () => {
     const withError = renderer
       .create(
         <Accordion
-          accordionData={[
-            { ...accordionData[0], accordionType: AccordionTypes.Error },
-          ]}
+          accordionData={[{ ...accordionData[0], accordionType: "error" }]}
           id="accordian"
           isDefaultOpen
         />
@@ -207,9 +201,7 @@ describe("Accordion", () => {
     const withWarning = renderer
       .create(
         <Accordion
-          accordionData={[
-            { ...accordionData[0], accordionType: AccordionTypes.Warning },
-          ]}
+          accordionData={[{ ...accordionData[0], accordionType: "warning" }]}
           id="accordian"
           isDefaultOpen
         />

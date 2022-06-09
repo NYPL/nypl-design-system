@@ -4,11 +4,10 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Logo from "./Logo";
-import { LogoNames, LogoSizes } from "./LogoTypes";
 
 describe("Logo Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Logo name={LogoNames.NYPLBlack} />);
+    const { container } = render(<Logo name="nyplFullBlack" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -17,7 +16,7 @@ describe("Logo", () => {
   it("consoles a warning if both name and children are passed to Logo", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Logo name={LogoNames.NYPLBlack}>
+      <Logo name="nyplFullBlack">
         <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -51,7 +50,7 @@ describe("Logo", () => {
   });
 
   it("renders a logo based on the logo `name` prop", () => {
-    const { container } = render(<Logo name={LogoNames.NYPLBlack} />);
+    const { container } = render(<Logo name="nyplFullBlack" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
   });
 
@@ -60,13 +59,13 @@ describe("Logo", () => {
   // In order to test this, we can check the `title` attribute in the svg
   // element itself. Inspect the `Logo` in Storybook to see the `title` element.
   it("renders a title element", () => {
-    const { container, rerender } = render(<Logo name={LogoNames.NYPLBlack} />);
+    const { container, rerender } = render(<Logo name="nyplFullBlack" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
-      "logo_nypl_full_black logo"
+      "nyplFullBlack logo"
     );
 
-    rerender(<Logo name={LogoNames.NYPLBlack} title="title content" />);
+    rerender(<Logo name="nyplFullBlack" title="title content" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "title content"
@@ -90,31 +89,23 @@ describe("Logo", () => {
 
   it("renders the UI snapshot correctly", () => {
     const standard = renderer
-      .create(<Logo id="test-logo" name={LogoNames.NYPLBlack} />)
+      .create(<Logo id="test-logo" name="nyplFullBlack" />)
       .toJSON();
     const withCustomSize = renderer
-      .create(
-        <Logo
-          id="test-logo-size"
-          name={LogoNames.NYPLBlack}
-          size={LogoSizes.Large}
-        />
-      )
+      .create(<Logo id="test-logo-size" name="nyplFullBlack" size="large" />)
       .toJSON();
     const withChakraProps = renderer
       .create(
         <Logo
           id="chakra"
-          name={LogoNames.NYPLBlack}
+          name="nyplFullBlack"
           p="20px"
           color="ui.error.primary"
         />
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(
-        <Logo id="props" name={LogoNames.NYPLBlack} data-testid="props" />
-      )
+      .create(<Logo id="props" name="nyplFullBlack" data-testid="props" />)
       .toJSON();
 
     expect(standard).toMatchSnapshot();

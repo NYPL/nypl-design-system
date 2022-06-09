@@ -10,12 +10,8 @@ import { withDesign } from "storybook-addon-designs";
 
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
-import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 
 <Meta
   title={getCategory("CheckboxGroup")}
@@ -46,9 +42,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
     },
     key: { table: { disable: true } },
     layout: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "LayoutTypes.Column" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "column" } },
     },
     name: { control: false },
     onChange: { control: false },
@@ -70,7 +64,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.2`    |
 
 ## Table of Contents
 
@@ -104,7 +98,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Checkbox Group",
-      layout: "LayoutTypes.Column",
+      layout: "column",
       name: "checkbox-story",
       onChange: undefined,
       showHelperInvalidText: true,
@@ -113,7 +107,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
     }}
   >
     {(args) => (
-      <CheckboxGroup {...args} layout={enumValues.getValue(args.layout)}>
+      <CheckboxGroup {...args}>
         <Checkbox value="2" labelText="Checkbox 2" />
         <Checkbox value="3" labelText="Checkbox 3" />
         <Checkbox value="4" labelText="Checkbox 4" />
@@ -153,12 +147,7 @@ a row.
       <Checkbox value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
     <br />
-    <CheckboxGroup
-      id="row"
-      labelText="Row"
-      name="row-example"
-      layout={LayoutTypes.Row}
-    >
+    <CheckboxGroup id="row" labelText="Row" name="row-example" layout="row">
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
@@ -296,7 +285,7 @@ children are checked, the parent will be in the "checked" state.
 The following working example can be used in your application to keep track of
 the checked and indeterminate states - taken and modified from Chakra's
 [Checkbox](https://chakra-ui.com/docs/form/checkbox#indeterminate) documentation.
-Note that this example is specifically using Reservoir Design System (DS) 
+Note that this example is specifically using Reservoir Design System (DS)
 `Checkbox` and `CheckboxGroup` components.
 
 ```tsx

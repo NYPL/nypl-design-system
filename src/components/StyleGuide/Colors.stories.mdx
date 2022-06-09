@@ -2,7 +2,6 @@ import { Canvas, Meta } from "@storybook/addon-docs";
 
 import ColorCard from "./ColorCard";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -115,7 +114,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Blogs</Heading>
+    <Heading>Blogs</Heading>
     <p>Blogs is used for the Blogs section.</p>
     <SimpleGrid columns={1}>{getColorCards("blogs")}</SimpleGrid>
   </DSProvider>
@@ -123,7 +122,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Books and More</Heading>
+    <Heading>Books and More</Heading>
     <p>
       Books and More is used for the Catalog, Staff Picks, Recommendations, New
       Arrivals, and E-Book Central.
@@ -134,7 +133,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Education</Heading>
+    <Heading>Education</Heading>
     <p>
       Education is used for the Education section front and all associated
       sub-sections.
@@ -145,7 +144,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Locations</Heading>
+    <Heading>Locations</Heading>
     <p>
       Locations is used for Location Finder and all branch pages with the
       exceptions of some research libraries.
@@ -156,7 +155,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Research</Heading>
+    <Heading>Research</Heading>
     <p>Research is used for the Research Catalog and SCC.</p>
     <SimpleGrid columns={1}>{getColorCards("research")}</SimpleGrid>
   </DSProvider>
@@ -164,7 +163,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Research Libraries</Heading>
+    <Heading>Research Libraries</Heading>
     <p>Research libraries with specific brand colors to adhere to.</p>
     <SimpleGrid columns={1}>{getColorCards("researchLibraries")}</SimpleGrid>
   </DSProvider>
@@ -172,7 +171,7 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>What's On</Heading>
+    <Heading>What's On</Heading>
     <p>What's On is used for Events, Exhibitions &amp; Audio Guides.</p>
     <SimpleGrid columns={1}>{getColorCards("whatsOn")}</SimpleGrid>
   </DSProvider>
@@ -198,5 +197,5 @@ Section colors are branding colors only in use at NYPL.
 
 For additional spacing information, please refer to the Figma Main file.
 
-- [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=15454%3A47007)
-- [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37)
+- [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
+- [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674)

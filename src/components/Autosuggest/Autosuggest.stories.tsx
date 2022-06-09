@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import Autosuggest from "react-autosuggest";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
 import TextInput from "../TextInput/TextInput";
 
 /**
@@ -10,26 +9,26 @@ import TextInput from "../TextInput/TextInput";
  * Wrapper component just to give the Autosuggest examples more space for the
  * suggestions dropdown to display.
  */
-const StoryWrapper = ({ children }) => (
+const StoryWrapper = ({ children }: { children: JSX.Element }) => (
   <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
 );
 
-const libraryRenderInputComponent = (
-  inputProps: React.HTMLProps<HTMLInputElement>
-) => {
+const libraryRenderInputComponent = (inputProps: any) => {
   return (
     <TextInput
-      attributes={{
-        ...inputProps,
-      }}
       id="library-autosuggest"
       isRequired
       labelText="Home Library"
       name="homeLibraryName"
       helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
+      {...inputProps}
     />
   );
 };
+
+interface Library {
+  label: string;
+}
 
 /**
  * LibraryExample
@@ -37,10 +36,14 @@ const libraryRenderInputComponent = (
  * The list is made up of objects with `label` key. It adds a Label, Input, and
  * HelperErrorText as elements for the autosuggest component to render.
  */
-const LibraryExample = ({ renderInputComponent }) => {
+const LibraryExample = ({
+  renderInputComponent,
+}: {
+  renderInputComponent: JSX.Element;
+}) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const libraryList = [
+  const libraryList: Library[] = [
     { label: "SimplyE" },
     { label: "53rd Street Branch" },
     { label: "Aguilar Branch" },
@@ -55,10 +58,11 @@ const LibraryExample = ({ renderInputComponent }) => {
     { label: "Soundview Branch" },
     { label: "St. George Library Center" },
   ];
-  const onChange = (_: any, { newValue }) => setValue(newValue);
+  const onChange = (_: any, { newValue }: { newValue: string }) =>
+    setValue(newValue);
   // Tell autosuggest to suggest by the first letter of the library. This can
   // be manipulated.
-  const getSuggestions = (value, list) => {
+  const getSuggestions = (value: string, list: Library[]) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -71,7 +75,7 @@ const LibraryExample = ({ renderInputComponent }) => {
 
   // Autosuggest will call this function every time suggestions need to be
   // updated. `getSuggestions` must be passed.
-  const onSuggestionsFetchRequested = ({ value }) =>
+  const onSuggestionsFetchRequested = ({ value }: { value: string }) =>
     setSuggestions(getSuggestions(value, libraryList));
   // Clear out any suggestions.
   const onSuggestionsClearRequested = () => setSuggestions([]);
@@ -104,7 +108,7 @@ const LibraryExample = ({ renderInputComponent }) => {
 
 export const AutosuggestLibrary = () => (
   <StoryWrapper>
-    <LibraryExample renderInputComponent={libraryRenderInputComponent} />
+    <LibraryExample renderInputComponent={libraryRenderInputComponent as any} />
   </StoryWrapper>
 );
 
@@ -133,12 +137,10 @@ const FishExample = () => {
   const renderInputComponent = (inputProps) => {
     return (
       <TextInput
-        attributes={{
-          ...inputProps,
-        }}
         id="library-fish-autosuggest"
         labelText="Fish in Animal Crossing"
         name="favoriteFish"
+        {...inputProps}
       />
     );
   };
@@ -147,7 +149,7 @@ const FishExample = () => {
   const renderSuggestion = (suggestion) => (
     <span>
       {suggestion}
-      <Icon name={IconNames.Check} />
+      <Icon name="check" size="medium" />
     </span>
   );
   const getSuggestionValue = (suggestion) => suggestion;
@@ -192,22 +194,18 @@ export const AutosuggestFish = () => (
   </StoryWrapper>
 );
 
-const searchBarRenderInputComponent = (
-  inputProps: React.HTMLProps<HTMLInputElement>
-) => {
+const searchBarRenderInputComponent = (inputProps: any) => {
   return (
     <TextInput
-      attributes={{
-        ...inputProps,
-      }}
       id="autosuggest-searchBar"
       isRequired
       labelText="home library"
       name="homeLibraryName"
+      {...inputProps}
     />
   );
 };
 
 export const SearchBarExample = () => (
-  <LibraryExample renderInputComponent={searchBarRenderInputComponent} />
+  <LibraryExample renderInputComponent={searchBarRenderInputComponent as any} />
 );

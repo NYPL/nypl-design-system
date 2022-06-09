@@ -8,18 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "./Heading";
-import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const sizesEnumValues = getStorybookEnumValues(
-  HeadingSizes,
-  "HeadingSizes"
-);
-export const levelsEnumValues = getStorybookEnumValues(
-  HeadingLevels,
-  "HeadingLevels"
-);
 
 <Meta
   title={getCategory("Heading")}
@@ -33,18 +22,12 @@ export const levelsEnumValues = getStorybookEnumValues(
     jest: ["Heading.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     className: { control: false },
     id: { control: false },
     level: {
-      control: { type: "select" },
-      options: levelsEnumValues.options,
-      table: { defaultValue: { summary: "HeadingLevels.Two" } },
+      table: { defaultValue: { summary: "two" } },
     },
-    size: {
-      control: { type: "select" },
-      options: sizesEnumValues.options,
-    },
+    noSpace: { table: { defaultValue: { summary: false } } },
   }}
 />
 
@@ -53,7 +36,7 @@ export const levelsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.2`    |
 
 ## Table of Contents
 
@@ -79,23 +62,18 @@ semantic elements can be overwritten using the `size` prop.
   <Story
     name="Heading with Controls"
     args={{
-      additionalStyles: undefined,
       className: undefined,
       id: "heading-id",
       level: "HeadingLevels.Two",
+      noSpace: false,
+      level: "two",
       size: undefined,
       text: "Default Heading",
       url: undefined,
       urlClass: undefined,
     }}
   >
-    {(args) => (
-      <Heading
-        {...args}
-        level={levelsEnumValues.getValue(args.level)}
-        size={args.size && sizesEnumValues.getValue(args.size)}
-      />
-    )}
+    {(args) => <Heading {...args} />}
   </Story>
 </Canvas>
 
@@ -125,36 +103,16 @@ Resources:
 <Canvas>
   <Story name="Default Heading Styles">
     <div>
-      <Heading
-        id="heading-one"
-        level={HeadingLevels.One}
-        text="<h1> Heading 1 - HeadingLevels.One"
-      />
-      <Heading
-        id="heading-two"
-        level={HeadingLevels.Two}
-        text="<h2> Heading 2 - HeadingLevels.Two"
-      />
+      <Heading id="heading-one" level="one" text="<h1> Heading 1 - 'one'" />
+      <Heading id="heading-two" level="two" text="<h2> Heading 2 - 'two'" />
       <Heading
         id="heading-three"
-        level={HeadingLevels.Three}
-        text="<h3> Heading 3 - HeadingLevels.Three"
+        level="three"
+        text="<h3> Heading 3 - 'three'"
       />
-      <Heading
-        id="heading-four"
-        level={HeadingLevels.Four}
-        text="<h4> Heading 4 - HeadingLevels.Four"
-      />
-      <Heading
-        id="heading-five"
-        level={HeadingLevels.Five}
-        text="<h5> Heading 5 - HeadingLevels.Five"
-      />
-      <Heading
-        id="heading-six"
-        level={HeadingLevels.Six}
-        text="<h6> Heading 6 - HeadingLevels.Six"
-      />
+      <Heading id="heading-four" level="four" text="<h4> Heading 4 - 'four'" />
+      <Heading id="heading-five" level="five" text="<h5> Heading 5 - 'five'" />
+      <Heading id="heading-six" level="six" text="<h6> Heading 6 - 'six'" />
     </div>
   </Story>
 </Canvas>
@@ -162,34 +120,34 @@ Resources:
 ## Size Styles
 
 Note: The `level` prop for the `Heading`s in the next example are all set to
-`level={HeadingLevels.One}`.
+`level="one"`.
 
 <Canvas>
   <Story name="Size Styles">
     <div>
       <Heading
         id="heading-primary"
-        level={HeadingLevels.One}
-        size={HeadingSizes.Primary}
-        text="<h1> HeadingSizes.Primary"
+        level="one"
+        size="primary"
+        text="<h1> 'primary'"
       />
       <Heading
         id="heading-secondary"
-        level={HeadingLevels.One}
-        size={HeadingSizes.Secondary}
-        text="<h1> HeadingSizes.Secondary"
+        level="one"
+        size="secondary"
+        text="<h1> 'secondary'"
       />
       <Heading
         id="heading-tertiary"
-        level={HeadingLevels.One}
-        size={HeadingSizes.Tertiary}
-        text="<h1> HeadingSizes.Tertiary"
+        level="one"
+        size="tertiary"
+        text="<h1> 'tertiary'"
       />
       <Heading
         id="heading-callout"
-        level={HeadingLevels.One}
-        size={HeadingSizes.Callout}
-        text="<h1> HeadingSizes.Callout"
+        level="one"
+        size="callout"
+        text="<h1> 'callout'"
       />
     </div>
   </Story>
@@ -199,7 +157,7 @@ Note: The `level` prop for the `Heading`s in the next example are all set to
 
 <Canvas>
   <Story name="Heading with Bold Text">
-    <Heading id="headingWithBold" level={HeadingLevels.One}>
+    <Heading id="headingWithBold" level="one">
       <>
         Heading with a <b>Bold</b> Word
       </>
@@ -215,12 +173,12 @@ When the `url` prop is passed to `Heading`, a child `<a>` element is created and
   <Story name="Headings with Links">
     <Heading
       id="heading-with-link-url"
-      level={HeadingLevels.Two}
+      level="two"
       text="Heading with URL Props"
       url="http://apple.com"
       urlClass="special-link"
     />
-    <Heading id="heading-with-link-child" level={HeadingLevels.Two}>
+    <Heading id="heading-with-link-child">
       <>
         Heading with a Word <a href="#hello">Link</a>
       </>

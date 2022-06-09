@@ -9,19 +9,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import VideoPlayer from "./VideoPlayer";
-import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const ratiosEnumValues = getStorybookEnumValues(
-  VideoPlayerAspectRatios,
-  "VideoPlayerAspectRatios"
-);
-export const typesEnumValues = getStorybookEnumValues(
-  VideoPlayerTypes,
-  "VideoPlayerTypes"
-);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -36,21 +25,16 @@ export const typesEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     aspectRatio: {
-      control: { type: "select" },
       table: {
-        defaultValue: { summary: "VideoPlayerAspectRatios.SixteenByNine" },
+        defaultValue: { summary: "sixteenByNine" },
       },
-      options: ratiosEnumValues.options,
     },
     className: { control: false },
     id: { control: false },
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
-    videoType: {
-      control: { type: "select" },
-      options: typesEnumValues.options,
-    },
+    videoType: {},
   }}
 />
 
@@ -59,7 +43,7 @@ export const typesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -94,7 +78,7 @@ is `16:9`.
   <Story
     name="VideoPlayer"
     args={{
-      aspectRatio: "VideoPlayerAspectRatios.SixteenByNine",
+      aspectRatio: "sixteenByNine",
       className: undefined,
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
@@ -112,9 +96,10 @@ is `16:9`.
     {(args) => (
       <VideoPlayer
         {...args}
-        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
+        aspectRatio={args.aspectRatio}
         embedCode={args.embedCode}
-        videoType={args.videoType && typesEnumValues.getValue(args.videoType)}
+        videoId={args.videoId && args.videoId}
+        videoType={args.videoType && args.videoType}
       />
     )}
   </Story>
@@ -170,7 +155,9 @@ https://www.youtube.com/watch?v=nm-dD2tx6bk
 
 ## Example Embed Code Snippets
 
-The examples below are shown with precise HTML formatting. However, often the embed code snippets provided by 3rd party video services are delivered as one long string.
+The examples below are shown with precise HTML formatting. However, often the
+embed code snippets provided by 3rd party video services are delivered as one
+long string.
 
 ### Vimeo
 
@@ -201,14 +188,12 @@ The examples below are shown with precise HTML formatting. However, often the em
 
 ## Errored
 
-If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
+If the necessary props are not passed to the `VideoPlayer` component, the
+component UI will display an error message.
 
 <Canvas>
   <DSProvider>
-    <VideoPlayer
-      videoId="https://vimeo.com/474719268"
-      videoType={VideoPlayerTypes.Vimeo}
-    />
+    <VideoPlayer videoId="https://vimeo.com/474719268" videoType="vimeo" />
   </DSProvider>
 </Canvas>
 
@@ -221,7 +206,7 @@ It's possible to include HTML in the `helperText` prop.
     <VideoPlayer
       helperText="This helper text <b>contains HTML</b>."
       videoId="474719268"
-      videoType={VideoPlayerTypes.Vimeo}
+      videoType="vimeo"
     />
   </DSProvider>
 </Canvas>

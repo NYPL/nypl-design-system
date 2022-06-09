@@ -19,7 +19,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
       id="linearBasic"
     >
       <div
-        aria-label={null}
         aria-labelledby="linearBasic-label"
         aria-valuemax={100}
         aria-valuemin={0}
@@ -51,7 +50,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      aria-label={null}
       aria-labelledby="circularBasic-label"
       aria-valuemax={100}
       aria-valuemin={0}
@@ -112,7 +110,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
     >
       <div
         aria-label="Linear"
-        aria-labelledby={null}
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={50}
@@ -138,7 +135,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
   >
     <div
       aria-label="Circular"
-      aria-labelledby={null}
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={50}
@@ -191,7 +187,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
       id="linearIndeterminate"
     >
       <div
-        aria-label={null}
         aria-labelledby="linearIndeterminate-label"
         aria-valuemax={100}
         aria-valuemin={0}
@@ -217,7 +212,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
     className="css-0"
   >
     <div
-      aria-label={null}
       aria-labelledby="circularIndeterminate-label"
       aria-valuemax={100}
       aria-valuemin={0}
@@ -276,7 +270,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
       id="linearDarkMode"
     >
       <div
-        aria-label={null}
         aria-labelledby="linearDarkMode-label"
         aria-valuemax={100}
         aria-valuemin={0}
@@ -308,7 +301,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
     className="css-0"
   >
     <div
-      aria-label={null}
       aria-labelledby="circularDarkMode-label"
       aria-valuemax={100}
       aria-valuemin={0}
@@ -375,7 +367,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 9`] = `
       id="chakra"
     >
       <div
-        aria-label={null}
         aria-labelledby="chakra-label"
         aria-valuemax={100}
         aria-valuemin={0}
@@ -419,7 +410,6 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 10`] = `
       id="props"
     >
       <div
-        aria-label={null}
         aria-labelledby="props-label"
         aria-valuemax={100}
         aria-valuemin={0}

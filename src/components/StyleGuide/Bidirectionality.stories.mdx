@@ -1,11 +1,9 @@
 import { Canvas, Meta } from "@storybook/addon-docs";
 
-import SearchBar from "../SearchBar/SearchBar";
-import Icon from "../Icons/Icon";
-import { IconNames, IconSizes, IconAlign } from "../Icons/IconTypes";
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Icon from "../Icons/Icon";
+import SearchBar from "../SearchBar/SearchBar";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -37,9 +35,9 @@ components should work appropriately in RTL configurations in any browser.
 
 ## Application Implementation
 
-Components in the DS will support layout and component mirroring, but application 
-directionality should be implemented at the application level. The following are 
-general guidelines on how to set up directionality but implementation will be up 
+Components in the DS will support layout and component mirroring, but application
+directionality should be implemented at the application level. The following are
+general guidelines on how to set up directionality but implementation will be up
 to the application and its architecture.
 
 ### `dir` HTML attribute
@@ -191,26 +189,14 @@ help reduce any visual mistakes.
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ width: "300px" }}>
         A regular button:
-        <Button buttonType={ButtonTypes.Primary} id="button-ex4" type="submit">
-          <Icon
-            name={IconNames.Search}
-            size={IconSizes.Small}
-            align={IconAlign.Left}
-          />
+        <Button id="button-ex4" type="submit">
+          <Icon name="search" size="small" align="left" />
           Search
         </Button>
         <div dir="rtl">
           An RTL button:
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="button-ex5"
-            type="submit"
-          >
-            <Icon
-              name={IconNames.Search}
-              size={IconSizes.Small}
-              align={IconAlign.Left}
-            />
+          <Button id="button-ex5" type="submit">
+            <Icon name="search" size="small" align="left" />
             Search
           </Button>
         </div>

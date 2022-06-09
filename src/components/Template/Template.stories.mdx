@@ -14,12 +14,9 @@ import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
 import Form, { FormRow, FormField } from "../Form/Form";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Hero from "../Hero/Hero";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import { HeroTypes } from "../Hero/HeroTypes";
 import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import Link from "../Link/Link";
 import Notification, {
   NotificationContent,
@@ -27,6 +24,7 @@ import Notification, {
   NotificationProps,
 } from "../Notification/Notification";
 import Placeholder from "../Placeholder/Placeholder";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import {
   Template,
   TemplateAboveHeader,
@@ -40,7 +38,6 @@ import {
   TemplateAppContainer,
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
-import { NotificationTypes } from "../Notification/NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -60,7 +57,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -78,6 +75,9 @@ import { getCategory } from "../../utils/componentCategories";
 If you have a custom `Header` component that _already_ renders an HTML `<header>`
 element, set `renderHeaderElement` to false so only one `<header>` element is
 rendered.
+
+If you need to render the `SkipNavigation` component, set `renderSkipNavigation`
+to true.
 
 Likewise, if you have a custom `Footer` component that _already_ renders an HTML
 `<footer>` element, set `renderFooterElement` to false so only one `<footer>`
@@ -107,6 +107,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     </>
   }
   footer={<Placeholder variant="short">Footer</Placeholder>}
+  renderSkipNavigation={true}
 />;
 ```
 
@@ -137,6 +138,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       sidebar: "left",
       renderFooterElement: true,
       renderHeaderElement: true,
+      renderSkipNavigation: true,
     }}
     argTypes={{
       aboveHeader: { control: false },
@@ -176,11 +178,15 @@ accessibility violation.
 
 The `TemplateAppContainer` component renders a full DOM and one of the children
 is the `main` HTML element with a default "id" of `"mainContent"`. This should
-be used as the anchor element that the skip navigation link points to. As of
-v0.25.13, the consuming application is responsible for adding the skip
-navigation feature to the application. If your application is using the current
-NYPL Header, it already contains the skip navigation feature but make sure it is
-pointing to the correct anchor element.
+be used as the anchor element that the skip navigation link points to. If your
+application is using the current NYPL Header, it already contains the skip
+navigation feature but make sure it is pointing to the correct anchor element.
+
+If you are using a custom header component or you need to use the Reservoir
+Design System (DS) `SkipNavigation` component, then set the `renderSkipNavigation`
+prop to true. This will render the `SkipNavigation` component at the top of the
+page before any other elements. The main link will point to the `#mainContent`
+`main` element.
 
 Resources
 
@@ -191,12 +197,16 @@ Resources
 
 ## Template Children Overview
 
-The Reservoir Design System (DS) also provides a set of "template" components 
-that work together to render a consistent mobile and desktop layout. More 
-information on individual components and how they should be composed can be 
-found below. Even though these component are available for use, we recommend 
-using the `TemplateAppContainer` component and passing down children component 
+The Reservoir Design System (DS) also provides a set of "template" components
+that work together to render a consistent mobile and desktop layout. More
+information on individual components and how they should be composed can be
+found below. Even though these component are available for use, we recommend
+using the `TemplateAppContainer` component and passing down children component
 as props as needed.
+
+Note: If you need to render the `SkipNavigation` component, you need to explicitly
+render it immediately before the `TemplateAboveHeader` component. This is done
+automatically in the `TemplateAppContainer` component.
 
 Basic "template" components structure:
 
@@ -215,6 +225,7 @@ import {
 
 
 <Template>
+  <SkipNavigation />
   <TemplateAboveHeader>
     // ...
   </TemplateAboveHeader>
@@ -263,6 +274,7 @@ import {
   >
     {(args) => (
       <Template>
+        <SkipNavigation />
         <TemplateAboveHeader>
           <Placeholder variant="short">Above Header</Placeholder>
         </TemplateAboveHeader>
@@ -524,9 +536,9 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 <Canvas>
   <Story name="Full Example with Template Children Components">
     <Template>
+      <SkipNavigation />
       <TemplateAboveHeader>
         <Notification
-          notificationType={NotificationTypes.Standard}
           notificationHeading="Standard Notification"
           notificationContent={
             <>
@@ -555,12 +567,12 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           />
           <Hero
             backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            heroType={HeroTypes.Campaign}
-            heading={
-              <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
-            }
-            imageAlt="Image example"
-            imageSrc="https://placeimg.com/800/400/animals"
+            heroType="campaign"
+            heading={<Heading level="one" id="1" text="Hero Campaign" />}
+            imageProps={{
+              alt: "Image example",
+              src: "https://placeimg.com/800/400/animals",
+            }}
             subHeaderText={otherSubHeaderText}
           />
         </TemplateBreakout>
@@ -568,7 +580,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       <TemplateContent sidebar="right">
         <TemplateContentTop>
           <Notification
-            notificationType={NotificationTypes.Announcement}
+            notificationType="announcement"
             notificationHeading="Announcement Notification"
             notificationContent={
               <>
@@ -587,34 +599,40 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
-          <Form action="/end/point">
+          <Form action="/end/point" id="form1">
             <FormField>
               <TextInput
-                labelText="Username"
                 helperText="Make sure to complete this field."
+                id="username"
+                labelText="Username"
                 required
               />
             </FormField>
             <FormField>
               <TextInput
-                labelText="Password"
                 helperText="Make sure to complete this field."
+                id="password"
+                labelText="Password"
                 required
               />
             </FormField>
             <FormRow>
               <FormField>
-                <TextInput labelText="Phone Field" type="tel" />
+                <TextInput
+                  id="phone-field"
+                  labelText="Phone Field"
+                  type="tel"
+                />
               </FormField>
               <FormField>
-                <TextInput labelText="URL Field" type="url" />
+                <TextInput id="url-field" labelText="URL Field" type="url" />
               </FormField>
               <FormField>
-                <TextInput labelText="Age" type="number" />
+                <TextInput id="age-field" labelText="Age" type="number" />
               </FormField>
             </FormRow>
             <FormField>
-              <Button>Submit</Button>
+              <Button id="submit">Submit</Button>
             </FormField>
           </Form>
         </TemplateContentPrimary>
@@ -623,16 +641,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Card
             imageProps={{
               alt: "Alt text",
-              aspectRatio: ImageRatios.Square,
-              size: ImageSizes.Small,
+              aspectRatio: "square",
+              size: "small",
               src: "https://placeimg.com/400/200/animals",
             }}
             isCentered
           >
-            <CardHeading level={HeadingLevels.Two} id="heading1">
-              Small Animal Image
-            </CardHeading>
-            <CardHeading level={HeadingLevels.Three} id="heading2">
+            <CardHeading id="heading1">Small Animal Image</CardHeading>
+            <CardHeading level="three" id="heading2">
               Animal info
             </CardHeading>
             <CardContent>
@@ -647,16 +663,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           id="custom-card"
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.SixteenByNine,
+            aspectRatio: "sixteenByNine",
             src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
           }}
           layout="horizontal"
           backgroundColor="#616161"
           foregroundColor="#FFF"
         >
-          <CardHeading id="heading1-footer" level={HeadingLevels.Two}>
-            Footer
-          </CardHeading>
+          <CardHeading id="heading1-footer">Footer</CardHeading>
           <CardContent>
             <p>This is an example footer using the `Card` component.</p>
             <p>
@@ -665,27 +679,12 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             </p>
           </CardContent>
           <CardActions>
-            <Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            <Link color="#FFF" href="#" textDecoration="underline">
               Facebook
             </Link>
-            ,<Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            ,<Link color="#FFF" href="#" textDecoration="underline">
               Instagram
-            </Link>,<Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            </Link>,<Link color="#FFF" href="#" textDecoration="underline">
               Twitter
             </Link>
           </CardActions>

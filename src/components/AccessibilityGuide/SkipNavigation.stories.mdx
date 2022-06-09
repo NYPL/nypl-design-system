@@ -13,20 +13,28 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## General Information
 
-An application's "skip navigation link" is used to skip to the primary or main
-content of a page. This link is located at the top of the page and is usually
-visually hidden until a user focuses on the link. For most applications at
-NYPL, the [NYPL Header](https://github.com/NYPL/dgx-header-component) is used
-and this component already renders a skip navigation link.
+An application's "skip navigation" is used to skip to the primary or main
+content of a page. This component usually contains one link that is located at
+the top of the page and is visually hidden until a user focuses on the link.
+In the case of NYPL applications, the skip navigation contains two links; the
+first link points to the main content of the page and the second link points to
+accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
+For most digitial applications on the NYPL.org platform, the [NYPL Header](https://github.com/NYPL/dgx-header-component)
+is used and this component already renders a skip navigation area with links.
 
-The link must target an existing anchor on the page and is typically the `id`
-`"#mainContent"` set on the `main` HTML element on the page. While the DS does not
-currently, as of `v0.25.13`, provide a skip navigation link, it does provide the
-anchor element for the link through the `TemplateAppContainer` component.
+In the Reservoir Design System (DS), the `SkipNavigation` component renders two
+links.
 
-The `TemplateAppContainer` component renders as a `main` HTML element with a
-default `id` of `"mainContent"`. This should be used as the anchor element that
-the skip navigation link points to.
+The first link points to the `"#mainContent"` anchor which an NYPL page
+is expected to have. The `TemplateAppContainer` component renders as a `main`
+HTML element with a default `id` of `"mainContent"`. While it's possible to
+update the target of the skip link and the id of the `<main>` element, this is
+not recommended. When using the DS' `SkipNavigation` and `TemplateAppContainer`
+components, this accessibility combination is automatically handled. When not
+using the `TemplateAppContainer` component, make sure to render a `main` HTML
+element with an `id` of `"mainContent"`.
+
+The second link points to additional accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
 
 ## Resources
 

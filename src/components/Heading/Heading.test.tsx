@@ -4,12 +4,11 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
-import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 
 describe("Heading Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <Heading id="h1" level={HeadingLevels.One} text="Heading 1" />
+      <Heading id="h1" level="one" text="Heading 1" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -17,17 +16,13 @@ describe("Heading Accessibility", () => {
 
 describe("Heading", () => {
   it("renders and HTML heading element with the correct level", () => {
-    render(<Heading id="h1" level={HeadingLevels.One} text="Heading 1" />);
+    render(<Heading id="h1" level="one" text="Heading 1" />);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
     expect(screen.getByText("Heading 1")).toBeInTheDocument();
   });
 
   it("can pass heading content as child", () => {
-    render(
-      <Heading id="h1" level={HeadingLevels.Two}>
-        Heading 2
-      </Heading>
-    );
+    render(<Heading id="h1">Heading 2</Heading>);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
     expect(screen.getByText("Heading 2")).toBeInTheDocument();
   });
@@ -37,15 +32,9 @@ describe("Heading", () => {
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
   });
 
-  // TODO: check that header children are links
-  // it("Throws error when invalid heading is passed as child", () => {
-  //   expect(() => render(<Heading id="h1" level={HeadingLevels.Three}><span>oh no</span></Heading>))
-  //   .to.throw("Headings can only be plain text or bold");
-  // });
-
   it("can pass a span element as a child", () => {
     render(
-      <Heading id="h1" level={HeadingLevels.One}>
+      <Heading id="h1" level="one">
         <span>
           Text <b>hi</b>
         </span>
@@ -56,7 +45,7 @@ describe("Heading", () => {
 
   it("prioritizes the child when both child and the text prop are passed", () => {
     render(
-      <Heading id="h1" level={HeadingLevels.One} text="prop text">
+      <Heading id="h1" level="one" text="prop text">
         child text
       </Heading>
     );
@@ -64,14 +53,7 @@ describe("Heading", () => {
   });
 
   it("renders an anchor element when the `url` prop is passed", () => {
-    render(
-      <Heading
-        id="h1"
-        level={HeadingLevels.One}
-        text="Heading 1"
-        url="fake-url"
-      />
-    );
+    render(<Heading id="h1" level="one" text="Heading 1" url="fake-url" />);
 
     expect(screen.getByRole("link")).toBeInTheDocument();
   });
@@ -80,7 +62,7 @@ describe("Heading", () => {
     render(
       <Heading
         id="h1"
-        level={HeadingLevels.One}
+        level="one"
         url="fake-url"
         urlClass="fake-class"
         text="Heading 1"
@@ -92,7 +74,7 @@ describe("Heading", () => {
   });
 
   it("throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
+    expect(() => render(<Heading id="h1" level="one" />)).toThrow(
       "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
   });
@@ -100,7 +82,7 @@ describe("Heading", () => {
   it("throws error when heading with many children is passed", () => {
     expect(() =>
       render(
-        <Heading id="h1" level={HeadingLevels.Four}>
+        <Heading id="h1" level="four">
           <span>too</span>
           <span>many</span>
         </Heading>
@@ -112,8 +94,8 @@ describe("Heading", () => {
     render(
       <Heading
         id="h1"
-        level={HeadingLevels.One}
-        size={HeadingSizes.Secondary}
+        level="one"
+        size="secondary"
         text="Heading with Secondary size"
       />
     );
@@ -124,13 +106,11 @@ describe("Heading", () => {
 
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
-      .create(
-        <Heading id="basic" level={HeadingLevels.One} text="Heading text" />
-      )
+      .create(<Heading id="basic" level="one" text="Heading text" />)
       .toJSON();
     const basicWithChildText = renderer
       .create(
-        <Heading id="basicWithChildText" level={HeadingLevels.One}>
+        <Heading id="basicWithChildText" level="one">
           Heading text
         </Heading>
       )
@@ -139,26 +119,20 @@ describe("Heading", () => {
       .create(
         <Heading
           id="customDisplaySize"
-          level={HeadingLevels.One}
-          size={HeadingSizes.Secondary}
+          level="one"
+          size="secondary"
           text="Heading with Secondary size"
         />
       )
       .toJSON();
     const otherLevel = renderer
-      .create(
-        <Heading
-          id="otherLevel"
-          level={HeadingLevels.Six}
-          text="Heading level six"
-        />
-      )
+      .create(<Heading id="otherLevel" level="six" text="Heading level six" />)
       .toJSON();
     const withLink = renderer
       .create(
         <Heading
           id="withLink"
-          level={HeadingLevels.One}
+          level="one"
           text="Heading text is a link"
           url="fake-url"
         />
@@ -166,7 +140,7 @@ describe("Heading", () => {
       .toJSON();
     const withCustomLink = renderer
       .create(
-        <Heading id="withCustomLink" level={HeadingLevels.One}>
+        <Heading id="withCustomLink" level="one">
           <>
             Part of the heading text is
             <a href="fake-url" className="custom-link">

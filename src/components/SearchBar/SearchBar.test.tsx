@@ -164,7 +164,7 @@ describe("SearchBar", () => {
 
   it("calls the Select onChange callback function", () => {
     let selectValue = "Songs";
-    selectProps.onChange = (e) => (selectValue = e.target.value);
+    selectProps.onChange = (e) => (selectValue = (e.target as any).value);
     selectProps.value = selectValue;
 
     render(

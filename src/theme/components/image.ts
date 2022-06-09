@@ -1,3 +1,11 @@
+interface CustomImageBaseStyle {
+  size: keyof typeof imageSizes;
+}
+interface CustomImageWrapperBaseStyle {
+  ratio: keyof typeof imageRatios;
+  size: keyof typeof imageSizes;
+}
+
 const imageWrap = {
   position: "relative",
   width: "100%",
@@ -75,9 +83,10 @@ const CustomImage = {
       },
     },
   },
-  baseStyle: ({ size = "default" }) => ({
+  baseStyle: ({ size = "default" }: CustomImageBaseStyle) => ({
     figure: {
       margin: "auto",
+      width: "100%",
       ...imageSizes[size],
       img: {
         marginBottom: "xxs",
@@ -96,13 +105,16 @@ const CustomImage = {
       ...imageSizes[size],
     },
     captionWrappers: {
-      marginBottom: "xxs",
+      marginTop: "xxs",
     },
   }),
 };
 const CustomImageWrapper = {
   parts: ["crop"],
-  baseStyle: ({ ratio = "original", size = "default" }) => ({
+  baseStyle: ({
+    ratio = "original",
+    size = "default",
+  }: CustomImageWrapperBaseStyle) => ({
     marginLeft: "auto",
     marginRight: "auto",
     width: "100%",

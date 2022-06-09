@@ -6,10 +6,21 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
-export interface CheckboxProps {
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
+
+interface CheckboxIconProps {
+  /** When using the Checkbox as a "controlled" form element, you can specify
+   * the Checkbox's checked state using this prop.
+   * Learn more about controlled and uncontrolled form fields:
+   * https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
+  isChecked?: boolean;
+  /** Adds the indeterminate state to the `Checkbox`. */
+  isIndeterminate?: boolean;
+}
+
+export interface CheckboxProps extends CheckboxIconProps {
   /** className you can add in addition to 'input' */
   className?: string;
   /** Optional string to populate the HelperErrorText for standard state */
@@ -19,16 +30,9 @@ export interface CheckboxProps {
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
-  /** When using the Checkbox as a "controlled" form element, you can specify
-   * the Checkbox's checked state using this prop.
-   * Learn more about controlled and uncontrolled form fields:
-   * https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
-  isChecked?: boolean;
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
    * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
-  /** Adds the indeterminate state to the `Checkbox`. */
-  isIndeterminate?: boolean;
   /** Adds the 'aria-invalid' attribute to the input when true. This also makes
    * the color theme "NYPL error" red for the button and text. */
   isInvalid?: boolean;
@@ -51,11 +55,7 @@ export interface CheckboxProps {
   value?: string;
 }
 
-export const onChangeDefault = () => {
-  return;
-};
-
-function CheckboxIcon(props) {
+function CheckboxIcon(props: CheckboxIconProps) {
   // We don't need the `isIndeterminate` or `isChecked` props but it
   // causes rendering issues on the SVG element, so we remove them
   // before passing all the props to the `Icon` component.
@@ -85,17 +85,23 @@ export const Checkbox = chakra(
       isRequired = false,
       labelText,
       name,
+      onChange,
       showHelperInvalidText = true,
       showLabel = true,
       value,
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
-    const onChange = props.onChange || onChangeDefault;
+    const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Checkbox",
+      showLabel,
+    });
 
     if (!id) {
       console.warn(
@@ -103,28 +109,25 @@ export const Checkbox = chakra(
       );
     }
 
-    if (!showLabel) {
-      if (typeof labelText !== "string") {
-        console.warn(
-          "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
-        );
-      }
-      ariaAttributes["aria-label"] =
-        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-    } else {
-      if (footnote) ariaAttributes["aria-describedby"] = `${id}-helperText`;
-    }
-
     return (
-      <>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        showHelperInvalidText={showHelperInvalidText}
+        {...rest}
+      >
         <ChakraCheckbox
-          id={id}
           className={className}
-          name={name || "default"}
+          icon={icon}
+          id={id}
           isDisabled={isDisabled}
+          isIndeterminate={isIndeterminate}
           isInvalid={isInvalid}
           isRequired={isRequired}
-          isIndeterminate={isIndeterminate}
+          name={name || "default"}
           ref={ref}
           value={value}
           {...(isChecked !== undefined
@@ -135,23 +138,13 @@ export const Checkbox = chakra(
             : {
                 defaultIsChecked: false,
               })}
-          icon={icon}
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
-          {...rest}
         >
           {showLabel && labelText}
         </ChakraCheckbox>
-        {footnote && showHelperInvalidText && (
-          <HelperErrorText
-            additionalStyles={styles.helperErrorText}
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );
