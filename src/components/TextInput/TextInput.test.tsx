@@ -21,6 +21,21 @@ describe("TextInput Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <TextInput
+        id="textInput"
+        isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        showLabel={false}
+        type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
@@ -44,6 +59,7 @@ describe("TextInput", () => {
     changeHandler = jest.fn();
     utils = render(
       <TextInput
+        helperText="Custom Helper Text"
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
@@ -84,85 +100,28 @@ describe("TextInput", () => {
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
   });
 
-  it("renders label's `for` attribute pointing at ID from input", () => {
-    expect(screen.getByText(/Custom Input Label/i)).toHaveAttribute(
-      "for",
-      "myTextInput"
-    );
-  });
-
-  it("renders placeholder text", () => {
-    expect(
-      screen.getByPlaceholderText("Input Placeholder")
-    ).toBeInTheDocument();
-  });
-
-  it("adds aria-required prop if input is required", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "aria-required"
-    );
-  });
-
-  it("changing the value calls the onChange handler", () => {
-    expect(changeHandler).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
-    // Called 5 times because "Hello" has length of 5.
-    expect(changeHandler).toHaveBeenCalledTimes(5);
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <TextInput labelText="Custom Input Label" />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
-    );
-  });
-});
-
-describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-  beforeEach(() => {
-    render(
+  it("does not render the label but adds it as an aria-label attribute", () => {
+    utils.rerender(
       <TextInput
-        helperText="Custom Helper Text"
-        id="textInput"
+        id="myTextInput"
         isRequired
         labelText="Custom Input Label"
+        onChange={changeHandler}
         placeholder="Input Placeholder"
         showLabel={false}
         type="text"
       />
     );
-  });
 
-  it("renders Input component", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("does not renders Label component", () => {
     expect(screen.queryByText(/Custom Input Label/i)).not.toBeInTheDocument();
-  });
-
-  it("renders custom aria-label", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+    expect(screen.getByRole("textbox")).toHaveAttribute(
       "aria-label",
-      "Custom Input Label - Custom Helper Text"
+      "Custom Input Label"
     );
   });
 
-  it("renders HelperErrorText component", () => {
-    expect(screen.getByText("Custom Helper Text")).toBeInTheDocument();
-  });
-});
-
-describe("TextInput shows error state", () => {
-  let utils: RenderResult;
-
-  beforeEach(() => {
-    utils = render(
+  it("renders the invalid state and shows the invalid text", () => {
+    utils.rerender(
       <TextInput
         helperText="Custom Helper Text"
         id="myTextInputError"
@@ -173,19 +132,12 @@ describe("TextInput shows error state", () => {
         type="text"
       />
     );
-  });
 
-  it("renders Input component", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("renders Label component", () => {
-    expect(screen.getByText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("renders HelperErrorText component", () => {
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
     expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-invalid"
+    );
   });
 
   it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
@@ -205,17 +157,35 @@ describe("TextInput shows error state", () => {
     expect(screen.queryByText("Custom Error Text")).not.toBeInTheDocument();
   });
 
-  it("input shows error state", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "aria-invalid"
+  it("renders label's `for` attribute pointing at ID from input", () => {
+    expect(screen.getByText(/Custom Input Label/i)).toHaveAttribute(
+      "for",
+      "myTextInput"
     );
   });
-});
 
-describe("Renders HTML attributes passed", () => {
-  const onChangeSpy = jest.fn();
-  beforeEach(() => {
-    render(
+  it("renders placeholder text", () => {
+    expect(
+      screen.getByPlaceholderText("Input Placeholder")
+    ).toBeInTheDocument();
+  });
+
+  it("adds aria-required prop if input is required", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-required"
+    );
+  });
+
+  it("calls the onChange handler function", () => {
+    expect(changeHandler).toHaveBeenCalledTimes(0);
+    userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
+    // Called 5 times because "Hello" has length of 5.
+    expect(changeHandler).toHaveBeenCalledTimes(5);
+  });
+
+  it("has a maxlength for the input element", () => {
+    const onChangeSpy = jest.fn();
+    utils.rerender(
       <TextInput
         id="inputID-attributes"
         labelText="Input Label"
@@ -225,19 +195,38 @@ describe("Renders HTML attributes passed", () => {
         type="text"
       />
     );
-  });
-
-  it("has a maxlength for the input element", () => {
     expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
       "maxLength",
       "10"
     );
   });
 
-  it("calls the onChange function", () => {
-    expect(onChangeSpy).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
-    expect(onChangeSpy).toHaveBeenCalledTimes(5);
+  it("logs a warning for the number type when the min prop is greater than the max prop", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <TextInput
+        id="input-number"
+        labelText="Input Label"
+        max={20}
+        min={50}
+        type="number"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
+    );
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <TextInput labelText="Custom Input Label" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+    );
   });
 });
 
@@ -331,6 +320,16 @@ describe("Textarea element type", () => {
 
 describe("UI Snapshots", () => {
   it("renders the text input UI snapshot correctly", () => {
+    const basicTextarea = renderer
+      .create(
+        <TextInput
+          id="myTextarea"
+          labelText="Custom textarea Label"
+          placeholder="Textarea Placeholder"
+          type="textarea"
+        />
+      )
+      .toJSON();
     const required = renderer
       .create(
         <TextInput
@@ -424,6 +423,7 @@ describe("UI Snapshots", () => {
       )
       .toJSON();
 
+    expect(basicTextarea).toMatchSnapshot();
     expect(required).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
     expect(hiddenLabelText).toMatchSnapshot();
@@ -432,20 +432,5 @@ describe("UI Snapshots", () => {
     expect(disabledState).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
-  });
-
-  it("renders the textarea UI snapshot correctly", () => {
-    const basicTextarea = renderer
-      .create(
-        <TextInput
-          id="myTextarea"
-          labelText="Custom textarea Label"
-          placeholder="Textarea Placeholder"
-          type="textarea"
-        />
-      )
-      .toJSON();
-
-    expect(basicTextarea).toMatchSnapshot();
   });
 });
