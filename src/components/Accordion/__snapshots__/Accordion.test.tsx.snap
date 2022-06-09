@@ -11,7 +11,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -19,11 +19,11 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -75,7 +75,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
@@ -133,7 +133,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -141,11 +141,11 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -197,7 +197,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
@@ -255,7 +255,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -263,11 +263,11 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -319,7 +319,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
@@ -378,7 +378,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -386,11 +386,11 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -442,7 +442,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
@@ -500,7 +500,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-gne4sq"
+      className="chakra-accordion__button css-1c8csqn"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -508,11 +508,11 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -564,7 +564,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
@@ -622,7 +622,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-11hvvs4"
+      className="chakra-accordion__button css-1lty5mh"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -630,11 +630,11 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -686,7 +686,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
