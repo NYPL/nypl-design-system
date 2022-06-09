@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Box, chakra, VStack } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
@@ -21,6 +21,7 @@ const Login = chakra(
       ? "My Account"
       : "Log In";
     const greeting = useRef(null);
+    const styles = useMultiStyleConfig("HeaderLogin", { isMobile, loginOpen });
 
     useEffect(() => {
       if (patronName && loginOpen) {
@@ -41,6 +42,7 @@ const Login = chakra(
           }`}
           id="loginButton"
           onClick={() => setLoginOpen(!loginOpen)}
+          __css={styles.loginBtn}
         >
           {isMobile ? null : desktopButtonLabel}
           <Icon
@@ -51,7 +53,7 @@ const Login = chakra(
           />
         </Button>
         {loginOpen && (
-          <VStack className="loginMenu">
+          <VStack className="loginMenu" __css={styles.loginMenu}>
             {patronName && (
               <Box
                 id="patronGreeting"
