@@ -1,14 +1,15 @@
 import {
+  Box,
   chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
-import { AriaAttributes } from "../../utils/interfaces";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
+
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
@@ -68,9 +69,18 @@ export const Radio = chakra(
       value,
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("Radio", {});
+    const styles = useMultiStyleConfig("Radio", { showLabel });
     const footnote = isInvalid ? invalidText : helperText;
-    const ariaAttributes: AriaAttributes = {};
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Radio",
+      showLabel,
+    });
+    // We can't use the aria-label because of how Chakra renders its
+    // Radio component. Instead, we'll visually hide the label.
+    delete ariaAttributes["aria-label"];
 
     if (!id) {
       console.warn(
@@ -78,22 +88,16 @@ export const Radio = chakra(
       );
     }
 
-    if (!showLabel) {
-      if (typeof labelText !== "string") {
-        console.warn(
-          "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
-        );
-      }
-      ariaAttributes["aria-label"] =
-        labelText && footnote
-          ? `${labelText} - ${footnote}`
-          : (labelText as string);
-    } else if (footnote) {
-      ariaAttributes["aria-describedby"] = `${id}-helperText`;
-    }
-
     return (
-      <>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        showHelperInvalidText={showHelperInvalidText}
+        {...rest}
+      >
         <ChakraRadio
           className={className}
           id={id}
@@ -103,24 +107,17 @@ export const Radio = chakra(
           isRequired={isRequired}
           name={name}
           onChange={onChange}
-          value={value}
           ref={ref}
+          value={value}
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
-          {...rest}
         >
-          {showLabel && labelText}
+          <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>
+            {labelText}
+          </Box>
         </ChakraRadio>
-        {footnote && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-            __css={styles.helperErrorText}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );

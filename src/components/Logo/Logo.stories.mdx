@@ -44,7 +44,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `1.0.1`    |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -76,8 +76,8 @@ import { getCategory } from "../../utils/componentCategories";
     {(args) => (
       <div
         style={
-          args.name.indexOf("white") !== -1 ||
-          args.name.indexOf("negative") !== -1
+          args.name.indexOf("White") !== -1 ||
+          args.name.indexOf("Negative") !== -1
             ? {
                 backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
                 display: "inline-block",
@@ -139,6 +139,8 @@ export const logoNameValues = [
   "nyplFullWhite",
   "nyplLionBlack",
   "nyplLionWhite",
+  "nyplTextBlack",
+  "nyplTextWhite",
   "openebooksColor",
   "openebooksNegative",
   "openebooksWithTextColor",
@@ -234,8 +236,8 @@ from the `LogoNames` type. The values are `"appleAppStoreBlack"`,
 `"appleAppStoreWhite"`,`"bplBlack"`, `"bplWhite"`, `"cleverBadgeColor"`, `"cleverColor"`,
 `"cleverWhite"`, `"firstbookColor"`, `"firstbookColorNegative"`, `"googlePlayBlack"`,
 `"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnWhite"`,
-`"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`,
-`"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
+`"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`, `"nyplTextBlack"`,
+`"nyplTextWhite"`, `"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
 `"openebooksWithTextNegative"`, `"qplAltBlack"`, `"qplAltWhite"`, `"qplBlack"`,
 `"qplColor"`, `"qplWhite"`, `"reservoirIconColor"`, `"reservoirVerticalColor"`,
 `"schomburgBlack"`, `"schomburgCircleBlack"`, `"schomburgCircleColor"`,

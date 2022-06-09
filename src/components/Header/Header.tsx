@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   chakra,
   Box,
@@ -8,6 +8,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import {
+  extractPatronName,
+  fetchPatronData,
+  getCookieValue,
+} from "./headerUtils";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
@@ -35,6 +40,33 @@ export const Header = chakra(() => {
   });
 
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
+  const [patronName, setPatronName] = useState<string>("");
+
+  // Allows user to use esc key to close the login menu.
+  useEffect(() => {
+    const close = (e) => {
+      const key = e.key || e.keyCode;
+      if (key === "Escape" || key === "Esc" || key === 27) {
+        setLoginOpen(false);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
+  useEffect(() => {
+    const { cookieValue, accessToken } = getCookieValue();
+    if (cookieValue) {
+      if (!patronDataReceived) {
+        fetchPatronData(accessToken, (data) => {
+          const fullName = extractPatronName(data);
+          setPatronName(fullName);
+          setPatronDataReceived(true);
+        });
+      }
+    }
+  }, [patronDataReceived]);
 
   return (
     <Box __css={styles.container}>
@@ -56,8 +88,12 @@ export const Header = chakra(() => {
           </Link>
           <Spacer />
           {!isWidthMobile ? (
-            <VStack spacing="65px">
-              <UpperNav loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <VStack alignItems="end" spacing="65px">
+              <UpperNav
+                patronName={patronName}
+                loginOpen={loginOpen}
+                setLoginOpen={setLoginOpen}
+              />
               <LowerNav />
             </VStack>
           ) : (

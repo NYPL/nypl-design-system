@@ -75,7 +75,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `1.0.1`    |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -743,6 +743,64 @@ from being having the full-click functionality.
       </Card>
     </SimpleGrid>
   </Story>
+</Canvas>
+
+This example can be found in the [Turbine homepage](https://nypl-ds-test-app.vercel.app/).
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={3}>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/lunar-new-year#above-header-notification"
+      >
+        <CardHeading level="four">Lunar New Year Blog</CardHeading>
+        <CardContent>
+          A basic blog post, including text chracters outside a standard Western
+          font-set.
+        </CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/doc-chat-forty-two#above-header-notification"
+      >
+        <CardHeading level="four">Doc Chat Forty-Two Blog</CardHeading>
+        <CardContent>A blog post with an array of components.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/homepage#above-header-notification"
+      >
+        <CardHeading level="four">Homepage</CardHeading>
+        <CardContent>A layout to mimic a basic homepage structure.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/library-registry#above-header-notification"
+      >
+        <CardHeading level="four">Library Registry Interface</CardHeading>
+        <CardContent>A POC for the Library Registry admin tools.</CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/search-and-filter#above-header-notification"
+      >
+        <CardHeading level="four">Search and Filter</CardHeading>
+        <CardContent>
+          A functional form to showcase search filtering and content cards.
+        </CardContent>
+      </Card>
+      <Card
+        isBordered
+        mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/sign-up#above-header-notification"
+      >
+        <CardHeading level="four">Sign-Up</CardHeading>
+        <CardContent>
+          A functional form to utilize multiple form input components.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </DSProvider>
 </Canvas>
 
 ## Card with Right Side CardActions

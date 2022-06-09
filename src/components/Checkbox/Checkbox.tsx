@@ -5,11 +5,10 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
-import { AriaAttributes } from "../../utils/interfaces";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
 
 interface CheckboxIconProps {
   /** When using the Checkbox as a "controlled" form element, you can specify
@@ -56,10 +55,6 @@ export interface CheckboxProps extends CheckboxIconProps {
   value?: string;
 }
 
-export const onChangeDefault = () => {
-  return;
-};
-
 function CheckboxIcon(props: CheckboxIconProps) {
   // We don't need the `isIndeterminate` or `isChecked` props but it
   // causes rendering issues on the SVG element, so we remove them
@@ -90,6 +85,7 @@ export const Checkbox = chakra(
       isRequired = false,
       labelText,
       name,
+      onChange,
       showHelperInvalidText = true,
       showLabel = true,
       value,
@@ -97,10 +93,15 @@ export const Checkbox = chakra(
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const ariaAttributes: AriaAttributes = {};
-    const onChange = props.onChange || onChangeDefault;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Checkbox",
+      showLabel,
+    });
 
     if (!id) {
       console.warn(
@@ -108,30 +109,25 @@ export const Checkbox = chakra(
       );
     }
 
-    if (!showLabel) {
-      if (typeof labelText !== "string") {
-        console.warn(
-          "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
-        );
-      }
-      ariaAttributes["aria-label"] =
-        labelText && footnote
-          ? `${labelText} - ${footnote}`
-          : (labelText as string);
-    } else {
-      if (footnote) ariaAttributes["aria-describedby"] = `${id}-helperText`;
-    }
-
     return (
-      <>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        showHelperInvalidText={showHelperInvalidText}
+        {...rest}
+      >
         <ChakraCheckbox
-          id={id}
           className={className}
-          name={name || "default"}
+          icon={icon}
+          id={id}
           isDisabled={isDisabled}
+          isIndeterminate={isIndeterminate}
           isInvalid={isInvalid}
           isRequired={isRequired}
-          isIndeterminate={isIndeterminate}
+          name={name || "default"}
           ref={ref}
           value={value}
           {...(isChecked !== undefined
@@ -142,23 +138,13 @@ export const Checkbox = chakra(
             : {
                 defaultIsChecked: false,
               })}
-          icon={icon}
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
-          {...rest}
         >
           {showLabel && labelText}
         </ChakraCheckbox>
-        {footnote && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-            __css={styles.helperErrorText}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );

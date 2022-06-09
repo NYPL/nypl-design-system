@@ -26,6 +26,15 @@ describe("Select Accessibility", () => {
     const { container } = render(<Select {...baseProps}>{baseOptions}</Select>);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <Select {...baseProps} showLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Select", () => {

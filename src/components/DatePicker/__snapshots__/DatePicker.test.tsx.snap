@@ -27,7 +27,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="basic-start-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -64,7 +65,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="basic-end-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -122,7 +124,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="no-label-start-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -159,7 +162,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="no-label-end-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -217,7 +221,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="custom-format-start-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -254,7 +259,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="custom-format-end-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -312,7 +318,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="invalid-start-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -322,6 +329,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 From
               </label>
               <input
+                aria-describedby="invalid-start-helperText"
                 aria-invalid={true}
                 className="chakra-input css-0"
                 disabled={false}
@@ -362,7 +370,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="invalid-end-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -372,6 +381,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 To
               </label>
               <input
+                aria-describedby="invalid-end-helperText"
                 aria-invalid={true}
                 className="chakra-input css-0"
                 disabled={false}
@@ -445,7 +455,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="disabled-start-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -482,7 +493,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1xdhyk6"
+              className="css-1u8qly9"
+              id="disabled-end-wrapper"
             >
               <label
                 className="css-1xdhyk6"
@@ -541,7 +553,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="basic-start-wrapper"
         >
           <label
             className="css-1xdhyk6"
@@ -586,7 +599,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="no-label-start-wrapper"
         >
           <input
             aria-label="Select the date you want to visit NYPL"
@@ -625,7 +639,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="custom-format-start-wrapper"
         >
           <label
             className="css-1xdhyk6"
@@ -670,7 +685,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="invalid-start-wrapper"
         >
           <label
             className="css-1xdhyk6"
@@ -729,7 +745,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="disabled-start-wrapper"
         >
           <label
             className="css-1xdhyk6"
@@ -787,7 +804,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="chakra-start-wrapper"
         >
           <label
             className="css-1xdhyk6"
@@ -846,7 +864,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
+          id="props-start-wrapper"
         >
           <label
             className="css-1xdhyk6"

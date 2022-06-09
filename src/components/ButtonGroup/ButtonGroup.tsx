@@ -3,7 +3,7 @@ import * as React from "react";
 
 import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
-import useWindowSize from "../../hooks/useWindowSize";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export type ButtonGroupWidths = "default" | "full";
 
@@ -39,25 +39,9 @@ export const ButtonGroup = chakra(
       ...rest
     } = props;
     const newChildren: JSX.Element[] = [];
-    // Based on --nypl-breakpoint-medium
-    const breakpointMedium = 600;
-    const [finalLayout, setFinalLayout] = React.useState<LayoutTypes>(layout);
-    const [finalButtonWidth, setFinalButtonWidth] =
-      React.useState<ButtonGroupWidths>(buttonWidth);
-    const windowDimensions = useWindowSize();
-    React.useEffect(() => {
-      // When on a mobile device or narrow window, always set the layout to
-      // column and the button width to "full".
-      if (windowDimensions.width <= breakpointMedium) {
-        setFinalButtonWidth("full");
-        setFinalLayout("column");
-      } else {
-        // Otherwise, set the layout and button width to the values
-        // passed in via the `buttonWidth` and `layout` props.
-        setFinalButtonWidth(buttonWidth);
-        setFinalLayout(layout);
-      }
-    }, [buttonWidth, layout, windowDimensions.width]);
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    const finalLayout = isLargerThanMobile ? layout : "column";
+    const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
     const styles = useStyleConfig("ButtonGroup", {
       buttonWidth: finalButtonWidth,
     });
@@ -76,7 +60,8 @@ export const ButtonGroup = chakra(
             return;
           }
         }
-        newChildren.push(React.cloneElement(child, { key, isDisabled }));
+        const disabledProps = isDisabled ? { isDisabled } : {};
+        newChildren.push(React.cloneElement(child, { key, ...disabledProps }));
       }
     );
 
