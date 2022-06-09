@@ -60,31 +60,24 @@ function MultiSelectDialog({
   });
 
   const isChecked = (multiSelectId: string, itemId: string): boolean => {
-    if (
-      selectedItems[multiSelectId]?.items.find(
+    if (selectedItems[multiSelectId]) {
+      return !!selectedItems[multiSelectId].items.find(
         (selectedItemId: string) => selectedItemId === itemId
-      )
-    ) {
-      return true;
+      );
     }
     return false;
   };
+
   // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false. This prop is only passed to parent options.
   const isAllChecked = (
     multiSelectId: string,
     item: MultiSelectItem
   ): boolean => {
-    let childIds = [];
-    item.children.map((childItem) => {
-      childIds.push(childItem.id);
-    });
-    if (
-      selectedItems[multiSelectId] !== undefined &&
-      childIds.every((childItem) =>
+    let childIds: string[] = item.children.map((childItem) => childItem.id);
+    if (selectedItems[multiSelectId] !== undefined) {
+      return childIds.every((childItem) =>
         selectedItems[multiSelectId].items.includes(childItem)
-      )
-    ) {
-      return true;
+      );
     }
     return false;
   };
@@ -94,18 +87,14 @@ function MultiSelectDialog({
     multiSelectId: string,
     item: MultiSelectItem
   ): boolean => {
-    let childIds = [];
-    item.children.map((childItem) => {
-      childIds.push(childItem.id);
-    });
+    let childIds: string[] = item.children.map((childItem) => childItem.id);
     if (
       selectedItems[multiSelectId] !== undefined &&
       childIds.some((childItem) =>
         selectedItems[multiSelectId].items.includes(childItem)
-      ) &&
-      !isAllChecked(multiSelectId, item)
+      )
     ) {
-      return true;
+      return !isAllChecked(multiSelectId, item);
     }
     return false;
   };
@@ -195,7 +184,7 @@ function MultiSelectDialog({
           {isOpen && !isMobile && (
             <Stack direction="row" spacing="s" justify="flex-end">
               <Button
-                id="multiselect-dialog-clear"
+                id={`multiselect-${id}-clear`}
                 buttonType="link"
                 type="button"
                 onClick={onClear}
@@ -203,7 +192,7 @@ function MultiSelectDialog({
                 Clear
               </Button>
               <Button
-                id="multiselect-dialog-apply"
+                id={`multiselect-${id}-apply`}
                 buttonType="primary"
                 type="button"
                 onClick={() => {

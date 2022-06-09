@@ -78,8 +78,14 @@ export default function useMultiSelect({
           (stateItem) => !childItems.includes(stateItem)
         );
       } else {
-        // Else add all childItems.
-        newItems = [...childItems, ...selectedItems[multiSelectId].items];
+        // Else add missing childItems.
+        newItems = [
+          ...childItems.filter(
+            (childItem) =>
+              !selectedItems[multiSelectId].items.includes(childItem)
+          ),
+          ...selectedItems[multiSelectId].items,
+        ];
       }
       // If no items have been selected, the childItems will be the only ones added
     } else {

@@ -42,7 +42,7 @@ const MultiSelect = {
       position: {
         md: isBlockElement ? "relative" : "absolute",
       },
-      zIndex: isBlockElement ? 0 : 1,
+      zIndex: isBlockElement ? 0 : 9999,
       ...(width === "fitContent" && {
         minWidth: {
           md: "275px",
@@ -54,7 +54,7 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      background: "white",
+      background: "ui.white",
       border: "1px solid #000",
       paddingX: "xs",
       paddingY: "s",

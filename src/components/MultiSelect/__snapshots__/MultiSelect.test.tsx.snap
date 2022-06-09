@@ -783,7 +783,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-clear"
+          id="multiselect-multiselect-dialog-test-id-clear"
           onClick={[Function]}
           type="button"
         >
@@ -792,7 +792,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-apply"
+          id="multiselect-multiselect-dialog-test-id-apply"
           onClick={[Function]}
           type="button"
         >
@@ -1561,7 +1561,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-clear"
+          id="multiselect-multiselect-dialog-test-id-clear"
           onClick={[Function]}
           type="button"
         >
@@ -1570,7 +1570,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-apply"
+          id="multiselect-multiselect-dialog-test-id-apply"
           onClick={[Function]}
           type="button"
         >
@@ -2324,7 +2324,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-clear"
+          id="multiselect-multiselect-dialog-test-id-clear"
           onClick={[Function]}
           type="button"
         >
@@ -2333,7 +2333,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="multiselect-dialog-apply"
+          id="multiselect-multiselect-dialog-test-id-apply"
           onClick={[Function]}
           type="button"
         >
