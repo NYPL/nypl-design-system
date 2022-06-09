@@ -2,20 +2,20 @@ import React from "react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
-import { SelectedItems } from "./MultiSelectTypes";
+import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectMenuButtonProps {
-  /** The id of the multiSelect using this button. */
+  /** The id of the MultiSelect using this button. */
   multiSelectId: string;
-  /** The label of the multiSelect using this button. */
+  /** The label of the MultiSelect using this button. */
   label: string;
-  /** The open status of the multiselect menu. */
+  /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
-  /** The action to perform for clear/reset button of multiselect. */
+  /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
 }
 
@@ -29,13 +29,10 @@ const MultiSelectMenuButton = React.forwardRef<
   const iconType = isOpen ? "minus" : "plus";
 
   // Sets the selected items count on the menu button.
-  function getSelectedItemsCount(multiSelectId: string) {
-    if (selectedItems[multiSelectId]?.items.length > 0) {
-      return `${selectedItems[multiSelectId].items.length}`;
-    }
-    return null;
+  let getSelectedItemsCount;
+  if (selectedItems[multiSelectId]?.items.length > 0) {
+    getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
   }
-
   // We need this for our "fake" button inside the main menu button.
   function onKeyPress(e) {
     const enterOrSpace =
@@ -60,7 +57,7 @@ const MultiSelectMenuButton = React.forwardRef<
       onClick={onMenuToggle}
       {...props}
     >
-      {getSelectedItemsCount(multiSelectId) && (
+      {getSelectedItemsCount && (
         <Box
           as="span"
           __css={styles.selectedItemsCountButton}
@@ -70,12 +67,11 @@ const MultiSelectMenuButton = React.forwardRef<
           tabIndex={0}
         >
           <Box as="span" verticalAlign="text-bottom">
-            {getSelectedItemsCount(multiSelectId)}
+            {getSelectedItemsCount}
           </Box>
           <Icon
             id={`${multiSelectId}-selected-items-count-icon`}
             name="close"
-            decorative={true}
             size="xsmall"
             align="right"
           />
@@ -84,12 +80,7 @@ const MultiSelectMenuButton = React.forwardRef<
       <Box as="span" pr="s">
         {label}
       </Box>
-      <Icon
-        id={`${multiSelectId}-icon`}
-        name={iconType}
-        decorative={true}
-        size="small"
-      />
+      <Icon id={`${multiSelectId}-icon`} name={iconType} size="small" />
     </Button>
   );
 });

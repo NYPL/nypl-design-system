@@ -1,9 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Button from "./../Button/Button";
-import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem } from "./MultiSelect";
-import { MultiSelectProps } from "./MultiSelect";
-import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import {
   Box,
   ListItem,
@@ -14,6 +9,11 @@ import {
 } from "@chakra-ui/react";
 // @TODO Add "@chakra-ui/focus-lock" to package.json dependencies ?
 import FocusLock from "@chakra-ui/focus-lock";
+
+import Button from "./../Button/Button";
+import Checkbox from "./../Checkbox/Checkbox";
+import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
+import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import useWindowSize from "./../../hooks/useWindowSize";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
@@ -49,11 +49,11 @@ function MultiSelectDialog({
     }
   }, [windowDimensions.width]);
 
-  // Control the open or closed state of the multiselect.
+  // Control the open or closed state of the MultiSelect.
   const [isOpen, setIsOpen] = useState(isDefaultOpen);
   // Create a ref that we add to the element for which we want to detect outside clicks.
-  const ref = useRef();
-  // Closes the multiselect if user clicks outside.
+  const ref = useRef<HTMLDivElement>();
+  // Closes the MultiSelect if user clicks outside.
   useOutsideClick({
     ref: ref,
     handler: () => setIsOpen(false),
@@ -69,7 +69,7 @@ function MultiSelectDialog({
     }
     return false;
   };
-
+  // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false. This prop is only passed to parent options.
   const isAllChecked = (
     multiSelectId: string,
     item: MultiSelectItem
@@ -89,6 +89,7 @@ function MultiSelectDialog({
     return false;
   };
 
+  // isInteterminate will return true if some child items of the parent item are selected. This prop is only passed to parent options.
   const isIndeterminate = (
     multiSelectId: string,
     item: MultiSelectItem
@@ -139,26 +140,24 @@ function MultiSelectDialog({
           >
             {isOpen &&
               items.map((item: MultiSelectItem) => (
-                <ListItem key={item.id} py={1}>
+                <ListItem key={item.id} py="xxs">
                   {item.children ? (
                     <>
                       <Checkbox
                         id={item.id}
                         labelText={item.name}
-                        showLabel={true}
                         name={item.name}
                         // If onMixedStateChange is not passed as a prop, handle
                         // the parent checkbox as a regular checkbox using onChange
                         {...(onMixedStateChange !== undefined
                           ? {
-                              isChecked: isAllChecked(id, item) || false,
-                              isIndeterminate:
-                                isIndeterminate(id, item) || false,
+                              isChecked: isAllChecked(id, item),
+                              isIndeterminate: isIndeterminate(id, item),
                               onChange: onMixedStateChange,
                             }
                           : {
-                              isChecked: isChecked(id, item.id) || false,
-                              onChange: onChange,
+                              isChecked: isChecked(id, item.id),
+                              onChange,
                             })}
                       />
                       <UnorderedList
@@ -168,13 +167,12 @@ function MultiSelectDialog({
                       >
                         {item.children.map((childItem) => {
                           return (
-                            <ListItem key={childItem.id} py={1}>
+                            <ListItem key={childItem.id} py="xxs">
                               <Checkbox
                                 id={childItem.id}
                                 labelText={childItem.name}
-                                showLabel={true}
                                 name={childItem.name}
-                                isChecked={isChecked(id, childItem.id) || false}
+                                isChecked={isChecked(id, childItem.id)}
                                 onChange={onChange}
                               />
                             </ListItem>
@@ -186,9 +184,8 @@ function MultiSelectDialog({
                     <Checkbox
                       id={item.id}
                       labelText={item.name}
-                      showLabel={true}
                       name={item.name}
-                      isChecked={isChecked(id, item.id) || false}
+                      isChecked={isChecked(id, item.id)}
                       onChange={onChange}
                     />
                   )}
@@ -196,11 +193,10 @@ function MultiSelectDialog({
               ))}
           </UnorderedList>
           {isOpen && !isMobile && (
-            <Stack direction="row" spacing={4} justify="flex-end">
+            <Stack direction="row" spacing="s" justify="flex-end">
               <Button
                 id="multiselect-dialog-clear"
                 buttonType="link"
-                mouseDown={false}
                 type="button"
                 onClick={onClear}
               >
@@ -209,7 +205,6 @@ function MultiSelectDialog({
               <Button
                 id="multiselect-dialog-apply"
                 buttonType="primary"
-                mouseDown={false}
                 type="button"
                 onClick={() => {
                   // Close the multiselect on apply.

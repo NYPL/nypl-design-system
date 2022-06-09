@@ -1,10 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
+import userEvent from "@testing-library/user-event";
+import * as React from "react";
+
 import MultiSelect from "./MultiSelect";
-import { MultiSelectItem } from "./MultiSelect";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const items = [
   { id: "dogs", name: "Dogs" },
@@ -22,77 +23,12 @@ const items = [
   { id: "furniture", name: "Furniture" },
 ];
 
-const MultiSelectDialogTestComponent = (componentId) => {
-  const [selectedItems, setSelectedItems] = React.useState({});
-
-  function handleChange(multiSelectId: string, itemId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[multiSelectId] !== undefined) {
-      let itemIdExists =
-        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If termId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id !== itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
+const MultiSelectTestDialogComponent = (componentId) => {
+  const { onChange, onMixedStateChange, selectedItems, onClear } =
+    useMultiSelect({
+      multiSelectId: componentId,
+      items,
     });
-  }
-
-  function handleMixedStateChange(parentId: string) {
-    const multiSelectId = componentId;
-    // Build an array of child items.
-    let childItems = [];
-    items.map((item) => {
-      if (item.id === parentId) {
-        item.children.map((childItem: MultiSelectItem) => {
-          childItems.push(childItem.id);
-        });
-      }
-    });
-
-    let newItems;
-    // Some selected items for group already exist in state.
-    if (selectedItems[multiSelectId] !== undefined) {
-      //
-      if (
-        childItems.every((childItem) =>
-          selectedItems[multiSelectId].items.includes(childItem)
-        )
-      ) {
-        newItems = selectedItems[multiSelectId].items.filter(
-          (stateItem) => !childItems.includes(stateItem)
-        );
-      } else {
-        // Merge all child items.
-        newItems = [...childItems, ...selectedItems[multiSelectId].items];
-      }
-    } else {
-      newItems = childItems;
-    }
-
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: newItems,
-      },
-    });
-  }
-
   return (
     <MultiSelect
       id={componentId}
@@ -100,15 +36,33 @@ const MultiSelectDialogTestComponent = (componentId) => {
       variant="dialog"
       items={items}
       selectedItems={selectedItems}
-      onChange={(e) => handleChange(componentId, e.target.id)}
+      onChange={(e) => onChange(e.target.id)}
       onMixedStateChange={(e) => {
-        handleMixedStateChange(e.target.id);
+        onMixedStateChange(e.target.id);
       }}
-      onClear={() => setSelectedItems({})}
+      onClear={() => onClear()}
       onApply={() => null}
     />
   );
 };
+const MultiSelectTestListboxComponent = (componentId) => {
+  const { onChange, selectedItems, onClear } = useMultiSelect({
+    multiSelectId: componentId,
+    items,
+  });
+  return (
+    <MultiSelect
+      id={componentId}
+      label="MultiSelect Label"
+      variant="listbox"
+      items={items}
+      selectedItems={selectedItems}
+      onChange={(selectedItem) => onChange(selectedItem.id)}
+      onClear={() => onClear()}
+    />
+  );
+};
+
 describe("MultiSelect Accessibility", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
@@ -362,17 +316,17 @@ describe("MultiSelect Dialog", () => {
 
     expect(screen.getByRole("checkbox", { name: /dogs/i })).toBeInTheDocument();
     userEvent.click(screen.getByRole("checkbox", { name: /dogs/i }));
-    expect(onChangeMock).toBeCalledTimes(1);
     expect(onMixedStateChangeMock).not.toBeCalled();
+    expect(onChangeMock).toBeCalledTimes(1);
 
     userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
     userEvent.click(screen.getByRole("checkbox", { name: /plants/i }));
-    expect(onChangeMock).toBeCalledTimes(3);
     expect(onMixedStateChangeMock).not.toBeCalled();
+    expect(onChangeMock).toBeCalledTimes(3);
 
     userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
-    expect(onChangeMock).toBeCalledTimes(4);
     expect(onMixedStateChangeMock).not.toBeCalled();
+    expect(onChangeMock).toBeCalledTimes(4);
   });
 
   it("should call onMixedStateChange when a parent item is selected/unselected", () => {
@@ -412,7 +366,7 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should have indeterminate state for parent item if not all child items are checked", () => {
-    render(<MultiSelectDialogTestComponent id="multiselect-dialog-test-id" />);
+    render(<MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />);
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check the child
@@ -424,7 +378,7 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should check all child items if parent is checked", () => {
-    render(<MultiSelectDialogTestComponent id="multiselect-dialog-test-id" />);
+    render(<MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />);
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check the parent item
@@ -456,6 +410,51 @@ describe("MultiSelect Dialog", () => {
       />
     );
     expect(screen.getByLabelText("Colors")).toBeChecked();
+  });
+  it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
+    const { container } = render(
+      <MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />
+    );
+    // Check for the selectedItems count button to not be present
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Check on item
+    userEvent.click(screen.getByRole("checkbox", { name: /dogs/i }));
+    // Check for the selectedItems count button to be present and reflect the count of selectedItems
+    expect(container.querySelector("span[role='button']")).toBeInTheDocument();
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "1"
+    );
+    // Check the parent item with two child item
+    userEvent.click(screen.getByText("Colors"));
+    // Check for the count of selectedItems
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "3"
+    );
+    // Close menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Count button is still present
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "3"
+    );
+    // Click count button
+    userEvent.click(container.querySelector("span[role='button']"));
+    // Count button disapeared
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
+    // @TODO prevent menu toggle on count button click
+    // // Open menu
+    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Previously selected elements should not be selected
+    expect(screen.getByLabelText("Dogs")).not.toBeChecked();
+    expect(screen.getByLabelText("Colors")).not.toBeChecked();
+    // Check that child items are not checked
+    expect(screen.getByLabelText("Red")).not.toBeChecked();
+    expect(screen.getByLabelText("Blue")).not.toBeChecked();
   });
 
   it("should render the UI snapshot correctly", () => {
@@ -663,6 +662,49 @@ describe("MultiSelect Listbox", () => {
     // Uncheck item
     userEvent.click(screen.getByRole("option", { name: /colors/i }));
     expect(onChangeMock).toBeCalledTimes(4);
+  });
+
+  it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
+    const { container } = render(
+      <MultiSelectTestListboxComponent id="multiselect-listbox-test-id" />
+    );
+    // Check for the selectedItems count button to not be present
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Check on item
+    userEvent.click(screen.getByRole("option", { name: /dogs/i }));
+    // Check for the selectedItems count button to be present and reflect the count of selectedItems
+    expect(container.querySelector("span[role='button']")).toBeInTheDocument();
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "1"
+    );
+    // Check a second item
+    userEvent.click(screen.getByRole("option", { name: /colors/i }));
+    // Check for the count of selectedItems
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "2"
+    );
+    // Close menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Count button is still present
+    expect(container.querySelector("span[role='button']")).toHaveTextContent(
+      "2"
+    );
+    // Click count button
+    userEvent.click(container.querySelector("span[role='button']"));
+    // Count button disapeared
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
+    // @TODO prevent menu toggle on count button click
+    // // Open menu
+    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Previously selected elements should not be selected
+    expect(screen.getByLabelText("Dogs")).not.toBeChecked();
+    expect(screen.getByLabelText("Colors")).not.toBeChecked();
   });
 
   it("Renders the UI snapshot correctly", () => {

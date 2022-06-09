@@ -5,16 +5,17 @@ import {
   UnorderedList,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem } from "./MultiSelect";
-import { MultiSelectProps } from "./MultiSelect";
-import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import { useSelect } from "downshift";
+
+import Checkbox from "./../Checkbox/Checkbox";
+import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
+import MultiSelectMenuButton from "./MultiSelectMenuButton";
 
 type MultiSelectListboxProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (selectedItem: MultiSelectItem, id: string) => void;
 };
 
+/** MultiSelectListbox renders a non-hierarchical list of checkbox options for the `variant="listbox". It leverager downshift-js for accessiblity. */
 function MultiSelectListbox({
   id,
   label,
@@ -113,15 +114,8 @@ function MultiSelectListbox({
                 <Checkbox
                   id={item.id}
                   labelText={item.name}
-                  showLabel={true}
                   name={item.name}
-                  isChecked={
-                    selectedItems[id]?.items.find(
-                      (selectedItemId: string) => selectedItemId === item.id
-                    )
-                      ? true
-                      : false
-                  }
+                  isChecked={selectedItems[id]?.items.includes(item.id)}
                   onChange={() => null}
                 />
               </ListItem>

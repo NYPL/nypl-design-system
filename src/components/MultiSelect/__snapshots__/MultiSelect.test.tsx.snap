@@ -220,7 +220,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         role="list"
       >
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -289,7 +289,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -358,7 +358,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -427,7 +427,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -499,7 +499,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
             role="list"
           >
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -568,7 +568,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               </div>
             </li>
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -639,7 +639,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </ul>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -708,7 +708,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -778,7 +778,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-18u47k0"
+        className="chakra-stack css-yvl6al"
       >
         <button
           className="chakra-button css-1xdhyk6"
@@ -973,7 +973,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         role="list"
       >
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1042,7 +1042,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1111,7 +1111,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1180,7 +1180,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1274,7 +1274,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
             role="list"
           >
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -1346,7 +1346,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               </div>
             </li>
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -1417,7 +1417,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </ul>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1486,7 +1486,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1556,7 +1556,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-18u47k0"
+        className="chakra-stack css-yvl6al"
       >
         <button
           className="chakra-button css-1xdhyk6"
@@ -1752,7 +1752,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         role="list"
       >
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1821,7 +1821,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1890,7 +1890,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -1959,7 +1959,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -2034,7 +2034,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
             role="list"
           >
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -2106,7 +2106,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               </div>
             </li>
             <li
-              className="css-z07a8f"
+              className="css-5nzan1"
             >
               <div
                 className="css-1xdhyk6"
@@ -2180,7 +2180,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </ul>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -2249,7 +2249,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </div>
         </li>
         <li
-          className="css-z07a8f"
+          className="css-5nzan1"
         >
           <div
             className="css-1xdhyk6"
@@ -2319,7 +2319,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-18u47k0"
+        className="chakra-stack css-yvl6al"
       >
         <button
           className="chakra-button css-1xdhyk6"
