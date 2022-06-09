@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.3 (June 9, 2022)
+
 ### Adds
 
 - Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
