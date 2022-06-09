@@ -4,6 +4,8 @@ import { chakra, Flex, HStack, useMultiStyleConfig } from "@chakra-ui/react";
 import Icon from "../../Icons/Icon";
 import Login from "./Login";
 import { LoginProps } from "./UpperNav";
+import MobileNavButton from "./MobileNavButton";
+import SearchButton from "./SearchButton";
 
 const Mobile = chakra(({ loginOpen, patronName, setLoginOpen }: LoginProps) => {
   const styles = useMultiStyleConfig("HeaderMobile", {});
@@ -23,13 +25,8 @@ const Mobile = chakra(({ loginOpen, patronName, setLoginOpen }: LoginProps) => {
           size="medium"
           title="NYPL Locator"
         />
-        <Icon id="search-icon" name="search" size="medium" title="Search" />
-        <Icon
-          id="hamburger-icon"
-          name="utilityHamburger"
-          size="medium"
-          title="Menu"
-        />
+        <SearchButton isMobile />
+        <MobileNavButton />
       </HStack>
     </Flex>
   );

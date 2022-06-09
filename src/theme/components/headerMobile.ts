@@ -1,7 +1,6 @@
 const HeaderMobile = {
   baseStyle: {
     icons: {
-      marginTop: "xs",
       svg: {
         marginLeft: "m",
       },

@@ -71,7 +71,7 @@ export const Header = chakra(() => {
   return (
     <Box __css={styles.container}>
       <SkipNavigation />
-      <SitewideAlerts />
+      <SitewideAlerts isMobile={isWidthMobile} />
       <header>
         <HStack id="headerMain" justifyContent="space-between">
           <Link

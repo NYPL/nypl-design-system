@@ -87,38 +87,96 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         <div
           className="chakra-stack css-1p1m4ay"
         >
-          <svg
-            aria-hidden={true}
-            className="chakra-icon css-1grhd2q"
-            focusable={false}
-            id="log-in-icon"
-            role="img"
-            title="Log in to your account"
-            viewBox="0 0 24 24"
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-lock-disabled="disabled"
+            onBlur={[Function]}
+            onFocus={[Function]}
           >
-            <g
-              stroke="currentColor"
-              strokeWidth="1.5"
+            <button
+              className="chakra-button withIcon loginButton css-1xdhyk6"
+              data-testid="button"
+              id="loginButton"
+              onClick={[Function]}
+              type="button"
             >
-              <path
-                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                fill="currentColor"
-                strokeLinecap="round"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                fill="none"
-                r="11.25"
-                strokeMiterlimit="10"
-              />
-            </g>
-          </svg>
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-1grhd2q"
+                focusable={false}
+                role="img"
+                title="Log in to your account"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
           <svg
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
@@ -151,70 +209,192 @@ exports[`Header renders the UI snapshot correctly 1`] = `
               />
             </g>
           </svg>
-          <svg
-            aria-hidden={true}
-            className="chakra-icon css-1grhd2q"
-            focusable={false}
-            id="search-icon"
-            role="img"
-            title="Search"
-            viewBox="0 0 24 24"
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-lock-disabled="disabled"
+            onBlur={[Function]}
+            onFocus={[Function]}
           >
-            <g
-              stroke="currentColor"
-              strokeWidth="1.5"
+            <button
+              aria-expanded={null}
+              aria-haspopup="true"
+              aria-label="Open Search"
+              className="chakra-button css-1xdhyk6"
+              data-testid="button"
+              id="searchButton"
+              onClick={[Function]}
+              type="button"
             >
-              <path
-                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                fill="currentColor"
-                strokeLinecap="round"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                fill="none"
-                r="11.25"
-                strokeMiterlimit="10"
-              />
-            </g>
-          </svg>
-          <svg
-            aria-hidden={true}
-            className="chakra-icon css-1grhd2q"
-            focusable={false}
-            id="hamburger-icon"
-            role="img"
-            title="Menu"
-            viewBox="0 0 24 24"
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-1grhd2q"
+                focusable={false}
+                role="img"
+                title="Open Search"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
+          <div
+            data-focus-lock-disabled="disabled"
+            onBlur={[Function]}
+            onFocus={[Function]}
           >
-            <g
-              stroke="currentColor"
-              strokeWidth="1.5"
+            <button
+              aria-expanded={null}
+              aria-haspopup="true"
+              aria-label="Open Navigation"
+              className="chakra-button css-1xdhyk6"
+              data-testid="button"
+              id="mobileNav"
+              onClick={[Function]}
+              type="button"
             >
-              <path
-                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                fill="currentColor"
-                strokeLinecap="round"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                fill="none"
-                r="11.25"
-                strokeMiterlimit="10"
-              />
-            </g>
-          </svg>
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-1grhd2q"
+                focusable={false}
+                role="img"
+                title="utilityHamburger icon"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div
+            data-focus-guard={true}
+            style={
+              Object {
+                "height": "0px",
+                "left": "1px",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "fixed",
+                "top": "1px",
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+          />
         </div>
       </div>
     </div>

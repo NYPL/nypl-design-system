@@ -10,9 +10,9 @@ import { Alert, alertsApiUrl, parseAlertsData } from "../headerUtils";
  * to fetch NYPL sitewide alerts. While this component can be used in
  * isolation, it is already rendered in the DS Header component.
  */
-export const SitewideAlerts = chakra(() => {
+export const SitewideAlerts = chakra(({ isMobile }) => {
   const [alerts, setAlerts] = useState<Alert[]>([]);
-  const styles = useStyleConfig("SitewideAlerts");
+  const styles = useStyleConfig("SitewideAlerts", { isMobile });
   const fetchErrorMessage =
     "NYPL Reservoir SitewideAlerts: There was an error fetching NYPL sitewide alerts.";
 
