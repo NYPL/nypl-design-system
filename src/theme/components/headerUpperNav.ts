@@ -33,7 +33,6 @@ const upperNav = {
     textDecoration: "none",
     textTransform: "inherit",
     _hover: {
-      color: "ui.black",
       textDecoration: "none",
     },
     _focus: {
@@ -42,34 +41,6 @@ const upperNav = {
       outlineWidth: "0.1875em",
     },
   },
-  ".withIcon": {
-    alignItems: "baseline",
-    color: "ui.black",
-    width: "75px",
-    svg: {
-      height: "10px",
-    },
-    _focus: {
-      borderRadius: "none",
-    },
-  },
-  ".accountButton": {
-    width: "120px",
-  },
-  // ".closeLoginButton": {
-  //   bg: "#135772",
-  //   color: "ui.white",
-  //   width: "75px",
-  //   _hover: {
-  //     bg: "#135772",
-  //     color: "ui.white",
-  //   },
-  //   svg: {
-  //     position: "relative",
-  //     height: "11px",
-  //     top: "1px",
-  //   },
-  // },
   "#donateButton": {
     alignItems: "center",
     bg: "#ed1c24",

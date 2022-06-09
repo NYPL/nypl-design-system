@@ -85,7 +85,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         className="css-k008qs"
       >
         <div
-          className="chakra-stack css-1p1m4ay"
+          className="chakra-stack css-84zodg"
         >
           <div
             data-focus-guard={true}
@@ -123,7 +123,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
             onFocus={[Function]}
           >
             <button
-              className="chakra-button withIcon loginButton css-1xdhyk6"
+              className="chakra-button css-1xdhyk6"
               data-testid="button"
               id="loginButton"
               onClick={[Function]}

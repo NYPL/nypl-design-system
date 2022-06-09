@@ -22,8 +22,8 @@ import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Header from "./components/header";
 import HeaderLogin from "./components/headerLogin";
+import HeaderLoginButton from "./components/headerLoginButton";
 import HeaderLowerNav from "./components/headerLowerNav";
-import HeaderMobile from "./components/headerMobile";
 import HeaderMobileNav from "./components/headerMobileNav";
 import HeaderMobileNavButton from "./components/headerMobileNavButton";
 import HeaderSearchForm from "./components/headerSearchForm";
@@ -104,8 +104,8 @@ const theme = extendTheme({
     Fieldset,
     Header,
     HeaderLogin,
+    HeaderLoginButton,
     HeaderLowerNav,
-    HeaderMobile,
     HeaderMobileNav,
     HeaderMobileNavButton,
     HeaderSearchForm,

@@ -3,15 +3,16 @@ import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
-import Login from "./Login";
 import Link from "../../Link/Link";
 import List from "../../List/List";
+import LoginButton from "./LoginButton";
 
 export interface LoginProps {
+  greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
-  loginOpen: boolean;
+  loginOpen?: boolean;
   patronName: string;
-  setLoginOpen: (boolean) => void;
+  setLoginOpen?: (boolean) => void;
 }
 
 const UpperNav = chakra(
@@ -24,7 +25,7 @@ const UpperNav = chakra(
           id="header-nav-upper"
           inline
           listItems={[
-            <Login
+            <LoginButton
               key="login"
               loginOpen={loginOpen}
               patronName={patronName}
@@ -36,12 +37,7 @@ const UpperNav = chakra(
             <Link href="#" key="libraryCardLink">
               Get A Library Card
             </Link>,
-            <Link
-              className="withIcon"
-              id="emailUpdatesButton"
-              key="emailUpdatesButton"
-              href="#"
-            >
+            <Link id="emailUpdatesButton" key="emailUpdatesButton" href="#">
               <>
                 Get Email Updates
                 <Icon name="arrow" align="right" size="small" />
