@@ -7,10 +7,9 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
-import { AriaAttributes } from "../../utils/interfaces";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
 
 export type ToggleSizes = "default" | "small";
 export interface ToggleProps {
@@ -71,12 +70,16 @@ export const Toggle = chakra(
       size = "default",
       ...rest
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
-    const ariaAttributes: AriaAttributes = {};
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
-    ariaAttributes["aria-label"] =
-      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+    const footnote = isInvalid ? invalidText : helperText;
+    const ariaAttributes = getAriaAttrs({
+      footnote,
+      id,
+      labelText,
+      name: "Toggle",
+      showLabel: true,
+    });
 
     if (!id) {
       console.warn(
@@ -85,14 +88,21 @@ export const Toggle = chakra(
     }
 
     return (
-      <>
-        <Box __css={styles} {...rest}>
+      <ComponentWrapper
+        helperText={helperText}
+        helperTextStyles={styles.helperErrorText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        {...rest}
+      >
+        <Box __css={styles}>
           <Switch
             id={id}
-            name={name || "default"}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            name={name || "default"}
             ref={ref}
             size={size === "default" ? "lg" : "sm"}
             lineHeight="1.5"
@@ -110,15 +120,7 @@ export const Toggle = chakra(
             {labelText}
           </Switch>
         </Box>
-        {footnote && (
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-            __css={styles.helperErrorText}
-          />
-        )}
-      </>
+      </ComponentWrapper>
     );
   })
 );

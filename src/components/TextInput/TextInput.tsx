@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
@@ -7,10 +6,10 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import { getAriaAttrs } from "../../utils/utils";
 
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export type TextInputTypes =
@@ -59,7 +58,8 @@ export interface InputProps {
   labelText: string;
   /** The max number for a `number` TextInput type. */
   max?: number;
-  /** The max length of the input field. */
+  /** The max length of the input field. This prop is for all input types
+   * except for the `number` type. */
   maxLength?: number;
   /** The min number for a `number` TextInput type. */
   min?: number;
@@ -147,7 +147,14 @@ export const TextInput = chakra(
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
-      let ariaAttributes = {};
+      const ariaAttributes = getAriaAttrs({
+        footnote,
+        id,
+        labelText,
+        name: "TextInput",
+        showLabel,
+      });
+      let finalIsInvalid = isInvalid;
       let fieldOutput;
       let options;
 
@@ -157,11 +164,11 @@ export const TextInput = chakra(
         );
       }
 
-      if (!showLabel) {
-        ariaAttributes["aria-label"] =
-          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-      } else if (helperText) {
-        ariaAttributes["aria-describedby"] = `${id}-helperText`;
+      if (type === "number" && max && min && min > max) {
+        finalIsInvalid = true;
+        console.warn(
+          "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
+        );
       }
 
       if (type === "tel" || type === "url" || type === "email") {
@@ -184,7 +191,7 @@ export const TextInput = chakra(
             id,
             isDisabled,
             isRequired,
-            isInvalid,
+            isInvalid: finalIsInvalid,
             max,
             maxLength,
             min,
@@ -213,7 +220,16 @@ export const TextInput = chakra(
       }
 
       return (
-        <Box __css={styles} className={className} {...rest}>
+        <ComponentWrapper
+          className={className}
+          helperText={!finalIsInvalid ? footnote : helperText}
+          id={id}
+          invalidText={finalInvalidText}
+          isInvalid={finalIsInvalid}
+          showHelperInvalidText={showHelperInvalidText && !isHidden}
+          __css={styles}
+          {...rest}
+        >
           {labelText && showLabel && !isHidden && (
             <Label
               htmlFor={id}
@@ -224,14 +240,7 @@ export const TextInput = chakra(
             </Label>
           )}
           {fieldOutput}
-          {footnote && showHelperInvalidText && !isHidden && (
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          )}
-        </Box>
+        </ComponentWrapper>
       );
     }
   )

@@ -2,29 +2,27 @@ import {
   Box,
   chakra,
   RangeSlider as ChakraRangeSlider,
-  RangeSliderTrack as ChakraRangeSliderTrack,
   RangeSliderFilledTrack as ChakraRangeSliderFilledTrack,
   RangeSliderThumb as ChakraRangeSliderThumb,
+  RangeSliderTrack as ChakraRangeSliderTrack,
   Slider as ChakraSlider,
-  SliderTrack as ChakraSliderTrack,
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
+  SliderTrack as ChakraSliderTrack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
 
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
-import HelperErrorText, {
-  HelperErrorTextType,
-} from "../HelperErrorText/HelperErrorText";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
 export interface SliderProps {
   /** Additional class name for the Slider component. */
   className?: string;
   /** The initial value for the single `Slider` or an array of two number
-   * values for the `isRangeSlider` case.
-   */
+   * values for the `isRangeSlider` case. */
   defaultValue?: number | number[];
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
@@ -119,8 +117,16 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   // then set the invalid state.
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
+    console.warn(
+      "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
+    );
   }
-  const footnote = finalIsInvalid ? invalidText : helperText;
+  if (min > max) {
+    finalIsInvalid = true;
+    console.warn(
+      "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
+    );
+  }
   const styles = useMultiStyleConfig("CustomSlider", {
     isDisabled,
     isInvalid: finalIsInvalid,
@@ -276,7 +282,16 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   };
 
   return (
-    <Box className={className} __css={styles} {...rest}>
+    <ComponentWrapper
+      className={className}
+      helperText={helperText}
+      id={id}
+      invalidText={invalidText}
+      isInvalid={finalIsInvalid}
+      showHelperInvalidText={showHelperInvalidText}
+      __css={styles}
+      {...rest}
+    >
       {showLabel && (
         <Label
           id={`${id}-label`}
@@ -307,15 +322,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
 
         {showBoxes && getTextInput("end")}
       </Box>
-
-      {footnote && showHelperInvalidText && (
-        <HelperErrorText
-          id={`${id}-helperText`}
-          isInvalid={finalIsInvalid}
-          text={footnote}
-        />
-      )}
-    </Box>
+    </ComponentWrapper>
   );
 });
 

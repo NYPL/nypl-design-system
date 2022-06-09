@@ -18,6 +18,8 @@ import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
 import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
 import nyplLionBlack from "../../../icons/svg/logo-nypl-lion-black.svg";
 import nyplLionWhite from "../../../icons/svg/logo-nypl-lion-white.svg";
+import nyplTextBlack from "../../../icons/svg/logo-nypl-text-black.svg";
+import nyplTextWhite from "../../../icons/svg/logo-nypl-text-white.svg";
 import openebooksColor from "../../../icons/svg/logo-openebooks-color.svg";
 import openebooksNegative from "../../../icons/svg/logo-openebooks-negative.svg";
 import openebooksWithTextColor from "../../../icons/svg/logo-openebooks-with-text-color.svg";
@@ -63,6 +65,8 @@ export default {
   nyplFullWhite,
   nyplLionBlack,
   nyplLionWhite,
+  nyplTextBlack,
+  nyplTextWhite,
   openebooksColor,
   openebooksNegative,
   openebooksWithTextColor,
