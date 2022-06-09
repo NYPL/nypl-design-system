@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -10,8 +10,7 @@
   "types": "dist/index.d.ts",
   "module": "dist/design-system-react-components.esm.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">10"
@@ -77,7 +76,8 @@
     "@emotion/styled": ">=11.3.0",
     "framer-motion": "^4.1.17",
     "react": ">=16.13.0",
-    "react-dom": ">=16.13.0"
+    "react-dom": ">=16.13.0",
+    "typescript": "*"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",

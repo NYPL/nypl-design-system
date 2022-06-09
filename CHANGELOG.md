@@ -17,6 +17,34 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+
+## 1.0.3 (June 9, 2022)
+
+### Adds
+
+- Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
+- Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
+
+### Updates
+
+- Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
+- Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
+- Updates the `Logo` component to include new variants for `NYPL Text Only`.
+- Updates the `Card`'s full-click functionality styling for its wrapper element.
+- Updates how the `Card`'s `Image` component is displayed in the mobile view; sizes and aspect ratios are maintained instead of always displaying as 100% width.
+- Updates hover style to add right border color on hover for `Select` element.
+- Updates the `Table` component to be responsive for a mobile viewport.
+- Updates the `Table` component to make the `columnHeaders` prop required.
+
+### Fixes
+
+- Fixes the border color for the `Accordion` button.
+- Fixes a false warning message logged from the `Table` component.
+- Fixes the background color for the `Toggle` button.
+
 ## 1.0.2 (June 1, 2022)
 
 ### Adds

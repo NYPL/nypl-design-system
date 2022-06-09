@@ -12,6 +12,13 @@ describe("Radio Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <Radio id="inputID" labelText="Test Label" showLabel={false} />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with jsx label", async () => {
     const { container } = render(
       <Radio
@@ -34,28 +41,6 @@ describe("Radio Button", () => {
     render(<Radio id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
     expect(screen.getByRole("radio")).toBeInTheDocument();
-  });
-
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    render(<Radio id="inputID" labelText="Test Label" showLabel={false} />);
-    expect(screen.getByLabelText("Test Label")).toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
-  });
-
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
-    render(
-      <Radio
-        id="inputID"
-        labelText="Test Label"
-        showLabel={false}
-        helperText="This is the helper text."
-      />
-    );
-    expect(
-      screen.getByLabelText("Test Label - This is the helper text.")
-    ).toBeInTheDocument();
   });
 
   it("renders visible helper or error text", () => {
