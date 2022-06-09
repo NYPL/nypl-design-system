@@ -50,17 +50,19 @@ describe("SearchForm", () => {
     // Restore the `Date` class.
     (global as any).Date = realDate;
   });
+
   describe("Desktop", () => {
     beforeEach(() => {
       render(<SearchForm />);
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
+      const form = screen.getByRole("form");
       const searchInput = screen.getByRole("textbox");
       const radioGroup = screen.getByRole("radiogroup");
       const searchBtn = screen.getByRole("button");
 
-      expect(screen.getByRole("form")).toBeInTheDocument();
+      expect(form).toBeInTheDocument();
       expect(searchInput).toBeInTheDocument();
       expect(radioGroup).toBeInTheDocument();
       expect(searchBtn).toBeInTheDocument();
@@ -75,7 +77,7 @@ describe("SearchForm", () => {
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
 
-      // The second call to `window.location.assign` should be...
+      // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
         "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
@@ -90,6 +92,7 @@ describe("SearchForm", () => {
       userEvent.type(searchInput, "cats");
       // Select the "Search NYPL.org" radio button.
       userEvent.click(webRadio);
+      // Run the search.
       userEvent.click(searchBtn);
 
       // We mock `window.location.assign` before ALL tests and restore after
@@ -108,10 +111,11 @@ describe("SearchForm", () => {
     });
 
     it("renders a form with an input and two buttons on mobile", () => {
+      const form = screen.getByRole("form");
       const searchInput = screen.getByRole("textbox");
       const buttons = screen.getAllByRole("button");
 
-      expect(screen.getByRole("form")).toBeInTheDocument();
+      expect(form).toBeInTheDocument();
       expect(searchInput).toBeInTheDocument();
       expect(buttons).toHaveLength(2);
       expect(buttons[0]).toHaveTextContent("CATALOG");
@@ -127,7 +131,7 @@ describe("SearchForm", () => {
       userEvent.click(catalogButton);
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
-        3,
+        1,
         "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
@@ -141,7 +145,7 @@ describe("SearchForm", () => {
       userEvent.click(websiteButton);
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
-        4,
+        2,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
       );
     });

@@ -35,10 +35,14 @@ describe("SearchButton", () => {
       const searchBtn = screen.getByRole("button");
 
       expect(searchBtn).toHaveTextContent(/search/i);
+      expect(screen.getByTitle(/Open Search/i)).toBeInTheDocument();
+      expect(screen.queryByTitle(/Close Search/i)).not.toBeInTheDocument();
 
       userEvent.click(searchBtn);
 
       expect(searchBtn).toHaveTextContent(/close/i);
+      expect(screen.queryByTitle(/Open Search/i)).not.toBeInTheDocument();
+      expect(screen.getByTitle(/Close Search/i)).toBeInTheDocument();
     });
 
     it("renders the search form when clicked", () => {

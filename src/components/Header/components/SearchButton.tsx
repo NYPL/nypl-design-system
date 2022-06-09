@@ -14,12 +14,13 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderSearchButton", { isMobile, isOpen });
   const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
+  const labelText = isOpen ? "Close Search" : "Open Search";
 
   return (
     <FocusLock isDisabled={!isOpen}>
       <Button
         aria-haspopup="true"
-        aria-label={isOpen ? "Close Search" : "Open Search"}
+        aria-label={labelText}
         aria-expanded={isOpen ? true : null}
         buttonType="link"
         id="searchButton"
@@ -31,6 +32,7 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
           align={isMobile ? "none" : "right"}
           name={isOpen ? "close" : "search"}
           size={isMobile ? "large" : "medium"}
+          title={labelText}
         />
       </Button>
       {isOpen && <SearchForm isMobile={isMobile} />}
