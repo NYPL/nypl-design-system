@@ -15,6 +15,14 @@ export const columnHeaders = [
   "Zipcode",
   "State",
 ];
+export const columnHeadersUneven = [
+  "First Name",
+  "Last Name",
+  "Nick Name",
+  "Address1",
+  "City",
+  "Zipcode",
+];
 export const tableData = [
   ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
   ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
@@ -28,6 +36,12 @@ export const tableData = [
     "09873",
     "NY",
   ],
+];
+export const tableDataUneven = [
+  ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
+  ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
+  ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"],
+  ["Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873"],
 ];
 export const characterHeaders = ["First Name", "Last Name", "Avatar"];
 export const charactersData = [
@@ -74,14 +88,22 @@ describe("Table Accessibility", () => {
   });
 
   it("passes axe accessibility test with tableData prop", async () => {
-    const { container } = render(<Table tableData={tableData} />);
+    const { container } = render(
+      <Table columnHeaders={columnHeaders} tableData={tableData} />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Table", () => {
   it("renders a caption", () => {
-    render(<Table tableData={tableData} titleText="this is the caption" />);
+    render(
+      <Table
+        columnHeaders={columnHeaders}
+        tableData={tableData}
+        titleText="this is the caption"
+      />
+    );
     expect(screen.getByText("this is the caption")).toBeInTheDocument();
   });
 
@@ -107,11 +129,39 @@ describe("Table", () => {
     expect(screen.getByText("Village Road")).toBeInTheDocument();
   });
 
+  it("logs a warning when the `columnHeaders` prop is an empty array", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table columnHeaders={[]} tableData={tableData} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
+        "column headers are required."
+    );
+  });
+
   it("logs a warning when the `tableData` prop is an empty array", async () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Table tableData={[]} />);
+    render(<Table columnHeaders={columnHeaders} tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
+    );
+  });
+
+  it("logs a warning when the columns in each `tableData` row are not identical", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table tableData={tableDataUneven} columnHeaders={columnHeaders} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
+        "The `Table` component may not render properly."
+    );
+  });
+
+  it("logs a warning when the column headers `columnHeaders` is not equal the number of columns in the data table", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table tableData={tableData} columnHeaders={columnHeadersUneven} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
+        "to the number of columns in the data table. " +
+        "The `Table` component may not render properly."
     );
   });
 
@@ -128,11 +178,14 @@ describe("Table", () => {
 
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
-      .create(<Table id="basic" tableData={tableData} />)
+      .create(
+        <Table columnHeaders={columnHeaders} id="basic" tableData={tableData} />
+      )
       .toJSON();
     const withCaption = renderer
       .create(
         <Table
+          columnHeaders={columnHeaders}
           id="withCaption"
           tableData={tableData}
           titleText="this is the caption"
@@ -176,6 +229,7 @@ describe("Table", () => {
     const withChakraProps = renderer
       .create(
         <Table
+          columnHeaders={columnHeaders}
           id="chakra"
           tableData={tableData}
           p="20px"
@@ -184,7 +238,14 @@ describe("Table", () => {
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(<Table id="props" tableData={tableData} data-testid="props" />)
+      .create(
+        <Table
+          columnHeaders={columnHeaders}
+          id="props"
+          tableData={tableData}
+          data-testid="props"
+        />
+      )
       .toJSON();
     const withJSXData = renderer
       .create(

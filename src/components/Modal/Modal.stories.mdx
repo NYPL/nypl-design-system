@@ -27,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.27.0`   |
+| Latest            | `1.0.4`    |
 
 ## Table of Contents
 
@@ -206,96 +206,89 @@ In either `Modal` pattern, the main content inside the `Modal` component will
 scroll while the `Modal`'s header and footer still stay static. Check the
 example below with a lot of content inside the `Modal`.
 
+export const scrollModalProps = {
+  bodyContent: (
+    <>
+      <Heading text="Content Title" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
+        placerat duis ultricies lacus sed turpis tincidunt.
+        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu risus
+        quis varius. Faucibus in ornare quam viverra orci sagittis.
+      </p>
+      <p>
+        Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
+        lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
+        Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
+      </p>
+      <p>
+        Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
+        Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
+        eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
+        a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
+        id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
+        nunc.
+      </p>
+      <p>
+        Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
+        gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
+        volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
+        tempor orci dapibus ultrices in iaculis. Dui vivamus arcu felis bibendum
+        ut tristique. Cras semper auctor neque vitae tempus quam pellentesque.
+        Placerat orci nulla pellentesque dignissim enim sit amet. Feugiat
+        pretium nibh ipsum consequat. Placerat orci nulla pellentesque
+        dignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisi
+        est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
+        risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
+        vel' pharetra.
+      </p>
+      <Heading text="Another Title" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
+        placerat duis ultricies lacus sed turpis tincidunt.
+        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu risus
+        quis varius. Faucibus in ornare quam viverra orci sagittis.
+      </p>
+      <p>
+        Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
+        lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
+        Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
+      </p>
+      <p>
+        Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
+        Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
+        eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
+        a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
+        id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
+        nunc.
+      </p>
+      <p>
+        Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
+        gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
+        volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
+        tempor orci dapibus ultrices in iaculis. Dui vivamus arcu felis bibendum
+        ut tristique. Cras semper auctor neque vitae tempus quam pellentesque.
+        Placerat orci nulla pellentesque dignissim enim sit amet. Feugiat
+        pretium nibh ipsum consequat. Placerat orci nulla pellentesque
+        dignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisi
+        est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
+        risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
+        vel' pharetra.
+      </p>
+    </>
+  ),
+  closeButtonLabel: "Close Button",
+  headingText: "Modal Heading Text",
+};
+
 <Canvas withToolbar>
-  <Story
-    name="Content Window Scrolling"
-    args={{
-      buttonText: "Button Text",
-      id: "modal-scrolling",
-      modalProps: {
-        bodyContent: (
-          <>
-            <Heading text="Content Title" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Pellentesque massa placerat duis ultricies lacus sed turpis
-              tincidunt.
-              <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non
-              arcu risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-            </p>
-            <p>
-              Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
-              enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
-              viverra. Diam quam nulla porttitor massa id neque. Sed faucibus
-              turpis in eu mi.
-            </p>
-            <p>
-              Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
-              in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
-              Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
-              fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl
-              nunc. Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo
-              a diam sollicitudin tempor id eu nisl nunc.
-            </p>
-            <p>
-              Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
-              gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
-              urna id volutpat. Lectus nulla at volutpat diam ut venenatis.
-              Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus
-              arcu felis bibendum ut tristique. Cras semper auctor neque vitae
-              tempus quam pellentesque. Placerat orci nulla pellentesque
-              dignissim enim sit amet. Feugiat pretium nibh ipsum consequat.
-              Placerat orci nulla pellentesque dignissim. Suspendisse faucibus
-              interdum posuere lorem. Nullam non nisi est sit. Turpis egestas
-              integer eget aliquet nibh praesent. Tortor at risus 'viverra
-              adipiscing at. Eu augue ut lectus arcu bibendum at varius vel'
-              pharetra.
-            </p>
-            <Heading text="Another Title" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Pellentesque massa placerat duis ultricies lacus sed turpis
-              tincidunt.
-              <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non
-              arcu risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-            </p>
-            <p>
-              Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
-              enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
-              viverra. Diam quam nulla porttitor massa id neque. Sed faucibus
-              turpis in eu mi.
-            </p>
-            <p>
-              Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
-              in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
-              Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
-              fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl
-              nunc. Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo
-              a diam sollicitudin tempor id eu nisl nunc.
-            </p>
-            <p>
-              Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
-              gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
-              urna id volutpat. Lectus nulla at volutpat diam ut venenatis.
-              Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus
-              arcu felis bibendum ut tristique. Cras semper auctor neque vitae
-              tempus quam pellentesque. Placerat orci nulla pellentesque
-              dignissim enim sit amet. Feugiat pretium nibh ipsum consequat.
-              Placerat orci nulla pellentesque dignissim. Suspendisse faucibus
-              interdum posuere lorem. Nullam non nisi est sit. Turpis egestas
-              integer eget aliquet nibh praesent. Tortor at risus 'viverra
-              adipiscing at. Eu augue ut lectus arcu bibendum at varius vel'
-              pharetra.
-            </p>
-          </>
-        ),
-        closeButtonLabel: "Close Button",
-        headingText: "Modal Heading Text",
-      },
-    }}
-  >
-    {(args) => <ModalTrigger {...args} />}
+  <Story name="Content Window Scrolling">
+    <ModalTrigger
+      buttonText="Button Text"
+      id="modal-scrolling"
+      modalProps={scrollModalProps}
+    />
   </Story>
 </Canvas>

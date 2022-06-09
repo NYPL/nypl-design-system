@@ -6,12 +6,10 @@
 
 The Reservoir Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
 
-_Note: This library is still in beta. Until we release the stable `1.0.0` version, we are loosely using semantic versioning._
-
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page)
-- [Development - deployed to Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page)
+- [Development/QA - deployed to Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page)
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -230,11 +228,11 @@ As of July, 2021, the Github Pages production site gets deployed every two weeks
 
 **Development**
 
-The development Storybook documentation is deployed to [Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
+The development Storybook documentation is deployed to [Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
 **Preview Sites**
 
-Preview Storybook documentation sites are deployed to Tugboat QA for every pull request. They follow a pattern such as `pr[number]-[hash].tugboat.qa` where `[number]` is the number of the pull request it is deploying. For example, for pull request #101, Tugboat will deploy a "preview" site to `pr101-wldudndlk24kas42.tugboat.qa`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
+Preview Storybook documentation sites are deployed to Vercel on every commit push to every branch in this repository. They follow a pattern such as `nypl-design-system-[hash]-nypl.vercel.app` where `[hash]` is a random hash created by Vercel. This means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
 
 ### React Component Documentation
 

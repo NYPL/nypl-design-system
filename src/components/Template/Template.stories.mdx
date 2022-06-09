@@ -57,7 +57,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `0.26.0`   |
+| Latest            | `1.0.3`    |
 
 ## Table of Contents
 
@@ -138,7 +138,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       sidebar: "left",
       renderFooterElement: true,
       renderHeaderElement: true,
-      renderSkipNavigation: false,
+      renderSkipNavigation: true,
     }}
     argTypes={{
       aboveHeader: { control: false },
@@ -599,7 +599,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
-          <Form id="form1" action="/end/point">
+          <Form action="/end/point" id="form1">
             <FormField>
               <TextInput
                 helperText="Make sure to complete this field."
@@ -618,13 +618,17 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             </FormField>
             <FormRow>
               <FormField>
-                <TextInput labelText="Phone Field" type="tel" />
+                <TextInput
+                  id="phone-field"
+                  labelText="Phone Field"
+                  type="tel"
+                />
               </FormField>
               <FormField>
-                <TextInput labelText="URL Field" type="url" />
+                <TextInput id="url-field" labelText="URL Field" type="url" />
               </FormField>
               <FormField>
-                <TextInput labelText="Age" type="number" />
+                <TextInput id="age-field" labelText="Age" type="number" />
               </FormField>
             </FormRow>
             <FormField>

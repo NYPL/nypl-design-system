@@ -143,6 +143,7 @@ export const CheckboxGroup = chakra(
         legendText={labelText}
         showRequiredLabel={showRequiredLabel}
         {...rest}
+        __css={styles}
       >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
@@ -152,7 +153,6 @@ export const CheckboxGroup = chakra(
             spacing={spacingProp}
             ref={ref}
             aria-label={!showLabel ? labelText : undefined}
-            sx={styles.stack}
           >
             {newChildren}
           </Stack>

@@ -8,6 +8,73 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+
+## 1.0.3 (June 9, 2022)
+
+### Adds
+
+- Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
+- Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
+
+### Updates
+
+- Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
+- Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
+- Updates the `Logo` component to include new variants for `NYPL Text Only`.
+- Updates the `Card`'s full-click functionality styling for its wrapper element.
+- Updates how the `Card`'s `Image` component is displayed in the mobile view; sizes and aspect ratios are maintained instead of always displaying as 100% width.
+- Updates hover style to add right border color on hover for `Select` element.
+- Updates the `Table` component to be responsive for a mobile viewport.
+- Updates the `Table` component to make the `columnHeaders` prop required.
+
+### Fixes
+
+- Fixes the border color for the `Accordion` button.
+- Fixes a false warning message logged from the `Table` component.
+- Fixes the background color for the `Toggle` button.
+
+## 1.0.2 (June 1, 2022)
+
+### Adds
+
+- Adds `noSpace` prop to the `Heading` component.
+- Adds validation for equal headers and data column to the `Table` component.
+- Adds `className`, `helperTextStyles`, and `showHelperInvalidText` props to the `ComponentWrapper` component.
+
+### Updates
+
+- Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+- Updates all QA urls from Tugboat QA to Vercel.
+- Updates the `Logo` component to include new variants for `Apple App Store`, `Clever Badge` and `Google Play`.
+- Pins the Chakra UI "react" and "system" packages to a certain range since Chakra v2 uses React 18 and creates backwards compatibility issues.
+- Updates buttons setup as icon only to get the same hover styles as `secondary` button in the `Button` component.
+- Updates and refactors the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components to use the `ComponentWrapper` component for similar DOM structure.
+- Updates how `CheckboxGroup` and `RadioGroup` handle `Checkbox` and `Radio` components when `isFullWidth` is true and there is JSX as labels.
+
+### Fixes
+
+- Fixes how `Image`s are rendered with a non-default `aspectRatio` value and with a `caption` value or a `credit` value or both.
+- Fixes the extra margin added by the `SkipNavigation` component.
+- Updates various component implementations in Storybook documentation pages to remove inadvertent console errors and warnings.
+- Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
+- Allows `Button`s in the `ButtonGroup` to manage their own `isDisabled` state.
+- Fixes how the `onChange` prop is set in `Checkbox` so it only gets called once per rendering.
+
+## 1.0.1 (May 31, 2022)
+
+_NOTE_: This version number was previously released in 2019 and is marked as deprecated in npm. The next version bump from `1.0.0` is `1.0.2`.
+
+## 1.0.0 (May 12, 2022)
+
+This is the first stable release of the NYPL Reservoir Design System! We've been looking forward to this moment for over two years.
+
+### Updates
+
+- Updates all links throughout the documentation to point to the new production URLs.
+
 ## 0.28.0 (May 9, 2022)
 
 ### Adds

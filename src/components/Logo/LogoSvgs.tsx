@@ -1,10 +1,14 @@
 /* eslint-disable camelcase */
+import appleAppStoreBlack from "../../../icons/svg/logo-apple-app-store-black.svg";
+import appleAppStoreWhite from "../../../icons/svg/logo-apple-app-store-white.svg";
 import bplBlack from "../../../icons/svg/logo-bpl-black.svg";
 import bplWhite from "../../../icons/svg/logo-bpl-white.svg";
+import cleverBadgeColor from "../../../icons/svg/logo-clever-badge-color.svg";
 import cleverColor from "../../../icons/svg/logo-clever-color.svg";
 import cleverWhite from "../../../icons/svg/logo-clever-white.svg";
 import firstbookColor from "../../../icons/svg/logo-firstbook-color.svg";
 import firstbookColorNegative from "../../../icons/svg/logo-firstbook-color-negative.svg";
+import googlePlayBlack from "../../../icons/svg/logo-google-play-black.svg";
 import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
 import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
 import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
@@ -14,6 +18,8 @@ import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
 import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
 import nyplLionBlack from "../../../icons/svg/logo-nypl-lion-black.svg";
 import nyplLionWhite from "../../../icons/svg/logo-nypl-lion-white.svg";
+import nyplTextBlack from "../../../icons/svg/logo-nypl-text-black.svg";
+import nyplTextWhite from "../../../icons/svg/logo-nypl-text-white.svg";
 import openebooksColor from "../../../icons/svg/logo-openebooks-color.svg";
 import openebooksNegative from "../../../icons/svg/logo-openebooks-negative.svg";
 import openebooksWithTextColor from "../../../icons/svg/logo-openebooks-with-text-color.svg";
@@ -40,12 +46,16 @@ import treasuresColor from "../../../icons/svg/logo-treasures-color.svg";
 import treasuresColorNegative from "../../../icons/svg/logo-treasures-color-negative.svg";
 
 export default {
+  appleAppStoreBlack,
+  appleAppStoreWhite,
   bplBlack,
   bplWhite,
+  cleverBadgeColor,
   cleverColor,
   cleverWhite,
   firstbookColor,
   firstbookColorNegative,
+  googlePlayBlack,
   lpaBlack,
   lpaColor,
   lpaWhite,
@@ -55,6 +65,8 @@ export default {
   nyplFullWhite,
   nyplLionBlack,
   nyplLionWhite,
+  nyplTextBlack,
+  nyplTextWhite,
   openebooksColor,
   openebooksNegative,
   openebooksWithTextColor,

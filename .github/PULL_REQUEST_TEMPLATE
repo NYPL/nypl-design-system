@@ -26,7 +26,7 @@ Fixes JIRA ticket xxx
 ### Front End Review:
 
 <!--- This step is done AFTER creating a PR. -->
-<!--- Tugboat creates a static Storybook preview URL once the PR is created. -->
-<!--- Copy the URL to the relevant Storybook page here. -->
+<!--- Vercel creates a static Storybook preview URL once the PR is created. -->
+<!--- That preview URL is added by Vercel as a comment. -->
 
-- [ ] View [the example in Storybook]()
+- [ ] Review the Vercel preview deployment once it is ready.

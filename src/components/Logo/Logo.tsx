@@ -9,12 +9,16 @@ import * as React from "react";
 import logoSvgs from "./LogoSvgs";
 
 export type LogoNames =
+  | "appleAppStoreBlack"
+  | "appleAppStoreWhite"
   | "bplBlack"
   | "bplWhite"
+  | "cleverBadgeColor"
   | "cleverColor"
   | "cleverWhite"
   | "firstbookColor"
   | "firstbookColorNegative"
+  | "googlePlayBlack"
   | "lpaBlack"
   | "lpaColor"
   | "lpaWhite"
@@ -24,6 +28,8 @@ export type LogoNames =
   | "nyplFullWhite"
   | "nyplLionBlack"
   | "nyplLionWhite"
+  | "nyplTextBlack"
+  | "nyplTextWhite"
   | "openebooksColor"
   | "openebooksNegative"
   | "openebooksWithTextColor"

@@ -10,6 +10,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
+import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -18,8 +19,9 @@ interface CustomColors {
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
-  /** Array of string values used to populate the `Table` column headers. */
-  columnHeaders?: string[];
+  /** Array of string values used to populate the `Table` column headers.
+   * For improved accessibility, column headers are required. */
+  columnHeaders: string[];
   /** Hex value to set the background color of the column headers. */
   columnHeadersBackgroundColor?: string;
   /** Hex value to set the text color of the column headers. */
@@ -62,26 +64,37 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
   const styles = useMultiStyleConfig("CustomTable", {
+    columnHeadersBackgroundColor,
     columnHeadersTextColor,
     showRowDividers,
     useRowHeaders,
   });
 
+  // Based on --nypl-breakpoint-medium
+  const breakpointMedium = 600;
+  const windowDimensions = useWindowSize();
+
   const tableCaption = titleText && (
     <ChakraTableCaption>{titleText}</ChakraTableCaption>
   );
 
-  const columnHeadersElems = columnHeaders?.length > 0 && (
-    <ChakraTHead>
-      <ChakraTr>
-        {columnHeaders.map((child, key) => (
-          <ChakraTh key={key} scope="col" sx={customColors}>
-            {child}
-          </ChakraTh>
-        ))}
-      </ChakraTr>
-    </ChakraTHead>
-  );
+  const columnHeadersElems =
+    columnHeaders.length > 0 ? (
+      <ChakraTHead>
+        <ChakraTr>
+          {columnHeaders.map((child, key) => (
+            <ChakraTh key={key} scope="col" sx={customColors}>
+              {child}
+            </ChakraTh>
+          ))}
+        </ChakraTr>
+      </ChakraTHead>
+    ) : (
+      console.warn(
+        "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
+          "column headers are required."
+      )
+    );
 
   /**
    * This renders a normal `tbody` DOM element structure if the `tableData`
@@ -100,6 +113,27 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       return null;
     }
 
+    for (let i = 1; i < tableData.length; i++) {
+      if (tableData[0].length !== tableData[i].length) {
+        console.warn(
+          "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
+            "The `Table` component may not render properly."
+        );
+        break;
+      }
+    }
+
+    const cellContent = (key: number, column: string | JSX.Element) => {
+      return windowDimensions.width <= breakpointMedium ? (
+        <>
+          <span>{columnHeaders[key]}</span>
+          <span>{column}</span>
+        </>
+      ) : (
+        column
+      );
+    };
+
     return (
       <ChakraTbody>
         {tableData.map((row, index) => (
@@ -107,10 +141,10 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
             {row.map((column, key) =>
               key === 0 && useRowHeaders ? (
                 <ChakraTh scope="row" key={key}>
-                  {column}
+                  {cellContent(key, column)}
                 </ChakraTh>
               ) : (
-                <ChakraTd key={key}>{column}</ChakraTd>
+                <ChakraTd key={key}>{cellContent(key, column)}</ChakraTd>
               )
             )}
           </ChakraTr>
@@ -118,6 +152,17 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       </ChakraTbody>
     );
   };
+
+  for (let j = 0; j < tableData.length; j++) {
+    if (columnHeaders.length && columnHeaders.length !== tableData[j].length) {
+      console.warn(
+        "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
+          "to the number of columns in the data table. " +
+          "The `Table` component may not render properly."
+      );
+      break;
+    }
+  }
 
   return (
     <ChakraTable id={id} sx={styles} className={className} {...rest}>

@@ -1,3 +1,6 @@
+import { HelperErrorTextType } from "../components/HelperErrorText/HelperErrorText";
+import { AriaAttributes } from "./interfaces";
+
 // Utility functions to use throughout the codebase
 
 /**
@@ -41,4 +44,41 @@ export const getStorybookHrefProps = (pageCount: number) => {
   };
 
   return { computedCurrentPage, getPageHref };
+};
+
+interface GetAriaAttrsProps {
+  footnote: HelperErrorTextType;
+  id: string;
+  labelText: HelperErrorTextType;
+  name: string;
+  showLabel: boolean;
+}
+/**
+ * Get aria-* attributes for input components. This sets the `aria-label` and
+ * `aria-describedby` attributes, based on the label and footnote values.
+ */
+export const getAriaAttrs = ({
+  footnote,
+  id,
+  labelText,
+  name,
+  showLabel,
+}: GetAriaAttrsProps): AriaAttributes => {
+  let ariaAttributes: AriaAttributes = {};
+
+  if (!showLabel) {
+    if (typeof labelText !== "string") {
+      console.warn(
+        `NYPL Reservoir ${name}: \`labelText\` must be a string when \`showLabel\` is false.`
+      );
+    }
+    ariaAttributes["aria-label"] =
+      labelText && footnote
+        ? `${labelText} - ${footnote}`
+        : (labelText as string);
+  } else if (footnote) {
+    ariaAttributes["aria-describedby"] = `${id}-helperText`;
+  }
+
+  return ariaAttributes;
 };

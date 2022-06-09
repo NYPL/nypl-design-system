@@ -1,5 +1,8 @@
 const SkipNavigation = {
   baseStyle: {
+    ul: {
+      margin: "0",
+    },
     // Don't display links by default...
     a: {
       backgroundColor: "ui.white",

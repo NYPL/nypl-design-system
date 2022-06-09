@@ -10,6 +10,13 @@ import Checkbox from "./Checkbox";
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(
+      <Checkbox id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
       <Checkbox
         id="inputID"
         onChange={jest.fn()}
@@ -39,12 +46,6 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
-  let changeHandler: jest.MockedFunction<() => void>;
-
-  beforeEach(() => {
-    changeHandler = jest.fn();
-  });
-
   it("Renders with a checkbox input and label", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
@@ -189,20 +190,57 @@ describe("Checkbox", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("Changing the value calls the onChange handler", () => {
-    const utils = render(
+  it("should call onChange only once when checkbox is clicked", () => {
+    const onChangeMock = jest.fn();
+
+    render(
       <Checkbox
-        id="onChangeTest"
-        onChange={changeHandler}
-        labelText="onChangeTest Lab"
+        id="onChangeCalledOnce"
+        onChange={onChangeMock}
+        labelText="onChangeTest"
         showLabel={true}
-        isChecked
+        isChecked={false}
       />
     );
 
-    expect(changeHandler).toHaveBeenCalledTimes(0);
-    userEvent.type(utils.getByText("onChangeTest Lab"), "Hello");
-    expect(changeHandler).toHaveBeenCalledTimes(1);
+    expect(
+      screen.getByRole("checkbox", { name: /onchangetest/i })
+    ).toBeInTheDocument();
+    userEvent.click(screen.getByRole("checkbox", { name: /onchangetest/i }));
+    expect(onChangeMock).toBeCalledTimes(1);
+  });
+
+  it("Changing the value calls the onChange handler", () => {
+    let isChecked = false;
+    const onChange = (e) => {
+      isChecked = e.target.checked;
+    };
+    const utils = render(
+      <Checkbox
+        id="onChangeTest"
+        onChange={onChange}
+        labelText="onChangeTest Lab"
+        showLabel={true}
+        isChecked={isChecked}
+      />
+    );
+
+    expect(isChecked).toEqual(false);
+    userEvent.click(utils.getByText("onChangeTest Lab"));
+    expect(isChecked).toEqual(true);
+
+    utils.rerender(
+      <Checkbox
+        id="onChangeTest"
+        onChange={onChange}
+        labelText="onChangeTest Lab"
+        showLabel={true}
+        isChecked={isChecked}
+      />
+    );
+
+    userEvent.click(utils.getByText("onChangeTest Lab"));
+    expect(isChecked).toEqual(false);
   });
 
   it("logs a warning if `labelText` is not a string and `showLabel` is false", () => {

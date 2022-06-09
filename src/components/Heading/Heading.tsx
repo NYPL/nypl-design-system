@@ -20,6 +20,8 @@ export interface HeadingProps {
   /** Optional size used to override the default styles of the semantic HTM
    * `<h>` elements */
   size?: HeadingSizes;
+  /** Optional prop used to remove default spacing */
+  noSpace?: boolean;
   /** Inner text of the `<h*>` element */
   text?: string;
   /** Optional URL that header points to; when `url` prop is passed to
@@ -50,6 +52,7 @@ export const Heading = chakra(
       id,
       level = "two",
       size,
+      noSpace,
       text,
       url,
       urlClass,
@@ -57,7 +60,7 @@ export const Heading = chakra(
     } = props;
     const finalLevel = getMappedLevel(level);
     const variant = size ? size : `h${finalLevel}`;
-    const styles = useStyleConfig("Heading", { variant });
+    const styles = useStyleConfig("Heading", { variant, noSpace });
     // Combine native base styles with any additional styles.
     // This is used in the `Hero` and `Notification` components.
     const asHeading: any = `h${finalLevel}`;

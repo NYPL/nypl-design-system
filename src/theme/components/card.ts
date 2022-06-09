@@ -1,6 +1,7 @@
 interface CardBaseStyleProps {
   hasImage: boolean;
   imageIsAtEnd: boolean;
+  isAlignedRightActions: boolean;
   isBordered: boolean;
   isCentered: boolean;
   layout: string;
@@ -69,6 +70,7 @@ const Card = {
   baseStyle: ({
     hasImage,
     imageIsAtEnd,
+    isAlignedRightActions,
     isBordered,
     isCentered,
     layout,
@@ -112,15 +114,19 @@ const Card = {
       flexFlow: "column wrap",
       textAlign: isCentered ? "center" : null,
       actions: {
-        width: ["100%", "100%", "180px"],
-        marginLeft: ["0", "0", "m"],
-        marginTop: ["xs", "xs", "0"],
+        flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
+        marginLeft: { base: "0", md: "m" },
+        marginTop: { base: "xs", md: "0" },
+        maxWidth: { base: "100%", md: "180px" },
+        width: "100%",
       },
       body: {
         display: { md: "block" },
+        flexBasis: { sm: isRow ? "100%" : null },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
+        width: { base: "100%", md: "auto" },
       },
       heading: {
         marginBottom: "xs",
