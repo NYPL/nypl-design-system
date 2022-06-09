@@ -83,7 +83,7 @@ const TemplateContentPrimary = {
 };
 const TemplateContentSidebar = {
   baseStyle: {
-    flex: "0 0 255px",
+    flex: { base: "0 0 auto", md: "0 0 255px" },
     order: { md: "page.vstack" },
     marginBottom: "page.hstack", // --nypl-space-l
   },

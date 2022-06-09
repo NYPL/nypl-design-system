@@ -28,6 +28,8 @@ export type LogoNames =
   | "nyplFullWhite"
   | "nyplLionBlack"
   | "nyplLionWhite"
+  | "nyplTextBlack"
+  | "nyplTextWhite"
   | "openebooksColor"
   | "openebooksNegative"
   | "openebooksWithTextColor"

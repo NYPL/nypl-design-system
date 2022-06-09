@@ -76,6 +76,7 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
             <>
               <AccordionButton
                 id={`${id}-button-${index}`}
+                borderColor="ui.gray.medium"
                 padding={multiplePadding}
                 bg={
                   !content.accordionType
@@ -98,7 +99,12 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
                   borderColor: "ui.gray.dark",
                 }}
               >
-                <Box flex="1" fontSize={multipleFontSize} textAlign="left">
+                <Box
+                  as="span"
+                  flex="1"
+                  fontSize={multipleFontSize}
+                  textAlign="left"
+                >
                   {content.label}
                 </Box>
                 {getIcon(isExpanded, index, id)}

@@ -58,9 +58,6 @@ const Select = {
         flex: "1 1 20%",
         borderRightColor: { md: "transparent" },
         borderRightRadius: { md: "none" },
-        _hover: {
-          borderRightColor: { md: "transparent" },
-        },
       },
     },
   },
