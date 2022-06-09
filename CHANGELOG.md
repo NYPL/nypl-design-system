@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.3 (June 9, 2022)
+
 ### Adds
 
 - Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
@@ -22,6 +24,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Card`'s full-click functionality styling for its wrapper element.
 - Updates how the `Card`'s `Image` component is displayed in the mobile view; sizes and aspect ratios are maintained instead of always displaying as 100% width.
 - Updates hover style to add right border color on hover for `Select` element.
+- Updates the `Table` component to be responsive for a mobile viewport.
+- Updates the `Table` component to make the `columnHeaders` prop required.
 
 ### Fixes
 
