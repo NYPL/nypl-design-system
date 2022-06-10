@@ -2,9 +2,12 @@
 import accessibilityFull from "../../../icons/svg/accessibility-full.svg";
 import accessibilityPartial from "../../../icons/svg/accessibility-partial.svg";
 import actionCheckCircle from "../../../icons/svg/action-check-circle.svg";
+import actionExit from "../../../icons/svg/action-exit.svg";
 import actionHelpDefault from "../../../icons/svg/action-help-default.svg";
 import actionHelpOutline from "../../../icons/svg/action-help-outline.svg";
 import actionLaunch from "../../../icons/svg/action-launch.svg";
+import actionPower from "../../../icons/svg/action-power.svg";
+import actionSettings from "../../../icons/svg/action-settings.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import check from "../../../icons/svg/check.svg";
@@ -39,9 +42,12 @@ export default {
   accessibilityFull,
   accessibilityPartial,
   actionCheckCircle,
+  actionExit,
   actionHelpDefault,
   actionHelpOutline,
   actionLaunch,
+  actionPower,
+  actionSettings,
   alertNotificationImportant,
   arrow,
   check,
