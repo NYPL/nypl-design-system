@@ -10,6 +10,7 @@ import actionPower from "../../../icons/svg/action-power.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import arrow from "../../../icons/svg/arrow.svg";
+import building from "../../../icons/svg/building.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
@@ -24,6 +25,7 @@ import fileTypePdf from "../../../icons/svg/file-type-pdf.svg";
 import fileTypeSpreadsheet from "../../../icons/svg/file-type-spreadsheet.svg";
 import fileTypeVideo from "../../../icons/svg/file-type-video.svg";
 import headset from "../../../icons/svg/headset.svg";
+import locator from "../../../icons/svg/locator.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
@@ -50,6 +52,7 @@ export default {
   actionSettings,
   alertNotificationImportant,
   arrow,
+  building,
   check,
   clock,
   close,
@@ -64,6 +67,7 @@ export default {
   fileTypeSpreadsheet,
   fileTypeVideo,
   headset,
+  locator,
   minus,
   plus,
   search,
