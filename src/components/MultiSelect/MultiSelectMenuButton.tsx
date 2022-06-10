@@ -8,7 +8,7 @@ export interface MultiSelectMenuButtonProps {
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
   /** The label of the MultiSelect using this button. */
-  label: string;
+  multiSelectLabel: string;
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
@@ -23,8 +23,14 @@ const MultiSelectMenuButton = React.forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
 >((props, ref?) => {
-  const { multiSelectId, label, isOpen, onMenuToggle, selectedItems, onClear } =
-    props;
+  const {
+    multiSelectId,
+    multiSelectLabel,
+    isOpen,
+    onMenuToggle,
+    selectedItems,
+    onClear,
+  } = props;
   const styles = useMultiStyleConfig("MultiSelect", {});
   const iconType = isOpen ? "minus" : "plus";
 
@@ -78,7 +84,7 @@ const MultiSelectMenuButton = React.forwardRef<
         </Box>
       )}
       <Box as="span" pr="s">
-        {label}
+        {multiSelectLabel}
       </Box>
       <Icon id={`${multiSelectId}-icon`} name={iconType} size="small" />
     </Button>

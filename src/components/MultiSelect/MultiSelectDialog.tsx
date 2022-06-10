@@ -109,7 +109,7 @@ function MultiSelectDialog({
       <FocusLock isDisabled={!isOpen}>
         <MultiSelectMenuButton
           multiSelectId={id}
-          label={label}
+          multiSelectLabel={label}
           isOpen={isOpen}
           selectedItems={selectedItems}
           onMenuToggle={() => {

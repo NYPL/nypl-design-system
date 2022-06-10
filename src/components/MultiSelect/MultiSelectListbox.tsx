@@ -68,7 +68,7 @@ function MultiSelectListbox({
     <Box id={id} __css={styles}>
       <MultiSelectMenuButton
         multiSelectId={id}
-        label={label}
+        multiSelectLabel={label}
         isOpen={isOpen}
         selectedItems={selectedItems}
         onClear={onClear}
