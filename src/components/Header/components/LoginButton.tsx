@@ -8,14 +8,19 @@ import Login from "./Login";
 import { LoginProps } from "./UpperNav";
 
 const LoginButton = chakra(
-  ({ isMobile, loginOpen, patronName, setLoginOpen }: LoginProps) => {
-    const desktopIcon = loginOpen ? "close" : "arrow";
-    const mobileIcon = loginOpen
+  ({
+    isMobile,
+    isLoginOpen = false,
+    patronName,
+    setIsLoginOpen,
+  }: LoginProps) => {
+    const desktopIcon = isLoginOpen ? "close" : "arrow";
+    const mobileIcon = isLoginOpen
       ? "close"
       : patronName
       ? "utilityAccountFilled"
       : "utilityAccountUnfilled";
-    const desktopButtonLabel = loginOpen
+    const desktopButtonLabel = isLoginOpen
       ? "Close"
       : patronName
       ? "My Account"
@@ -23,21 +28,22 @@ const LoginButton = chakra(
     const greetingRef = useRef(null);
     const styles = useMultiStyleConfig("HeaderLoginButton", {
       isMobile,
-      loginOpen,
+      isLoginOpen,
     });
 
     useEffect(() => {
-      if (patronName && loginOpen) {
+      if (patronName && isLoginOpen) {
         greetingRef.current.focus();
       }
-    }, [loginOpen, patronName]);
+    }, [isLoginOpen, patronName]);
 
     return (
-      <FocusLock isDisabled={!loginOpen}>
+      <FocusLock isDisabled={!isLoginOpen}>
         <Button
+          aria-label={desktopButtonLabel}
           buttonType="link"
           id="loginButton"
-          onClick={() => setLoginOpen(!loginOpen)}
+          onClick={() => setIsLoginOpen(!isLoginOpen)}
           __css={styles}
         >
           {isMobile ? null : desktopButtonLabel}
@@ -48,7 +54,7 @@ const LoginButton = chakra(
             title="Log in to your account"
           />
         </Button>
-        {loginOpen && (
+        {isLoginOpen && (
           <Login
             greetingRef={greetingRef}
             isMobile={isMobile}

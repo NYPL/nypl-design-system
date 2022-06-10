@@ -39,7 +39,7 @@ export const Header = chakra(() => {
     isWidthLarge,
   });
 
-  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
 
@@ -48,7 +48,7 @@ export const Header = chakra(() => {
     const close = (e) => {
       const key = e.key || e.keyCode;
       if (key === "Escape" || key === "Esc" || key === 27) {
-        setLoginOpen(false);
+        setIsLoginOpen(false);
       }
     };
     window.addEventListener("keydown", close);
@@ -73,7 +73,7 @@ export const Header = chakra(() => {
       <SkipNavigation />
       <SitewideAlerts isMobile={isWidthMobile} />
       <header>
-        <HStack id="headerMain" justifyContent="space-between">
+        <HStack id="headerMain">
           <Link
             aria-label="The New York Public Library"
             href="https://nypl.org"
@@ -91,16 +91,16 @@ export const Header = chakra(() => {
             <VStack alignItems="end" spacing="65px">
               <UpperNav
                 patronName={patronName}
-                loginOpen={loginOpen}
-                setLoginOpen={setLoginOpen}
+                isLoginOpen={isLoginOpen}
+                setIsLoginOpen={setIsLoginOpen}
               />
               <LowerNav />
             </VStack>
           ) : (
             <Mobile
               patronName={patronName}
-              loginOpen={loginOpen}
-              setLoginOpen={setLoginOpen}
+              isLoginOpen={isLoginOpen}
+              setIsLoginOpen={setIsLoginOpen}
             />
           )}
         </HStack>

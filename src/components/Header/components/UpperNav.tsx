@@ -10,26 +10,25 @@ import LoginButton from "./LoginButton";
 export interface LoginProps {
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
-  loginOpen?: boolean;
+  isLoginOpen?: boolean;
   patronName: string;
-  setLoginOpen?: (boolean) => void;
+  setIsLoginOpen?: (boolean) => void;
 }
 
 const UpperNav = chakra(
-  ({ loginOpen, patronName, setLoginOpen }: LoginProps) => {
+  ({ isLoginOpen, patronName, setIsLoginOpen }: LoginProps) => {
     const styles = useMultiStyleConfig("HeaderUpperNav", {});
     return (
       <nav aria-label="Header top links">
         <List
-          __css={styles.upperNav}
           id="header-nav-upper"
           inline
           listItems={[
             <LoginButton
               key="login"
-              loginOpen={loginOpen}
+              isLoginOpen={isLoginOpen}
               patronName={patronName}
-              setLoginOpen={setLoginOpen}
+              setIsLoginOpen={setIsLoginOpen}
             />,
             <Link href="#" key="locationsLink">
               Locations
@@ -52,6 +51,7 @@ const UpperNav = chakra(
           ]}
           noStyling
           type="ul"
+          __css={styles.upperNav}
         />
       </nav>
     );

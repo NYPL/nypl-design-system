@@ -26,8 +26,6 @@ const Login = chakra(({ greetingRef, isMobile, patronName }: LoginProps) => {
         </Box>
       )}
       <List
-        noStyling
-        type="ul"
         listItems={[
           <Link
             id="logInCatalog"
@@ -43,9 +41,7 @@ const Login = chakra(({ greetingRef, isMobile, patronName }: LoginProps) => {
               size="medium"
               title="Log in to your account"
             />
-            <span>
-              {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
-            </span>
+            {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
           </Link>,
           <Link
             id="logInResearchCatalog"
@@ -61,13 +57,13 @@ const Login = chakra(({ greetingRef, isMobile, patronName }: LoginProps) => {
               size="medium"
               title="Log in to your account"
             />
-            <span>
-              {patronName
-                ? "Go To The Research Catalog"
-                : "Log Into The Research Catalog"}
-            </span>
+            {patronName
+              ? "Go To The Research Catalog"
+              : "Log Into The Research Catalog"}
           </Link>,
         ]}
+        noStyling
+        type="ul"
       />
       {patronName && (
         <Link

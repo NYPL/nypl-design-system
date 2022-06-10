@@ -35,7 +35,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
   </nav>
   <header>
     <div
-      className="chakra-stack css-1oeb4ru"
+      className="chakra-stack css-84zodg"
       id="headerMain"
     >
       <a
@@ -123,6 +123,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
             onFocus={[Function]}
           >
             <button
+              aria-label="Log In"
               className="chakra-button css-1xdhyk6"
               data-testid="button"
               id="loginButton"

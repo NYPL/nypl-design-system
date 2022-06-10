@@ -1,29 +1,26 @@
 const HeaderLoginButton = {
-  baseStyle: ({ isMobile, loginOpen }) => ({
+  baseStyle: ({ isMobile, isLoginOpen }) => ({
     alignItems: "baseline",
-    ".accountButton": {
-      width: "120px",
-    },
-    bg: loginOpen ? (isMobile ? "ui.black" : "#135772") : "ui.white",
+    bg: isLoginOpen ? (isMobile ? "ui.black" : "#135772") : "ui.white",
     borderRadius: "none",
-    color: loginOpen ? "ui.white" : "ui.black",
+    color: isLoginOpen ? "ui.white" : "ui.black",
     minHeight: isMobile ? "50px" : "auto",
     minWidth: "50px",
     padding: "0 10px",
     paddingTop: isMobile ? "10px" : null,
     svg: {
       marginLeft: isMobile ? "0" : null,
-      fill: loginOpen ? "ui.white" : null,
+      fill: isLoginOpen ? "ui.white" : null,
     },
     _hover: {
-      backgroundColor: loginOpen
+      backgroundColor: isLoginOpen
         ? isMobile
           ? "ui.black"
           : "#135772"
         : "transparent",
-      color: loginOpen ? "ui.white" : "initial",
+      color: isLoginOpen ? "ui.white" : "initial",
       svg: {
-        fill: loginOpen ? "ui.white" : "ui.black",
+        fill: isLoginOpen ? "ui.white" : "ui.black",
       },
     },
     _focus: {
