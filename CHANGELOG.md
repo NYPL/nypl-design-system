@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 
+### Upudates
+
+- Updates the `Logo` component to include a variant for `MLN Color`.
+
 ## 1.0.3 (June 9, 2022)
 
 ### Adds
