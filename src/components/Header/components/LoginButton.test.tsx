@@ -92,6 +92,19 @@ describe("LoginButton", () => {
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       expect(links[2]).toHaveTextContent(/log out/i);
     });
+
+    it("focuses on the greeting message when the login is opened", () => {
+      render(
+        <LoginButton
+          isLoginOpen
+          patronName="PATRON, JANE A"
+          setIsLoginOpen={setIsLoginOpen}
+        />
+      );
+
+      const greetingContainer = screen.getByTestId("patronGreeting");
+      expect(greetingContainer).toHaveFocus();
+    });
   });
 
   describe("Mobile", () => {
@@ -99,6 +112,7 @@ describe("LoginButton", () => {
       const { rerender } = render(
         <LoginButton
           isLoginOpen={false}
+          isMobile
           patronName=""
           setIsLoginOpen={setIsLoginOpen}
         />
@@ -113,7 +127,8 @@ describe("LoginButton", () => {
       // parent instead of the component itself.
       rerender(
         <LoginButton
-          isLoginOpen={true}
+          isLoginOpen
+          isMobile
           patronName=""
           setIsLoginOpen={setIsLoginOpen}
         />
@@ -122,7 +137,7 @@ describe("LoginButton", () => {
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
 
-      expect(dropDownButton).toHaveTextContent(/close/i);
+      expect(dropDownButton).toHaveAttribute("aria-label", "Close");
       expect(links.length).toEqual(2);
       expect(links[0]).toHaveTextContent(/log into the catalog/i);
       expect(links[1]).toHaveTextContent(/log into the research catalog/i);
@@ -132,6 +147,7 @@ describe("LoginButton", () => {
       const { rerender } = render(
         <LoginButton
           isLoginOpen={false}
+          isMobile
           patronName="PATRON, JANE A"
           setIsLoginOpen={setIsLoginOpen}
         />
@@ -144,6 +160,7 @@ describe("LoginButton", () => {
       rerender(
         <LoginButton
           isLoginOpen
+          isMobile
           patronName="PATRON, JANE A"
           setIsLoginOpen={setIsLoginOpen}
         />
@@ -153,7 +170,7 @@ describe("LoginButton", () => {
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
 
-      expect(dropDownButton).toHaveTextContent(/close/i);
+      expect(dropDownButton).toHaveAttribute("aria-label", "Close");
       expect(greetingContainer).toBeInTheDocument();
       expect(
         within(greetingContainer).getByText(/you are logged in/i)
@@ -165,6 +182,20 @@ describe("LoginButton", () => {
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       expect(links[2]).toHaveTextContent(/log out/i);
+    });
+
+    it("focuses on the greeting message when the login is opened", () => {
+      render(
+        <LoginButton
+          isLoginOpen
+          isMobile
+          patronName="PATRON, JANE A"
+          setIsLoginOpen={setIsLoginOpen}
+        />
+      );
+
+      const greetingContainer = screen.getByTestId("patronGreeting");
+      expect(greetingContainer).toHaveFocus();
     });
   });
 });

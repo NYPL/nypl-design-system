@@ -50,7 +50,7 @@ describe("Login", () => {
 
   describe("Mobile", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      render(<Login patronName="" />);
+      render(<Login isMobile patronName="" />);
 
       const links = screen.getAllByRole("link");
 
@@ -60,7 +60,7 @@ describe("Login", () => {
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      render(<Login patronName="PATRON, JANE A" />);
+      render(<Login isMobile patronName="PATRON, JANE A" />);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
