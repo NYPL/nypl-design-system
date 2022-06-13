@@ -35,6 +35,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates hover style to add right border color on hover for `Select` element.
 - Updates the `Table` component to be responsive for a mobile viewport.
 - Updates the `Table` component to make the `columnHeaders` prop required.
+- Updates to Storybook version 6.5.
 
 ### Fixes
 
