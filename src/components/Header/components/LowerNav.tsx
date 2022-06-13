@@ -1,39 +1,39 @@
 import React from "react";
-import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../../Link/Link";
 import List from "../../List/List";
 import SearchButton from "./SearchButton";
+import { lowerNavLinks } from "../headerUtils";
 
 const LowerNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderLowerNav", {});
 
   return (
-    <nav aria-label="Header bottom links">
+    <Box as="nav" aria-label="Header bottom links" __css={styles}>
       <List
-        __css={styles.lowerNav}
         id="header-nav-lower"
         inline
         listItems={[
-          <Link href="#" key="booksMusicMoviesLink">
+          <Link href={lowerNavLinks.books} key="booksMusicMoviesLink">
             Books/Music/Movies
           </Link>,
-          <Link href="#" key="researchLink">
+          <Link href={lowerNavLinks.research} key="researchLink">
             Research
           </Link>,
-          <Link href="#" key="educationLink">
+          <Link href={lowerNavLinks.education} key="educationLink">
             Education
           </Link>,
-          <Link href="#" key="eventsLink">
+          <Link href={lowerNavLinks.events} key="eventsLink">
             Events
           </Link>,
-          <Link href="#" key="connectLink">
+          <Link href={lowerNavLinks.connect} key="connectLink">
             Connect
           </Link>,
-          <Link href="#" key="giveLink">
+          <Link href={lowerNavLinks.give} key="giveLink">
             Give
           </Link>,
-          <Link href="#" key="getHelpLink">
+          <Link href={lowerNavLinks.getHelp} key="getHelpLink">
             Get Help
           </Link>,
           <SearchButton key="search" />,
@@ -41,7 +41,7 @@ const LowerNav = chakra(() => {
         noStyling
         type="ul"
       />
-    </nav>
+    </Box>
   );
 });
 

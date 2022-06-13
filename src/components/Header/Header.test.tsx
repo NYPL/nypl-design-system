@@ -8,6 +8,17 @@ import renderer from "react-test-renderer";
 import Header from "./Header";
 import { refineryResponse } from "./components/SitewideAlerts.test";
 
+// We want to mock the media queries and set the desktop view.
+jest.mock("../../hooks/useNYPLBreakpoints", () => {
+  return jest.fn().mockImplementation(() => ({
+    isLargerThanSmall: true,
+    isLargerThanMedium: true,
+    isLargerThanMobile: true,
+    isLargerThanLarge: true,
+    isLargerThanXLarge: true,
+  }));
+});
+
 const patronResponse = {
   data: {
     patron: {
@@ -82,7 +93,6 @@ describe("Header", () => {
   it("renders the upper links", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
-
     // The first list is the skip navigation.
     // The second list is the list of alerts in the `SitewideAlerts` component.
     // The third list is the upper navigation.

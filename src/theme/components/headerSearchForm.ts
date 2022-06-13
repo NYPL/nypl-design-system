@@ -1,10 +1,5 @@
-const focusStyle = {
-  borderRadius: "none",
-  outlineColor: "#135772 !important",
-  outlineOffset: "0 !important",
-  outlineStyle: "solid !important",
-  outlineWidth: "0.1875em !important",
-};
+import { headerFocus } from "./header";
+
 const HeaderSearchForm = {
   parts: ["desktopSearchBtn", "form", "textInput", "radio"],
   baseStyle: ({ isMobile }) => ({
@@ -29,7 +24,7 @@ const HeaderSearchForm = {
       _hover: {
         backgroundColor: "#1B7FA7",
       },
-      _focus: focusStyle,
+      _focus: headerFocus,
     },
     desktopSearchBtn: {
       alignSelf: "end",
@@ -40,10 +35,10 @@ const HeaderSearchForm = {
       maxHeight: "60px",
       padding: "15px",
       width: "60px",
-      _focus: { ...focusStyle, borderRadius: "100px" },
+      _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",
-        ...focusStyle,
+        ...headerFocus,
         borderRadius: "100px",
       },
     },
@@ -61,14 +56,14 @@ const HeaderSearchForm = {
     radio: {
       backgroundColor: "white",
       border: "1px solid white",
-      _focus: { ...focusStyle, borderRadius: "100px" },
-      _hover: { ...focusStyle, borderRadius: "100px" },
+      _focus: { ...headerFocus, borderRadius: "100px" },
+      _hover: { ...headerFocus, borderRadius: "100px" },
     },
     textInput: {
       input: {
         color: "ui.black",
-        _focus: focusStyle,
-        _hover: focusStyle,
+        _focus: headerFocus,
+        _hover: headerFocus,
       },
     },
   }),

@@ -8,42 +8,30 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import Link from "../Link/Link";
+import Logo from "../Logo/Logo";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+
+/** Internal Header-only components and utils */
+import UpperNav from "./components/UpperNav";
+import LowerNav from "./components/LowerNav";
+import Mobile from "./components/Mobile";
+import SitewideAlerts from "./components/SitewideAlerts";
 import {
   extractPatronName,
   fetchPatronData,
   getCookieValue,
 } from "./headerUtils";
-import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import Link from "../Link/Link";
-import Logo from "../Logo/Logo";
-import SkipNavigation from "../SkipNavigation/SkipNavigation";
-/** Internal Header-only components */
-import UpperNav from "./components/UpperNav";
-import LowerNav from "./components/LowerNav";
-import Mobile from "./components/Mobile";
-import SitewideAlerts from "./components/SitewideAlerts";
-import useWindowSize from "../../hooks/useWindowSize";
 
 export const Header = chakra(() => {
-  const windowDimensions = useWindowSize();
-  // These values are based on the breakpoints md and lg
-  // from the NYPL theme object.
-  const breakpointMedium = 600;
-  const breakpointLarge = 960;
-
-  const isWidthMobile = windowDimensions.width < breakpointMedium;
-  const isWidthLarge = windowDimensions.width > breakpointLarge;
-
-  const styles = useMultiStyleConfig("Header", {
-    isWidthMobile,
-    isWidthLarge,
-  });
-
+  const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
+  const styles = useMultiStyleConfig("Header", {});
 
-  // Allows user to use esc key to close the login menu.
   useEffect(() => {
     const close = (e) => {
       const key = e.key || e.keyCode;
@@ -69,11 +57,11 @@ export const Header = chakra(() => {
   }, [patronDataReceived]);
 
   return (
-    <Box __css={styles.container}>
+    <Box __css={styles}>
       <SkipNavigation />
-      <SitewideAlerts isMobile={isWidthMobile} />
+      <SitewideAlerts isMobile={!isLargerThanMobile} />
       <header>
-        <HStack id="headerMain">
+        <HStack __css={styles.container}>
           <Link
             aria-label="The New York Public Library"
             href="https://nypl.org"
@@ -81,13 +69,13 @@ export const Header = chakra(() => {
           >
             <Logo
               id="header-nypl-logo"
-              name={isWidthLarge ? "nyplFullBlack" : "nyplLionBlack"}
-              size={isWidthLarge ? "small" : "xxsmall"}
+              name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
+              size={isLargerThanLarge ? "small" : "xxsmall"}
               title="NYPL Header Logo"
             />
           </Link>
           <Spacer />
-          {!isWidthMobile ? (
+          {isLargerThanMobile ? (
             <VStack alignItems="end" spacing="65px">
               <UpperNav
                 patronName={patronName}

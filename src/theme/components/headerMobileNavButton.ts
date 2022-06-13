@@ -1,3 +1,5 @@
+import { headerFocus } from "./header";
+
 const HeaderMobileNavButton = {
   baseStyle: ({ isOpen }) => ({
     alignItems: "center",
@@ -17,13 +19,7 @@ const HeaderMobileNavButton = {
         fill: isOpen ? "ui.white" : "ui.black",
       },
     },
-    _focus: {
-      borderRadius: "none",
-      outlineColor: "#135772 !important",
-      outlineOffset: "0 !important",
-      outlineStyle: "solid !important",
-      outlineWidth: "0.1875em !important",
-    },
+    _focus: headerFocus,
   }),
 };
 

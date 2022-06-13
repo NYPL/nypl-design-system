@@ -1,31 +1,32 @@
-const horizontalRule = {
-  bg: "#ed1c24",
-  marginTop: "0",
+export const headerFocus = {
+  borderRadius: "none",
+  outlineColor: "#135772 !important",
+  outlineOffset: "0 !important",
+  outlineStyle: "solid !important",
+  outlineWidth: "0.1875em !important",
 };
+export const headerRed = "#ed1c24";
 
 const Header = {
   parts: ["container", "horizontalRule", "logo"],
-  baseStyle: ({ isWidthMobile, isWidthLarge }) => ({
+  baseStyle: {
+    fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     container: {
-      fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
-      "#headerMain": {
-        marginX: isWidthLarge && "50px",
-      },
+      marginX: { lg: "50px" },
+    },
+    horizontalRule: {
+      bg: headerRed,
+      marginTop: "0",
     },
     logo: {
-      marginTop: isWidthMobile && "10px",
+      marginTop: { base: "10px", md: null },
       marginRight: "auto",
       svg: {
-        height: isWidthMobile && "25px",
+        height: { base: "25px", lg: "auto" },
       },
-      _focus: {
-        outlineColor: "#135772",
-        outlineStyle: "solid",
-        outlineWidth: "0.1875em",
-      },
+      _focus: headerFocus,
     },
-    horizontalRule,
-  }),
+  },
 };
 
 export default Header;

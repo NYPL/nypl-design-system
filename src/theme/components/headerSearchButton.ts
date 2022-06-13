@@ -1,3 +1,5 @@
+import { headerFocus } from "./header";
+
 const HeaderSearchButton = {
   baseStyle: ({ isMobile, isOpen }) => ({
     alignItems: "center",
@@ -21,13 +23,7 @@ const HeaderSearchButton = {
         fill: isOpen ? "ui.white" : "ui.black",
       },
     },
-    _focus: {
-      borderRadius: "none",
-      outlineColor: "#135772 !important",
-      outlineOffset: "0 !important",
-      outlineStyle: "solid !important",
-      outlineWidth: "0.1875em !important",
-    },
+    _focus: headerFocus,
   }),
 };
 

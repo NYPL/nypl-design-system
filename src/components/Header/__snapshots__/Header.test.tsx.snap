@@ -35,8 +35,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
   </nav>
   <header>
     <div
-      className="chakra-stack css-84zodg"
-      id="headerMain"
+      className="chakra-stack css-1p1m4ay"
     >
       <a
         aria-label="The New York Public Library"
@@ -82,321 +81,378 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         className="css-17xejub"
       />
       <div
-        className="css-k008qs"
+        className="chakra-stack css-wc2673"
       >
-        <div
-          className="chakra-stack css-84zodg"
+        <nav
+          aria-label="Header top links"
+          className="css-0"
         >
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-lock-disabled="disabled"
-            onBlur={[Function]}
-            onFocus={[Function]}
+          <ul
+            className="css-1xdhyk6"
+            id="header-nav-upper"
           >
-            <button
-              aria-label="Log In"
-              className="chakra-button css-1xdhyk6"
-              data-testid="button"
-              id="loginButton"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={true}
-                className="chakra-icon css-1grhd2q"
-                focusable={false}
-                role="img"
-                title="Log in to your account"
-                viewBox="0 0 24 24"
+            <li>
+              <div
+                className="css-0"
               >
-                <g
-                  stroke="currentColor"
-                  strokeWidth="1.5"
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-lock-disabled="disabled"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
-                  <path
-                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                    fill="currentColor"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    fill="none"
-                    r="11.25"
-                    strokeMiterlimit="10"
-                  />
-                </g>
-              </svg>
-            </button>
-          </div>
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <svg
-            aria-hidden={true}
-            className="chakra-icon css-1grhd2q"
-            focusable={false}
-            id="locator-icon"
-            role="img"
-            title="NYPL Locator"
-            viewBox="0 0 24 24"
-          >
-            <g
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path
-                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                fill="currentColor"
-                strokeLinecap="round"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                fill="none"
-                r="11.25"
-                strokeMiterlimit="10"
-              />
-            </g>
-          </svg>
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-lock-disabled="disabled"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            <button
-              aria-expanded={null}
-              aria-haspopup="true"
-              aria-label="Open Search"
-              className="chakra-button css-1xdhyk6"
-              data-testid="button"
-              id="searchButton"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={true}
-                className="chakra-icon css-1grhd2q"
-                focusable={false}
-                role="img"
-                title="Open Search"
-                viewBox="0 0 24 24"
+                  <button
+                    aria-label="Log In"
+                    className="chakra-button css-1xdhyk6"
+                    data-testid="button"
+                    id="loginButton"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Log In
+                    <svg
+                      aria-hidden={true}
+                      className="chakra-icon css-1grhd2q"
+                      focusable={false}
+                      role="img"
+                      title="Log in to your account"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                          fill="none"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                          fill="currentColor"
+                          strokeLinecap="round"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          fill="none"
+                          r="11.25"
+                          strokeMiterlimit="10"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+              </div>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/locations"
+                rel={null}
+                target={null}
               >
-                <g
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path
-                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                    fill="currentColor"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    fill="none"
-                    r="11.25"
-                    strokeMiterlimit="10"
-                  />
-                </g>
-              </svg>
-            </button>
-          </div>
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-          <div
-            data-focus-lock-disabled="disabled"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            <button
-              aria-expanded={null}
-              aria-haspopup="true"
-              aria-label="Open Navigation"
-              className="chakra-button css-1xdhyk6"
-              data-testid="button"
-              id="mobileNav"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={true}
-                className="chakra-icon css-1grhd2q"
-                focusable={false}
-                role="img"
-                title="utilityHamburger icon"
-                viewBox="0 0 24 24"
+                Locations
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/library-card/new"
+                rel={null}
+                target={null}
               >
-                <g
-                  stroke="currentColor"
-                  strokeWidth="1.5"
+                Get A Library Card
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7"
+                rel={null}
+                target={null}
+              >
+                Get Email Updates
+                <svg
+                  aria-hidden={true}
+                  className="chakra-icon css-1grhd2q"
+                  focusable={false}
+                  role="img"
+                  title="arrow icon"
+                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                    fill="currentColor"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    fill="none"
-                    r="11.25"
-                    strokeMiterlimit="10"
-                  />
-                </g>
-              </svg>
-            </button>
-          </div>
-          <div
-            data-focus-guard={true}
-            style={
-              Object {
-                "height": "0px",
-                "left": "1px",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "fixed",
-                "top": "1px",
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-          />
-        </div>
+                  <g
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path
+                      d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                      fill="currentColor"
+                      strokeLinecap="round"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="none"
+                      r="11.25"
+                      strokeMiterlimit="10"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN"
+                id="donateLink"
+                rel={null}
+                target={null}
+              >
+                Donate
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
+                rel={null}
+                target={null}
+              >
+                Shop
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav
+          aria-label="Header bottom links"
+          className="css-0"
+        >
+          <ul
+            className="css-1xdhyk6"
+            id="header-nav-lower"
+          >
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/books-music-movies"
+                rel={null}
+                target={null}
+              >
+                Books/Music/Movies
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/research"
+                rel={null}
+                target={null}
+              >
+                Research
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/education"
+                rel={null}
+                target={null}
+              >
+                Education
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/events"
+                rel={null}
+                target={null}
+              >
+                Events
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/connect"
+                rel={null}
+                target={null}
+              >
+                Connect
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/give"
+                rel={null}
+                target={null}
+              >
+                Give
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/get-help"
+                rel={null}
+                target={null}
+              >
+                Get Help
+              </a>
+            </li>
+            <li>
+              <div
+                className="css-0"
+              >
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-lock-disabled="disabled"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  <button
+                    aria-expanded={null}
+                    aria-haspopup="true"
+                    aria-label="Open Search"
+                    className="chakra-button css-1xdhyk6"
+                    data-testid="button"
+                    id="searchButton"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Search
+                    <svg
+                      aria-hidden={true}
+                      className="chakra-icon css-1grhd2q"
+                      focusable={false}
+                      role="img"
+                      title="Open Search"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                          fill="none"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                          fill="currentColor"
+                          strokeLinecap="round"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          fill="none"
+                          r="11.25"
+                          strokeMiterlimit="10"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+              </div>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
     <hr

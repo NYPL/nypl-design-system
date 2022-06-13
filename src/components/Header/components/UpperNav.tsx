@@ -1,11 +1,11 @@
 import React from "react";
-import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
-import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 import LoginButton from "./LoginButton";
+import { upperNavLinks } from "../headerUtils";
 
 export interface LoginProps {
   greetingRef?: React.RefObject<HTMLDivElement>;
@@ -19,7 +19,7 @@ const UpperNav = chakra(
   ({ isLoginOpen, patronName, setIsLoginOpen }: LoginProps) => {
     const styles = useMultiStyleConfig("HeaderUpperNav", {});
     return (
-      <nav aria-label="Header top links">
+      <Box as="nav" aria-label="Header top links" __css={styles}>
         <List
           id="header-nav-upper"
           inline
@@ -30,30 +30,39 @@ const UpperNav = chakra(
               patronName={patronName}
               setIsLoginOpen={setIsLoginOpen}
             />,
-            <Link href="#" key="locationsLink">
+            <Link href={upperNavLinks.locations} key="locationsLink">
               Locations
             </Link>,
-            <Link href="#" key="libraryCardLink">
+            <Link href={upperNavLinks.libraryCard} key="libraryCardLink">
               Get A Library Card
             </Link>,
-            <Link id="emailUpdatesButton" key="emailUpdatesButton" href="#">
+            <Link
+              href={upperNavLinks.emailUpdates}
+              key="emailUpdatesLink"
+              __css={styles.emailUpdatesLink}
+            >
               <>
                 Get Email Updates
                 <Icon name="arrow" align="right" size="small" />
               </>
             </Link>,
-            <Button buttonType="callout" id="donateButton" key="donateButton">
+            <Link
+              href={upperNavLinks.donate}
+              id="donateLink"
+              key="donateLink"
+              type="button"
+              __css={styles.donateLink}
+            >
               Donate
-            </Button>,
-            <Link href="#" key="shopLink">
+            </Link>,
+            <Link href={upperNavLinks.shop} key="shopLink">
               Shop
             </Link>,
           ]}
           noStyling
           type="ul"
-          __css={styles.upperNav}
         />
-      </nav>
+      </Box>
     );
   }
 );

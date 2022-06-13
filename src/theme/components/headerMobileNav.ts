@@ -1,13 +1,20 @@
+import { headerFocus } from "./header";
+
+const mobileLinkFocus = {
+  ...headerFocus,
+  outlineColor: "var(--nypl-colors-ui-white) !important",
+};
+
 const HeaderMobileNav = {
   parts: ["bottomLinks", "sideNav"],
   baseStyle: () => ({
-    whiteSpace: "initial",
-    position: "absolute",
-    left: "0px",
     backgroundColor: "ui.black",
+    color: "ui.white",
+    left: "0px",
+    position: "absolute",
+    whiteSpace: "initial",
     width: "100%",
     zIndex: "99999",
-    color: "ui.white",
     sideNav: {
       textAlign: "right",
       padding: "15px",
@@ -22,6 +29,7 @@ const HeaderMobileNav = {
           color: "ui.white",
           textDecoration: "none",
         },
+        _focus: mobileLinkFocus,
       },
     },
     bottomLinks: {
@@ -38,18 +46,12 @@ const HeaderMobileNav = {
           backgroundColor: "ui.black",
           textDecoration: "none",
         },
+        _focus: mobileLinkFocus,
         _last: {
           backgroundColor: "brand.primary",
           _hover: {
             backgroundColor: "brand.primary",
           },
-        },
-        _focus: {
-          borderRadius: "none",
-          outlineColor: "#135772 !important",
-          outlineOffset: "0 !important",
-          outlineStyle: "solid !important",
-          outlineWidth: "0.1875em !important",
         },
       },
     },
