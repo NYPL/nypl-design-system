@@ -10,7 +10,13 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -54,7 +60,13 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -147,7 +159,13 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -186,7 +204,13 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -360,7 +384,13 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -409,7 +439,13 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -466,7 +502,13 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -511,7 +553,13 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"

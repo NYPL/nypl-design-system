@@ -131,6 +131,7 @@ export const Image = chakra((props: ImageProps) => {
     size,
   });
   let imageComponent: JSX.Element | null = null;
+  let srcProp = {};
 
   if (alt && alt.length > 300) {
     throw new Error(
@@ -138,19 +139,25 @@ export const Image = chakra((props: ImageProps) => {
     );
   }
 
+  // For lazying loading images, the initial `src` value is empty. Once
+  // the image is loaded, the `src` prop is set and passed to the image
+  // element so that it can load. This also lets it load with a gray
+  // background placeholder.
   if (inView || supportsLazyLoading) {
-    imageComponent = component ? (
-      component
-    ) : (
-      <Box
-        as="img"
-        alt={alt}
-        loading="lazy"
-        src={src}
-        __css={{ ...styles.img, ...additionalImageStyles }}
-      />
-    );
+    srcProp = { src };
   }
+
+  imageComponent = component ? (
+    component
+  ) : (
+    <Box
+      as="img"
+      alt={alt}
+      loading="lazy"
+      {...srcProp}
+      __css={{ ...styles.img, ...additionalImageStyles }}
+    />
+  );
   const finalImage = useImageWrapper ? (
     <ImageWrapper
       additionalWrapperStyles={additionalWrapperStyles}

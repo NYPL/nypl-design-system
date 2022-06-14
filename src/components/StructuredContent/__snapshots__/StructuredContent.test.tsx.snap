@@ -23,6 +23,11 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
     <figure
       className="css-0"
     >
+      <img
+        alt="Image alt text"
+        className="css-0"
+        loading="lazy"
+      />
       <figcaption
         className="css-0"
       >
@@ -73,6 +78,11 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
     <figure
       className="css-0"
     >
+      <img
+        alt="Image alt text"
+        className="css-0"
+        loading="lazy"
+      />
       <figcaption
         className="css-0"
       >
@@ -181,7 +191,13 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   </h3>
   <div
     className="css-0"
-  />
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      loading="lazy"
+    />
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
@@ -210,6 +226,11 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
     <figure
       className="css-0"
     >
+      <img
+        alt="Image alt text"
+        className="css-0"
+        loading="lazy"
+      />
       <figcaption
         className="css-0"
       >
@@ -282,6 +303,11 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
     <figure
       className="css-0"
     >
+      <img
+        alt="Image alt text"
+        className="css-0"
+        loading="lazy"
+      />
       <figcaption
         className="css-0"
       >
@@ -333,6 +359,11 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
     <figure
       className="css-0"
     >
+      <img
+        alt="Image alt text"
+        className="css-0"
+        loading="lazy"
+      />
       <figcaption
         className="css-0"
       >

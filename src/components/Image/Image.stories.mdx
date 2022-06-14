@@ -342,9 +342,9 @@ second pacakge checks if the `img`'s native `loading="lazy` attribute is
 supported by the browser.
 
 The `Image`'s implementation of lazy loading is based on the recipe provided by
-them. Once the image's wrapper is in view, we load the image by rendering it
-through the native `loading="lazy` attribute or through the
-`IntersectionObserver` API.
+`react-intersection-observer`. Once the image's wrapper is in view, we load the
+image by rendering it through the native `loading="lazy` attribute or through
+the `IntersectionObserver` API.
 
 In the following example, open the "Network" tab in your browser's console and
 as you scroll down to view the next set of 10 images, you'll see that they get

@@ -89,7 +89,13 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -209,7 +215,13 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -329,7 +341,13 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -450,7 +468,13 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -570,7 +594,13 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -690,7 +720,13 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
               >
                 <div
                   className="the-crop css-0"
-                />
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>

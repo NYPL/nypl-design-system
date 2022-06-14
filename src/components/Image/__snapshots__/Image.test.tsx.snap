@@ -3,7 +3,13 @@
 exports[`Image Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 2`] = `
@@ -13,6 +19,11 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
   <figure
     className="css-0"
   >
+    <img
+      alt=""
+      className="css-0"
+      loading="lazy"
+    />
     <figcaption
       className="css-0"
     >
@@ -33,6 +44,11 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
   <figure
     className="css-0"
   >
+    <img
+      alt=""
+      className="css-0"
+      loading="lazy"
+    />
     <figcaption
       className="css-0"
     >
@@ -53,6 +69,11 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
   <figure
     className="css-0"
   >
+    <img
+      alt=""
+      className="css-0"
+      loading="lazy"
+    />
     <figcaption
       className="css-0"
     >
@@ -74,31 +95,61 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
 exports[`Image Renders the UI snapshot correctly 5`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 6`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 7`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 8`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 9`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 10`] = `
@@ -110,7 +161,13 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -124,7 +181,13 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -132,7 +195,13 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
 exports[`Image Renders the UI snapshot correctly 12`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 13`] = `
@@ -144,7 +213,13 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -158,7 +233,13 @@ exports[`Image Renders the UI snapshot correctly 14`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -172,7 +253,13 @@ exports[`Image Renders the UI snapshot correctly 15`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -186,7 +273,13 @@ exports[`Image Renders the UI snapshot correctly 16`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -200,7 +293,13 @@ exports[`Image Renders the UI snapshot correctly 17`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -214,7 +313,13 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
   >
     <div
       className="the-crop css-0"
-    />
+    >
+      <img
+        alt=""
+        className="css-0"
+        loading="lazy"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -222,11 +327,23 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
 exports[`Image Renders the UI snapshot correctly 19`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 20`] = `
 <div
   className="css-0"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    loading="lazy"
+  />
+</div>
 `;

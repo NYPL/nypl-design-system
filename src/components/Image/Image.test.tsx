@@ -33,15 +33,16 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
-  it("does not render an image component until it is 'inView'", () => {
+  it("does not render an image src until it is 'inView'", () => {
     const src = "https://placeimg.com/500/200/animals";
     const { container, rerender } = render(<Image alt="" src={src} />);
 
     // Mock that the image is not in view through the IntersectionObserver object.
     mockAllIsIntersecting(false);
-    expect(container.querySelector("img")).toBeNull();
+    expect(container.querySelector("img")).not.toHaveAttribute("src");
 
     rerender(<Image alt="" src={src} />);
+
     // Mock that the image is in view through the IntersectionObserver object.
     mockAllIsIntersecting(true);
     expect(container.querySelector("img")).toHaveAttribute("src", src);

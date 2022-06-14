@@ -2403,7 +2403,13 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-        />
+        >
+          <img
+            alt="Tom Nook"
+            className="css-0"
+            loading="lazy"
+          />
+        </div>
       </td>
     </tr>
     <tr
@@ -2428,7 +2434,13 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-        />
+        >
+          <img
+            alt="Isabelle"
+            className="css-0"
+            loading="lazy"
+          />
+        </div>
       </td>
     </tr>
     <tr
@@ -2453,7 +2465,13 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-        />
+        >
+          <img
+            alt="K.K Slider"
+            className="css-0"
+            loading="lazy"
+          />
+        </div>
       </td>
     </tr>
   </tbody>
