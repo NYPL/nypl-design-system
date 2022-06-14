@@ -1,4 +1,4 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, HStack, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import Button from "../../Button/Button";
@@ -12,24 +12,34 @@ import TextInput from "../../TextInput/TextInput";
 
 import { getEncoreCatalogUrl, getNYPLSearchURL } from "../headerUtils";
 
-const SearchForm = chakra(() => {
+interface SearchFormProps {
+  isMobile?: boolean;
+}
+
+/**
+ * Displays the search form for the Header's search interface. On mobile, two
+ * buttons are displayed and on desktop, two radio inputs are displayed.
+ */
+const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
   const [placeholder, setPlaceholder] = useState<string>(
     "What would you like to find?"
   );
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchOption, setSearchOption] = useState<string>("catalog");
-  const styles = useMultiStyleConfig("HeaderSearchForm", {});
-  const onSubmit = (e: any) => {
+  const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
+  const onSubmit = (e: any, mobileType = "") => {
     e.preventDefault();
     let requestUrl;
 
     // If there is a search input, make the request.
     if (searchInput) {
-      if (searchOption === "catalog") {
+      if (searchOption === "catalog" || mobileType === "catalog") {
         requestUrl = getEncoreCatalogUrl(searchInput);
-      } else {
+      }
+      if (searchOption === "website" || mobileType === "website") {
         requestUrl = getNYPLSearchURL(searchInput);
       }
+
       if (requestUrl) {
         window.location.assign(requestUrl);
         return true;
@@ -42,14 +52,14 @@ const SearchForm = chakra(() => {
 
   return (
     <Box __css={styles}>
-      <Form id="search-header" onSubmit={onSubmit} __css={styles.form}>
-        <FormRow
-          // To make the search input field very wide.
-          __css={{
-            gridTemplateColumns: "12fr 1fr !important",
-          }}
-        >
-          <FormField>
+      <Form
+        id="search-header"
+        gap="grid.m"
+        onSubmit={onSubmit}
+        __css={styles.form}
+      >
+        <FormRow>
+          <FormField gridColumn="1 / 3">
             <Fieldset
               id="fieldset-search"
               isLegendHidden
@@ -64,49 +74,75 @@ const SearchForm = chakra(() => {
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder={placeholder}
                 showRequiredLabel={false}
+                showLabel={!isMobile}
                 value={searchInput}
                 __css={styles.textInput}
               />
             </Fieldset>
           </FormField>
-          <FormField>
-            <ButtonGroup>
-              <Button
-                aria-label="Search"
-                id="search-btn"
-                buttonType="pill"
-                onClick={onSubmit}
-                __css={styles.button}
-              >
-                <Icon name="search" size="large" />
-              </Button>
-            </ButtonGroup>
-          </FormField>
+          {!isMobile && (
+            <FormField gridColumn="4">
+              <ButtonGroup>
+                <Button
+                  aria-label="Search"
+                  id="search-btn"
+                  buttonType="pill"
+                  onClick={onSubmit}
+                  __css={styles.desktopSearchBtn}
+                >
+                  <Icon name="search" size="medium" />
+                </Button>
+              </ButtonGroup>
+            </FormField>
+          )}
         </FormRow>
         <FormRow>
           <FormField>
-            <RadioGroup
-              defaultValue="catalog"
-              id="search-type"
-              labelText="Type of search"
-              layout="row"
-              name="catalogWebsiteSearch"
-              onChange={(val) => setSearchOption(val)}
-              showLabel={false}
-            >
-              <Radio
-                id="catalogSearch"
-                labelText="Search the Catalog"
-                value="catalog"
-                __css={styles.radio}
-              />
-              <Radio
-                id="websiteSearch"
-                labelText="Search NYPL.org"
-                value="website"
-                __css={styles.radio}
-              />
-            </RadioGroup>
+            {isMobile ? (
+              <HStack spacing="0" align="stretch" height="45px">
+                <Button
+                  aria-label="Submit Catalog Search"
+                  id="mobile-catalog"
+                  onClick={(e) => onSubmit(e, "catalog")}
+                  __css={styles.mobileBtns}
+                >
+                  CATALOG
+                  <Icon name="arrow" size="small" iconRotation="rotate270" />
+                </Button>
+                <Button
+                  aria-label="Submit NYPL Website Search"
+                  id="mobile-website"
+                  onClick={(e) => onSubmit(e, "website")}
+                  __css={styles.mobileBtns}
+                >
+                  NYPL.ORG
+                  <Icon name="arrow" size="small" iconRotation="rotate270" />
+                </Button>
+              </HStack>
+            ) : (
+              <RadioGroup
+                defaultValue="catalog"
+                id="search-type"
+                labelText="Type of search"
+                layout="row"
+                name="catalogWebsiteSearch"
+                onChange={(val) => setSearchOption(val)}
+                showLabel={false}
+              >
+                <Radio
+                  id="catalogSearch"
+                  labelText="Search the Catalog"
+                  value="catalog"
+                  __css={styles.radio}
+                />
+                <Radio
+                  id="websiteSearch"
+                  labelText="Search NYPL.org"
+                  value="website"
+                  __css={styles.radio}
+                />
+              </RadioGroup>
+            )}
           </FormField>
         </FormRow>
       </Form>

@@ -15,6 +15,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
 - Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
 - Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
+- Refactors `SearchButton` and `SearchForm` to implement the mobile search form.
+- Adds the mobile navigation menu for the `Header` component with `MobileNav` and `MobileNavButton` components.
 
 ## Prerelease
 

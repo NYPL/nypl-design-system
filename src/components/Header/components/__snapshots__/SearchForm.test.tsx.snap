@@ -6,20 +6,20 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
 >
   <form
     aria-label="form"
-    className="css-0"
+    className="css-1xfaj5"
     id="search-header"
     onSubmit={[Function]}
   >
     <div
-      className="css-fadkce"
+      className="css-uo6vru"
       id="search-header-parent"
     >
       <div
-        className="css-16v0xu8"
+        className="css-10aw3py"
         id="search-header-child0"
       >
         <div
-          className="css-7ajbp2"
+          className="css-18yyq8w"
           id="search-header-child0-grandchild0"
         >
           <fieldset
@@ -58,7 +58,7 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
           </fieldset>
         </div>
         <div
-          className="css-7ajbp2"
+          className="css-1pymqp3"
           id="search-header-child0-grandchild1"
         >
           <div
@@ -108,7 +108,7 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
         </div>
       </div>
       <div
-        className="css-l5w1vc"
+        className="css-1jiq10l"
         id="search-header-child1"
       >
         <div
@@ -248,6 +248,159 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
               </div>
             </div>
           </fieldset>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`SearchForm renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <form
+    aria-label="form"
+    className="css-1xfaj5"
+    id="search-header"
+    onSubmit={[Function]}
+  >
+    <div
+      className="css-uo6vru"
+      id="search-header-parent"
+    >
+      <div
+        className="css-10aw3py"
+        id="search-header-child0"
+      >
+        <div
+          className="css-18yyq8w"
+          id="search-header-child0-grandchild0"
+        >
+          <fieldset
+            className="css-1xdhyk6"
+            id="fieldset-search"
+          >
+            <legend>
+              Enter a keyword, then choose to search either the catalog or the website
+            </legend>
+            <div
+              className="css-1u8qly9"
+              id="searchInput-wrapper"
+            >
+              <input
+                aria-label="Enter Search Keyword"
+                aria-required={true}
+                className="chakra-input css-0"
+                disabled={false}
+                id="searchInput"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="What would you like to find?"
+                required={true}
+                step={null}
+                type="text"
+                value=""
+              />
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        className="css-1jiq10l"
+        id="search-header-child1"
+      >
+        <div
+          className="css-7ajbp2"
+          id="search-header-child1-grandchild0"
+        >
+          <div
+            className="chakra-stack css-nf0nk5"
+          >
+            <button
+              aria-label="Submit Catalog Search"
+              className="chakra-button css-1xdhyk6"
+              data-testid="button"
+              id="mobile-catalog"
+              onClick={[Function]}
+              type="button"
+            >
+              CATALOG
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-1grhd2q"
+                focusable={false}
+                role="img"
+                title="arrow icon"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Submit NYPL Website Search"
+              className="chakra-button css-1xdhyk6"
+              data-testid="button"
+              id="mobile-website"
+              onClick={[Function]}
+              type="button"
+            >
+              NYPL.ORG
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-1grhd2q"
+                focusable={false}
+                role="img"
+                title="arrow icon"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
