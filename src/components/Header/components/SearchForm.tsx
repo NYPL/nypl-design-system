@@ -10,7 +10,7 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogUrl, getNYPLSearchURl } from "../headerUtils";
+import { getEncoreCatalogUrl, getNYPLSearchURL } from "../headerUtils";
 
 interface SearchFormProps {
   isMobile?: boolean;
@@ -37,7 +37,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
         requestUrl = getEncoreCatalogUrl(searchInput);
       }
       if (searchOption === "website" || mobileType === "website") {
-        requestUrl = getNYPLSearchURl(searchInput);
+        requestUrl = getNYPLSearchURL(searchInput);
       }
 
       if (requestUrl) {
