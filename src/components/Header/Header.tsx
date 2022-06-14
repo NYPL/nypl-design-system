@@ -9,9 +9,12 @@ import {
 } from "@chakra-ui/react";
 
 import {
+  deleteCookieValue,
   extractPatronName,
-  fetchPatronData,
+  getLoginData,
   getCookieValue,
+  refreshAccessToken,
+  tokenRefreshLink,
 } from "./headerUtils";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Link from "../Link/Link";
@@ -40,7 +43,6 @@ export const Header = chakra(() => {
   });
 
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
-  const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
 
   // Allows user to use esc key to close the login menu.
@@ -55,18 +57,32 @@ export const Header = chakra(() => {
     return () => window.removeEventListener("keydown", close);
   }, []);
 
-  useEffect(() => {
-    const { cookieValue, accessToken } = getCookieValue();
-    if (cookieValue) {
-      if (!patronDataReceived) {
-        fetchPatronData(accessToken, (data) => {
-          const fullName = extractPatronName(data);
-          setPatronName(fullName);
-          setPatronDataReceived(true);
-        });
-      }
+  const loginDataCallback = (data) => {
+    // If the statusCode of the returned data is 401 and the expired
+    // key is set to true, try to refresh the accessToken.
+    if (data.data.statusCode === 401 && data.data.expired === true) {
+      refreshAccessToken(
+        tokenRefreshLink,
+        loginDataCallback,
+        deleteCookieValue
+      );
+      // Else, extract the patron's name from the returned data.
+    } else {
+      const fullName = extractPatronName(data);
+      setPatronName(fullName);
     }
-  }, [patronDataReceived]);
+  };
+
+  useEffect(() => {
+    // Aftering mounting,look for a cookie named "nyplIdentityPatron"
+    // and try to grab its value.
+    const { accessToken, cookieValue } = getCookieValue();
+    // If the cookie exists, use its accessToken to make a fetch
+    // request for the patron's data.
+    if (cookieValue) {
+      getLoginData(accessToken, loginDataCallback);
+    }
+  }, []);
 
   return (
     <Box __css={styles.container}>
