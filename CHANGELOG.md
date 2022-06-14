@@ -11,12 +11,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+- Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
+- Adds a "Color Mode" documentation page in Storybook.
 
 ### Updates
 
 - Updates the `Logo` component to include a variant for `MLN Color`.
 - Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
+- Explicitly sets the default color mode value to `"light"`.
 
 ## 1.0.3 (June 9, 2022)
 
