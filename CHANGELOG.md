@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `SkipNavigation` to the `Header` component.
 - Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
 - Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
+- Adds refresh login functionality, which is used when a cookie's accessToken has expired and the server responds to a request for patron details with a 401. It attempts to refresh the token and, if successful, refetches the patron's details.
 
 ## Prerelease
 
