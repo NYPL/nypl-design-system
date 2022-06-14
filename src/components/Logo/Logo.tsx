@@ -23,6 +23,7 @@ export type LogoNames =
   | "lpaColor"
   | "lpaWhite"
   | "mlnBlack"
+  | "mlnColor"
   | "mlnWhite"
   | "nyplFullBlack"
   | "nyplFullWhite"
