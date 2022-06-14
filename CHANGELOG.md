@@ -13,9 +13,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 - Adds `ui.gray.xx-dark` to the color palette.
 
-### Upudates
+### Updates
 
 - Updates the `Logo` component to include a variant for `MLN Color`.
+- Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
 
 ## 1.0.3 (June 9, 2022)
 
@@ -34,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates hover style to add right border color on hover for `Select` element.
 - Updates the `Table` component to be responsive for a mobile viewport.
 - Updates the `Table` component to make the `columnHeaders` prop required.
+- Updates to Storybook version 6.5.
 
 ### Fixes
 
