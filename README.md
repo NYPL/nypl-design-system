@@ -57,7 +57,7 @@ const ApplicationContainer = (props) => {
 };
 ```
 
-3. Import the minified styles `/dist/styles.css` file in your app.
+3. Import the minified styles `@nypl/design-system-react-components/dist/styles.css` file in your app.
 
 This file contains normalized reset CSS rules, system fonts, the `react-datepicker`'s styles, breakpoint CSS variables, and overriding styles for a few components.
 
@@ -85,16 +85,28 @@ body {
 }
 ```
 
-Note: Using tilde to import scss/css is no longer a best practice for apps using _recent_ versions of webpack or parcel. For apps using parcel, prepend the string import with `npm:` such as :
+Note: Using tilde to import scss/css is no longer a best practice for apps using _recent_ versions of webpack or parcel.
+
+```scss
+// No longer a best practice:
+@import "~@nypl/design-system-react-components/dist/styles.css";
+```
+
+For apps using parcel, prepend the string import with `npm:` such as :
 
 ```scss
 @import "npm:@nypl/design-system-react-components/dist/styles.css";
 ```
 
-4. Optionally import the `/dist/resources.scss` file in your main _scss_ file. This file contains useful SCSS mixins that can be used for global or component style rules.
+4. Optionally import the `@nypl/design-system-react-components/dist/resources.scss` file in your main _scss_ file. This file contains useful SCSS mixins that can be used for global or component style rules.
 
 ```scss
 @import "@nypl/design-system-react-components/dist/resources.scss";
+
+// `screenreader-only` is one example of a mixing from `resources.scss`:
+legend {
+  @include screenreader-only;
+}
 ```
 
 5. Use DS components!
@@ -214,7 +226,7 @@ You can then view `/reservoir/v1/index.html` in your browser. _Make sure not to 
 
 ### Development and Storybook
 
-The Reservoir Design System is built with accessibility in mind. By using Chakra UI as our foundational base, the custom DS components built with Chakra have accessibility concerns already implemented. On top of built-in accessible elements, DS components internally work to link labels with input elements, to add correct `aria-*` attributes, to visually hide text but still associate it with the correct element for titles and descriptions, to auto-generate a random `id` attribute if none was passed, and much more.
+The Reservoir Design System is built with accessibility in mind. By using Chakra UI as our foundational base, the custom DS components built with Chakra have accessibility concerns already implemented. On top of built-in accessible elements, DS components internally work to link labels with input elements, to add correct `aria-*` attributes, to visually hide text but still associate it with the correct element for titles and descriptions, and much more.
 
 We make use of:
 
@@ -226,7 +238,7 @@ If applicable, DS components have section(s) on accessibility in their Storybook
 
 ### Product Requirements
 
-The Reservoir Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
+The Reservoir Design System provides accessible stories, but real data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
 
 NYPL's Metronome instance is currently password protected. For access to Metronome, please contact NYPL's UX team or Design System team.
 
