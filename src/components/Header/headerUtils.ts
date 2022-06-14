@@ -1,4 +1,6 @@
+/*eslint no-useless-escape: 0 */
 import Cookies from "js-cookie";
+
 export interface Alert {
   id: string;
   link: string;
@@ -65,7 +67,7 @@ export const getEncoreCatalogUrl = (searchValue) => {
 /**
  * Returns the final URL for the NYPL catalog search.
  */
-export const getNYPLSearchURl = (searchString) => {
+export const getNYPLSearchURL = (searchString) => {
   const catalogUrl = "//www.nypl.org/search/";
 
   if (searchString) {

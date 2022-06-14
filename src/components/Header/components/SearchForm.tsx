@@ -10,7 +10,7 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogUrl, getNYPLSearchURl } from "../headerUtils";
+import { getEncoreCatalogUrl, getNYPLSearchURL } from "../headerUtils";
 
 const SearchForm = chakra(() => {
   const [placeholder, setPlaceholder] = useState<string>(
@@ -28,7 +28,7 @@ const SearchForm = chakra(() => {
       if (searchOption === "catalog") {
         requestUrl = getEncoreCatalogUrl(searchInput);
       } else {
-        requestUrl = getNYPLSearchURl(searchInput);
+        requestUrl = getNYPLSearchURL(searchInput);
       }
       if (requestUrl) {
         window.location.assign(requestUrl);
