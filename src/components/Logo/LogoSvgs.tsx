@@ -13,6 +13,7 @@ import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
 import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
 import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
 import mlnBlack from "../../../icons/svg/logo-mln-black.svg";
+import mlnColor from "../../../icons/svg/logo-mln-color.svg";
 import mlnWhite from "../../../icons/svg/logo-mln-white.svg";
 import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
 import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
@@ -60,6 +61,7 @@ export default {
   lpaColor,
   lpaWhite,
   mlnBlack,
+  mlnColor,
   mlnWhite,
   nyplFullBlack,
   nyplFullWhite,
