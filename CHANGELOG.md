@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
 - Updates to Storybook version 6.5.
 - Explicitly sets the default color mode value to `"light"`.
+- Updates how the `styles.scss` and `resources.scss` files are organized and compiled so that they can be imported in any tech stack.
 
 ## 1.0.3 (June 9, 2022)
 
@@ -41,7 +42,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates hover style to add right border color on hover for `Select` element.
 - Updates the `Table` component to be responsive for a mobile viewport.
 - Updates the `Table` component to make the `columnHeaders` prop required.
-- Updates how the `styles.scss` file is organized and compiled so that it can be imported in any tech stack.
 
 ### Fixes
 
