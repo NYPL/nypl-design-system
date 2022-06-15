@@ -8,6 +8,7 @@ import List from "../../List/List";
 import LoginButton from "./LoginButton";
 
 export interface LoginProps {
+  catalogRef?: React.RefObject<HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
   isLoginOpen?: boolean;

@@ -53,6 +53,19 @@ describe("LoginButton", () => {
       expect(links[1]).toHaveTextContent(/log into the research catalog/i);
     });
 
+    it("focuses on the catalog link when the login is opened and there is no patron name", () => {
+      render(
+        <LoginButton
+          isLoginOpen
+          patronName=""
+          setIsLoginOpen={setIsLoginOpen}
+        />
+      );
+
+      const catalogLink = screen.getByText(/log into the catalog/i);
+      expect(catalogLink).toHaveFocus();
+    });
+
     it("renders the logged in UI if there is a `patronName` value", () => {
       const { rerender } = render(
         <LoginButton
@@ -93,7 +106,7 @@ describe("LoginButton", () => {
       expect(links[2]).toHaveTextContent(/log out/i);
     });
 
-    it("focuses on the greeting message when the login is opened", () => {
+    it("focuses on the greeting message when the login is opened and there is a patron", () => {
       render(
         <LoginButton
           isLoginOpen
@@ -143,6 +156,20 @@ describe("LoginButton", () => {
       expect(links[1]).toHaveTextContent(/log into the research catalog/i);
     });
 
+    it("focuses on the catalog link when the login is opened and there is no patron name", () => {
+      render(
+        <LoginButton
+          isLoginOpen
+          isMobile
+          patronName=""
+          setIsLoginOpen={setIsLoginOpen}
+        />
+      );
+
+      const catalogLink = screen.getByText(/log into the catalog/i);
+      expect(catalogLink).toHaveFocus();
+    });
+
     it("renders the logged in UI if there is a `patronName` value", () => {
       const { rerender } = render(
         <LoginButton
@@ -184,7 +211,7 @@ describe("LoginButton", () => {
       expect(links[2]).toHaveTextContent(/log out/i);
     });
 
-    it("focuses on the greeting message when the login is opened", () => {
+    it("focuses on the greeting message when the login is opened and there is a patron", () => {
       render(
         <LoginButton
           isLoginOpen

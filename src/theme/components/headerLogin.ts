@@ -1,6 +1,7 @@
 const HeaderLogin = {
   baseStyle: ({ isMobile, patronName }) => ({
     bg: isMobile ? "ui.black" : "#1B7FA7",
+    boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
     flexDirection: "column",
     left: isMobile ? "0" : null,
     marginTop: isMobile ? null : "1px",
@@ -79,7 +80,6 @@ const HeaderLogin = {
         outlineWidth: isMobile ? "0.1875em" : null,
       },
       ".greeting": {
-        fontStyle: "italic",
         margin: "0 0 6px 0",
       },
       ".name": {
@@ -92,12 +92,14 @@ const HeaderLogin = {
       borderRadius: isMobile ? "0" : "28px",
       color: isMobile ? "ui.white" : "#1B7FA7",
       fontSize: isMobile ? "18px" : null,
+      marginTop: isMobile ? "5px" : null,
+      marginBottom: isMobile ? "5px" : null,
       padding: isMobile ? "30px" : null,
       textDecoration: isMobile ? "underline" : null,
       textTransform: isMobile ? "uppercase" : null,
       width: isMobile ? "100%" : "140px",
       _focus: {
-        boxShadow: isMobile ? null : "1px 1px 2px 2px #0f465c",
+        boxShadow: "1px 1px 2px 2px #0f465c",
         outline: isMobile ? "inset" : "none",
         outlineStyle: isMobile ? "solid" : null,
         outlineWidth: isMobile ? "0.1875em" : null,
