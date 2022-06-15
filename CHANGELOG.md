@@ -13,6 +13,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 - Adds `ui.gray.xx-dark` to the color palette.
 - Adds npm packages useful for lazy loading images in the `Image` component.
+- Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
+- Adds a "Color Mode" documentation page in Storybook.
 
 ### Updates
 
@@ -20,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
 - Updates to Storybook version 6.5.
+- Explicitly sets the default color mode value to `"light"`.
 
 ## 1.0.3 (June 9, 2022)
 
