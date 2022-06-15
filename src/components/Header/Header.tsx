@@ -60,7 +60,7 @@ export const Header = chakra(() => {
   const loginDataCallback = (data) => {
     // If the `statusCode` of the returned data is 401 and the expired
     // key is set to true, try to refresh the accessToken.
-    if (data.data.statusCode === 401 && data.data.expired === true) {
+    if (data?.data?.statusCode === 401 && data?.data?.expired === true) {
       refreshAccessToken(
         tokenRefreshLink,
         loginDataCallback,

@@ -224,7 +224,7 @@ describe("Patron API call fails", () => {
       )
       // Mock the fetch API call for patron data (unsuccessful).
       .mockReturnValueOnce(
-        Promise.reject({
+        Promise.resolve({
           status: 500,
         })
       );

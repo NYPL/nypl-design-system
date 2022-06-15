@@ -140,6 +140,7 @@ export const getLoginData = (accessToken, cb) => {
       // falls out of the range of 2xx and is not 401 with the expired token.
       console.warn(fetchErrorMessage);
       console.warn(`Error Data: ${error?.data}`);
+      console.warn(`Error Message: ${error?.message}`);
       console.warn(`Error Status: ${error?.status}`);
       console.warn(`Error Headers: ${error?.headers}`);
       console.warn(`Error Config: ${error?.config}`);
