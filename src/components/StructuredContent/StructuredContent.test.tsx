@@ -1,7 +1,8 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import StructuredContent from "./StructuredContent";
 
@@ -78,6 +79,11 @@ const htmlDOMBodyContent = (
 );
 
 describe("StructuredContent Accessibility", () => {
+  beforeEach(() => {
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
+  });
+
   it("passes axe accessibility for HTML string text content", async () => {
     const { container } = render(
       <StructuredContent
@@ -150,6 +156,8 @@ describe("StructuredContent", () => {
     );
     const mainHeading = screen.getByRole("heading", { level: 2 });
     const calloutHeading = screen.getByRole("heading", { level: 3 });
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
 
     expect(mainHeading).toHaveTextContent("Heading text");
     expect(calloutHeading).toHaveTextContent("This is the callout text");
@@ -174,6 +182,8 @@ describe("StructuredContent", () => {
     );
     const mainHeading = screen.queryByRole("heading", { level: 2 });
     const calloutHeading = screen.queryByRole("heading", { level: 3 });
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
 
     expect(mainHeading).not.toBeInTheDocument();
     expect(calloutHeading).not.toBeInTheDocument();
@@ -215,6 +225,8 @@ describe("StructuredContent", () => {
         }}
       />
     );
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir StructuredContent: The `imageProps.alt` prop is required " +
@@ -240,6 +252,9 @@ describe("StructuredContent", () => {
         }}
       />
     );
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("Image caption")).toBeInTheDocument();
@@ -282,6 +297,9 @@ describe("StructuredContent", () => {
         }}
       />
     );
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.queryByRole("figure")).not.toBeInTheDocument();
     expect(screen.queryByText("Image caption")).not.toBeInTheDocument();
@@ -422,6 +440,8 @@ describe("StructuredContent", () => {
         />
       )
       .toJSON();
+    // Mock IntersectionObserver to render images.
+    mockAllIsIntersecting(true);
 
     expect(withHTMLStringContent).toMatchSnapshot();
     expect(withHTMLDOMContent).toMatchSnapshot();
