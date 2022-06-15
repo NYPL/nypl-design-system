@@ -10,6 +10,12 @@ export interface TextProps {
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
   isItalic?: boolean;
+  /** Optional prop used to show capitalized text */
+  isCapitalized?: boolean;
+  /** Optional prop used to show upper case text */
+  isUppercase?: boolean;
+  /** Optional prop used to show lower case text */
+  isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
   /** Optional prop to control the text styling */
@@ -22,6 +28,9 @@ export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
     className = "",
     isBold,
     isItalic,
+    isCapitalized,
+    isUppercase,
+    isLowercase,
     noSpace,
     size = "default",
     ...rest
@@ -30,6 +39,9 @@ export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
     variant: size,
     isBold,
     isItalic,
+    isCapitalized,
+    isUppercase,
+    isLowercase,
     noSpace,
   });
 
@@ -37,6 +49,18 @@ export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
     console.warn(
       "NYPL Reservoir Text: No children were passed and the `Text` component " +
         "will not render correctly."
+    );
+  }
+
+  let textCase = 0;
+  if( isCapitalized) { textCase++; }
+  if( isUppercase) { textCase++; }
+  if( isLowercase) { textCase++; }
+  
+  if(textCase > 1) {
+    console.warn(
+      "NYPL Reservoir Text: Multiple text case props have been passed " +
+        "and the component will not render properly."
     );
   }
 
