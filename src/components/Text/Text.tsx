@@ -53,11 +53,17 @@ export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
   }
 
   let textCase = 0;
-  if( isCapitalized) { textCase++; }
-  if( isUppercase) { textCase++; }
-  if( isLowercase) { textCase++; }
-  
-  if(textCase > 1) {
+  if (isCapitalized) {
+    textCase++;
+  }
+  if (isUppercase) {
+    textCase++;
+  }
+  if (isLowercase) {
+    textCase++;
+  }
+
+  if (textCase > 1) {
     console.warn(
       "NYPL Reservoir Text: Multiple text case props have been passed " +
         "and the component will not render properly."

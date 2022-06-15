@@ -21,14 +21,28 @@ const variants = {
   },
 };
 const Text = {
-  baseStyle: ({ isBold, isItalic, isCapitalized, isUppercase, isLowercase, noSpace, variant }: TextBaseStyle) => {
+  baseStyle: ({
+    isBold,
+    isItalic,
+    isCapitalized,
+    isUppercase,
+    isLowercase,
+    noSpace,
+    variant,
+  }: TextBaseStyle) => {
     const fontWeight = isBold
       ? variant === "tag" || variant === "mini"
         ? "medium"
         : "bold"
       : null;
     const fontStyle = isItalic ? "italic" : null;
-    const textTransform = isCapitalized ? "capitalize" : isUppercase ? "uppercase" : isLowercase ? "lowercase" : null;
+    const textTransform = isCapitalized
+      ? "capitalize"
+      : isUppercase
+      ? "uppercase"
+      : isLowercase
+      ? "lowercase"
+      : null;
 
     return {
       fontStyle: fontStyle,
