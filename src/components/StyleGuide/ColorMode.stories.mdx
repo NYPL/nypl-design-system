@@ -155,10 +155,13 @@ export default Document;
 
 ### colorModeManager
 
-This is a prop that is passed to the `DSProvider` component. It is most helpful
-for serverside rendering and is based on local storage and browser cookies. The
-value is set through the `cookieStorageManager` if cookies are found or else the
-`localStorageManager` default value.
+This is a prop in the `DSProvider` component. It is most helpful for server-side
+rendering and is based on local storage and browser's cookies. This is optional
+but is useful for apps that need to render in a specific color mode on the server
+to avoid rerendering the user-specified color mode on the client.
+
+The value is set through the `cookieStorageManager` function if cookies are
+found or else the `localStorageManager` default value.
 
 #### Next.js App Example
 
