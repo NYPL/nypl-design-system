@@ -8,8 +8,8 @@ export const patronApiUrlWithToken = `${patronApiUrl}${accessToken}`;
 const authServerDomain = "https://login.nypl.org/auth";
 export const tokenRefreshLink = `${authServerDomain}/refresh`;
 
-// The following three variables are mock responses
-// from the platform.nypl.org API.
+// The following two variables are mock responses from the
+// platform.nypl.org API.
 export const mockResponseData = {
   data: {
     decodedToken: {
@@ -39,41 +39,6 @@ export const mockResponseData = {
   },
   count: 1,
   statusCode: 200,
-  debugInfo: [],
-};
-
-export const mockErrorResponseData = {
-  expired: false,
-  statusCode: 400,
-  type: "exception",
-  message: "No response",
-  error: {
-    type: "NYPL\\Starter\\APIException",
-    code: 0,
-    message: "No response",
-    file: "/var/task/src/Controller/AuthController.php",
-    line: 47,
-    trace: [
-      "#0 /var/task/src/Controller/AuthController.php(122): NYPL\\Services\\Controller\\AuthController->getTokenResponse('eyJ0eXAiOiJKV1Q...')",
-      "#1 /var/task/index.php(260): NYPL\\Services\\Controller\\AuthController->getToken('eyJ0eXAiOiJKV1Q...')",
-      "#2 [internal function]: Closure->{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
-      "#3 /var/task/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func(Object(Closure), Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
-      "#4 /var/task/vendor/slim/slim/Slim/Route.php(325): Slim\\Handlers\\Strategies\\RequestResponse->__invoke(Object(Closure), Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
-      "#5 /var/task/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(116): Slim\\Route->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#6 /var/task/vendor/slim/slim/Slim/Route.php(297): Slim\\Route->callMiddlewareStack(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#7 /var/task/vendor/slim/slim/Slim/App.php(443): Slim\\Route->run(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#8 /var/task/vendor/nypl/microservice-starter/src/Service.php(63): Slim\\App->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#9 [internal function]: NYPL\\Starter\\Service->NYPL\\Starter\\{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(NYPL\\Starter\\Service))",
-      "#10 /var/task/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array(Object(Closure), Array)",
-      "#11 [internal function]: Slim\\DeferredCallable->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(NYPL\\Starter\\Service))",
-      "#12 /var/task/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(67): call_user_func(Object(Slim\\DeferredCallable), Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(NYPL\\Starter\\Service))",
-      "#13 /var/task/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(116): Slim\\App->Slim\\{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#14 /var/task/vendor/slim/slim/Slim/App.php(337): Slim\\App->callMiddlewareStack(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#15 /var/task/vendor/slim/slim/Slim/App.php(298): Slim\\App->process(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
-      "#16 /var/task/index.php(333): Slim\\App->run()",
-      "#17 {main}",
-    ],
-  },
   debugInfo: [],
 };
 

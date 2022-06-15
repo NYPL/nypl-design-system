@@ -8,7 +8,6 @@ import renderer from "react-test-renderer";
 import Header from "./Header";
 import {
   patronApiUrlWithToken,
-  mockErrorResponseData,
   mockExpiredResponseData,
   mockLoginCookie,
   mockResponseData,
@@ -227,7 +226,6 @@ describe("Patron API call fails", () => {
       .mockReturnValueOnce(
         Promise.reject({
           status: 500,
-          json: () => Promise.resolve(mockErrorResponseData),
         })
       );
 
