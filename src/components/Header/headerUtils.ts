@@ -56,8 +56,8 @@ const authServerDomain = "https://login.nypl.org/auth";
 export const tokenRefreshLink = `${authServerDomain}/refresh`;
 
 /**
- * refreshAccessToken attempts to refresh the "nyplIdentityPatron" cookie's
- * access_token by making a request to the tokenRefreshLink. If successful,
+ * `refreshAccessToken` attempts to refresh the "nyplIdentityPatron" cookie's
+ * `accessToken` by making a request to the `tokenRefreshLink`. If successful,
  * it tries to fetch the patron's data again.
  */
 
@@ -67,19 +67,20 @@ export const refreshAccessToken = (api, cb, fallBackCb) => {
 
   fetch(api, { credentials: "include" })
     .then((response) => {
-      // If the response to the tokenRefreshLink is successful, make another
+      // If the response to the `tokenRefreshLink` is successful, make another
       // request to the patronApiUrl using the refreshed accessToken.
       if (response.status >= 200 && response.status < 300) {
         const { accessToken } = getCookieValue();
         getLoginData(accessToken, cb);
       } else {
-        // If the call to the tokenRefreshLink is unsuccessful, throw an error.
+        // If the call to the `tokenRefreshLink` is unsuccessful, throw an error.
         // Doing so will drop us down to the catch block below.
         throw new Error(refreshErrorMessage);
       }
     })
     .catch((error) => {
-      // The server responded with a status that falls out of the 2xx range.
+      // The server responded with a status that falls out of the 2xx range
+      // or the call to the `tokenRefreshLink` endpoint was unsuccessful.
       console.warn(refreshErrorMessage);
       console.warn(`Error Data: ${error?.data}`);
       console.warn(`Error Status: ${error?.status}`);
@@ -91,8 +92,8 @@ export const refreshAccessToken = (api, cb, fallBackCb) => {
 
 /**
  * getCookieValue uses the js.cookie package to get the value
- * of the nyplIdentityPatron cookie (if it exists) and extract
- * the cookie's access_token.
+ * of the "nyplIdentityPatron" cookie (if it exists) and extract
+ * the cookie's `access_token`.
  */
 export const getCookieValue = () => {
   const cookieValue = Cookies.get("nyplIdentityPatron");
@@ -107,7 +108,7 @@ export const deleteCookieValue = () => {
 
 /**
  * fetchPatronData uses the patronApiUrl combined with the
- * access_token from the "nyplIdentityPatron" cookie to fetch
+ * `accessToken` from the "nyplIdentityPatron" cookie to fetch
  * the patron's information from the server.
  */
 export const getLoginData = (accessToken, cb) => {
@@ -118,7 +119,7 @@ export const getLoginData = (accessToken, cb) => {
     .then((response) => {
       // If the response has a status of 2xx or 401, parse it and pass it
       // to the .then() callback function. We want to include the responses
-      // with a status of 401 because they could show the accessToken is
+      // with a status of 401 because they could show the `accessToken` is
       // expired and needs refreshing.
       if (
         (response.status >= 200 && response.status < 300) ||
@@ -130,7 +131,7 @@ export const getLoginData = (accessToken, cb) => {
       // Doing so will drop us down to the catch block below.
       throw new Error(fetchErrorMessage);
     })
-    // The callback function is loginDataCallback, declared in `Header.tsx`.
+    // The callback function is `loginDataCallback`, declared in `Header.tsx`.
     // It will try to refresh the accessToken if expired or extract the patron's
     // name from the returned data if not.
     .then(cb)
@@ -146,8 +147,8 @@ export const getLoginData = (accessToken, cb) => {
 };
 
 /**
- * extractPatronName locates and returns the patronName
- * from the nested object that is returned from fetchPatronData.
+ * `extractPatronName` locates and returns the `patronName`
+ * from the nested object that is returned from `fetchPatronData`.
  */
 export const extractPatronName = (data: any) => {
   try {

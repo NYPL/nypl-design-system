@@ -7,17 +7,19 @@ import renderer from "react-test-renderer";
 
 import Header from "./Header";
 import {
+  patronApiUrlWithToken,
   mockErrorResponseData,
   mockExpiredResponseData,
   mockLoginCookie,
   mockResponseData,
+  tokenRefreshLink,
 } from "./authApiMockResponse";
-import { refineryResponse } from "./components/SitewideAlertsMocks";
+import {
+  alertsApiUrl,
+  refineryResponse,
+} from "./components/SitewideAlertsMocks";
 
 describe("Header Accessibility", () => {
-  afterAll(() => {
-    jest.clearAllMocks();
-  });
   it("passes axe accessibility test", async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
@@ -29,6 +31,8 @@ describe("Header Accessibility", () => {
 
     const { container } = await waitFor(() => render(<Header />));
     expect(await axe(container)).toHaveNoViolations();
+
+    jest.clearAllMocks();
   });
 });
 
@@ -145,6 +149,8 @@ describe("Header", () => {
 describe("Patron API call succeeds", () => {
   const realGet = Cookies.get;
   beforeAll(async () => {
+    // When the Header mounts, it immediately checks for the cookie value.
+    // That is why this mock is here.
     Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
     // This is assuming that the sitewide alerts fetch call runs
     // before the patron information call. If the alerts call runs
@@ -161,7 +167,7 @@ describe("Patron API call succeeds", () => {
           json: () => Promise.resolve(refineryResponse),
         })
       )
-      // Mock the fetch API call for patron data (succeed).
+      // Mock the fetch API call for patron data (successful).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
@@ -217,7 +223,7 @@ describe("Patron API call fails", () => {
           json: () => Promise.resolve(refineryResponse),
         })
       )
-      // Mock the fetch API call for patron data (fail).
+      // Mock the fetch API call for patron data (unsuccessful).
       .mockReturnValueOnce(
         Promise.reject({
           status: 500,
@@ -314,13 +320,13 @@ describe("Patron API returns expired data, but refreshes the token successfully"
           json: () => Promise.resolve(mockExpiredResponseData),
         })
       )
-      // Mock the fetch API call to refresh accessToken (succeed)
+      // Mock the fetch API call to refresh the access token (successful).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
         })
       )
-      // Mock the fetch API call for patron data (succeed).
+      // Mock the fetch API call for patron data (successful).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
@@ -337,6 +343,19 @@ describe("Patron API returns expired data, but refreshes the token successfully"
   });
 
   it("displays logged in view if refresh is successful", async () => {
+    expect((global as any).fetch).toHaveBeenNthCalledWith(1, alertsApiUrl);
+    expect((global as any).fetch).toHaveBeenNthCalledWith(
+      2,
+      patronApiUrlWithToken
+    );
+    expect((global as any).fetch).toHaveBeenNthCalledWith(3, tokenRefreshLink, {
+      credentials: "include",
+    });
+    expect((global as any).fetch).toHaveBeenNthCalledWith(
+      4,
+      patronApiUrlWithToken
+    );
+
     document.getElementById("chakra-toast-portal")?.remove();
 
     // The third list is the upper navigation links.
@@ -383,7 +402,7 @@ describe("Patron API returns expired data and cannot refresh the token successfu
           json: () => Promise.resolve(mockExpiredResponseData),
         })
       )
-      // Mock the fetch API call to refresh accessToken (fail)
+      // Mock the fetch API call to refresh accessToken (unsuccessful)
       .mockReturnValueOnce(
         Promise.resolve({
           status: 500,
@@ -399,6 +418,11 @@ describe("Patron API returns expired data and cannot refresh the token successfu
   });
 
   it("displays logged out view if refresh is unsuccessful", async () => {
+    const warn = jest.spyOn(console, "warn");
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Header: There was an error refreshing NYPL patron data."
+    );
+
     document.getElementById("chakra-toast-portal")?.remove();
 
     // If the access token is expired, the Header should render the logged out state.

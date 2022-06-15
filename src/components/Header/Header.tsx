@@ -58,7 +58,7 @@ export const Header = chakra(() => {
   }, []);
 
   const loginDataCallback = (data) => {
-    // If the statusCode of the returned data is 401 and the expired
+    // If the `statusCode` of the returned data is 401 and the expired
     // key is set to true, try to refresh the accessToken.
     if (data.data.statusCode === 401 && data.data.expired === true) {
       refreshAccessToken(
@@ -74,14 +74,15 @@ export const Header = chakra(() => {
   };
 
   useEffect(() => {
-    // Aftering mounting,look for a cookie named "nyplIdentityPatron"
+    // After mounting,look for a cookie named "nyplIdentityPatron"
     // and try to grab its value.
     const { accessToken, cookieValue } = getCookieValue();
-    // If the cookie exists, use its accessToken to make a fetch
+    // If the cookie exists, use its `accessToken` to make a fetch
     // request for the patron's data.
     if (cookieValue) {
       getLoginData(accessToken, loginDataCallback);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
