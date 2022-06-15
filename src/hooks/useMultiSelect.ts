@@ -48,8 +48,8 @@ export default function useMultiSelect({
   }
 
   /**
-   * hanldeMixedStateChange is only used for the "dailog" variant. It hanldes the state for checkbox options with child options.
-   * It acceps one argument - the id of the parent checkbox option.
+   * handleMixedStateChange is only used for the "dialog" variant. It handles the state for checkbox options with child options.
+   * It accepts one argument - the id of the parent checkbox option.
    */
   function handleMixedStateChange(parentId: string) {
     // Build an array of child items.

@@ -43,14 +43,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="multiselect-dialog-test-id-button"
-      isOpen={false}
-      multiSelectId="multiselect-dialog-test-id"
-      multiSelectLabel="MultiSelect Test Label"
-      onClear={[Function]}
+      id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
-      onMenuToggle={[Function]}
-      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -163,14 +157,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="multiselect-dialog-test-id-button"
-      isOpen={true}
-      multiSelectId="multiselect-dialog-test-id"
-      multiSelectLabel="MultiSelect Test Label"
-      onClear={[Function]}
+      id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
-      onMenuToggle={[Function]}
-      selectedItems={Object {}}
       type="button"
     >
       <span
@@ -863,22 +851,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="multiselect-dialog-test-id-button"
-      isOpen={true}
-      multiSelectId="multiselect-dialog-test-id"
-      multiSelectLabel="MultiSelect Test Label"
-      onClear={[Function]}
+      id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
-      onMenuToggle={[Function]}
-      selectedItems={
-        Object {
-          "multiselect-dialog-test-id": Object {
-            "items": Array [
-              "red",
-            ],
-          },
-        }
-      }
       type="button"
     >
       <span
@@ -1641,23 +1615,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
     <button
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="multiselect-dialog-test-id-button"
-      isOpen={true}
-      multiSelectId="multiselect-dialog-test-id"
-      multiSelectLabel="MultiSelect Test Label"
-      onClear={[Function]}
+      id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
-      onMenuToggle={[Function]}
-      selectedItems={
-        Object {
-          "multiselect-dialog-test-id": Object {
-            "items": Array [
-              "red",
-              "blue",
-            ],
-          },
-        }
-      }
       type="button"
     >
       <span
@@ -2371,14 +2330,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="multiselect-listbox-test-id-toggle-button"
-    isOpen={false}
-    multiSelectId="multiselect-listbox-test-id"
-    multiSelectLabel="MultiSelect Label"
-    onClear={[Function]}
+    id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    selectedItems={Object {}}
     type="button"
   >
     <span
@@ -2448,14 +2401,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="multiselect-listbox-test-id-toggle-button"
-    isOpen={true}
-    multiSelectId="multiselect-listbox-test-id"
-    multiSelectLabel="MultiSelect Label"
-    onClear={[Function]}
+    id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    selectedItems={Object {}}
     type="button"
   >
     <span
@@ -2517,7 +2464,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2592,7 +2538,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2667,7 +2612,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2742,7 +2686,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2817,7 +2760,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2892,7 +2834,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -2976,23 +2917,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     aria-labelledby="multiselect-listbox-test-id-label multiselect-listbox-test-id-toggle-button"
     className="chakra-button css-1xdhyk6"
     data-testid="button"
-    id="multiselect-listbox-test-id-toggle-button"
-    isOpen={true}
-    multiSelectId="multiselect-listbox-test-id"
-    multiSelectLabel="MultiSelect Label"
-    onClear={[Function]}
+    id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    selectedItems={
-      Object {
-        "multiselect-listbox-test-id": Object {
-          "items": Array [
-            "cats",
-            "dogs",
-          ],
-        },
-      }
-    }
     type="button"
   >
     <span
@@ -3099,7 +3025,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -3177,7 +3102,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -3255,7 +3179,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -3330,7 +3253,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -3405,7 +3327,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"
@@ -3480,7 +3401,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
           className="css-1xdhyk6"

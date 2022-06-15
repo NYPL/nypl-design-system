@@ -108,6 +108,7 @@ function MultiSelectDialog({
     >
       <FocusLock isDisabled={!isOpen}>
         <MultiSelectMenuButton
+          id={`ms-${id}-menu-button`}
           multiSelectId={id}
           multiSelectLabel={label}
           isOpen={isOpen}

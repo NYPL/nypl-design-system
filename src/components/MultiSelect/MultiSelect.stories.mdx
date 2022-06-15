@@ -132,7 +132,7 @@ The expected data structure is an array of objects, in the following format:
 
 ```tsx
 <MultiSelect
-  id="group1"
+  id="subject"
   label="Subject Specialities"
   variant="listbox"
   items={[
@@ -156,7 +156,7 @@ If choosing the `variant = 'dialog'` you can also add a second level of child it
 
 ```tsx
 <MultiSelect
-  id="group1"
+  id="subject"
   label="Subject Specialities"
   variant="dialog"
   items={[
@@ -192,9 +192,6 @@ The "items" value is an array of the selected items. Below is an exaple of the e
 {
   "subjects": {
     "items": ["art", "architecture"]
-  },
-  "locations": {
-    "items": ["sasb"]
   }
 }
 ```
@@ -205,6 +202,18 @@ This is helpful for when several MultiSelect components are rendered inside a Fi
 you can use the MultiSelect id to get items for a specific slice of the state.
 
 ```jsx
+// The selectedItems structure with multiple MultiSelect components
+{
+  subjects: {
+    items:["art", "architecture"]
+    }
+  },
+  {
+    locations: {
+      items: ["sasb"]
+    }
+  }
+// Getting the selectedItems for a specific MultiSelect
 const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
 const locationsSelectedItemssOnly = selectedItems["locations"].items;
 ```

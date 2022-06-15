@@ -34,10 +34,6 @@ const MultiSelect = {
       base: ".75rem 0",
       md: "0 2em 0 0",
     },
-    menuButton: {
-      width: "100%",
-      justifyContent: "space-between",
-    },
     menuContainer: {
       position: {
         md: isBlockElement ? "relative" : "absolute",
@@ -55,7 +51,9 @@ const MultiSelect = {
       // These are for active states
       boxSizing: "border-box",
       background: "ui.white",
-      border: "1px solid #000",
+      border: "1px solid",
+      borderColor: "focus",
+      borderRadius: "2px",
       paddingX: "xs",
       paddingY: "s",
       paddingBottom: "m",
@@ -80,16 +78,6 @@ const MultiSelect = {
     menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
-    },
-    selectedItemsCountButton: {
-      marginRight: "xs",
-      paddingLeft: "s",
-      paddingRight: "xs",
-      backgroundColor: "ui.gray.x-light-cool",
-      border: "1px",
-      borderRadius: "20px",
-      borderColor: "ui.gray.light-cool",
-      fontSize: "12px",
     },
   }),
 };

@@ -63,7 +63,12 @@ function MultiSelectListbox({
     },
     initialIsOpen: isDefaultOpen,
   });
-
+  // If a item passed to the listbox variant has children,
+  if (items.some((item) => item.children)) {
+    console.warn(
+      "NYPL Reservoir MultiSelect: Only the variant 'dialog' can render nested select items."
+    );
+  }
   return (
     <Box id={id} __css={styles}>
       <MultiSelectMenuButton
@@ -74,7 +79,7 @@ function MultiSelectListbox({
         onClear={onClear}
         {...getToggleButtonProps({
           // @TODO add short prefix to avoid id starting with number
-          id: `${id}-toggle-button`,
+          id: `ms-${id}-menu-button`,
           "aria-labelledby": `${id}-label ${id}-toggle-button`,
         })}
       />
@@ -105,9 +110,9 @@ function MultiSelectListbox({
                   item,
                   index,
                 })}
-                style={
+                sx={
                   highlightedIndex === index
-                    ? { backgroundColor: "#bde4ff" }
+                    ? { backgroundColor: "ui.gray.light-cool" }
                     : {}
                 }
               >

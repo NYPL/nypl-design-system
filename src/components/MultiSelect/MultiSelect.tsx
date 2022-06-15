@@ -49,7 +49,7 @@ type MultiSelectVariantsProps =
       /** The action to perform on the checkbox's onChange function.  */
       onChange: DialogOnChange;
       /** The action to perform for a mixed state checkbox (parent checkbox). */
-      onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onMixedStateChange?: DialogOnChange;
       /** The action to perform for save/apply button of multiselect. */
       onApply: () => void;
     };

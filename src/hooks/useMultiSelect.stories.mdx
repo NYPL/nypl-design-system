@@ -15,13 +15,13 @@ This custom hook, inspired by [downshift.js](https://www.downshift-js.com/),
 exposes functions used for a MultiSelect components. `useMultiSelect` provides all functions needed to handle the selectedItems, this hook can be used for
 cases where managing the state of the component in the consuming app is less of a concern and general ease of use is prefered.
 
-The two main functions are `OnChange` and `onMixedStateChange` used for handling the selectedItems object. The third function provided by the hook, `onClear`,
+The two main functions are `onChange` and `onMixedStateChange` used for handling the selectedItems object. The third function provided by the hook, `onClear`,
 can be used to reset the selectedItems of a individual MutliSelect component to an empty object. The hook also provides the `selectedItem` object containing the currently checked/selected
 items of the MutlisSelect component.
 
 ## Usage
 
-For a full implementation examle, view the [`MultiSelectListbox` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectListbox.tsx) or [`MultiSelectDialog` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectDialog.tsx).
+For a full implementation example, view the [`MultiSelectListbox` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectListbox.tsx) or [`MultiSelectDialog` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectDialog.tsx).
 
 ```tsx
 const { onChange, onMixedStateChange, onClear, selectedItems } = useMultiSelect(
