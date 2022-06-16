@@ -13,9 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 - Adds `ui.gray.xx-dark` to the color palette.
 - Adds npm packages useful for lazy loading images in the `Image` component.
-- Adds text case styles for `Text` component
+- Adds text case styles for `Text` component.
 - Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
 - Adds a "Color Mode" documentation page in Storybook.
+- Adds `ui.white` as default background color to `Checkbox` and `Radio` components.
 
 ### Updates
 

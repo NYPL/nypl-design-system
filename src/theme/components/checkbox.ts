@@ -20,6 +20,7 @@ const baseStyleControl = {
   border: "2px solid",
   borderRadius: "sm",
   borderColor: "ui.black",
+  backgroundColor: "ui.white",
   color: "ui.black",
   outline: "none",
   transitionProperty: "box-shadow",
