@@ -6,12 +6,12 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Header from "./Header";
+import { tokenRefreshLink } from "./headerUtils";
 import {
   patronApiUrlWithToken,
   mockExpiredResponseData,
   mockLoginCookie,
   mockResponseData,
-  tokenRefreshLink,
 } from "./authApiMockResponse";
 import {
   alertsApiUrl,

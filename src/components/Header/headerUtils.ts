@@ -50,7 +50,8 @@ export const parseAlertsData = (data: any): Alert[] => {
   return filteredAlerts;
 };
 
-const patronApiUrl = "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
+export const patronApiUrl =
+  "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
 
 const authServerDomain = "https://login.nypl.org/auth";
 export const tokenRefreshLink = `${authServerDomain}/refresh`;
@@ -68,7 +69,7 @@ export const refreshAccessToken = (api, cb, fallBackCb) => {
   fetch(api, { credentials: "include" })
     .then((response) => {
       // If the response to the `tokenRefreshLink` is successful, make another
-      // request to the patronApiUrl using the refreshed accessToken.
+      // request to the `patronApiUrl` using the refreshed accessToken.
       if (response.status >= 200 && response.status < 300) {
         const { accessToken } = getCookieValue();
         getLoginData(accessToken, cb);
@@ -107,7 +108,7 @@ export const deleteCookieValue = () => {
 };
 
 /**
- * fetchPatronData uses the patronApiUrl combined with the
+ * fetchPatronData uses the `patronApiUrl` combined with the
  * `accessToken` from the "nyplIdentityPatron" cookie to fetch
  * the patron's information from the server.
  */
