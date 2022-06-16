@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds npm packages useful for lazy loading images in the `Image` component.
 - Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
 - Adds a "Color Mode" documentation page in Storybook.
+- Adds text case styles for `Heading` component
 
 ### Updates
 

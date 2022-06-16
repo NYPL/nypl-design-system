@@ -20,6 +20,12 @@ export interface HeadingProps {
   /** Optional size used to override the default styles of the semantic HTM
    * `<h>` elements */
   size?: HeadingSizes;
+  /** Optional prop used to show capitalized text */
+  isCapitalized?: boolean;
+  /** Optional prop used to show upper case text */
+  isUppercase?: boolean;
+  /** Optional prop used to show lower case text */
+  isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
   /** Inner text of the `<h*>` element */
@@ -52,6 +58,9 @@ export const Heading = chakra(
       id,
       level = "two",
       size,
+      isCapitalized,
+      isUppercase,
+      isLowercase,
       noSpace,
       text,
       url,
@@ -60,7 +69,13 @@ export const Heading = chakra(
     } = props;
     const finalLevel = getMappedLevel(level);
     const variant = size ? size : `h${finalLevel}`;
-    const styles = useStyleConfig("Heading", { variant, noSpace });
+    const styles = useStyleConfig("Heading", {
+      variant,
+      isCapitalized,
+      isUppercase,
+      isLowercase,
+      noSpace,
+    });
     // Combine native base styles with any additional styles.
     // This is used in the `Hero` and `Notification` components.
     const asHeading: any = `h${finalLevel}`;
@@ -75,6 +90,24 @@ export const Heading = chakra(
       // Catching the error because React's error isn't as helpful.
       throw new Error(
         "NYPL Reservoir Heading: Only pass one child into Heading."
+      );
+    }
+
+    let textCase = 0;
+    if (isCapitalized) {
+      textCase++;
+    }
+    if (isUppercase) {
+      textCase++;
+    }
+    if (isLowercase) {
+      textCase++;
+    }
+
+    if (textCase > 1) {
+      console.warn(
+        "NYPL Reservoir Text: Multiple text case props have been passed " +
+          "and the component will not render properly."
       );
     }
 
