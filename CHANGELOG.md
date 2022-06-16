@@ -25,6 +25,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Explicitly sets the default color mode value to `"light"`.
 - Updates how the `styles.scss` and `resources.scss` files are organized and compiled so that they can be imported in any tech stack.
 
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
+
 ## 1.0.3 (June 9, 2022)
 
 ### Adds
