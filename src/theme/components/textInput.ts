@@ -9,6 +9,7 @@ const input = {
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
   fontSize: "text.caption",
+  minHeight: { base: "44px", md: "auto" },
   py: "inset.narrow",
   px: "inset.default",
   _hover: {

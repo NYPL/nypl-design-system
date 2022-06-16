@@ -12,6 +12,7 @@ const select = {
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
   fontSize: "text.caption",
+  minHeight: { base: "44px", md: "auto" },
   paddingTop: "inset.narrow",
   paddingRight: "inset.extrawide",
   paddingBottom: "inset.narrow",

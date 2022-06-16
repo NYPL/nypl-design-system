@@ -1,12 +1,15 @@
 // Style object for base or default style
 const baseStyle = {
+  alignItems: "center",
   borderRadius: "sm",
-  lineHeight: "1.5",
   display: "flex",
   cursor: "pointer",
   color: "ui.white",
+  height: "10",
   justifyContent: "center",
+  lineHeight: "1.5",
   maxHeight: "2.5rem",
+  minHeight: { base: "44px", md: "auto" },
   py: "inset.narrow",
   px: "inset.default",
   textDecoration: "none",
@@ -14,7 +17,7 @@ const baseStyle = {
   fontWeight: "button.default",
   svg: {
     fill: "currentColor",
-    marginTop: "xxs",
+    // marginTop: "xxs",
   },
   _hover: {
     bg: "ui.link.secondary",
