@@ -79,7 +79,7 @@ import { getCategory } from "../../utils/componentCategories";
           args.name.indexOf("White") !== -1 ||
           args.name.indexOf("Negative") !== -1
             ? {
-                backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
+                backgroundColor: "var(--nypl-colors-ui-gray-xx-dark)",
                 display: "inline-block",
                 padding: "var(--nypl-space-l)",
                 width: "100%",
@@ -102,7 +102,7 @@ export const logoRow = (logo, opts = {}) => {
   const { size = "large", displayValue } = opts;
   let key = logo;
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
-    styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
+    styles.backgroundColor = "var(--nypl-colors-ui-gray-xx-dark)";
     styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";
@@ -134,6 +134,7 @@ export const logoNameValues = [
   "lpaBlack",
   "lpaWhite",
   "mlnBlack",
+  "mlnColor",
   "mlnWhite",
   "nyplFullBlack",
   "nyplFullWhite",
@@ -235,7 +236,7 @@ Update the icon of the `Logo` component by passing the `name` prop with a value
 from the `LogoNames` type. The values are `"appleAppStoreBlack"`,
 `"appleAppStoreWhite"`,`"bplBlack"`, `"bplWhite"`, `"cleverBadgeColor"`, `"cleverColor"`,
 `"cleverWhite"`, `"firstbookColor"`, `"firstbookColorNegative"`, `"googlePlayBlack"`,
-`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnWhite"`,
+`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnColor"`, `"mlnWhite"`,
 `"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`, `"nyplTextBlack"`,
 `"nyplTextWhite"`, `"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
 `"openebooksWithTextNegative"`, `"qplAltBlack"`, `"qplAltWhite"`, `"qplBlack"`,

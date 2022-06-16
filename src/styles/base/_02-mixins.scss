@@ -40,10 +40,6 @@
   width: 100%;
 }
 
-.container {
-  padding: var(--nypl-space-s);
-}
-
 /// Use the breakout mixin for elements that should be edge-to-edge
 /// Even when a parent container uses the wrapper mixin
 @mixin breakout($v-padding: var(--nypl-space-s)) {
