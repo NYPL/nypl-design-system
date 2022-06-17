@@ -856,7 +856,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
       type="button"
     >
       <span
-        className="css-0"
+        className="css-nl2meh"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -1620,7 +1620,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
       type="button"
     >
       <span
-        className="css-0"
+        className="css-nl2meh"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -2922,7 +2922,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     type="button"
   >
     <span
-      className="css-0"
+      className="css-nl2meh"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
