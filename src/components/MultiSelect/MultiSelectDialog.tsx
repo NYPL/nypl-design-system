@@ -68,7 +68,8 @@ function MultiSelectDialog({
     return false;
   };
 
-  // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false. This prop is only passed to parent options.
+  // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false.
+  // This prop is only passed to parent options.
   const isAllChecked = (
     multiSelectId: string,
     item: MultiSelectItem

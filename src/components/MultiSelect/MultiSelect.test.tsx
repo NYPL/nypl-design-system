@@ -23,8 +23,6 @@ const items = [
   { id: "furniture", name: "Furniture" },
 ];
 
-const countButton = "span[role='button']";
-
 const MultiSelectTestDialogComponent = (componentId) => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
     useMultiSelect({
@@ -418,26 +416,29 @@ describe("MultiSelect Dialog", () => {
       <MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />
     );
     // Check for the selectedItems count button to not be present
-    expect(container.querySelector(countButton)).not.toBeInTheDocument();
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check on item
     userEvent.click(screen.getByRole("checkbox", { name: /dogs/i }));
+    const countButton = container.querySelector("span[role='button']");
     // Check for the selectedItems count button to be present and reflect the count of selectedItems
-    expect(container.querySelector(countButton)).toBeInTheDocument();
-    expect(container.querySelector(countButton)).toHaveTextContent("1");
+    expect(countButton).toBeInTheDocument();
+    expect(countButton).toHaveTextContent("1");
     // Check the parent item with two child item
     userEvent.click(screen.getByText("Colors"));
     // Check for the count of selectedItems
-    expect(container.querySelector(countButton)).toHaveTextContent("3");
+    expect(countButton).toHaveTextContent("3");
     // Close menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Count button is still present
-    expect(container.querySelector(countButton)).toHaveTextContent("3");
+    expect(countButton).toHaveTextContent("3");
     // Click count button
-    userEvent.click(container.querySelector(countButton));
+    userEvent.click(countButton);
     // Count button disapeared
-    expect(container.querySelector(countButton)).not.toBeInTheDocument();
+    expect(countButton).not.toBeInTheDocument();
     // @TODO prevent menu toggle on count button click
     // // Open menu
     // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
@@ -661,26 +662,30 @@ describe("MultiSelect Listbox", () => {
       <MultiSelectTestListboxComponent id="multiselect-listbox-test-id" />
     );
     // Check for the selectedItems count button to not be present
-    expect(container.querySelector(countButton)).not.toBeInTheDocument();
+    expect(
+      container.querySelector("span[role='button']")
+    ).not.toBeInTheDocument();
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check on item
     userEvent.click(screen.getByRole("option", { name: /dogs/i }));
+    const countButton = container.querySelector("span[role='button']");
+
     // Check for the selectedItems count button to be present and reflect the count of selectedItems
-    expect(container.querySelector(countButton)).toBeInTheDocument();
-    expect(container.querySelector(countButton)).toHaveTextContent("1");
+    expect(countButton).toBeInTheDocument();
+    expect(countButton).toHaveTextContent("1");
     // Check a second item
     userEvent.click(screen.getByRole("option", { name: /colors/i }));
     // Check for the count of selectedItems
-    expect(container.querySelector(countButton)).toHaveTextContent("2");
+    expect(countButton).toHaveTextContent("2");
     // Close menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Count button is still present
-    expect(container.querySelector(countButton)).toHaveTextContent("2");
+    expect(countButton).toHaveTextContent("2");
     // Click count button
-    userEvent.click(container.querySelector(countButton));
+    userEvent.click(countButton);
     // Count button disapeared
-    expect(container.querySelector(countButton)).not.toBeInTheDocument();
+    expect(countButton).not.toBeInTheDocument();
     // @TODO prevent menu toggle on count button click
     // // Open menu
     // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));

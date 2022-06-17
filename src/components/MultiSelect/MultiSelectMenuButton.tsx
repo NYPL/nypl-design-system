@@ -65,31 +65,31 @@ const MultiSelectMenuButton = React.forwardRef<
 
   return (
     <Button
+      buttonType="secondary"
       id={id}
+      onClick={onMenuToggle}
       ref={ref}
       __css={styles.menuButton}
-      buttonType="secondary"
-      onClick={onMenuToggle}
       {...rest}
     >
       {getSelectedItemsCount && (
         <Box
+          animation={growAnimation}
           as="span"
-          __css={styles.selectedItemsCountButton}
           onClick={onClear}
           onKeyPress={onKeyPress}
           role="button"
           tabIndex={0}
-          animation={growAnimation}
+          __css={styles.selectedItemsCountButton}
         >
           <Box as="span" verticalAlign="text-bottom">
             {getSelectedItemsCount}
           </Box>
           <Icon
+            align="right"
             id={`${multiSelectId}-selected-items-count-icon`}
             name="close"
             size="xsmall"
-            align="right"
           />
         </Box>
       )}

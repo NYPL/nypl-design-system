@@ -80,7 +80,6 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
       action("onChange")(selectedItems);
     }
   }, [selectedItems]);
-  //passing {..args} break component because it will pass onMixecStateChange and onApply
   return (
     <MultiSelect
       id="multiselect-listbox"
