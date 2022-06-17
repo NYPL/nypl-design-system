@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
 import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectMenuButtonProps {
@@ -20,7 +20,10 @@ export interface MultiSelectMenuButtonProps {
   onClear?: () => void;
   onKeyDown?: () => void;
 }
-
+const grow = keyframes`
+  from {width: 22px; opacity: 0; }
+  to {width: 46px; opacity: 1;}
+`;
 const MultiSelectMenuButton = React.forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
@@ -38,6 +41,7 @@ const MultiSelectMenuButton = React.forwardRef<
   } = props;
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {});
   const iconType = isOpen ? "minus" : "plus";
+  const growAnimation = `${grow} 0.075s ease-out`;
 
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
@@ -76,6 +80,7 @@ const MultiSelectMenuButton = React.forwardRef<
           onKeyPress={onKeyPress}
           role="button"
           tabIndex={0}
+          animation={growAnimation}
         >
           <Box as="span" verticalAlign="text-bottom">
             {getSelectedItemsCount}

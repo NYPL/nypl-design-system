@@ -4,11 +4,14 @@ const MultiSelectMenuButton = {
     menuButton: {
       width: "100%",
       justifyContent: "space-between",
+      borderColor: "ui.gray.medium",
+      _hover: {
+        backgroundColor: "ui.white",
+        borderColor: "ui.gray.dark",
+      },
     },
     selectedItemsCountButton: {
-      marginRight: "xs",
-      paddingLeft: "s",
-      paddingRight: "xs",
+      width: "46px",
       backgroundColor: "ui.gray.x-light-cool",
       border: "1px",
       borderRadius: "20px",
