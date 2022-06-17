@@ -56,12 +56,12 @@ export const Heading = chakra(
     const {
       className,
       id,
-      level = "two",
-      size,
       isCapitalized,
       isUppercase,
       isLowercase,
+      level = "two",
       noSpace,
+      size,
       text,
       url,
       urlClass,
@@ -106,7 +106,7 @@ export const Heading = chakra(
 
     if (textCase > 1) {
       console.warn(
-        "NYPL Reservoir Text: Multiple text case props have been passed " +
+        "NYPL Reservoir Heading: Multiple text case props have been passed " +
           "and the component will not render properly."
       );
     }
