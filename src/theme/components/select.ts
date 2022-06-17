@@ -1,4 +1,5 @@
 import {
+  defaultElementSizes,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
@@ -12,7 +13,7 @@ const select = {
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
   fontSize: "text.caption",
-  minHeight: { base: "44px", md: "auto" },
+  minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   paddingTop: "inset.narrow",
   paddingRight: "inset.extrawide",
   paddingBottom: "inset.narrow",

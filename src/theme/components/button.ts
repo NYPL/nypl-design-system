@@ -1,3 +1,5 @@
+import { defaultElementSizes } from "./global";
+
 // Style object for base or default style
 const baseStyle = {
   alignItems: "center",
@@ -9,7 +11,7 @@ const baseStyle = {
   justifyContent: "center",
   lineHeight: "1.5",
   maxHeight: "2.5rem",
-  minHeight: { base: "44px", md: "auto" },
+  minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   py: "inset.narrow",
   px: "inset.default",
   textDecoration: "none",
@@ -17,7 +19,6 @@ const baseStyle = {
   fontWeight: "button.default",
   svg: {
     fill: "currentColor",
-    // marginTop: "xxs",
   },
   _hover: {
     bg: "ui.link.secondary",

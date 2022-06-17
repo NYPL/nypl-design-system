@@ -49,6 +49,10 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
     width: isFullWidth ? "100%" : "fit-content",
   },
 });
+// Default sizes used throughout the codebase.
+const defaultElementSizes = {
+  mobileFieldHeight: "44px",
+};
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   display: "inline-block",
@@ -84,6 +88,7 @@ export {
   checkboxRadioGroupStyles,
   checkboxRadioHelperErrorTextStyle,
   checkboxRadioLabelStyles,
+  defaultElementSizes,
   labelLegendText,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
