@@ -14,18 +14,18 @@ export interface HeadingProps {
   className?: string;
   /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
-   * `Heading` will default to `<h2>` */
-  level?: HeadingLevels;
-  /** Optional size used to override the default styles of the semantic HTM
-   * `<h>` elements */
-  size?: HeadingSizes;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
   /** Optional prop used to show upper case text */
   isUppercase?: boolean;
   /** Optional prop used to show lower case text */
   isLowercase?: boolean;
+  /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
+   * `Heading` will default to `<h2>` */
+  level?: HeadingLevels;
+  /** Optional size used to override the default styles of the semantic HTM
+   * `<h>` elements */
+  size?: HeadingSizes;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
   /** Inner text of the `<h*>` element */
