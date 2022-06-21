@@ -172,7 +172,7 @@ export const getCookieValue = () => {
 export const fetchPatronData = (accessToken, cb) => {
   const fetchErrorMessage =
     "NYPL Reservoir Header: There was an error fetching NYPL patron data.";
-  console.log(`${patronApiUrl}${accessToken}`);
+
   fetch(`${patronApiUrl}${accessToken}`)
     .then((response) => {
       if (response.status >= 200 && response.status < 300) {

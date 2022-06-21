@@ -8,6 +8,7 @@ import LoginButton from "./LoginButton";
 import { upperNavLinks } from "../headerUtils";
 
 export interface LoginProps {
+  catalogRef?: React.RefObject<HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
   isLoginOpen?: boolean;

@@ -11,6 +11,7 @@ const HeaderLogin = {
   parts: ["logoutButton", "patronGreeting"],
   baseStyle: ({ isMobile, patronName }) => ({
     bg: isMobile ? "ui.black" : "#1B7FA7",
+    boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
     display: isMobile ? "block" : "flex",
     flexDirection: "column",
     left: isMobile ? "0" : null,
@@ -82,7 +83,6 @@ const HeaderLogin = {
       textTransform: "none",
       _focus: loginFocus(isMobile),
       ".greeting": {
-        fontStyle: "italic",
         margin: "0 0 6px 0",
       },
       ".name": {
@@ -95,6 +95,8 @@ const HeaderLogin = {
       borderRadius: isMobile ? "0" : "28px",
       color: isMobile ? "ui.white" : "#1B7FA7 !important",
       fontSize: isMobile ? "18px" : null,
+      marginTop: isMobile ? "5px" : null,
+      marginBottom: isMobile ? "5px" : null,
       padding: isMobile ? "30px" : null,
       textDecoration: isMobile ? "underline" : null,
       textTransform: isMobile ? "uppercase" : null,

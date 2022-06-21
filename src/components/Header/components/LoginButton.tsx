@@ -30,26 +30,31 @@ const LoginButton = chakra(
       : patronName
       ? "My Account"
       : "Log In";
+    const catalogRef = useRef<HTMLAnchorElement>(null);
     const greetingRef = useRef<HTMLDivElement>(null);
-    const ref = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const styles = useMultiStyleConfig("HeaderLoginButton", {
       isMobile,
       isLoginOpen,
     });
 
     useEffect(() => {
-      if (patronName && isLoginOpen) {
-        greetingRef.current.focus();
+      if (isLoginOpen) {
+        if (patronName) {
+          greetingRef.current.focus();
+        } else {
+          catalogRef.current.focus();
+        }
       }
     }, [isLoginOpen, patronName]);
 
     useOutsideClick({
-      ref,
+      ref: wrapperRef,
       handler: () => setIsLoginOpen(false),
     });
 
     return (
-      <Box ref={ref}>
+      <Box ref={wrapperRef}>
         <FocusLock isDisabled={!isLoginOpen}>
           <Button
             aria-label={desktopButtonLabel}
@@ -68,6 +73,7 @@ const LoginButton = chakra(
           </Button>
           {isLoginOpen && (
             <Login
+              catalogRef={catalogRef}
               greetingRef={greetingRef}
               isMobile={isMobile}
               patronName={patronName}
