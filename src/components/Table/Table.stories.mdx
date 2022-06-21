@@ -49,7 +49,6 @@ import { getCategory } from "../../utils/componentCategories";
 - [With Row Dividers](#with-row-dividers)
 - [With Row Headers](#with-row-headers)
 - [With Custom Header Colors](#with-custom-header-colors)
-- [Without columnHeaders](#without-columnheaders)
 - [With JSX Elements](#with-jsx-elements)
 - [Responsive Mobile Layout](#responsive-mobile-layout)
 
@@ -201,18 +200,6 @@ color contrast.
   </DSProvider>
 </Canvas>
 
-## Without columnHeaders
-
-Column headers are optional and don't need to be set. It is recommended that if
-column headers are not needed, to set row headers through the `useRowHeaders`
-prop.
-
-<Canvas>
-  <DSProvider>
-    <Table id="no-columnHeaders-table" tableData={tableData} useRowHeaders />
-  </DSProvider>
-</Canvas>
-
 ## With JSX Elements
 
 export const characterHeaders = ["First Name", "Last Name", "Avatar"];
@@ -295,9 +282,9 @@ export const charactersData = [
 
 The `Table` component is responsive. Please note that for a mobile viewport the
 standard horizontal layout of an HTML table is converted to a stacked vertical
-layout, with each "row" visually separated by a prominent horizontal rule. Despite 
-the significant visual changes in the responsive layout, all component props are 
+layout, with each "row" visually separated by a prominent horizontal rule. Despite
+the significant visual changes in the responsive layout, all component props are
 still functional.
 
-To view and test this in Storybook, go to the "[Canvas](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-page-layout-table--table)" 
+To view and test this in Storybook, go to the "[Canvas](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-page-layout-table--table)"
 tab and change the viewport in the Storybook toolbar at the top of the page.
