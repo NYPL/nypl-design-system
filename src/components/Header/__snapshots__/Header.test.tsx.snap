@@ -224,5 +224,3 @@ exports[`Header renders the UI snapshot correctly 1`] = `
   </header>
 </div>
 `;
-
-exports[`SitewideAlerts Successful API request renders the UI snapshot correctly 1`] = `null`;
