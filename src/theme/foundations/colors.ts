@@ -63,7 +63,9 @@ const colors: Colors = {
     },
     // Grayscale
     gray: {
-      xdark: "#424242",
+      "xx-dark": "#212121",
+      "x-dark": "#424242",
+      xdark: "#424242", // this should be deprecated in lieu of the `x-dark` object above
       dark: "#616161",
       medium: grayMedium,
       "light-cool": grayLightCool,
