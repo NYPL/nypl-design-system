@@ -70,7 +70,10 @@ const HeaderLogin = {
         bg: isMobile ? headerRed : "transparent",
         color: "ui.white",
       },
-      _focus: loginFocus(isMobile),
+      _focus: {
+        ...loginFocus(isMobile),
+        borderRadius: isMobile ? "0" : "28px",
+      },
     },
     patronGreeting: {
       alignSelf: "flex-start",

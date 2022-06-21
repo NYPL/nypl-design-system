@@ -18,7 +18,7 @@ const Mobile = chakra(
       />
       <Icon
         id="locator-icon"
-        name="actionHelpOutline"
+        name="locator"
         size="medium"
         title="NYPL Locator"
       />
