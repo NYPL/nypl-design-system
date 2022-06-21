@@ -28,7 +28,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="basic-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -72,7 +71,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="basic-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -137,7 +135,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="no-label-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -181,7 +178,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="no-label-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -246,7 +242,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="custom-format-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -290,7 +285,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="custom-format-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -355,7 +349,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="invalid-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -412,7 +405,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="invalid-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -502,7 +494,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="disabled-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -517,7 +508,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               </label>
               <input
                 className="chakra-input css-0"
-                disabled={false}
+                disabled={true}
                 id="disabled-start"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -546,7 +537,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
           >
             <div
               className=" css-1u8qly9"
-              disabled={false}
               id="disabled-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -561,7 +551,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               </label>
               <input
                 className="chakra-input css-0"
-                disabled={false}
+                disabled={true}
                 id="disabled-end"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -612,7 +602,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="basic-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -664,7 +653,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="no-label-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -710,7 +698,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="custom-format-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -762,7 +749,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="invalid-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -827,7 +813,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="disabled-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -842,7 +827,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           </label>
           <input
             className="chakra-input css-0"
-            disabled={false}
+            disabled={true}
             id="disabled-start"
             onBlur={[Function]}
             onChange={[Function]}
@@ -891,7 +876,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="chakra-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -956,7 +940,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
       >
         <div
           className=" css-1u8qly9"
-          disabled={false}
           id="props-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}

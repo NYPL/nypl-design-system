@@ -151,6 +151,10 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
     },
     ref: React.Ref<TextInputRefType>
   ) => {
+    // The `react-datepicker` passes `disabled=false` to its custom
+    // input element. We don't need it, so remove it.
+    delete (rest as any).disabled;
+
     return (
       <TextInput
         helperText={helperText}
