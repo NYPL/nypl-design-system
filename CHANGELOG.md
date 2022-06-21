@@ -31,6 +31,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Button`, `Select` and `TextInput` components to use NYPL standard minimum height in mobile viewport.
 - Updates the `SearchBar` component to change how the width of the internal `Select` component is handled.
 
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
+
 ## 1.0.3 (June 9, 2022)
 
 ### Adds
