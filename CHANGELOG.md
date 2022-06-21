@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
 - Adds a "Color Mode" documentation page in Storybook.
 - Adds `ui.white` as default background color to `Checkbox` and `Radio` components.
+- Adds text case styles for `Heading` component
 
 ### Updates
 
