@@ -15,7 +15,7 @@ export const alertsApiUrl =
  * Replaces the search string's special characters that need to be encoded
  * using base64. These characters are "=","/", "\", "?".
  */
-const encoreEncodeSearchString = (searchString) => {
+export const encoreEncodeSearchString = (searchString) => {
   const base64EncodeMap = {
     "=": "PQ==",
     "/": "Lw==",
@@ -50,7 +50,7 @@ const generateQueriesForGA = () => {
 /**
  * Returns the final URL for the NYPL Encore search.
  */
-export const getEncoreCatalogUrl = (searchValue) => {
+export const getEncoreCatalogURL = (searchValue) => {
   const encodedSearchInput = encoreEncodeSearchString(searchValue);
   const rootUrl = "https://browse.nypl.org/iii/encore/search/";
   let finalEncoreUrl;
