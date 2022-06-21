@@ -8,8 +8,8 @@ import {
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
+import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
-import Login from "./Login";
 import { LoginProps } from "./UpperNav";
 
 const LoginButton = chakra(
@@ -72,7 +72,7 @@ const LoginButton = chakra(
             />
           </Button>
           {isLoginOpen && (
-            <Login
+            <HeaderComponents.Login
               catalogRef={catalogRef}
               greetingRef={greetingRef}
               isMobile={isMobile}

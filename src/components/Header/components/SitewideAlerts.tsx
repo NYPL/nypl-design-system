@@ -56,7 +56,7 @@ export const SitewideAlerts = chakra(({ isMobile }) => {
   return alerts.length > 0 ? (
     <Notification
       aria-label="Sitewide alerts"
-      id="above-SitewideAlerts-notification"
+      id="sitewideAlerts-notification"
       isCentered
       noMargin
       notificationContent={getAlertsElems(alerts)}

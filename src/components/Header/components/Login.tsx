@@ -31,7 +31,6 @@ const Login = chakra(
         <List
           listItems={[
             <Link
-              id="logInCatalog"
               key="logInCatalog"
               href={patronName ? loggedInLinks.catalog : loginLinks.catalog}
               ref={catalogRef}
@@ -40,7 +39,6 @@ const Login = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                id="log-in-catalog-icon"
                 name="utilityAccountFilled"
                 size="medium"
                 title="Log in to your account"
@@ -55,7 +53,6 @@ const Login = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                id="log-in-research-icon"
                 name="actionHelpDefault"
                 size="medium"
                 title="Log in to your account"

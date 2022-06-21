@@ -3,10 +3,10 @@ import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
+import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
-import SearchForm from "./SearchForm";
 
-interface SearchButtonProps {
+export interface SearchButtonProps {
   isMobile?: boolean;
 }
 
@@ -42,7 +42,7 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
             title={labelText}
           />
         </Button>
-        {isOpen && <SearchForm isMobile={isMobile} />}
+        {isOpen && <HeaderComponents.SearchForm isMobile={isMobile} />}
       </FocusLock>
     </Box>
   );

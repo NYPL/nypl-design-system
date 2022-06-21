@@ -15,10 +15,7 @@ import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 /** Internal Header-only components and utils */
-import UpperNav from "./components/UpperNav";
-import LowerNav from "./components/LowerNav";
-import Mobile from "./components/Mobile";
-import SitewideAlerts from "./components/SitewideAlerts";
+import HeaderComponents from "./components";
 import {
   extractPatronName,
   fetchPatronData,
@@ -59,7 +56,7 @@ export const Header = chakra(() => {
   return (
     <Box __css={styles}>
       <SkipNavigation />
-      <SitewideAlerts isMobile={!isLargerThanMobile} />
+      <HeaderComponents.SitewideAlerts isMobile={!isLargerThanMobile} />
       <header>
         <HStack __css={styles.container}>
           <Link
@@ -68,7 +65,6 @@ export const Header = chakra(() => {
             __css={styles.logo}
           >
             <Logo
-              id="header-nypl-logo"
               name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
               size={isLargerThanLarge ? "small" : "xxsmall"}
               title="NYPL Header Logo"
@@ -77,15 +73,15 @@ export const Header = chakra(() => {
           <Spacer />
           {isLargerThanMobile ? (
             <VStack alignItems="end" spacing="65px">
-              <UpperNav
+              <HeaderComponents.UpperNav
                 patronName={patronName}
                 isLoginOpen={isLoginOpen}
                 setIsLoginOpen={setIsLoginOpen}
               />
-              <LowerNav />
+              <HeaderComponents.LowerNav />
             </VStack>
           ) : (
-            <Mobile
+            <HeaderComponents.Mobile
               patronName={patronName}
               isLoginOpen={isLoginOpen}
               setIsLoginOpen={setIsLoginOpen}

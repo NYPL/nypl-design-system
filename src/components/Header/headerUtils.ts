@@ -46,7 +46,7 @@ export const loggedInLinks = {
  * Replaces the search string's special characters that need to be encoded
  * using base64. These characters are "=","/", "\", "?".
  */
-const encoreEncodeSearchString = (searchString) => {
+export const encoreEncodeSearchString = (searchString) => {
   const base64EncodeMap = {
     "=": "PQ==",
     "/": "Lw==",
@@ -101,7 +101,7 @@ export const getEncoreCatalogUrl = (searchValue) => {
 /**
  * Returns the final URL for the NYPL catalog search.
  */
-export const getNYPLSearchURl = (searchString) => {
+export const getNYPLSearchUrl = (searchString) => {
   const catalogUrl = "//www.nypl.org/search/";
 
   if (searchString) {

@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
+import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import LoginButton from "./LoginButton";
 import { upperNavLinks } from "../headerUtils";
 
 export interface LoginProps {
@@ -25,7 +25,7 @@ const UpperNav = chakra(
           id="header-nav-upper"
           inline
           listItems={[
-            <LoginButton
+            <HeaderComponents.LoginButton
               key="login"
               isLoginOpen={isLoginOpen}
               patronName={patronName}
@@ -49,7 +49,6 @@ const UpperNav = chakra(
             </Link>,
             <Link
               href={upperNavLinks.donate}
-              id="donateLink"
               key="donateLink"
               type="button"
               __css={styles.donateLink}
