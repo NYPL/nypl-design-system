@@ -20,15 +20,17 @@ import LowerNav from "./components/LowerNav";
 import Mobile from "./components/Mobile";
 import SitewideAlerts from "./components/SitewideAlerts";
 import {
+  deleteCookieValue,
   extractPatronName,
-  fetchPatronData,
+  getLoginData,
   getCookieValue,
+  refreshAccessToken,
+  tokenRefreshLink,
 } from "./headerUtils";
 
 export const Header = chakra(() => {
   const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
-  const [patronDataReceived, setPatronDataReceived] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
   const styles = useMultiStyleConfig("Header", {});
 
@@ -43,18 +45,33 @@ export const Header = chakra(() => {
     return () => window.removeEventListener("keydown", close);
   }, []);
 
-  useEffect(() => {
-    const { cookieValue, accessToken } = getCookieValue();
-    if (cookieValue) {
-      if (!patronDataReceived) {
-        fetchPatronData(accessToken, (data) => {
-          const fullName = extractPatronName(data);
-          setPatronName(fullName);
-          setPatronDataReceived(true);
-        });
-      }
+  const loginDataCallback = (data) => {
+    // If the `statusCode` of the returned data is 401 and the expired
+    // key is set to true, try to refresh the accessToken.
+    if (data?.data?.statusCode === 401 && data?.data?.expired === true) {
+      refreshAccessToken(
+        tokenRefreshLink,
+        loginDataCallback,
+        deleteCookieValue
+      );
+      // Else, extract the patron's name from the returned data.
+    } else {
+      const fullName = extractPatronName(data);
+      setPatronName(fullName);
     }
-  }, [patronDataReceived]);
+  };
+
+  useEffect(() => {
+    // After mounting,look for a cookie named "nyplIdentityPatron"
+    // and try to grab its value.
+    const { accessToken, cookieValue } = getCookieValue();
+    // If the cookie exists, use its `accessToken` to make a fetch
+    // request for the patron's data.
+    if (cookieValue) {
+      getLoginData(accessToken, loginDataCallback);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box __css={styles}>

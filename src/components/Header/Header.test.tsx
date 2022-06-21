@@ -6,7 +6,14 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Header from "./Header";
-import { refineryResponse } from "./components/SitewideAlerts.test";
+import { alertsApiUrl, tokenRefreshLink } from "./headerUtils";
+import {
+  patronApiUrlWithToken,
+  mockExpiredResponseData,
+  mockLoginCookie,
+  mockResponseData,
+} from "./authApiMockResponse";
+import { refineryResponse } from "./components/SitewideAlertsMocks";
 
 // We want to mock the media queries and set the desktop view.
 jest.mock("../../hooks/useNYPLBreakpoints", () => {
@@ -18,22 +25,6 @@ jest.mock("../../hooks/useNYPLBreakpoints", () => {
     isLargerThanXLarge: true,
   }));
 });
-
-const patronResponse = {
-  data: {
-    patron: {
-      barCodes: ["01234567890123"],
-      emails: ["test@nypl.org"],
-      id: "0123456",
-      names: ["PATRON, JANE"],
-    },
-  },
-  count: 1,
-  debugInfo: [],
-  statusCode: 200,
-};
-
-const mockCookieValue = '{"token_type":"Bearer", "access_token":"123abc"}';
 
 describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -47,6 +38,8 @@ describe("Header Accessibility", () => {
 
     const { container } = await waitFor(() => render(<Header />));
     expect(await axe(container)).toHaveNoViolations();
+
+    jest.clearAllMocks();
   });
 });
 
@@ -64,6 +57,9 @@ describe("Header", () => {
     ) as jest.Mock;
 
     await waitFor(() => render(<Header />));
+  });
+  afterAll(() => {
+    jest.clearAllMocks();
   });
   it("renders a skip navigation", () => {
     const skipNavigation = screen.getAllByRole("navigation")[0];
@@ -156,37 +152,44 @@ describe("Header", () => {
   });
 });
 
-describe("Patron is logged in", () => {
+describe("Patron API call succeeds", () => {
   const realGet = Cookies.get;
   beforeAll(async () => {
-    Cookies.get = jest.fn().mockReturnValue(mockCookieValue);
+    // When the Header mounts, it immediately checks for the cookie value.
+    // That is why this mock is here.
+    Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
     // This is assuming that the sitewide alerts fetch call runs
     // before the patron information call. If the alerts call runs
     // after the patron information call, the wrong response will be
     // returned for each and this test will fail.
 
-    // TODO: fix the indeterministic fetch calls.
+    // TODO: Fix the indeterministic fetch calls.
     (global as any).fetch = jest
       .fn()
+      // Mock the fetch API call for sitewide alerts.
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(refineryResponse),
         })
       )
+      // Mock the fetch API call for patron data (successful).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
-          json: () => Promise.resolve(patronResponse),
+          json: () => Promise.resolve(mockResponseData),
         })
       );
 
     await waitFor(() => render(<Header />));
   });
+
   afterAll(() => {
     Cookies.get = realGet;
+    jest.clearAllMocks();
   });
-  it("displays logged in view", async () => {
+
+  it("displays the logged in view when call succeeds", async () => {
     document.getElementById("chakra-toast-portal")?.remove();
 
     expect(Cookies.get).toHaveBeenCalledWith("nyplIdentityPatron");
@@ -214,27 +217,34 @@ describe("Patron is logged in", () => {
 });
 
 describe("Patron API call fails", () => {
+  const realGet = Cookies.get;
   beforeAll(async () => {
-    jest.spyOn(Cookies, "get").mockReturnValue(mockCookieValue);
-
+    Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
     (global as any).fetch = jest
       .fn()
+      // Mock the fetch API call for sitewide alerts.
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(refineryResponse),
         })
       )
+      // Mock the fetch API call for patron data (unsuccessful).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 500,
-          json: () => Promise.reject(),
         })
       );
 
     await waitFor(() => render(<Header />));
   });
-  it("logs warning if call fails", async () => {
+
+  afterAll(() => {
+    Cookies.get = realGet;
+    jest.clearAllMocks();
+  });
+
+  it("logs warning and displays the logged out view if call fails", async () => {
     const warn = jest.spyOn(console, "warn");
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Header: There was an error fetching NYPL patron data."
@@ -252,17 +262,20 @@ describe("Patron API call fails", () => {
 });
 
 describe("Patron API returns wrong data", () => {
+  const realGet = Cookies.get;
   beforeAll(async () => {
-    jest.spyOn(Cookies, "get").mockReturnValue(mockCookieValue);
+    Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
 
     (global as any).fetch = jest
       .fn()
+      // Mock the fetch API call for sitewide alerts.
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(refineryResponse),
         })
       )
+      // Mock the fetch API call for patron data (wrong data).
       .mockReturnValueOnce(
         Promise.resolve({
           status: 200,
@@ -272,10 +285,152 @@ describe("Patron API returns wrong data", () => {
 
     await waitFor(() => render(<Header />));
   });
-  it("doesn't show logged in view if wrong data is received", async () => {
+
+  afterAll(() => {
+    Cookies.get = realGet;
+    jest.clearAllMocks();
+  });
+
+  it("displays the logged out view if wrong data is received", async () => {
     document.getElementById("chakra-toast-portal")?.remove();
 
     // Without the correct data, the Header should render the logged out state.
+    const upperList = await screen.getAllByRole("list")[2];
+    const upperLinks = within(upperList).getAllByRole("listitem");
+    const firstListElement = within(upperLinks[0]).getByRole("button");
+
+    expect(firstListElement).toHaveTextContent(/log in/i);
+  });
+});
+
+describe("Patron API returns expired data, but refreshes the token successfully", () => {
+  const realGet = Cookies.get;
+
+  beforeAll(async () => {
+    Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
+
+    (global as any).fetch = jest
+      .fn()
+      // Mock the fetch API call for sitewide alerts.
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(refineryResponse),
+        })
+      )
+      // Mock the fetch API call for patron data (token expired).
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 401,
+          json: () => Promise.resolve(mockExpiredResponseData),
+        })
+      )
+      // Mock the fetch API call to refresh the access token (successful).
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 200,
+        })
+      )
+      // Mock the fetch API call for patron data (successful).
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockResponseData),
+        })
+      );
+
+    await waitFor(() => render(<Header />));
+  });
+
+  afterAll(() => {
+    Cookies.get = realGet;
+    jest.clearAllMocks();
+  });
+
+  it("displays logged in view if refresh is successful", async () => {
+    expect((global as any).fetch).toHaveBeenNthCalledWith(1, alertsApiUrl);
+    expect((global as any).fetch).toHaveBeenNthCalledWith(
+      2,
+      patronApiUrlWithToken
+    );
+    expect((global as any).fetch).toHaveBeenNthCalledWith(3, tokenRefreshLink, {
+      credentials: "include",
+    });
+    expect((global as any).fetch).toHaveBeenNthCalledWith(
+      4,
+      patronApiUrlWithToken
+    );
+
+    document.getElementById("chakra-toast-portal")?.remove();
+
+    // The third list is the upper navigation links.
+    const upperList = await screen.getAllByRole("list")[2];
+    const upperLinks = within(upperList).getAllByRole("listitem");
+    const firstListElement = within(upperLinks[0]).getByRole("button");
+    let greeting = screen.queryByText(/jane/i);
+    let logoutButton = screen.queryByRole("link", { name: /log out/i });
+
+    expect(greeting).not.toBeInTheDocument();
+    expect(logoutButton).not.toBeInTheDocument();
+
+    expect(firstListElement).toHaveTextContent(/account/i);
+
+    userEvent.click(firstListElement);
+
+    greeting = screen.queryByText(/jane/i);
+    logoutButton = screen.queryByRole("link", { name: /log out/i });
+
+    expect(greeting).toBeInTheDocument();
+    expect(logoutButton).toBeInTheDocument();
+  });
+});
+
+describe("Patron API returns expired data and cannot refresh the token successfully", () => {
+  const realGet = Cookies.get;
+
+  beforeAll(async () => {
+    Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
+
+    (global as any).fetch = jest
+      .fn()
+      // Mock the fetch API call for sitewide alerts.
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(refineryResponse),
+        })
+      )
+      // Mock the fetch API call for patron data (token expired).
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 401,
+          json: () => Promise.resolve(mockExpiredResponseData),
+        })
+      )
+      // Mock the fetch API call to refresh accessToken (unsuccessful)
+      .mockReturnValueOnce(
+        Promise.resolve({
+          status: 500,
+        })
+      );
+
+    await waitFor(() => render(<Header />));
+  });
+
+  afterAll(() => {
+    Cookies.get = realGet;
+    jest.clearAllMocks();
+  });
+
+  it("displays logged out view if refresh is unsuccessful", async () => {
+    const warn = jest.spyOn(console, "warn");
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Header: There was an error refreshing NYPL patron data."
+    );
+
+    document.getElementById("chakra-toast-portal")?.remove();
+
+    // If the access token is expired, the Header should render the logged out state.
     const upperList = await screen.getAllByRole("list")[2];
     const upperLinks = within(upperList).getAllByRole("listitem");
     const firstListElement = within(upperLinks[0]).getByRole("button");
