@@ -6,7 +6,7 @@ import Button from "../../Button/Button";
 import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
 
-const mobileNav = chakra(() => {
+const MobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
@@ -28,11 +28,7 @@ const mobileNav = chakra(() => {
           onClick={() => setIsOpen(!isOpen)}
           __css={styles}
         >
-          <Icon
-            align="none"
-            name={isOpen ? "close" : "utilityHamburger"}
-            size="large"
-          />
+          <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
         {isOpen && <HeaderComponents.MobileNav />}
       </FocusLock>
@@ -40,4 +36,4 @@ const mobileNav = chakra(() => {
   );
 });
 
-export default mobileNav;
+export default MobileNavButton;

@@ -24,6 +24,7 @@ import Header from "./components/header/header";
 import HeaderLogin from "./components/header/headerLogin";
 import HeaderLoginButton from "./components/header/headerLoginButton";
 import HeaderLowerNav from "./components/header/headerLowerNav";
+import HeaderMobileIconNav from "./components/header/headerMobileIconNav";
 import HeaderMobileNav from "./components/header/headerMobileNav";
 import HeaderMobileNavButton from "./components/header/headerMobileNavButton";
 import HeaderSearchForm from "./components/header/headerSearchForm";
@@ -106,6 +107,7 @@ const theme = extendTheme({
     HeaderLogin,
     HeaderLoginButton,
     HeaderLowerNav,
+    HeaderMobileIconNav,
     HeaderMobileNav,
     HeaderMobileNavButton,
     HeaderSearchForm,

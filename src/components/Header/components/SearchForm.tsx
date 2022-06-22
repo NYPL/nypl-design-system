@@ -78,6 +78,11 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                 value={searchInput}
                 __css={styles.textInput}
               />
+              <Icon
+                name="search"
+                size="small"
+                __css={styles.mobileSearchIcon}
+              />
             </Fieldset>
           </FormField>
           {!isMobile && (
@@ -99,7 +104,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
         <FormRow>
           <FormField>
             {isMobile ? (
-              <HStack spacing="0" align="stretch" height="45px">
+              <HStack spacing="0">
                 <Button
                   aria-label="Submit Catalog Search"
                   id="mobile-catalog"

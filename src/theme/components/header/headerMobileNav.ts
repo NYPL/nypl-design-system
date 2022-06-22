@@ -1,4 +1,4 @@
-import { headerFocus } from "./header";
+import { headerFocus, headerRedDonate } from "./header";
 
 const mobileLinkFocus = {
   ...headerFocus,
@@ -11,19 +11,26 @@ const HeaderMobileNav = {
     backgroundColor: "ui.black",
     color: "ui.white",
     left: "0px",
+    minHeight: "540px",
     position: "absolute",
     whiteSpace: "initial",
     width: "100%",
     zIndex: "99999",
+    logo: {
+      marginTop: "15px",
+      marginLeft: "15px",
+    },
     sideNav: {
-      textAlign: "right",
-      padding: "15px",
+      lineHeight: "1.7",
       marginBottom: "0",
+      padding: "15px",
+      textAlign: "right",
       "li:not(:first-child)": {
         marginTop: "10px",
       },
       a: {
         color: "ui.white",
+        fontSize: "18px",
         textDecoration: "none",
         _hover: {
           color: "ui.white",
@@ -40,7 +47,7 @@ const HeaderMobileNav = {
         display: "block",
         textDecoration: "none",
         textAlign: "center",
-        padding: "20px",
+        padding: "27px",
         _hover: {
           color: "ui.white",
           backgroundColor: "ui.black",
@@ -48,9 +55,9 @@ const HeaderMobileNav = {
         },
         _focus: mobileLinkFocus,
         _last: {
-          backgroundColor: "brand.primary",
+          backgroundColor: headerRedDonate,
           _hover: {
-            backgroundColor: "brand.primary",
+            backgroundColor: headerRedDonate,
           },
         },
       },

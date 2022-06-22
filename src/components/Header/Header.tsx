@@ -26,21 +26,20 @@ import {
 } from "./utils/headerUtils";
 
 export const Header = chakra(() => {
-  const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
-  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
+  const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const styles = useMultiStyleConfig("Header", {});
 
-  useEffect(() => {
-    const close = (e) => {
-      const key = e.key || e.keyCode;
-      if (key === "Escape" || key === "Esc" || key === 27) {
-        setIsLoginOpen(false);
-      }
-    };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, []);
+  // useEffect(() => {
+  //   const close = (e) => {
+  //     const key = e.key || e.keyCode;
+  //     if (key === "Escape" || key === "Esc" || key === 27) {
+  //       setIsLoginOpen(false);
+  //     }
+  //   };
+  //   window.addEventListener("keydown", close);
+  //   return () => window.removeEventListener("keydown", close);
+  // }, []);
 
   const loginDataCallback = (data) => {
     // If the `statusCode` of the returned data is 401 and the expired
@@ -83,26 +82,18 @@ export const Header = chakra(() => {
           >
             <Logo
               name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
-              size={isLargerThanLarge ? "small" : "xxsmall"}
+              size="small"
               title="NYPL Header Logo"
             />
           </Link>
           <Spacer />
           {isLargerThanMobile ? (
             <VStack alignItems="end" spacing="65px">
-              <HeaderComponents.UpperNav
-                patronName={patronName}
-                isLoginOpen={isLoginOpen}
-                setIsLoginOpen={setIsLoginOpen}
-              />
+              <HeaderComponents.UpperNav patronName={patronName} />
               <HeaderComponents.LowerNav />
             </VStack>
           ) : (
-            <HeaderComponents.Mobile
-              patronName={patronName}
-              isLoginOpen={isLoginOpen}
-              setIsLoginOpen={setIsLoginOpen}
-            />
+            <HeaderComponents.MobileIconNav patronName={patronName} />
           )}
         </HStack>
         <HorizontalRule __css={styles.horizontalRule} />

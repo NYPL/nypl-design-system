@@ -40,7 +40,7 @@ const Login = chakra(
                 align="left"
                 color="ui.white"
                 name="utilityAccountFilled"
-                size="medium"
+                size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
               {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
@@ -53,8 +53,8 @@ const Login = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                name="actionHelpDefault"
-                size="medium"
+                name="building"
+                size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
               {patronName
@@ -68,12 +68,7 @@ const Login = chakra(
         {patronName && (
           <Link href={logOutLink} type="button" __css={styles.logoutButton}>
             {!isMobile && (
-              <Icon
-                align="left"
-                color="#1B7FA7"
-                name="actionLaunch"
-                size="medium"
-              />
+              <Icon align="left" name="actionLaunch" size="medium" />
             )}
             Log Out
           </Link>

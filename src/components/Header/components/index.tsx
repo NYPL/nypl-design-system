@@ -1,7 +1,7 @@
 import Login from "./Login";
 import LoginButton from "./LoginButton";
 import LowerNav from "./LowerNav";
-import Mobile from "./Mobile";
+import MobileIconNav from "./MobileIconNav";
 import MobileNav from "./MobileNav";
 import MobileNavButton from "./MobileNavButton";
 import SearchButton from "./SearchButton";
@@ -13,7 +13,7 @@ export default {
   Login,
   LoginButton,
   LowerNav,
-  Mobile,
+  MobileIconNav,
   MobileNav,
   MobileNavButton,
   SearchButton,

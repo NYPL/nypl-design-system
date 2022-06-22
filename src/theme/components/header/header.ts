@@ -1,11 +1,17 @@
+export const headerBlue = "#1B7FA7";
+export const headerDarkBlue = "#135772";
+export const headerFocusColor = "#0F465C";
+export const headerLightBlue = "#78CCED";
+export const headerLightBlueIcon = "#1DA1D4";
+export const headerRed = "#ED1C24";
+export const headerRedDonate = "#E32B31";
 export const headerFocus = {
   borderRadius: "none",
-  outlineColor: "#135772 !important",
+  outlineColor: `${headerDarkBlue} !important`,
   outlineOffset: "0 !important",
   outlineStyle: "solid !important",
   outlineWidth: "0.1875em !important",
 };
-export const headerRed = "#ed1c24";
 
 const Header = {
   parts: ["container", "horizontalRule", "logo"],
@@ -13,16 +19,17 @@ const Header = {
     fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     container: {
       marginX: { lg: "50px" },
+      minHeight: { base: "60px" },
     },
     horizontalRule: {
       bg: headerRed,
       marginTop: "0",
     },
     logo: {
-      marginTop: { base: "10px", md: null },
-      marginRight: "auto",
+      padding: "0 10px",
       svg: {
-        height: { base: "25px", lg: "auto" },
+        height: { base: "40px", lg: "auto" },
+        marginTop: { base: "10px", md: null },
       },
       _focus: headerFocus,
     },
