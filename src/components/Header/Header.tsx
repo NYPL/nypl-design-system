@@ -42,7 +42,7 @@ export const Header = chakra(() => {
     isWidthLarge,
   });
 
-  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const [patronName, setPatronName] = useState<string>("");
 
   // Allows user to use esc key to close the login menu.
@@ -50,7 +50,7 @@ export const Header = chakra(() => {
     const close = (e) => {
       const key = e.key || e.keyCode;
       if (key === "Escape" || key === "Esc" || key === 27) {
-        setLoginOpen(false);
+        setIsLoginOpen(false);
       }
     };
     window.addEventListener("keydown", close);
@@ -90,7 +90,7 @@ export const Header = chakra(() => {
       <SkipNavigation />
       <SitewideAlerts isMobile={isWidthMobile} />
       <header>
-        <HStack id="headerMain" justifyContent="space-between">
+        <HStack id="headerMain">
           <Link
             aria-label="The New York Public Library"
             href="https://nypl.org"
@@ -108,13 +108,17 @@ export const Header = chakra(() => {
             <VStack alignItems="end" spacing="65px">
               <UpperNav
                 patronName={patronName}
-                loginOpen={loginOpen}
-                setLoginOpen={setLoginOpen}
+                isLoginOpen={isLoginOpen}
+                setIsLoginOpen={setIsLoginOpen}
               />
               <LowerNav />
             </VStack>
           ) : (
-            <Mobile />
+            <Mobile
+              patronName={patronName}
+              isLoginOpen={isLoginOpen}
+              setIsLoginOpen={setIsLoginOpen}
+            />
           )}
         </HStack>
         <HorizontalRule __css={styles.horizontalRule} />

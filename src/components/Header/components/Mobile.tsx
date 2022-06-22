@@ -1,20 +1,21 @@
 import React from "react";
-import { chakra, Flex, HStack, useMultiStyleConfig } from "@chakra-ui/react";
+import { chakra, Flex, HStack } from "@chakra-ui/react";
 
 import Icon from "../../Icons/Icon";
+import LoginButton from "./LoginButton";
+import { LoginProps } from "./UpperNav";
 import MobileNavButton from "./MobileNavButton";
 import SearchButton from "./SearchButton";
 
-const Mobile = chakra(() => {
-  const styles = useMultiStyleConfig("HeaderMobile", {});
-  return (
+const Mobile = chakra(
+  ({ isLoginOpen, patronName, setIsLoginOpen }: LoginProps) => (
     <Flex>
-      <HStack __css={styles.icons}>
-        <Icon
-          id="log-in-icon"
-          name="utilityAccountUnfilled"
-          size="medium"
-          title="Log in to your account"
+      <HStack>
+        <LoginButton
+          isMobile
+          isLoginOpen={isLoginOpen}
+          patronName={patronName}
+          setIsLoginOpen={setIsLoginOpen}
         />
         <Icon
           id="locator-icon"
@@ -26,7 +27,7 @@ const Mobile = chakra(() => {
         <MobileNavButton />
       </HStack>
     </Flex>
-  );
-});
+  )
+);
 
 export default Mobile;
