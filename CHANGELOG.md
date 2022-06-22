@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `SkipNavigation` to the `Header` component.
 - Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
 - Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
+- Adds refresh login functionality, which is used when a cookie's accessToken has expired and the server responds to a request for patron details with a 401. It attempts to refresh the token and, if successful, refetches the patron's details.
 - Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
 - Refactors `SearchButton` and `SearchForm` to implement the mobile search form.
 - Adds the mobile navigation menu for the `Header` component with `MobileNav` and `MobileNavButton` components.
@@ -24,6 +25,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+
+### Updates
+
+- Updates the `Logo` component to include a variant for `MLN Color`.
+- Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
 
 ## 1.0.3 (June 9, 2022)
 
@@ -42,6 +49,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates hover style to add right border color on hover for `Select` element.
 - Updates the `Table` component to be responsive for a mobile viewport.
 - Updates the `Table` component to make the `columnHeaders` prop required.
+- Updates to Storybook version 6.5.
 
 ### Fixes
 

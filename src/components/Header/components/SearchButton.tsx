@@ -12,7 +12,7 @@ export interface SearchButtonProps {
 
 const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const styles = useStyleConfig("HeaderSearchButton", { isMobile, isOpen });
+  const styles = useStyleConfig("HeaderSearchButton", { isOpen });
   const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
   const labelText = isOpen ? "Close Search" : "Open Search";
   const ref = useRef<HTMLDivElement>(null);

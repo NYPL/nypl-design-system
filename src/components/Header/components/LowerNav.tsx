@@ -1,13 +1,13 @@
 import React from "react";
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
 import HeaderComponents from "./index";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import { lowerNavLinks } from "../headerUtils";
+import { lowerNavLinks } from "../utils/headerUtils";
 
 const LowerNav = chakra(() => {
-  const styles = useMultiStyleConfig("HeaderLowerNav", {});
+  const styles = useStyleConfig("HeaderLowerNav");
 
   return (
     <Box as="nav" aria-label="Header bottom links" __css={styles}>

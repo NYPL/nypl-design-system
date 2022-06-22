@@ -6,15 +6,15 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
 import { LoginProps } from "./UpperNav";
-import { loginLinks, loggedInLinks } from "../headerUtils";
+import { loginLinks, loggedInLinks } from "../utils/headerUtils";
 
 const Login = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
     const styles = useMultiStyleConfig("HeaderLogin", {
-      isMobile,
       patronName,
     });
     const logOutLink = `${loggedInLinks.logOutLink}?redirect_uri=${window.location.href}`;
+
     return (
       <VStack __css={styles}>
         {patronName && (

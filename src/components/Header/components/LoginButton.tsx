@@ -1,10 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Box,
-  chakra,
-  useMultiStyleConfig,
-  useOutsideClick,
-} from "@chakra-ui/react";
+import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
@@ -33,8 +28,7 @@ const LoginButton = chakra(
     const catalogRef = useRef<HTMLAnchorElement>(null);
     const greetingRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const styles = useMultiStyleConfig("HeaderLoginButton", {
-      isMobile,
+    const styles = useStyleConfig("HeaderLoginButton", {
       isLoginOpen,
     });
 

@@ -1,76 +1,75 @@
 import { headerRed } from "./header";
 
-const loginFocus = (isMobile: boolean) => ({
-  boxShadow: isMobile ? null : "1px 1px 2px 2px #0f465c",
-  outline: isMobile ? "inset" : "none",
-  outlineStyle: isMobile ? "solid" : null,
-  outlineWidth: isMobile ? "0.1875em" : null,
+const loginFocus = () => ({
+  boxShadow: { base: null, md: "1px 1px 2px 2px #0f465c" },
+  outline: { base: "inset", md: "none" },
+  outlineStyle: { base: "solid", md: null },
+  outlineWidth: { base: "0.1875em", md: null },
 });
 
 const HeaderLogin = {
   parts: ["logoutButton", "patronGreeting"],
-  baseStyle: ({ isMobile, patronName }) => ({
-    bg: isMobile ? "ui.black" : "#1B7FA7",
+  baseStyle: ({ patronName }) => ({
+    bg: { base: "ui.black", md: "#1B7FA7" },
     boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
-    display: isMobile ? "block" : "flex",
+    display: { base: "block", md: "flex" },
     flexDirection: "column",
-    left: isMobile ? "0" : null,
-    marginTop: isMobile ? null : "1px",
+    left: { base: "0", md: null },
+    marginTop: { base: null, md: "1px" },
     minHeight: "185px",
-    minWidth: isMobile ? "100%" : "350px",
+    minWidth: { base: "100%", md: "350px" },
     position: "absolute",
-    padding: isMobile ? "0" : "30px",
+    padding: { base: "0", md: "30px" },
     zIndex: "9999",
-    ul: isMobile
-      ? {
-          marginBottom: "0",
-          marginTop: !patronName ? "40px" : null,
-          display: "grid",
-          li: {
-            _first: {
-              gridColumn: "1 / span 1",
-            },
-            _last: {
-              gridColumn: "2 / span 1",
-            },
-          },
-        }
-      : {
-          display: "block",
+    ul: {
+      display: { base: "grid", md: "block" },
+      marginBottom: { base: "0", md: "s" },
+      marginTop: { base: !patronName ? "40px" : "0" },
+      li: {
+        _first: {
+          gridColumn: { base: "1 / span 1", md: null },
         },
+        _last: {
+          gridColumn: { base: "2 / span 1", md: null },
+        },
+      },
+    },
     li: {
       _notFirst: {
         marginTop: "0",
-        borderLeft: isMobile ? "2px solid black" : null,
+        borderLeft: { base: "2px solid black", md: "none" },
       },
     },
     "li a": {
-      border: isMobile ? "none" : "2px",
+      border: { base: "none", md: "2px" },
       borderColor: "var(--nypl-colors-ui-white)",
-      borderRadius: isMobile ? "0" : "28px",
-      bg: isMobile ? headerRed : "inherit",
-      display: isMobile ? "flex" : "inline-block",
+      borderRadius: { base: "0", md: "28px" },
+      bg: { base: headerRed, md: "inherit" },
+      display: { base: "flex", md: "inline-block" },
       alignItems: "center",
       color: "ui.white",
       fontSize: "14px",
       fontWeight: "regular",
       letterSpacing: ".03em",
-      marginTop: isMobile ? "0" : "14px",
-      minHeight: isMobile ? "100px" : null,
-      padding: isMobile ? "10px 15px" : "10px 20px",
+      marginTop: { base: "0", md: "14px" },
+      minHeight: { base: "100px", md: "50px" },
+      padding: { base: "10px 15px", md: "10px 20px" },
       textAlign: "left",
       textTransform: "uppercase",
       whiteSpace: "normal",
       width: "fit-content",
       svg: {
         verticalAlign: "middle",
-        marginRight: isMobile ? "15px" : null,
+        marginRight: { base: "15px", md: null },
       },
       _hover: {
-        bg: isMobile ? headerRed : "transparent",
+        bg: { base: headerRed, md: "transparent" },
         color: "ui.white",
       },
-      _focus: loginFocus(isMobile),
+      _focus: {
+        ...loginFocus(),
+        borderRadius: { base: "0", md: "28px" },
+      },
     },
     patronGreeting: {
       alignSelf: "flex-start",
@@ -78,10 +77,10 @@ const HeaderLogin = {
       fontSize: "14px",
       fontWeight: "medium",
       lineHeight: "1.5em",
-      margin: isMobile ? "10px" : null,
+      margin: { base: "10px", md: null },
       textAlign: "left",
       textTransform: "none",
-      _focus: loginFocus(isMobile),
+      _focus: loginFocus(),
       ".greeting": {
         margin: "0 0 6px 0",
       },
@@ -91,22 +90,25 @@ const HeaderLogin = {
     },
     logoutButton: {
       alignSelf: "flex-start",
-      bg: isMobile ? "ui.black" : "ui.white",
-      borderRadius: isMobile ? "0" : "28px",
-      color: isMobile ? "ui.white" : "#1B7FA7 !important",
-      fontSize: isMobile ? "18px" : null,
-      marginTop: isMobile ? "5px" : null,
-      marginBottom: isMobile ? "5px" : null,
-      padding: isMobile ? "30px" : null,
-      textDecoration: isMobile ? "underline" : null,
-      textTransform: isMobile ? "uppercase" : null,
-      width: isMobile ? "100%" : "140px",
+      bg: { base: "ui.black", md: "ui.white" },
+      borderRadius: { base: "0", md: "28px" },
+      color: { base: "ui.white", md: "#1B7FA7 !important" },
+      fontSize: { base: "18px", md: "14px" },
+      marginTop: { base: "5px", md: "0px" },
+      marginBottom: { base: "5px", md: "0px" },
+      padding: { base: "30px", md: null },
+      textDecoration: { base: "underline", md: null },
+      textTransform: "uppercase",
+      width: { base: "100%", md: "140px" },
       _hover: {
-        bg: isMobile ? "ui.black" : "ui.white",
-        color: isMobile ? "ui.white" : "#1B7FA7",
-        textDecoration: isMobile ? "underline" : null,
+        bg: { base: "ui.black", md: "ui.white" },
+        color: { base: "ui.white", md: "#1B7FA7" },
+        textDecoration: { base: "underline", md: null },
       },
-      _focus: loginFocus(isMobile),
+      _focus: {
+        ...loginFocus(),
+        borderRadius: { base: "0", md: "28px !important" },
+      },
     },
   }),
 };

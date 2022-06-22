@@ -14,7 +14,7 @@ const Mobile = chakra(
         patronName={patronName}
         setIsLoginOpen={setIsLoginOpen}
       />
-      <Icon name="actionHelpOutline" size="medium" title="NYPL Locator" />
+      <Icon name="locator" size="medium" title="NYPL Locator" />
       <HeaderComponents.SearchButton isMobile />
       <HeaderComponents.MobileNavButton />
     </Flex>

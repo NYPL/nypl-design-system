@@ -10,7 +10,7 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogUrl, getNYPLSearchUrl } from "../headerUtils";
+import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
 
 export interface SearchFormProps {
   isMobile?: boolean;
@@ -34,10 +34,10 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
     // If there is a search input, make the request.
     if (searchInput) {
       if (searchOption === "catalog" || mobileType === "catalog") {
-        requestUrl = getEncoreCatalogUrl(searchInput);
+        requestUrl = getEncoreCatalogURL(searchInput);
       }
       if (searchOption === "website" || mobileType === "website") {
-        requestUrl = getNYPLSearchUrl(searchInput);
+        requestUrl = getNYPLSearchURL(searchInput);
       }
 
       if (requestUrl) {
@@ -85,8 +85,8 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
               <ButtonGroup>
                 <Button
                   aria-label="Search"
-                  id="search-btn"
                   buttonType="pill"
+                  id="search-btn"
                   onClick={onSubmit}
                   __css={styles.desktopSearchBtn}
                 >

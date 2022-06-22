@@ -28,6 +28,7 @@ import HeaderMobileNav from "./components/header/headerMobileNav";
 import HeaderMobileNavButton from "./components/header/headerMobileNavButton";
 import HeaderSearchForm from "./components/header/headerSearchForm";
 import HeaderSearchButton from "./components/header/headerSearchButton";
+import HeaderSitewideAlerts from "./components/header/headerSitewideAlerts";
 import HeaderUpperNav from "./components/header/headerUpperNav";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
@@ -44,7 +45,6 @@ import ProgressIndicator from "./components/progressIndicator";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
-import SitewideAlerts from "./components/sitewideAlerts";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
@@ -110,6 +110,7 @@ const theme = extendTheme({
     HeaderMobileNavButton,
     HeaderSearchForm,
     HeaderSearchButton,
+    HeaderSitewideAlerts,
     HeaderUpperNav,
     Heading,
     HelperErrorText,
@@ -126,7 +127,6 @@ const theme = extendTheme({
     Radio,
     RadioGroup,
     SearchBar,
-    SitewideAlerts,
     Skeleton,
     SkeletonLoader,
     SkipNavigation,

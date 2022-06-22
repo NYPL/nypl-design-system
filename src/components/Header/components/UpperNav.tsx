@@ -5,7 +5,7 @@ import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import { upperNavLinks } from "../headerUtils";
+import { upperNavLinks } from "../utils/headerUtils";
 
 export interface LoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
@@ -19,6 +19,7 @@ export interface LoginProps {
 const UpperNav = chakra(
   ({ isLoginOpen, patronName, setIsLoginOpen }: LoginProps) => {
     const styles = useMultiStyleConfig("HeaderUpperNav", {});
+
     return (
       <Box as="nav" aria-label="Header top links" __css={styles}>
         <List

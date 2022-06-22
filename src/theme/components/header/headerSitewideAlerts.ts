@@ -1,6 +1,6 @@
 const SitewideAlerts = {
-  baseStyle: ({ isMobile }) => ({
-    borderBottom: isMobile ? "1px solid" : null,
+  baseStyle: {
+    borderBottom: { base: "1px solid", md: "none" },
     ul: {
       marginBottom: "0",
       // Target any anchor and paragraph HTML passed in from
@@ -12,7 +12,7 @@ const SitewideAlerts = {
         marginBottom: "0",
       },
     },
-  }),
+  },
 };
 
 export default SitewideAlerts;

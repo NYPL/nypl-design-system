@@ -2,7 +2,7 @@ import { headerFocus } from "./header";
 
 const HeaderSearchForm = {
   parts: ["desktopSearchBtn", "form", "textInput", "radio"],
-  baseStyle: ({ isMobile }) => ({
+  baseStyle: {
     whiteSpace: "initial",
     position: "absolute",
     left: "0px",
@@ -43,16 +43,13 @@ const HeaderSearchForm = {
       },
     },
     form: {
-      // width: isMobile ? null : "1130px",
-      margin: isMobile ? "0" : "35px 50px 40px 120px",
+      margin: { base: "0", md: "35px 50px 40px 120px" },
       whiteSpace: "initial",
     },
-    fieldset: isMobile
-      ? {
-          margin: "15px",
-          marginBottom: "0",
-        }
-      : {},
+    fieldset: {
+      margin: { base: "15px", md: "0" },
+      marginBottom: { base: "0", md: "0" },
+    },
     radio: {
       backgroundColor: "white",
       border: "1px solid white",
@@ -66,7 +63,7 @@ const HeaderSearchForm = {
         _hover: headerFocus,
       },
     },
-  }),
+  },
 };
 
 export default HeaderSearchForm;
