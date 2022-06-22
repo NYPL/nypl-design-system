@@ -21,8 +21,13 @@ import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Header from "./components/header";
+import HeaderLogin from "./components/headerLogin";
+import HeaderLoginButton from "./components/headerLoginButton";
 import HeaderLowerNav from "./components/headerLowerNav";
-import HeaderMobile from "./components/headerMobile";
+import HeaderMobileNav from "./components/headerMobileNav";
+import HeaderMobileNavButton from "./components/headerMobileNavButton";
+import HeaderSearchForm from "./components/headerSearchForm";
+import HeaderSearchButton from "./components/headerSearchButton";
 import HeaderUpperNav from "./components/headerUpperNav";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
@@ -98,8 +103,13 @@ const theme = extendTheme({
     DatePicker,
     Fieldset,
     Header,
+    HeaderLogin,
+    HeaderLoginButton,
     HeaderLowerNav,
-    HeaderMobile,
+    HeaderMobileNav,
+    HeaderMobileNavButton,
+    HeaderSearchForm,
+    HeaderSearchButton,
     HeaderUpperNav,
     Heading,
     HelperErrorText,
