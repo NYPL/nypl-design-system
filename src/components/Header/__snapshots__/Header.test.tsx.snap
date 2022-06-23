@@ -80,7 +80,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         className="css-17xejub"
       />
       <div
-        className="chakra-stack css-wc2673"
+        className="chakra-stack css-zt56pq"
       >
         <nav
           aria-label="Header top links"

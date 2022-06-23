@@ -13,6 +13,7 @@ const HeaderUpperNav = {
       fontSize: "13px",
       fontWeight: 600,
       letterSpacing: ".05em",
+      marginRight: "10px",
       position: "relative",
       textTransform: "uppercase",
     },

@@ -82,13 +82,16 @@ export const Header = chakra(() => {
           >
             <Logo
               name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
-              size="small"
+              size={isLargerThanMobile ? "medium" : "small"}
               title="NYPL Header Logo"
             />
           </Link>
           <Spacer />
           {isLargerThanMobile ? (
-            <VStack alignItems="end" spacing="65px">
+            <VStack
+              alignItems="end"
+              spacing={isLargerThanLarge ? "75px" : "50px"}
+            >
               <HeaderComponents.UpperNav patronName={patronName} />
               <HeaderComponents.LowerNav />
             </VStack>

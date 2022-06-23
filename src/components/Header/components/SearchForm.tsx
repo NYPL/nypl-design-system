@@ -95,7 +95,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                   onClick={onSubmit}
                   __css={styles.desktopSearchBtn}
                 >
-                  <Icon name="search" size="medium" />
+                  <Icon name="search" size="large" />
                 </Button>
               </ButtonGroup>
             </FormField>

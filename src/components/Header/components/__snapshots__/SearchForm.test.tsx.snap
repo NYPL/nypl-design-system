@@ -6,7 +6,7 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
 >
   <form
     aria-label="form"
-    className="css-1xfaj5"
+    className="css-16sv398"
     id="search-header"
     onSubmit={[Function]}
   >
@@ -55,6 +55,37 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
                 value=""
               />
             </div>
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-1grhd2q"
+              focusable={false}
+              role="img"
+              title="search icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
           </fieldset>
         </div>
         <div
@@ -261,7 +292,7 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
 >
   <form
     aria-label="form"
-    className="css-1xfaj5"
+    className="css-16sv398"
     id="search-header"
     onSubmit={[Function]}
   >
@@ -304,6 +335,37 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
                 value=""
               />
             </div>
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-1grhd2q"
+              focusable={false}
+              role="img"
+              title="search icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
           </fieldset>
         </div>
       </div>
@@ -316,7 +378,7 @@ exports[`SearchForm renders the UI snapshot correctly 2`] = `
           id="search-header-child1-grandchild0"
         >
           <div
-            className="chakra-stack css-nf0nk5"
+            className="chakra-stack css-1sigv9r"
           >
             <button
               aria-label="Submit Catalog Search"

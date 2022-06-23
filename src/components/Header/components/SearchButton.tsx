@@ -38,7 +38,7 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
           <Icon
             align={isMobile ? "none" : "right"}
             name={isOpen ? "close" : "search"}
-            size={isMobile ? "large" : "medium"}
+            size={isMobile ? "large" : isOpen ? "medium" : "small"}
             title={labelText}
           />
         </Button>

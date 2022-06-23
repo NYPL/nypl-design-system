@@ -5,6 +5,7 @@ export const headerLightBlue = "#78CCED";
 export const headerLightBlueIcon = "#1DA1D4";
 export const headerRed = "#ED1C24";
 export const headerRedDonate = "#E32B31";
+export const headerYellow = "#FEE34A";
 export const headerFocus = {
   borderRadius: "none",
   outlineColor: `${headerDarkBlue} !important`,
@@ -18,8 +19,9 @@ const Header = {
   baseStyle: {
     fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     container: {
-      marginX: { lg: "50px" },
-      minHeight: { base: "60px" },
+      marginX: { md: "20px", xl: "auto" },
+      maxWidth: "1300px",
+      minHeight: { base: "60px", md: "160px", lg: "205px" },
     },
     horizontalRule: {
       bg: headerRed,

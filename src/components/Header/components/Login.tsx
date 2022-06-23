@@ -43,7 +43,9 @@ const Login = chakra(
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
-              {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
+              <span>
+                {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
+              </span>
             </Link>,
             <Link
               href={patronName ? loggedInLinks.research : loginLinks.research}
@@ -57,9 +59,11 @@ const Login = chakra(
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
-              {patronName
-                ? "Go To The Research Catalog"
-                : "Log Into The Research Catalog"}
+              <span>
+                {patronName
+                  ? "Go To The Research Catalog"
+                  : "Log Into The Research Catalog"}
+              </span>
             </Link>,
           ]}
           noStyling
