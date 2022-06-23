@@ -37,9 +37,8 @@ addDecorator(
   })
 );
 
-// <div style={{ margin: "10px" }}>
 addDecorator((StoryFn) => (
-  <div>
+  <div style={{ margin: "10px" }}>
     <StoryFn />
   </div>
 ));
