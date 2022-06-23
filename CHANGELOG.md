@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Icon` component to include variants for `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+
 ## 1.0.4 (June 23, 2022)
 
 ### Adds
