@@ -89,6 +89,7 @@ const CustomImage = {
       width: "100%",
       ...imageSizes[size],
       img: {
+        backgroundColor: "ui.gray.x-light-cool",
         marginBottom: "xxs",
       },
     },
@@ -98,6 +99,7 @@ const CustomImage = {
     },
     img: {
       display: "block",
+      backgroundColor: "ui.gray.x-light-cool",
       boxSizing: "border-box",
       objectFit: "cover",
       position: "relative",
@@ -123,6 +125,7 @@ const CustomImageWrapper = {
       ...imageRatios[ratio],
     },
     img: {
+      backgroundColor: "ui.gray.x-light-cool",
       height: "100%",
       left: "0",
       maxWidth: "100%",

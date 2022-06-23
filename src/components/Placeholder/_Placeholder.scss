@@ -1,0 +1,37 @@
+// Only used for the `Placeholder` component, not to style
+// an `input`'s placeholder.
+.placeholder {
+  --color-place-holder: var(--nypl-colors-ui-gray-dark);
+
+  margin-bottom: var(--nypl-space-l);
+
+  padding: var(--nypl-space-s);
+
+  align-items: center;
+  border: 4px dashed var(--color-place-holder);
+  color: var(--color-place-holder);
+  display: flex;
+  font-size: 3rem;
+  justify-content: center;
+  line-height: 1.4;
+  padding: 4rem 1rem;
+  width: 100%;
+
+  &--full {
+    margin-bottom: var(--nypl-space-xxl);
+  }
+
+  &--short {
+    padding: 1rem 1rem;
+  }
+}
+
+@media (min-width: $nypl-breakpoint-large) {
+  .placeholder {
+    margin-bottom: var(--nypl-space-l);
+
+    &--full {
+      margin-bottom: var(--nypl-space-xxxl);
+    }
+  }
+}

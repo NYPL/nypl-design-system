@@ -8,6 +8,7 @@ const DatePicker = {
     subLabels: {
       label: {
         fontSize: "label.secondary",
+        fontWeight: "label.secondary",
         marginBottom: "0",
       },
     },

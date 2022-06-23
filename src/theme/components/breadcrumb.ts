@@ -4,7 +4,7 @@ const blogs = {
   color: "ui.black",
   a: {
     _hover: {
-      color: "ui.gray.xdark",
+      color: "ui.gray.x-dark",
     },
   },
   svg: {

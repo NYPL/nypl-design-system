@@ -13,7 +13,7 @@ import * as React from "react";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
-import useWindowSize from "../../hooks/useWindowSize";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -155,8 +155,9 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   const initTabWidth = 65;
   // An estimate for the tab width for larger device widths.
   const mediumTabWidth = 40;
-  const [tabWidth, setTabWidth] = React.useState(initTabWidth);
-  const windowDimensions = useWindowSize();
+  const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
+  const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
+
   const { tabs, panels }: any = tabsData
     ? getElementsFromData(tabsData, useHash)
     : getElementsFromChildren(children);
@@ -175,17 +176,14 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
     tabProps?.children?.length,
     tabWidth
   );
+
   React.useEffect(() => {
-    if (windowDimensions.width > 320) {
-      setTabWidth(mediumTabWidth);
-    } else {
-      setTabWidth(initTabWidth);
-    }
     // If we are on larger viewports, reset the carousel so all tabs display.
-    if (windowDimensions.width > 600) {
+    if (isLargerThanMobile) {
       goToStart();
     }
-  }, [goToStart, windowDimensions.width]);
+  }, [goToStart, isLargerThanMobile]);
+
   const previousButton = (
     <Button
       aria-label="Previous"
