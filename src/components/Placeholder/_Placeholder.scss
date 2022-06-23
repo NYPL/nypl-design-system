@@ -4,9 +4,6 @@
   --color-place-holder: var(--nypl-colors-ui-gray-dark);
 
   margin-bottom: var(--nypl-space-l);
-  @include breakpoint($nypl-breakpoint-large) {
-    margin-bottom: var(--nypl-space-l);
-  }
 
   padding: var(--nypl-space-s);
 
@@ -22,12 +19,19 @@
 
   &--full {
     margin-bottom: var(--nypl-space-xxl);
-    @include breakpoint($nypl-breakpoint-large) {
-      margin-bottom: var(--nypl-space-xxxl);
-    }
   }
 
   &--short {
     padding: 1rem 1rem;
+  }
+}
+
+@media (min-width: $nypl-breakpoint-large) {
+  .placeholder {
+    margin-bottom: var(--nypl-space-l);
+
+    &--full {
+      margin-bottom: var(--nypl-space-xxxl);
+    }
   }
 }

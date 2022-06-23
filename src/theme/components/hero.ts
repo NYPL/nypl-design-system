@@ -115,7 +115,7 @@ const secondaryLocations = getSecondaryVariantStyles(
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
 const tertiary = {
-  bg: "ui.gray.xdark",
+  bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
     color: "ui.white",

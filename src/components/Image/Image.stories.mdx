@@ -66,7 +66,7 @@ export const imageBlockStyles = {
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.6`    |
-| Latest            | `1.0.2`    |
+| Latest            | `1.0.4`    |
 
 ## Table of Contents
 
@@ -77,6 +77,7 @@ export const imageBlockStyles = {
 - [Image Sizes](#image-sizes)
 - [Image Aspect Ratios](#image-aspect-ratios)
 - [Image Types](#image-types)
+- [Lazy Loading](#lazy-loading)
 
 ## Overview
 
@@ -327,6 +328,45 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/400/animals"
         />
       </div>
+    </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Lazy Loading
+
+The `Image` component handles lazy loading images through two npm packages:
+[`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer)
+and [`@charlietango/use-native-lazy-loading`](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading).
+The first package handles using the `IntersectionObserver` API in React and the
+second pacakge checks if the `img`'s native `loading="lazy` attribute is
+supported by the browser.
+
+The `Image`'s implementation of lazy loading is based on the recipe provided by
+`react-intersection-observer`. Once the image's wrapper is in view, we load the
+image by rendering it through the native `loading="lazy` attribute or through
+the `IntersectionObserver` API.
+
+In the following example, open the "Network" tab in your browser's console and
+as you scroll down to view the next set of 10 images, you'll see that they get
+loaded as the images come into the window's view.
+
+Resources:
+
+- [Browser-level image lazy-loading for the web](https://web.dev/browser-level-image-lazy-loading/)
+
+<Canvas>
+  <Story name="Lazy Loading">
+    <SimpleGrid columns={1}>
+      <Image alt="Alt text" src="https://placeimg.com/540/420/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/500/400/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/460/460/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/420/490/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/200/120/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/640/340/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/460/480/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/100/200/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/400/400/animals" />
+      <Image alt="Alt text" src="https://placeimg.com/250/360/animals" />
     </SimpleGrid>
   </Story>
 </Canvas>
