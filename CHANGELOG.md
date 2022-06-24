@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Exports `ColorCard`.
+
+### Updates
+
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+
 ## 1.0.4 (June 23, 2022)
 
 ### Adds
