@@ -7,71 +7,71 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 export const cssVars = {
-  brand: ["--nypl-colors-brand-primary", "--nypl-colors-brand-secondary"],
+  brand: ["brand.primary", "brand.secondary"],
   blogs: [
-    "--nypl-colors-section-blogs-primary",
-    "--nypl-colors-section-blogs-secondary",
+    "section.blogs.primary",
+    "section.blogs.secondary",
   ],
   booksAndMore: [
-    "--nypl-colors-section-books-and-more-primary",
-    "--nypl-colors-section-books-and-more-secondary",
+    "section.books.and.more.primary",
+    "section.books.and.more.secondary",
   ],
   education: [
-    "--nypl-colors-section-education-primary",
-    "--nypl-colors-section-education-secondary",
+    "section.education.primary",
+    "section.education.secondary",
   ],
   locations: [
-    "--nypl-colors-section-locations-primary",
-    "--nypl-colors-section-locations-secondary",
+    "section.locations.primary",
+    "section.locations.secondary",
   ],
   research: [
-    "--nypl-colors-section-research-primary",
-    "--nypl-colors-section-research-secondary",
+    "section.research.primary",
+    "section.research.secondary",
   ],
   researchLibraries: [
-    "--nypl-colors-section-research-library-lpa",
-    "--nypl-colors-section-research-library-schomburg",
-    "--nypl-colors-section-research-library-schwartzman",
+    "section.research-library.lpa",
+    "section.research-library.schomburg",
+    "section.research-library.schwartzman",
   ],
   whatsOn: [
-    "--nypl-colors-section-whats-on-primary",
-    "--nypl-colors-section-whats-on-secondary",
+    "section.whats-on.primary",
+    "section.whats-on.secondary",
   ],
   ui: [
-    "--nypl-colors-ui-black",
-    "--nypl-colors-ui-white",
-    "--nypl-colors-ui-disabled-primary",
-    "--nypl-colors-ui-disabled-secondary",
-    "--nypl-colors-ui-error-primary",
-    "--nypl-colors-ui-error-secondary",
-    "--nypl-colors-ui-focus",
-    "--nypl-colors-ui-link-primary",
-    "--nypl-colors-ui-link-secondary",
-    "--nypl-colors-ui-status-primary",
-    "--nypl-colors-ui-status-secondary",
-    "--nypl-colors-ui-success-primary",
-    "--nypl-colors-ui-success-secondary",
-    "--nypl-colors-ui-test",
-    "--nypl-colors-ui-warning-primary",
-    "--nypl-colors-ui-warning-secondary",
+    "ui.black",
+    "ui.white",
+    "ui.disabled.primary",
+    "ui.disabled.secondary",
+    "ui.error.primary",
+    "ui.error.secondary",
+    "ui.focus",
+    "ui.link.primary",
+    "ui.link.secondary",
+    "ui.status.primary",
+    "ui.status.secondary",
+    "ui.success.primary",
+    "ui.success.secondary",
+    "ui.test",
+    "ui.warning.primary",
+    "ui.warning.secondary",
   ],
   grayscale: [
-    "--nypl-colors-ui-gray-xx-dark",
-    "--nypl-colors-ui-gray-x-dark",
-    "--nypl-colors-ui-gray-dark",
-    "--nypl-colors-ui-gray-medium",
-    "--nypl-colors-ui-gray-light-cool",
-    "--nypl-colors-ui-gray-light-warm",
-    "--nypl-colors-ui-gray-x-light-cool",
-    "--nypl-colors-ui-gray-x-light-warm",
-    "--nypl-colors-ui-gray-xx-light-cool",
+    "ui.gray.xx-dark",
+    "ui.gray.x-dark",
+    "ui.gray.dark",
+    "ui.gray.medium",
+    "ui.gray.light-cool",
+    "ui.gray.light-warm",
+    "ui.gray.x-light-cool",
+    "ui.gray.x-light-warm",
+    "ui.gray.xx-light-cool",
   ],
 };
 
 export const makeColorCard = function (key) {
   const cssValue = `var(${key})`;
   const card = (
-    <ColorCard backgroundColor={cssValue} colorName={key} key={key} />
+    <ColorCard backgroundColor={key} colorName={key} key={key} />
   );
   return card;
 };

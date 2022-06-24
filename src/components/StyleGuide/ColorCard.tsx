@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 
 export interface ColorCardProps {
   /** backgroundColor of the color card */
@@ -18,6 +19,7 @@ export default function ColorCard(
   props: React.PropsWithChildren<ColorCardProps>
 ) {
   const { backgroundColor, colorName = "" } = props;
+  const cssVar = `--nypl-colors-${colorName.replace(/\./g, "-")}`
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
@@ -29,6 +31,8 @@ export default function ColorCard(
       />
       <div style={{ marginLeft: "1rem" }}>
         <Heading level="four">{colorName}</Heading>
+        <Heading level="four">{cssVar}</Heading>
+        <Text noSpace>{backgroundColor}</Text> 
         {/* 
         TODO:
         This code is returning the CSS variable name.  This is not what we 
