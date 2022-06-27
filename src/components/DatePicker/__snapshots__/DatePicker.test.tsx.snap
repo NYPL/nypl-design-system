@@ -27,8 +27,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="basic-start-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -45,6 +48,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -65,8 +70,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="basic-end-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -83,6 +91,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -124,8 +134,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="no-label-start-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -142,6 +155,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -162,8 +177,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="no-label-end-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -180,6 +198,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -221,8 +241,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="custom-format-start-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -239,6 +262,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -259,8 +284,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="custom-format-end-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -277,6 +305,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -318,8 +348,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="invalid-start-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -329,7 +362,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 From
               </label>
               <input
-                aria-describedby="invalid-start-helperText"
                 aria-invalid={true}
                 className="chakra-input css-0"
                 disabled={false}
@@ -338,6 +370,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -370,8 +404,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="invalid-end-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -381,7 +418,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 To
               </label>
               <input
-                aria-describedby="invalid-end-helperText"
                 aria-invalid={true}
                 className="chakra-input css-0"
                 disabled={false}
@@ -390,6 +426,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -455,8 +493,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="disabled-start-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -473,6 +514,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -493,8 +536,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-1u8qly9"
+              className=" css-1u8qly9"
               id="disabled-end-wrapper"
+              onBlur={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -511,6 +557,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 onChange={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
                 required={false}
                 step={null}
                 type="text"
@@ -553,8 +601,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="basic-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -571,6 +622,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -599,8 +652,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="no-label-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <input
             aria-label="Select the date you want to visit NYPL"
@@ -611,6 +667,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -639,8 +697,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="custom-format-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -657,6 +718,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -685,8 +748,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="invalid-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -696,7 +762,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            aria-describedby="invalid-start-helperText"
             aria-invalid={true}
             className="chakra-input css-0"
             disabled={false}
@@ -705,6 +770,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -745,8 +812,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="disabled-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -756,7 +826,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            aria-describedby="disabled-start-helperText"
             className="chakra-input css-0"
             disabled={true}
             id="disabled-start"
@@ -764,6 +833,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -804,8 +875,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="chakra-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -815,7 +889,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            aria-describedby="chakra-start-helperText"
             className="chakra-input css-0"
             disabled={false}
             id="chakra-start"
@@ -823,6 +896,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
@@ -864,8 +939,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-1u8qly9"
+          className=" css-1u8qly9"
           id="props-start-wrapper"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -875,7 +953,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            aria-describedby="props-start-helperText"
             className="chakra-input css-0"
             disabled={false}
             id="props-start"
@@ -883,6 +960,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             onChange={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
             required={false}
             step={null}
             type="text"
