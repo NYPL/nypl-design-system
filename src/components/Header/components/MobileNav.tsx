@@ -12,6 +12,7 @@ import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
 import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
+import Icon from "../../Icons/Icon";
 
 /**
  * The Header navigation for the mobile view.
@@ -71,6 +72,12 @@ const MobileNav = chakra(() => {
           borderRight="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 1"
         >
+          <Icon
+            align="left"
+            color="ui.white"
+            name="decorativeLibraryCard"
+            size="large"
+          />
           Get a Library Card
         </Link>
         <Link
@@ -78,6 +85,12 @@ const MobileNav = chakra(() => {
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="2 / span 1"
         >
+          <Icon
+            align="left"
+            color="ui.white"
+            name="decorativeEnvelope"
+            size="medium"
+          />
           Get Email Updates
         </Link>
         <Link
@@ -85,6 +98,12 @@ const MobileNav = chakra(() => {
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 2"
         >
+          <Icon
+            align="left"
+            color="ui.white"
+            name="decorativeShoppingBag"
+            size="medium"
+          />
           Shop NYPL
         </Link>
         <Link href={upperNavLinks.donate} gridColumn="1 / span 2">
