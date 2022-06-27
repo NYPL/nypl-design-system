@@ -5,8 +5,14 @@ import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
-import { LoginProps } from "./UpperNav";
 import { loginLinks, loggedInLinks } from "../utils/headerUtils";
+
+export interface LoginProps {
+  catalogRef?: React.RefObject<HTMLAnchorElement>;
+  greetingRef?: React.RefObject<HTMLDivElement>;
+  isMobile?: boolean;
+  patronName?: string;
+}
 
 const Login = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {

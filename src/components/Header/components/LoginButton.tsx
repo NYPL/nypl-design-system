@@ -5,11 +5,14 @@ import FocusLock from "@chakra-ui/focus-lock";
 import Button from "../../Button/Button";
 import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
-import { LoginProps } from "./UpperNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { PatronContext } from "../context/patronContext";
 
-const LoginButton = chakra(({ isMobile }: LoginProps) => {
+interface LoginButtonProps {
+  isMobile?: boolean;
+}
+
+const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const patronName = useContext(PatronContext);
   const catalogRef = useRef<HTMLAnchorElement>(null);

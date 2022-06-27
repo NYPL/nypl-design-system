@@ -7,13 +7,6 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import { upperNavLinks } from "../utils/headerUtils";
 
-export interface LoginProps {
-  catalogRef?: React.RefObject<HTMLAnchorElement>;
-  greetingRef?: React.RefObject<HTMLDivElement>;
-  isMobile?: boolean;
-  patronName?: string;
-}
-
 const UpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
