@@ -89,7 +89,7 @@ const MobileNav = chakra(() => {
             align="left"
             color="ui.white"
             name="decorativeEnvelope"
-            size="medium"
+            size="large"
           />
           Get Email Updates
         </Link>
@@ -102,7 +102,7 @@ const MobileNav = chakra(() => {
             align="left"
             color="ui.white"
             name="decorativeShoppingBag"
-            size="medium"
+            size="large"
           />
           Shop NYPL
         </Link>
