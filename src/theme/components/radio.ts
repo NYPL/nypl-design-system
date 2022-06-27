@@ -14,6 +14,7 @@ const baseStyleControl = {
   border: "2px solid",
   borderRadius: "round",
   borderColor: "ui.black",
+  backgroundColor: "ui.white",
   color: "ui.white",
   outline: "none",
   _checked: {

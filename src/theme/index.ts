@@ -143,10 +143,16 @@ const theme = extendTheme({
     ...Toggle,
     VideoPlayer,
   },
-  // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
-  // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
   config: {
+    // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
+    // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
     cssVarPrefix: "nypl",
+    // Start off in the "light" mode.
+    initialColorMode: "light",
+    // Don't use the user's system preference. Once the Reservoir
+    // has better dark mode variants for its components, this
+    // value can be set to true.
+    useSystemColorMode: false,
   },
 });
 

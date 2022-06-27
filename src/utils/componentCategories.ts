@@ -131,6 +131,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Color Mode",
       "Design Tokens",
       "Forms",
       "Iconography",

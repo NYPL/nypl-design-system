@@ -1,23 +1,16 @@
-// Start libs
-
 // Better style reset
 @import "~normalize.css/normalize";
-// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
-@import "~breakpoint-sass/stylesheets/breakpoint";
+// System fonts
 @import "~system-font-css/_system-font.scss";
-// For the React DatePicker package.
-@import "~react-datepicker/dist/react-datepicker.css";
+// The `react-datepicker` styles. We'll compile and minimize it ourselves.
+@import "~react-datepicker/src/stylesheets/datepicker.scss";
 
-// End libs
-
-// Order important
+// Base styles
 @import "./styles/base/_01-breakpoints";
-@import "./styles/base/_02-mixins";
-@import "./styles/base/_place-holder";
-@import "./styles/space/_space-inline";
-@import "./styles/space/_space-inset";
-@import "./styles/space/_space-stack";
 
-// Components.
+// Ideal styles for the `Autosuggest` component implementation.
 @import "./components/Autosuggest/_Autosuggest.scss";
+// Overrides for the `DatePicker` component.
 @import "./components/DatePicker/_DatePicker.scss";
+// An internal-only component.
+@import "./components/Placeholder/_Placeholder.scss";

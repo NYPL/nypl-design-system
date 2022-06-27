@@ -61,11 +61,18 @@ const variants = {
 };
 
 const Heading = {
-  baseStyle: ({ noSpace }) => ({
+  baseStyle: ({ isCapitalized, isUppercase, isLowercase, noSpace }) => ({
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
     a: baseLinkStyles,
     marginBottom: noSpace ? "0" : "s",
+    textTransform: isCapitalized
+      ? "capitalize"
+      : isUppercase
+      ? "uppercase"
+      : isLowercase
+      ? "lowercase"
+      : null,
   }),
   // Available variants:
   // h1, h2, h3, h4, h5, h6,
