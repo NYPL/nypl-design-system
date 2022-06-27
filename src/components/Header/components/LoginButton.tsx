@@ -1,5 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  useMultiStyleConfig,
+  useOutsideClick,
+} from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
@@ -27,6 +32,7 @@ const LoginButton = chakra(
       : "Log In";
     const catalogRef = useRef<HTMLAnchorElement>(null);
     const greetingRef = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const styles = useMultiStyleConfig("HeaderLoginButton", {
       isMobile,
       isLoginOpen,
@@ -42,32 +48,39 @@ const LoginButton = chakra(
       }
     }, [isLoginOpen, patronName]);
 
+    useOutsideClick({
+      ref: wrapperRef,
+      handler: () => setIsLoginOpen(false),
+    });
+
     return (
-      <FocusLock isDisabled={!isLoginOpen}>
-        <Button
-          aria-label={desktopButtonLabel}
-          buttonType="link"
-          id="loginButton"
-          onClick={() => setIsLoginOpen(!isLoginOpen)}
-          __css={styles}
-        >
-          {isMobile ? null : desktopButtonLabel}
-          <Icon
-            align="right"
-            name={isMobile ? mobileIcon : desktopIcon}
-            size={isMobile ? "large" : "small"}
-            title="Log in to your account"
-          />
-        </Button>
-        {isLoginOpen && (
-          <Login
-            catalogRef={catalogRef}
-            greetingRef={greetingRef}
-            isMobile={isMobile}
-            patronName={patronName}
-          />
-        )}
-      </FocusLock>
+      <Box ref={wrapperRef}>
+        <FocusLock isDisabled={!isLoginOpen}>
+          <Button
+            aria-label={desktopButtonLabel}
+            buttonType="link"
+            id="loginButton"
+            onClick={() => setIsLoginOpen(!isLoginOpen)}
+            __css={styles}
+          >
+            {isMobile ? null : desktopButtonLabel}
+            <Icon
+              align="right"
+              name={isMobile ? mobileIcon : desktopIcon}
+              size={isMobile ? "large" : "small"}
+              title="Log in to your account"
+            />
+          </Button>
+          {isLoginOpen && (
+            <Login
+              catalogRef={catalogRef}
+              greetingRef={greetingRef}
+              isMobile={isMobile}
+              patronName={patronName}
+            />
+          )}
+        </FocusLock>
+      </Box>
     );
   }
 );

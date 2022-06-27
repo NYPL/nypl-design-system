@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchButton renders the UI snapshot correctly 1`] = `
-Array [
+<div
+  className="css-0"
+>
   <div
     data-focus-guard={true}
     style={
@@ -16,7 +18,7 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
+  />
   <div
     data-focus-guard={true}
     style={
@@ -31,7 +33,7 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
+  />
   <div
     data-focus-lock-disabled="disabled"
     onBlur={[Function]}
@@ -80,7 +82,7 @@ Array [
         </g>
       </svg>
     </button>
-  </div>,
+  </div>
   <div
     data-focus-guard={true}
     style={
@@ -95,12 +97,14 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
-]
+  />
+</div>
 `;
 
 exports[`SearchButton renders the UI snapshot correctly 2`] = `
-Array [
+<div
+  className="css-0"
+>
   <div
     data-focus-guard={true}
     style={
@@ -115,7 +119,7 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
+  />
   <div
     data-focus-guard={true}
     style={
@@ -130,7 +134,7 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
+  />
   <div
     data-focus-lock-disabled="disabled"
     onBlur={[Function]}
@@ -178,7 +182,7 @@ Array [
         </g>
       </svg>
     </button>
-  </div>,
+  </div>
   <div
     data-focus-guard={true}
     style={
@@ -193,6 +197,6 @@ Array [
       }
     }
     tabIndex={-1}
-  />,
-]
+  />
+</div>
 `;

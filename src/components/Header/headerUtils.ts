@@ -8,8 +8,41 @@ export interface Alert {
   startDate: string;
   endDate: string;
 }
+
+const authServerDomain = "https://login.nypl.org/auth";
 export const alertsApiUrl =
   "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
+export const patronApiUrl =
+  "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
+export const tokenRefreshLink = `${authServerDomain}/refresh`;
+export const upperNavLinks = {
+  locations: "https://www.nypl.org/locations",
+  libraryCard: "https://www.nypl.org/library-card/new",
+  emailUpdates:
+    "https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7",
+  donate:
+    "https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN",
+  shop: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+};
+export const lowerNavLinks = {
+  books: "https://www.nypl.org/books-music-movies",
+  research: "https://www.nypl.org/research",
+  education: "https://www.nypl.org/education",
+  events: "https://www.nypl.org/events",
+  connect: "https://www.nypl.org/connect",
+  give: "https://www.nypl.org/give",
+  getHelp: "https://www.nypl.org/get-help",
+};
+export const loginLinks = {
+  catalog: "https://browse.nypl.org/iii/encore/myaccount",
+  research: "https://catalog.nypl.org/patroninfo/top",
+};
+export const loggedInLinks = {
+  catalog: `${authServerDomain}/login?redirect_uri=${loginLinks.catalog}`,
+  research: `${authServerDomain}/login?redirect_uri=${loginLinks.research}`,
+  tokenRefreshLink: `${authServerDomain}/refresh`,
+  logOutLink: `${authServerDomain}/logout`,
+};
 
 /**
  * Replaces the search string's special characters that need to be encoded
@@ -37,6 +70,7 @@ export const encoreEncodeSearchString = (searchString) => {
 
   return encodedSearchString;
 };
+
 /**
  * Generates the queries to be added to the URL of the search pages. It is
  * used by the Google Analytics scripts  to tell where the search request is
@@ -47,6 +81,7 @@ const generateQueriesForGA = () => {
   const currentTimeStamp = new Date().getTime();
   return `?searched_from=header_search&timestamp=${currentTimeStamp}`;
 };
+
 /**
  * Returns the final URL for the NYPL Encore search.
  */
@@ -64,6 +99,7 @@ export const getEncoreCatalogURL = (searchValue) => {
   }
   return null;
 };
+
 /**
  * Returns the final URL for the NYPL catalog search.
  */
@@ -77,6 +113,7 @@ export const getNYPLSearchURL = (searchString) => {
   }
   return null;
 };
+
 /**
  * The `alertsApiUrl` fetches NYPL alerts from the Refinery API. This API
  * returns JSONAPI-formatted data. We could use a better JSONAPI parser, but
@@ -116,12 +153,6 @@ export const parseAlertsData = (data: any): Alert[] => {
 
   return filteredAlerts;
 };
-
-export const patronApiUrl =
-  "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
-
-const authServerDomain = "https://login.nypl.org/auth";
-export const tokenRefreshLink = `${authServerDomain}/refresh`;
 
 /**
  * `refreshAccessToken` attempts to refresh the "nyplIdentityPatron" cookie's
@@ -175,7 +206,7 @@ export const deleteCookieValue = () => {
 };
 
 /**
- * fetchPatronData uses the `patronApiUrl` combined with the
+ * getLoginData uses the `patronApiUrl` combined with the
  * `accessToken` from the "nyplIdentityPatron" cookie to fetch
  * the patron's information from the server.
  */
@@ -217,7 +248,7 @@ export const getLoginData = (accessToken, cb) => {
 
 /**
  * `extractPatronName` locates and returns the `patronName`
- * from the nested object that is returned from `fetchPatronData`.
+ * from the nested object that is returned from `getLoginData`.
  */
 export const extractPatronName = (data: any) => {
   try {

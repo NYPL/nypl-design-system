@@ -6,6 +6,7 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
 import { LoginProps } from "./UpperNav";
+import { loginLinks, loggedInLinks } from "../headerUtils";
 
 const Login = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
@@ -13,14 +14,15 @@ const Login = chakra(
       isMobile,
       patronName,
     });
+    const logOutLink = `${loggedInLinks.logOutLink}?redirect_uri=${window.location.href}`;
     return (
-      <VStack display={isMobile ? "block" : "flex"} __css={styles}>
+      <VStack __css={styles}>
         {patronName && (
           <Box
-            id="patronGreeting"
             data-testid="patronGreeting"
             ref={greetingRef}
             tabIndex={0}
+            __css={styles.patronGreeting}
           >
             <Text className="greeting">You are logged in as: </Text>
             <Text className="name">{patronName}</Text>
@@ -31,7 +33,7 @@ const Login = chakra(
             <Link
               id="logInCatalog"
               key="logInCatalog"
-              href="https://browse.nypl.org/iii/encore/myaccount"
+              href={patronName ? loggedInLinks.catalog : loginLinks.catalog}
               ref={catalogRef}
               type="button"
             >
@@ -46,9 +48,8 @@ const Login = chakra(
               {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
             </Link>,
             <Link
-              id="logInResearchCatalog"
-              key="logInResearchCatalog"
-              href="#"
+              href={patronName ? loggedInLinks.research : loginLinks.research}
+              key="logInResearch"
               type="button"
             >
               <Icon
@@ -68,11 +69,7 @@ const Login = chakra(
           type="ul"
         />
         {patronName && (
-          <Link
-            href="https://login.nypl.org/auth/logout?redirect_uri=https://browse.nypl.org/iii/encore/myaccount?lang=eng"
-            id="logoutButton"
-            type="button"
-          >
+          <Link href={logOutLink} type="button" __css={styles.logoutButton}>
             {!isMobile && (
               <Icon
                 align="left"

@@ -6,17 +6,25 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Header from "./Header";
-import { tokenRefreshLink } from "./headerUtils";
+import { alertsApiUrl, tokenRefreshLink } from "./headerUtils";
 import {
   patronApiUrlWithToken,
   mockExpiredResponseData,
   mockLoginCookie,
   mockResponseData,
 } from "./authApiMockResponse";
-import {
-  alertsApiUrl,
-  refineryResponse,
-} from "./components/SitewideAlertsMocks";
+import { refineryResponse } from "./components/SitewideAlertsMocks";
+
+// We want to mock the media queries and set the desktop view.
+jest.mock("../../hooks/useNYPLBreakpoints", () => {
+  return jest.fn().mockImplementation(() => ({
+    isLargerThanSmall: true,
+    isLargerThanMedium: true,
+    isLargerThanMobile: true,
+    isLargerThanLarge: true,
+    isLargerThanXLarge: true,
+  }));
+});
 
 describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -81,7 +89,6 @@ describe("Header", () => {
   it("renders the upper links", () => {
     // Removes automatically added, unused Chakra toast elements.
     document.getElementById("chakra-toast-portal")?.remove();
-
     // The first list is the skip navigation.
     // The second list is the list of alerts in the `SitewideAlerts` component.
     // The third list is the upper navigation.

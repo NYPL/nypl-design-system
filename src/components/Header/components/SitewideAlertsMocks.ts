@@ -1,6 +1,3 @@
-export const alertsApiUrl =
-  "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
-
 // This is based on the Refinery API endpoint response.
 const getApiResponse = (
   startDate = "2022-03-14T00:00:00-04:00",

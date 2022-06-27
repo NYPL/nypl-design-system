@@ -55,7 +55,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/books-music-movies"
             rel={null}
             target={null}
           >
@@ -65,7 +65,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/research"
             rel={null}
             target={null}
           >
@@ -75,7 +75,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/education"
             rel={null}
             target={null}
           >
@@ -85,7 +85,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/events"
             rel={null}
             target={null}
           >
@@ -95,7 +95,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/connect"
             rel={null}
             target={null}
           >
@@ -105,7 +105,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/give"
             rel={null}
             target={null}
           >
@@ -115,7 +115,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
         <li>
           <a
             className="css-1xdhyk6"
-            href="#"
+            href="https://www.nypl.org/get-help"
             rel={null}
             target={null}
           >
@@ -131,7 +131,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
   >
     <a
       className="css-g8syzw"
-      href="#"
+      href="https://www.nypl.org/library-card/new"
       rel={null}
       target={null}
     >
@@ -139,7 +139,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
     </a>
     <a
       className="css-1i5qkun"
-      href="#"
+      href="https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7"
       rel={null}
       target={null}
     >
@@ -147,7 +147,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
     </a>
     <a
       className="css-1hbu0qa"
-      href="#"
+      href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
       rel={null}
       target={null}
     >
@@ -155,7 +155,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
     </a>
     <a
       className="css-847rpw"
-      href="#"
+      href="https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN"
       rel={null}
       target={null}
     >
