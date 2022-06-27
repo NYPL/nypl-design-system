@@ -8,7 +8,7 @@ import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { PatronContext } from "../context/patronContext";
 
-interface LoginButtonProps {
+export interface LoginButtonProps {
   isMobile?: boolean;
 }
 
