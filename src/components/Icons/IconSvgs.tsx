@@ -14,6 +14,9 @@ import building from "../../../icons/svg/building.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
+import decorativeEnvelope from "../../../icons/svg/decorative-envelope.svg";
+import decorativeLibraryCard from "../../../icons/svg/decorative-library-card.svg";
+import decorativeShoppingBag from "../../../icons/svg/decorative-shopping-bag.svg";
 import download from "../../../icons/svg/download.svg";
 import errorFilled from "../../../icons/svg/error-filled.svg";
 import errorOutline from "../../../icons/svg/error-outline.svg";
@@ -56,6 +59,9 @@ export default {
   check,
   clock,
   close,
+  decorativeEnvelope,
+  decorativeLibraryCard,
+  decorativeShoppingBag,
   download,
   errorFilled,
   errorOutline,

@@ -44,7 +44,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `1.0.3`    |
+| Latest            | `1.0.4`    |
 
 ## Table of Contents
 
@@ -79,7 +79,7 @@ import { getCategory } from "../../utils/componentCategories";
           args.name.indexOf("White") !== -1 ||
           args.name.indexOf("Negative") !== -1
             ? {
-                backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
+                backgroundColor: "var(--nypl-colors-ui-gray-xx-dark)",
                 display: "inline-block",
                 padding: "var(--nypl-space-l)",
                 width: "100%",
@@ -102,7 +102,7 @@ export const logoRow = (logo, opts = {}) => {
   const { size = "large", displayValue } = opts;
   let key = logo;
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
-    styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
+    styles.backgroundColor = "var(--nypl-colors-ui-gray-xx-dark)";
     styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";

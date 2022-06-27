@@ -11,7 +11,10 @@ const SearchBar = {
       md: "row nowrap",
     },
     select: {
+      flexShrink: "0",
       marginBottom: "0",
+      maxWidth: { base: undefined, md: "255px" },
+      textOverflow: "ellipsis",
     },
   },
 };

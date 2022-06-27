@@ -22,15 +22,38 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Icon` component to include variants for `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+
+## 1.0.4 (June 23, 2022)
+
 ### Adds
 
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+- Adds `ui.gray.xx-dark` to the color palette.
+- Adds npm packages useful for lazy loading images in the `Image` component.
+- Adds text case styles for `Text` component.
+- Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
+- Adds a "Color Mode" documentation page in Storybook.
+- Adds `ui.white` as default background color to `Checkbox` and `Radio` components.
+- Adds text case styles for `Heading` component
 
 ### Updates
 
 - Updates the `Logo` component to include a variant for `MLN Color`.
 - Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
+- Updates to Storybook version 6.5.
+- Explicitly sets the default color mode value to `"light"`.
+- Updates how the `styles.scss` and `resources.scss` files are organized and compiled so that they can be imported in any tech stack.
+- Updates the docs for the `Table` commponent to remove the example that does not include column headers.
+- Updates the `Button`, `Select` and `TextInput` components to use NYPL standard minimum height in mobile viewport.
+- Updates the `SearchBar` component to change how the width of the internal `Select` component is handled.
+
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
 
 ## 1.0.3 (June 9, 2022)
 
@@ -49,7 +72,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates hover style to add right border color on hover for `Select` element.
 - Updates the `Table` component to be responsive for a mobile viewport.
 - Updates the `Table` component to make the `columnHeaders` prop required.
-- Updates to Storybook version 6.5.
 
 ### Fixes
 
