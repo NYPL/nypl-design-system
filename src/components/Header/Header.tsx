@@ -30,17 +30,6 @@ export const Header = chakra(() => {
   const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const styles = useMultiStyleConfig("Header", {});
 
-  // useEffect(() => {
-  //   const close = (e) => {
-  //     const key = e.key || e.keyCode;
-  //     if (key === "Escape" || key === "Esc" || key === 27) {
-  //       setIsLoginOpen(false);
-  //     }
-  //   };
-  //   window.addEventListener("keydown", close);
-  //   return () => window.removeEventListener("keydown", close);
-  // }, []);
-
   const loginDataCallback = (data) => {
     // If the `statusCode` of the returned data is 401 and the expired
     // key is set to true, try to refresh the accessToken.
@@ -70,38 +59,40 @@ export const Header = chakra(() => {
   }, []);
 
   return (
-    <Box __css={styles}>
-      <SkipNavigation />
-      <HeaderComponents.SitewideAlerts />
-      <header>
-        <HStack __css={styles.container}>
-          <Link
-            aria-label="The New York Public Library"
-            href="https://nypl.org"
-            __css={styles.logo}
-          >
-            <Logo
-              name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
-              size={isLargerThanMobile ? "medium" : "small"}
-              title="NYPL Header Logo"
-            />
-          </Link>
-          <Spacer />
-          {isLargerThanMobile ? (
-            <VStack
-              alignItems="end"
-              spacing={isLargerThanLarge ? "75px" : "50px"}
+    <HeaderComponents.PatronProvider patronName={patronName}>
+      <Box __css={styles}>
+        <SkipNavigation />
+        <HeaderComponents.SitewideAlerts />
+        <header>
+          <HStack __css={styles.container}>
+            <Link
+              aria-label="The New York Public Library"
+              href="https://nypl.org"
+              __css={styles.logo}
             >
-              <HeaderComponents.UpperNav patronName={patronName} />
-              <HeaderComponents.LowerNav />
-            </VStack>
-          ) : (
-            <HeaderComponents.MobileIconNav patronName={patronName} />
-          )}
-        </HStack>
-        <HorizontalRule __css={styles.horizontalRule} />
-      </header>
-    </Box>
+              <Logo
+                name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
+                size={isLargerThanMobile ? "medium" : "small"}
+                title="NYPL Header Logo"
+              />
+            </Link>
+            <Spacer />
+            {isLargerThanMobile ? (
+              <VStack
+                alignItems="end"
+                spacing={isLargerThanLarge ? "75px" : "50px"}
+              >
+                <HeaderComponents.UpperNav />
+                <HeaderComponents.LowerNav />
+              </VStack>
+            ) : (
+              <HeaderComponents.MobileIconNav />
+            )}
+          </HStack>
+          <HorizontalRule __css={styles.horizontalRule} />
+        </header>
+      </Box>
+    </HeaderComponents.PatronProvider>
   );
 });
 

@@ -1,20 +1,18 @@
 import FocusLock from "@chakra-ui/focus-lock";
-import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
 import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
 const MobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
 
-  useOutsideClick({
-    ref,
-    handler: () => setIsOpen(false),
-  });
+  useCloseDropDown(setIsOpen, ref);
 
   return (
     <Box ref={ref}>

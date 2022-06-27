@@ -3,16 +3,17 @@ import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
 
+import HeaderComponents from "./index";
 import LoginButton from "./LoginButton";
 
 describe("LoginButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<LoginButton patronName="" />);
+    const { container } = render(<LoginButton />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for mobile", async () => {
-    const { container } = render(<LoginButton isMobile patronName="" />);
+    const { container } = render(<LoginButton isMobile />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -20,7 +21,7 @@ describe("LoginButton Accessibility", () => {
 describe("LoginButton", () => {
   describe("Desktop", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      render(<LoginButton patronName="" />);
+      render(<LoginButton />);
 
       let dropDownButton = screen.getByRole("button");
 
@@ -38,7 +39,7 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
-      render(<LoginButton patronName="" />);
+      render(<LoginButton />);
 
       const dropDownButton = screen.getByRole("button");
 
@@ -51,7 +52,11 @@ describe("LoginButton", () => {
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      render(<LoginButton patronName="PATRON, JANE A" />);
+      render(
+        <HeaderComponents.PatronProvider patronName="PATRON, JANE A">
+          <LoginButton />
+        </HeaderComponents.PatronProvider>
+      );
 
       let dropDownButton = screen.getByRole("button");
 
@@ -79,7 +84,11 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {
-      render(<LoginButton patronName="PATRON, JANE A" />);
+      render(
+        <HeaderComponents.PatronProvider patronName="PATRON, JANE A">
+          <LoginButton />
+        </HeaderComponents.PatronProvider>
+      );
 
       const dropDownButton = screen.getByRole("button");
 
@@ -92,7 +101,7 @@ describe("LoginButton", () => {
 
   describe("Mobile", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      render(<LoginButton isMobile patronName="" />);
+      render(<LoginButton isMobile />);
 
       let dropDownButton = screen.getByRole("button");
       // There is no visible text on the button in the mobile view.
@@ -110,7 +119,7 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
-      render(<LoginButton isMobile patronName="" />);
+      render(<LoginButton isMobile />);
       const dropDownButton = screen.getByRole("button");
 
       userEvent.click(dropDownButton);
@@ -122,7 +131,11 @@ describe("LoginButton", () => {
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      render(<LoginButton isMobile patronName="PATRON, JANE A" />);
+      render(
+        <HeaderComponents.PatronProvider patronName="PATRON, JANE A">
+          <LoginButton isMobile />
+        </HeaderComponents.PatronProvider>
+      );
 
       let dropDownButton = screen.getByRole("button");
 
@@ -149,7 +162,11 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {
-      render(<LoginButton isMobile patronName="PATRON, JANE A" />);
+      render(
+        <HeaderComponents.PatronProvider patronName="PATRON, JANE A">
+          <LoginButton isMobile />
+        </HeaderComponents.PatronProvider>
+      );
       const dropDownButton = screen.getByRole("button");
 
       userEvent.click(dropDownButton);

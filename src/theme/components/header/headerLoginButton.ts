@@ -15,7 +15,7 @@ const HeaderLoginButton = {
     padding: { md: "4px 10px" },
     svg: {
       fill: isOpen ? "ui.white" : null,
-      marginLeft: { base: "0px", md: "10px" },
+      marginLeft: { base: "0px", md: "5px" },
       marginTop: { base: "0" },
     },
     textDecoration: "none",

@@ -11,10 +11,10 @@ export interface LoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
-  patronName: string;
+  patronName?: string;
 }
 
-const UpperNav = chakra(({ patronName }: LoginProps) => {
+const UpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
   return (
@@ -23,7 +23,7 @@ const UpperNav = chakra(({ patronName }: LoginProps) => {
         id="header-nav-upper"
         inline
         listItems={[
-          <HeaderComponents.LoginButton key="login" patronName={patronName} />,
+          <HeaderComponents.LoginButton key="login" />,
           <Link href={upperNavLinks.locations} key="locationsLink">
             Locations
           </Link>,
