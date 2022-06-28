@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the `Icon` component to include variants for `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
 - Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
 
 ## 1.0.4 (June 23, 2022)
