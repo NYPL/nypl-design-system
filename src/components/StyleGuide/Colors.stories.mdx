@@ -6,7 +6,7 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-export const defaultData = {
+export const colorContrastData = {
   brand: {
     primary: {
       dataBlack: ["3.45", "Fail", "AA"],
@@ -83,43 +83,47 @@ export const cssVars = {
   brand: [
     {
       name: "brand.primary",
-      dataBlack: defaultData.brand.primary.dataBlack,
-      dataWhite: defaultData.brand.primary.dataWhite,
-      textColor: defaultData.brand.primary.textColor,
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
     },
     {
       name: "brand.secondary",
-      dataBlack: defaultData.brand.secondary.dataBlack,
-      dataWhite: defaultData.brand.secondary.dataWhite,
-      textColor: defaultData.brand.secondary.textColor,
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
     },
   ],
   blogs: [
     {
+      colorSource: "ui.gray.light-cool",
       name: "section.blogs.primary",
-      dataBlack: defaultData.ui.gray.lightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.lightCool.dataWhite,
-      textColor: defaultData.ui.gray.lightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
     },
     {
+      colorSource: "ui.gray.medium",
       name: "section.blogs.secondary",
-      dataBlack: defaultData.ui.gray.medium.dataBlack,
-      dataWhite: defaultData.ui.gray.medium.dataWhite,
-      textColor: defaultData.ui.gray.medium.textColor,
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
     },
   ],
   booksAndMore: [
     {
+      colorSource: "brand.primary",
       name: "section.books-and-more.primary",
-      dataBlack: defaultData.brand.primary.dataBlack,
-      dataWhite: defaultData.brand.primary.dataWhite,
-      textColor: defaultData.brand.primary.textColor,
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
     },
     {
+      colorSource: "brand.secondary",
       name: "section.books-and-more.secondary",
-      dataBlack: defaultData.brand.secondary.dataBlack,
-      dataWhite: defaultData.brand.secondary.dataWhite,
-      textColor: defaultData.brand.secondary.textColor,
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
     },
   ],
   education: [
@@ -138,16 +142,18 @@ export const cssVars = {
   ],
   locations: [
     {
+      colorSource: "brand.primary",
       name: "section.locations.primary",
-      dataBlack: defaultData.brand.primary.dataBlack,
-      dataWhite: defaultData.brand.primary.dataWhite,
-      textColor: defaultData.brand.primary.textColor,
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
     },
     {
+      colorSource: "brand.secondary",
       name: "section.locations.secondary",
-      dataBlack: defaultData.brand.secondary.dataBlack,
-      dataWhite: defaultData.brand.secondary.dataWhite,
-      textColor: defaultData.brand.secondary.textColor,
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
     },
   ],
   research: [
@@ -178,10 +184,11 @@ export const cssVars = {
       textColor: "ui.white",
     },
     {
+      colorSource: "brand.secondary",
       name: "section.research-library.schwartzman",
-      dataBlack: defaultData.brand.secondary.dataBlack,
-      dataWhite: defaultData.brand.secondary.dataWhite,
-      textColor: defaultData.brand.secondary.textColor,
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
     },
   ],
   whatsOn: [
@@ -192,24 +199,25 @@ export const cssVars = {
       textColor: "ui.white",
     },
     {
+      colorSource: "ui.black",
       name: "section.whats-on.secondary",
-      dataBlack: defaultData.ui.black.dataBlack,
-      dataWhite: defaultData.ui.black.dataWhite,
-      textColor: defaultData.ui.black.textColor,
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
     },
   ],
   ui: [
     {
       name: "ui.black",
-      dataBlack: defaultData.ui.black.dataBlack,
-      dataWhite: defaultData.ui.black.dataWhite,
-      textColor: defaultData.ui.black.textColor,
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
     },
     {
       name: "ui.white",
-      dataBlack: defaultData.ui.white.dataBlack,
-      dataWhite: defaultData.ui.white.dataWhite,
-      textColor: defaultData.ui.white.textColor,
+      dataBlack: colorContrastData.ui.white.dataBlack,
+      dataWhite: colorContrastData.ui.white.dataWhite,
+      textColor: colorContrastData.ui.white.textColor,
     },
     {
       name: "ui.link.primary",
@@ -236,16 +244,18 @@ export const cssVars = {
       textColor: "ui.white",
     },
     {
+      colorSource: "ui.gray.light-cool",
       name: "ui.disabled.primary",
-      dataBlack: defaultData.ui.gray.lightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.lightCool.dataWhite,
-      textColor: defaultData.ui.gray.lightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
     },
     {
+      colorSource: "ui.gray.xx-light-cool",
       name: "ui.disabled.secondary",
-      dataBlack: defaultData.ui.gray.xxLightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.xxLightCool.dataWhite,
-      textColor: defaultData.ui.gray.xxLightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.xxLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
     },
     {
       name: "ui.focus",
@@ -299,70 +309,68 @@ export const cssVars = {
   grayscale: [
     {
       name: "ui.gray.xx-dark",
-      dataBlack: defaultData.ui.gray.xxDark.dataBlack,
-      dataWhite: defaultData.ui.gray.xxDark.dataWhite,
-      textColor: defaultData.ui.gray.xxDark.textColor,
+      dataBlack: colorContrastData.ui.gray.xxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
     },
     {
       name: "ui.gray.x-dark",
-      dataBlack: defaultData.ui.gray.xDark.dataBlack,
-      dataWhite: defaultData.ui.gray.xDark.dataWhite,
-      textColor: defaultData.ui.gray.xDark.textColor,
+      dataBlack: colorContrastData.ui.gray.xDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
     },
     {
       name: "ui.gray.dark",
-      dataBlack: defaultData.ui.gray.dark.dataBlack,
-      dataWhite: defaultData.ui.gray.dark.dataWhite,
-      textColor: defaultData.ui.gray.dark.textColor,
+      dataBlack: colorContrastData.ui.gray.dark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.dark.dataWhite,
+      textColor: colorContrastData.ui.gray.dark.textColor,
     },
     {
       name: "ui.gray.medium",
-      dataBlack: defaultData.ui.gray.medium.dataBlack,
-      dataWhite: defaultData.ui.gray.medium.dataWhite,
-      textColor: defaultData.ui.gray.medium.textColor,
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
     },
     {
       name: "ui.gray.light-cool",
-      dataBlack: defaultData.ui.gray.lightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.lightCool.dataWhite,
-      textColor: defaultData.ui.gray.lightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
     },
     {
       name: "ui.gray.x-light-cool",
-      dataBlack: defaultData.ui.gray.xLightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.xLightCool.dataWhite,
-      textColor: defaultData.ui.gray.xLightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.xLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xLightCool.textColor,
     },
     {
       name: "ui.gray.xx-light-cool",
-      dataBlack: defaultData.ui.gray.xxLightCool.dataBlack,
-      dataWhite: defaultData.ui.gray.xxLightCool.dataWhite,
-      textColor: defaultData.ui.gray.xxLightCool.textColor,
+      dataBlack: colorContrastData.ui.gray.xxLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
     },
     {
       name: "ui.gray.light-warm",
-      dataBlack: defaultData.ui.gray.lightWarm.dataBlack,
-      dataWhite: defaultData.ui.gray.lightWarm.dataWhite,
-      textColor: defaultData.ui.gray.lightWarm.textColor,
+      dataBlack: colorContrastData.ui.gray.lightWarm.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightWarm.dataWhite,
+      textColor: colorContrastData.ui.gray.lightWarm.textColor,
     },
     {
       name: "ui.gray.x-light-warm",
-      dataBlack: defaultData.ui.gray.xLightWarm.dataBlack,
-      dataWhite: defaultData.ui.gray.xLightWarm.dataWhite,
-      textColor: defaultData.ui.gray.xLightWarm.textColor,
+      dataBlack: colorContrastData.ui.gray.xLightWarm.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xLightWarm.dataWhite,
+      textColor: colorContrastData.ui.gray.xLightWarm.textColor,
     },
   ],
 };
 
 export const makeColorCard = function (data) {
-  const name = data.name;
-  const dataBlack = data.dataBlack;
-  const dataWhite = data.dataWhite;
-  const textColor = data.textColor;
+  const { colorSource, dataBlack, dataWhite, name, textColor } = data;
   const card = (
     <ColorCard
       backgroundColor={name}
       colorName={name}
+      colorSource={colorSource}
       dataBlack={dataBlack}
       dataWhite={dataWhite}
       textColor={textColor}
@@ -371,9 +379,9 @@ export const makeColorCard = function (data) {
   );
   return card;
 };
-export const getColorCards = (cat) => {
+export const getColorCards = (category) => {
   const cards = [];
-  const catArr = cssVars[cat];
+  const catArr = cssVars[category];
   for (let i = 0; i < catArr.length; i++) {
     const colorData = catArr[i];
     const card = makeColorCard(colorData);
@@ -386,17 +394,38 @@ export const getColorCards = (cat) => {
 
 # NYPL Colors
 
-| Table of Contents                        |
-| ---------------------------------------- |
-| 1. [Brand Colors](#brand-colors)         |
-| 2. [Section Colors](#section-colors)     |
-| 3. [Utility Colors](#utility-colors)     |
-| 3. [Grayscale Colors](#grayscale-colors) |
-| 4. [Figma Reference](#figma-reference)   |
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [Overview](#overview)                       |
+| 2. [Brand Fills](brand-fills)                  |
+| 3. [NYPL Brand Colors](#nypl-brand-colors)     |
+| 4. [NYPL Section Colors](#nypl-section-colors) |
+| 5. [UI Fills](ui-fills)                        |
+| 6. [Utility Colors](#utility-colors)           |
+| 7. [Grayscale Colors](#grayscale-colors)       |
+| 8. [Figma Reference](#figma-reference)         |
 
-## Brand Colors
+## Overview
 
-Brand fills are the NYPL primary and secondary colors.
+The Reservoir Design System (DS) the provides the NYPL branded and approved
+color palette. The NYPL color palette is used to style the DS components and
+is also available for consuming applications in the form of javascript and
+CSS design tokens. Please refer to the [Design Tokens](http://localhost:6006/?path=/story/style-guide-design-tokens--page)
+page for information about consuming and using all style tokens.
+
+Whenever using these colors, designer must ensure that the foreground and
+background colors pass, at a minimum, the `WCAG AA` accessibility guidelines for
+color contrast. For reference, to meet the `WCAG AA` standard, the contrast ratio
+must be at least 4.5:1. To meet the `WCAG AAA` standard, the contrast ratio must
+be at least 7:1.
+
+## Brand Fills
+
+These colors are connected to the NYPL brand and are not intended to be generic.
+
+### NYPL Brand Colors
+
+NYPL Brand Colors are the NYPL branded primary and secondary colors.
 
 <Canvas>
   <DSProvider>
@@ -406,9 +435,10 @@ Brand fills are the NYPL primary and secondary colors.
   </DSProvider>
 </Canvas>
 
-## Section Colors
+### NYPL Section Colors
 
-Section colors are branding colors only in use at NYPL.
+NYPL Section Colors are branding colors only in use at NYPL. These colors are
+used to add visual context for a user's location on an NYPL website.
 
 <Canvas>
   <DSProvider>
@@ -489,7 +519,13 @@ Section colors are branding colors only in use at NYPL.
   </DSProvider>
 </Canvas>
 
-## Utility Colors
+## UI Fills
+
+UI Fills are colors used for typography and to communicate component and/or
+application state. These colors are not connected to the NYPL brand and are
+intended to be generic.
+
+### Utility Colors
 
 <Canvas>
   <DSProvider>
@@ -499,7 +535,9 @@ Section colors are branding colors only in use at NYPL.
   </DSProvider>
 </Canvas>
 
-## Grayscale Colors
+### Grayscale Colors
+
+Grays are used for secondary body copy and non-semantic UI design.
 
 <Canvas>
   <DSProvider>
