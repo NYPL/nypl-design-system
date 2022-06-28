@@ -34,8 +34,9 @@ describe("useCloseDropDown hook", () => {
 
     expect(screen.getByText("The drop down is open.")).toBeInTheDocument();
 
-    // Clicking outside of the dropdown should close it. We mock
-    // this by "clicking" on any element outside of the ref.
+    // Clicking outside of the dropdown should close it. We mock this by
+    // "clicking" on any element outside of the ref. This is done in Testing
+    // Library by triggering the `mouseDown` and `mouseUp` events.
     fireEvent.mouseDown(element);
     fireEvent.mouseUp(element);
 
@@ -56,6 +57,9 @@ describe("useCloseDropDown hook", () => {
     expect(screen.getByText("The drop down is open.")).toBeInTheDocument();
 
     // Pressing the esc key should close the dropdown.
+    // The `fireEvent.keyDown` function *needs* a `domNode` element as its
+    // first argument. In this case, we can use the button with `Toggle`
+    // text to trigger the `keyDown` event.
     fireEvent.keyDown(screen.getByText("Toggle"), { key: "Escape" });
 
     expect(
