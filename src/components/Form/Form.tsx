@@ -1,4 +1,4 @@
-import { chakra } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 import * as React from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
@@ -22,7 +22,7 @@ export interface FormProps extends FormBaseProps {
   /** Optional form `method` attribute */
   method?: "get" | "post";
   /** Function to call for the `onSubmit` form event. */
-  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e: React.FormEvent<any>) => void;
 }
 
 /** FormRow child-component */
@@ -104,7 +104,8 @@ export const Form = chakra(
     );
 
     return (
-      <form
+      <Box
+        as="form"
         aria-label="form"
         className={className}
         id={id}
@@ -115,7 +116,7 @@ export const Form = chakra(
         <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
           {alteredChildren}
         </SimpleGrid>
-      </form>
+      </Box>
     );
   },
   { shouldForwardProp: () => true }

@@ -5,10 +5,7 @@ const HeaderMobileNavButton = {
     alignItems: "center",
     backgroundColor: isOpen ? "ui.black" : "transparent",
     border: "none",
-    fontSize: "inherit",
-    fontWeight: 500,
-    minHeight: "50px",
-    minWidth: "50px",
+    borderRadius: "0",
     svg: {
       fill: isOpen ? "ui.white" : "ui.black",
       marginLeft: "0",

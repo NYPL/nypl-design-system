@@ -6,15 +6,15 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
 import { LoginProps } from "./UpperNav";
-import { loginLinks, loggedInLinks } from "../headerUtils";
+import { loginLinks, loggedInLinks } from "../utils/headerUtils";
 
 const Login = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
     const styles = useMultiStyleConfig("HeaderLogin", {
-      isMobile,
       patronName,
     });
     const logOutLink = `${loggedInLinks.logOutLink}?redirect_uri=${window.location.href}`;
+
     return (
       <VStack __css={styles}>
         {patronName && (
@@ -31,7 +31,6 @@ const Login = chakra(
         <List
           listItems={[
             <Link
-              id="logInCatalog"
               key="logInCatalog"
               href={patronName ? loggedInLinks.catalog : loginLinks.catalog}
               ref={catalogRef}
@@ -40,12 +39,13 @@ const Login = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                id="log-in-catalog-icon"
                 name="utilityAccountFilled"
-                size="medium"
+                size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
-              {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
+              <span>
+                {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
+              </span>
             </Link>,
             <Link
               href={patronName ? loggedInLinks.research : loginLinks.research}
@@ -55,14 +55,15 @@ const Login = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                id="log-in-research-icon"
-                name="actionHelpDefault"
-                size="medium"
+                name="building"
+                size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
-              {patronName
-                ? "Go To The Research Catalog"
-                : "Log Into The Research Catalog"}
+              <span>
+                {patronName
+                  ? "Go To The Research Catalog"
+                  : "Log Into The Research Catalog"}
+              </span>
             </Link>,
           ]}
           noStyling
@@ -71,12 +72,7 @@ const Login = chakra(
         {patronName && (
           <Link href={logOutLink} type="button" __css={styles.logoutButton}>
             {!isMobile && (
-              <Icon
-                align="left"
-                color="#1B7FA7"
-                name="actionLaunch"
-                size="medium"
-              />
+              <Icon align="left" name="actionLaunch" size="medium" />
             )}
             Log Out
           </Link>

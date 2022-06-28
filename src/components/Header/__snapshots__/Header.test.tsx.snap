@@ -48,7 +48,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
           aria-hidden={false}
           className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="header-nypl-logo"
           role="img"
           title="NYPL Header Logo"
           viewBox="0 0 24 24"
@@ -81,7 +80,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
         className="css-17xejub"
       />
       <div
-        className="chakra-stack css-wc2673"
+        className="chakra-stack css-zt56pq"
       >
         <nav
           aria-label="Header top links"
@@ -254,7 +253,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
               <a
                 className="css-1xdhyk6"
                 href="https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN"
-                id="donateLink"
                 rel={null}
                 target={null}
               >

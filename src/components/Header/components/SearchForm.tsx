@@ -10,9 +10,9 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogURL, getNYPLSearchURL } from "../headerUtils";
+import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
 
-interface SearchFormProps {
+export interface SearchFormProps {
   isMobile?: boolean;
 }
 
@@ -78,6 +78,11 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
                 value={searchInput}
                 __css={styles.textInput}
               />
+              <Icon
+                name="search"
+                size="small"
+                __css={styles.mobileSearchIcon}
+              />
             </Fieldset>
           </FormField>
           {!isMobile && (
@@ -85,12 +90,12 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
               <ButtonGroup>
                 <Button
                   aria-label="Search"
-                  id="search-btn"
                   buttonType="pill"
+                  id="search-btn"
                   onClick={onSubmit}
                   __css={styles.desktopSearchBtn}
                 >
-                  <Icon name="search" size="medium" />
+                  <Icon name="search" size="large" />
                 </Button>
               </ButtonGroup>
             </FormField>
@@ -99,7 +104,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
         <FormRow>
           <FormField>
             {isMobile ? (
-              <HStack spacing="0" align="stretch" height="45px">
+              <HStack spacing="0">
                 <Button
                   aria-label="Submit Catalog Search"
                   id="mobile-catalog"

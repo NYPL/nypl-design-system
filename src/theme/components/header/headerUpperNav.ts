@@ -4,7 +4,7 @@ const HeaderUpperNav = {
   parts: ["donateLink", "emailUpdatesLink"],
   baseStyle: {
     ul: {
-      alignItems: "baseline",
+      alignItems: "center",
       display: "flex",
       marginTop: "s",
       whiteSpace: "nowrap",
@@ -13,6 +13,7 @@ const HeaderUpperNav = {
       fontSize: "13px",
       fontWeight: 600,
       letterSpacing: ".05em",
+      marginRight: "10px",
       position: "relative",
       textTransform: "uppercase",
     },

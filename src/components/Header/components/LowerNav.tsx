@@ -1,13 +1,13 @@
 import React from "react";
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
+import HeaderComponents from "./index";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import SearchButton from "./SearchButton";
-import { lowerNavLinks } from "../headerUtils";
+import { lowerNavLinks } from "../utils/headerUtils";
 
 const LowerNav = chakra(() => {
-  const styles = useMultiStyleConfig("HeaderLowerNav", {});
+  const styles = useStyleConfig("HeaderLowerNav");
 
   return (
     <Box as="nav" aria-label="Header bottom links" __css={styles}>
@@ -36,7 +36,7 @@ const LowerNav = chakra(() => {
           <Link href={lowerNavLinks.getHelp} key="getHelpLink">
             Get Help
           </Link>,
-          <SearchButton key="search" />,
+          <HeaderComponents.SearchButton key="search" />,
         ]}
         noStyling
         type="ul"

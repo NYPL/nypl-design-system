@@ -1,6 +1,10 @@
+import { headerYellow } from "./header";
+
 const SitewideAlerts = {
-  baseStyle: ({ isMobile }) => ({
-    borderBottom: isMobile ? "1px solid" : null,
+  baseStyle: {
+    backgroundColor: headerYellow,
+    borderBottom: { base: "1px solid", md: "none" },
+    minHeight: { base: "85px", md: "65px" },
     ul: {
       marginBottom: "0",
       // Target any anchor and paragraph HTML passed in from
@@ -12,7 +16,7 @@ const SitewideAlerts = {
         marginBottom: "0",
       },
     },
-  }),
+  },
 };
 
 export default SitewideAlerts;

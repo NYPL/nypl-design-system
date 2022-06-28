@@ -11,7 +11,7 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
-import { upperNavLinks, lowerNavLinks } from "../headerUtils";
+import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
 
 /**
  * The Header navigation for the mobile view.
@@ -24,12 +24,11 @@ const MobileNav = chakra(() => {
       <Flex>
         <Box>
           <Logo
-            name="nyplLionWhite"
-            size="xxsmall"
-            marginTop="15px"
-            marginLeft="15px"
             decorative={false}
+            name="nyplTextWhite"
+            size="xsmall"
             title="NYPL Header Logo"
+            __css={styles.logo}
           />
         </Box>
         <Spacer />

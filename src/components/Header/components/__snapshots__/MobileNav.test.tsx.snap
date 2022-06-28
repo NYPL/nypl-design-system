@@ -12,7 +12,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={false}
-        className="chakra-icon css-qpytvg"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         role="img"
         title="NYPL Header Logo"

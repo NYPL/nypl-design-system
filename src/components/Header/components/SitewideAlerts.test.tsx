@@ -4,7 +4,10 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import SitewideAlerts from "./SitewideAlerts";
-import { expiredAlertsReponse, refineryResponse } from "./SitewideAlertsMocks";
+import {
+  expiredAlertsReponse,
+  refineryResponse,
+} from "../utils/SitewideAlertsMocks";
 
 describe("SitewideAlerts Accessibility", () => {
   it("passes axe accessibility test", async () => {

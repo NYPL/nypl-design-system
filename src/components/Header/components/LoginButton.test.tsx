@@ -1,4 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
 
@@ -17,32 +18,15 @@ describe("LoginButton Accessibility", () => {
 });
 
 describe("LoginButton", () => {
-  const setIsLoginOpen = jest.fn();
-
   describe("Desktop", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      const { rerender } = render(
-        <LoginButton
-          isLoginOpen={false}
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton patronName="" />);
 
       let dropDownButton = screen.getByRole("button");
 
       expect(dropDownButton).toHaveTextContent(/log in/i);
 
-      // Manually open the login dropdown by passing in
-      // `isLoginOpen` since that is handled by the
-      // parent instead of the component itself.
-      rerender(
-        <LoginButton
-          isLoginOpen={true}
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      userEvent.click(dropDownButton);
 
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
@@ -54,39 +38,27 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
-      render(
-        <LoginButton
-          isLoginOpen
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton patronName="" />);
 
-      const catalogLink = screen.getByText(/log into the catalog/i);
+      const dropDownButton = screen.getByRole("button");
+
+      userEvent.click(dropDownButton);
+
+      const catalogLink = screen.getByRole("link", {
+        name: /log into the catalog/i,
+      });
       expect(catalogLink).toHaveFocus();
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      const { rerender } = render(
-        <LoginButton
-          isLoginOpen={false}
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton patronName="PATRON, JANE A" />);
 
       let dropDownButton = screen.getByRole("button");
 
       // When logged in, the button displays "My Account".
       expect(dropDownButton).toHaveTextContent(/my account/i);
 
-      rerender(
-        <LoginButton
-          isLoginOpen
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      userEvent.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
@@ -107,13 +79,11 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {
-      render(
-        <LoginButton
-          isLoginOpen
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton patronName="PATRON, JANE A" />);
+
+      const dropDownButton = screen.getByRole("button");
+
+      userEvent.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       expect(greetingContainer).toHaveFocus();
@@ -122,30 +92,13 @@ describe("LoginButton", () => {
 
   describe("Mobile", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      const { rerender } = render(
-        <LoginButton
-          isLoginOpen={false}
-          isMobile
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton isMobile patronName="" />);
 
       let dropDownButton = screen.getByRole("button");
       // There is no visible text on the button in the mobile view.
       expect(dropDownButton).toHaveAttribute("aria-label", "Log In");
 
-      // Manually open the login dropdown by passing in
-      // `isLoginOpen` since that is handled by the
-      // parent instead of the component itself.
-      rerender(
-        <LoginButton
-          isLoginOpen
-          isMobile
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      userEvent.click(dropDownButton);
 
       const links = screen.getAllByRole("link");
       dropDownButton = screen.getByRole("button");
@@ -157,41 +110,25 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
-      render(
-        <LoginButton
-          isLoginOpen
-          isMobile
-          patronName=""
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton isMobile patronName="" />);
+      const dropDownButton = screen.getByRole("button");
 
-      const catalogLink = screen.getByText(/log into the catalog/i);
+      userEvent.click(dropDownButton);
+
+      const catalogLink = screen.getByRole("link", {
+        name: /log into the catalog/i,
+      });
       expect(catalogLink).toHaveFocus();
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      const { rerender } = render(
-        <LoginButton
-          isLoginOpen={false}
-          isMobile
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton isMobile patronName="PATRON, JANE A" />);
 
       let dropDownButton = screen.getByRole("button");
 
       expect(dropDownButton).toHaveAttribute("aria-label", "My Account");
 
-      rerender(
-        <LoginButton
-          isLoginOpen
-          isMobile
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      userEvent.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
@@ -212,14 +149,10 @@ describe("LoginButton", () => {
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {
-      render(
-        <LoginButton
-          isLoginOpen
-          isMobile
-          patronName="PATRON, JANE A"
-          setIsLoginOpen={setIsLoginOpen}
-        />
-      );
+      render(<LoginButton isMobile patronName="PATRON, JANE A" />);
+      const dropDownButton = screen.getByRole("button");
+
+      userEvent.click(dropDownButton);
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       expect(greetingContainer).toHaveFocus();

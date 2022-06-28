@@ -1,33 +1,33 @@
-import { headerFocus } from "./header";
+import { headerDarkBlue, headerFocus } from "./header";
 
 const HeaderLoginButton = {
-  baseStyle: ({ isMobile, isLoginOpen }) => ({
-    alignItems: isMobile ? "baseline" : "center",
-    bg: isLoginOpen ? (isMobile ? "ui.black" : "#135772") : "ui.white",
+  baseStyle: ({ isOpen }) => ({
+    alignItems: { base: "center" },
+    bg: {
+      base: isOpen ? "ui.black" : "ui.white",
+      md: isOpen ? headerDarkBlue : "ui.white",
+    },
     borderRadius: "none",
-    color: isLoginOpen ? "ui.white" : "ui.black",
+    color: isOpen ? "ui.white" : "ui.black",
     fontSize: "13px",
     fontWeight: 600,
-    minHeight: isMobile ? "50px" : "auto",
-    minWidth: "50px",
-    padding: "0 10px",
-    paddingTop: isMobile ? "10px" : null,
+    minHeight: { md: "auto" },
+    padding: { md: "4px 10px" },
     svg: {
-      marginLeft: isMobile ? "0" : null,
-      marginTop: isMobile ? null : "0",
-      fill: isLoginOpen ? "ui.white" : null,
+      fill: isOpen ? "ui.white" : null,
+      marginLeft: { base: "0px", md: "10px" },
+      marginTop: { base: "0" },
     },
     textDecoration: "none",
     textTransform: "inherit",
     _hover: {
-      backgroundColor: isLoginOpen
-        ? isMobile
-          ? "ui.black"
-          : "#135772"
-        : "transparent",
-      color: isLoginOpen ? "ui.white" : "initial",
+      backgroundColor: {
+        base: isOpen ? "ui.black" : "transparent",
+        md: isOpen ? headerDarkBlue : "transparent",
+      },
+      color: isOpen ? "ui.white" : "initial",
       svg: {
-        fill: isLoginOpen ? "ui.white" : "ui.black",
+        fill: isOpen ? "ui.white" : "ui.black",
       },
       textDecoration: "none",
     },

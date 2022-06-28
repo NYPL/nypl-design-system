@@ -45,7 +45,7 @@ exports[`MobileNavButton renders the UI snapshot correctly 1`] = `
       aria-label="Open Navigation"
       className="chakra-button css-1xdhyk6"
       data-testid="button"
-      id="mobileNav"
+      id="mobileNav-btn"
       onClick={[Function]}
       type="button"
     >

@@ -1,11 +1,18 @@
 import { headerFocus, headerRed } from "./header";
 
+const linkFocusHoverStyles = {
+  borderBottom: "3px solid",
+  color: headerRed,
+  paddingBottom: "2px",
+  textDecoration: "none",
+};
+
 const HeaderLowerNav = {
   baseStyle: {
     ul: {
       alignItems: "center",
       fontSize: "1",
-      marginBottom: "xxs",
+      marginBottom: "0",
       marginLeft: "auto",
       whiteSpace: "nowrap",
     },
@@ -17,12 +24,11 @@ const HeaderLowerNav = {
       color: "ui.black",
       fontWeight: "medium",
       textDecoration: "none",
-      _hover: {
-        borderBottom: "2px solid",
-        color: headerRed,
-        textDecoration: "none",
+      _hover: linkFocusHoverStyles,
+      _focus: {
+        ...headerFocus,
+        ...linkFocusHoverStyles,
       },
-      _focus: headerFocus,
     },
   },
 };

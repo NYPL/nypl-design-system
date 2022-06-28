@@ -3,16 +3,16 @@ import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
+import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
-import SearchForm from "./SearchForm";
 
-interface SearchButtonProps {
+export interface SearchButtonProps {
   isMobile?: boolean;
 }
 
 const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const styles = useStyleConfig("HeaderSearchButton", { isMobile, isOpen });
+  const styles = useStyleConfig("HeaderSearchButton", { isOpen });
   const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
   const labelText = isOpen ? "Close Search" : "Open Search";
   const ref = useRef<HTMLDivElement>(null);
@@ -38,11 +38,11 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
           <Icon
             align={isMobile ? "none" : "right"}
             name={isOpen ? "close" : "search"}
-            size={isMobile ? "large" : "medium"}
+            size={isMobile ? "large" : isOpen ? "medium" : "small"}
             title={labelText}
           />
         </Button>
-        {isOpen && <SearchForm isMobile={isMobile} />}
+        {isOpen && <HeaderComponents.SearchForm isMobile={isMobile} />}
       </FocusLock>
     </Box>
   );

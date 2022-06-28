@@ -3,16 +3,16 @@ import React, { useState, useEffect } from "react";
 
 import List from "../../List/List";
 import Notification from "../../Notification/Notification";
-import { Alert, alertsApiUrl, parseAlertsData } from "../headerUtils";
+import { Alert, alertsApiUrl, parseAlertsData } from "../utils/headerUtils";
 
 /**
  * The SitewideAlerts component makes an API request to an NYPL API endpoint
  * to fetch NYPL sitewide alerts. While this component can be used in
  * isolation, it is already rendered in the DS Header component.
  */
-export const SitewideAlerts = chakra(({ isMobile }) => {
+export const SitewideAlerts = chakra(() => {
   const [alerts, setAlerts] = useState<Alert[]>([]);
-  const styles = useStyleConfig("SitewideAlerts", { isMobile });
+  const styles = useStyleConfig("HeaderSitewideAlerts");
   const fetchErrorMessage =
     "NYPL Reservoir SitewideAlerts: There was an error fetching NYPL sitewide alerts.";
 
@@ -56,7 +56,7 @@ export const SitewideAlerts = chakra(({ isMobile }) => {
   return alerts.length > 0 ? (
     <Notification
       aria-label="Sitewide alerts"
-      id="above-SitewideAlerts-notification"
+      id="sitewideAlerts-notification"
       isCentered
       noMargin
       notificationContent={getAlertsElems(alerts)}
