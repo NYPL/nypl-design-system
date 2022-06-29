@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
-import HeaderComponents from "./index";
 import Link from "../../Link/Link";
 import List from "../../List/List";
+import SearchButton from "./SearchButton";
 import { lowerNavLinks } from "../utils/headerUtils";
 
 const LowerNav = chakra(() => {
@@ -36,7 +36,7 @@ const LowerNav = chakra(() => {
           <Link href={lowerNavLinks.getHelp} key="getHelpLink">
             Get Help
           </Link>,
-          <HeaderComponents.SearchButton key="search" />,
+          <SearchButton key="search" />,
         ]}
         noStyling
         type="ul"

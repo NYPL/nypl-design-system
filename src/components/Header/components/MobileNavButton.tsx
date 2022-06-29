@@ -3,8 +3,8 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
-import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import MobileNav from "./MobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
 const MobileNavButton = chakra(() => {
@@ -28,7 +28,7 @@ const MobileNavButton = chakra(() => {
         >
           <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
-        {isOpen && <HeaderComponents.MobileNav />}
+        {isOpen && <MobileNav />}
       </FocusLock>
     </Box>
   );

@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the mobile login menu for the `Header` component.
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
 - Adds React context for the `Header`'s patron state data through `PatronContext` and `PatronProvider`.
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state.
 
 ## Prerelease
 

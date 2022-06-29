@@ -3,8 +3,8 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
-import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import Login from "./Login";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { PatronContext } from "../context/patronContext";
 
@@ -64,7 +64,7 @@ const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
           />
         </Button>
         {isOpen && (
-          <HeaderComponents.Login
+          <Login
             catalogRef={catalogRef}
             greetingRef={greetingRef}
             isMobile={isMobile}

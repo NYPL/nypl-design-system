@@ -3,8 +3,8 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
-import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import SearchForm from "./SearchForm";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
 export interface SearchButtonProps {
@@ -40,7 +40,7 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
             title={labelText}
           />
         </Button>
-        {isOpen && <HeaderComponents.SearchForm isMobile={isMobile} />}
+        {isOpen && <SearchForm isMobile={isMobile} />}
       </FocusLock>
     </Box>
   );
