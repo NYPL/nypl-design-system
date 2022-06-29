@@ -8,24 +8,28 @@ import Table from "../Table/Table";
 import Text from "../Text/Text";
 
 export interface ColorCardProps {
-  /** backgroundColor of the color card */
+  /** The backgroundColor of the color card. */
   backgroundColor: string;
-  /** name of the javascript theme object */
+  /** The name of a color's javascript theme object. */
   colorName: string;
-  /** name of the color that the current color is based on */
+  /** The name of the color that the current color is based on. */
   colorSource: string;
-  /** data related to black against current color */
+  /** Contrast and WCAG compliance data related to the color black when used
+   * with the current color. */
   dataBlack: string[];
-  /** data related to white against current color */
+  /** Contrast and WCAG compliance data related to the color white when used
+   * with the current color. */
   dataWhite: string[];
-  /** color to use for text in color card */
+  /** The color to use for text in the color card. */
   textColor: string;
 }
 
 export interface DataTableProps {
-  /** data related to black against current color */
+  /** Contrast and WCAG compliance data related to the color black when used
+   * with the current color. */
   dataBlack: string[];
-  /** data related to white against current color */
+  /** Contrast and WCAG compliance data related to the color white when used
+   * with the current color. */
   dataWhite: string[];
   /** color to use for text in color card */
   textColor: string;
@@ -59,9 +63,9 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBlack[2] === "AAA") && <SuccessIcon />;
   const tableData = [
     [
-      <>
-        <span style={{ color: "white", padding: 0 }}>ui.white</span>
-      </>,
+      <span key="colorUiWhite" style={{ color: "white", padding: 0 }}>
+        ui.white
+      </span>,
       `${dataWhite[0]}:1`,
       <>
         {dataWhite[1]}
@@ -73,9 +77,9 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ],
     [
-      <>
-        <span style={{ color: "black", padding: 0 }}>ui.black</span>
-      </>,
+      <span key="colorUiBlack" style={{ color: "black", padding: 0 }}>
+        ui.black
+      </span>,
       `${dataBlack[0]}:1`,
       <>
         {dataBlack[1]}
