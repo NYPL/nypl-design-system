@@ -54,7 +54,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
         requestUrl = getNYPLSearchURL(searchInput);
       }
 
-      if (requestUrl) {
+      if (requestUrl && gaSearchLabel) {
         gaUtils.trackEvent("Search", gaSearchLabel);
         // Set a dynamic value for custom dimension2
         newGaConfig.customDimensions.dimension2 = gaSearchedRepo;
@@ -75,7 +75,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
           // Send GA "Search" Catalog, "Query Sent" Action Event
           gaUtils.trackSearchQuerySend(
             searchInput,
-            gaConfig.customDimensions,
+            newGaConfig.customDimensions,
             () => {
               setIsGAResponseReceived(true);
               // Go to the proper search page.

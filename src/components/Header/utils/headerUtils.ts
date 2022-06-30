@@ -24,15 +24,36 @@ export const upperNavLinks = {
     "https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN",
   shop: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
 };
-export const lowerNavLinks = {
-  books: "https://www.nypl.org/books-music-movies",
-  research: "https://www.nypl.org/research",
-  education: "https://www.nypl.org/education",
-  events: "https://www.nypl.org/events",
-  connect: "https://www.nypl.org/connect",
-  give: "https://www.nypl.org/give",
-  getHelp: "https://www.nypl.org/get-help",
-};
+export const siteNavLinks = [
+  {
+    href: "https://www.nypl.org/books-music-movies",
+    text: "Books/Music/Movies",
+  },
+  {
+    href: "https://www.nypl.org/research",
+    text: "Research",
+  },
+  {
+    href: "https://www.nypl.org/education",
+    text: "Education",
+  },
+  {
+    href: "https://www.nypl.org/events",
+    text: "Events",
+  },
+  {
+    href: "https://www.nypl.org/connect",
+    text: "Connect",
+  },
+  {
+    href: "https://www.nypl.org/give",
+    text: "Give",
+  },
+  {
+    href: "https://www.nypl.org/get-help",
+    text: "Get Help",
+  },
+];
 export const loginLinks = {
   catalog: "https://browse.nypl.org/iii/encore/myaccount",
   research: "https://catalog.nypl.org/patroninfo/top",

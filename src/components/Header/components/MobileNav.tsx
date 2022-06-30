@@ -13,13 +13,22 @@ import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
 import gaUtils from "../utils/googleAnalyticsUtils";
-import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
+import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 
 /**
  * The Header navigation for the mobile view.
  */
 const MobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
+  const listItems = siteNavLinks.map(({ href, text }) => (
+    <Link
+      href={href}
+      key={text}
+      onClick={() => gaUtils.trackEvent("Go to...", text)}
+    >
+      {text}
+    </Link>
+  ));
 
   return (
     <Box __css={styles}>
@@ -37,29 +46,7 @@ const MobileNav = chakra(() => {
         <nav aria-label="Header mobile links">
           <List
             id="header-mobile-nav"
-            listItems={[
-              <Link href={lowerNavLinks.books} key="booksMusicMoviesLink">
-                Books/Music/Movies
-              </Link>,
-              <Link href={lowerNavLinks.research} key="researchLink">
-                Research
-              </Link>,
-              <Link href={lowerNavLinks.education} key="educationLink">
-                Education
-              </Link>,
-              <Link href={lowerNavLinks.events} key="eventsLink">
-                Events
-              </Link>,
-              <Link href={lowerNavLinks.connect} key="connectLink">
-                Connect
-              </Link>,
-              <Link href={lowerNavLinks.give} key="giveLink">
-                Give
-              </Link>,
-              <Link href={lowerNavLinks.getHelp} key="getHelpLink">
-                Get Help
-              </Link>,
-            ]}
+            listItems={listItems}
             noStyling
             type="ul"
             __css={styles.sideNav}
