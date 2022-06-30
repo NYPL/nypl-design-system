@@ -24,8 +24,9 @@ import {
   refreshAccessToken,
   tokenRefreshLink,
 } from "./utils/headerUtils";
+import gaUtils from "./utils/googleAnalyticsUtils";
 
-export const Header = chakra(() => {
+export const Header = chakra(({ isProduction = true }) => {
   const [patronName, setPatronName] = useState<string>("");
   const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const styles = useMultiStyleConfig("Header", {});
@@ -45,6 +46,16 @@ export const Header = chakra(() => {
       setPatronName(fullName);
     }
   };
+
+  useEffect(() => {
+    if (!(window as any).ga) {
+      console.log("Analytics not available - loading through React.");
+      const gaOpts = { debug: !isProduction, titleCase: false };
+
+      // Passing false to get the dev GA code.
+      gaUtils.initialize(gaOpts, isProduction);
+    }
+  }, [isProduction]);
 
   useEffect(() => {
     // After mounting,look for a cookie named "nyplIdentityPatron"
@@ -68,6 +79,7 @@ export const Header = chakra(() => {
             <Link
               aria-label="The New York Public Library"
               href="https://nypl.org"
+              onClick={() => gaUtils.trackEvent("Click Logo", "")}
               __css={styles.logo}
             >
               <Logo

@@ -11,6 +11,7 @@ import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
 import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
+import gaUtils, { gaConfig } from "../utils/googleAnalyticsUtils";
 
 export interface SearchFormProps {
   isMobile?: boolean;
@@ -26,25 +27,65 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
   );
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchOption, setSearchOption] = useState<string>("catalog");
+  const [isSearchRequested, setIsSearchRequested] = useState<boolean>(false);
+  const [isGAResponseReceived, setIsGAResponseReceived] =
+    useState<boolean>(false);
   const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
+  // For GA "Search" Catalog, "Query Sent" Action Event
+  // GASearchedRepo indicates which kind of search is sent
+  let gaSearchedRepo = "Unknown";
+
   const onSubmit = (e: any, mobileType = "") => {
     e.preventDefault();
+    const newGaConfig = { ...gaConfig };
+    let gaSearchLabel;
     let requestUrl;
 
     // If there is a search input, make the request.
     if (searchInput) {
       if (searchOption === "catalog" || mobileType === "catalog") {
+        gaSearchLabel = "Submit Catalog Search";
+        gaSearchedRepo = "Encore";
         requestUrl = getEncoreCatalogURL(searchInput);
       }
       if (searchOption === "website" || mobileType === "website") {
+        gaSearchLabel = "Submit Search";
+        gaSearchedRepo = "DrupalSearch";
         requestUrl = getNYPLSearchURL(searchInput);
       }
 
       if (requestUrl) {
-        window.location.assign(requestUrl);
-        return true;
+        gaUtils.trackEvent("Search", gaSearchLabel);
+        // Set a dynamic value for custom dimension2
+        newGaConfig.customDimensions.dimension2 = gaSearchedRepo;
+
+        // 3 phase to handle GA event. We need to prevent sending
+        // extra GA events after the search request is made.
+        if (isSearchRequested && !isGAResponseReceived) {
+          return false;
+        }
+
+        if (isSearchRequested && isGAResponseReceived) {
+          window.location.assign(requestUrl);
+          return true;
+        }
+
+        if (!isSearchRequested && !isGAResponseReceived) {
+          setIsSearchRequested(true);
+          // Send GA "Search" Catalog, "Query Sent" Action Event
+          gaUtils.trackSearchQuerySend(
+            searchInput,
+            gaConfig.customDimensions,
+            () => {
+              setIsGAResponseReceived(true);
+              // Go to the proper search page.
+              window.location.assign(requestUrl);
+            }
+          );
+        }
       }
     }
+
     // Otherwise, don't do anything and update the placeholder message.
     setPlaceholder("Please enter a search term.");
     return false;

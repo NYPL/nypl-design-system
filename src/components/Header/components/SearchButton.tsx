@@ -6,6 +6,7 @@ import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import SearchForm from "./SearchForm";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface SearchButtonProps {
   isMobile?: boolean;
@@ -17,6 +18,12 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
   const labelText = isOpen ? "Close Search" : "Open Search";
   const ref = useRef<HTMLDivElement>(null);
+  const gaAction = isMobile ? "Click" : "Search";
+  const gaLabel = isMobile
+    ? "Mobile clickSearch"
+    : isOpen
+    ? "Open Menu"
+    : "Close Menu";
 
   useCloseDropDown(setIsOpen, ref);
 
@@ -29,7 +36,10 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
           aria-expanded={isOpen ? true : null}
           buttonType="link"
           id="searchButton"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            gaUtils.trackEvent(gaAction, gaLabel);
+            setIsOpen(!isOpen);
+          }}
           __css={styles}
         >
           {buttonText}

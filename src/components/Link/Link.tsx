@@ -19,6 +19,9 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
+  ) => void;
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
@@ -94,7 +97,15 @@ function getExternalIcon(children: JSX.Element, linkId: string) {
  */
 export const Link = chakra(
   React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
-    const { children, className, href, id, type = "default", ...rest } = props;
+    const {
+      children,
+      className,
+      href,
+      id,
+      onClick,
+      type = "default",
+      ...rest
+    } = props;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
@@ -164,6 +175,7 @@ export const Link = chakra(
           className={className}
           ref={ref}
           rel={rel}
+          onClick={onClick}
           target={target}
           {...linkProps}
           __css={style}

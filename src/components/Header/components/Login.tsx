@@ -6,6 +6,7 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
 import { loginLinks, loggedInLinks } from "../utils/headerUtils";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface LoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
@@ -20,6 +21,9 @@ const Login = chakra(
       patronName,
     });
     const logOutLink = `${loggedInLinks.logOutLink}?redirect_uri=${window.location.href}`;
+    const gaAction = `${isMobile ? "Mobile " : ""}${
+      patronName ? "Go To" : "Log In"
+    }`;
 
     return (
       <VStack __css={styles}>
@@ -39,6 +43,7 @@ const Login = chakra(
             <Link
               key="logInCatalog"
               href={patronName ? loggedInLinks.catalog : loginLinks.catalog}
+              onClick={() => gaUtils.trackEvent(gaAction, "Catalog")}
               ref={catalogRef}
               type="button"
             >
@@ -56,6 +61,7 @@ const Login = chakra(
             <Link
               href={patronName ? loggedInLinks.research : loginLinks.research}
               key="logInResearch"
+              onClick={() => gaUtils.trackEvent(gaAction, "Research")}
               type="button"
             >
               <Icon
@@ -76,7 +82,12 @@ const Login = chakra(
           type="ul"
         />
         {patronName && (
-          <Link href={logOutLink} type="button" __css={styles.logoutButton}>
+          <Link
+            href={logOutLink}
+            type="button"
+            onClick={() => gaUtils.trackEvent("My Account", "Log Out")}
+            __css={styles.logoutButton}
+          >
             {!isMobile && (
               <Icon align="left" name="actionLaunch" size="medium" />
             )}

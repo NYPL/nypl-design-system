@@ -7,6 +7,7 @@ import Icon from "../../Icons/Icon";
 import Login from "./Login";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { PatronContext } from "../context/patronContext";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface LoginButtonProps {
   isMobile?: boolean;
@@ -32,6 +33,13 @@ const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
     : patronName
     ? "My Account"
     : "Log In";
+  // This has also bene updated from "Mobile clickMyAccount"/"Mobile clickLogIn"
+  // to the following. The desktop login button use to have
+  // action="My ACcount"/"Log in" and label of "MyNyplButton - Closed/Open"
+  // or "MyNyplButton - Closed" (for clicking outside)
+  const gaLabel = `${isMobile ? "Mobile " : ""}${
+    patronName ? "My Account" : "Log In"
+  }`;
 
   useCloseDropDown(setIsOpen, wrapperRef);
 
@@ -52,7 +60,10 @@ const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
           aria-label={desktopButtonLabel}
           buttonType="link"
           id="loginButton"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            gaUtils.trackEvent("Click", gaLabel);
+            setIsOpen(!isOpen);
+          }}
           __css={styles}
         >
           {isMobile ? null : desktopButtonLabel}

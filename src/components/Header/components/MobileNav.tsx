@@ -12,6 +12,7 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
+import gaUtils from "../utils/googleAnalyticsUtils";
 import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
 
 /**
@@ -71,6 +72,9 @@ const MobileNav = chakra(() => {
           borderTop="1px solid rgb(54, 54, 54)"
           borderRight="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 1"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Library Card")
+          }
         >
           <Icon
             align="left"
@@ -84,6 +88,9 @@ const MobileNav = chakra(() => {
           href={upperNavLinks.emailUpdates}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="2 / span 1"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Email Updates")
+          }
         >
           <Icon
             align="left"
@@ -97,6 +104,9 @@ const MobileNav = chakra(() => {
           href={upperNavLinks.shop}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 2"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Shop NYPL")
+          }
         >
           <Icon
             align="left"
@@ -106,7 +116,11 @@ const MobileNav = chakra(() => {
           />
           Shop NYPL
         </Link>
-        <Link href={upperNavLinks.donate} gridColumn="1 / span 2">
+        <Link
+          href={upperNavLinks.donate}
+          gridColumn="1 / span 2"
+          onClick={() => gaUtils.trackEvent("Donate", "Mobile Buttons Donate")}
+        >
           Donate
         </Link>
       </SimpleGrid>
