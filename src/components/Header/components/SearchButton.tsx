@@ -22,8 +22,8 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const gaLabel = isMobile
     ? "Mobile clickSearch"
     : isOpen
-    ? "Open Menu"
-    : "Close Menu";
+    ? "Close Menu"
+    : "Open Menu";
 
   useCloseDropDown(setIsOpen, ref);
 

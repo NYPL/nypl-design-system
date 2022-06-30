@@ -70,7 +70,6 @@ function GaUtils() {
         callback();
       }
     };
-
     setTimeout(fn, optTimeout || 500);
 
     return fn;

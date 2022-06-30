@@ -36,7 +36,9 @@ describe("Header Accessibility", () => {
       })
     ) as jest.Mock;
 
-    const { container } = await waitFor(() => render(<Header />));
+    const { container } = await waitFor(() =>
+      render(<Header isProduction={false} />)
+    );
     expect(await axe(container)).toHaveNoViolations();
 
     jest.clearAllMocks();
@@ -56,7 +58,7 @@ describe("Header", () => {
       })
     ) as jest.Mock;
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
   afterAll(() => {
     jest.clearAllMocks();
@@ -78,7 +80,7 @@ describe("Header", () => {
   });
 
   it("renders the NYPL logo", () => {
-    const { container } = render(<Header />);
+    const { container } = render(<Header isProduction={false} />);
 
     expect(container.querySelectorAll("svg")[0]).toHaveAttribute(
       "title",
@@ -146,7 +148,7 @@ describe("Header", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const header = renderer.create(<Header />).toJSON();
+    const header = renderer.create(<Header isProduction={false} />).toJSON();
 
     expect(header).toMatchSnapshot();
   });
@@ -181,7 +183,7 @@ describe("Patron API call succeeds", () => {
         })
       );
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
 
   afterAll(() => {
@@ -236,7 +238,7 @@ describe("Patron API call fails", () => {
         })
       );
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
 
   afterAll(() => {
@@ -283,7 +285,7 @@ describe("Patron API returns wrong data", () => {
         })
       );
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
 
   afterAll(() => {
@@ -339,7 +341,7 @@ describe("Patron API returns expired data, but refreshes the token successfully"
         })
       );
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
 
   afterAll(() => {
@@ -414,7 +416,7 @@ describe("Patron API returns expired data and cannot refresh the token successfu
         })
       );
 
-    await waitFor(() => render(<Header />));
+    await waitFor(() => render(<Header isProduction={false} />));
   });
 
   afterAll(() => {

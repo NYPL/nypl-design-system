@@ -54,6 +54,13 @@ describe("SearchForm", () => {
   describe("Desktop", () => {
     beforeEach(() => {
       render(<SearchForm />);
+      jest.useFakeTimers();
+    });
+
+    // Running all pending timers and switching to real timers using Jest
+    afterEach(() => {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
@@ -69,13 +76,18 @@ describe("SearchForm", () => {
       expect(searchBtn).toHaveAttribute("aria-label", "Search");
     });
 
-    it("makes a request to the Encore catalog", () => {
+    it("makes a request to the Encore catalog", async () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
       // The default value of the radio button is set to "Search the Catalog".
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
 
       // The first call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
@@ -94,6 +106,11 @@ describe("SearchForm", () => {
       userEvent.click(webRadio);
       // Run the search.
       userEvent.click(searchBtn);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
 
       // We mock `window.location.assign` before ALL tests and restore after
       // ALL tests. So we should have two calls to `window.location.assign`.
@@ -130,6 +147,11 @@ describe("SearchForm", () => {
       // Click on the "CATALOG" button.
       userEvent.click(catalogButton);
 
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
+
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
         "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
@@ -143,6 +165,11 @@ describe("SearchForm", () => {
       userEvent.type(searchInput, "cats");
       // Click on the "NYPL.ORG" button.
       userEvent.click(websiteButton);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,

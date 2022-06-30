@@ -48,9 +48,13 @@ export const Header = chakra(({ isProduction = true }) => {
   };
 
   useEffect(() => {
-    if (!(window as any).ga) {
+    if (!(window as any)?.ga) {
       console.log("Analytics not available - loading through React.");
-      const gaOpts = { debug: !isProduction, titleCase: false };
+      const gaOpts = {
+        debug: !isProduction,
+        testMode: !isProduction,
+        titleCase: false,
+      };
 
       // Passing false to get the dev GA code.
       gaUtils.initialize(gaOpts, isProduction);
