@@ -1,3 +1,4 @@
+// Header-only components
 import Login from "./Login";
 import LoginButton from "./LoginButton";
 import LowerNav from "./LowerNav";
@@ -8,6 +9,8 @@ import SearchButton from "./SearchButton";
 import SearchForm from "./SearchForm";
 import SitewideAlerts from "./SitewideAlerts";
 import UpperNav from "./UpperNav";
+// React Context
+import { PatronProvider } from "../context/patronContext";
 
 export default {
   Login,
@@ -16,6 +19,7 @@ export default {
   MobileIconNav,
   MobileNav,
   MobileNavButton,
+  PatronProvider,
   SearchButton,
   SearchForm,
   SitewideAlerts,

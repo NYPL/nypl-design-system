@@ -43,11 +43,16 @@ const HeaderMobileNav = {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
       a: {
+        alignItems: "center",
         color: "white",
-        display: "block",
+        display: "flex",
+        justifyContent: "center",
         textDecoration: "none",
-        textAlign: "center",
-        padding: "27px",
+        paddingY: "27px",
+        paddingLeft: "15px",
+        svg: {
+          marginRight: "s",
+        },
         _hover: {
           color: "ui.white",
           backgroundColor: "ui.black",

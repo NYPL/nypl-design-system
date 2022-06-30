@@ -1,14 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
 import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
-import { LoginProps } from "./UpperNav";
+import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import { PatronContext } from "../context/patronContext";
 
-const LoginButton = chakra(({ isMobile, patronName }: LoginProps) => {
+export interface LoginButtonProps {
+  isMobile?: boolean;
+}
+
+const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const patronName = useContext(PatronContext);
+  const catalogRef = useRef<HTMLAnchorElement>(null);
+  const greetingRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const styles = useStyleConfig("HeaderLoginButton", {
+    isOpen,
+  });
   const desktopIcon = isOpen ? "close" : "arrow";
   const mobileIcon = isOpen
     ? "close"
@@ -20,12 +32,8 @@ const LoginButton = chakra(({ isMobile, patronName }: LoginProps) => {
     : patronName
     ? "My Account"
     : "Log In";
-  const catalogRef = useRef<HTMLAnchorElement>(null);
-  const greetingRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const styles = useStyleConfig("HeaderLoginButton", {
-    isOpen,
-  });
+
+  useCloseDropDown(setIsOpen, wrapperRef);
 
   useEffect(() => {
     if (isOpen) {
@@ -36,11 +44,6 @@ const LoginButton = chakra(({ isMobile, patronName }: LoginProps) => {
       }
     }
   }, [isOpen, patronName]);
-
-  useOutsideClick({
-    ref: wrapperRef,
-    handler: () => setIsOpen(false),
-  });
 
   return (
     <Box ref={wrapperRef}>

@@ -1,10 +1,11 @@
 import FocusLock from "@chakra-ui/focus-lock";
-import { Box, chakra, useOutsideClick, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
 import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
 export interface SearchButtonProps {
   isMobile?: boolean;
@@ -17,10 +18,7 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
   const labelText = isOpen ? "Close Search" : "Open Search";
   const ref = useRef<HTMLDivElement>(null);
 
-  useOutsideClick({
-    ref,
-    handler: () => setIsOpen(false),
-  });
+  useCloseDropDown(setIsOpen, ref);
 
   return (
     <Box ref={ref}>
