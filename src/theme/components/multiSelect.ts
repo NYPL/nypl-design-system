@@ -21,18 +21,22 @@ const multiSelectWidths = {
 
 const MultiSelect = {
   parts: [
+    "actionButtons",
     "menuButton",
     "menuContainer",
     "menu",
     "menuChildren",
     "selectedItemsCountButton",
   ],
-  baseStyle: ({ width = "default", isBlockElement }) => ({
+  baseStyle: ({ width = "default", isBlockElement, isDialog = false }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     margin: {
       base: ".75rem 0",
       md: "0 2em 0 0",
+    },
+    actionButtons: {
+      padding: "s",
     },
     menuContainer: {
       position: {
@@ -50,13 +54,24 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      background: "ui.white",
-      border: "1px solid",
-      borderColor: "focus",
+      background: "ui.gray.x-light-cool",
+      border: isDialog ? "1px solid" : "2px solid",
+      borderColor: isDialog ? "ui.gray.dark" : "ui.focus",
       borderRadius: "2px",
-      paddingX: "xs",
-      paddingY: "s",
-      paddingBottom: "m",
+      marginTop: "-1px",
+      paddingX: 0,
+      paddingY: 0,
+      ul: {
+        m: 0,
+        px: 0,
+        py: "xs",
+        li: {
+          px: "s",
+          paddingTop: "xs",
+          paddingBottom: "6px",
+        },
+        ul: { py: 0, li: { paddingLeft: "l", paddingRight: 0 } },
+      },
     },
     menu: {
       paddingX: "xs",
