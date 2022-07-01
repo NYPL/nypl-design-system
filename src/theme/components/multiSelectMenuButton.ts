@@ -5,7 +5,8 @@ const MultiSelectMenuButton = {
     "selectedItemsCountButton",
     "toggleIcon",
   ],
-  baseStyle: {
+  // baseStyle: {
+  baseStyle: ({ isOpen = false }) => ({
     buttonLabel: {
       justifyContent: "flex-start",
       overflow: "hidden",
@@ -16,11 +17,14 @@ const MultiSelectMenuButton = {
     },
     menuButton: {
       alignItems: "center",
-      borderColor: "ui.gray.medium",
+      backgroundColor: isOpen ? "ui.gray.x-light-cool" : "ui.white",
+      borderBottomLeftRadius: isOpen ? "0" : "button.default",
+      borderBottomRightRadius: isOpen ? "0" : "button.default",
+      borderColor: isOpen ? "ui.gray.dark" : "ui.gray.medium",
       justifyContent: "flex-start",
       width: "100%",
       _hover: {
-        backgroundColor: "ui.white",
+        backgroundColor: isOpen ? "ui.gray.x-light-cool" : "ui.white",
         borderColor: "ui.gray.dark",
       },
       svg: {
@@ -29,10 +33,10 @@ const MultiSelectMenuButton = {
     },
     selectedItemsCountButton: {
       alignItems: "center",
-      backgroundColor: "ui.gray.x-light-cool",
+      backgroundColor: "ui.gray.light-cool",
       border: "1px",
       borderRadius: "20px",
-      borderColor: "ui.gray.light-cool",
+      borderColor: "ui.gray.medium",
       display: "flex",
       flexShrink: 0,
       fontSize: "text.tag",
@@ -40,8 +44,7 @@ const MultiSelectMenuButton = {
       marginRight: "xs",
       width: "46px",
       _hover: {
-        bg: "ui.gray.light-cool",
-        borderColor: "ui.gray.medium",
+        borderColor: "ui.gray.dark",
       },
       svg: {
         marginLeft: "xxs",
@@ -50,7 +53,7 @@ const MultiSelectMenuButton = {
       },
     },
     toggleIcon: { position: "absolute", right: "s" },
-  },
+  }),
 };
 
 export default MultiSelectMenuButton;

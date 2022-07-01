@@ -28,7 +28,7 @@ const MultiSelect = {
     "menuChildren",
     "selectedItemsCountButton",
   ],
-  baseStyle: ({ width = "default", isBlockElement, isDialog = false }) => ({
+  baseStyle: ({ width = "default", isBlockElement }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     margin: {
@@ -59,10 +59,13 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      background: "ui.gray.xx-light-cool",
-      border: isDialog ? "1px solid" : "2px solid",
-      borderColor: isDialog ? "ui.gray.dark" : "ui.focus",
-      borderRadius: "2px",
+      // background: "ui.gray.xx-light-cool",
+      border: "1px solid",
+      borderBottomLeftRadius: "button.default",
+      borderBottomRightRadius: "button.default",
+      borderTopLeftRadius: "0",
+      borderTopRightRadius: "0",
+      borderColor: "ui.gray.dark",
       marginTop: "-1px",
       paddingX: 0,
       paddingY: 0,

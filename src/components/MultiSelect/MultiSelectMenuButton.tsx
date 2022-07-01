@@ -39,7 +39,7 @@ const MultiSelectMenuButton = React.forwardRef<
     onKeyDown,
     ...rest
   } = props;
-  const styles = useMultiStyleConfig("MultiSelectMenuButton", {});
+  const styles = useMultiStyleConfig("MultiSelectMenuButton", { isOpen });
   const iconType = isOpen ? "minus" : "plus";
   const growAnimation = `${grow} 150ms ease-out`;
 
