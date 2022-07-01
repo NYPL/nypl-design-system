@@ -31,8 +31,7 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
   const [isGAResponseReceived, setIsGAResponseReceived] =
     useState<boolean>(false);
   const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
-  // For GA "Search" Catalog, "Query Sent" Action Event
-  // GASearchedRepo indicates which kind of search is sent
+  // GASearchedRepo indicates which kind of search is sent.
   let gaSearchedRepo = "Unknown";
 
   const onSubmit = (e: any, mobileType = "") => {
@@ -56,11 +55,11 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
 
       if (requestUrl && gaSearchLabel) {
         gaUtils.trackEvent("Search", gaSearchLabel);
-        // Set a dynamic value for custom dimension2
+        // Set a dynamic value for custom dimension2 for GA.
         newGaConfig.customDimensions.dimension2 = gaSearchedRepo;
 
-        // 3 phase to handle GA event. We need to prevent sending
-        // extra GA events after the search request is made.
+        // There are three phases to handle the GA search event. We need to
+        // prevent sending extra GA events after the search request is made.
         if (isSearchRequested && !isGAResponseReceived) {
           return false;
         }
@@ -70,15 +69,19 @@ const SearchForm = chakra(({ isMobile = false }: SearchFormProps) => {
           return true;
         }
 
+        // If the search request is not made yet and the GA event hasn't been
+        // sent yet, send the GA event, wait until it is received, and then
+        // go to the search page.
         if (!isSearchRequested && !isGAResponseReceived) {
           setIsSearchRequested(true);
-          // Send GA "Search" Catalog, "Query Sent" Action Event
+          // Send GA "Search" category and "QuerySent" action event
+          // with custom dimensions for the type of search: Encore or Drupal.
           gaUtils.trackSearchQuerySend(
             searchInput,
             newGaConfig.customDimensions,
             () => {
+              // Once the GA event is sent, go to the proper search page.
               setIsGAResponseReceived(true);
-              // Go to the proper search page.
               window.location.assign(requestUrl);
             }
           );

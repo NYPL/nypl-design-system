@@ -1,8 +1,9 @@
-import * as React from "react";
-import Cookies from "js-cookie";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import Cookies from "js-cookie";
+import * as React from "react";
+import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
 import Header from "./Header";
@@ -49,6 +50,8 @@ describe("Header Accessibility", () => {
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
 describe("Header", () => {
+  let container;
+
   beforeEach(async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
@@ -58,11 +61,16 @@ describe("Header", () => {
       })
     ) as jest.Mock;
 
-    await waitFor(() => render(<Header isProduction={false} />));
+    await waitFor(() => {
+      const utils = render(<Header isProduction={false} />);
+      container = utils.container;
+    });
   });
+
   afterAll(() => {
     jest.clearAllMocks();
   });
+
   it("renders a skip navigation", () => {
     const skipNavigation = screen.getAllByRole("navigation")[0];
     const { getByRole } = within(skipNavigation);
@@ -71,6 +79,7 @@ describe("Header", () => {
     expect(skipNavigation).toHaveAttribute("aria-label", "Skip Navigation");
     expect(getByRole("list")).toBeInTheDocument();
   });
+
   it("renders a notification", () => {
     const notification = screen.getByRole("complementary");
     const { getByText } = within(notification);
@@ -80,12 +89,28 @@ describe("Header", () => {
   });
 
   it("renders the NYPL logo", () => {
-    const { container } = render(<Header isProduction={false} />);
-
     expect(container.querySelectorAll("svg")[0]).toHaveAttribute(
       "title",
       "NYPL Header Logo"
     );
+  });
+
+  it("sends a GA event when the NYPL logo is clicked", () => {
+    screen
+      .getAllByRole("link", { name: "The New York Public Library" })[0]
+      .click();
+
+    // The first five calls are all from initializing GA when calling the
+    // `render` function. The fifth call is the first GA event and the one
+    // we're interested in. There might be a better way to do this.
+    expect(ReactGa.testModeAPI.calls[5]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Click Logo",
+        hitType: "event",
+      },
+    ]);
   });
 
   it("renders the upper links", () => {
@@ -156,6 +181,7 @@ describe("Header", () => {
 
 describe("Patron API call succeeds", () => {
   const realGet = Cookies.get;
+
   beforeAll(async () => {
     // When the Header mounts, it immediately checks for the cookie value.
     // That is why this mock is here.
@@ -220,6 +246,7 @@ describe("Patron API call succeeds", () => {
 
 describe("Patron API call fails", () => {
   const realGet = Cookies.get;
+
   beforeAll(async () => {
     Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
     (global as any).fetch = jest
@@ -265,6 +292,7 @@ describe("Patron API call fails", () => {
 
 describe("Patron API returns wrong data", () => {
   const realGet = Cookies.get;
+
   beforeAll(async () => {
     Cookies.get = jest.fn().mockReturnValue(mockLoginCookie);
 

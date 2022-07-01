@@ -2,9 +2,13 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
+import ReactGa from "react-ga";
 
 import HeaderComponents from "./index";
 import LoginButton from "./LoginButton";
+import gaUtils from "../utils/googleAnalyticsUtils";
+
+gaUtils.initialize({ testMode: true }, false);
 
 describe("LoginButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -36,6 +40,17 @@ describe("LoginButton", () => {
       expect(links.length).toEqual(2);
       expect(links[0]).toHaveTextContent(/log into the catalog/i);
       expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      // The first call is the initializing call.
+      // The second call is what we want.
+      expect(ReactGa.testModeAPI.calls[1]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Click",
+          eventLabel: "Log In",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
@@ -81,6 +96,16 @@ describe("LoginButton", () => {
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       expect(links[2]).toHaveTextContent(/log out/i);
+      // The fourth call is the click event for this test.
+      expect(ReactGa.testModeAPI.calls[3]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Click",
+          eventLabel: "My Account",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {
@@ -116,6 +141,16 @@ describe("LoginButton", () => {
       expect(links.length).toEqual(2);
       expect(links[0]).toHaveTextContent(/log into the catalog/i);
       expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      // The sixth call is the click event for this test.
+      expect(ReactGa.testModeAPI.calls[5]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Click",
+          eventLabel: "Mobile Log In",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("focuses on the catalog link when the login is opened and there is no patron name", () => {
@@ -159,6 +194,16 @@ describe("LoginButton", () => {
       expect(links[0]).toHaveTextContent(/go to the catalog/i);
       expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       expect(links[2]).toHaveTextContent(/log out/i);
+      // The eighth call is the click event for this test.
+      expect(ReactGa.testModeAPI.calls[7]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Click",
+          eventLabel: "Mobile My Account",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("focuses on the greeting message when the login is opened and there is a patron", () => {

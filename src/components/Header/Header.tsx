@@ -26,7 +26,19 @@ import {
 } from "./utils/headerUtils";
 import gaUtils from "./utils/googleAnalyticsUtils";
 
-export const Header = chakra(({ isProduction = true }) => {
+export interface GAOptionProps {
+  debug?: boolean;
+  siteSpeedSampleRate?: number;
+  standardImplementation?: boolean;
+  testMode?: boolean;
+  titleCase?: boolean;
+}
+export interface HeaderProps {
+  gaOptions?: GAOptionProps;
+  isProduction?: boolean;
+}
+
+export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
   const [patronName, setPatronName] = useState<string>("");
   const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const styles = useMultiStyleConfig("Header", {});
@@ -49,17 +61,20 @@ export const Header = chakra(({ isProduction = true }) => {
 
   useEffect(() => {
     if (!(window as any)?.ga) {
-      console.log("Analytics not available - loading through React.");
+      console.info(
+        "NYPL Reservoir Header: Loading Google Analytics through the Header component."
+      );
+      // @TODO not sure if we still want this to be logged.
+      // console.log('Analytics not available - loading through React.');
       const gaOpts = {
-        debug: !isProduction,
         testMode: !isProduction,
-        titleCase: false,
+        ...gaOptions,
       };
 
       // Passing false to get the dev GA code.
       gaUtils.initialize(gaOpts, isProduction);
     }
-  }, [isProduction]);
+  }, [gaOptions, isProduction]);
 
   useEffect(() => {
     // After mounting,look for a cookie named "nyplIdentityPatron"
