@@ -36,7 +36,12 @@ const MultiSelect = {
       md: "0 2em 0 0",
     },
     actionButtons: {
-      padding: "s",
+      borderTop: "1px solid",
+      borderColor: "ui.gray.medium",
+      gap: { base: "0", md: "s" },
+      justifyContent: "flex-end",
+      padding: { base: "s", md: "xs" },
+      width: "auto",
     },
     menuContainer: {
       position: {
@@ -54,7 +59,7 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      background: "ui.gray.x-light-cool",
+      background: "ui.gray.xx-light-cool",
       border: isDialog ? "1px solid" : "2px solid",
       borderColor: isDialog ? "ui.gray.dark" : "ui.focus",
       borderRadius: "2px",
@@ -66,11 +71,25 @@ const MultiSelect = {
         px: 0,
         py: "xs",
         li: {
-          px: "s",
-          paddingTop: "xs",
-          paddingBottom: "6px",
+          p: 0,
+          div: {
+            px: "s",
+            paddingTop: "xs",
+            paddingBottom: "6px",
+            _hover: {
+              bg: "ui.gray.x-light-cool",
+            },
+          },
         },
-        ul: { py: 0, li: { paddingLeft: "l", paddingRight: 0 } },
+        ul: {
+          py: 0,
+          li: {
+            div: {
+              paddingLeft: "46px",
+              paddingRight: 0,
+            },
+          },
+        },
       },
     },
     menu: {

@@ -41,7 +41,7 @@ const MultiSelectMenuButton = React.forwardRef<
   } = props;
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {});
   const iconType = isOpen ? "minus" : "plus";
-  const growAnimation = `${grow} 0.075s ease-out`;
+  const growAnimation = `${grow} 150ms ease-out`;
 
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
@@ -88,15 +88,21 @@ const MultiSelectMenuButton = React.forwardRef<
           <Icon
             align="right"
             id={`${multiSelectId}-selected-items-count-icon`}
+            marginLeft="xs"
             name="close"
             size="xsmall"
           />
         </Box>
       )}
-      <Box as="span" pr="s">
+      <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
         {multiSelectLabel}
       </Box>
-      <Icon id={`${multiSelectId}-icon`} name={iconType} size="small" />
+      <Icon
+        id={`${multiSelectId}-icon`}
+        name={iconType}
+        size="small"
+        __css={styles.toggleIcon}
+      />
     </Button>
   );
 });

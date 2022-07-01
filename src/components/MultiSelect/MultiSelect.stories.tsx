@@ -85,7 +85,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
       id="multiselect-listbox"
       label="MultiSelect Listbox"
       variant="listbox"
-      width="default"
+      width={args.width}
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => onChange(selectedItem.id)}

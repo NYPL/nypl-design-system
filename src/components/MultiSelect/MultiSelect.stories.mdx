@@ -25,13 +25,11 @@ import * as stories from "./MultiSelect.stories.tsx";
     jest: ["MultiSelect.test.tsx"],
   }}
   argTypes={{
-    label: { table: { default: "" } },
-    variant: { table: { default: "listbox" }, control: false },
-    items: { control: false },
-    selectedItems: { control: false },
-    width: { table: { default: "default" } },
-    isDefaultOpen: { table: { default: false } },
+    id: { control: false },
     isBlockElement: { table: { default: false } },
+    isDefaultOpen: { table: { default: false } },
+    items: { control: false },
+    label: { table: { default: "" } },
     onApply: {
       description:
         "The action to perform for save/apply button of multiselect. `onApply: () => void;`",
@@ -43,6 +41,12 @@ import * as stories from "./MultiSelect.stories.tsx";
     onMixedStateChange: {
       description:
         "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+    },
+    selectedItems: { control: false },
+    variant: { table: { default: "listbox" }, control: false },
+    width: {
+      control: { type: "select" },
+      table: { default: "default" },
     },
   }}
 />
@@ -72,23 +76,7 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 ## Component Props
 
-<ArgsTable story="MultiSelect ListBox" />
-
-## Accessibility
-
-The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
-By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
-
-The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
-
-Resources:
-
-- [downshift.js documentation](https://www.downshift-js.com/)
-- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
-- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
-- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
-
-## MultiSelect Listbox Variant
+### MultiSelect Listbox Variant
 
 The `MultiSelect` listbox variant renders a non-hierarchical list of items to select from.
 
@@ -104,6 +92,22 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
     {(args) => <stories.MultiSelectListboxStory {...args} />}
   </Story>
 </Canvas>
+
+<ArgsTable story="MultiSelect ListBox" />
+
+## Accessibility
+
+The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
+By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
+
+The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
+
+Resources:
+
+- [downshift.js documentation](https://www.downshift-js.com/)
+- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
+- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
+- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
 
 ## MultiSelect Dialog Variant
 

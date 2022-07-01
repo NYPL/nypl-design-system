@@ -112,7 +112,7 @@ function MultiSelectListbox({
                 })}
                 sx={
                   highlightedIndex === index
-                    ? { backgroundColor: "ui.gray.light-cool" }
+                    ? { backgroundColor: "ui.gray.x-light-cool" }
                     : {}
                 }
               >

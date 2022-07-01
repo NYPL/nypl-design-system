@@ -103,7 +103,6 @@ function MultiSelectDialog({
     }
     return false;
   };
-
   return (
     <Box
       id={id}
@@ -189,7 +188,7 @@ function MultiSelectDialog({
           </UnorderedList>
           {isOpen && !isMobile && (
             // <Stack direction="row" spacing="s" justify="flex-end">
-            <ButtonGroup buttonWidth="full" __css={styles.actionButtons}>
+            <ButtonGroup __css={styles.actionButtons}>
               <Button
                 id={`multiselect-${id}-clear`}
                 buttonType="link"

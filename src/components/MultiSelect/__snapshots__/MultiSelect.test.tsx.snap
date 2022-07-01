@@ -48,7 +48,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
       type="button"
     >
       <span
-        className="css-scaw4q"
+        className="css-0"
+        title="MultiSelect Test Label"
       >
         MultiSelect Test Label
       </span>
@@ -162,7 +163,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
       type="button"
     >
       <span
-        className="css-scaw4q"
+        className="css-0"
+        title="MultiSelect Test Label"
       >
         MultiSelect Test Label
       </span>
@@ -766,7 +768,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-yvl6al"
+        className="chakra-stack css-ytb711"
       >
         <button
           className="chakra-button css-1xdhyk6"
@@ -784,7 +786,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           onClick={[Function]}
           type="button"
         >
-          Apply Filters
+          Apply
         </button>
       </div>
     </div>
@@ -856,7 +858,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
       type="button"
     >
       <span
-        className="css-nl2meh"
+        className="css-1hgz0t9"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -869,7 +871,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
+          className="chakra-icon css-h7dq2k"
           focusable={false}
           id="multiselect-dialog-test-id-selected-items-count-icon"
           role="img"
@@ -901,7 +903,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </svg>
       </span>
       <span
-        className="css-scaw4q"
+        className="css-0"
+        title="MultiSelect Test Label"
       >
         MultiSelect Test Label
       </span>
@@ -1530,7 +1533,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-yvl6al"
+        className="chakra-stack css-ytb711"
       >
         <button
           className="chakra-button css-1xdhyk6"
@@ -1548,7 +1551,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           onClick={[Function]}
           type="button"
         >
-          Apply Filters
+          Apply
         </button>
       </div>
     </div>
@@ -1620,7 +1623,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
       type="button"
     >
       <span
-        className="css-nl2meh"
+        className="css-1hgz0t9"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -1633,7 +1636,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
+          className="chakra-icon css-h7dq2k"
           focusable={false}
           id="multiselect-dialog-test-id-selected-items-count-icon"
           role="img"
@@ -1665,7 +1668,8 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </svg>
       </span>
       <span
-        className="css-scaw4q"
+        className="css-0"
+        title="MultiSelect Test Label"
       >
         MultiSelect Test Label
       </span>
@@ -2278,7 +2282,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </li>
       </ul>
       <div
-        className="chakra-stack css-yvl6al"
+        className="chakra-stack css-ytb711"
       >
         <button
           className="chakra-button css-1xdhyk6"
@@ -2296,7 +2300,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           onClick={[Function]}
           type="button"
         >
-          Apply Filters
+          Apply
         </button>
       </div>
     </div>
@@ -2335,7 +2339,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     type="button"
   >
     <span
-      className="css-scaw4q"
+      className="css-0"
+      title="MultiSelect Label"
     >
       MultiSelect Label
     </span>
@@ -2406,7 +2411,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     type="button"
   >
     <span
-      className="css-scaw4q"
+      className="css-0"
+      title="MultiSelect Label"
     >
       MultiSelect Label
     </span>
@@ -2922,7 +2928,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     type="button"
   >
     <span
-      className="css-nl2meh"
+      className="css-1hgz0t9"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
@@ -2935,7 +2941,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-h7dq2k"
         focusable={false}
         id="multiselect-listbox-test-id-selected-items-count-icon"
         role="img"
@@ -2967,7 +2973,8 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       </svg>
     </span>
     <span
-      className="css-scaw4q"
+      className="css-0"
+      title="MultiSelect Label"
     >
       MultiSelect Label
     </span>
