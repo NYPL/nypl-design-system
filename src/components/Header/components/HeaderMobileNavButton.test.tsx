@@ -5,21 +5,21 @@ import * as React from "react";
 import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
-import MobileNavButton from "./MobileNavButton";
+import HeaderMobileNavButton from "./HeaderMobileNavButton";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 gaUtils.initialize({ testMode: true }, false);
 
-describe("MobileNavButton Accessibility", () => {
+describe("HeaderMobileNavButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<MobileNavButton />);
+    const { container } = render(<HeaderMobileNavButton />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("MobileNavButton", () => {
+describe("HeaderMobileNavButton", () => {
   beforeEach(() => {
-    render(<MobileNavButton />);
+    render(<HeaderMobileNavButton />);
   });
 
   it("renders a menu button", () => {
@@ -65,8 +65,10 @@ describe("MobileNavButton", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const mobileNavButton = renderer.create(<MobileNavButton />).toJSON();
+    const headermobileNavButton = renderer
+      .create(<HeaderMobileNavButton />)
+      .toJSON();
 
-    expect(mobileNavButton).toMatchSnapshot();
+    expect(headermobileNavButton).toMatchSnapshot();
   });
 });

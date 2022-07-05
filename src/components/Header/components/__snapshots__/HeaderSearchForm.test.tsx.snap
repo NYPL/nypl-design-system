@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchForm renders the UI snapshot correctly 1`] = `
+exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
 >
@@ -286,7 +286,7 @@ exports[`SearchForm renders the UI snapshot correctly 1`] = `
 </div>
 `;
 
-exports[`SearchForm renders the UI snapshot correctly 2`] = `
+exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
 >

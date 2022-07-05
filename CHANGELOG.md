@@ -20,15 +20,25 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the mobile navigation menu for the `Header` component with `MobileNav` and `MobileNavButton` components.
 - Adds the mobile login menu for the `Header` component.
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
-- Adds React context for the `Header`'s patron state data through `PatronContext` and `PatronProvider`.
-- Fixes `useNYPLBreakpoints` hook so it internally controls its own state.
+- Adds React context for the `Header`'s patron state data through `HeaderPatronContext` and `HeaderPatronProvider`.
+- Better namespacing for Header-only components.
 - Adds the `react-ga` package to send Google Analytics events.
 
 ## Prerelease
 
+### Adds
+
+- Exports `ColorCard`.
+
 ### Updates
 
-- Updates the `Icon` component to include variants for `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+- Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
 
 ## 1.0.4 (June 23, 2022)
 

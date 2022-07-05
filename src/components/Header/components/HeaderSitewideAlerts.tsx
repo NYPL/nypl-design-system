@@ -6,15 +6,15 @@ import Notification from "../../Notification/Notification";
 import { Alert, alertsApiUrl, parseAlertsData } from "../utils/headerUtils";
 
 /**
- * The SitewideAlerts component makes an API request to an NYPL API endpoint
- * to fetch NYPL sitewide alerts. While this component can be used in
+ * The HeaderSitewideAlerts component makes an API request to an NYPL API
+ * endpoint to fetch NYPL sitewide alerts. While this component can be used in
  * isolation, it is already rendered in the DS Header component.
  */
-export const SitewideAlerts = chakra(() => {
+export const HeaderSitewideAlerts = chakra(() => {
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const styles = useStyleConfig("HeaderSitewideAlerts");
   const fetchErrorMessage =
-    "NYPL Reservoir SitewideAlerts: There was an error fetching NYPL sitewide alerts.";
+    "NYPL Reservoir HeaderSitewideAlerts: There was an error fetching NYPL sitewide alerts.";
 
   // Make a request to the NYPL API endpoint for sitewide alerts, parse
   // the data, and set it to the local state.
@@ -66,4 +66,4 @@ export const SitewideAlerts = chakra(() => {
   ) : null;
 });
 
-export default SitewideAlerts;
+export default HeaderSitewideAlerts;

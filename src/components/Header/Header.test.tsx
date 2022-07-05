@@ -7,14 +7,14 @@ import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
 import Header from "./Header";
-import { alertsApiUrl, tokenRefreshLink } from "./utils/headerUtils";
 import {
   patronApiUrlWithToken,
   mockExpiredResponseData,
   mockLoginCookie,
   mockResponseData,
 } from "./utils/authApiMockResponse";
-import { refineryResponse } from "./utils/SitewideAlertsMocks";
+import { alertsApiUrl, tokenRefreshLink } from "./utils/headerUtils";
+import { refineryResponse } from "./utils/sitewideAlertsMocks";
 
 // We want to mock the media queries and set the desktop view.
 jest.mock("../../hooks/useNYPLBreakpoints", () => {

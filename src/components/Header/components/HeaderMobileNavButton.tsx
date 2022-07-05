@@ -4,11 +4,11 @@ import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
-import MobileNav from "./MobileNav";
+import HeaderMobileNav from "./HeaderMobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
-const MobileNavButton = chakra(() => {
+const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
@@ -32,10 +32,10 @@ const MobileNavButton = chakra(() => {
         >
           <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
-        {isOpen && <MobileNav />}
+        {isOpen && <HeaderMobileNav />}
       </FocusLock>
     </Box>
   );
 });
 
-export default MobileNavButton;
+export default HeaderMobileNavButton;
