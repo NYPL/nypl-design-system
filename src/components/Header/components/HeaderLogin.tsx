@@ -9,15 +9,15 @@ import { getLoginLinks } from "../utils/headerUtils";
 import gaUtils from "../utils/googleAnalyticsUtils";
 import { HeaderContext } from "../context/headerContext";
 
-export interface LoginProps {
+export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
   patronName?: string;
 }
 
-const Login = chakra(
-  ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
+const HeaderLogin = chakra(
+  ({ catalogRef, greetingRef, isMobile, patronName }: HeaderLoginProps) => {
     const { isProduction } = useContext(HeaderContext);
     const { catalogLink, researchLink, logOutLink } = getLoginLinks(
       patronName,
@@ -105,4 +105,4 @@ const Login = chakra(
   }
 );
 
-export default Login;
+export default HeaderLogin;

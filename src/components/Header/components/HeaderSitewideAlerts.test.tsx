@@ -3,13 +3,13 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import SitewideAlerts from "./SitewideAlerts";
+import HeaderSitewideAlerts from "./HeaderSitewideAlerts";
 import {
   expiredAlertsReponse,
   refineryResponse,
-} from "../utils/SitewideAlertsMocks";
+} from "../utils/sitewideAlertsMocks";
 
-describe("SitewideAlerts Accessibility", () => {
+describe("HeaderSitewideAlerts Accessibility", () => {
   it("passes axe accessibility test", async () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
@@ -18,12 +18,12 @@ describe("SitewideAlerts Accessibility", () => {
       })
     ) as jest.Mock;
 
-    const { container } = await waitFor(() => render(<SitewideAlerts />));
+    const { container } = await waitFor(() => render(<HeaderSitewideAlerts />));
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("SitewideAlerts", () => {
+describe("HeaderSitewideAlerts", () => {
   describe("Successful API request", () => {
     beforeEach(async () => {
       (global as any).fetch = jest.fn(() =>
@@ -33,7 +33,7 @@ describe("SitewideAlerts", () => {
         })
       ) as jest.Mock;
 
-      await waitFor(() => render(<SitewideAlerts />));
+      await waitFor(() => render(<HeaderSitewideAlerts />));
     });
 
     it("renders a notification", () => {
@@ -53,9 +53,11 @@ describe("SitewideAlerts", () => {
     });
 
     it("renders the UI snapshot correctly", () => {
-      const sitewideAlerts = renderer.create(<SitewideAlerts />).toJSON();
+      const headersitewideAlerts = renderer
+        .create(<HeaderSitewideAlerts />)
+        .toJSON();
 
-      expect(sitewideAlerts).toMatchSnapshot();
+      expect(headersitewideAlerts).toMatchSnapshot();
     });
   });
 
@@ -68,7 +70,7 @@ describe("SitewideAlerts", () => {
           json: () => Promise.resolve(expiredAlertsReponse),
         })
       ) as jest.Mock;
-      await waitFor(() => render(<SitewideAlerts />));
+      await waitFor(() => render(<HeaderSitewideAlerts />));
 
       expect(screen.queryByRole("complementary")).not.toBeInTheDocument();
     });
@@ -81,11 +83,11 @@ describe("SitewideAlerts", () => {
       (global as any).fetch = jest.fn(() =>
         Promise.reject(new Error("API request failed"))
       ) as jest.Mock;
-      await waitFor(() => render(<SitewideAlerts />));
+      await waitFor(() => render(<HeaderSitewideAlerts />));
 
       expect(screen.queryByRole("complementary")).not.toBeInTheDocument();
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir SitewideAlerts: There was an error fetching NYPL sitewide alerts."
+        "NYPL Reservoir HeaderSitewideAlerts: There was an error fetching NYPL sitewide alerts."
       );
     });
   });

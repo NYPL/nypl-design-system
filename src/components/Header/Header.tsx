@@ -14,8 +14,13 @@ import Logo from "../Logo/Logo";
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-/** Internal Header-only components and utils */
-import HeaderComponents from "./components";
+/** Internal Header-only components */
+import HeaderLowerNav from "./components/HeaderLowerNav";
+import HeaderMobileIconNav from "./components/HeaderMobileIconNav";
+import HeaderSitewideAlerts from "./components/HeaderSitewideAlerts";
+import HeaderUpperNav from "./components/HeaderUpperNav";
+/** Internal Header-only utils */
+import { HeaderProvider } from "./context/headerContext";
 import {
   deleteCookieValue,
   extractPatronName,
@@ -88,13 +93,10 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
   }, []);
 
   return (
-    <HeaderComponents.HeaderProvider
-      isProduction={isProduction}
-      patronName={patronName}
-    >
+    <HeaderProvider isProduction={isProduction} patronName={patronName}>
       <Box __css={styles}>
         <SkipNavigation />
-        <HeaderComponents.SitewideAlerts />
+        <HeaderSitewideAlerts />
         <header>
           <HStack __css={styles.container}>
             <Link
@@ -115,17 +117,17 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
                 alignItems="end"
                 spacing={isLargerThanLarge ? "75px" : "50px"}
               >
-                <HeaderComponents.UpperNav />
-                <HeaderComponents.LowerNav />
+                <HeaderUpperNav />
+                <HeaderLowerNav />
               </VStack>
             ) : (
-              <HeaderComponents.MobileIconNav />
+              <HeaderMobileIconNav />
             )}
           </HStack>
           <HorizontalRule __css={styles.horizontalRule} />
         </header>
       </Box>
-    </HeaderComponents.HeaderProvider>
+    </HeaderProvider>
   );
 });
 

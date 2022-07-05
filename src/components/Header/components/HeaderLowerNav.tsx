@@ -3,11 +3,11 @@ import React from "react";
 
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import SearchButton from "./SearchButton";
+import HeaderSearchButton from "./HeaderSearchButton";
 import { siteNavLinks } from "../utils/headerUtils";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
-const LowerNav = chakra(() => {
+const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
   const listItems = siteNavLinks.map(({ href, text }) => (
     <Link
@@ -24,7 +24,7 @@ const LowerNav = chakra(() => {
       <List
         id="header-nav-lower"
         inline
-        listItems={[...listItems, <SearchButton key="search" />]}
+        listItems={[...listItems, <HeaderSearchButton key="search" />]}
         noStyling
         type="ul"
       />
@@ -32,4 +32,4 @@ const LowerNav = chakra(() => {
   );
 });
 
-export default LowerNav;
+export default HeaderLowerNav;

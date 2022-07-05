@@ -18,7 +18,7 @@ import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 /**
  * The Header navigation for the mobile view.
  */
-const MobileNav = chakra(() => {
+const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
   const listItems = siteNavLinks.map(({ href, text }) => (
     <Link
@@ -115,4 +115,4 @@ const MobileNav = chakra(() => {
   );
 });
 
-export default MobileNav;
+export default HeaderMobileNav;

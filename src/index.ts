@@ -38,6 +38,7 @@ export {
 } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { default as ColorCard } from "./components/StyleGuide/ColorCard";
 export {
   default as DatePicker,
   DatePickerTypes,

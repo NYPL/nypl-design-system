@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MobileNavButton renders the UI snapshot correctly 1`] = `
+exports[`HeaderMobileNavButton renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
 >

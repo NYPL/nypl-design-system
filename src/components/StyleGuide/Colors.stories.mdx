@@ -6,82 +6,387 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
+export const colorContrastData = {
+  brand: {
+    primary: {
+      dataBlack: ["3.45", "Fail", "AA"],
+      dataWhite: ["6.08", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    secondary: {
+      dataBlack: ["1.77", "Fail", "Fail"],
+      dataWhite: ["11.86", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+  },
+  ui: {
+    black: {
+      dataBlack: ["1.00", "Fail", "Fail"],
+      dataWhite: ["21.00", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    gray: {
+      xxDark: {
+        dataBlack: ["1.30", "Fail", "Fail"],
+        dataWhite: ["16.10", "AAA", "AAA"],
+        textColor: "ui.white",
+      },
+      xDark: {
+        dataBlack: ["2.09", "Fail", "Fail"],
+        dataWhite: ["10.05", "AAA", "AAA"],
+        textColor: "ui.white",
+      },
+      dark: {
+        dataBlack: ["3.39", "Fail", "AA"],
+        dataWhite: ["6.19", "AA", "AAA"],
+        textColor: "ui.white",
+      },
+      medium: {
+        dataBlack: ["11.18", "AAA", "AAA"],
+        dataWhite: ["1.88", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      lightCool: {
+        dataBlack: ["17.30", "AAA", "AAA"],
+        dataWhite: ["1.21", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xLightCool: {
+        dataBlack: ["19.26", "AAA", "AAA"],
+        dataWhite: ["1.09", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xxLightCool: {
+        dataBlack: ["20.12", "AAA", "AAA"],
+        dataWhite: ["1.04", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      lightWarm: {
+        dataBlack: ["17.98", "AAA", "AAA"],
+        dataWhite: ["1.17", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xLightWarm: {
+        dataBlack: ["19.76", "AAA", "AAA"],
+        dataWhite: ["1.06", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+    },
+    white: {
+      dataBlack: ["21.00", "AAA", "AAA"],
+      dataWhite: ["1.00", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+  },
+};
 export const cssVars = {
-  brand: ["--nypl-colors-brand-primary", "--nypl-colors-brand-secondary"],
+  brand: [
+    {
+      name: "brand.primary",
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      name: "brand.secondary",
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
+  ],
   blogs: [
-    "--nypl-colors-section-blogs-primary",
-    "--nypl-colors-section-blogs-secondary",
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "section.blogs.primary",
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "section.blogs.secondary",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
   ],
   booksAndMore: [
-    "--nypl-colors-section-books-and-more-primary",
-    "--nypl-colors-section-books-and-more-secondary",
+    {
+      colorSource: "brand.primary",
+      name: "section.books-and-more.primary",
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.books-and-more.secondary",
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
   ],
   education: [
-    "--nypl-colors-section-education-primary",
-    "--nypl-colors-section-education-secondary",
+    {
+      name: "section.education.primary",
+      dataBlack: ["3.94", "Fail", "AA"],
+      dataWhite: ["5.33", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.education.secondary",
+      dataBlack: ["2.35", "Fail", "Fail"],
+      dataWhite: ["8.94", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
   ],
   locations: [
-    "--nypl-colors-section-locations-primary",
-    "--nypl-colors-section-locations-secondary",
+    {
+      colorSource: "brand.primary",
+      name: "section.locations.primary",
+      dataBlack: colorContrastData.brand.primary.dataBlack,
+      dataWhite: colorContrastData.brand.primary.dataWhite,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.locations.secondary",
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
   ],
   research: [
-    "--nypl-colors-section-research-primary",
-    "--nypl-colors-section-research-secondary",
+    {
+      name: "section.research.primary",
+      dataBlack: ["4.16", "AA", "AAA"],
+      dataWhite: ["4.44", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.research.secondary",
+      dataBlack: ["2.90", "Fail", "Fail"],
+      dataWhite: ["7.24", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
   ],
   researchLibraries: [
-    "--nypl-colors-section-research-library-lpa",
-    "--nypl-colors-section-research-library-schomburg",
-    "--nypl-colors-section-research-library-schwartzman",
+    {
+      name: "section.research-library.lpa",
+      dataBlack: ["2.69", "Fail", "Fail"],
+      dataWhite: ["7.80", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.research-library.schomburg",
+      dataBlack: ["3.23", "Fail", "AA"],
+      dataWhite: ["6.51", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.research-library.schwartzman",
+      dataBlack: colorContrastData.brand.secondary.dataBlack,
+      dataWhite: colorContrastData.brand.secondary.dataWhite,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
   ],
   whatsOn: [
-    "--nypl-colors-section-whats-on-primary",
-    "--nypl-colors-section-whats-on-secondary",
+    {
+      name: "section.whats-on.primary",
+      dataBlack: ["1.35", "Fail", "Fail"],
+      dataWhite: ["15.52", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.black",
+      name: "section.whats-on.secondary",
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
+    },
   ],
   ui: [
-    "--nypl-colors-ui-black",
-    "--nypl-colors-ui-white",
-    "--nypl-colors-ui-disabled-primary",
-    "--nypl-colors-ui-disabled-secondary",
-    "--nypl-colors-ui-error-primary",
-    "--nypl-colors-ui-error-secondary",
-    "--nypl-colors-ui-focus",
-    "--nypl-colors-ui-link-primary",
-    "--nypl-colors-ui-link-secondary",
-    "--nypl-colors-ui-status-primary",
-    "--nypl-colors-ui-status-secondary",
-    "--nypl-colors-ui-success-primary",
-    "--nypl-colors-ui-success-secondary",
-    "--nypl-colors-ui-test",
-    "--nypl-colors-ui-warning-primary",
-    "--nypl-colors-ui-warning-secondary",
+    {
+      name: "ui.black",
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      name: "ui.white",
+      dataBlack: colorContrastData.ui.white.dataBlack,
+      dataWhite: colorContrastData.ui.white.dataWhite,
+      textColor: colorContrastData.ui.white.textColor,
+    },
+    {
+      name: "ui.link.primary",
+      dataBlack: ["4.54", "AA", "AAA"],
+      dataWhite: ["4.63", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.link.secondary",
+      dataBlack: ["2.46", "Fail", "Fail"],
+      dataWhite: ["8.54", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.error.primary",
+      dataBlack: ["2.64", "Fail", "Fail"],
+      dataWhite: ["7.95", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.error.secondary",
+      dataBlack: ["1.68", "Fail", "Fail"],
+      dataWhite: ["12.48", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "ui.disabled.primary",
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.xx-light-cool",
+      name: "ui.disabled.secondary",
+      dataBlack: colorContrastData.ui.gray.xxLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
+    },
+    {
+      name: "ui.focus",
+      dataBlack: ["5.64", "AA", "AAA"],
+      dataWhite: ["3.73", "Fail", "AA"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.status.primary",
+      dataBlack: ["16.08", "AAA", "AAA"],
+      dataWhite: ["1.31", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.status.secondary",
+      dataBlack: ["17.62", "AAA", "AAA"],
+      dataWhite: ["1.19", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.success.primary",
+      dataBlack: ["3.66", "Fail", "AA"],
+      dataWhite: ["5.73", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.success.secondary",
+      dataBlack: ["2.23", "Fail", "Fail"],
+      dataWhite: ["9.43", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.warning.primary",
+      dataBlack: ["9.24", "AAA", "AAA"],
+      dataWhite: ["2.27", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.warning.secondary",
+      dataBlack: ["7.42", "AAA", "AAA"],
+      dataWhite: ["2.83", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.test",
+      dataBlack: ["7.13", "AAA", "AAA"],
+      dataWhite: ["2.95", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
   ],
   grayscale: [
-    "--nypl-colors-ui-gray-xx-dark",
-    "--nypl-colors-ui-gray-x-dark",
-    "--nypl-colors-ui-gray-dark",
-    "--nypl-colors-ui-gray-medium",
-    "--nypl-colors-ui-gray-light-cool",
-    "--nypl-colors-ui-gray-light-warm",
-    "--nypl-colors-ui-gray-x-light-cool",
-    "--nypl-colors-ui-gray-x-light-warm",
-    "--nypl-colors-ui-gray-xx-light-cool",
+    {
+      name: "ui.gray.xx-dark",
+      dataBlack: colorContrastData.ui.gray.xxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
+    },
+    {
+      name: "ui.gray.x-dark",
+      dataBlack: colorContrastData.ui.gray.xDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      name: "ui.gray.dark",
+      dataBlack: colorContrastData.ui.gray.dark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.dark.dataWhite,
+      textColor: colorContrastData.ui.gray.dark.textColor,
+    },
+    {
+      name: "ui.gray.medium",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      name: "ui.gray.light-cool",
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      name: "ui.gray.x-light-cool",
+      dataBlack: colorContrastData.ui.gray.xLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xLightCool.textColor,
+    },
+    {
+      name: "ui.gray.xx-light-cool",
+      dataBlack: colorContrastData.ui.gray.xxLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
+    },
+  ],
+  grayscaleAlt: [
+    {
+      name: "ui.gray.light-warm",
+      dataBlack: colorContrastData.ui.gray.lightWarm.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightWarm.dataWhite,
+      textColor: colorContrastData.ui.gray.lightWarm.textColor,
+    },
+    {
+      name: "ui.gray.x-light-warm",
+      dataBlack: colorContrastData.ui.gray.xLightWarm.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xLightWarm.dataWhite,
+      textColor: colorContrastData.ui.gray.xLightWarm.textColor,
+    },
   ],
 };
 
-export const makeColorCard = function (key) {
-  const cssValue = `var(${key})`;
+export const makeColorCard = function (data) {
+  const { colorSource, dataBlack, dataWhite, name, textColor } = data;
   const card = (
-    <ColorCard backgroundColor={cssValue} colorName={key} key={key} />
+    <ColorCard
+      backgroundColor={name}
+      colorName={name}
+      colorSource={colorSource}
+      dataBlack={dataBlack}
+      dataWhite={dataWhite}
+      textColor={textColor}
+      key={name}
+    />
   );
   return card;
 };
-
-export const getColorCards = (cat) => {
+export const getColorCards = (category) => {
   const cards = [];
-  const catArr = cssVars[cat];
+  const catArr = cssVars[category];
   for (let i = 0; i < catArr.length; i++) {
-    const varName = catArr[i];
-    const card = makeColorCard(varName);
+    const colorData = catArr[i];
+    const card = makeColorCard(colorData);
     cards.push(card);
   }
   return cards;
@@ -91,33 +396,63 @@ export const getColorCards = (cat) => {
 
 # NYPL Colors
 
-| Table of Contents                        |
-| ---------------------------------------- |
-| 1. [Brand Colors](#brand-colors)         |
-| 2. [Section Colors](#section-colors)     |
-| 3. [Utility Colors](#utility-colors)     |
-| 3. [Grayscale Colors](#grayscale-colors) |
-| 4. [Figma Reference](#figma-reference)   |
+## Table of Contents
 
-## Brand Colors
+- [Overview](#overview)
+- [Brand Fills](#brand-fills)
+  - [NYPL Brand Colors](#nypl-brand-colors)
+  - [NYPL Section Colors](#nypl-section-colors)
+- [UI Fills](#ui-fills)
+  - [Utility Colors](#utility-colors)
+  - [Grayscale Colors](#grayscale-colors)
+- [Figma Reference](#figma-reference)
 
-Brand fills are the NYPL primary and secondary colors.
+## Overview
+
+The Reservoir Design System (DS) provides the NYPL branded and approved
+color palette. The NYPL color palette is used to style the DS components and
+is also available for consuming applications in the form of javascript and
+CSS design tokens. Please refer to the [Design Tokens](/?path=/story/style-guide-design-tokens--page)
+page for information about consuming and using all style tokens.
+
+Whenever using these colors, designer must ensure that the foreground and
+background colors pass, at a minimum, the `WCAG 2.1 AA` accessibility guidelines for
+color contrast. For reference, to meet the `WCAG 2.1 AA` standard, the contrast ratio
+must be at least 4.5:1. To meet the `WCAG 2.1 AAA` standard, the contrast ratio must
+be at least 7:1.
+
+Resources:
+
+- [W3C WCAG 2.1 Contrast Minimum](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+
+## Brand Fills
+
+These colors are connected to the NYPL brand and are not intended to be generic.
+
+### NYPL Brand Colors
+
+NYPL Brand Colors are the NYPL branded primary and secondary colors.
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1}>{getColorCards("brand")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("brand")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
-## Section Colors
+### NYPL Section Colors
 
-Section colors are branding colors only in use at NYPL.
+NYPL Section Colors are branding colors only in use at NYPL. These colors are
+used to add visual context for a user's location on an NYPL website.
 
 <Canvas>
   <DSProvider>
     <Heading>Blogs</Heading>
     <p>Blogs is used for the Blogs section.</p>
-    <SimpleGrid columns={1}>{getColorCards("blogs")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("blogs")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -128,7 +463,9 @@ Section colors are branding colors only in use at NYPL.
       Books and More is used for the Catalog, Staff Picks, Recommendations, New
       Arrivals, and E-Book Central.
     </p>
-    <SimpleGrid columns={1}>{getColorCards("booksAndMore")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("booksAndMore")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -139,7 +476,9 @@ Section colors are branding colors only in use at NYPL.
       Education is used for the Education section front and all associated
       sub-sections.
     </p>
-    <SimpleGrid columns={1}>{getColorCards("education")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("education")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -150,7 +489,9 @@ Section colors are branding colors only in use at NYPL.
       Locations is used for Location Finder and all branch pages with the
       exceptions of some research libraries.
     </p>
-    <SimpleGrid columns={1}>{getColorCards("locations")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("locations")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -158,7 +499,9 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading>Research</Heading>
     <p>Research is used for the Research Catalog and SCC.</p>
-    <SimpleGrid columns={1}>{getColorCards("research")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("research")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -166,7 +509,9 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading>Research Libraries</Heading>
     <p>Research libraries with specific brand colors to adhere to.</p>
-    <SimpleGrid columns={1}>{getColorCards("researchLibraries")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("researchLibraries")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -174,29 +519,51 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading>What's On</Heading>
     <p>What's On is used for Events, Exhibitions &amp; Audio Guides.</p>
-    <SimpleGrid columns={1}>{getColorCards("whatsOn")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("whatsOn")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
-## Utility Colors
+## UI Fills
+
+UI Fills are colors used for typography and to communicate component and/or
+application state. These colors are not connected to the NYPL brand and are
+intended to be generic.
+
+### Utility Colors
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1}>{getColorCards("ui")}</SimpleGrid>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("ui")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
-## Grayscale Colors
+### Grayscale Colors
+
+Grays are used for secondary body copy and non-semantic UI design.
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1}>{getColorCards("grayscale")}</SimpleGrid>
+    <Heading level="four">Cool (standard options)</Heading>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("grayscale")}
+    </SimpleGrid>
+    <Heading level="four" marginTop="l">
+      Warm
+    </Heading>
+    <Text>The warm grays are alternate options to the cool grays.</Text>
+    <SimpleGrid columns={1} gap="s" marginTop="s">
+      {getColorCards("grayscaleAlt")}
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
 ## Figma Reference
 
-For additional spacing information, please refer to the Figma Main file.
+For additional information, please refer to the Figma Main file.
 
 - [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
 - [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674)
