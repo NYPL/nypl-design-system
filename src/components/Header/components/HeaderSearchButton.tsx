@@ -3,8 +3,8 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
-import Icon from "../../Icons/Icon";
 import HeaderSearchForm from "./HeaderSearchForm";
+import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
