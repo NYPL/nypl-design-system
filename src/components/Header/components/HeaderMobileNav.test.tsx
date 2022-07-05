@@ -4,18 +4,18 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import MobileNav from "./MobileNav";
+import HeaderMobileNav from "./HeaderMobileNav";
 
-describe("MobileNav Accessibility", () => {
+describe("HeaderMobileNav Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<MobileNav />);
+    const { container } = render(<HeaderMobileNav />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("MobileNav", () => {
+describe("HeaderMobileNav", () => {
   beforeEach(() => {
-    render(<MobileNav />);
+    render(<HeaderMobileNav />);
   });
 
   it("renders the NYPL logo", () => {
@@ -51,8 +51,8 @@ describe("MobileNav", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const mobileNav = renderer.create(<MobileNav />).toJSON();
+    const headerMobileNav = renderer.create(<HeaderMobileNav />).toJSON();
 
-    expect(mobileNav).toMatchSnapshot();
+    expect(headerMobileNav).toMatchSnapshot();
   });
 });

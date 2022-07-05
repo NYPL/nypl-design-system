@@ -4,18 +4,18 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import MobileNavButton from "./MobileNavButton";
+import HeaderMobileNavButton from "./HeaderMobileNavButton";
 
-describe("MobileNavButton Accessibility", () => {
+describe("HeaderMobileNavButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<MobileNavButton />);
+    const { container } = render(<HeaderMobileNavButton />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("MobileNavButton", () => {
+describe("HeaderMobileNavButton", () => {
   beforeEach(() => {
-    render(<MobileNavButton />);
+    render(<HeaderMobileNavButton />);
   });
 
   it("renders a menu button", () => {
@@ -50,8 +50,10 @@ describe("MobileNavButton", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const mobileNavButton = renderer.create(<MobileNavButton />).toJSON();
+    const headermobileNavButton = renderer
+      .create(<HeaderMobileNavButton />)
+      .toJSON();
 
-    expect(mobileNavButton).toMatchSnapshot();
+    expect(headermobileNavButton).toMatchSnapshot();
   });
 });

@@ -4,10 +4,10 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
-import LoginButton from "./LoginButton";
+import HeaderLoginButton from "./HeaderLoginButton";
 import { upperNavLinks } from "../utils/headerUtils";
 
-const UpperNav = chakra(() => {
+const HeaderUpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 
   return (
@@ -16,7 +16,7 @@ const UpperNav = chakra(() => {
         id="header-nav-upper"
         inline
         listItems={[
-          <LoginButton key="login" />,
+          <HeaderLoginButton key="login" />,
           <Link href={upperNavLinks.locations} key="locationsLink">
             Locations
           </Link>,
@@ -52,4 +52,4 @@ const UpperNav = chakra(() => {
   );
 });
 
-export default UpperNav;
+export default HeaderUpperNav;

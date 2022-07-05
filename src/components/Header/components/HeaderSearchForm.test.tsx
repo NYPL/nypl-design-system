@@ -4,21 +4,21 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import SearchForm from "./SearchForm";
+import HeaderSearchForm from "./HeaderSearchForm";
 
-describe("SearchForm Accessibility", () => {
+describe("HeaderSearchForm Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<SearchForm />);
+    const { container } = render(<HeaderSearchForm />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for mobile view", async () => {
-    const { container } = render(<SearchForm isMobile />);
+    const { container } = render(<HeaderSearchForm isMobile />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("SearchForm", () => {
+describe("HeaderSearchForm", () => {
   // We want to spy on the `window.location.assign` method so we can know
   // that the correct search URL was called. Save the real
   // `window.location.assign` method.
@@ -53,7 +53,7 @@ describe("SearchForm", () => {
 
   describe("Desktop", () => {
     beforeEach(() => {
-      render(<SearchForm />);
+      render(<HeaderSearchForm />);
     });
 
     it("renders a form with an input, radio inputs, and a search button", () => {
@@ -107,7 +107,7 @@ describe("SearchForm", () => {
 
   describe("Mobile", () => {
     beforeEach(() => {
-      render(<SearchForm isMobile />);
+      render(<HeaderSearchForm isMobile />);
     });
 
     it("renders a form with an input and two buttons on mobile", () => {
@@ -152,10 +152,12 @@ describe("SearchForm", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const searchForm = renderer.create(<SearchForm />).toJSON();
-    const searchFormMobile = renderer.create(<SearchForm isMobile />).toJSON();
+    const headersearchForm = renderer.create(<HeaderSearchForm />).toJSON();
+    const headersearchFormMobile = renderer
+      .create(<HeaderSearchForm isMobile />)
+      .toJSON();
 
-    expect(searchForm).toMatchSnapshot();
-    expect(searchFormMobile).toMatchSnapshot();
+    expect(headersearchForm).toMatchSnapshot();
+    expect(headersearchFormMobile).toMatchSnapshot();
   });
 });

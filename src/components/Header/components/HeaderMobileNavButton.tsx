@@ -4,18 +4,12 @@ import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
-import SearchForm from "./SearchForm";
+import HeaderMobileNav from "./HeaderMobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
-export interface SearchButtonProps {
-  isMobile?: boolean;
-}
-
-const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
+const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const styles = useStyleConfig("HeaderSearchButton", { isOpen });
-  const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
-  const labelText = isOpen ? "Close Search" : "Open Search";
+  const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
 
   useCloseDropDown(setIsOpen, ref);
@@ -25,25 +19,19 @@ const SearchButton = chakra(({ isMobile = false }: SearchButtonProps) => {
       <FocusLock isDisabled={!isOpen}>
         <Button
           aria-haspopup="true"
-          aria-label={labelText}
+          aria-label={isOpen ? "Close Navigation" : "Open Navigation"}
           aria-expanded={isOpen ? true : null}
           buttonType="link"
-          id="searchButton"
+          id="mobileNav-btn"
           onClick={() => setIsOpen(!isOpen)}
           __css={styles}
         >
-          {buttonText}
-          <Icon
-            align={isMobile ? "none" : "right"}
-            name={isOpen ? "close" : "search"}
-            size={isMobile ? "large" : isOpen ? "medium" : "small"}
-            title={labelText}
-          />
+          <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
-        {isOpen && <SearchForm isMobile={isMobile} />}
+        {isOpen && <HeaderMobileNav />}
       </FocusLock>
     </Box>
   );
 });
 
-export default SearchButton;
+export default HeaderMobileNavButton;

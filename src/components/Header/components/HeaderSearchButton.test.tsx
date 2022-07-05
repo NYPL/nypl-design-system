@@ -4,24 +4,24 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import SearchButton from "./SearchButton";
+import HeaderSearchButton from "./HeaderSearchButton";
 
-describe("SearchButton Accessibility", () => {
+describe("HeaderSearchButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<SearchButton />);
+    const { container } = render(<HeaderSearchButton />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for mobile", async () => {
-    const { container } = render(<SearchButton isMobile />);
+    const { container } = render(<HeaderSearchButton isMobile />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("SearchButton", () => {
+describe("HeaderSearchButton", () => {
   describe("Desktop", () => {
     beforeEach(() => {
-      render(<SearchButton />);
+      render(<HeaderSearchButton />);
     });
 
     it("renders a Search button", () => {
@@ -58,7 +58,7 @@ describe("SearchButton", () => {
 
   describe("Mobile", () => {
     beforeEach(() => {
-      render(<SearchButton isMobile />);
+      render(<HeaderSearchButton isMobile />);
     });
 
     it("renders a Search button", () => {
@@ -92,12 +92,12 @@ describe("SearchButton", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const searchButton = renderer.create(<SearchButton />).toJSON();
-    const searchButtonMobile = renderer
-      .create(<SearchButton isMobile />)
+    const headersearchButton = renderer.create(<HeaderSearchButton />).toJSON();
+    const headersearchButtonMobile = renderer
+      .create(<HeaderSearchButton isMobile />)
       .toJSON();
 
-    expect(searchButton).toMatchSnapshot();
-    expect(searchButtonMobile).toMatchSnapshot();
+    expect(headersearchButton).toMatchSnapshot();
+    expect(headersearchButtonMobile).toMatchSnapshot();
   });
 });
