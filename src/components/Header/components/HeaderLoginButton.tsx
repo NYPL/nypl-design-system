@@ -3,8 +3,8 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
-import Icon from "../../Icons/Icon";
 import HeaderLogin from "./HeaderLogin";
+import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { HeaderContext } from "../context/headerContext";
 import gaUtils from "../utils/googleAnalyticsUtils";
