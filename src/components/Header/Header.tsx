@@ -28,7 +28,6 @@ import gaUtils from "./utils/googleAnalyticsUtils";
 
 export interface GAOptionProps {
   debug?: boolean;
-  siteSpeedSampleRate?: number;
   standardImplementation?: boolean;
   testMode?: boolean;
   titleCase?: boolean;
@@ -61,11 +60,11 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
 
   useEffect(() => {
     if (!(window as any)?.ga) {
+      // @TODO not sure if we still want this to be logged.
+      // console.log('Analytics not available - loading through React.');
       console.info(
         "NYPL Reservoir Header: Loading Google Analytics through the Header component."
       );
-      // @TODO not sure if we still want this to be logged.
-      // console.log('Analytics not available - loading through React.');
       const gaOpts = {
         testMode: !isProduction,
         ...gaOptions,

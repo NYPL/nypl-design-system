@@ -46,8 +46,8 @@ describe("LoginButton", () => {
         "send",
         {
           eventCategory: "Global Header",
-          eventAction: "Click",
-          eventLabel: "Log In",
+          eventAction: "Log In",
+          eventLabel: "MyNyplButton - Open",
           hitType: "event",
         },
       ]);
@@ -101,8 +101,8 @@ describe("LoginButton", () => {
         "send",
         {
           eventCategory: "Global Header",
-          eventAction: "Click",
-          eventLabel: "My Account",
+          eventAction: "My Account",
+          eventLabel: "MyNyplButton - Open",
           hitType: "event",
         },
       ]);
@@ -147,7 +147,7 @@ describe("LoginButton", () => {
         {
           eventCategory: "Global Header",
           eventAction: "Click",
-          eventLabel: "Mobile Log In",
+          eventLabel: "Mobile clickLogIn",
           hitType: "event",
         },
       ]);
@@ -200,7 +200,7 @@ describe("LoginButton", () => {
         {
           eventCategory: "Global Header",
           eventAction: "Click",
-          eventLabel: "Mobile My Account",
+          eventLabel: "Mobile clickMyAccount",
           hitType: "event",
         },
       ]);

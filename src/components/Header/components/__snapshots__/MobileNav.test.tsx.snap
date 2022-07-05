@@ -174,7 +174,7 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
           />
         </g>
       </svg>
-      Get a Library Card
+      Get A Library Card
     </a>
     <a
       className="css-1i5qkun"
@@ -254,7 +254,8 @@ exports[`MobileNav renders the UI snapshot correctly 1`] = `
           />
         </g>
       </svg>
-      Shop NYPL
+      Shop
+       NYPL
     </a>
     <a
       className="css-847rpw"

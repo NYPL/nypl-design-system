@@ -16,13 +16,26 @@ export const patronApiUrl =
   "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
 export const tokenRefreshLink = `${authServerDomain}/refresh`;
 export const upperNavLinks = {
-  locations: "https://www.nypl.org/locations",
-  libraryCard: "https://www.nypl.org/library-card/new",
-  emailUpdates:
-    "https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7",
-  donate:
-    "https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN",
-  shop: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+  locations: {
+    href: "https://www.nypl.org/locations",
+    text: "Locations",
+  },
+  libraryCard: {
+    href: "https://www.nypl.org/library-card/new",
+    text: "Get A Library Card",
+  },
+  emailUpdates: {
+    href: "https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7",
+    text: "Get Email Updates",
+  },
+  donate: {
+    href: "https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN",
+    text: "Donate",
+  },
+  shop: {
+    href: "https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral",
+    text: "Shop",
+  },
 };
 export const siteNavLinks = [
   {

@@ -19,6 +19,8 @@ export const gaConfig = {
 
 /**
  * Utility function to initialize and send events to Google Analytics.
+ * NOTE: in 2023, Google will sunset Google Analytics and this will be removed.
+ * This will be scrapped later on.
  */
 function GaUtils() {
   /**
@@ -28,10 +30,9 @@ function GaUtils() {
   this.initialize = (
     options = {
       debug: false,
-      siteSpeedSampleRate: 100,
+      standardImplementation: false,
       titleCase: false,
       testMode: false,
-      standardImplementation: false,
     },
     isProduction = true
   ) => {

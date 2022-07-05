@@ -69,7 +69,7 @@ describe("MobileNav", () => {
     const links = within(bottomGrid).getAllByRole("link");
 
     expect(links).toHaveLength(4);
-    expect(links[0]).toHaveTextContent("Get a Library Card");
+    expect(links[0]).toHaveTextContent("Get A Library Card");
     expect(links[1]).toHaveTextContent("Get Email Updates");
     expect(links[2]).toHaveTextContent("Shop NYPL");
     expect(links[3]).toHaveTextContent("Donate");

@@ -55,7 +55,7 @@ const MobileNav = chakra(() => {
       </Flex>
       <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
         <Link
-          href={upperNavLinks.libraryCard}
+          href={upperNavLinks.libraryCard.href}
           borderTop="1px solid rgb(54, 54, 54)"
           borderRight="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 1"
@@ -69,10 +69,10 @@ const MobileNav = chakra(() => {
             name="decorativeLibraryCard"
             size="large"
           />
-          Get a Library Card
+          {upperNavLinks.libraryCard.text}
         </Link>
         <Link
-          href={upperNavLinks.emailUpdates}
+          href={upperNavLinks.emailUpdates.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="2 / span 1"
           onClick={() =>
@@ -85,10 +85,10 @@ const MobileNav = chakra(() => {
             name="decorativeEnvelope"
             size="large"
           />
-          Get Email Updates
+          {upperNavLinks.emailUpdates.text}
         </Link>
         <Link
-          href={upperNavLinks.shop}
+          href={upperNavLinks.shop.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 2"
           onClick={() =>
@@ -101,14 +101,14 @@ const MobileNav = chakra(() => {
             name="decorativeShoppingBag"
             size="large"
           />
-          Shop NYPL
+          {upperNavLinks.shop.text} NYPL
         </Link>
         <Link
-          href={upperNavLinks.donate}
+          href={upperNavLinks.donate.href}
           gridColumn="1 / span 2"
           onClick={() => gaUtils.trackEvent("Donate", "Mobile Buttons Donate")}
         >
-          Donate
+          {upperNavLinks.donate.text}
         </Link>
       </SimpleGrid>
     </Box>

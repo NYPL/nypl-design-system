@@ -1,5 +1,5 @@
-import React from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import React from "react";
 
 import Link from "../../Link/Link";
 import List from "../../List/List";

@@ -19,23 +19,23 @@ const UpperNav = chakra(() => {
         listItems={[
           <LoginButton key="login" />,
           <Link
-            href={upperNavLinks.locations}
+            href={upperNavLinks.locations.href}
             key="locationsLink"
             onClick={() => gaUtils.trackEvent("Locations", "Header Top Links")}
           >
-            Locations
+            {upperNavLinks.locations.text}
           </Link>,
           <Link
-            href={upperNavLinks.libraryCard}
+            href={upperNavLinks.libraryCard.href}
             key="libraryCardLink"
             onClick={() =>
-              gaUtils.trackEvent("Get a Library CArd", "Header Top Links")
+              gaUtils.trackEvent("Get a Library Card", "Header Top Links")
             }
           >
-            Get A Library Card
+            {upperNavLinks.libraryCard.text}
           </Link>,
           <Link
-            href={upperNavLinks.emailUpdates}
+            href={upperNavLinks.emailUpdates.href}
             key="emailUpdatesLink"
             onClick={() =>
               // This is a new event not in the original NYPL Header.
@@ -45,25 +45,25 @@ const UpperNav = chakra(() => {
             __css={styles.emailUpdatesLink}
           >
             <>
-              Get Email Updates
+              {upperNavLinks.emailUpdates.text}
               <Icon name="arrow" align="right" size="small" />
             </>
           </Link>,
           <Link
-            href={upperNavLinks.donate}
+            href={upperNavLinks.donate.href}
             key="donateLink"
             onClick={() => gaUtils.trackEvent("Donate", "Header Top Links")}
             type="button"
             __css={styles.donateLink}
           >
-            Donate
+            {upperNavLinks.donate.text}
           </Link>,
           <Link
-            href={upperNavLinks.shop}
+            href={upperNavLinks.shop.href}
             key="shopLink"
             onClick={() => gaUtils.trackEvent("Shop", "Header Top Links")}
           >
-            Shop
+            {upperNavLinks.shop.text}
           </Link>,
         ]}
         noStyling

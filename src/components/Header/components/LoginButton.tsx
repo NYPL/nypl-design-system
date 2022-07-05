@@ -33,13 +33,13 @@ const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
     : patronName
     ? "My Account"
     : "Log In";
-  // This has also bene updated from "Mobile clickMyAccount"/"Mobile clickLogIn"
-  // to the following. The desktop login button use to have
-  // action="My ACcount"/"Log in" and label of "MyNyplButton - Closed/Open"
-  // or "MyNyplButton - Closed" (for clicking outside)
-  const gaLabel = `${isMobile ? "Mobile " : ""}${
-    patronName ? "My Account" : "Log In"
-  }`;
+  const gaAction = isMobile ? "Click" : patronName ? "My Account" : "Log In";
+  const gaLabelBase = isMobile
+    ? patronName
+      ? "clickMyAccount"
+      : "clickLogIn"
+    : `MyNyplButton - ${isOpen ? "Closed" : "Open"}`;
+  const gaLabel = `${isMobile ? "Mobile " : ""}${gaLabelBase}`;
 
   useCloseDropDown(setIsOpen, wrapperRef);
 
@@ -61,7 +61,7 @@ const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
           buttonType="link"
           id="loginButton"
           onClick={() => {
-            gaUtils.trackEvent("Click", gaLabel);
+            gaUtils.trackEvent(gaAction, gaLabel);
             setIsOpen(!isOpen);
           }}
           __css={styles}
