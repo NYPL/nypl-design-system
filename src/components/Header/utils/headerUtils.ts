@@ -9,12 +9,50 @@ export interface Alert {
   endDate: string;
 }
 
-const authServerDomain = "https://login.nypl.org/auth";
 export const alertsApiUrl =
   "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
 export const patronApiUrl =
   "https://platform.nypl.org/api/v0.1/auth/patron/tokens/";
-export const tokenRefreshLink = `${authServerDomain}/refresh`;
+const authServerBase = {
+  production: "https://login.nypl.org/auth",
+  development: "https://dev-login.nypl.org/auth",
+};
+const baseLoginLinks = {
+  catalog: {
+    production: "https://browse.nypl.org/iii/encore/myaccount",
+    development: "https://nypl-encore-test.nypl.org/iii/encore/myaccount",
+  },
+  research: {
+    production: "https://catalog.nypl.org/patroninfo/top",
+    development: "https://nypl-sierra-test.nypl.org/patroninfo/top",
+  },
+};
+// Make sure the auth token refresh link is correct for the environment.
+export const tokenRefreshLink = (isProduction = true) => {
+  const type = isProduction ? "production" : "development";
+  return `${authServerBase[type]}/refresh`;
+};
+// Return the proper links when logged in or not. These are for the NYPL
+// "Log in" or "Go to" links for Encore and the Research Catalog. This is
+// based on the environment and logged in status.
+export const getLoginLinks = (patronName = "", isProduction = true) => {
+  const type = isProduction ? "production" : "development";
+  const authServerDomain = authServerBase[type];
+  const baseCatalogLink = baseLoginLinks.catalog[type];
+  const baseResearchLink = baseLoginLinks.research[type];
+
+  return patronName
+    ? {
+        catalogLink: `${authServerDomain}/login?redirect_uri=${baseCatalogLink}`,
+        researchLink: `${authServerDomain}/login?redirect_uri=${baseResearchLink}`,
+        logOutLink: `${authServerDomain}/logout`,
+      }
+    : {
+        catalogLink: baseCatalogLink,
+        researchLink: baseResearchLink,
+        logOutLink: "",
+      };
+};
 export const upperNavLinks = {
   locations: {
     href: "https://www.nypl.org/locations",
@@ -67,16 +105,6 @@ export const siteNavLinks = [
     text: "Get Help",
   },
 ];
-export const loginLinks = {
-  catalog: "https://browse.nypl.org/iii/encore/myaccount",
-  research: "https://catalog.nypl.org/patroninfo/top",
-};
-export const loggedInLinks = {
-  catalog: `${authServerDomain}/login?redirect_uri=${loginLinks.catalog}`,
-  research: `${authServerDomain}/login?redirect_uri=${loginLinks.research}`,
-  tokenRefreshLink: `${authServerDomain}/refresh`,
-  logOutLink: `${authServerDomain}/logout`,
-};
 
 /**
  * Replaces the search string's special characters that need to be encoded

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
 
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 import Text from "../../Text/Text";
-import { loginLinks, loggedInLinks } from "../utils/headerUtils";
+import { getLoginLinks } from "../utils/headerUtils";
 import gaUtils from "../utils/googleAnalyticsUtils";
+import { HeaderContext } from "../context/headerContext";
 
 export interface LoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
@@ -17,10 +18,15 @@ export interface LoginProps {
 
 const Login = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
+    const { isProduction } = useContext(HeaderContext);
+    const { catalogLink, researchLink, logOutLink } = getLoginLinks(
+      patronName,
+      isProduction
+    );
     const styles = useMultiStyleConfig("HeaderLogin", {
       patronName,
     });
-    const logOutLink = `${loggedInLinks.logOutLink}?redirect_uri=${window.location.href}`;
+    const updatedLogOutLink = `${logOutLink}?redirect_uri=${window.location.href}`;
     const gaAction = `${isMobile ? "Mobile " : ""}${
       patronName ? "Go To" : "Log In"
     }`;
@@ -42,7 +48,7 @@ const Login = chakra(
           listItems={[
             <Link
               key="logInCatalog"
-              href={patronName ? loggedInLinks.catalog : loginLinks.catalog}
+              href={catalogLink}
               onClick={() => gaUtils.trackEvent(gaAction, "Catalog")}
               ref={catalogRef}
               type="button"
@@ -59,7 +65,7 @@ const Login = chakra(
               </span>
             </Link>,
             <Link
-              href={patronName ? loggedInLinks.research : loginLinks.research}
+              href={researchLink}
               key="logInResearch"
               onClick={() => gaUtils.trackEvent(gaAction, "Research")}
               type="button"
@@ -83,7 +89,7 @@ const Login = chakra(
         />
         {patronName && (
           <Link
-            href={logOutLink}
+            href={updatedLogOutLink}
             type="button"
             onClick={() => gaUtils.trackEvent("My Account", "Log Out")}
             __css={styles.logoutButton}

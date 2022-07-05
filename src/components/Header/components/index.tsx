@@ -10,7 +10,7 @@ import SearchForm from "./SearchForm";
 import SitewideAlerts from "./SitewideAlerts";
 import UpperNav from "./UpperNav";
 // React Context
-import { PatronProvider } from "../context/patronContext";
+import { HeaderProvider } from "../context/headerContext";
 
 export default {
   Login,
@@ -19,7 +19,7 @@ export default {
   MobileIconNav,
   MobileNav,
   MobileNavButton,
-  PatronProvider,
+  HeaderProvider,
   SearchButton,
   SearchForm,
   SitewideAlerts,

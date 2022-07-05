@@ -6,7 +6,7 @@ import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import Login from "./Login";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
-import { PatronContext } from "../context/patronContext";
+import { HeaderContext } from "../context/headerContext";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface LoginButtonProps {
@@ -15,7 +15,7 @@ export interface LoginButtonProps {
 
 const LoginButton = chakra(({ isMobile = false }: LoginButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const patronName = useContext(PatronContext);
+  const { patronName } = useContext(HeaderContext);
   const catalogRef = useRef<HTMLAnchorElement>(null);
   const greetingRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);

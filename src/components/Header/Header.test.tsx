@@ -383,9 +383,14 @@ describe("Patron API returns expired data, but refreshes the token successfully"
       2,
       patronApiUrlWithToken
     );
-    expect((global as any).fetch).toHaveBeenNthCalledWith(3, tokenRefreshLink, {
-      credentials: "include",
-    });
+    expect((global as any).fetch).toHaveBeenNthCalledWith(
+      3,
+      // Using the development environment.
+      tokenRefreshLink(false),
+      {
+        credentials: "include",
+      }
+    );
     expect((global as any).fetch).toHaveBeenNthCalledWith(
       4,
       patronApiUrlWithToken
