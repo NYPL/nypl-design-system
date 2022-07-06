@@ -3,11 +3,11 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
-import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
+import HeaderMobileNav from "./HeaderMobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 
-const MobileNavButton = chakra(() => {
+const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });
   const ref = useRef<HTMLDivElement>(null);
@@ -28,10 +28,10 @@ const MobileNavButton = chakra(() => {
         >
           <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />
         </Button>
-        {isOpen && <HeaderComponents.MobileNav />}
+        {isOpen && <HeaderMobileNav />}
       </FocusLock>
     </Box>
   );
 });
 
-export default MobileNavButton;
+export default HeaderMobileNavButton;

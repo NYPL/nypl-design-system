@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 
-import HeaderComponents from "./index";
 import Link from "../../Link/Link";
 import List from "../../List/List";
+import HeaderSearchButton from "./HeaderSearchButton";
 import { lowerNavLinks } from "../utils/headerUtils";
 
-const LowerNav = chakra(() => {
+const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
 
   return (
@@ -36,7 +36,7 @@ const LowerNav = chakra(() => {
           <Link href={lowerNavLinks.getHelp} key="getHelpLink">
             Get Help
           </Link>,
-          <HeaderComponents.SearchButton key="search" />,
+          <HeaderSearchButton key="search" />,
         ]}
         noStyling
         type="ul"
@@ -45,4 +45,4 @@ const LowerNav = chakra(() => {
   );
 });
 
-export default LowerNav;
+export default HeaderLowerNav;

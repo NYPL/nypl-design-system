@@ -1,26 +1,28 @@
 import React from "react";
 import { chakra, Flex, useStyleConfig } from "@chakra-ui/react";
 
-import HeaderComponents from "./index";
 import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
+import HeaderLoginButton from "./HeaderLoginButton";
+import HeaderMobileNavButton from "./HeaderMobileNavButton";
+import HeaderSearchButton from "./HeaderSearchButton";
 
-const MobileIconNav = chakra(() => {
+const HeaderMobileIconNav = chakra(() => {
   const styles = useStyleConfig("HeaderMobileIconNav");
 
   return (
     <Flex sx={styles}>
-      <HeaderComponents.LoginButton isMobile />
+      <HeaderLoginButton isMobile />
       <Link
         aria-label="NYPL Locations Near Me"
         href="https://nypl.org/locations"
       >
         <Icon name="locator" size="large" title="NYPL Locator" />
       </Link>
-      <HeaderComponents.SearchButton isMobile />
-      <HeaderComponents.MobileNavButton />
+      <HeaderSearchButton isMobile />
+      <HeaderMobileNavButton />
     </Flex>
   );
 });
 
-export default MobileIconNav;
+export default HeaderMobileIconNav;

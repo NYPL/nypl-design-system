@@ -1,11 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 
-import { PatronContext, PatronProvider } from "./patronContext";
+import {
+  HeaderPatronContext,
+  HeaderPatronProvider,
+} from "./headerPatronContext";
 
-describe("PatronContext", () => {
+describe("HeaderPatronContext", () => {
   const PatronTestComponent = () => {
-    const name = React.useContext(PatronContext);
+    const name = React.useContext(HeaderPatronContext);
 
     if (!name) {
       return null;
@@ -16,9 +19,9 @@ describe("PatronContext", () => {
 
   it("returns an empty string if no value is passed", () => {
     render(
-      <PatronProvider>
+      <HeaderPatronProvider>
         <PatronTestComponent />
-      </PatronProvider>
+      </HeaderPatronProvider>
     );
 
     expect(
@@ -28,9 +31,9 @@ describe("PatronContext", () => {
 
   it("passes down the patron name value down to its children", () => {
     render(
-      <PatronProvider patronName="Tom Nook">
+      <HeaderPatronProvider patronName="Tom Nook">
         <PatronTestComponent />
-      </PatronProvider>
+      </HeaderPatronProvider>
     );
 
     expect(

@@ -7,17 +7,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
+import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
 import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
-import Icon from "../../Icons/Icon";
 
 /**
  * The Header navigation for the mobile view.
  */
-const MobileNav = chakra(() => {
+const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
 
   return (
@@ -114,4 +114,4 @@ const MobileNav = chakra(() => {
   );
 });
 
-export default MobileNav;
+export default HeaderMobileNav;

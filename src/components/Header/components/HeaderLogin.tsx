@@ -7,15 +7,15 @@ import List from "../../List/List";
 import Text from "../../Text/Text";
 import { loginLinks, loggedInLinks } from "../utils/headerUtils";
 
-export interface LoginProps {
+export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
   patronName?: string;
 }
 
-const Login = chakra(
-  ({ catalogRef, greetingRef, isMobile, patronName }: LoginProps) => {
+const HeaderLogin = chakra(
+  ({ catalogRef, greetingRef, isMobile, patronName }: HeaderLoginProps) => {
     const styles = useMultiStyleConfig("HeaderLogin", {
       patronName,
     });
@@ -88,4 +88,4 @@ const Login = chakra(
   }
 );
 
-export default Login;
+export default HeaderLogin;
