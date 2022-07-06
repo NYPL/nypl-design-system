@@ -10,6 +10,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Exports `ColorCard`.
+
+### Updates
+
+- Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+- Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+
+## 1.0.4 (June 23, 2022)
+
+### Adds
+
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
 - Adds `ui.gray.xx-dark` to the color palette.
 - Adds npm packages useful for lazy loading images in the `Image` component.
@@ -30,6 +46,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the docs for the `Table` commponent to remove the example that does not include column headers.
 - Updates the `Button`, `Select` and `TextInput` components to use NYPL standard minimum height in mobile viewport.
 - Updates the `SearchBar` component to change how the width of the internal `Select` component is handled.
+
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
 
 ## 1.0.3 (June 9, 2022)
 

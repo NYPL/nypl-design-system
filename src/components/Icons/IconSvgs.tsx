@@ -2,11 +2,13 @@
 import accessibilityFull from "../../../icons/svg/accessibility-full.svg";
 import accessibilityPartial from "../../../icons/svg/accessibility-partial.svg";
 import actionCheckCircle from "../../../icons/svg/action-check-circle.svg";
+import actionCheckCircleFilled from "../../../icons/svg/action-check-circle-filled.svg";
 import actionExit from "../../../icons/svg/action-exit.svg";
 import actionHelpDefault from "../../../icons/svg/action-help-default.svg";
 import actionHelpOutline from "../../../icons/svg/action-help-outline.svg";
 import actionLaunch from "../../../icons/svg/action-launch.svg";
 import actionPower from "../../../icons/svg/action-power.svg";
+import actionRegistration from "../../../icons/svg/action-registration.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import arrow from "../../../icons/svg/arrow.svg";
@@ -14,6 +16,9 @@ import building from "../../../icons/svg/building.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
+import decorativeEnvelope from "../../../icons/svg/decorative-envelope.svg";
+import decorativeLibraryCard from "../../../icons/svg/decorative-library-card.svg";
+import decorativeShoppingBag from "../../../icons/svg/decorative-shopping-bag.svg";
 import download from "../../../icons/svg/download.svg";
 import errorFilled from "../../../icons/svg/error-filled.svg";
 import errorOutline from "../../../icons/svg/error-outline.svg";
@@ -44,11 +49,13 @@ export default {
   accessibilityFull,
   accessibilityPartial,
   actionCheckCircle,
+  actionCheckCircleFilled,
   actionExit,
   actionHelpDefault,
   actionHelpOutline,
   actionLaunch,
   actionPower,
+  actionRegistration,
   actionSettings,
   alertNotificationImportant,
   arrow,
@@ -56,6 +63,9 @@ export default {
   check,
   clock,
   close,
+  decorativeEnvelope,
+  decorativeLibraryCard,
+  decorativeShoppingBag,
   download,
   errorFilled,
   errorOutline,
