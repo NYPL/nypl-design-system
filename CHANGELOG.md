@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Better namespacing for Header-only components.
 - Adds the `react-ga` package to send Google Analytics events.
 - Sets Header Auth links for production and development environments.
+- Adds the `EncoreCatalogLogOutTimer` function to keep track of the patron's current site and when they should be logged out of Encore/Catalog after a timeout period.
 
 ## Prerelease
 

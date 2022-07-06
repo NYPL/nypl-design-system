@@ -18,9 +18,6 @@ describe("EncoreCatalogLogOutTimer", () => {
   beforeAll(() => {
     realDate = Date;
     (global as any).Date = class extends Date {
-      constructor(date) {
-        super(date);
-      }
       // Mock the Date.now() call with a random, but always the same, time.
       now() {
         return mockCurrentTime;

@@ -70,6 +70,8 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
     }
   };
 
+  // Once the `Header` component is mounted, start a timer that will
+  // log the user out of Encore and the NYPL Catalog after 30 minutes.
   useEffect(() => {
     encoreCatalogLogOutTimer.setEncoreLoggedInTimer(window.location.host);
   });
