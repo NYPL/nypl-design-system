@@ -8,6 +8,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.5 (July 7, 2022)
+
+### Adds
+
+- Exports `ColorCard`.
+
+### Updates
+
+- Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+- Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+
 ## 1.0.4 (June 23, 2022)
 
 ### Adds
