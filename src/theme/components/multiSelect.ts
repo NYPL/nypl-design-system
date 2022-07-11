@@ -59,7 +59,6 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      // background: "ui.gray.xx-light-cool",
       border: "1px solid",
       borderBottomLeftRadius: "button.default",
       borderBottomRightRadius: "button.default",

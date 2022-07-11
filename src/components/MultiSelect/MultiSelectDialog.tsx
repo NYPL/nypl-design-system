@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   ListItem,
-  // Stack,
   UnorderedList,
   useMultiStyleConfig,
   useOutsideClick,
@@ -187,7 +186,6 @@ function MultiSelectDialog({
               ))}
           </UnorderedList>
           {isOpen && !isMobile && (
-            // <Stack direction="row" spacing="s" justify="flex-end">
             <ButtonGroup __css={styles.actionButtons}>
               <Button
                 id={`multiselect-${id}-clear`}

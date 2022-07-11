@@ -4,7 +4,6 @@ const radii = {
     pill: "20px",
   },
   checkbox: "3px",
-  pill: "20px",
   round: "100%",
 };
 

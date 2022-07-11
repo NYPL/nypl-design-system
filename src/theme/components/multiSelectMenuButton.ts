@@ -5,7 +5,6 @@ const MultiSelectMenuButton = {
     "selectedItemsCountButton",
     "toggleIcon",
   ],
-  // baseStyle: {
   baseStyle: ({ isOpen = false }) => ({
     buttonLabel: {
       justifyContent: "flex-start",

@@ -26,8 +26,8 @@ import * as stories from "./MultiSelect.stories.tsx";
   }}
   argTypes={{
     id: { control: false },
-    isBlockElement: { table: { default: false } },
-    isDefaultOpen: { table: { default: false } },
+    isBlockElement: { table: { defaultValue: { summary: "false" } } },
+    isDefaultOpen: { table: { defaultValue: { summary: "false" } } },
     items: { control: false },
     label: { table: { default: "" } },
     onApply: {
@@ -43,9 +43,9 @@ import * as stories from "./MultiSelect.stories.tsx";
         "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
     },
     selectedItems: { control: false },
-    variant: { table: { default: "listbox" }, control: false },
+    variant: { control: false, defaultValue: { summary: "listbox" } },
     width: {
-      table: { default: "default" },
+      table: { defaultValue: { summary: "default" } },
     },
   }}
 />
@@ -60,10 +60,9 @@ import * as stories from "./MultiSelect.stories.tsx";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props](#component-props)
+- [Component Props for MultiSelect Listbox Variant](#component-props-multiselect-listbox-variant)
+- [Component Props for MultiSelect Dialog Variant](#component-props-multiselect-dialog-variant)
 - [Accessibility](#accessibility)
-- [MultiSelect Listbox Variant](#multiselect-listbox-variant)
-- [MultiSelect Dialog Variant](#multiselect-dialog-variant)
 - [Using the items prop](#using-the-items-prop)
 - [Controlling state using selectedItems and onChange prop](#controlling-state-using-selecteditems-and-onchange-prop)
 - [MultiSelect NextJS routing implementation](#multiselect-nextjs-routing-implementation)
@@ -73,9 +72,7 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 <Description of={MultiSelect} />
 
-## Component Props
-
-### MultiSelect Listbox Variant
+## Component Props for MultiSelect Listbox Variant
 
 The `MultiSelect` listbox variant renders a non-hierarchical list of items to select from.
 
@@ -94,21 +91,7 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
 
 <ArgsTable story="MultiSelect ListBox" />
 
-## Accessibility
-
-The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
-By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
-
-The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
-
-Resources:
-
-- [downshift.js documentation](https://www.downshift-js.com/)
-- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
-- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
-- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
-
-## MultiSelect Dialog Variant
+## Component Props for MultiSelect Dialog Variant
 
 The `MultiSelect` dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
 If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
@@ -125,6 +108,22 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
     {(args) => <stories.MultiSelectDialogStory {...args} />}
   </Story>
 </Canvas>
+
+<ArgsTable story="MultiSelect Dialog" />
+
+## Accessibility
+
+The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
+By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
+
+The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
+
+Resources:
+
+- [downshift.js documentation](https://www.downshift-js.com/)
+- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
+- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
+- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
 
 ## Using the items prop
 
