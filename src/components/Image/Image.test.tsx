@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Image from "./Image";
 
@@ -41,9 +42,13 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
-  it("lazy loading does not render an image src until it is 'inView'", async () => {
+  // @TODO - test when it does come into view.
+  it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
     const src = "https://placeimg.com/500/200/animals";
     const { container } = render(<Image alt="" isLazy src={src} />);
+
+    // Mock that the image is not in view through the IntersectionObserver object.
+    mockAllIsIntersecting(false);
 
     expect(container.querySelector("img")).not.toHaveAttribute("src");
   });

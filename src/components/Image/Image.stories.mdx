@@ -338,7 +338,7 @@ The `Image` component handles lazy loading images through two npm packages:
 [`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer)
 and [`@charlietango/use-native-lazy-loading`](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading).
 The first package handles using the `IntersectionObserver` API in React and the
-second package checks if the `img`'s native `loading="lazy` attribute is
+second package checks if the `img`'s native `loading="lazy"` attribute is
 supported by the browser.
 
 Lazy loading is disabled by default. In order to use the lazy loading feature,
@@ -350,7 +350,7 @@ pass the `isLazy` prop or set it to `true`.
 
 The `Image`'s implementation of lazy loading is based on the recipe provided by
 `react-intersection-observer`. Once the image's wrapper is in view, we load the
-image by rendering it through the native `loading="lazy` attribute or through
+image by rendering it through the native `loading="lazy"` attribute or through
 the `IntersectionObserver` API.
 
 In the following example, open the "Network" tab in your browser's console and
