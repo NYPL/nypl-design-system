@@ -135,7 +135,7 @@ export const Select = chakra(
           className={className}
           helperText={helperText}
           helperTextStyles={{
-            marginLeft: { sm: "auto", md: `${labelWidth}px` },
+            marginStart: { sm: "auto", md: `${labelWidth}px` },
           }}
           id={id}
           invalidText={finalInvalidText}

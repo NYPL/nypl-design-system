@@ -2,8 +2,8 @@ import { baseLinkStyles } from "./link";
 
 const margins = {
   marginTop: "0",
-  marginLeft: "0",
-  marginRight: "0",
+  marginStart: "0",
+  marginEnd: "0",
 };
 
 // Heading Styles

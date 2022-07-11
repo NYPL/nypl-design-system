@@ -115,7 +115,7 @@ const Card = {
       textAlign: isCentered ? "center" : null,
       actions: {
         flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
-        marginLeft: { base: "0", md: "m" },
+        marginStart: { base: "0", md: "m" },
         marginTop: { base: "xs", md: "0" },
         maxWidth: { base: "100%", md: "180px" },
         width: "100%",

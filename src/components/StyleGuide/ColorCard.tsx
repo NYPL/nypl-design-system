@@ -45,7 +45,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     <Icon
       color={textColor}
       decorative
-      marginLeft="xxs"
+      marginStart="xxs"
       name="check"
       size="medium"
       type="default"

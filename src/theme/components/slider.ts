@@ -9,8 +9,8 @@ interface CustomSliderBaseStyle {
 const staticValues = {
   marginTop: "xs",
   marginBottom: "xs",
-  marginRight: "s",
-  marginLeft: "0",
+  marginEnd: "s",
+  marginStart: "0",
 };
 const CustomSlider = {
   parts: [
@@ -44,10 +44,10 @@ const CustomSlider = {
       leftValue: { ...staticValues, color: isDisabled ? "ui.gray.dark" : null },
       rightValue: {
         ...staticValues,
-        marginLeft: "s",
+        marginStart: "s",
         // If the text input boxes are shown, then there already is
         // a margin, so we can set this static value to "0".
-        marginRight: showBoxes ? "0" : "s",
+        marginEnd: showBoxes ? "0" : "s",
         color: isDisabled ? "ui.gray.dark" : null,
       },
       textInput: {
@@ -60,8 +60,8 @@ const CustomSlider = {
       // overflow past the container when the value boxes or min/max values
       // are not shown.
       sliderContainer: {
-        marginLeft: !showValues ? "xs" : null,
-        marginRight: !showBoxes && !showValues ? "xs" : null,
+        marginStart: !showValues ? "xs" : null,
+        marginEnd: !showBoxes && !showValues ? "xs" : null,
       },
       // Filled track doesn't have a _disabled or _invalid state...
       // so we manually do it through the props.

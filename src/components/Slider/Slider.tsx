@@ -230,8 +230,8 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
           ...styles.textInput,
           // Specific margins for each text input to
           // push the elements inside.
-          marginRight: type === "start" ? "s" : null,
-          marginLeft: type === "end" ? "s" : null,
+          marginEnd: type === "start" ? "s" : null,
+          marginStart: type === "end" ? "xl" : null,
         }}
         {...inputProps[type]}
       />
