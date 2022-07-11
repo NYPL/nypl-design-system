@@ -276,4 +276,18 @@ describe("Notification", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the aside wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Notification
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        ref={ref}
+      />
+    );
+
+    expect(container.querySelector("aside")).toBe(ref.current);
+  });
 });

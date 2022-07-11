@@ -1,6 +1,11 @@
 import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import {
+  Box,
+  chakra,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import React, { forwardRef } from "react";
 import { useInView } from "react-intersection-observer";
 
 export type ImageRatios =
@@ -101,96 +106,99 @@ const ImageWrapper = chakra(
   }
 );
 
-export const Image = chakra((props: ImageProps) => {
-  const {
-    additionalFigureStyles = {},
-    additionalImageStyles = {},
-    additionalWrapperStyles = {},
-    alt,
-    aspectRatio = "original",
-    caption,
-    className = "",
-    component,
-    credit,
-    imageType = "default",
-    size = "default",
-    src,
-    ...rest
-  } = props;
-  // Check if the native browser lazy loading is supported.
-  const supportsLazyLoading = useNativeLazyLoading();
-  // If it is (mostly Chromium-based browsers), then skip creating
-  // the IntersectionObserver object.
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    skip: supportsLazyLoading,
-  });
-  const useImageWrapper = aspectRatio !== "original";
-  const styles = useMultiStyleConfig("CustomImage", {
-    variant: imageType,
-    size,
-  });
-  let imageComponent: JSX.Element | null = null;
-  let srcProp = {};
+export const Image = chakra(
+  forwardRef<HTMLDivElement, ImageProps>((props, ref?) => {
+    const {
+      additionalFigureStyles = {},
+      additionalImageStyles = {},
+      additionalWrapperStyles = {},
+      alt,
+      aspectRatio = "original",
+      caption,
+      className = "",
+      component,
+      credit,
+      imageType = "default",
+      size = "default",
+      src,
+      ...rest
+    } = props;
+    // Check if the native browser lazy loading is supported.
+    const supportsLazyLoading = useNativeLazyLoading();
+    // If it is (mostly Chromium-based browsers), then skip creating
+    // the IntersectionObserver object.
+    const [inViewRef, inView] = useInView({
+      triggerOnce: true,
+      skip: supportsLazyLoading,
+    });
+    const refs = useMergeRefs(inViewRef, ref);
+    const useImageWrapper = aspectRatio !== "original";
+    const styles = useMultiStyleConfig("CustomImage", {
+      variant: imageType,
+      size,
+    });
+    let imageComponent: JSX.Element | null = null;
+    let srcProp = {};
 
-  if (alt && alt.length > 300) {
-    throw new Error(
-      "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    if (alt && alt.length > 300) {
+      throw new Error(
+        "NYPL Reservoir Image: Alt text must be less than 300 characters."
+      );
+    }
+
+    // For lazying loading images, the initial `src` value is empty. Once
+    // the image is loaded, the `src` prop is set and passed to the image
+    // element so that it can load. This also lets it load with a gray
+    // background placeholder.
+    if (inView || supportsLazyLoading) {
+      srcProp = { src };
+    }
+
+    imageComponent = component ? (
+      component
+    ) : (
+      <Box
+        as="img"
+        alt={alt}
+        loading="lazy"
+        {...srcProp}
+        __css={{ ...styles.img, ...additionalImageStyles }}
+      />
     );
-  }
+    const finalImage = useImageWrapper ? (
+      <ImageWrapper
+        additionalWrapperStyles={additionalWrapperStyles}
+        aspectRatio={aspectRatio}
+        className={className}
+        size={size}
+        {...(caption || credit ? {} : rest)}
+      >
+        {imageComponent}
+      </ImageWrapper>
+    ) : (
+      imageComponent
+    );
 
-  // For lazying loading images, the initial `src` value is empty. Once
-  // the image is loaded, the `src` prop is set and passed to the image
-  // element so that it can load. This also lets it load with a gray
-  // background placeholder.
-  if (inView || supportsLazyLoading) {
-    srcProp = { src };
-  }
-
-  imageComponent = component ? (
-    component
-  ) : (
-    <Box
-      as="img"
-      alt={alt}
-      loading="lazy"
-      {...srcProp}
-      __css={{ ...styles.img, ...additionalImageStyles }}
-    />
-  );
-  const finalImage = useImageWrapper ? (
-    <ImageWrapper
-      additionalWrapperStyles={additionalWrapperStyles}
-      aspectRatio={aspectRatio}
-      className={className}
-      size={size}
-      {...(caption || credit ? {} : rest)}
-    >
-      {imageComponent}
-    </ImageWrapper>
-  ) : (
-    imageComponent
-  );
-
-  return (
-    <Box ref={ref}>
-      {caption || credit ? (
-        <Box
-          as="figure"
-          __css={{ ...styles.figure, ...additionalFigureStyles }}
-          {...rest}
-        >
-          {finalImage}
-          <Box as="figcaption" __css={styles.figcaption}>
-            {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
-            {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+    return (
+      <Box ref={refs}>
+        {caption || credit ? (
+          <Box
+            as="figure"
+            __css={{ ...styles.figure, ...additionalFigureStyles }}
+            {...rest}
+          >
+            {finalImage}
+            <Box as="figcaption" __css={styles.figcaption}>
+              {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
+              {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+            </Box>
           </Box>
-        </Box>
-      ) : (
-        finalImage
-      )}
-    </Box>
-  );
-});
+        ) : (
+          finalImage
+        )}
+      </Box>
+    );
+  })
+);
 
 export default Image;

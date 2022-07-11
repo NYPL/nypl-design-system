@@ -80,4 +80,16 @@ describe("SimpleGrid", () => {
       utils.container.querySelector("#test-grid-render")
     ).toBeInTheDocument();
   });
+
+  it("passes a ref to the div element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <SimpleGrid id="grid-ref" ref={ref}>
+        <p>test1</p>
+        <p>test2</p>
+      </SimpleGrid>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

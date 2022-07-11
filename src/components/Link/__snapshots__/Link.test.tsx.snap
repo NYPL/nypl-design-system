@@ -21,38 +21,40 @@ exports[`Link renders the UI snapshot correctly 2`] = `
   target={null}
 >
   Forwards
-  <svg
-    aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
-    focusable={false}
-    id="forwards-link-icon"
-    role="img"
-    title="arrow icon"
-    viewBox="0 0 24 24"
-  >
-    <g
-      stroke="currentColor"
-      strokeWidth="1.5"
+  <span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon more-link css-1grhd2q"
+      focusable={false}
+      id="forwards-link-icon"
+      role="img"
+      title="arrow icon"
+      viewBox="0 0 24 24"
     >
-      <path
-        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-        fill="currentColor"
-        strokeLinecap="round"
-      />
-      <circle
-        cx="12"
-        cy="12"
-        fill="none"
-        r="11.25"
-        strokeMiterlimit="10"
-      />
-    </g>
-  </svg>
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
 </a>
 `;
 
@@ -64,38 +66,40 @@ exports[`Link renders the UI snapshot correctly 3`] = `
   rel={null}
   target={null}
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
-    focusable={false}
-    id="backwards-link-icon"
-    role="img"
-    title="arrow icon"
-    viewBox="0 0 24 24"
-  >
-    <g
-      stroke="currentColor"
-      strokeWidth="1.5"
+  <span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon more-link css-1grhd2q"
+      focusable={false}
+      id="backwards-link-icon"
+      role="img"
+      title="arrow icon"
+      viewBox="0 0 24 24"
     >
-      <path
-        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-        fill="currentColor"
-        strokeLinecap="round"
-      />
-      <circle
-        cx="12"
-        cy="12"
-        fill="none"
-        r="11.25"
-        strokeMiterlimit="10"
-      />
-    </g>
-  </svg>
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
   Backwards
 </a>
 `;
@@ -109,38 +113,40 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   target="_blank"
 >
   External
-  <svg
-    aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
-    focusable={false}
-    id="external-link-icon"
-    role="img"
-    title="actionLaunch icon"
-    viewBox="0 0 24 24"
-  >
-    <g
-      stroke="currentColor"
-      strokeWidth="1.5"
+  <span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon more-link css-1grhd2q"
+      focusable={false}
+      id="external-link-icon"
+      role="img"
+      title="actionLaunch icon"
+      viewBox="0 0 24 24"
     >
-      <path
-        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-        fill="currentColor"
-        strokeLinecap="round"
-      />
-      <circle
-        cx="12"
-        cy="12"
-        fill="none"
-        r="11.25"
-        strokeMiterlimit="10"
-      />
-    </g>
-  </svg>
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
 </a>
 `;
 
@@ -164,38 +170,40 @@ exports[`Link renders the UI snapshot correctly 6`] = `
   rel={null}
   target={null}
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
-    focusable={false}
-    id="link-icon"
-    role="img"
-    title="download icon"
-    viewBox="0 0 24 24"
-  >
-    <g
-      stroke="currentColor"
-      strokeWidth="1.5"
+  <span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon more-link css-1grhd2q"
+      focusable={false}
+      id="link-icon"
+      role="img"
+      title="download icon"
+      viewBox="0 0 24 24"
     >
-      <path
-        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-        fill="currentColor"
-        strokeLinecap="round"
-      />
-      <circle
-        cx="12"
-        cy="12"
-        fill="none"
-        r="11.25"
-        strokeMiterlimit="10"
-      />
-    </g>
-  </svg>
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
   Download
 </a>
 `;
@@ -220,38 +228,40 @@ exports[`Link renders the UI snapshot correctly 8`] = `
 <span
   className="css-0"
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon css-1grhd2q"
-    focusable={false}
-    id="link-icon"
-    role="img"
-    title="check icon"
-    viewBox="0 0 24 24"
-  >
-    <g
-      stroke="currentColor"
-      strokeWidth="1.5"
+  <span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      focusable={false}
+      id="link-icon"
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
     >
-      <path
-        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-        fill="currentColor"
-        strokeLinecap="round"
-      />
-      <circle
-        cx="12"
-        cy="12"
-        fill="none"
-        r="11.25"
-        strokeMiterlimit="10"
-      />
-    </g>
-  </svg>
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
   <a
     href="#existing-anchor-tag"
   >

@@ -24,38 +24,40 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"
@@ -150,38 +152,40 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"
@@ -276,38 +280,40 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"
@@ -403,38 +409,40 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"
@@ -529,38 +537,40 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"
@@ -655,38 +665,40 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       >
         Gerry Kellman
       </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="accordion-accordian-icon-0"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="accordion-accordian-icon-0"
+          role="img"
+          title="plus icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
     <div
       className="chakra-collapse"

@@ -187,4 +187,11 @@ describe("Image", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Image alt="" src="test.png" ref={ref} />);
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

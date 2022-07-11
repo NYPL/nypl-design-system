@@ -65,13 +65,14 @@ describe("Card Accessibility", () => {
 });
 
 describe("Card", () => {
-  const regularCard = (
+  const regularCard = (ref?: React.RefObject<HTMLDivElement>) => (
     <Card
       id="regularCard"
       imageProps={{
         alt: "Alt text",
         src: "https://placeimg.com/400/200/arch",
       }}
+      ref={ref}
     >
       <CardHeading level="three" id="heading1">
         The Card Heading
@@ -294,7 +295,7 @@ describe("Card", () => {
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
-    const utils = render(regularCard);
+    const utils = render(regularCard());
     container = utils.container;
     // Mock IntersectionObserver to render images.
     mockAllIsIntersecting(true);
@@ -381,7 +382,7 @@ describe("Card", () => {
   });
 
   it("Renders the UI snapshot correctly", () => {
-    const regular = renderer.create(regularCard).toJSON();
+    const regular = renderer.create(regularCard()).toJSON();
     const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
     const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
@@ -402,5 +403,12 @@ describe("Card", () => {
     expect(withRightActions).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(regularCard(ref));
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

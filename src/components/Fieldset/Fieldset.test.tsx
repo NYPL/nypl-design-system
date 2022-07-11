@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Fieldset from "./Fieldset";
@@ -151,5 +151,16 @@ describe("Fieldset", () => {
     expect(hiddenLegend).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the fieldset element", () => {
+    const ref = React.createRef<HTMLDivElement & HTMLFieldSetElement>();
+    const { container } = render(
+      <Fieldset id="ref" legendText="Legend Text" ref={ref}>
+        <p>Some other fields</p>
+      </Fieldset>
+    );
+
+    expect(container.querySelector("fieldset")).toBe(ref.current);
   });
 });

@@ -468,4 +468,16 @@ describe("Radio Button", () => {
       "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
     );
   });
+
+  it("passes a ref to the input element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <RadioGroup id="column" labelText="column" name="column" ref={ref}>
+        <Radio value="2" labelText="Radio 2" id="radio-2" />
+        <Radio value="3" labelText="Radio 3" id="radio-3" />
+      </RadioGroup>
+    );
+
+    expect(container.querySelector("fieldset > div")).toBe(ref.current);
+  });
 });

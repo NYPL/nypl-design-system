@@ -50,45 +50,47 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -146,45 +148,47 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
         className="chakra-select__icon-wrapper css-162mkon"
         data-disabled=""
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -243,45 +247,47 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -351,45 +357,47 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -462,45 +470,47 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -561,45 +571,47 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -658,45 +670,47 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="select-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="select-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -753,45 +767,47 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="chakra-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="chakra-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>
@@ -849,45 +865,47 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
       <div
         className="chakra-select__icon-wrapper css-162mkon"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
-          focusable={false}
-          id="props-icon"
-          role="presentation"
-          style={
-            Object {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
+        <span>
+          <svg
+            aria-hidden={true}
+            className="chakra-icon chakra-select__icon css-1grhd2q"
+            focusable={false}
+            id="props-icon"
+            role="presentation"
+            style={
+              Object {
+                "color": "currentColor",
+                "height": "1em",
+                "width": "1em",
+              }
             }
-          }
-          title="arrow icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+            title="arrow icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
     </div>
   </div>

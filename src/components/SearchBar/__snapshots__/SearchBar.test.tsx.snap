@@ -38,38 +38,40 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       id="searchbar-button-basic"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-basic"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-basic"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -176,45 +178,47 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           <div
             className="chakra-select__icon-wrapper css-162mkon"
           >
-            <svg
-              aria-hidden={true}
-              className="chakra-icon chakra-select__icon css-1grhd2q"
-              focusable={false}
-              id="searchbar-select-withSelect-icon"
-              role="presentation"
-              style={
-                Object {
-                  "color": "currentColor",
-                  "height": "1em",
-                  "width": "1em",
+            <span>
+              <svg
+                aria-hidden={true}
+                className="chakra-icon chakra-select__icon css-1grhd2q"
+                focusable={false}
+                id="searchbar-select-withSelect-icon"
+                role="presentation"
+                style={
+                  Object {
+                    "color": "currentColor",
+                    "height": "1em",
+                    "width": "1em",
+                  }
                 }
-              }
-              title="arrow icon"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke="currentColor"
-                strokeWidth="1.5"
+                title="arrow icon"
+                viewBox="0 0 24 24"
               >
-                <path
-                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                  fill="currentColor"
-                  strokeLinecap="round"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  fill="none"
-                  r="11.25"
-                  strokeMiterlimit="10"
-                />
-              </g>
-            </svg>
+                <g
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="currentColor"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokeMiterlimit="10"
+                  />
+                </g>
+              </svg>
+            </span>
           </div>
         </div>
       </div>
@@ -246,38 +250,40 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       id="searchbar-button-withSelect"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-withSelect"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-withSelect"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -334,38 +340,40 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       id="searchbar-button-withoutHelperText"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-withoutHelperText"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-withoutHelperText"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -410,38 +418,40 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       id="searchbar-button-invalidState"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-invalidState"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-invalidState"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -487,38 +497,40 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       id="searchbar-button-disabledState"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-disabledState"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-disabledState"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -565,38 +577,40 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       id="searchbar-button-requiredState"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-requiredState"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-requiredState"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -643,38 +657,40 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       id="searchbar-button-noBrandButtonType"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-noBrandButtonType"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-noBrandButtonType"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -705,38 +721,40 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       id="searchbar-button-withHeading"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-withHeading"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-withHeading"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -766,38 +784,40 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       id="searchbar-button-withDescription"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-withDescription"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-withDescription"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -833,38 +853,40 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       id="searchbar-button-withHeadingAndDescription"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-withHeadingAndDescription"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-withHeadingAndDescription"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -909,38 +931,40 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       id="searchbar-button-chakra"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-chakra"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-chakra"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>
@@ -998,38 +1022,40 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       id="searchbar-button-props"
       type="submit"
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="searchbar-icon-props"
-        role="img"
-        title="search icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          id="searchbar-icon-props"
+          role="img"
+          title="search icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </span>
       Search
     </button>
   </form>

@@ -4,7 +4,7 @@ import {
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
@@ -62,7 +62,7 @@ const noop = () => {};
  * components when `RadioGroup` is used.
  */
 export const RadioGroup = chakra(
-  React.forwardRef<HTMLInputElement, React.PropsWithChildren<RadioGroupProps>>(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<RadioGroupProps>>(
     (props, ref?) => {
       const {
         children,

@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import HorizontalRule from "./HorizontalRule";
@@ -50,5 +50,12 @@ describe("HorizontalRule", () => {
     expect(alignRight).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the hr element", () => {
+    const ref = React.createRef<HTMLDivElement & HTMLHRElement>();
+    const { container } = render(<HorizontalRule ref={ref} />);
+
+    expect(container.querySelector("hr")).toBe(ref.current);
   });
 });
