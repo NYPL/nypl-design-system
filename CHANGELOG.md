@@ -24,6 +24,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Better namespacing for Header-only components.
 - Adds the `react-ga` package to send Google Analytics events.
 
+### Updates
+
+- Updates the `onClick` event type for the `Pagination` links `onClick` function.
+- Updates the `Link` component's `onClick` event type.
+
 ## Prerelease
 
 ### Adds

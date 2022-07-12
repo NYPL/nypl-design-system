@@ -19,8 +19,8 @@ export const gaConfig = {
 
 /**
  * Utility function to initialize and send events to Google Analytics.
- * NOTE: in 2023, Google will sunset Google Analytics and this will be removed.
- * This will be scrapped later on.
+ * NOTE: in 2023, Google will sunset Google Analytics and this code
+ * will be removed or updated.
  */
 function GaUtils() {
   /**

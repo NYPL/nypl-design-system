@@ -58,9 +58,10 @@ GA is sunset.
 The `Header` component takes two props that are used to configure GA:
 
 - `isProduction`: a boolean that determines whether the `Header` is in
-  production mode or not. This sets the production or development GA code. This
-  also sets the GA "testMode" for unit testing, i.e. we want to set this to
-  `true` for unit testing by setting `isProduction` to `false`.
+  production mode or not. If `true`, the production GA code is set and the
+  `testMode` status for unit testing is set to `false`; if `false`, the
+  development GA code is set and the `testMode` is set to `true`. Set to `true`
+  by default.
 - `gaOptions`: an object that contains the GA settings.
   - `debug`: a boolean that determines whether to log GA debug messages to the
     console. `false` by default.
@@ -69,7 +70,10 @@ The `Header` component takes two props that are used to configure GA:
     standard initialize GA code that is set in the HTML body element, then
     set this to `true`.
   - `titleCase`: a boolean that determines whether to use title case for the
-    GA page title. `false` by default.
+    GA page title. By default, this is set to the opposite value of
+    `isProduction`. For example, when `isProduction` is `true`, then `titleCase`
+    is `false`. Since `isProduction` is `true` by default, `titleCase` is
+    `false` by default.
   - `testMode`: a boolean that determines whether to set GA to test mode to use
     its special API for unit testing GA calls through the `testModeAPI`
     property. `false` by default but set to `true` when running unit tests.

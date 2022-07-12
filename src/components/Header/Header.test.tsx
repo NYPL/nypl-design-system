@@ -101,7 +101,7 @@ describe("Header", () => {
       .click();
 
     // The first five calls are all from initializing GA when calling the
-    // `render` function. The fifth call is the first GA event and the one
+    // `render` function. The sixth call is the first GA event and the one
     // we're interested in. There might be a better way to do this.
     expect(ReactGa.testModeAPI.calls[5]).toEqual([
       "send",
