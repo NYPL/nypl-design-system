@@ -20,8 +20,6 @@ type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const isDialog = true;
-
 function MultiSelectDialog({
   id,
   label,
@@ -38,7 +36,6 @@ function MultiSelectDialog({
   const styles = useMultiStyleConfig("MultiSelect", {
     width,
     isBlockElement,
-    isDialog,
   });
 
   // Track the window size width, to set isMobile.
