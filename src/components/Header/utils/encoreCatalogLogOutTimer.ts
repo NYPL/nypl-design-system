@@ -79,7 +79,7 @@ function EncoreCatalogLogOutTimer(
   this.logOutFromEncoreAndCatalogIn = (time: number) => {
     let timeUntilLogOut = time > 0 ? time : 0;
 
-    // When in test mode, set the timeout no longer than 2 seconds.
+    // When in test mode, set the timeout no longer than a second.
     if (isTestMode && timeUntilLogOut > 8000) {
       timeUntilLogOut = 1000;
     }
