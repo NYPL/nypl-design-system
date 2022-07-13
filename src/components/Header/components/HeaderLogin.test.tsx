@@ -3,15 +3,24 @@ import { axe } from "jest-axe";
 import * as React from "react";
 
 import HeaderLogin from "./HeaderLogin";
+import { HeaderProvider } from "../context/headerContext";
 
 describe("HeaderLogin Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<HeaderLogin patronName="" />);
+    const { container } = render(
+      <HeaderProvider>
+        <HeaderLogin patronName="" />
+      </HeaderProvider>
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for mobile", async () => {
-    const { container } = render(<HeaderLogin isMobile patronName="" />);
+    const { container } = render(
+      <HeaderProvider>
+        <HeaderLogin isMobile patronName="" />
+      </HeaderProvider>
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -19,7 +28,11 @@ describe("HeaderLogin Accessibility", () => {
 describe("HeaderLogin", () => {
   describe("Desktop", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      render(<HeaderLogin patronName="" />);
+      render(
+        <HeaderProvider>
+          <HeaderLogin patronName="" />
+        </HeaderProvider>
+      );
 
       const links = screen.getAllByRole("link");
 
@@ -29,7 +42,11 @@ describe("HeaderLogin", () => {
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      render(<HeaderLogin patronName="PATRON, JANE A" />);
+      render(
+        <HeaderProvider>
+          <HeaderLogin patronName="PATRON, JANE A" />
+        </HeaderProvider>
+      );
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");
@@ -50,7 +67,11 @@ describe("HeaderLogin", () => {
 
   describe("Mobile", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
-      render(<HeaderLogin isMobile patronName="" />);
+      render(
+        <HeaderProvider>
+          <HeaderLogin isMobile patronName="" />
+        </HeaderProvider>
+      );
 
       const links = screen.getAllByRole("link");
 
@@ -60,7 +81,11 @@ describe("HeaderLogin", () => {
     });
 
     it("renders the logged in UI if there is a `patronName` value", () => {
-      render(<HeaderLogin isMobile patronName="PATRON, JANE A" />);
+      render(
+        <HeaderProvider>
+          <HeaderLogin isMobile patronName="PATRON, JANE A" />
+        </HeaderProvider>
+      );
 
       const greetingContainer = screen.getByTestId("patronGreeting");
       const links = screen.getAllByRole("link");

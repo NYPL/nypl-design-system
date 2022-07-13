@@ -20,7 +20,7 @@ import HeaderMobileIconNav from "./components/HeaderMobileIconNav";
 import HeaderSitewideAlerts from "./components/HeaderSitewideAlerts";
 import HeaderUpperNav from "./components/HeaderUpperNav";
 /** Internal Header-only utils */
-import { HeaderPatronProvider } from "./context/headerPatronContext";
+import { HeaderProvider } from "./context/headerContext";
 import {
   deleteCookieValue,
   extractPatronName,
@@ -52,7 +52,7 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
     // key is set to true, try to refresh the accessToken.
     if (data?.data?.statusCode === 401 && data?.data?.expired === true) {
       refreshAccessToken(
-        tokenRefreshLink,
+        tokenRefreshLink(isProduction),
         loginDataCallback,
         deleteCookieValue
       );
@@ -93,7 +93,7 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
   }, []);
 
   return (
-    <HeaderPatronProvider patronName={patronName}>
+    <HeaderProvider isProduction={isProduction} patronName={patronName}>
       <Box __css={styles}>
         <SkipNavigation />
         <HeaderSitewideAlerts />
@@ -127,7 +127,7 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
           <HorizontalRule __css={styles.horizontalRule} />
         </header>
       </Box>
-    </HeaderPatronProvider>
+    </HeaderProvider>
   );
 });
 
