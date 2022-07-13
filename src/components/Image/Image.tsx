@@ -39,6 +39,8 @@ export interface ComponentImageProps {
   component?: JSX.Element;
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
+  /** Flag to set the internal `Image` component to `isLazy` mode. */
+  isLazy?: boolean;
   /** Optional value to control the size of the internal `Image` component.
    * Defaults to `ImageSizes.Default`. */
   size?: ImageSizes;
@@ -74,6 +76,8 @@ export interface ImageProps extends ImageWrapperProps {
   credit?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
+  /** Flag to set the internal `Image` component to `isLazy` mode. */
+  isLazy?: boolean;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src?: string;
 }
@@ -119,6 +123,7 @@ export const Image = chakra(
       component,
       credit,
       imageType = "default",
+      isLazy = false,
       size = "default",
       src,
       ...rest
@@ -131,14 +136,15 @@ export const Image = chakra(
       triggerOnce: true,
       skip: supportsLazyLoading,
     });
-    const refs = useMergeRefs(inViewRef, ref);
     const useImageWrapper = aspectRatio !== "original";
     const styles = useMultiStyleConfig("CustomImage", {
       variant: imageType,
       size,
     });
     let imageComponent: JSX.Element | null = null;
-    let srcProp = {};
+    let lazyRef = undefined;
+    let finalRefs = undefined;
+    let srcProp = isLazy ? {} : { src };
 
     if (alt && alt.length > 300) {
       throw new Error(
@@ -149,10 +155,18 @@ export const Image = chakra(
     // For lazying loading images, the initial `src` value is empty. Once
     // the image is loaded, the `src` prop is set and passed to the image
     // element so that it can load. This also lets it load with a gray
-    // background placeholder.
-    if (inView || supportsLazyLoading) {
+    // background placeholder. We also only want to add the `inViewRef` ref
+    // when `isLazy` is true to keep track of when the image is visible.
+    if (isLazy && (inView || supportsLazyLoading)) {
+      lazyRef = inViewRef;
       srcProp = { src };
     }
+
+    // We want to add the `ref` from the `forwardRef` function regardless of
+    // whether the image is lazy or not. This is meant for usage with other
+    // components such as a `Tooltip`. The `inViewRef` is only added when
+    // the `isLazy` prop is true.
+    finalRefs = useMergeRefs(lazyRef, ref);
 
     imageComponent = component ? (
       component
@@ -160,7 +174,7 @@ export const Image = chakra(
       <Box
         as="img"
         alt={alt}
-        loading="lazy"
+        loading={isLazy ? "lazy" : undefined}
         {...srcProp}
         __css={{ ...styles.img, ...additionalImageStyles }}
       />
@@ -180,7 +194,7 @@ export const Image = chakra(
     );
 
     return (
-      <Box ref={refs}>
+      <Box ref={finalRefs}>
         {caption || credit ? (
           <Box
             as="figure"

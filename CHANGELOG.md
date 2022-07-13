@@ -18,12 +18,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Exports `ColorCard`.
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
 - Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
 - Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
 - Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+- Updates Storybook packages.
+
+### Removes
+
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
 
 ### Fixes
 

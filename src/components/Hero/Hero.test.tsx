@@ -2,8 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
-
 import Heading from "../Heading/Heading";
 import Hero from "./Hero";
 
@@ -25,11 +23,6 @@ const imageProps = {
 };
 
 describe("Hero accessbility tests", () => {
-  beforeAll(() => {
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
-  });
-
   it("passes for type Primary", async () => {
     const { container } = render(
       <Hero
@@ -100,8 +93,6 @@ describe("Hero", () => {
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       />
     );
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText("Hero Primary")).toBeInTheDocument();
     expect(screen.getByText("Example Subtitle")).toBeInTheDocument();
@@ -122,8 +113,6 @@ describe("Hero", () => {
         subHeaderText={subHeaderText}
       />
     );
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText("Hero Secondary")).toBeInTheDocument();
     expect(screen.getByText(/Explore our collection of/i)).toBeInTheDocument();
@@ -162,8 +151,6 @@ describe("Hero", () => {
         subHeaderText={otherSubHeaderText}
       />
     );
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText("Hero Campaign")).toBeInTheDocument();
     expect(screen.getByText(/With 92 locations across/i)).toBeInTheDocument();
@@ -186,8 +173,6 @@ describe("Hero", () => {
         subHeaderText={otherSubHeaderText}
       />
     );
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText(/With 92 locations across/i)).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -609,8 +594,6 @@ describe("Hero", () => {
         />
       )
       .toJSON();
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(primary).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();

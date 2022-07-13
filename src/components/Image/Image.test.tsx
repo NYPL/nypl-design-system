@@ -7,20 +7,29 @@ import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 import Image from "./Image";
 
 describe("Image Accessibility", () => {
-  beforeAll(() => {
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
+  it("passes axe accessibility for regular img element", async () => {
+    const { container } = render(<Image alt="" src="test.png" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility for regular img element", async () => {
-    const { container } = render(<Image src="test.png" alt="" />);
+  it("passes axe accessibility for regular lazy loading img element", async () => {
+    const { container } = render(<Image alt="" isLazy src="test.png" />);
+
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility for figure element wrapper", async () => {
     const { container } = render(
-      <Image src="test.png" alt="" caption="This is a caption" />
+      <Image alt="" caption="This is a caption" src="test.png" />
     );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for figure lazy loading element wrapper", async () => {
+    const { container } = render(
+      <Image alt="" caption="This is a caption" isLazy src="test.png" />
+    );
+
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -33,25 +42,19 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
-  it("does not render an image src until it is 'inView'", () => {
+  // @TODO - test when it does come into view.
+  it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
     const src = "https://placeimg.com/500/200/animals";
-    const { container, rerender } = render(<Image alt="" src={src} />);
+    const { container } = render(<Image alt="" isLazy src={src} />);
 
     // Mock that the image is not in view through the IntersectionObserver object.
     mockAllIsIntersecting(false);
+
     expect(container.querySelector("img")).not.toHaveAttribute("src");
-
-    rerender(<Image alt="" src={src} />);
-
-    // Mock that the image is in view through the IntersectionObserver object.
-    mockAllIsIntersecting(true);
-    expect(container.querySelector("img")).toHaveAttribute("src", src);
   });
 
   it("renders a simple image not wrapped in a figure element", () => {
-    render(<Image src="test.png" alt="" />);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
+    render(<Image alt="" src="test.png" />);
 
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.queryByRole("figure")).not.toBeInTheDocument();
@@ -59,8 +62,6 @@ describe("Image", () => {
 
   it("renders an image wrapped in figure when provided a caption", () => {
     render(<Image src="test.png" caption="caption" alt="" />);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
@@ -69,8 +70,6 @@ describe("Image", () => {
 
   it("renders an image wrapped in figure when provided an image credit", () => {
     render(<Image src="test.png" credit="credit" alt="" />);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
@@ -79,8 +78,6 @@ describe("Image", () => {
 
   it("renders an image wrapped in figure with credit and caption", () => {
     render(<Image src="test.png" caption="caption" credit="credit" alt="" />);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
@@ -163,8 +160,6 @@ describe("Image", () => {
     const withOtherProps = renderer
       .create(<Image src="test.png" alt="" data-testid="image" />)
       .toJSON();
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(basic).toMatchSnapshot();
     expect(figCaption).toMatchSnapshot();
