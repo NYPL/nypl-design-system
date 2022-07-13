@@ -8,9 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.5 (July 7, 2022)
+
 ### Adds
 
 - Exports `ColorCard`.
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
