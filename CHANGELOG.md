@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Exports `ColorCard`.
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
