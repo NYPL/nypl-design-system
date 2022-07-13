@@ -86,7 +86,7 @@ export interface LogoProps {
  */
 export const Logo = chakra(
   forwardRef<
-    HTMLDivElement & HTMLOrSVGElement & HTMLSpanElement,
+    HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<LogoProps>
   >((props, ref?) => {
     const {
@@ -133,9 +133,7 @@ export const Logo = chakra(
     if (name) {
       const SvgComponent: any = logoSvgs[name];
       return (
-        <span ref={ref}>
-          <ChakraIcon as={SvgComponent} {...logoProps} __css={styles} />
-        </span>
+        <ChakraIcon as={SvgComponent} ref={ref} {...logoProps} __css={styles} />
       );
     }
 

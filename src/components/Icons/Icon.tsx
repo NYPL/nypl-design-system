@@ -121,7 +121,7 @@ export interface IconProps {
  */
 export const Icon = chakra(
   forwardRef<
-    HTMLDivElement & HTMLOrSVGElement & HTMLSpanElement,
+    HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<IconProps>
   >((props, ref?) => {
     const {
@@ -176,9 +176,7 @@ export const Icon = chakra(
     if (name) {
       const SvgComponent: any = iconSvgs[name];
       return (
-        <span ref={ref}>
-          <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />
-        </span>
+        <ChakraIcon as={SvgComponent} ref={ref} {...iconProps} __css={styles} />
       );
     }
 
