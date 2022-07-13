@@ -607,4 +607,19 @@ describe("Hero", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType="primary"
+        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+        ref={ref}
+        subHeaderText="Example Subtitle"
+      />
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

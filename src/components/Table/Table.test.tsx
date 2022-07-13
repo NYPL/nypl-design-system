@@ -267,4 +267,13 @@ describe("Table", () => {
     expect(withOtherProps).toMatchSnapshot();
     expect(withJSXData).toMatchSnapshot();
   });
+
+  it("passes a ref to the table element", () => {
+    const ref = React.createRef<HTMLTableElement>();
+    const { container } = render(
+      <Table columnHeaders={columnHeaders} tableData={tableData} ref={ref} />
+    );
+
+    expect(container.querySelector("table")).toBe(ref.current);
+  });
 });

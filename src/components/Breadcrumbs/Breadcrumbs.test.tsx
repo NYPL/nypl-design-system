@@ -1,7 +1,7 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -61,6 +61,17 @@ describe("Breadcrumbs", () => {
     expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
       "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
+  });
+
+  it("passes a ref to the nav wrapper element", () => {
+    // It's okay to use this type even though the rendered element is
+    // a `nav` since Chakra internally generates the necessary DOM.
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Breadcrumbs breadcrumbsData={breadcrumbsData} ref={ref} />
+    );
+
+    expect(container.querySelector("nav")).toBe(ref.current);
   });
 });
 

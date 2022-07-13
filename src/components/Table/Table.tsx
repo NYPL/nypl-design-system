@@ -9,7 +9,7 @@ import {
   Tr as ChakraTr,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColors {
@@ -44,133 +44,147 @@ export interface TableProps {
  * Basic `Table` component used to organize and display tabular data in
  * rows and columns.
  */
-export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
-  const {
-    className,
-    columnHeaders = [],
-    columnHeadersBackgroundColor,
-    columnHeadersTextColor,
-    id,
-    showRowDividers = false,
-    tableData,
-    titleText,
-    useRowHeaders = false,
-    ...rest
-  } = props;
-  const customColors: CustomColors = {};
+export const Table = chakra(
+  forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
+    (props, ref?) => {
+      const {
+        className,
+        columnHeaders = [],
+        columnHeadersBackgroundColor,
+        columnHeadersTextColor,
+        id,
+        showRowDividers = false,
+        tableData,
+        titleText,
+        useRowHeaders = false,
+        ...rest
+      } = props;
+      const customColors: CustomColors = {};
 
-  columnHeadersBackgroundColor &&
-    (customColors["backgroundColor"] = columnHeadersBackgroundColor);
-  columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
+      columnHeadersBackgroundColor &&
+        (customColors["backgroundColor"] = columnHeadersBackgroundColor);
+      columnHeadersTextColor &&
+        (customColors["color"] = columnHeadersTextColor);
 
-  const styles = useMultiStyleConfig("CustomTable", {
-    columnHeadersBackgroundColor,
-    columnHeadersTextColor,
-    showRowDividers,
-    useRowHeaders,
-  });
+      const styles = useMultiStyleConfig("CustomTable", {
+        columnHeadersBackgroundColor,
+        columnHeadersTextColor,
+        showRowDividers,
+        useRowHeaders,
+      });
 
-  // Based on --nypl-breakpoint-medium
-  const breakpointMedium = 600;
-  const windowDimensions = useWindowSize();
+      // Based on --nypl-breakpoint-medium
+      const breakpointMedium = 600;
+      const windowDimensions = useWindowSize();
 
-  const tableCaption = titleText && (
-    <ChakraTableCaption>{titleText}</ChakraTableCaption>
-  );
-
-  const columnHeadersElems =
-    columnHeaders.length > 0 ? (
-      <ChakraTHead>
-        <ChakraTr>
-          {columnHeaders.map((child, key) => (
-            <ChakraTh key={key} scope="col" sx={customColors}>
-              {child}
-            </ChakraTh>
-          ))}
-        </ChakraTr>
-      </ChakraTHead>
-    ) : (
-      console.warn(
-        "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
-          "column headers are required."
-      )
-    );
-
-  /**
-   * This renders a normal `tbody` DOM element structure if the `tableData`
-   * passed is a two-dimensional array. This is to render the appropriate
-   * row and column structure for a table.
-   */
-  const tableBodyElems = () => {
-    if (
-      !Array.isArray(tableData) ||
-      tableData.length <= 0 ||
-      tableData[0].constructor !== Array
-    ) {
-      console.warn(
-        "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
+      const tableCaption = titleText && (
+        <ChakraTableCaption>{titleText}</ChakraTableCaption>
       );
-      return null;
-    }
 
-    for (let i = 1; i < tableData.length; i++) {
-      if (tableData[0].length !== tableData[i].length) {
-        console.warn(
-          "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
-            "The `Table` component may not render properly."
-        );
-        break;
-      }
-    }
-
-    const cellContent = (key: number, column: string | JSX.Element) => {
-      return windowDimensions.width <= breakpointMedium ? (
-        <>
-          <span>{columnHeaders[key]}</span>
-          <span>{column}</span>
-        </>
-      ) : (
-        column
-      );
-    };
-
-    return (
-      <ChakraTbody>
-        {tableData.map((row, index) => (
-          <ChakraTr key={index}>
-            {row.map((column, key) =>
-              key === 0 && useRowHeaders ? (
-                <ChakraTh scope="row" key={key}>
-                  {cellContent(key, column)}
+      const columnHeadersElems =
+        columnHeaders.length > 0 ? (
+          <ChakraTHead>
+            <ChakraTr>
+              {columnHeaders.map((child, key) => (
+                <ChakraTh key={key} scope="col" sx={customColors}>
+                  {child}
                 </ChakraTh>
-              ) : (
-                <ChakraTd key={key}>{cellContent(key, column)}</ChakraTd>
-              )
-            )}
-          </ChakraTr>
-        ))}
-      </ChakraTbody>
-    );
-  };
+              ))}
+            </ChakraTr>
+          </ChakraTHead>
+        ) : (
+          console.warn(
+            "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
+              "column headers are required."
+          )
+        );
 
-  for (let j = 0; j < tableData.length; j++) {
-    if (columnHeaders.length && columnHeaders.length !== tableData[j].length) {
-      console.warn(
-        "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
-          "to the number of columns in the data table. " +
-          "The `Table` component may not render properly."
+      /**
+       * This renders a normal `tbody` DOM element structure if the `tableData`
+       * passed is a two-dimensional array. This is to render the appropriate
+       * row and column structure for a table.
+       */
+      const tableBodyElems = () => {
+        if (
+          !Array.isArray(tableData) ||
+          tableData.length <= 0 ||
+          tableData[0].constructor !== Array
+        ) {
+          console.warn(
+            "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
+          );
+          return null;
+        }
+
+        for (let i = 1; i < tableData.length; i++) {
+          if (tableData[0].length !== tableData[i].length) {
+            console.warn(
+              "NYPL Reservoir Table: The number of columns in each row of the data table are not identical. " +
+                "The `Table` component may not render properly."
+            );
+            break;
+          }
+        }
+
+        const cellContent = (key: number, column: string | JSX.Element) => {
+          return windowDimensions.width <= breakpointMedium ? (
+            <>
+              <span>{columnHeaders[key]}</span>
+              <span>{column}</span>
+            </>
+          ) : (
+            column
+          );
+        };
+
+        return (
+          <ChakraTbody>
+            {tableData.map((row, index) => (
+              <ChakraTr key={index}>
+                {row.map((column, key) =>
+                  key === 0 && useRowHeaders ? (
+                    <ChakraTh scope="row" key={key}>
+                      {cellContent(key, column)}
+                    </ChakraTh>
+                  ) : (
+                    <ChakraTd key={key}>{cellContent(key, column)}</ChakraTd>
+                  )
+                )}
+              </ChakraTr>
+            ))}
+          </ChakraTbody>
+        );
+      };
+
+      for (let j = 0; j < tableData.length; j++) {
+        if (
+          columnHeaders.length &&
+          columnHeaders.length !== tableData[j].length
+        ) {
+          console.warn(
+            "NYPL Reservoir Table: The number of column headers in the `columnHeaders` prop is not equal " +
+              "to the number of columns in the data table. " +
+              "The `Table` component may not render properly."
+          );
+          break;
+        }
+      }
+
+      return (
+        <ChakraTable
+          className={className}
+          id={id}
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
+          {tableCaption}
+          {columnHeadersElems}
+          {tableBodyElems()}
+        </ChakraTable>
       );
-      break;
     }
-  }
-
-  return (
-    <ChakraTable id={id} sx={styles} className={className} {...rest}>
-      {tableCaption}
-      {columnHeadersElems}
-      {tableBodyElems()}
-    </ChakraTable>
-  );
-});
+  )
+);
 
 export default Table;

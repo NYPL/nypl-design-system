@@ -434,4 +434,27 @@ describe("StructuredContent", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <StructuredContent
+        bodyContent={htmlStringBodyContent}
+        calloutText="This is the callout text"
+        headingText="Heading text"
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: "original",
+          caption: "Image caption",
+          credit: "Image credit",
+          position: "left",
+          size: "medium",
+          src: "https://placeimg.com/400/300/animals",
+        }}
+        ref={ref}
+      />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
+  });
 });

@@ -1,5 +1,5 @@
 import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 export type TextSizes = "default" | "caption" | "tag" | "mini";
 
@@ -22,59 +22,63 @@ export interface TextProps {
   size?: TextSizes;
 }
 
-export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
-  const {
-    children,
-    className = "",
-    isBold,
-    isItalic,
-    isCapitalized,
-    isUppercase,
-    isLowercase,
-    noSpace,
-    size = "default",
-    ...rest
-  } = props;
-  const styles = useStyleConfig("Text", {
-    variant: size,
-    isBold,
-    isItalic,
-    isCapitalized,
-    isUppercase,
-    isLowercase,
-    noSpace,
-  });
+export const Text = chakra(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<TextProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        className = "",
+        isBold,
+        isItalic,
+        isCapitalized,
+        isUppercase,
+        isLowercase,
+        noSpace,
+        size = "default",
+        ...rest
+      } = props;
+      const styles = useStyleConfig("Text", {
+        variant: size,
+        isBold,
+        isItalic,
+        isCapitalized,
+        isUppercase,
+        isLowercase,
+        noSpace,
+      });
 
-  if (!children) {
-    console.warn(
-      "NYPL Reservoir Text: No children were passed and the `Text` component " +
-        "will not render correctly."
-    );
-  }
+      if (!children) {
+        console.warn(
+          "NYPL Reservoir Text: No children were passed and the `Text` component " +
+            "will not render correctly."
+        );
+      }
 
-  let textCase = 0;
-  if (isCapitalized) {
-    textCase++;
-  }
-  if (isUppercase) {
-    textCase++;
-  }
-  if (isLowercase) {
-    textCase++;
-  }
+      let textCase = 0;
+      if (isCapitalized) {
+        textCase++;
+      }
+      if (isUppercase) {
+        textCase++;
+      }
+      if (isLowercase) {
+        textCase++;
+      }
 
-  if (textCase > 1) {
-    console.warn(
-      "NYPL Reservoir Text: Multiple text case props have been passed " +
-        "and the component will not render properly."
-    );
-  }
+      if (textCase > 1) {
+        console.warn(
+          "NYPL Reservoir Text: Multiple text case props have been passed " +
+            "and the component will not render properly."
+        );
+      }
 
-  return (
-    <ChakraText className={className} sx={styles} {...rest}>
-      {children}
-    </ChakraText>
-  );
-});
+      return (
+        <ChakraText className={className} ref={ref} sx={styles} {...rest}>
+          {children}
+        </ChakraText>
+      );
+    }
+  )
+);
 
 export default Text;
