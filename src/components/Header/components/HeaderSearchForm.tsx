@@ -11,6 +11,7 @@ import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
 import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
+import gaUtils, { gaConfig } from "../utils/googleAnalyticsUtils";
 
 export interface HeaderSearchFormProps {
   isMobile?: boolean;
@@ -27,23 +28,65 @@ const HeaderSearchForm = chakra(
     );
     const [searchInput, setSearchInput] = useState<string>("");
     const [searchOption, setSearchOption] = useState<string>("catalog");
+    const [isSearchRequested, setIsSearchRequested] = useState<boolean>(false);
+    const [isGAResponseReceived, setIsGAResponseReceived] =
+      useState<boolean>(false);
     const styles = useMultiStyleConfig("HeaderSearchForm", { isMobile });
+    // GASearchedRepo indicates which kind of search is sent.
+    let gaSearchedRepo = "Unknown";
+
     const onSubmit = (e: any, mobileType = "") => {
       e.preventDefault();
+      const newGaConfig = { ...gaConfig };
+      let gaSearchLabel;
       let requestUrl;
 
       // If there is a search input, make the request.
       if (searchInput) {
         if (searchOption === "catalog" || mobileType === "catalog") {
+          gaSearchLabel = "Submit Catalog Search";
+          gaSearchedRepo = "Encore";
           requestUrl = getEncoreCatalogURL(searchInput);
         }
         if (searchOption === "website" || mobileType === "website") {
+          gaSearchLabel = "Submit Search";
+          gaSearchedRepo = "DrupalSearch";
           requestUrl = getNYPLSearchURL(searchInput);
         }
 
-        if (requestUrl) {
-          window.location.assign(requestUrl);
-          return true;
+        if (requestUrl && gaSearchLabel) {
+          gaUtils.trackEvent("Search", gaSearchLabel);
+          // Set a dynamic value for custom dimension2 for GA.
+          newGaConfig.customDimensions.dimension2 = gaSearchedRepo;
+
+          // There are three phases to handle the GA search event. We need to
+          // prevent sending extra GA events after the search request is made.
+          if (isSearchRequested && !isGAResponseReceived) {
+            return false;
+          }
+
+          if (isSearchRequested && isGAResponseReceived) {
+            window.location.assign(requestUrl);
+            return true;
+          }
+
+          // If the search request is not made yet and the GA event hasn't been
+          // sent yet, send the GA event, wait until it is received, and then
+          // go to the search page.
+          if (!isSearchRequested && !isGAResponseReceived) {
+            setIsSearchRequested(true);
+            // Send GA "Search" category and "QuerySent" action event
+            // with custom dimensions for the type of search: Encore or Drupal.
+            gaUtils.trackSearchQuerySend(
+              searchInput,
+              newGaConfig.customDimensions,
+              () => {
+                // Once the GA event is sent, go to the proper search page.
+                setIsGAResponseReceived(true);
+                window.location.assign(requestUrl);
+              }
+            );
+          }
         }
       }
       // Otherwise, don't do anything and update the placeholder message.

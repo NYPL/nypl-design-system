@@ -2,9 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
+import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
 import HeaderMobileNavButton from "./HeaderMobileNavButton";
+import gaUtils from "../utils/googleAnalyticsUtils";
+
+gaUtils.initialize({ testMode: true }, false);
 
 describe("HeaderMobileNavButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -31,6 +35,17 @@ describe("HeaderMobileNavButton", () => {
     expect(menuBtn).toHaveAttribute("aria-label", "Open Navigation");
 
     userEvent.click(menuBtn);
+    // The first call is the initializing call.
+    // The second call is what we want.
+    expect(ReactGa.testModeAPI.calls[1]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Click",
+        eventLabel: "Mobile mobileMenu",
+        hitType: "event",
+      },
+    ]);
 
     expect(menuBtn).toHaveAttribute("aria-label", "Close Navigation");
   });

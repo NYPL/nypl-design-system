@@ -12,13 +12,23 @@ import Link from "../../Link/Link";
 import List from "../../List/List";
 import Logo from "../../Logo/Logo";
 import SimpleGrid from "../../Grid/SimpleGrid";
-import { upperNavLinks, lowerNavLinks } from "../utils/headerUtils";
+import gaUtils from "../utils/googleAnalyticsUtils";
+import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 
 /**
  * The Header navigation for the mobile view.
  */
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});
+  const listItems = siteNavLinks.map(({ href, text }) => (
+    <Link
+      href={href}
+      key={text}
+      onClick={() => gaUtils.trackEvent("Go to...", text)}
+    >
+      {text}
+    </Link>
+  ));
 
   return (
     <Box __css={styles}>
@@ -36,29 +46,7 @@ const HeaderMobileNav = chakra(() => {
         <nav aria-label="Header mobile links">
           <List
             id="header-mobile-nav"
-            listItems={[
-              <Link href={lowerNavLinks.books} key="booksMusicMoviesLink">
-                Books/Music/Movies
-              </Link>,
-              <Link href={lowerNavLinks.research} key="researchLink">
-                Research
-              </Link>,
-              <Link href={lowerNavLinks.education} key="educationLink">
-                Education
-              </Link>,
-              <Link href={lowerNavLinks.events} key="eventsLink">
-                Events
-              </Link>,
-              <Link href={lowerNavLinks.connect} key="connectLink">
-                Connect
-              </Link>,
-              <Link href={lowerNavLinks.give} key="giveLink">
-                Give
-              </Link>,
-              <Link href={lowerNavLinks.getHelp} key="getHelpLink">
-                Get Help
-              </Link>,
-            ]}
+            listItems={listItems}
             noStyling
             type="ul"
             __css={styles.sideNav}
@@ -67,10 +55,13 @@ const HeaderMobileNav = chakra(() => {
       </Flex>
       <SimpleGrid gap="0" data-testid="bottomLinks" __css={styles.bottomLinks}>
         <Link
-          href={upperNavLinks.libraryCard}
+          href={upperNavLinks.libraryCard.href}
           borderTop="1px solid rgb(54, 54, 54)"
           borderRight="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 1"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Library Card")
+          }
         >
           <Icon
             align="left"
@@ -78,12 +69,15 @@ const HeaderMobileNav = chakra(() => {
             name="decorativeLibraryCard"
             size="large"
           />
-          Get a Library Card
+          {upperNavLinks.libraryCard.text}
         </Link>
         <Link
-          href={upperNavLinks.emailUpdates}
+          href={upperNavLinks.emailUpdates.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="2 / span 1"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Email Updates")
+          }
         >
           <Icon
             align="left"
@@ -91,12 +85,15 @@ const HeaderMobileNav = chakra(() => {
             name="decorativeEnvelope"
             size="large"
           />
-          Get Email Updates
+          {upperNavLinks.emailUpdates.text}
         </Link>
         <Link
-          href={upperNavLinks.shop}
+          href={upperNavLinks.shop.href}
           borderTop="1px solid rgb(54, 54, 54)"
           gridColumn="1 / span 2"
+          onClick={() =>
+            gaUtils.trackEvent("Click", "Mobile Bottom Buttons - Shop NYPL")
+          }
         >
           <Icon
             align="left"
@@ -104,10 +101,14 @@ const HeaderMobileNav = chakra(() => {
             name="decorativeShoppingBag"
             size="large"
           />
-          Shop NYPL
+          {upperNavLinks.shop.text} NYPL
         </Link>
-        <Link href={upperNavLinks.donate} gridColumn="1 / span 2">
-          Donate
+        <Link
+          href={upperNavLinks.donate.href}
+          gridColumn="1 / span 2"
+          onClick={() => gaUtils.trackEvent("Donate", "Mobile Buttons Donate")}
+        >
+          {upperNavLinks.donate.text}
         </Link>
       </SimpleGrid>
     </Box>

@@ -6,6 +6,7 @@ import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import HeaderMobileNav from "./HeaderMobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,7 +24,10 @@ const HeaderMobileNavButton = chakra(() => {
           aria-expanded={isOpen ? true : null}
           buttonType="link"
           id="mobileNav-btn"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            gaUtils.trackEvent("Click", "Mobile mobileMenu");
+            setIsOpen(!isOpen);
+          }}
           __css={styles}
         >
           <Icon name={isOpen ? "close" : "utilityHamburger"} size="large" />

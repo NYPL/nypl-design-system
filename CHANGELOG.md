@@ -22,6 +22,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
 - Adds React context for the `Header`'s patron state data through `HeaderPatronContext` and `HeaderPatronProvider`.
 - Better namespacing for Header-only components.
+- Adds the `react-ga` package to send Google Analytics events.
+
+### Updates
+
+- Updates the `onClick` event type for the `Pagination` links `onClick` function.
+- Updates the `Link` component's `onClick` event type.
 
 ## Prerelease
 

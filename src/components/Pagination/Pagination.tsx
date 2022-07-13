@@ -83,20 +83,27 @@ export const Pagination = chakra((props: PaginationProps) => {
    * This function is only called when clicking on a link should
    * not update the URL or refresh the page.
    */
-  const handlePageClick = (e: Event, clickedPage: number) => {
+  const handlePageClick = (
+    e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>,
+    clickedPage: number
+  ) => {
     e.preventDefault && e.preventDefault();
     if (selectedPage === clickedPage) return;
     setSelectedPage(clickedPage);
     onPageChange && onPageChange(clickedPage);
   };
   // Select the previous page.
-  const previousPage = (e: Event) => {
+  const previousPage = (
+    e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
+  ) => {
     if (selectedPage > 1) {
       handlePageClick(e, previousPageNumber);
     }
   };
   // Select the next page.
-  const nextPage = (e: Event) => {
+  const nextPage = (
+    e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
+  ) => {
     if (selectedPage < pageCount) {
       handlePageClick(e, nextPageNumber);
     }
@@ -130,7 +137,12 @@ export const Pagination = chakra((props: PaginationProps) => {
           "aria-current": isSelectedPage ? "page" : null,
           onClick: changeUrls
             ? undefined
-            : (e: Event) => handlePageClick(e, item as number),
+            : (
+                event: React.MouseEvent<
+                  HTMLDivElement | HTMLAnchorElement,
+                  MouseEvent
+                >
+              ) => handlePageClick(event, item as number),
         },
         text: item,
       },

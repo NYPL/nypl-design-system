@@ -3,9 +3,10 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
-import Icon from "../../Icons/Icon";
 import HeaderSearchForm from "./HeaderSearchForm";
+import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface HeaderSearchButtonProps {
   isMobile?: boolean;
@@ -18,6 +19,12 @@ const HeaderSearchButton = chakra(
     const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
     const labelText = isOpen ? "Close Search" : "Open Search";
     const ref = useRef<HTMLDivElement>(null);
+    const gaAction = isMobile ? "Click" : "Search";
+    const gaLabel = isMobile
+      ? "Mobile clickSearch"
+      : isOpen
+      ? "Close Menu"
+      : "Open Menu";
 
     useCloseDropDown(setIsOpen, ref);
 
@@ -30,7 +37,10 @@ const HeaderSearchButton = chakra(
             aria-expanded={isOpen ? true : null}
             buttonType="link"
             id="searchButton"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              gaUtils.trackEvent(gaAction, gaLabel);
+              setIsOpen(!isOpen);
+            }}
             __css={styles}
           >
             {buttonText}

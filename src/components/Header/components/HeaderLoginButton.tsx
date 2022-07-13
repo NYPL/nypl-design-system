@@ -3,10 +3,11 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "../../Button/Button";
-import Icon from "../../Icons/Icon";
 import HeaderLogin from "./HeaderLogin";
+import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import { HeaderPatronContext } from "../context/headerPatronContext";
+import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface HeaderLoginButtonProps {
   isMobile?: boolean;
@@ -33,6 +34,13 @@ const HeaderLoginButton = chakra(
       : patronName
       ? "My Account"
       : "Log In";
+    const gaAction = isMobile ? "Click" : patronName ? "My Account" : "Log In";
+    const gaLabelBase = isMobile
+      ? patronName
+        ? "clickMyAccount"
+        : "clickLogIn"
+      : `MyNyplButton - ${isOpen ? "Closed" : "Open"}`;
+    const gaLabel = `${isMobile ? "Mobile " : ""}${gaLabelBase}`;
 
     useCloseDropDown(setIsOpen, wrapperRef);
 
@@ -53,7 +61,10 @@ const HeaderLoginButton = chakra(
             aria-label={desktopButtonLabel}
             buttonType="link"
             id="loginButton"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              gaUtils.trackEvent(gaAction, gaLabel);
+              setIsOpen(!isOpen);
+            }}
             __css={styles}
           >
             {isMobile ? null : desktopButtonLabel}

@@ -2,9 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
+import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
 import HeaderSearchButton from "./HeaderSearchButton";
+import gaUtils from "../utils/googleAnalyticsUtils";
+
+gaUtils.initialize({ testMode: true }, false);
 
 describe("HeaderSearchButton Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -43,6 +47,17 @@ describe("HeaderSearchButton", () => {
       expect(searchBtn).toHaveTextContent(/close/i);
       expect(screen.queryByTitle(/Open Search/i)).not.toBeInTheDocument();
       expect(screen.getByTitle(/Close Search/i)).toBeInTheDocument();
+      // The first call is the initializing call.
+      // The second call is what we want.
+      expect(ReactGa.testModeAPI.calls[1]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Search",
+          eventLabel: "Open Menu",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("renders the search form when clicked", () => {
@@ -78,6 +93,16 @@ describe("HeaderSearchButton", () => {
       userEvent.click(searchBtn);
 
       expect(searchBtn).toHaveAttribute("aria-label", "Close Search");
+      // The third call is the click event for this test.
+      expect(ReactGa.testModeAPI.calls[3]).toEqual([
+        "send",
+        {
+          eventCategory: "Global Header",
+          eventAction: "Click",
+          eventLabel: "Mobile clickSearch",
+          hitType: "event",
+        },
+      ]);
     });
 
     it("renders the search form when clicked", () => {

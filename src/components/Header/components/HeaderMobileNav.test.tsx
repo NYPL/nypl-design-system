@@ -2,9 +2,13 @@ import { render, screen, within } from "@testing-library/react";
 
 import { axe } from "jest-axe";
 import * as React from "react";
+import ReactGa from "react-ga";
 import renderer from "react-test-renderer";
 
 import HeaderMobileNav from "./HeaderMobileNav";
+import gaUtils from "../utils/googleAnalyticsUtils";
+
+gaUtils.initialize({ testMode: true }, false);
 
 describe("HeaderMobileNav Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -37,6 +41,27 @@ describe("HeaderMobileNav", () => {
     expect(links[4]).toHaveTextContent("Connect");
     expect(links[5]).toHaveTextContent("Give");
     expect(links[6]).toHaveTextContent("Get Help");
+
+    links.forEach((link) => link.click());
+    // Spot checking GA calls.
+    expect(ReactGa.testModeAPI.calls[1]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Go to...",
+        eventLabel: "Books/Music/Movies",
+        hitType: "event",
+      },
+    ]);
+    expect(ReactGa.testModeAPI.calls[5]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Go to...",
+        eventLabel: "Connect",
+        hitType: "event",
+      },
+    ]);
   });
 
   it("renders the bottom links", () => {
@@ -44,10 +69,31 @@ describe("HeaderMobileNav", () => {
     const links = within(bottomGrid).getAllByRole("link");
 
     expect(links).toHaveLength(4);
-    expect(links[0]).toHaveTextContent("Get a Library Card");
+    expect(links[0]).toHaveTextContent("Get A Library Card");
     expect(links[1]).toHaveTextContent("Get Email Updates");
     expect(links[2]).toHaveTextContent("Shop NYPL");
     expect(links[3]).toHaveTextContent("Donate");
+
+    links.forEach((link) => link.click());
+    // Spot checking GA calls.
+    expect(ReactGa.testModeAPI.calls[8]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Click",
+        eventLabel: "Mobile Bottom Buttons - Library Card",
+        hitType: "event",
+      },
+    ]);
+    expect(ReactGa.testModeAPI.calls[10]).toEqual([
+      "send",
+      {
+        eventCategory: "Global Header",
+        eventAction: "Click",
+        eventLabel: "Mobile Bottom Buttons - Shop NYPL",
+        hitType: "event",
+      },
+    ]);
   });
 
   it("renders the UI snapshot correctly", () => {

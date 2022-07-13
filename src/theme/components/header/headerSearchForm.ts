@@ -60,9 +60,6 @@ const HeaderSearchForm = {
       height: "75px",
       maxHeight: "75px",
       width: "75px",
-      svg: {
-        marginTop: "15px",
-      },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",
