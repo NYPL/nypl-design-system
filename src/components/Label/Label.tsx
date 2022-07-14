@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 interface LabelProps {
   /** Additional CSS class name to render in the `label` element. */
@@ -19,37 +19,43 @@ interface LabelProps {
 /**
  * A label for form inputs. It should never be used alone.
  */
-export const Label = chakra((props: React.PropsWithChildren<LabelProps>) => {
-  const {
-    children,
-    className,
-    htmlFor,
-    id,
-    isInlined = false,
-    isRequired = false,
-    ...rest
-  } = props;
-  const styles = useStyleConfig("Label", { isInlined });
+export const Label = chakra(
+  forwardRef<
+    HTMLDivElement & HTMLLabelElement,
+    React.PropsWithChildren<LabelProps>
+  >((props, ref?) => {
+    const {
+      children,
+      className,
+      htmlFor,
+      id,
+      isInlined = false,
+      isRequired = false,
+      ...rest
+    } = props;
+    const styles = useStyleConfig("Label", { isInlined });
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir Label: This component's required `id` prop was not passed."
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Label: This component's required `id` prop was not passed."
+      );
+    }
+
+    return (
+      <Box
+        as="label"
+        id={id}
+        className={className}
+        htmlFor={htmlFor}
+        ref={ref}
+        __css={styles}
+        {...rest}
+      >
+        {children}
+        {isRequired && <span> (Required)</span>}
+      </Box>
     );
-  }
-
-  return (
-    <Box
-      as="label"
-      id={id}
-      className={className}
-      htmlFor={htmlFor}
-      __css={styles}
-      {...rest}
-    >
-      {children}
-      {isRequired && <span> (Required)</span>}
-    </Box>
-  );
-});
+  })
+);
 
 export default Label;

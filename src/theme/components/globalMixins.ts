@@ -29,10 +29,7 @@ const wrapperStyles = {
   marginY: "0",
   marginX: "auto",
   maxWidth: "1280px",
-  paddingTop: "0",
-  paddingBottom: "0",
-  paddingRight: "0",
-  paddingLeft: "0",
+  padding: "0",
   width: "100%",
 };
 

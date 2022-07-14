@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
@@ -363,5 +363,16 @@ describe("Select", () => {
     expect(hasOnChange).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the select element", () => {
+    const ref = React.createRef<HTMLSelectElement>();
+    const { container } = render(
+      <Select {...baseProps} ref={ref}>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(container.querySelector("select")).toBe(ref.current);
   });
 });

@@ -1,5 +1,5 @@
 import { chakra, Stack, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
@@ -28,57 +28,62 @@ const noop = () => {};
  * the parent's full width or the `Button`'s content width
  */
 export const ButtonGroup = chakra(
-  (props: React.PropsWithChildren<ButtonGroupProps>) => {
-    const {
-      buttonWidth = "default",
-      children,
-      className = "",
-      id,
-      isDisabled = false,
-      layout = "row",
-      ...rest
-    } = props;
-    const newChildren: JSX.Element[] = [];
-    const { isLargerThanMobile } = useNYPLBreakpoints();
-    const finalLayout = isLargerThanMobile ? layout : "column";
-    const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
-    const styles = useStyleConfig("ButtonGroup", {
-      buttonWidth: finalButtonWidth,
-    });
+  forwardRef<HTMLDivElement, React.PropsWithChildren<ButtonGroupProps>>(
+    (props, ref?) => {
+      const {
+        buttonWidth = "default",
+        children,
+        className = "",
+        id,
+        isDisabled = false,
+        layout = "row",
+        ...rest
+      } = props;
+      const newChildren: JSX.Element[] = [];
+      const { isLargerThanMobile } = useNYPLBreakpoints();
+      const finalLayout = isLargerThanMobile ? layout : "column";
+      const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
+      const styles = useStyleConfig("ButtonGroup", {
+        buttonWidth: finalButtonWidth,
+      });
 
-    React.Children.map(
-      children as JSX.Element,
-      (child: React.ReactElement, key: number) => {
-        if (child.type !== Button) {
-          // Special case for Storybook MDX documentation.
-          if (child.props.mdxType && child.props.mdxType === "Button") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
-            );
-            return;
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, key: number) => {
+          if (child.type !== Button) {
+            // Special case for Storybook MDX documentation.
+            if (child.props.mdxType && child.props.mdxType === "Button") {
+              noop();
+            } else {
+              console.warn(
+                "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
+              );
+              return;
+            }
           }
+          const disabledProps = isDisabled ? { isDisabled } : {};
+          newChildren.push(
+            React.cloneElement(child, { key, ...disabledProps })
+          );
         }
-        const disabledProps = isDisabled ? { isDisabled } : {};
-        newChildren.push(React.cloneElement(child, { key, ...disabledProps }));
-      }
-    );
+      );
 
-    return (
-      <Stack
-        id={id}
-        className={className}
-        direction={finalLayout}
-        // Always set the spacing to "8px".
-        spacing="xs"
-        sx={styles}
-        {...rest}
-      >
-        {newChildren}
-      </Stack>
-    );
-  }
+      return (
+        <Stack
+          className={className}
+          direction={finalLayout}
+          id={id}
+          ref={ref}
+          // Always set the spacing to "8px".
+          spacing="xs"
+          sx={styles}
+          {...rest}
+        >
+          {newChildren}
+        </Stack>
+      );
+    }
+  )
 );
 
 export default ButtonGroup;

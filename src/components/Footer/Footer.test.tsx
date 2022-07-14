@@ -18,9 +18,9 @@ describe("Footer Accessibility", () => {
 
 describe("Footer", () => {
   beforeEach(() => {
-    render(<Footer />);
     // Mock IntersectionObserver to render images.
     mockAllIsIntersecting(true);
+    render(<Footer />);
   });
 
   it("renders a footer element container", () => {
@@ -58,10 +58,10 @@ describe("Footer", () => {
   });
 
   it("renders a footer image of the NYPL building", () => {
-    const logo = screen.getAllByRole("img")[4];
+    const nyplBuildingImage = screen.getByAltText("NYPL Main Building Facade");
 
-    expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute(
+    expect(nyplBuildingImage).toBeInTheDocument();
+    expect(nyplBuildingImage).toHaveAttribute(
       "src",
       "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
     );

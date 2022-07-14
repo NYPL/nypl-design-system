@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import StatusBadge from "./StatusBadge";
@@ -66,5 +66,14 @@ describe("StatusBadge", () => {
     expect(high).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <StatusBadge ref={ref}>Registration Required</StatusBadge>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

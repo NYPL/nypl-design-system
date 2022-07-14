@@ -15,18 +15,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true,
-        // This allows Storybook to read the doc style comments for
-        // components and their props.
-        sourceLoaderOptions: {
-          parser: "typescript",
-          injectStoryParameters: true,
-        },
-      },
-    },
+    "@storybook/addon-docs",
     "@storybook/addon-controls",
     "@storybook/addon-jest",
     "@chakra-ui/storybook-addon",

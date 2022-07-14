@@ -211,14 +211,13 @@ describe("Link", () => {
     expect(withOtherProps).toMatchSnapshot();
   });
 
-  // TODO:
-  // it("Passes the ref to the input element", () => {
-  //   const ref = React.createRef<HTMLAnchorElement>();
-  //   const container = render(
-  //     <Link href="/some-link" ref={ref}>
-  //       Go to page
-  //     </Link>
-  //   );
-  //   expect(container.find("a").instance()).toEqual(ref.current);
-  // });
+  it("passes a ref to the anchor element", () => {
+    const ref = React.createRef<HTMLDivElement & HTMLAnchorElement>();
+    const { container } = render(
+      <Link href="/some-link" ref={ref}>
+        Go to page
+      </Link>
+    );
+    expect(container.querySelector("a")).toBe(ref.current);
+  });
 });

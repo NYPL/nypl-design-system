@@ -84,7 +84,8 @@ const Footer = {
       },
       _focus: {
         backgroundColor: footerGray,
-        outline: "solid 2px var(--nypl-colors-ui-white)",
+        outline: "solid 2px",
+        outlineColor: "ui.white",
       },
     },
     // All SVGs in the footer.
