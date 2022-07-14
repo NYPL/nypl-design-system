@@ -17,7 +17,7 @@ const HeaderLoginButton = chakra(
   ({ isMobile = false }: HeaderLoginButtonProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { patronName } = useContext(HeaderContext);
-    const catalogRef = useRef<HTMLAnchorElement>(null);
+    const catalogRef = useRef<HTMLDivElement & HTMLAnchorElement>(null);
     const greetingRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const styles = useStyleConfig("HeaderLoginButton", {

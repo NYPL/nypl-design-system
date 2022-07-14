@@ -46,11 +46,11 @@ export const baseCellStyles = (
   letterSpacing: "0",
   lineHeight: 1.5,
   paddingBottom: { base: "0", md: "s" },
-  paddingLeft: 0,
-  paddingRight: { base: "0", md: "m" },
+  paddingStart: 0,
+  paddingEnd: { base: "0", md: "m" },
   paddingTop: { base: "0", md: "s" },
   _first: {
-    paddingLeft: showRowDividers ? { base: "0", md: "m" } : null,
+    paddingStart: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers
       ? {
           base: "1px solid var(--nypl-colors-ui-light-cool)",
@@ -59,14 +59,14 @@ export const baseCellStyles = (
       : "none",
   },
   _last: {
-    paddingRight: showRowDividers ? { base: "0", md: "m" } : null,
+    paddingEnd: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers ? "1px solid" : "none",
     borderColor: cellBorderColorStyles,
   },
   "> span": {
     flexBasis: "50%",
     paddingBottom: { base: "s", md: "0" },
-    paddingRight: showRowDividers ? "s" : "0",
+    paddingEnd: showRowDividers ? "s" : "0",
     paddingTop: { base: "s", md: "0" },
     _first: {
       bg: columnHeadersBackgroundColor
@@ -74,7 +74,7 @@ export const baseCellStyles = (
         : undefined,
       color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
       fontWeight: "medium",
-      paddingLeft:
+      paddingStart:
         columnHeadersBackgroundColor || showRowDividers || useRowHeaders
           ? "s"
           : undefined,
@@ -97,7 +97,7 @@ export const baseTHStyles = (
   fontWeight: "medium",
   textTransform: "capitalize",
   _first: {
-    paddingLeft:
+    paddingStart:
       showRowDividers || columnHeadersBackgroundColor
         ? { base: "0", md: "m" }
         : { base: "0", md: undefined },
@@ -116,7 +116,7 @@ export const baseTDStyles = (
     useRowHeaders
   ),
   _first: {
-    paddingLeft:
+    paddingStart:
       showRowDividers && !useRowHeaders
         ? { base: "0", md: "m" }
         : columnHeadersBackgroundColor && !useRowHeaders
@@ -174,8 +174,8 @@ export const baseStyle = ({
     fontSize: "heading.secondary",
     fontWeight: "heading.secondary",
     marginBottom: "s",
-    marginLeft: "0",
-    marginRight: "0",
+    marginStart: "0",
+    marginEnd: "0",
     marginTop: "0",
     padding: "0",
     textAlign: "left",

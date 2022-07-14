@@ -16,7 +16,7 @@ const checkboxRadioLabelStyles = {
   userSelect: "none",
   fontWeight: "text.default",
   marginBottom: "0",
-  marginLeft: "xs",
+  marginStart: "xs",
   width: "100%",
   _disabled: {
     color: "ui.gray.dark",
@@ -35,7 +35,7 @@ const checkboxRadioControlSize = {
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyle = {
-  marginLeft: "30px", // calc(22px + var(--nypl-space-xs))
+  marginStart: "30px", // calc(22px + var(--nypl-space-xs))
   _disabled: {
     color: "ui.gray.dark",
     fontStyle: "italic",

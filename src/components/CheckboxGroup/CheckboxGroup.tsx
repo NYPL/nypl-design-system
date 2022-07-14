@@ -4,7 +4,7 @@ import {
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Checkbox from "../Checkbox/Checkbox";
 import Fieldset from "../Fieldset/Fieldset";
@@ -62,7 +62,7 @@ const noop = () => {};
  * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
 export const CheckboxGroup = chakra(
-  React.forwardRef<HTMLInputElement, CheckboxGroupProps>((props, ref?) => {
+  forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,
       defaultValue = [],

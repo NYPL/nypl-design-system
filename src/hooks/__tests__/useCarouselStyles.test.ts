@@ -8,7 +8,7 @@ describe("useCarouselStyles hook", () => {
     expect(typeof result.current.nextSlide).toEqual("function");
     expect(typeof result.current.prevSlide).toEqual("function");
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
   });
@@ -21,7 +21,7 @@ describe("useCarouselStyles hook", () => {
 
     // Start at the first slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
 
@@ -29,14 +29,14 @@ describe("useCarouselStyles hook", () => {
     // Each slide takes up a width of 100% by default.
     // So now we move by 100% to the left for the next slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-100%",
+      marginStart: "-100%",
       transition: "all .5s",
     });
 
     act(() => nextSlide());
     // Move on to the next slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-200%",
+      marginStart: "-200%",
       transition: "all .5s",
     });
 
@@ -47,7 +47,7 @@ describe("useCarouselStyles hook", () => {
     act(() => nextSlide());
     act(() => nextSlide());
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
   });
@@ -60,7 +60,7 @@ describe("useCarouselStyles hook", () => {
 
     // Start at the first slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
 
@@ -68,14 +68,14 @@ describe("useCarouselStyles hook", () => {
     // We started on the first slide and nwo we expect to wrap around
     // to the last element.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-400%",
+      marginStart: "-400%",
       transition: "all .5s",
     });
 
     act(() => prevSlide());
     // Move on to the previous slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-300%",
+      marginStart: "-300%",
       transition: "all .5s",
     });
 
@@ -85,7 +85,7 @@ describe("useCarouselStyles hook", () => {
     act(() => prevSlide());
     act(() => prevSlide());
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
   });
@@ -98,7 +98,7 @@ describe("useCarouselStyles hook", () => {
 
     // Start at the first slide.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
 
@@ -107,13 +107,13 @@ describe("useCarouselStyles hook", () => {
     act(() => nextSlide());
     act(() => nextSlide());
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-300%",
+      marginStart: "-300%",
       transition: "all .5s",
     });
 
     act(() => goToStart());
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
   });
@@ -126,14 +126,14 @@ describe("useCarouselStyles hook", () => {
     );
 
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-0%",
+      marginStart: "-0%",
       transition: "all .5s",
     });
 
     act(() => result.current.nextSlide());
     // Since each slide is of length 50, we expect to move by a 50%.
     expect(result.current.carouselStyle).toEqual({
-      marginLeft: "-50%",
+      marginStart: "-50%",
       transition: "all .5s",
     });
   });

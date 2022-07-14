@@ -432,4 +432,20 @@ describe("SearchBar", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <SearchBar
+        helperText={helperText}
+        id="ref"
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        ref={ref}
+        textInputProps={textInputProps}
+      />
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

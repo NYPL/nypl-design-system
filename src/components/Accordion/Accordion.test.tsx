@@ -1,8 +1,8 @@
-import * as React from "react";
-import { axe } from "jest-axe";
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
 import Accordion from "./Accordion";
 import Card, { CardContent, CardHeading } from "../Card/Card";
@@ -233,5 +233,14 @@ describe("Accordion", () => {
     expect(withOtherProps).toMatchSnapshot();
     expect(withError).toMatchSnapshot();
     expect(withWarning).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Accordion accordionData={accordionData} ref={ref} />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

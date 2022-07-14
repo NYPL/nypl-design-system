@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -43,146 +43,149 @@ export interface VideoPlayerProps {
 }
 
 export const VideoPlayer = chakra(
-  (props: React.PropsWithChildren<VideoPlayerProps>) => {
-    const {
-      aspectRatio,
-      className,
-      descriptionText,
-      embedCode,
-      headingText,
-      helperText,
-      id,
-      iframeTitle,
-      showHelperInvalidText = true,
-      videoId,
-      videoType,
-      ...rest
-    } = props;
+  forwardRef<HTMLDivElement, React.PropsWithChildren<VideoPlayerProps>>(
+    (props, ref?) => {
+      const {
+        aspectRatio,
+        className,
+        descriptionText,
+        embedCode,
+        headingText,
+        helperText,
+        id,
+        iframeTitle,
+        showHelperInvalidText = true,
+        videoId,
+        videoType,
+        ...rest
+      } = props;
 
-    const iframeTitleFinal =
-      videoType === "vimeo"
-        ? iframeTitle || "Vimeo video player"
-        : iframeTitle || "YouTube video player";
+      const iframeTitleFinal =
+        videoType === "vimeo"
+          ? iframeTitle || "Vimeo video player"
+          : iframeTitle || "YouTube video player";
 
-    const videoSrc =
-      videoType === "vimeo"
-        ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
-        : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
+      const videoSrc =
+        videoType === "vimeo"
+          ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
+          : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
-    const iFrameTitleEmbedCode = iframeTitle
-      ? `${iframeTitle}`
-      : `Video player`;
+      const iFrameTitleEmbedCode = iframeTitle
+        ? `${iframeTitle}`
+        : `Video player`;
 
-    const embedCodeFinal =
-      embedCode &&
-      embedCode.includes("<iframe") &&
-      !embedCode.includes("title=")
-        ? embedCode.replace(
-            `<iframe `,
-            `<iframe title="${iFrameTitleEmbedCode}" `
-          )
-        : embedCode;
+      const embedCodeFinal =
+        embedCode &&
+        embedCode.includes("<iframe") &&
+        !embedCode.includes("title=")
+          ? embedCode.replace(
+              `<iframe `,
+              `<iframe title="${iFrameTitleEmbedCode}" `
+            )
+          : embedCode;
 
-    const errorMessage =
-      "<strong>Error:</strong> This video player has not been configured " +
-      "properly. Please contact the site administrator.";
+      const errorMessage =
+        "<strong>Error:</strong> This video player has not been configured " +
+        "properly. Please contact the site administrator.";
 
-    let isInvalid = false;
-    if (!embedCodeFinal && !videoType && !videoId) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
-          "both the `videoType` and `videoId` props; none were passed."
+      let isInvalid = false;
+      if (!embedCodeFinal && !videoType && !videoId) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+            "both the `videoType` and `videoId` props; none were passed."
+        );
+        isInvalid = true;
+      } else if (!embedCodeFinal && !videoType) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: The `videoType` prop is also required. " +
+            "Only the `videoId` prop was set."
+        );
+        isInvalid = true;
+      } else if (!embedCodeFinal && !videoId) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: The `videoId` prop is also required. " +
+            "Only the `videoType` prop was set."
+        );
+        isInvalid = true;
+      } else if (embedCodeFinal && (videoType || videoId)) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+            "both the `videoType` and `videoId` props; all were set."
+        );
+        isInvalid = true;
+      }
+
+      if (
+        videoId &&
+        (videoId.includes("://") ||
+          videoId.includes("http") ||
+          videoId.includes(".") ||
+          videoId.includes("youtube") ||
+          videoId.includes("vimeo"))
+      ) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: The `videoId` prop is not configured properly."
+        );
+        isInvalid = true;
+      }
+
+      if (
+        embedCodeFinal &&
+        ((!embedCodeFinal.includes("vimeo.com") &&
+          !embedCodeFinal.includes("youtube.com")) ||
+          !embedCodeFinal.includes("<iframe") ||
+          !embedCodeFinal.includes("</iframe"))
+      ) {
+        console.warn(
+          "NYPL Reservoir VideoPlayer: The `embedCode` prop is not configured properly."
+        );
+        isInvalid = true;
+      }
+
+      const variant = isInvalid ? "invalid" : aspectRatio;
+      const styles = useMultiStyleConfig("VideoPlayer", { variant });
+
+      const embedElement = embedCodeFinal ? (
+        <span dangerouslySetInnerHTML={{ __html: embedCodeFinal }} />
+      ) : (
+        <Box
+          as="iframe"
+          src={videoSrc}
+          title={iframeTitleFinal}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+          allowFullScreen
+          __css={styles.iframe}
+        />
       );
-      isInvalid = true;
-    } else if (!embedCodeFinal && !videoType) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: The `videoType` prop is also required. " +
-          "Only the `videoId` prop was set."
+
+      return (
+        <Box
+          className={className}
+          data-testid="video-player-component"
+          id={id}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          {isInvalid ? (
+            <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
+          ) : (
+            <ComponentWrapper
+              headingText={headingText ? headingText : undefined}
+              descriptionText={descriptionText ? descriptionText : undefined}
+              helperText={
+                helperText && showHelperInvalidText ? helperText : undefined
+              }
+              id={`${id}-componentWrapper`}
+            >
+              <Box __css={styles.inside}>{embedElement}</Box>
+            </ComponentWrapper>
+          )}
+        </Box>
       );
-      isInvalid = true;
-    } else if (!embedCodeFinal && !videoId) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: The `videoId` prop is also required. " +
-          "Only the `videoType` prop was set."
-      );
-      isInvalid = true;
-    } else if (embedCodeFinal && (videoType || videoId)) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
-          "both the `videoType` and `videoId` props; all were set."
-      );
-      isInvalid = true;
     }
-
-    if (
-      videoId &&
-      (videoId.includes("://") ||
-        videoId.includes("http") ||
-        videoId.includes(".") ||
-        videoId.includes("youtube") ||
-        videoId.includes("vimeo"))
-    ) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: The `videoId` prop is not configured properly."
-      );
-      isInvalid = true;
-    }
-
-    if (
-      embedCodeFinal &&
-      ((!embedCodeFinal.includes("vimeo.com") &&
-        !embedCodeFinal.includes("youtube.com")) ||
-        !embedCodeFinal.includes("<iframe") ||
-        !embedCodeFinal.includes("</iframe"))
-    ) {
-      console.warn(
-        "NYPL Reservoir VideoPlayer: The `embedCode` prop is not configured properly."
-      );
-      isInvalid = true;
-    }
-
-    const variant = isInvalid ? "invalid" : aspectRatio;
-    const styles = useMultiStyleConfig("VideoPlayer", { variant });
-
-    const embedElement = embedCodeFinal ? (
-      <span dangerouslySetInnerHTML={{ __html: embedCodeFinal }} />
-    ) : (
-      <Box
-        as="iframe"
-        src={videoSrc}
-        title={iframeTitleFinal}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-        allowFullScreen
-        __css={styles.iframe}
-      />
-    );
-
-    return (
-      <Box
-        className={className}
-        data-testid="video-player-component"
-        id={id}
-        __css={styles}
-        {...rest}
-      >
-        {isInvalid ? (
-          <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
-        ) : (
-          <ComponentWrapper
-            headingText={headingText ? headingText : undefined}
-            descriptionText={descriptionText ? descriptionText : undefined}
-            helperText={
-              helperText && showHelperInvalidText ? helperText : undefined
-            }
-            id={`${id}-componentWrapper`}
-          >
-            <Box __css={styles.inside}>{embedElement}</Box>
-          </ComponentWrapper>
-        )}
-      </Box>
-    );
-  }
+  )
 );
 
 export default VideoPlayer;
