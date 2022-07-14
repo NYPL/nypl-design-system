@@ -1,7 +1,7 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
@@ -294,5 +294,12 @@ describe("Tabs", () => {
     expect(basic).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Tabs tabsData={animalCrossing} ref={ref} />);
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

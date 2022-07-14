@@ -11,7 +11,7 @@ import {
   SliderTrack as ChakraSliderTrack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -74,256 +74,265 @@ export interface SliderProps {
  * with a min and max value. The value(s) can be updated through the slider
  * thumb(s) or through the text input(s) elements.
  */
-export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
-  const {
-    className,
-    defaultValue = 0,
-    helperText,
-    id,
-    invalidText,
-    isDisabled = false,
-    isInvalid = false,
-    isRangeSlider = false,
-    isRequired = false,
-    labelText,
-    max = 100,
-    min = 0,
-    name,
-    onChange,
-    showBoxes = true,
-    showHelperInvalidText = true,
-    showLabel = true,
-    showRequiredLabel = true,
-    showValues = true,
-    step = 1,
-    ...rest
-  } = props;
+export const Slider = chakra(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<SliderProps>>(
+    (props, ref?) => {
+      const {
+        className,
+        defaultValue = 0,
+        helperText,
+        id,
+        invalidText,
+        isDisabled = false,
+        isInvalid = false,
+        isRangeSlider = false,
+        isRequired = false,
+        labelText,
+        max = 100,
+        min = 0,
+        name,
+        onChange,
+        showBoxes = true,
+        showHelperInvalidText = true,
+        showLabel = true,
+        showRequiredLabel = true,
+        showValues = true,
+        step = 1,
+        ...rest
+      } = props;
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir Slider: This component's required `id` prop was not passed."
-    );
-  }
-  // For the RangeSlider, if the defaultValue is not an array, then we set
-  // the defaultValue to an array with the min and max values.
-  const rangeSliderDefault =
-    typeof defaultValue === "number" ? [min, max] : defaultValue;
-  // We need to set the default value correctly for both types of sliders.
-  const finalDevaultValue = isRangeSlider ? rangeSliderDefault : defaultValue;
-  const [currentValue, setCurrentValue] =
-    React.useState<typeof defaultValue>(finalDevaultValue);
-  let finalIsInvalid = isInvalid;
-  // In the Range Slider, if the first value is bigger than the second value,
-  // then set the invalid state.
-  if (isRangeSlider && currentValue[0] > currentValue[1]) {
-    finalIsInvalid = true;
-    console.warn(
-      "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
-    );
-  }
-  if (min > max) {
-    finalIsInvalid = true;
-    console.warn(
-      "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
-    );
-  }
-  const styles = useMultiStyleConfig("CustomSlider", {
-    isDisabled,
-    isInvalid: finalIsInvalid,
-    showBoxes,
-    showValues,
-  });
-  // Props that the `Slider` and `RangeSlider` Chakra
-  // components both use.
-  const sliderSharedProps = {
-    // Don't focus on the thumbs for every small change.
-    focusThumbOnChange: false,
-    id,
-    isDisabled,
-    max,
-    min,
-    name,
-    onChange: (val) => {
-      setCurrentValue(val);
-      onChange && onChange(val);
-    },
-    step,
-    // Additional margins so slider thumbs don't overflow past the
-    // edge when the value boxes or min/max values are hidden.
-    sx: styles.sliderContainer,
-  };
-  // Props that the two `TextInput` components use.
-  const textInputSharedProps = {
-    isDisabled,
-    isInvalid: finalIsInvalid,
-    isRequired,
-    max,
-    min,
-    // Never show the label or helper text for the `TextInput` component.
-    showHelperInvalidText: false,
-    showLabel: false,
-    step,
-    type: "number" as TextInputTypes,
-  };
-  /**
-   * This returns either the "start" or "end" `TextInput` component. Note that
-   * the "end" `TextInput` component is always rendered but the "start" is
-   * only used for the `isRangeSlider` case.
-   */
-  const getTextInput = (type: "start" | "end") => {
-    const inputProps = {
-      start: {
-        // We only want the value for this box in the `isRangeSlider` case.
-        value: isRangeSlider ? currentValue[0].toString() : "",
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir Slider: This component's required `id` prop was not passed."
+        );
+      }
+      // For the RangeSlider, if the defaultValue is not an array, then we set
+      // the defaultValue to an array with the min and max values.
+      const rangeSliderDefault =
+        typeof defaultValue === "number" ? [min, max] : defaultValue;
+      // We need to set the default value correctly for both types of sliders.
+      const finalDevaultValue = isRangeSlider
+        ? rangeSliderDefault
+        : defaultValue;
+      const [currentValue, setCurrentValue] =
+        React.useState<typeof defaultValue>(finalDevaultValue);
+      let finalIsInvalid = isInvalid;
+      // In the Range Slider, if the first value is bigger than the second value,
+      // then set the invalid state.
+      if (isRangeSlider && currentValue[0] > currentValue[1]) {
+        finalIsInvalid = true;
+        console.warn(
+          "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
+        );
+      }
+      if (min > max) {
+        finalIsInvalid = true;
+        console.warn(
+          "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
+        );
+      }
+      const styles = useMultiStyleConfig("CustomSlider", {
+        isDisabled,
+        isInvalid: finalIsInvalid,
+        showBoxes,
+        showValues,
+      });
+      // Props that the `Slider` and `RangeSlider` Chakra
+      // components both use.
+      const sliderSharedProps = {
+        // Don't focus on the thumbs for every small change.
+        focusThumbOnChange: false,
+        id,
+        isDisabled,
+        max,
+        min,
+        name,
         onChange: (val) => {
-          // If the value is empty, set it to 0.
-          let nextValue = parseInt(val.target.value, 10)
-            ? parseInt(val.target.value, 10)
-            : 0;
-          // Only update the first value in the range.
-          const newValue = [nextValue, currentValue[1]];
-          setCurrentValue(newValue);
-          // If the text input was updated directly,
-          // send the data back to the user.
-          onChange && onChange(newValue);
+          setCurrentValue(val);
+          onChange && onChange(val);
         },
-        ...textInputSharedProps,
-      },
-      end: {
-        // This text input *always* shows. In the default case, we only
-        // keep track of one value. For the `isRangeSlider` case, we keep
-        // track of an array but only want the second value.
-        value: isRangeSlider
-          ? currentValue[1].toString()
-          : currentValue.toString(),
-        onChange: (val) => {
-          // If the value is empty, set it to 0.
-          let nextValue = parseInt(val.target.value, 10)
-            ? parseInt(val.target.value, 10)
-            : 0;
-          // If the value entered is bigger than the max value,
-          // then set it to the max value.
-          if (nextValue > max) {
-            nextValue = max;
-          }
-          // Only update the second value in the `isRangeSlider` case,
-          // or the single value in the default case.
-          const newValue = isRangeSlider
-            ? [currentValue[0], nextValue]
-            : nextValue;
-          setCurrentValue(newValue);
-          // If the text input was updated directly,
-          // send the data back to the user.
-          onChange && onChange(newValue);
-        },
-        ...textInputSharedProps,
-      },
-    };
-    const updatedLabel = !isRangeSlider
-      ? labelText
-      : `${labelText} - ${type} value`;
-    return (
-      <TextInput
-        id={`${id}-textInput-${type}`}
-        labelText={updatedLabel}
-        __css={{
-          ...styles.textInput,
-          // Specific margins for each text input to
-          // push the elements inside.
-          marginEnd: type === "start" ? "s" : null,
-          marginStart: type === "end" ? "xl" : null,
-        }}
-        {...inputProps[type]}
-      />
-    );
-  };
-  /**
-   * Returns a Chakra `Slider` or `RangeSlider` component based on the
-   * `isRangeSlider` prop from the DS `Slider` component.
-   */
-  const getSliderType = () => {
-    return isRangeSlider ? (
-      <ChakraRangeSlider
-        // Both slider thumbs need values and should be in an array.
-        aria-label={
-          !showLabel
-            ? [`${labelText} - start value`, `${labelText} - end value`]
-            : undefined
-        }
-        // Both slider thumbs need values and should be in an array,
-        // even if it's the same label.
-        aria-labelledby={showLabel ? [`${id}-label`, `${id}-label`] : undefined}
-        value={currentValue as number[]}
-        // Make the thumbs larger.
-        size="lg"
-        {...sliderSharedProps}
-      >
-        <ChakraRangeSliderTrack sx={styles.track}>
-          <ChakraRangeSliderFilledTrack sx={styles.filledTrack} />
-        </ChakraRangeSliderTrack>
-        <ChakraRangeSliderThumb index={0} sx={styles.thumb} />
-        <ChakraRangeSliderThumb index={1} sx={styles.thumb} />
-      </ChakraRangeSlider>
-    ) : (
-      <ChakraSlider
-        aria-label={!showLabel ? labelText : undefined}
-        aria-labelledby={`${id}-label`}
-        value={currentValue as number}
-        // Make the thumb larger.
-        size="lg"
-        {...sliderSharedProps}
-      >
-        <ChakraSliderTrack sx={styles.track}>
-          <ChakraSliderFilledTrack sx={styles.filledTrack} />
-        </ChakraSliderTrack>
-        <ChakraSliderThumb sx={styles.thumb} />
-      </ChakraSlider>
-    );
-  };
+        step,
+        // Additional margins so slider thumbs don't overflow past the
+        // edge when the value boxes or min/max values are hidden.
+        sx: styles.sliderContainer,
+      };
+      // Props that the two `TextInput` components use.
+      const textInputSharedProps = {
+        isDisabled,
+        isInvalid: finalIsInvalid,
+        isRequired,
+        max,
+        min,
+        // Never show the label or helper text for the `TextInput` component.
+        showHelperInvalidText: false,
+        showLabel: false,
+        step,
+        type: "number" as TextInputTypes,
+      };
+      /**
+       * This returns either the "start" or "end" `TextInput` component. Note that
+       * the "end" `TextInput` component is always rendered but the "start" is
+       * only used for the `isRangeSlider` case.
+       */
+      const getTextInput = (type: "start" | "end") => {
+        const inputProps = {
+          start: {
+            // We only want the value for this box in the `isRangeSlider` case.
+            value: isRangeSlider ? currentValue[0].toString() : "",
+            onChange: (val) => {
+              // If the value is empty, set it to 0.
+              let nextValue = parseInt(val.target.value, 10)
+                ? parseInt(val.target.value, 10)
+                : 0;
+              // Only update the first value in the range.
+              const newValue = [nextValue, currentValue[1]];
+              setCurrentValue(newValue);
+              // If the text input was updated directly,
+              // send the data back to the user.
+              onChange && onChange(newValue);
+            },
+            ...textInputSharedProps,
+          },
+          end: {
+            // This text input *always* shows. In the default case, we only
+            // keep track of one value. For the `isRangeSlider` case, we keep
+            // track of an array but only want the second value.
+            value: isRangeSlider
+              ? currentValue[1].toString()
+              : currentValue.toString(),
+            onChange: (val) => {
+              // If the value is empty, set it to 0.
+              let nextValue = parseInt(val.target.value, 10)
+                ? parseInt(val.target.value, 10)
+                : 0;
+              // If the value entered is bigger than the max value,
+              // then set it to the max value.
+              if (nextValue > max) {
+                nextValue = max;
+              }
+              // Only update the second value in the `isRangeSlider` case,
+              // or the single value in the default case.
+              const newValue = isRangeSlider
+                ? [currentValue[0], nextValue]
+                : nextValue;
+              setCurrentValue(newValue);
+              // If the text input was updated directly,
+              // send the data back to the user.
+              onChange && onChange(newValue);
+            },
+            ...textInputSharedProps,
+          },
+        };
+        const updatedLabel = !isRangeSlider
+          ? labelText
+          : `${labelText} - ${type} value`;
+        return (
+          <TextInput
+            id={`${id}-textInput-${type}`}
+            labelText={updatedLabel}
+            __css={{
+              ...styles.textInput,
+              // Specific margins for each text input to
+              // push the elements inside.
+              marginRight: type === "start" ? "s" : null,
+              marginLeft: type === "end" ? "s" : null,
+            }}
+            {...inputProps[type]}
+          />
+        );
+      };
+      /**
+       * Returns a Chakra `Slider` or `RangeSlider` component based on the
+       * `isRangeSlider` prop from the DS `Slider` component.
+       */
+      const getSliderType = () => {
+        return isRangeSlider ? (
+          <ChakraRangeSlider
+            // Both slider thumbs need values and should be in an array.
+            aria-label={
+              !showLabel
+                ? [`${labelText} - start value`, `${labelText} - end value`]
+                : undefined
+            }
+            // Both slider thumbs need values and should be in an array,
+            // even if it's the same label.
+            aria-labelledby={
+              showLabel ? [`${id}-label`, `${id}-label`] : undefined
+            }
+            value={currentValue as number[]}
+            // Make the thumbs larger.
+            size="lg"
+            {...sliderSharedProps}
+          >
+            <ChakraRangeSliderTrack sx={styles.track}>
+              <ChakraRangeSliderFilledTrack sx={styles.filledTrack} />
+            </ChakraRangeSliderTrack>
+            <ChakraRangeSliderThumb index={0} sx={styles.thumb} />
+            <ChakraRangeSliderThumb index={1} sx={styles.thumb} />
+          </ChakraRangeSlider>
+        ) : (
+          <ChakraSlider
+            aria-label={!showLabel ? labelText : undefined}
+            aria-labelledby={`${id}-label`}
+            value={currentValue as number}
+            // Make the thumb larger.
+            size="lg"
+            {...sliderSharedProps}
+          >
+            <ChakraSliderTrack sx={styles.track}>
+              <ChakraSliderFilledTrack sx={styles.filledTrack} />
+            </ChakraSliderTrack>
+            <ChakraSliderThumb sx={styles.thumb} />
+          </ChakraSlider>
+        );
+      };
 
-  return (
-    <ComponentWrapper
-      className={className}
-      helperText={helperText}
-      id={id}
-      invalidText={invalidText}
-      isInvalid={finalIsInvalid}
-      showHelperInvalidText={showHelperInvalidText}
-      __css={styles}
-      {...rest}
-    >
-      {showLabel && (
-        <Label
-          id={`${id}-label`}
-          // We can't target the slider thumbs since those are divs and we
-          // should link the label somewhere. So either target the first
-          // input box in a `RangeSlider` or the only input box in a `Slider`.
-          // When the input fields are not visible, remove this attribute.
-          htmlFor={
-            showBoxes
-              ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
-              : ""
-          }
-          isRequired={showRequiredLabel && isRequired}
+      return (
+        <ComponentWrapper
+          className={className}
+          helperText={helperText}
+          id={id}
+          invalidText={invalidText}
+          isInvalid={finalIsInvalid}
+          ref={ref}
+          showHelperInvalidText={showHelperInvalidText}
+          __css={styles}
+          {...rest}
         >
-          {labelText}
-        </Label>
-      )}
+          {showLabel && (
+            <Label
+              id={`${id}-label`}
+              // We can't target the slider thumbs since those are divs and we
+              // should link the label somewhere. So either target the first
+              // input box in a `RangeSlider` or the only input box in a `Slider`.
+              // When the input fields are not visible, remove this attribute.
+              htmlFor={
+                showBoxes
+                  ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
+                  : ""
+              }
+              isRequired={showRequiredLabel && isRequired}
+            >
+              {labelText}
+            </Label>
+          )}
 
-      <Box __css={styles.container}>
-        {/* Only show the start input box for the `isRangeSlider` case. */}
-        {showBoxes && isRangeSlider && getTextInput("start")}
+          <Box __css={styles.container}>
+            {/* Only show the start input box for the `isRangeSlider` case. */}
+            {showBoxes && isRangeSlider && getTextInput("start")}
 
-        {showValues && <Box __css={styles.leftValue}>{min}</Box>}
+            {showValues && <Box __css={styles.leftValue}>{min}</Box>}
 
-        {getSliderType()}
+            {getSliderType()}
 
-        {showValues && <Box __css={styles.rightValue}>{max}</Box>}
+            {showValues && <Box __css={styles.rightValue}>{max}</Box>}
 
-        {showBoxes && getTextInput("end")}
-      </Box>
-    </ComponentWrapper>
-  );
-});
+            {showBoxes && getTextInput("end")}
+          </Box>
+        </ComponentWrapper>
+      );
+    }
+  )
+);
 
 export default Slider;

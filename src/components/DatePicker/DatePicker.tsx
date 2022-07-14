@@ -242,7 +242,7 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
  * Returns a single date input field or two date input fields for a date range.
  */
 export const DatePicker = chakra(
-  React.forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
+  forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,
       dateFormat = "yyyy-MM-dd",

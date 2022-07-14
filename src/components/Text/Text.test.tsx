@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Text from "./Text";
@@ -59,5 +59,14 @@ describe("Text", () => {
     expect(mini).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Text ref={ref}>Animal Crossing is all that!</Text>
+    );
+
+    expect(container.querySelectorAll("p")[0]).toBe(ref.current);
   });
 });
