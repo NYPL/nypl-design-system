@@ -320,7 +320,7 @@ exports[`Footer Renders the UI snapshot correctly 1`] = `
         <img
           alt="NYPL Main Building Facade"
           className="css-0"
-          loading="lazy"
+          src="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
         />
       </div>
     </div>
