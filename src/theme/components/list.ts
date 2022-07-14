@@ -10,11 +10,11 @@ export const baseListStyles = (inline = false, noStyling = false) => ({
   margin: noStyling ? "0" : "unset",
   listStyle: noStyling ? "none" : null,
   marginInlineStart: "unset",
-  paddingLeft: noStyling ? "0" : "l",
+  paddingStart: noStyling ? "0" : "l",
   padding: noStyling ? "0" : null,
   display: inline ? "flex" : null,
   li: {
-    marginRight: inline ? "xs" : null,
+    marginEnd: inline ? "xs" : null,
     listStyleType: inline ? "none" : null,
     _notFirst: {
       marginTop: inline ? null : "xxs",
@@ -34,7 +34,7 @@ export const baseUnorderedStyles = (noStyling = false) => ({
       fontWeight: "bold",
       fontSize: "2",
       lineHeight: "0.9",
-      marginLeft: "-1rem",
+      marginStart: "-1rem",
       width: "1rem",
     },
   },
@@ -42,7 +42,7 @@ export const baseUnorderedStyles = (noStyling = false) => ({
 export const baseSectionDefinitionStyles = {
   borderBottom: "1px solid",
   borderColor: "ui.gray.light-cool",
-  paddingLeft: "0",
+  paddingStart: "0",
   h2: {
     borderTop: "3px solid",
     borderColor: "section.research.primary",
@@ -64,7 +64,7 @@ export const baseDefinitionStyles = {
     fontWeight: "label.default",
     paddingBottom: { base: "0", md: "s" },
     paddingTop: "s",
-    paddingRight: { md: "table.column" },
+    paddingEnd: { md: "table.column" },
   },
   dd: {
     margin: "0",

@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -96,7 +96,7 @@ function getExternalIcon(children: JSX.Element, linkId: string) {
  * an anchor element with added styling and conventions.
  */
 export const Link = chakra(
-  React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
+  forwardRef<HTMLDivElement & HTMLAnchorElement, LinkProps>((props, ref?) => {
     const {
       children,
       className,

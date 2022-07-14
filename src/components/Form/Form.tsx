@@ -1,5 +1,5 @@
 import { Box, chakra } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
 
@@ -71,7 +71,10 @@ export const FormField = chakra(
 
 /** Main Form component */
 export const Form = chakra(
-  (props: React.PropsWithChildren<FormProps>) => {
+  forwardRef<
+    HTMLDivElement & HTMLFormElement,
+    React.PropsWithChildren<FormProps>
+  >((props, ref?) => {
     const {
       action,
       children,
@@ -110,6 +113,7 @@ export const Form = chakra(
         className={className}
         id={id}
         onSubmit={onSubmit}
+        ref={ref}
         {...attributes}
         {...rest}
       >
@@ -118,7 +122,7 @@ export const Form = chakra(
         </SimpleGrid>
       </Box>
     );
-  },
+  }),
   { shouldForwardProp: () => true }
 );
 

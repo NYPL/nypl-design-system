@@ -1,10 +1,10 @@
-import * as React from "react";
 import { render, RenderResult, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
-import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
-import TextInput from "./TextInput";
+import TextInput, { TextInputRefType } from "./TextInput";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
@@ -230,36 +230,35 @@ describe("TextInput", () => {
   });
 });
 
-// TODO:
-// describe("Forwarding refs", () => {
-//   it("Passes the ref to the input element", () => {
-//     const ref = React.createRef<TextInputRefType>();
-//     const container = render(
-//       <TextInput
-//         id="inputID-attributes"
-//         labelText="Input Label"
-//         placeholder={"Input Placeholder"}
-//         type="text"
-//         ref={ref}
-//       />
-//     );
-//     expect(container.find("input").instance()).toEqual(ref.current);
-//   });
+describe("Forwarding refs", () => {
+  it("Passes the ref to the input element", () => {
+    const ref = React.createRef<TextInputRefType>();
+    const { container } = render(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder={"Input Placeholder"}
+        type="text"
+        ref={ref}
+      />
+    );
+    expect(container.querySelector("input")).toEqual(ref.current);
+  });
 
-//   it("Passes the ref to the textarea element", () => {
-//     const ref = React.createRef<TextInputRefType>();
-//     const container = render(
-//       <TextInput
-//         id="inputID-attributes"
-//         labelText="Input Label"
-//         placeholder={"Input Placeholder"}
-//         type="textarea"
-//         ref={ref}
-//       />
-//     );
-//     expect(container.find("textarea").instance()).toEqual(ref.current);
-//   });
-// });
+  it("Passes the ref to the textarea element", () => {
+    const ref = React.createRef<TextInputRefType>();
+    const { container } = render(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder={"Input Placeholder"}
+        type="textarea"
+        ref={ref}
+      />
+    );
+    expect(container.querySelector("textarea")).toEqual(ref.current);
+  });
+});
 
 describe("Hidden input", () => {
   it("renders a hidden type input", () => {
@@ -432,5 +431,14 @@ describe("UI Snapshots", () => {
     expect(disabledState).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the input element", () => {
+    const ref = React.createRef<TextInputRefType>();
+    const { container } = render(
+      <TextInput id="ref" labelText="Custom Label" ref={ref} />
+    );
+
+    expect(container.querySelector("input")).toBe(ref.current);
   });
 });

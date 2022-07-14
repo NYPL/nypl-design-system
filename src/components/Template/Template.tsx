@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
 
@@ -53,14 +53,18 @@ export interface TemplateAppContainerProps
  * The main top-level parent component that wraps all template-related
  * components.
  */
-const Template = chakra((props: React.PropsWithChildren<TemplateProps>) => {
-  const styles = useStyleConfig("Template", {});
-  return (
-    <Box __css={styles} {...props}>
-      {props.children}
-    </Box>
-  );
-});
+const Template = chakra(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
+    (props, ref?) => {
+      const styles = useStyleConfig("Template", {});
+      return (
+        <Box ref={ref} __css={styles} {...props}>
+          {props.children}
+        </Box>
+      );
+    }
+  )
+);
 
 /**
  * This optional component renders its children from edge-to-edge and should
@@ -250,7 +254,10 @@ const TemplateFooter = ({
  * `TemplateContentPrimary` section, then pass it as a prop to `contentPrimary`.
  */
 export const TemplateAppContainer = chakra(
-  (props: React.PropsWithChildren<TemplateAppContainerProps>) => {
+  forwardRef<
+    HTMLDivElement,
+    React.PropsWithChildren<TemplateAppContainerProps>
+  >((props, ref?) => {
     const {
       aboveHeader,
       breakout,
@@ -282,7 +289,7 @@ export const TemplateAppContainer = chakra(
       <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
     );
     return (
-      <Template {...rest}>
+      <Template ref={ref} {...rest}>
         {renderSkipNavigation ? <SkipNavigation /> : null}
         {aboveHeaderElem}
         {(header || breakoutElem) && (
@@ -309,7 +316,7 @@ export const TemplateAppContainer = chakra(
         )}
       </Template>
     );
-  }
+  })
 );
 
 export {

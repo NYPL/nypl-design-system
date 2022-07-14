@@ -1,6 +1,6 @@
 // HorizontalRule
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 export interface HorizontalRuleProps {
   /** Optional alignment value to align the horizontal rule to one side or the
@@ -11,17 +11,29 @@ export interface HorizontalRuleProps {
   className?: string;
 }
 
-export const HorizontalRule = chakra((props: HorizontalRuleProps) => {
-  const { align, className, ...rest } = props;
-  const styles = useStyleConfig("HorizontalRule", { align });
+export const HorizontalRule = chakra(
+  forwardRef<HTMLDivElement & HTMLHRElement, HorizontalRuleProps>(
+    (props, ref?) => {
+      const { align, className, ...rest } = props;
+      const styles = useStyleConfig("HorizontalRule", { align });
 
-  const finalStyles = {
-    ...styles,
-    height: "2px",
-    width: "100%",
-  };
+      const finalStyles = {
+        ...styles,
+        height: "2px",
+        width: "100%",
+      };
 
-  return <Box as="hr" className={className} __css={finalStyles} {...rest} />;
-});
+      return (
+        <Box
+          as="hr"
+          className={className}
+          ref={ref}
+          __css={finalStyles}
+          {...rest}
+        />
+      );
+    }
+  )
+);
 
 export default HorizontalRule;

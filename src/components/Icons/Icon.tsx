@@ -4,7 +4,7 @@ import {
   chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import iconSvgs from "./IconSvgs";
 
@@ -120,7 +120,10 @@ export interface IconProps {
  * Renders SVG-based icons.
  */
 export const Icon = chakra(
-  (props: React.PropsWithChildren<IconProps>) => {
+  forwardRef<
+    HTMLDivElement & SVGSVGElement,
+    React.PropsWithChildren<IconProps>
+  >((props, ref?) => {
     const {
       align = "none",
       children,
@@ -172,7 +175,9 @@ export const Icon = chakra(
     // render the SVG child with NYPL-theme styling.
     if (name) {
       const SvgComponent: any = iconSvgs[name];
-      return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
+      return (
+        <ChakraIcon as={SvgComponent} ref={ref} {...iconProps} __css={styles} />
+      );
     }
 
     // If no `name` prop was passed, we expect a child SVG element to be passed.
@@ -184,6 +189,7 @@ export const Icon = chakra(
     ) {
       childSVG = React.cloneElement(children as JSX.Element, {
         ...iconProps,
+        ref,
       });
     } else {
       console.warn(
@@ -192,8 +198,12 @@ export const Icon = chakra(
       );
     }
 
-    return <Box __css={styles}>{childSVG}</Box>;
-  },
+    return (
+      <Box ref={ref} __css={styles}>
+        {childSVG}
+      </Box>
+    );
+  }),
   // Pass all custom props to Chakra and override, e.g. we want the
   // DS color value set and not color strings.
   { shouldForwardProp: () => true }

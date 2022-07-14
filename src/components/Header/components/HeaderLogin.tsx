@@ -10,7 +10,7 @@ import gaUtils from "../utils/googleAnalyticsUtils";
 import { HeaderContext } from "../context/headerContext";
 
 export interface HeaderLoginProps {
-  catalogRef?: React.RefObject<HTMLAnchorElement>;
+  catalogRef?: React.RefObject<HTMLDivElement & HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
   patronName?: string;
