@@ -84,7 +84,7 @@ const SkeletonLoader = {
         height: { md: imageRowHeightStyles[imageAspectRatio] },
       },
       container: {
-        marginLeft: showImage ? { md: "m" } : null,
+        marginStart: showImage ? { md: "m" } : null,
         marginTop: { md: "0" },
       },
       button: {

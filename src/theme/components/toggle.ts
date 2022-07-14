@@ -10,7 +10,7 @@ interface ToggleBaseStyle {
 const toggleBaseStyle = ({ isDisabled, size }: ToggleBaseStyle) => {
   const label = { alignItems: "start", display: "flex", width: "fit-content" };
   const helperErrorText = {
-    marginLeft: size === "default" ? "xxl" : "xl",
+    marginStart: size === "default" ? "xxl" : "xl",
     fontStyle: isDisabled ? "italic" : null,
   };
   return {
@@ -59,7 +59,7 @@ const Switch = {
       },
       label: {
         fontSize: "label.default",
-        marginLeft: "xs",
+        marginStart: "xs",
         marginTop: size === "lg" ? "xxxs" : null,
         _disabled: {
           color: "ui.gray.dark",

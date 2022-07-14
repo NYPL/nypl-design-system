@@ -1,8 +1,8 @@
 // From @mixin breakout:
 // Used for elements that should be edge-to-edge.
 const breakout = {
-  marginLeft: "calc(-50vw + 50%)",
-  marginRight: "calc(-50vw + 50%)",
+  marginEnd: "calc(-50vw + 50%)",
+  marginStart: "calc(-50vw + 50%)",
 };
 // From the `wrapper` SCSS mixin.
 // TODO: Eventually we may be able to put shared JS style objects
@@ -13,8 +13,8 @@ const wrapperStyles = {
   maxWidth: "1280px",
   paddingTop: 0,
   paddingBottom: 0,
-  paddingRight: "s",
-  paddingLeft: "s",
+  paddingEnd: "s",
+  paddingStart: "s",
   width: "100%",
 };
 
@@ -76,7 +76,7 @@ const TemplateContentPrimary = {
       display: "flex",
       flexFlow: "column nowrap",
       order: "1",
-      marginRight: { md: 0 },
+      marginEnd: { md: 0 },
       minWidth: { md: 0 },
     },
   },
@@ -89,13 +89,13 @@ const TemplateContentSidebar = {
   },
   variants: {
     left: {
-      marginRight: {
+      marginEnd: {
         base: 0,
         md: "page.vstack", // --nypl-space-xl
       },
     },
     right: {
-      marginLeft: {
+      marginStart: {
         base: 0,
         md: "page.vstack", // --nypl-space-xl
       },
