@@ -42,6 +42,8 @@ export type IconNames =
   | "actionRegistration"
   | "actionSettings"
   | "alertNotificationImportant"
+  | "alertWarningFilled"
+  | "alertWarningOutline"
   | "arrow"
   | "building"
   | "check"
