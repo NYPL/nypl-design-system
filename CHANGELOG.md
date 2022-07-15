@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the following components to use React's `forwardRef` wrapper function to pass along refs to the correct DOM element. This is for third-party packages and components such as Chakra's `Tooltip` to work correctly.
   - `Accordion`, `Breadcrumbs`, `Button`, `ButtonGroup`, `Card`, `ComponentWrapper`, `FieldSet`, `Form`, `SimpleGrid`, `Heading`, `HelperErrorText`, `Hero`, `HorizontalRule`, `Icon`, `Image`, `Label`, `List`, `Logo`, `Modal`, `Notification`, `Pagination`, `ProgressIndicator`, `SearchBar`, `SkeletonLoader`, `SkipNavigation`, `Slider`, `StatusBadge`, `StructuredContent`, `Table`, `Tabs`, `Template`, `TemplateAppContainer`, `Text`, `VideoPlayer`.
 - Updates `padding-left` and `padding-right` style properties to `padding-start` and `padding-end`, respectively. Updates `margin-left` and `margin-right` style properties to `margin-start` and `margin-end`, respectively. These changes apply to inline CSS, shorthand Chakra style prop syntax, and Chakra theme file syntax. Note that `margin-start/end` and `padding-start/end` get converted to `margin-inline-start/end` and `padding-inline-start/end` respectively by Chakra UI.
+- Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Warning` (filled and oultine).
 
 ## 1.0.5 (July 7, 2022)
