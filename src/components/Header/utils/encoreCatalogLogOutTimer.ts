@@ -96,7 +96,7 @@ function EncoreCatalogLogOutTimer(
   /**
    * The function that loads and inserts a temporary `iframe` element into the
    * body of the current page. The `iframe` has the log out endpoint to
-   * completely log out the patrong from Encore and Catalog. The `iframe`
+   * completely log out the patron from Encore and Catalog. The `iframe`
    * element is then removed.
    *
    * This is the preferred method to log out from Encore and Catalog because it
