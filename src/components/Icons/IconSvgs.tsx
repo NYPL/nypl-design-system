@@ -11,6 +11,8 @@ import actionPower from "../../../icons/svg/action-power.svg";
 import actionRegistration from "../../../icons/svg/action-registration.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
+import alertWarningFilled from "../../../icons/svg/alert-warning-filled.svg";
+import alertWarningOutline from "../../../icons/svg/alert-warning-outline.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import building from "../../../icons/svg/building.svg";
 import check from "../../../icons/svg/check.svg";
@@ -64,6 +66,8 @@ export default {
   actionRegistration,
   actionSettings,
   alertNotificationImportant,
+  alertWarningFilled,
+  alertWarningOutline,
   arrow,
   building,
   check,
