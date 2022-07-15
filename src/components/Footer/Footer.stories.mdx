@@ -1,0 +1,52 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import Footer from "./Footer";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("Footer")}
+  component={Footer}
+  decorators={[withDesign]}
+  parameters={{
+    jest: ["Footer.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+  }}
+/>
+
+# Footer
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Description of={Footer} />
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story name="Footer">{(args) => <Footer />}</Story>
+</Canvas>
+
+<ArgsTable story="Footer" />
+
+## Accessibility
