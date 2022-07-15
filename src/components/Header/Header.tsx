@@ -30,6 +30,7 @@ import {
   tokenRefreshLink,
 } from "./utils/headerUtils";
 import gaUtils from "./utils/googleAnalyticsUtils";
+import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 
 export interface GAOptionProps {
   debug?: boolean;
@@ -46,6 +47,12 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
   const [patronName, setPatronName] = useState<string>("");
   const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
   const styles = useMultiStyleConfig("Header", {});
+  // Create a new instance of the EncoreCatalogLogOutTimer.
+  // The timer will start when the component is mounted.
+  const encoreCatalogLogOutTimer = new EncoreCatalogLogOutTimer(
+    Date.now(),
+    false
+  );
 
   const loginDataCallback = (data) => {
     // If the `statusCode` of the returned data is 401 and the expired
@@ -62,6 +69,12 @@ export const Header = chakra(({ gaOptions = {}, isProduction = true }) => {
       setPatronName(fullName);
     }
   };
+
+  // Once the `Header` component is mounted, start a timer that will
+  // log the user out of Encore and the NYPL Catalog after 30 minutes.
+  useEffect(() => {
+    encoreCatalogLogOutTimer.setEncoreLoggedInTimer(window.location.host);
+  });
 
   useEffect(() => {
     if (!(window as any)?.ga) {
