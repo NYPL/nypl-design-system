@@ -56,7 +56,7 @@ const HeaderLogin = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                name="utilityAccountFilled"
+                name="legacyAccountUnfilled"
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
