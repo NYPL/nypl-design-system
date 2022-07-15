@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the basic `Footer` React component.
+- Adds the basic `Footer` React component. Uses "legacy" SVG icons in the `Footer` component for social media icons.
 
 ### Updates
 
