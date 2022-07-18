@@ -1,16 +1,12 @@
 import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
-import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 import renderer from "react-test-renderer";
 
 import Footer from "./Footer";
 
 describe("Footer Accessibility", () => {
   it("passes axe accessibility", async () => {
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
-
     const { container } = render(<Footer />);
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -18,8 +14,6 @@ describe("Footer Accessibility", () => {
 
 describe("Footer", () => {
   beforeEach(() => {
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
     render(<Footer />);
   });
 
@@ -73,7 +67,7 @@ describe("Footer", () => {
     ).toBeInTheDocument();
   });
 
-  it("Renders the UI snapshot correctly", () => {
+  it("renders the UI snapshot correctly", () => {
     const footer = renderer.create(<Footer />).toJSON();
     expect(footer).toMatchSnapshot();
   });

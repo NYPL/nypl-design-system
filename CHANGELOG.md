@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the basic `Footer` React component.
+- Adds the basic `Footer` React component and documentation
 
 ### Updates
 
