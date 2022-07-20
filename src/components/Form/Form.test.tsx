@@ -1,6 +1,6 @@
-import * as React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
@@ -230,5 +230,20 @@ describe("Form", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Form: This component's required `id` prop was not passed."
     );
+  });
+
+  it("passes a ref to the form element", () => {
+    const ref = React.createRef<HTMLFormElement>();
+    const { container } = render(
+      <Form id="form" ref={ref}>
+        <FormRow>
+          <FormField>Form Field 1</FormField>
+          <FormField>Form Field 2</FormField>
+          <FormField>Form Field 3</FormField>
+        </FormRow>
+      </Form>
+    );
+
+    expect(container.querySelector("form")).toBe(ref.current);
   });
 });

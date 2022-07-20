@@ -2,7 +2,6 @@ import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import SimpleGrid from "./SimpleGrid";
@@ -52,8 +51,6 @@ describe("Grid Accessibility", () => {
         </Card>
       </SimpleGrid>
     );
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -79,5 +76,17 @@ describe("SimpleGrid", () => {
     expect(
       utils.container.querySelector("#test-grid-render")
     ).toBeInTheDocument();
+  });
+
+  it("passes a ref to the div element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <SimpleGrid id="grid-ref" ref={ref}>
+        <p>test1</p>
+        <p>test2</p>
+      </SimpleGrid>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

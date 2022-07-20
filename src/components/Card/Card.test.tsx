@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
@@ -11,11 +10,6 @@ import Image from "../Image/Image";
 import Link from "../Link/Link";
 
 describe("Card Accessibility", () => {
-  beforeAll(() => {
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
-  });
-
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Card
@@ -65,13 +59,14 @@ describe("Card Accessibility", () => {
 });
 
 describe("Card", () => {
-  const regularCard = (
+  const regularCard = (ref?: React.RefObject<HTMLDivElement>) => (
     <Card
       id="regularCard"
       imageProps={{
         alt: "Alt text",
         src: "https://placeimg.com/400/200/arch",
       }}
+      ref={ref}
     >
       <CardHeading level="three" id="heading1">
         The Card Heading
@@ -294,10 +289,8 @@ describe("Card", () => {
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
-    const utils = render(regularCard);
+    const utils = render(regularCard());
     container = utils.container;
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(container.querySelector("h3")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
@@ -309,8 +302,6 @@ describe("Card", () => {
   it("renders a Card with variable data", () => {
     const utils = render(cardWithExtendedStyles);
     container = utils.container;
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(container.querySelector("h2")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
@@ -324,8 +315,6 @@ describe("Card", () => {
 
   it("Generates a card without a CTA block if one isn't provided", () => {
     render(cardWithNoCTAs);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -338,8 +327,6 @@ describe("Card", () => {
 
   it("Generates a card without a content block if one isn't provided", () => {
     render(cardWithNoContent);
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -361,8 +348,6 @@ describe("Card", () => {
 
   it("Generates a card with the full-click functionality", () => {
     render(cardFullClick());
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(screen.getAllByRole("link")[0]).toHaveAttribute(
       "href",
@@ -381,7 +366,7 @@ describe("Card", () => {
   });
 
   it("Renders the UI snapshot correctly", () => {
-    const regular = renderer.create(regularCard).toJSON();
+    const regular = renderer.create(regularCard()).toJSON();
     const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
     const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
@@ -390,8 +375,6 @@ describe("Card", () => {
     const withRightActions = renderer.create(cardWithRightActions()).toJSON();
     const withChakraProps = renderer.create(cardWithChakraProps).toJSON();
     const withOtherProps = renderer.create(cardWithOtherProps).toJSON();
-    // Mock IntersectionObserver to render images.
-    mockAllIsIntersecting(true);
 
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
@@ -402,5 +385,12 @@ describe("Card", () => {
     expect(withRightActions).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(regularCard(ref));
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

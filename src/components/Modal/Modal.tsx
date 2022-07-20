@@ -9,7 +9,7 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -82,35 +82,32 @@ const BaseModal = chakra(
  * component are passed through to the `modalProps` prop.
  */
 export const ModalTrigger = chakra(
-  ({
-    buttonText,
-    id,
-    modalProps,
-    ...rest
-  }: React.PropsWithChildren<ModalProps>) => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const finalOnCloseHandler = () => {
-      modalProps.onClose && modalProps.onClose();
-      onClose();
-    };
-    return (
-      <>
-        <Button id="modal-open-btn" onClick={onOpen}>
-          {buttonText}
-        </Button>
+  forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
+    ({ buttonText, id, modalProps, ...rest }, ref?) => {
+      const { isOpen, onOpen, onClose } = useDisclosure();
+      const finalOnCloseHandler = () => {
+        modalProps.onClose && modalProps.onClose();
+        onClose();
+      };
+      return (
+        <>
+          <Button id="modal-open-btn" onClick={onOpen} ref={ref}>
+            {buttonText}
+          </Button>
 
-        <BaseModal
-          bodyContent={modalProps.bodyContent}
-          closeButtonLabel={modalProps.closeButtonLabel}
-          headingText={modalProps.headingText}
-          id={id}
-          isOpen={isOpen}
-          onClose={finalOnCloseHandler}
-          {...rest}
-        />
-      </>
-    );
-  }
+          <BaseModal
+            bodyContent={modalProps.bodyContent}
+            closeButtonLabel={modalProps.closeButtonLabel}
+            headingText={modalProps.headingText}
+            id={id}
+            isOpen={isOpen}
+            onClose={finalOnCloseHandler}
+            {...rest}
+          />
+        </>
+      );
+    }
+  )
 );
 
 /**

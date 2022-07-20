@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import SkipNavigation from "./SkipNavigation";
@@ -59,5 +59,12 @@ describe("Label", () => {
     expect(customTarget).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the nav wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<SkipNavigation ref={ref} />);
+
+    expect(container.querySelector("nav")).toBe(ref.current);
   });
 });

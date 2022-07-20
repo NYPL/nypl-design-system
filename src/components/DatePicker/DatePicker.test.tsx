@@ -1,7 +1,7 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import DatePicker, { DatePickerTypes, FullDateType } from "./DatePicker";
@@ -503,6 +503,20 @@ describe("DatePicker", () => {
       expect(withChakraProps).toMatchSnapshot();
       expect(withOtherProps).toMatchSnapshot();
     });
+
+    it("passes a ref to the input element", () => {
+      const ref = React.createRef<TextInputRefType>();
+      const { container } = render(
+        <DatePicker
+          id="datePicker"
+          labelText="Select the full date you want to visit NYPL"
+          nameFrom="start-date-ref"
+          ref={ref}
+        />
+      );
+
+      expect(container.querySelector("input")).toBe(ref.current);
+    });
   });
 
   describe("Date Range", () => {
@@ -736,6 +750,27 @@ describe("DatePicker", () => {
       expect(screen.queryByDisplayValue("1988-03-28")).not.toBeInTheDocument();
       // The "From" date value wasn't affected by this!
       expect(screen.getByDisplayValue("1988-03-05")).toBeInTheDocument();
+    });
+
+    it("passes two refs to both input elements", () => {
+      const ref = React.createRef<TextInputRefType>();
+      const refTo = React.createRef<TextInputRefType>();
+      const { container } = render(
+        <DatePicker
+          id="datePicker-ref"
+          isDateRange
+          labelText="Select the date you want to visit NYPL"
+          ref={ref}
+          refTo={refTo}
+          nameFrom="datePicker-ref-1"
+          nameTo="datePicker-ref-2"
+        />
+      );
+
+      // The first input is the `ref` prop.
+      expect(container.querySelectorAll("input")[0]).toBe(ref.current);
+      // The second input is the `refTo` prop.
+      expect(container.querySelectorAll("input")[1]).toBe(refTo.current);
     });
   });
 

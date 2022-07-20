@@ -11,6 +11,8 @@ import actionPower from "../../../icons/svg/action-power.svg";
 import actionRegistration from "../../../icons/svg/action-registration.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
+import alertWarningFilled from "../../../icons/svg/alert-warning-filled.svg";
+import alertWarningOutline from "../../../icons/svg/alert-warning-outline.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import building from "../../../icons/svg/building.svg";
 import check from "../../../icons/svg/check.svg";
@@ -30,6 +32,12 @@ import fileTypePdf from "../../../icons/svg/file-type-pdf.svg";
 import fileTypeSpreadsheet from "../../../icons/svg/file-type-spreadsheet.svg";
 import fileTypeVideo from "../../../icons/svg/file-type-video.svg";
 import headset from "../../../icons/svg/headset.svg";
+import legacyAccountFilled from "../../../icons/svg/legacy-account-filled.svg";
+import legacyAccountUnfilled from "../../../icons/svg/legacy-account-unfilled.svg";
+import legacySocialFacebook from "../../../icons/svg/legacy-social-facebook.svg";
+import legacySocialInstagram from "../../../icons/svg/legacy-social-instagram.svg";
+import legacySocialTwitter from "../../../icons/svg/legacy-social-twitter.svg";
+import legacySocialYoutube from "../../../icons/svg/legacy-social-youtube.svg";
 import locator from "../../../icons/svg/locator.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
@@ -58,6 +66,8 @@ export default {
   actionRegistration,
   actionSettings,
   alertNotificationImportant,
+  alertWarningFilled,
+  alertWarningOutline,
   arrow,
   building,
   check,
@@ -77,6 +87,12 @@ export default {
   fileTypeSpreadsheet,
   fileTypeVideo,
   headset,
+  legacyAccountFilled,
+  legacyAccountUnfilled,
+  legacySocialFacebook,
+  legacySocialInstagram,
+  legacySocialTwitter,
+  legacySocialYoutube,
   locator,
   minus,
   plus,
