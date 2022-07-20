@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   ListItem,
-  Stack,
   UnorderedList,
   useMultiStyleConfig,
   useOutsideClick,
@@ -11,6 +10,7 @@ import {
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "./../Button/Button";
+import ButtonGroup from "./../ButtonGroup/ButtonGroup";
 import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
@@ -99,7 +99,6 @@ function MultiSelectDialog({
     }
     return false;
   };
-
   return (
     <Box
       id={id}
@@ -184,7 +183,7 @@ function MultiSelectDialog({
               ))}
           </UnorderedList>
           {isOpen && !isMobile && (
-            <Stack direction="row" spacing="s" justify="flex-end">
+            <ButtonGroup __css={styles.actionButtons}>
               <Button
                 id={`multiselect-${id}-clear`}
                 buttonType="link"
@@ -204,9 +203,9 @@ function MultiSelectDialog({
                   onApply();
                 }}
               >
-                Apply Filters
+                Apply
               </Button>
-            </Stack>
+            </ButtonGroup>
           )}
         </Box>
       </FocusLock>
