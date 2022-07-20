@@ -78,7 +78,6 @@ function MultiSelectListbox({
         selectedItems={selectedItems}
         onClear={onClear}
         {...getToggleButtonProps({
-          // @TODO add short prefix to avoid id starting with number
           id: `ms-${id}-menu-button`,
           "aria-labelledby": `${id}-label ${id}-toggle-button`,
         })}
@@ -88,8 +87,7 @@ function MultiSelectListbox({
           styleType="none"
           marginInlineStart="0"
           {...getMenuProps({
-            // @TODO add short prefix to avoid id starting with number
-            id: `${id}-menu`,
+            id: `ms-${id}-menu`,
             "aria-labelledby": `${id}-label`,
           })}
           // @FIX This prevents the menu from closing when checkbox or label is clicked.
@@ -104,8 +102,7 @@ function MultiSelectListbox({
                 // error  Missing "key" prop for element in iterator  react/jsx-key
                 key={item.id}
                 {...getItemProps({
-                  // @TODO add short prefix to avoid id starting with number
-                  id: `${id}-item-${index}`,
+                  id: `ms-${id}-item-${index}`,
                   key: item.id,
                   item,
                   index,
