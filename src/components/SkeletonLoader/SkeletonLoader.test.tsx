@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import SkeletonLoader from "./SkeletonLoader";
@@ -112,5 +112,12 @@ describe("SkeletonLoader", () => {
     expect(square).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<SkeletonLoader ref={ref} />);
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

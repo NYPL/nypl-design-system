@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
@@ -91,134 +91,137 @@ export const NotificationContent = chakra(
  * Component used to present users with three different levels of notifications:
  * standard, announcement, and warning.
  */
-export const Notification = chakra((props: NotificationProps) => {
-  const {
-    ariaLabel,
-    className,
-    dismissible = false,
-    icon,
-    id,
-    isCentered = false,
-    noMargin = false,
-    notificationContent,
-    notificationHeading,
-    notificationType = "standard",
-    showIcon = true,
-    ...rest
-  } = props;
-  const [isOpen, setIsOpen] = useState(true);
-  const handleClose = () => setIsOpen(false);
-  const styles = useMultiStyleConfig("Notification", {
-    dismissible,
-    isCentered,
-    noMargin,
-    notificationType,
-  });
-  const iconElement = () => {
-    const baseIconProps = {
-      size: "large" as IconSizes,
-      __css: styles.icon,
+export const Notification = chakra(
+  forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
+    const {
+      ariaLabel,
+      className,
+      dismissible = false,
+      icon,
+      id,
+      isCentered = false,
+      noMargin = false,
+      notificationContent,
+      notificationHeading,
+      notificationType = "standard",
+      showIcon = true,
+      ...rest
+    } = props;
+    const [isOpen, setIsOpen] = useState(true);
+    const handleClose = () => setIsOpen(false);
+    const styles = useMultiStyleConfig("Notification", {
+      dismissible,
+      isCentered,
+      noMargin,
+      notificationType,
+    });
+    const iconElement = () => {
+      const baseIconProps = {
+        size: "large" as IconSizes,
+        __css: styles.icon,
+      };
+      // If the icon should not display, return undefined.
+      if (!showIcon) {
+        return undefined;
+      }
+      // If a custom icon is passed, add specific `Notification` styles.
+      if (icon)
+        return React.cloneElement(icon, {
+          id: `${id}-custom-notification-icon`,
+          ...baseIconProps,
+        });
+      interface IconProps {
+        color: IconColors;
+        name: IconNames;
+        title: string;
+      }
+      const iconProps = {
+        announcement: {
+          color: "section.research.secondary",
+          name: "speakerNotes",
+          title: "Notification announcement icon",
+        } as IconProps,
+        standard: {
+          color: "ui.black",
+          name: "alertNotificationImportant",
+          title: "Notification standard icon",
+        } as IconProps,
+        warning: {
+          color: "brand.primary",
+          name: "errorFilled",
+          title: "Notification warning icon",
+        } as IconProps,
+      };
+      return (
+        <Icon
+          id={`${id}-notification-icon`}
+          {...iconProps[notificationType]}
+          {...baseIconProps}
+        />
+      );
     };
-    // If the icon should not display, return undefined.
-    if (!showIcon) {
-      return undefined;
-    }
-    // If a custom icon is passed, add specific `Notification` styles.
-    if (icon)
-      return React.cloneElement(icon, {
-        id: `${id}-custom-notification-icon`,
-        ...baseIconProps,
-      });
-    interface IconProps {
-      color: IconColors;
-      name: IconNames;
-      title: string;
-    }
-    const iconProps = {
-      announcement: {
-        color: "section.research.secondary",
-        name: "speakerNotes",
-        title: "Notification announcement icon",
-      } as IconProps,
-      standard: {
-        color: "ui.black",
-        name: "alertNotificationImportant",
-        title: "Notification standard icon",
-      } as IconProps,
-      warning: {
-        color: "brand.primary",
-        name: "errorFilled",
-        title: "Notification warning icon",
-      } as IconProps,
-    };
-    return (
-      <Icon
-        id={`${id}-notification-icon`}
-        {...iconProps[notificationType]}
-        {...baseIconProps}
-      />
+    const dismissibleButton = dismissible && (
+      <Button
+        aria-label="Close the notification"
+        buttonType="link"
+        id={`${id}-notification-dismissible-button`}
+        onClick={handleClose}
+        __css={styles.dismissibleButton}
+      >
+        <Icon
+          id={`${id}-dismissible-notification-icon`}
+          name="close"
+          size="large"
+          title="Notification close icon"
+        />
+      </Button>
     );
-  };
-  const dismissibleButton = dismissible && (
-    <Button
-      aria-label="Close the notification"
-      buttonType="link"
-      id={`${id}-notification-dismissible-button`}
-      onClick={handleClose}
-      __css={styles.dismissibleButton}
-    >
-      <Icon
-        id={`${id}-dismissible-notification-icon`}
-        name="close"
-        size="large"
-        title="Notification close icon"
-      />
-    </Button>
-  );
-  const iconElem = iconElement();
-  const childHeading = notificationHeading && (
-    <NotificationHeading
-      icon={iconElem}
-      id={id}
-      isCentered={isCentered}
-      notificationType={notificationType}
-    >
-      {notificationHeading}
-    </NotificationHeading>
-  );
-  // Specific alignment styles for the content.
-  const alignText = !!(childHeading && showIcon && (!!icon || !isCentered));
-  const childContent = (
-    <NotificationContent
-      alignText={alignText}
-      icon={!childHeading ? iconElem : undefined}
-      notificationType={notificationType}
-    >
-      {notificationContent}
-    </NotificationContent>
-  );
+    const iconElem = iconElement();
+    const childHeading = notificationHeading && (
+      <NotificationHeading
+        icon={iconElem}
+        id={id}
+        isCentered={isCentered}
+        notificationType={notificationType}
+      >
+        {notificationHeading}
+      </NotificationHeading>
+    );
+    // Specific alignment styles for the content.
+    const alignText = !!(childHeading && showIcon && (!!icon || !isCentered));
+    const childContent = (
+      <NotificationContent
+        alignText={alignText}
+        icon={!childHeading ? iconElem : undefined}
+        notificationType={notificationType}
+      >
+        {notificationContent}
+      </NotificationContent>
+    );
 
-  // If the `Notification` is closed, don't render anything.
-  if (!isOpen) {
-    return null;
-  }
-  return (
-    <Box
-      aria-label={ariaLabel}
-      as="aside"
-      className={className}
-      data-type={notificationType}
-      id={id}
-      __css={styles}
-      {...rest}
-    >
-      <Box __css={styles.container}>
-        {childHeading}
-        {childContent}
+    // If the `Notification` is closed, don't render anything.
+    if (!isOpen) {
+      return null;
+    }
+    return (
+      <Box
+        aria-label={ariaLabel}
+        as="aside"
+        className={className}
+        data-type={notificationType}
+        id={id}
+        ref={ref}
+        __css={styles}
+        {...rest}
+      >
+        <Box __css={styles.container}>
+          {childHeading}
+          {childContent}
+        </Box>
+        {dismissibleButton}
       </Box>
-      {dismissibleButton}
-    </Box>
-  );
-});
+    );
+  })
+);
 
 export default Notification;

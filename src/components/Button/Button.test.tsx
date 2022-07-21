@@ -1,12 +1,12 @@
-import * as React from "react";
 import {
   render,
   RenderResult,
   screen,
   fireEvent,
 } from "@testing-library/react";
-import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Button from "./Button";
@@ -43,10 +43,6 @@ describe("Button", () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("optionally renders a component", () => {
-    expect(screen.getByText("Submit")).toBeInTheDocument();
-  });
-
   it("optionally calls the onClick on mouseDown instead of on click", () => {
     expect(onClick).toHaveBeenCalledTimes(0);
     utils.rerender(
@@ -60,16 +56,8 @@ describe("Button", () => {
     // TODO:
     // expect(onClick).toHaveBeenCalledTimes(1);
   });
-});
 
-describe("rendering content from its children prop", () => {
-  const onClick = jest.fn();
   it("should render string children", () => {
-    render(
-      <Button id="button2" onClick={onClick}>
-        Submit
-      </Button>
-    );
     expect(screen.getByText("Submit")).toBeInTheDocument();
   });
 
@@ -82,9 +70,7 @@ describe("rendering content from its children prop", () => {
     expect(screen.getByText(/an em element/i)).toBeInTheDocument();
     expect(container.querySelector("em")).toBeInTheDocument();
   });
-});
 
-describe("padding for icon only button", () => {
   it("button has proper child svg for the icon only button", () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -103,6 +89,17 @@ describe("padding for icon only button", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Button: This component's required `id` prop was not passed."
     );
+  });
+
+  it("passes a ref to the button element", () => {
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(
+      <Button id="button-ref" onClick={onClick} ref={ref}>
+        Ref
+      </Button>
+    );
+
+    expect(container.querySelector("button")).toBe(ref.current);
   });
 });
 

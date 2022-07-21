@@ -4,7 +4,7 @@ import {
   Radio as ChakraRadio,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -51,7 +51,7 @@ export interface RadioProps {
 }
 
 export const Radio = chakra(
-  React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
+  forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     const {
       className,
       helperText,

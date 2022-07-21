@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface FieldsetProps {
   /** Additional class name to add. */
@@ -22,34 +22,49 @@ interface FieldsetProps {
  * element as its first child. Commonly used to wrap form components.
  */
 export const Fieldset = chakra(
-  ({
-    children,
-    className,
-    id,
-    isLegendHidden = false,
-    isRequired = false,
-    legendText,
-    showRequiredLabel = true,
-    ...rest
-  }: React.PropsWithChildren<FieldsetProps>) => {
-    const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+  forwardRef<
+    HTMLDivElement & HTMLFieldSetElement,
+    React.PropsWithChildren<FieldsetProps>
+  >(
+    (
+      {
+        children,
+        className,
+        id,
+        isLegendHidden = false,
+        isRequired = false,
+        legendText,
+        showRequiredLabel = true,
+        ...rest
+      },
+      ref?
+    ) => {
+      const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+        );
+      }
+
+      return (
+        <Box
+          as="fieldset"
+          id={id}
+          className={className}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          <legend>
+            {legendText}
+            {showRequiredLabel && isRequired && <span> (Required)</span>}
+          </legend>
+          {children}
+        </Box>
       );
     }
-
-    return (
-      <Box as="fieldset" id={id} __css={styles} className={className} {...rest}>
-        <legend>
-          {legendText}
-          {showRequiredLabel && isRequired && <span> (Required)</span>}
-        </legend>
-        {children}
-      </Box>
-    );
-  }
+  )
 );
 
 export default Fieldset;

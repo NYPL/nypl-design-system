@@ -13,8 +13,8 @@ const imageWrap = {
   overflow: "hidden",
 };
 const sideMarginsAuto = {
-  marginLeft: "auto",
-  marginRight: "auto",
+  marginStart: "auto",
+  marginEnd: "auto",
 };
 const imageSizes = {
   default: {
@@ -117,8 +117,8 @@ const CustomImageWrapper = {
     ratio = "original",
     size = "default",
   }: CustomImageWrapperBaseStyle) => ({
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginStart: "auto",
+    marginEnd: "auto",
     width: "100%",
     ...imageSizes[size],
     crop: {
