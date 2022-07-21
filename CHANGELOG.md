@@ -10,6 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## 1.0.6 (July 21, 2022)
 
+### Adds
+
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
+
 ### Updates
 
 - Updates the following components to use React's `forwardRef` wrapper function to pass along refs to the correct DOM element. This is for third-party packages and components such as Chakra's `Tooltip` to work correctly.
@@ -18,12 +22,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Warning` (filled and oultine).
 
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+
 ## 1.0.5 (July 7, 2022)
 
 ### Adds
 
 - Exports `ColorCard`.
-- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
@@ -35,10 +42,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 - Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
-
-### Fixes
-
-- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
 
 ## 1.0.4 (June 23, 2022)
 
