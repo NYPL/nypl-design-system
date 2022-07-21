@@ -54,22 +54,22 @@ const link = {
   socialMedia: [
     {
       href: "https://www.facebook.com/nypl",
-      iconName: "socialFacebook",
+      iconName: "legacySocialFacebook",
       title: "NYPL on Facebook",
     },
     {
       href: "https://twitter.com/nypl",
-      iconName: "socialTwitter",
+      iconName: "legacySocialTwitter",
       title: "NYPL on Twitter",
     },
     {
       href: "https://instagram.com/nypl",
-      iconName: "socialInstagram",
+      iconName: "legacySocialInstagram",
       title: "NYPL on Instagram",
     },
     {
       href: "https://www.youtube.com/user/NewYorkPublicLibrary",
-      iconName: "socialYoutube",
+      iconName: "legacySocialYoutube",
       title: "NYPL on Youtube",
     },
   ],
