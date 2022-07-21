@@ -13,6 +13,10 @@ export interface HeaderLoginButtonProps {
   isMobile?: boolean;
 }
 
+/**
+ * This is the button that will render the login menu when it is clicked
+ * and keep focus trapped within the menu.
+ */
 const HeaderLoginButton = chakra(
   ({ isMobile = false }: HeaderLoginButtonProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

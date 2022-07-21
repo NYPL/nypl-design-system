@@ -8,6 +8,10 @@ import HeaderMobileNav from "./HeaderMobileNav";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
+/**
+ * This is the button that will render the navigational list of links
+ * when it is clicked and keep focus trapped within the menu.
+ */
 const HeaderMobileNavButton = chakra(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const styles = useStyleConfig("HeaderMobileNavButton", { isOpen });

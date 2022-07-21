@@ -16,6 +16,10 @@ export interface HeaderLoginProps {
   patronName?: string;
 }
 
+/**
+ * The content of the login dropdown menu. This contains links to log in, log
+ * out, and also displays the patron's name if they are logged in.
+ */
 const HeaderLogin = chakra(
   ({ catalogRef, greetingRef, isMobile, patronName }: HeaderLoginProps) => {
     const { isProduction } = useContext(HeaderContext);

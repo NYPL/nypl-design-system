@@ -16,7 +16,8 @@ import gaUtils from "../utils/googleAnalyticsUtils";
 import { siteNavLinks, upperNavLinks } from "../utils/headerUtils";
 
 /**
- * The Header navigation for the mobile view.
+ * This component renders the navigational list of links used to navigate
+ * NYPL.org for mobile devices.
  */
 const HeaderMobileNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderMobileNav", {});

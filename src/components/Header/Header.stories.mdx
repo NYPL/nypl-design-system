@@ -6,9 +6,18 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Meta
   title={getCategory("Header")}
-  parameters={{ layout: "fullscreen" }}
   component={Header}
   decorators={[withDesign]}
+  argTypes={{
+    gaOptions: {
+      control: false,
+      table: { defaultValue: { summary: "{}" } },
+    },
+    isProduction: {
+      control: false,
+      table: { defaultValue: { summary: "true" } },
+    },
+  }}
 />
 
 # Header
@@ -23,6 +32,11 @@ import { getCategory } from "../../utils/componentCategories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
+- [Skip Navigation](#skip-navigation)
+- [Catalogs Login](#catalog-login)
+- [Search](#search)
+- [Navigation](#navigation)
+- [Header Login Timeout](#header-login-timeout)
 - [Google Analytics](#google-analytics)
 
 ## Overview
@@ -31,15 +45,22 @@ import { getCategory } from "../../utils/componentCategories";
 
 The `Header` component is meant to replicate (and eventually replace) the current
 [NYPL Header package](https://github.com/NYPL/dgx-header-component/) which is used
-across various NYPL products, with Design System technologies and components. It
-is a work in progress, and not yet ready for use. What you see below is simply a
-static component with no functionality.
+across various NYPL digital products, with Reservoir Design System technologies
+and components.
+
+The `Header` component is a complete and complex component that fetches data
+from different APIs, uses the DS' `SkipNavigation` component for webpage
+accessibility, has static NYPL.org navigational links, a login form for patrons
+to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/) and
+[Research Catalog](https://www.nypl.org/research/research-catalog/), and a
+search form for patrons to search the Catalog and across
+[NYPL.org](https://www.nypl.org/).
 
 ## Component Props
 
 <Canvas withToolbar>
-  <Story name="Header">
-    <Header />
+  <Story name="Header" args={{ isProduction: true }}>
+    {({ args }) => <Header {...args} />}
   </Story>
 </Canvas>
 
@@ -47,33 +68,179 @@ static component with no functionality.
 
 ## Accessibility
 
-TBD
+The `Header` component contains multiple native HTML elements that work together
+to make the component accessible. It contains:
+
+- Skip navigation - More information about this feature in the following section.
+- Notification `<aside>` HTML element - This element is rendered above the
+  `<header>` element and is a landmark element that renders NYPL alert messages.
+  This landmark cannot be nested within the `<header>` element so it is rendered
+  above. More information can be found in the
+  [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
+  section.
+- `<header>` HTML element - This landmark element denotes the top content section
+  of the page. There should only be one main `<header>` element on the page as a
+  child of the `<body>` element and using the `Header` component will ensure
+  this landmark element is present.
+- `<nav>` HTML elements - The `Header` component renders one (1) `<nav>` element
+  in the mobile view and two (2) `<nav>` elements in the desktop view. Each `<nav>`
+  element appropriately contains its own `aria-label` attribute to differentiate
+  it from one another.
+- Dropdowns focus features - Each dropdown button and menu combination uses a
+  focus trap feature to appropriately tab through the contents in the menu that
+  is opened.
+- `<form>` HTML element - The `<form>` element is used in the search feature.
+
+Resources:
+
+- [MDN header](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header#page_header)
+- [W3C Page Regions, Page header](https://www.w3.org/WAI/tutorials/page-structure/regions/#page-header)
+- [W3C Page Regions, Navigation](https://www.w3.org/WAI/tutorials/page-structure/regions/#navigation)
+- [MDN nav: The Navigation Section element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
+- [W3C Labeling Regions](https://www.w3.org/WAI/tutorials/page-structure/labels/)
+- [MDN form: The Form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+
+## Skip Navigation
+
+The `Header` component implements the DS' own `SkipNavigation` component. More
+information about the component can be found in the
+[Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-navigation-skipnavigation--skip-navigation-with-controls)
+and about why we should use in its
+[accessibility guideline](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/accessibility-guide-skip-navigation--page).
+
+It is important to note that the `SkipNavigation` component expects that the page
+it is on has a `main` HTML element with an `id` of `mainContent`. This allows
+the first link in the skip navigation to function correctly.
+
+The second link in the skip navigation points to
+[NYPL's accessibility resource](https://www.nypl.org/accessibility).
+
+## Catalogs Login
+
+### Desktop
+
+### Mobile
+
+In the mobile view, the "login" feature can be seen when the user SVG icon dropdown
+button is clicked. The user unfilled SVG icon signifies that the patron is not
+logged in while the user filled SVG icon signifies that the patron is logged in.
+
+When logged in, it will display the patron's name and an additional "logout" link.
+
+## Search
+
+There is a single search form in the `Header` component that can be used to
+search in two separate resources. In the search form, the patron can choose
+their preferred search location.
+
+When looking for an item, such as book, ebook, DVD, etc, the best search location
+is the Catalog. For example, the [Catalog search](https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?lang=eng&suite=def)
+for items about cats. This returns books, microform format items, and DVDs
+about cats.
+
+When searching for general information about the Library, events, or locations,
+the NYPL.org website is the best search location. For example, the
+[NYPL.org search](https://www.nypl.org/search/cats?searched_from=header_search&timestamp=1658412778392)
+for information about cats at NYPL. This returns blogs and cat related items
+from the NYPL Shop.
+
+### Mobile
+
+In the mobile view, the patron needs to click on the search icon button for the
+search form dropdown to appear. The search form will contain a single search
+input field and two buttons, one for the Catalog and one for the NYPL.org website.
+The expected behavior is for the user to fill out the form and click on a button
+to search the appropriate resource.
+
+### Desktop
+
+In the desktop view, the patron needs to click on the "Search" button with the
+search icon for the dropdown to appear. The search form will contain the single
+search input field, two radio buttons to toggle between the Catalog and NYPL.org
+website, and a search button. The expected behavior is for the user to fill out
+the form, choose the appropriate resource, and click on the search button or
+press enter to submit the form.
+
+## Navigation
+
+There are two main navigational lists in the `Header` component. The (1) first
+contains:
+
+- the login dropdown button
+- a link to the NYPL [Locations page](https://www.nypl.org/locations)
+- a link to the NYPL [Library card](https://www.nypl.org/library-card) information
+- a link to NYPL's email subscription service
+- a link to donate to NYPL
+- a link to NYPL's Shop
+
+The (2) second navigational list contains:
+
+- a link to NYPL's [Books/Music/Movies](https://www.nypl.org/books-music-movies) page
+- a link to NYPL's [Research](https://www.nypl.org/research) page
+- a link to NYPL's [Education](https://www.nypl.org/education) page
+- a link to NYPL's [Events](https://www.nypl.org/events) page
+- a link to NYPL's [Connect](https://www.nypl.org/connect) page
+- a link to NYPL's [Give](https://www.nypl.org/give) page
+- a link to NYPL's [Get Help](https://www.nypl.org/get-help) page
+- the search dropdown button
+
+### Mobile
+
+In the mobile view, the patron needs to click on the hamburger menu icon button
+for the navigation dropdown to appear. This dropdown contains the (2) NYPL
+website navigation links, and the first list of links (1) are now rendered
+as buttons in a grid. The location link, however, is now part of the four
+icon button links rendered with the locator SVG icon.
+
+### Desktop
+
+In the desktop view, the first set of links (1) appears horizontally at the top
+while the second set of links (2) appears at the bottom of the `Header`.
+
+## Header Login Timeout
+
+There are occassions when a patron logs out from either the Catalog, the
+Research Catalog, or the logout link in the `Header` component but there is a
+mismatch where one or more services _thinks_ the patron is still logged in. In
+order to avoid confusion, the `Header` component performs an extra step to log
+the patron out completely.
+
+NYPL's Encore Catalog does not provide a way to programmatically log out a
+patron, such as through an API endpoint. Due to this limitation, there is a
+current workaround for logging out a patron in the `Header` component.
+
+When a patron logs into the Catalog or the Research Catalog, a 30 minute timer
+will start in the `Header` component. Once this timer reaches 0, the Header will
+insert an `iframe` HTML element into the `body` HTML element of the webpage.
+This `iframe`'s `src` attribute is set to the necessary Encore Catalog logout
+link.
 
 ## Google Analytics
 
 Google will sunset Google Analytics (GA) in 2023, but the current NYPL Header
 uses GA and therefore the DS `Header` component will continue to use GA until
-GA is sunset.
+GA is sunset. At that point, a new analytics system will be used.
 
 The `Header` component takes two props that are used to configure GA:
 
 - `isProduction`: a boolean that determines whether the `Header` is in
   production mode or not. If `true`, the production GA code is set and the
   `testMode` status for unit testing is set to `false`; if `false`, the
-  development GA code is set and the `testMode` is set to `true`. Set to `true`
-  by default.
-- `gaOptions`: an object that contains the GA settings.
+  development GA code is set and the `testMode` is set to `true`. This props is
+  set to `true` by default.
+- `gaOptions`: an object that contains the GA settings with the following
+  properties:
   - `debug`: a boolean that determines whether to log GA debug messages to the
-    console. `false` by default.
+    console. This is set to `false` by default.
   - `standardImplementation`: a boolean to initialize GA with the standard
     implementation. This is `false` by default, but if your app uses the
     standard initialize GA code that is set in the HTML body element, then
     set this to `true`.
+  - `testMode`: a boolean that determines whether to set GA to test mode to use
+    its special API for unit testing GA calls through the `testModeAPI`
+    property. `false` by default but set to `true` when running unit tests.
   - `titleCase`: a boolean that determines whether to use title case for the
     GA page title. By default, this is set to the opposite value of
     `isProduction`. For example, when `isProduction` is `true`, then `titleCase`
     is `false`. Since `isProduction` is `true` by default, `titleCase` is
     `false` by default.
-  - `testMode`: a boolean that determines whether to set GA to test mode to use
-    its special API for unit testing GA calls through the `testModeAPI`
-    property. `false` by default but set to `true` when running unit tests.
