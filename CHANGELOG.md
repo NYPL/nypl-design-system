@@ -22,9 +22,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Warning` (filled and oultine).
 
-### Fixes
+### Removes
 
-- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
 
 ## 1.0.5 (July 7, 2022)
 
@@ -39,9 +39,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
 - Updates Storybook packages.
 
-### Removes
+### Fixes
 
-- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
 
 ## 1.0.4 (June 23, 2022)
 
