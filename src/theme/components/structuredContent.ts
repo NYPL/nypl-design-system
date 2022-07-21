@@ -29,7 +29,7 @@ const StructuredContent = {
         "none",
         imagePosition !== "center" ? imagePosition : undefined,
       ],
-      marginLeft: [
+      marginStart: [
         "auto",
         "auto",
         imagePosition === "center"
@@ -38,7 +38,7 @@ const StructuredContent = {
           ? "0"
           : "l",
       ],
-      marginRight: [
+      marginEnd: [
         "auto",
         "auto",
         imagePosition === "center"
@@ -70,14 +70,14 @@ const StructuredContent = {
           "none",
           imagePosition !== "center" ? imagePosition : undefined,
         ],
-        marginLeft: [
+        marginStart: [
           "auto",
           "auto",
           imagePosition === "right" && imageAspectRatio === "original"
             ? "m"
             : undefined,
         ],
-        marginRight: [
+        marginEnd: [
           "auto",
           "auto",
           imagePosition === "left" && imageAspectRatio === "original"

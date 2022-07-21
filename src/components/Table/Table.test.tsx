@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Image from "../Image/Image";
 import Table from "./Table";
@@ -174,9 +173,7 @@ describe("Table", () => {
         tableData={charactersData}
       />
     );
-    // The data contains images. Mock that they are in view
-    // so they can render.
-    mockAllIsIntersecting(true);
+
     expect(screen.getAllByRole("img")).toHaveLength(3);
   });
 
@@ -269,5 +266,14 @@ describe("Table", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
     expect(withJSXData).toMatchSnapshot();
+  });
+
+  it("passes a ref to the table element", () => {
+    const ref = React.createRef<HTMLTableElement>();
+    const { container } = render(
+      <Table columnHeaders={columnHeaders} tableData={tableData} ref={ref} />
+    );
+
+    expect(container.querySelector("table")).toBe(ref.current);
   });
 });

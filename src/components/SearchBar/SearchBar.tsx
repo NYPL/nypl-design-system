@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -72,139 +72,142 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export const SearchBar = chakra((props: SearchBarProps) => {
-  const {
-    action,
-    buttonOnClick,
-    className,
-    descriptionText,
-    headingText,
-    helperText,
-    id,
-    invalidText,
-    isDisabled = false,
-    isInvalid = false,
-    isRequired = false,
-    labelText,
-    method,
-    noBrandButtonType = false,
-    onSubmit,
-    selectProps,
-    textInputElement,
-    textInputProps,
-    ...rest
-  } = props;
-  const styles = useMultiStyleConfig("SearchBar", {});
-  const stateProps = {
-    helperText: "",
-    isDisabled,
-    isInvalid,
-    isRequired,
-    showHelperInvalidText: false,
-    showLabel: false,
-  };
-  const footnote = isInvalid ? invalidText : helperText;
-  const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
-  const inputPlaceholder = textInputProps?.placeholder || "Search terms";
-  const textInputPlaceholder = `${inputPlaceholder} ${
-    isRequired ? "(Required)" : ""
-  }`;
-  const buttonType = noBrandButtonType ? "noBrand" : "primary";
-  const searchBarButtonStyles = {
-    borderLeftRadius: "none",
-    borderRightRadius: { base: "none", md: "sm" },
-    lineHeight: "1.70",
-    marginBottom: "auto",
-  };
+export const SearchBar = chakra(
+  forwardRef<HTMLDivElement, SearchBarProps>((props, ref?) => {
+    const {
+      action,
+      buttonOnClick,
+      className,
+      descriptionText,
+      headingText,
+      helperText,
+      id,
+      invalidText,
+      isDisabled = false,
+      isInvalid = false,
+      isRequired = false,
+      labelText,
+      method,
+      noBrandButtonType = false,
+      onSubmit,
+      selectProps,
+      textInputElement,
+      textInputProps,
+      ...rest
+    } = props;
+    const styles = useMultiStyleConfig("SearchBar", {});
+    const stateProps = {
+      helperText: "",
+      isDisabled,
+      isInvalid,
+      isRequired,
+      showHelperInvalidText: false,
+      showLabel: false,
+    };
+    const footnote = isInvalid ? invalidText : helperText;
+    const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
+    const inputPlaceholder = textInputProps?.placeholder || "Search terms";
+    const textInputPlaceholder = `${inputPlaceholder} ${
+      isRequired ? "(Required)" : ""
+    }`;
+    const buttonType = noBrandButtonType ? "noBrand" : "primary";
+    const searchBarButtonStyles = {
+      borderLeftRadius: "none",
+      borderRightRadius: { base: "none", md: "sm" },
+      lineHeight: "1.70",
+      marginBottom: "auto",
+    };
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
-    );
-  }
-  // Render the `Select` component.
-  const selectElem = selectProps && (
-    <Select
-      id={`searchbar-select-${id}`}
-      labelText={selectProps?.labelText}
-      name={selectProps?.name}
-      onChange={selectProps?.onChange}
-      selectType="searchbar"
-      value={selectProps?.value}
-      __css={styles.select}
-      {...stateProps}
-    >
-      {selectProps?.optionsData.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </Select>
-  );
-  // Render the `TextInput` component.
-  const textInputNative = textInputProps && (
-    <TextInput
-      id={`searchbar-textinput-${id}`}
-      labelText={textInputProps?.labelText}
-      name={textInputProps?.name}
-      onChange={textInputProps?.onChange}
-      placeholder={textInputPlaceholder}
-      textInputType={selectElem ? "searchBarSelect" : "searchBar"}
-      type="text"
-      value={textInputProps?.value}
-      {...stateProps}
-    />
-  );
-  // Render the `Button` component.
-  const buttonElem = (
-    <Button
-      buttonType={buttonType}
-      id={`searchbar-button-${id}`}
-      isDisabled={isDisabled}
-      onClick={buttonOnClick}
-      type="submit"
-      __css={searchBarButtonStyles}
-    >
-      <Icon
-        align="left"
-        id={`searchbar-icon-${id}`}
-        name="search"
-        size="small"
-      />
-      Search
-    </Button>
-  );
-  // If a custom input element was passed, use that element
-  // instead of the DS `TextInput` component.
-  const textInputElem = textInputElement || textInputNative;
-
-  return (
-    <ComponentWrapper
-      descriptionText={descriptionText}
-      headingText={headingText}
-      helperText={helperText}
-      id={id}
-      invalidText={invalidText}
-      isInvalid={isInvalid}
-      {...rest}
-    >
-      <Box
-        as="form"
-        id={`searchbar-form-${id}`}
-        className={className}
-        role="search"
-        aria-label={finalAriaLabel}
-        onSubmit={onSubmit}
-        method={method}
-        action={action}
-        __css={styles}
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+      );
+    }
+    // Render the `Select` component.
+    const selectElem = selectProps && (
+      <Select
+        id={`searchbar-select-${id}`}
+        labelText={selectProps?.labelText}
+        name={selectProps?.name}
+        onChange={selectProps?.onChange}
+        selectType="searchbar"
+        value={selectProps?.value}
+        __css={styles.select}
+        {...stateProps}
       >
-        {selectElem}
-        {textInputElem}
-        {buttonElem}
-      </Box>
-    </ComponentWrapper>
-  );
-});
+        {selectProps?.optionsData.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </Select>
+    );
+    // Render the `TextInput` component.
+    const textInputNative = textInputProps && (
+      <TextInput
+        id={`searchbar-textinput-${id}`}
+        labelText={textInputProps?.labelText}
+        name={textInputProps?.name}
+        onChange={textInputProps?.onChange}
+        placeholder={textInputPlaceholder}
+        textInputType={selectElem ? "searchBarSelect" : "searchBar"}
+        type="text"
+        value={textInputProps?.value}
+        {...stateProps}
+      />
+    );
+    // Render the `Button` component.
+    const buttonElem = (
+      <Button
+        buttonType={buttonType}
+        id={`searchbar-button-${id}`}
+        isDisabled={isDisabled}
+        onClick={buttonOnClick}
+        type="submit"
+        __css={searchBarButtonStyles}
+      >
+        <Icon
+          align="left"
+          id={`searchbar-icon-${id}`}
+          name="search"
+          size="small"
+        />
+        Search
+      </Button>
+    );
+    // If a custom input element was passed, use that element
+    // instead of the DS `TextInput` component.
+    const textInputElem = textInputElement || textInputNative;
+
+    return (
+      <ComponentWrapper
+        descriptionText={descriptionText}
+        headingText={headingText}
+        helperText={helperText}
+        id={id}
+        invalidText={invalidText}
+        isInvalid={isInvalid}
+        ref={ref}
+        {...rest}
+      >
+        <Box
+          as="form"
+          id={`searchbar-form-${id}`}
+          className={className}
+          role="search"
+          aria-label={finalAriaLabel}
+          onSubmit={onSubmit}
+          method={method}
+          action={action}
+          __css={styles}
+        >
+          {selectElem}
+          {textInputElem}
+          {buttonElem}
+        </Box>
+      </ComponentWrapper>
+    );
+  })
+);
 
 export default SearchBar;

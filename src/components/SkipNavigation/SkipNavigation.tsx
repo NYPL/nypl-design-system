@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
@@ -20,32 +20,35 @@ interface SkipNavigationProps {
  * on NYPL.org. These links are visually hidden but can be read by screenreaders.
  */
 export const SkipNavigation = chakra(
-  (props: React.PropsWithChildren<SkipNavigationProps>) => {
-    const { className, id, target = "#mainContent", ...rest } = props;
-    const styles = useStyleConfig("SkipNavigation");
+  forwardRef<HTMLDivElement, React.PropsWithChildren<SkipNavigationProps>>(
+    (props, ref?) => {
+      const { className, id, target = "#mainContent", ...rest } = props;
+      const styles = useStyleConfig("SkipNavigation");
 
-    return (
-      <Box
-        as="nav"
-        aria-label="Skip Navigation"
-        className={className}
-        id={id}
-        __css={styles}
-        {...rest}
-      >
-        <List inline noStyling type="ul">
-          <li>
-            <Link href={target}>Skip to Main Content</Link>
-          </li>
-          <li>
-            <Link href="https://www.nypl.org/accessibility">
-              Click to learn about accessibility at the Library
-            </Link>
-          </li>
-        </List>
-      </Box>
-    );
-  }
+      return (
+        <Box
+          as="nav"
+          aria-label="Skip Navigation"
+          className={className}
+          id={id}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          <List inline noStyling type="ul">
+            <li>
+              <Link href={target}>Skip to Main Content</Link>
+            </li>
+            <li>
+              <Link href="https://www.nypl.org/accessibility">
+                Click to learn about accessibility at the Library
+              </Link>
+            </li>
+          </List>
+        </Box>
+      );
+    }
+  )
 );
 
 export default SkipNavigation;

@@ -4,7 +4,7 @@ import {
   Skeleton as ChakraSkeleton,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import { LayoutTypes } from "../../helpers/types";
 
@@ -46,78 +46,90 @@ export interface SkeletonLoaderProps {
  * dynamic content is loading.
  */
 export const SkeletonLoader = chakra(
-  (props: React.PropsWithChildren<SkeletonLoaderProps>) => {
-    const {
-      className,
-      contentSize = 3,
-      headingSize = 1,
-      imageAspectRatio = "square",
-      isBordered = false,
-      layout = "column",
-      showButton = false,
-      showContent = true,
-      showHeading = true,
-      showImage = true,
-      width,
-      ...rest
-    } = props;
-    const styles = useMultiStyleConfig("SkeletonLoader", {
-      isBordered,
-      imageAspectRatio,
-      showImage,
-      variant: layout,
-    });
-
-    /**
-     * Generates the Chakra skeleton loader `size` number of times for the
-     * "heading" and "content" areas defined by the `type` argument. The last
-     * element will have width of `lastWidth`.
-     */
-    const getSkeletonElements = (type: string, size = 1, lastWidth = "80%") => {
-      return new Array(size).fill(null).map((_, i) => {
-        const width = i === size - 1 ? lastWidth : "100%";
-        const marginBottomValue =
-          i === size - 1 && type === "content" ? "0" : undefined;
-        return (
-          <ChakraSkeleton key={`${type}-${i}`} width={width}>
-            <Box
-              __css={styles[type]}
-              style={{ marginBottom: marginBottomValue }}
-            />
-          </ChakraSkeleton>
-        );
+  forwardRef<HTMLDivElement, React.PropsWithChildren<SkeletonLoaderProps>>(
+    (props, ref?) => {
+      const {
+        className,
+        contentSize = 3,
+        headingSize = 1,
+        imageAspectRatio = "square",
+        isBordered = false,
+        layout = "column",
+        showButton = false,
+        showContent = true,
+        showHeading = true,
+        showImage = true,
+        width,
+        ...rest
+      } = props;
+      const styles = useMultiStyleConfig("SkeletonLoader", {
+        isBordered,
+        imageAspectRatio,
+        showImage,
+        variant: layout,
       });
-    };
 
-    return (
-      <Box className={className} __css={styles} style={{ width }} {...rest}>
-        {showImage && (
-          <ChakraSkeleton>
-            <Box __css={{ ...styles.element, ...styles.image }} />
-          </ChakraSkeleton>
-        )}
-        <Box className={layout} __css={styles.container}>
-          {showHeading && (
-            <Box __css={styles.section}>
-              {getSkeletonElements("heading", headingSize, "80%")}
-            </Box>
+      /**
+       * Generates the Chakra skeleton loader `size` number of times for the
+       * "heading" and "content" areas defined by the `type` argument. The last
+       * element will have width of `lastWidth`.
+       */
+      const getSkeletonElements = (
+        type: string,
+        size = 1,
+        lastWidth = "80%"
+      ) => {
+        return new Array(size).fill(null).map((_, i) => {
+          const width = i === size - 1 ? lastWidth : "100%";
+          const marginBottomValue =
+            i === size - 1 && type === "content" ? "0" : undefined;
+          return (
+            <ChakraSkeleton key={`${type}-${i}`} width={width}>
+              <Box
+                __css={styles[type]}
+                style={{ marginBottom: marginBottomValue }}
+              />
+            </ChakraSkeleton>
+          );
+        });
+      };
+
+      return (
+        <Box
+          className={className}
+          ref={ref}
+          __css={styles}
+          style={{ width }}
+          {...rest}
+        >
+          {showImage && (
+            <ChakraSkeleton>
+              <Box __css={{ ...styles.element, ...styles.image }} />
+            </ChakraSkeleton>
           )}
-          {showContent && (
-            <Box __css={styles.section}>
-              {getSkeletonElements("content", contentSize, "30%")}
-            </Box>
-          )}
-          {showButton && (
-            <Box __css={{ ...styles.section, ...styles.button }}>
-              <ChakraSkeleton borderRadius="16px">
-                <Box __css={styles.button} />
-              </ChakraSkeleton>
-            </Box>
-          )}
+          <Box className={layout} __css={styles.container}>
+            {showHeading && (
+              <Box __css={styles.section}>
+                {getSkeletonElements("heading", headingSize, "80%")}
+              </Box>
+            )}
+            {showContent && (
+              <Box __css={styles.section}>
+                {getSkeletonElements("content", contentSize, "30%")}
+              </Box>
+            )}
+            {showButton && (
+              <Box __css={{ ...styles.section, ...styles.button }}>
+                <ChakraSkeleton borderRadius="16px">
+                  <Box __css={styles.button} />
+                </ChakraSkeleton>
+              </Box>
+            )}
+          </Box>
         </Box>
-      </Box>
-    );
-  }
+      );
+    }
+  )
 );
 
 export default SkeletonLoader;

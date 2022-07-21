@@ -61,7 +61,7 @@ describe("Modal Accessibility", () => {
 });
 
 describe("ModalTrigger", () => {
-  const modalTrigger = (
+  const modalTrigger = (ref?: React.RefObject<HTMLButtonElement>) => (
     <ModalTrigger
       buttonText="Button Text"
       id="modal-trigger"
@@ -73,11 +73,12 @@ describe("ModalTrigger", () => {
           console.log("custom close");
         },
       }}
+      ref={ref}
     />
   );
 
   it("renders content when it is opened", () => {
-    render(modalTrigger);
+    render(modalTrigger());
     const openButton = screen.getByText("Button Text");
     const closeButton = screen.queryByText("Close Button");
 
@@ -93,9 +94,16 @@ describe("ModalTrigger", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const basic = renderer.create(modalTrigger).toJSON();
+    const basic = renderer.create(modalTrigger()).toJSON();
 
     expect(basic).toMatchSnapshot();
+  });
+
+  it("passes a ref to the inner button element", () => {
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(modalTrigger(ref));
+
+    expect(container.querySelector("button")).toBe(ref.current);
   });
 });
 

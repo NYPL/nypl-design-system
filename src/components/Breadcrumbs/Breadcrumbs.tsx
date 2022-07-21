@@ -5,7 +5,7 @@ import {
   chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -64,35 +64,38 @@ const getElementsFromData = (
   return breadcrumbItems;
 };
 
-export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
-  const {
-    breadcrumbsData,
-    breadcrumbsType = "whatsOn",
-    className,
-    id,
-    ...rest
-  } = props;
+export const Breadcrumbs = chakra(
+  forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
+    const {
+      breadcrumbsData,
+      breadcrumbsType = "whatsOn",
+      className,
+      id,
+      ...rest
+    } = props;
 
-  if (!breadcrumbsData || breadcrumbsData.length === 0) {
-    throw new Error(
-      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
+    if (!breadcrumbsData || breadcrumbsData.length === 0) {
+      throw new Error(
+        "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
+      );
+    }
+
+    const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
+    const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
+
+    return (
+      <ChakraBreadcrumb
+        aria-label="Breadcrumb"
+        className={className}
+        id={id}
+        ref={ref}
+        __css={styles}
+        {...rest}
+      >
+        {breadcrumbItems}
+      </ChakraBreadcrumb>
     );
-  }
-
-  const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
-  const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
-
-  return (
-    <ChakraBreadcrumb
-      aria-label="Breadcrumb"
-      className={className}
-      id={id}
-      __css={styles}
-      {...rest}
-    >
-      {breadcrumbItems}
-    </ChakraBreadcrumb>
-  );
-});
+  })
+);
 
 export default Breadcrumbs;
