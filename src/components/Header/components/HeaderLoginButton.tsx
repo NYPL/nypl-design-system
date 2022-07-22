@@ -80,7 +80,6 @@ const HeaderLoginButton = chakra(
               catalogRef={catalogRef}
               greetingRef={greetingRef}
               isMobile={isMobile}
-              patronName={patronName}
             />
           )}
         </FocusLock>

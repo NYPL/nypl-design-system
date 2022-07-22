@@ -13,12 +13,11 @@ export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLDivElement & HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
-  patronName?: string;
 }
 
 const HeaderLogin = chakra(
-  ({ catalogRef, greetingRef, isMobile, patronName }: HeaderLoginProps) => {
-    const { isProduction } = useContext(HeaderContext);
+  ({ catalogRef, greetingRef, isMobile }: HeaderLoginProps) => {
+    const { isProduction, patronName } = useContext(HeaderContext);
     const { catalogLink, researchLink, logOutLink } = getLoginLinks(
       patronName,
       isProduction
