@@ -23,6 +23,7 @@ import { getCategory } from "../../utils/componentCategories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
+- [Login](#login)
 - [Google Analytics](#google-analytics)
 
 ## Overview
@@ -47,13 +48,44 @@ static component with no functionality.
 
 ## Accessibility
 
-TBD
+The `Header` uses react-focus-lock to trap (or loop) focus within its various dropdowns:
+the login submenu, the search form, and the mobile navigation submenu. This is to
+make keyboard navigation easier for users. Trapping focus means that when a parent
+element is clicked and its dropdown becomes visible, focus remains among its children
+while the user tabs. The user may close the dropdown and escape the focus trap by clicking
+on the parent element once again.
+
+This is how the original NYPL `Header` was implemented and its Reservoir counterpart
+replicates this behavior. However, this is not the _currently recommended_ way to
+implement focus management in dropdowns. According to the W3C, right and left arrow
+keys, rather than tab, should loop focus over child elements. Tabbing should instead
+close the dropdown and move focus to the following parent. In the future, we hope to
+change the Reservoir Header to align with current best practices.
+
+## Login
+
+While the `Header` doesn't perform authentication, it does determine whether a user is
+logged in and, if they are, renders a logged in UI, which includes the patron's name.
+
+This process begins after the `Header` mounts. At that time, it looks for the
+`nyplIdentityPatron` cookie. If it exists, an `accessToken` is extracted from the cookie
+and sent via fetch request to the `patronApiUrl`. If the request is successful, the
+patron's name is returned. The name is then stored in a React Context variable called
+`HeaderContext`, which is available to all children of the `Header`. The existance of the
+patron's name in `HeaderContext` causes the `HeaderLoginButton` and `HeaderLogin` to
+render their "logged in" view.
+
+There is the possibility that the call to the `patronApiUrl` returns a response with a
+`statusCode` of 401 and an `expired` key set to true. This means the `accessToken` is
+expired. If this is the case, the `Header` will attempt to refresh the `accessToken` by
+sending a fetch request to the `tokenRefreshLink`. If successful, the `Header` will retry
+the request to the `patronApiUrl` with the new `accessToken`.
 
 ## Google Analytics
 
 Google will sunset Google Analytics (GA) in 2023, but the current NYPL Header
-uses GA and therefore the DS `Header` component will continue to use GA until
-GA is sunset.
+uses GA and therefore the Reservoir `Header` component will continue to use GA
+until GA is sunset.
 
 The `Header` component takes two props that are used to configure GA:
 
