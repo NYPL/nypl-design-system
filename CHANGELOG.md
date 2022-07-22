@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates border color in the `Description` variant of the `List` component.
+
 ## 1.0.6 (July 21, 2022)
 
 ### Adds
