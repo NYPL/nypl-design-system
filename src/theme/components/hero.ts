@@ -14,11 +14,13 @@ const secondaryBase = {
     },
   },
   imgWrapper: {
+    marginEnd: { base: "calc(-50vw + 50%)", md: "0" },
+    marginStart: { base: "calc(-50vw + 50%)", md: "0" },
     flex: {
       base: "1 1 100%",
       md: "0 0 250px",
     },
-    order: { md: "3" },
+    order: { base: "2", md: "3" },
     img: {
       height: "150px",
       minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
@@ -31,7 +33,7 @@ const secondaryBase = {
     paddingEnd: { md: "inset.default" },
     paddingTop: "inset.default",
     flex: { md: "1 1 50%" },
-    order: { md: "2" },
+    order: { base: "3", md: "2" },
   },
 };
 // Used for all "secondary" variants' heading component.
@@ -43,7 +45,7 @@ const secondaryHeadingBase = {
   paddingBottom: "xxs",
   position: "relative",
   zIndex: "0",
-  order: { md: "1" },
+  order: "1",
   _before: {
     content: `""`,
     height: "100%",
