@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates how options are passed to the `SearchBar` component for its internal `Select` component.
+
 ## 1.0.6 (July 21, 2022)
 
 ### Adds
