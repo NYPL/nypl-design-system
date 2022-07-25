@@ -28,7 +28,7 @@ const MultiSelect = {
     "menuChildren",
     "selectedItemsCountButton",
   ],
-  baseStyle: ({ width = "default", isBlockElement }) => ({
+  baseStyle: ({ width = "default", isBlockElement, isOpen }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     margin: {
@@ -47,6 +47,7 @@ const MultiSelect = {
       position: {
         md: isBlockElement ? "relative" : "absolute",
       },
+      display: isOpen ? "block" : "none",
       zIndex: isBlockElement ? 0 : 9999,
       ...(width === "fitContent" && {
         minWidth: {
