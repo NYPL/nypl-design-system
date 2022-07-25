@@ -64,7 +64,7 @@ be rendered simply as `<Footer />`.
   </Story>
 </Canvas>
 
-Note: There are custom props for the `Footer` component.
+Note: There are no custom props for the `Footer` component.
 
 ## Accessibility
 
@@ -73,9 +73,11 @@ of `role="contentinfo"`. This is the common practice for the footer landmark
 region on a page to maximize its accessibility in browsers and assistive
 technologies.
 
-Rendering this `Footer` component, or similar HTML landmark region components,
-inside another landmark region causes accessibility issues. For example,
-rendering the `Footer` component inside an `aside` HTML element is an error.
+Special consideration should be made regarding the placement of the `Footer`
+component in the DOM. Rendering this component, or similar HTML landmark region
+components, inside another landmark region causes accessibility issues. For
+example, rendering the `Footer` component inside an `aside` HTML element is
+an error.
 
 Resources:
 
@@ -96,9 +98,6 @@ set the `renderFooterElement` prop to `false`. Both components will render HTML
 `<footer>` elements and we only need one; setting `renderFooterElement` to
 `false` will prevent rendering nested `<footer>` elements.
 
-If this step is not done, the `TemplateAppContainer` component will log a warning
-to the browser's console.
-
 ```tsx
 import {
   Footer,
@@ -118,6 +117,9 @@ const MyApp => (
   </TemplateAppContainer>
 );
 ```
+
+If this step is not done, the `TemplateAppContainer` component will log a warning
+to the browser's console.
 
 ### Individual Template Components
 
