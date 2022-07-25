@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
-import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
 import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectMenuButtonProps {
@@ -24,19 +24,19 @@ const grow = keyframes`
   from {width: 22px; opacity: 0; }
   to {width: 46px; opacity: 1;}
 `;
-const MultiSelectMenuButton = React.forwardRef<
+const MultiSelectMenuButton = forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
 >((props, ref?) => {
   const {
     id,
+    isOpen,
     multiSelectId,
     multiSelectLabel,
-    isOpen,
-    onMenuToggle,
-    selectedItems,
     onClear,
     onKeyDown,
+    onMenuToggle,
+    selectedItems,
     ...rest
   } = props;
   const styles = useMultiStyleConfig("MultiSelectMenuButton", { isOpen });
@@ -87,7 +87,7 @@ const MultiSelectMenuButton = React.forwardRef<
           </Box>
           <Icon
             align="right"
-            id={`${multiSelectId}-selected-items-count-icon`}
+            id={`ms-${multiSelectId}-selected-items-count-icon`}
             marginLeft="xs"
             name="close"
             size="xsmall"
@@ -98,7 +98,7 @@ const MultiSelectMenuButton = React.forwardRef<
         {multiSelectLabel}
       </Box>
       <Icon
-        id={`${multiSelectId}-icon`}
+        id={`ms-${multiSelectId}-icon`}
         name={iconType}
         size="small"
         __css={styles.toggleIcon}

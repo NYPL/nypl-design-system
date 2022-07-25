@@ -193,33 +193,6 @@ describe("MultiSelect Dialog", () => {
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
   });
 
-  it("should open menu when user clicks menu button", () => {
-    render(
-      <MultiSelect
-        id="multiselect-dialog-test-id"
-        label="MultiSelect Label"
-        variant="dialog"
-        items={items}
-        selectedItems={selectedTestItems}
-        onChange={() => null}
-        onClear={() => null}
-        onApply={() => null}
-      />
-    );
-    // On initial render menu is closed
-    expect(screen.queryByRole("dialog")).toBeNull();
-    expect(screen.queryByRole("checkbox")).toBeNull();
-
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /multiselect label/i,
-      })
-    );
-
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
-  });
-
   // Not sure this can be tested
   // it("should have block behavior if isBlockElement is true", () => {
   //   const { container } = render(
@@ -240,7 +213,7 @@ describe("MultiSelect Dialog", () => {
   // });
 
   it("should allow user to toggle menu by clicking menu button", () => {
-    const { container } = render(
+    render(
       <MultiSelect
         id="multiselect-dialog-test-id"
         label="MultiSelect Label"
@@ -254,12 +227,8 @@ describe("MultiSelect Dialog", () => {
     );
 
     // Initially closed
-    expect(screen.queryByRole("dialog")).toBeNull();
-    expect(
-      container
-        .querySelector("#multiselect-dialog-test-id")
-        .getAttribute("aria-modal")
-    ).toBeNull();
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toBeNull();
+    expect(screen.queryByRole("checkbox")).toBeNull();
 
     // Open multiselect.
     userEvent.click(
@@ -268,12 +237,10 @@ describe("MultiSelect Dialog", () => {
       })
     );
 
-    expect(screen.queryByRole("dialog")).toBeInTheDocument();
-    expect(
-      container
-        .querySelector("#multiselect-dialog-test-id")
-        .getAttribute("aria-modal")
-    ).toEqual("true");
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toEqual(
+      "true"
+    );
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
 
     // Close multiselect.
     userEvent.click(
@@ -282,12 +249,8 @@ describe("MultiSelect Dialog", () => {
       })
     );
 
-    expect(screen.queryByRole("dialog")).toBeNull();
-    expect(
-      container
-        .querySelector("#multiselect-dialog-test-id")
-        .getAttribute("aria-modal")
-    ).toBeNull();
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toBeNull();
+    expect(screen.queryByRole("checkbox")).toBeNull();
   });
 
   it("should call onChange when an item without child items or a child item is selected/unselected", () => {
@@ -599,7 +562,12 @@ describe("MultiSelect Listbox", () => {
       />
     );
     // When first rendered menu is not expanded
-    expect(screen.queryByRole("listbox")).toBeNull();
+    expect(
+      container.querySelector(
+        '[aria-expanded="false"][aria-haspopup="listbox"]'
+      )
+    ).toBeInstanceOf(HTMLElement);
+    expect(screen.queryAllByRole("option")).toHaveLength(0);
 
     userEvent.click(
       screen.getByRole("button", {
