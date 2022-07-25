@@ -1,4 +1,5 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { chakra } from "@chakra-ui/react";
 import MultiSelectListBox from "./MultiSelectListbox";
 import MultiSelectDialog from "./MultiSelectDialog";
 
@@ -64,50 +65,68 @@ export type MultiSelectProps = MultiSelectCommonProps &
  * slightly different functionality and requirements.  Because of these
  * differences, the two variants are broken out in separate stories below.
  */
-export default function MultiSelect({
-  id,
-  label,
-  variant,
-  items,
-  selectedItems,
-  width,
-  onChange,
-  onClear,
-  onApply,
-  onMixedStateChange,
-  isDefaultOpen = false,
-  isBlockElement = false,
-}: MultiSelectProps) {
-  const commonProps = {
-    id,
-    label,
-    variant,
-    items,
-    selectedItems,
-    width,
-    isDefaultOpen,
-    isBlockElement,
-    onClear,
-  };
+export const MultiSelect = chakra(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
+    (props, ref?) => {
+      const {
+        id,
+        label,
+        variant,
+        items,
+        selectedItems,
+        width,
+        onChange,
+        onClear,
+        onApply,
+        onMixedStateChange,
+        isDefaultOpen = false,
+        isBlockElement = false,
+        ...rest
+      } = props;
 
-  if (variant === "listbox") {
-    const listboxOnChange = onChange as ListboxOnChange;
+      const commonProps = {
+        id,
+        label,
+        variant,
+        items,
+        selectedItems,
+        width,
+        isDefaultOpen,
+        isBlockElement,
+        onClear,
+      };
 
-    return <MultiSelectListBox {...commonProps} onChange={listboxOnChange} />;
-  }
+      if (variant === "listbox") {
+        const listboxOnChange = onChange as ListboxOnChange;
 
-  if (variant === "dialog") {
-    const dialogOnChange = onChange as DialogOnChange;
+        return (
+          <MultiSelectListBox
+            {...commonProps}
+            ref={ref}
+            onChange={listboxOnChange}
+            {...rest}
+          />
+        );
+      }
 
-    return (
-      <MultiSelectDialog
-        {...commonProps}
-        onChange={dialogOnChange}
-        onMixedStateChange={onMixedStateChange}
-        onApply={onApply}
-      />
-    );
-  }
+      if (variant === "dialog") {
+        const dialogOnChange = onChange as DialogOnChange;
 
-  return null;
-}
+        return (
+          <MultiSelectDialog
+            {...commonProps}
+            onChange={dialogOnChange}
+            onMixedStateChange={onMixedStateChange}
+            onApply={onApply}
+            ref={ref}
+            {...rest}
+          />
+        );
+      }
+
+      return null;
+    }
+  )
+);
+
+export default MultiSelect;
