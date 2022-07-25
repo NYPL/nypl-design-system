@@ -194,7 +194,7 @@ export const Image = chakra(
     );
 
     return (
-      <Box ref={finalRefs}>
+      <Box ref={finalRefs} {...rest}>
         {caption || credit ? (
           <Box
             as="figure"
@@ -212,7 +212,8 @@ export const Image = chakra(
         )}
       </Box>
     );
-  })
+  }),
+  { shouldForwardProp: () => true }
 );
 
 export default Image;

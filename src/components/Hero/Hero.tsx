@@ -169,7 +169,11 @@ export const Hero = chakra(
         ) : (
           <>
             {heroType !== "primary" && heroType !== "tertiary" && (
-              <Image alt={imageProps.alt} src={imageProps.src} />
+              <Image
+                alt={imageProps.alt}
+                src={imageProps.src}
+                __css={styles.imgWrapper}
+              />
             )}
             {finalHeading}
             {heroType === "tertiary" && subHeaderText ? (
