@@ -15,7 +15,8 @@ export interface HeaderLoginButtonProps {
 
 /**
  * This is the button that will render the login menu when it is clicked
- * and keep focus trapped within the menu.
+ * and keep focus trapped within the menu. Its display text will be "Log In"
+ * when the user is not logged in and "My Account" when the user is logged in.
  */
 const HeaderLoginButton = chakra(
   ({ isMobile = false }: HeaderLoginButtonProps) => {

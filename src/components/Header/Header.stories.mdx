@@ -33,10 +33,10 @@ import { getCategory } from "../../utils/componentCategories";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [Skip Navigation](#skip-navigation)
-- [Catalogs Login](#catalog-login)
+- [Catalogs Log In](#catalog-log-in)
 - [Search](#search)
 - [Navigation](#navigation)
-- [Header Login Timeout](#header-login-timeout)
+- [Header Log In Timeout](#header-log-in-timeout)
 - [Google Analytics](#google-analytics)
 
 ## Overview
@@ -50,7 +50,7 @@ and components.
 
 The `Header` component is a complete and complex component that fetches data
 from different APIs, uses the DS' `SkipNavigation` component for webpage
-accessibility, has static NYPL.org navigational links, a login form for patrons
+accessibility, has static NYPL.org navigational links, a log in form for patrons
 to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/) and
 [Research Catalog](https://www.nypl.org/research/research-catalog/), and a
 search form for patrons to search the Catalog and across
@@ -72,23 +72,21 @@ The `Header` component contains multiple native HTML elements that work together
 to make the component accessible. It contains:
 
 - Skip navigation - More information about this feature in the following section.
-- Notification `<aside>` HTML element - This element is rendered above the
-  `<header>` element and is a landmark element that renders NYPL alert messages.
-  This landmark cannot be nested within the `<header>` element so it is rendered
-  above. More information can be found in the
-  [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
+- Notification `<aside>` HTML element - This landmark element renders NYPL alert
+  messages. Per accessibility guidelines, this element cannot be nested within
+  the `<header>` element, so it is rendered above. More information can be found
+  in the [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
   section.
 - `<header>` HTML element - This landmark element denotes the top content section
   of the page. There should only be one main `<header>` element on the page as a
-  child of the `<body>` element and using the `Header` component will ensure
-  this landmark element is present.
+  child of the `<body>` element.
 - `<nav>` HTML elements - The `Header` component renders one (1) `<nav>` element
   in the mobile view and two (2) `<nav>` elements in the desktop view. Each `<nav>`
   element appropriately contains its own `aria-label` attribute to differentiate
   it from one another.
-- Dropdowns focus features - Each dropdown button and menu combination uses a
-  focus trap feature to appropriately tab through the contents in the menu that
-  is opened.
+- Dropdowns buttons with focus-trap feature - Each dropdown button and menu
+  combination uses a focus trap feature to appropriately tab through the
+  contents in the menu that is opened.
 - `<form>` HTML element - The `<form>` element is used in the search feature.
 
 Resources:
@@ -102,10 +100,10 @@ Resources:
 
 ## Skip Navigation
 
-The `Header` component implements the DS' own `SkipNavigation` component. More
+The `Header` component implements the DS own `SkipNavigation` component. More
 information about the component can be found in the
 [Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-navigation-skipnavigation--skip-navigation-with-controls)
-and about why we should use in its
+and why we should use it in its
 [accessibility guideline](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/accessibility-guide-skip-navigation--page).
 
 It is important to note that the `SkipNavigation` component expects that the page
@@ -115,31 +113,34 @@ the first link in the skip navigation to function correctly.
 The second link in the skip navigation points to
 [NYPL's accessibility resource](https://www.nypl.org/accessibility).
 
-## Catalogs Login
+## Catalogs Log In
 
 ### Desktop
 
 ### Mobile
 
-In the mobile view, the "login" feature can be seen when the user SVG icon dropdown
-button is clicked. The user unfilled SVG icon signifies that the patron is not
-logged in while the user filled SVG icon signifies that the patron is logged in.
+In the mobile view, the "log in" feature can be seen when the user SVG icon
+dropdown button is clicked. The user unfilled SVG icon signifies that the patron
+is not logged in while the user filled SVG icon signifies that the patron is
+logged in.
 
-When logged in, it will display the patron's name and an additional "logout" link.
+When logged in, the dropdown menu will display the patron's name and an
+additional "logout" link.
 
 ## Search
 
 There is a single search form in the `Header` component that can be used to
-search in two separate resources. In the search form, the patron can choose
-their preferred search location.
+search in two separate locations: the Library Catalog or the NYPL.org website.
+When using the search form, a patron can choose which location to search.
 
 When looking for an item, such as book, ebook, DVD, etc, the best search location
-is the Catalog. For example, the [Catalog search](https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?lang=eng&suite=def)
+is the Library Catalog. For example, please see the
+[Catalog search](https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?lang=eng&suite=def)
 for items about cats. This returns books, microform format items, and DVDs
 about cats.
 
 When searching for general information about the Library, events, or locations,
-the NYPL.org website is the best search location. For example, the
+the NYPL.org website is the best search location. For example, please see the
 [NYPL.org search](https://www.nypl.org/search/cats?searched_from=header_search&timestamp=1658412778392)
 for information about cats at NYPL. This returns blogs and cat related items
 from the NYPL Shop.
@@ -150,7 +151,7 @@ In the mobile view, the patron needs to click on the search icon button for the
 search form dropdown to appear. The search form will contain a single search
 input field and two buttons, one for the Catalog and one for the NYPL.org website.
 The expected behavior is for the user to fill out the form and click on a button
-to search the appropriate resource.
+to search the appropriate location.
 
 ### Desktop
 
@@ -158,7 +159,7 @@ In the desktop view, the patron needs to click on the "Search" button with the
 search icon for the dropdown to appear. The search form will contain the single
 search input field, two radio buttons to toggle between the Catalog and NYPL.org
 website, and a search button. The expected behavior is for the user to fill out
-the form, choose the appropriate resource, and click on the search button or
+the form, choose the appropriate location, and click on the search button or
 press enter to submit the form.
 
 ## Navigation
@@ -166,7 +167,7 @@ press enter to submit the form.
 There are two main navigational lists in the `Header` component. The (1) first
 contains:
 
-- the login dropdown button
+- the log in dropdown button
 - a link to the NYPL [Locations page](https://www.nypl.org/locations)
 - a link to the NYPL [Library card](https://www.nypl.org/library-card) information
 - a link to NYPL's email subscription service
@@ -189,21 +190,25 @@ The (2) second navigational list contains:
 In the mobile view, the patron needs to click on the hamburger menu icon button
 for the navigation dropdown to appear. This dropdown contains the (2) NYPL
 website navigation links, and the first list of links (1) are now rendered
-as buttons in a grid. The location link, however, is now part of the four
-icon button links rendered with the locator SVG icon.
+as buttons in a grid.
+
+The location link, the log in dropdown button, and the search dropdown button,
+are rendered differently in the mobile view and not in the navigational list.
+The location link and the log in and search dropdown buttons, are now part of
+the four SVG icon button links.
 
 ### Desktop
 
 In the desktop view, the first set of links (1) appears horizontally at the top
 while the second set of links (2) appears at the bottom of the `Header`.
 
-## Header Login Timeout
+## Header Log In Timeout
 
-There are occassions when a patron logs out from either the Catalog, the
-Research Catalog, or the logout link in the `Header` component but there is a
-mismatch where one or more services _thinks_ the patron is still logged in. In
-order to avoid confusion, the `Header` component performs an extra step to log
-the patron out completely.
+There are occassions when a patron may log out directly from either the Catalog
+or the Research Catalog, or log out by using the log out link in the `Header`
+component. Because of this, there is a mismatch where one or more service
+_thinks_ the patron is still logged in. In order to avoid confusion, the `Header`
+component performs an extra step to log the patron out completely.
 
 NYPL's Encore Catalog does not provide a way to programmatically log out a
 patron, such as through an API endpoint. Due to this limitation, there is a
@@ -213,7 +218,7 @@ When a patron logs into the Catalog or the Research Catalog, a 30 minute timer
 will start in the `Header` component. Once this timer reaches 0, the Header will
 insert an `iframe` HTML element into the `body` HTML element of the webpage.
 This `iframe`'s `src` attribute is set to the necessary Encore Catalog logout
-link.
+link. This `iframe` element has a style of `display: none` so it is not visible.
 
 ## Google Analytics
 

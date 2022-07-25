@@ -16,8 +16,9 @@ export interface HeaderLoginProps {
 }
 
 /**
- * The content of the login dropdown menu. This contains links to log in, log
- * out, and also displays the patron's name if they are logged in.
+ * The content of the login dropdown menu. Initially, this renders links to log
+ * in and log out. When the patron is logged in, it will also display the patron's
+ * name, links to the catalogs, and a log out link.
  */
 const HeaderLogin = chakra(
   ({ catalogRef, greetingRef, isMobile }: HeaderLoginProps) => {
