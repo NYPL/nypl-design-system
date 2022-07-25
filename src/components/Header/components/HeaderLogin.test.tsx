@@ -9,7 +9,7 @@ describe("HeaderLogin Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <HeaderProvider>
-        <HeaderLogin patronName="" />
+        <HeaderLogin />
       </HeaderProvider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -18,7 +18,7 @@ describe("HeaderLogin Accessibility", () => {
   it("passes axe accessibility test for mobile", async () => {
     const { container } = render(
       <HeaderProvider>
-        <HeaderLogin isMobile patronName="" />
+        <HeaderLogin isMobile />
       </HeaderProvider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -30,7 +30,7 @@ describe("HeaderLogin", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(
         <HeaderProvider>
-          <HeaderLogin patronName="" />
+          <HeaderLogin />
         </HeaderProvider>
       );
 
@@ -43,8 +43,8 @@ describe("HeaderLogin", () => {
 
     it("renders the logged in UI if there is a `patronName` value", () => {
       render(
-        <HeaderProvider>
-          <HeaderLogin patronName="PATRON, JANE A" />
+        <HeaderProvider patronName="PATRON, JANE A">
+          <HeaderLogin />
         </HeaderProvider>
       );
 
@@ -69,7 +69,7 @@ describe("HeaderLogin", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(
         <HeaderProvider>
-          <HeaderLogin isMobile patronName="" />
+          <HeaderLogin isMobile />
         </HeaderProvider>
       );
 
@@ -82,8 +82,8 @@ describe("HeaderLogin", () => {
 
     it("renders the logged in UI if there is a `patronName` value", () => {
       render(
-        <HeaderProvider>
-          <HeaderLogin isMobile patronName="PATRON, JANE A" />
+        <HeaderProvider patronName="PATRON, JANE A">
+          <HeaderLogin isMobile />
         </HeaderProvider>
       );
 

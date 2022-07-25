@@ -31,8 +31,8 @@ const HeaderLoginButton = chakra(
     const mobileIcon = isOpen
       ? "close"
       : patronName
-      ? "utilityAccountFilled"
-      : "utilityAccountUnfilled";
+      ? "legacyAccountFilled"
+      : "legacyAccountUnfilled";
     const desktopButtonLabel = isOpen
       ? "Close"
       : patronName
@@ -84,7 +84,6 @@ const HeaderLoginButton = chakra(
               catalogRef={catalogRef}
               greetingRef={greetingRef}
               isMobile={isMobile}
-              patronName={patronName}
             />
           )}
         </FocusLock>

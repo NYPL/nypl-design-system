@@ -13,7 +13,6 @@ export interface HeaderLoginProps {
   catalogRef?: React.RefObject<HTMLDivElement & HTMLAnchorElement>;
   greetingRef?: React.RefObject<HTMLDivElement>;
   isMobile?: boolean;
-  patronName?: string;
 }
 
 /**
@@ -21,8 +20,8 @@ export interface HeaderLoginProps {
  * out, and also displays the patron's name if they are logged in.
  */
 const HeaderLogin = chakra(
-  ({ catalogRef, greetingRef, isMobile, patronName }: HeaderLoginProps) => {
-    const { isProduction } = useContext(HeaderContext);
+  ({ catalogRef, greetingRef, isMobile }: HeaderLoginProps) => {
+    const { isProduction, patronName } = useContext(HeaderContext);
     const { catalogLink, researchLink, logOutLink } = getLoginLinks(
       patronName,
       isProduction
@@ -60,7 +59,7 @@ const HeaderLogin = chakra(
               <Icon
                 align="left"
                 color="ui.white"
-                name="utilityAccountFilled"
+                name="legacyAccountUnfilled"
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
               />
