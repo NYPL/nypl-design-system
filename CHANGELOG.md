@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates how style props are passed to the `Link` component when using with third-party libraries, such as React Router.
+
 ## 1.0.6 (July 21, 2022)
 
 ### Adds
