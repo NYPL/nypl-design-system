@@ -81,6 +81,7 @@ const categories = {
     components: [
       "useCarouselStyles",
       "useMultiSelect",
+      "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",
     ],
@@ -132,6 +133,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Color Mode",
       "Design Tokens",
       "Forms",
       "Iconography",

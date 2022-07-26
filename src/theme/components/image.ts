@@ -13,8 +13,8 @@ const imageWrap = {
   overflow: "hidden",
 };
 const sideMarginsAuto = {
-  marginLeft: "auto",
-  marginRight: "auto",
+  marginStart: "auto",
+  marginEnd: "auto",
 };
 const imageSizes = {
   default: {
@@ -89,6 +89,7 @@ const CustomImage = {
       width: "100%",
       ...imageSizes[size],
       img: {
+        backgroundColor: "ui.gray.x-light-cool",
         marginBottom: "xxs",
       },
     },
@@ -98,6 +99,7 @@ const CustomImage = {
     },
     img: {
       display: "block",
+      backgroundColor: "ui.gray.x-light-cool",
       boxSizing: "border-box",
       objectFit: "cover",
       position: "relative",
@@ -115,14 +117,15 @@ const CustomImageWrapper = {
     ratio = "original",
     size = "default",
   }: CustomImageWrapperBaseStyle) => ({
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginStart: "auto",
+    marginEnd: "auto",
     width: "100%",
     ...imageSizes[size],
     crop: {
       ...imageRatios[ratio],
     },
     img: {
+      backgroundColor: "ui.gray.x-light-cool",
       height: "100%",
       left: "0",
       maxWidth: "100%",

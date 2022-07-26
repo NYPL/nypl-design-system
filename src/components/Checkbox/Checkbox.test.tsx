@@ -1,14 +1,21 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
 
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
+    const { container } = render(
+      <Checkbox id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
     const { container } = render(
       <Checkbox
         id="inputID"
@@ -258,7 +265,7 @@ describe("Checkbox", () => {
     );
   });
 
-  it("Logs a warning when there is no `id` passed", () => {
+  it("logs a warning when there is no `id` passed", () => {
     const warn = jest.spyOn(console, "warn");
     // @ts-ignore: Typescript complains when a required prop is not passed, but
     // here we don't want to pass the required prop to make sure the warning appears.
@@ -268,7 +275,7 @@ describe("Checkbox", () => {
     );
   });
 
-  it("Renders the UI snapshot correctly", () => {
+  it("renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Checkbox id="inputID" labelText="Test Label" />)
       .toJSON();
@@ -346,5 +353,14 @@ describe("Checkbox", () => {
     expect(withJSXLabel).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the input element", () => {
+    const ref = React.createRef<HTMLInputElement>();
+    const { container } = render(
+      <Checkbox id="ref" labelText="checkbox" ref={ref} />
+    );
+
+    expect(container.querySelector("input")).toBe(ref.current);
   });
 });

@@ -13,11 +13,14 @@ import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
 import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
 import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
 import mlnBlack from "../../../icons/svg/logo-mln-black.svg";
+import mlnColor from "../../../icons/svg/logo-mln-color.svg";
 import mlnWhite from "../../../icons/svg/logo-mln-white.svg";
 import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
 import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
 import nyplLionBlack from "../../../icons/svg/logo-nypl-lion-black.svg";
 import nyplLionWhite from "../../../icons/svg/logo-nypl-lion-white.svg";
+import nyplTextBlack from "../../../icons/svg/logo-nypl-text-black.svg";
+import nyplTextWhite from "../../../icons/svg/logo-nypl-text-white.svg";
 import openebooksColor from "../../../icons/svg/logo-openebooks-color.svg";
 import openebooksNegative from "../../../icons/svg/logo-openebooks-negative.svg";
 import openebooksWithTextColor from "../../../icons/svg/logo-openebooks-with-text-color.svg";
@@ -58,11 +61,14 @@ export default {
   lpaColor,
   lpaWhite,
   mlnBlack,
+  mlnColor,
   mlnWhite,
   nyplFullBlack,
   nyplFullWhite,
   nyplLionBlack,
   nyplLionWhite,
+  nyplTextBlack,
+  nyplTextWhite,
   openebooksColor,
   openebooksNegative,
   openebooksWithTextColor,

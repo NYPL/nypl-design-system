@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import HelperErrorText from "./HelperErrorText";
@@ -110,5 +110,12 @@ describe("HelperErrorText", () => {
     expect(withHTMLElement).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<HelperErrorText ref={ref} text="Text" />);
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

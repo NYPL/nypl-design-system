@@ -5,8 +5,8 @@ const secondaryBase = {
   overflowX: "hidden",
   content: {
     ...wrapperStyles,
-    paddingRight: "inset.default",
-    paddingLeft: "inset.default",
+    paddingEnd: "inset.default",
+    paddingStart: "inset.default",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -26,8 +26,8 @@ const secondaryBase = {
   },
   bodyText: {
     paddingBottom: "inset.default",
+    paddingEnd: { md: "inset.default" },
     paddingTop: "inset.default",
-    paddingRight: { md: "inset.default" },
     flex: { md: "1 1 50%" },
     order: { md: "2" },
   },
@@ -86,8 +86,8 @@ const primary = {
     maxWidth: { md: "960px" },
     paddingTop: "inset.extrawide",
     paddingBottom: "inset.extrawide",
-    paddingRight: "inset.wide",
-    paddingLeft: "inset.wide",
+    paddingEnd: "inset.wide",
+    paddingStart: "inset.wide",
     a: {
       color: "inherit",
       display: "inline-block",
@@ -115,7 +115,7 @@ const secondaryLocations = getSecondaryVariantStyles(
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
 const tertiary = {
-  bg: "ui.gray.xdark",
+  bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
     color: "ui.white",
@@ -197,8 +197,8 @@ const fiftyFifty = {
       lg: "row nowrap",
     },
     paddingBottom: "s",
-    paddingRight: "s",
-    paddingLeft: "s",
+    paddingEnd: "s",
+    paddingStart: "s",
     padding: {
       lg: "unset",
     },
@@ -208,7 +208,7 @@ const fiftyFifty = {
       base: "s",
       lg: "unset",
     },
-    marginRight: {
+    marginEnd: {
       lg: "s",
     },
     maxWidth: {

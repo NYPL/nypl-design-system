@@ -1,7 +1,7 @@
-import * as React from "react";
 import { render, screen, within } from "@testing-library/react";
-import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Pagination from "./Pagination";
@@ -226,6 +226,20 @@ describe("Pagination", () => {
       expect(middlePage).toMatchSnapshot();
       expect(withChakraProps).toMatchSnapshot();
       expect(withOtherProps).toMatchSnapshot();
+    });
+
+    it("passes a ref to the nav wrapper element", () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { container } = render(
+        <Pagination
+          getPageHref={getPageHref}
+          initialPage={3}
+          pageCount={5}
+          ref={ref}
+        />
+      );
+
+      expect(container.querySelector("nav")).toBe(ref.current);
     });
   });
 

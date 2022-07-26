@@ -41,8 +41,8 @@ const Notification = {
         margin: "auto",
         maxWidth: "var(--nypl-breakpoint-xl)",
         padding: "inset.default",
-        paddingRight: dismissible ? "l" : null,
-        paddingLeft: isCentered && dismissible ? "l" : null,
+        paddingEnd: dismissible ? "l" : null,
+        paddingStart: isCentered && dismissible ? "l" : null,
         width: "100%",
       },
       dismissibleButton: {
@@ -66,7 +66,7 @@ const Notification = {
       },
       icon: {
         flexShrink: "0",
-        marginRight: "s",
+        marginEnd: "s",
       },
     };
   },
@@ -84,7 +84,7 @@ const NotificationContent = {
     content: {
       color: notificationType === "warning" ? "brand.primary" : "currentColor",
       marginTop: icon ? "xxxs" : "0",
-      paddingLeft: alignText
+      paddingStart: alignText
         ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
         : null,
       width: "100%",

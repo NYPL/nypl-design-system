@@ -2,17 +2,21 @@
 
 exports[`Card Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   id="regularCard"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/400/200/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/400/200/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -48,17 +52,21 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 
 exports[`Card Renders the UI snapshot correctly 2`] = `
 <div
-  className="edition-card css-1xdhyk6"
+  className="edition-card css-1u8qly9"
   id="cardWithExtendedStyles"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/300/400/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/300/400/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -143,17 +151,21 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 
 exports[`Card Renders the UI snapshot correctly 3`] = `
 <div
-  className="edition-card css-1xdhyk6"
+  className="edition-card css-1u8qly9"
   id="cardWithNoCTAs"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/300/400/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/300/400/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -184,17 +196,21 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 
 exports[`Card Renders the UI snapshot correctly 4`] = `
 <div
-  className="edition-card css-1xdhyk6"
+  className="edition-card css-1u8qly9"
   id="cardWithNoContent"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/300/400/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/300/400/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -274,7 +290,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 
 exports[`Card Renders the UI snapshot correctly 5`] = `
 <div
-  className="edition-card css-1xdhyk6"
+  className="edition-card css-1u8qly9"
   id="cardWithNoImage"
 >
   <div
@@ -360,11 +376,11 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="chakra-linkbox css-hng3kb"
+  className="chakra-linkbox css-113b4ge"
+  id="fullclick"
 >
   <div
-    className="css-1xdhyk6"
-    id="fullclick"
+    className="css-0"
   >
     <div
       className="css-0"
@@ -375,39 +391,39 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         src="https://placeimg.com/400/200/arch"
       />
     </div>
-    <div
-      className="card-body css-0"
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-1xdhyk6"
+      id="heading1"
+      layout="column"
     >
-      <h3
-        className="chakra-heading css-1xdhyk6"
-        id="heading1"
-        layout="column"
+      <a
+        className="chakra-linkbox__overlay css-kvj8dg"
+        href="http://nypl.org"
       >
-        <a
-          className="chakra-linkbox__overlay css-kvj8dg"
-          href="http://nypl.org"
-        >
-          The Card Heading
-        </a>
-      </h3>
-      <div
-        className="css-1xdhyk6"
+        The Card Heading
+      </a>
+    </h3>
+    <div
+      className="css-1xdhyk6"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-1xdhyk6"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
       >
-        middle column content
-      </div>
-      <div
-        className="css-1xdhyk6"
-      >
-        <button
-          className="chakra-button css-1xdhyk6"
-          data-testid="button"
-          id="button1"
-          onClick={[Function]}
-          type="submit"
-        >
-          Example CTA
-        </button>
-      </div>
+        Example CTA
+      </button>
     </div>
   </div>
 </div>
@@ -415,17 +431,21 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   id="cardID"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/400/200/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/400/200/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -474,17 +494,21 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 
 exports[`Card Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-1t0bvx9"
+  className="css-2bbtg1"
   id="chakraProps"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/400/200/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/400/200/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"
@@ -520,18 +544,22 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
 
 exports[`Card Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="card-testid"
   id="otherProps"
 >
   <div
     className="css-0"
   >
-    <img
-      alt="Alt text"
+    <div
       className="css-0"
-      src="https://placeimg.com/400/200/arch"
-    />
+    >
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/400/200/arch"
+      />
+    </div>
   </div>
   <div
     className="card-body css-0"

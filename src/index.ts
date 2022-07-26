@@ -6,13 +6,18 @@ export {
   Box,
   Center,
   Circle,
+  ColorModeScript,
+  cookieStorageManager,
   Flex,
   Grid,
   GridItem,
   HStack,
+  localStorageManager,
   Spacer,
   Square,
   Stack,
+  useColorMode,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 export {
@@ -33,6 +38,7 @@ export {
 } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { default as ColorCard } from "./components/StyleGuide/ColorCard";
 export {
   default as DatePicker,
   DatePickerTypes,
@@ -133,6 +139,7 @@ export {
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
+export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";
 export {

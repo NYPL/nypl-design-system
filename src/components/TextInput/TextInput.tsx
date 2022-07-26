@@ -4,7 +4,7 @@ import {
   Textarea as ChakraTextarea,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
@@ -58,7 +58,8 @@ export interface InputProps {
   labelText: string;
   /** The max number for a `number` TextInput type. */
   max?: number;
-  /** The max length of the input field. */
+  /** The max length of the input field. This prop is for all input types
+   * except for the `number` type. */
   maxLength?: number;
   /** The min number for a `number` TextInput type. */
   min?: number;
@@ -106,7 +107,7 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
  * optional `HelperErrorText` component.
  */
 export const TextInput = chakra(
-  React.forwardRef<TextInputRefType, InputProps>(
+  forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
         className,
@@ -153,12 +154,20 @@ export const TextInput = chakra(
         name: "TextInput",
         showLabel,
       });
+      let finalIsInvalid = isInvalid;
       let fieldOutput;
       let options;
 
       if (!id) {
         console.warn(
           "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+        );
+      }
+
+      if (type === "number" && max && min && min > max) {
+        finalIsInvalid = true;
+        console.warn(
+          "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
         );
       }
 
@@ -182,7 +191,7 @@ export const TextInput = chakra(
             id,
             isDisabled,
             isRequired,
-            isInvalid,
+            isInvalid: finalIsInvalid,
             max,
             maxLength,
             min,
@@ -213,10 +222,10 @@ export const TextInput = chakra(
       return (
         <ComponentWrapper
           className={className}
-          helperText={helperText}
+          helperText={!finalIsInvalid ? footnote : helperText}
           id={id}
           invalidText={finalInvalidText}
-          isInvalid={isInvalid}
+          isInvalid={finalIsInvalid}
           showHelperInvalidText={showHelperInvalidText && !isHidden}
           __css={styles}
           {...rest}

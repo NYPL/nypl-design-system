@@ -489,4 +489,21 @@ describe("Checkbox", () => {
         "allowed as children."
     );
   });
+
+  it("passes a ref to the inner div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <CheckboxGroup
+        id="checkboxGroup-ref"
+        labelText="otherProps"
+        name="otherProps"
+        ref={ref}
+      >
+        <Checkbox id="2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="3" value="3" labelText="Checkbox 3" />
+      </CheckboxGroup>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

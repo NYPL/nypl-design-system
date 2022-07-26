@@ -1,5 +1,12 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
+import {
+  Box,
+  chakra,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import React, { forwardRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 export type ImageRatios =
   | "fourByThree"
@@ -32,6 +39,8 @@ export interface ComponentImageProps {
   component?: JSX.Element;
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
+  /** Flag to set the internal `Image` component to `isLazy` mode. */
+  isLazy?: boolean;
   /** Optional value to control the size of the internal `Image` component.
    * Defaults to `ImageSizes.Default`. */
   size?: ImageSizes;
@@ -67,6 +76,8 @@ export interface ImageProps extends ImageWrapperProps {
   credit?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
+  /** Flag to set the internal `Image` component to `isLazy` mode. */
+  isLazy?: boolean;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src?: string;
 }
@@ -99,73 +110,109 @@ const ImageWrapper = chakra(
   }
 );
 
-export const Image = chakra((props: ImageProps) => {
-  const {
-    additionalFigureStyles = {},
-    additionalImageStyles = {},
-    additionalWrapperStyles = {},
-    alt,
-    aspectRatio = "original",
-    caption,
-    className = "",
-    component,
-    credit,
-    imageType = "default",
-    size = "default",
-    src,
-    ...rest
-  } = props;
-  const useImageWrapper = aspectRatio !== "original";
-  const styles = useMultiStyleConfig("CustomImage", {
-    variant: imageType,
-    size,
-  });
+export const Image = chakra(
+  forwardRef<HTMLDivElement, ImageProps>((props, ref?) => {
+    const {
+      additionalFigureStyles = {},
+      additionalImageStyles = {},
+      additionalWrapperStyles = {},
+      alt,
+      aspectRatio = "original",
+      caption,
+      className = "",
+      component,
+      credit,
+      imageType = "default",
+      isLazy = false,
+      size = "default",
+      src,
+      ...rest
+    } = props;
+    // Check if the native browser lazy loading is supported.
+    const supportsLazyLoading = useNativeLazyLoading();
+    // If it is (mostly Chromium-based browsers), then skip creating
+    // the IntersectionObserver object.
+    const [inViewRef, inView] = useInView({
+      triggerOnce: true,
+      skip: supportsLazyLoading,
+    });
+    const useImageWrapper = aspectRatio !== "original";
+    const styles = useMultiStyleConfig("CustomImage", {
+      variant: imageType,
+      size,
+    });
+    let imageComponent: JSX.Element | null = null;
+    let lazyRef = undefined;
+    let finalRefs = undefined;
+    let srcProp = isLazy ? {} : { src };
 
-  if (alt && alt.length > 300) {
-    throw new Error(
-      "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    if (alt && alt.length > 300) {
+      throw new Error(
+        "NYPL Reservoir Image: Alt text must be less than 300 characters."
+      );
+    }
+
+    // For lazying loading images, the initial `src` value is empty. Once
+    // the image is loaded, the `src` prop is set and passed to the image
+    // element so that it can load. This also lets it load with a gray
+    // background placeholder. We also only want to add the `inViewRef` ref
+    // when `isLazy` is true to keep track of when the image is visible.
+    if (isLazy && (inView || supportsLazyLoading)) {
+      lazyRef = inViewRef;
+      srcProp = { src };
+    }
+
+    // We want to add the `ref` from the `forwardRef` function regardless of
+    // whether the image is lazy or not. This is meant for usage with other
+    // components such as a `Tooltip`. The `inViewRef` is only added when
+    // the `isLazy` prop is true.
+    finalRefs = useMergeRefs(lazyRef, ref);
+
+    imageComponent = component ? (
+      component
+    ) : (
+      <Box
+        as="img"
+        alt={alt}
+        loading={isLazy ? "lazy" : undefined}
+        {...srcProp}
+        __css={{ ...styles.img, ...additionalImageStyles }}
+      />
     );
-  }
+    const finalImage = useImageWrapper ? (
+      <ImageWrapper
+        additionalWrapperStyles={additionalWrapperStyles}
+        aspectRatio={aspectRatio}
+        className={className}
+        size={size}
+        {...(caption || credit ? {} : rest)}
+      >
+        {imageComponent}
+      </ImageWrapper>
+    ) : (
+      imageComponent
+    );
 
-  const imageComponent: JSX.Element = component ? (
-    component
-  ) : (
-    <Box
-      as="img"
-      src={src}
-      alt={alt}
-      __css={{ ...styles.img, ...additionalImageStyles }}
-    />
-  );
-  const finalImage = useImageWrapper ? (
-    <ImageWrapper
-      additionalWrapperStyles={additionalWrapperStyles}
-      aspectRatio={aspectRatio}
-      className={className}
-      size={size}
-      {...(caption || credit ? {} : rest)}
-    >
-      {imageComponent}
-    </ImageWrapper>
-  ) : (
-    imageComponent
-  );
-
-  return caption || credit ? (
-    <Box
-      as="figure"
-      __css={{ ...styles.figure, ...additionalFigureStyles }}
-      {...rest}
-    >
-      {finalImage}
-      <Box as="figcaption" __css={styles.figcaption}>
-        {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
-        {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+    return (
+      <Box ref={finalRefs}>
+        {caption || credit ? (
+          <Box
+            as="figure"
+            __css={{ ...styles.figure, ...additionalFigureStyles }}
+            {...rest}
+          >
+            {finalImage}
+            <Box as="figcaption" __css={styles.figcaption}>
+              {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
+              {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+            </Box>
+          </Box>
+        ) : (
+          finalImage
+        )}
       </Box>
-    </Box>
-  ) : (
-    finalImage
-  );
-});
+    );
+  })
+);
 
 export default Image;

@@ -74,7 +74,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.4`   |
-| Latest            | `1.0.1`    |
+| Latest            | `1.0.6`    |
 
 ## Table of Contents
 
@@ -244,15 +244,30 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 <Canvas>
   <DSProvider>
-    <Heading id="heading-single-errored" level="four" text="Errored State" />
-    <Slider
-      defaultValue={50}
-      helperText="Component helper text."
-      id="errored-slider"
-      invalidText="Component error text :("
-      labelText="Label"
-      isInvalid
-    />
+    <SimpleGrid columns={1} gap="grid.l">
+      <Heading id="heading-single-errored" level="four" text="Errored State" />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        id="errored-slider"
+        invalidText="Component error text :("
+        labelText="Label"
+        isInvalid
+      />
+      <p>
+        Note: If the `min` prop value is greater than the `max` prop value, then
+        this will be an errored state.
+      </p>
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        id="errored-slider"
+        invalidText="The `min` value must be less than the `max` value."
+        labelText="Label"
+        max={30}
+        min={80}
+      />
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 

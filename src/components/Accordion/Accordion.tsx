@@ -6,7 +6,7 @@ import {
   Box,
   chakra,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -76,6 +76,7 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
             <>
               <AccordionButton
                 id={`${id}-button-${index}`}
+                borderColor="ui.gray.medium"
                 padding={multiplePadding}
                 bg={
                   !content.accordionType
@@ -98,7 +99,12 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
                   borderColor: "ui.gray.dark",
                 }}
               >
-                <Box flex="1" fontSize={multipleFontSize} textAlign="left">
+                <Box
+                  as="span"
+                  flex="1"
+                  fontSize={multipleFontSize}
+                  textAlign="left"
+                >
                   {content.label}
                 </Box>
                 {getIcon(isExpanded, index, id)}
@@ -116,22 +122,25 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-export const Accordion = chakra((props: AccordionProps) => {
-  const { accordionData, id, isDefaultOpen = false, ...rest } = props;
+export const Accordion = chakra(
+  forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
+    const { accordionData, id, isDefaultOpen = false, ...rest } = props;
 
-  // Pass `0` to open the first accordion in the 0-index based array.
-  const openFirstAccordion = isDefaultOpen ? [0] : undefined;
+    // Pass `0` to open the first accordion in the 0-index based array.
+    const openFirstAccordion = isDefaultOpen ? [0] : undefined;
 
-  return (
-    <ChakraAccordion
-      id={id}
-      defaultIndex={openFirstAccordion}
-      allowMultiple
-      {...rest}
-    >
-      {getElementsFromData(accordionData, id)}
-    </ChakraAccordion>
-  );
-});
+    return (
+      <ChakraAccordion
+        allowMultiple
+        defaultIndex={openFirstAccordion}
+        id={id}
+        ref={ref}
+        {...rest}
+      >
+        {getElementsFromData(accordionData, id)}
+      </ChakraAccordion>
+    );
+  })
+);
 
 export default Accordion;
