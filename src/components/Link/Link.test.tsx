@@ -97,7 +97,7 @@ describe("Link", () => {
 
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => render(<Link>Test</Link>)).toThrowError(
-      "`Link` needs the `href` prop."
+      "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
     );
   });
 
@@ -109,7 +109,9 @@ describe("Link", () => {
           <a href="#test">Test</a>
         </Link>
       )
-    ).toThrowError("Please pass only one child into `Link`.");
+    ).toThrowError(
+      "NYPL Reservoir Link: Please pass only one child into the `Link` component."
+    );
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -198,6 +200,13 @@ describe("Link", () => {
         </Link>
       )
       .toJSON();
+    const withOtherPropsAndChild = renderer
+      .create(
+        <Link id="props" data-testid="props">
+          <a href="#passed-in-link">Standard</a>
+        </Link>
+      )
+      .toJSON();
 
     expect(standard).toMatchSnapshot();
     expect(typeForwards).toMatchSnapshot();
@@ -209,6 +218,7 @@ describe("Link", () => {
     expect(withAchorChildAndIcon).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withOtherPropsAndChild).toMatchSnapshot();
   });
 
   it("passes a ref to the anchor element", () => {
