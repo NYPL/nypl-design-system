@@ -7,16 +7,16 @@ import renderer from "react-test-renderer";
 import SearchBar, { SelectProps, TextInputProps } from "./SearchBar";
 
 const optionsGroup = [
-  "Art",
-  "Bushes",
-  "Clothing",
-  "Flowers",
-  "Fossils",
-  "Fruits",
-  "Furniture",
-  "Songs",
-  "Tools",
-  "Villagers",
+  { text: "Art", value: "art" },
+  { text: "Bushes", value: "bushes" },
+  { text: "Clothing", value: "clothing" },
+  { text: "Flowers", value: "flowers" },
+  { text: "Fossils", value: "fossils" },
+  { text: "Fruits", value: "fruits" },
+  { text: "Furniture", value: "furniture" },
+  { text: "Songs", value: "songs" },
+  { text: "Tools", value: "tools" },
+  { text: "Villagers", value: "villagers" },
 ];
 const selectProps: SelectProps = {
   name: "selectName",
@@ -181,10 +181,10 @@ describe("SearchBar", () => {
     expect(selectValue).toEqual("Songs");
 
     userEvent.selectOptions(select, "Flowers");
-    expect(selectValue).toEqual("Flowers");
+    expect(selectValue).toEqual("flowers");
 
     userEvent.selectOptions(select, "Furniture");
-    expect(selectValue).toEqual("Furniture");
+    expect(selectValue).toEqual("furniture");
   });
 
   it("calls the callback function for the Button component ", () => {

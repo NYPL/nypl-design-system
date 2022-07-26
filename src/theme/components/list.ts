@@ -39,19 +39,19 @@ export const baseUnorderedStyles = (noStyling = false) => ({
     },
   },
 });
-export const baseSectionDefinitionStyles = {
+export const baseSectionDescriptionStyles = {
   borderBottom: "1px solid",
   borderColor: "ui.gray.light-cool",
   paddingStart: "0",
   h2: {
     borderTop: "3px solid",
-    borderColor: "section.research.primary",
+    borderColor: "ui.gray.medium",
     margin: "0",
     padding: "var(--nypl-space-xs) 0 0",
   },
 };
-export const baseDefinitionStyles = {
-  ...baseSectionDefinitionStyles,
+export const baseDescriptionStyles = {
+  ...baseSectionDescriptionStyles,
   dl: {
     display: "grid",
     gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
@@ -81,7 +81,7 @@ const List = {
   variants: {
     ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
     ol: textMargin,
-    dl: baseDefinitionStyles,
+    dl: baseDescriptionStyles,
   },
 };
 
