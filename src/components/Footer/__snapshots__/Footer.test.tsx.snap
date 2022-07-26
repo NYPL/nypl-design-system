@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer Renders the UI snapshot correctly 1`] = `
+exports[`Footer renders the UI snapshot correctly 1`] = `
 <footer
   className="css-1xdhyk6"
   id="footer"

@@ -10,7 +10,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the basic `Footer` React component. Uses "legacy" SVG icons in the `Footer` component for social media icons.
+- Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
+
+## 1.0.6 (July 21, 2022)
+
+### Adds
+
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
@@ -20,12 +26,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Warning` (filled and oultine).
 
+### Removes
+
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
+
 ## 1.0.5 (July 7, 2022)
 
 ### Adds
 
 - Exports `ColorCard`.
-- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
@@ -33,10 +42,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
 - Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
 - Updates Storybook packages.
-
-### Removes
-
-- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
 
 ### Fixes
 
