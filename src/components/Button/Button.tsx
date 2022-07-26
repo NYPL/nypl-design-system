@@ -3,7 +3,7 @@ import {
   chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -37,9 +37,8 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-// @TODO Had to update this to forwardRefs on button for MultiSelect
 export const Button = chakra(
-  React.forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
+  forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
         buttonType = "primary",
@@ -84,12 +83,12 @@ export const Button = chakra(
 
       return (
         <ChakraButton
-          id={id}
-          ref={ref}
-          data-testid="button"
           className={className}
-          type={type}
+          data-testid="button"
+          id={id}
           isDisabled={isDisabled}
+          ref={ref}
+          type={type}
           {...btnCallback}
           __css={styles}
           {...rest}

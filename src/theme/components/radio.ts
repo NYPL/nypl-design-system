@@ -3,6 +3,7 @@ import {
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
+  screenreaderOnly,
 } from "./global";
 
 // Style object for the Radio's "control" or visual icon.
@@ -12,16 +13,17 @@ const baseStyleControl = {
   transitionDuration: "normal",
   border: "2px solid",
   borderRadius: "round",
-  borderColor: "ui.black",
+  borderColor: "ui.gray.dark",
+  backgroundColor: "ui.gray.xx-light-cool",
   color: "ui.white",
   outline: "none",
   _checked: {
-    bg: "ui.white",
+    bg: "ui.gray.xx-light-cool",
     borderColor: "ui.focus",
     color: "ui.white",
     _disabled: {
       borderColor: "ui.disabled.primary",
-      bg: "ui.white",
+      bg: "ui.gray.xx-light-cool",
       _before: {
         bg: "ui.disabled.primary",
       },
@@ -36,7 +38,7 @@ const baseStyleControl = {
       },
     },
     _hover: {
-      bg: "ui.white",
+      bg: "ui.gray.xx-light-cool",
     },
     _before: {
       content: `""`,
@@ -49,7 +51,7 @@ const baseStyleControl = {
   },
   _disabled: {
     borderColor: "ui.disabled.primary",
-    bg: "ui.white",
+    bg: "ui.gray.xx-light-cool",
   },
   _focus: {
     ...activeFocus(),
@@ -73,11 +75,14 @@ const baseStyleLabel = checkboxRadioLabelStyles;
 const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
+  bg: "red",
+  fontSize: "40px",
   // Chakra-inserted elements in the Chakra Radio component
   control: baseStyleControl,
   label: baseStyleLabel,
   // Custom element in the DS Radio component.
   helperErrorText: baseStyleHelperErrorText,
+  hiddenLabel: screenreaderOnly,
 };
 
 // Sticking to "md" for the default size.
@@ -91,7 +96,7 @@ const sizes = {
 };
 
 const Radio = {
-  parts: ["control", "helperErrorText", "label"],
+  parts: ["control", "helperErrorText", "hiddenLabel", "label"],
   baseStyle,
   sizes,
   // Default values

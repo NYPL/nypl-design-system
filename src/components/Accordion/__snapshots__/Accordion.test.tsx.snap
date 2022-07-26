@@ -11,7 +11,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -19,11 +19,11 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -75,23 +75,27 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -133,7 +137,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -141,11 +145,11 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -197,23 +201,27 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -255,7 +263,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -263,11 +271,11 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -319,23 +327,27 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -378,7 +390,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-ilurlz"
+      className="chakra-accordion__button css-1c6323r"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -386,11 +398,11 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -442,23 +454,27 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -500,7 +516,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-gne4sq"
+      className="chakra-accordion__button css-1c8csqn"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -508,11 +524,11 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -564,23 +580,27 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -622,7 +642,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-11hvvs4"
+      className="chakra-accordion__button css-1lty5mh"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -630,11 +650,11 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       onKeyDown={[Function]}
       type="button"
     >
-      <div
+      <span
         className="css-ox82o1"
       >
         Gerry Kellman
-      </div>
+      </span>
       <svg
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
@@ -686,23 +706,27 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
         role="region"
       >
         <div
-          className="css-1xdhyk6"
+          className="css-1u8qly9"
           id="card"
         >
           <div
             className="css-0"
           >
             <div
-              className="the-wrap css-1u8qly9"
+              className="css-0"
             >
               <div
-                className="the-crop css-0"
+                className="the-wrap css-1u8qly9"
               >
-                <img
-                  alt="Alt text"
-                  className="css-0"
-                  src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
-                />
+                <div
+                  className="the-crop css-0"
+                >
+                  <img
+                    alt="Alt text"
+                    className="css-0"
+                    src="https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit"
+                  />
+                </div>
               </div>
             </div>
           </div>

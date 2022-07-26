@@ -6,13 +6,18 @@ export {
   Box,
   Center,
   Circle,
+  ColorModeScript,
+  cookieStorageManager,
   Flex,
   Grid,
   GridItem,
   HStack,
+  localStorageManager,
   Spacer,
   Square,
   Stack,
+  useColorMode,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 export {
@@ -33,6 +38,7 @@ export {
 } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { default as ColorCard } from "./components/StyleGuide/ColorCard";
 export {
   default as DatePicker,
   DatePickerTypes,
@@ -70,17 +76,12 @@ export { default as Link, LinkTypes } from "./components/Link/Link";
 export { default as List, ListTypes } from "./components/List/List";
 export { default as Logo, LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
-
 export {
   default as MultiSelect,
   MultiSelectProps,
-} from "./components/MultiSelect/MultiSelect";
-export {
   MultiSelectItem,
   SelectedItems,
-} from "./components/MultiSelect/MultiSelectTypes";
-export { default as useMultiSelect } from "./components/MultiSelect/useMultiSelect";
-
+} from "./components/MultiSelect/MultiSelect";
 export {
   default as Notification,
   NotificationTypes,
@@ -137,6 +138,8 @@ export {
 } from "./components/TextInput/TextInput";
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
+export { default as useMultiSelect } from "./hooks/useMultiSelect";
+export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";
 export {

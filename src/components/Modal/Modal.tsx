@@ -9,11 +9,11 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import useWindowSize from "../../hooks/useWindowSize";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface BaseModalProps {
   bodyContent?: string | JSX.Element;
@@ -42,19 +42,11 @@ const BaseModal = chakra(
     onClose,
     ...rest
   }: React.PropsWithChildren<BaseModalProps>) => {
-    // Based on --nypl-breakpoint-medium
-    const breakpointMedium = 600;
-    const defaultSize = "xl";
+    const xlarge = "xl";
     const fullSize = "full";
-    const [size, setSize] = React.useState<string>(defaultSize);
-    const windowDimensions = useWindowSize();
-    React.useEffect(() => {
-      if (windowDimensions.width <= breakpointMedium) {
-        setSize(fullSize);
-      } else {
-        setSize(defaultSize);
-      }
-    }, [windowDimensions.width]);
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    // For larger screens, set the size to xl, otherwise set it to full.
+    const size = isLargerThanMobile ? xlarge : fullSize;
 
     return (
       <ChakraModal
@@ -90,35 +82,32 @@ const BaseModal = chakra(
  * component are passed through to the `modalProps` prop.
  */
 export const ModalTrigger = chakra(
-  ({
-    buttonText,
-    id,
-    modalProps,
-    ...rest
-  }: React.PropsWithChildren<ModalProps>) => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const finalOnCloseHandler = () => {
-      modalProps.onClose && modalProps.onClose();
-      onClose();
-    };
-    return (
-      <>
-        <Button id="modal-open-btn" onClick={onOpen}>
-          {buttonText}
-        </Button>
+  forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
+    ({ buttonText, id, modalProps, ...rest }, ref?) => {
+      const { isOpen, onOpen, onClose } = useDisclosure();
+      const finalOnCloseHandler = () => {
+        modalProps.onClose && modalProps.onClose();
+        onClose();
+      };
+      return (
+        <>
+          <Button id="modal-open-btn" onClick={onOpen} ref={ref}>
+            {buttonText}
+          </Button>
 
-        <BaseModal
-          bodyContent={modalProps.bodyContent}
-          closeButtonLabel={modalProps.closeButtonLabel}
-          headingText={modalProps.headingText}
-          id={id}
-          isOpen={isOpen}
-          onClose={finalOnCloseHandler}
-          {...rest}
-        />
-      </>
-    );
-  }
+          <BaseModal
+            bodyContent={modalProps.bodyContent}
+            closeButtonLabel={modalProps.closeButtonLabel}
+            headingText={modalProps.headingText}
+            id={id}
+            isOpen={isOpen}
+            onClose={finalOnCloseHandler}
+            {...rest}
+          />
+        </>
+      );
+    }
+  )
 );
 
 /**

@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
@@ -24,6 +24,15 @@ const baseOptions = (
 describe("Select Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hidden label", async () => {
+    const { container } = render(
+      <Select {...baseProps} showLabel={false}>
+        {baseOptions}
+      </Select>
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -354,5 +363,16 @@ describe("Select", () => {
     expect(hasOnChange).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the select element", () => {
+    const ref = React.createRef<HTMLSelectElement>();
+    const { container } = render(
+      <Select {...baseProps} ref={ref}>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(container.querySelector("select")).toBe(ref.current);
   });
 });

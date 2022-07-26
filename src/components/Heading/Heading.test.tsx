@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
@@ -167,5 +167,14 @@ describe("Heading", () => {
     expect(withCustomLink).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the heading element", () => {
+    const ref = React.createRef<HTMLHeadingElement>();
+    const { container } = render(
+      <Heading id="h1" level="one" ref={ref} text="Heading 1" />
+    );
+
+    expect(container.querySelector("h1")).toBe(ref.current);
   });
 });

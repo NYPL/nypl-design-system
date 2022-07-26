@@ -8,7 +8,95 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 1.0.1 (May 31, 2022)
+## 1.0.6 (July 21, 2022)
+
+### Adds
+
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
+
+### Updates
+
+- Updates the following components to use React's `forwardRef` wrapper function to pass along refs to the correct DOM element. This is for third-party packages and components such as Chakra's `Tooltip` to work correctly.
+  - `Accordion`, `Breadcrumbs`, `Button`, `ButtonGroup`, `Card`, `ComponentWrapper`, `FieldSet`, `Form`, `SimpleGrid`, `Heading`, `HelperErrorText`, `Hero`, `HorizontalRule`, `Icon`, `Image`, `Label`, `List`, `Logo`, `Modal`, `Notification`, `Pagination`, `ProgressIndicator`, `SearchBar`, `SkeletonLoader`, `SkipNavigation`, `Slider`, `StatusBadge`, `StructuredContent`, `Table`, `Tabs`, `Template`, `TemplateAppContainer`, `Text`, `VideoPlayer`.
+- Updates `padding-left` and `padding-right` style properties to `padding-start` and `padding-end`, respectively. Updates `margin-left` and `margin-right` style properties to `margin-start` and `margin-end`, respectively. These changes apply to inline CSS, shorthand Chakra style prop syntax, and Chakra theme file syntax. Note that `margin-start/end` and `padding-start/end` get converted to `margin-inline-start/end` and `padding-inline-start/end` respectively by Chakra UI.
+- Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Warning` (filled and oultine).
+
+### Removes
+
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
+
+## 1.0.5 (July 7, 2022)
+
+### Adds
+
+- Exports `ColorCard`.
+
+### Updates
+
+- Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+- Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+- Updates Storybook packages.
+
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+
+## 1.0.4 (June 23, 2022)
+
+### Adds
+
+- Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+- Adds `ui.gray.xx-dark` to the color palette.
+- Adds npm packages useful for lazy loading images in the `Image` component.
+- Adds text case styles for `Text` component.
+- Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
+- Adds a "Color Mode" documentation page in Storybook.
+- Adds `ui.white` as default background color to `Checkbox` and `Radio` components.
+- Adds text case styles for `Heading` component
+
+### Updates
+
+- Updates the `Logo` component to include a variant for `MLN Color`.
+- Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
+- Updates to Storybook version 6.5.
+- Explicitly sets the default color mode value to `"light"`.
+- Updates how the `styles.scss` and `resources.scss` files are organized and compiled so that they can be imported in any tech stack.
+- Updates the docs for the `Table` commponent to remove the example that does not include column headers.
+- Updates the `Button`, `Select` and `TextInput` components to use NYPL standard minimum height in mobile viewport.
+- Updates the `SearchBar` component to change how the width of the internal `Select` component is handled.
+
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
+
+## 1.0.3 (June 9, 2022)
+
+### Adds
+
+- Adds prop validation for the `TextInput` "number" type for the `min` and `max` props.
+- Adds `min` and `max` prop value validation for the `Slider` component, including in the "range" mode.
+
+### Updates
+
+- Updates the `TemplateAppContainer`'s responsive styles for its sidebar component.
+- Updates how the `Radio`'s label is hidden when the `showLabel` prop is set to "false" to fix the "no label" accessibility issue.
+- Updates the `Logo` component to include new variants for `NYPL Text Only`.
+- Updates the `Card`'s full-click functionality styling for its wrapper element.
+- Updates how the `Card`'s `Image` component is displayed in the mobile view; sizes and aspect ratios are maintained instead of always displaying as 100% width.
+- Updates hover style to add right border color on hover for `Select` element.
+- Updates the `Table` component to be responsive for a mobile viewport.
+- Updates the `Table` component to make the `columnHeaders` prop required.
+
+### Fixes
+
+- Fixes the border color for the `Accordion` button.
+- Fixes a false warning message logged from the `Table` component.
+- Fixes the background color for the `Toggle` button.
+
+## 1.0.2 (June 1, 2022)
 
 ### Adds
 
@@ -34,6 +122,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
 - Allows `Button`s in the `ButtonGroup` to manage their own `isDisabled` state.
 - Fixes how the `onChange` prop is set in `Checkbox` so it only gets called once per rendering.
+
+## 1.0.1 (May 31, 2022)
+
+_NOTE_: This version number was previously released in 2019 and is marked as deprecated in npm. The next version bump from `1.0.0` is `1.0.2`.
 
 ## 1.0.0 (May 12, 2022)
 

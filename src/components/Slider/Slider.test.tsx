@@ -1,6 +1,6 @@
-import * as React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Slider from "./Slider";
@@ -256,6 +256,33 @@ describe("Slider", () => {
       );
     });
 
+    it("renders the invalid state if the min prop is greater than the max prop", () => {
+      const warn = jest.spyOn(console, "warn");
+      render(
+        <Slider
+          id="slider"
+          defaultValue={50}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+          max={20}
+          min={70}
+        />
+      );
+
+      expect(
+        screen.queryByText("Component helper text")
+      ).not.toBeInTheDocument();
+      expect(screen.getByText("Component error text :(")).toBeInTheDocument();
+      expect(screen.getByRole("spinbutton")).toHaveAttribute(
+        "aria-invalid",
+        "true"
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
+      );
+    });
+
     it("renders the disabled state", () => {
       render(
         <Slider
@@ -472,6 +499,22 @@ describe("Slider", () => {
       expect(withChakraProps).toMatchSnapshot();
       expect(withOtherProps).toMatchSnapshot();
     });
+
+    it("passes a ref to the div wrapper element", () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { container } = render(
+        <Slider
+          defaultValue={50}
+          helperText="Component helper text."
+          id="slider"
+          invalidText="Component error text :("
+          labelText="Label"
+          ref={ref}
+        />
+      );
+
+      expect(container.querySelectorAll("div")[0]).toBe(ref.current);
+    });
   });
 
   describe("Range Slider", () => {
@@ -564,7 +607,38 @@ describe("Slider", () => {
       expect(screen.getByText("80")).toBeInTheDocument();
     });
 
-    it("renders the invalid state if the start and end values are wrong", () => {
+    it("renders the invalid state if the min prop is greater than the max prop", () => {
+      const warn = jest.spyOn(console, "warn");
+      // The start value is bigger than the end value.
+      render(
+        <Slider
+          id="slider"
+          defaultValue={[25, 75]}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          isRangeSlider
+          labelText="Label"
+          max={20}
+          min={80}
+        />
+      );
+
+      expect(screen.getByText("Component error text :(")).toBeInTheDocument();
+      expect(screen.getAllByRole("spinbutton")[0]).toHaveAttribute(
+        "aria-invalid",
+        "true"
+      );
+      expect(screen.getAllByRole("spinbutton")[1]).toHaveAttribute(
+        "aria-invalid",
+        "true"
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
+      );
+    });
+
+    it("renders the invalid state if the start is greater than the end values", () => {
+      const warn = jest.spyOn(console, "warn");
       // The start value is bigger than the end value.
       render(
         <Slider
@@ -588,6 +662,9 @@ describe("Slider", () => {
       expect(screen.getAllByRole("spinbutton")[1]).toHaveAttribute(
         "aria-invalid",
         "true"
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Slider: The RangeSlider's first value is greater than the second value."
       );
     });
 
@@ -731,6 +808,23 @@ describe("Slider", () => {
       expect(noLabels).toMatchSnapshot();
       expect(noVisibleValues).toMatchSnapshot();
       expect(onlySlider).toMatchSnapshot();
+    });
+
+    it("passes a ref to the div wrapper element", () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { container } = render(
+        <Slider
+          defaultValue={[25, 75]}
+          helperText="Component helper text."
+          id="slider"
+          isRangeSlider
+          invalidText="Component error text :("
+          labelText="Label"
+          ref={ref}
+        />
+      );
+
+      expect(container.querySelectorAll("div")[0]).toBe(ref.current);
     });
   });
 });

@@ -26,7 +26,7 @@ export const useCarouselStyles = (slidesCount = 0, slideWidth = 100) => {
   // slide inside the container.
   const carouselStyle = {
     transition: "all .5s",
-    marginLeft: `-${currentSlide * slideWidth}%`,
+    marginStart: `-${currentSlide * slideWidth}%`,
   };
 
   return { prevSlide, nextSlide, carouselStyle, goToStart };

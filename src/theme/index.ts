@@ -21,7 +21,6 @@ import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
-import MultiSelect from "./components/multiSelect";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
 import HorizontalRule from "./components/horizontalRule";
@@ -30,6 +29,8 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import MultiSelect from "./components/multiSelect";
+import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -103,6 +104,7 @@ const theme = extendTheme({
     List,
     Logo,
     MultiSelect,
+    MultiSelectMenuButton,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
@@ -123,10 +125,16 @@ const theme = extendTheme({
     ...Toggle,
     VideoPlayer,
   },
-  // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
-  // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
   config: {
+    // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
+    // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
     cssVarPrefix: "nypl",
+    // Start off in the "light" mode.
+    initialColorMode: "light",
+    // Don't use the user's system preference. Once the Reservoir
+    // has better dark mode variants for its components, this
+    // value can be set to true.
+    useSystemColorMode: false,
   },
 });
 

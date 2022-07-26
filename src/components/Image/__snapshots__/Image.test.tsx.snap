@@ -1,269 +1,349 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image Renders the UI snapshot correctly 1`] = `
-<img
-  alt=""
+<div
   className="css-0"
-  src="test.png"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 2`] = `
-<figure
-  className="css-0"
->
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
-  <figcaption
-    className="css-0"
-  >
-    <div
-      className="css-0"
-    >
-      Caption
-    </div>
-  </figcaption>
-</figure>
-`;
-
-exports[`Image Renders the UI snapshot correctly 3`] = `
-<figure
-  className="css-0"
->
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
-  <figcaption
-    className="css-0"
-  >
-    <div
-      className="css-0"
-    >
-      Credit
-    </div>
-  </figcaption>
-</figure>
-`;
-
-exports[`Image Renders the UI snapshot correctly 4`] = `
-<figure
-  className="css-0"
->
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
-  <figcaption
-    className="css-0"
-  >
-    <div
-      className="css-0"
-    >
-      Caption
-    </div>
-    <div
-      className="css-0"
-    >
-      Credit
-    </div>
-  </figcaption>
-</figure>
-`;
-
-exports[`Image Renders the UI snapshot correctly 5`] = `
-<img
-  alt=""
-  className="css-0"
-  src="test.png"
-/>
-`;
-
-exports[`Image Renders the UI snapshot correctly 6`] = `
-<img
-  alt=""
-  className="css-0"
-  src="test.png"
-/>
-`;
-
-exports[`Image Renders the UI snapshot correctly 7`] = `
-<img
-  alt=""
-  className="css-0"
-  src="test.png"
-/>
-`;
-
-exports[`Image Renders the UI snapshot correctly 8`] = `
-<img
-  alt=""
-  className="css-0"
-  src="test.png"
-/>
-`;
-
-exports[`Image Renders the UI snapshot correctly 9`] = `
-<img
-  alt=""
-  className="css-0"
-  src="test.png"
-/>
-`;
-
-exports[`Image Renders the UI snapshot correctly 10`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
-  <div
-    className="the-crop css-0"
+  <figure
+    className="css-0"
   >
     <img
       alt=""
       className="css-0"
       src="test.png"
     />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Caption
+      </div>
+    </figcaption>
+  </figure>
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Credit
+      </div>
+    </figcaption>
+  </figure>
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-0"
+>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Caption
+      </div>
+      <div
+        className="css-0"
+      >
+        Credit
+      </div>
+    </figcaption>
+  </figure>
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 5`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 6`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 9`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 10`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="the-wrap css-1u8qly9"
+  >
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 11`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 12`] = `
-<img
-  alt=""
+<div
   className="css-0"
-  src="test.png"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 13`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 14`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 15`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 16`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 17`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 18`] = `
 <div
-  className="the-wrap css-1u8qly9"
+  className="css-0"
 >
   <div
-    className="the-crop css-0"
+    className="the-wrap css-1u8qly9"
   >
-    <img
-      alt=""
-      className="css-0"
-      src="test.png"
-    />
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 19`] = `
-<img
-  alt=""
+<div
   className="css-0"
-  src="test.png"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 20`] = `
-<img
-  alt=""
+<div
   className="css-0"
-  src="test.png"
-/>
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
+</div>
 `;

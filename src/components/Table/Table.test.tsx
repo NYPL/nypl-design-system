@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Image from "../Image/Image";
@@ -88,14 +88,22 @@ describe("Table Accessibility", () => {
   });
 
   it("passes axe accessibility test with tableData prop", async () => {
-    const { container } = render(<Table tableData={tableData} />);
+    const { container } = render(
+      <Table columnHeaders={columnHeaders} tableData={tableData} />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Table", () => {
   it("renders a caption", () => {
-    render(<Table tableData={tableData} titleText="this is the caption" />);
+    render(
+      <Table
+        columnHeaders={columnHeaders}
+        tableData={tableData}
+        titleText="this is the caption"
+      />
+    );
     expect(screen.getByText("this is the caption")).toBeInTheDocument();
   });
 
@@ -121,9 +129,18 @@ describe("Table", () => {
     expect(screen.getByText("Village Road")).toBeInTheDocument();
   });
 
+  it("logs a warning when the `columnHeaders` prop is an empty array", async () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Table columnHeaders={[]} tableData={tableData} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Table: Column headers have not been set. For improved accessibility, " +
+        "column headers are required."
+    );
+  });
+
   it("logs a warning when the `tableData` prop is an empty array", async () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Table tableData={[]} />);
+    render(<Table columnHeaders={columnHeaders} tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
     );
@@ -156,16 +173,20 @@ describe("Table", () => {
         tableData={charactersData}
       />
     );
+
     expect(screen.getAllByRole("img")).toHaveLength(3);
   });
 
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
-      .create(<Table id="basic" tableData={tableData} />)
+      .create(
+        <Table columnHeaders={columnHeaders} id="basic" tableData={tableData} />
+      )
       .toJSON();
     const withCaption = renderer
       .create(
         <Table
+          columnHeaders={columnHeaders}
           id="withCaption"
           tableData={tableData}
           titleText="this is the caption"
@@ -209,6 +230,7 @@ describe("Table", () => {
     const withChakraProps = renderer
       .create(
         <Table
+          columnHeaders={columnHeaders}
           id="chakra"
           tableData={tableData}
           p="20px"
@@ -217,7 +239,14 @@ describe("Table", () => {
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(<Table id="props" tableData={tableData} data-testid="props" />)
+      .create(
+        <Table
+          columnHeaders={columnHeaders}
+          id="props"
+          tableData={tableData}
+          data-testid="props"
+        />
+      )
       .toJSON();
     const withJSXData = renderer
       .create(
@@ -237,5 +266,14 @@ describe("Table", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
     expect(withJSXData).toMatchSnapshot();
+  });
+
+  it("passes a ref to the table element", () => {
+    const ref = React.createRef<HTMLTableElement>();
+    const { container } = render(
+      <Table columnHeaders={columnHeaders} tableData={tableData} ref={ref} />
+    );
+
+    expect(container.querySelector("table")).toBe(ref.current);
   });
 });

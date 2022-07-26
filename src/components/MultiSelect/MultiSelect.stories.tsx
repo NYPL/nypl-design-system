@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { action } from "@storybook/addon-actions";
-import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import { Story } from "@storybook/react/types-6-0";
-import useMultiSelect from "./useMultiSelect";
+
+import MultiSelect, { MultiSelectProps } from "./MultiSelect";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const items = [
   {
@@ -20,6 +21,7 @@ const items = [
   {
     id: "design",
     name: "Design",
+    // Children array will only be renderd in a "dialog" variant
     children: [
       {
         id: "fashion",
@@ -65,9 +67,12 @@ const items = [
   },
 ];
 
-export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
+export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onClear, selectedItems } = useMultiSelect(args.id, items);
+  const { onChange, onClear, selectedItems } = useMultiSelect({
+    multiSelectId: args.id,
+    items,
+  });
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -75,10 +80,12 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
       action("onChange")(selectedItems);
     }
   }, [selectedItems]);
-
   return (
     <MultiSelect
-      {...args}
+      id="multiselect-listbox"
+      label="MultiSelect Listbox"
+      variant="listbox"
+      width={args.width}
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => onChange(selectedItem.id)}
@@ -93,7 +100,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
-    useMultiSelect(args.id, items);
+    useMultiSelect({ multiSelectId: args.id, items });
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -107,7 +114,7 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
       {...args}
       variant="dialog"
       items={items}
-      defaultIsOpen={false}
+      isDefaultOpen={false}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id);

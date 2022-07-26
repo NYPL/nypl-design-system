@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import List from "./List";
@@ -261,5 +261,35 @@ describe("List", () => {
     expect(withOtherPropsUnordered).toMatchSnapshot();
     expect(withChakraPropsDescription).toMatchSnapshot();
     expect(withOtherPropsDescription).toMatchSnapshot();
+  });
+
+  it("passes a ref to the section or list element", () => {
+    const ref1 = React.createRef<
+      HTMLDivElement & HTMLUListElement & HTMLOListElement
+    >();
+    const ref2 = React.createRef<
+      HTMLDivElement & HTMLUListElement & HTMLOListElement
+    >();
+    const { container, rerender } = render(
+      <List ref={ref1} type="ul">
+        <li>Mahi-mahi</li>
+        <li>Golden trout</li>
+      </List>
+    );
+
+    expect(container.querySelector("ul")).toBe(ref1.current);
+
+    rerender(
+      <List
+        id="description"
+        listItems={fishDescriptions}
+        ref={ref2}
+        title="Animal Crossing Fish"
+        type="dl"
+      />
+    );
+
+    // This is the same as section accordion to React.
+    expect(container.querySelector("div")).toBe(ref1.current);
   });
 });

@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 export type AriaLiveValues = "assertive" | "off" | "polite";
 export type HelperErrorTextType = string | JSX.Element;
@@ -30,33 +30,40 @@ interface HelperErrorTextProps {
  * Helper or error text for forms components.
  */
 export const HelperErrorText = chakra(
-  ({
-    ariaAtomic = true,
-    ariaLive = "polite",
-    className = "",
-    id,
-    isInvalid = false,
-    text,
-    ...rest
-  }: HelperErrorTextProps) => {
-    // Only announce the text in the invalid state.
-    const announceAriaLive = isInvalid;
-    const styles = useStyleConfig("HelperErrorText", { isInvalid });
-    const props = {
-      "aria-atomic": ariaAtomic,
-      "aria-live": announceAriaLive ? ariaLive : "off",
-      className,
-      "data-isinvalid": isInvalid,
-      id,
-      __css: styles,
-      ...rest,
-    };
-    return typeof text === "string" ? (
-      <Box {...props} dangerouslySetInnerHTML={{ __html: text }} />
-    ) : (
-      <Box {...props}>{text}</Box>
-    );
-  }
+  forwardRef<HTMLDivElement, HelperErrorTextProps>(
+    (
+      {
+        ariaAtomic = true,
+        ariaLive = "polite",
+        className = "",
+        id,
+        isInvalid = false,
+        text,
+        ...rest
+      },
+      ref?
+    ) => {
+      // Only announce the text in the invalid state.
+      const announceAriaLive = isInvalid;
+      const styles = useStyleConfig("HelperErrorText", { isInvalid });
+      const props = {
+        "aria-atomic": ariaAtomic,
+        "aria-live": announceAriaLive ? ariaLive : "off",
+        className,
+        "data-isinvalid": isInvalid,
+        id,
+        __css: styles,
+        ...rest,
+      };
+      return typeof text === "string" ? (
+        <Box {...props} dangerouslySetInnerHTML={{ __html: text }} ref={ref} />
+      ) : (
+        <Box {...props} ref={ref}>
+          {text}
+        </Box>
+      );
+    }
+  )
 );
 
 export default HelperErrorText;

@@ -21,13 +21,13 @@ const multiSelectWidths = {
 
 const MultiSelect = {
   parts: [
+    "actionButtons",
     "menuButton",
     "menuContainer",
     "menu",
     "menuChildren",
-    "selectedItemsCountButton",
   ],
-  baseStyle: ({ width = "default", isBlockElement }) => ({
+  baseStyle: ({ width = "default", isBlockElement, isOpen }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     // Set margin/spacing in MultiSelectGroup
@@ -35,15 +35,20 @@ const MultiSelect = {
     //   base: ".75rem 0",
     //   md: "0 2em 0 0",
     // },
-    menuButton: {
-      width: "100%",
-      justifyContent: "space-between",
+    actionButtons: {
+      borderTop: "1px solid",
+      borderColor: "ui.gray.medium",
+      gap: { base: "0", md: "s" },
+      justifyContent: "flex-end",
+      padding: { base: "s", md: "xs" },
+      width: "auto",
     },
     menuContainer: {
       position: {
         md: isBlockElement ? "relative" : "absolute",
       },
-      zIndex: isBlockElement ? 0 : 1,
+      display: isOpen ? "block" : "none",
+      zIndex: isBlockElement ? 0 : 9999,
       ...(width === "fitContent" && {
         minWidth: {
           md: "275px",
@@ -55,11 +60,40 @@ const MultiSelect = {
       width: "100%",
       // These are for active states
       boxSizing: "border-box",
-      background: "white",
-      border: "1px solid #000",
-      paddingX: "xs",
-      paddingY: "s",
-      paddingBottom: "m",
+      border: "1px solid",
+      borderBottomLeftRadius: "button.default",
+      borderBottomRightRadius: "button.default",
+      borderTopLeftRadius: "0",
+      borderTopRightRadius: "0",
+      borderColor: "ui.gray.dark",
+      marginTop: "-1px",
+      paddingX: 0,
+      paddingY: 0,
+      ul: {
+        m: 0,
+        px: 0,
+        py: "xs",
+        li: {
+          p: 0,
+          div: {
+            px: "s",
+            paddingTop: "xs",
+            paddingBottom: "6px",
+            _hover: {
+              bg: "ui.gray.x-light-cool",
+            },
+          },
+        },
+        ul: {
+          py: 0,
+          li: {
+            div: {
+              paddingLeft: "46px",
+              paddingRight: 0,
+            },
+          },
+        },
+      },
     },
     menu: {
       paddingX: "xs",
@@ -81,16 +115,6 @@ const MultiSelect = {
     menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
-    },
-    selectedItemsCountButton: {
-      marginRight: "xs",
-      paddingLeft: "s",
-      paddingRight: "xs",
-      backgroundColor: "ui.gray.x-light-cool",
-      border: "1px",
-      borderRadius: "20px",
-      borderColor: "ui.gray.light-cool",
-      fontSize: "12px",
     },
   }),
 };

@@ -51,7 +51,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `1.0.1`    |
+| Latest            | `1.0.4`    |
 
 ## Table of Contents
 
@@ -59,6 +59,7 @@ import DSProvider from "../../theme/provider";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [Labelling Variations](#labelling-variations)
+- [Number Type](#number-type)
 - [HTML in Helper Text](#html-in-helper-text)
 - [Textarea](#textarea)
 
@@ -201,6 +202,48 @@ within the `label` element.
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
     />
+  </DSProvider>
+</Canvas>
+
+## Number Type
+
+The `TextInput` component can be configured to render a number input by setting
+`type="number"`. In this input type, the `maxLength` prop does not restrict the
+length of the number that is passed to the input. This is the expected behavior
+as the native HTML input and `maxlength` attribute behave this way.
+
+For this type, the `min` and `max` props do restrict the value of the number
+input that is passed. This can be seen by using the up and down arrows to
+increase or decrease the number value, respectively. However, if the `max` prop
+is set to "200", for example, the user can still enter a number such as "400".
+The consuming application must handle validating the entered number value.
+
+If the `min` prop value is greater than the `max` prop value, it will trigger
+the invalid state.
+
+<Canvas>
+  <DSProvider>
+    <VStack align="stretch" spacing={12}>
+      <TextInput
+        helperText="The min value is 10 and the max value is 20."
+        id="number-type"
+        labelText="Enter a number"
+        max={20}
+        min={10}
+        placeholder="i.e. 1, 2, 3, etc."
+        type="number"
+      />
+      <TextInput
+        helperText="The min value is 30 and the max value is 5."
+        id="number-type"
+        invalidText="The min value is 30 and the max value is 5."
+        labelText="Enter a number"
+        max={5}
+        min={30}
+        placeholder="i.e. 1, 2, 3, etc."
+        type="number"
+      />
+    </VStack>
   </DSProvider>
 </Canvas>
 

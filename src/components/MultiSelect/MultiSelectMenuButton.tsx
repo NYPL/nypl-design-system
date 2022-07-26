@@ -1,41 +1,53 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
-import { SelectedItems } from "./MultiSelectTypes";
+import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectMenuButtonProps {
-  /** The id of the multiSelect using this button. */
+  id: string;
+  /** The id of the MultiSelect using this button. */
   multiSelectId: string;
-  /** The label of the multiSelect using this button. */
-  label: string;
-  /** The open status of the multiselect menu. */
+  /** The label of the MultiSelect using this button. */
+  multiSelectLabel: string;
+  /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
-  /** The action to perform for clear/reset button of multiselect. */
+  /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
+  onKeyDown?: () => void;
 }
-
-const MultiSelectMenuButton = React.forwardRef<
+const grow = keyframes`
+  from {width: 22px; opacity: 0; }
+  to {width: 46px; opacity: 1;}
+`;
+const MultiSelectMenuButton = forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
 >((props, ref?) => {
-  const { multiSelectId, label, isOpen, onMenuToggle, selectedItems, onClear } =
-    props;
-  const styles = useMultiStyleConfig("MultiSelect", {});
+  const {
+    id,
+    isOpen,
+    multiSelectId,
+    multiSelectLabel,
+    onClear,
+    onKeyDown,
+    onMenuToggle,
+    selectedItems,
+    ...rest
+  } = props;
+  const styles = useMultiStyleConfig("MultiSelectMenuButton", { isOpen });
   const iconType = isOpen ? "minus" : "plus";
+  const growAnimation = `${grow} 150ms ease-out`;
 
   // Sets the selected items count on the menu button.
-  function getSelectedItemsCount(multiSelectId: string) {
-    if (selectedItems[multiSelectId]?.items.length > 0) {
-      return `${selectedItems[multiSelectId].items.length}`;
-    }
-    return null;
+  let getSelectedItemsCount;
+  if (selectedItems[multiSelectId]?.items.length > 0) {
+    getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
   }
-
   // We need this for our "fake" button inside the main menu button.
   function onKeyPress(e) {
     const enterOrSpace =
@@ -53,42 +65,43 @@ const MultiSelectMenuButton = React.forwardRef<
 
   return (
     <Button
-      id={`${multiSelectId}-button`}
+      buttonType="secondary"
+      id={id}
+      onClick={onMenuToggle}
       ref={ref}
       __css={styles.menuButton}
-      buttonType="secondary"
-      onClick={onMenuToggle}
-      {...props}
+      {...rest}
     >
-      {getSelectedItemsCount(multiSelectId) && (
+      {getSelectedItemsCount && (
         <Box
+          animation={growAnimation}
           as="span"
-          __css={styles.selectedItemsCountButton}
           onClick={onClear}
           onKeyPress={onKeyPress}
           role="button"
           tabIndex={0}
+          __css={styles.selectedItemsCountButton}
         >
           <Box as="span" verticalAlign="text-bottom">
-            {getSelectedItemsCount(multiSelectId)}
+            {getSelectedItemsCount}
           </Box>
           <Icon
-            id={`${multiSelectId}-selected-items-count-icon`}
-            name="close"
-            decorative={true}
-            size="xsmall"
             align="right"
+            id={`ms-${multiSelectId}-selected-items-count-icon`}
+            marginLeft="xs"
+            name="close"
+            size="xsmall"
           />
         </Box>
       )}
-      <Box as="span" pr="s">
-        {label}
+      <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
+        {multiSelectLabel}
       </Box>
       <Icon
-        id={`${multiSelectId}-icon`}
+        id={`ms-${multiSelectId}-icon`}
         name={iconType}
-        decorative={true}
         size="small"
+        __css={styles.toggleIcon}
       />
     </Button>
   );

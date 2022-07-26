@@ -1,7 +1,22 @@
 import { useState } from "react";
-import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
+import {
+  MultiSelectItem,
+  SelectedItems,
+} from "../components/MultiSelect/MultiSelect";
 
-export default function useMultiSelect(multiSelectId, items) {
+interface useMultiSelectProps {
+  multiSelectId: string;
+  items: MultiSelectItem[];
+}
+
+/**
+ * The useMultiSelect The hook returns an object containing all the props and state needed to handle the selectedItems.
+ * That includes the functions onChange, onClear, onMixedStateChange for handling any changes to the selection of items and the current state of the selection: selectedItems.
+ */
+export default function useMultiSelect({
+  multiSelectId,
+  items,
+}: useMultiSelectProps) {
   const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>({});
 
   function handleChange(itemId: string) {
@@ -32,37 +47,51 @@ export default function useMultiSelect(multiSelectId, items) {
     });
   }
 
+  /**
+   * handleMixedStateChange is only used for the "dialog" variant. It handles the state for checkbox options with child options.
+   * It accepts one argument - the id of the parent checkbox option.
+   */
   function handleMixedStateChange(parentId: string) {
     // Build an array of child items.
     let childItems = [];
-    items.map((item) => {
+    items.forEach((item) => {
+      // If the parentId is an id within the all items
       if (item.id === parentId) {
-        item.children.map((childItem: MultiSelectItem) => {
+        // Push each item into the childItems array
+        item.children.forEach((childItem: MultiSelectItem) => {
           childItems.push(childItem.id);
         });
       }
     });
 
     let newItems;
-    // Some selected items for group already exist in state.
+    // If some items have already been selected
     if (selectedItems[multiSelectId] !== undefined) {
-      //
+      // If all children of the parent are already selected
       if (
         childItems.every((childItem) =>
           selectedItems[multiSelectId].items.includes(childItem)
         )
       ) {
+        // Remove all children from the selectedItems array (unselect all child checkbox options)
         newItems = selectedItems[multiSelectId].items.filter(
           (stateItem) => !childItems.includes(stateItem)
         );
       } else {
-        // Merge all child items.
-        newItems = [...childItems, ...selectedItems[multiSelectId].items];
+        // Else add missing childItems.
+        newItems = [
+          ...childItems.filter(
+            (childItem) =>
+              !selectedItems[multiSelectId].items.includes(childItem)
+          ),
+          ...selectedItems[multiSelectId].items,
+        ];
       }
+      // If no items have been selected, the childItems will be the only ones added
     } else {
       newItems = childItems;
     }
-
+    // Update selectedItems on state to reflect the new selection
     setSelectedItems({
       ...selectedItems,
       [multiSelectId]: {

@@ -79,7 +79,13 @@ const categories = {
   },
   hooks: {
     title: "Hooks",
-    components: ["useCarouselStyles", "useNYPLTheme", "useWindowSize"],
+    components: [
+      "useCarouselStyles",
+      "useMultiSelect",
+      "useNYPLBreakpoints",
+      "useNYPLTheme",
+      "useWindowSize",
+    ],
   },
   layout: {
     title: "Components/Page Layout",
@@ -128,6 +134,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Color Mode",
       "Design Tokens",
       "Forms",
       "Iconography",

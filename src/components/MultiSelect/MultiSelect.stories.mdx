@@ -1,17 +1,16 @@
+import { getCategory } from "../../utils/componentCategories";
 import { useState } from "react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { HStack } from "@chakra-ui/react";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+
 import MultiSelect from "./MultiSelect";
-import useMultiSelect from "./useMultiSelect";
+import useMultiSelect from "../../hooks/useMultiSelect";
 import * as stories from "./MultiSelect.stories.tsx";
 
 <Meta
@@ -26,13 +25,11 @@ import * as stories from "./MultiSelect.stories.tsx";
     jest: ["MultiSelect.test.tsx"],
   }}
   argTypes={{
-    label: { table: { default: "" } },
-    variant: { table: { default: "listbox" } },
+    id: { control: false },
+    isBlockElement: { table: { defaultValue: { summary: "false" } } },
+    isDefaultOpen: { table: { defaultValue: { summary: "false" } } },
     items: { control: false },
-    selectedItems: { control: false },
-    width: { table: { default: "default" } },
-    defaultIsOpen: { table: { default: false } },
-    isBlockElement: { table: { default: false } },
+    label: { table: { default: "" } },
     onApply: {
       description:
         "The action to perform for save/apply button of multiselect. `onApply: () => void;`",
@@ -44,6 +41,11 @@ import * as stories from "./MultiSelect.stories.tsx";
     onMixedStateChange: {
       description:
         "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+    },
+    selectedItems: { control: false },
+    variant: { control: false, defaultValue: { summary: "listbox" } },
+    width: {
+      table: { defaultValue: { summary: "default" } },
     },
   }}
 />
@@ -58,21 +60,21 @@ import * as stories from "./MultiSelect.stories.tsx";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props](#component-props)
-- [Dialog Variant](#dialog-variant)
+- [Component Props for MultiSelect Listbox Variant](#component-props-multiselect-listbox-variant)
+- [Component Props for MultiSelect Dialog Variant](#component-props-multiselect-dialog-variant)
 - [Accessibility](#accessibility)
-- [Using the items prop](#use-the-items-prop)
-- [Using useMultiSelect](#use-useMultiSelect)
+- [Using the items prop](#using-the-items-prop)
+- [Controlling state using selectedItems and onChange prop](#controlling-state-using-selecteditems-and-onchange-prop)
+- [MultiSelect NextJS routing implementation](#multiselect-nextjs-routing-implementation)
+- [useMultiSelect hook](#usemultiselect-hook)
 
 ## Overview
 
 <Description of={MultiSelect} />
 
-## Component Props
+## Component Props for MultiSelect Listbox Variant
 
-<ArgsTable story="MultiSelect ListBox" />
-
-## MultiSelect Listbox Variant
+The `MultiSelect` listbox variant renders a non-hierarchical list of items to select from.
 
 <Canvas withToolbar>
   <Story
@@ -80,15 +82,19 @@ import * as stories from "./MultiSelect.stories.tsx";
     args={{
       id: "multiselect-listbox",
       label: "MultiSelect Listbox",
-      variant: "listbox",
       width: "default",
     }}
   >
-    {(args) => <stories.MultiSelectStory {...args} />}
+    {(args) => <stories.MultiSelectListboxStory {...args} />}
   </Story>
 </Canvas>
 
-## MultiSelect Dialog Variant
+<ArgsTable story="MultiSelect ListBox" />
+
+## Component Props for MultiSelect Dialog Variant
+
+The `MultiSelect` dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
+If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
 
 <Canvas withToolbar>
   <Story
@@ -96,26 +102,21 @@ import * as stories from "./MultiSelect.stories.tsx";
     args={{
       id: "multiselect-dialog",
       label: "MultiSelect Dialog",
-      variant: "dialog",
       width: "default",
-      defaultIsOpen: false,
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}
   </Story>
 </Canvas>
 
+<ArgsTable story="MultiSelect Dialog" />
+
 ## Accessibility
 
-The MultiSelect variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
-By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps`
-we are able to create a w3 wai-aria compliant Listbox that behaves like a select element. Up and down
-array keys are used for navigating through the multiselect options.
+The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
+By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
 
-The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionally differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
-
-Additionally, the dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
-If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
+The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
 
 Resources:
 
@@ -131,8 +132,9 @@ The expected data structure is an array of objects, in the following format:
 
 ```tsx
 <MultiSelect
-  id="group1"
+  id="subject"
   label="Subject Specialities"
+  variant="listbox"
   items={[
     {
       id: "art",
@@ -150,12 +152,13 @@ The expected data structure is an array of objects, in the following format:
 />
 ```
 
-You can also add a second level of child items, in the following format:
+If choosing the `variant = 'dialog'` you can also add a second level of child items, in the following format:
 
 ```tsx
 <MultiSelect
-  id="group1"
+  id="subject"
   label="Subject Specialities"
+  variant="dialog"
   items={[
     {
       id: "art",
@@ -181,26 +184,36 @@ You can also add a second level of child items, in the following format:
 
 ## Controlling state using selectedItems and onChange prop
 
-While the component does not store the selectedItems state internally, it expects
-a certain state shape to be used for calculating the selected item count. This
-state shape is a "normalized" pattern, and is basically an object of objects,
-keyed by the multiselect id.
+The MultiSelect does not store its state internally. It expects a selectedItems prop whose value follows a certain data structure that is "normalized".
+This is used for calculating the selected item count. The value is an object with a key of the MultiSelect's id value set to an object with an "items" key.
+The "items" value is an array of the selected items. Below is an exaple of the expected state shape of `selectedItems`:
 
 ```json
 {
   "subjects": {
     "items": ["art", "architecture"]
-  },
-  "locations": {
-    "items": ["sasb"]
   }
 }
 ```
+
+## MultiSelect NextJS routing implementation
 
 This is helpful for when several MultiSelect components are rendered inside a FilterBar component,
 you can use the MultiSelect id to get items for a specific slice of the state.
 
 ```jsx
+// The selectedItems structure with multiple MultiSelect components
+{
+  subjects: {
+    items:["art", "architecture"]
+    }
+  },
+  {
+    locations: {
+      items: ["sasb"]
+    }
+  }
+// Getting the selectedItems for a specific MultiSelect
 const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
 const locationsSelectedItemssOnly = selectedItems["locations"].items;
 ```
@@ -229,8 +242,7 @@ router.push({
 });
 ```
 
-This is an example with a handleChange function to manage the selectedItems state, without
-mutating it.
+This is an example with a handleChange function to manage the `selectedItems` state, without mutating it.
 
 ```jsx
 import React, { useState } from "react";
@@ -282,41 +294,13 @@ function MultiSelectControlledExample() {
 export default MultiSelectControlledExample;
 ```
 
-## useMultiSelect Hook
+## `useMultiSelect` hook
 
 `useMultiSelect` is an optional hook provided by the component, for
 cases where managing the state of the component in the consuming app is less
 of a concern and general ease of use is prefered.
 
 The hook returns an object containing all the props and state needed to handle the selectedItems.
-That includes: `onChange`, `onClear`, `onMixedStateChange` and `selectedItems`. It also returns
-the `selectedItems` state for use in your consuming application.
+That includes the functions `onChange`, `onClear`, `onMixedStateChange` for handling any changes to the selection of items and the current state of the selection: `selectedItems`.
 
-```jsx
-import React from "react";
-import MultiSelect from "./MultiSelect";
-import useMultiSelect from "./MultiSelect/useMultiSelect";
-
-export default function MultiSelectWithHookExample() {
-  const multiSelectId = "multi-select-1";
-  // Without this hook, you'd have to add handlers for onChange and onClear,
-  // and also manage the selectedItems state yourself.
-  const { onChange, onClear, selectedItems } = useMultiSelect(
-    multiSelectId,
-    items
-  );
-
-  return (
-    <MultiSelect
-      id={multiSelectId}
-      variant="listbox"
-      items={items}
-      selectedItems={selectedItems}
-      onChange={(selectedItem) => onChange(selectedItem.id)}
-      onClear={() => {
-        onClear();
-      }}
-    />
-  );
-}
-```
+<!-- Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page) -->

@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Image, { ComponentImageProps } from "../Image/Image";
 
@@ -57,146 +57,149 @@ export interface HeroProps {
 }
 
 export const Hero = chakra(
-  (props: React.PropsWithChildren<HeroProps>) => {
-    const {
-      backgroundColor,
-      backgroundImageSrc,
-      foregroundColor,
-      heading,
-      heroType,
-      imageProps = {
-        alt: "",
-        src: "",
-      },
-      locationDetails,
-      subHeaderText,
-      ...rest
-    } = props;
-    const styles = useMultiStyleConfig("Hero", { variant: heroType });
-    const headingStyles = styles.heading;
-    // We want to add `Hero`-specific styling to the `Heading` component.
-    const finalHeading =
-      heading && React.cloneElement(heading, { __css: headingStyles });
-    let backgroundImageStyle = {};
-    let contentBoxStyling = {};
-
-    if (imageProps.src && !imageProps.alt) {
-      console.warn(
-        `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
-      );
-    }
-
-    if (heroType === "primary") {
-      if (!backgroundImageSrc) {
-        console.warn(
-          "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
-            "prop for the `'primary'` `heroType` variant."
-        );
-      }
-      if (imageProps.alt && imageProps.src) {
-        console.warn(
-          "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been " +
-            "passed, but the `'primary'` `heroType` variant will not use it."
-        );
-      }
-    } else if (locationDetails) {
-      console.warn(
-        "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-          "with the `'primary'` `heroType` variant."
-      );
-    }
-    if (heroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
-      console.warn(
-        "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-          "but the `'secondary'` `heroType` variant will not use it."
-      );
-    }
-    if (heroType === "tertiary" && (backgroundImageSrc || imageProps.src)) {
-      console.warn(
-        "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
-          "will not use any of the image props."
-      );
-    }
-    if (heroType === "campaign" && (!backgroundImageSrc || !imageProps.src)) {
-      console.warn(
-        "NYPL Reservoir Hero: It is recommended to use both the " +
-          "`backgroundImageSrc` and `imageProps.src` props for the " +
-          "`'campaign'` `heroType` variant."
-      );
-    }
-    if (heroType === "fiftyFifty" && backgroundImageSrc) {
-      console.warn(
-        "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-          "but the `'fiftyFifty'` `heroType` variant hero will not use it."
-      );
-    }
-
-    if (heroType === "primary") {
-      backgroundImageStyle = backgroundImageSrc
-        ? { backgroundImage: `url(${backgroundImageSrc})` }
-        : {};
-    } else if (heroType === "campaign") {
-      backgroundImageStyle = backgroundImageSrc
-        ? { backgroundImage: `url(${backgroundImageSrc})` }
-        : { backgroundColor };
-    } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
-      backgroundImageStyle = { backgroundColor };
-    }
-
-    if (!heroSecondaryTypes.includes(heroType)) {
-      contentBoxStyling = {
-        color: foregroundColor,
+  forwardRef<HTMLDivElement, React.PropsWithChildren<HeroProps>>(
+    (props, ref?) => {
+      const {
         backgroundColor,
-      };
-    } else if (foregroundColor || backgroundColor) {
-      console.warn(
-        "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
-          "props have been passed, but the `'secondary'` `heroType` " +
-          "variant will not use them."
+        backgroundImageSrc,
+        foregroundColor,
+        heading,
+        heroType,
+        imageProps = {
+          alt: "",
+          src: "",
+        },
+        locationDetails,
+        subHeaderText,
+        ...rest
+      } = props;
+      const styles = useMultiStyleConfig("Hero", { variant: heroType });
+      const headingStyles = styles.heading;
+      // We want to add `Hero`-specific styling to the `Heading` component.
+      const finalHeading =
+        heading && React.cloneElement(heading, { __css: headingStyles });
+      let backgroundImageStyle = {};
+      let contentBoxStyling = {};
+
+      if (imageProps.src && !imageProps.alt) {
+        console.warn(
+          `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
+        );
+      }
+
+      if (heroType === "primary") {
+        if (!backgroundImageSrc) {
+          console.warn(
+            "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
+              "prop for the `'primary'` `heroType` variant."
+          );
+        }
+        if (imageProps.alt && imageProps.src) {
+          console.warn(
+            "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been " +
+              "passed, but the `'primary'` `heroType` variant will not use it."
+          );
+        }
+      } else if (locationDetails) {
+        console.warn(
+          "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+            "with the `'primary'` `heroType` variant."
+        );
+      }
+      if (heroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
+        console.warn(
+          "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+            "but the `'secondary'` `heroType` variant will not use it."
+        );
+      }
+      if (heroType === "tertiary" && (backgroundImageSrc || imageProps.src)) {
+        console.warn(
+          "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
+            "will not use any of the image props."
+        );
+      }
+      if (heroType === "campaign" && (!backgroundImageSrc || !imageProps.src)) {
+        console.warn(
+          "NYPL Reservoir Hero: It is recommended to use both the " +
+            "`backgroundImageSrc` and `imageProps.src` props for the " +
+            "`'campaign'` `heroType` variant."
+        );
+      }
+      if (heroType === "fiftyFifty" && backgroundImageSrc) {
+        console.warn(
+          "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+            "but the `'fiftyFifty'` `heroType` variant hero will not use it."
+        );
+      }
+
+      if (heroType === "primary") {
+        backgroundImageStyle = backgroundImageSrc
+          ? { backgroundImage: `url(${backgroundImageSrc})` }
+          : {};
+      } else if (heroType === "campaign") {
+        backgroundImageStyle = backgroundImageSrc
+          ? { backgroundImage: `url(${backgroundImageSrc})` }
+          : { backgroundColor };
+      } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
+        backgroundImageStyle = { backgroundColor };
+      }
+
+      if (!heroSecondaryTypes.includes(heroType)) {
+        contentBoxStyling = {
+          color: foregroundColor,
+          backgroundColor,
+        };
+      } else if (foregroundColor || backgroundColor) {
+        console.warn(
+          "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
+            "props have been passed, but the `'secondary'` `heroType` " +
+            "variant will not use them."
+        );
+      }
+
+      const childrenToRender =
+        heroType === "campaign" ? (
+          <>
+            <Image alt={imageProps.alt} src={imageProps.src} />
+            <Box __css={styles.interior}>
+              {finalHeading}
+              {subHeaderText}
+            </Box>
+          </>
+        ) : (
+          <>
+            {heroType !== "primary" && heroType !== "tertiary" && (
+              <Image alt={imageProps.alt} src={imageProps.src} />
+            )}
+            {finalHeading}
+            {heroType === "tertiary" && subHeaderText ? (
+              <p>{subHeaderText}</p>
+            ) : (
+              <Box __css={styles.bodyText}>{subHeaderText}</Box>
+            )}
+          </>
+        );
+
+      return (
+        <Box
+          data-testid="hero"
+          data-responsive-background-image
+          style={backgroundImageStyle}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          <Box
+            data-testid="hero-content"
+            style={contentBoxStyling}
+            __css={styles.content}
+          >
+            {childrenToRender}
+          </Box>
+        </Box>
       );
     }
-
-    const childrenToRender =
-      heroType === "campaign" ? (
-        <>
-          <Image alt={imageProps.alt} src={imageProps.src} />
-          <Box __css={styles.interior}>
-            {finalHeading}
-            {subHeaderText}
-          </Box>
-        </>
-      ) : (
-        <>
-          {heroType !== "primary" && heroType !== "tertiary" && (
-            <Image alt={imageProps.alt} src={imageProps.src} />
-          )}
-          {finalHeading}
-          {heroType === "tertiary" && subHeaderText ? (
-            <p>{subHeaderText}</p>
-          ) : (
-            <Box __css={styles.bodyText}>{subHeaderText}</Box>
-          )}
-        </>
-      );
-
-    return (
-      <Box
-        data-testid="hero"
-        data-responsive-background-image
-        style={backgroundImageStyle}
-        __css={styles}
-        {...rest}
-      >
-        <Box
-          data-testid="hero-content"
-          style={contentBoxStyling}
-          __css={styles.content}
-        >
-          {childrenToRender}
-        </Box>
-      </Box>
-    );
-  },
+  ),
   { shouldForwardProp: () => true }
 );
 

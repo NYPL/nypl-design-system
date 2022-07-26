@@ -5,7 +5,7 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -54,7 +54,7 @@ export const onChangeDefault = () => {
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
 export const Toggle = chakra(
-  React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
+  forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       defaultChecked = false,
       helperText,

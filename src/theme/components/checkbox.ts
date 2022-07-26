@@ -19,7 +19,8 @@ const baseStyleIcon = {
 const baseStyleControl = {
   border: "2px solid",
   borderRadius: "sm",
-  borderColor: "ui.black",
+  borderColor: "ui.gray.dark",
+  backgroundColor: "ui.gray.xx-light-cool",
   color: "ui.black",
   outline: "none",
   transitionProperty: "box-shadow",
@@ -31,11 +32,11 @@ const baseStyleControl = {
     color: "ui.focus",
 
     _hover: {
-      bg: "ui.white",
+      bg: "ui.gray.xx-light-cool",
     },
 
     _disabled: {
-      bg: "ui.white",
+      bg: "ui.gray.xx-light-cool",
       borderColor: "ui.disabled.primary",
       svg: {
         color: "ui.disabled.primary",
@@ -59,7 +60,6 @@ const baseStyleControl = {
   },
 
   _focus: {
-    borderColor: "ui.focus",
     boxShadow: "none",
     outlineColor: "ui.focus",
   },
