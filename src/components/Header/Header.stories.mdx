@@ -48,13 +48,14 @@ The `Header` component is meant to replicate (and eventually replace) the curren
 across various NYPL digital products, with Reservoir Design System technologies
 and components.
 
-The `Header` component is a complete and complex component that fetches data
-from different APIs, uses the DS' `SkipNavigation` component for webpage
-accessibility, has static NYPL.org navigational links, a log in form for patrons
-to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/) and
-[Research Catalog](https://www.nypl.org/research/research-catalog/), and a
-search form for patrons to search the Catalog and across
-[NYPL.org](https://www.nypl.org/).
+The `Header` component is a complete and complex component that
+
+- fetches data from different APIs,
+- uses the DS' `SkipNavigation` component for webpage accessibility,
+- has static NYPL.org navigational links,
+- a log in form for patrons to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/)
+  and [Research Catalog](https://www.nypl.org/research/research-catalog/),
+- a search form for patrons to search the Catalog and across [NYPL.org](https://www.nypl.org/).
 
 ## Component Props
 
@@ -100,7 +101,7 @@ Resources:
 
 ## Skip Navigation
 
-The `Header` component implements the DS own `SkipNavigation` component. More
+The `Header` component implements the DS `SkipNavigation` component. More
 information about the component can be found in the
 [Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-navigation-skipnavigation--skip-navigation-with-controls)
 and why we should use it in its
@@ -112,6 +113,14 @@ the first link in the skip navigation to function correctly.
 
 The second link in the skip navigation points to
 [NYPL's accessibility resource](https://www.nypl.org/accessibility).
+
+### TemplateAppContainer
+
+The DS [`TemplateAppContainer`](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-template--template-app-container-component)
+component renders the same `SkipNavigation` component that the `Header` component
+renders. When using both the `Header` and the `TemplateAppContainer` components,
+set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
+`false`. This will prevent two `SkipNavigation` components from being rendered.
 
 ## Catalogs Log In
 
