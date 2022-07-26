@@ -26,7 +26,6 @@ const MultiSelect = {
     "menuContainer",
     "menu",
     "menuChildren",
-    "selectedItemsCountButton",
   ],
   baseStyle: ({ width = "default", isBlockElement, isOpen }) => ({
     ...multiSelectWidths[width],
