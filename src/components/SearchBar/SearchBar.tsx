@@ -9,6 +9,7 @@ import Select from "../Select/Select";
 import TextInput from "../TextInput/TextInput";
 
 interface BaseProps {
+  id?: string;
   labelText: string;
   name: string;
   onChange?: (
@@ -18,9 +19,14 @@ interface BaseProps {
   ) => void;
   value?: string;
 }
+interface SelectOptionsProps {
+  text: string;
+  value: string;
+}
+
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
-  optionsData: string[];
+  optionsData: SelectOptionsProps[];
   onChange?: (event: React.FormEvent) => void;
 }
 export interface TextInputProps extends BaseProps {
@@ -126,7 +132,7 @@ export const SearchBar = chakra(
     // Render the `Select` component.
     const selectElem = selectProps && (
       <Select
-        id={`searchbar-select-${id}`}
+        id={selectProps?.id || `searchbar-select-${id}`}
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
@@ -136,8 +142,8 @@ export const SearchBar = chakra(
         {...stateProps}
       >
         {selectProps?.optionsData.map((option) => (
-          <option key={option} value={option}>
-            {option}
+          <option key={option.value} value={option.value}>
+            {option.text}
           </option>
         ))}
       </Select>
@@ -145,7 +151,7 @@ export const SearchBar = chakra(
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
-        id={`searchbar-textinput-${id}`}
+        id={textInputProps?.id || `searchbar-textinput-${id}`}
         labelText={textInputProps?.labelText}
         name={textInputProps?.name}
         onChange={textInputProps?.onChange}
