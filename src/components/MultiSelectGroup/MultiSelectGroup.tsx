@@ -1,24 +1,22 @@
-import * as React from "react";
-import { chakra, Stack } from "@chakra-ui/react";
-// Components
+import { chakra, Stack, useStyleConfig } from "@chakra-ui/react";
+import React, { forwardRef } from "react";
+
 import Fieldset from "../Fieldset/Fieldset";
-import MultiSelect from "../MultiSelect/MultiSelect";
-// Types
 import { LayoutTypes } from "../../helpers/types";
-// Hooks
+import MultiSelect, { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface MultiSelectGroupProps {
-  id: string;
-  /** Width will be passed on each `MultiSelect` component. */
-  multiSelectWidth: "default" | "fitContent" | "full";
+  children: React.ReactNode;
   /** Additional className to use. */
   className?: string;
+  id: string;
+  labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
-  labelText: string;
+  /** Width will be passed on each `MultiSelect` component. */
+  multiSelectWidth: MultiSelectWidths;
   showLabel: boolean;
-  children: React.ReactNode;
 }
 
 /**
@@ -28,69 +26,75 @@ export interface MultiSelectGroupProps {
  * _need_ to be `MultiSelect` components from the NYPL Design System.
  */
 export const MultiSelectGroup = chakra(
-  (props: React.PropsWithChildren<MultiSelectGroupProps>) => {
-    const {
-      id,
-      className = "",
-      layout = "row",
-      labelText,
-      showLabel,
-      multiSelectWidth,
-      children,
-    } = props;
-    const newChildren: JSX.Element[] = [];
+  forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectGroupProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        className = "",
+        id,
+        labelText,
+        layout = "row",
+        showLabel,
+        multiSelectWidth,
+        ...rest
+      } = props;
+      const newChildren: JSX.Element[] = [];
 
-    const [finalLayout, setFinalLayout] = React.useState<LayoutTypes>(layout);
-    const { isLargerThanMobile } = useNYPLBreakpoints();
+      console.log("children --->", children);
 
-    React.useEffect(() => {
-      // When on a mobile device or narrow window, always set the layout to column.
-      if (!isLargerThanMobile) {
-        setFinalLayout("column");
-      } else {
-        // Otherwise, set the layout to the value passed in via the `layout` prop.
-        setFinalLayout(layout);
-      }
-    }, [layout, isLargerThanMobile]);
+      const { isLargerThanMobile } = useNYPLBreakpoints();
+      const finalLayout = isLargerThanMobile ? layout : "column";
+      const finalMultiSelectWidth = isLargerThanMobile
+        ? multiSelectWidth
+        : "full";
+      const styles = useStyleConfig("MultiSelectGroup", {
+        multiSelectWidth: finalMultiSelectWidth,
+      });
+      console.log("multiSelectWidth", multiSelectWidth);
 
-    // Go through the MultiSelect children and update props as needed.
-    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-      if (child.type !== MultiSelect) {
-        console.warn(
-          "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
-        );
-        return;
-      }
-      if (child !== undefined && child !== null) {
-        newChildren.push(
-          React.cloneElement(child, {
-            width: `${
-              // When on a mobile device or narrow window, always set the width to full.
-              isLargerThanMobile ? `${multiSelectWidth}` : "full"
-            }`,
-          })
-        );
-      }
-    });
-    return (
-      <Fieldset
-        id={`${id}-multiselect-group`}
-        legendText={labelText}
-        isLegendHidden={!showLabel}
-      >
-        <Stack
-          id={id}
-          data-testId="multi-select-group"
-          {...(!showLabel && { "aria-label": labelText })}
-          className={className}
-          direction={finalLayout}
-          spacing="xs"
+      // Go through the MultiSelect children and update props as needed.
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement) => {
+          if (child.type !== MultiSelect) {
+            console.warn(
+              "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
+            );
+            return;
+          }
+          if (child !== undefined && child !== null) {
+            newChildren.push(
+              React.cloneElement(child, { width: finalMultiSelectWidth })
+            );
+          }
+        }
+      );
+
+      console.log("newChildren", newChildren);
+
+      return (
+        <Fieldset
+          id={`${id}-multiselect-group`}
+          legendText={labelText}
+          isLegendHidden={!showLabel}
+          __css={styles}
+          {...rest}
         >
-          {newChildren}
-        </Stack>
-      </Fieldset>
-    );
-  }
+          <Stack
+            id={id}
+            ref={ref}
+            data-testId="multi-select-group"
+            {...(!showLabel && { "aria-label": labelText })}
+            className={className}
+            direction={finalLayout}
+            spacing="xs"
+          >
+            {newChildren}
+          </Stack>
+        </Fieldset>
+      );
+    }
+  )
 );
 
 export default MultiSelectGroup;

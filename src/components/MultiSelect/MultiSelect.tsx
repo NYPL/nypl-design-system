@@ -9,6 +9,8 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 
+export type MultiSelectWidths = "default" | "fitContent" | "full";
+
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
@@ -83,6 +85,8 @@ export const MultiSelect = chakra(
         isBlockElement = false,
         ...rest
       } = props;
+
+      console.log("MultiSelect props -->", props);
 
       const commonProps = {
         id,
