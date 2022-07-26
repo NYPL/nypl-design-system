@@ -14,8 +14,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-0"
+      className="css-5wdjli"
       id="colors"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -55,18 +56,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="colors-button"
-          isOpen={false}
-          label="Colors"
-          multiSelectId="colors"
-          onClear={[Function]}
+          id="ms-colors-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Colors"
           >
             Colors
           </span>
@@ -74,7 +70,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="colors-icon"
+            id="ms-colors-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -104,7 +100,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-colors-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
@@ -130,8 +127,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-0"
+      className="css-5wdjli"
       id="pets"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -171,18 +169,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="pets-button"
-          isOpen={false}
-          label="Pets"
-          multiSelectId="pets"
-          onClear={[Function]}
+          id="ms-pets-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Pets"
           >
             Pets
           </span>
@@ -190,7 +183,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="pets-icon"
+            id="ms-pets-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -220,7 +213,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-pets-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
@@ -246,8 +240,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-0"
+      className="css-5wdjli"
       id="tools"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -287,18 +282,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="tools-button"
-          isOpen={false}
-          label="Tools"
-          multiSelectId="tools"
-          onClear={[Function]}
+          id="ms-tools-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Tools"
           >
             Tools
           </span>
@@ -306,7 +296,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="tools-icon"
+            id="ms-tools-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -336,7 +326,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-tools-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
@@ -380,8 +371,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-0"
+      className="css-fxdbg"
       id="colors"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -421,18 +413,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="colors-button"
-          isOpen={false}
-          label="Colors"
-          multiSelectId="colors"
-          onClear={[Function]}
+          id="ms-colors-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Colors"
           >
             Colors
           </span>
@@ -440,7 +427,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="colors-icon"
+            id="ms-colors-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -470,7 +457,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-colors-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
@@ -496,8 +484,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-0"
+      className="css-fxdbg"
       id="pets"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -537,18 +526,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="pets-button"
-          isOpen={false}
-          label="Pets"
-          multiSelectId="pets"
-          onClear={[Function]}
+          id="ms-pets-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Pets"
           >
             Pets
           </span>
@@ -556,7 +540,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="pets-icon"
+            id="ms-pets-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -586,7 +570,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-pets-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
@@ -612,8 +597,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-0"
+      className="css-fxdbg"
       id="tools"
+      variant="dialog"
     >
       <div
         data-focus-guard={true}
@@ -653,18 +639,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         <button
           className="chakra-button css-1xdhyk6"
           data-testid="button"
-          id="tools-button"
-          isOpen={false}
-          label="Tools"
-          multiSelectId="tools"
-          onClear={[Function]}
+          id="ms-tools-menu-button"
           onClick={[Function]}
-          onMenuToggle={[Function]}
-          selectedItems={Object {}}
           type="button"
         >
           <span
-            className="css-scaw4q"
+            className="css-0"
+            title="Tools"
           >
             Tools
           </span>
@@ -672,7 +653,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-hidden={true}
             className="chakra-icon css-1grhd2q"
             focusable={false}
-            id="tools-icon"
+            id="ms-tools-icon"
             role="img"
             title="plus icon"
             viewBox="0 0 24 24"
@@ -702,7 +683,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           </svg>
         </button>
         <div
-          className="css-1hyfx7x"
+          aria-labelledby="ms-tools-menu-button"
+          className="css-0"
           role="dialog"
         >
           <ul
