@@ -6,7 +6,7 @@ import MultiSelect from "../MultiSelect/MultiSelect";
 // Types
 import { LayoutTypes } from "../../helpers/types";
 // Hooks
-import useWindowSize from "../../hooks/useWindowSize";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface MultiSelectGroupProps {
   id: string;
@@ -39,19 +39,19 @@ export const MultiSelectGroup = chakra(
       children,
     } = props;
     const newChildren: JSX.Element[] = [];
-    // Based on --nypl-breakpoint-medium
-    const breakpointMedium = 600;
+
     const [finalLayout, setFinalLayout] = React.useState<LayoutTypes>(layout);
-    const windowDimensions = useWindowSize();
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+
     React.useEffect(() => {
       // When on a mobile device or narrow window, always set the layout to column.
-      if (windowDimensions.width <= breakpointMedium) {
+      if (!isLargerThanMobile) {
         setFinalLayout("column");
       } else {
         // Otherwise, set the layout to the value passed in via the `layout` prop.
         setFinalLayout(layout);
       }
-    }, [layout, windowDimensions.width]);
+    }, [layout, isLargerThanMobile]);
 
     // Go through the MultiSelect children and update props as needed.
     React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
@@ -66,9 +66,7 @@ export const MultiSelectGroup = chakra(
           React.cloneElement(child, {
             width: `${
               // When on a mobile device or narrow window, always set the width to full.
-              windowDimensions.width <= breakpointMedium
-                ? "full"
-                : `${multiSelectWidth}`
+              isLargerThanMobile ? `${multiSelectWidth}` : "full"
             }`,
           })
         );
