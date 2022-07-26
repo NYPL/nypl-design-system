@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, forwardRef } from "react";
+import React, { useRef, useState, forwardRef } from "react";
 import { chakra } from "@chakra-ui/react";
 import {
   Box,
@@ -16,7 +16,7 @@ import ButtonGroup from "./../ButtonGroup/ButtonGroup";
 import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
-import useWindowSize from "./../../hooks/useWindowSize";
+import useNYPLBreakpoints from "./../../hooks/useNYPLBreakpoints";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -44,16 +44,8 @@ export const MultiSelectDialog = chakra(
         ...rest
       } = props;
 
-      // Track the window size width, to set isMobile.
-      const [isMobile, setIsMobile] = useState<boolean>();
-      const windowDimensions = useWindowSize();
-      useEffect(() => {
-        if (windowDimensions.width >= 320) {
-          setIsMobile(false);
-        } else {
-          setIsMobile(true);
-        }
-      }, [windowDimensions.width]);
+      // Use NYPL Breakpoints hook to check screen size
+      const { isLargerThanMobile } = useNYPLBreakpoints();
 
       // Control the open or closed state of the MultiSelect.
       const [isOpen, setIsOpen] = useState(isDefaultOpen);
@@ -194,7 +186,7 @@ export const MultiSelectDialog = chakra(
                     </ListItem>
                   ))}
               </UnorderedList>
-              {isOpen && !isMobile && (
+              {isOpen && isLargerThanMobile && (
                 <ButtonGroup __css={styles.actionButtons}>
                   <Button
                     id={`ms-${id}-clear`}
