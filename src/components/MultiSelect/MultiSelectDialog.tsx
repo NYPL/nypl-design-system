@@ -22,10 +22,6 @@ type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-// Forward ref collides with the ref created within this Component for registring
-// ouside element clicks to close the list
-// noticed closeing is not working reliably anyways...?
-
 export const MultiSelectDialog = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectDialogProps>>(
     (props, ref) => {
