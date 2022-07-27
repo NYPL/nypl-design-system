@@ -200,18 +200,22 @@ const fiftyFifty = {
       lg: "unset",
     },
   },
-  img: {
+  imgWrapper: {
     marginBottom: {
       base: "s",
       lg: "unset",
     },
     marginEnd: {
+      base: "-15px",
       lg: "s",
     },
+    marginStart: {
+      base: "-15px",
+    },
     maxWidth: {
-      base: "fit-content",
       lg: "50%",
     },
+    width: "auto",
   },
 };
 const Hero = {
