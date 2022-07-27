@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.0.6`    |
+| Latest            | `1.0.7`    |
 
 ## Table of Contents
 
@@ -90,16 +90,16 @@ Note: The labels for the `Select` and `TextInput` components are not visible but
 aria-labels are used to make these children components accessible.
 
 export const optionsGroup = [
-  "Art",
-  "Bushes",
-  "Clothing",
-  "Flowers",
-  "Fossils",
-  "Fruits",
-  "Furniture",
-  "Songs",
-  "Tools",
-  "Villagers and their beloved pets",
+  { text: "Art", value: "art" },
+  { text: "Bushes", value: "bushes" },
+  { text: "Clothing", value: "clothing" },
+  { text: "Flowers", value: "flowers" },
+  { text: "Fossils", value: "fossils" },
+  { text: "Fruits", value: "fruits" },
+  { text: "Furniture", value: "furniture" },
+  { text: "Songs", value: "songs" },
+  { text: "Tools", value: "tools" },
+  { text: "Villagers and their beloved pets", value: "villagers" },
 ];
 
 ## Component Props
@@ -175,13 +175,35 @@ Resources:
 
 To render an optional `Select` component, an object must be passed to the
 `selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
-properties. The `onChange` and `value` properties are optional. The `labelText`
-value won't be rendered but will be used for its `aria-label` attribute.
+properties. The `id`, `onChange`, and `value` properties are optional. The
+`labelText` value won't be rendered but will be used for its `aria-label`
+attribute.
 
 If you want to control the `Select` component, you **must** pass the `onChange`
 and `value` props to the `selectProps` prop object. You must then control the
 state of the selected value in your application. See the example at end of this
 page for a full demonstration.
+
+The `optionsData` prop is an array of objects that contain the `text` and
+`value` properties.
+
+```tsx
+const optionsGroup = [
+  { text: "Art", value: "art" },
+  { text: "Bushes", value: "bushes" },
+  { text: "Clothing", value: "clothing" },
+  { text: "Flowers", value: "flowers" },
+  { text: "Fossils", value: "fossils" },
+  { text: "Fruits", value: "fruits" },
+  { text: "Furniture", value: "furniture" },
+  { text: "Songs", value: "songs" },
+  { text: "Tools", value: "tools" },
+  { text: "Villagers and their beloved pets", value: "villagers" },
+];
+```
+
+Add the rest of the properties to the object that will be passed to the
+`selectProps` prop.
 
 ```
 const selectProps = {
@@ -208,7 +230,8 @@ const selectProps = {
 To render the `TextInput` component, an object must be passed to the
 `textInputProps` prop. It _must_ include `labelText` and `name` properties. The
 `labelText` value won't be rendered but will be used for its `aria-label`
-attribute. Optional properties to pass include `onChange`, `placeholder`, and `value`.
+attribute. Optional properties to pass include `id`, `onChange`, `placeholder`,
+and `value`.
 
 ```
 const textInputProps = {

@@ -284,3 +284,21 @@ exports[`Link renders the UI snapshot correctly 10`] = `
   Standard
 </a>
 `;
+
+exports[`Link renders the UI snapshot correctly 11`] = `
+<span
+  className="css-0"
+  data-testid="props"
+>
+  <a
+    className="css-0"
+    data-testid="props"
+    href="#passed-in-link"
+    id="props"
+    rel={null}
+    target={null}
+  >
+    Standard
+  </a>
+</span>
+`;

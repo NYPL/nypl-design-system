@@ -85,10 +85,22 @@ to make the component accessible. It contains:
   in the mobile view and two (2) `<nav>` elements in the desktop view. Each `<nav>`
   element appropriately contains its own `aria-label` attribute to differentiate
   it from one another.
-- Dropdowns buttons with focus-trap feature - Each dropdown button and menu
-  combination uses a focus trap feature to appropriately tab through the
-  contents in the menu that is opened.
 - `<form>` HTML element - The `<form>` element is used in the search feature.
+- Dropdowns buttons with focus-trap feature - The `Header` uses `react-focus-lock`
+  to trap (or loop) focus within its various dropdowns: the login submenu, the
+  search form, and the mobile navigation submenu. This is to make keyboard
+  navigation easier for users. Trapping focus means that when a parent element is
+  clicked and its dropdown becomes visible, focus remains among its children
+  while the user tabs. The user may close the dropdown and escape the focus trap
+  by clicking on the parent element once again, or by using the escape key.
+  Note: This is how the original NYPL `Header` was implemented and its Reservoir
+  counterpart replicates this behavior. However, this is not the
+  _currently recommended_ way to implement focus management in dropdowns.
+  According to the [W3C](https://www.w3.org/wiki/MenuButton), up and down arrow
+  keys, rather than tab, should loop focus over child elements. Tabbing should
+  instead close the dropdown and move focus to the following parent. In the
+  future, we hope to change the Reservoir Header to align with current best
+  practices.
 
 Resources:
 
@@ -98,6 +110,7 @@ Resources:
 - [MDN nav: The Navigation Section element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
 - [W3C Labeling Regions](https://www.w3.org/WAI/tutorials/page-structure/labels/)
 - [MDN form: The Form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+- [W3C MenuButton](https://www.w3.org/wiki/MenuButton)
 
 ## Skip Navigation
 
@@ -124,7 +137,22 @@ set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
 
 ## Catalogs Log In
 
-### Desktop
+While the `Header` doesn't perform authentication, it does determine whether a user is
+logged in and, if they are, renders a logged in UI, which includes the patron's name.
+
+This process begins after the `Header` mounts. At that time, it looks for the
+`nyplIdentityPatron` cookie. If it exists, an `accessToken` is extracted from the cookie
+and sent via fetch request to the `patronApiUrl`. If the request is successful, the
+patron's name is returned. The name is then stored in a React Context variable called
+`HeaderContext`, which is available to all children of the `Header`. The existence of the
+patron's name in `HeaderContext` causes the `HeaderLoginButton` and `HeaderLogin` to
+render their "logged in" view.
+
+There is the possibility that the call to the `patronApiUrl` returns a response with a
+`statusCode` of 401 and an `expired` key set to true. This means the `accessToken` is
+expired. If this is the case, the `Header` will attempt to refresh the `accessToken` by
+sending a fetch request to the `tokenRefreshLink`. If successful, the `Header` will retry
+the request to the `patronApiUrl` with the new `accessToken`.
 
 ### Mobile
 
@@ -133,8 +161,22 @@ dropdown button is clicked. The user unfilled SVG icon signifies that the patron
 is not logged in while the user filled SVG icon signifies that the patron is
 logged in.
 
-When logged in, the dropdown menu will display the patron's name and an
+When opened, the dropdown menu will contain two red buttons that will direct the
+user to the Catalog or the Research Catalog login pages.
+
+When logged in, the dropdown menu will also display the patron's name and an
 additional "logout" link.
+
+### Desktop
+
+In the desktop view, the "log in" feature is the first dropdown button in the top
+navigation of the `Header`. When opened, the dropdown menu will display two
+rounded blue buttons that will direct the user to the Catalog or the Research
+Catalog login pages.
+
+When logged in, the dropdown button's text will turn from "Log In" to
+"My Account". The dropdown menu will display the patron's name and an additional
+"logout" link.
 
 ## Search
 
@@ -232,8 +274,8 @@ link. This `iframe` element has a style of `display: none` so it is not visible.
 ## Google Analytics
 
 Google will sunset Google Analytics (GA) in 2023, but the current NYPL Header
-uses GA and therefore the DS `Header` component will continue to use GA until
-GA is sunset. At that point, a new analytics system will be used.
+uses GA and therefore the Reservoir `Header` component will continue to use GA
+until GA is sunset.
 
 The `Header` component takes two props that are used to configure GA:
 
