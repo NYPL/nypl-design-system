@@ -8,6 +8,10 @@ import Icon from "../../Icons/Icon";
 import Link from "../../Link/Link";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
+/**
+ * This component renders the mobile list of icon buttons for
+ * logging in, searching, and navigating on NYPL.org.
+ */
 const HeaderMobileIconNav = chakra(() => {
   const styles = useStyleConfig("HeaderMobileIconNav");
 

@@ -8,6 +8,11 @@ import List from "../../List/List";
 import gaUtils from "../utils/googleAnalyticsUtils";
 import { upperNavLinks } from "../utils/headerUtils";
 
+/**
+ * This renders the navigational list of links for logging in, subscribing
+ * to the email service, going to the Locations page, getting a Library card,
+ * donating, and shopping at NYPL.
+ */
 const HeaderUpperNav = chakra(() => {
   const styles = useMultiStyleConfig("HeaderUpperNav", {});
 

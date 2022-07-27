@@ -7,6 +7,10 @@ import HeaderSearchButton from "./HeaderSearchButton";
 import { siteNavLinks } from "../utils/headerUtils";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
+/**
+ * This component renders the navigational list of links used to
+ * navigate to different landing pages on NYPL.org.
+ */
 const HeaderLowerNav = chakra(() => {
   const styles = useStyleConfig("HeaderLowerNav");
   const listItems = siteNavLinks.map(({ href, text }) => (

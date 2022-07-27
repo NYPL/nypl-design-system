@@ -12,6 +12,10 @@ export interface HeaderSearchButtonProps {
   isMobile?: boolean;
 }
 
+/**
+ * This is the button that will render the search form when it is clicked
+ * and keep focus trapped within the menu.
+ */
 const HeaderSearchButton = chakra(
   ({ isMobile = false }: HeaderSearchButtonProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
