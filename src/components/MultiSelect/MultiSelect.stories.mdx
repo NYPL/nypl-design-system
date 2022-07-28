@@ -45,6 +45,10 @@ import * as stories from "./MultiSelect.stories.tsx";
     selectedItems: { control: false },
     variant: { control: false, defaultValue: { summary: "listbox" } },
     width: {
+      description: "Value used to set the width for the MultiSelect component",
+      control: "radio",
+      options: ["default", "fitContent", "full"],
+      defaultValue: "default",
       table: { defaultValue: { summary: "default" } },
     },
   }}
@@ -82,7 +86,7 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
     args={{
       id: "multiselect-listbox",
       label: "MultiSelect Listbox",
-      width: "default",
+      variant: "listbox",
     }}
   >
     {(args) => <stories.MultiSelectListboxStory {...args} />}
@@ -102,7 +106,7 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
     args={{
       id: "multiselect-dialog",
       label: "MultiSelect Dialog",
-      width: "default",
+      variant: "dialog",
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}
