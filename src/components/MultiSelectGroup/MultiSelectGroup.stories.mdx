@@ -26,8 +26,10 @@ import * as stories from "./MultiSelectGroup.stories";
   argTypes={{
     className: { control: false },
     id: { control: false },
-    layout: { table: { defaultValue: { summary: "row" } } },
-    multiSelectWidth: { tabel: { defaultValue: { summary: "default" } } },
+    layout: {
+      defaultValue: "row",
+      table: { defaultValue: { summary: "row" } },
+    },
   }}
 />
 
@@ -58,7 +60,6 @@ import * as stories from "./MultiSelectGroup.stories";
       id: "multiselect-group",
       labelText: "Label Text",
       showLabel: true,
-      multiSelectWidth: "fitContent",
     }}
   >
     {(args) => <stories.MultiSelectGroupStory {...args} />}

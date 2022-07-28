@@ -1,4 +1,4 @@
-import { chakra, Stack, useStyleConfig } from "@chakra-ui/react";
+import { chakra, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -15,7 +15,7 @@ export interface MultiSelectGroupProps {
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
   /** Width will be passed on each `MultiSelect` component. */
-  multiSelectWidth: MultiSelectWidths;
+  multiSelectWidth?: MultiSelectWidths;
   showLabel: boolean;
 }
 
@@ -34,23 +34,17 @@ export const MultiSelectGroup = chakra(
         id,
         labelText,
         layout = "row",
-        showLabel,
         multiSelectWidth,
+        showLabel,
         ...rest
       } = props;
       const newChildren: JSX.Element[] = [];
-
-      console.log("children --->", children);
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
       const finalMultiSelectWidth = isLargerThanMobile
         ? multiSelectWidth
         : "full";
-      const styles = useStyleConfig("MultiSelectGroup", {
-        multiSelectWidth: finalMultiSelectWidth,
-      });
-      console.log("multiSelectWidth", multiSelectWidth);
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
@@ -70,14 +64,11 @@ export const MultiSelectGroup = chakra(
         }
       );
 
-      console.log("newChildren", newChildren);
-
       return (
         <Fieldset
           id={`${id}-multiselect-group`}
           legendText={labelText}
           isLegendHidden={!showLabel}
-          __css={styles}
           {...rest}
         >
           <Stack
