@@ -90,7 +90,7 @@ const TemplateHeader = ({
   children,
   renderHeaderElement = true,
 }: React.PropsWithChildren<TemplateHeaderProps>) => {
-  const styles = useStyleConfig("TemplateHeader", {});
+  const styles = useStyleConfig("TemplateBreakout", {});
   let headerElement = <Box __css={styles}>{children}</Box>;
 
   // The user wants to render the `header` HTML element.
@@ -121,8 +121,7 @@ const TemplateHeader = ({
  * for the `Breadcrumbs` and `Hero` components, and other banner-like components.
  */
 const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box>{props.children}</Box>;
 };
 
 /**
@@ -140,7 +139,7 @@ const TemplateContent = (
 ) => {
   const { children, id = "mainContent", sidebar = "none" } = props;
   const styles = useStyleConfig("TemplateContent", {
-    variant: sidebar !== "none" ? "sidebar" : null,
+    variant: sidebar,
   });
   // Manually pass in the `sidebar` prop to the `TemplateContentPrimary` and
   // `TemplateContentSidebar` components.
@@ -227,6 +226,7 @@ const TemplateFooter = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
+  const styles = useStyleConfig("TemplateBreakout", {});
   let footerElement = <>{children}</>;
 
   // The user wants to render the `footer` HTML element.
@@ -241,7 +241,11 @@ const TemplateFooter = ({
         );
       }
     });
-    footerElement = <Box as="footer">{children}</Box>;
+    footerElement = (
+      <Box as="footer" __css={styles}>
+        {children}
+      </Box>
+    );
   }
   return footerElement;
 };

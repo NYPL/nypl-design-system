@@ -10,6 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the `Template` components to use CSS grid instead of flexbox.
+
+### Updates
+
 - Updates border color in the `Description` variant of the `List` component.
 - Updates how options are passed to the `SearchBar` component for its internal `Select` component.
 - Updates how style props are passed to the `Link` component when using with third-party libraries, such as React Router.
