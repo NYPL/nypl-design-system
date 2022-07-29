@@ -26,6 +26,16 @@ export const colorContrastData = {
       textColor: "ui.white",
     },
     gray: {
+      xxxxDark: {
+        dataBlack: ["1.12", "Fail", "Fail"],
+        dataWhite: ["18.73", "AAA", "AAA"],
+        textColor: "ui.white",
+      },
+      xxxDark: {
+        dataBlack: ["1.19", "Fail", "Fail"],
+        dataWhite: ["17.58", "AAA", "AAA"],
+        textColor: "ui.white",
+      },
       xxDark: {
         dataBlack: ["1.30", "Fail", "Fail"],
         dataWhite: ["16.10", "AAA", "AAA"],
@@ -76,6 +86,20 @@ export const colorContrastData = {
       dataBlack: ["21.00", "AAA", "AAA"],
       dataWhite: ["1.00", "Fail", "Fail"],
       textColor: "ui.black",
+    },
+  },
+  dark: {
+    ui: {
+      gray: {
+        xxDark: {
+          dataHeading: ["13.26", "AAA", "AAA"],
+          dataBody: ["8.57", "AA", "AAA"],
+        },
+        xDark: {
+          dataHeading: ["8.28", "AAA", "AAA"],
+          dataBody: ["5.35", "AA", "AAA"],
+        },
+      },
     },
   },
 };
@@ -220,28 +244,39 @@ export const cssVars = {
       textColor: colorContrastData.ui.white.textColor,
     },
     {
-      name: "ui.link.primary",
-      dataBlack: ["4.54", "AA", "AAA"],
-      dataWhite: ["4.63", "AA", "AAA"],
-      textColor: "ui.white",
+      colorSource: "ui.gray.x-light-cool",
+      name: "ui.bg.default",
+      dataBlack: colorContrastData.ui.gray.xLightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xLightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.xLightCool.textColor,
     },
     {
-      name: "ui.link.secondary",
-      dataBlack: ["2.46", "Fail", "Fail"],
-      dataWhite: ["8.54", "AAA", "AAA"],
-      textColor: "ui.white",
+      colorSource: "ui.gray.light-cool",
+      name: "ui.bg.hover",
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
     },
     {
-      name: "ui.error.primary",
-      dataBlack: ["2.64", "Fail", "Fail"],
-      dataWhite: ["7.95", "AAA", "AAA"],
-      textColor: "ui.white",
+      colorSource: "ui.gray.medium",
+      name: "ui.bg.active",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
     },
     {
-      name: "ui.error.secondary",
-      dataBlack: ["1.68", "Fail", "Fail"],
-      dataWhite: ["12.48", "AAA", "AAA"],
-      textColor: "ui.white",
+      colorSource: "ui.gray.medium",
+      name: "ui.border.default",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      colorSource: "ui.gray.dark",
+      name: "ui.border.hover",
+      dataBlack: colorContrastData.ui.gray.dark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.dark.dataWhite,
+      textColor: colorContrastData.ui.gray.dark.textColor,
     },
     {
       colorSource: "ui.gray.light-cool",
@@ -258,10 +293,34 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.xxLightCool.textColor,
     },
     {
+      name: "ui.error.primary",
+      dataBlack: ["2.64", "Fail", "Fail"],
+      dataWhite: ["7.95", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.error.secondary",
+      dataBlack: ["1.68", "Fail", "Fail"],
+      dataWhite: ["12.48", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
       name: "ui.focus",
       dataBlack: ["5.64", "AA", "AAA"],
       dataWhite: ["3.73", "Fail", "AA"],
       textColor: "ui.black",
+    },
+    {
+      name: "ui.link.primary",
+      dataBlack: ["4.54", "AA", "AAA"],
+      dataWhite: ["4.63", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.link.secondary",
+      dataBlack: ["2.46", "Fail", "Fail"],
+      dataWhite: ["8.54", "AAA", "AAA"],
+      textColor: "ui.white",
     },
     {
       name: "ui.status.primary",
@@ -288,6 +347,26 @@ export const cssVars = {
       textColor: "ui.white",
     },
     {
+      name: "ui.test",
+      dataBlack: ["7.13", "AAA", "AAA"],
+      dataWhite: ["2.95", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      colorSource: "ui.black",
+      name: "ui.typography.heading",
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      colorSource: "ui.black",
+      name: "ui.typography.body",
+      dataBlack: colorContrastData.ui.black.dataBlack,
+      dataWhite: colorContrastData.ui.black.dataWhite,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
       name: "ui.warning.primary",
       dataBlack: ["9.24", "AAA", "AAA"],
       dataWhite: ["2.27", "Fail", "Fail"],
@@ -299,14 +378,20 @@ export const cssVars = {
       dataWhite: ["2.83", "Fail", "Fail"],
       textColor: "ui.black",
     },
-    {
-      name: "ui.test",
-      dataBlack: ["7.13", "AAA", "AAA"],
-      dataWhite: ["2.95", "Fail", "Fail"],
-      textColor: "ui.black",
-    },
   ],
   grayscale: [
+    {
+      name: "ui.gray.xxxx-dark",
+      dataBlack: colorContrastData.ui.gray.xxxxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxxxDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xxxxDark.textColor,
+    },
+    {
+      name: "ui.gray.xxx-dark",
+      dataBlack: colorContrastData.ui.gray.xxxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxxDark.dataWhite,
+      textColor: colorContrastData.ui.gray.xxxDark.textColor,
+    },
     {
       name: "ui.gray.xx-dark",
       dataBlack: colorContrastData.ui.gray.xxDark.dataBlack,
@@ -364,17 +449,187 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.xLightWarm.textColor,
     },
   ],
+  dark: [
+    {
+      colorSource: "ui.gray.xxxx-dark",
+      name: "dark.ui.bg.page",
+      dataBlack: colorContrastData.ui.gray.xxxxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxxxDark.dataWhite,
+      dataHeading: ["15.43", "AAA", "AAA"],
+      dataBody: ["9.97", "AAA", "AAA"],
+      textColor: colorContrastData.ui.gray.xxxxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.xxx-dark",
+      name: "dark.ui.bg.default",
+      dataBlack: colorContrastData.ui.gray.xxxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxxDark.dataWhite,
+      dataHeading: ["14.48", "AAA", "AAA"],
+      dataBody: ["9.36", "AAA", "AAA"],
+      textColor: colorContrastData.ui.gray.xxxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.xx-dark",
+      name: "dark.ui.bg.hover",
+      dataBlack: colorContrastData.ui.gray.xxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxDark.dataWhite,
+      dataHeading: colorContrastData.dark.ui.gray.xxDark.dataHeading,
+      dataBody: colorContrastData.dark.ui.gray.xxDark.dataBody,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.x-dark",
+      name: "dark.ui.bg.active",
+      dataBlack: colorContrastData.ui.gray.xDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xDark.dataWhite,
+      dataHeading: colorContrastData.dark.ui.gray.xDark.dataHeading,
+      dataBody: colorContrastData.dark.ui.gray.xDark.dataBody,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.x-dark",
+      name: "dark.ui.border.default",
+      dataBlack: colorContrastData.ui.gray.xDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xDark.dataWhite,
+      dataHeading: colorContrastData.dark.ui.gray.xDark.dataHeading,
+      dataBody: colorContrastData.dark.ui.gray.xDark.dataBody,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "dark.ui.border.hover",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      dataHeading: ["1.55", "Fail", "Fail"],
+      dataBody: ["1.00", "Fail", "Fail"],
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      colorSource: "ui.gray.x-dark",
+      name: "dark.ui.disabled.primary",
+      dataBlack: colorContrastData.ui.gray.xDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xDark.dataWhite,
+      dataHeading: colorContrastData.dark.ui.gray.xDark.dataHeading,
+      dataBody: colorContrastData.dark.ui.gray.xDark.dataBody,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.xx-dark",
+      name: "dark.ui.disabled.secondary",
+      dataBlack: colorContrastData.ui.gray.xxDark.dataBlack,
+      dataWhite: colorContrastData.ui.gray.xxDark.dataWhite,
+      dataHeading: colorContrastData.dark.ui.gray.xxDark.dataHeading,
+      dataBody: colorContrastData.dark.ui.gray.xxDark.dataBody,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
+    },
+    {
+      name: "dark.ui.error.primary",
+      dataBlack: ["5.16", "AA", "AAA"],
+      dataWhite: ["4.01", "Fail", "AA"],
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.error.secondary",
+      dataBlack: ["8.12", "AAA", "AAA"],
+      dataWhite: ["2.58", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.focus",
+      dataBlack: ["5.44", "AA", "AAA"],
+      dataWhite: ["3.86", "Fail", "AA"],
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.primary",
+      dataBlack: ["5.41", "AA", "AAA"],
+      dataWhite: ["2.82", "Fail", "AA"],
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.secondary",
+      dataBlack: ["7.46", "AAA", "AAA"],
+      dataWhite: ["2.82", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.status.primary",
+      dataBlack: ["3.62", "Fail", "AA"],
+      dataWhite: ["5.80", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.status.secondary",
+      dataBlack: ["3.80", "Fail", "AA"],
+      dataWhite: ["5.52", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.success.primary",
+      dataBlack: ["1.66", "Fail", "Fail"],
+      dataWhite: ["12.69", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.success.secondary",
+      dataBlack: ["1.35", "Fail", "Fail"],
+      dataWhite: ["15.60", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.test",
+      dataBlack: ["1.79", "Fail", "Fail"],
+      dataWhite: ["11.71", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "dark.ui.typography.heading",
+      dataBlack: colorContrastData.ui.gray.lightCool.dataBlack,
+      dataWhite: colorContrastData.ui.gray.lightCool.dataWhite,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "dark.ui.typography.body",
+      dataBlack: colorContrastData.ui.gray.medium.dataBlack,
+      dataWhite: colorContrastData.ui.gray.medium.dataWhite,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      name: "dark.ui.warning.primary",
+      dataBlack: ["1.78", "Fail", "Fail"],
+      dataWhite: ["11.81", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.warning.secondary",
+      dataBlack: ["1.65", "Fail", "Fail"],
+      dataWhite: ["12.75", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+  ],
 };
 
 export const makeColorCard = function (data) {
-  const { colorSource, dataBlack, dataWhite, name, textColor } = data;
+  const {
+    colorSource,
+    dataBlack,
+    dataWhite,
+    dataHeading,
+    dataBody,
+    name,
+    textColor,
+  } = data;
   const card = (
     <ColorCard
       backgroundColor={name}
       colorName={name}
       colorSource={colorSource}
-      dataBlack={dataBlack}
       dataWhite={dataWhite}
+      dataBlack={dataBlack}
+      dataHeading={dataHeading}
+      dataBody={dataBody}
       textColor={textColor}
       key={name}
     />
@@ -405,6 +660,8 @@ export const getColorCards = (category) => {
 - [UI Fills](#ui-fills)
   - [Utility Colors](#utility-colors)
   - [Grayscale Colors](#grayscale-colors)
+- [Dark Mode UI Fills](#dark-mode-ui-fills)
+  - [Utility Colors](#utility-colors)
 - [Figma Reference](#figma-reference)
 
 ## Overview
@@ -561,9 +818,22 @@ Grays are used for secondary body copy and non-semantic UI design.
   </DSProvider>
 </Canvas>
 
+## Dark Mode UI Fills
+
+### Utility Colors
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap="s" bg="dark.ui.bg.page" p="m">
+      {getColorCards("dark")}
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
 ## Figma Reference
 
 For additional information, please refer to the Figma Main file.
 
 - [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
 - [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674)
+- [NYPL Dark Mode UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=61991%3A45315)

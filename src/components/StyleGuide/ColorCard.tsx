@@ -7,23 +7,6 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
 
-export interface ColorCardProps {
-  /** The backgroundColor of the color card. */
-  backgroundColor: string;
-  /** The name of a color's javascript theme object. */
-  colorName: string;
-  /** The name of the color that the current color is based on. */
-  colorSource: string;
-  /** Contrast and WCAG compliance data related to the color black when used
-   * with the current color. */
-  dataBlack: string[];
-  /** Contrast and WCAG compliance data related to the color white when used
-   * with the current color. */
-  dataWhite: string[];
-  /** The color to use for text in the color card. */
-  textColor: string;
-}
-
 export interface DataTableProps {
   /** Contrast and WCAG compliance data related to the color black when used
    * with the current color. */
@@ -31,14 +14,27 @@ export interface DataTableProps {
   /** Contrast and WCAG compliance data related to the color white when used
    * with the current color. */
   dataWhite: string[];
-  /** color to use for text in color card */
+  dataHeading?: string[];
+  dataBody?: string[];
+  /** The color to use for text in the color card. */
   textColor: string;
+}
+
+export interface ColorCardProps extends DataTableProps {
+  /** The backgroundColor of the color card. */
+  backgroundColor: string;
+  /** The name of a color's javascript theme object. */
+  colorName: string;
+  /** The name of the color that the current color is based on. */
+  colorSource: string;
 }
 
 export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const {
     dataBlack = ["--", "--", "--"],
     dataWhite = ["--", "--", "--"],
+    dataHeading,
+    dataBody,
     textColor = "ui.white",
   } = props;
   const SuccessIcon = () => (
@@ -61,6 +57,14 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBlack[1] === "AAA") && <SuccessIcon />;
   const blackLargeTextSuccess = (dataBlack[2] === "AA" ||
     dataBlack[2] === "AAA") && <SuccessIcon />;
+  const headingSmallTextSuccess = dataHeading &&
+    (dataHeading[1] === "AA" || dataHeading[1] === "AAA") && <SuccessIcon />;
+  const headingLargeTextSuccess = dataHeading &&
+    (dataHeading[2] === "AA" || dataHeading[2] === "AAA") && <SuccessIcon />;
+  const bodySmallTextSuccess = dataBody &&
+    (dataBody[1] === "AA" || dataBody[1] === "AAA") && <SuccessIcon />;
+  const bodyLargeTextSuccess = dataBody &&
+    (dataBody[2] === "AA" || dataBody[2] === "AAA") && <SuccessIcon />;
   const tableData = [
     [
       <span key="colorUiWhite" style={{ color: "white", padding: 0 }}>
@@ -117,6 +121,42 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       },
     },
   };
+
+  // For dark mode `ColorCard`s, there are two extra rows.
+  if (dataHeading && dataHeading.length > 0) {
+    const grayLightCool = "#E9E9E9";
+    tableData.push([
+      <span key="colorHeading" style={{ color: grayLightCool, padding: 0 }}>
+        Heading
+      </span>,
+      `${dataHeading[0]}:1`,
+      <>
+        {dataHeading[1]}
+        {headingSmallTextSuccess}
+      </>,
+      <>
+        {dataHeading[2]}
+        {headingLargeTextSuccess}
+      </>,
+    ]);
+  }
+  if (dataBody && dataBody.length > 0) {
+    const grayMedium = "#BDBDBD";
+    tableData.push([
+      <span key="colorBody" style={{ color: grayMedium, padding: 0 }}>
+        Body
+      </span>,
+      `${dataBody[0]}:1`,
+      <>
+        {dataBody[1]}
+        {bodySmallTextSuccess}
+      </>,
+      <>
+        {dataBody[2]}
+        {bodyLargeTextSuccess}
+      </>,
+    ]);
+  }
   return (
     <Table
       columnHeaders={columnHeaders}
@@ -135,6 +175,8 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     colorSource,
     dataBlack = ["--", "--", "--"],
     dataWhite = ["--", "--", "--"],
+    dataHeading,
+    dataBody,
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -168,6 +210,8 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
         <DataTable
           dataBlack={dataBlack}
           dataWhite={dataWhite}
+          dataHeading={dataHeading}
+          dataBody={dataBody}
           textColor={textColor}
         />
       </SimpleGrid>
