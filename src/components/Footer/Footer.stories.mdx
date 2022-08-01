@@ -5,6 +5,7 @@ import {
   Meta,
   Story,
 } from "@storybook/addon-docs";
+import { renderToStaticMarkup } from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
 
 import Footer from "./Footer";
@@ -155,3 +156,34 @@ const MyApp => (
 
 If this step is not done, the `TemplateFooter` component will log a warning to
 the browser's console.
+
+## Static Footer
+
+The following uses `renderToStaticMarkup` from `react-dom/server` to render the
+`Footer` component as a static HTML string.
+
+This is useful but does not render the expected Chakra classes as the `Footer`
+component above.
+
+<Canvas>
+  <Story name="Static Footer">
+    <DSProvider>
+      <span>{renderToStaticMarkup(<Footer />)}</span>
+    </DSProvider>
+  </Story>
+</Canvas>
+
+### Manual update
+
+This can manually be done if the `Footer` component's HTML is copied from the
+browser's console. The CSS can be extracted with the "CSS Used"
+[Chrome extension](https://chrome.google.com/webstore/detail/css-used/cdopjfddjlonogibjahpnmjpoangjfff?hl=en).
+This is not perfect and some `--nypl-...` CSS variables had to manually be
+added to the list of CSS it provides. The CSS can also be cleaned up and some
+general/global rules removed.
+
+The HTML and CSS can be seen in the following CodePen example:
+https://codepen.io/edwinguzman/pen/wvmywXG
+
+The CSS and HTML can be copied from the CodePen to a block here for easier
+access.
