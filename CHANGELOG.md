@@ -12,6 +12,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
 
+## 1.0.7 (July 29, 2022)
+
+### Updates
+
+- Updates border color in the `Description` variant of the `List` component.
+- Updates how options are passed to the `SearchBar` component for its internal `Select` component.
+- Updates how style props are passed to the `Link` component when using with third-party libraries, such as React Router.
+- Updates the layout of the `Image` in the `Hero` "secondary" and "fiftyFifty" variants for mobile and desktop.
+
 ## 1.0.6 (July 21, 2022)
 
 ### Adds
