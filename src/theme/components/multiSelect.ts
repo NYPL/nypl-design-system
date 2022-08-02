@@ -1,4 +1,4 @@
-export const multiSelectWidths = {
+const multiSelectWidths = {
   default: {
     width: {
       base: "100%",

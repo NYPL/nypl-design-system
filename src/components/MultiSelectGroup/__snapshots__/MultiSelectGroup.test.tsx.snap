@@ -14,7 +14,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="colors"
       variant="dialog"
     >
@@ -127,7 +127,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="pets"
       variant="dialog"
     >
@@ -240,7 +240,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="tools"
       variant="dialog"
     >
@@ -371,7 +371,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="colors"
       variant="dialog"
     >
@@ -484,7 +484,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="pets"
       variant="dialog"
     >
@@ -597,7 +597,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-1tgn8ah"
+      className="css-hhryjt"
       id="tools"
       variant="dialog"
     >
