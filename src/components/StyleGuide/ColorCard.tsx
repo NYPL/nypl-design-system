@@ -10,12 +10,16 @@ import Text from "../Text/Text";
 export interface DataTableProps {
   /** Contrast and WCAG compliance data related to the color black when used
    * with the current color. */
-  dataBlack: string[];
+  dataBlackColor: string[];
+  /** Contrast and WCAG compliance data related to the default color for
+   * heading elements when used with the current color. */
+  dataHeadingColor?: string[];
+  /** Contrast and WCAG compliance data related to the default color for basic
+   * text elements when used with the current color. */
+  dataTextColor?: string[];
   /** Contrast and WCAG compliance data related to the color white when used
    * with the current color. */
-  dataWhite: string[];
-  dataHeading?: string[];
-  dataBody?: string[];
+  dataWhiteColor: string[];
   /** The color to use for text in the color card. */
   textColor: string;
 }
@@ -31,10 +35,10 @@ export interface ColorCardProps extends DataTableProps {
 
 export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const {
-    dataBlack = ["--", "--", "--"],
-    dataWhite = ["--", "--", "--"],
-    dataHeading,
-    dataBody,
+    dataBlackColor = ["--", "--", "--"],
+    dataHeadingColor,
+    dataTextColor,
+    dataWhiteColor = ["--", "--", "--"],
     textColor = "ui.white",
   } = props;
   const SuccessIcon = () => (
@@ -49,34 +53,42 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     />
   );
   const columnHeaders = ["Color", "Ratio", "16px", "36px"];
-  const whiteSmallTextSuccess = (dataWhite[1] === "AA" ||
-    dataWhite[1] === "AAA") && <SuccessIcon />;
-  const whiteLargeTextSuccess = (dataWhite[2] === "AA" ||
-    dataWhite[2] === "AAA") && <SuccessIcon />;
-  const blackSmallTextSuccess = (dataBlack[1] === "AA" ||
-    dataBlack[1] === "AAA") && <SuccessIcon />;
-  const blackLargeTextSuccess = (dataBlack[2] === "AA" ||
-    dataBlack[2] === "AAA") && <SuccessIcon />;
-  const headingSmallTextSuccess = dataHeading &&
-    (dataHeading[1] === "AA" || dataHeading[1] === "AAA") && <SuccessIcon />;
-  const headingLargeTextSuccess = dataHeading &&
-    (dataHeading[2] === "AA" || dataHeading[2] === "AAA") && <SuccessIcon />;
-  const bodySmallTextSuccess = dataBody &&
-    (dataBody[1] === "AA" || dataBody[1] === "AAA") && <SuccessIcon />;
-  const bodyLargeTextSuccess = dataBody &&
-    (dataBody[2] === "AA" || dataBody[2] === "AAA") && <SuccessIcon />;
+  const whiteSmallTextSuccess = (dataWhiteColor[1] === "AA" ||
+    dataWhiteColor[1] === "AAA") && <SuccessIcon />;
+  const whiteLargeTextSuccess = (dataWhiteColor[2] === "AA" ||
+    dataWhiteColor[2] === "AAA") && <SuccessIcon />;
+  const blackSmallTextSuccess = (dataBlackColor[1] === "AA" ||
+    dataBlackColor[1] === "AAA") && <SuccessIcon />;
+  const blackLargeTextSuccess = (dataBlackColor[2] === "AA" ||
+    dataBlackColor[2] === "AAA") && <SuccessIcon />;
+  const headingSmallTextSuccess = dataHeadingColor &&
+    (dataHeadingColor[1] === "AA" || dataHeadingColor[1] === "AAA") && (
+      <SuccessIcon />
+    );
+  const headingLargeTextSuccess = dataHeadingColor &&
+    (dataHeadingColor[2] === "AA" || dataHeadingColor[2] === "AAA") && (
+      <SuccessIcon />
+    );
+  const bodySmallTextSuccess = dataTextColor &&
+    (dataTextColor[1] === "AA" || dataTextColor[1] === "AAA") && (
+      <SuccessIcon />
+    );
+  const bodyLargeTextSuccess = dataTextColor &&
+    (dataTextColor[2] === "AA" || dataTextColor[2] === "AAA") && (
+      <SuccessIcon />
+    );
   const tableData = [
     [
       <span key="colorUiWhite" style={{ color: "white", padding: 0 }}>
         ui.white
       </span>,
-      `${dataWhite[0]}:1`,
+      `${dataWhiteColor[0]}:1`,
       <>
-        {dataWhite[1]}
+        {dataWhiteColor[1]}
         {whiteSmallTextSuccess}
       </>,
       <>
-        {dataWhite[2]}
+        {dataWhiteColor[2]}
         {whiteLargeTextSuccess}
       </>,
     ],
@@ -84,13 +96,13 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       <span key="colorUiBlack" style={{ color: "black", padding: 0 }}>
         ui.black
       </span>,
-      `${dataBlack[0]}:1`,
+      `${dataBlackColor[0]}:1`,
       <>
-        {dataBlack[1]}
+        {dataBlackColor[1]}
         {blackSmallTextSuccess}
       </>,
       <>
-        {dataBlack[2]}
+        {dataBlackColor[2]}
         {blackLargeTextSuccess}
       </>,
     ],
@@ -123,36 +135,36 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   };
 
   // For dark mode `ColorCard`s, there are two extra rows.
-  if (dataHeading && dataHeading.length > 0) {
+  if (dataHeadingColor && dataHeadingColor.length > 0) {
     const grayLightCool = "#E9E9E9";
     tableData.push([
       <span key="colorHeading" style={{ color: grayLightCool, padding: 0 }}>
         Heading
       </span>,
-      `${dataHeading[0]}:1`,
+      `${dataHeadingColor[0]}:1`,
       <>
-        {dataHeading[1]}
+        {dataHeadingColor[1]}
         {headingSmallTextSuccess}
       </>,
       <>
-        {dataHeading[2]}
+        {dataHeadingColor[2]}
         {headingLargeTextSuccess}
       </>,
     ]);
   }
-  if (dataBody && dataBody.length > 0) {
+  if (dataTextColor && dataTextColor.length > 0) {
     const grayMedium = "#BDBDBD";
     tableData.push([
       <span key="colorBody" style={{ color: grayMedium, padding: 0 }}>
-        Body
+        Text
       </span>,
-      `${dataBody[0]}:1`,
+      `${dataTextColor[0]}:1`,
       <>
-        {dataBody[1]}
+        {dataTextColor[1]}
         {bodySmallTextSuccess}
       </>,
       <>
-        {dataBody[2]}
+        {dataTextColor[2]}
         {bodyLargeTextSuccess}
       </>,
     ]);
@@ -173,10 +185,10 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     backgroundColor,
     colorName = "",
     colorSource,
-    dataBlack = ["--", "--", "--"],
-    dataWhite = ["--", "--", "--"],
-    dataHeading,
-    dataBody,
+    dataBlackColor = ["--", "--", "--"],
+    dataHeadingColor,
+    dataTextColor,
+    dataWhiteColor = ["--", "--", "--"],
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -208,10 +220,10 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           )}
         </Box>
         <DataTable
-          dataBlack={dataBlack}
-          dataWhite={dataWhite}
-          dataHeading={dataHeading}
-          dataBody={dataBody}
+          dataBlackColor={dataBlackColor}
+          dataHeadingColor={dataHeadingColor}
+          dataTextColor={dataTextColor}
+          dataWhiteColor={dataWhiteColor}
           textColor={textColor}
         />
       </SimpleGrid>
