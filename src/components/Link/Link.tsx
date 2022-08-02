@@ -107,7 +107,9 @@ export const Link = chakra(
     let variant = "link";
 
     if (typeof children === "string" && !href) {
-      throw new Error("`Link` needs the `href` prop.");
+      throw new Error(
+        "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
+      );
     }
 
     if (
@@ -137,12 +139,14 @@ export const Link = chakra(
       // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
       // let children = React.Children.only(children);
       if (React.Children.count(children) > 1) {
-        throw new Error("Please pass only one child into `Link`.");
+        throw new Error(
+          "NYPL Reservoir Link: Please pass only one child into the `Link` component."
+        );
       }
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style}>
+        <Box as="span" __css={style} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {

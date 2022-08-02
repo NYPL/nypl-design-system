@@ -326,7 +326,7 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
 
 exports[`Image Renders the UI snapshot correctly 19`] = `
 <div
-  className="css-0"
+  className="css-qvgr6z"
 >
   <img
     alt=""
@@ -339,6 +339,7 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
 exports[`Image Renders the UI snapshot correctly 20`] = `
 <div
   className="css-0"
+  data-testid="image"
 >
   <img
     alt=""
