@@ -160,7 +160,10 @@ the [All Variations](#all-variations) section.
         <Hero
           {...args}
           heroType={args.heroType}
-          imageProps={args.imageProps}
+          imageProps={{
+            ...args.imageProps,
+            src: "https://placeimg.com/1200/400/animals",
+          }}
           subHeaderText={otherSubHeaderText}
         />
       ))
