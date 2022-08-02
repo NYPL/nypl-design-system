@@ -38,15 +38,16 @@ const TemplateContent = {
     marginY: "page.hstack",
     paddingY: 0,
     paddingX: "s",
+    gap: "grid.l",
   },
   // With left or right sidebars, we need to set two grid columns and
-  // the column for the sidebar is max 288px width.
+  // the column for the sidebar is max 255px width.
   variants: {
     left: {
-      gridTemplateColumns: { md: "288px 1fr" },
+      gridTemplateColumns: { md: "255px 1fr" },
     },
     right: {
-      gridTemplateColumns: { md: "1fr 288px" },
+      gridTemplateColumns: { md: "1fr 255px" },
     },
   },
 };
@@ -76,17 +77,9 @@ const TemplateContentSidebar = {
   variants: {
     left: {
       gridColumn: "1",
-      marginEnd: {
-        base: 0,
-        md: "page.vstack",
-      },
     },
     right: {
       gridColumn: { base: "1", md: "2" },
-      marginStart: {
-        base: 0,
-        md: "page.vstack",
-      },
     },
   },
 };
