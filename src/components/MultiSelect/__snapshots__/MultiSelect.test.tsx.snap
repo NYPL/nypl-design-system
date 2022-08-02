@@ -2,7 +2,7 @@
 
 exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-dialog-test-id"
   variant="dialog"
 >
@@ -118,7 +118,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
 
 exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-dialog-test-id"
   variant="dialog"
 >
@@ -793,7 +793,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
 
 exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-dialog-test-id"
   variant="dialog"
 >
@@ -1538,7 +1538,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
 
 exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-dialog-test-id"
   variant="dialog"
 >
@@ -2267,7 +2267,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
 
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-listbox-test-id"
   variant="listbox"
 >
@@ -2340,7 +2340,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-listbox-test-id"
   variant="listbox"
 >
@@ -2858,7 +2858,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
 
 exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1u8qly9"
+  className="css-fxdbg"
   id="multiselect-listbox-test-id"
   variant="listbox"
 >

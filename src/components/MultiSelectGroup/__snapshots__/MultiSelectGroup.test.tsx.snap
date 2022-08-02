@@ -9,12 +9,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-ytb711"
+    className="chakra-stack css-6dfzd0"
     data-testId="multi-select-group"
     id="MultiSelectGroup"
   >
     <div
-      className="css-5wdjli"
+      className="css-1tgn8ah"
       id="colors"
       variant="dialog"
     >
@@ -127,7 +127,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-5wdjli"
+      className="css-1tgn8ah"
       id="pets"
       variant="dialog"
     >
@@ -240,7 +240,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       />
     </div>
     <div
-      className="css-5wdjli"
+      className="css-1tgn8ah"
       id="tools"
       variant="dialog"
     >
@@ -366,12 +366,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
   </legend>
   <div
     aria-label="MultiSelectGroup example"
-    className="chakra-stack css-ytb711"
+    className="chakra-stack css-6dfzd0"
     data-testId="multi-select-group"
     id="MultiSelectGroup"
   >
     <div
-      className="css-fxdbg"
+      className="css-1tgn8ah"
       id="colors"
       variant="dialog"
     >
@@ -484,7 +484,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-fxdbg"
+      className="css-1tgn8ah"
       id="pets"
       variant="dialog"
     >
@@ -597,7 +597,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       />
     </div>
     <div
-      className="css-fxdbg"
+      className="css-1tgn8ah"
       id="tools"
       variant="dialog"
     >
