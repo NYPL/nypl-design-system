@@ -46,9 +46,6 @@ export const MultiSelectGroup = chakra(
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
-      // const finalMultiSelectWidth = isLargerThanMobile
-      //   ? multiSelectWidth
-      //   : "full";
       const finalIsBlockElement =
         layout === "column"
           ? isBlockElement !== undefined
