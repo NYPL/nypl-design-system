@@ -61,8 +61,10 @@ const categories = {
       "Dropdown",
       "Fieldset",
       "FileUploader",
+      "FilterBar",
       "Form",
       "Label",
+      "MultiSelect",
       "NumberInput",
       "Radio",
       "RadioGroup",
@@ -78,6 +80,7 @@ const categories = {
     title: "Hooks",
     components: [
       "useCarouselStyles",
+      "useMultiSelect",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",

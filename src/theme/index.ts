@@ -29,6 +29,8 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import MultiSelect from "./components/multiSelect";
+import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -101,6 +103,8 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    MultiSelect,
+    MultiSelectMenuButton,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
