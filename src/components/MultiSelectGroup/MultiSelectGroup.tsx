@@ -11,12 +11,14 @@ export interface MultiSelectGroupProps {
   /** Additional className to use. */
   className?: string;
   id: string;
+  /** Optional prop to overwrite default behavior of the `MultiSelect` component, if nothing gets passed, it is set to `undefined`. */
+  isBlockElement?: boolean;
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
   /** Width will be passed on each `MultiSelect` component. */
   multiSelectWidth?: MultiSelectWidths;
-  /** Is set to `true` by default and determines if the `labelText` is visible on the site */
+  /** Is set to `true` by default and determines if the `labelText` is visible on the site. */
   showLabel?: boolean;
 }
 
@@ -33,6 +35,7 @@ export const MultiSelectGroup = chakra(
         children,
         className = "",
         id,
+        isBlockElement,
         labelText,
         layout = "row",
         multiSelectWidth = "default",
@@ -43,10 +46,17 @@ export const MultiSelectGroup = chakra(
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
-      const finalMultiSelectWidth = isLargerThanMobile
-        ? multiSelectWidth
-        : "full";
-      const isBlockElement = layout === "column" ? isLargerThanMobile : false;
+      // const finalMultiSelectWidth = isLargerThanMobile
+      //   ? multiSelectWidth
+      //   : "full";
+      const finalIsBlockElement =
+        layout === "column"
+          ? isBlockElement !== undefined
+            ? isBlockElement
+            : true
+          : isBlockElement !== undefined
+          ? isBlockElement
+          : false;
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
@@ -61,8 +71,8 @@ export const MultiSelectGroup = chakra(
           if (child !== undefined && child !== null) {
             newChildren.push(
               React.cloneElement(child, {
-                isBlockElement,
-                width: finalMultiSelectWidth,
+                isBlockElement: finalIsBlockElement,
+                width: multiSelectWidth,
               })
             );
           }

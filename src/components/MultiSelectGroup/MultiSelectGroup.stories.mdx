@@ -26,6 +26,12 @@ import * as stories from "./MultiSelectGroup.stories";
   argTypes={{
     className: { control: false },
     id: { control: false },
+    isBlockElement: {
+      defaultValue: undefined,
+      control: "radio",
+      options: [true, false, undefined],
+      tabel: { defaultValue: { summary: undefined } },
+    },
     layout: {
       defaultValue: "row",
       table: { defaultValue: { summary: "row" } },
