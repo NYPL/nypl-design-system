@@ -16,7 +16,8 @@ export interface MultiSelectGroupProps {
   layout?: LayoutTypes;
   /** Width will be passed on each `MultiSelect` component. */
   multiSelectWidth?: MultiSelectWidths;
-  showLabel: boolean;
+  /** Is set to `true` by default and determines if the `labelText` is visible on the site */
+  showLabel?: boolean;
 }
 
 /**
@@ -34,8 +35,8 @@ export const MultiSelectGroup = chakra(
         id,
         labelText,
         layout = "row",
-        multiSelectWidth,
-        showLabel,
+        multiSelectWidth = "default",
+        showLabel = true,
         ...rest
       } = props;
       const newChildren: JSX.Element[] = [];
@@ -45,6 +46,7 @@ export const MultiSelectGroup = chakra(
       const finalMultiSelectWidth = isLargerThanMobile
         ? multiSelectWidth
         : "full";
+      const isBlockElement = layout === "column" ? isLargerThanMobile : false;
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
@@ -58,7 +60,10 @@ export const MultiSelectGroup = chakra(
           }
           if (child !== undefined && child !== null) {
             newChildren.push(
-              React.cloneElement(child, { width: finalMultiSelectWidth })
+              React.cloneElement(child, {
+                isBlockElement,
+                width: finalMultiSelectWidth,
+              })
             );
           }
         }

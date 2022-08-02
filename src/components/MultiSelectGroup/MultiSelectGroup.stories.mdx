@@ -30,6 +30,14 @@ import * as stories from "./MultiSelectGroup.stories";
       defaultValue: "row",
       table: { defaultValue: { summary: "row" } },
     },
+    showLabel: {
+      defaultValue: true,
+      tabel: { defaultValue: { summary: true } },
+    },
+    multiSelectWidth: {
+      defaultValue: "default",
+      tabel: { defaultValue: { summary: "default" } },
+    },
   }}
 />
 
@@ -59,7 +67,6 @@ import * as stories from "./MultiSelectGroup.stories";
     args={{
       id: "multiselect-group",
       labelText: "Label Text",
-      showLabel: true,
     }}
   >
     {(args) => <stories.MultiSelectGroupStory {...args} />}

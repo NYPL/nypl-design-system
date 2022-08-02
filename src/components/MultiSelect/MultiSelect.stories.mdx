@@ -26,13 +26,19 @@ import * as stories from "./MultiSelect.stories.tsx";
   }}
   argTypes={{
     id: { control: false },
-    isBlockElement: { table: { defaultValue: { summary: "false" } } },
-    isDefaultOpen: { table: { defaultValue: { summary: "false" } } },
+    isBlockElement: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
+    isDefaultOpen: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
     items: { control: false },
     label: { table: { default: "" } },
     onApply: {
       description:
-        "The action to perform for save/apply button of multiselect. `onApply: () => void;`",
+        "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
     },
     onChange: {
       description:
@@ -40,10 +46,10 @@ import * as stories from "./MultiSelect.stories.tsx";
     },
     onMixedStateChange: {
       description:
-        "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+        "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
     },
     selectedItems: { control: false },
-    variant: { control: false, defaultValue: { summary: "listbox" } },
+    variant: { control: false },
     width: {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
