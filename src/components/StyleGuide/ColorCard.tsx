@@ -159,7 +159,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   // For dark mode `ColorCard`s, there are four extra rows.
   if (dataBgPageColor && dataBgPageColor.length > 0) {
     tableData.push([
-      <span key="colorBody" style={{ color: grayxxxxDark, padding: 0 }}>
+      <span key="colorBgPage" style={{ color: grayxxxxDark, padding: 0 }}>
         bg page
       </span>,
       `${dataBgPageColor[0]}:1`,
@@ -175,7 +175,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   }
   if (dataBgDefaultColor && dataBgDefaultColor.length > 0) {
     tableData.push([
-      <span key="colorBody" style={{ color: grayxxxDark, padding: 0 }}>
+      <span key="colorBgDefault" style={{ color: grayxxxDark, padding: 0 }}>
         bg default
       </span>,
       `${dataBgDefaultColor[0]}:1`,
@@ -207,7 +207,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   }
   if (dataTextColor && dataTextColor.length > 0) {
     tableData.push([
-      <span key="colorBody" style={{ color: grayMedium, padding: 0 }}>
+      <span key="colorText" style={{ color: grayMedium, padding: 0 }}>
         text
       </span>,
       `${dataTextColor[0]}:1`,
