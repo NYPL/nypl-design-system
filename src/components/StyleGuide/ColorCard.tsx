@@ -6,8 +6,15 @@ import Icon from "../Icons/Icon";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
+import useNYPLTheme from "../../hooks/useNYPLTheme";
 
 export interface DataTableProps {
+  /** Contrast and WCAG compliance data related to the color gray.xxxx-dark when
+   * used with the current color. */
+  dataBgPageColor: string[];
+  /** Contrast and WCAG compliance data related to the color gray.xxx-dark when
+   * used with the current color. */
+  dataBgDefaultColor: string[];
   /** Contrast and WCAG compliance data related to the color black when used
    * with the current color. */
   dataBlackColor: string[];
@@ -35,12 +42,21 @@ export interface ColorCardProps extends DataTableProps {
 
 export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const {
+    dataBgPageColor,
+    dataBgDefaultColor,
     dataBlackColor = ["--", "--", "--"],
     dataHeadingColor,
     dataTextColor,
     dataWhiteColor = ["--", "--", "--"],
     textColor = "ui.white",
   } = props;
+  const {
+    colors: { ui },
+  } = useNYPLTheme();
+  const grayxxxxDark = ui.gray["xxxx-dark"];
+  const grayxxxDark = ui.gray["xxx-dark"];
+  const grayLightCool = ui.gray["light-cool"];
+  const grayMedium = ui.gray.medium;
   const SuccessIcon = () => (
     <Icon
       color={textColor}
@@ -52,31 +68,37 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       verticalAlign="text-bottom"
     />
   );
+  const successfulContrast = (dataColor: string[], textSize = "small") => {
+    const dataTextIndex = textSize === "small" ? 1 : 2;
+    return (
+      (dataColor[dataTextIndex] === "AA" ||
+        dataColor[dataTextIndex] === "AAA") && <SuccessIcon />
+    );
+  };
   const columnHeaders = ["Color", "Ratio", "16px", "36px"];
-  const whiteSmallTextSuccess = (dataWhiteColor[1] === "AA" ||
-    dataWhiteColor[1] === "AAA") && <SuccessIcon />;
-  const whiteLargeTextSuccess = (dataWhiteColor[2] === "AA" ||
-    dataWhiteColor[2] === "AAA") && <SuccessIcon />;
-  const blackSmallTextSuccess = (dataBlackColor[1] === "AA" ||
-    dataBlackColor[1] === "AAA") && <SuccessIcon />;
-  const blackLargeTextSuccess = (dataBlackColor[2] === "AA" ||
-    dataBlackColor[2] === "AAA") && <SuccessIcon />;
-  const headingSmallTextSuccess = dataHeadingColor &&
-    (dataHeadingColor[1] === "AA" || dataHeadingColor[1] === "AAA") && (
-      <SuccessIcon />
-    );
-  const headingLargeTextSuccess = dataHeadingColor &&
-    (dataHeadingColor[2] === "AA" || dataHeadingColor[2] === "AAA") && (
-      <SuccessIcon />
-    );
-  const bodySmallTextSuccess = dataTextColor &&
-    (dataTextColor[1] === "AA" || dataTextColor[1] === "AAA") && (
-      <SuccessIcon />
-    );
-  const bodyLargeTextSuccess = dataTextColor &&
-    (dataTextColor[2] === "AA" || dataTextColor[2] === "AAA") && (
-      <SuccessIcon />
-    );
+  // All color data have the following two rows.
+  const whiteSmallTextSuccess = successfulContrast(dataWhiteColor);
+  const whiteLargeTextSuccess = successfulContrast(dataWhiteColor, "large");
+  const blackSmallTextSuccess = successfulContrast(dataBlackColor);
+  const blackLargeTextSuccess = successfulContrast(dataBlackColor, "large");
+  // The dark theme colors might have the following color contrast information.
+  const bgPageSmallTextSuccess =
+    dataBgPageColor && successfulContrast(dataBgPageColor);
+  const bgPageLargeTextSuccess =
+    dataBgPageColor && successfulContrast(dataBgPageColor, "large");
+  const bgDefaultSmallTextSuccess =
+    dataBgDefaultColor && successfulContrast(dataBgDefaultColor);
+  const bgDefaultLargeTextSuccess =
+    dataBgDefaultColor && successfulContrast(dataBgDefaultColor, "large");
+  const headingSmallTextSuccess =
+    dataHeadingColor && successfulContrast(dataHeadingColor);
+  const headingLargeTextSuccess =
+    dataHeadingColor && successfulContrast(dataHeadingColor, "large");
+  const textSmallTextSuccess =
+    dataTextColor && successfulContrast(dataTextColor);
+  const textLargeTextSuccess =
+    dataTextColor && successfulContrast(dataTextColor, "large");
+  // All ColorCards have these two rows.
   const tableData = [
     [
       <span key="colorUiWhite" style={{ color: "white", padding: 0 }}>
@@ -134,12 +156,43 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     },
   };
 
-  // For dark mode `ColorCard`s, there are two extra rows.
+  // For dark mode `ColorCard`s, there are four extra rows.
+  if (dataBgPageColor && dataBgPageColor.length > 0) {
+    tableData.push([
+      <span key="colorBody" style={{ color: grayxxxxDark, padding: 0 }}>
+        bg page
+      </span>,
+      `${dataBgPageColor[0]}:1`,
+      <>
+        {dataBgPageColor[1]}
+        {bgPageSmallTextSuccess}
+      </>,
+      <>
+        {dataBgPageColor[2]}
+        {bgPageLargeTextSuccess}
+      </>,
+    ]);
+  }
+  if (dataBgDefaultColor && dataBgDefaultColor.length > 0) {
+    tableData.push([
+      <span key="colorBody" style={{ color: grayxxxDark, padding: 0 }}>
+        bg default
+      </span>,
+      `${dataBgDefaultColor[0]}:1`,
+      <>
+        {dataBgDefaultColor[1]}
+        {bgDefaultSmallTextSuccess}
+      </>,
+      <>
+        {dataBgDefaultColor[2]}
+        {bgDefaultLargeTextSuccess}
+      </>,
+    ]);
+  }
   if (dataHeadingColor && dataHeadingColor.length > 0) {
-    const grayLightCool = "#E9E9E9";
     tableData.push([
       <span key="colorHeading" style={{ color: grayLightCool, padding: 0 }}>
-        Heading
+        heading
       </span>,
       `${dataHeadingColor[0]}:1`,
       <>
@@ -153,22 +206,22 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     ]);
   }
   if (dataTextColor && dataTextColor.length > 0) {
-    const grayMedium = "#BDBDBD";
     tableData.push([
       <span key="colorBody" style={{ color: grayMedium, padding: 0 }}>
-        Text
+        text
       </span>,
       `${dataTextColor[0]}:1`,
       <>
         {dataTextColor[1]}
-        {bodySmallTextSuccess}
+        {textSmallTextSuccess}
       </>,
       <>
         {dataTextColor[2]}
-        {bodyLargeTextSuccess}
+        {textLargeTextSuccess}
       </>,
     ]);
   }
+
   return (
     <Table
       columnHeaders={columnHeaders}
@@ -183,6 +236,8 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
 export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
   const {
     backgroundColor,
+    dataBgPageColor,
+    dataBgDefaultColor,
     colorName = "",
     colorSource,
     dataBlackColor = ["--", "--", "--"],
@@ -220,6 +275,8 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           )}
         </Box>
         <DataTable
+          dataBgPageColor={dataBgPageColor}
+          dataBgDefaultColor={dataBgDefaultColor}
           dataBlackColor={dataBlackColor}
           dataHeadingColor={dataHeadingColor}
           dataTextColor={dataTextColor}

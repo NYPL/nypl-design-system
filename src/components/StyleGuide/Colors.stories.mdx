@@ -524,67 +524,95 @@ export const cssVars = {
     },
     {
       name: "dark.ui.error.primary",
+      dataBgPageColor: ["4.60", "AA", "AAA"],
+      dataBgDefaultColor: ["4.32", "Fail", "AA"],
       dataBlackColor: ["5.16", "AA", "AAA"],
       dataWhiteColor: ["4.01", "Fail", "AA"],
       textColor: "ui.black",
     },
     {
       name: "dark.ui.error.secondary",
+      dataBgPageColor: ["7.25", "AAA", "AAA"],
+      dataBgDefaultColor: ["6.80", "AA", "AAA"],
       dataBlackColor: ["8.12", "AAA", "AAA"],
       dataWhiteColor: ["2.58", "Fail", "Fail"],
       textColor: "ui.black",
     },
     {
       name: "dark.ui.focus",
+      dataBgPageColor: ["4.85", "AA", "AAA"],
+      dataBgDefaultColor: ["4.56", "AA", "AAA"],
       dataBlackColor: ["5.44", "AA", "AAA"],
       dataWhiteColor: ["3.86", "Fail", "AA"],
       textColor: "ui.black",
     },
     {
       name: "dark.ui.link.primary",
+      dataBgPageColor: ["4.82", "AA", "AAA"],
+      dataBgDefaultColor: ["4.53", "AA", "AAA"],
       dataBlackColor: ["5.41", "AA", "AAA"],
       dataWhiteColor: ["2.82", "Fail", "AA"],
       textColor: "ui.black",
     },
     {
       name: "dark.ui.link.secondary",
+      dataBgPageColor: ["6.65", "AA", "AAA"],
+      dataBgDefaultColor: ["6.24", "AA", "AAA"],
       dataBlackColor: ["7.46", "AAA", "AAA"],
       dataWhiteColor: ["2.82", "Fail", "Fail"],
       textColor: "ui.black",
     },
     {
       name: "dark.ui.status.primary",
+      dataBgPageColor: ["3.23", "Fail", "AA"],
+      dataBgDefaultColor: ["3.03", "Fail", "AA"],
       dataBlackColor: ["3.62", "Fail", "AA"],
       dataWhiteColor: ["5.80", "AA", "AAA"],
       textColor: "ui.white",
     },
     {
       name: "dark.ui.status.secondary",
+      dataBgPageColor: ["3.39", "Fail", "AA"],
+      dataBgDefaultColor: ["3.18", "Fail", "AA"],
       dataBlackColor: ["3.80", "Fail", "AA"],
       dataWhiteColor: ["5.52", "AA", "AAA"],
       textColor: "ui.white",
     },
     {
       name: "dark.ui.success.primary",
+      dataBgPageColor: ["1.48", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.39", "Fail", "Fail"],
       dataBlackColor: ["1.66", "Fail", "Fail"],
       dataWhiteColor: ["12.69", "AAA", "AAA"],
+      dataHeadingColor: ["10.45", "AAA", "AAA"],
+      dataTextColor: ["6.75", "AA", "AAA"],
       textColor: "ui.white",
     },
     {
       name: "dark.ui.success.secondary",
+      dataBgPageColor: ["1.20", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.13", "Fail", "Fail"],
       dataBlackColor: ["1.35", "Fail", "Fail"],
       dataWhiteColor: ["15.60", "AAA", "AAA"],
+      dataHeadingColor: ["12.85", "AAA", "AAA"],
+      dataTextColor: ["8.30", "AAA", "AAA"],
       textColor: "ui.white",
     },
     {
       name: "dark.ui.test",
+      dataBgPageColor: ["1.60", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.50", "Fail", "Fail"],
       dataBlackColor: ["1.79", "Fail", "Fail"],
       dataWhiteColor: ["11.71", "AAA", "AAA"],
+      dataHeadingColor: ["9.64", "AAA", "AAA"],
+      dataTextColor: ["6.23", "AA", "AAA"],
       textColor: "ui.white",
     },
     {
       colorSource: "ui.gray.light-cool",
       name: "dark.ui.typography.heading",
+      dataBgPageColor: ["15.43", "AAA", "AAA"],
+      dataBgDefaultColor: ["14.48", "AAA", "AAA"],
       dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
       textColor: colorContrastData.ui.gray.lightCool.textColor,
@@ -592,20 +620,30 @@ export const cssVars = {
     {
       colorSource: "ui.gray.medium",
       name: "dark.ui.typography.body",
+      dataBgPageColor: ["9.97", "AAA", "AAA"],
+      dataBgDefaultColor: ["9.36", "AAA", "AAA"],
       dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
       textColor: colorContrastData.ui.gray.medium.textColor,
     },
     {
       name: "dark.ui.warning.primary",
+      dataBgPageColor: ["1.59", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.49", "Fail", "Fail"],
       dataBlackColor: ["1.78", "Fail", "Fail"],
       dataWhiteColor: ["11.81", "AAA", "AAA"],
+      dataHeadingColor: ["9.73", "AAA", "AAA"],
+      dataTextColor: ["6.29", "AA", "AAA"],
       textColor: "ui.white",
     },
     {
       name: "dark.ui.warning.secondary",
+      dataBgPageColor: ["1.47", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.38", "Fail", "Fail"],
       dataBlackColor: ["1.65", "Fail", "Fail"],
       dataWhiteColor: ["12.75", "AAA", "AAA"],
+      dataHeadingColor: ["10.50", "AAA", "AAA"],
+      dataTextColor: ["6.79", "AA", "AAA"],
       textColor: "ui.white",
     },
   ],
@@ -614,6 +652,8 @@ export const cssVars = {
 export const makeColorCard = function (data) {
   const {
     colorSource,
+    dataBgPageColor,
+    dataBgDefaultColor,
     dataBlackColor,
     dataWhiteColor,
     dataHeadingColor,
@@ -624,6 +664,8 @@ export const makeColorCard = function (data) {
   const card = (
     <ColorCard
       backgroundColor={name}
+      dataBgPageColor={dataBgPageColor}
+      dataBgDefaultColor={dataBgDefaultColor}
       colorName={name}
       colorSource={colorSource}
       dataWhiteColor={dataWhiteColor}
@@ -661,7 +703,6 @@ export const getColorCards = (category) => {
   - [Utility Colors](#utility-colors)
   - [Grayscale Colors](#grayscale-colors)
 - [Dark Mode UI Fills](#dark-mode-ui-fills)
-  - [Utility Colors](#utility-colors)
 - [Figma Reference](#figma-reference)
 
 ## Overview
@@ -820,7 +861,10 @@ Grays are used for secondary body copy and non-semantic UI design.
 
 ## Dark Mode UI Fills
 
-### Utility Colors
+The following "dark mode" color fills are used for body copy and to communicate
+component and/or application state in dark mode.
+
+These colors are not connected to the NYPL brand, but are intended to be generic.
 
 <Canvas>
   <DSProvider>
