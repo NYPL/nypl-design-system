@@ -8,6 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.7 (July 29, 2022)
+
+### Updates
+
+- Updates border color in the `Description` variant of the `List` component.
+- Updates how options are passed to the `SearchBar` component for its internal `Select` component.
+- Updates how style props are passed to the `Link` component when using with third-party libraries, such as React Router.
+- Updates the layout of the `Image` in the `Hero` "secondary" and "fiftyFifty" variants for mobile and desktop.
+
+## 1.0.6 (July 21, 2022)
+
+### Adds
+
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
+
 ### Updates
 
 - Updates the following components to use React's `forwardRef` wrapper function to pass along refs to the correct DOM element. This is for third-party packages and components such as Chakra's `Tooltip` to work correctly.
@@ -16,12 +31,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
 - Updates the `Icon` component to include variants for `Warning` (filled and oultine).
 
+### Removes
+
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
+
 ## 1.0.5 (July 7, 2022)
 
 ### Adds
 
 - Exports `ColorCard`.
-- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
 
 ### Updates
 
@@ -29,10 +47,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
 - Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
 - Updates Storybook packages.
-
-### Removes
-
-- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
 
 ### Fixes
 
