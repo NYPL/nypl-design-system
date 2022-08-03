@@ -27,6 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
     accordionData: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
+    panelMaxHeight: { control: false },
   }}
 />
 
@@ -151,7 +152,7 @@ export const accordionData = [
 - Deviates from USWDS in that the user can open multiple panels. Opening one,
   does not collapse already expanded panel.
 - The open and close icons are decorative (`aria-hidden` is `true`).
-- Visible focus goes around full button and full button is clickable
+- Visible focus goes around full button and full button is clickable.
 
 Resources:
 

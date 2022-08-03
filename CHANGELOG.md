@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and
+  displays a scrollbar if content exceeds it.
+
 ## 1.0.7 (July 29, 2022)
 
 ### Updates
