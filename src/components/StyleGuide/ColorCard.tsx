@@ -23,7 +23,7 @@ export interface DataTableProps {
   dataHeadingColor?: string[];
   /** Contrast and WCAG compliance data related to the default color for basic
    * text elements when used with the current color. */
-  dataTextColor?: string[];
+  dataBodyColor?: string[];
   /** Contrast and WCAG compliance data related to the color white when used
    * with the current color. */
   dataWhiteColor: string[];
@@ -46,7 +46,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBgDefaultColor,
     dataBlackColor = ["--", "--", "--"],
     dataHeadingColor,
-    dataTextColor,
+    dataBodyColor,
     dataWhiteColor = ["--", "--", "--"],
     textColor = "ui.white",
   } = props;
@@ -95,9 +95,9 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const headingLargeTextSuccess =
     dataHeadingColor && successfulContrast(dataHeadingColor, "large");
   const textSmallTextSuccess =
-    dataTextColor && successfulContrast(dataTextColor);
+    dataBodyColor && successfulContrast(dataBodyColor);
   const textLargeTextSuccess =
-    dataTextColor && successfulContrast(dataTextColor, "large");
+    dataBodyColor && successfulContrast(dataBodyColor, "large");
   // All ColorCards have these two rows.
   const tableData = [
     [
@@ -205,18 +205,18 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ]);
   }
-  if (dataTextColor && dataTextColor.length > 0) {
+  if (dataBodyColor && dataBodyColor.length > 0) {
     tableData.push([
       <span key="colorText" style={{ color: grayMedium, padding: 0 }}>
-        text
+        body
       </span>,
-      `${dataTextColor[0]}:1`,
+      `${dataBodyColor[0]}:1`,
       <>
-        {dataTextColor[1]}
+        {dataBodyColor[1]}
         {textSmallTextSuccess}
       </>,
       <>
-        {dataTextColor[2]}
+        {dataBodyColor[2]}
         {textLargeTextSuccess}
       </>,
     ]);
@@ -242,7 +242,7 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     colorSource,
     dataBlackColor = ["--", "--", "--"],
     dataHeadingColor,
-    dataTextColor,
+    dataBodyColor,
     dataWhiteColor = ["--", "--", "--"],
     textColor = "ui.white",
   } = props;
@@ -270,7 +270,7 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           </Text>
           {colorSource && (
             <Text fontWeight="medium" noSpace size="tag">
-              Base: {colorSource}
+              Source: {colorSource}
             </Text>
           )}
         </Box>
@@ -279,7 +279,7 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           dataBgDefaultColor={dataBgDefaultColor}
           dataBlackColor={dataBlackColor}
           dataHeadingColor={dataHeadingColor}
-          dataTextColor={dataTextColor}
+          dataBodyColor={dataBodyColor}
           dataWhiteColor={dataWhiteColor}
           textColor={textColor}
         />
