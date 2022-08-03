@@ -35,7 +35,6 @@ const TemplateContent = {
   baseStyle: {
     display: "grid",
     gridTemplateColumns: "1fr",
-    marginY: "page.hstack",
     paddingY: 0,
     paddingX: "s",
     gap: "grid.l",
@@ -55,13 +54,9 @@ const TemplateContentTop = {
   baseStyle: {
     gridColumn: { base: "1", md: "1 / span 2" },
     height: "100%",
-    marginBottom: "page.hstack",
   },
 };
 const TemplateContentPrimary = {
-  baseStyle: {
-    marginBottom: "page.hstack",
-  },
   variants: {
     left: {
       gridColumn: { base: "1", md: "2" },
@@ -71,9 +66,6 @@ const TemplateContentPrimary = {
   },
 };
 const TemplateContentSidebar = {
-  baseStyle: {
-    marginBottom: "page.hstack",
-  },
   variants: {
     left: {
       gridColumn: "1",
