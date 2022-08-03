@@ -1,4 +1,4 @@
-import { headerBlue, headerFocusColor, headerRed } from "./header";
+import { headerBlack, headerBlue, headerFocusColor, headerRed } from "./header";
 
 const loginFocus = () => ({
   boxShadow: { base: null, md: `1px 1px 2px 2px ${headerFocusColor}` },
@@ -10,7 +10,7 @@ const loginFocus = () => ({
 const HeaderLogin = {
   parts: ["logoutButton", "patronGreeting"],
   baseStyle: ({ patronName }) => ({
-    bg: { base: "ui.black", md: headerBlue },
+    bg: { base: headerBlack, md: headerBlue },
     boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
     display: { base: "block", md: "flex" },
     flexDirection: "column",

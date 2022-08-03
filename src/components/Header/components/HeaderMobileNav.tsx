@@ -109,7 +109,7 @@ const HeaderMobileNav = chakra(() => {
           gridColumn="1 / span 2"
           onClick={() => gaUtils.trackEvent("Donate", "Mobile Buttons Donate")}
         >
-          {upperNavLinks.donate.text}
+          {upperNavLinks.donate.text.toUpperCase()}
         </Link>
       </SimpleGrid>
     </Box>

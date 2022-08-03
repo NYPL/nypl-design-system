@@ -1,9 +1,9 @@
-import { headerFocus } from "./header";
+import { headerBlack, headerFocus } from "./header";
 
 const HeaderMobileNavButton = {
   baseStyle: ({ isOpen }) => ({
     alignItems: "center",
-    backgroundColor: isOpen ? "ui.black" : "transparent",
+    backgroundColor: isOpen ? headerBlack : "transparent",
     border: "none",
     borderRadius: "0",
     svg: {
@@ -11,7 +11,7 @@ const HeaderMobileNavButton = {
       marginLeft: "0",
     },
     _hover: {
-      backgroundColor: isOpen ? "ui.black" : "transparent",
+      backgroundColor: isOpen ? headerBlack : "transparent",
       svg: {
         fill: isOpen ? "ui.white" : "ui.black",
       },

@@ -1,3 +1,4 @@
+export const headerBlack = "#2b2b2b";
 export const headerBlue = "#1B7FA7";
 export const headerDarkBlue = "#135772";
 export const headerFocusColor = "#0F465C";
@@ -11,7 +12,7 @@ export const headerFocus = {
   outlineColor: `${headerDarkBlue} !important`,
   outlineOffset: "0 !important",
   outlineStyle: "solid !important",
-  outlineWidth: "0.1875em !important",
+  outlineWidth: "0.25em !important",
 };
 
 const Header = {
@@ -28,10 +29,11 @@ const Header = {
       marginTop: "0",
     },
     logo: {
-      padding: "0 10px",
+      padding: { base: "0 10px", md: "0" },
       svg: {
-        height: { base: "40px", lg: "auto" },
-        marginTop: { base: "10px", md: null },
+        height: { base: "40px", md: "auto" },
+        width: { md: "80px", lg: "220px" },
+        marginTop: { base: "10px", md: "-30px" },
       },
       _focus: headerFocus,
     },

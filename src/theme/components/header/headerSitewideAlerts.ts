@@ -4,7 +4,10 @@ const SitewideAlerts = {
   baseStyle: {
     backgroundColor: headerYellow,
     borderBottom: { base: "1px solid", md: "none" },
+    fontSize: "text.default",
+    lineHeight: "1.3rem",
     minHeight: { base: "85px", md: "65px" },
+    paddingX: "s",
     ul: {
       marginBottom: "0",
       // Target any anchor and paragraph HTML passed in from
