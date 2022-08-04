@@ -208,6 +208,9 @@ Note: If you need to render the `SkipNavigation` component, you need to explicit
 render it immediately before the `TemplateAboveHeader` component. This is done
 automatically in the `TemplateAppContainer` component.
 
+Note: All components that go above the main content `TemplateContent` component
+should be wrapped in a `<div>` element or a `<Box>` component.
+
 Basic "template" components structure:
 
 ```
@@ -225,16 +228,18 @@ import {
 
 
 <Template>
-  <SkipNavigation />
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
-    <TemplateBreakout>
+  <Box>
+    <SkipNavigation />
+    <TemplateAboveHeader>
       // ...
-    </TemplateBreakout>
-  </TemplateHeader>
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+      <TemplateBreakout>
+        // ...
+      </TemplateBreakout>
+    </TemplateHeader>
+  </Box>
 
   <TemplateContent sidebar="...">
     <TemplateContentTop>
@@ -274,17 +279,19 @@ import {
   >
     {(args) => (
       <Template>
-        <SkipNavigation />
-        <TemplateAboveHeader>
-          <Placeholder variant="short">Above Header</Placeholder>
-        </TemplateAboveHeader>
-        <TemplateHeader>
-          <Placeholder variant="short">NYPL Header</Placeholder>
-          <TemplateBreakout>
-            <Placeholder variant="short">Breadcrumbs</Placeholder>
-            <Placeholder variant="short">Hero</Placeholder>
-          </TemplateBreakout>
-        </TemplateHeader>
+        <Box>
+          <SkipNavigation />
+          <TemplateAboveHeader>
+            <Placeholder variant="short">Above Header</Placeholder>
+          </TemplateAboveHeader>
+          <TemplateHeader>
+            <Placeholder variant="short">NYPL Header</Placeholder>
+            <TemplateBreakout>
+              <Placeholder variant="short">Breadcrumbs</Placeholder>
+              <Placeholder variant="short">Hero</Placeholder>
+            </TemplateBreakout>
+          </TemplateHeader>
+        </Box>
         <TemplateContent sidebar={args.sidebar}>
           <TemplateContentTop>
             <Placeholder>Content Top</Placeholder>
@@ -342,10 +349,12 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-<Template>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+  </Box>
+</Template>
 ```
 
 <Description of={TemplateAboveHeader} />
@@ -354,13 +363,15 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
-  </TemplateHeader>
-<Template>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </Box>
+</Template>
 ```
 
 <Description of={TemplateHeader} />
@@ -369,15 +380,17 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    <TemplateBreakout>
+  <Box>
+    <TemplateAboveHeader>
       // ...
-    </TemplateBreakout>
-  </TemplateHeader>
-<Template>
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      <TemplateBreakout>
+        // ...
+      </TemplateBreakout>
+    </TemplateHeader>
+  </Box>
+</Template>
 ```
 
 <Description of={TemplateBreakout} />
@@ -386,11 +399,13 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateHeader>...</TemplateHeader>
+  <Box>
+    <TemplateHeader>...</TemplateHeader>
+  </Box>
   <TemplateContent id="mainContent" sidebar="left">
     // ...
   </TemplateContent>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateContent} />
@@ -399,16 +414,18 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>...</TemplateHeader>
+  </Box>
   <TemplateContent>
     <TemplateContentTop>
       // ...
     </TemplateContent>
   </TemplateContent>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateContentTop} />
@@ -435,10 +452,12 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>...</TemplateHeader>
+  </Box>
   <TemplateContent sidebar="right">
     <TemplateContentPrimary>
       // ...
@@ -447,13 +466,15 @@ The components consist of:
       // RIGHT SIDEBAR
     </TemplateContentSidebar>
   </TemplateContent>
-<Template>
+</Template>
 
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>...</TemplateHeader>
+  </Box>
   <TemplateContent sidebar="left">
     <TemplateContentSidebar>
       // LEFT SIDEBAR
@@ -471,19 +492,21 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
-  </TemplateHeader>
+  <Box>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </Box>
   <TemplateContent sidebar="right">
     //...
   </TemplateContent>
   <TemplateFooter>
     // ...
   </TemplateFooter>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateFooter} />
@@ -536,48 +559,50 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 <Canvas>
   <Story name="Full Example with Template Children Components">
     <Template>
-      <SkipNavigation />
-      <TemplateAboveHeader>
-        <Notification
-          noMargin
-          notificationHeading="Standard Notification"
-          notificationContent={
-            <>
-              This is an "announcement" Notification with a heading. Cras mattis
-              consectetur purus sit amet fermentum. Maecenas faucibus mollis
-              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Cum sociis natoque penatibus et magnis dis parturient
-              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
-              laoreet rutrum faucibus dolor auctor.
-            </>
-          }
-          showIcon={false}
-        />
-      </TemplateAboveHeader>
-      <TemplateHeader>
-        <TemplateBreakout>
-          <Breadcrumbs
-            breadcrumbsData={[
-              { url: "#", text: "Home" },
-              { url: "#", text: "Research" },
-              {
-                url: "#",
-                text: "Catalog",
-              },
-            ]}
+      <Box>
+        <SkipNavigation />
+        <TemplateAboveHeader>
+          <Notification
+            noMargin
+            notificationHeading="Standard Notification"
+            notificationContent={
+              <>
+                This is an "announcement" Notification with a heading. Cras
+                mattis consectetur purus sit amet fermentum. Maecenas faucibus
+                mollis interdum. Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Vivamus sagittis
+                lacus vel augue laoreet rutrum faucibus dolor auctor.
+              </>
+            }
+            showIcon={false}
           />
-          <Hero
-            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            heroType="campaign"
-            heading={<Heading level="one" id="1" text="Hero Campaign" />}
-            imageProps={{
-              alt: "Image example",
-              src: "https://placeimg.com/800/400/animals",
-            }}
-            subHeaderText={otherSubHeaderText}
-          />
-        </TemplateBreakout>
-      </TemplateHeader>
+        </TemplateAboveHeader>
+        <TemplateHeader>
+          <TemplateBreakout>
+            <Breadcrumbs
+              breadcrumbsData={[
+                { url: "#", text: "Home" },
+                { url: "#", text: "Research" },
+                {
+                  url: "#",
+                  text: "Catalog",
+                },
+              ]}
+            />
+            <Hero
+              backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+              heroType="campaign"
+              heading={<Heading level="one" id="1" text="Hero Campaign" />}
+              imageProps={{
+                alt: "Image example",
+                src: "https://placeimg.com/800/400/animals",
+              }}
+              subHeaderText={otherSubHeaderText}
+            />
+          </TemplateBreakout>
+        </TemplateHeader>
+      </Box>
       <TemplateContent sidebar="right">
         <TemplateContentTop>
           <Notification
