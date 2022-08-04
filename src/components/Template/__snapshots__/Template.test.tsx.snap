@@ -93,34 +93,38 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder--short"
-    >
-      Above Header
-    </div>
-  </div>
-  <header
-    className="css-0"
-  >
-    <div
-      className="placeholder placeholder--short"
-    >
-      NYPL Header
-    </div>
-    <div
       className="css-0"
     >
       <div
         className="placeholder placeholder--short"
       >
-        Breadcrumbs
+        Above Header
       </div>
+    </div>
+    <header
+      className="css-0"
+    >
       <div
         className="placeholder placeholder--short"
       >
-        Hero
+        NYPL Header
       </div>
-    </div>
-  </header>
+      <div
+        className="css-0"
+      >
+        <div
+          className="placeholder placeholder--short"
+        >
+          Breadcrumbs
+        </div>
+        <div
+          className="placeholder placeholder--short"
+        >
+          Hero
+        </div>
+      </div>
+    </header>
+  </div>
   <main
     className="css-0"
     id="mainContent"
@@ -178,34 +182,38 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder--short"
-    >
-      Above Header
-    </div>
-  </div>
-  <header
-    className="css-0"
-  >
-    <div
-      className="placeholder placeholder--short"
-    >
-      NYPL Header
-    </div>
-    <div
       className="css-0"
     >
       <div
         className="placeholder placeholder--short"
       >
-        Breadcrumbs
+        Above Header
       </div>
+    </div>
+    <header
+      className="css-0"
+    >
       <div
         className="placeholder placeholder--short"
       >
-        Hero
+        NYPL Header
       </div>
-    </div>
-  </header>
+      <div
+        className="css-0"
+      >
+        <div
+          className="placeholder placeholder--short"
+        >
+          Breadcrumbs
+        </div>
+        <div
+          className="placeholder placeholder--short"
+        >
+          Hero
+        </div>
+      </div>
+    </header>
+  </div>
   <main
     className="css-0"
     id="mainContent"
@@ -264,34 +272,38 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder--short"
-    >
-      Above Header
-    </div>
-  </div>
-  <header
-    className="css-0"
-  >
-    <div
-      className="placeholder placeholder--short"
-    >
-      NYPL Header
-    </div>
-    <div
       className="css-0"
     >
       <div
         className="placeholder placeholder--short"
       >
-        Breadcrumbs
+        Above Header
       </div>
+    </div>
+    <header
+      className="css-0"
+    >
       <div
         className="placeholder placeholder--short"
       >
-        Hero
+        NYPL Header
       </div>
-    </div>
-  </header>
+      <div
+        className="css-0"
+      >
+        <div
+          className="placeholder placeholder--short"
+        >
+          Breadcrumbs
+        </div>
+        <div
+          className="placeholder placeholder--short"
+        >
+          Hero
+        </div>
+      </div>
+    </header>
+  </div>
   <main
     className="css-0"
     id="mainContent"

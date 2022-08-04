@@ -294,14 +294,16 @@ export const TemplateAppContainer = chakra(
     );
     return (
       <Template ref={ref} {...rest}>
-        {renderSkipNavigation ? <SkipNavigation /> : null}
-        {aboveHeaderElem}
-        {(header || breakoutElem) && (
-          <TemplateHeader renderHeaderElement={renderHeaderElement}>
-            {header}
-            {breakoutElem}
-          </TemplateHeader>
-        )}
+        <Box>
+          {renderSkipNavigation ? <SkipNavigation /> : null}
+          {aboveHeaderElem}
+          {(header || breakoutElem) && (
+            <TemplateHeader renderHeaderElement={renderHeaderElement}>
+              {header}
+              {breakoutElem}
+            </TemplateHeader>
+          )}
+        </Box>
         {/* Note that setting `sidebar` as a prop here affects the
        TemplateContentSidebar and TemplateContentPrimary components. */}
         <TemplateContent id={contentId} sidebar={sidebar}>

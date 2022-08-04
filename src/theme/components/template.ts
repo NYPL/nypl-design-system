@@ -22,6 +22,7 @@ const Template = {
     "> *": {
       gridColumn: "2",
     },
+    rowGap: "grid.l",
   },
   sizes: {},
   defaultProps: {},
