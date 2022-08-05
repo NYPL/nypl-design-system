@@ -5,7 +5,8 @@ const SitewideAlerts = {
     backgroundColor: headerYellow,
     borderBottom: { base: "1px solid", md: "none" },
     fontSize: "text.default",
-    lineHeight: "1.3rem",
+    fontWeight: "regular",
+    lineHeight: "1.1rem",
     minHeight: { base: "85px", md: "65px" },
     paddingX: "s",
     ul: {

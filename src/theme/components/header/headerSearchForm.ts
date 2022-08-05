@@ -78,6 +78,15 @@ const HeaderSearchForm = {
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: { ...headerFocus, borderRadius: "100px" },
     },
+    // Specifically target the radio buttons.
+    ".chakra-radio": {
+      alignItems: "center",
+    },
+    // Specifically target the radio labels.
+    ".chakra-radio__label": {
+      fontSize: "18px",
+      fontWeight: "medium",
+    },
     mobileBtns: {
       alignItems: "center",
       backgroundColor: headerBlue,

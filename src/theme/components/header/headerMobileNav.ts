@@ -31,6 +31,7 @@ const HeaderMobileNav = {
       a: {
         color: "ui.white",
         fontSize: "18px",
+        fontWeight: "medium",
         textDecoration: "none",
         _hover: {
           color: "ui.white",
@@ -46,6 +47,7 @@ const HeaderMobileNav = {
         alignItems: "center",
         color: "white",
         display: "flex",
+        fontWeight: "medium",
         justifyContent: "center",
         textDecoration: "none",
         paddingY: "27px",
