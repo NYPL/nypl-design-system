@@ -66,7 +66,7 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant={"listbox"}
+            variant="listbox"
             label={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
@@ -91,7 +91,7 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant={"listbox"}
+            variant="listbox"
             label={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
@@ -101,6 +101,7 @@ describe("MulitSelectGroup Accessibility", () => {
         ))}
       </MultiSelectGroup>
     );
+    expect(screen.getByText("MultiSelectGroup example")).toBeInTheDocument();
     expect(screen.getByTestId("multi-select-group")).not.toHaveAttribute(
       "aria-label",
       "MultiSelectGroup example"
@@ -117,7 +118,7 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant={"listbox"}
+            variant="listbox"
             label={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
@@ -163,7 +164,7 @@ describe("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
-              variant={"dialog"}
+              variant="dialog"
               label={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}
@@ -188,7 +189,7 @@ describe("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
-              variant={"dialog"}
+              variant="dialog"
               label={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}

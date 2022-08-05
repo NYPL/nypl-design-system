@@ -1,7 +1,7 @@
 import React, { useRef, useState, forwardRef } from "react";
-import { chakra } from "@chakra-ui/react";
 import {
   Box,
+  chakra,
   ListItem,
   UnorderedList,
   useMultiStyleConfig,

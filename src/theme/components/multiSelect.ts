@@ -27,7 +27,7 @@ const MultiSelect = {
     "menuContainer",
     "menuChildren",
   ],
-  baseStyle: ({ isBlockElement, isOpen, width }) => ({
+  baseStyle: ({ isBlockElement, isOpen, width = "default" }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     actionButtons: {

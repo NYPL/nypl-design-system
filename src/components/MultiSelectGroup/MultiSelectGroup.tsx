@@ -86,8 +86,8 @@ export const MultiSelectGroup = chakra(
           <Stack
             id={id}
             ref={ref}
-            data-testId="multi-select-group"
-            {...(!showLabel && { "aria-label": labelText })}
+            data-testid="multi-select-group"
+            aria-label={!showLabel ? labelText : undefined}
             className={className}
             direction={finalLayout}
             spacing="xs"

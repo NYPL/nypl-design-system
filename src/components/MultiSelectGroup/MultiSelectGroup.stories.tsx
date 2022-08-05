@@ -1,5 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
+import { VStack } from "@chakra-ui/react";
 
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
@@ -224,7 +225,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
     setSelectedItems(newSelectedItems);
   }
   return (
-    <>
+    <VStack align="start" gap="grid.m">
       <MultiSelectGroup
         showLabel={true}
         multiSelectWidth="fitContent"
@@ -256,7 +257,6 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             />
           ))}
       </MultiSelectGroup>
-      <br />
       <MultiSelectGroup
         showLabel={true}
         id="column"
@@ -290,6 +290,6 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             />
           ))}
       </MultiSelectGroup>
-    </>
+    </VStack>
   );
 };

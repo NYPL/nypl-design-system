@@ -10,7 +10,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
   </legend>
   <div
     className="chakra-stack css-6dfzd0"
-    data-testId="multi-select-group"
+    data-testid="multi-select-group"
     id="MultiSelectGroup"
   >
     <div
@@ -367,7 +367,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
   <div
     aria-label="MultiSelectGroup example"
     className="chakra-stack css-6dfzd0"
-    data-testId="multi-select-group"
+    data-testid="multi-select-group"
     id="MultiSelectGroup"
   >
     <div

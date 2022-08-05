@@ -27,22 +27,18 @@ import * as stories from "./MultiSelectGroup.stories";
     className: { control: false },
     id: { control: false },
     isBlockElement: {
-      defaultValue: undefined,
       control: "radio",
       options: [true, false, undefined],
-      tabel: { defaultValue: { summary: undefined } },
+      table: { defaultValue: { summary: undefined } },
     },
     layout: {
-      defaultValue: "row",
       table: { defaultValue: { summary: "row" } },
     },
     showLabel: {
-      defaultValue: true,
-      tabel: { defaultValue: { summary: true } },
+      table: { defaultValue: { summary: true } },
     },
     multiSelectWidth: {
-      defaultValue: "default",
-      tabel: { defaultValue: { summary: "default" } },
+      table: { defaultValue: { summary: "default" } },
     },
   }}
 />
@@ -51,8 +47,8 @@ import * as stories from "./MultiSelectGroup.stories";
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
-| Added             | `1.0.1`    |
-| Latest            | `1.0.1`    |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
 
 ## Table of Contents
 
@@ -85,13 +81,14 @@ import * as stories from "./MultiSelectGroup.stories";
 
 The `MultiSelectGroup` renders a group of `MultiSelect` components that are wrapped in
 a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
-can be visually hidden through the `showLabel` prop. If the `<legend>` is hidden the `aria-label`
-attribute will be added to the `MultiSelectGroup` component.
+can be visually hidden through the `showLabel` prop. If the `<legend>` is hidden an `aria-label`
+attribute with `label` value will be rendered instead.
 For accessibility information on the `MultiSelect` component, see the [MultiSelect Accessibility](https://nypl-design-system-vvscfj2pn-nypl.vercel.app/?path=/docs/components-form-elements-multiselect--multi-select-list-box) documentation.
 
 ## Layout Patterns
 
-The width of the MultiSelect components can be passed through the `multiSelectWidth` prop.
+The width of the MultiSelect components can be passed through the `multiSelectWidth`
+prop, with values of `"default"`, `"fitContent"`, and `"full"`.
 On screen width under 600px width the `layout` is automatically set to "column" and the `multiSelectWidth` to "full".
 
 <Canvas>
