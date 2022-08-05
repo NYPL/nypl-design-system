@@ -16,8 +16,9 @@ interface FooterProps {
 }
 
 /**
- * NYPL `Footer` component with necessary links to NYPL.org pages and NYPL
- * social media accounts.
+ * This `Footer` component renders the NYPL-branded footer elements such
+ * as navigational NYPL.org links, social media links, copyright, and
+ * NYPL building facade image.
  */
 export const Footer = chakra(
   forwardRef<HTMLDivElement, FooterProps>(
