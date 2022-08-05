@@ -3,18 +3,19 @@ import { Meta } from "@storybook/addon-docs";
 import Card from "../Card/Card";
 import List from "../List/List";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Forms")} />
 
 # Forms
 
-| Table of Contents                                  |
-| -------------------------------------------------- |
-| 1. [General Information](#general-information)     |
-| 2. [Form Input Components](#form-input-components) |
-| 3. [Input Labelling](#input-labelling)             |
-| 4. [Input States](#input-states)                   |
-| 5. [Figma Reference](#figma-reference)             |
+## Table of Contents
+
+- [General Information](#general-information)
+- [Form Input Components](#form-input-components)
+- [Input Labelling](#input-labelling)
+- [Input States](#input-states)
+- [Figma Reference](#figma-reference)
 
 ## General Information
 
@@ -92,3 +93,7 @@ All form input fields offer styling for the following states:
 For additional spacing information, please refer to the Figma Main file.
 
 - [General Forms Page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A2768)
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider></DSProvider>
