@@ -10,7 +10,7 @@ const HeaderLoginButton = {
     borderRadius: "none",
     color: isOpen ? "ui.white" : "ui.black",
     fontSize: "13px",
-    fontWeight: 600,
+    fontWeight: 700,
     minHeight: { md: "auto" },
     padding: { md: "4px 10px" },
     svg: {

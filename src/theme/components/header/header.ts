@@ -18,7 +18,7 @@ export const headerFocus = {
 const Header = {
   parts: ["container", "horizontalRule", "logo"],
   baseStyle: {
-    fontFamily: "'system ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
     container: {
       marginX: { md: "20px", xl: "auto" },
       maxWidth: "1300px",
