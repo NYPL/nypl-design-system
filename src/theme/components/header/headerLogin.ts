@@ -11,7 +11,7 @@ const HeaderLogin = {
   parts: ["logoutButton", "patronGreeting"],
   baseStyle: ({ patronName }) => ({
     bg: { base: headerBlack, md: headerBlue },
-    boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
+    boxShadow: { base: "2px 2px 3px 4px rgb(100 100 100 / 25%)", md: "none" },
     display: { base: "block", md: "flex" },
     flexDirection: "column",
     left: { base: "0", md: null },
