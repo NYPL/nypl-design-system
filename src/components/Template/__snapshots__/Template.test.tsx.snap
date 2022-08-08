@@ -110,18 +110,14 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
         NYPL Header
       </div>
       <div
-        className="css-0"
+        className="placeholder placeholder--short"
       >
-        <div
-          className="placeholder placeholder--short"
-        >
-          Breadcrumbs
-        </div>
-        <div
-          className="placeholder placeholder--short"
-        >
-          Hero
-        </div>
+        Breadcrumbs
+      </div>
+      <div
+        className="placeholder placeholder--short"
+      >
+        Hero
       </div>
     </header>
   </div>
@@ -199,18 +195,14 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
         NYPL Header
       </div>
       <div
-        className="css-0"
+        className="placeholder placeholder--short"
       >
-        <div
-          className="placeholder placeholder--short"
-        >
-          Breadcrumbs
-        </div>
-        <div
-          className="placeholder placeholder--short"
-        >
-          Hero
-        </div>
+        Breadcrumbs
+      </div>
+      <div
+        className="placeholder placeholder--short"
+      >
+        Hero
       </div>
     </header>
   </div>
@@ -289,18 +281,14 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
         NYPL Header
       </div>
       <div
-        className="css-0"
+        className="placeholder placeholder--short"
       >
-        <div
-          className="placeholder placeholder--short"
-        >
-          Breadcrumbs
-        </div>
-        <div
-          className="placeholder placeholder--short"
-        >
-          Hero
-        </div>
+        Breadcrumbs
+      </div>
+      <div
+        className="placeholder placeholder--short"
+      >
+        Hero
       </div>
     </header>
   </div>
