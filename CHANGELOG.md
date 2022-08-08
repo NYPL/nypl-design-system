@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
+
 ## 1.0.7 (July 29, 2022)
 
 ### Updates
