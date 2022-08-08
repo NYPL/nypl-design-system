@@ -1,16 +1,16 @@
-import { headerDarkBlue, headerFocus } from "./header";
+import { headerBlack, headerDarkBlue, headerFocus } from "./header";
 
 const HeaderLoginButton = {
   baseStyle: ({ isOpen }) => ({
     alignItems: { base: "center" },
     bg: {
-      base: isOpen ? "ui.black" : "ui.white",
+      base: isOpen ? headerBlack : "ui.white",
       md: isOpen ? headerDarkBlue : "ui.white",
     },
     borderRadius: "none",
     color: isOpen ? "ui.white" : "ui.black",
     fontSize: "13px",
-    fontWeight: 600,
+    fontWeight: 700,
     minHeight: { md: "auto" },
     padding: { md: "4px 10px" },
     svg: {
@@ -22,7 +22,7 @@ const HeaderLoginButton = {
     textTransform: "inherit",
     _hover: {
       backgroundColor: {
-        base: isOpen ? "ui.black" : "transparent",
+        base: isOpen ? headerBlack : "transparent",
         md: isOpen ? headerDarkBlue : "transparent",
       },
       color: isOpen ? "ui.white" : "initial",

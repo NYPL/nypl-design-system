@@ -12,13 +12,13 @@ const HeaderLowerNav = {
     ul: {
       alignItems: "center",
       fontSize: "1",
-      marginBottom: "0",
+      marginBottom: "xxs",
       marginLeft: "auto",
       whiteSpace: "nowrap",
     },
     li: {
       letterSpacing: ".02em",
-      marginLeft: "xxs",
+      marginLeft: "xs",
     },
     "li > a": {
       color: "ui.black",

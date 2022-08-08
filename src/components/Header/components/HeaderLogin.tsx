@@ -63,6 +63,11 @@ const HeaderLogin = chakra(
                 name="legacyAccountUnfilled"
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
+                sx={
+                  isMobile
+                    ? { height: "1.6rem", width: "1.5rem" }
+                    : { width: "1.3rem", height: "1.4rem" }
+                }
               />
               <span>
                 {patronName ? "Go To The Catalog" : "Log Into The Catalog"}
@@ -80,6 +85,7 @@ const HeaderLogin = chakra(
                 name="building"
                 size={isMobile ? "xlarge" : "medium"}
                 title="Log in to your account"
+                sx={isMobile ? {} : { width: "1.6rem", height: "1.6rem" }}
               />
               <span>
                 {patronName

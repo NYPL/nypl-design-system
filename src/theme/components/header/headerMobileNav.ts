@@ -1,4 +1,4 @@
-import { headerFocus, headerRedDonate } from "./header";
+import { headerBlack, headerFocus, headerRedDonate } from "./header";
 
 const mobileLinkFocus = {
   ...headerFocus,
@@ -8,7 +8,7 @@ const mobileLinkFocus = {
 const HeaderMobileNav = {
   parts: ["bottomLinks", "sideNav"],
   baseStyle: () => ({
-    backgroundColor: "ui.black",
+    backgroundColor: headerBlack,
     color: "ui.white",
     left: "0px",
     minHeight: "540px",
@@ -31,6 +31,7 @@ const HeaderMobileNav = {
       a: {
         color: "ui.white",
         fontSize: "18px",
+        fontWeight: "medium",
         textDecoration: "none",
         _hover: {
           color: "ui.white",
@@ -46,12 +47,13 @@ const HeaderMobileNav = {
         alignItems: "center",
         color: "white",
         display: "flex",
+        fontWeight: "medium",
         justifyContent: "center",
         textDecoration: "none",
         paddingY: "27px",
         paddingLeft: "15px",
         svg: {
-          marginRight: "s",
+          marginRight: "xs",
         },
         _hover: {
           color: "ui.white",

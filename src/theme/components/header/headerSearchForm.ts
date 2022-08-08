@@ -22,23 +22,28 @@ const HeaderSearchForm = {
       marginTop: "0",
     },
     form: {
-      margin: { base: "0", md: "45px 50px 40px 120px" },
+      margin: { md: "45px auto 40px auto" },
+      maxWidth: { md: "1312px" },
       whiteSpace: "initial",
+      "> div": {
+        marginLeft: { md: "m", lg: "140px" },
+        marginRight: { md: "m" },
+      },
     },
     fieldset: {
       margin: { base: "20px 15px 0", md: "0" },
     },
     textInput: {
       label: {
-        fontSize: { md: "16px" },
+        fontSize: { md: "18px" },
       },
       input: {
         borderRadius: { md: "5px" },
         color: "ui.black",
-        minHeight: { base: "65px" },
+        minHeight: { base: "65px", md: "60px" },
         paddingLeft: { base: "25px", md: "15px" },
         _placeholder: {
-          fontSize: { base: "18px" },
+          fontSize: { base: "20px" },
           fontStyle: "normal",
         },
         _focus: headerFocus,
@@ -56,7 +61,7 @@ const HeaderSearchForm = {
       alignSelf: "end",
       backgroundColor: "transparent",
       borderRadius: "100px",
-      borderWidth: "3px",
+      borderWidth: "2px",
       height: "75px",
       maxHeight: "75px",
       width: "75px",
@@ -72,6 +77,15 @@ const HeaderSearchForm = {
       border: "1px solid white",
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: { ...headerFocus, borderRadius: "100px" },
+    },
+    // Specifically target the radio buttons.
+    ".chakra-radio": {
+      alignItems: "center",
+    },
+    // Specifically target the radio labels.
+    ".chakra-radio__label": {
+      fontSize: "18px",
+      fontWeight: "medium",
     },
     mobileBtns: {
       alignItems: "center",

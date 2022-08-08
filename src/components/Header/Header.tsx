@@ -128,7 +128,7 @@ export const Header = chakra(
               >
                 <Logo
                   name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
-                  size={isLargerThanMobile ? "medium" : "small"}
+                  size={isLargerThanMobile ? "large" : "small"}
                   title="NYPL Header Logo"
                 />
               </Link>
@@ -136,7 +136,7 @@ export const Header = chakra(
               {isLargerThanMobile ? (
                 <VStack
                   alignItems="end"
-                  spacing={isLargerThanLarge ? "75px" : "50px"}
+                  spacing={isLargerThanLarge ? "85px" : "40px"}
                 >
                   <HeaderUpperNav />
                   <HeaderLowerNav />

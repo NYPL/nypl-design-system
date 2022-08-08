@@ -1,4 +1,4 @@
-import { headerBlue, headerFocusColor, headerRed } from "./header";
+import { headerBlack, headerBlue, headerFocusColor, headerRed } from "./header";
 
 const loginFocus = () => ({
   boxShadow: { base: null, md: `1px 1px 2px 2px ${headerFocusColor}` },
@@ -10,8 +10,8 @@ const loginFocus = () => ({
 const HeaderLogin = {
   parts: ["logoutButton", "patronGreeting"],
   baseStyle: ({ patronName }) => ({
-    bg: { base: "ui.black", md: headerBlue },
-    boxShadow: "2px 2px 3px 4px rgb(100 100 100 / 25%)",
+    bg: { base: headerBlack, md: headerBlue },
+    boxShadow: { base: "2px 2px 3px 4px rgb(100 100 100 / 25%)", md: "none" },
     display: { base: "block", md: "flex" },
     flexDirection: "column",
     left: { base: "0", md: null },
@@ -53,11 +53,10 @@ const HeaderLogin = {
       color: "ui.white",
       display: "flex",
       fontSize: "14px",
-      fontWeight: "regular",
+      fontWeight: "medium",
       justifyContent: { md: "flex-start" },
       lineHeight: { base: "normal", md: "1.5" },
-      marginTop: { base: "0" }, // md: "14px" },
-      // maxWidth: { base: "160px", sm: "100%" },
+      marginTop: { base: "0" },
       minHeight: { base: "105px", md: "45px" },
       padding: { base: "10px", md: "10px 20px" },
       textAlign: { base: "center", md: "left" },

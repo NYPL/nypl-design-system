@@ -264,7 +264,7 @@ exports[`HeaderMobileNav renders the UI snapshot correctly 1`] = `
       rel={null}
       target={null}
     >
-      Donate
+      DONATE
     </a>
   </div>
 </div>

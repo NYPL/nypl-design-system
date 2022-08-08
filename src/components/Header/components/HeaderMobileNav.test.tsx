@@ -72,7 +72,7 @@ describe("HeaderMobileNav", () => {
     expect(links[0]).toHaveTextContent("Get A Library Card");
     expect(links[1]).toHaveTextContent("Get Email Updates");
     expect(links[2]).toHaveTextContent("Shop NYPL");
-    expect(links[3]).toHaveTextContent("Donate");
+    expect(links[3]).toHaveTextContent("DONATE");
 
     links.forEach((link) => link.click());
     // Spot checking GA calls.

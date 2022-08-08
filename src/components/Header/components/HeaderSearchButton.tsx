@@ -47,13 +47,15 @@ const HeaderSearchButton = chakra(
             }}
             __css={styles}
           >
-            {buttonText}
-            <Icon
-              align={isMobile ? "none" : "right"}
-              name={isOpen ? "close" : "search"}
-              size={isMobile ? "large" : isOpen ? "medium" : "small"}
-              title={labelText}
-            />
+            <span>
+              {buttonText}
+              <Icon
+                align={isMobile ? "none" : "right"}
+                name={isOpen ? "close" : "search"}
+                size={isMobile ? "large" : isOpen ? "medium" : "small"}
+                title={labelText}
+              />
+            </span>
           </Button>
           {isOpen && <HeaderSearchForm isMobile={isMobile} />}
         </FocusLock>
