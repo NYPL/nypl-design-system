@@ -23,8 +23,10 @@ export interface AccordionProps {
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
-  /** Determines the max height of the accordion panel; if content is larger
-   * than panelMaxHeight, a scroll bar appears */
+  /** Sets max height of accordion panel. This value should be entered with the
+   * formatting of a CSS height attribute (ex. 100px, 8rem). If height of content
+   * within accordion panel is greater than height set by panelMaxHeight, a
+   * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
 }
 

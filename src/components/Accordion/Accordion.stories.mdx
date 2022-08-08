@@ -27,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
     accordionData: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
-    panelMaxHeight: { control: false },
+    panelMaxHeight: { control: { type: "text" } },
   }}
 />
 
@@ -135,11 +135,13 @@ export const accordionData = [
   <Story
     name="Accordion with Controls"
     args={{
+      accordionData: accordionData,
       id: "accordion-id",
       isDefaultOpen: false,
+      panelMaxHeight: undefined,
     }}
   >
-    {(args) => <Accordion accordionData={accordionData} {...args} />}
+    {(args) => <Accordion {...args} />}
   </Story>
 </Canvas>
 
@@ -337,10 +339,58 @@ export const faqContent = [
 <Accordion accordionData={faqContent} />
 ```
 
-## Example with panelMaxHeight Prop
+## Examples with panelMaxHeight Prop
+
+export const accordionTextData = [
+  {
+    accordionType: "default",
+    label: "Tom Nook",
+    panel: (
+      <Card>
+        <CardHeading level="four" id="heading1">
+          Tom Nook
+        </CardHeading>
+        <CardContent>
+          <p>
+            Tom Nook (たぬきち Tanukichi?, a Tanuki) is a character who plays
+            the most important role in all of the games. He is termed a raccoon
+            in the western versions of the game but a tanuki in the Japanese
+            version.
+          </p>
+          <br />
+          <p>
+            In all games leading to New Leaf, he is the manager of the town
+            shop. After the final expansion, Nookington's, he will employ his
+            'nephews' Timmy and Tommy, who work on the second floor in every
+            Animal Crossing series game except New Leaf and New Horizons.
+          </p>
+          <br />
+          <p>
+            In New Leaf, Nook has taken his interest in real estate to a whole
+            new level, opening Nook's Homes, whilst Timmy and Tommy run the town
+            shop. In New Horizons, Nook acts as the head of Nook Incorporated.
+            He acts as the leader on the island, acting as task giver and island
+            upgrader. In Wild World, he will give out his picture if the player
+            gives him the safe from the Golden Axe Trading Event.
+          </p>
+        </CardContent>
+      </Card>
+    ),
+  },
+];
+
+Example with image and text
 
 <Canvas withToolbar>
   <Story name="panelMaxHeight Example">
     <Accordion accordionData={accordionData} panelMaxHeight="75px" />
+  </Story>
+</Canvas>
+
+Example with multiple paragraphs
+
+<Canvas withToolbar>
+  <Story name="panelMaxHeight Example With Long Text">
+    <Accordion accordionData={accordionTextData} panelMaxHeight="75px" />
   </Story>
 </Canvas>
