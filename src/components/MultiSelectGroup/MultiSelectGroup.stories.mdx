@@ -82,7 +82,7 @@ import * as stories from "./MultiSelectGroup.stories";
 The `MultiSelectGroup` renders a group of `MultiSelect` components that are wrapped in
 a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
 can be visually hidden through the `showLabel` prop. If the `<legend>` is hidden an `aria-label`
-attribute with `label` value will be rendered instead.
+attribute with `labelText` value will be rendered instead.
 For accessibility information on the `MultiSelect` component, see the [MultiSelect Accessibility](https://nypl-design-system-vvscfj2pn-nypl.vercel.app/?path=/docs/components-form-elements-multiselect--multi-select-list-box) documentation.
 
 ## Layout Patterns
@@ -90,6 +90,7 @@ For accessibility information on the `MultiSelect` component, see the [MultiSele
 The width of the MultiSelect components can be passed through the `multiSelectWidth`
 prop, with values of `"default"`, `"fitContent"`, and `"full"`.
 On screen width under 600px width the `layout` is automatically set to "column" and the `multiSelectWidth` to "full".
+Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default.
 
 <Canvas>
   <DSProvider>

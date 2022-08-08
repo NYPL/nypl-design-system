@@ -12,7 +12,7 @@ export interface MultiSelectGroupProps {
   className?: string;
   id: string;
   /** Optional prop to overwrite default behavior of the `MultiSelect` component, if nothing gets passed, it is set to `undefined`. */
-  isBlockElement?: boolean;
+  isBlockElement?: boolean | undefined;
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
