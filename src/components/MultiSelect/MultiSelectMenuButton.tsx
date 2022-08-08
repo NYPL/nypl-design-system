@@ -24,6 +24,14 @@ const grow = keyframes`
   from {width: 22px; opacity: 0; }
   to {width: 46px; opacity: 1;}
 `;
+
+/**
+ * The toggle button component used to open and close the `MultiSelect` menu.
+ * A second button is rendered above the main button that displays the current
+ * number of selected items. Clicking on the second button will clear all
+ * the selected items and the main button's close event will not be fired
+ * (as expected).
+ */
 const MultiSelectMenuButton = forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
@@ -39,7 +47,6 @@ const MultiSelectMenuButton = forwardRef<
     selectedItems,
     ...rest
   } = props;
-  const styles = useMultiStyleConfig("MultiSelectMenuButton", { isOpen });
   const iconType = isOpen ? "minus" : "plus";
   const growAnimation = `${grow} 150ms ease-out`;
 
@@ -48,6 +55,10 @@ const MultiSelectMenuButton = forwardRef<
   if (selectedItems[multiSelectId]?.items.length > 0) {
     getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
   }
+  const styles = useMultiStyleConfig("MultiSelectMenuButton", {
+    isOpen,
+    hasSelectedItems: getSelectedItemsCount,
+  });
   // We need this for our "fake" button inside the main menu button.
   function onKeyPress(e) {
     const enterOrSpace =
@@ -64,17 +75,24 @@ const MultiSelectMenuButton = forwardRef<
   }
 
   return (
-    <Button
-      buttonType="secondary"
-      id={id}
-      onClick={onMenuToggle}
-      ref={ref}
-      __css={styles.menuButton}
-      {...rest}
-    >
+    <>
+      <Button
+        buttonType="secondary"
+        id={id}
+        onClick={onMenuToggle}
+        ref={ref}
+        __css={styles.menuButton}
+        {...rest}
+      >
+        <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
+          {multiSelectLabel}
+        </Box>
+        <Icon id={`ms-${multiSelectId}-icon`} name={iconType} size="small" />
+      </Button>
       {getSelectedItemsCount && (
         <Box
           animation={growAnimation}
+          aria-label={`${getSelectedItemsCount} items selected`}
           as="span"
           onClick={onClear}
           onKeyPress={onKeyPress}
@@ -94,16 +112,7 @@ const MultiSelectMenuButton = forwardRef<
           />
         </Box>
       )}
-      <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
-        {multiSelectLabel}
-      </Box>
-      <Icon
-        id={`ms-${multiSelectId}-icon`}
-        name={iconType}
-        size="small"
-        __css={styles.toggleIcon}
-      />
-    </Button>
+    </>
   );
 });
 

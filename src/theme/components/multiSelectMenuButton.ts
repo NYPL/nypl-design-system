@@ -5,10 +5,11 @@ const MultiSelectMenuButton = {
     "selectedItemsCountButton",
     "toggleIcon",
   ],
-  baseStyle: ({ isOpen = false }) => ({
+  baseStyle: ({ hasSelectedItems = false, isOpen = false }) => ({
     buttonLabel: {
       justifyContent: "flex-start",
       overflow: "hidden",
+      marginLeft: hasSelectedItems ? "50px" : "0",
       marginRight: "l",
       textAlign: "left",
       textOverflow: "ellipsis",
@@ -20,7 +21,7 @@ const MultiSelectMenuButton = {
       borderBottomLeftRadius: isOpen ? "0" : "button.default",
       borderBottomRightRadius: isOpen ? "0" : "button.default",
       borderColor: isOpen ? "ui.gray.dark" : "ui.gray.medium",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
       width: "100%",
       _hover: {
         backgroundColor: isOpen ? "ui.gray.x-light-cool" : "ui.white",
@@ -40,7 +41,10 @@ const MultiSelectMenuButton = {
       flexShrink: 0,
       fontSize: "text.tag",
       justifyContent: "flex-end",
+      left: "15px",
       marginRight: "xs",
+      position: "absolute",
+      top: "10px",
       width: "46px",
       _hover: {
         borderColor: "ui.gray.dark",
@@ -51,7 +55,6 @@ const MultiSelectMenuButton = {
         marginTop: "0",
       },
     },
-    toggleIcon: { position: "absolute", right: "s" },
   }),
 };
 

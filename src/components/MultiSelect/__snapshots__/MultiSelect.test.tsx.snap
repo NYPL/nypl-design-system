@@ -840,51 +840,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
       type="button"
     >
       <span
-        className="css-1hgz0t9"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <span
-          className="css-i6dzq1"
-        >
-          1
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-h7dq2k"
-          focusable={false}
-          id="ms-multiselect-dialog-test-id-selected-items-count-icon"
-          role="img"
-          title="close icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </span>
-      <span
         className="css-0"
         title="MultiSelect Test Label"
       >
@@ -923,6 +878,52 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
         </g>
       </svg>
     </button>
+    <span
+      aria-label="1 items selected"
+      className="css-1hgz0t9"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="css-i6dzq1"
+      >
+        1
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-h7dq2k"
+        focusable={false}
+        id="ms-multiselect-dialog-test-id-selected-items-count-icon"
+        role="img"
+        title="close icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </span>
     <div
       aria-labelledby="ms-multiselect-dialog-test-id-menu-button"
       aria-modal={true}
@@ -1585,51 +1586,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
       type="button"
     >
       <span
-        className="css-1hgz0t9"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <span
-          className="css-i6dzq1"
-        >
-          2
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-h7dq2k"
-          focusable={false}
-          id="ms-multiselect-dialog-test-id-selected-items-count-icon"
-          role="img"
-          title="close icon"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </span>
-      <span
         className="css-0"
         title="MultiSelect Test Label"
       >
@@ -1668,6 +1624,52 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
         </g>
       </svg>
     </button>
+    <span
+      aria-label="2 items selected"
+      className="css-1hgz0t9"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="css-i6dzq1"
+      >
+        2
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-h7dq2k"
+        focusable={false}
+        id="ms-multiselect-dialog-test-id-selected-items-count-icon"
+        role="img"
+        title="close icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </span>
     <div
       aria-labelledby="ms-multiselect-dialog-test-id-menu-button"
       aria-modal={true}
@@ -2873,51 +2875,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     type="button"
   >
     <span
-      className="css-1hgz0t9"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      role="button"
-      tabIndex={0}
-    >
-      <span
-        className="css-i6dzq1"
-      >
-        2
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-h7dq2k"
-        focusable={false}
-        id="ms-multiselect-listbox-test-id-selected-items-count-icon"
-        role="img"
-        title="close icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
-    </span>
-    <span
       className="css-0"
       title="MultiSelect Label"
     >
@@ -2956,6 +2913,52 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
       </g>
     </svg>
   </button>
+  <span
+    aria-label="2 items selected"
+    className="css-1hgz0t9"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <span
+      className="css-i6dzq1"
+    >
+      2
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-h7dq2k"
+      focusable={false}
+      id="ms-multiselect-listbox-test-id-selected-items-count-icon"
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </span>
   <div
     className="css-0"
   >
