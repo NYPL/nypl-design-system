@@ -52,8 +52,11 @@ const MultiSelectMenuButton = forwardRef<
 
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
+  let selectedItemsAriaLabel;
   if (selectedItems[multiSelectId]?.items.length > 0) {
     getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
+    const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
+    selectedItemsAriaLabel = `${getSelectedItemsCount} item${itemPlural} selected`;
   }
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
@@ -92,7 +95,7 @@ const MultiSelectMenuButton = forwardRef<
       {getSelectedItemsCount && (
         <Box
           animation={growAnimation}
-          aria-label={`${getSelectedItemsCount} items selected`}
+          aria-label={selectedItemsAriaLabel}
           as="span"
           onClick={onClear}
           onKeyPress={onKeyPress}

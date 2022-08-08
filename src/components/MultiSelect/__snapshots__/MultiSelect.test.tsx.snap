@@ -879,7 +879,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
       </svg>
     </button>
     <span
-      aria-label="1 items selected"
+      aria-label="1 item selected"
       className="css-1hgz0t9"
       onClick={[Function]}
       onKeyPress={[Function]}
