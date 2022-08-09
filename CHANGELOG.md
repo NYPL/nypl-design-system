@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates color value for `xx-dark`.
+- Updates the style of the TOC on the `Style Guide` pages to match the style of the TOC on the component pages.
 
 ## 1.0.7 (July 29, 2022)
 
