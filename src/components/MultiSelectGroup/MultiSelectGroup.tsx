@@ -11,8 +11,6 @@ export interface MultiSelectGroupProps {
   /** Additional className to use. */
   className?: string;
   id: string;
-  /** Optional prop to overwrite default behavior of the `MultiSelect` component, if nothing gets passed, it is set to `undefined`. */
-  isBlockElement?: boolean | undefined;
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
@@ -35,7 +33,6 @@ export const MultiSelectGroup = chakra(
         children,
         className = "",
         id,
-        isBlockElement,
         labelText,
         layout = "row",
         multiSelectWidth = "default",
@@ -46,14 +43,7 @@ export const MultiSelectGroup = chakra(
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
-      const finalIsBlockElement =
-        layout === "column"
-          ? isBlockElement !== undefined
-            ? isBlockElement
-            : true
-          : isBlockElement !== undefined
-          ? isBlockElement
-          : false;
+      const isBlockElement = layout === "column" ? true : false;
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
@@ -68,7 +58,7 @@ export const MultiSelectGroup = chakra(
           if (child !== undefined && child !== null) {
             newChildren.push(
               React.cloneElement(child, {
-                isBlockElement: finalIsBlockElement,
+                isBlockElement,
                 width: multiSelectWidth,
               })
             );
