@@ -10,8 +10,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and
-  displays a scrollbar if content exceeds it.
+- Adds new color values under ui:
+  - `bg.default`, `bg.hover`, `bg.active`, `border.default`, `border.hover`, `typography.heading`, and `typography.body`.
+- Adds new colors values under ui.gray:
+  - `xxxx-dark` and `xxx-dark`.
+- Adds UI fills colors for dark mode in the codebase and also exported in the `useNYPLTheme` hook.
+- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and displays a scrollbar if content exceeds it.
+
+### Updates
+
+- Updates color value for `xx-dark`.
+- Updates the style of the TOC on the `Style Guide` pages to match the style of the TOC on the component pages.
 
 ## 1.0.7 (July 29, 2022)
 
