@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Template` components to use CSS grid instead of flexbox.
 - Updates the `Template` documentation with the new pattern for using individual `Template` components that go above the main `TemplateContent` component.
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
+- Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 
 ## 1.0.7 (July 29, 2022)
 

@@ -5,7 +5,7 @@ import {
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, ImgHTMLAttributes } from "react";
 import { useInView } from "react-intersection-observer";
 
 export type ImageRatios =
@@ -26,7 +26,7 @@ export type ImageSizes =
   | "large";
 export type ImageTypes = "default" | "circle";
 // Used for components that have an `imageProps` prop.
-export interface ComponentImageProps {
+export interface ComponentImageProps extends Partial<HTMLImageElement> {
   /** String value used to populate the `alt` attribute of the internal `Image`
    * component's `img` element. @NOTE if an image is used, this value must be passed. */
   alt?: string;
@@ -61,7 +61,9 @@ interface ImageWrapperProps {
   size?: ImageSizes;
 }
 
-export interface ImageProps extends ImageWrapperProps {
+export interface ImageProps
+  extends ImageWrapperProps,
+    ImgHTMLAttributes<HTMLImageElement> {
   /** Optionally pass in additional Chakra-based styles only for the figure. */
   additionalFigureStyles?: { [key: string]: any };
   /** Optionally pass in additional Chakra-based styles only for the image. */
@@ -177,6 +179,7 @@ export const Image = chakra(
         loading={isLazy ? "lazy" : undefined}
         {...srcProp}
         __css={{ ...styles.img, ...additionalImageStyles }}
+        {...rest}
       />
     );
     const finalImage = useImageWrapper ? (
@@ -194,12 +197,11 @@ export const Image = chakra(
     );
 
     return (
-      <Box ref={finalRefs} {...rest}>
+      <Box ref={finalRefs}>
         {caption || credit ? (
           <Box
             as="figure"
             __css={{ ...styles.figure, ...additionalFigureStyles }}
-            {...rest}
           >
             {finalImage}
             <Box as="figcaption" __css={styles.figcaption}>
