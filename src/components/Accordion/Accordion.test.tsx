@@ -93,7 +93,10 @@ describe("Accordion", () => {
     expect(accordionLabel).toBeInTheDocument();
     // Closed by default.
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
-    expect(screen.getByText(/known in Japan as Tanukichi/i)).not.toBeVisible();
+    // The panel's content should not be in the DOM unless the Accordion is open.
+    expect(
+      screen.queryByText(/known in Japan as Tanukichi/i)
+    ).not.toBeInTheDocument();
   });
 
   it("opens the panel by default with isDefaultOpen passed", () => {
@@ -108,9 +111,18 @@ describe("Accordion", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
+    let accordionPanelContent = screen.queryByText(
+      /known in Japan as Tanukichi/i
+    );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
+    // The panel's content should not be in the DOM unless the Accordion is open.
+    expect(accordionPanelContent).not.toBeInTheDocument();
+
     userEvent.click(accordionLabel);
+
+    accordionPanelContent = screen.queryByText(/known in Japan as Tanukichi/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
+    expect(accordionPanelContent).toBeInTheDocument();
   });
 
   it("renders multiple accordion items grouped together", () => {

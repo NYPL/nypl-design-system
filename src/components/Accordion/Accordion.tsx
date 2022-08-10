@@ -125,7 +125,7 @@ const getElementsFromData = (
                 </Box>
                 {getIcon(isExpanded, index, id)}
               </AccordionButton>
-              {panel}
+              {isExpanded && panel}
             </>
           );
         }}
