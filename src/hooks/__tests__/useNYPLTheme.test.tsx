@@ -31,6 +31,12 @@ describe("useNYPLTheme", () => {
       "radii",
       "space",
     ]);
-    expect(colorsKeys).toEqual(["brand", "section", "transparent", "ui"]);
+    expect(colorsKeys).toEqual([
+      "brand",
+      "dark",
+      "section",
+      "transparent",
+      "ui",
+    ]);
   });
 });
