@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds new colors values under ui.gray:
   - `xxxx-dark` and `xxx-dark`.
 - Adds UI fills colors for dark mode in the codebase and also exported in the `useNYPLTheme` hook.
+- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and displays a scrollbar if content exceeds it.
 
 ### Updates
 

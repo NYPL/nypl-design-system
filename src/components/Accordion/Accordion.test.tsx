@@ -207,6 +207,15 @@ describe("Accordion", () => {
         />
       )
       .toJSON();
+    const withPanelMaxHeight = renderer
+      .create(
+        <Accordion
+          accordionData={accordionData}
+          id="accordian"
+          panelMaxHeight="100px"
+        />
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <Accordion
@@ -231,6 +240,7 @@ describe("Accordion", () => {
     expect(defaultOpen).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withPanelMaxHeight).toMatchSnapshot();
     expect(withError).toMatchSnapshot();
     expect(withWarning).toMatchSnapshot();
   });
