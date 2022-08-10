@@ -14,6 +14,7 @@ const MultiSelectMenuButton = {
       textAlign: "left",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
+      transition: "margin 150ms ease-out",
     },
     menuButton: {
       alignItems: "center",
