@@ -5,7 +5,6 @@ import {
   AccordionPanel,
   Box,
   chakra,
-  Collapse,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -126,9 +125,7 @@ const getElementsFromData = (
                 </Box>
                 {getIcon(isExpanded, index, id)}
               </AccordionButton>
-              <Collapse animateOpacity in={isExpanded}>
-                {isExpanded && panel}
-              </Collapse>
+              {isExpanded && panel}
             </>
           );
         }}
