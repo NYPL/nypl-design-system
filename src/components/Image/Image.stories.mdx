@@ -11,6 +11,7 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import Image from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
+import Text from "../Text/Text";
 import { getCategory } from "../../utils/componentCategories";
 
 export const imageBlockStyles = {
@@ -66,7 +67,7 @@ export const imageBlockStyles = {
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.6`    |
-| Latest            | `1.0.7`    |
+| Latest            | `1.0.8`    |
 
 ## Table of Contents
 
@@ -77,6 +78,7 @@ export const imageBlockStyles = {
 - [Image Sizes](#image-sizes)
 - [Image Aspect Ratios](#image-aspect-ratios)
 - [Image Types](#image-types)
+- [Image HTML Attributes](#image-html-attributes)
 - [Lazy Loading](#lazy-loading)
 
 ## Overview
@@ -330,6 +332,45 @@ in an element with a fixed width value.
       </div>
     </SimpleGrid>
   </Story>
+</Canvas>
+
+## Image HTML Attributes
+
+The `Image` component accepts HTML image attributes. If needed, you can pass
+functions such as `onLoad` and `onError` or attributes such as `srcset`.
+
+For both examples below, open the browser's console to see the log messages. In
+the first example below, when the image is finished loading, the `onLoad`
+function callback is called. The image's dimensions are logged. In the second
+example, there is an (intentional) error with the image's URL. This will trigger
+the `onError` function callback.
+
+<Canvas>
+  <VStack align="start">
+    <Box>
+      <Text>Image with `onLoad` function</Text>
+      <Image
+        alt="Alt text"
+        src="https://placeimg.com/400/400/animals"
+        onLoad={({ target }) => {
+          console.log("Image 1 loaded and `onLoad` called.");
+          console.log(
+            "Image 1 dimensions:",
+            target.offsetHeight,
+            target.offsetWidth
+          );
+        }}
+      />
+    </Box>
+    <Box>
+      <Text>Image with `onError` function</Text>
+      <Image
+        alt="Broken image with bad url"
+        src="https://placeimcom/400/400/animals"
+        onError={() => console.warn("Image 2 error! Called through `onError`.")}
+      />
+    </Box>
+  </VStack>
 </Canvas>
 
 ## Lazy Loading

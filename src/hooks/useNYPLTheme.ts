@@ -22,12 +22,17 @@ function useNYPLTheme() {
     colors: {
       // primary, secondary
       brand: theme.colors.brand,
+      // dark mode colors:
+      // ui.disabled, ui.error, ui.focus, ui.link,
+      // ui.status, ui.success, ui.test, ui.warning,
+      // ui.bg, ui.border, ui.typography
+      dark: theme.colors.dark,
       // blogs, books-and-more, education, locations,
       // research, research-library, whats-on
       section: theme.colors.section,
       transparent: theme.colors.transparent,
-      // black, disabled, error, focus, gray, link,
-      // status, success, test, warning, white
+      // black, white, gray, disabled, error, focus, link,
+      // status, success, test, warning, bg, border, typography
       ui: theme.colors.ui,
     },
     fontSizes: {
