@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.0.8 (August 11, 2022)
+
 ### Adds
 
 - Adds new color values under ui:
