@@ -326,11 +326,11 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
 
 exports[`Image Renders the UI snapshot correctly 19`] = `
 <div
-  className="css-qvgr6z"
+  className="css-0"
 >
   <img
     alt=""
-    className="css-0"
+    className="css-qvgr6z"
     src="test.png"
   />
 </div>
@@ -339,11 +339,11 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
 exports[`Image Renders the UI snapshot correctly 20`] = `
 <div
   className="css-0"
-  data-testid="image"
 >
   <img
     alt=""
     className="css-0"
+    data-testid="image"
     src="test.png"
   />
 </div>
