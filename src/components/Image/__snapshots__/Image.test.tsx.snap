@@ -3,6 +3,7 @@
 exports[`Image Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -15,6 +16,7 @@ exports[`Image Renders the UI snapshot correctly 1`] = `
 exports[`Image Renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <figure
     className="css-0"
@@ -40,6 +42,7 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
 exports[`Image Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <figure
     className="css-0"
@@ -65,6 +68,7 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
 exports[`Image Renders the UI snapshot correctly 4`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <figure
     className="css-0"
@@ -95,6 +99,7 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
 exports[`Image Renders the UI snapshot correctly 5`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -107,6 +112,7 @@ exports[`Image Renders the UI snapshot correctly 5`] = `
 exports[`Image Renders the UI snapshot correctly 6`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -119,6 +125,7 @@ exports[`Image Renders the UI snapshot correctly 6`] = `
 exports[`Image Renders the UI snapshot correctly 7`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -131,6 +138,7 @@ exports[`Image Renders the UI snapshot correctly 7`] = `
 exports[`Image Renders the UI snapshot correctly 8`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -143,6 +151,7 @@ exports[`Image Renders the UI snapshot correctly 8`] = `
 exports[`Image Renders the UI snapshot correctly 9`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -155,6 +164,7 @@ exports[`Image Renders the UI snapshot correctly 9`] = `
 exports[`Image Renders the UI snapshot correctly 10`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -175,6 +185,7 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
 exports[`Image Renders the UI snapshot correctly 11`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -195,6 +206,7 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
 exports[`Image Renders the UI snapshot correctly 12`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -207,6 +219,7 @@ exports[`Image Renders the UI snapshot correctly 12`] = `
 exports[`Image Renders the UI snapshot correctly 13`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -227,6 +240,7 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
 exports[`Image Renders the UI snapshot correctly 14`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -247,6 +261,7 @@ exports[`Image Renders the UI snapshot correctly 14`] = `
 exports[`Image Renders the UI snapshot correctly 15`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -267,6 +282,7 @@ exports[`Image Renders the UI snapshot correctly 15`] = `
 exports[`Image Renders the UI snapshot correctly 16`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -287,6 +303,7 @@ exports[`Image Renders the UI snapshot correctly 16`] = `
 exports[`Image Renders the UI snapshot correctly 17`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -307,6 +324,7 @@ exports[`Image Renders the UI snapshot correctly 17`] = `
 exports[`Image Renders the UI snapshot correctly 18`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <div
     className="the-wrap css-1u8qly9"
@@ -327,6 +345,7 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
 exports[`Image Renders the UI snapshot correctly 19`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
@@ -339,6 +358,7 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
 exports[`Image Renders the UI snapshot correctly 20`] = `
 <div
   className="css-0"
+  data-testid="test"
 >
   <img
     alt=""
