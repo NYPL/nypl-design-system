@@ -14,12 +14,11 @@ const SkipNavigation = {
       width: "1px",
       // Only display when the user focuses on the links.
       _focus: {
-        border: "1px solid var(—nypl-colors-ui-gray-dark)",
         height: "auto",
-        left: "1.5rem",
-        padding:
-          "var(--nypl-space-inset-extranarrow) var(--nypl-space-inset-narrow)",
-        top: "0.5rem",
+        left: "1rem",
+        paddingX: "inset.extranarrow",
+        paddingY: "inset.extranarrow",
+        top: "1rem",
         width: "auto",
       },
     },
