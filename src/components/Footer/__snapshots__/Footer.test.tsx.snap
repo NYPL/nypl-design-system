@@ -316,6 +316,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
+        data-testid="test"
       >
         <img
           alt="NYPL Main Building Facade"
