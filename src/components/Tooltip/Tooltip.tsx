@@ -27,7 +27,6 @@ export const Tooltip = chakra(
     return (
       <ChakraTooltip
         hasArrow
-        isOpen
         aria-label={typeof content !== "string" ? "Tooltip" : undefined}
         label={content}
         isDisabled={isDisabled}
