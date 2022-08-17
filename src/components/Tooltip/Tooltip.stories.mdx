@@ -1,0 +1,185 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import ReactDOMServer from "react-dom/server";
+import { withDesign } from "storybook-addon-designs";
+
+import Tooltip from "./Tooltip";
+import Button from "../Button/Button";
+import Radio from "../Radio/Radio";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+import Label from "../Label/Label";
+import Image from "../Image/Image";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("Tooltip")}
+  component={Tooltip}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25702",
+    },
+    jest: ["Tooltip.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+  }}
+/>
+
+# Tooltip
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.0.9`    |
+| Latest            | `1.0.9`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Examples](#examples)
+
+## Overview
+
+<Description of={Tooltip} />
+
+The `Tooltip` component shows contextual help or information about a specific
+component when a user hovers or focuses on the component.
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="Tooltip with Controls"
+    args={{
+      content:
+        "This is a tooltip with information describing the hovered object.",
+      className: undefined,
+      id: "tooltip-id",
+      isDisabled: false,
+    }}
+  >
+    {(args) => (
+      <Tooltip
+        content={args.content}
+        className={args.className}
+        id={args.id}
+        isDisabled={args.isDisabled}
+      >
+        <Button id="tooltip-button">Hover me</Button>
+      </Tooltip>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Tooltip with Controls" />
+
+## Accessibility
+
+The `Tooltip` component is accessible via keyboard. The color contrast between
+foreground color and background color is 4.5:1. If text size is 200%, the
+button scales with text so there is no overlap. If a tooltip is associated
+with a form control (text, radio, checkbox, etc), the text for the
+tooltip should be included in the form control label.
+
+Resources:
+
+- [W3C WAI ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+- [MDN ARIA: tooltip role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
+- [Chakra UI Tooltip](https://chakra-ui.com/docs/components/overlay/tooltip)
+
+## Examples
+
+### Tooltips on form options
+
+The `Tooltip` component is included in the `labelText` prop of the radios.
+
+<Canvas>
+  <DSProvider>
+    <Label htmlFor="radio1">What would you like to request?</Label>
+    <Radio
+      type="radio"
+      id="radio1"
+      labelText={
+        <Tooltip content="General library orientation or a customized research lesson">
+          Class Visit
+        </Tooltip>
+      }
+    />
+    <Radio
+      type="radio"
+      id="radio2"
+      labelText={
+        <Tooltip content="Guided exploration of the library and its resources">
+          Group Tour
+        </Tooltip>
+      }
+    />
+    <Radio
+      type="radio"
+      id="radio3"
+      labelText={
+        <Tooltip content="Invite library staff to share resources at your community event">
+          Offsite Community Outreach
+        </Tooltip>
+      }
+    />
+  </DSProvider>
+</Canvas>
+
+### Tooltip on Linked Icon
+
+<Canvas>
+  <DSProvider>
+    <Tooltip content="This is the tooltip text">
+      <Link type="action" href="#passed-in-link">
+        <Icon decorative id="icon-id" name="search" size="xxlarge" />
+      </Link>
+    </Tooltip>
+  </DSProvider>
+</Canvas>
+
+### Tooltip with Icon Content
+
+<Canvas>
+  <DSProvider>
+    <Tooltip
+      content={
+        <Icon
+          decorative
+          id="icon-id"
+          name="search"
+          size="xxlarge"
+          color="ui.white"
+        />
+      }
+    >
+      Hover to see search icon
+    </Tooltip>
+  </DSProvider>
+</Canvas>
+
+### Tooltip with Image Content
+
+<Canvas>
+  <DSProvider>
+    <Tooltip
+      content={<Image src="https://placeimg.com/300/300/animals?x=1" alt="" />}
+    >
+      Hover to see image
+    </Tooltip>
+  </DSProvider>
+</Canvas>
