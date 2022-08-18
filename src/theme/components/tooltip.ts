@@ -1,13 +1,17 @@
 import { cssVar } from "@chakra-ui/theme-tools";
 
-const $arrowBg = cssVar("popper-arrow-bg");
+const $bg = cssVar("tooltip-bg");
 
 const Tooltip = {
   baseStyle: {
-    [$arrowBg.variable]: "colors.ui.gray.xx-dark",
-    bg: "ui.gray.xx-dark",
+    [$bg.variable]: "colors.ui.gray.xx-dark",
+    borderRadius: "4px",
     color: "ui.white",
+    fontSize: "text.tag",
+    marginBottom: "xxs",
     maxWidth: "240px",
+    px: "s",
+    py: "xs",
   },
 };
 

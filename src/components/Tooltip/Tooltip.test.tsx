@@ -40,7 +40,9 @@ describe("Tooltip accessibility", () => {
   it("passes axe accessibility test with Image content", async () => {
     render(
       <Tooltip
-        content={<Image src="https://placeimg.com/300/300/animals?x=1" />}
+        content={
+          <Image src="https://placeimg.com/300/300/animals?x=1" alt="" />
+        }
       >
         {buttonLabel}
       </Tooltip>
@@ -137,7 +139,7 @@ describe("Tooltip", () => {
 
     await screen.findByRole("tooltip");
 
-    expect(screen.getByText(buttonLabel)).toBeInTheDocument();
+    expect(screen.getByText(tooltipContent)).toBeInTheDocument();
   });
 
   it("should render on mouseover and closes on pressing 'esc'", async () => {
