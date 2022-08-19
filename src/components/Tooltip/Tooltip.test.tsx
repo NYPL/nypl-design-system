@@ -158,4 +158,17 @@ describe("Tooltip", () => {
       expect(screen.queryByText(tooltipContent)).not.toBeInTheDocument()
     );
   });
+
+  it("logs a warning if `content` is not a string, Icon, or Image", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Tooltip content={<Button id="warn-button">Should warn</Button>}>
+        Hover me
+      </Tooltip>
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Tooltip: Pass in a string, DS Icon, or DS Image into the 'content' prop."
+    );
+  });
 });

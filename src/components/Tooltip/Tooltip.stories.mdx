@@ -37,6 +37,9 @@ import DSProvider from "../../theme/provider";
     isDisabled: {
       table: { defaultValue: { summary: false } },
     },
+    shouldWrapChildren: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -73,6 +76,7 @@ component when a user hovers or focuses on the component.
         "This is a tooltip with information describing the hovered object.",
       id: "tooltip-id",
       isDisabled: false,
+      shouldWrapChildren: false,
     }}
   >
     {(args) => (
@@ -107,10 +111,24 @@ Resources:
 
 ### Tooltips on form options
 
-When using the `Tooltip` component in forms containing `Checkbox`, `Radio`, `Toggle`.
+When using the `Tooltip` component in forms containing `Checkbox`, `Radio`, and `Toggle`,
+the `shouldWrapChildren` prop needs to be included to correctly position the tooltip in
+relation to it's child. The underlying `ref` of these components point to the visually hidden
+input element. `shouldWrapChildren` ensures that the size of the visually hidden element is
+in sync with the rendered visual control.
 
 <Canvas>
   <DSProvider>
+    <Tooltip
+      content="Invite library staff to share resources at your community event"
+      shouldWrapChildren
+    >
+      <Toggle
+        id="radio3"
+        labelText="Offsite Community Outreach"
+        value="Offsite Community Outreach"
+      />
+    </Tooltip>
     <RadioGroup
       labelText="What would you like to request?"
       id="radio-group"

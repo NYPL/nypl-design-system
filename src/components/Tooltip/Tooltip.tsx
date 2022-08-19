@@ -41,14 +41,14 @@ export const Tooltip = chakra(
         (contentChild: React.ReactElement) => {
           if (contentChild.type !== Icon || contentChild.type !== Image) {
             console.warn(
-              "NYPL Reservoir Tooltip: Pass in a string, Icon, or Image into the 'content' prop."
+              "NYPL Reservoir Tooltip: Pass in a string, DS Icon, or DS Image into the 'content' prop."
             );
           }
         }
       );
     }
-    let newChildren: React.ReactNode;
-    newChildren = shouldWrapChildren ? (
+
+    const newChildren = shouldWrapChildren ? (
       <ComponentWrapper>{children}</ComponentWrapper>
     ) : (
       children
