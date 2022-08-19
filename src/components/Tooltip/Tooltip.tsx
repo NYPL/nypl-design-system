@@ -49,7 +49,7 @@ export const Tooltip = chakra(
     }
 
     const newChildren = shouldWrapChildren ? (
-      <ComponentWrapper>{children}</ComponentWrapper>
+      <ComponentWrapper width="fit-content">{children}</ComponentWrapper>
     ) : (
       children
     );
