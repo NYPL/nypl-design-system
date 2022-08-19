@@ -42,6 +42,7 @@ import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
+import TagSetStyles from "./components/tagSet";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -115,6 +116,7 @@ const theme = extendTheme({
     StructuredContent,
     Tabs,
     CustomTable,
+    ...TagSetStyles,
     ...TemplateStyles,
     Text,
     TextInput,

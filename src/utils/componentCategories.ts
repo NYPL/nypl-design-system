@@ -69,6 +69,7 @@ const categories = {
       "SearchBar",
       "Select",
       "Slider",
+      "TagSet",
       "Textarea",
       "TextInput",
       "Toggle",

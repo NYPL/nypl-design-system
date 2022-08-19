@@ -1,0 +1,112 @@
+import { VStack } from "@chakra-ui/react";
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import TagSet from "./TagSet";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("TagSet")}
+  component={TagSet}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=51380%3A41869",
+    },
+    jest: ["TagSet.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    isDismissible: { table: { defaultValue: { summary: "false" } } },
+    onClick: { control: false },
+    tagSetData: { control: false },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "filter" } },
+    },
+  }}
+/>
+
+# TagSet
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Description of={TagSet} />
+
+## Filter Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="TagSet Filter with Controls"
+    args={{
+      className: undefined,
+      id: "tagSet-id-filter",
+      isDismissible: false,
+      onClick: undefined,
+      tagSetData: [
+        { iconName: "check", label: "A very long filter for the tag" },
+        { iconName: "check", label: "1 Lou Reed" },
+        { iconName: "check", label: "2 Lou Reed" },
+        { iconName: "check", label: "3 Lou Reed" },
+      ],
+      type: "filter",
+    }}
+  >
+    {(args) => <TagSet {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TagSet Filter with Controls" />
+
+## Explore Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="TagSet Explore with Controls"
+    argTypes={{
+      isDismissible: { table: { disable: true } },
+      onClick: { table: { disable: true } },
+      tagSetData: { control: false },
+    }}
+    args={{
+      className: undefined,
+      id: "tagSet-id-explore",
+      isDismissible: undefined,
+      onClick: undefined,
+      tagSetData: [
+        {
+          iconName: "check",
+          label: <a href="#">A very long explore for the tag</a>,
+        },
+        { iconName: "check", label: <a href="#">Lou Reed</a> },
+      ],
+      type: "explore",
+    }}
+  >
+    {(args) => <TagSet {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TagSet Explore with Controls" />
+
+## Accessibility
