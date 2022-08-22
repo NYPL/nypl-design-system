@@ -26,7 +26,10 @@ import DSProvider from "../../theme/provider";
   argTypes={{
     className: { control: false },
     id: { control: false },
-    isDismissible: { table: { defaultValue: { summary: "false" } } },
+    isDismissible: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     onClick: { control: false },
     tagSetData: { control: false },
     type: {
@@ -40,8 +43,8 @@ import DSProvider from "../../theme/provider";
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
-| Added             | `1.1.0`    |
-| Latest            | `1.1.0`    |
+| Added             | `1.2.0`    |
+| Latest            | `1.2.0`    |
 
 ## Table of Contents
 
@@ -49,14 +52,21 @@ import DSProvider from "../../theme/provider";
 - [Explore Component Props](#explore-component-props)
 - [Filter Component Props](#filter-component-props)
 - [Accessibility](#accessibility)
-- [Explore Examples](#explore-examples)
-- [Filter Examples](#filter-examples)
+- [Examples](#examples)
 
 ## Overview
 
 <Description of={TagSet} />
 
 ## Explore Component Props
+
+An "explore" `TagSet` variant is used to display content that can help a user
+start a search and promote exploration. These tags are not dismissible and should
+be used as links to other pages with the content highlighted on the new page.
+
+Notes:
+
+- The `isDismissible` and `onClick` props are not used in this variant.
 
 <Canvas withToolbar>
   <Story
@@ -72,11 +82,15 @@ import DSProvider from "../../theme/provider";
       isDismissible: undefined,
       onClick: undefined,
       tagSetData: [
+        { iconName: "arrow", label: <a href="#">Abbey Road</a> },
+        { iconName: "actionLaunch", label: <a href="#">The Beatles</a> },
+        { iconName: "alertWarningOutline", label: <a href="#">Revolver</a> },
         {
           iconName: "check",
-          label: <a href="#">A very long explore for the tag</a>,
+          label: (
+            <a href="#">The Beatles Sgt. Pepper's Lonely Hearts Club Band</a>
+          ),
         },
-        { iconName: "check", label: <a href="#">Lou Reed</a> },
       ],
       type: "explore",
     }}
@@ -87,7 +101,43 @@ import DSProvider from "../../theme/provider";
 
 <ArgsTable story="TagSet Explore with Controls" />
 
+### Explore `tagSetData` Labels
+
+The `tagSetData` prop is an array of objects that contain `iconName` and `label`
+properties. The `iconName` is the name of the icon to display through the
+Reservoir `Icon` component and are optional. The `label` _MUST_ be a React
+element; typically, links are expected to be used for the "explore" variant.
+
+```tsx
+const tagSetData = [
+  { iconName: "arrow", label: <a href="#">Abbey Road</a> },
+  { iconName: "actionLaunch", label: <a href="#">The Beatles</a> },
+  { iconName: "alertWarningOutline", label: <a href="#">Revolver</a> },
+  {
+    iconName: "check",
+    label: <a href="#">The Beatles Sgt. Pepper's Lonely Hearts Club Band</a>,
+  },
+];
+```
+
 ## Filter Component Props
+
+A "filter" `TagSet` variant is used to display keywords that a user selected to
+filter down the scope of the content on a page. For example, in a search results
+page, the filters a user selects would be displayed back to the user through
+the "filter" `TagSet` variant. These tags can be dismissed by the user and the
+scope of the content should be updated accordingly -- but the update to display
+the proper filters and updated results are the responsibility of the
+consuming application.
+
+Notes:
+
+- The `isDismissible` prop is optional and the `onClick` prop is
+  required for this variant.
+- The `onClick` prop will only fire when `isDismissible` is true and the user
+  clicks a tag.
+- Icons will not be rendered when `isDismissible` is true. In this case, the "X"
+  close icon will be rendered instead.
 
 <Canvas withToolbar>
   <Story
@@ -96,12 +146,17 @@ import DSProvider from "../../theme/provider";
       className: undefined,
       id: "tagSet-id-filter",
       isDismissible: false,
-      onClick: undefined,
+      onClick: (tagLabel) => {
+        console.log(`Clicked from the onClick props: ${tagLabel}`);
+      },
       tagSetData: [
-        { iconName: "check", label: "A very long filter for the tag" },
-        { iconName: "check", label: "1 Lou Reed" },
-        { iconName: "check", label: "2 Lou Reed" },
-        { iconName: "check", label: "3 Lou Reed" },
+        { iconName: "arrow", label: "Abbey Road" },
+        { iconName: "actionLaunch", label: "The Beatles" },
+        { iconName: "alertWarningOutline", label: "Revolver" },
+        {
+          iconName: "check",
+          label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
+        },
       ],
       type: "filter",
     }}
@@ -112,8 +167,108 @@ import DSProvider from "../../theme/provider";
 
 <ArgsTable story="TagSet Filter with Controls" />
 
+### Filter `tagSetData` Labels
+
+The `tagSetData` prop is an array of objects that contain `iconName` and `label`
+properties. The `iconName` is the name of the icon to display through the
+Reservoir `Icon` component and are optional. The `label` _MUST_ be a string for
+the filter type.
+
+```tsx
+const tagSetData = [
+  { iconName: "arrow", label: "Abbey Road" },
+  { iconName: "actionLaunch", label: "The Beatles" },
+  { iconName: "alertWarningOutline", label: "Revolver" },
+  {
+    iconName: "check",
+    label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
+  },
+];
+```
+
 ## Accessibility
 
-## Explore Examples
+All proper tags in the "explore" and "filter" `TagSet` variants are accessible.
+For the "explore" variant, tags are expected to be set as links and are therefore
+focusable. For the "filter" variant, tags are rendered as buttons to perform
+in-page clicking behavior.
 
-## Filter Examples
+Resources:
+
+- [W3C WAI-ARIA Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+
+## Examples
+
+<Canvas>
+  <DSProvider>
+    <VStack align="stretch" gap="l">
+      <TagSet
+        tagSetData={[
+          { label: <a href="#">Red</a> },
+          { label: <a href="#">Orange</a> },
+          { label: <a href="#">Yellow</a> },
+          { label: <a href="#">Green</a> },
+          { label: <a href="#">Blue</a> },
+          { label: <a href="#">Indigo</a> },
+          { label: <a href="#">Violet</a> },
+        ]}
+        type="explore"
+      />
+      <TagSet
+        tagSetData={[
+          { iconName: "alertWarningFilled", label: <a href="#">Red</a> },
+          { iconName: "check", label: <a href="#">Orange</a> },
+          { iconName: "check", label: <a href="#">Yellow</a> },
+          { iconName: "alertWarningFilled", label: <a href="#">Green</a> },
+          { iconName: "check", label: <a href="#">Blue</a> },
+          { iconName: "check", label: <a href="#">Indigo</a> },
+          { iconName: "check", label: <a href="#">Violet</a> },
+        ]}
+        type="explore"
+      />
+      <TagSet
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { label: "Red" },
+          { label: "Orange" },
+          { label: "Yellow" },
+          { label: "Green" },
+          { label: "Blue" },
+          { label: "Indigo" },
+          { label: "Violet" },
+        ]}
+      />
+      <TagSet
+        isDismissible
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { label: "Red" },
+          { label: "Orange" },
+          { label: "Yellow" },
+          { label: "Green" },
+          { label: "Blue" },
+          { label: "Indigo" },
+          { label: "Violet" },
+        ]}
+      />
+      <TagSet
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { iconName: "alertWarningFilled", label: "Red" },
+          { iconName: "check", label: "Orange" },
+          { iconName: "check", label: "Yellow" },
+          { iconName: "alertWarningFilled", label: "Green" },
+          { iconName: "check", label: "Blue" },
+          { iconName: "check", label: "Indigo" },
+          { iconName: "check", label: "Violet" },
+        ]}
+      />
+    </VStack>
+  </DSProvider>
+</Canvas>

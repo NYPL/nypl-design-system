@@ -13,9 +13,8 @@ import TagSetFilter, {
 export interface BaseTagSetProps {
   /** Additional class for the componen.t */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
 }
+
 // We want either the "explore" or "filter" type props.
 export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
 // And here combine the special types with the base props.
@@ -46,33 +45,35 @@ export const TagSet = chakra<As<TagSetProps>, TagSetProps>(
     } = props;
     const styles = useStyleConfig("TagSet", {});
 
-    // if isDissible and type="explore":
-    // NYPL Reservoir TagSet: The `isDismissible` prop will be ignored
-    // when the `type` prop is set to "explore."
-
-    // if onclick and filter:
-    // NYPL Reservoir TagSet: The `onClick` prop will be ignored when the
-    // `type` prop is set to "explore."
-
-    // if explore and labels are strings:
-    // NYPL Reservoir TagSet: Explore tags require all `label` props to be strings.
-    // if filter and labels are jsx:
-    // NYPL Reservoir TagSet: Explore tags require all `label` props to be strings.
+    if (!isFilterType(type)) {
+      if (isDismissible) {
+        console.warn(
+          "NYPL Reservoir TagSet: The `isDismissible` prop will be ignored when the `type` prop is set to 'explore'."
+        );
+      }
+      if (onClick) {
+        console.warn(
+          "NYPL Reservoir TagSet: The `onClick` prop will be ignored when the `type` prop is set to 'explore'."
+        );
+      }
+    }
 
     return (
-      <Flex ref={ref} __css={styles} {...rest}>
+      <Flex className={className} id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterType(type) && (
           <TagSetExplore
-            type={type}
+            id={id}
             tagSetData={tagSetData as TagSetExploreDataProps[]}
+            type={type}
           />
         )}
         {isFilterType(type) && (
           <TagSetFilter
-            type={type}
+            id={id}
             isDismissible={isDismissible}
             onClick={onClick}
             tagSetData={tagSetData as TagSetFilterDataProps[]}
+            type={type}
           />
         )}
       </Flex>

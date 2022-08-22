@@ -1,0 +1,1468 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-0"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Red
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-1"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Orange
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-2"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Yellow
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-3"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Green
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-4"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Blue
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-5"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Indigo
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-6"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Violet
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-0"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="alertWarningFilled icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Red
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-1"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Orange
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-2"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Yellow
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-3"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="alertWarningFilled icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Green
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-4"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Blue
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-5"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Indigo
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-6"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      <a
+        href="#"
+      >
+        Violet
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
+<div
+  className="css-1t0bvx9"
+>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-0"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Red
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-1"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Orange
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-2"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Yellow
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-3"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Green
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-4"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Blue
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-5"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Indigo
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-6"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Violet
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="testid"
+>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-0"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Red
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-1"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Orange
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-2"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Yellow
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-3"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Green
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-4"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Blue
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-5"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Indigo
+      </a>
+    </span>
+  </div>
+  <div
+    className="css-0"
+    data-testid="explore-tags"
+    id="ts-explore-undefined-6"
+  >
+    <span>
+      <a
+        href="#"
+      >
+        Violet
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-0"
+    type="button"
+  >
+    <span>
+      Red
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-1"
+    type="button"
+  >
+    <span>
+      Orange
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-2"
+    type="button"
+  >
+    <span>
+      Yellow
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-3"
+    type="button"
+  >
+    <span>
+      Green
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-4"
+    type="button"
+  >
+    <span>
+      Blue
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-5"
+    type="button"
+  >
+    <span>
+      Indigo
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-6"
+    type="button"
+  >
+    <span>
+      Violet
+    </span>
+  </button>
+</div>
+`;
+
+exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-0"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="alertWarningFilled icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Red
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-1"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Orange
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-2"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Yellow
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-3"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="alertWarningFilled icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Green
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-4"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Blue
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-5"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Indigo
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-6"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="ts-icon"
+      focusable={false}
+      role="img"
+      title="check icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <span>
+      Violet
+    </span>
+  </button>
+</div>
+`;
+
+exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-0"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Red
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-1"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Orange
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-2"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Yellow
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-3"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Green
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-4"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Blue
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-5"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Indigo
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-6"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Violet
+    </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-1grhd2q"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-clear-all"
+    id="ts-filter-clear-all-undefined"
+    onClick={[Function]}
+    type="button"
+  >
+    Clear Filters
+  </button>
+</div>
+`;
+
+exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
+<div
+  className="css-1t0bvx9"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-0"
+    type="button"
+  >
+    <span>
+      Red
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-1"
+    type="button"
+  >
+    <span>
+      Orange
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-2"
+    type="button"
+  >
+    <span>
+      Yellow
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-3"
+    type="button"
+  >
+    <span>
+      Green
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-4"
+    type="button"
+  >
+    <span>
+      Blue
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-5"
+    type="button"
+  >
+    <span>
+      Indigo
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-6"
+    type="button"
+  >
+    <span>
+      Violet
+    </span>
+  </button>
+</div>
+`;
+
+exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="testid"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-0"
+    type="button"
+  >
+    <span>
+      Red
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-1"
+    type="button"
+  >
+    <span>
+      Orange
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-2"
+    type="button"
+  >
+    <span>
+      Yellow
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-3"
+    type="button"
+  >
+    <span>
+      Green
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-4"
+    type="button"
+  >
+    <span>
+      Blue
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-5"
+    type="button"
+  >
+    <span>
+      Indigo
+    </span>
+  </button>
+  <button
+    className="chakra-button css-1xdhyk6"
+    data-testid="filter-tags"
+    id="ts-filter-undefined-6"
+    type="button"
+  >
+    <span>
+      Violet
+    </span>
+  </button>
+</div>
+`;
