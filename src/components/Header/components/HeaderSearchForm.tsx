@@ -167,7 +167,7 @@ const HeaderSearchForm = chakra(
           <FormRow>
             <FormField>
               <RadioGroup
-                defaultValue="catalog"
+                defaultValue="circulatingCatalog"
                 id="search-type"
                 labelText="Type of search"
                 layout={isMobile ? "column" : "row"}

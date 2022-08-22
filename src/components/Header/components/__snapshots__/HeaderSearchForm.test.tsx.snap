@@ -167,9 +167,10 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                 >
                   <label
                     className="chakra-radio css-13p0l12"
+                    data-checked=""
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       className="chakra-radio__input"
                       disabled={false}
                       id="circulatingCatalogSearch"
@@ -199,6 +200,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     <span
                       aria-hidden={true}
                       className="css-14wybg9"
+                      data-checked=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -206,6 +208,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     />
                     <span
                       className="chakra-radio__label css-1y8kf23"
+                      data-checked=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
@@ -451,9 +454,10 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                 >
                   <label
                     className="chakra-radio css-13p0l12"
+                    data-checked=""
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       className="chakra-radio__input"
                       disabled={false}
                       id="circulatingCatalogSearch"
@@ -483,6 +487,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     <span
                       aria-hidden={true}
                       className="css-14wybg9"
+                      data-checked=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -490,6 +495,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     />
                     <span
                       className="chakra-radio__label css-1y8kf23"
+                      data-checked=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
