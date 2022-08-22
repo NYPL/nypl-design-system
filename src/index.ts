@@ -142,3 +142,4 @@ export {
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayer";
 export { default as Table } from "./components/Table/Table";
+export { default as Tooltip } from "./components/Tooltip/Tooltip";

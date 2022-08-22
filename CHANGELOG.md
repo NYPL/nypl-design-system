@@ -28,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Tooltip` component.
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
 - Adds the `react-ga` package to send Google Analytics events in the `Header` component.
