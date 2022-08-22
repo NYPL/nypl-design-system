@@ -127,25 +127,30 @@ describe("HeaderSearchForm", () => {
       render(<HeaderSearchForm isMobile />);
     });
 
-    it("renders a form with an input and two buttons on mobile", () => {
+    it("renders a form with an input and three radios on mobile", () => {
       const form = screen.getByRole("form");
       const searchInput = screen.getByRole("textbox");
-      const buttons = screen.getAllByRole("button");
+      const radios = screen.getAllByRole("radio");
 
       expect(form).toBeInTheDocument();
       expect(searchInput).toBeInTheDocument();
-      expect(buttons).toHaveLength(2);
-      expect(buttons[0]).toHaveTextContent("CATALOG");
-      expect(buttons[1]).toHaveTextContent("NYPL.ORG");
+      expect(radios).toHaveLength(3);
+      expect(
+        screen.getByLabelText("Search the Circulating Catalog")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByLabelText("Search the Research Catalog")
+      ).toBeInTheDocument();
+      expect(screen.getByLabelText("Search NYPL.org")).toBeInTheDocument();
     });
 
     it("makes a request to the Encore catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const catalogButton = screen.getAllByRole("button")[0];
+      const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
       userEvent.type(searchInput, "cats");
-      // Click on the "CATALOG" button.
-      userEvent.click(catalogButton);
+      // Select the Circulating Catalog
+      userEvent.click(circulatingCatalogRadio);
 
       // Fast-forward until all timers have been executed.
       // The SearchForm calls `gaUtils.trackSearchQuerySend` which
@@ -160,11 +165,11 @@ describe("HeaderSearchForm", () => {
 
     it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const websiteButton = screen.getAllByRole("button")[1];
+      const websiteRadio = screen.getAllByRole("radio")[2];
 
       userEvent.type(searchInput, "cats");
-      // Click on the "NYPL.ORG" button.
-      userEvent.click(websiteButton);
+      // Select the Website
+      userEvent.click(websiteRadio);
 
       // Fast-forward until all timers have been executed.
       // The SearchForm calls `gaUtils.trackSearchQuerySend` which

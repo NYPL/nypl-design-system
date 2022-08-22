@@ -1,9 +1,4 @@
-import {
-  headerBlue,
-  headerFocus,
-  headerLightBlue,
-  headerLightBlueIcon,
-} from "./header";
+import { headerBlue, headerFocus, headerLightBlueIcon } from "./header";
 
 const HeaderSearchForm = {
   parts: ["desktopSearchBtn", "form", "mobileSearchIcon", "radio", "textInput"],
@@ -30,8 +25,12 @@ const HeaderSearchForm = {
         marginRight: { md: "m" },
       },
     },
-    fieldset: {
+    // These two are styles for the fieldsets:
+    "#fieldset-search": {
       margin: { base: "20px 15px 0", md: "0" },
+    },
+    "#radio-group-search-type": {
+      margin: { base: "0 40px 20px", md: "0" },
     },
     textInput: {
       label: {
@@ -86,23 +85,6 @@ const HeaderSearchForm = {
     ".chakra-radio__label": {
       fontSize: "18px",
       fontWeight: "medium",
-    },
-    mobileBtns: {
-      alignItems: "center",
-      backgroundColor: headerBlue,
-      borderRadius: "0",
-      display: "flex",
-      fontSize: "16px",
-      flex: "1",
-      padding: "35px 0",
-      svg: {
-        fill: headerLightBlue,
-        marginLeft: "15px",
-      },
-      _hover: {
-        backgroundColor: headerBlue,
-      },
-      _focus: headerFocus,
     },
   },
 };

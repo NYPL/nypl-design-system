@@ -1,4 +1,4 @@
-import { Box, chakra, HStack, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import Button from "../../Button/Button";
@@ -17,17 +17,25 @@ export interface HeaderSearchFormProps {
   isMobile?: boolean;
 }
 
+export type SearchOptionType =
+  | "circulatingCatalog"
+  | "researchCatalog"
+  | "website";
+
 /**
  * Displays the search form for the Header's search interface. On mobile, two
  * buttons are displayed and on desktop, two radio inputs are displayed.
  */
 const HeaderSearchForm = chakra(
   ({ isMobile = false }: HeaderSearchFormProps) => {
+    const defaultSearchRadioValue: SearchOptionType = "circulatingCatalog";
     const [placeholder, setPlaceholder] = useState<string>(
       "What would you like to find?"
     );
     const [searchInput, setSearchInput] = useState<string>("");
-    const [searchOption, setSearchOption] = useState<string>("catalog");
+    const [searchOption, setSearchOption] = useState<SearchOptionType>(
+      defaultSearchRadioValue
+    );
     const [isSearchRequested, setIsSearchRequested] = useState<boolean>(false);
     const [isGAResponseReceived, setIsGAResponseReceived] =
       useState<boolean>(false);
@@ -43,8 +51,19 @@ const HeaderSearchForm = chakra(
 
       // If there is a search input, make the request.
       if (searchInput) {
-        if (searchOption === "catalog" || mobileType === "catalog") {
-          gaSearchLabel = "Submit Catalog Search";
+        if (
+          searchOption === "circulatingCatalog" ||
+          mobileType === "circulatingCatalog"
+        ) {
+          gaSearchLabel = "Submit Circulating Catalog Search";
+          gaSearchedRepo = "Encore";
+          requestUrl = getEncoreCatalogURL(searchInput);
+        }
+        if (
+          searchOption === "researchCatalog" ||
+          mobileType === "researchCatalog"
+        ) {
+          gaSearchLabel = "Submit Research Catalog Search";
           gaSearchedRepo = "Encore";
           requestUrl = getEncoreCatalogURL(searchInput);
         }
@@ -147,51 +166,34 @@ const HeaderSearchForm = chakra(
           </FormRow>
           <FormRow>
             <FormField>
-              {isMobile ? (
-                <HStack spacing="0">
-                  <Button
-                    aria-label="Submit Catalog Search"
-                    id="mobile-catalog"
-                    onClick={(e) => onSubmit(e, "catalog")}
-                    __css={styles.mobileBtns}
-                  >
-                    CATALOG
-                    <Icon name="arrow" size="small" iconRotation="rotate270" />
-                  </Button>
-                  <Button
-                    aria-label="Submit NYPL Website Search"
-                    id="mobile-website"
-                    onClick={(e) => onSubmit(e, "website")}
-                    __css={styles.mobileBtns}
-                  >
-                    NYPL.ORG
-                    <Icon name="arrow" size="small" iconRotation="rotate270" />
-                  </Button>
-                </HStack>
-              ) : (
-                <RadioGroup
-                  defaultValue="catalog"
-                  id="search-type"
-                  labelText="Type of search"
-                  layout="row"
-                  name="catalogWebsiteSearch"
-                  onChange={(val) => setSearchOption(val)}
-                  showLabel={false}
-                >
-                  <Radio
-                    id="catalogSearch"
-                    labelText="Search the Catalog"
-                    value="catalog"
-                    __css={styles.radio}
-                  />
-                  <Radio
-                    id="websiteSearch"
-                    labelText="Search NYPL.org"
-                    value="website"
-                    __css={styles.radio}
-                  />
-                </RadioGroup>
-              )}
+              <RadioGroup
+                defaultValue="catalog"
+                id="search-type"
+                labelText="Type of search"
+                layout={isMobile ? "column" : "row"}
+                name="catalogWebsiteSearch"
+                onChange={(val: SearchOptionType) => setSearchOption(val)}
+                showLabel={false}
+              >
+                <Radio
+                  id="circulatingCatalogSearch"
+                  labelText="Search the Circulating Catalog"
+                  value="circulatingCatalog"
+                  __css={styles.radio}
+                />
+                <Radio
+                  id="researchcatalogSearch"
+                  labelText="Search the Research Catalog"
+                  value="researchCatalog"
+                  __css={styles.radio}
+                />
+                <Radio
+                  id="websiteSearch"
+                  labelText="Search NYPL.org"
+                  value="website"
+                  __css={styles.radio}
+                />
+              </RadioGroup>
             </FormField>
           </FormRow>
         </Form>

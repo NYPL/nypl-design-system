@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Header V2
+
+- Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+
 ### Header Feature
 
 - Adds static `Header` component with login dropdown (functionality to be added later).
