@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
+import { ToolTipWrapper } from "./TagSet";
 
 export interface TagSetFilterDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -53,33 +54,34 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
           return;
         }
         return (
-          <Button
-            data-testid="filter-tags"
-            id={`ts-filter-${id}-${key}`}
-            key={key}
-            onClick={
-              isDismissible ? () => finalOnClick(tagSet.label) : undefined
-            }
-            sx={styles}
-          >
-            {!isDismissible && tagSet.iconName ? (
-              <Icon
-                align="left"
-                data-testid="ts-icon"
-                name={tagSet.iconName}
-                size="medium"
-              />
-            ) : null}
-            <span>{tagSet.label}</span>
-            {isDismissible ? (
-              <Icon
-                data-testid="filter-close-icon"
-                align="right"
-                name="close"
-                size="small"
-              />
-            ) : null}
-          </Button>
+          <ToolTipWrapper key={key} label={tagSet.label}>
+            <Button
+              data-testid="filter-tags"
+              id={`ts-filter-${id}-${key}`}
+              onClick={
+                isDismissible ? () => finalOnClick(tagSet.label) : undefined
+              }
+              sx={styles}
+            >
+              {!isDismissible && tagSet.iconName ? (
+                <Icon
+                  align="left"
+                  data-testid="ts-icon"
+                  name={tagSet.iconName}
+                  size="medium"
+                />
+              ) : null}
+              <span>{tagSet.label}</span>
+              {isDismissible ? (
+                <Icon
+                  data-testid="filter-close-icon"
+                  align="right"
+                  name="close"
+                  size="medium"
+                />
+              ) : null}
+            </Button>
+          </ToolTipWrapper>
         );
       })}
 

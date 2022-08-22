@@ -3,6 +3,7 @@ import React from "react";
 
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
+import { ToolTipWrapper } from "./TagSet";
 
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -32,32 +33,36 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
   const { id, tagSetData = [] } = props;
   const styles = useStyleConfig("TagSetExplore");
 
-  if (typeof tagSetData[0].label === "string") {
-    console.warn(
-      "NYPL Reservoir TagSet: Explore tags require all `label` props to be React components."
-    );
-  }
-
   return (
     <>
-      {tagSetData.map((tagSet: TagSetExploreDataProps, key: number) => (
-        <Box
-          data-testid="explore-tags"
-          id={`ts-explore-${id}-${key}`}
-          key={key}
-          __css={styles}
-        >
-          {tagSet.iconName ? (
-            <Icon
-              align="left"
-              data-testid="ts-icon"
-              name={tagSet.iconName}
-              size="small"
-            />
-          ) : null}
-          <span>{tagSet.label}</span>
-        </Box>
-      ))}
+      {tagSetData.map((tagSet: TagSetExploreDataProps, key: number) => {
+        if (typeof tagSet.label === "string") {
+          console.warn(
+            "NYPL Reservoir TagSet: Explore tags require all `label` props to be React components."
+          );
+          return;
+        }
+
+        return (
+          <ToolTipWrapper key={key} label={tagSet.label}>
+            <Box
+              data-testid="explore-tags"
+              id={`ts-explore-${id}-${key}`}
+              __css={styles}
+            >
+              {tagSet.iconName ? (
+                <Icon
+                  align="left"
+                  data-testid="ts-icon"
+                  name={tagSet.iconName}
+                  size="medium"
+                />
+              ) : null}
+              <span>{tagSet.label}</span>
+            </Box>
+          </ToolTipWrapper>
+        );
+      })}
     </>
   );
 });

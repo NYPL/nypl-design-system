@@ -45,16 +45,19 @@ const TagSetExplore = {
     borderColor: "ui.link.primary",
     borderRadius: "pill",
     color: "ui.link.primary",
-    textDecoration: "underline",
+    fontSize: "label.default",
     height: "29px",
     minHeight: "30px",
     maxWidth: "200px",
     py: "xxxs",
     px: "s",
+    textDecoration: "underline",
     "&:focus-within": activeFocus(),
     a: {
-      outline: "0",
       border: "0",
+      _focus: {
+        outline: "none",
+      },
     },
     "> span": {
       display: "inline-block",
