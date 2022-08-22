@@ -46,37 +46,15 @@ import DSProvider from "../../theme/provider";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props](#component-props)
+- [Explore Component Props](#explore-component-props)
+- [Filter Component Props](#filter-component-props)
 - [Accessibility](#accessibility)
+- [Explore Examples](#explore-examples)
+- [Filter Examples](#filter-examples)
 
 ## Overview
 
 <Description of={TagSet} />
-
-## Filter Component Props
-
-<Canvas withToolbar>
-  <Story
-    name="TagSet Filter with Controls"
-    args={{
-      className: undefined,
-      id: "tagSet-id-filter",
-      isDismissible: false,
-      onClick: undefined,
-      tagSetData: [
-        { iconName: "check", label: "A very long filter for the tag" },
-        { iconName: "check", label: "1 Lou Reed" },
-        { iconName: "check", label: "2 Lou Reed" },
-        { iconName: "check", label: "3 Lou Reed" },
-      ],
-      type: "filter",
-    }}
-  >
-    {(args) => <TagSet {...args} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="TagSet Filter with Controls" />
 
 ## Explore Component Props
 
@@ -109,4 +87,33 @@ import DSProvider from "../../theme/provider";
 
 <ArgsTable story="TagSet Explore with Controls" />
 
+## Filter Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="TagSet Filter with Controls"
+    args={{
+      className: undefined,
+      id: "tagSet-id-filter",
+      isDismissible: false,
+      onClick: undefined,
+      tagSetData: [
+        { iconName: "check", label: "A very long filter for the tag" },
+        { iconName: "check", label: "1 Lou Reed" },
+        { iconName: "check", label: "2 Lou Reed" },
+        { iconName: "check", label: "3 Lou Reed" },
+      ],
+      type: "filter",
+    }}
+  >
+    {(args) => <TagSet {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TagSet Filter with Controls" />
+
 ## Accessibility
+
+## Explore Examples
+
+## Filter Examples
