@@ -47,6 +47,7 @@ import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
 import Toggle from "./components/toggle";
+import Tooltip from "./components/tooltip";
 import VideoPlayer from "./components/videoPlayer";
 
 /**
@@ -121,6 +122,7 @@ const theme = extendTheme({
     Text,
     TextInput,
     ...Toggle,
+    Tooltip,
     VideoPlayer,
   },
   config: {

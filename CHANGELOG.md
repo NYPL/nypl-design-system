@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `Tooltip` component.
+
 ### Fixes
 
 - Fixes the styling for the `Image` component in the `Hero` "secondary" variant.
