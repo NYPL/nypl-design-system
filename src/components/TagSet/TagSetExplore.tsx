@@ -40,7 +40,6 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
           console.warn(
             "NYPL Reservoir TagSet: Explore tags require all `label` props to be React components."
           );
-          return;
         }
 
         return (

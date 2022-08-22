@@ -47,12 +47,12 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
   return (
     <>
       {filters.map((tagSet: TagSetFilterDataProps, key: number) => {
-        if (typeof filters[0].label !== "string") {
+        if (typeof tagSet.label !== "string") {
           console.warn(
             "NYPL Reservoir TagSet: Filter tags require all `label` props to be strings."
           );
-          return;
         }
+
         return (
           <ToolTipWrapper key={key} label={tagSet.label}>
             <Button
