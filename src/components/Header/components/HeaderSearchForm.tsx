@@ -10,7 +10,11 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
+import {
+  getEncoreCatalogURL,
+  getNYPLSearchURL,
+  getResearchCatalogURL,
+} from "../utils/headerUtils";
 import gaUtils, { gaConfig } from "../utils/googleAnalyticsUtils";
 
 export interface HeaderSearchFormProps {
@@ -43,7 +47,7 @@ const HeaderSearchForm = chakra(
     // GASearchedRepo indicates which kind of search is sent.
     let gaSearchedRepo = "Unknown";
 
-    const onSubmit = (e: any, mobileType = "") => {
+    const onSubmit = (e: any) => {
       e.preventDefault();
       const newGaConfig = { ...gaConfig };
       let gaSearchLabel;
@@ -51,23 +55,17 @@ const HeaderSearchForm = chakra(
 
       // If there is a search input, make the request.
       if (searchInput) {
-        if (
-          searchOption === "circulatingCatalog" ||
-          mobileType === "circulatingCatalog"
-        ) {
+        if (searchOption === "circulatingCatalog") {
           gaSearchLabel = "Submit Circulating Catalog Search";
           gaSearchedRepo = "Encore";
           requestUrl = getEncoreCatalogURL(searchInput);
         }
-        if (
-          searchOption === "researchCatalog" ||
-          mobileType === "researchCatalog"
-        ) {
+        if (searchOption === "researchCatalog") {
           gaSearchLabel = "Submit Research Catalog Search";
-          gaSearchedRepo = "Encore";
-          requestUrl = getEncoreCatalogURL(searchInput);
+          gaSearchedRepo = "Research Catalog";
+          requestUrl = getResearchCatalogURL(searchInput);
         }
-        if (searchOption === "website" || mobileType === "website") {
+        if (searchOption === "website") {
           gaSearchLabel = "Submit Search";
           gaSearchedRepo = "DrupalSearch";
           requestUrl = getNYPLSearchURL(searchInput);
@@ -129,40 +127,30 @@ const HeaderSearchForm = chakra(
                 legendText="Enter a keyword, then choose to search either the catalog or the website"
               >
                 <TextInput
-                  // eslint-disable-next-line jsx-a11y/no-autofocus
-                  // autoFocus
                   id="searchInput"
                   isRequired
                   labelText="Enter Search Keyword"
                   onChange={(e) => setSearchInput(e.target.value)}
                   placeholder={placeholder}
                   showRequiredLabel={false}
-                  showLabel={!isMobile}
                   value={searchInput}
                   __css={styles.textInput}
                 />
-                <Icon
-                  name="search"
-                  size="small"
-                  __css={styles.mobileSearchIcon}
-                />
               </Fieldset>
             </FormField>
-            {!isMobile && (
-              <FormField gridColumn="4">
-                <ButtonGroup>
-                  <Button
-                    aria-label="Search"
-                    buttonType="pill"
-                    id="search-btn"
-                    onClick={onSubmit}
-                    __css={styles.desktopSearchBtn}
-                  >
-                    <Icon name="search" size="large" />
-                  </Button>
-                </ButtonGroup>
-              </FormField>
-            )}
+            <FormField gridColumn={{ base: "3", md: "4" }}>
+              <ButtonGroup>
+                <Button
+                  aria-label="Search"
+                  buttonType="pill"
+                  id="search-btn"
+                  onClick={onSubmit}
+                  __css={styles.searchBtn}
+                >
+                  <Icon name="search" size="large" />
+                </Button>
+              </ButtonGroup>
+            </FormField>
           </FormRow>
           <FormRow>
             <FormField>

@@ -1,7 +1,7 @@
-import { headerBlue, headerFocus, headerLightBlueIcon } from "./header";
+import { headerBlue, headerFocus } from "./header";
 
 const HeaderSearchForm = {
-  parts: ["desktopSearchBtn", "form", "mobileSearchIcon", "radio", "textInput"],
+  parts: ["searchBtn", "form", "radio", "textInput"],
   baseStyle: {
     color: "ui.white",
     backgroundColor: headerBlue,
@@ -21,20 +21,17 @@ const HeaderSearchForm = {
       maxWidth: { md: "1312px" },
       whiteSpace: "initial",
       "> div": {
+        margin: "20px 15px 0",
         marginLeft: { md: "m", lg: "140px" },
         marginRight: { md: "m" },
       },
     },
-    // These two are styles for the fieldsets:
-    "#fieldset-search": {
-      margin: { base: "20px 15px 0", md: "0" },
-    },
     "#radio-group-search-type": {
-      margin: { base: "0 40px 20px", md: "0" },
+      margin: { base: "0 20px 20px", md: "0" },
     },
     textInput: {
       label: {
-        fontSize: { md: "20px" },
+        fontSize: "22px",
       },
       input: {
         borderRadius: { md: "5px" },
@@ -49,21 +46,16 @@ const HeaderSearchForm = {
         _hover: headerFocus,
       },
     },
-    mobileSearchIcon: {
-      display: { md: "none" },
-      fill: `${headerLightBlueIcon} !important`,
-      left: "20px",
-      position: "absolute",
-      top: "45px",
-    },
-    desktopSearchBtn: {
+    searchBtn: {
       alignSelf: "end",
       backgroundColor: "transparent",
       borderRadius: "100px",
       borderWidth: "2px",
-      height: "75px",
-      maxHeight: "75px",
-      width: "75px",
+      height: { base: "65px", md: "60px" },
+      marginTop: "40px",
+      marginRight: "0",
+      maxHeight: "65px",
+      width: { base: "65px", md: "60px" },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",

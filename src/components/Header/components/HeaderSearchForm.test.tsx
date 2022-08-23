@@ -80,7 +80,8 @@ describe("HeaderSearchForm", () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
-      // The default value of the radio button is set to "Search the Catalog".
+      // The default value of the radio button is set to
+      // "Search the Circulating Catalog".
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
 
@@ -93,6 +94,28 @@ describe("HeaderSearchForm", () => {
       expect(window.location.assign).toHaveBeenNthCalledWith(
         1,
         "https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
+    it("makes a request to the Research Catalog", async () => {
+      const searchInput = screen.getByRole("textbox");
+      const researchRadio = screen.getByText("Search the Research Catalog");
+      const searchBtn = screen.getByRole("button");
+
+      userEvent.type(searchInput, "cats");
+      // Select the "Search the Research Catalog" radio button.
+      userEvent.click(researchRadio);
+      userEvent.click(searchBtn);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
+
+      // The first call to `window.location.assign` should be...
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        2,
+        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
       );
     });
 
@@ -116,7 +139,7 @@ describe("HeaderSearchForm", () => {
       // ALL tests. So we should have two calls to `window.location.assign`.
       // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
-        2,
+        3,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
       );
     });
@@ -163,6 +186,25 @@ describe("HeaderSearchForm", () => {
       );
     });
 
+    it("makes a request to the Research Catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const researchCatalogRadio = screen.getAllByRole("radio")[1];
+
+      userEvent.type(searchInput, "cats");
+      // Select the Research Catalog
+      userEvent.click(researchCatalogRadio);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
+
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        2,
+        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
     it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
       const websiteRadio = screen.getAllByRole("radio")[2];
@@ -177,7 +219,7 @@ describe("HeaderSearchForm", () => {
       jest.runAllTimers();
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
-        2,
+        3,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
       );
     });
