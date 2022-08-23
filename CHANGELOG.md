@@ -16,6 +16,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes the styling for the `Image` component in the `Hero` "secondary" variant.
 
+### Updates
+
+- Makes small, clarifying update to `Color Mode` story in Storybook.
+
 ## 1.0.8 (August 11, 2022)
 
 ### Adds
