@@ -39,6 +39,8 @@ export interface GAOptionProps {
   titleCase?: boolean;
 }
 export interface HeaderProps {
+  /** Whether to render sitewide alerts or not. True by default. */
+  fetchSitewideAlerts?: boolean;
   /** Google Analytics options to override the default settings. */
   gaOptions?: GAOptionProps;
   /** Whether or not the `Header` is in production mode. True by default. */
@@ -51,7 +53,11 @@ export interface HeaderProps {
  * the NYPL.org site.
  */
 export const Header = chakra(
-  ({ gaOptions = {}, isProduction = true }: HeaderProps) => {
+  ({
+    fetchSitewideAlerts = true,
+    gaOptions = {},
+    isProduction = true,
+  }: HeaderProps) => {
     const [patronName, setPatronName] = useState<string>("");
     const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
     const styles = useMultiStyleConfig("Header", {});
@@ -117,7 +123,7 @@ export const Header = chakra(
       <HeaderProvider isProduction={isProduction} patronName={patronName}>
         <Box __css={styles}>
           <SkipNavigation />
-          <HeaderSitewideAlerts />
+          {fetchSitewideAlerts ? <HeaderSitewideAlerts /> : null}
           <header>
             <HStack __css={styles.container}>
               <Link
@@ -127,6 +133,7 @@ export const Header = chakra(
                 __css={styles.logo}
               >
                 <Logo
+                  aria-label="NYPL Header Logo"
                   name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
                   size={isLargerThanMobile ? "large" : "small"}
                   title="NYPL Header Logo"

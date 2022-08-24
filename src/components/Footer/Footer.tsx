@@ -39,8 +39,9 @@ export const Footer = chakra(
         />
       ));
       const socialLinks = linkData.socialMedia.map((link, index) => (
-        <Link href={link.href} key={index}>
+        <Link aria-label={link.title} href={link.href} key={index}>
           <Icon
+            aria-label={link.title}
             decorative={false}
             name={link.iconName as IconNames}
             size="small"
@@ -89,6 +90,7 @@ export const Footer = chakra(
           </Box>
           <Box __css={styles.logoContainer}>
             <Logo
+              aria-label="The New York Public Library"
               decorative={false}
               name="nyplTextWhite"
               size="small"
