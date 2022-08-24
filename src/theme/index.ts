@@ -20,6 +20,7 @@ import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
+import Footer from "./components/footer";
 import Header from "./components/header/header";
 import HeaderLogin from "./components/header/headerLogin";
 import HeaderLoginButton from "./components/header/headerLoginButton";
@@ -104,6 +105,7 @@ const theme = extendTheme({
     CustomSelect,
     DatePicker,
     Fieldset,
+    Footer,
     Header,
     HeaderLogin,
     HeaderLoginButton,

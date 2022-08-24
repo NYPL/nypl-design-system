@@ -29,6 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `Tooltip` component.
+- Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
 - Adds the `react-ga` package to send Google Analytics events in the `Header` component.
@@ -37,6 +38,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `onClick` event type for the `Pagination` links `onClick` function.
 - Updates the `Link` component's `onClick` event type.
+- Makes small, clarifying update to `Color Mode` story in Storybook.
 
 ### Fixes
 
@@ -62,6 +64,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
+  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
