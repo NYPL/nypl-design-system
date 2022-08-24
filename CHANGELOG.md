@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `Tooltip` component.
+- Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
 
 ### Fixes
 
@@ -40,6 +41,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
+  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
