@@ -54,7 +54,7 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
                   align="left"
                   data-testid="ts-icon"
                   name={tagSet.iconName}
-                  size="medium"
+                  size="small"
                 />
               ) : null}
               <span>{tagSet.label}</span>

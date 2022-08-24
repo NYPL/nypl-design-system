@@ -68,7 +68,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
                   align="left"
                   data-testid="ts-icon"
                   name={tagSet.iconName}
-                  size="medium"
+                  size="small"
                 />
               ) : null}
               <span>{tagSet.label}</span>
@@ -77,7 +77,9 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
                   data-testid="filter-close-icon"
                   align="right"
                   name="close"
-                  size="medium"
+                  size="small"
+                  color="ui.gray.x-dark"
+                  width="12px"
                 />
               ) : null}
             </Button>
