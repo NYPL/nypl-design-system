@@ -233,7 +233,7 @@ describe("Form", () => {
   });
 
   it("passes a ref to the form element", () => {
-    const ref = React.createRef<HTMLFormElement>();
+    const ref = React.createRef<HTMLDivElement & HTMLFormElement>();
     const { container } = render(
       <Form id="form" ref={ref}>
         <FormRow>

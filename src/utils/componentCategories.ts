@@ -79,6 +79,7 @@ const categories = {
     title: "Hooks",
     components: [
       "useCarouselStyles",
+      "useCloseDropDown",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",
