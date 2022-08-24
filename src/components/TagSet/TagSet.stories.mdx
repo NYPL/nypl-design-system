@@ -105,7 +105,7 @@ Notes:
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the
-Reservoir `Icon` component and are optional. The `label` _MUST_ be a React
+Reservoir `Icon` component and is optional. The `label` _MUST_ be a React
 element; typically, links are expected to be used for the "explore" variant.
 
 ```tsx
@@ -122,22 +122,24 @@ const tagSetData = [
 
 ## Filter Component Props
 
-A "filter" `TagSet` variant is used to display keywords that a user selected to
-filter down the scope of the content on a page. For example, in a search results
-page, the filters a user selects would be displayed back to the user through
-the "filter" `TagSet` variant. These tags can be dismissed by the user and the
-scope of the content should be updated accordingly -- but the update to display
-the proper filters and updated results are the responsibility of the
-consuming application.
+A "filter" `TagSet` variant is used to display keywords the user selected to
+filter content on a page. For example, in a search results page, the filters a
+user selects would be displayed back to the user through the "filter" `TagSet`
+variant. These tags can be dismissed by the user and the scope of the content
+should be updated accordingly -- but the update to display the proper filters
+and updated results are the responsibility of the consuming application.
 
 Notes:
 
-- The `isDismissible` prop is optional and the `onClick` prop is
-  required for this variant.
+- The `isDismissible` prop is optional and the `onClick` prop is required for
+  this variant.
 - The `onClick` prop will only fire when `isDismissible` is true and the user
   clicks a tag.
 - Icons will not be rendered when `isDismissible` is true. In this case, the "X"
   close icon will be rendered instead.
+- When the `isDismissible` prop is true, a "Clear Filters" button will be
+  rendered at the end of the list of tags. Clicking this button will also
+  trigger the `onClick` prop.
 
 <Canvas withToolbar>
   <Story
@@ -145,7 +147,7 @@ Notes:
     args={{
       className: undefined,
       id: "tagSet-id-filter",
-      isDismissible: false,
+      isDismissible: true,
       onClick: (tagLabel) => {
         console.log(`Clicked from the onClick props: ${tagLabel}`);
       },
@@ -171,7 +173,7 @@ Notes:
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the
-Reservoir `Icon` component and are optional. The `label` _MUST_ be a string for
+Reservoir `Icon` component and is optional. The `label` _MUST_ be a string for
 the filter type.
 
 ```tsx
@@ -188,10 +190,10 @@ const tagSetData = [
 
 ## Accessibility
 
-All proper tags in the "explore" and "filter" `TagSet` variants are accessible.
-For the "explore" variant, tags are expected to be set as links and are therefore
-focusable. For the "filter" variant, tags are rendered as buttons to perform
-in-page clicking behavior.
+All properly implemented tags in the "explore" and "filter" `TagSet` variants
+are accessible. For the "explore" variant, tags are expected to be set as links
+and are therefore focusable. For the "filter" variant, tags are rendered as
+buttons to perform in-page clicking behavior.
 
 Resources:
 

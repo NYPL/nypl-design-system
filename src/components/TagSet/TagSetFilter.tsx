@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
-import { ToolTipWrapper } from "./TagSet";
+import { TooltipWrapper } from "./TagSet";
 
 export interface TagSetFilterDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -53,8 +53,14 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
           );
         }
 
+        if (isDismissible && tagSet.iconName) {
+          console.warn(
+            "NYPL Reservoir TagSet: Filter tags will not render icons when `isDismissible` is set to true."
+          );
+        }
+
         return (
-          <ToolTipWrapper key={key} label={tagSet.label}>
+          <TooltipWrapper key={key} label={tagSet.label}>
             <Button
               data-testid="filter-tags"
               id={`ts-filter-${id}-${key}`}
@@ -83,7 +89,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
                 />
               ) : null}
             </Button>
-          </ToolTipWrapper>
+          </TooltipWrapper>
         );
       })}
 

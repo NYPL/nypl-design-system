@@ -12,7 +12,7 @@ import TagSetFilter, {
 } from "./TagSetFilter";
 
 export interface BaseTagSetProps {
-  /** Additional class for the componen.t */
+  /** Additional class for the component. */
   className?: string;
 }
 
@@ -31,12 +31,13 @@ export function isFilterType(type: TagSetProps["type"]): type is "filter" {
  * long or a React fragment. This assumes that the `label` prop is a rather
  * simple single root JSX element, such as `<Link ...>....</Link>`.
  */
-export const ToolTipWrapper = ({
+export const TooltipWrapper = ({
   label,
   children,
 }: React.PropsWithChildren<{ label: any }>) => {
+  const maxCharLengthToShow = 17;
   const labelText = typeof label === "string" ? label : label.props.children;
-  if (labelText.length > 17 && typeof labelText === "string") {
+  if (labelText.length > maxCharLengthToShow && typeof labelText === "string") {
     return <Tooltip content={labelText}>{children}</Tooltip>;
   }
   return <>{children}</>;
@@ -45,7 +46,7 @@ export const ToolTipWrapper = ({
 /**
  * The `TagSet` component renders a group of individual tags which have two
  * variants: "explore" and "filter". The "explore" tags are meant to be used for
- * exploratory linkable elements. Whereas the "filter" tags are used to display
+ * exploratory linkable elements, whereas the "filter" tags are used to display
  * the filter values that were selected through another UI. Only "filter" tags
  * can be dismissible.
  */

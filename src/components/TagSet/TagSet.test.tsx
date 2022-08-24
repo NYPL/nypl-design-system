@@ -274,6 +274,20 @@ describe("TagSet Filter", () => {
     );
   });
 
+  it("logs a warning when the labels are JSX elements", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <TagSet
+        isDismissible
+        tagSetData={filterTagSetData.withIcon}
+        type="filter"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TagSet: Filter tags will not render icons when `isDismissible` is set to true."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     onClick = jest.fn();
     const simple = renderer

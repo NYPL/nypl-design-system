@@ -3,7 +3,7 @@ import React from "react";
 
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
-import { ToolTipWrapper } from "./TagSet";
+import { TooltipWrapper } from "./TagSet";
 
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -43,7 +43,7 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
         }
 
         return (
-          <ToolTipWrapper key={key} label={tagSet.label}>
+          <TooltipWrapper key={key} label={tagSet.label}>
             <Box
               data-testid="explore-tags"
               id={`ts-explore-${id}-${key}`}
@@ -59,7 +59,7 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
               ) : null}
               <span>{tagSet.label}</span>
             </Box>
-          </ToolTipWrapper>
+          </TooltipWrapper>
         );
       })}
     </>
