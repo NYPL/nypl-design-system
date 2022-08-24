@@ -47,6 +47,7 @@ export {
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
+export { default as Header } from "./components/Header/Header";
 export {
   default as Heading,
   HeadingSizes,
