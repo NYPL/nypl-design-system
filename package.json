@@ -140,6 +140,7 @@
     "size-limit": "5.0.1",
     "storybook-addon-designs": "6.2.1",
     "style-loader": "2.0.0",
+    "tough-cookie": "4.0.0",
     "ts-jest": "27.0.4",
     "tsdx": "0.14.1",
     "tslib": "2.3.0"
