@@ -27,6 +27,7 @@ const Header = {
     horizontalRule: {
       bg: headerRed,
       marginTop: "0",
+      marginBottom: "0",
     },
     logo: {
       padding: { base: "0 10px", md: "0" },
