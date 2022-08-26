@@ -82,13 +82,35 @@ Notes:
       isDismissible: undefined,
       onClick: undefined,
       tagSetData: [
-        { iconName: "arrow", label: <a href="#">Abbey Road</a> },
-        { iconName: "actionLaunch", label: <a href="#">The Beatles</a> },
-        { iconName: "alertWarningOutline", label: <a href="#">Revolver</a> },
         {
-          iconName: "check",
           label: (
-            <a href="#">The Beatles Sgt. Pepper's Lonely Hearts Club Band</a>
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+              Card
+            </a>
+          ),
+        },
+        {
+          iconName: "fileTypeDoc",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+              StructuredContent
+            </a>
+          ),
+        },
+        {
+          iconName: "alertWarningOutline",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+              ProgressIndicator
+            </a>
+          ),
+        },
+        {
+          iconName: "actionSettings",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+              useNYPLBreakpoints React hook
+            </a>
           ),
         },
       ],
@@ -101,7 +123,7 @@ Notes:
 
 <ArgsTable story="TagSet Explore with Controls" />
 
-### Explore `tagSetData` Labels
+### Explore `tagSetData` Prop
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the
@@ -110,12 +132,36 @@ element; typically, links are expected to be used for the "explore" variant.
 
 ```tsx
 const tagSetData = [
-  { iconName: "arrow", label: <a href="#">Abbey Road</a> },
-  { iconName: "actionLaunch", label: <a href="#">The Beatles</a> },
-  { iconName: "alertWarningOutline", label: <a href="#">Revolver</a> },
   {
-    iconName: "check",
-    label: <a href="#">The Beatles Sgt. Pepper's Lonely Hearts Club Band</a>,
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+        Card
+      </a>
+    ),
+  },
+  {
+    iconName: "fileTypeDoc",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+        StructuredContent
+      </a>
+    ),
+  },
+  {
+    iconName: "alertWarningOutline",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+        ProgressIndicator
+      </a>
+    ),
+  },
+  {
+    iconName: "actionSettings",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+        useNYPLBreakpoints React hook
+      </a>
+    ),
   },
 ];
 ```
@@ -123,11 +169,11 @@ const tagSetData = [
 ## Filter Component Props
 
 A "filter" `TagSet` variant is used to display keywords the user selected to
-filter content on a page. For example, in a search results page, the filters a
-user selects would be displayed back to the user through the "filter" `TagSet`
-variant. These tags can be dismissed by the user and the scope of the content
-should be updated accordingly -- but the update to display the proper filters
-and updated results are the responsibility of the consuming application.
+filter content on a page. For example, in a search results page, the filter
+criteria a user selects would be displayed back to the user through the "filter"
+`TagSet` variant. These tags can be dismissed by the user and the scope of the
+content should be updated accordingly -- but the update to display the proper
+filters and updated results are the responsibility of the consuming application.
 
 Notes:
 
@@ -152,7 +198,7 @@ Notes:
         console.log(`Clicked from the onClick props: ${tagLabel}`);
       },
       tagSetData: [
-        { iconName: "arrow", label: "Abbey Road" },
+        { iconName: "utilityAccountFilled", label: "Abbey Road" },
         { iconName: "actionLaunch", label: "The Beatles" },
         { iconName: "alertWarningOutline", label: "Revolver" },
         {
@@ -169,7 +215,7 @@ Notes:
 
 <ArgsTable story="TagSet Filter with Controls" />
 
-### Filter `tagSetData` Labels
+### Filter `tagSetData` Prop
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the
@@ -178,7 +224,7 @@ the filter type.
 
 ```tsx
 const tagSetData = [
-  { iconName: "arrow", label: "Abbey Road" },
+  { iconName: "utilityAccountFilled", label: "Abbey Road" },
   { iconName: "actionLaunch", label: "The Beatles" },
   { iconName: "alertWarningOutline", label: "Revolver" },
   {
@@ -206,25 +252,70 @@ Resources:
     <VStack align="stretch" gap="l">
       <TagSet
         tagSetData={[
-          { label: <a href="#">Red</a> },
-          { label: <a href="#">Orange</a> },
-          { label: <a href="#">Yellow</a> },
-          { label: <a href="#">Green</a> },
-          { label: <a href="#">Blue</a> },
-          { label: <a href="#">Indigo</a> },
-          { label: <a href="#">Violet</a> },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+                Card
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+                StructuredContent
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+                ProgressIndicator
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+                useNYPLBreakpoints React hook
+              </a>
+            ),
+          },
         ]}
         type="explore"
       />
       <TagSet
         tagSetData={[
-          { iconName: "alertWarningFilled", label: <a href="#">Red</a> },
-          { iconName: "check", label: <a href="#">Orange</a> },
-          { iconName: "check", label: <a href="#">Yellow</a> },
-          { iconName: "alertWarningFilled", label: <a href="#">Green</a> },
-          { iconName: "check", label: <a href="#">Blue</a> },
-          { iconName: "check", label: <a href="#">Indigo</a> },
-          { iconName: "check", label: <a href="#">Violet</a> },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+                Card
+              </a>
+            ),
+          },
+          {
+            iconName: "fileTypeDoc",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+                StructuredContent
+              </a>
+            ),
+          },
+          {
+            iconName: "alertWarningOutline",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+                ProgressIndicator
+              </a>
+            ),
+          },
+          {
+            iconName: "actionSettings",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+                useNYPLBreakpoints React hook
+              </a>
+            ),
+          },
         ]}
         type="explore"
       />

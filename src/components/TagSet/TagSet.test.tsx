@@ -247,6 +247,31 @@ describe("TagSet Filter", () => {
     expect(currentLabel).toEqual("Violet");
   });
 
+  it("renders the 'Clear Filters' button when there are more than two tags", () => {
+    const onClick = jest.fn();
+    const tagSetData = [{ label: "Red" }];
+    const { rerender } = render(
+      <TagSet
+        isDismissible
+        onClick={onClick}
+        tagSetData={tagSetData}
+        type="filter"
+      />
+    );
+    expect(screen.queryByText("Clear Filters")).not.toBeInTheDocument();
+
+    tagSetData.push({ label: "Orange" });
+    rerender(
+      <TagSet
+        isDismissible
+        onClick={onClick}
+        tagSetData={tagSetData}
+        type="filter"
+      />
+    );
+    expect(screen.getByText("Clear Filters")).toBeInTheDocument();
+  });
+
   it("returns 'clearFilters' when the 'Clear Filters' button is clicked", () => {
     let currentLabel = "";
     const onClick = (selectedLabel: string) => (currentLabel = selectedLabel);

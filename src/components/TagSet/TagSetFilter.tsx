@@ -93,7 +93,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
         );
       })}
 
-      {filters.length > 0 && isDismissible ? (
+      {filters.length > 1 && isDismissible ? (
         <Button
           buttonType="link"
           data-testid="filter-clear-all"

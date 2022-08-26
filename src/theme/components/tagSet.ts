@@ -21,7 +21,6 @@ const TagSetFilter = {
     fontSize: "text.tag",
     "> span": {
       display: "inline-block",
-      lineHeight: "1",
       overflow: "hidden",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
@@ -56,7 +55,8 @@ const TagSetExplore = {
     py: "xxxs",
     px: "s",
     textDecoration: "underline",
-    "&:focus-within": activeFocus(),
+    transition: "0.3s ease",
+    _focusWithin: activeFocus(),
     a: {
       border: "0",
       _focus: {
@@ -79,6 +79,9 @@ const TagSetExplore = {
       },
       svg: {
         fill: "ui.white",
+      },
+      "> span": {
+        color: "ui.white",
       },
     },
   },
