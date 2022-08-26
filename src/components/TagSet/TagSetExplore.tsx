@@ -4,6 +4,7 @@ import React from "react";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
 import { TooltipWrapper } from "./TagSet";
+import useIsOverflowElement from "../../hooks/useIsOverflowElement";
 
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -36,6 +37,8 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
   return (
     <>
       {tagSetData.map((tagSet: TagSetExploreDataProps, key: number) => {
+        const { overflowRef, isOverflow } = useIsOverflowElement();
+
         if (typeof tagSet.label === "string") {
           console.warn(
             "NYPL Reservoir TagSet: Explore tags require all `label` props to be React components."
@@ -43,7 +46,11 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
         }
 
         return (
-          <TooltipWrapper key={key} label={tagSet.label}>
+          <TooltipWrapper
+            key={key}
+            label={tagSet.label}
+            renderTooltip={isOverflow}
+          >
             <Box
               data-testid="explore-tags"
               id={`ts-explore-${id}-${key}`}
@@ -57,7 +64,7 @@ export const TagSetExplore = chakra((props: TagSetExploreProps) => {
                   size="small"
                 />
               ) : null}
-              <span>{tagSet.label}</span>
+              <span ref={overflowRef}>{tagSet.label}</span>
             </Box>
           </TooltipWrapper>
         );

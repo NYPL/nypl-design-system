@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
 import { TooltipWrapper } from "./TagSet";
+import useIsOverflowElement from "../../hooks/useIsOverflowElement";
 
 export interface TagSetFilterDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -47,6 +48,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
   return (
     <>
       {filters.map((tagSet: TagSetFilterDataProps, key: number) => {
+        const { overflowRef, isOverflow } = useIsOverflowElement();
         if (typeof tagSet.label !== "string") {
           console.warn(
             "NYPL Reservoir TagSet: Filter tags require all `label` props to be strings."
@@ -60,7 +62,11 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
         }
 
         return (
-          <TooltipWrapper key={key} label={tagSet.label}>
+          <TooltipWrapper
+            key={key}
+            label={tagSet.label}
+            renderTooltip={isOverflow}
+          >
             <Button
               data-testid="filter-tags"
               id={`ts-filter-${id}-${key}`}
@@ -77,7 +83,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
                   size="small"
                 />
               ) : null}
-              <span>{tagSet.label}</span>
+              <span ref={overflowRef}>{tagSet.label}</span>
               {isDismissible ? (
                 <Icon
                   data-testid="filter-close-icon"

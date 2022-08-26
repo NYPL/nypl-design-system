@@ -1,0 +1,46 @@
+import { Meta, Description } from "@storybook/addon-docs";
+
+import { getCategory } from "../utils/componentCategories";
+
+<Meta title={getCategory("useIsOverflowElement")} />
+
+# useIsOverflowElement
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `1.2.0`    |
+| Latest       | `1.2.0`    |
+
+This custom hook, checks whether an element overflows its container. The
+element that needs to be checked must use the `overflowRef` value that is
+returned by this hook. The `isOverflow` value will be true if the element does
+overflow its container, _after_ the component mounts.
+
+Note that the CSS styles for the element is _not_ performed by this hook. This
+hook only checks if any element is overflowing its container.
+
+## Usage
+
+For a full implementation example, view the
+[`TagSetFilter` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/TagSetFilter/TagSetFilter.tsx).
+
+```tsx
+const ExampleComponent = () => {
+  const { isOverflow, overflowRef } = useIsOverflowElement();
+
+  return (
+    <>
+      <Box
+        overflow="hidden"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+        width="250px"
+        ref={overflowRef}
+      >
+        This element will overflow if the text is too long.
+      </Box>
+      <p>Is the element overflowing? {isOverflow ? "Yes" : "No"}</p>
+    </>
+  );
+};
+```

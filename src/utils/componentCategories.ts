@@ -80,6 +80,7 @@ const categories = {
     components: [
       "useCarouselStyles",
       "useCloseDropDown",
+      "useIsOverflowElement",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",

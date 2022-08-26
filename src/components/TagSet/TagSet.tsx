@@ -29,15 +29,16 @@ export function isFilterType(type: TagSetProps["type"]): type is "filter" {
 /**
  * This helper component wrapper renders a DS `Tooltip` component if the text is
  * long or a React fragment. This assumes that the `label` prop is a rather
- * simple single root JSX element, such as `<Link ...>....</Link>`.
+ * simple single root JSX element, such as `<Link ...>....</Link>`. This should
+ * only be used within the `TagSet` component.
  */
 export const TooltipWrapper = ({
-  label,
   children,
-}: React.PropsWithChildren<{ label: any }>) => {
-  const maxCharLengthToShow = 17;
+  label,
+  renderTooltip = false,
+}: React.PropsWithChildren<{ label: any; renderTooltip?: boolean }>) => {
   const labelText = typeof label === "string" ? label : label.props.children;
-  if (labelText.length > maxCharLengthToShow && typeof labelText === "string") {
+  if (renderTooltip && typeof labelText === "string") {
     return <Tooltip content={labelText}>{children}</Tooltip>;
   }
   return <>{children}</>;
@@ -48,7 +49,9 @@ export const TooltipWrapper = ({
  * variants: "explore" and "filter". The "explore" tags are meant to be used for
  * exploratory linkable elements, whereas the "filter" tags are used to display
  * the filter values that were selected through another UI. Only "filter" tags
- * can be dismissible. The width of a single tag will never be greater than
+ * can be dismissible.
+ *
+ * The width of a single tag will never be greater than
  * 200px. If necessary, a tag’s label text will be truncated to keep a tag’s
  * width at or below 200px. The full label text will be automatically revealed
  * when the tag is hovered with a DS `Tooltip` component.
