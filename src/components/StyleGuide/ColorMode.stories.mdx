@@ -58,6 +58,9 @@ will return an object with the following properties:
 - `colorMode` is the current color mode of the application as "light" or "dark".
 - `toggleColorMode` is a function that can be used to toggle the color mode.
 
+Note that the `useColorMode` hook must be used inside of the `DSProvider`. If
+called outside of the provider, the value of `colorMode` will be `undefined`.
+
 ```tsx
 import { Button, useColorMode } from "@nypl/design-system-react-components";
 
