@@ -31,7 +31,7 @@ const HeaderSearchForm = {
     },
     textInput: {
       label: {
-        fontSize: "22px",
+        fontSize: { base: "heading.tertiary", md: "heading.secondary" },
       },
       input: {
         borderRadius: { md: "5px" },
@@ -75,7 +75,6 @@ const HeaderSearchForm = {
     },
     // Specifically target the radio labels.
     ".chakra-radio__label": {
-      fontSize: "18px",
       fontWeight: "medium",
     },
   },
