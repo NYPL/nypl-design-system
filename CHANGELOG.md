@@ -8,7 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 1.1.0-rc (Release Candidate August 14, 2022)
+## 1.1.0 (Ausut 30, 2022)
+
+This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
+
+### Fixes
+
+- Fixes how the "footer" area is rendered in the `TemplateAppContainer`.
+- Fixes ARIA labels in the `Footer`.
+
+## 1.1.0-rc5 (Release Candidate August 14, 2022)
 
 ### Header Feature
 
