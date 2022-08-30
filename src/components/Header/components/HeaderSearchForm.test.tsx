@@ -112,7 +112,7 @@ describe("HeaderSearchForm", () => {
       // internally has a timer.
       jest.runAllTimers();
 
-      // The first call to `window.location.assign` should be...
+      // The second call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
         "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
@@ -137,7 +137,7 @@ describe("HeaderSearchForm", () => {
 
       // We mock `window.location.assign` before ALL tests and restore after
       // ALL tests. So we should have two calls to `window.location.assign`.
-      // The second call to `window.location.assign` should be...
+      // The third call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
         3,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
