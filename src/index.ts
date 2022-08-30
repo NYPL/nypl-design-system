@@ -46,6 +46,7 @@ export {
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
+export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Header } from "./components/Header/Header";
 export {

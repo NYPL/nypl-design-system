@@ -24,8 +24,8 @@ import { getCategory } from "../../utils/componentCategories";
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
-| Added             | `TBD`      |
-| Latest            | `TBD`      |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
 
 ## Table of Contents
 
@@ -283,7 +283,11 @@ The `Header` component takes two props that are used to configure GA:
   production mode or not. If `true`, the production GA code is set and the
   `testMode` status for unit testing is set to `false`; if `false`, the
   development GA code is set and the `testMode` is set to `true`. This props is
-  set to `true` by default.
+  set to `true` by default. Pass in `false` if you are rendering the
+  `Header` component in tests.
+- `fetchSitewideAlerts`: a boolean that determines whether the `Header` should
+  fetch sitewide alerts or not. Pass in `false` if you are rendering the
+  `Header` component in tests. This is to prevent calling the `fetch` function.
 - `gaOptions`: an object that contains the GA settings with the following
   properties:
   - `debug`: a boolean that determines whether to log GA debug messages to the

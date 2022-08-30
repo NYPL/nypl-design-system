@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.1.0-rc (Release Candidate August 14, 2022)
+
 ### Header Feature
 
 - Adds static `Header` component with login dropdown (functionality to be added later).
