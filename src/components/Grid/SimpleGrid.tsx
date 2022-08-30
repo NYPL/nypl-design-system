@@ -1,5 +1,5 @@
 import { chakra, SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 export type GridGaps =
   | "grid.xxs"
@@ -24,25 +24,35 @@ export interface SimpleGridProps {
 }
 
 export const SimpleGrid = chakra(
-  (props: React.PropsWithChildren<SimpleGridProps>) => {
-    const { children, columns, className, gap = "grid.l", id, ...rest } = props;
+  forwardRef<HTMLDivElement, React.PropsWithChildren<SimpleGridProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        columns,
+        className,
+        gap = "grid.l",
+        id,
+        ...rest
+      } = props;
 
-    const responsiveCols = columns
-      ? { base: 1, md: columns }
-      : { base: 1, md: 2, lg: 3 };
+      const responsiveCols = columns
+        ? { base: 1, md: columns }
+        : { base: 1, md: 2, lg: 3 };
 
-    return (
-      <ChakraSimpleGrid
-        columns={responsiveCols}
-        gap={gap}
-        id={id}
-        className={className}
-        {...rest}
-      >
-        {children}
-      </ChakraSimpleGrid>
-    );
-  },
+      return (
+        <ChakraSimpleGrid
+          className={className}
+          columns={responsiveCols}
+          gap={gap}
+          id={id}
+          ref={ref}
+          {...rest}
+        >
+          {children}
+        </ChakraSimpleGrid>
+      );
+    }
+  ),
   { shouldForwardProp: () => true }
 );
 

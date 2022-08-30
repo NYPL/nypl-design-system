@@ -5,19 +5,23 @@ const secondaryBase = {
   overflowX: "hidden",
   content: {
     ...wrapperStyles,
-    paddingRight: "inset.default",
-    paddingLeft: "inset.default",
+    paddingEnd: "inset.default",
+    paddingStart: "inset.default",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
       md: "row wrap",
     },
+  },
+  imgWrapper: {
+    marginEnd: { base: "calc(-50vw + 50%)", md: "0" },
+    marginStart: { base: "calc(-50vw + 50%)", md: "0" },
+    flex: {
+      base: "1 1 100%",
+      md: "0 0 250px",
+    },
+    order: { base: "2", md: "3" },
     img: {
-      flex: {
-        base: "1 1 100%",
-        md: "0 0 250px",
-      },
-      order: { md: "3" },
       height: "150px",
       minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
       objectFit: "cover",
@@ -26,25 +30,23 @@ const secondaryBase = {
   },
   bodyText: {
     paddingBottom: "inset.default",
+    paddingEnd: { md: "inset.default" },
     paddingTop: "inset.default",
-    paddingRight: { md: "inset.default" },
     flex: { md: "1 1 50%" },
-    order: { md: "2" },
+    order: { base: "3", md: "2" },
   },
 };
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
   marginBottom: "0",
-  bg: "ui.black",
   color: "ui.white",
   flex: "1 1 100%",
   marginTop: "0",
   paddingBottom: "xxs",
   position: "relative",
   zIndex: "0",
-  order: { md: "1" },
+  order: "1",
   _before: {
-    bg: "ui.black",
     content: `""`,
     height: "100%",
     left: "-2000px",
@@ -55,7 +57,7 @@ const secondaryHeadingBase = {
 };
 // Get all the styles for the specific Secondary variant but
 // update the background color.
-const getSecondaryVariantStyles = (bgColor: string) => ({
+const getSecondaryVariantStyles = (bgColor: string = "ui.black") => ({
   ...secondaryBase,
   heading: {
     ...secondaryHeadingBase,
@@ -86,8 +88,8 @@ const primary = {
     maxWidth: { md: "960px" },
     paddingTop: "inset.extrawide",
     paddingBottom: "inset.extrawide",
-    paddingRight: "inset.wide",
-    paddingLeft: "inset.wide",
+    paddingEnd: "inset.wide",
+    paddingStart: "inset.wide",
     a: {
       color: "inherit",
       display: "inline-block",
@@ -100,12 +102,7 @@ const primary = {
     },
   },
 };
-const secondary = {
-  ...secondaryBase,
-  heading: {
-    ...secondaryHeadingBase,
-  },
-};
+const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
 );
@@ -115,7 +112,7 @@ const secondaryLocations = getSecondaryVariantStyles(
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
 const tertiary = {
-  bg: "ui.gray.xdark",
+  bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
     color: "ui.white",
@@ -197,24 +194,28 @@ const fiftyFifty = {
       lg: "row nowrap",
     },
     paddingBottom: "s",
-    paddingRight: "s",
-    paddingLeft: "s",
+    paddingEnd: "s",
+    paddingStart: "s",
     padding: {
       lg: "unset",
     },
   },
-  img: {
+  imgWrapper: {
     marginBottom: {
       base: "s",
       lg: "unset",
     },
-    marginRight: {
+    marginEnd: {
+      base: "-15px",
       lg: "s",
     },
+    marginStart: {
+      base: "-15px",
+    },
     maxWidth: {
-      base: "fit-content",
       lg: "50%",
     },
+    width: "auto",
   },
 };
 const Hero = {

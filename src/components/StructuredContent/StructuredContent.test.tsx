@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import StructuredContent from "./StructuredContent";
@@ -240,6 +240,7 @@ describe("StructuredContent", () => {
         }}
       />
     );
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("Image caption")).toBeInTheDocument();
@@ -282,6 +283,7 @@ describe("StructuredContent", () => {
         }}
       />
     );
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.queryByRole("figure")).not.toBeInTheDocument();
     expect(screen.queryByText("Image caption")).not.toBeInTheDocument();
@@ -431,5 +433,28 @@ describe("StructuredContent", () => {
     expect(withoutCalloutText).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <StructuredContent
+        bodyContent={htmlStringBodyContent}
+        calloutText="This is the callout text"
+        headingText="Heading text"
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: "original",
+          caption: "Image caption",
+          credit: "Image credit",
+          position: "left",
+          size: "medium",
+          src: "https://placeimg.com/400/300/animals",
+        }}
+        ref={ref}
+      />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

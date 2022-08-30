@@ -22,6 +22,18 @@ import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import FileDisplay from "./components/fileDisplay";
 import FileUploader from "./components/fileUploader";
+import Footer from "./components/footer";
+import Header from "./components/header/header";
+import HeaderLogin from "./components/header/headerLogin";
+import HeaderLoginButton from "./components/header/headerLoginButton";
+import HeaderLowerNav from "./components/header/headerLowerNav";
+import HeaderMobileIconNav from "./components/header/headerMobileIconNav";
+import HeaderMobileNav from "./components/header/headerMobileNav";
+import HeaderMobileNavButton from "./components/header/headerMobileNavButton";
+import HeaderSearchForm from "./components/header/headerSearchForm";
+import HeaderSearchButton from "./components/header/headerSearchButton";
+import HeaderSitewideAlerts from "./components/header/headerSitewideAlerts";
+import HeaderUpperNav from "./components/header/headerUpperNav";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -48,6 +60,7 @@ import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
 import Toggle from "./components/toggle";
+import Tooltip from "./components/tooltip";
 import VideoPlayer from "./components/videoPlayer";
 
 /**
@@ -96,6 +109,18 @@ const theme = extendTheme({
     Fieldset,
     FileDisplay,
     FileUploader,
+    Footer,
+    Header,
+    HeaderLogin,
+    HeaderLoginButton,
+    HeaderLowerNav,
+    HeaderMobileIconNav,
+    HeaderMobileNav,
+    HeaderMobileNavButton,
+    HeaderSearchForm,
+    HeaderSearchButton,
+    HeaderSitewideAlerts,
+    HeaderUpperNav,
     Heading,
     HelperErrorText,
     Hero,
@@ -123,12 +148,19 @@ const theme = extendTheme({
     Text,
     TextInput,
     ...Toggle,
+    Tooltip,
     VideoPlayer,
   },
-  // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
-  // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
   config: {
+    // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
+    // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
     cssVarPrefix: "nypl",
+    // Start off in the "light" mode.
+    initialColorMode: "light",
+    // Don't use the user's system preference. Once the Reservoir
+    // has better dark mode variants for its components, this
+    // value can be set to true.
+    useSystemColorMode: false,
   },
 });
 

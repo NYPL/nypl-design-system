@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders the UI snapshot correctly 1`] = `
+<footer
+  className="css-1xdhyk6"
+  id="footer"
+  role="contentinfo"
+>
+  <div
+    className="css-0"
+  >
+    <ul
+      className="css-1xdhyk6"
+      data-testid="text-links"
+    >
+      <li>
+        <ul
+          className="css-1xdhyk6"
+        >
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/accessibility"
+              rel={null}
+              target={null}
+            >
+              Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/help/about-nypl/media-center"
+              rel={null}
+              target={null}
+            >
+              Press
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/careers"
+              rel={null}
+              target={null}
+            >
+              Careers
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/spacerental"
+              rel={null}
+              target={null}
+            >
+              Space Rental
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul
+          className="css-1xdhyk6"
+        >
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+              rel={null}
+              target={null}
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/policies"
+              rel={null}
+              target={null}
+            >
+              Other Policies
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/terms-conditions"
+              rel={null}
+              target={null}
+            >
+              Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/help/about-nypl/leadership/board-trustees"
+              rel={null}
+              target={null}
+            >
+              Governance
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul
+          className="css-1xdhyk6"
+        >
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/help/about-nypl/legal-notices/rules-and-regulations"
+              rel={null}
+              target={null}
+            >
+              Rules & Regulations
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/help/about-nypl"
+              rel={null}
+              target={null}
+            >
+              About NYPL
+            </a>
+          </li>
+          <li>
+            <a
+              className="css-1xdhyk6"
+              href="http://www.nypl.org/language"
+              rel={null}
+              target={null}
+            >
+              Language
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul
+      className="css-1xdhyk6"
+      data-testid="social-media-links"
+    >
+      <li>
+        <a
+          aria-label="NYPL on Facebook"
+          className="css-1xdhyk6"
+          href="https://www.facebook.com/nypl"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={false}
+            aria-label="NYPL on Facebook"
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            role="img"
+            title="NYPL on Facebook"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="NYPL on Twitter"
+          className="css-1xdhyk6"
+          href="https://twitter.com/nypl"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={false}
+            aria-label="NYPL on Twitter"
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            role="img"
+            title="NYPL on Twitter"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="NYPL on Instagram"
+          className="css-1xdhyk6"
+          href="https://instagram.com/nypl"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={false}
+            aria-label="NYPL on Instagram"
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            role="img"
+            title="NYPL on Instagram"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="NYPL on Youtube"
+          className="css-1xdhyk6"
+          href="https://www.youtube.com/user/NewYorkPublicLibrary"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={false}
+            aria-label="NYPL on Youtube"
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            role="img"
+            title="NYPL on Youtube"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="NYPL Main Building Facade"
+          className="css-0"
+          src="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
+        />
+      </div>
+    </div>
+    <div
+      className="css-0"
+    >
+      <p>
+        © The New York Public Library, 
+        2022
+      </p>
+      <p>
+        The New York Public Library is a 501(c)(3) | EIN 13-1887440
+      </p>
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <svg
+      aria-hidden={false}
+      aria-label="The New York Public Library"
+      className="chakra-icon css-1grhd2q"
+      focusable={false}
+      role="img"
+      title="The New York Public Library"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </div>
+</footer>
+`;

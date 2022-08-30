@@ -6,7 +6,7 @@ import {
   Box,
   chakra,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -23,6 +23,11 @@ export interface AccordionProps {
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
+  /** Sets max height of accordion panel. This value should be entered with the
+   * formatting of a CSS height attribute (ex. 100px, 8rem). If height of content
+   * within accordion panel is greater than height set by panelMaxHeight, a
+   * scrollbar will appear for accordion panel. */
+  panelMaxHeight?: string;
 }
 
 /**
@@ -41,7 +46,11 @@ const getIcon = (isExpanded = false, index: number, id: string) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
+const getElementsFromData = (
+  data: AccordionDataProps[] = [],
+  id: string,
+  panelMaxHeight: string
+) => {
   const colorMap = {
     default: "ui.white",
     warning: "ui.status.primary",
@@ -60,9 +69,16 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
           id={`${id}-panel-${index}`}
           key={index}
           dangerouslySetInnerHTML={{ __html: content.panel }}
+          maxHeight={panelMaxHeight}
+          overflow="auto"
         />
       ) : (
-        <AccordionPanel id={`${id}-panel-${index}`} key={index}>
+        <AccordionPanel
+          id={`${id}-panel-${index}`}
+          key={index}
+          maxHeight={panelMaxHeight}
+          overflow="auto"
+        >
           {content.panel}
         </AccordionPanel>
       );
@@ -109,7 +125,7 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
                 </Box>
                 {getIcon(isExpanded, index, id)}
               </AccordionButton>
-              {panel}
+              {isExpanded && panel}
             </>
           );
         }}
@@ -122,22 +138,31 @@ const getElementsFromData = (data: AccordionDataProps[] = [], id: string) => {
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-export const Accordion = chakra((props: AccordionProps) => {
-  const { accordionData, id, isDefaultOpen = false, ...rest } = props;
+export const Accordion = chakra(
+  forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
+    const {
+      accordionData,
+      id,
+      isDefaultOpen = false,
+      panelMaxHeight,
+      ...rest
+    } = props;
 
-  // Pass `0` to open the first accordion in the 0-index based array.
-  const openFirstAccordion = isDefaultOpen ? [0] : undefined;
+    // Pass `0` to open the first accordion in the 0-index based array.
+    const openFirstAccordion = isDefaultOpen ? [0] : undefined;
 
-  return (
-    <ChakraAccordion
-      id={id}
-      defaultIndex={openFirstAccordion}
-      allowMultiple
-      {...rest}
-    >
-      {getElementsFromData(accordionData, id)}
-    </ChakraAccordion>
-  );
-});
+    return (
+      <ChakraAccordion
+        allowMultiple
+        defaultIndex={openFirstAccordion}
+        id={id}
+        ref={ref}
+        {...rest}
+      >
+        {getElementsFromData(accordionData, id, panelMaxHeight)}
+      </ChakraAccordion>
+    );
+  })
+);
 
 export default Accordion;

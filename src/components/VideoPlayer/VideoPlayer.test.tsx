@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import VideoPlayer from "./VideoPlayer";
@@ -304,5 +304,14 @@ describe("VideoPlayer", () => {
     expect(videoPlayerError).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div warpper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <VideoPlayer ref={ref} videoType="youtube" videoId="nm-dD2tx6bk" />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

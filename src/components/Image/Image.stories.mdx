@@ -11,6 +11,7 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import Image from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
+import Text from "../Text/Text";
 import { getCategory } from "../../utils/componentCategories";
 
 export const imageBlockStyles = {
@@ -66,7 +67,7 @@ export const imageBlockStyles = {
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.6`    |
-| Latest            | `1.0.2`    |
+| Latest            | `1.0.8`    |
 
 ## Table of Contents
 
@@ -77,6 +78,8 @@ export const imageBlockStyles = {
 - [Image Sizes](#image-sizes)
 - [Image Aspect Ratios](#image-aspect-ratios)
 - [Image Types](#image-types)
+- [Image HTML Attributes](#image-html-attributes)
+- [Lazy Loading](#lazy-loading)
 
 ## Overview
 
@@ -327,6 +330,91 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/400/animals"
         />
       </div>
+    </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Image HTML Attributes
+
+The `Image` component accepts HTML image attributes. If needed, you can pass
+functions such as `onLoad` and `onError` or attributes such as `srcset`.
+
+For both examples below, open the browser's console to see the log messages. In
+the first example below, when the image is finished loading, the `onLoad`
+function callback is called. The image's dimensions are logged. In the second
+example, there is an (intentional) error with the image's URL. This will trigger
+the `onError` function callback.
+
+<Canvas>
+  <VStack align="start">
+    <Box>
+      <Text>Image with `onLoad` function</Text>
+      <Image
+        alt="Alt text"
+        src="https://placeimg.com/400/400/animals"
+        onLoad={({ target }) => {
+          console.log("Image 1 loaded and `onLoad` called.");
+          console.log(
+            "Image 1 dimensions:",
+            target.offsetHeight,
+            target.offsetWidth
+          );
+        }}
+      />
+    </Box>
+    <Box>
+      <Text>Image with `onError` function</Text>
+      <Image
+        alt="Broken image with bad url"
+        src="https://placeimcom/400/400/animals"
+        onError={() => console.warn("Image 2 error! Called through `onError`.")}
+      />
+    </Box>
+  </VStack>
+</Canvas>
+
+## Lazy Loading
+
+The `Image` component handles lazy loading images through two npm packages:
+[`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer)
+and [`@charlietango/use-native-lazy-loading`](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading).
+The first package handles using the `IntersectionObserver` API in React and the
+second package checks if the `img`'s native `loading="lazy"` attribute is
+supported by the browser.
+
+Lazy loading is disabled by default. In order to use the lazy loading feature,
+pass the `isLazy` prop or set it to `true`.
+
+```jsx
+<Image alt="Alt text" isLazy src="https://placeimg.com/540/420/animals" />
+```
+
+The `Image`'s implementation of lazy loading is based on the recipe provided by
+`react-intersection-observer`. Once the image's wrapper is in view, we load the
+image by rendering it through the native `loading="lazy"` attribute or through
+the `IntersectionObserver` API.
+
+In the following example, open the "Network" tab in your browser's console and
+as you scroll down to view the next set of 10 images, you'll see that they get
+loaded as the images come into the window's view.
+
+Resources:
+
+- [Browser-level image lazy-loading for the web](https://web.dev/browser-level-image-lazy-loading/)
+
+<Canvas>
+  <Story name="Lazy Loading">
+    <SimpleGrid columns={1}>
+      <Image alt="Alt text" isLazy src="https://placeimg.com/540/420/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/500/400/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/460/460/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/420/490/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/200/120/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/640/340/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/460/480/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/100/200/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/400/400/animals" />
+      <Image alt="Alt text" isLazy src="https://placeimg.com/250/360/animals" />
     </SimpleGrid>
   </Story>
 </Canvas>

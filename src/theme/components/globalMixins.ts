@@ -2,23 +2,35 @@
  * These objects are also SCSS mixins but are now JS objects in the
  * context of css-in-js and the custom NYPL-theme.
  */
-const screenreaderOnly = {
+
+/**
+ * If the element that should be visually hidden should only be hidden on
+ * small screens, then pass in true for the `isMobileOnly` argument. Otherwise,
+ * this will set an element to always be visually hidden regardless of the
+ * screen size.
+ */
+const screenreaderOnly = (isMobileOnly = false) => ({
   clip: "rect(1px, 1px, 1px, 1px)",
-  height: "1px",
+  height: { base: "1px", md: isMobileOnly ? "auto" : undefined },
   overflow: "hidden",
-  position: "absolute !important",
-  width: "1px",
+  position: {
+    base: "absolute !important",
+    md: isMobileOnly ? "relative !important" : undefined,
+  },
+  width: { base: "1px", md: isMobileOnly ? "100%" : undefined },
   wordWrap: "normal",
+});
+const displayScreenreaderOnly = {
+  position: "relative !important",
+  height: "auto",
+  width: "100%",
 };
 const wrapperStyles = {
   marginY: "0",
   marginX: "auto",
   maxWidth: "1280px",
-  paddingTop: "0",
-  paddingBottom: "0",
-  paddingRight: "0",
-  paddingLeft: "0",
+  padding: "0",
   width: "100%",
 };
 
-export { screenreaderOnly, wrapperStyles };
+export { displayScreenreaderOnly, screenreaderOnly, wrapperStyles };

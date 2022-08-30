@@ -1,20 +1,35 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 import Image from "./Image";
 
 describe("Image Accessibility", () => {
   it("passes axe accessibility for regular img element", async () => {
-    const { container } = render(<Image src="test.png" alt="" />);
+    const { container } = render(<Image alt="" src="test.png" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for regular lazy loading img element", async () => {
+    const { container } = render(<Image alt="" isLazy src="test.png" />);
+
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility for figure element wrapper", async () => {
     const { container } = render(
-      <Image src="test.png" alt="" caption="This is a caption" />
+      <Image alt="" caption="This is a caption" src="test.png" />
     );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for figure lazy loading element wrapper", async () => {
+    const { container } = render(
+      <Image alt="" caption="This is a caption" isLazy src="test.png" />
+    );
+
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -27,14 +42,27 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
+  // @TODO - test when it does come into view.
+  it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
+    const src = "https://placeimg.com/500/200/animals";
+    const { container } = render(<Image alt="" isLazy src={src} />);
+
+    // Mock that the image is not in view through the IntersectionObserver object.
+    mockAllIsIntersecting(false);
+
+    expect(container.querySelector("img")).not.toHaveAttribute("src");
+  });
+
   it("renders a simple image not wrapped in a figure element", () => {
-    render(<Image src="test.png" alt="" />);
+    render(<Image alt="" src="test.png" />);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.queryByRole("figure")).not.toBeInTheDocument();
   });
 
   it("renders an image wrapped in figure when provided a caption", () => {
     render(<Image src="test.png" caption="caption" alt="" />);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
@@ -42,6 +70,7 @@ describe("Image", () => {
 
   it("renders an image wrapped in figure when provided an image credit", () => {
     render(<Image src="test.png" credit="credit" alt="" />);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("credit")).toBeInTheDocument();
@@ -49,6 +78,7 @@ describe("Image", () => {
 
   it("renders an image wrapped in figure with credit and caption", () => {
     render(<Image src="test.png" caption="caption" credit="credit" alt="" />);
+
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
@@ -151,5 +181,12 @@ describe("Image", () => {
     expect(typeCircle).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Image alt="" src="test.png" ref={ref} />);
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

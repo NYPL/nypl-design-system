@@ -1,8 +1,8 @@
-import * as React from "react";
-import { axe } from "jest-axe";
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import * as React from "react";
+import renderer from "react-test-renderer";
 
 import Accordion from "./Accordion";
 import Card, { CardContent, CardHeading } from "../Card/Card";
@@ -93,7 +93,10 @@ describe("Accordion", () => {
     expect(accordionLabel).toBeInTheDocument();
     // Closed by default.
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
-    expect(screen.getByText(/known in Japan as Tanukichi/i)).not.toBeVisible();
+    // The panel's content should not be in the DOM unless the Accordion is open.
+    expect(
+      screen.queryByText(/known in Japan as Tanukichi/i)
+    ).not.toBeInTheDocument();
   });
 
   it("opens the panel by default with isDefaultOpen passed", () => {
@@ -108,9 +111,18 @@ describe("Accordion", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
+    let accordionPanelContent = screen.queryByText(
+      /known in Japan as Tanukichi/i
+    );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
+    // The panel's content should not be in the DOM unless the Accordion is open.
+    expect(accordionPanelContent).not.toBeInTheDocument();
+
     userEvent.click(accordionLabel);
+
+    accordionPanelContent = screen.queryByText(/known in Japan as Tanukichi/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
+    expect(accordionPanelContent).toBeInTheDocument();
   });
 
   it("renders multiple accordion items grouped together", () => {
@@ -207,6 +219,15 @@ describe("Accordion", () => {
         />
       )
       .toJSON();
+    const withPanelMaxHeight = renderer
+      .create(
+        <Accordion
+          accordionData={accordionData}
+          id="accordian"
+          panelMaxHeight="100px"
+        />
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <Accordion
@@ -231,7 +252,17 @@ describe("Accordion", () => {
     expect(defaultOpen).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withPanelMaxHeight).toMatchSnapshot();
     expect(withError).toMatchSnapshot();
     expect(withWarning).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Accordion accordionData={accordionData} ref={ref} />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

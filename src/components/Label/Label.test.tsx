@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Label from "./Label";
@@ -112,5 +112,16 @@ describe("Label", () => {
     expect(required).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement & HTMLLabelElement>();
+    const { container } = render(
+      <Label htmlFor="some-input-id" id="label" ref={ref}>
+        Cupcakes
+      </Label>
+    );
+
+    expect(container.querySelector("label")).toBe(ref.current);
   });
 });

@@ -4,7 +4,7 @@ import {
   Textarea as ChakraTextarea,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
@@ -113,7 +113,7 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
  * optional `HelperErrorText` component.
  */
 export const TextInput = chakra(
-  React.forwardRef<TextInputRefType, InputProps>(
+  forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
         className,

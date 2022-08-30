@@ -4,11 +4,14 @@ import { Colors } from "@chakra-ui/react";
  * All colors can be found in Storybook:
  *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--page
  *
- * All UI colors can be found in Figma:
+ * All UI Fills colors can be found in Figma:
  *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674
  *
- * All Brand colors can be found in Figma:
+ * All Brand Fills colors can be found in Figma:
  *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007
+ *
+ * All Dark Mode UI Fills colors can be found in Figma:
+ *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=61991%3A45315
  *
  * At the end of this file, there are objects that extend Chakra's default
  * color shade palette for individual colors. WE DO NOT RECOMMEND to use them
@@ -17,9 +20,17 @@ import { Colors } from "@chakra-ui/react";
  */
 
 // Reusable variables:
-const grayLightCool = "#E9E9E9";
-const grayxxLightCool = "#FAFAFA";
+const black = "#000";
+const white = "#fff";
+const grayDark = "#616161";
+const grayxxxxDark = "#121212";
+const grayxxxDark = "#191919";
+const grayxxDark = "#212121";
+const grayxDark = "#424242";
 const grayMedium = "#BDBDBD";
+const grayLightCool = "#E9E9E9";
+const grayxLightCool = "#F5F5F5";
+const grayxxLightCool = "#FAFAFA";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const brandObj = {
@@ -32,8 +43,8 @@ const colors: Colors = {
 
   // ui fills
   ui: {
-    black: "#000",
-    white: "#fff",
+    black,
+    white,
     /// State and link utilities
     disabled: {
       primary: grayLightCool,
@@ -61,16 +72,82 @@ const colors: Colors = {
       primary: "#F0974E",
       secondary: "#EC7B1F",
     },
+    // Semantic colors
+    bg: {
+      default: grayxLightCool,
+      hover: grayLightCool,
+      active: grayMedium,
+    },
+    border: {
+      default: grayMedium,
+      hover: grayDark,
+    },
+    typography: {
+      heading: black,
+      body: black,
+    },
     // Grayscale
     gray: {
-      xdark: "#424242",
-      dark: "#616161",
+      "xxxx-dark": grayxxxxDark,
+      "xxx-dark": grayxxxDark,
+      "xx-dark": grayxxDark,
+      "x-dark": grayxDark,
+      dark: grayDark,
       medium: grayMedium,
       "light-cool": grayLightCool,
-      "light-warm": "#EFEDEB",
-      "x-light-cool": "#F5F5F5",
-      "x-light-warm": "#F8F8F7",
+      "x-light-cool": grayxLightCool,
       "xx-light-cool": grayxxLightCool,
+      // Gray Alts
+      "light-warm": "#EFEDEB",
+      "x-light-warm": "#F8F8F7",
+    },
+  },
+
+  // dark mode ui fills
+  dark: {
+    ui: {
+      /// State and link utilities
+      disabled: {
+        primary: grayxDark,
+        secondary: grayxxDark,
+      },
+      error: {
+        primary: "#E1454C",
+        secondary: "#F67C82",
+      },
+      focus: "#5181D4",
+      link: {
+        primary: "#2085D8",
+        secondary: "#50A0E1",
+      },
+      status: {
+        primary: "#6F6544",
+        secondary: "#6F6765",
+      },
+      success: {
+        primary: "#0E3B15",
+        secondary: "#0F2912",
+      },
+      test: "#592B22",
+      warning: {
+        primary: "#493320",
+        secondary: "#482C15",
+      },
+      // Semantic colors
+      bg: {
+        page: grayxxxxDark,
+        default: grayxxxDark,
+        hover: grayxxDark,
+        active: grayxDark,
+      },
+      border: {
+        default: grayxDark,
+        hover: grayMedium,
+      },
+      typography: {
+        heading: grayLightCool,
+        body: grayMedium,
+      },
     },
   },
 
@@ -102,21 +179,21 @@ const colors: Colors = {
 
     /** Research is used for the Research Catalog and SCC. */
     research: {
-      primary: "#00838a",
+      primary: "#00838A",
       secondary: "#006166",
     },
 
     /** Research libraries with specific brand colors to adhere to. */
     "research-library": {
-      lpa: "#005d53",
-      schomburg: "#a03e31",
+      lpa: "#005D53",
+      schomburg: "#A03E31",
       schwartzman: brandSecondary,
     },
 
     /** What's On is used for Exhibitions & Events. */
     "whats-on": {
       primary: "#242424",
-      secondary: "#000000",
+      secondary: black,
     },
   },
 

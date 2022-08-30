@@ -8,7 +8,7 @@ import {
   Tabs as ChakraTabs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
@@ -140,122 +140,125 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
-  const {
-    children,
-    defaultIndex = 0,
-    id,
-    onChange,
-    tabsData,
-    useHash = false,
-    ...rest
-  } = props;
-  const styles = useMultiStyleConfig("Tabs", {});
-  // Just an estimate of the tab width for the mobile carousel.
-  const initTabWidth = 65;
-  // An estimate for the tab width for larger device widths.
-  const mediumTabWidth = 40;
-  const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
-  const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
+export const Tabs = chakra(
+  forwardRef<HTMLDivElement, React.PropsWithChildren<TabsProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        defaultIndex = 0,
+        id,
+        onChange,
+        tabsData,
+        useHash = false,
+        ...rest
+      } = props;
+      const styles = useMultiStyleConfig("Tabs", {});
+      // Just an estimate of the tab width for the mobile carousel.
+      const initTabWidth = 65;
+      // An estimate for the tab width for larger device widths.
+      const mediumTabWidth = 40;
+      const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
+      const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
 
-  const { tabs, panels }: any = tabsData
-    ? getElementsFromData(tabsData, useHash)
-    : getElementsFromChildren(children);
+      const { tabs, panels }: any = tabsData
+        ? getElementsFromData(tabsData, useHash)
+        : getElementsFromChildren(children);
 
-  if (tabs.length === 0 || panels.length === 0) {
-    console.warn(
-      "NYPL Reservoir Tabs: Pass data in the `contentData` props or as children."
-    );
-  }
+      if (tabs.length === 0 || panels.length === 0) {
+        console.warn(
+          "NYPL Reservoir Tabs: Pass data in the `contentData` props or as children."
+        );
+      }
 
-  // `tabs` is an array for the children component approach but an object for
-  // the `tabsData` prop approach. We need to get the right props key value
-  // to set the carousel's length.
-  const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
-  const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
-    tabProps?.children?.length,
-    tabWidth
-  );
+      // `tabs` is an array for the children component approach but an object for
+      // the `tabsData` prop approach. We need to get the right props key value
+      // to set the carousel's length.
+      const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
+      const { prevSlide, nextSlide, carouselStyle, goToStart } =
+        useCarouselStyles(tabProps?.children?.length, tabWidth);
 
-  React.useEffect(() => {
-    // If we are on larger viewports, reset the carousel so all tabs display.
-    if (isLargerThanMobile) {
-      goToStart();
+      React.useEffect(() => {
+        // If we are on larger viewports, reset the carousel so all tabs display.
+        if (isLargerThanMobile) {
+          goToStart();
+        }
+      }, [goToStart, isLargerThanMobile]);
+
+      const previousButton = (
+        <Button
+          aria-label="Previous"
+          id={`tabs-previous-${id}`}
+          onClick={prevSlide}
+          __css={{
+            ...styles.buttonArrows,
+            left: "0",
+          }}
+        >
+          <Icon
+            iconRotation="rotate90"
+            id={`tabs-previous-icon-${id}`}
+            name="arrow"
+            size="small"
+          />
+        </Button>
+      );
+      const nextButton = (
+        <Button
+          aria-label="Next"
+          id={`tabs-next-${id}`}
+          onClick={nextSlide}
+          __css={{
+            ...styles.buttonArrows,
+            right: "0",
+          }}
+        >
+          <Icon
+            iconRotation="rotate270"
+            id={`tabs-next-icon-${id}`}
+            name="arrow"
+            size="small"
+          />
+        </Button>
+      );
+
+      if (children && tabsData?.length) {
+        console.warn(
+          "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
+            "prop. Do not pass both."
+        );
+      }
+
+      return (
+        <ChakraTabs
+          defaultIndex={defaultIndex}
+          id={id}
+          // The following lazy loads each panel whenever it is needed.
+          isLazy
+          onChange={onChange}
+          ref={ref}
+          variant="enclosed"
+          {...rest}
+        >
+          <Box
+            __css={styles.tablistWrapper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
+            {previousButton}
+            <Box __css={styles.carouselParent}>
+              <Box {...carouselStyle}>{tabs}</Box>
+            </Box>
+            {nextButton}
+          </Box>
+          {panels}
+        </ChakraTabs>
+      );
     }
-  }, [goToStart, isLargerThanMobile]);
-
-  const previousButton = (
-    <Button
-      aria-label="Previous"
-      id={`tabs-previous-${id}`}
-      onClick={prevSlide}
-      __css={{
-        ...styles.buttonArrows,
-        left: "0",
-      }}
-    >
-      <Icon
-        iconRotation="rotate90"
-        id={`tabs-previous-icon-${id}`}
-        name="arrow"
-        size="small"
-      />
-    </Button>
-  );
-  const nextButton = (
-    <Button
-      aria-label="Next"
-      id={`tabs-next-${id}`}
-      onClick={nextSlide}
-      __css={{
-        ...styles.buttonArrows,
-        right: "0",
-      }}
-    >
-      <Icon
-        iconRotation="rotate270"
-        id={`tabs-next-icon-${id}`}
-        name="arrow"
-        size="small"
-      />
-    </Button>
-  );
-
-  if (children && tabsData?.length) {
-    console.warn(
-      "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
-        "prop. Do not pass both."
-    );
-  }
-
-  return (
-    <ChakraTabs
-      defaultIndex={defaultIndex}
-      id={id}
-      // The following lazy loads each panel whenever it is needed.
-      isLazy
-      onChange={onChange}
-      variant="enclosed"
-      {...rest}
-    >
-      <Box
-        __css={styles.tablistWrapper}
-        sx={{
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
-        {previousButton}
-        <Box __css={styles.carouselParent}>
-          <Box {...carouselStyle}>{tabs}</Box>
-        </Box>
-        {nextButton}
-      </Box>
-      {panels}
-    </ChakraTabs>
-  );
-});
+  )
+);
 
 // Tabs is also exported above so the props can display in Storybook.
 export { TabList, Tab, TabPanels, TabPanel };

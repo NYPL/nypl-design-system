@@ -4,7 +4,7 @@ import {
   Select as ChakraSelect,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { useEffect, useState, useRef } from "react";
+import React, { forwardRef, useEffect, useState, useRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -65,7 +65,7 @@ export interface SelectProps {
  * `Label` and optional `HelperErrorText` component.
  */
 export const Select = chakra(
-  React.forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
+  forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {
         children,
@@ -135,7 +135,7 @@ export const Select = chakra(
           className={className}
           helperText={helperText}
           helperTextStyles={{
-            marginLeft: { sm: "auto", md: `${labelWidth}px` },
+            marginStart: { sm: "auto", md: `${labelWidth}px` },
           }}
           id={id}
           invalidText={finalInvalidText}

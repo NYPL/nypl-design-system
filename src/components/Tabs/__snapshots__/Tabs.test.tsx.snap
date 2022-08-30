@@ -53,7 +53,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="css-16fuzwj"
+        className="css-tjdjds"
       >
         <div
           aria-orientation="horizontal"
@@ -247,7 +247,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="css-16fuzwj"
+        className="css-tjdjds"
       >
         <div
           aria-orientation="horizontal"
@@ -442,7 +442,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="css-16fuzwj"
+        className="css-tjdjds"
       >
         <div
           aria-orientation="horizontal"

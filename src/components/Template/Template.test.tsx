@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import {
@@ -305,5 +305,24 @@ describe("Template components", () => {
     expect(singleComponent).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <TemplateAppContainer
+        aboveHeader={aboveHeader}
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+        ref={ref}
+      />
+    );
+
+    expect(container.querySelectorAll("div")[0]).toBe(ref.current);
   });
 });

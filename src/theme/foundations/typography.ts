@@ -94,6 +94,7 @@ const typography: Typography = {
     },
     label: {
       default: fontWeightValues["medium"],
+      secondary: fontWeightValues["regular"],
     },
     text: {
       default: fontWeightValues["light"],

@@ -6,13 +6,18 @@ export {
   Box,
   Center,
   Circle,
+  ColorModeScript,
+  cookieStorageManager,
   Flex,
   Grid,
   GridItem,
   HStack,
+  localStorageManager,
   Spacer,
   Square,
   Stack,
+  useColorMode,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 export {
@@ -33,6 +38,7 @@ export {
 } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { default as ColorCard } from "./components/StyleGuide/ColorCard";
 export {
   default as DatePicker,
   DatePickerTypes,
@@ -40,7 +46,9 @@ export {
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
+export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
+export { default as Header } from "./components/Header/Header";
 export {
   default as Heading,
   HeadingSizes,
@@ -135,3 +143,4 @@ export {
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayer";
 export { default as Table } from "./components/Table/Table";
+export { default as Tooltip } from "./components/Tooltip/Tooltip";

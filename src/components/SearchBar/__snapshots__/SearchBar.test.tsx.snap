@@ -123,52 +123,52 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             value="Songs"
           >
             <option
-              value="Art"
+              value="art"
             >
               Art
             </option>
             <option
-              value="Bushes"
+              value="bushes"
             >
               Bushes
             </option>
             <option
-              value="Clothing"
+              value="clothing"
             >
               Clothing
             </option>
             <option
-              value="Flowers"
+              value="flowers"
             >
               Flowers
             </option>
             <option
-              value="Fossils"
+              value="fossils"
             >
               Fossils
             </option>
             <option
-              value="Fruits"
+              value="fruits"
             >
               Fruits
             </option>
             <option
-              value="Furniture"
+              value="furniture"
             >
               Furniture
             </option>
             <option
-              value="Songs"
+              value="songs"
             >
               Songs
             </option>
             <option
-              value="Tools"
+              value="tools"
             >
               Tools
             </option>
             <option
-              value="Villagers"
+              value="villagers"
             >
               Villagers
             </option>

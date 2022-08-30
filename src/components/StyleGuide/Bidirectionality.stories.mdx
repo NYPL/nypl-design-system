@@ -1,9 +1,13 @@
+import { Box, Flex, VStack } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
+import Image from "../Image/Image";
 import SearchBar from "../SearchBar/SearchBar";
+import Text from "../Text/Text";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -11,27 +15,146 @@ import DSProvider from "../../theme/provider";
 
 # Bidirectionality
 
-When building UIs, we think in terms of left to right for layout direction. This
-is because the default language we build UIs for is English. At NYPL, we serve
-patrons who speak a variety of languages including languages such as Arabic or
-Hebrew which are right to left languages.
+## Table of Contents
 
-To correctly render these languages, UIs should be mirrored to accomodate navigation
-and the passage of time, for example. Check out Material Design's
-[Bidirectionality documentation](https://material.io/design/usability/bidirectionality.html)
-for more information on layout mirroring.
+- [Terms](#terms)
+- [General Information](#general-information)
+- [Terms](#terms)
+- [Reservoir Birectionality Goal](#reservoir-bidirectionality-goal)
+- [Reservoir Component Implementation](#reservoir-component-implementation)
+- [Application Implementation](#application-implementation)
 
 ## Terms
 
-- LTR = left to right
-- RTL = right to left
+- LTR = left-to-right
+- RTL = right-to-left
 
-## Background
+## General Information
 
-While the majority of applications at NYPL will have a LTR direction, some applications
-will introduce internationalization through different means. While the Reservoir Design
-System (DS) has _no preference_ in how an application is internationalized, DS
-components should work appropriately in RTL configurations in any browser.
+When building user interfaces (UIs) and page layouts, we tend to think in terms
+of left-to-right for layout direction. This is because the default language we
+build UIs for is English. At NYPL, we serve patrons who speak a variety of
+languages including languages such as Arabic or Hebrew which are right-to-left
+languages. To correctly render any language, UIs should be mirrored to accomodate
+navigation and the passage of time, for example.
+
+Resources:
+
+- [Material Design's Bidirectionality documentation](https://material.io/design/usability/bidirectionality.html)
+
+## Reservoir Birectionality Goal
+
+While the majority of applications at NYPL will have a LTR direction,
+applications will introduce internationalization through different means. While
+the Reservoir Design System (DS) has _no preference_ in how an application is
+internationalized, DS components should work appropriately in RTL configurations
+in any browser.
+
+## Reservoir Component Implementation
+
+In order to accomplish the goal described above, the DS implementation for RTL
+support includes using the CSS properties `margin-inline-start`,
+`margin-inline-end`, `padding-inline-start`, and `padding-inline-end` instead of
+`margin-left`, `margin-right`, `padding-left`, and `padding-right`. These updated
+properties are used to apply the correct direction to the HTML element it targets.
+
+In the DS, the components that use these properties use the Chakra shorthands
+`marginStart`, `marginEnd`, `paddingStart`, and `paddingEnd`. Internally, Chakra
+converts these shorthands to the corresponding CSS properties. The DS components
+should also use the `inline` modifier instead of the `block` modifier because the
+`block` modifier renders elements unexpectedly in RTL configurations.
+
+In LTR configurations, the `marginStart` and `paddingStart` properties match
+with the `marginLeft` and `paddingLeft` properties, and the `marginEnd` and
+`paddingEnd` properties match with the `marginRight` and `paddingRight`. In the
+RTL configurations, the `marginStart` and `paddingStart` properties now match
+with the `marginRight` and `paddingRight` properties, and the `marginEnd` and
+`paddingEnd` properties now match with the `marginLeft` and `paddingLeft`.
+
+| CSS Property    | RTL Support Property   | Equivalent Chakra Shorthand |
+| --------------- | ---------------------- | --------------------------- |
+| `margin-left`   | `margin-inline-start`  | `marginStart`               |
+| `margin-right`  | `margin-inline-end`    | `marginEnd`                 |
+| `padding-left`  | `padding-inline-start` | `paddingStart`              |
+| `padding-right` | `padding-inline-end`   | `paddingEnd`                |
+
+### Layout Example
+
+In the following example, the `marginStart` and `marginEnd` properties are used
+to give space between the image, the text area, and the button. In the RTL
+configuration, these same properties are applied appropriately and mirroring
+the original and intentional design layout is achieved in the RTL direction.
+
+```tsx
+<Flex alignItems="center">
+  <Box marginEnd="30px">
+    <Image
+      alt="Alt text"
+      imageType="circle"
+      marginEnd="30px"
+      size="xsmall"
+      src="https://placeimg.com/400/400/animals"
+    />
+  </Box>
+  <VStack align="stretch">
+    <Text>Bark Twain</Text>
+    <Text size="caption">This is my profile</Text>
+  </VStack>
+  <Button marginStart="50px">Follow me</Button>
+</Flex>
+```
+
+<Canvas>
+  <DSProvider>
+    <VStack align="stretch" gap="30px">
+      <Box>
+        <Heading level="three" text="LTR" />
+        <Flex alignItems="center">
+          <Box marginEnd="30px">
+            <Image
+              alt="Alt text"
+              imageType="circle"
+              marginEnd="30px"
+              size="xsmall"
+              src="https://placeimg.com/400/400/animals"
+            />
+          </Box>
+          <VStack align="stretch">
+            <Text>Bark Twain</Text>
+            <Text size="caption">This is my profile</Text>
+          </VStack>
+          <Button marginStart="50px">Follow me</Button>
+        </Flex>
+      </Box>
+      <Box dir="rtl">
+        <Heading level="three" text="RTL" />
+        <Flex alignItems="center">
+          <Box marginEnd="30px">
+            <Image
+              alt="Alt text"
+              imageType="circle"
+              marginEnd="30px"
+              size="xsmall"
+              src="https://placeimg.com/400/400/animals"
+            />
+          </Box>
+          <VStack align="stretch">
+            <Text>Bark Twain</Text>
+            <Text size="caption">This is my profile</Text>
+          </VStack>
+          <Button marginStart="50px">Follow me</Button>
+        </Flex>
+      </Box>
+    </VStack>
+  </DSProvider>
+</Canvas>
+
+Resources:
+
+- [MDN padding-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start)
+- [MDN padding-inline-end](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-end)
+- [MDN margin-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start)
+- [MDN margin-inline-end](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-end)
 
 ## Application Implementation
 
@@ -48,22 +171,23 @@ or Hebrew, the correct direction is right to left and the proper attribute
 implementation is `dir="rtl"`.
 
 The placement of this attribute can be added at the root `<html>` element but can
-also be placed in specific DOM elements within a page to target specific page sections.
-For example, if you only want to target NYPL DS components within your top-level
-`app` class, the `dir` attribute can be added to that element:
+also be placed in specific DOM elements within a page to target specific page
+sections. For example, if you only want to target NYPL DS components within your
+top-level `app` class, the `dir` attribute can be added to that element:
 
 ```jsx
+// Do this
 <div className="app" dir="rtl">
   ...
 </div>
 ```
 
-An anti-pattern is to add `dir` to all the elements you want to change directionality
-in. This HTML rule cascades down to its children elements so there is no need to
-do the following:
+An anti-pattern is to add `dir` to all the elements you want to change
+directionality in. This HTML rule cascades down to its children elements so
+there is no need to do the following:
 
 ```jsx
-// don't do this
+// Don't do this
 <div className="app" dir="rtl">
   <div dir="rtl">
     <p dir="rtl">
@@ -73,8 +197,8 @@ do the following:
 </div>
 ```
 
-The `dir` HTML attribute is the recommended way to change directionality, but note
-that this attribute is not supported in Internet Explorer.
+The `dir` HTML attribute is the recommended way to change directionality, but
+note that this attribute is not supported in Internet Explorer.
 
 - [MDN dir Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
 - [W3C internationalization dir QA](https://www.w3.org/International/questions/qa-html-dir)
@@ -168,38 +292,6 @@ block to see its code implementation.
             placeholder: "Item Search",
           }}
         />
-      </div>
-    </div>
-  </DSProvider>
-</Canvas>
-
-## Component Updates
-
-You may have noticed in the above RTL examples that in the `Button` component
-there is no space between the text and the icon. Although this may be difficult
-to see in the Arabic language example, it's more noticeable in the English examples
-below. The lack of space happens because the icon has a `margin-right` rule
-which works well in the default LTR display but does not apply well in the RTL
-display. No audit has been made to see what components need an update but in
-general, specifying an equal margin or padding to both sides of an element may
-help reduce any visual mistakes.
-
-<Canvas>
-  <DSProvider>
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ width: "300px" }}>
-        A regular button:
-        <Button id="button-ex4" type="submit">
-          <Icon name="search" size="small" align="left" />
-          Search
-        </Button>
-        <div dir="rtl">
-          An RTL button:
-          <Button id="button-ex5" type="submit">
-            <Icon name="search" size="small" align="left" />
-            Search
-          </Button>
-        </div>
       </div>
     </div>
   </DSProvider>

@@ -1,8 +1,7 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
-
 import Heading from "../Heading/Heading";
 import Hero from "./Hero";
 
@@ -23,68 +22,68 @@ const imageProps = {
   src: "https://placeimg.com/800/400/animals",
 };
 
-describe("Hero", () => {
-  describe("axe accessbility tests", () => {
-    it("passes for type Primary", async () => {
-      const { container } = render(
-        <Hero
-          heroType="primary"
-          heading={<Heading level="one" id="a11y-hero" text="Hero Primary" />}
-          subHeaderText="Example Subtitle"
-          backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        />
-      );
-      expect(await axe(container)).toHaveNoViolations();
-    });
-
-    it("passes for type Secondary", async () => {
-      const { container } = render(
-        <Hero
-          heroType="secondary"
-          heading={<Heading level="one" id="a11y-hero" text="Hero Secondary" />}
-          imageProps={imageProps}
-          subHeaderText={subHeaderText}
-        />
-      );
-      expect(await axe(container)).toHaveNoViolations();
-    });
-
-    it("passes for type Tertiary", async () => {
-      const { container } = render(
-        <Hero
-          heroType="tertiary"
-          heading={<Heading level="one" id="a11y-hero" text="Hero Tertiary" />}
-          subHeaderText={otherSubHeaderText}
-        />
-      );
-      expect(await axe(container)).toHaveNoViolations();
-    });
-
-    it("passes for type Campaign", async () => {
-      const { container } = render(
-        <Hero
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          heroType="campaign"
-          heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
-          imageProps={imageProps}
-          subHeaderText={otherSubHeaderText}
-        />
-      );
-      expect(await axe(container)).toHaveNoViolations();
-    });
-
-    it("passes for type FiftyFifty", async () => {
-      const { container } = render(
-        <Hero
-          heroType="fiftyFifty"
-          imageProps={imageProps}
-          subHeaderText={otherSubHeaderText}
-        />
-      );
-      expect(await axe(container)).toHaveNoViolations();
-    });
+describe("Hero accessbility tests", () => {
+  it("passes for type Primary", async () => {
+    const { container } = render(
+      <Hero
+        heroType="primary"
+        heading={<Heading level="one" id="a11y-hero" text="Hero Primary" />}
+        subHeaderText="Example Subtitle"
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes for type Secondary", async () => {
+    const { container } = render(
+      <Hero
+        heroType="secondary"
+        heading={<Heading level="one" id="a11y-hero" text="Hero Secondary" />}
+        imageProps={imageProps}
+        subHeaderText={subHeaderText}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes for type Tertiary", async () => {
+    const { container } = render(
+      <Hero
+        heroType="tertiary"
+        heading={<Heading level="one" id="a11y-hero" text="Hero Tertiary" />}
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes for type Campaign", async () => {
+    const { container } = render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        heroType="campaign"
+        heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
+        imageProps={imageProps}
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes for type FiftyFifty", async () => {
+    const { container } = render(
+      <Hero
+        heroType="fiftyFifty"
+        imageProps={imageProps}
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Hero", () => {
   it("renders Primary Hero", () => {
     render(
       <Hero
@@ -607,5 +606,20 @@ describe("Hero", () => {
     expect(fiftyFifty).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType="primary"
+        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+        ref={ref}
+        subHeaderText="Example Subtitle"
+      />
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

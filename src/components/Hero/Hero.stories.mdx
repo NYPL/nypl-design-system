@@ -58,7 +58,7 @@ export const imageProps = {
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `0.28.0`   |
+| Latest            | `1.0.7`    |
 
 ## Table of Contents
 
@@ -112,7 +112,7 @@ the [All Variations](#all-variations) section.
       foregroundColor: undefined,
       heading: undefined,
       heroType: "primary",
-      imageProps: undefined,
+      imageProps,
       locationDetails: undefined,
       subHeaderText: undefined,
     }}
@@ -160,7 +160,10 @@ the [All Variations](#all-variations) section.
         <Hero
           {...args}
           heroType={args.heroType}
-          imageProps={args.imageProps}
+          imageProps={{
+            ...args.imageProps,
+            src: "https://placeimg.com/1200/400/animals",
+          }}
           subHeaderText={otherSubHeaderText}
         />
       ))
