@@ -38,6 +38,13 @@ addDecorator((StoryFn) => (
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
+  backgrounds: {
+    default: "light",
+    values: [
+      { name: "light", value: "var(--nypl-colors-ui-white)" },
+      { name: "dark", value: "var(--nypl-colors-dark-ui-bg-page)" },
+    ],
+  },
   // Load the Reservoir's Chakra-based theme.
   chakra: {
     theme: nyplTheme,
