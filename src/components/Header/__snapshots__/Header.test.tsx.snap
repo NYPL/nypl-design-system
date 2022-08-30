@@ -47,6 +47,7 @@ exports[`Header renders the UI snapshot correctly 1`] = `
       >
         <svg
           aria-hidden={false}
+          aria-label="NYPL Header Logo"
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"

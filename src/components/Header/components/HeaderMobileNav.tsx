@@ -36,6 +36,7 @@ const HeaderMobileNav = chakra(() => {
       <Flex>
         <Box>
           <Logo
+            aria-label="NYPL Header Logo"
             decorative={false}
             name="nyplTextWhite"
             size="xsmall"
