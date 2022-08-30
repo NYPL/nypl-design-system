@@ -1,0 +1,477 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <nav
+    aria-label="Skip Navigation"
+    className="css-1xdhyk6"
+  >
+    <ul
+      className="css-1xdhyk6"
+    >
+      <li>
+        <a
+          className="css-1xdhyk6"
+          href="#mainContent"
+          rel={null}
+          target={null}
+        >
+          Skip to Main Content
+        </a>
+      </li>
+      <li>
+        <a
+          className="css-1xdhyk6"
+          href="https://www.nypl.org/accessibility"
+          rel={null}
+          target={null}
+        >
+          Click to learn about accessibility at the Library
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <header>
+    <div
+      className="chakra-stack css-1p1m4ay"
+    >
+      <a
+        aria-label="The New York Public Library"
+        className="css-1xdhyk6"
+        href="https://nypl.org"
+        onClick={[Function]}
+        rel={null}
+        target={null}
+      >
+        <svg
+          aria-hidden={false}
+          aria-label="NYPL Header Logo"
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          role="img"
+          title="NYPL Header Logo"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+      <div
+        className="css-17xejub"
+      />
+      <div
+        className="chakra-stack css-ktk925"
+      >
+        <nav
+          aria-label="Header top links"
+          className="css-0"
+        >
+          <ul
+            className="css-1xdhyk6"
+            id="header-nav-upper"
+          >
+            <li>
+              <div
+                className="css-0"
+              >
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-lock-disabled="disabled"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  <button
+                    aria-label="Log In"
+                    className="chakra-button css-1xdhyk6"
+                    data-testid="button"
+                    id="loginButton"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Log In
+                    <svg
+                      aria-hidden={true}
+                      className="chakra-icon css-1grhd2q"
+                      focusable={false}
+                      role="img"
+                      title="Log in to your account"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                          fill="none"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                          fill="currentColor"
+                          strokeLinecap="round"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          fill="none"
+                          r="11.25"
+                          strokeMiterlimit="10"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+              </div>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/locations"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Locations
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/library-card/new"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Get A Library Card
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://pages.email.nypl.org/page.aspx?QS=3935619f7de112ef7250fe02b84fb2f9ab74e4ea015814b7"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Get Email Updates
+                <svg
+                  aria-hidden={true}
+                  className="chakra-icon css-1grhd2q"
+                  focusable={false}
+                  role="img"
+                  title="arrow icon"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path
+                      d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                      fill="currentColor"
+                      strokeLinecap="round"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="none"
+                      r="11.25"
+                      strokeMiterlimit="10"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://secure.nypl.org/site/Donation2?7825.donation=form1&df_id=7825&mfc_pref=T&s_src=FRQ18ZZ_TNN"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Donate
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://shop.nypl.org/?utm_campaign=NYPLHeaderButton&utm_source=nypl.org&utm_medium=referral"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Shop
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav
+          aria-label="Header bottom links"
+          className="css-0"
+        >
+          <ul
+            className="css-1xdhyk6"
+            id="header-nav-lower"
+          >
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/books-music-movies"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Books/Music/Movies
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/research"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Research
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/education"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Education
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/events"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Events
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/connect"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Connect
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/give"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Give
+              </a>
+            </li>
+            <li>
+              <a
+                className="css-1xdhyk6"
+                href="https://www.nypl.org/get-help"
+                onClick={[Function]}
+                rel={null}
+                target={null}
+              >
+                Get Help
+              </a>
+            </li>
+            <li>
+              <div
+                className="css-0"
+              >
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+                <div
+                  data-focus-lock-disabled="disabled"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  <button
+                    aria-expanded={null}
+                    aria-haspopup="true"
+                    aria-label="Open Search"
+                    className="chakra-button css-1xdhyk6"
+                    data-testid="button"
+                    id="searchButton"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span>
+                      Search
+                      <svg
+                        aria-hidden={true}
+                        className="chakra-icon css-1grhd2q"
+                        focusable={false}
+                        role="img"
+                        title="Open Search"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        >
+                          <path
+                            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                            fill="none"
+                            strokeLinecap="round"
+                          />
+                          <path
+                            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                            fill="currentColor"
+                            strokeLinecap="round"
+                          />
+                          <circle
+                            cx="12"
+                            cy="12"
+                            fill="none"
+                            r="11.25"
+                            strokeMiterlimit="10"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  data-focus-guard={true}
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "1px",
+                      "overflow": "hidden",
+                      "padding": 0,
+                      "position": "fixed",
+                      "top": "1px",
+                      "width": "1px",
+                    }
+                  }
+                  tabIndex={-1}
+                />
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <hr
+      className="css-mvtkpx"
+    />
+  </header>
+</div>
+`;

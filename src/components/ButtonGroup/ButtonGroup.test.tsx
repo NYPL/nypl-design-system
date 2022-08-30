@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Button from "../Button/Button";
@@ -76,6 +76,19 @@ describe("ButtonGroup", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
     );
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <ButtonGroup isDisabled ref={ref}>
+        <Button buttonType="secondary" id="btn-ref">
+          Button
+        </Button>
+      </ButtonGroup>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });
 

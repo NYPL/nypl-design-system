@@ -1,6 +1,6 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import ComponentWrapper from "./ComponentWrapper";
@@ -159,5 +159,24 @@ describe("ComponentWrapper", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <ComponentWrapper
+        descriptionText="description text"
+        headingText="heading text"
+        helperText="helper text"
+        id="id"
+        invalidText="invalid text"
+        isInvalid={false}
+        ref={ref}
+      >
+        <div>children elements</div>
+      </ComponentWrapper>
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
   });
 });

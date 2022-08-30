@@ -1,5 +1,5 @@
 import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Heading from "../Heading/Heading";
 
@@ -36,121 +36,140 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Description` list type.
  */
-export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
-  const {
-    children,
-    className,
-    id,
-    inline = false,
-    listItems,
-    noStyling = false,
-    title,
-    type = "ul",
-    ...rest
-  } = props;
-  const styles = useStyleConfig("List", { inline, noStyling, variant: type });
-  let listElement = null;
+export const List = chakra(
+  forwardRef<
+    HTMLDivElement & HTMLUListElement & HTMLOListElement,
+    React.PropsWithChildren<ListProps>
+  >((props, ref?) => {
+    const {
+      children,
+      className,
+      id,
+      inline = false,
+      listItems,
+      noStyling = false,
+      title,
+      type = "ul",
+      ...rest
+    } = props;
+    const styles = useStyleConfig("List", { inline, noStyling, variant: type });
+    let listElement = null;
 
-  // Either li/dt/dd children elements must be passed or the `listItems`
-  // prop must be used.
-  if (children && listItems && listItems?.length > 0) {
-    console.warn(
-      "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
-        "children or use the `listItems` data prop. Do not use both."
-    );
-    return null;
-  }
-  if (!children && !listItems) {
-    console.warn(
-      "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
-        "the `listItems` prop, not both."
-    );
-    return null;
-  }
-
-  /**
-   * This returns either the `children` elements passed to the `List` component
-   * first, otherwise it will check and render the data passed into the
-   * `listItems` props based on the `ListType` type. If it is of type unordered
-   * or ordered, it will return `li` elements. Otherwise, it will return a
-   * combination of `dt` and `dd` elements for the description type.
-   */
-  const listChildrenElms = (listType: ListTypes) => {
-    if (children) {
-      return children;
-    }
-    if (!listItems) {
+    // Either li/dt/dd children elements must be passed or the `listItems`
+    // prop must be used.
+    if (children && listItems && listItems?.length > 0) {
+      console.warn(
+        "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
+          "children or use the `listItems` data prop. Do not use both."
+      );
       return null;
     }
-    if (listType === "ol" || listType === "ul") {
-      return listItems.map((item, i) => <li key={i}>{item}</li>);
-    } else if (listType === "dl") {
-      return (listItems as DescriptionProps[]).map((item, i) => [
-        <dt key={`${i}-term`}>{item.term}</dt>,
-        <dd key={`${i}-des`}>{item.description}</dd>,
-      ]);
+    if (!children && !listItems) {
+      console.warn(
+        "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
+          "the `listItems` prop, not both."
+      );
+      return null;
     }
-    return null;
-  };
-  /**
-   * Checks for `li` elements and consoles a warning if the
-   * children are different HTML elements.
-   */
-  const checkListChildrenError = (listType: ListTypes) => {
-    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-      if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
-        console.warn(
-          `NYPL Reservoir List: Direct children of \`List\` (${listType}) must be \`<li>\`s.`
-        );
-      }
-    });
-  };
-  /**
-   * Checks for `dt` and `dd` elements and consoles a warning if the
-   * children are different HTML elements.
-   */
-  const checkDescriptionChildrenError = () => {
-    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-      if (
-        child.type !== "dt" &&
-        child.type !== "dd" &&
-        child.type !== React.Fragment &&
-        child.props.mdxType !== "dt" &&
-        child.props.mdxType !== "dd" &&
-        child.props.mdxType !== React.Fragment
-      ) {
-        console.warn(
-          "NYPL Reservoir List: Direct children of `List` (description) must " +
-            "be `<dt>`s and `<dd>`s."
-        );
-      }
-    });
-  };
 
-  if (type === "ol" || type === "ul") {
-    checkListChildrenError(type);
-    listElement = (
-      <Box
-        as={type as As}
-        id={id}
-        className={className}
-        __css={styles}
-        {...rest}
-      >
-        {listChildrenElms(type)}
-      </Box>
-    );
-  } else if (type === "dl") {
-    checkDescriptionChildrenError();
-    listElement = (
-      <Box as="section" id={id} className={className} __css={styles} {...rest}>
-        {title && <Heading id={`${id}-heading`}>{title}</Heading>}
-        <dl>{listChildrenElms(type)}</dl>
-      </Box>
-    );
-  }
+    /**
+     * This returns either the `children` elements passed to the `List` component
+     * first, otherwise it will check and render the data passed into the
+     * `listItems` props based on the `ListType` type. If it is of type unordered
+     * or ordered, it will return `li` elements. Otherwise, it will return a
+     * combination of `dt` and `dd` elements for the description type.
+     */
+    const listChildrenElms = (listType: ListTypes) => {
+      if (children) {
+        return children;
+      }
+      if (!listItems) {
+        return null;
+      }
+      if (listType === "ol" || listType === "ul") {
+        return listItems.map((item, i) => <li key={i}>{item}</li>);
+      } else if (listType === "dl") {
+        return (listItems as DescriptionProps[]).map((item, i) => [
+          <dt key={`${i}-term`}>{item.term}</dt>,
+          <dd key={`${i}-des`}>{item.description}</dd>,
+        ]);
+      }
+      return null;
+    };
+    /**
+     * Checks for `li` elements and consoles a warning if the
+     * children are different HTML elements.
+     */
+    const checkListChildrenError = (listType: ListTypes) => {
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement) => {
+          if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
+            console.warn(
+              `NYPL Reservoir List: Direct children of \`List\` (${listType}) must be \`<li>\`s.`
+            );
+          }
+        }
+      );
+    };
+    /**
+     * Checks for `dt` and `dd` elements and consoles a warning if the
+     * children are different HTML elements.
+     */
+    const checkDescriptionChildrenError = () => {
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement) => {
+          if (
+            child.type !== "dt" &&
+            child.type !== "dd" &&
+            child.type !== React.Fragment &&
+            child.props.mdxType !== "dt" &&
+            child.props.mdxType !== "dd" &&
+            child.props.mdxType !== React.Fragment
+          ) {
+            console.warn(
+              "NYPL Reservoir List: Direct children of `List` (description) must " +
+                "be `<dt>`s and `<dd>`s."
+            );
+          }
+        }
+      );
+    };
 
-  return listElement;
-});
+    if (type === "ol" || type === "ul") {
+      checkListChildrenError(type);
+      listElement = (
+        <Box
+          as={type as As}
+          id={id}
+          className={className}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          {listChildrenElms(type)}
+        </Box>
+      );
+    } else if (type === "dl") {
+      checkDescriptionChildrenError();
+      listElement = (
+        <Box
+          as="section"
+          id={id}
+          className={className}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
+          {title && <Heading id={`${id}-heading`}>{title}</Heading>}
+          <dl>{listChildrenElms(type)}</dl>
+        </Box>
+      );
+    }
+
+    return listElement;
+  })
+);
 
 export default List;

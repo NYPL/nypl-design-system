@@ -1,5 +1,5 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import * as React from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -19,6 +19,9 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
+  ) => void;
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
@@ -93,8 +96,16 @@ function getExternalIcon(children: JSX.Element, linkId: string) {
  * an anchor element with added styling and conventions.
  */
 export const Link = chakra(
-  React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
-    const { children, className, href, id, type = "default", ...rest } = props;
+  forwardRef<HTMLDivElement & HTMLAnchorElement, LinkProps>((props, ref?) => {
+    const {
+      children,
+      className,
+      href,
+      id,
+      onClick,
+      type = "default",
+      ...rest
+    } = props;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
@@ -107,7 +118,9 @@ export const Link = chakra(
     let variant = "link";
 
     if (typeof children === "string" && !href) {
-      throw new Error("`Link` needs the `href` prop.");
+      throw new Error(
+        "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
+      );
     }
 
     if (
@@ -137,12 +150,14 @@ export const Link = chakra(
       // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
       // let children = React.Children.only(children);
       if (React.Children.count(children) > 1) {
-        throw new Error("Please pass only one child into `Link`.");
+        throw new Error(
+          "NYPL Reservoir Link: Please pass only one child into the `Link` component."
+        );
       }
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style}>
+        <Box as="span" __css={style} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -164,6 +179,7 @@ export const Link = chakra(
           className={className}
           ref={ref}
           rel={rel}
+          onClick={onClick}
           target={target}
           {...linkProps}
           __css={style}

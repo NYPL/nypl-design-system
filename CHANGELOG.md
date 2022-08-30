@@ -8,9 +8,138 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.1.0-rc (Release Candidate August 14, 2022)
+
+### Header Feature
+
+- Adds static `Header` component with login dropdown (functionality to be added later).
+- Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
+- Adds the `SkipNavigation` to the `Header` component.
+- Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
+- Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
+- Adds refresh login functionality, which is used when a cookie's accessToken has expired and the server responds to a request for patron details with a 401. It attempts to refresh the token and, if successful, refetches the patron's details.
+- Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
+- Refactors `SearchButton` and `SearchForm` to implement the mobile search form.
+- Adds the mobile navigation menu for the `Header` component with `MobileNav` and `MobileNavButton` components.
+- Adds the mobile login menu for the `Header` component.
+- Adds React context for the `Header`'s patron state data through `HeaderContext` and `HeaderProvider`.
+- Better namespacing for Header-only components.
+- Sets Header Auth links for production and development environments.
+- Adds the `EncoreCatalogLogOutTimer` function to keep track of the patron's current site and when they should be logged out of Encore/Catalog after a timeout period.
+- Uses legacy SVG icons for parity with the existing `Header` component.
+
+### Adds
+
+- Adds `Tooltip` component.
+- Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
+- Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
+- Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
+- Adds the `react-ga` package to send Google Analytics events in the `Header` component.
+
+### Updates
+
+- Updates the `onClick` event type for the `Pagination` links `onClick` function.
+- Updates the `Link` component's `onClick` event type.
+- Makes small, clarifying update to `Color Mode` story in Storybook.
+
+### Fixes
+
+- Fixes the styling for the `Image` component in the `Hero` "secondary" variant.
+
+## 1.0.8 (August 11, 2022)
+
+### Adds
+
+- Adds new color values under ui:
+  - `bg.default`, `bg.hover`, `bg.active`, `border.default`, `border.hover`, `typography.heading`, and `typography.body`.
+- Adds new colors values under ui.gray:
+  - `xxxx-dark` and `xxx-dark`.
+- Adds UI fills colors for dark mode in the codebase and also exported in the `useNYPLTheme` hook.
+- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and displays a scrollbar if content exceeds it.
+
+### Updates
+
+- Updates color value for `xx-dark`.
+- Updates the style of the TOC on the `Style Guide` pages to match the style of the TOC on the component pages.
+- Updates the `Template` components to use CSS grid instead of flexbox.
+- Updates the `Template` documentation with the new pattern for using individual `Template` components that go above the main `TemplateContent` component.
+- Updates the `Placeholder` component's CSS to better display in the `Template` components.
+- Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
+- Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
+  > > > > > > > development
+
+## 1.0.7 (July 29, 2022)
+
+### Updates
+
+- Updates border color in the `Description` variant of the `List` component.
+- Updates how options are passed to the `SearchBar` component for its internal `Select` component.
+- Updates how style props are passed to the `Link` component when using with third-party libraries, such as React Router.
+- Updates the layout of the `Image` in the `Hero` "secondary" and "fiftyFifty" variants for mobile and desktop.
+
+## 1.0.6 (July 21, 2022)
+
+### Adds
+
+- Adds the `isLazy` prop to the `Image` component which is set to `false` by default.
+
+### Updates
+
+- Updates the following components to use React's `forwardRef` wrapper function to pass along refs to the correct DOM element. This is for third-party packages and components such as Chakra's `Tooltip` to work correctly.
+  - `Accordion`, `Breadcrumbs`, `Button`, `ButtonGroup`, `Card`, `ComponentWrapper`, `FieldSet`, `Form`, `SimpleGrid`, `Heading`, `HelperErrorText`, `Hero`, `HorizontalRule`, `Icon`, `Image`, `Label`, `List`, `Logo`, `Modal`, `Notification`, `Pagination`, `ProgressIndicator`, `SearchBar`, `SkeletonLoader`, `SkipNavigation`, `Slider`, `StatusBadge`, `StructuredContent`, `Table`, `Tabs`, `Template`, `TemplateAppContainer`, `Text`, `VideoPlayer`.
+- Updates `padding-left` and `padding-right` style properties to `padding-start` and `padding-end`, respectively. Updates `margin-left` and `margin-right` style properties to `margin-start` and `margin-end`, respectively. These changes apply to inline CSS, shorthand Chakra style prop syntax, and Chakra theme file syntax. Note that `margin-start/end` and `padding-start/end` get converted to `margin-inline-start/end` and `padding-inline-start/end` respectively by Chakra UI.
+- Updates the `Icon` component to include variants for legacy versions of `Account` (filled and unfilled), `Facebook`, `Instagram`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Warning` (filled and oultine).
+
+### Removes
+
+- Removes the packages `@mdx-js/react` and `babel-loader` since they are not needed by Storybook.
+
+## 1.0.5 (July 7, 2022)
+
+### Adds
+
+- Exports `ColorCard`.
+
+### Updates
+
+- Updates the `Icon` component to include variants for `actionCheckCircleFilled`, `actionRegistration`, `decorativeEnvelope`, `decorativeLibraryCard` and `decorativeShoppingBag`.
+- Updates the docs for the `Colors` Style Guide to include additional data related to contrast and WCAG compliance.
+- Updates the `Checkbox` and `Radio` components to use `ui.gray.dark` for the default border color.
+- Updates Storybook packages.
+
+### Fixes
+
+- Fixes `useNYPLBreakpoints` hook so it internally controls its own state. This eliminates server/client rendering issues on its initial load.
+
+## 1.0.4 (June 23, 2022)
+
 ### Adds
 
 - Adds the `useNYPLBreakpoints` hook. This hook internally uses Chakra's `useMediaQuery` hook to get the current responsive media query breakpoint.
+- Adds `ui.gray.xx-dark` to the color palette.
+- Adds npm packages useful for lazy loading images in the `Image` component.
+- Adds text case styles for `Text` component.
+- Exports `ColorModeScript`, `cookieStorageManager`, `localStorageManager`, `useColorMode`, and `useColorModeValue` from Chakra UI for consuming application usage.
+- Adds a "Color Mode" documentation page in Storybook.
+- Adds `ui.white` as default background color to `Checkbox` and `Radio` components.
+- Adds text case styles for `Heading` component
+
+### Updates
+
+- Updates the `Logo` component to include a variant for `MLN Color`.
+- Updates the `Icon` component to include variants for `Facebook`, `Instagram`, `Tumblr`, `Twitter` and `YouTube`.
+- Updates the `Icon` component to include variants for `Building`, `Exit`, `Locator`, `Power` and `Settings`.
+- Updates to Storybook version 6.5.
+- Explicitly sets the default color mode value to `"light"`.
+- Updates how the `styles.scss` and `resources.scss` files are organized and compiled so that they can be imported in any tech stack.
+- Updates the docs for the `Table` commponent to remove the example that does not include column headers.
+- Updates the `Button`, `Select` and `TextInput` components to use NYPL standard minimum height in mobile viewport.
+- Updates the `SearchBar` component to change how the width of the internal `Select` component is handled.
+
+### Fixes
+
+- Fixes the styles for the sub-labels in the `DatePicker` component.
 
 ## 1.0.3 (June 9, 2022)
 
@@ -125,7 +254,8 @@ This is the first stable release of the NYPL Reservoir Design System! We've been
 
 ### Updates
 
-- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.]
+- Updates the `Header`'s bottom navigation links to be underlined and red when hovered.
 
 ### Fixes
 

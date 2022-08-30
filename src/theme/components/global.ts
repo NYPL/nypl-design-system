@@ -16,7 +16,7 @@ const checkboxRadioLabelStyles = {
   userSelect: "none",
   fontWeight: "text.default",
   marginBottom: "0",
-  marginLeft: "xs",
+  marginStart: "xs",
   width: "100%",
   _disabled: {
     color: "ui.gray.dark",
@@ -35,7 +35,7 @@ const checkboxRadioControlSize = {
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyle = {
-  marginLeft: "30px", // calc(22px + var(--nypl-space-xs))
+  marginStart: "30px", // calc(22px + var(--nypl-space-xs))
   _disabled: {
     color: "ui.gray.dark",
     fontStyle: "italic",
@@ -49,6 +49,10 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
     width: isFullWidth ? "100%" : "fit-content",
   },
 });
+// Default sizes used throughout the codebase.
+const defaultElementSizes = {
+  mobileFieldHeight: "44px",
+};
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   display: "inline-block",
@@ -84,6 +88,7 @@ export {
   checkboxRadioGroupStyles,
   checkboxRadioHelperErrorTextStyle,
   checkboxRadioLabelStyles,
+  defaultElementSizes,
   labelLegendText,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,

@@ -4,17 +4,17 @@ const tablist = {
 const tab = {
   color: "black !important",
   paddingInlineStart: "s",
-  paddingLeft: "s",
+  paddingStart: "s",
   background: "transparent",
   border: "0",
   borderBottom: "1px solid",
   borderColor: "red",
   height: { base: "44px" },
-  marginRight: {
+  marginEnd: {
     base: "0",
     md: "1px",
   },
-  paddingRight: {
+  paddingEnd: {
     base: "s",
     md: "l",
     lg: "xl",
@@ -50,8 +50,8 @@ const buttonArrows = {
   height: "44px",
   width: "44px !important",
   top: "8px",
-  marginLeft: "4px",
-  marginRight: "4px",
+  marginStart: "4px",
+  marginEnd: "4px",
   // Code from https://codesandbox.io/s/fxjeo for the mobile carousel
   pos: "absolute",
   transition: "0.6s ease",
@@ -68,8 +68,8 @@ const tablistWrapper = {
   margin: "0",
   overflowX: { base: "auto", md: "visible" },
   paddingBottom: { base: "5px", md: "0" },
-  paddingLeft: { base: "4px", md: "0" },
-  paddingRight: { base: "4px", md: "0" },
+  paddingStart: { base: "4px", md: "0" },
+  paddingEnd: { base: "4px", md: "0" },
   paddingTop: { base: "4px", md: "0" },
   position: "relative",
 };
@@ -81,8 +81,8 @@ const carouselParent = {
   position: { base: "absolute", md: "relative" },
   left: { base: "50px", md: "auto" },
   paddingBottom: { base: "5px", md: "0" },
-  paddingLeft: { base: "4px", md: "0" },
-  paddingRight: "0",
+  paddingStart: { base: "4px", md: "0" },
+  paddingEnd: "0",
   paddingTop: { base: "4px", md: "0" },
   right: { base: "52px", md: "auto" },
   top: { base: "4px", md: "0" },

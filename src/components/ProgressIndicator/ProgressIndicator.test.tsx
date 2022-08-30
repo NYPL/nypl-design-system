@@ -295,4 +295,18 @@ describe("ProgressIndicator", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <ProgressIndicator
+        id="progressIndicator"
+        labelText="Linear"
+        ref={ref}
+        value={50}
+      />
+    );
+
+    expect(container.querySelector("div")).toBe(ref.current);
+  });
 });

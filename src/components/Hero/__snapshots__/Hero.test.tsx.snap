@@ -48,11 +48,20 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
     data-testid="hero-content"
     style={Object {}}
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <h1
       className="chakra-heading css-1xdhyk6"
       id="secondary-hero"
@@ -80,11 +89,20 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
     data-testid="hero-content"
     style={Object {}}
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <h1
       className="chakra-heading css-1xdhyk6"
       id="secondary-hero"
@@ -112,11 +130,20 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
     data-testid="hero-content"
     style={Object {}}
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <h1
       className="chakra-heading css-1xdhyk6"
       id="secondary-hero"
@@ -144,11 +171,20 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
     data-testid="hero-content"
     style={Object {}}
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <h1
       className="chakra-heading css-1xdhyk6"
       id="secondary-hero"
@@ -176,11 +212,20 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
     data-testid="hero-content"
     style={Object {}}
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <h1
       className="chakra-heading css-1xdhyk6"
       id="secondary-hero"
@@ -251,11 +296,16 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
       }
     }
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+      data-testid="test"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="https://placeimg.com/800/400/animals"
+      />
+    </div>
     <div
       className="css-0"
     >
@@ -292,11 +342,20 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
       }
     }
   >
-    <img
-      alt="Image example"
+    <div
       className="css-0"
-      src="https://placeimg.com/800/400/animals"
-    />
+    >
+      <div
+        className="css-0"
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >

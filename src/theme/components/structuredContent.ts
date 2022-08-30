@@ -3,9 +3,9 @@ import { textMargin } from "./global";
 import { headings } from "./heading";
 import { baseLinkStyles } from "./link";
 import {
-  baseDefinitionStyles,
+  baseDescriptionStyles,
   baseListStyles,
-  baseSectionDefinitionStyles,
+  baseSectionDescriptionStyles,
   baseUnorderedStyles,
 } from "./list";
 
@@ -29,7 +29,7 @@ const StructuredContent = {
         "none",
         imagePosition !== "center" ? imagePosition : undefined,
       ],
-      marginLeft: [
+      marginStart: [
         "auto",
         "auto",
         imagePosition === "center"
@@ -38,7 +38,7 @@ const StructuredContent = {
           ? "0"
           : "l",
       ],
-      marginRight: [
+      marginEnd: [
         "auto",
         "auto",
         imagePosition === "center"
@@ -70,14 +70,14 @@ const StructuredContent = {
           "none",
           imagePosition !== "center" ? imagePosition : undefined,
         ],
-        marginLeft: [
+        marginStart: [
           "auto",
           "auto",
           imagePosition === "right" && imageAspectRatio === "original"
             ? "m"
             : undefined,
         ],
-        marginRight: [
+        marginEnd: [
           "auto",
           "auto",
           imagePosition === "left" && imageAspectRatio === "original"
@@ -111,10 +111,10 @@ const StructuredContent = {
         ...textMargin,
       },
       // For section, h2 in the definition list.
-      section: baseSectionDefinitionStyles,
-      dl: baseDefinitionStyles.dl,
-      dt: baseDefinitionStyles.dt,
-      dd: baseDefinitionStyles.dd,
+      section: baseSectionDescriptionStyles,
+      dl: baseDescriptionStyles.dl,
+      dt: baseDescriptionStyles.dt,
+      dd: baseDescriptionStyles.dd,
       table: {
         width: "100%",
         th: {

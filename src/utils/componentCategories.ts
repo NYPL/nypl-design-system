@@ -78,6 +78,7 @@ const categories = {
     title: "Hooks",
     components: [
       "useCarouselStyles",
+      "useCloseDropDown",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",
@@ -130,6 +131,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Color Mode",
       "Design Tokens",
       "Forms",
       "Iconography",

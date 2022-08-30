@@ -28,14 +28,15 @@ import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import {
   Template,
   TemplateAboveHeader,
-  TemplateHeader,
+  TemplateAppContainer,
   TemplateBreakout,
   TemplateContent,
-  TemplateContentTop,
+  TemplateContentBottom,
   TemplateContentPrimary,
   TemplateContentSidebar,
+  TemplateContentTop,
   TemplateFooter,
-  TemplateAppContainer,
+  TemplateHeader,
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
 import { getCategory } from "../../utils/componentCategories";
@@ -57,7 +58,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `1.0.3`    |
+| Latest            | `1.0.8`    |
 
 ## Table of Contents
 
@@ -90,15 +91,15 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <TemplateAppContainer
   aboveHeader={<Placeholder variant="short">Above Header</Placeholder>}
-  header={<Placeholder variant="short">NYPL Header</Placeholder>}
+  header={<Placeholder variant="short">Header</Placeholder>}
   breakout={
     <>
       <Placeholder variant="short">Breadcrumbs</Placeholder>
-      <Placeholder variant="short">Hero</Placeholder>
+      <Placeholder>Hero</Placeholder>
     </>
   }
   sidebar="left"
-  contentTop={<Placeholder>Content Top</Placeholder>}
+  contentTop={<Placeholder variant="short">Content Top</Placeholder>}
   contentSidebar={<Placeholder>Left Sidebar</Placeholder>}
   contentPrimary={
     <>
@@ -106,7 +107,8 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       <Placeholder variant="short">More Content</Placeholder>
     </>
   }
-  footer={<Placeholder variant="short">Footer</Placeholder>}
+  contentBottom={<Placeholder variant="short">Content Bottom</Placeholder>}
+  footer={<Placeholder>Footer</Placeholder>}
   renderSkipNavigation={true}
 />;
 ```
@@ -121,24 +123,25 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       breakout: (
         <>
           <Placeholder variant="short">Breadcrumbs</Placeholder>
-          <Placeholder variant="short">Hero</Placeholder>
+          <Placeholder>Hero</Placeholder>
         </>
       ),
+      contentBottom: <Placeholder variant="short">Content Bottom</Placeholder>,
+      contentId: "mainContent",
       contentPrimary: (
         <>
           <Placeholder>Main Content</Placeholder>
           <Placeholder variant="short">More Content</Placeholder>
         </>
       ),
-      contentId: "mainContent",
       contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
-      contentTop: <Placeholder>Content Top</Placeholder>,
-      footer: <Placeholder variant="short">Footer</Placeholder>,
-      header: <Placeholder variant="short">NYPL Header</Placeholder>,
-      sidebar: "left",
+      contentTop: <Placeholder variant="short">Content Top</Placeholder>,
+      footer: <Placeholder>Footer</Placeholder>,
+      header: <Placeholder variant="short">Header</Placeholder>,
       renderFooterElement: true,
       renderHeaderElement: true,
       renderSkipNavigation: true,
+      sidebar: "left",
     }}
     argTypes={{
       aboveHeader: { control: false },
@@ -179,7 +182,7 @@ accessibility violation.
 The `TemplateAppContainer` component renders a full DOM and one of the children
 is the `main` HTML element with a default "id" of `"mainContent"`. This should
 be used as the anchor element that the skip navigation link points to. If your
-application is using the current NYPL Header, it already contains the skip
+application is using the current Header, it already contains the skip
 navigation feature but make sure it is pointing to the correct anchor element.
 
 If you are using a custom header component or you need to use the Reservoir
@@ -205,8 +208,11 @@ using the `TemplateAppContainer` component and passing down children component
 as props as needed.
 
 Note: If you need to render the `SkipNavigation` component, you need to explicitly
-render it immediately before the `TemplateAboveHeader` component. This is done
+render it immediately before the `Template` component. This is done
 automatically in the `TemplateAppContainer` component.
+
+Note: All components that go above the main content `TemplateContent` component
+should be wrapped in a `<div>` element or a `<Box>` component.
 
 Basic "template" components structure:
 
@@ -214,42 +220,49 @@ Basic "template" components structure:
 import {
   Template,
   TemplateAboveHeader,
-  TemplateHeader,
   TemplateBreakout,
   TemplateContent,
-  TemplateContentTop,
+  TemplateContentBottom,
   TemplateContentPrimary,
   TemplateContentSidebar,
+  TemplateContentTop,
   TemplateFooter,
+  TemplateHeader,
 } from "@nypl/design-system-react-components";
 
 
-<Template>
+<>
   <SkipNavigation />
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
+  <Template>
     <TemplateBreakout>
-      // ...
+      <TemplateAboveHeader>
+        // ...
+      </TemplateAboveHeader>
+      <TemplateHeader>
+        // ...
+        // ...
+      </TemplateHeader>
     </TemplateBreakout>
-  </TemplateHeader>
 
-  <TemplateContent sidebar="...">
-    <TemplateContentTop>
+    <TemplateContent sidebar="...">
+      <TemplateContentTop>
+        // ...
+      </TemplateContentTop>
+
+      <TemplateContentPrimary>
+        // ...
+      </TemplateContentPrimary>
+
+      <TemplateContentBottom>
+        // ...
+      </TemplateContentBottom>
+    </TemplateContent>
+
+    <TemplateFooter>
       // ...
-    </TemplateContentTop>
-
-    <TemplateContentPrimary>
-      // ...
-    </TemplateContentPrimary>
-  </TemplateContent>
-
-  <TemplateFooter>
-    // ...
-  </TemplateFooter>
-</Template>
+    </TemplateFooter>
+  </Template>
+</>
 ```
 
 ## Template Children Component Props
@@ -263,6 +276,7 @@ import {
     argTypes={{
       aboveHeader: { table: { disable: true } },
       breakout: { table: { disable: true } },
+      contentBottom: { table: { disable: true } },
       contentId: { table: { disable: true } },
       contentPrimary: { table: { disable: true } },
       contentSidebar: { table: { disable: true } },
@@ -273,41 +287,46 @@ import {
     }}
   >
     {(args) => (
-      <Template>
+      <>
         <SkipNavigation />
-        <TemplateAboveHeader>
-          <Placeholder variant="short">Above Header</Placeholder>
-        </TemplateAboveHeader>
-        <TemplateHeader>
-          <Placeholder variant="short">NYPL Header</Placeholder>
+        <Template>
           <TemplateBreakout>
-            <Placeholder variant="short">Breadcrumbs</Placeholder>
-            <Placeholder variant="short">Hero</Placeholder>
+            <TemplateAboveHeader>
+              <Placeholder variant="short">Above Header</Placeholder>
+            </TemplateAboveHeader>
+            <TemplateHeader>
+              <Placeholder variant="short">Header</Placeholder>
+              <Placeholder variant="short">Breadcrumbs</Placeholder>
+              <Placeholder>Hero</Placeholder>
+            </TemplateHeader>
           </TemplateBreakout>
-        </TemplateHeader>
-        <TemplateContent sidebar={args.sidebar}>
-          <TemplateContentTop>
-            <Placeholder>Content Top</Placeholder>
-          </TemplateContentTop>
-          {args.sidebar === "left" && (
-            <TemplateContentSidebar>
-              <Placeholder>Left Sidebar</Placeholder>
-            </TemplateContentSidebar>
-          )}
-          <TemplateContentPrimary>
-            <Placeholder>Main Content</Placeholder>
-            <Placeholder variant="short">More Content</Placeholder>
-          </TemplateContentPrimary>
-          {args.sidebar === "right" && (
-            <TemplateContentSidebar>
-              <Placeholder>Right Sidebar</Placeholder>
-            </TemplateContentSidebar>
-          )}
-        </TemplateContent>
-        <TemplateFooter>
-          <Placeholder variant="short">Footer</Placeholder>
-        </TemplateFooter>
-      </Template>
+          <TemplateContent sidebar={args.sidebar}>
+            <TemplateContentTop>
+              <Placeholder variant="short">Content Top</Placeholder>
+            </TemplateContentTop>
+            {args.sidebar === "left" && (
+              <TemplateContentSidebar>
+                <Placeholder>Left Sidebar</Placeholder>
+              </TemplateContentSidebar>
+            )}
+            <TemplateContentPrimary>
+              <Placeholder>Main Content</Placeholder>
+              <Placeholder variant="short">More Content</Placeholder>
+            </TemplateContentPrimary>
+            {args.sidebar === "right" && (
+              <TemplateContentSidebar>
+                <Placeholder>Right Sidebar</Placeholder>
+              </TemplateContentSidebar>
+            )}
+            <TemplateContentBottom>
+              <Placeholder variant="short">Content Bottom</Placeholder>
+            </TemplateContentBottom>
+          </TemplateContent>
+          <TemplateFooter>
+            <Placeholder>Footer</Placeholder>
+          </TemplateFooter>
+        </Template>
+      </>
     )}
   </Story>
 </Canvas>
@@ -316,7 +335,7 @@ import {
 
 ### Template Components
 
-The components consist of:
+The components consist of, listed in DOM structure order:
 
 - `Template`
 - `TemplateAboveHeader`
@@ -326,6 +345,7 @@ The components consist of:
 - `TemplateContentTop`
 - `TemplateContentPrimary`
 - `TemplateContentSidebar`
+- `TemplateContentBottom`
 - `TemplateFooter`
 
 #### Template
@@ -338,14 +358,28 @@ The components consist of:
 
 <Description of={Template} />
 
+#### TemplateBreakout
+
+```
+<Template>
+  <TemplateBreakout>
+    // ...
+  </TemplateBreakout>
+</Template>
+```
+
+<Description of={TemplateBreakout} />
+
 #### TemplateAboveHeader
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-<Template>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+  </TemplateBreakout>
+</Template>
 ```
 
 <Description of={TemplateAboveHeader} />
@@ -354,43 +388,32 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
-  </TemplateHeader>
-<Template>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
+</Template>
 ```
 
 <Description of={TemplateHeader} />
-
-#### TemplateBreakout
-
-```
-<Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    <TemplateBreakout>
-      // ...
-    </TemplateBreakout>
-  </TemplateHeader>
-<Template>
-```
-
-<Description of={TemplateBreakout} />
 
 #### TemplateContent
 
 ```
 <Template>
-  <TemplateHeader>...</TemplateHeader>
-  <TemplateContent id="mainContent" sidebar="left">
+  <TemplateBreakout>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
+  <TemplateContent id="mainContent">
     // ...
   </TemplateContent>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateContent} />
@@ -399,16 +422,20 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
   <TemplateContent>
     <TemplateContentTop>
       // ...
-    </TemplateContent>
+    </TemplateContentTop>
   </TemplateContent>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateContentTop} />
@@ -417,10 +444,14 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
   <TemplateContent>
     <TemplateContentPrimary>
       // ...
@@ -435,10 +466,14 @@ The components consist of:
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  <TemplateBreakout>
   <TemplateContent sidebar="right">
     <TemplateContentPrimary>
       // ...
@@ -447,13 +482,17 @@ The components consist of:
       // RIGHT SIDEBAR
     </TemplateContentSidebar>
   </TemplateContent>
-<Template>
+</Template>
 
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>...</TemplateHeader>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
   <TemplateContent sidebar="left">
     <TemplateContentSidebar>
       // LEFT SIDEBAR
@@ -467,23 +506,53 @@ The components consist of:
 
 <Description of={TemplateContentSidebar} />
 
+#### TemplateContentBottom
+
+```
+<Template>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
+  <TemplateContent>
+    <TemplateContentTop>
+      // ...
+    </TemplateContentTop>
+    <TemplateContentPrimary>
+      // ...
+    </TemplateContentPrimary>
+    <TemplateContentBottom>
+      // ...
+    </TemplateContentBottom>
+  </TemplateContent>
+</Template>
+```
+
+<Description of={TemplateContentBottom} />
+
 #### TemplateFooter
 
 ```
 <Template>
-  <TemplateAboveHeader>
-    // ...
-  </TemplateAboveHeader>
-  <TemplateHeader>
-    // ...
-  </TemplateHeader>
+  <TemplateBreakout>
+    <TemplateAboveHeader>
+      // ...
+    </TemplateAboveHeader>
+    <TemplateHeader>
+      // ...
+    </TemplateHeader>
+  </TemplateBreakout>
   <TemplateContent sidebar="right">
     //...
   </TemplateContent>
   <TemplateFooter>
     // ...
   </TemplateFooter>
-<Template>
+</Template>
 ```
 
 <Description of={TemplateFooter} />
@@ -535,161 +604,172 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 
 <Canvas>
   <Story name="Full Example with Template Children Components">
-    <Template>
+    <>
       <SkipNavigation />
-      <TemplateAboveHeader>
-        <Notification
-          notificationHeading="Standard Notification"
-          notificationContent={
-            <>
-              This is an "announcement" Notification with a heading. Cras mattis
-              consectetur purus sit amet fermentum. Maecenas faucibus mollis
-              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Cum sociis natoque penatibus et magnis dis parturient
-              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
-              laoreet rutrum faucibus dolor auctor.
-            </>
-          }
-          showIcon={false}
-        />
-      </TemplateAboveHeader>
-      <TemplateHeader>
+      <Template>
         <TemplateBreakout>
-          <Breadcrumbs
-            breadcrumbsData={[
-              { url: "#", text: "Home" },
-              { url: "#", text: "Research" },
-              {
-                url: "#",
-                text: "Catalog",
-              },
-            ]}
-          />
-          <Hero
-            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            heroType="campaign"
-            heading={<Heading level="one" id="1" text="Hero Campaign" />}
-            imageProps={{
-              alt: "Image example",
-              src: "https://placeimg.com/800/400/animals",
-            }}
-            subHeaderText={otherSubHeaderText}
-          />
+          <TemplateAboveHeader>
+            <Notification
+              noMargin
+              notificationHeading="Standard Notification"
+              notificationContent={
+                <>
+                  This is an "announcement" Notification with a heading. Cras
+                  mattis consectetur purus sit amet fermentum. Maecenas faucibus
+                  mollis interdum. Morbi leo risus, porta ac consectetur ac,
+                  vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus. Vivamus sagittis
+                  lacus vel augue laoreet rutrum faucibus dolor auctor.
+                </>
+              }
+              showIcon={false}
+            />
+          </TemplateAboveHeader>
+          <TemplateHeader>
+            <Breadcrumbs
+              breadcrumbsData={[
+                { url: "#", text: "Home" },
+                { url: "#", text: "Research" },
+                {
+                  url: "#",
+                  text: "Catalog",
+                },
+              ]}
+            />
+            <Hero
+              backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+              heroType="campaign"
+              heading={<Heading level="one" id="1" text="Hero Campaign" />}
+              imageProps={{
+                alt: "Image example",
+                src: "https://placeimg.com/800/400/animals",
+              }}
+              subHeaderText={otherSubHeaderText}
+            />
+          </TemplateHeader>
         </TemplateBreakout>
-      </TemplateHeader>
-      <TemplateContent sidebar="right">
-        <TemplateContentTop>
-          <Notification
-            notificationType="announcement"
-            notificationHeading="Announcement Notification"
-            notificationContent={
-              <>
-                This is an "announcement" Notification with a heading. Cras
-                mattis consectetur purus sit amet fermentum. Maecenas faucibus
-                mollis interdum. Morbi leo risus, porta ac consectetur ac,
-                vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Vivamus sagittis
-                lacus vel augue laoreet rutrum faucibus dolor auctor.
-              </>
-            }
-          />
-        </TemplateContentTop>
-        <TemplateContentPrimary>
-          <p>This is the main content!</p>
-          <Accordion accordionData={faqContent} />
-          <HorizontalRule />
-          <p>Fill out the form!</p>
-          <Form action="/end/point" id="form1">
-            <FormField>
-              <TextInput
-                helperText="Make sure to complete this field."
-                id="username"
-                labelText="Username"
-                required
-              />
-            </FormField>
-            <FormField>
-              <TextInput
-                helperText="Make sure to complete this field."
-                id="password"
-                labelText="Password"
-                required
-              />
-            </FormField>
-            <FormRow>
+        <TemplateContent sidebar="right">
+          <TemplateContentTop>
+            <Notification
+              notificationType="announcement"
+              notificationHeading="Announcement Notification"
+              notificationContent={
+                <>
+                  This is an "announcement" Notification with a heading. Cras
+                  mattis consectetur purus sit amet fermentum. Maecenas faucibus
+                  mollis interdum. Morbi leo risus, porta ac consectetur ac,
+                  vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus. Vivamus sagittis
+                  lacus vel augue laoreet rutrum faucibus dolor auctor.
+                </>
+              }
+            />
+          </TemplateContentTop>
+          <TemplateContentPrimary>
+            <p>This is the main content!</p>
+            <Accordion accordionData={faqContent} />
+            <HorizontalRule />
+            <p>Fill out the form!</p>
+            <Form action="/end/point" id="form1">
               <FormField>
                 <TextInput
-                  id="phone-field"
-                  labelText="Phone Field"
-                  type="tel"
+                  helperText="Make sure to complete this field."
+                  id="username"
+                  labelText="Username"
+                  required
                 />
               </FormField>
               <FormField>
-                <TextInput id="url-field" labelText="URL Field" type="url" />
+                <TextInput
+                  helperText="Make sure to complete this field."
+                  id="password"
+                  labelText="Password"
+                  required
+                />
               </FormField>
+              <FormRow>
+                <FormField>
+                  <TextInput
+                    id="phone-field"
+                    labelText="Phone Field"
+                    type="tel"
+                  />
+                </FormField>
+                <FormField>
+                  <TextInput id="url-field" labelText="URL Field" type="url" />
+                </FormField>
+                <FormField>
+                  <TextInput id="age-field" labelText="Age" type="number" />
+                </FormField>
+              </FormRow>
               <FormField>
-                <TextInput id="age-field" labelText="Age" type="number" />
+                <Button id="submit">Submit</Button>
               </FormField>
-            </FormRow>
-            <FormField>
-              <Button id="submit">Submit</Button>
-            </FormField>
-          </Form>
-        </TemplateContentPrimary>
-        <TemplateContentSidebar>
-          <p>Sidebar information in a `Card` component.</p>
+            </Form>
+          </TemplateContentPrimary>
+          <TemplateContentSidebar>
+            <p>Sidebar information in a `Card` component.</p>
+            <Card
+              imageProps={{
+                alt: "Alt text",
+                aspectRatio: "square",
+                size: "small",
+                src: "https://placeimg.com/400/200/animals",
+              }}
+              isCentered
+            >
+              <CardHeading id="heading1">Small Animal Image</CardHeading>
+              <CardHeading level="three" id="heading2">
+                Animal info
+              </CardHeading>
+              <CardContent>
+                Vestibulum id ligula porta felis euismod semper. Nulla vitae
+                elit libero, a pharetra augue.
+              </CardContent>
+            </Card>
+          </TemplateContentSidebar>
+          <TemplateContentBottom>
+            <Notification
+              noMargin
+              notificationHeading="Standard Notification"
+              notificationContent={<>This is an the bottom content area!</>}
+              showIcon={false}
+            />
+          </TemplateContentBottom>
+        </TemplateContent>
+        <TemplateFooter>
           <Card
+            id="custom-card"
             imageProps={{
               alt: "Alt text",
-              aspectRatio: "square",
-              size: "small",
-              src: "https://placeimg.com/400/200/animals",
+              aspectRatio: "sixteenByNine",
+              src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
             }}
-            isCentered
+            layout="row"
+            backgroundColor="#616161"
+            foregroundColor="#FFF"
           >
-            <CardHeading id="heading1">Small Animal Image</CardHeading>
-            <CardHeading level="three" id="heading2">
-              Animal info
-            </CardHeading>
+            <CardHeading id="heading1-footer">Footer</CardHeading>
             <CardContent>
-              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-              libero, a pharetra augue.
+              <p>This is an example footer using the `Card` component.</p>
+              <p>
+                © The New York Public Library, 2021 The New York Public Library
+                is a 501(c)(3) | EIN 13-1887440
+              </p>
             </CardContent>
+            <CardActions>
+              <Link color="#FFF" href="#" textDecoration="underline">
+                Facebook
+              </Link>
+              ,<Link color="#FFF" href="#" textDecoration="underline">
+                Instagram
+              </Link>,<Link color="#FFF" href="#" textDecoration="underline">
+                Twitter
+              </Link>
+            </CardActions>
           </Card>
-        </TemplateContentSidebar>
-      </TemplateContent>
-      <TemplateFooter>
-        <Card
-          id="custom-card"
-          imageProps={{
-            alt: "Alt text",
-            aspectRatio: "sixteenByNine",
-            src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
-          }}
-          layout="horizontal"
-          backgroundColor="#616161"
-          foregroundColor="#FFF"
-        >
-          <CardHeading id="heading1-footer">Footer</CardHeading>
-          <CardContent>
-            <p>This is an example footer using the `Card` component.</p>
-            <p>
-              © The New York Public Library, 2021 The New York Public Library is
-              a 501(c)(3) | EIN 13-1887440
-            </p>
-          </CardContent>
-          <CardActions>
-            <Link color="#FFF" href="#" textDecoration="underline">
-              Facebook
-            </Link>
-            ,<Link color="#FFF" href="#" textDecoration="underline">
-              Instagram
-            </Link>,<Link color="#FFF" href="#" textDecoration="underline">
-              Twitter
-            </Link>
-          </CardActions>
-        </Card>
-      </TemplateFooter>
-    </Template>
+        </TemplateFooter>
+      </Template>
+    </>
   </Story>
 </Canvas>

@@ -4,7 +4,7 @@ const blogs = {
   color: "ui.black",
   a: {
     _hover: {
-      color: "ui.gray.xdark",
+      color: "ui.gray.x-dark",
     },
   },
   svg: {
@@ -40,8 +40,8 @@ const Breadcrumb = {
       display: { base: "flex", md: "block" },
       margin: "auto",
       maxWidth: "1280px",
-      paddingLeft: "s",
-      paddingRight: "s",
+      paddingStart: "s",
+      paddingEnd: "s",
     },
     a: {
       _hover: {
@@ -63,7 +63,7 @@ const Breadcrumb = {
     "li:not(:last-child)": {
       display: { base: "none", md: "inline-block" },
       a: {
-        marginRight: { base: "xs", md: "0" },
+        marginEnd: { base: "xs", md: "0" },
       },
       ".icon": {
         display: { base: "inline", md: "none" },

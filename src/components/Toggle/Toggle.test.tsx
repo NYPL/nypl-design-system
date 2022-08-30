@@ -167,4 +167,13 @@ describe("Toggle", () => {
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
+
+  it("passes a ref to the input element", () => {
+    const ref = React.createRef<HTMLInputElement>();
+    const { container } = render(
+      <Toggle id="ref" onChange={jest.fn()} labelText="Test Label" ref={ref} />
+    );
+
+    expect(container.querySelector("input")).toBe(ref.current);
+  });
 });

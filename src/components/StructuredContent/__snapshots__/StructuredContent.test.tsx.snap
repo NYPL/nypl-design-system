@@ -17,29 +17,34 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   >
     This is the callout text
   </h3>
-  <figure
+  <div
     className="css-0"
+    data-testid="test"
   >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
+    <figure
       className="css-0"
     >
-      <div
+      <img
+        alt="Image alt text"
+        className="css-0"
+        src="https://placeimg.com/400/300/animals"
+      />
+      <figcaption
         className="css-0"
       >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
+        <div
+          className="css-0"
+        >
+          Image caption
+        </div>
+        <div
+          className="css-0"
+        >
+          Image credit
+        </div>
+      </figcaption>
+    </figure>
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
@@ -68,29 +73,34 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
   >
     This is the callout text
   </h3>
-  <figure
+  <div
     className="css-0"
+    data-testid="test"
   >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
+    <figure
       className="css-0"
     >
-      <div
+      <img
+        alt="Image alt text"
+        className="css-0"
+        src="https://placeimg.com/400/300/animals"
+      />
+      <figcaption
         className="css-0"
       >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
+        <div
+          className="css-0"
+        >
+          Image caption
+        </div>
+        <div
+          className="css-0"
+        >
+          Image credit
+        </div>
+      </figcaption>
+    </figure>
+  </div>
   <div
     className="structuredcontent-body css-0"
   >
@@ -181,11 +191,16 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   >
     This is the callout text
   </h3>
-  <img
-    alt="Image alt text"
+  <div
     className="css-0"
-    src="https://placeimg.com/400/300/animals"
-  />
+    data-testid="test"
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      src="https://placeimg.com/400/300/animals"
+    />
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
@@ -208,29 +223,34 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
   >
     This is the callout text
   </h3>
-  <figure
+  <div
     className="css-0"
+    data-testid="test"
   >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
+    <figure
       className="css-0"
     >
-      <div
+      <img
+        alt="Image alt text"
+        className="css-0"
+        src="https://placeimg.com/400/300/animals"
+      />
+      <figcaption
         className="css-0"
       >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
+        <div
+          className="css-0"
+        >
+          Image caption
+        </div>
+        <div
+          className="css-0"
+        >
+          Image credit
+        </div>
+      </figcaption>
+    </figure>
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
@@ -281,29 +301,34 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   >
     This is the callout text
   </h3>
-  <figure
+  <div
     className="css-0"
+    data-testid="test"
   >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
+    <figure
       className="css-0"
     >
-      <div
+      <img
+        alt="Image alt text"
+        className="css-0"
+        src="https://placeimg.com/400/300/animals"
+      />
+      <figcaption
         className="css-0"
       >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
+        <div
+          className="css-0"
+        >
+          Image caption
+        </div>
+        <div
+          className="css-0"
+        >
+          Image credit
+        </div>
+      </figcaption>
+    </figure>
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
@@ -333,29 +358,34 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   >
     This is the callout text
   </h3>
-  <figure
+  <div
     className="css-0"
+    data-testid="test"
   >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
+    <figure
       className="css-0"
     >
-      <div
+      <img
+        alt="Image alt text"
+        className="css-0"
+        src="https://placeimg.com/400/300/animals"
+      />
+      <figcaption
         className="css-0"
       >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
+        <div
+          className="css-0"
+        >
+          Image caption
+        </div>
+        <div
+          className="css-0"
+        >
+          Image credit
+        </div>
+      </figcaption>
+    </figure>
+  </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
