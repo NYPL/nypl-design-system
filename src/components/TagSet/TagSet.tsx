@@ -35,7 +35,7 @@ export const TooltipWrapper = ({
   label,
   children,
 }: React.PropsWithChildren<{ label: any }>) => {
-  const maxCharLengthToShow = 17;
+  const maxCharLengthToShow = 20;
   const labelText = typeof label === "string" ? label : label.props.children;
   if (labelText.length > maxCharLengthToShow && typeof labelText === "string") {
     return <Tooltip content={labelText}>{children}</Tooltip>;
