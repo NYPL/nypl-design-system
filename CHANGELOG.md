@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
+
 ## 1.1.0-rc (Release Candidate August 14, 2022)
 
 ### Header Feature
