@@ -39,7 +39,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `onClick` event type for the `Pagination` links `onClick` function.
 - Updates the `Link` component's `onClick` event type.
 - Makes small, clarifying update to `Color Mode` story in Storybook.
-- Updates background colors in Storybook config so a user can toggle between dark and light.
+- Updates background color values available in Storybook.
 
 ### Fixes
 

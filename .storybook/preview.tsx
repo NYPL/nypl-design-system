@@ -39,10 +39,12 @@ export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
   backgrounds: {
-    default: "light",
+    default: "Light mode page background",
     values: [
-      { name: "light", value: "var(--nypl-colors-ui-white)" },
-      { name: "dark", value: "var(--nypl-colors-dark-ui-bg-page)" },
+      { name: "Light mode page background", value: "#FFFFFF" },
+      { name: "Light mode default background", value: "F5F5F5" },
+      { name: "Dark mode page background", value: "#121212" },
+      { name: "Dark mode default background", value: "#191919" },
     ],
   },
   // Load the Reservoir's Chakra-based theme.
