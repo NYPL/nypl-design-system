@@ -148,6 +148,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
     >
       <li>
         <a
+          aria-label="NYPL on Facebook"
           className="css-1xdhyk6"
           href="https://www.facebook.com/nypl"
           rel={null}
@@ -155,6 +156,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <svg
             aria-hidden={false}
+            aria-label="NYPL on Facebook"
             className="chakra-icon css-1grhd2q"
             focusable={false}
             role="img"
@@ -188,6 +190,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       </li>
       <li>
         <a
+          aria-label="NYPL on Twitter"
           className="css-1xdhyk6"
           href="https://twitter.com/nypl"
           rel={null}
@@ -195,6 +198,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <svg
             aria-hidden={false}
+            aria-label="NYPL on Twitter"
             className="chakra-icon css-1grhd2q"
             focusable={false}
             role="img"
@@ -228,6 +232,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       </li>
       <li>
         <a
+          aria-label="NYPL on Instagram"
           className="css-1xdhyk6"
           href="https://instagram.com/nypl"
           rel={null}
@@ -235,6 +240,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <svg
             aria-hidden={false}
+            aria-label="NYPL on Instagram"
             className="chakra-icon css-1grhd2q"
             focusable={false}
             role="img"
@@ -268,6 +274,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
       </li>
       <li>
         <a
+          aria-label="NYPL on Youtube"
           className="css-1xdhyk6"
           href="https://www.youtube.com/user/NewYorkPublicLibrary"
           rel={null}
@@ -275,6 +282,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
         >
           <svg
             aria-hidden={false}
+            aria-label="NYPL on Youtube"
             className="chakra-icon css-1grhd2q"
             focusable={false}
             role="img"
@@ -342,6 +350,7 @@ exports[`Footer renders the UI snapshot correctly 1`] = `
   >
     <svg
       aria-hidden={false}
+      aria-label="The New York Public Library"
       className="chakra-icon css-1grhd2q"
       focusable={false}
       role="img"
