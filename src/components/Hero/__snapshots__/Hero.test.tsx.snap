@@ -51,11 +51,16 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -87,11 +92,16 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -123,11 +133,16 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -159,11 +174,16 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -195,11 +215,16 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -273,6 +298,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
+      data-testid="test"
     >
       <img
         alt="Image example"
@@ -319,11 +345,16 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+        data-testid="test"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <div
       className="css-0"
