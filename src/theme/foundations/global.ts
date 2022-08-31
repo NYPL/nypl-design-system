@@ -16,6 +16,10 @@ const global = {
     fontWeight: "text.default",
     lineHeight: "1.5",
     overflowX: "hidden",
+    _dark: {
+      bg: "dark.ui.bg.page",
+      color: "dark.ui.typography.body",
+    },
   },
   // styles for the `a` element
   a: {
