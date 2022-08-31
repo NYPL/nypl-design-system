@@ -7,10 +7,7 @@ const helperErrorText = {
     marginTop: "xxs",
     marginBottom: "0",
     fontSize: "helper.default",
-    color: isInvalid ? "ui.error.primary" : "ui.black",
-    _dark: {
-      color: isInvalid ? "dark.ui.error.primary" : "dark.ui.typography.body",
-    },
+    color: isInvalid ? "ui.error.primary" : null,
   }),
 };
 
