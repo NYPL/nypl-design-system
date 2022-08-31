@@ -42,7 +42,7 @@ export const parameters = {
     default: "Light mode page background",
     values: [
       { name: "Light mode page background", value: "#FFFFFF" },
-      { name: "Light mode default background", value: "F5F5F5" },
+      { name: "Light mode default background", value: "#F5F5F5" },
       { name: "Dark mode page background", value: "#121212" },
       { name: "Dark mode default background", value: "#191919" },
     ],
