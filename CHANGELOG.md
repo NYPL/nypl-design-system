@@ -8,6 +8,75 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.1.0 (Ausut 30, 2022)
+
+This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
+
+### Fixes
+
+- Fixes how the "footer" area is rendered in the `TemplateAppContainer`.
+- Fixes ARIA labels in the `Footer`.
+
+## 1.1.0-rc5 (Release Candidate August 14, 2022)
+
+### Header Feature
+
+- Adds static `Header` component with login dropdown (functionality to be added later).
+- Implements focus lock in `Login` component in the `Header`'s internal `Login` component.
+- Adds the `SkipNavigation` to the `Header` component.
+- Adds the `SitewideAlerts` component used internally in the `Header` component. This component dynamically fetches and renders NYPL sitewide alerts.
+- Adds login functionality, which includes reading cookie values with new package, js-cookie, making an API call for patron details, and showing a different UI to logged in users.
+- Adds refresh login functionality, which is used when a cookie's accessToken has expired and the server responds to a request for patron details with a 401. It attempts to refresh the token and, if successful, refetches the patron's details.
+- Adds the desktop search form to the `Header` component with the `SearchButton` and `SearchForm` components.
+- Refactors `SearchButton` and `SearchForm` to implement the mobile search form.
+- Adds the mobile navigation menu for the `Header` component with `MobileNav` and `MobileNavButton` components.
+- Adds the mobile login menu for the `Header` component.
+- Adds React context for the `Header`'s patron state data through `HeaderContext` and `HeaderProvider`.
+- Better namespacing for Header-only components.
+- Sets Header Auth links for production and development environments.
+- Adds the `EncoreCatalogLogOutTimer` function to keep track of the patron's current site and when they should be logged out of Encore/Catalog after a timeout period.
+- Uses legacy SVG icons for parity with the existing `Header` component.
+
+### Adds
+
+- Adds `Tooltip` component.
+- Adds the basic `Footer` React component and documentation. Uses "legacy" SVG icons in the `Footer` component for social media icons.
+- Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
+- Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
+- Adds the `react-ga` package to send Google Analytics events in the `Header` component.
+
+### Updates
+
+- Updates the `onClick` event type for the `Pagination` links `onClick` function.
+- Updates the `Link` component's `onClick` event type.
+- Makes small, clarifying update to `Color Mode` story in Storybook.
+
+### Fixes
+
+- Fixes the styling for the `Image` component in the `Hero` "secondary" variant.
+
+## 1.0.8 (August 11, 2022)
+
+### Adds
+
+- Adds new color values under ui:
+  - `bg.default`, `bg.hover`, `bg.active`, `border.default`, `border.hover`, `typography.heading`, and `typography.body`.
+- Adds new colors values under ui.gray:
+  - `xxxx-dark` and `xxx-dark`.
+- Adds UI fills colors for dark mode in the codebase and also exported in the `useNYPLTheme` hook.
+- Adds an optional `panelMaxHeight` prop to the `Accordion` component that determines the height of the panel and displays a scrollbar if content exceeds it.
+
+### Updates
+
+- Updates color value for `xx-dark`.
+- Updates the style of the TOC on the `Style Guide` pages to match the style of the TOC on the component pages.
+- Updates the `Template` components to use CSS grid instead of flexbox.
+- Updates the `Template` documentation with the new pattern for using individual `Template` components that go above the main `TemplateContent` component.
+- Updates the `Placeholder` component's CSS to better display in the `Template` components.
+- Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
+- Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
+  > > > > > > > development
+
 ## 1.0.7 (July 29, 2022)
 
 ### Updates
@@ -194,7 +263,8 @@ This is the first stable release of the NYPL Reservoir Design System! We've been
 
 ### Updates
 
-- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.]
+- Updates the `Header`'s bottom navigation links to be underlined and red when hovered.
 
 ### Fixes
 

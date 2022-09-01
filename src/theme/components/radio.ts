@@ -82,7 +82,7 @@ const baseStyle = {
   label: baseStyleLabel,
   // Custom element in the DS Radio component.
   helperErrorText: baseStyleHelperErrorText,
-  hiddenLabel: screenreaderOnly,
+  hiddenLabel: screenreaderOnly(),
 };
 
 // Sticking to "md" for the default size.

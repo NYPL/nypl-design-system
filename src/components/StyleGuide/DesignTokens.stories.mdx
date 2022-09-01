@@ -1,19 +1,21 @@
-import { Meta } from "@storybook/addon-docs";
+import { Box } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/addon-docs";
 
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Design Tokens")} />
 
 # Design Tokens
 
-| Table of Contents                                                                              |
-| ---------------------------------------------------------------------------------------------- |
-| 1. [What are Design Tokens?](#what-are-design-tokens)                                          |
-| 2. [Why Use Design Tokens?](#why-use-design-tokens)                                            |
-| 3. [How to Use the Reservoir Design Tokens](#figma-reference)                                  |
-| 4. [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)               |
-| 5. [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript) |
-| 6. [Reservoir Design Token Categories](#reservoir-design-token-categories)                     |
+## Table of Contents
+
+- [What are Design Tokens?](#what-are-design-tokens)
+- [Why Use Design Tokens?](#why-use-design-tokens)
+- [How to Use the Reservoir Design Tokens](#figma-reference)
+- [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
+- [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript)
+- [Reservoir Design Token Categories](#reservoir-design-token-categories)
 
 ## What are Design Tokens?
 
@@ -191,3 +193,7 @@ The DS design tokens are broken into the following categories:
 
 For details related to a specific category, please refer to the corresponding
 section in the Style Guide available in the DS Storybook.
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider />
