@@ -46,6 +46,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Link` component's `onClick` event type.
 - Makes small, clarifying update to `Color Mode` story in Storybook.
 - Updates background color values available in Storybook.
+- Removes default background color in Storybook so Chakra dark mode toggle isn't overridden.
 
 ### Fixes
 
