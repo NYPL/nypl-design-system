@@ -8,6 +8,9 @@ const helperErrorText = {
     marginBottom: "0",
     fontSize: "helper.default",
     color: isInvalid ? "ui.error.primary" : null,
+    _dark: {
+      color: isInvalid ? "dark.ui.error.primary" : null,
+    }
   }),
 };
 
