@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `dark mode` support for `background-color` and `color` global styles.
+
 ## 1.1.0-rc (Release Candidate August 14, 2022)
 
 ### Header Feature
