@@ -1,0 +1,62 @@
+import { Meta, Description } from "@storybook/addon-docs";
+
+import { getCategory } from "../utils/componentCategories";
+
+<Meta title={getCategory("useMultiSelect")} />
+
+# useMultiSelect
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `1.1.0`    |
+| Latest       | `1.1.0`    |
+
+This custom hook, inspired by [downshift.js](https://www.downshift-js.com/),
+exposes functions used for a MultiSelect components. `useMultiSelect` provides all functions needed to handle the selectedItems, this hook can be used for
+cases where managing the state of the component in the consuming app is less of a concern and general ease of use is prefered.
+
+The two main functions are `onChange` and `onMixedStateChange` used for handling the selectedItems object. The third function provided by the hook, `onClear`,
+can be used to reset the selectedItems of a individual MutliSelect component to an empty object. The hook also provides the `selectedItem` object containing the currently checked/selected
+items of the MutlisSelect component.
+
+## Usage
+
+For a full implementation example, view the [`MultiSelectListbox` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectListbox.tsx) or [`MultiSelectDialog` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectDialog.tsx).
+
+```tsx
+const { onChange, onMixedStateChange, onClear, selectedItems } = useMultiSelect(
+  multiSelectId,
+  multiSelectItems
+);
+```
+
+## useMultiSelect Hook implementation
+
+```jsx
+import React from "react";
+import MultiSelect from "./MultiSelect";
+import useMultiSelect from "./MultiSelect/useMultiSelect";
+
+export default function MultiSelectWithHookExample() {
+  const multiSelectId = "multi-select-1";
+  // Without this hook, you'd have to add handlers for onChange and onClear,
+  // and also manage the selectedItems state yourself.
+  const { onChange, onClear, selectedItems } = useMultiSelect(
+    multiSelectId,
+    items
+  );
+
+  return (
+    <MultiSelect
+      id={multiSelectId}
+      variant="listbox"
+      items={items}
+      selectedItems={selectedItems}
+      onChange={(selectedItem) => onChange(selectedItem.id)}
+      onClear={() => {
+        onClear();
+      }}
+    />
+  );
+}
+```

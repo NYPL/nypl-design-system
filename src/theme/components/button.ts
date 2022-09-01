@@ -73,7 +73,7 @@ const pill = {
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
   color: "inherit",
-  borderRadius: "pill",
+  borderRadius: "button.pill",
   py: "inset.narrow",
   px: "inset.wide",
   fontSize: "button.default",

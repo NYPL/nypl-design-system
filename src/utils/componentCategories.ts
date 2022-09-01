@@ -61,8 +61,10 @@ const categories = {
       "Dropdown",
       "Fieldset",
       "FileUploader",
+      "FilterBar",
       "Form",
       "Label",
+      "MultiSelect",
       "NumberInput",
       "Radio",
       "RadioGroup",
@@ -80,6 +82,7 @@ const categories = {
     components: [
       "useCarouselStyles",
       "useCloseDropDown",
+      "useMultiSelect",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",
