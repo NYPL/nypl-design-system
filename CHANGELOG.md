@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `dark mode` support for `background-color` and `color` global styles.
+- Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
 
 ## 1.1.0 (Ausut 30, 2022)
 
@@ -80,7 +81,6 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
-  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
