@@ -39,7 +39,6 @@ export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
   backgrounds: {
-    default: "Light mode page background",
     values: [
       { name: "Light mode page background", value: "#FFFFFF" },
       { name: "Light mode default background", value: "#F5F5F5" },
