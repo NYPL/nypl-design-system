@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `dark mode` support for `background-color` and `color` global styles.
 - Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
 
 ## 1.1.0 (Ausut 30, 2022)
@@ -54,6 +55,7 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `onClick` event type for the `Pagination` links `onClick` function.
 - Updates the `Link` component's `onClick` event type.
 - Makes small, clarifying update to `Color Mode` story in Storybook.
+- Updates background color values available in Storybook.
 
 ### Fixes
 
