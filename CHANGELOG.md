@@ -8,11 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+<<<<<<< HEAD
 ### Adds
 
 - Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
 
-## 1.1.0-rc (Release Candidate August 14, 2022)
+## 1.1.0 (Ausut 30, 2022)
+
+This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
+
+### Fixes
+
+- Fixes how the "footer" area is rendered in the `TemplateAppContainer`.
+- Fixes ARIA labels in the `Footer`.
+
+## 1.1.0-rc5 (Release Candidate August 14, 2022)
 
 ### Header Feature
 
@@ -70,7 +80,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
-  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
