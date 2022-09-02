@@ -95,7 +95,7 @@ const Card = {
           borderColor: "ui.border.default",
           _dark: {
             borderColor: "dark.ui.border.default",
-          }
+          },
         }
       : {};
     const bodyPadding = getBodyPaddingStyles({
@@ -136,7 +136,7 @@ const Card = {
         a: mainActionLink ? { color: "ui.typography.heading" } : null,
         _dark: {
           a: mainActionLink ? { color: "dark.ui.typography.heading" } : null,
-        }
+        },
       },
       ...baseBorderStyles,
       ...layoutStyles,
@@ -184,7 +184,7 @@ const CardActions = {
       borderColor: "ui.border.default",
       _dark: {
         borderColor: "dark.ui.border.default",
-      }
+      },
     };
   },
 };
