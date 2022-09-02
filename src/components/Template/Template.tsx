@@ -35,6 +35,8 @@ export interface TemplateAppContainerProps
   /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
    * anchor for the application skip navigation. */
   contentId?: string;
+  /** DOM that will be rendered in the `TemplateContentBottom` component section. */
+  contentBottom?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
   contentPrimary?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
@@ -90,7 +92,7 @@ const TemplateHeader = ({
   children,
   renderHeaderElement = true,
 }: React.PropsWithChildren<TemplateHeaderProps>) => {
-  const styles = useStyleConfig("TemplateHeader", {});
+  const styles = useStyleConfig("TemplateBreakout", {});
   let headerElement = <Box __css={styles}>{children}</Box>;
 
   // The user wants to render the `header` HTML element.
@@ -116,9 +118,10 @@ const TemplateHeader = ({
 };
 
 /**
- * This optional component should be used inside the `TemplateHeader` component.
- * This is meant to render its children from edge to edge and is most useful
- * for the `Breadcrumbs` and `Hero` components, and other banner-like components.
+ * This component should be used inside the `Template` component to contain both
+ * the `TemplateAboveHeader` and `TemplateHeader` components. This is meant to
+ * render its children from edge to edge and is most useful for the headers,
+ * `Breadcrumbs`, and `Hero` components or other banner-like components.
  */
 const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
   const styles = useStyleConfig("TemplateBreakout", {});
@@ -140,7 +143,7 @@ const TemplateContent = (
 ) => {
   const { children, id = "mainContent", sidebar = "none" } = props;
   const styles = useStyleConfig("TemplateContent", {
-    variant: sidebar !== "none" ? "sidebar" : null,
+    variant: sidebar,
   });
   // Manually pass in the `sidebar` prop to the `TemplateContentPrimary` and
   // `TemplateContentSidebar` components.
@@ -174,7 +177,20 @@ const TemplateContent = (
  * above the primary component and the sidebar component (if any).
  */
 const TemplateContentTop = (props: React.PropsWithChildren<TemplateProps>) => {
-  const styles = useStyleConfig("TemplateContentTop", {});
+  const styles = useStyleConfig("TemplateContentTopBottom", {});
+  return <Box __css={styles}>{props.children}</Box>;
+};
+
+/**
+ * This optional component must be used inside the `TemplateContent` component
+ * and after the `TemplateContentPrimary` or `TemplateContentSidebar` component.
+ * This renders content in the main width of the container and should always
+ * render below the primary component and the sidebar component (if any).
+ */
+const TemplateContentBottom = (
+  props: React.PropsWithChildren<TemplateProps>
+) => {
+  const styles = useStyleConfig("TemplateContentTopBottom", {});
   return <Box __css={styles}>{props.children}</Box>;
 };
 
@@ -227,7 +243,8 @@ const TemplateFooter = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
-  let footerElement = <>{children}</>;
+  const styles = useStyleConfig("TemplateBreakout", {});
+  let footerElement = <Box __css={styles}>{children}</Box>;
 
   // The user wants to render the `footer` HTML element.
   if (renderFooterElement) {
@@ -241,7 +258,11 @@ const TemplateFooter = ({
         );
       }
     });
-    footerElement = <Box as="footer">{children}</Box>;
+    footerElement = (
+      <Box as="footer" __css={styles}>
+        {children}
+      </Box>
+    );
   }
   return footerElement;
 };
@@ -262,6 +283,7 @@ export const TemplateAppContainer = chakra(
       aboveHeader,
       breakout,
       contentId = "mainContent",
+      contentBottom,
       contentPrimary,
       contentSidebar,
       contentTop,
@@ -276,45 +298,51 @@ export const TemplateAppContainer = chakra(
     const aboveHeaderElem = aboveHeader && (
       <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
     );
-    const breakoutElem = breakout && (
-      <TemplateBreakout>{breakout}</TemplateBreakout>
-    );
     const contentTopElem = contentTop && (
       <TemplateContentTop>{contentTop}</TemplateContentTop>
     );
     const contentPrimaryElem = contentPrimary && (
       <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
     );
+    const contentBottomElem = contentBottom && (
+      <TemplateContentBottom>{contentBottom}</TemplateContentBottom>
+    );
     const contentSidebarElem = contentSidebar && (
       <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
     );
     return (
-      <Template ref={ref} {...rest}>
+      <>
         {renderSkipNavigation ? <SkipNavigation /> : null}
-        {aboveHeaderElem}
-        {(header || breakoutElem) && (
-          <TemplateHeader renderHeaderElement={renderHeaderElement}>
-            {header}
-            {breakoutElem}
-          </TemplateHeader>
-        )}
-        {/* Note that setting `sidebar` as a prop here affects the
-       TemplateContentSidebar and TemplateContentPrimary components. */}
-        <TemplateContent id={contentId} sidebar={sidebar}>
-          {contentTopElem}
+        <Template ref={ref} {...rest}>
+          <TemplateBreakout>
+            {aboveHeaderElem}
+            {(header || breakout) && (
+              <TemplateHeader renderHeaderElement={renderHeaderElement}>
+                {header}
+                {breakout}
+              </TemplateHeader>
+            )}
+          </TemplateBreakout>
+          {/* Note that setting `sidebar` as a prop here affects the
+          TemplateContentSidebar and TemplateContentPrimary components. */}
+          <TemplateContent id={contentId} sidebar={sidebar}>
+            {contentTopElem}
 
-          {sidebar === "left" && contentSidebarElem}
+            {sidebar === "left" && contentSidebarElem}
 
-          {contentPrimaryElem}
+            {contentPrimaryElem}
 
-          {sidebar === "right" && contentSidebarElem}
-        </TemplateContent>
-        {footer && (
-          <TemplateFooter renderFooterElement={renderFooterElement}>
-            {footer}
-          </TemplateFooter>
-        )}
-      </Template>
+            {sidebar === "right" && contentSidebarElem}
+
+            {contentBottomElem}
+          </TemplateContent>
+          {footer && (
+            <TemplateFooter renderFooterElement={renderFooterElement}>
+              {footer}
+            </TemplateFooter>
+          )}
+        </Template>
+      </>
     );
   })
 );
@@ -322,12 +350,13 @@ export const TemplateAppContainer = chakra(
 export {
   Template,
   TemplateAboveHeader,
-  TemplateHeader,
   TemplateBreakout,
   TemplateContent,
-  TemplateContentTop,
+  TemplateContentBottom,
   TemplateContentPrimary,
   TemplateContentSidebar,
+  TemplateContentTop,
   TemplateFooter,
+  TemplateHeader,
 };
 export default TemplateAppContainer;

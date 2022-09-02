@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import { getCategory } from "../../utils/componentCategories";
@@ -7,12 +8,12 @@ import DSProvider from "../../theme/provider";
 
 # Color Mode
 
-| Table of Contents                                                                        |
-| ---------------------------------------------------------------------------------------- |
-| 1. [General Information](#general-information)                                           |
-| 2. [Accessibility Guidelines](#accessibility-guidelines)                                 |
-| 3. [Toggling Color Mode](#toggling-color-mode)                                           |
-| 4. [Using Local Storage to Manage Color Mode](#using-local-storage-to-manage-color-mode) |
+## Table of Contents
+
+- [General Information](#general-information)
+- [Accessibility Guidelines](#accessibility-guidelines)
+- [Toggling Color Mode](#toggling-color-mode)
+- [Using Local Storage to Manage Color Mode](#using-local-storage-to-manage-color-mode)
 
 ## General Information
 
@@ -56,6 +57,9 @@ will return an object with the following properties:
 
 - `colorMode` is the current color mode of the application as "light" or "dark".
 - `toggleColorMode` is a function that can be used to toggle the color mode.
+
+Note that the `useColorMode` hook must be used inside of the `DSProvider`. If
+called outside of the provider, the value of `colorMode` will be `undefined`.
 
 ```tsx
 import { Button, useColorMode } from "@nypl/design-system-react-components";
@@ -202,3 +206,7 @@ export function getServerSideProps({ req }: any) {
   };
 }
 ```
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider />
