@@ -54,20 +54,36 @@ const secondaryHeadingBase = {
     width: "4000px",
     zIndex: "-1",
   },
+  _dark: {
+    color: "dark.ui.typography.heading",
+  },
 };
+
 // Get all the styles for the specific Secondary variant but
 // update the background color.
-const getSecondaryVariantStyles = (bgColor: string = "ui.black") => ({
-  ...secondaryBase,
-  heading: {
-    ...secondaryHeadingBase,
-    bg: bgColor,
-    _before: {
-      ...secondaryHeadingBase["_before"],
-      bg: bgColor,
+const getSecondaryVariantStyles = (bgColor: string = "") => {
+  const finalBgColor = {
+    light: bgColor ? bgColor : "ui.black",
+    dark: bgColor ? `dark.${bgColor}` : "dark.ui.bg.active",
+  };
+  return {
+    ...secondaryBase,
+    heading: {
+      ...secondaryHeadingBase,
+      // bg: finalBgColor.light,
+      _before: {
+        ...secondaryHeadingBase["_before"],
+        bg: finalBgColor.light,
+      },
+      _dark: {
+        // bg: finalBgColor.dark,
+        _before: {
+          bg: finalBgColor.dark,
+        },
+      },
     },
-  },
-});
+  };
+};
 // Variant styling
 const primary = {
   alignItems: "center",
@@ -100,6 +116,10 @@ const primary = {
     bodyText: {
       marginBottom: "0",
     },
+    _dark: {
+      bg: "dark.ui.bg.default",
+      color: "dark.ui.typography.body",
+    },
   },
 };
 const secondary = getSecondaryVariantStyles();
@@ -123,6 +143,9 @@ const tertiary = {
       marginBottom: "0",
       marginTop: "s",
     },
+    _dark: {
+      color: "dark.ui.typography.body",
+    },
   },
   heading: {
     marginBottom: "0",
@@ -132,6 +155,9 @@ const tertiary = {
   },
   p: {
     marginBottom: "0",
+  },
+  _dark: {
+    bg: "dark.ui.bg.hover",
   },
 };
 const campaign = {
@@ -160,6 +186,10 @@ const campaign = {
     maxWidth: { md: "1280px" },
     position: { md: "relative" },
     top: { md: "xxl" },
+    _dark: {
+      bg: "dark.ui.bg.default",
+      color: "dark.ui.typography.body",
+    },
   },
   a: {
     color: "inherit",
@@ -221,6 +251,9 @@ const fiftyFifty = {
 const Hero = {
   baseStyle: {
     bg: "ui.gray.x-light-cool",
+    _dark: {
+      bg: "dark.ui.bg.default",
+    },
   },
   // Available variants:
   variants: {

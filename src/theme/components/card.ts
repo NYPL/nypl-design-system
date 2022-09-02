@@ -92,7 +92,10 @@ const Card = {
     const baseBorderStyles = isBordered
       ? {
           border: "1px solid",
-          borderColor: "ui.gray.medium",
+          borderColor: "ui.border.default",
+          _dark: {
+            borderColor: "dark.ui.border.default",
+          }
         }
       : {};
     const bodyPadding = getBodyPaddingStyles({
@@ -130,7 +133,10 @@ const Card = {
       },
       heading: {
         marginBottom: "xs",
-        a: mainActionLink ? { color: "ui.black" } : null,
+        a: mainActionLink ? { color: "ui.typography.heading" } : null,
+        _dark: {
+          a: mainActionLink ? { color: "dark.ui.typography.heading" } : null,
+        }
       },
       ...baseBorderStyles,
       ...layoutStyles,
@@ -175,7 +181,10 @@ const CardActions = {
       ...topBorderStyles,
       ...bottomBorderStyles,
       justifyContent,
-      borderColor: "ui.gray.medium",
+      borderColor: "ui.border.default",
+      _dark: {
+        borderColor: "dark.ui.border.default",
+      }
     };
   },
 };
