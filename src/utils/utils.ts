@@ -83,15 +83,11 @@ export const getAriaAttrs = ({
   return ariaAttributes;
 };
 
-/** Convert a hax color value to an rgb or rgba value */
+/** Convert a hex color value to an rgb or rgba value */
 export const hexToRGB = (hex: string, alpha: number) => {
   const r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16);
-
-  if (alpha) {
-    return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
-  } else {
-    return "rgb(" + r + ", " + g + ", " + b + ")";
-  }
+  const rgb = `${r}, ${g}, ${b}`;
+  return alpha ? `rgba(${rgb},${alpha})` : `rgb(${rgb})`;
 };

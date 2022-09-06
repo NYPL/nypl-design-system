@@ -70,13 +70,11 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     ...secondaryBase,
     heading: {
       ...secondaryHeadingBase,
-      // bg: finalBgColor.light,
       _before: {
         ...secondaryHeadingBase["_before"],
         bg: finalBgColor.light,
       },
       _dark: {
-        // bg: finalBgColor.dark,
         _before: {
           bg: finalBgColor.dark,
         },
