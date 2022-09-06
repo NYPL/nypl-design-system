@@ -26,6 +26,14 @@ const checkboxRadioLabelStyles = {
   _invalid: {
     color: "ui.error.primary",
   },
+  _dark: {
+    _disabled: {
+      color: "dark.ui.disabled.primary",
+    },
+    _invalid: {
+      color: "dark.ui.error.primary",
+    },
+  },
 };
 // Custom values not in the spacing theme.
 // Used in `Checkbox` and `Radio`.
