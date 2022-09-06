@@ -8,7 +8,7 @@ const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
-  outlineColor: darkMode ? "ui.white" : "ui.focus",
+  outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
   zIndex: "9999",
 });
 // Used in `Checkbox` and `Radio`.
@@ -78,11 +78,20 @@ const selectTextInputDisabledStyles = {
   borderColor: "ui.disabled.primary",
   color: "ui.gray.dark",
   opacity: "1",
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.disabled.secondary",
+    color: "dark.ui.disabled.primary",
+  },
 };
 // Used for the focus state of Select and TextInput
 const selectTextInputFocusStyles = {
   ...activeFocus(),
   borderColor: "ui.focus",
+  _dark: {
+    ...activeFocus(true),
+    borderColor: "dark.ui.focus",
+  },
 };
 // Used for p, ul, and ol
 const textMargin = {

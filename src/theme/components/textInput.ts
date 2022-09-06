@@ -33,6 +33,30 @@ const input = {
     border: "1px solid",
     borderColor: "ui.error.primary",
     boxShadow: "none",
+    _focus: {
+      borderColor: "ui.focus",
+    },
+  },
+  _dark: {
+    bgColor: "dark.ui.bg.default",
+    borderColor: "dark.ui.border.default",
+    _hover: {
+      borderColor: "dark.ui.border.hover",
+    },
+    _disabled: {
+      ...selectTextInputDisabledStyles,
+      _placeholder: {
+        color: "ui.gray.x-dark",
+      },
+    },
+    _active: selectTextInputFocusStyles,
+    _focus: selectTextInputFocusStyles,
+    _placeholder: {
+      color: "ui.gray.dark",
+    },
+    _invalid: {
+      borderColor: "dark.ui.error.primary",
+    },
   },
 };
 
