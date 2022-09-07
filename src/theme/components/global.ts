@@ -71,6 +71,9 @@ const labelLegendText = {
   span: {
     fontWeight: "regular",
   },
+  _dark: {
+    color: "dark.ui.typography.heading",
+  },
 };
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {

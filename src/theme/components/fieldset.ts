@@ -15,9 +15,6 @@ const Fieldset = {
       legend: {
         ...labelLegendText,
         ...screenreaderStyles,
-        _dark: {
-          color: "dark.ui.typography.heading",
-        },
       },
     };
   },
