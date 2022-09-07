@@ -25,7 +25,7 @@ const Switch = {
   baseStyle: ({ size }: { size: string }) => {
     return {
       alignItems: "start",
-      opacity: 0.4,
+      // opacity: 0.4,
       track: {
         backgroundColor: "ui.gray.medium",
         border: "1px solid",
@@ -56,6 +56,33 @@ const Switch = {
           outlineOffset: "2px",
           zIndex: "9999",
         },
+        _dark: {
+          bgColor: "ui.gray.dark",
+          borderColor: "ui.gray.dark",
+          _checked: {
+            bg: "dark.ui.link.primary",
+            borderColor: "dark.ui.link.primary",
+          },
+          _invalid: {
+            bg: "inherit",
+            borderColor: "dark.ui.error.primary",
+            "> span": {
+              bg: "dark.ui.error.primary",
+            },
+          },
+          _disabled: {
+            bg: "dark.ui.disabled.secondary",
+            borderColor: "dark.ui.disabled.secondary",
+            opacity: 1,
+            // These are styles for the thumb. _isDisabled was not working within the `thumb` part.
+            ".chakra-switch__thumb": {
+              bgColor: "dark.ui.disabled.primary",
+            },
+          },
+          _focus: {
+            outlineColor: "dark.ui.focus",
+          },
+        },
       },
       label: {
         fontSize: "label.default",
@@ -65,10 +92,21 @@ const Switch = {
           color: "ui.gray.dark",
           fontStyle: "italic",
         },
+        _invalid: {
+          color: "ui.error.primary",
+        },
+        _dark: {
+          _disabled: {
+            color: "dark.ui.disabled.primary",
+          },
+          _invalid: {
+            color: "dark.ui.error.primary",
+          },
+        },
       },
       thumb: {
-        _disabled: {
-          bg: "ui.error.primary",
+        _dark: {
+          bgColor: "dark.ui.bg.default",
         },
       },
     };
