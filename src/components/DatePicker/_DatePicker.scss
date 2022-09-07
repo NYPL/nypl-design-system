@@ -98,3 +98,102 @@
     }
   }
 }
+
+// Dark mode styles
+.chakra-ui-dark {
+  .react-datepicker {
+    background-color: var(--nypl-colors-dark-ui-bg-default);
+    border-color: var(--nypl-colors-dark-ui-border-default);
+  }
+  // The styles for the triangle arrow above the calendar popup.
+  .react-datepicker__triangle {
+    &::before {
+      border-bottom-color: var(--nypl-colors-ui-gray-dark) !important;
+    }
+    &::after {
+      border-bottom-color: var(--nypl-colors-dark-ui-bg-hover) !important;
+    }
+  }
+  // The left and right arrow buttons.
+  .react-datepicker__navigation {
+    &-icon {
+      &::before {
+        border-color: var(--nypl-colors-ui-gray-medium);
+      }
+    }
+    &:hover {
+      .react-datepicker__navigation-icon::before {
+        border-color: var(--nypl-colors-ui-gray-light-cool);
+      }
+    }
+  }
+  // The header with the appropriate date.
+  .react-datepicker__header {
+    border-color: var(--nypl-colors-dark-ui-border-default);
+    background-color: var(--nypl-colors-dark-ui-bg-hover);
+    &.react-datepicker-year-header,
+    .react-datepicker__current-month,
+    .react-datepicker__day-name {
+      color: var(--nypl-colors-dark-ui-typography-heading);
+    }
+  }
+  // Hover state
+  .react-datepicker__year-text:not(.react-datepicker__year-text--disabled),
+  .react-datepicker__month-text,
+  .react-datepicker__day {
+    &:hover {
+      background-color: var(--nypl-colors-dark-ui-bg-default);
+      color: var(--nypl-colors-ui-white);
+    }
+  }
+  .react-datepicker__day--keyboard-selected {
+    background-color: var(--nypl-colors-dark-ui-bg-default);
+    color: var(--nypl-colors-ui-white);
+  }
+
+  // Moving away from React DatePickers default blue color theme:
+  .react-datepicker__year,
+  .react-datepicker__month,
+  .react-datepicker__day {
+    color: var(--nypl-colors-dark-ui-typography-heading);
+
+    // For ranges about to be selected.
+    &-text--keyboard-selected,
+    &--keyboard-selected,
+    &--in-range,
+    &--in-selecting-range {
+      background-color: var(--nypl-colors-dark-ui-bg-hover);
+      color: var(--nypl-colors-ui-white);
+      &:hover {
+        background-color: var(--nypl-colors-dark-ui-bg-hover);
+      }
+    }
+    // For today's date visual styles.
+    &-text--today,
+    &--today {
+      color: var(--nypl-colors-ui-white);
+      background-color: var(--nypl-colors-dark-ui-bg-active);
+      &:hover {
+        color: var(--nypl-colors-ui-white);
+        background-color: var(--nypl-colors-dark-ui-bg-hover);
+      }
+    }
+    // Selected states.
+    &-text--selected,
+    &--selected {
+      background-color: var(--nypl-colors-dark-ui-focus);
+      color: var(--nypl-colors-ui-white);
+      &:hover {
+        background-color: var(--nypl-colors-dark-ui-focus);
+        color: var(--nypl-colors-ui-white);
+      }
+    }
+  }
+  // Styles are getting convoluted and this specific override was moved to a separate code block.
+  .react-datepicker__day {
+    &--in-range:not(&--in-selecting-range) {
+      background-color: transparent;
+      color: var(--nypl-colors-ui-white);
+    }
+  }
+}

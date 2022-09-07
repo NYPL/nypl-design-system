@@ -33,6 +33,7 @@ const input = {
     border: "1px solid",
     borderColor: "ui.error.primary",
     boxShadow: "none",
+    color: "ui.error.primary",
     _focus: {
       borderColor: "ui.focus",
     },
@@ -56,6 +57,7 @@ const input = {
     },
     _invalid: {
       borderColor: "dark.ui.error.primary",
+      color: "dark.ui.error.primary",
     },
   },
 };

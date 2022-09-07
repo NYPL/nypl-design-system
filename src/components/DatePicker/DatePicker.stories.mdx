@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import DatePicker from "./DatePicker";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+const currentYear = new Date().getFullYear();
 
 <Meta
   title={getCategory("DatePicker")}
@@ -70,7 +71,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `1.0.4`    |
+| Latest            | `2.0.0`    |
 
 ## Table of Contents
 
@@ -104,15 +105,15 @@ also be added through props.
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
       id: "datePicker-id",
-      initialDate: "4/1/2022",
-      initialDateTo: "12/1/2022",
+      initialDate: `1/1/${currentYear}`,
+      initialDateTo: `12/31/${currentYear}`,
       invalidText: "Please select a valid date.",
       isDateRange: false,
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Select the date you want to visit NYPL",
-      maxDate: "1/1/2023",
+      maxDate: "1/1/2025",
       minDate: "1/1/2022",
       nameFrom: "visit-dates-from",
       nameTo: "visit-dates-to",
