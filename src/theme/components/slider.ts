@@ -1,4 +1,5 @@
 interface CustomSliderBaseStyle {
+  isDark: boolean;
   isDisabled: boolean;
   isInvalid: boolean;
   showBoxes: boolean;
@@ -24,16 +25,18 @@ const CustomSlider = {
     "thumb",
   ],
   baseStyle: ({
+    isDark,
     isDisabled,
     isInvalid,
     showBoxes,
     showValues,
   }: CustomSliderBaseStyle) => {
-    let baseColor = "ui.link.primary";
+    const prefix = isDark ? "dark." : "";
+    let baseColor = `${prefix}ui.link.primary`;
     if (isInvalid) {
-      baseColor = "ui.error.primary";
+      baseColor = `${prefix}ui.error.primary`;
     } else if (isDisabled) {
-      baseColor = "ui.disabled.primary";
+      baseColor = `${prefix}ui.disabled.primary`;
     }
 
     return {
@@ -41,20 +44,24 @@ const CustomSlider = {
         display: "flex",
         alignItems: "center",
       },
-      leftValue: { ...staticValues, color: isDisabled ? "ui.gray.dark" : null },
+      leftValue: {
+        ...staticValues,
+        color: isDisabled ? "ui.disabled.primary" : null,
+        _dark: { color: isDisabled ? "dark.ui.disabled.primary" : null },
+      },
       rightValue: {
         ...staticValues,
         marginStart: "s",
         // If the text input boxes are shown, then there already is
         // a margin, so we can set this static value to "0".
         marginEnd: showBoxes ? "0" : "s",
-        color: isDisabled ? "ui.gray.dark" : null,
+        color: isDisabled ? "ui.disabled.primary" : null,
+        _dark: { color: isDisabled ? "dark.ui.disabled.primary" : null },
       },
       textInput: {
         // Allows for three or more digits present in the
         // min or max value text input.
         minWidth: "65px",
-        color: isInvalid ? "ui.error.primary" : "ui.black",
       },
       // This is added to the container so that the slider thumbs don't
       // overflow past the container when the value boxes or min/max values
@@ -73,9 +80,15 @@ const CustomSlider = {
         _disabled: {
           bgColor: "ui.disabled.primary",
         },
+        _dark: {
+          bgColor: "dark.ui.bg.active",
+          _disabled: {
+            bgColor: "dark.ui.disabled.primary",
+          },
+        },
       },
       thumb: {
-        border: "1px solid",
+        border: "2px solid",
         // Thumb doesn't have an _invalid state...
         // so we manually do it through the props.
         borderColor: baseColor,
@@ -86,6 +99,13 @@ const CustomSlider = {
         _disabled: {
           bgColor: "ui.disabled.secondary",
           borderColor: "ui.disabled.primary",
+        },
+        _dark: {
+          bgColor: "dark.ui.bg.default",
+          _disabled: {
+            bgColor: "dark.ui.disabled.secondary",
+            borderColor: "dark.ui.disabled.primary",
+          },
         },
       },
     };

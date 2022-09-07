@@ -9,6 +9,7 @@ import {
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
+  useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -116,6 +117,7 @@ export const Slider = chakra(
         : defaultValue;
       const [currentValue, setCurrentValue] =
         React.useState<typeof defaultValue>(finalDevaultValue);
+      const isDark = useColorModeValue(false, true);
       let finalIsInvalid = isInvalid;
       // In the Range Slider, if the first value is bigger than the second value,
       // then set the invalid state.
@@ -132,6 +134,7 @@ export const Slider = chakra(
         );
       }
       const styles = useMultiStyleConfig("CustomSlider", {
+        isDark,
         isDisabled,
         isInvalid: finalIsInvalid,
         showBoxes,
