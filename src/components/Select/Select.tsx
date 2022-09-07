@@ -117,7 +117,7 @@ export const Select = chakra(
       // Set the color of the dropdown arrow based on the color mode.
       const arrowColor = useColorModeValue(
         isInvalid ? "ui.error.primary" : "ui.black",
-        isInvalid ? "dark.ui.error.primary" : "dark.ui.typography.body",
+        isInvalid ? "dark.ui.error.primary" : "dark.ui.typography.body"
       );
 
       if (!id) {
