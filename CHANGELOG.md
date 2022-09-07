@@ -10,8 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `dark mode` support for `background-color` and `color` global styles.
-- Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for `background-color` and `color` global styles.
+- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `SearchBar`, `Select`, `Slider`, `TextInput` and `Toggle` components.
 
 ## 1.1.0 (Ausut 30, 2022)
 
