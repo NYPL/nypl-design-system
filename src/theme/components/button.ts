@@ -48,6 +48,10 @@ const primary = {
   fontSize: "button.default",
   _dark: {
     bg: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
+    },
   },
 };
 const secondary = {
