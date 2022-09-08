@@ -1,7 +1,7 @@
 import React, { useRef, useState, forwardRef } from "react";
-import { chakra } from "@chakra-ui/react";
 import {
   Box,
+  chakra,
   ListItem,
   UnorderedList,
   useMultiStyleConfig,
@@ -27,16 +27,16 @@ export const MultiSelectDialog = chakra(
     (props, ref) => {
       const {
         id,
-        label,
+        isBlockElement,
+        isDefaultOpen,
         items,
-        isDefaultOpen = false,
+        label,
+        onApply,
         onChange,
+        onClear,
         onMixedStateChange,
         selectedItems,
-        onApply,
-        onClear,
-        width = "default",
-        isBlockElement = false,
+        width,
         ...rest
       } = props;
 
@@ -212,7 +212,9 @@ export const MultiSelectDialog = chakra(
         </Box>
       );
     }
-  )
+  ),
+  // Pass all custom props to Chakra and override, for width prop.
+  { shouldForwardProp: () => true }
 );
 
 export default MultiSelectDialog;

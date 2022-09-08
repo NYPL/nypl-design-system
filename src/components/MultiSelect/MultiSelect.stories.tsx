@@ -82,10 +82,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   }, [selectedItems]);
   return (
     <MultiSelect
-      id="multiselect-listbox"
-      label="MultiSelect Listbox"
-      variant="listbox"
-      width={args.width}
+      {...args}
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => onChange(selectedItem.id)}
@@ -112,7 +109,6 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   return (
     <MultiSelect
       {...args}
-      variant="dialog"
       items={items}
       isDefaultOpen={false}
       selectedItems={selectedItems}

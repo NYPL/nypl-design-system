@@ -22,18 +22,14 @@ const multiSelectWidths = {
 const MultiSelect = {
   parts: [
     "actionButtons",
+    "menu",
     "menuButton",
     "menuContainer",
-    "menu",
     "menuChildren",
   ],
-  baseStyle: ({ width = "default", isBlockElement, isOpen }) => ({
+  baseStyle: ({ isBlockElement, isOpen, width = "default" }) => ({
     ...multiSelectWidths[width],
     position: "relative",
-    margin: {
-      base: ".75rem 0",
-      md: "0 2em 0 0",
-    },
     actionButtons: {
       borderTop: "1px solid",
       borderColor: "ui.gray.medium",
@@ -43,6 +39,7 @@ const MultiSelect = {
       width: "auto",
     },
     menuContainer: {
+      backgroundColor: "white",
       position: {
         md: isBlockElement ? "relative" : "absolute",
       },
