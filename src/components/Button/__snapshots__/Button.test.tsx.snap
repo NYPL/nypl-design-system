@@ -69,7 +69,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 6`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  Link
+  Text
 </button>
 `;
 
