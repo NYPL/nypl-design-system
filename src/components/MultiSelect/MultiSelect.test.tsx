@@ -402,9 +402,8 @@ describe("MultiSelect Dialog", () => {
     userEvent.click(countButton);
     // Count button disapeared
     expect(countButton).not.toBeInTheDocument();
-    // @TODO prevent menu toggle on count button click
-    // // Open menu
-    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Previously selected elements should not be selected
     expect(screen.getByLabelText("Dogs")).not.toBeChecked();
     expect(screen.getByLabelText("Colors")).not.toBeChecked();
@@ -654,9 +653,8 @@ describe("MultiSelect Listbox", () => {
     userEvent.click(countButton);
     // Count button disapeared
     expect(countButton).not.toBeInTheDocument();
-    // @TODO prevent menu toggle on count button click
-    // // Open menu
-    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Previously selected elements should not be selected
     expect(screen.getByLabelText("Dogs")).not.toBeChecked();
     expect(screen.getByLabelText("Colors")).not.toBeChecked();
