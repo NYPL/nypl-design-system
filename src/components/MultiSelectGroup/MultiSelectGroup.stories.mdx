@@ -92,3 +92,15 @@ Note: when `layout = "column"` is passed, the MultiSelect components will have `
     <stories.MultiSelectGroupLayoutStory />
   </DSProvider>
 </Canvas>
+
+## `useMultiSelect` hook
+
+`useMultiSelect` is an optional hook provided by the component, for
+cases where managing the state of the component in the consuming app is less
+of a concern and general ease of use is prefered.
+
+The hook returns an object containing all the props and state needed to handle the selectedItems.
+That includes the functions `onChange`, `onClear`, `onMixedStateChange` for handling any changes to the selection of items and the current state of the selection: `selectedItems`.
+
+Due to it's datastructre and functions setup, it is capable to handle a group of `MultiSelect` components.
+Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page).
