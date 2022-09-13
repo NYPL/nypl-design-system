@@ -400,11 +400,9 @@ describe("MultiSelect Dialog", () => {
     // Click count button
     userEvent.click(countButton);
     // Count button disapeared
-    expect(countButton).not.toBeInTheDocument(),
-      // Open menu
-      userEvent.click(
-        screen.getByRole("button", { name: /MultiSelect Label/i })
-      );
+    expect(countButton).not.toBeInTheDocument();
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Previously selected elements should not be selected
     expect(screen.getByLabelText("Dogs")).not.toBeChecked();
     expect(screen.getByLabelText("Colors")).not.toBeChecked();
