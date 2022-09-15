@@ -7,6 +7,7 @@ const baseStyle = {
   display: "flex",
   cursor: "pointer",
   color: "ui.white",
+  fontWeight: "button.default",
   height: "10",
   justifyContent: "center",
   lineHeight: "1.5",
@@ -16,7 +17,6 @@ const baseStyle = {
   px: "inset.default",
   textDecoration: "none",
   wordWrap: "normal",
-  fontWeight: "button.default",
   svg: {
     fill: "currentColor",
   },
@@ -29,17 +29,17 @@ const baseStyle = {
   _disabled: {
     bg: "ui.gray.light-cool",
     color: "ui.gray.dark",
-    pointerEvents: "none",
     opacity: "1",
+    pointerEvents: "none",
   },
 };
 // Styles for different visual variants:
 // primary, secondary, link, pill, iconOnly, callout, searchbar, noBrand
 const primary = {
   bg: "ui.link.primary",
-  minWidth: "none",
   height: "none",
   fontSize: "button.default",
+  minWidth: "none",
 };
 const secondary = {
   bg: "ui.white",
@@ -57,9 +57,21 @@ const secondary = {
 };
 const link = {
   bg: "transparent",
-  lineHeight: "2.5",
   color: "ui.link.primary",
+  lineHeight: "2.5",
   textDecoration: "underline",
+  _disabled: {
+    bg: "transparent",
+  },
+  _hover: {
+    bg: "transparent",
+    color: "ui.link.secondary",
+  },
+};
+const text = {
+  bg: "transparent",
+  color: "ui.link.primary",
+  fontSize: "button.default",
   _disabled: {
     bg: "transparent",
   },
@@ -72,11 +84,11 @@ const pill = {
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
-  color: "inherit",
   borderRadius: "pill",
+  color: "inherit",
+  fontSize: "button.default",
   py: "inset.narrow",
   px: "inset.wide",
-  fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
     borderColor: "ui.gray.medium",
@@ -122,6 +134,7 @@ const Button = {
   variants: {
     primary,
     secondary,
+    text,
     link,
     pill,
     iconOnly,
