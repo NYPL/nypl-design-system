@@ -184,7 +184,7 @@ export const TextInput = chakra(
 
       // When the type is "hidden", the input element needs fewer attributes.
       options = isHidden
-        ? { id, "aria-hidden": isHidden, name, onChange, ref }
+        ? { defaultValue, id, "aria-hidden": isHidden, name, onChange, ref }
         : {
             "aria-required": isRequired,
             defaultValue,

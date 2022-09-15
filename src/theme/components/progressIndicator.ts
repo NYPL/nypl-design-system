@@ -1,6 +1,8 @@
 import { ProgressIndicatorSizes } from "../../components/ProgressIndicator/ProgressIndicator";
 
 interface ProgressIndicatorBaseStyle {
+  // darkMode is a deprecated prop. It remains here so as not to
+  // cause a breaking change for those apps that still use it.
   darkMode: boolean;
   size: ProgressIndicatorSizes;
 }
@@ -13,9 +15,9 @@ const ProgressIndicator = {
     "linearContainer",
     "linearPercentage",
   ],
-  baseStyle: ({ size }: ProgressIndicatorBaseStyle) => {
+  baseStyle: ({ darkMode, size }: ProgressIndicatorBaseStyle) => {
     return {
-      color: "ui.black",
+      color: darkMode ? "ui.white" : "ui.black",
       circular: {
         // Note: we have to target the SVG HTMl elements in order
         // to override the default styles.
@@ -25,13 +27,13 @@ const ProgressIndicator = {
           display: "block",
           circle: {
             _first: {
-              stroke: "ui.gray.light-cool",
+              stroke: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
               _dark: {
                 stroke: "dark.ui.bg.active",
               },
             },
             _last: {
-              stroke: "ui.link.primary",
+              stroke: darkMode ? "ui.white" : "ui.link.primary",
               _dark: { stroke: "dark.ui.focus" },
             },
           },
@@ -47,11 +49,11 @@ const ProgressIndicator = {
         // Hard to target this specific element without using
         // "Progress" as the key name in index.ts
         "> div": {
-          bg: "ui.link.primary",
+          bg: darkMode ? "ui.white" : "ui.link.primary",
           _dark: "dark.ui.focus",
         },
         flex: 25,
-        bg: "ui.gray.light-cool",
+        bg: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
         height: {
           base: "4px",
           md: size === "default" ? "8px" : "4px",

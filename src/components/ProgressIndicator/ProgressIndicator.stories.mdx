@@ -25,6 +25,9 @@ import DSProvider from "../../theme/provider";
     jest: ["ProgressIndicator.test.tsx"],
   }}
   argTypes={{
+    darkMode: {
+      control: false,
+    },
     id: { control: false },
     indicatorType: {
       table: { defaultValue: { summary: "linear" } },
@@ -259,6 +262,12 @@ exact value or progress of the task is unknown.
     </SimpleGrid>
   </DSProvider>
 </Canvas>
+
+## Dark Mode
+
+The `darkMode` prop is deprecated and should not be used. This component comes
+with built-in dark mode styles that display automatically if dark mode is turned
+on.
 
 ## Get Input Values
 

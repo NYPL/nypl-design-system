@@ -13,6 +13,8 @@ import Label from "../Label/Label";
 export type ProgressIndicatorSizes = "default" | "small";
 export type ProgressIndicatorTypes = "circular" | "linear";
 export interface ProgressIndicatorProps {
+  /** The darkMode prop is deprecated and should no longer be used. */
+  darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */
@@ -39,6 +41,7 @@ export interface ProgressIndicatorProps {
 export const ProgressIndicator = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
+      darkMode = false,
       id,
       indicatorType = "linear",
       isIndeterminate = false,
@@ -49,6 +52,7 @@ export const ProgressIndicator = chakra(
       ...rest
     } = props;
     const styles = useMultiStyleConfig("ProgressIndicator", {
+      darkMode,
       size,
     });
     let finalValue = value;

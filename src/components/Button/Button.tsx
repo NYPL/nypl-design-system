@@ -11,10 +11,11 @@ export type ButtonElementType = "submit" | "button" | "reset";
 export type ButtonTypes =
   | "primary"
   | "secondary"
+  | "text"
   | "callout"
   | "pill"
-  | "link"
-  | "noBrand";
+  | "noBrand"
+  | "link";
 
 interface ButtonProps {
   /** The button variation to render based on the `ButtonTypes` type.*/
