@@ -67,7 +67,7 @@ const baseStyleControl = {
   //   bg: "ui.white",
   // },
   _dark: {
-    borderColor: "dar.ui.border.default",
+    borderColor: "dark.ui.border.default",
     backgroundColor: "dark.ui.bg.default",
 
     _checked: {

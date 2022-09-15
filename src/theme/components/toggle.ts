@@ -25,7 +25,6 @@ const Switch = {
   baseStyle: ({ size }: { size: string }) => {
     return {
       alignItems: "start",
-      // opacity: 0.4,
       track: {
         backgroundColor: "ui.gray.medium",
         border: "1px solid",

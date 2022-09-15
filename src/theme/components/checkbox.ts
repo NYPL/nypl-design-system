@@ -70,7 +70,7 @@ const baseStyleControl = {
   },
 
   _dark: {
-    borderColor: "dar.ui.border.default",
+    borderColor: "dark.ui.border.default",
     backgroundColor: "dark.ui.bg.default",
     color: "dark.ui.typography.body",
 
