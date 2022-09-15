@@ -3,17 +3,23 @@ import { NotificationTypes } from "../../components/Notification/Notification";
 interface NotificationBaseStyle {
   dismissible: boolean;
   isCentered: boolean;
+  isDark: boolean;
   noMargin: boolean;
+  notificationHeading: string;
   notificationType: NotificationTypes;
+  showIcon: boolean;
 }
 interface NotificationContentBaseStyle {
   alignText: boolean;
-  icon: boolean;
+  isCentered: boolean;
+  notificationHeading: string;
   notificationType: NotificationTypes;
+  showIcon: boolean;
 }
 interface NotificationHeadingBaseStyle {
   icon: boolean;
   isCentered: boolean;
+  isDark: boolean;
   notificationType: NotificationTypes;
 }
 
@@ -22,28 +28,38 @@ const Notification = {
   baseStyle: ({
     dismissible,
     isCentered,
+    isDark,
     noMargin,
+    notificationHeading,
     notificationType,
+    showIcon,
   }: NotificationBaseStyle) => {
     let bg = "ui.status.primary";
-    if (notificationType === "announcement" || notificationType === "warning") {
+    if (isDark) {
+      bg = "dark.ui.bg.hover";
+    } else if (
+      notificationType === "announcement" ||
+      notificationType === "warning"
+    ) {
       bg = "ui.gray.x-light-cool";
     }
     return {
       bg,
+      borderRadius: noMargin ? "0" : "4px",
       display: "flex",
       fontSize: "text.caption", // slightly smaller than the default size
+      m: noMargin ? "0" : "s",
       position: "relative",
+      p: "inset.default",
       textAlign: isCentered ? "center" : null,
-      borderRadius: noMargin ? "0" : "4px",
-      margin: noMargin ? "0" : "s",
       container: {
-        margin: "auto",
+        display: "flex",
+        flexDirection: isCentered || notificationHeading ? "column" : "row",
+        m: "auto",
         maxWidth: "var(--nypl-breakpoint-xl)",
-        padding: "inset.default",
         paddingEnd: dismissible ? "l" : null,
-        paddingStart: isCentered && dismissible ? "l" : null,
-        width: "100%",
+        paddingStart: isCentered && dismissible ? "l" : showIcon ? "xs" : null,
+        w: "100%",
       },
       dismissibleButton: {
         border: "none",
@@ -51,8 +67,8 @@ const Notification = {
         alignItems: "center",
         color: "ui.black",
         display: "flex",
-        height: "32px",
-        width: "32px",
+        h: "32px",
+        w: "32px",
         minWidth: "0",
         position: "absolute",
         right: "0",
@@ -60,13 +76,12 @@ const Notification = {
         svg: {
           marginTop: "0",
         },
+        _dark: {
+          color: "dark.ui.typography.body",
+        },
         _hover: {
           bg: "inherit",
         },
-      },
-      icon: {
-        flexShrink: "0",
-        marginEnd: "s",
       },
     };
   },
@@ -75,24 +90,37 @@ const Notification = {
 const NotificationContent = {
   parts: ["content"],
   baseStyle: ({
-    alignText,
-    icon,
+    isCentered,
+    notificationHeading,
     notificationType,
+    showIcon,
   }: NotificationContentBaseStyle) => ({
     display: "flex",
     justifyContent: "center",
     content: {
       color: notificationType === "warning" ? "brand.primary" : "currentColor",
-      marginTop: icon ? "xxxs" : "0",
-      paddingStart: alignText
-        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
-        : null,
-      width: "100%",
-      // Links should always be black and underlined.
+      pt: !isCentered && notificationHeading ? "xs" : "0",
+      w: "100%",
+      _dark: {
+        borderLeftColor:
+          notificationType === "standard"
+            ? "ui.status.primary"
+            : notificationType === "announcement"
+            ? "ui.success.primary"
+            : "dark.ui.error.primary",
+        borderLeftStyle: !isCentered ? "solid" : "none",
+        borderLeftWidth: "2px",
+        paddingLeft: !isCentered ? "xs" : "0",
+        color: "dark.ui.typography.body",
+        ml: !isCentered && showIcon ? "l" : "0",
+      },
+      // Links should always be underlined, and always be black if the
+      // color mode is light.
       a: {
         color: "ui.black",
-        _hover: {
-          color: "ui.black",
+        textDecoration: "underline",
+        _dark: {
+          color: "dark.ui.typography.body",
         },
       },
     },
@@ -104,22 +132,49 @@ const NotificationHeading = {
   baseStyle: ({
     icon,
     isCentered,
+    isDark,
     notificationType,
   }: NotificationHeadingBaseStyle) => {
     let color = "ui.black";
-    if (notificationType === "announcement") {
+    if (isDark) {
+      color = "dark.ui.typography.heading";
+    } else if (notificationType === "announcement") {
       color = "section.research.secondary";
     } else if (notificationType === "warning") {
       color = "brand.primary";
     }
     return {
       display: "flex",
-      marginBottom: "xxs",
-      justifyContent: isCentered ? "center" : null,
+      m: isCentered ? "auto" : "null",
+      mb: isCentered ? "xs" : "0",
+      px: isCentered ? "s" : "0",
+      w: "fit-content",
+      _dark: {
+        borderBottomColor:
+          notificationType === "standard"
+            ? "ui.status.primary"
+            : notificationType === "announcement"
+            ? "ui.success.primary"
+            : "dark.ui.error.primary",
+        borderBottomStyle: isCentered ? "solid" : "none",
+        borderBottomWidth: "2px",
+        paddingBottom: isCentered ? "xs" : "0",
+      },
       heading: {
-        marginBottom: "0",
-        marginTop: icon ? "xxxs" : "0",
         color,
+        ml: icon ? "xs" : "0",
+        mt: icon ? "xxxs" : "0",
+        _dark: {
+          borderLeftColor:
+            notificationType === "standard"
+              ? "ui.status.primary"
+              : notificationType === "announcement"
+              ? "ui.success.primary"
+              : "dark.ui.error.primary",
+          borderLeftStyle: !isCentered ? "solid" : "none",
+          borderLeftWidth: "2px",
+          paddingLeft: !isCentered ? "xs" : "0",
+        },
       },
     };
   },

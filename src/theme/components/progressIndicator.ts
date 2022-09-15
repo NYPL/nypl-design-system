@@ -13,9 +13,9 @@ const ProgressIndicator = {
     "linearContainer",
     "linearPercentage",
   ],
-  baseStyle: ({ darkMode, size }: ProgressIndicatorBaseStyle) => {
+  baseStyle: ({ size }: ProgressIndicatorBaseStyle) => {
     return {
-      color: darkMode ? "ui.white" : "ui.black",
+      color: "ui.black",
       circular: {
         // Note: we have to target the SVG HTMl elements in order
         // to override the default styles.
@@ -25,10 +25,14 @@ const ProgressIndicator = {
           display: "block",
           circle: {
             _first: {
-              stroke: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
+              stroke: "ui.gray.light-cool",
+              _dark: {
+                stroke: "dark.ui.bg.active",
+              },
             },
             _last: {
-              stroke: darkMode ? "ui.white" : "ui.link.primary",
+              stroke: "ui.link.primary",
+              _dark: { stroke: "dark.ui.focus" },
             },
           },
         },
@@ -43,13 +47,17 @@ const ProgressIndicator = {
         // Hard to target this specific element without using
         // "Progress" as the key name in index.ts
         "> div": {
-          bg: darkMode ? "ui.white" : "ui.link.primary",
+          bg: "ui.link.primary",
+          _dark: "dark.ui.focus",
         },
         flex: 25,
-        bg: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
+        bg: "ui.gray.light-cool",
         height: {
           base: "4px",
           md: size === "default" ? "8px" : "4px",
+        },
+        _dark: {
+          bg: "dark.ui.bg.active",
         },
       },
       linearContainer: {
@@ -59,6 +67,9 @@ const ProgressIndicator = {
       linearPercentage: {
         padding: "0 var(--nypl-space-xs)",
         flex: 1,
+      },
+      _dark: {
+        color: "dark.ui.typography.heading",
       },
     };
   },
