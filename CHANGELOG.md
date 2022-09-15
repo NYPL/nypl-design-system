@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark mode` support for `background-color` and `color` global styles.
 - Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark mode` color mode support for the `Card` and `Hero` components.
+- Adds `dark mode` color mode support for the `Heading` and `List` components.
 
 ## 1.1.0 (Ausut 30, 2022)
 
