@@ -14,7 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the  `Tooltip` component to remove the dropshadow effect.
+- Updates the `Tooltip` component to remove the dropshadow effect.
 
 ### Fixes
 
