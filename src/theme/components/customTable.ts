@@ -1,3 +1,5 @@
+// import { useColorModeValue } from "@chakra-ui/react";
+
 interface BaseStyleProps {
   columnHeadersBackgroundColor?: string;
   columnHeadersTextColor?: string;
@@ -29,6 +31,12 @@ export const baseTRStyles = (
   _first: {
     borderTop: { base: "2px solid", md: "0" },
     borderColor: "ui.gray.medium",
+    _dark: {
+      borderColor: "red",
+    },
+  },
+  _dark: {
+    borderColor: "red",
   },
 });
 export const baseCellStyles = (
@@ -49,6 +57,9 @@ export const baseCellStyles = (
   paddingStart: 0,
   paddingEnd: { base: "0", md: "m" },
   paddingTop: { base: "0", md: "s" },
+  _dark: {
+    borderColor: "dark.ui.border.default",
+  },
   _first: {
     paddingStart: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers
@@ -57,11 +68,17 @@ export const baseCellStyles = (
           md: "1px solid var(--nypl-colors-ui-gray-medium)",
         }
       : "none",
+    _dark: {
+      borderColor: "red",
+    },
   },
   _last: {
     paddingEnd: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers ? "1px solid" : "none",
     borderColor: cellBorderColorStyles,
+    _dark: {
+      borderColor: "dark.ui.border.default",
+    },
   },
   "> span": {
     flexBasis: "50%",
@@ -78,6 +95,11 @@ export const baseCellStyles = (
         columnHeadersBackgroundColor || showRowDividers || useRowHeaders
           ? "s"
           : undefined,
+      _dark: {
+        color: columnHeadersTextColor
+          ? columnHeadersTextColor
+          : "dark.ui.typography.heading",
+      },
     },
   },
 });
@@ -101,6 +123,11 @@ export const baseTHStyles = (
       showRowDividers || columnHeadersBackgroundColor
         ? { base: "0", md: "m" }
         : { base: "0", md: undefined },
+  },
+  _dark: {
+    color: columnHeadersTextColor
+      ? columnHeadersTextColor
+      : "dark.ui.typography.heading",
   },
 });
 export const baseTDStyles = (
