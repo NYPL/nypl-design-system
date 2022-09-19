@@ -11,6 +11,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `AlphabetFilter` component.
+- Adds the `text` variant in the `Button` component.
+
+### Fixes
+
+- Fixes a bug where the `defaultValue` for a `TextInput` component was not being passed correctly to the Chakra input element.
+
+### Deprecates
+
+- Deprecates the `link` variant in the `Button` component.
 
 ## 1.1.0 (Ausut 30, 2022)
 
