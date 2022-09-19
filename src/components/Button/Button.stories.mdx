@@ -109,7 +109,7 @@ export const iconNames = [
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.0.6`    |
+| Latest            | `1.1.1`    |
 
 ## Table of Contents
 
@@ -130,11 +130,12 @@ that can be rendered.
 
 - `"primary"` is used for actions that move the user forward. This is the default.
 - `"secondary"` is used for actions that move the user back, such as cancellations.
-- `"callout"` is used for call to action text such as "Donate".
+- `"text"` is used for equally weighted actions in a text based list.
 - `"pill"` is used for equally weighted actions within cards and always in a set.
-- `"link"` is used for equally weighted actions in a text based list.
+- `"callout"` is used for call to action text such as "Donate".
 - `"noBrand"` is a variant used when there is no brand and will display the
   background color as black.
+- `"link"` has been deprecated and should not be used.
 
 When one and only one `Icon` component is passed inside a `Button` component with
 no text, it will automatically be configured to use the `"iconOnly"` type.
@@ -308,21 +309,21 @@ The variations modified by the `buttonType` prop:
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button id="primary-btn">primary</Button>
+      <Button id="primary-btn">Primary</Button>
       <Button buttonType="secondary" id="secondary-btn">
-        secondary
+        Secondary
       </Button>
-      <Button buttonType="callout" id="callout-btn">
-        callout
+      <Button buttonType="text" id="text-btn">
+        Text
       </Button>
       <Button buttonType="pill" id="pill-btn">
-        pill
+        Pill
       </Button>
-      <Button buttonType="link" id="link-btn">
-        link
+      <Button buttonType="callout" id="callout-btn">
+        Callout
       </Button>
       <Button buttonType="noBrand" id="nobrand-btn">
-        noBrand
+        No Brand
       </Button>
     </ButtonGroup>
   </DSProvider>
