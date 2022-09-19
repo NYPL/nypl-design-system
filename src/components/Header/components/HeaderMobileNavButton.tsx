@@ -26,7 +26,7 @@ const HeaderMobileNavButton = chakra(() => {
           aria-haspopup="true"
           aria-label={isOpen ? "Close Navigation" : "Open Navigation"}
           aria-expanded={isOpen ? true : null}
-          buttonType="link"
+          buttonType="text"
           id="mobileNav-btn"
           onClick={() => {
             gaUtils.trackEvent("Click", "Mobile mobileMenu");
