@@ -64,7 +64,7 @@ const HeaderLoginButton = chakra(
         <FocusLock isDisabled={!isOpen}>
           <Button
             aria-label={desktopButtonLabel}
-            buttonType="link"
+            buttonType="text"
             id="loginButton"
             onClick={() => {
               gaUtils.trackEvent(gaAction, gaLabel);

@@ -163,7 +163,7 @@ export const Notification = chakra(
     const dismissibleButton = dismissible && (
       <Button
         aria-label="Close the notification"
-        buttonType="link"
+        buttonType="text"
         id={`${id}-notification-dismissible-button`}
         onClick={handleClose}
         __css={styles.dismissibleButton}
