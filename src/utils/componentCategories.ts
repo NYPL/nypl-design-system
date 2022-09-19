@@ -116,6 +116,7 @@ const categories = {
   navigation: {
     title: "Components/Navigation",
     components: [
+      "AlphabetFilter",
       "Breadcrumbs",
       "Link",
       "Menu",

@@ -9,6 +9,7 @@ import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
+import AlphabetFilter from "./components/alphabetFilter";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -93,6 +94,7 @@ const theme = extendTheme({
    */
   components: {
     Accordion,
+    AlphabetFilter,
     Breadcrumb,
     Button,
     ButtonGroup,
