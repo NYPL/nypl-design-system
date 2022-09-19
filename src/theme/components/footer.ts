@@ -8,6 +8,9 @@ const Footer = {
     minHeight: { base: "360px", lg: "420px" },
     padding: { base: "15px 20px 100px", md: "15px 0", lg: "30px 0" },
     position: "relative",
+    _dark: {
+      backgroundColor: "dark.ui.bg.hover",
+    },
     // The two main lists.
     listsContainer: {
       display: "flex",
@@ -68,6 +71,9 @@ const Footer = {
           svg: {
             width: "36px",
             height: "36px",
+            _dark: {
+              fill: "dark.ui.typography.body",
+            },
           },
         },
       },
@@ -87,10 +93,16 @@ const Footer = {
         outline: "solid 2px",
         outlineColor: "ui.white",
       },
+      _dark: {
+        color: "dark.ui.typography.body",
+      },
     },
     // All SVGs in the footer.
     svg: {
       fill: "ui.white",
+      _dark: {
+        color: "dark.ui.typography.body",
+      },
     },
     // For the floating NYPL logo.
     logoContainer: {
@@ -112,10 +124,16 @@ const Footer = {
       left: { md: "6%" },
       top: { md: "140px", lg: "170px", xl: "140px" },
       width: { md: "400px" },
+      _dark: {
+        color: "dark.ui.typography.body",
+      },
       img: {
         bg: "transparent",
         height: "auto",
         width: "100%",
+        _dark: {
+          opacity: "0.8",
+        },
       },
     },
     copyright: {
