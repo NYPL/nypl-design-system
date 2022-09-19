@@ -1,4 +1,4 @@
-// import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 
 interface BaseStyleProps {
   columnHeadersBackgroundColor?: string;
@@ -7,9 +7,12 @@ interface BaseStyleProps {
   useRowHeaders?: boolean;
 }
 
-const cellBorderColorStyles = {
-  base: "ui.gray.light-cool",
-  md: "ui.gray.medium",
+const CellBorderColorStyles = () => {
+  const colorValues = useColorModeValue(
+    { base: "ui.gray.light-cool", md: "ui.border.default" },
+    { base: "ui.gray.xx-dark", md: "dark.ui.border.default" }
+  );
+  return colorValues;
 };
 
 export const baseTRStyles = (
@@ -31,12 +34,9 @@ export const baseTRStyles = (
   _first: {
     borderTop: { base: "2px solid", md: "0" },
     borderColor: "ui.gray.medium",
-    _dark: {
-      borderColor: "red",
-    },
   },
   _dark: {
-    borderColor: "red",
+    borderColor: "dark.ui.border.default",
   },
 });
 export const baseCellStyles = (
@@ -47,7 +47,7 @@ export const baseCellStyles = (
 ) => ({
   border: showRowDividers ? undefined : "none",
   borderBottom: showRowDividers ? "1px solid" : "0",
-  borderColor: cellBorderColorStyles,
+  borderColor: CellBorderColorStyles(),
   display: { base: "flex", md: "table-cell" },
   fontSize: { base: "text.caption", lg: "text.default" },
   gap: "s",
@@ -57,9 +57,6 @@ export const baseCellStyles = (
   paddingStart: 0,
   paddingEnd: { base: "0", md: "m" },
   paddingTop: { base: "0", md: "s" },
-  _dark: {
-    borderColor: "dark.ui.border.default",
-  },
   _first: {
     paddingStart: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers
@@ -68,17 +65,11 @@ export const baseCellStyles = (
           md: "1px solid var(--nypl-colors-ui-gray-medium)",
         }
       : "none",
-    _dark: {
-      borderColor: "red",
-    },
   },
   _last: {
     paddingEnd: showRowDividers ? { base: "0", md: "m" } : null,
     borderBottom: showRowDividers ? "1px solid" : "none",
-    borderColor: cellBorderColorStyles,
-    _dark: {
-      borderColor: "dark.ui.border.default",
-    },
+    borderColor: CellBorderColorStyles(),
   },
   "> span": {
     flexBasis: "50%",
@@ -154,7 +145,7 @@ export const baseTDStyles = (
     borderBottom: showRowDividers
       ? { base: 0, md: "1px solid" }
       : { base: 0, md: undefined },
-    borderColor: cellBorderColorStyles,
+    borderColor: CellBorderColorStyles(),
   },
 });
 export const baseStyle = ({
@@ -166,13 +157,20 @@ export const baseStyle = ({
   // Headers `th` can be rendered as the first cell in every row through the
   // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
   // with a custom color, the row header `th` in the `tbody` should always
-  // have text color black.
+  // have text color black for light color mode and `dark.ui.typography.heading`
+  // for dark color mode.
   tbody: {
     th: {
-      color: "var(--nypl-colors-ui-black)",
       backgroundColor: useRowHeaders
         ? { base: "ui.gray.x-light-cool", md: "unset" }
         : undefined,
+      color: "ui.black",
+      _dark: {
+        backgroundColor: useRowHeaders
+          ? { base: "dark.ui.bg.default", md: "unset" }
+          : undefined,
+        color: "dark.ui.typography.heading",
+      },
     },
   },
   thead: {
