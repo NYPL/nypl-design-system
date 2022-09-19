@@ -1,9 +1,7 @@
 import { NotificationTypes } from "../../components/Notification/Notification";
 
 interface NotificationBaseStyle {
-  dismissible: boolean;
   isCentered: boolean;
-  isDark: boolean;
   noMargin: boolean;
   notificationHeading: string;
   notificationType: NotificationTypes;
@@ -19,28 +17,19 @@ interface NotificationContentBaseStyle {
 interface NotificationHeadingBaseStyle {
   icon: boolean;
   isCentered: boolean;
-  isDark: boolean;
   notificationType: NotificationTypes;
 }
 
 const Notification = {
   parts: ["container", "dismissibleButton", "icon"],
   baseStyle: ({
-    dismissible,
     isCentered,
-    isDark,
     noMargin,
     notificationHeading,
     notificationType,
-    showIcon,
   }: NotificationBaseStyle) => {
     let bg = "ui.status.primary";
-    if (isDark) {
-      bg = "dark.ui.bg.hover";
-    } else if (
-      notificationType === "announcement" ||
-      notificationType === "warning"
-    ) {
+    if (notificationType === "announcement" || notificationType === "warning") {
       bg = "ui.gray.x-light-cool";
     }
     return {
@@ -52,13 +41,16 @@ const Notification = {
       position: "relative",
       p: "inset.default",
       textAlign: isCentered ? "center" : null,
+      _dark: {
+        bg: "dark.ui.bg.hover",
+      },
       container: {
         display: "flex",
         flexDirection: isCentered || notificationHeading ? "column" : "row",
         m: "auto",
         maxWidth: "var(--nypl-breakpoint-xl)",
-        paddingEnd: dismissible ? "l" : null,
-        paddingStart: isCentered && dismissible ? "l" : showIcon ? "xs" : null,
+        paddingEnd: "s",
+        paddingStart: "s",
         w: "100%",
       },
       dismissibleButton: {
@@ -99,7 +91,9 @@ const NotificationContent = {
     justifyContent: "center",
     content: {
       color: notificationType === "warning" ? "brand.primary" : "currentColor",
-      pt: !isCentered && notificationHeading ? "xs" : "0",
+      paddingStart:
+        !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
+      pt: !isCentered && notificationHeading ? "xxs" : "0",
       w: "100%",
       _dark: {
         borderLeftColor:
@@ -110,9 +104,9 @@ const NotificationContent = {
             : "dark.ui.error.primary",
         borderLeftStyle: !isCentered ? "solid" : "none",
         borderLeftWidth: "2px",
-        paddingLeft: !isCentered ? "xs" : "0",
+        paddingStart: !isCentered ? "xs" : "0",
         color: "dark.ui.typography.body",
-        ml: !isCentered && showIcon ? "l" : "0",
+        ml: !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
       },
       // Links should always be underlined, and always be black if the
       // color mode is light.
@@ -132,19 +126,17 @@ const NotificationHeading = {
   baseStyle: ({
     icon,
     isCentered,
-    isDark,
     notificationType,
   }: NotificationHeadingBaseStyle) => {
     let color = "ui.black";
-    if (isDark) {
-      color = "dark.ui.typography.heading";
-    } else if (notificationType === "announcement") {
+    if (notificationType === "announcement") {
       color = "section.research.secondary";
     } else if (notificationType === "warning") {
       color = "brand.primary";
     }
     return {
       display: "flex",
+      flexDirection: isCentered ? "column" : "row",
       m: isCentered ? "auto" : "null",
       mb: isCentered ? "xs" : "0",
       px: isCentered ? "s" : "0",
@@ -158,6 +150,7 @@ const NotificationHeading = {
             : "dark.ui.error.primary",
         borderBottomStyle: isCentered ? "solid" : "none",
         borderBottomWidth: "2px",
+        color: "dark.ui.typography.heading",
         paddingBottom: isCentered ? "xs" : "0",
       },
       heading: {
@@ -175,6 +168,10 @@ const NotificationHeading = {
           borderLeftWidth: "2px",
           paddingLeft: !isCentered ? "xs" : "0",
         },
+      },
+      svg: {
+        mx: isCentered ? "auto" : "",
+        mb: isCentered ? "xxs" : "0",
       },
     };
   },

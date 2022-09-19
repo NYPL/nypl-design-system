@@ -1,7 +1,7 @@
 import {
   Box,
   chakra,
-  useColorModeValue,
+  useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
@@ -20,8 +20,6 @@ interface BaseProps {
   id?: string;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   isCentered?: boolean;
-  /** Prop to control whether dark mode styles are applied. */
-  isDark: boolean;
   /** Content to be rendered in a `NotificationHeading` component. */
   notificationHeading?: string;
   /** Optional prop to control the coloring of the `Notification` text and the
@@ -31,20 +29,18 @@ interface BaseProps {
   showIcon?: boolean;
 }
 
-// Used for `Notification`
-type BasePropsWithoutAlignTextOrIsDark = Omit<
-  BaseProps,
-  "alignText" | "isDark"
->;
 // Used for `NotificationHeading`
-type PropsForNotificationHeading = Omit<
-  BaseProps,
-  "alignText" | "notificationHeading" | "showIcon"
+type NotificationHeadingProps = Omit<
+  BasePropsWithoutAlignText,
+  "notificationHeading" | "showIcon"
 >;
 // Used for `NotificationContent`
-type PropsForNotificationContent = Omit<BaseProps, "isDark">;
+type NotificationContentProps = Omit<BaseProps, "icon">;
 
-export interface NotificationProps extends BasePropsWithoutAlignTextOrIsDark {
+// Used for `Notification`
+type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
+
+export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Label used to describe the `Notification`'s aside HTML element. */
   ariaLabel?: string;
   /** Additional `className` to add.  */
@@ -64,20 +60,11 @@ export interface NotificationProps extends BasePropsWithoutAlignTextOrIsDark {
  * NotificationHeading child-component.
  */
 export const NotificationHeading = chakra(
-  (props: React.PropsWithChildren<PropsForNotificationHeading>) => {
-    const {
-      children,
-      icon,
-      id,
-      isCentered,
-      isDark,
-      notificationType,
-      ...rest
-    } = props;
+  (props: React.PropsWithChildren<NotificationHeadingProps>) => {
+    const { children, icon, id, isCentered, notificationType, ...rest } = props;
     const styles = useMultiStyleConfig("NotificationHeading", {
       icon,
       isCentered,
-      isDark,
       notificationType,
     });
 
@@ -103,7 +90,7 @@ export const NotificationHeading = chakra(
  * NotificationContent child-component.
  */
 export const NotificationContent = chakra(
-  (props: React.PropsWithChildren<PropsForNotificationContent>) => {
+  (props: React.PropsWithChildren<NotificationContentProps>) => {
     const {
       alignText,
       children,
@@ -123,7 +110,7 @@ export const NotificationContent = chakra(
 
     return (
       <Box __css={styles} {...rest}>
-        <Box __css={styles.content}>{children}</Box>
+        {children && <Box __css={styles.content}>{children}</Box>}
       </Box>
     );
   }
@@ -150,12 +137,10 @@ export const Notification = chakra(
       ...rest
     } = props;
     const [isOpen, setIsOpen] = useState(true);
-    const isDark = useColorModeValue(false, true);
+    const { colorMode } = useColorMode();
     const handleClose = () => setIsOpen(false);
     const styles = useMultiStyleConfig("Notification", {
-      dismissible,
       isCentered,
-      isDark,
       noMargin,
       notificationHeading,
       notificationType,
@@ -184,17 +169,21 @@ export const Notification = chakra(
       }
       const iconProps = {
         announcement: {
-          color: isDark ? "ui.gray.medium" : "section.research.secondary",
+          color:
+            colorMode === "dark"
+              ? "ui.gray.medium"
+              : "section.research.secondary",
           name: "speakerNotes",
           title: "Notification announcement icon",
         } as IconProps,
         standard: {
-          color: isDark ? "ui.status.primary" : "ui.black",
+          color: colorMode === "dark" ? "ui.status.primary" : "ui.black",
           name: "alertNotificationImportant",
           title: "Notification standard icon",
         } as IconProps,
         warning: {
-          color: isDark ? "dark.ui.error.primary" : "brand.primary",
+          color:
+            colorMode === "dark" ? "dark.ui.error.primary" : "brand.primary",
           name: "errorFilled",
           title: "Notification warning icon",
         } as IconProps,
@@ -230,7 +219,6 @@ export const Notification = chakra(
         icon={iconElem}
         id={id}
         isCentered={isCentered}
-        isDark={isDark}
         notificationType={notificationType}
       >
         {notificationHeading}
