@@ -28,6 +28,27 @@ describe("Accordion Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test for one item when it is always rendered", async () => {
+    const { container } = render(
+      <Accordion
+        accordionData={[
+          {
+            label: "Tom Nook",
+            panel: (
+              <p>
+                Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+                character in the Animal Crossing series who operates the village
+                store.
+              </p>
+            ),
+          },
+        ]}
+        isAlwaysRendered
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test for multiple items", async () => {
     const { container } = render(
       <Accordion
@@ -122,6 +143,17 @@ describe("Accordion", () => {
 
     accordionPanelContent = screen.queryByText(/known in Japan as Tanukichi/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
+    expect(accordionPanelContent).toBeInTheDocument();
+  });
+
+  it("always renders its content when isAlwaysRendered is true", () => {
+    render(<Accordion accordionData={[accordionData[0]]} isAlwaysRendered />);
+
+    const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
+    let accordionPanelContent = screen.queryByText(
+      /known in Japan as Tanukichi/i
+    );
+    expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
     expect(accordionPanelContent).toBeInTheDocument();
   });
 
