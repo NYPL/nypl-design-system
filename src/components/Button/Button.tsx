@@ -8,6 +8,7 @@ import React, { forwardRef } from "react";
 import Icon from "../Icons/Icon";
 
 export type ButtonElementType = "submit" | "button" | "reset";
+export type ButtonSizes = "small" | "medium" | "large";
 export type ButtonTypes =
   | "primary"
   | "secondary"
@@ -31,6 +32,8 @@ interface ButtonProps {
   mouseDown?: boolean;
   /** The action to perform on the `<button>`'s onClick function. */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** The size of the `Button`. */
+  size?: ButtonSizes;
   /** The HTML button type attribute. */
   type?: ButtonElementType;
 }
@@ -49,6 +52,7 @@ export const Button = chakra(
         isDisabled = false,
         mouseDown = false,
         onClick,
+        size = "medium",
         type = "button",
         ...rest
       } = props;
@@ -80,7 +84,7 @@ export const Button = chakra(
         variant = "iconOnly";
       }
 
-      styles = useStyleConfig("Button", { variant });
+      styles = useStyleConfig("Button", { variant, buttonSize: size });
 
       return (
         <ChakraButton
@@ -98,7 +102,8 @@ export const Button = chakra(
         </ChakraButton>
       );
     }
-  )
+  ),
+  { shouldForwardProp: () => true }
 );
 
 export default Button;
