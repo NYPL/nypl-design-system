@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates whehter the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds
