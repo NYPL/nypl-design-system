@@ -68,6 +68,12 @@ export const Button = chakra(
         );
       }
 
+      if (buttonType === "link") {
+        console.warn(
+          "NYPL Reservoir Button: The 'link' value for the 'buttonType' prop has been deprecated."
+        );
+      }
+
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement) => {
