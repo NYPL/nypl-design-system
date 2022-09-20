@@ -8,6 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+
+### Updates
+
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds
