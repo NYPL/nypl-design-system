@@ -10,7 +10,10 @@ import { withDesign } from "storybook-addon-designs";
 
 import Accordion from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
+import Checkbox from "../Checkbox/Checkbox";
+import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Accordion")}
@@ -27,6 +30,7 @@ import { getCategory } from "../../utils/componentCategories";
     accordionData: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
+    isAlwaysRendered: { table: { defaultValue: { summary: false } } },
     panelMaxHeight: { control: { type: "text" } },
   }}
 />
@@ -36,7 +40,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `1.0.8`    |
+| Latest            | `1.1.2`    |
 
 ## Table of Contents
 
@@ -138,6 +142,7 @@ export const accordionData = [
       accordionData: accordionData,
       id: "accordion-id",
       isDefaultOpen: false,
+      isAlwaysRendered: false,
       panelMaxHeight: undefined,
     }}
   >
@@ -391,4 +396,43 @@ Example with multiple paragraphs
   <Story name="panelMaxHeight Example With Long Text">
     <Accordion accordionData={accordionTextData} panelMaxHeight="100px" />
   </Story>
+</Canvas>
+
+## Always Render the Accordion Content
+
+export const AccordionAlwaysRender = () => {
+  const onChange = (data) => {
+    console.log(data);
+  };
+  const accordionData = [
+    {
+      accordionType: "default",
+      label: "Subjects",
+      panel: (
+        <CheckboxGroup
+          id="controlled-example"
+          labelText="Checkbox Group"
+          name="CheckboxExample"
+          defaultValue={["2"]}
+          onChange={onChange}
+        >
+          <Checkbox value="2" labelText="Checkbox 2" />
+          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox value="4" labelText="Checkbox 4" />
+        </CheckboxGroup>
+      ),
+    },
+  ];
+  return (
+    <>
+      <Accordion accordionData={accordionData} />
+      <Accordion accordionData={accordionData} isAlwaysRendered />
+    </>
+  );
+};
+
+<Canvas>
+  <DSProvider>
+    <AccordionAlwaysRender />
+  </DSProvider>
 </Canvas>
