@@ -19,6 +19,9 @@ const Header = {
   parts: ["container", "horizontalRule", "logo"],
   baseStyle: {
     fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
+    _dark: {
+      backgroundColor: "dark.ui.bg.default",
+    },
     container: {
       marginX: { md: "20px", xl: "auto" },
       maxWidth: "1300px",
@@ -28,6 +31,9 @@ const Header = {
       bg: headerRed,
       marginTop: "0",
       marginBottom: "0",
+      _dark: {
+        backgroundColor: "dark.section.books-and-more.primary",
+      },
     },
     logo: {
       padding: { base: "0 10px", md: "0" },
