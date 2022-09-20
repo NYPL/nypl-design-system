@@ -37,13 +37,13 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     medium: {
       fontSize: "button.default",
-      height: isPill ? "10" : "unset",
+      height: isPill ? "7" : "unset",
       px: isPill ? "m" : "button.medium.px",
       py: isPill ? "xxxs" : "button.medium.py",
     },
     large: {
       fontSize: "button.large",
-      height: isPill ? "12" : "14",
+      height: isPill ? "8" : "14",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
     },
@@ -71,10 +71,11 @@ const secondary = ({ buttonSize = "medium" }) => ({
     bg: "ui.gray.x-light-cool",
   },
 });
+// The "link" type is deprecated but we still want to style
+// it correctly for backwards compatibility.
 const link = ({ buttonSize = "medium" }) => ({
   bg: "transparent",
   color: "ui.link.primary",
-  lineHeight: "2.5",
   textDecoration: "underline",
   ...generalSizeValues(buttonSize),
   _disabled: {
@@ -149,6 +150,7 @@ const Button = {
     primary,
     secondary,
     text,
+    // Deprecated type. Use "text" instead.
     link,
     pill,
     iconOnly,

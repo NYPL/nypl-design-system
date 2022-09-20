@@ -87,7 +87,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
 
 exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
 <button
-  className="chakra-button css-1t0bvx9"
+  className="chakra-button css-1taqtgi"
   data-testid="button"
   id="button"
   onClick={[MockFunction]}
