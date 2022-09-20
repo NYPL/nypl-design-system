@@ -109,6 +109,8 @@ export const Button = chakra(
       );
     }
   ),
+  // Chakra uses different values for its own `size` prop. We
+  // want to override the values and use our own.
   { shouldForwardProp: () => true }
 );
 
