@@ -32,7 +32,7 @@ const Header = {
       marginTop: "0",
       marginBottom: "0",
       _dark: {
-        backgroundColor: "dark.section.books-and-more.primary",
+        backgroundColor: "dark.brand.primary",
       },
     },
     logo: {

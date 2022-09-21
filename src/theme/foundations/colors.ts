@@ -191,6 +191,7 @@ const colors: Colors = {
 
   // dark mode fills
   dark: {
+    brand: brandObj.dark,
     section: {
       blogs: blogsObj.dark,
       "books-and-more": booksAndMoreObj.dark,

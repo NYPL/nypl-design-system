@@ -11,17 +11,30 @@ const HeaderSearchButton = {
     minHeight: { md: "40px" },
     minWidth: { md: "80px" },
     textDecoration: "none",
+    _dark: {
+      color: isOpen ? "ui.white" : "dark.ui.link.primary",
+    },
     span: {
       alignItems: "center",
       borderBottom: { md: "3px solid #1B7FA7" },
       display: "flex",
       lineHeight: "1.3",
+      _dark: {
+        borderBottom: isOpen ? "0" : { md: "3px solid" },
+        borderColor: { md: "dark.ui.link.primary" },
+      },
     },
     svg: {
       marginLeft: { base: "0", md: "xxs" },
       color: {
-        base: isOpen ? "ui.white" : "ui.black",
+        base: isOpen ? "ui.white" : "black",
         md: isOpen ? "ui.white" : "ui.link.primary",
+      },
+      _dark: {
+        color: {
+          base: isOpen ? "ui.white" : "dark.ui.typography.heading",
+          md: isOpen ? "ui.white" : "dark.ui.link.primary",
+        },
       },
     },
     _hover: {
@@ -32,6 +45,15 @@ const HeaderSearchButton = {
         fill: {
           base: isOpen ? "ui.white" : "ui.black",
           md: isOpen ? "ui.white" : "ui.link.primary",
+        },
+      },
+      _dark: {
+        color: isOpen ? "ui.white" : "dark.ui.link.primary",
+        svg: {
+          fill: {
+            base: isOpen ? "ui.white" : "dark.ui.typography.heading",
+            md: isOpen ? "ui.white" : "dark.ui.link.primary",
+          },
         },
       },
     },

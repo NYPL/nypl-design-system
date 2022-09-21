@@ -27,9 +27,15 @@ const HeaderUpperNav = {
         textDecoration: "none",
       },
       _focus: headerFocus,
+      _dark: {
+        color: "dark.ui.typography.heading",
+      },
     },
     svg: {
       marginTop: "0",
+      _dark: {
+        fill: "white",
+      },
     },
     emailUpdatesLink: {
       display: "flex",

@@ -7,6 +7,11 @@ const linkFocusHoverStyles = {
   textDecoration: "none",
 };
 
+const linkFocusHoverDarkStyles = {
+  ...linkFocusHoverStyles,
+  // color: "brand.primary",
+};
+
 const HeaderLowerNav = {
   baseStyle: {
     ul: {
@@ -28,6 +33,14 @@ const HeaderLowerNav = {
       _focus: {
         ...headerFocus,
         ...linkFocusHoverStyles,
+      },
+      _dark: {
+        color: "dark.ui.typography.heading",
+        _hover: linkFocusHoverDarkStyles,
+        _focus: {
+          ...headerFocus,
+          ...linkFocusHoverDarkStyles,
+        },
       },
     },
   },

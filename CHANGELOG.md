@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark mode` color mode support for the `Card` and `Hero` components.
 - Adds `dark mode` color mode support for the `Heading` and `List` components.
+- Adds `dark mode` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
 
 ## 1.1.0 (Ausut 30, 2022)
 
