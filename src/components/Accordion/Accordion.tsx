@@ -52,8 +52,8 @@ const getIcon = (isExpanded = false, index: number, id: string) => {
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
   id: string,
-  panelMaxHeight: string,
-  isAlwaysRendered: boolean = false
+  isAlwaysRendered: boolean = false,
+  panelMaxHeight: string
 ) => {
   const colorMap = {
     default: "ui.white",
@@ -167,8 +167,8 @@ export const Accordion = chakra(
         {getElementsFromData(
           accordionData,
           id,
-          panelMaxHeight,
-          isAlwaysRendered
+          isAlwaysRendered,
+          panelMaxHeight
         )}
       </ChakraAccordion>
     );
