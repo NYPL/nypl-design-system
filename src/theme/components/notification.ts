@@ -155,7 +155,7 @@ const NotificationHeading = {
       },
       heading: {
         color,
-        ml: icon ? "xs" : "0",
+        ml: icon && !isCentered ? "xs" : "0",
         mt: icon ? "xxxs" : "0",
         _dark: {
           borderLeftColor:
