@@ -14,7 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the colors for the `secondary` type of the `Button` component.
+- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 
 ### Fixes
 
