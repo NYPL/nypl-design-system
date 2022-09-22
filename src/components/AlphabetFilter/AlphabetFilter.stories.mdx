@@ -18,7 +18,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43236%3A25152",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=68164%3A68448",
     },
     jest: ["AlphabetFilter.test.tsx"],
   }}
@@ -52,15 +52,18 @@ import DSProvider from "../../theme/provider";
 
 <Description of={AlphabetFilter} />
 
-The `AlphabetFilter` component provides a method for alphabetical filtering on a list of items.
+The `AlphabetFilter` component renders a list of letter buttons, a pound sign button, and show all
+(reset) button that can be used to select one alphabetical filter. Displaying updated results based
+on the user's selection is the responsibility of the consuming app.
 
 ### Consuming App Responsibilities
 
 When the `onClick` handler is executed, it will be up to the consuming app to execute filtering
 updates in real-time on the client-side or to perform a full page refresh.
 
-When the `Show All` button is clicked, all filtering should be removed from the list of items that
-the component is addressing and the full list of items should be displayed.
+If the `filterValue` passed to `onClick` is `showAll` (meaning the Show All button was clicked),
+all filtering should be removed from the list of items the component is addressing and the
+full list of items should be displayed.
 
 ## Component Props
 
@@ -87,14 +90,19 @@ the component is addressing and the full list of items should be displayed.
 ## Accessibility
 
 The `AlphabetFilter` component renders as an HTML `<nav>` element with a WAI-ARIA role
-of `role="navigation"`. Each letter button has `aria-label="Page {#}"` applied, where
-{#} is equal to a button's letter value. The Show All button has `aria-label="Show All"`
-applied. When a letter button is set to a current state, `aria-current="page"` is applied
-to the button and removed from all other letter buttons.
+of `role="navigation"`. Each letter button has an attribute of `aria-label="Page {#}"`, where
+{#} is equal to a button's letter value. The `Show All` button has `aria-label="Show All"`
+applied. When a letter button is set to a current state (when a button is clicked or
+`currentLetter` is programmatically set), `aria-current="page"` is applied to the button
+and removed from all other letter buttons.
 
 The `AlphabetFilter` component is accessible via keyboard. The color contrast between
 foreground color and background color is 4.5:1. If text size is 200%, the
 button scales with text so there is no overlap.
+
+Resources:
+
+- [MDN aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 ### Consuming App Accessibility
 
@@ -106,7 +114,11 @@ applied or as a child of a Live Region container with the `aria-live="polite"` a
 
 ### AlphabetFilter with activeLetters set
 
-Pass an array of letters to narrow filter options.
+Pass an array of letters to the `activeLetters` prop to narrow filter options. Values not passed
+through the prop will always be disabled.
+
+A use case for this is when the consuming app does not have results values passed to
+`activeLetters` to limit filter options available to the user.
 
 Ex. `["#", "a", "c", "d", "e", "h", "l", "m", "n", "p", "r", "s"]`
 
@@ -134,8 +146,44 @@ Ex. `["#", "a", "c", "d", "e", "h", "l", "m", "n", "p", "r", "s"]`
 
 ### Set letter selection programmatically
 
+Use the `currentLetter` prop to pass a single letter value to set the selected letter page when
+the component first renders, or to programmatically set the current letter.
+
 <Canvas>
   <DSProvider>
     <AlphabetFilter currentLetter="c" onClick={undefined} />
+  </DSProvider>
+</Canvas>
+
+### Dynamically update the `currentLetter` using `onClick`
+
+You can pass and extract the value through the `currentLetter` and `onClick` props. `onClick` is called
+with the corresponding `Button` value every time one of the 28 buttons is clicked.
+
+Try it out: open up the browser's console to see new values being logged on each change.
+
+```jsx
+export function CurrentLetterExample() {
+  const [currentLetter, setCurrentLetter] = React.useState();
+  const onClick = (letter: string) => {
+    console.log(letter);
+    setCurrentLetter(letter);
+  };
+  return <AlphabetFilter currentLetter={currentLetter} onClick={onClick} />;
+}
+```
+
+export function CurrentLetterExample() {
+  const [currentLetter, setCurrentLetter] = React.useState();
+  const onClick = (letter) => {
+    console.log(letter);
+    setCurrentLetter(letter);
+  };
+  return <AlphabetFilter currentLetter={currentLetter} onClick={onClick} />;
+}
+
+<Canvas>
+  <DSProvider>
+    <CurrentLetterExample />
   </DSProvider>
 </Canvas>

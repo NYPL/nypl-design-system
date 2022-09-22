@@ -1,9 +1,9 @@
 import React, { forwardRef, useRef, useState } from "react";
-import { Box, chakra, useMultiStyleConfig, VStack } from "@chakra-ui/react";
+import { chakra, Flex, useMultiStyleConfig } from "@chakra-ui/react";
 import { Button } from "../Button/Button";
 import { Heading } from "../Heading/Heading";
 import { Text } from "../Text/Text";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
 export interface AlphabetFilterProps {
   /** Array of letters to specify which `Button` components should be set in an `enabled`
@@ -41,7 +41,6 @@ export const AlphabetFilter = chakra(
     } = props;
 
     const styles = useMultiStyleConfig("AlphabetFilter", {});
-    const { isLargerThanMobile } = useNYPLBreakpoints();
 
     const filterButtons = [
       { text: "#", value: "#" },
@@ -77,15 +76,10 @@ export const AlphabetFilter = chakra(
     const refCurrentLetter = useRef(currentLetter);
     const [selectedLetter, setSelectedLetter] = useState<string>(currentLetter);
 
-    // If the parent passes down a new currentLetter, and an onClick
-    // function exists, then set the internal state – selectedLetter –
+    // If the parent passes down a new currentLetter, then set the internal state – selectedLetter –
     // to the new currentLetter and update the refCurrentLetter with that value.
     React.useEffect(() => {
-      if (
-        onClick &&
-        currentLetter &&
-        currentLetter !== refCurrentLetter.current
-      ) {
+      if (currentLetter && currentLetter !== refCurrentLetter.current) {
         setSelectedLetter(currentLetter);
         refCurrentLetter.current = currentLetter;
       }
@@ -114,15 +108,15 @@ export const AlphabetFilter = chakra(
         (activeLetters && !activeLetters.includes(item.value) && !isShowAll);
 
       const buttonStyles = isSelectedLetter
-        ? { ...styles, border: "1px solid gray" }
+        ? { ...styles.button, border: "1px solid gray" }
         : isShowAll
         ? {
-            ...styles,
+            ...styles.button,
             fontWeight: "normal !important",
             whiteSpace: "nowrap",
-            marginLeft: "var(--nypl-space-m)",
+            padding: "0 16px",
           }
-        : styles;
+        : styles.button;
 
       return (
         <Button
@@ -144,40 +138,13 @@ export const AlphabetFilter = chakra(
     };
 
     const getFilterLetters = () => {
-      if (isLargerThanMobile) {
-        return filterButtons.map((item) => {
-          return getButtonElement(item);
-        });
-      }
-      // split letters into rows of 10 + Show All
-      const mobileRows = filterButtons.reduce((rows, key, index) => {
-        if (index !== filterButtons.length - 1) {
-          return (
-            (index % 10 === 0
-              ? rows.push([key])
-              : rows[rows.length - 1].push(key)) && rows
-          );
-        } else {
-          return rows.push([key]) && rows;
-        }
-      }, []);
-      return (
-        <VStack sx={styles.mobileStack}>
-          {mobileRows.map((row, index) => {
-            return (
-              <Box sx={styles.filterRow} key={index}>
-                {row.map((item) => {
-                  return getButtonElement(item);
-                })}
-              </Box>
-            );
-          })}
-        </VStack>
-      );
+      return filterButtons.map((item) => {
+        return getButtonElement(item);
+      });
     };
 
     return (
-      <Box
+      <ComponentWrapper
         as="nav"
         role="navigation"
         id={id}
@@ -186,10 +153,10 @@ export const AlphabetFilter = chakra(
         __css={styles}
         {...rest}
       >
-        {headingText && <Heading size="tertiary">{headingText}</Heading>}
+        {headingText && <Heading>{headingText}</Heading>}
         {descriptionText && <Text>{descriptionText}</Text>}
-        <Box sx={styles.filterRow}>{getFilterLetters()}</Box>
-      </Box>
+        <Flex wrap="wrap">{getFilterLetters()}</Flex>
+      </ComponentWrapper>
     );
   })
 );

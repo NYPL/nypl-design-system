@@ -3,18 +3,20 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import AlphabetFilter from "./AlphabetFilter";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
+const onClick = jest.fn();
 describe("AlphabetFilter accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <AlphabetFilter onClick={undefined} id="alphabet-filter-id" />
+      <AlphabetFilter onClick={onClick} id="alphabet-filter-id" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test with heading and description", async () => {
     const { container } = render(
       <AlphabetFilter
-        onClick={undefined}
+        onClick={onClick}
         id="alphabet-filter-id"
         headingText="Heading"
         descriptionText="This is a description."
@@ -26,7 +28,7 @@ describe("AlphabetFilter accessibility", () => {
 
 describe("AlphabetFilter", () => {
   it("should render a nav with 28 buttons", async () => {
-    render(<AlphabetFilter onClick={undefined} id="alphabet-filter-id" />);
+    render(<AlphabetFilter onClick={onClick} id="alphabet-filter-id" />);
     const nav = screen.getByRole("navigation");
 
     expect(nav).toBeInTheDocument();
@@ -35,7 +37,7 @@ describe("AlphabetFilter", () => {
 
   it("should set all `Button` children as disabled if isDisabled is true", () => {
     render(
-      <AlphabetFilter onClick={undefined} id="alphabet-filter-id" isDisabled />
+      <AlphabetFilter onClick={onClick} id="alphabet-filter-id" isDisabled />
     );
     const buttons = screen.getAllByRole("button");
     expect(buttons[0]).toBeDisabled();
@@ -45,7 +47,7 @@ describe("AlphabetFilter", () => {
   it("should render heading and description if headingText and descriptionText is passed", () => {
     render(
       <AlphabetFilter
-        onClick={undefined}
+        onClick={onClick}
         id="alphabet-filter-id"
         headingText="Heading"
         descriptionText="This is a description."
@@ -57,8 +59,34 @@ describe("AlphabetFilter", () => {
     expect(description).toBeInTheDocument();
   });
 
+  it("should disable buttons with values not passed through activeLetters", () => {
+    render(
+      <AlphabetFilter
+        onClick={onClick}
+        id="alphabet-filter-id"
+        activeLetters={[
+          "#",
+          "a",
+          "c",
+          "d",
+          "e",
+          "h",
+          "l",
+          "m",
+          "n",
+          "p",
+          "r",
+          "s",
+        ]}
+      />
+    );
+    const buttons = screen.getAllByRole("button");
+    expect(buttons[0]).not.toBeDisabled();
+    expect(buttons[2]).toBeDisabled();
+  });
+
   it("should have corresponding aria-labels for each button", () => {
-    render(<AlphabetFilter onClick={undefined} id="alphabet-filter-id" />);
+    render(<AlphabetFilter onClick={onClick} id="alphabet-filter-id" />);
     const buttons = screen.getAllByRole("button");
     const filterB = buttons[2].getAttribute("aria-label");
     const filterC = buttons[3].getAttribute("aria-label");
@@ -74,7 +102,7 @@ describe("AlphabetFilter", () => {
     render(
       <AlphabetFilter
         currentLetter="c"
-        onClick={undefined}
+        onClick={onClick}
         id="alphabet-filter-id"
       />
     );
@@ -92,7 +120,7 @@ describe("AlphabetFilter", () => {
   it("should pass a ref to the nav wrapper element", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
-      <AlphabetFilter ref={ref} id="alphabet-filter-id" onClick={undefined} />
+      <AlphabetFilter ref={ref} id="alphabet-filter-id" onClick={onClick} />
     );
 
     expect(container.querySelector("nav")).toBe(ref.current);
@@ -112,12 +140,69 @@ describe("AlphabetFilter", () => {
 
     const buttons = screen.getAllByRole("button");
 
-    // D button
+    // E button
     userEvent.click(buttons[5]);
     expect(currentLetter).toEqual("e");
 
     // Show All button
     userEvent.click(buttons[buttons.length - 1]);
     expect(currentLetter).toEqual("showAll");
+  });
+});
+
+describe("AlphabetFilter Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const primary = renderer
+      .create(<AlphabetFilter id="alphabet-filter" onClick={onClick} />)
+      .toJSON();
+    const disabled = renderer
+      .create(
+        <AlphabetFilter id="alphabet-filter" onClick={onClick} isDisabled />
+      )
+      .toJSON();
+    const withHeading = renderer
+      .create(
+        <AlphabetFilter
+          id="alphabet-filter"
+          onClick={onClick}
+          headingText="Heading"
+        />
+      )
+      .toJSON();
+    const withDescription = renderer
+      .create(
+        <AlphabetFilter
+          id="alphabet-filter"
+          onClick={onClick}
+          descriptionText="This is description text."
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <AlphabetFilter
+          id="alphabet-filter"
+          onClick={onClick}
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <AlphabetFilter
+          id="alphabet-filter"
+          onClick={onClick}
+          data-testid="testid"
+        />
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(disabled).toMatchSnapshot();
+    expect(withHeading).toMatchSnapshot();
+    expect(withDescription).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
