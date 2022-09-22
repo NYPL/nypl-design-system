@@ -10,6 +10,7 @@ const HeaderSearchButton = {
     fontWeight: "medium",
     minHeight: { md: "40px" },
     minWidth: { md: "80px" },
+    px: "0",
     textDecoration: "none",
     span: {
       alignItems: "center",
