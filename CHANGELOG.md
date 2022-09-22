@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
 
+## 1.1.1 (September 19, 2022)
+
 ### Adds
 
 - Adds the `text` variant in the `Button` component.

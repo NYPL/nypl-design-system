@@ -81,7 +81,7 @@ describe("HeaderSearchForm", () => {
       const searchBtn = screen.getByRole("button");
 
       // The default value of the radio button is set to
-      // "Search the Circulating Catalog".
+      // "Search books, music and movies".
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
 
@@ -99,11 +99,11 @@ describe("HeaderSearchForm", () => {
 
     it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
-      const researchRadio = screen.getByText("Search the Research Catalog");
+      const researchRadio = screen.getByText("Search the research catalog");
       const searchBtn = screen.getByRole("button");
 
       userEvent.type(searchInput, "cats");
-      // Select the "Search the Research Catalog" radio button.
+      // Select the "Search the research catalog" radio button.
       userEvent.click(researchRadio);
       userEvent.click(searchBtn);
 
@@ -121,7 +121,7 @@ describe("HeaderSearchForm", () => {
 
     it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const webRadio = screen.getByText("Search NYPL.org");
+      const webRadio = screen.getByText("Search the library website");
       const searchBtn = screen.getByRole("button");
 
       userEvent.type(searchInput, "cats");
@@ -159,12 +159,14 @@ describe("HeaderSearchForm", () => {
       expect(searchInput).toBeInTheDocument();
       expect(radios).toHaveLength(3);
       expect(
-        screen.getByLabelText("Search the Circulating Catalog")
+        screen.getByLabelText("Search books, music and movies")
       ).toBeInTheDocument();
       expect(
-        screen.getByLabelText("Search the Research Catalog")
+        screen.getByLabelText("Search the research catalog")
       ).toBeInTheDocument();
-      expect(screen.getByLabelText("Search NYPL.org")).toBeInTheDocument();
+      expect(
+        screen.getByLabelText("Search the library website")
+      ).toBeInTheDocument();
     });
 
     it("makes a request to the Encore catalog", () => {
@@ -172,7 +174,7 @@ describe("HeaderSearchForm", () => {
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
       userEvent.type(searchInput, "cats");
-      // Select the Circulating Catalog
+      // Select the books, music and movies radio button
       userEvent.click(circulatingCatalogRadio);
 
       // Fast-forward until all timers have been executed.

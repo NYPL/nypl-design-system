@@ -184,7 +184,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       <span
                         className="css-0"
                       >
-                        Search the Circulating Catalog
+                        Search books, music and movies
                       </span>
                     </span>
                   </label>
@@ -240,7 +240,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       <span
                         className="css-0"
                       >
-                        Search the Research Catalog
+                        Search the research catalog
                       </span>
                     </span>
                   </label>
@@ -296,7 +296,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       <span
                         className="css-0"
                       >
-                        Search NYPL.org
+                        Search the library website
                       </span>
                     </span>
                   </label>
@@ -495,7 +495,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       <span
                         className="css-0"
                       >
-                        Search the Circulating Catalog
+                        Search books, music and movies
                       </span>
                     </span>
                   </label>
@@ -551,7 +551,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       <span
                         className="css-0"
                       >
-                        Search the Research Catalog
+                        Search the research catalog
                       </span>
                     </span>
                   </label>
@@ -607,7 +607,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       <span
                         className="css-0"
                       >
-                        Search NYPL.org
+                        Search the library website
                       </span>
                     </span>
                   </label>
