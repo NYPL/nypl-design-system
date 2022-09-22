@@ -1,5 +1,5 @@
 interface CustomSliderBaseStyle {
-  isDark: boolean;
+  isDarkMode: boolean;
   isDisabled: boolean;
   isInvalid: boolean;
   showBoxes: boolean;
@@ -25,13 +25,13 @@ const CustomSlider = {
     "thumb",
   ],
   baseStyle: ({
-    isDark,
+    isDarkMode,
     isDisabled,
     isInvalid,
     showBoxes,
     showValues,
   }: CustomSliderBaseStyle) => {
-    const prefix = isDark ? "dark." : "";
+    const prefix = isDarkMode ? "dark." : "";
     let baseColor = `${prefix}ui.link.primary`;
     if (isInvalid) {
       baseColor = `${prefix}ui.error.primary`;

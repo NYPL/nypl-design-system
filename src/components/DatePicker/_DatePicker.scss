@@ -86,13 +86,13 @@
     // Selected states.
     &-text--selected,
     &--selected {
-      background-color: var(--nypl-colors-ui-focus);
+      background-color: var(--nypl-colors-ui-link-primary);
       font-weight: bold;
       border-radius: 0;
       color: var(--nypl-colors-ui-white);
       opacity: 1;
       &:hover {
-        background-color: var(--nypl-colors-ui-focus);
+        background-color: var(--nypl-colors-ui-link-primary);
         color: var(--nypl-colors-ui-white);
       }
     }
@@ -181,11 +181,11 @@
     // Selected states.
     &-text--selected,
     &--selected {
-      background-color: var(--nypl-colors-dark-ui-focus);
-      color: var(--nypl-colors-ui-white);
+      background-color: var(--nypl-colors-dark-ui-link-primary);
+      color: var(--nypl-colors-ui-black);
       &:hover {
-        background-color: var(--nypl-colors-dark-ui-focus);
-        color: var(--nypl-colors-ui-white);
+        background-color: var(--nypl-colors-dark-ui-link-primary);
+        color: var(--nypl-colors-ui-black);
       }
     }
   }
@@ -194,6 +194,18 @@
     &--in-range:not(&--in-selecting-range) {
       background-color: transparent;
       color: var(--nypl-colors-ui-white);
+    }
+  }
+
+  // Disabled
+  .react-datepicker__day--disabled,
+  .react-datepicker__month-text--disabled,
+  .react-datepicker__quarter-text--disabled,
+  .react-datepicker__year-text--disabled {
+    cursor: default;
+    color: var(--nypl-colors-dark-ui-disabled-primary);
+    &:hover {
+      color: var(--nypl-colors-dark-ui-disabled-primary);
     }
   }
 }
