@@ -8,15 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
+- Updates the `Tooltip` component to remove the dropshadow effect.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds
 
 - Adds the `text` variant in the `Button` component.
-
-### Updates
-
-- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 
 ### Fixes
 
