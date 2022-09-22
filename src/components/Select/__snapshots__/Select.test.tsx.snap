@@ -52,7 +52,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -148,7 +148,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -245,7 +245,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-cr4d1u"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -353,7 +353,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -464,7 +464,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -563,7 +563,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -660,7 +660,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="select-icon"
           role="presentation"
@@ -755,7 +755,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="chakra-icon"
           role="presentation"
@@ -851,7 +851,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1grhd2q"
+          className="chakra-icon chakra-select__icon css-q3eg3a"
           focusable={false}
           id="props-icon"
           role="presentation"

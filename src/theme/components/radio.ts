@@ -66,6 +66,48 @@ const baseStyleControl = {
   //   borderColor: "ui.gray.medium",
   //   bg: "ui.white",
   // },
+  _dark: {
+    borderColor: "dark.ui.border.default",
+    backgroundColor: "dark.ui.bg.default",
+
+    _checked: {
+      borderColor: "dark.ui.focus",
+
+      _disabled: {
+        borderColor: "dark.ui.disabled.secondary",
+        _before: {
+          bg: "dark.ui.disabled.secondary",
+        },
+      },
+
+      _invalid: {
+        borderColor: "dark.ui.error.primary",
+        _before: {
+          borderColor: "dark.ui.error.primary",
+          bg: "dark.ui.error.primary",
+        },
+      },
+    },
+
+    _disabled: {
+      borderColor: "dark.ui.disabled.secondary",
+      _before: {
+        bg: "dark.ui.disabled.secondary",
+      },
+    },
+
+    _focus: {
+      boxShadow: "none",
+      outlineColor: "dark.ui.focus",
+    },
+
+    _invalid: {
+      borderColor: "dark.ui.error.primary",
+    },
+    _before: {
+      bg: "dark.ui.focus",
+    },
+  },
 };
 
 // Style object for the Radio's label
