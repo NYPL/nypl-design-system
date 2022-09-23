@@ -1,3 +1,5 @@
+import { defaultElementSizes } from "./global";
+
 // Style object for base or default style
 const baseStyle = {
   alignItems: "center",
@@ -7,7 +9,8 @@ const baseStyle = {
   color: "ui.white",
   fontWeight: "button.default",
   justifyContent: "center",
-  lineHeight: "1.5",
+  lineHeight: "1",
+  minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   textDecoration: "none",
   wordWrap: "normal",
   svg: {
@@ -37,13 +40,12 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     medium: {
       fontSize: "button.default",
-      height: isPill ? "7" : "unset",
       px: isPill ? "m" : "button.medium.px",
       py: isPill ? "xxxs" : "button.medium.py",
     },
     large: {
       fontSize: "button.large",
-      height: isPill ? "8" : "14",
+      height: "12",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
     },
