@@ -57,15 +57,18 @@ const primary = {
 const secondary = {
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   fontSize: "button.default",
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.secondary",
+    color: "ui.link.secondary",
   },
   _disabled: {
-    bg: "ui.gray.x-light-cool",
+    bg: "transparent",
+    borderColor: "ui.disabled.primary",
+    color: "ui.disabled.primary",
   },
   _dark: {
     bg: "dark.ui.bg.default",
@@ -150,11 +153,12 @@ const pill = {
 const iconOnly = {
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.primary",
+    color: "ui.link.primary",
   },
   paddingInlineStart: "inset.narrow",
   paddingInlineEnd: "inset.narrow",
