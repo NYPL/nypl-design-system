@@ -7,6 +7,7 @@ const baseStyle = {
   display: "flex",
   cursor: "pointer",
   color: "ui.white",
+  fontWeight: "button.default",
   height: "10",
   justifyContent: "center",
   lineHeight: "1.5",
@@ -16,7 +17,6 @@ const baseStyle = {
   px: "inset.default",
   textDecoration: "none",
   wordWrap: "normal",
-  fontWeight: "button.default",
   svg: {
     fill: "currentColor",
   },
@@ -29,37 +29,88 @@ const baseStyle = {
   _disabled: {
     bg: "ui.gray.light-cool",
     color: "ui.gray.dark",
-    pointerEvents: "none",
     opacity: "1",
+    pointerEvents: "none",
+  },
+  _dark: {
+    _disabled: {
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
+    },
   },
 };
 // Styles for different visual variants:
 // primary, secondary, link, pill, iconOnly, callout, searchbar, noBrand
 const primary = {
   bg: "ui.link.primary",
-  minWidth: "none",
   height: "none",
   fontSize: "button.default",
+  minWidth: "none",
+  _dark: {
+    bg: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
+    },
+  },
 };
 const secondary = {
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   fontSize: "button.default",
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.secondary",
+    color: "ui.link.secondary",
   },
   _disabled: {
-    bg: "ui.gray.x-light-cool",
+    bg: "transparent",
+    borderColor: "ui.disabled.primary",
+    color: "ui.disabled.primary",
+  },
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.link.primary",
+    color: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+      borderColor: "dark.ui.link.secondary",
+      color: "dark.ui.link.secondary",
+    },
+    _disabled: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.disabled.primary",
+    },
   },
 };
 const link = {
   bg: "transparent",
-  lineHeight: "2.5",
   color: "ui.link.primary",
+  lineHeight: "2.5",
   textDecoration: "underline",
+  _disabled: {
+    bg: "transparent",
+  },
+  _hover: {
+    bg: "transparent",
+    color: "ui.link.secondary",
+  },
+  _dark: {
+    color: "dark.ui.link.primary",
+    _disabled: {
+      bg: "transparent",
+    },
+    _hover: {
+      color: "dark.ui.link.secondary",
+    },
+  },
+};
+const text = {
+  bg: "transparent",
+  color: "ui.link.primary",
+  fontSize: "button.default",
   _disabled: {
     bg: "transparent",
   },
@@ -72,11 +123,11 @@ const pill = {
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
-  color: "inherit",
   borderRadius: "pill",
+  color: "inherit",
+  fontSize: "button.default",
   py: "inset.narrow",
   px: "inset.wide",
-  fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
     borderColor: "ui.gray.medium",
@@ -84,15 +135,30 @@ const pill = {
   _disabled: {
     bg: "ui.gray.x-light-cool",
   },
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.link.primary",
+    color: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+      borderColor: "dark.ui.link.secondary",
+      color: "dark.ui.link.secondary",
+    },
+    _disabled: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.disabled.primary",
+    },
+  },
 };
 const iconOnly = {
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.primary",
+    color: "ui.link.primary",
   },
   paddingInlineStart: "inset.narrow",
   paddingInlineEnd: "inset.narrow",
@@ -106,6 +172,9 @@ const callout = {
   _active: {
     bg: "brand.secondary",
   },
+  _dark: {
+    bg: "dark.brand.primary",
+  },
 };
 const noBrand = {
   ...primary,
@@ -113,6 +182,12 @@ const noBrand = {
   color: "ui.white",
   _hover: {
     bg: "ui.gray.x-dark",
+  },
+  _dark: {
+    bg: "ui.gray.xx-dark",
+    _hover: {
+      bg: "ui.gray.x-dark",
+    },
   },
 };
 
@@ -122,6 +197,7 @@ const Button = {
   variants: {
     primary,
     secondary,
+    text,
     link,
     pill,
     iconOnly,

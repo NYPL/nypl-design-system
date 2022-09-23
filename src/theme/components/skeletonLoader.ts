@@ -105,8 +105,11 @@ const fade = () =>
 const Skeleton = {
   baseStyle: {
     borderRadius: "2px",
-    background: "ui.gray.light-cool",
+    bg: "ui.gray.light-cool",
     animation: `${fade()} 1000ms cubic-bezier(0.25, -0.5, 1, 0) infinite`,
+    _dark: {
+      bg: "dark.ui.bg.hover",
+    },
   },
 };
 
