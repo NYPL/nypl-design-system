@@ -10,6 +10,7 @@ const HeaderSearchButton = {
     fontWeight: "medium",
     minHeight: { md: "40px" },
     minWidth: { md: "80px" },
+    px: "0",
     textDecoration: "none",
     _dark: {
       color: isOpen ? "ui.white" : "dark.ui.link.primary",

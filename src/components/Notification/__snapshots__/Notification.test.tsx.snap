@@ -14,7 +14,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-q3eg3a"
+        className="chakra-icon notification-icon css-q3eg3a"
         focusable={false}
         id="notificationID1-notification-icon"
         role="img"
@@ -78,7 +78,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-u7u798"
+        className="chakra-icon notification-icon css-u7u798"
         focusable={false}
         id="notificationID2-notification-icon"
         role="img"
@@ -142,7 +142,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-zzgjc6"
+        className="chakra-icon notification-icon css-zzgjc6"
         focusable={false}
         id="notificationID3-notification-icon"
         role="img"
@@ -201,12 +201,12 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
   <div
     className="css-0"
   >
-    <div
+    <header
       className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-q3eg3a"
+        className="chakra-icon notification-icon css-q3eg3a"
         focusable={false}
         id="notificationID4-notification-icon"
         role="img"
@@ -236,6 +236,10 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
           />
         </g>
       </svg>
+    </header>
+    <div
+      className="css-1xdhyk6"
+    >
       <div
         className="css-0"
       >
@@ -309,12 +313,12 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   <div
     className="css-0"
   >
-    <div
+    <header
       className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-q3eg3a"
+        className="chakra-icon notification-icon css-q3eg3a"
         focusable={false}
         id="notificationID7-notification-icon"
         role="img"
@@ -344,6 +348,10 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
           />
         </g>
       </svg>
+    </header>
+    <div
+      className="css-1xdhyk6"
+    >
       <div
         className="css-0"
       >
@@ -409,7 +417,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-q3eg3a"
+        className="chakra-icon notification-icon css-q3eg3a"
         focusable={false}
         id="chakra-notification-icon"
         role="img"
@@ -474,7 +482,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-q3eg3a"
+        className="chakra-icon notification-icon css-q3eg3a"
         focusable={false}
         id="props-notification-icon"
         role="img"

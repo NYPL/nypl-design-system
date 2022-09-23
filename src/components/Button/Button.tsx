@@ -11,10 +11,11 @@ export type ButtonElementType = "submit" | "button" | "reset";
 export type ButtonTypes =
   | "primary"
   | "secondary"
+  | "text"
   | "callout"
   | "pill"
-  | "link"
-  | "noBrand";
+  | "noBrand"
+  | "link";
 
 interface ButtonProps {
   /** The button variation to render based on the `ButtonTypes` type.*/
@@ -60,6 +61,12 @@ export const Button = chakra(
       if (!id) {
         console.warn(
           "NYPL Reservoir Button: This component's required `id` prop was not passed."
+        );
+      }
+
+      if (buttonType === "link") {
+        console.warn(
+          "NYPL Reservoir Button: The 'link' value for the 'buttonType' prop has been deprecated."
         );
       }
 

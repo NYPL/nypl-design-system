@@ -30,6 +30,18 @@ const select = {
     border: "1px solid",
     borderColor: "ui.error.primary",
     boxShadow: "none",
+    color: "ui.error.primary",
+  },
+  _dark: {
+    backgroundColor: "dark.ui.bg.default",
+    borderColor: "dark.ui.border.default",
+    _hover: {
+      borderColor: "dark.ui.border.hover",
+    },
+    _invalid: {
+      borderColor: "dark.ui.error.primary",
+      color: "dark.ui.error.primary",
+    },
   },
 };
 
