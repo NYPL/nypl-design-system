@@ -60,9 +60,9 @@ export const AudioPlayer = chakra(
 
       // The root iframe object generated from the embedCode,
       const iframeDoc = parseIframeEmbedCode(embedCode);
-      // when embedCode was provided but it was a broken code
+      // when no embedCode or it was a broken code
       let isInvalidEmbed =
-        embedCode && (!iframeDoc || !isValidEmbedCode(iframeDoc));
+        !embedCode || !iframeDoc || !isValidEmbedCode(iframeDoc);
 
       const errorMessage =
         "<strong>Error: </strong>This audio player has not been configured properly. Please contact the site administrator.";
@@ -71,26 +71,21 @@ export const AudioPlayer = chakra(
         return audioType !== "file" && doc?.src?.includes(audioType);
       }
 
-      if (iframeTitle !== null) {
-        if (audioType === "file") {
-          console.warn(
-            'NYPL Reservoir AudioPlayer: The `iframeTitle` prop will be ignored when the `audioType` prop is set to "file."'
-          );
-        } else {
-          // Only set the iframe title if it doesn't already have it in the iframe
-          if (iframeDoc && !iframeDoc.title) {
-            iframeDoc.title = iframeTitle
-              ? iframeTitle
-              : "Embedded audio player";
-          }
-        }
+      if (iframeTitle && audioType === "file") {
+        console.warn(
+          'NYPL Reservoir AudioPlayer: The `iframeTitle` prop will be ignored when the `audioType` prop is set to "file."'
+        );
+      }
+      // Only set the iframe title if it doesn't already have it in the iframe
+      if (iframeDoc && !iframeDoc.title) {
+        iframeDoc.title = iframeTitle ? iframeTitle : "Embedded audio player";
       }
 
       // A friendly message states that we don't support filePath prop
       const isLocalAudioFile = filePath || audioType === "file";
       if (isLocalAudioFile) {
         console.warn(
-          "The current AudioPlayer does not support local hosted audio files."
+          "The current AudioPlayer does not support locally hosted audio file."
         );
       }
 
@@ -101,8 +96,8 @@ export const AudioPlayer = chakra(
           'NYPL Reservoir AudioPlayer: The `embedCode` prop will be ignored when the audioType prop is set to "file".'
         );
       }
-      const isFileWithoutPath = audioType === "file" && !filePath;
-      if (isFileWithoutPath) {
+      const isLocalWithoutPath = audioType === "file" && !filePath;
+      if (isLocalWithoutPath) {
         // Question: Should we remove this warning since we don't support filepath?
         console.warn(
           'NYPL Reservoir AudioPlayer: The `filePath` prop is required when the `audioType` prop is set to "file."'
@@ -112,8 +107,8 @@ export const AudioPlayer = chakra(
       const isThirdPartyService = !!thirdPartyServices.find(
         (service) => service === audioType
       );
-      const isThirdPartyWithLocal = isThirdPartyService && filePath;
-      if (isThirdPartyWithLocal) {
+      const isThirdPartyAndLocal = isThirdPartyService && filePath;
+      if (isThirdPartyAndLocal) {
         console.warn(
           "NYPL Reservoir AudioPlayer: The `filePath` prop will be ignored when using a 3rd party streaming service."
         );
@@ -130,7 +125,7 @@ export const AudioPlayer = chakra(
       const styles = useMultiStyleConfig("AudioPlayer", {});
 
       /**
-       * Builder function to build the finalized element, we prioritize localfile over 3rd party code
+       * Builder function to build the finalized render element, we prioritize localfile over 3rd party code
        * but for the current version, we only use 3rd party code.
        */
       function buildFinalElement(): JSX.Element {
