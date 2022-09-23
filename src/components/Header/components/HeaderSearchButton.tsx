@@ -1,9 +1,5 @@
 import FocusLock from "@chakra-ui/focus-lock";
-import {
-  Box,
-  chakra,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 
 import Button from "../../Button/Button";
