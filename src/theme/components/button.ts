@@ -62,15 +62,18 @@ const primary = ({ buttonSize = "medium" }) => ({
 const secondary = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   ...generalSizeValues(buttonSize),
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.secondary",
+    color: "ui.link.secondary",
   },
   _disabled: {
-    bg: "ui.gray.x-light-cool",
+    bg: "transparent",
+    borderColor: "ui.disabled.primary",
+    color: "ui.disabled.primary",
   },
 });
 // The "link" type is deprecated but we still want to style
@@ -118,12 +121,13 @@ const pill = ({ buttonSize = "medium" }) => ({
 const iconOnly = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
-  color: "inherit",
+  borderColor: "ui.link.primary",
+  color: "ui.link.primary",
   ...generalSizeValues(buttonSize),
   _hover: {
-    bg: "ui.gray.xx-light-cool",
-    borderColor: "ui.gray.medium",
+    bg: "ui.bg.default",
+    borderColor: "ui.link.primary",
+    color: "ui.link.primary",
   },
 });
 const callout = ({ buttonSize = "medium" }) => ({
