@@ -12,9 +12,13 @@ const SearchBar = {
     },
     select: {
       flexShrink: "0",
-      marginBottom: "0",
+      marginBottom: { base: "-1px", md: "0" },
       maxWidth: { base: undefined, md: "255px" },
       textOverflow: "ellipsis",
+      marginRight: { base: undefined, md: "-1px" },
+      _hover: {
+        zIndex: "10",
+      },
     },
   },
 };

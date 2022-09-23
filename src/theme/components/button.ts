@@ -32,6 +32,12 @@ const baseStyle = {
     opacity: "1",
     pointerEvents: "none",
   },
+  _dark: {
+    _disabled: {
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
+    },
+  },
 };
 // Styles for different visual variants:
 // primary, secondary, link, pill, iconOnly, callout, searchbar, noBrand
@@ -40,6 +46,13 @@ const primary = {
   height: "none",
   fontSize: "button.default",
   minWidth: "none",
+  _dark: {
+    bg: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
+    },
+  },
 };
 const secondary = {
   bg: "ui.white",
@@ -54,6 +67,20 @@ const secondary = {
   _disabled: {
     bg: "ui.gray.x-light-cool",
   },
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.link.primary",
+    color: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+      borderColor: "dark.ui.link.secondary",
+      color: "dark.ui.link.secondary",
+    },
+    _disabled: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.disabled.primary",
+    },
+  },
 };
 const link = {
   bg: "transparent",
@@ -66,6 +93,15 @@ const link = {
   _hover: {
     bg: "transparent",
     color: "ui.link.secondary",
+  },
+  _dark: {
+    color: "dark.ui.link.primary",
+    _disabled: {
+      bg: "transparent",
+    },
+    _hover: {
+      color: "dark.ui.link.secondary",
+    },
   },
 };
 const text = {
@@ -96,6 +132,20 @@ const pill = {
   _disabled: {
     bg: "ui.gray.x-light-cool",
   },
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.link.primary",
+    color: "dark.ui.link.primary",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+      borderColor: "dark.ui.link.secondary",
+      color: "dark.ui.link.secondary",
+    },
+    _disabled: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.disabled.primary",
+    },
+  },
 };
 const iconOnly = {
   bg: "ui.white",
@@ -118,6 +168,9 @@ const callout = {
   _active: {
     bg: "brand.secondary",
   },
+  _dark: {
+    bg: "dark.brand.primary",
+  },
 };
 const noBrand = {
   ...primary,
@@ -125,6 +178,12 @@ const noBrand = {
   color: "ui.white",
   _hover: {
     bg: "ui.gray.x-dark",
+  },
+  _dark: {
+    bg: "ui.gray.xx-dark",
+    _hover: {
+      bg: "ui.gray.x-dark",
+    },
   },
 };
 
