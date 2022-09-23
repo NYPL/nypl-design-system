@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `AlphabetFilter` component.
+- Adds `AudioPlayer` component.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds

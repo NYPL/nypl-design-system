@@ -1,0 +1,191 @@
+import { action } from "@storybook/addon-actions";
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import AudioPlayer from "./AudioPlayer";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("AudioPlayer")}
+  component={AudioPlayer}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25338",
+    },
+    jest: ["AudioPlayer.test.tsx"],
+  }}
+  argTypes={{
+    audioType: {},
+    className: { control: false },
+    id: { control: false },
+  }}
+/>
+
+# Audio Player
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.1.0`    |
+| Latest            | `1.1.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Extracting Audio IDs](#extracting-audio-ids)
+- [Example Embed Code Snippets](#example-embed-code-snippets)
+- [Errored](#errored)
+- [HTML in Helper Text](#html-in-helper-text)
+
+## Overview
+
+<Description of={AudioPlayer} />
+
+The `AudioPlayer` component is used to embed a streaming audio player from 3rd party services such as `Libsyn`, `SoundCloud`, and `Spotify`
+on a page. The component requires the `embedCode` prop or `filePath` prop. The component will not function properly if you try to set
+both of them.
+
+**This version will not be used for the playback of locally hosted audio files**.
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="AudioPlayer"
+    args={{
+      className: undefined,
+      descriptionText:
+        "Audio description lorem ipsum dolor simet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis.",
+      embedCode: `<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no"  allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`,
+      headingText: "Audio Title",
+      helperText: "Audio helper text lorem ipsum dolor simet.",
+      id: "audioplayer-id",
+      iframeTitle: "Libsyn Audio",
+      audioType: "libsyn",
+    }}
+  >
+    {(args) => (
+      <AudioPlayer
+        {...args}
+        embedCode={args.embedCode}
+        audioType={args.audioType && args.audioType}
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="AudioPlayer" />
+
+## Accessibility
+
+The `VideoPlayer` component renders an `iframe` element from `Libsyn`, `SoundCloud`, or `Spotify`.
+`iframe`s can be accessible if a `title` attribute is provided.
+The title must already be provided in the embed code value that is passed to the
+`embedCode` prop. A default one is provided but a custom one is recommended.
+
+To guarantee that the audio player will be accessible.
+Besides setting the `title` in the embedded `iframe`, there are _some_ ways we
+can reduce accessibility issues.
+
+- The player should not be set to auto-play when the page first loads.
+- The text in the heading, description and helper text element should be relevant and related to the embedded audio player.
+- The iframe title should describe in a few words the content of the embedded audio.
+- Consider using the description or helper text to add a link to a full transcript of the audio file. Refer to the link below for additional information.
+
+Resources:
+
+- [W3C Making Audio and Video Media Accessible](https://www.w3.org/WAI/media/av/)
+- [WebAIM Creating Accessible Frames and Iframes](https://webaim.org/techniques/frames/)
+- [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+- [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
+
+## Example Embed Code Snippets
+
+The examples below are shown with precise HTML formatting. However, often the
+embed code snippets provided by 3rd party services are delivered as one
+long string.
+
+### Libsyn
+
+```html
+<iframe
+  title="Libsyn Player"
+  style="border: none"
+  src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/"
+  height="90"
+  width="100%"
+  scrolling="no"
+  allowfullscreen
+  webkitallowfullscreen
+  mozallowfullscreen
+  oallowfullscreen
+  msallowfullscreen
+></iframe>
+```
+
+### SoundCloud
+
+```html
+<iframe
+  width="100%"
+  height="300"
+  scrolling="no"
+  frameborder="no"
+  allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+></iframe>
+<div
+  style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"
+>
+  <a
+    href="https://soundcloud.com/nypl"
+    title="New York Public Library"
+    target="_blank"
+    style="color: #cccccc; text-decoration: none;"
+    >New York Public Library</a
+  >
+  ·
+  <a
+    href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump"
+    title="Journalism in the Age of Trump"
+    target="_blank"
+    style="color: #cccccc; text-decoration: none;"
+    >Journalism in the Age of Trump</a
+  >
+</div>
+```
+
+### Spotify
+
+```html
+<iframe
+  style="border-radius:12px"
+  src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator"
+  width="100%"
+  height="380"
+  frameborder="0"
+  allowfullscreen=""
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+></iframe>
+```
+
+## Errored
+
+If the necessary props are not passed to the `AudioPlayer` component, the
+component UI will display an error message.
+
+<Canvas>
+  <DSProvider>
+    <AudioPlayer embedCode="<h1>embedCode</h1>" audioType="spotify" />
+  </DSProvider>
+</Canvas>

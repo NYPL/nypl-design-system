@@ -25,6 +25,10 @@ export {
   AccordionTypes,
 } from "./components/Accordion/Accordion";
 export {
+  default as AudioPlayer,
+  AudioType,
+} from "./components/AudioPlayer/AudioPlayer";
+export {
   default as Breadcrumbs,
   BreadcrumbsTypes,
 } from "./components/Breadcrumbs/Breadcrumbs";
