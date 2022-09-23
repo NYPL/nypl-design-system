@@ -143,11 +143,10 @@ export const AlphabetFilter = chakra(
     };
 
     return (
-      <Box role="navigation">
+      <Box as="nav" role="navigation" ref={ref}>
         <ComponentWrapper
           id={id}
           className={className}
-          ref={ref}
           __css={styles}
           {...rest}
           headingText={headingText ? headingText : undefined}
