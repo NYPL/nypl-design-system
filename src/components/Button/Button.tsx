@@ -91,7 +91,6 @@ export const Button = chakra(
       return (
         <ChakraButton
           className={className}
-          data-testid="button"
           id={id}
           isDisabled={isDisabled}
           ref={ref}
