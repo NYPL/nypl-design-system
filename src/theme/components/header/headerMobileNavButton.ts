@@ -18,7 +18,7 @@ const HeaderMobileNavButton = {
     },
     _focus: headerFocus,
     _dark: {
-      backgroundColor: isOpen ? "#2b2b2b" : "transparent",
+      backgroundColor: isOpen ? headerBlack : "transparent",
       svg: {
         fill: "dark.ui.typography.heading",
       },

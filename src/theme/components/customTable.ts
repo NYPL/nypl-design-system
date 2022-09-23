@@ -204,6 +204,9 @@ export const baseStyle = ({
     marginTop: "0",
     padding: "0",
     textAlign: "left",
+    _dark: {
+      color: "dark.ui.typography.heading",
+    },
   },
 });
 

@@ -2,7 +2,6 @@ import FocusLock from "@chakra-ui/focus-lock";
 import {
   Box,
   chakra,
-  useColorModeValue,
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
@@ -24,8 +23,7 @@ export interface HeaderSearchButtonProps {
 const HeaderSearchButton = chakra(
   ({ isMobile = false }: HeaderSearchButtonProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const isDarkMode = useColorModeValue(false, true);
-    const styles = useStyleConfig("HeaderSearchButton", { isOpen, isDarkMode });
+    const styles = useStyleConfig("HeaderSearchButton", { isOpen });
     const buttonText = isMobile ? null : isOpen ? "Close" : "Search";
     const labelText = isOpen ? "Close Search" : "Open Search";
     const ref = useRef<HTMLDivElement>(null);
