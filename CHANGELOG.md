@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 - Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates how content in the `Table` component is aligned.
 
 ## 1.1.1 (September 19, 2022)
 
