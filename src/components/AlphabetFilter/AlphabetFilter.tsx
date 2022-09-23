@@ -1,8 +1,6 @@
 import React, { forwardRef, useRef, useState } from "react";
-import { chakra, Flex, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, Flex, useMultiStyleConfig } from "@chakra-ui/react";
 import { Button } from "../Button/Button";
-import { Heading } from "../Heading/Heading";
-import { Text } from "../Text/Text";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
 export interface AlphabetFilterProps {
@@ -108,15 +106,15 @@ export const AlphabetFilter = chakra(
         (activeLetters && !activeLetters.includes(item.value) && !isShowAll);
 
       const buttonStyles = isSelectedLetter
-        ? { ...styles.button, border: "1px solid gray" }
-        : isShowAll
         ? {
             ...styles.button,
-            fontWeight: "normal !important",
-            whiteSpace: "nowrap",
-            padding: "0 16px",
+            border: "1px solid",
+            borderColor: "ui.border.default",
           }
-        : styles.button;
+        : {
+            ...styles.button,
+            border: "1px solid transparent", // prevent shifting when letter is selected
+          };
 
       return (
         <Button
@@ -124,9 +122,10 @@ export const AlphabetFilter = chakra(
           aria-label={
             item.text === "Show All" ? item.text : "Page " + item.text
           }
-          buttonType="link"
+          buttonType="text"
           id={`filter-${item.value}`}
           isDisabled={isButtonDisabled}
+          key={item.value}
           __css={buttonStyles}
           onClick={(e: React.MouseEvent | React.KeyboardEvent) => {
             handleOnClick(e, item.value);
@@ -144,19 +143,19 @@ export const AlphabetFilter = chakra(
     };
 
     return (
-      <ComponentWrapper
-        as="nav"
-        role="navigation"
-        id={id}
-        className={className}
-        ref={ref}
-        __css={styles}
-        {...rest}
-      >
-        {headingText && <Heading>{headingText}</Heading>}
-        {descriptionText && <Text>{descriptionText}</Text>}
-        <Flex wrap="wrap">{getFilterLetters()}</Flex>
-      </ComponentWrapper>
+      <Box role="navigation">
+        <ComponentWrapper
+          id={id}
+          className={className}
+          ref={ref}
+          __css={styles}
+          {...rest}
+          headingText={headingText ? headingText : undefined}
+          descriptionText={descriptionText ? descriptionText : undefined}
+        >
+          <Flex wrap="wrap">{getFilterLetters()}</Flex>
+        </ComponentWrapper>
+      </Box>
     );
   })
 );

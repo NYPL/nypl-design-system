@@ -8,16 +8,20 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `AlphabetFilter` component.
+
 ### Updates
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 - Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates `ComponentWrapper` prop `descriptionText` type to `string | JSX.Element`.
 
 ## 1.1.1 (September 19, 2022)
 
 ### Adds
 
-- Adds `AlphabetFilter` component.
 - Adds the `text` variant in the `Button` component.
 
 ### Fixes
