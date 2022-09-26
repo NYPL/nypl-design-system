@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
+
 ### Updates
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
