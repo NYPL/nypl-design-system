@@ -9,8 +9,7 @@ const baseStyle = {
   color: "ui.white",
   fontWeight: "button.default",
   justifyContent: "center",
-  lineHeight: "1",
-  minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
+  lineHeight: "1.5",
   textDecoration: "none",
   wordWrap: "normal",
   svg: {
@@ -34,18 +33,24 @@ const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
       fontSize: "button.small",
-      height: "unset !important",
+      height: "unset",
+      minHeight: "auto",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
     },
     medium: {
       fontSize: "button.default",
+      height: isPill ? "unset" : undefined,
+      minHeight: isPill
+        ? "auto"
+        : { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
       px: isPill ? "m" : "button.medium.px",
       py: isPill ? "xxxs" : "button.medium.py",
     },
     large: {
       fontSize: "button.large",
-      height: "12",
+      height: "unset",
+      minHeight: "auto",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
     },
@@ -124,6 +129,8 @@ const iconOnly = ({ buttonSize = "medium" }) => ({
   borderColor: "ui.link.primary",
   color: "ui.link.primary",
   ...generalSizeValues(buttonSize),
+  paddingInlineStart: "inset.narrow",
+  paddingInlineEnd: "inset.narrow",
   _hover: {
     bg: "ui.bg.default",
     borderColor: "ui.link.primary",
