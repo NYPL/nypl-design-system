@@ -10,7 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates whehter the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
+- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
+- Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates whether the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
 
 ## 1.1.1 (September 19, 2022)
 
@@ -21,6 +23,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes a bug where the `defaultValue` for a `TextInput` component was not being passed correctly to the Chakra input element.
+
+### Updates
+
+- Updates the spacing of the icon and text in the `Notification` component.
 
 ### Deprecates
 
