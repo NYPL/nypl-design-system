@@ -23,7 +23,7 @@ const Footer = {
       fontSize: { base: "14px", md: "13px", lg: "14px" },
       fontWeight: { lg: "400" },
       lineHeight: { base: "18px", md: "23px", lg: "30px" },
-      marginRight: { xl: "70px" },
+      marginRight: { xl: "100px" },
       order: { base: "2", md: "1", xl: "2" },
       textAlign: { base: "right", md: "left" },
       width: { base: "100%", md: "auto" },
