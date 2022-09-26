@@ -33,7 +33,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
       fontSize: "button.small",
-      height: "unset",
+      height: "fit-content",
       minHeight: "auto",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
@@ -49,7 +49,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     large: {
       fontSize: "button.large",
-      height: "unset",
+      height: "fit-content",
       minHeight: "auto",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
