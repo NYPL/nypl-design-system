@@ -40,7 +40,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     medium: {
       fontSize: "button.default",
-      height: isPill ? "unset" : undefined,
+      height: isPill ? "fit-content" : undefined,
       minHeight: isPill
         ? "auto"
         : { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
