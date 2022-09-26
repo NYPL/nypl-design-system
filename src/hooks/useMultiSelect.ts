@@ -5,8 +5,8 @@ import {
 } from "../components/MultiSelect/MultiSelect";
 
 /**
- * The useMultiSelect hook returns an object containing all the functions and state needed to handle the selectedItems of a MultiSelect component.
- * It can be used in conjunction with one single MultiSelect component as well as a group of MultiSelects in the `MultiSelectGroup`.
+ * The useMultiSelect hook returns an object containing all the functions and state needed to handle the selectedItems of a `MultiSelect` component.
+ * It can be used in conjunction with one single `MultiSelect` component as well as a group of `MultiSelect`s in the `MultiSelectGroup` component.
  * The returned object includes the functions onChange, onClear, onMixedStateChange for handling any changes to the selection of items
  * and the current state of the selection: selectedItems.
  */
@@ -20,7 +20,7 @@ export default function useMultiSelect() {
    */
   const handleChange = (itemId: string, multiSelectId: string) => {
     let itemIds;
-    // Check if the multiSelecy already exists in the state.
+    // Check if the multiSelect already exists in the state.
     if (selectedItems.hasOwnProperty(multiSelectId)) {
       // Make a copy of the existing selected items.
       itemIds = selectedItems[multiSelectId].items.slice();
