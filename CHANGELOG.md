@@ -23,6 +23,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes a bug where the `defaultValue` for a `TextInput` component was not being passed correctly to the Chakra input element.
 
+### Updates
+
+- Updates the spacing of the icon and text in the `Notification` component.
+
 ### Deprecates
 
 - Deprecates the `link` variant in the `Button` component.

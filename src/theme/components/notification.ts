@@ -66,7 +66,7 @@ const Notification = {
       },
       icon: {
         flexShrink: "0",
-        marginEnd: "s",
+        marginEnd: "xs",
       },
     };
   },
@@ -85,7 +85,7 @@ const NotificationContent = {
       color: notificationType === "warning" ? "brand.primary" : "currentColor",
       marginTop: icon ? "xxxs" : "0",
       paddingStart: alignText
-        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
+        ? "calc(var(--nypl-space-s) + var(--nypl-space-s))"
         : null,
       width: "100%",
       // Links should always be black and underlined.
