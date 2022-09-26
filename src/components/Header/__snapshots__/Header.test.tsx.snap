@@ -134,7 +134,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
                   <button
                     aria-label="Log In"
                     className="chakra-button css-1xdhyk6"
-                    data-testid="button"
                     id="loginButton"
                     onClick={[Function]}
                     type="button"
@@ -407,7 +406,6 @@ exports[`Header renders the UI snapshot correctly 1`] = `
                     aria-haspopup="true"
                     aria-label="Open Search"
                     className="chakra-button css-1xdhyk6"
-                    data-testid="button"
                     id="searchButton"
                     onClick={[Function]}
                     type="button"

@@ -16,6 +16,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the spacing of the icon and text in the `Notification` component.
 - Updates the padding and placement of the links in the `Footer` component.
 
+### Removals
+
+- Removed the `data-testid` attribute from the `Button` component.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds

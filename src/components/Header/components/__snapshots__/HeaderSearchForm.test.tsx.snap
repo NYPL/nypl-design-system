@@ -98,7 +98,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
             <button
               aria-label="Search"
               className="chakra-button css-1xdhyk6"
-              data-testid="button"
               id="search-btn"
               onClick={[Function]}
               type="button"
@@ -383,7 +382,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
             <button
               aria-label="Submit Catalog Search"
               className="chakra-button css-1xdhyk6"
-              data-testid="button"
               id="mobile-catalog"
               onClick={[Function]}
               type="button"
@@ -424,7 +422,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
             <button
               aria-label="Submit NYPL Website Search"
               className="chakra-button css-1xdhyk6"
-              data-testid="button"
               id="mobile-website"
               onClick={[Function]}
               type="button"
