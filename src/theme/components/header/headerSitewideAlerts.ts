@@ -20,6 +20,13 @@ const SitewideAlerts = {
         marginBottom: "0",
       },
     },
+    _dark: {
+      backgroundColor: "dark.ui.status.primary",
+      color: "dark.ui.typography.heading",
+      a: {
+        color: "dark.ui.typography.heading",
+      },
+    },
   },
 };
 

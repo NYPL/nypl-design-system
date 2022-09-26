@@ -8,6 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `dark mode` support for `background-color` and `color` global styles.
+- Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark mode` color mode support for the `Card` and `Hero` components.
+- Adds `dark mode` color mode support for the `Heading` and `List` components.
+- Adds `dark mode` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
+- Adds `dark mode` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+
 ### Updates
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
@@ -17,12 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `dark mode` support for `background-color` and `color` global styles.
-- Adds `dark mode` color mode support for the `HelperErrorText` and `StatusBadge` components.
-- Adds `dark mode` color mode support for the `Card` and `Hero` components.
-- Adds `dark mode` color mode support for the `Heading` and `List` components.
 - Adds the `text` variant in the `Button` component.
-- Adds `dark mode` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
 
 ### Fixes
 

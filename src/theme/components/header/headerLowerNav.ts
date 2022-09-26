@@ -29,6 +29,14 @@ const HeaderLowerNav = {
         ...headerFocus,
         ...linkFocusHoverStyles,
       },
+      _dark: {
+        color: "dark.ui.typography.heading",
+        _hover: linkFocusHoverStyles,
+        _focus: {
+          ...headerFocus,
+          ...linkFocusHoverStyles,
+        },
+      },
     },
   },
 };
