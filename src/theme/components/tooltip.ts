@@ -6,6 +6,7 @@ const Tooltip = {
   baseStyle: {
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
+    boxShadow: "none",
     color: "ui.white",
     fontSize: "text.tag",
     marginBottom: "xxs",
