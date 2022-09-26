@@ -12,7 +12,7 @@ import { getCategory } from "../utils/componentCategories";
 | Latest       | `1.1.0`    |
 
 This custom hook, inspired by [downshift.js](https://www.downshift-js.com/),
-exposes functions used for MultiSelect components. `useMultiSelect` provides all functions needed to handle the selectedItems, this hook can be used for
+exposes functions used for MultiSelect components. `useMultiSelect` provides all functions needed to handle the selectedItems. This hook can be used for
 cases where managing the state of the component in the consuming app is less of a concern and general ease of use is prefered.
 
 The two main functions are `onChange` and `onMixedStateChange` used for handling the selectedItems object. The third function provided by the hook, `onClear`,
@@ -30,10 +30,15 @@ const { onChange, onMixedStateChange, onClear, selectedItems } =
 
 ## useMultiSelect Hook implementation in a `listbox` MultiSelect
 
+The `listbox` variant can only display non hierarchical items.
+When the `useMultiSelect` hook is used within a `listbox` MultiSelect, you will only need the `onChange` and `onClear` functions and the selectedItems state.
+
 ```jsx
 import React from "react";
-import MultiSelect from "./MultiSelect";
-import useMultiSelect from "./MultiSelect/useMultiSelect";
+import {
+  MultiSelect,
+  useMultiSelect,
+} from "@nypl/design-system-react-components";
 
 export default function MultiSelectWithHookExample() {
   const multiSelectId = "multi-select-1";
@@ -47,7 +52,7 @@ export default function MultiSelectWithHookExample() {
       variant="listbox"
       items={items}
       selectedItems={selectedItems}
-      onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
+      onChange={(e) => onChange(e.target.id, multiSelectId)}
       onClear={() => {
         onClear(multiSelectId);
       }}
@@ -58,14 +63,20 @@ export default function MultiSelectWithHookExample() {
 
 ## useMultiSelect Hook implementation in a `dialog` MultiSelect
 
+The `dialog`variant can display nested items.
+When the `useMultiSelect` hook is used within a `dialog` MultiSelect, additional to the selectedItems and the `onChange` and `onClear` functions, you will need
+a `onMixedStateChange` function. It is also provided by the hook and handles the state change of parent items.
+
 ```jsx
 import React from "react";
-import MultiSelect from "./MultiSelect";
-import useMultiSelect from "./MultiSelect/useMultiSelect";
+import {
+  MultiSelect,
+  useMultiSelect,
+} from "@nypl/design-system-react-components";
 
 export default function MultiSelectWithHookExample() {
   const multiSelectId = "multi-select-1";
-  // Without this hook, you'd have to add handlers for onChange and onClear,
+  // Without this hook, you'd have to add handlers for onChange, onMixedStateChange and onClear,
   // and also manage the selectedItems state yourself.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
@@ -73,12 +84,12 @@ export default function MultiSelectWithHookExample() {
   return (
     <MultiSelect
       id={multiSelectId}
-      variant="listbox"
+      variant="dialog"
       items={items}
       selectedItems={selectedItems}
-      onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
-      onMixedStateChange={(selectedItem) =>
-        onMixedStateChange(selectedItem.id, multiSelectId, items)
+      onChange={(e) => onChange(e.target.id, multiSelectId)}
+      onMixedStateChange={(e) =>
+        onMixedStateChange(e.target.id, multiSelectId, items)
       }
       onClear={() => {
         onClear(multiSelectId);
@@ -90,7 +101,7 @@ export default function MultiSelectWithHookExample() {
 
 ## useMultiSelect Hook implementation in a `MultiSelectGroup`
 
-The data structure used to rendere two `MultiSelect` components in the following `MultiSelectGroup example:
+The data structure used to render two `MultiSelect` components in the following `MultiSelectGroup` example:
 
 ```jsx
 const multiSelectItems = [
@@ -117,12 +128,12 @@ const multiSelectItems = [
     items: [
       { id: "hammer", name: "Hammer" },
       {
-        id: "skrewdriver",
-        name: "Skrewdriver",
+        id: "screwdriver",
+        name: "Screwdriver",
         children: [
-          { id: "slottet", name: "Slotted Skrewdriver" },
-          { id: "phillips", name: "Phillips Skrewdriver" },
-          { id: "allen", name: "Allen Skrewdriver" },
+          { id: "slottet", name: "Slotted Screwdriver" },
+          { id: "phillips", name: "Phillips Screwdriver" },
+          { id: "allen", name: "Allen Screwdriver" },
         ],
       },
       { id: "whisk", name: "Whisk" },

@@ -5,13 +5,19 @@ import {
 } from "../components/MultiSelect/MultiSelect";
 
 /**
- * The useMultiSelect The hook returns an object containing all the props and state needed to handle the selectedItems in conjunction with one single Multiselect component as well as a Group of MultiSelects.
- * That includes the functions onChange, onClear, onMixedStateChange for handling any changes to the selection of items and the current state of the selection: selectedItems.
+ * The useMultiSelect hook returns an object containing all the functions and state needed to handle the selectedItems of a MultiSelect component.
+ * It can be used in conjunction with one single MultiSelect component as well as a group of MultiSelects in the `MultiSelectGroup`.
+ * The returned object includes the functions onChange, onClear, onMixedStateChange for handling any changes to the selection of items
+ * and the current state of the selection: selectedItems.
  */
 
 export default function useMultiSelect() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>({});
 
+  /**
+   * handleChange is used for both MultiSelect variants. It handles the state for checkbox options that either have no child options or are child options themselves.
+   * It accepts two arguments - the id of the checkbox option and the id of the MultiSelect component.
+   */
   const handleChange = (itemId: string, multiSelectId: string) => {
     let itemIds;
     // Check if the multiSelecy already exists in the state.
@@ -40,6 +46,10 @@ export default function useMultiSelect() {
     });
   };
 
+  /**
+   * handleMixedStateChange is used only for the "dialog" variant. It handles the state for checkbox options with child options.
+   * It accepts three arguments - the id of the (parent) checkbox option, the id of the MultiSelect component and the items array of the MultiSelect.
+   */
   const handleMixedStateChange = (
     parentId: string,
     multiSelectId: string,
@@ -86,6 +96,10 @@ export default function useMultiSelect() {
     });
   };
 
+  /**
+   * handleClear is used for both MultiSelect variants. It will remove all selected items of specific MultiSelect component from the selectedItems array.
+   * It accepts one argument - the id of the MultiSelect component.
+   */
   const handleClear = (multiSelectId: string) => {
     let newSelectedItems = {};
     for (let key of Object.keys(selectedItems)) {
