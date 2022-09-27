@@ -1,3 +1,4 @@
+import { VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -10,7 +11,11 @@ import { withDesign } from "storybook-addon-designs";
 
 import Accordion from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
+import Checkbox from "../Checkbox/Checkbox";
+import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
+import Heading from "../Heading/Heading";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Accordion")}
@@ -27,6 +32,7 @@ import { getCategory } from "../../utils/componentCategories";
     accordionData: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
+    isAlwaysRendered: { table: { defaultValue: { summary: false } } },
     panelMaxHeight: { control: { type: "text" } },
   }}
 />
@@ -36,7 +42,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `1.0.8`    |
+| Latest            | `1.1.2`    |
 
 ## Table of Contents
 
@@ -138,6 +144,7 @@ export const accordionData = [
       accordionData: accordionData,
       id: "accordion-id",
       isDefaultOpen: false,
+      isAlwaysRendered: false,
       panelMaxHeight: undefined,
     }}
   >
@@ -391,4 +398,60 @@ Example with multiple paragraphs
   <Story name="panelMaxHeight Example With Long Text">
     <Accordion accordionData={accordionTextData} panelMaxHeight="100px" />
   </Story>
+</Canvas>
+
+## Always Render the Accordion Content
+
+By default, the content in an `Accordion` is only rendered when it is opened. When
+it is closed, the content gets removed from the DOM. This is an intentional
+optimization. However, there will be occasions when you want to always render the
+content inside an `Accordion` whether it's opened or closed. Use the
+`isAlwaysRendered` prop to always render the `Accordion`'s content.
+
+In the following examples, the first `Accordion` has the default behavior where
+the content is removed when it is closed. The second `Accordion` always renders
+its content. This is important in this scenario because we want to keep the state
+of the content when it is closed. Click on subjects inside both `Accordion`s and
+toggle them closed and opened to see the difference.
+
+export const AccordionAlwaysRender = () => {
+  const onChange = (data) => {
+    console.log(data);
+  };
+  const accordionData = (key) => [
+    {
+      accordionType: "default",
+      label: "Subjects",
+      panel: (
+        <CheckboxGroup
+          id="accordion-checkbox-example"
+          labelText="Subjects"
+          name={`accordionExample${key}`}
+          showLabel={false}
+          defaultValue={["music"]}
+          onChange={onChange}
+        >
+          <Checkbox value="art" labelText="Art" />
+          <Checkbox value="chemistry" labelText="Chemistry" />
+          <Checkbox value="history" labelText="History" />
+          <Checkbox value="music" labelText="Music" />
+          <Checkbox value="science" labelText="Science" />
+        </CheckboxGroup>
+      ),
+    },
+  ];
+  return (
+    <VStack align="stretch" spacing="s">
+      <Heading level="three">Accordion panel is removed when closed</Heading>
+      <Accordion accordionData={accordionData(0)} />
+      <Heading level="three">Accordion panel is always rendered</Heading>
+      <Accordion accordionData={accordionData(1)} isAlwaysRendered />
+    </VStack>
+  );
+};
+
+<Canvas>
+  <DSProvider>
+    <AccordionAlwaysRender />
+  </DSProvider>
 </Canvas>
