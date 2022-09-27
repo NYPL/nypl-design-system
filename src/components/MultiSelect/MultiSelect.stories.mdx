@@ -289,7 +289,7 @@ This is an example with a handleChange function to manage the `selectedItems` st
 
 ```jsx
 import React, { useState } from "react";
-import MultiSelect from "./MultiSelect";
+import { MultiSelect } from "@nypl/design-system-react-components";
 
 function MultiSelectControlledExample() {
   const [selectedItems, setSelectedItems] = useState({});
@@ -328,7 +328,7 @@ function MultiSelectControlledExample() {
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => {
-        handleChange("id", selectedItem.id);
+        handleChange("subjects", selectedItem.id);
       }}
     />
   );

@@ -4,6 +4,7 @@ import { VStack } from "@chakra-ui/react";
 
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const multiSelectItems = [
   {
@@ -52,95 +53,28 @@ const multiSelectItems = [
 ];
 
 export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
-  const [selectedItems, setSelectedItems] = React.useState({});
-
-  function handleChange(itemId: string, groupId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[groupId] !== undefined) {
-      let itemIdExists = selectedItems[groupId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[groupId].items.slice();
-      // If termId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id !== itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [groupId]: {
-        items: itemIds,
-      },
-    });
-  }
-
-  function handleMixedStateChange(groupId: string, childItems: string[]) {
-    let newItems;
-    // Some selected items for group already exist in state.
-    if (selectedItems[groupId] !== undefined) {
-      //
-      if (
-        childItems.every((childItem) =>
-          selectedItems[groupId].items.includes(childItem)
-        )
-      ) {
-        newItems = selectedItems[groupId].items.filter(
-          (stateItem) => !childItems.includes(stateItem)
-        );
-      } else {
-        // Merge all child items.
-        newItems = [...childItems, ...selectedItems[groupId].items];
-      }
-    } else {
-      newItems = childItems;
-    }
-
-    setSelectedItems({
-      ...selectedItems,
-      [groupId]: {
-        items: newItems,
-      },
-    });
-  }
-
-  function handleClear(groupId: string) {
-    let newSelectedItems = {};
-    for (let key of Object.keys(selectedItems)) {
-      if (key !== groupId) {
-        newSelectedItems[key] = selectedItems[key];
-      }
-    }
-    setSelectedItems(newSelectedItems);
-  }
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
 
   return (
     <MultiSelectGroup {...args}>
       {multiSelectItems &&
-        multiSelectItems.map((group) => (
+        multiSelectItems.map((multiSelect) => (
           <MultiSelect
-            key={group.id}
-            id={group.id}
-            label={group.name}
+            key={multiSelect.id}
+            id={multiSelect.id}
+            label={multiSelect.name}
             variant="dialog"
-            items={group.items}
+            items={multiSelect.items}
             selectedItems={selectedItems}
             onChange={(e) => {
-              handleChange(e.target.id, group.id);
+              onChange(e.target.id, multiSelect.id);
             }}
-            onMixedStateChange={(e) => {
-              const childItems = group.items
-                .filter((items) => items.id === e.target.id)[0]
-                .children.map((child) => child.id);
-              return handleMixedStateChange(group.id, childItems);
-            }}
+            onMixedStateChange={(e) =>
+              onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items)
+            }
             onClear={() => {
-              handleClear(group.id);
+              onClear(multiSelect.id);
             }}
             onApply={() => {}}
           />

@@ -21,7 +21,7 @@ export interface MultiSelectGroupProps {
 }
 
 /**
- * Wrapper component to wrap `MultiSelect` components. Can be displayed in a
+ * `MultiSelectGroup` is a wrapper component specific for `MultiSelect` components. The wrapped `MutliSelect` components can be displayed in a
  * column or in a row. The `MultiSelectGroup` component renders all the necessary
  * wrapping and associated text elements, but the child elements
  * _need_ to be `MultiSelect` components from the NYPL Design System.
