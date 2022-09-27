@@ -17,12 +17,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 - Updates the `Tooltip` component to remove the dropshadow effect.
-  `Tabs` components based on the new `size` prop.
 - Updates whether the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
 - Updates the spacing of the icon and text in the `Notification` component.
 - Updates the padding and placement of the links in the `Footer` component.
 - Updates how content in the `Table` component is aligned.
 - Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
 
 ### Removals
 
