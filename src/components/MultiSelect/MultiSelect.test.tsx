@@ -51,7 +51,7 @@ const MultiSelectTestListboxComponent = ({ multiSelectId }) => {
       variant="listbox"
       items={items}
       selectedItems={selectedItems}
-      onChange={(e) => onChange(e.id, multiSelectId)}
+      onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
       onClear={() => onClear(multiSelectId)}
       onApply={() => null}
     />

@@ -52,7 +52,7 @@ export default function MultiSelectWithHookExample() {
       variant="listbox"
       items={items}
       selectedItems={selectedItems}
-      onChange={(e) => onChange(e.target.id, multiSelectId)}
+      onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
       onClear={() => {
         onClear(multiSelectId);
       }}
@@ -146,8 +146,11 @@ The implemntation of the `useMultiSelect` hook together with the `MultiSelectGro
 
 ```jsx
 import React from "react";
-import MultiSelectGroup from "./MultiSelectGroup";
-import useMultiSelect from "./MultiSelect/useMultiSelect";
+import {
+  MultiSelect,
+  MultiSelectGroup,
+  useMultiSelect,
+} from "@nypl/design-system-react-components";
 
 export default function MultiSelectGroupWithHookExample() {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
