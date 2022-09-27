@@ -3,38 +3,39 @@ import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
-/* Define all third party services, will be used for type check
- * and also used to create the AudioType
+/*
+ * List all the third-party services to be used for basic type checks
+ * and to define AudioType.
  */
 const thirdPartyServices = ["libsyn", "soundcloud", "spotify"] as const;
 export type ThirdPartyAudioType = typeof thirdPartyServices[number];
 export type AudioType = ThirdPartyAudioType | "file";
 
 export interface AudioPlayerProps {
-  /** Required string used to specify the type of audio playback */
+  /** Required string used to specify the type of audio playback. */
   audioType: AudioType;
-  /** Optional className you can add in addition to `audio-player` */
+  /** Optional className you can add in addition to `audio-player`. */
   className?: string;
-  /** Optional string to set the text for the audio player description */
+  /** Optional string to set the text for the audio player description. */
   descriptionText?: string;
   /** Optional string to set a code snippet provided by Libsyn, SoundCloud or Spotify; the
-   * `AudioPlayer` component will accept the `embedCode` prop or the `filePath` prop
+   * `AudioPlayer` component will accept the `embedCode` prop or the `filePath` prop.
    */
   embedCode?: string;
   /** Optional string to set the audio file, the path can be relative or absolute
    * referring to a locally hosted file, or a fully qualified URL pointing to a locally hosted file
    * or to another domain altogether.
-   * IMPORTANT: This prop will not be used for this version of the AudioPlayer component
+   * TODO: This prop won't be used until a future version.
    */
-  filePath?: string;
-  /** Optional string to set the text for a `Heading` component */
+  /*  filePath?: string; */
+  /** Optional string to set the text for a `Heading` component. */
   headingText?: string;
-  /** Optional string to set the text for a `HelperErrorText` component */
+  /** Optional string to set the text for a `HelperErrorText` component. */
   helperText?: string;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional title to added to the `<iframe>` element for improved accessibility. If omitted, a
-   * generic title will be added
+   * generic title will be added.
    */
   iframeTitle?: string;
 }
@@ -50,7 +51,6 @@ export const AudioPlayer = chakra(
         className,
         descriptionText,
         embedCode,
-        filePath,
         headingText,
         helperText,
         id,
@@ -58,9 +58,9 @@ export const AudioPlayer = chakra(
         ...rest
       } = props;
 
-      // The root iframe object generated from the embedCode,
+      // The root iframe object generated from the embedCode.
       const iframeDoc = parseIframeEmbedCode(embedCode);
-      // when no embedCode or it was a broken code
+      // when no embedCode or it was a broken code.
       let isInvalidEmbed =
         !embedCode || !iframeDoc || !isValidEmbedCode(iframeDoc);
 
@@ -68,52 +68,17 @@ export const AudioPlayer = chakra(
         "<strong>Error: </strong>This audio player has not been configured properly. Please contact the site administrator.";
 
       function isValidEmbedCode(doc: HTMLIFrameElement): boolean {
-        return audioType !== "file" && doc?.src?.includes(audioType);
+        return audioType !== "file" && doc?.src?.includes(`${audioType}.com`);
       }
 
-      if (iframeTitle && audioType === "file") {
-        console.warn(
-          'NYPL Reservoir AudioPlayer: The `iframeTitle` prop will be ignored when the `audioType` prop is set to "file."'
-        );
-      }
-      // Only set the iframe title if it doesn't already have it in the iframe
+      // Only set the iframe title if it doesn't already have it in the iframe.
       if (iframeDoc && !iframeDoc.title) {
         iframeDoc.title = iframeTitle ? iframeTitle : "Embedded audio player";
       }
 
-      // A friendly message states that we don't support filePath prop
-      const isLocalAudioFile = filePath || audioType === "file";
-      if (isLocalAudioFile) {
-        console.warn(
-          "The current AudioPlayer does not support locally hosted audio file."
-        );
-      }
-
-      const isLocalWithEmbed = audioType === "file" && embedCode;
-      if (isLocalWithEmbed) {
-        // Question: should we show this now?
-        console.warn(
-          'NYPL Reservoir AudioPlayer: The `embedCode` prop will be ignored when the audioType prop is set to "file".'
-        );
-      }
-      const isLocalWithoutPath = audioType === "file" && !filePath;
-      if (isLocalWithoutPath) {
-        // Question: Should we remove this warning since we don't support filepath?
-        console.warn(
-          'NYPL Reservoir AudioPlayer: The `filePath` prop is required when the `audioType` prop is set to "file."'
-        );
-      }
-
-      const isThirdPartyService = !!thirdPartyServices.find(
+      const isThirdPartyService: boolean = !!thirdPartyServices.find(
         (service) => service === audioType
       );
-      const isThirdPartyAndLocal = isThirdPartyService && filePath;
-      if (isThirdPartyAndLocal) {
-        console.warn(
-          "NYPL Reservoir AudioPlayer: The `filePath` prop will be ignored when using a 3rd party streaming service."
-        );
-      }
-
       const isThirdPartyWithoutCode = isThirdPartyService && !embedCode;
       if (isThirdPartyWithoutCode) {
         console.warn(
@@ -141,31 +106,26 @@ export const AudioPlayer = chakra(
       const embedElement = buildFinalElement();
 
       return (
-        <Box
-          className={className}
+        <ComponentWrapper
+          className={`audioplayer ${className}`}
+          headingText={headingText}
+          descriptionText={descriptionText}
+          helperText={helperText}
+          id={`${id}-componentWrapper`}
           data-testid="audio-player-component"
-          id={id}
           ref={ref}
           __css={styles}
           {...rest}
         >
-          <ComponentWrapper
-            headingText={headingText}
-            descriptionText={descriptionText}
-            helperText={helperText}
-            helperTextStyles={styles.helperErrorText}
-            id={`${id}-componentWrapper`}
-          >
-            {isInvalidEmbed ? (
-              <Box
-                dangerouslySetInnerHTML={{ __html: errorMessage }}
-                __css={styles.invalid}
-              />
-            ) : (
-              <>{embedElement}</>
-            )}
-          </ComponentWrapper>
-        </Box>
+          {isInvalidEmbed ? (
+            <Box
+              dangerouslySetInnerHTML={{ __html: errorMessage }}
+              __css={styles.invalid}
+            />
+          ) : (
+            <>{embedElement}</>
+          )}
+        </ComponentWrapper>
       );
     }
   )
@@ -173,15 +133,15 @@ export const AudioPlayer = chakra(
 
 /**
  * Parse the embedCode string to a DOM object for proper formatted HTML element.
- * We are only interested in the iframe element
+ * We are only interested in the iframe element.
  */
 export function parseIframeEmbedCode(
-  embedCode: string
+  embedCode: string | undefined
 ): HTMLIFrameElement | undefined {
   try {
     const doc = new DOMParser().parseFromString(embedCode, "text/html");
     const nodeName = doc?.body?.firstChild?.nodeName;
-    // A valid embedCode should contain only the iframe element
+    // A valid embedCode should contain only the iframe element.
     if (nodeName === "IFRAME") return doc.body.firstChild as HTMLIFrameElement;
   } catch (err) {
     console.error(err);

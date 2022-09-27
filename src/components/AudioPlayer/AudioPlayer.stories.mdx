@@ -34,8 +34,8 @@ import DSProvider from "../../theme/provider";
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
-| Added             | `1.1.0`    |
-| Latest            | `1.1.0`    |
+| Added             | `1.2.0`    |
+| Latest            | `1.2.0`    |
 
 ## Table of Contents
 
@@ -91,9 +91,8 @@ The `VideoPlayer` component renders an `iframe` element from `Libsyn`, `SoundClo
 The title must already be provided in the embed code value that is passed to the
 `embedCode` prop. A default one is provided but a custom one is recommended.
 
-To guarantee that the audio player will be accessible.
-Besides setting the `title` in the embedded `iframe`, there are _some_ ways we
-can reduce accessibility issues.
+Because these audios are hosted on a third-party platform, we cannot guarantee that the audio player will be accessible. Besides setting the `title` in the embedded `iframe`, there
+are _some ways_ we can reduce accessibility issues.
 
 - The player should not be set to auto-play when the page first loads.
 - The text in the heading, description and helper text element should be relevant and related to the embedded audio player.
@@ -115,67 +114,45 @@ long string.
 
 ### Libsyn
 
-```html
-<iframe
-  title="Libsyn Player"
-  style="border: none"
-  src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/"
-  height="90"
-  width="100%"
-  scrolling="no"
-  allowfullscreen
-  webkitallowfullscreen
-  mozallowfullscreen
-  oallowfullscreen
-  msallowfullscreen
-></iframe>
-```
+<Canvas>
+  <DSProvider>
+    <AudioPlayer
+      headingText="Audio Title"
+      descriptionText="Audio Description Text"
+      helperText="Audio Helper Text"
+      embedCode='<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen ></iframe>'
+      audioType="libsyn"
+    />
+  </DSProvider>
+</Canvas>
 
 ### SoundCloud
 
-```html
-<iframe
-  width="100%"
-  height="300"
-  scrolling="no"
-  frameborder="no"
-  allow="autoplay"
-  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-></iframe>
-<div
-  style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"
->
-  <a
-    href="https://soundcloud.com/nypl"
-    title="New York Public Library"
-    target="_blank"
-    style="color: #cccccc; text-decoration: none;"
-    >New York Public Library</a
-  >
-  ·
-  <a
-    href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump"
-    title="Journalism in the Age of Trump"
-    target="_blank"
-    style="color: #cccccc; text-decoration: none;"
-    >Journalism in the Age of Trump</a
-  >
-</div>
-```
+<Canvas>
+  <DSProvider>
+    <AudioPlayer
+      headingText="Audio Title"
+      descriptionText="Audio Description Text"
+      helperText="Audio Helper Text"
+      embedCode='<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" ></iframe> <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;" > <a href="https://soundcloud.com/nypl" title="New York Public Library" target="_blank" style="color: #cccccc; text-decoration: none;" >New York Public Library</a > · <a href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump" title="Journalism in the Age of Trump" target="_blank" style="color: #cccccc; text-decoration: none;" >Journalism in the Age of Trump</a > </div>'
+      audioType="soundcloud"
+    />
+  </DSProvider>
+</Canvas>
 
 ### Spotify
 
-```html
-<iframe
-  style="border-radius:12px"
-  src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator"
-  width="100%"
-  height="380"
-  frameborder="0"
-  allowfullscreen=""
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-></iframe>
-```
+<Canvas>
+  <DSProvider>
+    <AudioPlayer
+      headingText="Audio Title"
+      descriptionText="Audio Description Text"
+      helperText="Audio Helper Text"
+      embedCode='<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" ></iframe>'
+      audioType="spotify"
+    />
+  </DSProvider>
+</Canvas>
 
 ## Errored
 
@@ -184,6 +161,6 @@ component UI will display an error message.
 
 <Canvas>
   <DSProvider>
-    <AudioPlayer embedCode="<h1>embedCode</h1>" audioType="spotify" />
+    <AudioPlayer embedCode="<h1>Invalid Embed Code</h1>" audioType="spotify" />
   </DSProvider>
 </Canvas>

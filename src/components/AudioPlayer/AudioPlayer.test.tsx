@@ -9,9 +9,23 @@ const soundCloudCode = ` <iframe width="100%" height="300" scrolling="no" frameb
 const spotifyCode = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" ></iframe>`;
 
 describe("AudioPlayer Accessibility", () => {
-  it("Passes axe accessibility test", async () => {
+  it("Passes axe accessibility test for Libsyn player", async () => {
     const { container } = render(
       <AudioPlayer embedCode={libsynCode} audioType="libsyn" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("Passes axe accessibility test for Soundcloud player", async () => {
+    const { container } = render(
+      <AudioPlayer embedCode={soundCloudCode} audioType="soundcloud" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("Passes axe accessibility test for Spotify Player", async () => {
+    const { container } = render(
+      <AudioPlayer embedCode={spotifyCode} audioType="spotify" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -135,43 +149,6 @@ describe("Props validation", () => {
 
   describe("Throw warnings", () => {
     const warn = jest.spyOn(console, "warn");
-
-    it("Throws warning when iframeTitle is set for file audio", () => {
-      render(
-        <AudioPlayer
-          filePath="/"
-          audioType="file"
-          iframeTitle="Custom iframe title"
-        />
-      );
-      expect(warn).toHaveBeenCalledWith(
-        'NYPL Reservoir AudioPlayer: The `iframeTitle` prop will be ignored when the `audioType` prop is set to "file."'
-      );
-    });
-
-    it("Throws warning when audioType is 'file' but with embedCode", () => {
-      render(
-        <AudioPlayer filePath="/" audioType="file" embedCode={spotifyCode} />
-      );
-      expect(warn).toHaveBeenCalledWith(
-        'NYPL Reservoir AudioPlayer: The `embedCode` prop will be ignored when the audioType prop is set to "file".'
-      );
-    });
-
-    it("Throws warning when audioType is 'file' but without a filepath", () => {
-      render(<AudioPlayer audioType="file" />);
-      expect(warn).toHaveBeenCalledWith(
-        'NYPL Reservoir AudioPlayer: The `filePath` prop is required when the `audioType` prop is set to "file."'
-      );
-    });
-
-    it("Throws warning when the audioType is 'spotify' or 'soundcloud' or 'libsyn' but with filePath", () => {
-      render(<AudioPlayer filePath="/" audioType="spotify" />);
-      expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir AudioPlayer: The `filePath` prop will be ignored when using a 3rd party streaming service."
-      );
-    });
-
     it("Throws warning when the audioType is 'spotify' or 'soundcloud' or 'libsyn' but without embedCode", () => {
       render(<AudioPlayer audioType="spotify" />);
       expect(warn).toHaveBeenCalledWith(

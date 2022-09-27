@@ -4,9 +4,6 @@ const AudioPlayer = {
       backgroundColor: "ui.bg.default",
       padding: "s",
     },
-    helperErrorText: {
-      fontSize: "text.caption",
-    },
   },
 };
 
