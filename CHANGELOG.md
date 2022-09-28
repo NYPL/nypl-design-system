@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `size` prop to the `Button` component. The accepted values are "small",
   "medium", and "large". The default size value is "medium".
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
 
 ### Updates
 
