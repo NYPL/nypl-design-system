@@ -469,18 +469,21 @@ const onSubmit = () => {
 ### Programmatically Update
 
 Within the `CheckboxGroup`, individual `Checkbox`es can be updated programmatically
-through the `value` prop. Like the `defaultValue` prop, the `value` prop also
-accepts an array of strings.
+through the `value` prop. Similar to the `defaultValue` prop, the `value` prop
+also accepts an array of strings.
 
 When passing selected values through the `value` prop, the consuming app is now
 controlling the state of the values. By default, the `CheckboxGroup` component
 returns the value(s) checked to the consuming app through the `onChange` callback.
-Note that the `defaultValue` prop is not necessary unless if there are values
-that should be checked when the component first renders.
+Note that the `defaultValue` prop is not necessary unless there are values that
+should be checked when the component first renders.
 
 In the following example, the `CheckboxGroup` component works as expected, but
 now there are three (3) additional buttons that can update the selected checkboxes
-within the `CheckboxGroup` component.
+within the `CheckboxGroup` component. Open the browser's console to see the
+`onChange` callback being called _only_ when checkboxes are checked or unchecked.
+Clicking on a button does not trigger the `onChange` callback but does update
+the values.
 
 ```jsx
 export function CheckboxGroupValuesUpdateExample() {
@@ -492,7 +495,7 @@ export function CheckboxGroupValuesUpdateExample() {
     setValue(["math", "music", "magic"]);
   };
   const onClick3 = () => {
-    setValue(["physics", "science", "chemisty"]);
+    setValue(["physics", "science", "chemistry"]);
   };
   const onChange = (data) => {
     setValue(data);
@@ -509,7 +512,7 @@ export function CheckboxGroupValuesUpdateExample() {
           "math", "music", "magic"
         </Button>
         <Button id="btn3" onClick={onClick3}>
-          "physics", "science", "chemisty"
+          "physics", "science", "chemistry"
         </Button>
       </ButtonGroup>
       <CheckboxGroup
@@ -542,7 +545,7 @@ export function CheckboxGroupValuesUpdateExample() {
     setValue(["math", "music", "magic"]);
   };
   const onClick3 = () => {
-    setValue(["physics", "science", "chemisty"]);
+    setValue(["physics", "science", "chemistry"]);
   };
   const onChange = (data) => {
     setValue(data);
@@ -559,7 +562,7 @@ export function CheckboxGroupValuesUpdateExample() {
           "math", "music", "magic"
         </Button>
         <Button id="btn3" onClick={onClick3}>
-          "physics", "science", "chemisty"
+          "physics", "science", "chemistry"
         </Button>
       </ButtonGroup>
       <CheckboxGroup
