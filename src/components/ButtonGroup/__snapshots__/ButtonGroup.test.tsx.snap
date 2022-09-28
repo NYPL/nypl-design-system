@@ -6,7 +6,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-1"
     type="button"
   >
@@ -14,7 +13,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-2"
     type="button"
   >
@@ -29,7 +27,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-1"
     type="button"
   >
@@ -37,7 +34,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-2"
     type="button"
   >
@@ -52,7 +48,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-1"
     type="button"
   >
@@ -60,7 +55,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-2"
     type="button"
   >
@@ -75,7 +69,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-1"
     type="button"
   >
@@ -83,7 +76,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-2"
     type="button"
   >
@@ -99,7 +91,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 5`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-1"
     type="button"
   >
@@ -107,7 +98,6 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 5`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="btn-2"
     type="button"
   >
