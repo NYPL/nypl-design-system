@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+
 ### Updates
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
@@ -16,6 +21,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the spacing of the icon and text in the `Notification` component.
 - Updates the padding and placement of the links in the `Footer` component.
 - Updates how content in the `Table` component is aligned.
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
 
 ### Removals
 

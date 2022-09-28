@@ -60,11 +60,15 @@ const HeaderSearchForm = {
     desktopSearchBtn: {
       alignSelf: "end",
       backgroundColor: "transparent",
+      borderColor: "ui.white",
       borderRadius: "100px",
       borderWidth: "2px",
       height: "75px",
       maxHeight: "75px",
       width: "75px",
+      svg: {
+        marginTop: "xs",
+      },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
         backgroundColor: "transparent",
@@ -94,7 +98,8 @@ const HeaderSearchForm = {
       display: "flex",
       fontSize: "16px",
       flex: "1",
-      padding: "35px 0",
+      justifyContent: "center",
+      padding: "25px 0",
       svg: {
         fill: headerLightBlue,
         marginLeft: "15px",

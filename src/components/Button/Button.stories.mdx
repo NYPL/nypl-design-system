@@ -11,6 +11,7 @@ import { withDesign } from "storybook-addon-designs";
 import Button, { ButtonElementType } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
+import Table from "../Table/Table";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -120,6 +121,7 @@ export const iconNames = [
 - [With Icons](#with-icons)
 - [Patterns](#patterns)
 - [Other Examples](#other-examples)
+- [Sizes](#sizes)
 
 ## Overview
 
@@ -156,6 +158,7 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
       isDisabled: false,
       mouseDown: undefined,
       onClick: undefined,
+      size: "medium",
       type: "button",
     }}
   >
@@ -167,6 +170,7 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
         isDisabled={args.isDisabled}
         mouseDown={args.mouseDown}
         onClick={args.onClick}
+        size={args.size}
         type={args.type}
       >
         {args.displayIcon && args.displayIconLeft && (
@@ -191,12 +195,17 @@ never to link and go to another page. For `Button`s without text and only an
 icon, make sure to pass an `aria-label` value to the `Button`. `Button`s cannot
 have images of text.
 
+`Button`s can be rendered in three sizes through the `size` prop: `"small"`,
+`"medium"`, and `"large"`. The default size is `"medium"`. Even though the `"small"`
+size is available, we recommend to use the `"medium"` and `"large"` sizes.
+
 Resources:
 
 - [W3C WAI ARIA Button](https://www.w3.org/TR/wai-aria-practices-1.1/#button)
 - [W3C WAI ARIA Button Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/button/button.html)
 - [MDN ARIA: button role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role)
 - [Chakra UI Button](https://chakra-ui.com/docs/components/form/button)
+- [W3C WAI WCAG Target Size](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
 
 ## Button Groups
 
@@ -308,7 +317,7 @@ The variations modified by the `buttonType` prop:
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup align="center">
       <Button id="primary-btn">Primary</Button>
       <Button buttonType="secondary" id="secondary-btn">
         Secondary
@@ -344,5 +353,98 @@ Modifying the `isDisabled` prop:
         isDisabled
       </Button>
     </ButtonGroup>
+  </DSProvider>
+</Canvas>
+
+## Sizes
+
+Update the size of the `Button` component with the `size` prop and values:
+`"small"`, `"medium"`, `"large"`. The default size is `"medium"`.
+
+export const sizeHeaders = ["--", "small", "medium (default)", "large"];
+export const buttonData = [
+  [
+    "primary",
+    <Button id="p-small" size="small">
+      Primary
+    </Button>,
+    <Button id="p-medium" size="medium">
+      Primary
+    </Button>,
+    <Button id="p-large" size="large">
+      Primary
+    </Button>,
+  ],
+  [
+    "secondary",
+    <Button buttonType="secondary" id="s-small" size="small">
+      Secondary
+    </Button>,
+    <Button buttonType="secondary" id="s-medium" size="medium">
+      Secondary
+    </Button>,
+    <Button buttonType="secondary" id="s-large" size="large">
+      Secondary
+    </Button>,
+  ],
+  [
+    "text",
+    <Button buttonType="text" id="t-small" size="small">
+      Text
+    </Button>,
+    <Button buttonType="text" id="t-medium" size="medium">
+      Text
+    </Button>,
+    <Button buttonType="text" id="t-large" size="large">
+      Text
+    </Button>,
+  ],
+  [
+    "pill",
+    <Button buttonType="pill" id="pill-small" size="small">
+      Pill
+    </Button>,
+    <Button buttonType="pill" id="pill-medium" size="medium">
+      Pill
+    </Button>,
+    <Button buttonType="pill" id="pill-large" size="large">
+      Pill
+    </Button>,
+  ],
+  [
+    "callout",
+    <Button buttonType="callout" id="c-small" size="small">
+      Callout
+    </Button>,
+    <Button buttonType="callout" id="c-medium" size="medium">
+      Callout
+    </Button>,
+    <Button buttonType="callout" id="c-large" size="large">
+      Callout
+    </Button>,
+  ],
+  [
+    "noBrand",
+    <Button buttonType="noBrand" id="nb-small" size="small">
+      No Brand
+    </Button>,
+    <Button buttonType="noBrand" id="nb-medium" size="medium">
+      No Brand
+    </Button>,
+    <Button buttonType="noBrand" id="nb-large" size="large">
+      No Brand
+    </Button>,
+  ],
+];
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={sizeHeaders}
+      id="all-sizes"
+      showRowDividers
+      tableData={buttonData}
+      useRowHeaders
+    />
   </DSProvider>
 </Canvas>
