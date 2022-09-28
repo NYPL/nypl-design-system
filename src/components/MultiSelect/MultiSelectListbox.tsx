@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import { chakra } from "@chakra-ui/react";
 import {
   Box,
+  chakra,
   ListItem,
   UnorderedList,
   useMultiStyleConfig,
@@ -22,24 +22,24 @@ export const MultiSelectListbox = chakra(
     (props, ref?) => {
       const {
         id,
-        label,
+        isBlockElement,
         isDefaultOpen,
         items,
+        label,
         onChange,
-        selectedItems,
         onClear,
-        width = "default",
-        isBlockElement = false,
+        selectedItems,
+        width,
         ...rest
       } = props;
 
       // Downshift.
       const {
-        isOpen,
-        getToggleButtonProps,
-        getMenuProps,
-        highlightedIndex,
         getItemProps,
+        getMenuProps,
+        getToggleButtonProps,
+        highlightedIndex,
+        isOpen,
       } = useSelect({
         items,
         // Downshift's internal state for handling keyboard and mouse events.
@@ -136,7 +136,9 @@ export const MultiSelectListbox = chakra(
         </Box>
       );
     }
-  )
+  ),
+  // Pass all custom props to Chakra and override, for width prop.
+  { shouldForwardProp: () => true }
 );
 
 export default MultiSelectListbox;

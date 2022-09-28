@@ -23,42 +23,37 @@ const items = [
   { id: "furniture", name: "Furniture" },
 ];
 
-const MultiSelectTestDialogComponent = (componentId) => {
+const MultiSelectTestDialogComponent = ({ multiSelectId }) => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
-    useMultiSelect({
-      multiSelectId: componentId,
-      items,
-    });
+    useMultiSelect();
   return (
     <MultiSelect
-      id={componentId}
+      id={multiSelectId}
       label="MultiSelect Label"
       variant="dialog"
       items={items}
       selectedItems={selectedItems}
-      onChange={(e) => onChange(e.target.id)}
+      onChange={(e) => onChange(e.target.id, multiSelectId)}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id);
+        onMixedStateChange(e.target.id, multiSelectId, items);
       }}
-      onClear={() => onClear()}
+      onClear={() => onClear(multiSelectId)}
       onApply={() => null}
     />
   );
 };
-const MultiSelectTestListboxComponent = (componentId) => {
-  const { onChange, selectedItems, onClear } = useMultiSelect({
-    multiSelectId: componentId,
-    items,
-  });
+const MultiSelectTestListboxComponent = ({ multiSelectId }) => {
+  const { onChange, selectedItems, onClear } = useMultiSelect();
   return (
     <MultiSelect
-      id={componentId}
+      id={multiSelectId}
       label="MultiSelect Label"
       variant="listbox"
       items={items}
       selectedItems={selectedItems}
-      onChange={(selectedItem) => onChange(selectedItem.id)}
-      onClear={() => onClear()}
+      onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
+      onClear={() => onClear(multiSelectId)}
+      onApply={() => null}
     />
   );
 };
@@ -329,7 +324,9 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should have indeterminate state for parent item if not all child items are checked", () => {
-    render(<MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />);
+    render(
+      <MultiSelectTestDialogComponent multiSelectId="multiselect-dialog-test-id" />
+    );
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check the child
@@ -341,7 +338,9 @@ describe("MultiSelect Dialog", () => {
   });
 
   it("should check all child items if parent is checked", () => {
-    render(<MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />);
+    render(
+      <MultiSelectTestDialogComponent multiSelectId="multiselect-dialog-test-id" />
+    );
     // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Check the parent item
@@ -376,7 +375,7 @@ describe("MultiSelect Dialog", () => {
   });
   it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
     const { container } = render(
-      <MultiSelectTestDialogComponent id="multiselect-dialog-test-id" />
+      <MultiSelectTestDialogComponent multiSelectId="multiselect-dialog-test-id" />
     );
     // Check for the selectedItems count button to not be present
     expect(
@@ -402,15 +401,15 @@ describe("MultiSelect Dialog", () => {
     userEvent.click(countButton);
     // Count button disapeared
     expect(countButton).not.toBeInTheDocument();
-    // @TODO prevent menu toggle on count button click
-    // // Open menu
-    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Previously selected elements should not be selected
     expect(screen.getByLabelText("Dogs")).not.toBeChecked();
     expect(screen.getByLabelText("Colors")).not.toBeChecked();
     // Check that child items are not checked
     expect(screen.getByLabelText("Red")).not.toBeChecked();
     expect(screen.getByLabelText("Blue")).not.toBeChecked();
+    expect(countButton).not.toBeInTheDocument();
   });
 
   it("should render the UI snapshot correctly", () => {
@@ -627,7 +626,7 @@ describe("MultiSelect Listbox", () => {
 
   it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
     const { container } = render(
-      <MultiSelectTestListboxComponent id="multiselect-listbox-test-id" />
+      <MultiSelectTestListboxComponent multiSelectId="multiselect-listbox-test-id" />
     );
     // Check for the selectedItems count button to not be present
     expect(
@@ -651,12 +650,11 @@ describe("MultiSelect Listbox", () => {
     // Count button is still present
     expect(countButton).toHaveTextContent("2");
     // Click count button
-    userEvent.click(countButton);
+    userEvent.click(container.querySelector("span[role='button']"));
     // Count button disapeared
     expect(countButton).not.toBeInTheDocument();
-    // @TODO prevent menu toggle on count button click
-    // // Open menu
-    // userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
     // Previously selected elements should not be selected
     expect(screen.getByLabelText("Dogs")).not.toBeChecked();
     expect(screen.getByLabelText("Colors")).not.toBeChecked();

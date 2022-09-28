@@ -26,13 +26,19 @@ import * as stories from "./MultiSelect.stories.tsx";
   }}
   argTypes={{
     id: { control: false },
-    isBlockElement: { table: { defaultValue: { summary: "false" } } },
-    isDefaultOpen: { table: { defaultValue: { summary: "false" } } },
+    isBlockElement: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
+    isDefaultOpen: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
     items: { control: false },
     label: { table: { default: "" } },
     onApply: {
       description:
-        "The action to perform for save/apply button of multiselect. `onApply: () => void;`",
+        "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
     },
     onChange: {
       description:
@@ -40,11 +46,14 @@ import * as stories from "./MultiSelect.stories.tsx";
     },
     onMixedStateChange: {
       description:
-        "The action to perform for a mixed state checkbox (parent checkbox). `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+        "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
     },
     selectedItems: { control: false },
-    variant: { control: false, defaultValue: { summary: "listbox" } },
+    variant: { control: false },
     width: {
+      description: "Value used to set the width for the MultiSelect component",
+      control: "radio",
+      options: ["default", "fitContent", "full"],
       table: { defaultValue: { summary: "default" } },
     },
   }}
@@ -82,7 +91,7 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
     args={{
       id: "multiselect-listbox",
       label: "MultiSelect Listbox",
-      width: "default",
+      variant: "listbox",
     }}
   >
     {(args) => <stories.MultiSelectListboxStory {...args} />}
@@ -102,7 +111,7 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
     args={{
       id: "multiselect-dialog",
       label: "MultiSelect Dialog",
-      width: "default",
+      variant: "dialog",
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}
@@ -113,17 +122,51 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
 
 ## Accessibility
 
-The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with accessibility compliance.
-By using Downshift's `useSelect` hook and prop getters `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow keys are used for navigating through the `MultiSelect` options.
+### ListBox
 
-The MultiSelect variant `dialog` looks similar to the Listbox variant, but because of its “clear” and “apply” buttons, it has some key functionality differences, and accessibility must be handled differently. When the multiselect is open, focus is trapped inside the dropdown menu, and the tab key is used to move through the checkboxes and buttons inside the dialog modal.
+The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with
+accessibility compliance. By using Downshift's `useSelect` hook and prop getters
+`getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3
+WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow
+keys are used for navigating through the `MultiSelect` options.
+
+### Dialog
+
+The `MultiSelect` variant `dialog` looks similar to the Listbox variant, but because
+of its “clear” and “apply” buttons, it has some key functionality differences,
+and accessibility must be handled differently. When the `MultiSelect` is open,
+focus is trapped inside the dropdown menu, and the tab key is used to move through
+the checkboxes and buttons inside the dialog modal. The focus trap is performed
+through Chakra's `@chakra-ui/focus-lock` package which uses the `react-focus-lock`
+package under the hood.
+
+NOTE: The `react-focus-lock` package renders two "focus guard" elements and one
+has a `tabindex` set to `1`, in order to perform the focus trap behavior. The
+Storybook accessibility checker [complains](https://dequeuniversity.com/rules/axe/4.4/tabindex?application=axeAPI)
+about this whenever the "dialog" variant is opened.
+
+While this is an accessibility issue, we explicitly want the focus trap behavior
+within the `MultiSelect`. Once the component is closed, the issue goes away. For
+the moment, we will continue to use Chakra's implementation of the `react-focus-lock`
+package.
+
+### Selected Items Count Button
+
+When items are selected in a `MultiSelect`, a button with the count of the selected
+items will display above the main `MultiSelect` button. This count button is
+rendered _after_ the main button but visualy displays above the main button. This
+is performed to prevent the accessibility issue where nested interactive control
+elements are not properly accessible by screen readers.
 
 Resources:
 
 - [downshift.js documentation](https://www.downshift-js.com/)
-- [Reservoir Checkbox Component](http://localhost:6006/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
+- [Reservoir Checkbox Component](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
 - [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
 - [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
+- [Chakra focus-lock npm](https://www.npmjs.com/package/@chakra-ui/focus-lock)
+- [react-focus-lock npm](https://www.npmjs.com/package/react-focus-lock)
+- [Deque University - Nested interactive controls are not announced by screen readers](https://dequeuniversity.com/rules/axe/4.4/nested-interactive)
 
 ## Using the items prop
 
@@ -246,7 +289,7 @@ This is an example with a handleChange function to manage the `selectedItems` st
 
 ```jsx
 import React, { useState } from "react";
-import MultiSelect from "./MultiSelect";
+import { MultiSelect } from "@nypl/design-system-react-components";
 
 function MultiSelectControlledExample() {
   const [selectedItems, setSelectedItems] = useState({});
@@ -285,7 +328,7 @@ function MultiSelectControlledExample() {
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => {
-        handleChange("id", selectedItem.id);
+        handleChange("subjects", selectedItem.id);
       }}
     />
   );
@@ -303,4 +346,4 @@ of a concern and general ease of use is prefered.
 The hook returns an object containing all the props and state needed to handle the selectedItems.
 That includes the functions `onChange`, `onClear`, `onMixedStateChange` for handling any changes to the selection of items and the current state of the selection: `selectedItems`.
 
-<!-- Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page) -->
+Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page).

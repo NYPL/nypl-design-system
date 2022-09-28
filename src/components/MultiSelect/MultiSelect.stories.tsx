@@ -69,10 +69,8 @@ const items = [
 
 export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onClear, selectedItems } = useMultiSelect({
-    multiSelectId: args.id,
-    items,
-  });
+  const { onChange, onClear, selectedItems } = useMultiSelect();
+  const multiSelectId = args.id;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -82,15 +80,14 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   }, [selectedItems]);
   return (
     <MultiSelect
-      id="multiselect-listbox"
-      label="MultiSelect Listbox"
-      variant="listbox"
-      width={args.width}
+      {...args}
       items={items}
       selectedItems={selectedItems}
-      onChange={(selectedItem) => onChange(selectedItem.id)}
+      onChange={(selectedItem, multiSelectId) =>
+        onChange(selectedItem.id, multiSelectId)
+      }
       onClear={() => {
-        onClear();
+        onClear(multiSelectId);
         action("onClear")({});
       }}
     />
@@ -100,7 +97,8 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
-    useMultiSelect({ multiSelectId: args.id, items });
+    useMultiSelect();
+  const multiSelectId = args.id;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   useEffect(() => {
@@ -112,16 +110,17 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   return (
     <MultiSelect
       {...args}
-      variant="dialog"
       items={items}
       isDefaultOpen={false}
       selectedItems={selectedItems}
       onChange={(e) => {
-        onChange(e.target.id);
+        onChange(e.target.id, multiSelectId);
       }}
-      onMixedStateChange={(e) => onMixedStateChange(e.target.id)}
+      onMixedStateChange={(e) =>
+        onMixedStateChange(e.target.id, multiSelectId, items)
+      }
       onClear={() => {
-        onClear();
+        onClear(multiSelectId);
         action("onClear")({});
       }}
       onApply={() => {

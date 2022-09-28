@@ -9,29 +9,31 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 
+export type MultiSelectWidths = "default" | "fitContent" | "full";
+
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 interface MultiSelectCommonProps {
   /** The id of the MultiSelect. */
   id: string;
-  /** The label of the MultiSelect. */
-  label: string;
-  /** The variant of the MultiSelect. */
-  variant: "listbox" | "dialog";
-  /** The items to be rendered in the Multiselect as checkbox options. */
-  items: MultiSelectItem[];
-  /** The selected items state (items that were checked by user). */
-  selectedItems: SelectedItems;
-  /** Value used to set the width for the MultiSelect component. */
-  width?: "default" | "fitContent" | "full";
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
    * The default value is false. */
   isBlockElement?: boolean;
+  /** The items to be rendered in the Multiselect as checkbox options. */
+  items: MultiSelectItem[];
+  /** The label of the MultiSelect. */
+  label: string;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
+  /** The variant of the MultiSelect. */
+  variant: "listbox" | "dialog";
+  /** The selected items state (items that were checked by user). */
+  selectedItems: SelectedItems;
+  /** Value used to set the width for the MultiSelect component. */
+  width?: MultiSelectWidths;
 }
 type ListboxOnChange = (selectedItem: MultiSelectItem, id: string) => void;
 type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -39,20 +41,20 @@ type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 type MultiSelectVariantsProps =
   | {
       variant: "listbox";
+      onApply?: never;
       /** The action to perform for downshift's onSelectedItemChange function. */
       onChange: ListboxOnChange;
       // These are props that are never allowed on the listbox variant.
       onMixedStateChange?: never;
-      onApply?: never;
     }
   | {
       variant: "dialog";
+      /** The action to perform for save/apply button of multiselect. */
+      onApply: () => void;
       /** The action to perform on the checkbox's onChange function.  */
       onChange: DialogOnChange;
       /** The action to perform for a mixed state checkbox (parent checkbox). */
       onMixedStateChange?: DialogOnChange;
-      /** The action to perform for save/apply button of multiselect. */
-      onApply: () => void;
     };
 
 export type MultiSelectProps = MultiSelectCommonProps &
@@ -70,30 +72,30 @@ export const MultiSelect = chakra(
     (props, ref?) => {
       const {
         id,
-        label,
-        variant,
+        isBlockElement = false,
+        isDefaultOpen = false,
         items,
-        selectedItems,
-        width,
+        label,
+        onApply,
         onChange,
         onClear,
-        onApply,
         onMixedStateChange,
-        isDefaultOpen = false,
-        isBlockElement = false,
+        selectedItems,
+        variant,
+        width = "default",
         ...rest
       } = props;
 
       const commonProps = {
         id,
-        label,
-        variant,
-        items,
-        selectedItems,
-        width,
-        isDefaultOpen,
         isBlockElement,
+        isDefaultOpen,
+        items,
+        label,
         onClear,
+        selectedItems,
+        variant,
+        width,
       };
 
       if (variant === "listbox") {
@@ -126,7 +128,9 @@ export const MultiSelect = chakra(
 
       return null;
     }
-  )
+  ),
+  // Pass all custom props to Chakra and override, for width prop.
+  { shouldForwardProp: () => true }
 );
 
 export default MultiSelect;
