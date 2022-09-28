@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   "medium", and "large". The default size value is "medium".
 - Adds the `value` prop to the `Slider` component to programmatically update the
   values of the `Slider` component.
+- Adds the `value` prop to the `CheckboxGroup` component to programmatically
+  update the values of the `Checkbox`es within it.
 
 ### Updates
 
