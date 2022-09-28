@@ -10,6 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
 - Adds the `value` prop to the `CheckboxGroup` component to programmatically
   update the values of the `Checkbox`es within it.
 
@@ -21,6 +25,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the spacing of the icon and text in the `Notification` component.
 - Updates the padding and placement of the links in the `Footer` component.
 - Updates how content in the `Table` component is aligned.
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
 
 ### Removals
 
