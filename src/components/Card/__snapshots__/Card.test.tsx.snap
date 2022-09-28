@@ -39,7 +39,6 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
@@ -422,7 +421,6 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
@@ -473,7 +471,6 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
@@ -486,7 +483,6 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button2"
         onClick={[Function]}
         type="submit"
@@ -537,7 +533,6 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
@@ -591,7 +586,6 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
     >
       <button
         className="chakra-button css-1xdhyk6"
-        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
