@@ -2,6 +2,9 @@
 const blogs = {
   bg: "section.blogs.secondary",
   color: "ui.black",
+  _dark: {
+    bg: "dark.section.blogs.secondary",
+  },
   a: {
     _hover: {
       color: "ui.gray.x-dark",
@@ -13,18 +16,30 @@ const blogs = {
 };
 const booksAndMore = {
   bg: "section.books-and-more.secondary",
+  _dark: {
+    bg: "dark.section.books-and-more.secondary",
+  },
 };
 const education = {
   bg: "section.education.secondary",
 };
 const locations = {
   bg: "section.locations.primary",
+  _dark: {
+    bg: "dark.section.locations.primary",
+  },
 };
 const research = {
   bg: "section.research.secondary",
+  _dark: {
+    bg: "dark.section.research.secondary",
+  },
 };
 const whatsOn = {
   bg: "section.whats-on.secondary",
+  _dark: {
+    bg: "dark.section.whats-on.secondary",
+  },
 };
 
 const Breadcrumb = {
@@ -35,6 +50,10 @@ const Breadcrumb = {
     fontWeight: "breadcrumbs.default",
     paddingBottom: "xs",
     paddingTop: "xs",
+    _dark: {
+      bg: "dark.ui.bg.hover",
+      color: "dark.ui.typography.heading",
+    },
     ol: {
       alignItems: { base: "center", md: "unset" },
       display: { base: "flex", md: "block" },

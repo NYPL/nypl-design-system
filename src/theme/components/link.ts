@@ -1,6 +1,9 @@
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
+  _dark: {
+    color: "dark.ui.link.primary",
+  },
   _hover: {
     color: "ui.link.secondary",
   },
