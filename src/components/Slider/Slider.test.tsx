@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React, { createRef } from "react";
 import renderer from "react-test-renderer";
 
 import Slider from "./Slider";
@@ -374,6 +374,24 @@ describe("Slider", () => {
       expect(currentValue).toEqual(84);
     });
 
+    it("updates the value programmatically through the `value` prop", () => {
+      let value = 15;
+
+      const { rerender } = render(
+        <Slider id="slider" labelText="Label" value={value} />
+      );
+      let slider = screen.getByRole("slider");
+
+      expect(screen.getByRole("spinbutton")).toHaveValue(15);
+      expect(slider).toHaveAttribute("aria-valuenow", "15");
+
+      value = 20;
+      rerender(<Slider id="slider" labelText="Label" value={value} />);
+
+      expect(screen.getByRole("spinbutton")).toHaveValue(20);
+      expect(slider).toHaveAttribute("aria-valuenow", "20");
+    });
+
     it("renders the UI snapshot correctly", () => {
       const defaultSlider = renderer
         .create(
@@ -501,7 +519,7 @@ describe("Slider", () => {
     });
 
     it("passes a ref to the div wrapper element", () => {
-      const ref = React.createRef<HTMLDivElement>();
+      const ref = createRef<HTMLDivElement>();
       const { container } = render(
         <Slider
           defaultValue={50}
@@ -704,6 +722,30 @@ describe("Slider", () => {
       );
     });
 
+    it("updates the value programmatically through the `value` prop", () => {
+      let value = [15, 76];
+
+      const { rerender } = render(
+        <Slider id="slider" isRangeSlider labelText="Label" value={value} />
+      );
+      let slider = screen.getAllByRole("slider");
+
+      expect(screen.getAllByRole("spinbutton")[0]).toHaveValue(15);
+      expect(screen.getAllByRole("spinbutton")[1]).toHaveValue(76);
+      expect(slider[0]).toHaveAttribute("aria-valuenow", "15");
+      expect(slider[1]).toHaveAttribute("aria-valuenow", "76");
+
+      value = [20, 99];
+      rerender(
+        <Slider id="slider" isRangeSlider labelText="Label" value={value} />
+      );
+
+      expect(screen.getAllByRole("spinbutton")[0]).toHaveValue(20);
+      expect(screen.getAllByRole("spinbutton")[1]).toHaveValue(99);
+      expect(slider[0]).toHaveAttribute("aria-valuenow", "20");
+      expect(slider[1]).toHaveAttribute("aria-valuenow", "99");
+    });
+
     it("renders the UI snapshot correctly", () => {
       const defaultRangeSlider = renderer
         .create(
@@ -811,7 +853,7 @@ describe("Slider", () => {
     });
 
     it("passes a ref to the div wrapper element", () => {
-      const ref = React.createRef<HTMLDivElement>();
+      const ref = createRef<HTMLDivElement>();
       const { container } = render(
         <Slider
           defaultValue={[25, 75]}
