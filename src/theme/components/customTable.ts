@@ -142,10 +142,14 @@ export const baseStyle = ({
   // have text color black.
   tbody: {
     th: {
-      color: "var(--nypl-colors-ui-black)",
+      color: "ui.black",
       backgroundColor: useRowHeaders
         ? { base: "ui.gray.x-light-cool", md: "unset" }
         : undefined,
+      verticalAlign: "top",
+    },
+    td: {
+      verticalAlign: "top",
     },
   },
   thead: {

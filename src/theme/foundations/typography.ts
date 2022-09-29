@@ -46,7 +46,9 @@ const typography: Typography = {
       default: fontSizeValues["-1"],
     },
     button: {
+      small: fontSizeValues["-2"],
       default: fontSizeValues["-1"],
+      large: fontSizeValues["0"],
     },
     heading: {
       primary: fontSizeValues["4"],
