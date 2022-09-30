@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+
 ## 1.1.2 (September 29, 2022)
 
 ### Adds
@@ -115,7 +119,6 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
-  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
