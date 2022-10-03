@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+
 ## 1.1.2 (September 29, 2022)
 
 ### Adds
