@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds a variant for `NYCDOE` to the `Logo` component.
 
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+
 ## 1.1.2 (September 29, 2022)
 
 ### Adds
