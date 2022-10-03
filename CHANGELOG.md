@@ -16,6 +16,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark mode` color mode support for the `Heading` and `List` components.
 - Adds `dark mode` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
 - Adds `dark mode` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+- Adds `dark mode` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
+- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
 
 ### Updates
 
