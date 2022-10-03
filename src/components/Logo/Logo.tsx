@@ -25,6 +25,7 @@ export type LogoNames =
   | "mlnBlack"
   | "mlnColor"
   | "mlnWhite"
+  | "nycdoeColor"
   | "nyplFullBlack"
   | "nyplFullWhite"
   | "nyplLionBlack"
