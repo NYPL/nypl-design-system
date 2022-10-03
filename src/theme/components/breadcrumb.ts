@@ -20,8 +20,17 @@ const booksAndMore = {
     bg: "dark.section.books-and-more.secondary",
   },
 };
+const brand = {
+  bg: "brand.secondary",
+  _dark: {
+    bg: "dark.brand.secondary",
+  },
+};
 const education = {
   bg: "section.education.secondary",
+  _dark: {
+    bg: "dark.section.education.secondary",
+  },
 };
 const locations = {
   bg: "section.locations.primary",
@@ -103,6 +112,7 @@ const Breadcrumb = {
   variants: {
     blogs,
     booksAndMore,
+    brand,
     education,
     locations,
     research,
