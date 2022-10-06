@@ -24,6 +24,7 @@ export {
   default as Accordion,
   AccordionTypes,
 } from "./components/Accordion/Accordion";
+export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
 export {
   default as Breadcrumbs,
   BreadcrumbsTypes,
