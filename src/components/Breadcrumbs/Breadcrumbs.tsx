@@ -12,6 +12,7 @@ import Icon from "../Icons/Icon";
 export type BreadcrumbsTypes =
   | "blogs"
   | "booksAndMore"
+  | "brand"
   | "education"
   | "locations"
   | "research"

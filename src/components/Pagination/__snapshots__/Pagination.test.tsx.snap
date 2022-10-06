@@ -15,7 +15,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-current="page"
         aria-label="Page 1"
-        className="css-1eo4rk2"
+        className="css-u4fxc5"
         href="page=1"
         id="firstPage-1"
         rel={null}
@@ -203,7 +203,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-current="page"
         aria-label="Page 10"
-        className="css-1eo4rk2"
+        className="css-u4fxc5"
         href="page=10"
         id="lastPage-10"
         rel={null}
@@ -272,7 +272,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
       <a
         aria-current="page"
         aria-label="Page 5"
-        className="css-1eo4rk2"
+        className="css-u4fxc5"
         href="page=5"
         id="middlePage-5"
         rel={null}
@@ -341,7 +341,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-current="page"
         aria-label="Page 1"
-        className="css-1eo4rk2"
+        className="css-u4fxc5"
         href="page=1"
         id="chakra-1"
         rel={null}
@@ -450,7 +450,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-current="page"
         aria-label="Page 1"
-        className="css-1eo4rk2"
+        className="css-u4fxc5"
         href="page=1"
         id="props-1"
         rel={null}
