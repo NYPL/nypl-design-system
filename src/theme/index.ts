@@ -9,6 +9,7 @@ import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
+import AlphabetFilter from "./components/alphabetFilter";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -41,6 +42,8 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import MultiSelect from "./components/multiSelect";
+import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -54,6 +57,7 @@ import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
+import TagSetStyles from "./components/tagSet";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -94,6 +98,7 @@ const theme = extendTheme({
    */
   components: {
     Accordion,
+    AlphabetFilter,
     Breadcrumb,
     Button,
     ButtonGroup,
@@ -127,6 +132,8 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    MultiSelect,
+    MultiSelectMenuButton,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
@@ -141,6 +148,7 @@ const theme = extendTheme({
     StructuredContent,
     Tabs,
     CustomTable,
+    ...TagSetStyles,
     ...TemplateStyles,
     Text,
     TextInput,
