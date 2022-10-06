@@ -159,7 +159,7 @@ describe("Tooltip", () => {
     );
   });
 
-  it("logs a warning if `content` is not a string, Icon, or Image", () => {
+  it("logs a warning if `content` is not a string, number, Icon, or Image", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tooltip content={<Button id="warn-button">Should warn</Button>}>
@@ -168,7 +168,7 @@ describe("Tooltip", () => {
     );
 
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Tooltip: Pass in a string, DS Icon, or DS Image into the 'content' prop."
+      "NYPL Reservoir Tooltip: Pass in a string, number, DS Icon, or DS Image into the 'content' prop."
     );
   });
 });
