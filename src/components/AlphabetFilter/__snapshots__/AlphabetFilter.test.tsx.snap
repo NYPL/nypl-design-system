@@ -15,8 +15,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-#"
         onClick={[Function]}
         type="button"
@@ -26,8 +25,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-a"
         onClick={[Function]}
         type="button"
@@ -37,8 +35,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-b"
         onClick={[Function]}
         type="button"
@@ -48,8 +45,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-c"
         onClick={[Function]}
         type="button"
@@ -59,8 +55,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-d"
         onClick={[Function]}
         type="button"
@@ -70,8 +65,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-e"
         onClick={[Function]}
         type="button"
@@ -81,8 +75,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-f"
         onClick={[Function]}
         type="button"
@@ -92,8 +85,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-g"
         onClick={[Function]}
         type="button"
@@ -103,8 +95,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-h"
         onClick={[Function]}
         type="button"
@@ -114,8 +105,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-i"
         onClick={[Function]}
         type="button"
@@ -125,8 +115,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-j"
         onClick={[Function]}
         type="button"
@@ -136,8 +125,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-k"
         onClick={[Function]}
         type="button"
@@ -147,8 +135,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-l"
         onClick={[Function]}
         type="button"
@@ -158,8 +145,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-m"
         onClick={[Function]}
         type="button"
@@ -169,8 +155,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-n"
         onClick={[Function]}
         type="button"
@@ -180,8 +165,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-o"
         onClick={[Function]}
         type="button"
@@ -191,8 +175,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-p"
         onClick={[Function]}
         type="button"
@@ -202,8 +185,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-q"
         onClick={[Function]}
         type="button"
@@ -213,8 +195,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-r"
         onClick={[Function]}
         type="button"
@@ -224,8 +205,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-s"
         onClick={[Function]}
         type="button"
@@ -235,8 +215,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-t"
         onClick={[Function]}
         type="button"
@@ -246,8 +225,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-u"
         onClick={[Function]}
         type="button"
@@ -257,8 +235,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-v"
         onClick={[Function]}
         type="button"
@@ -268,8 +245,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-w"
         onClick={[Function]}
         type="button"
@@ -279,8 +255,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-x"
         onClick={[Function]}
         type="button"
@@ -290,8 +265,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-y"
         onClick={[Function]}
         type="button"
@@ -301,8 +275,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-z"
         onClick={[Function]}
         type="button"
@@ -312,8 +285,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-showAll"
         onClick={[Function]}
         type="button"
@@ -340,8 +312,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-#"
         onClick={[Function]}
@@ -352,8 +323,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-a"
         onClick={[Function]}
@@ -364,8 +334,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-b"
         onClick={[Function]}
@@ -376,8 +345,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-c"
         onClick={[Function]}
@@ -388,8 +356,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-d"
         onClick={[Function]}
@@ -400,8 +367,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-e"
         onClick={[Function]}
@@ -412,8 +378,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-f"
         onClick={[Function]}
@@ -424,8 +389,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-g"
         onClick={[Function]}
@@ -436,8 +400,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-h"
         onClick={[Function]}
@@ -448,8 +411,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-i"
         onClick={[Function]}
@@ -460,8 +422,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-j"
         onClick={[Function]}
@@ -472,8 +433,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-k"
         onClick={[Function]}
@@ -484,8 +444,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-l"
         onClick={[Function]}
@@ -496,8 +455,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-m"
         onClick={[Function]}
@@ -508,8 +466,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-n"
         onClick={[Function]}
@@ -520,8 +477,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-o"
         onClick={[Function]}
@@ -532,8 +488,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-p"
         onClick={[Function]}
@@ -544,8 +499,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-q"
         onClick={[Function]}
@@ -556,8 +510,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-r"
         onClick={[Function]}
@@ -568,8 +521,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-s"
         onClick={[Function]}
@@ -580,8 +532,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-t"
         onClick={[Function]}
@@ -592,8 +543,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-u"
         onClick={[Function]}
@@ -604,8 +554,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-v"
         onClick={[Function]}
@@ -616,8 +565,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-w"
         onClick={[Function]}
@@ -628,8 +576,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-x"
         onClick={[Function]}
@@ -640,8 +587,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-y"
         onClick={[Function]}
@@ -652,8 +598,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-z"
         onClick={[Function]}
@@ -664,8 +609,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         disabled={true}
         id="filter-showAll"
         onClick={[Function]}
@@ -699,8 +643,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-#"
         onClick={[Function]}
         type="button"
@@ -710,8 +653,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-a"
         onClick={[Function]}
         type="button"
@@ -721,8 +663,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-b"
         onClick={[Function]}
         type="button"
@@ -732,8 +673,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-c"
         onClick={[Function]}
         type="button"
@@ -743,8 +683,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-d"
         onClick={[Function]}
         type="button"
@@ -754,8 +693,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-e"
         onClick={[Function]}
         type="button"
@@ -765,8 +703,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-f"
         onClick={[Function]}
         type="button"
@@ -776,8 +713,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-g"
         onClick={[Function]}
         type="button"
@@ -787,8 +723,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-h"
         onClick={[Function]}
         type="button"
@@ -798,8 +733,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-i"
         onClick={[Function]}
         type="button"
@@ -809,8 +743,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-j"
         onClick={[Function]}
         type="button"
@@ -820,8 +753,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-k"
         onClick={[Function]}
         type="button"
@@ -831,8 +763,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-l"
         onClick={[Function]}
         type="button"
@@ -842,8 +773,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-m"
         onClick={[Function]}
         type="button"
@@ -853,8 +783,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-n"
         onClick={[Function]}
         type="button"
@@ -864,8 +793,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-o"
         onClick={[Function]}
         type="button"
@@ -875,8 +803,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-p"
         onClick={[Function]}
         type="button"
@@ -886,8 +813,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-q"
         onClick={[Function]}
         type="button"
@@ -897,8 +823,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-r"
         onClick={[Function]}
         type="button"
@@ -908,8 +833,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-s"
         onClick={[Function]}
         type="button"
@@ -919,8 +843,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-t"
         onClick={[Function]}
         type="button"
@@ -930,8 +853,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-u"
         onClick={[Function]}
         type="button"
@@ -941,8 +863,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-v"
         onClick={[Function]}
         type="button"
@@ -952,8 +873,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-w"
         onClick={[Function]}
         type="button"
@@ -963,8 +883,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-x"
         onClick={[Function]}
         type="button"
@@ -974,8 +893,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-y"
         onClick={[Function]}
         type="button"
@@ -985,8 +903,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-z"
         onClick={[Function]}
         type="button"
@@ -996,8 +913,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-showAll"
         onClick={[Function]}
         type="button"
@@ -1029,8 +945,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-#"
         onClick={[Function]}
         type="button"
@@ -1040,8 +955,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-a"
         onClick={[Function]}
         type="button"
@@ -1051,8 +965,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-b"
         onClick={[Function]}
         type="button"
@@ -1062,8 +975,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-c"
         onClick={[Function]}
         type="button"
@@ -1073,8 +985,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-d"
         onClick={[Function]}
         type="button"
@@ -1084,8 +995,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-e"
         onClick={[Function]}
         type="button"
@@ -1095,8 +1005,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-f"
         onClick={[Function]}
         type="button"
@@ -1106,8 +1015,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-g"
         onClick={[Function]}
         type="button"
@@ -1117,8 +1025,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-h"
         onClick={[Function]}
         type="button"
@@ -1128,8 +1035,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-i"
         onClick={[Function]}
         type="button"
@@ -1139,8 +1045,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-j"
         onClick={[Function]}
         type="button"
@@ -1150,8 +1055,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-k"
         onClick={[Function]}
         type="button"
@@ -1161,8 +1065,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-l"
         onClick={[Function]}
         type="button"
@@ -1172,8 +1075,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-m"
         onClick={[Function]}
         type="button"
@@ -1183,8 +1085,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-n"
         onClick={[Function]}
         type="button"
@@ -1194,8 +1095,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-o"
         onClick={[Function]}
         type="button"
@@ -1205,8 +1105,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-p"
         onClick={[Function]}
         type="button"
@@ -1216,8 +1115,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-q"
         onClick={[Function]}
         type="button"
@@ -1227,8 +1125,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-r"
         onClick={[Function]}
         type="button"
@@ -1238,8 +1135,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-s"
         onClick={[Function]}
         type="button"
@@ -1249,8 +1145,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-t"
         onClick={[Function]}
         type="button"
@@ -1260,8 +1155,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-u"
         onClick={[Function]}
         type="button"
@@ -1271,8 +1165,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-v"
         onClick={[Function]}
         type="button"
@@ -1282,8 +1175,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-w"
         onClick={[Function]}
         type="button"
@@ -1293,8 +1185,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-x"
         onClick={[Function]}
         type="button"
@@ -1304,8 +1195,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-y"
         onClick={[Function]}
         type="button"
@@ -1315,8 +1205,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-z"
         onClick={[Function]}
         type="button"
@@ -1326,8 +1215,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-showAll"
         onClick={[Function]}
         type="button"
@@ -1354,8 +1242,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-#"
         onClick={[Function]}
         type="button"
@@ -1365,8 +1252,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-a"
         onClick={[Function]}
         type="button"
@@ -1376,8 +1262,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-b"
         onClick={[Function]}
         type="button"
@@ -1387,8 +1272,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-c"
         onClick={[Function]}
         type="button"
@@ -1398,8 +1282,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-d"
         onClick={[Function]}
         type="button"
@@ -1409,8 +1292,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-e"
         onClick={[Function]}
         type="button"
@@ -1420,8 +1302,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-f"
         onClick={[Function]}
         type="button"
@@ -1431,8 +1312,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-g"
         onClick={[Function]}
         type="button"
@@ -1442,8 +1322,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-h"
         onClick={[Function]}
         type="button"
@@ -1453,8 +1332,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-i"
         onClick={[Function]}
         type="button"
@@ -1464,8 +1342,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-j"
         onClick={[Function]}
         type="button"
@@ -1475,8 +1352,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-k"
         onClick={[Function]}
         type="button"
@@ -1486,8 +1362,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-l"
         onClick={[Function]}
         type="button"
@@ -1497,8 +1372,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-m"
         onClick={[Function]}
         type="button"
@@ -1508,8 +1382,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-n"
         onClick={[Function]}
         type="button"
@@ -1519,8 +1392,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-o"
         onClick={[Function]}
         type="button"
@@ -1530,8 +1402,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-p"
         onClick={[Function]}
         type="button"
@@ -1541,8 +1412,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-q"
         onClick={[Function]}
         type="button"
@@ -1552,8 +1422,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-r"
         onClick={[Function]}
         type="button"
@@ -1563,8 +1432,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-s"
         onClick={[Function]}
         type="button"
@@ -1574,8 +1442,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-t"
         onClick={[Function]}
         type="button"
@@ -1585,8 +1452,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-u"
         onClick={[Function]}
         type="button"
@@ -1596,8 +1462,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-v"
         onClick={[Function]}
         type="button"
@@ -1607,8 +1472,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-w"
         onClick={[Function]}
         type="button"
@@ -1618,8 +1482,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-x"
         onClick={[Function]}
         type="button"
@@ -1629,8 +1492,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-y"
         onClick={[Function]}
         type="button"
@@ -1640,8 +1502,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-z"
         onClick={[Function]}
         type="button"
@@ -1651,8 +1512,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-showAll"
         onClick={[Function]}
         type="button"
@@ -1680,8 +1540,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page #"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-#"
         onClick={[Function]}
         type="button"
@@ -1691,8 +1550,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page A"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-a"
         onClick={[Function]}
         type="button"
@@ -1702,8 +1560,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page B"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-b"
         onClick={[Function]}
         type="button"
@@ -1713,8 +1570,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page C"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-c"
         onClick={[Function]}
         type="button"
@@ -1724,8 +1580,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page D"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-d"
         onClick={[Function]}
         type="button"
@@ -1735,8 +1590,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page E"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-e"
         onClick={[Function]}
         type="button"
@@ -1746,8 +1600,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page F"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-f"
         onClick={[Function]}
         type="button"
@@ -1757,8 +1610,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page G"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-g"
         onClick={[Function]}
         type="button"
@@ -1768,8 +1620,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page H"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-h"
         onClick={[Function]}
         type="button"
@@ -1779,8 +1630,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page I"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-i"
         onClick={[Function]}
         type="button"
@@ -1790,8 +1640,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page J"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-j"
         onClick={[Function]}
         type="button"
@@ -1801,8 +1650,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page K"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-k"
         onClick={[Function]}
         type="button"
@@ -1812,8 +1660,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page L"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-l"
         onClick={[Function]}
         type="button"
@@ -1823,8 +1670,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page M"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-m"
         onClick={[Function]}
         type="button"
@@ -1834,8 +1680,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page N"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-n"
         onClick={[Function]}
         type="button"
@@ -1845,8 +1690,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page O"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-o"
         onClick={[Function]}
         type="button"
@@ -1856,8 +1700,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page P"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-p"
         onClick={[Function]}
         type="button"
@@ -1867,8 +1710,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page Q"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-q"
         onClick={[Function]}
         type="button"
@@ -1878,8 +1720,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page R"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-r"
         onClick={[Function]}
         type="button"
@@ -1889,8 +1730,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page S"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-s"
         onClick={[Function]}
         type="button"
@@ -1900,8 +1740,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page T"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-t"
         onClick={[Function]}
         type="button"
@@ -1911,8 +1750,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page U"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-u"
         onClick={[Function]}
         type="button"
@@ -1922,8 +1760,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page V"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-v"
         onClick={[Function]}
         type="button"
@@ -1933,8 +1770,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page W"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-w"
         onClick={[Function]}
         type="button"
@@ -1944,8 +1780,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page X"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-x"
         onClick={[Function]}
         type="button"
@@ -1955,8 +1790,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page Y"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-y"
         onClick={[Function]}
         type="button"
@@ -1966,8 +1800,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Page Z"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-z"
         onClick={[Function]}
         type="button"
@@ -1977,8 +1810,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       <button
         aria-current={null}
         aria-label="Show All"
-        className="chakra-button css-1k8bs5h"
-        data-testid="button"
+        className="chakra-button css-lmduhw"
         id="filter-showAll"
         onClick={[Function]}
         type="button"
