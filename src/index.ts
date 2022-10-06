@@ -26,6 +26,10 @@ export {
 } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
 export {
+  default as AudioPlayer,
+  AudioType,
+} from "./components/AudioPlayer/AudioPlayer";
+export {
   default as Breadcrumbs,
   BreadcrumbsTypes,
 } from "./components/Breadcrumbs/Breadcrumbs";

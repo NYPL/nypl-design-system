@@ -64,6 +64,7 @@ import TextInput from "./components/textInput";
 import Toggle from "./components/toggle";
 import Tooltip from "./components/tooltip";
 import VideoPlayer from "./components/videoPlayer";
+import AudioPlayer from "./components/audioPlayer";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -154,6 +155,7 @@ const theme = extendTheme({
     ...Toggle,
     Tooltip,
     VideoPlayer,
+    AudioPlayer,
   },
   config: {
     // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by

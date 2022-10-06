@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds a variant for `NYCDOE` to the `Logo` component.
 - Adds the `TagSet` component.
 - Adds `AlphabetFilter` component.
+- Adds `AudioPlayer` component.
 
 ### Updates
 
