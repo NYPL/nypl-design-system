@@ -10,17 +10,16 @@ const HeaderSearchButton = {
     fontWeight: "medium",
     minHeight: { md: "40px" },
     minWidth: { md: "80px" },
-    px: "0",
     textDecoration: "none",
     span: {
       alignItems: "center",
       borderBottom: { md: "3px solid #1B7FA7" },
-      display: "flex",
+      display: "inline-flex",
       lineHeight: "1.3",
     },
     svg: {
       marginLeft: { base: "0", md: "xxs" },
-      color: {
+      fill: {
         base: isOpen ? "ui.white" : "ui.black",
         md: isOpen ? "ui.white" : "ui.link.primary",
       },
