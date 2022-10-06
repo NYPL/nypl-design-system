@@ -18,6 +18,7 @@ const AlphabetFilter = {
       },
       _disabled: {
         color: "ui.gray.medium",
+        cursor: "not-allowed",
       },
     },
   },

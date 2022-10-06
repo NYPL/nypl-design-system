@@ -97,6 +97,7 @@ const theme = extendTheme({
   components: {
     Accordion,
     AlphabetFilter,
+    AudioPlayer,
     Breadcrumb,
     Button,
     ButtonGroup,
@@ -151,7 +152,6 @@ const theme = extendTheme({
     ...Toggle,
     Tooltip,
     VideoPlayer,
-    AudioPlayer,
   },
   config: {
     // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by

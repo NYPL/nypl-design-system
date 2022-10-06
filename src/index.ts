@@ -119,6 +119,7 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
+export { default as TagSet } from "./components/TagSet/TagSet";
 export {
   TemplateAppContainer,
   Template,
