@@ -51,6 +51,10 @@ const size = {
     height: "0.875rem",
     width: "0.875rem",
   },
+  xsmall: {
+    height: "0.65rem",
+    width: "0.65rem",
+  },
 };
 interface IconBaseStyle {
   align: keyof typeof align;

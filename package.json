@@ -62,6 +62,7 @@
     "@charlietango/use-native-lazy-loading": "1.10.0",
     "@emotion/react": ">=11.4.1",
     "@emotion/styled": ">=11.3.0",
+    "downshift": "^6.1.7",
     "framer-motion": "^4.1.17",
     "js-cookie": "3.0.1",
     "react-datepicker": "4.1.1",

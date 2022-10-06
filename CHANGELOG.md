@@ -92,6 +92,7 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Adds @chakra-ui/focus-lock packages to dependencies and peerDependencies.
 - Adds the `useCloseDropDown` hook to manage closing dropdown-like components through clicks outside of it and by pressing the escape key.
 - Adds the `react-ga` package to send Google Analytics events in the `Header` component.
+- Adds the `TagSet` component.
 
 ### Updates
 
