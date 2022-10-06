@@ -126,7 +126,7 @@ export const AlphabetFilter = chakra(
           id={`filter-${item.value}`}
           isDisabled={isButtonDisabled}
           key={item.value}
-          __css={buttonStyles}
+          sx={buttonStyles}
           onClick={(e: React.MouseEvent | React.KeyboardEvent) => {
             handleOnClick(e, item.value);
           }}
