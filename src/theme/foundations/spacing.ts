@@ -92,6 +92,20 @@ const reservoirSpacingTokens = {
   xxl: reservoirSpacingValues["xxl"],
   xxxl: reservoirSpacingValues["xxxl"],
   // Reservoir semantic tokens
+  button: {
+    small: {
+      px: reservoirSpacingValues["xs"],
+      py: reservoirSpacingValues["xxs"],
+    },
+    medium: {
+      px: reservoirSpacingValues["s"],
+      py: reservoirSpacingValues["xs"],
+    },
+    large: {
+      px: reservoirSpacingValues["l"],
+      py: reservoirSpacingValues["s"],
+    },
+  },
   input: {
     group: {
       button: {

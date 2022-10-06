@@ -39,7 +39,7 @@ const HeaderSearchButton = chakra(
             aria-haspopup="true"
             aria-label={labelText}
             aria-expanded={isOpen ? true : null}
-            buttonType="link"
+            buttonType="text"
             id="searchButton"
             onClick={() => {
               gaUtils.trackEvent(gaAction, gaLabel);

@@ -1,8 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -17,6 +18,7 @@ import DSProvider from "../../theme/provider";
 - [Guidelines](#guidelines)
 - [Button Groups](#button-groups)
 - [Button Types](#button-types)
+- [Button Sizes](#button-sizes)
 - [Patterns](#patterns)
 - [Figma Reference](#figma-reference)
 
@@ -96,14 +98,14 @@ component.
       <Button buttonType="secondary" id="secondary">
         Secondary Button
       </Button>
-      <Button buttonType="callout" id="callout">
-        Callout Button
+      <Button buttonType="text" id="text">
+        Text Button
       </Button>
       <Button buttonType="pill" id="pill">
         Pill Button
       </Button>
-      <Button buttonType="link" id="link">
-        Link Button
+      <Button buttonType="callout" id="callout">
+        Callout Button
       </Button>
       <Button buttonType="noBrand" id="noBrand">
         NoBrand Button
@@ -120,13 +122,13 @@ component.
 ### Secondary
 
 - used for actions that move the user back, such as a form cancel button
-- often paired with a Primary button
+- often paired with a `Primary` button
 - Visual Treatment: rectangular, outlined
 
-### Callout
+### Text
 
-- used for call to actions such as donation buttons
-- Visual Treatment: rectangular, NYPL red background
+- used for equally weighted actions
+- Visual Treatment: plain text only without an underline
 
 ### Pill
 
@@ -134,15 +136,109 @@ component.
 - should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
 - Visual Treatment: rounded, outlined
 
-### Link
+### Callout
 
-- used for equally weighted actions
-- Visual Treatment: text link with underline
+- used for call to actions such as donation buttons
+- Visual Treatment: rectangular, NYPL red background
 
 ### NoBrand
 
 - used in cases where there is no brand color
 - Visual Treatment: rectangular, filled with a black background
+
+## Button Sizes
+
+The `size` prop should be used to render various sizes of the button component:
+`"small"`, `"medium"` (default) and `"large"`.
+
+### Small
+
+- Even though the `"small"` size is available, we recommend to use the `"medium"`
+  or `"large"` sizes.
+- Use cases: TBD
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType="primary" id="small-primary" size="small">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="small-secondary" size="small">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="small-text" size="small">
+        Text
+      </Button>
+      <Button buttonType="callout" id="small-callout" size="small">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="small-nobrand" size="small">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="small-pill" size="small">
+        Pill
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
+
+### Medium
+
+- This is the default button size and this size should be used whenever possible.
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType="primary" id="medium-primary" size="medium">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="medium-secondary" size="medium">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="medium-text" size="medium">
+        Text
+      </Button>
+      <Button buttonType="callout" id="medium-callout" size="medium">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="medium-nobrand" size="medium">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="medium-pill" size="medium">
+        Pill
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
+
+### Large
+
+- Use cases: TBD
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType="primary" id="large-primary" size="large">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="large-secondary" size="large">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="large-text" size="large">
+        Text
+      </Button>
+      <Button buttonType="callout" id="large-callout" size="large">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="large-nobrand" size="large">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="large-pill" size="large">
+        Pill
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
 
 ## Patterns
 

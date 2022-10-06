@@ -8,9 +8,53 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+
+## 1.1.2 (September 29, 2022)
+
+### Adds
+
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
+- Adds the `value` prop to the `CheckboxGroup` component to programmatically
+  update the values of the `Checkbox`es within it.
+
+### Updates
+
+- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
+- Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates whether the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
+- Updates the spacing of the icon and text in the `Notification` component.
+- Updates the padding and placement of the links in the `Footer` component.
+- Updates how content in the `Table` component is aligned.
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
+
+### Removals
+
+- Removed the `data-testid` attribute from the `Button` component.
+
+## 1.1.1 (September 19, 2022)
+
+### Adds
+
+- Adds the `text` variant in the `Button` component.
+
 ### Fixes
 
 - Fixes a bug where the `defaultValue` for a `TextInput` component was not being passed correctly to the Chakra input element.
+
+### Deprecates
+
+- Deprecates the `link` variant in the `Button` component.
 
 ## 1.1.0 (Ausut 30, 2022)
 

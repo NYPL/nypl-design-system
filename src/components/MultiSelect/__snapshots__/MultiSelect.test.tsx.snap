@@ -43,7 +43,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
   >
     <button
       className="chakra-button css-1xdhyk6"
-      data-testid="button"
       id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
       type="button"
@@ -159,7 +158,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
   >
     <button
       className="chakra-button css-1xdhyk6"
-      data-testid="button"
       id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
       type="button"
@@ -834,7 +832,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
   >
     <button
       className="chakra-button css-1xdhyk6"
-      data-testid="button"
       id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
       type="button"
@@ -1580,7 +1577,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
   >
     <button
       className="chakra-button css-1xdhyk6"
-      data-testid="button"
       id="ms-multiselect-dialog-test-id-menu-button"
       onClick={[Function]}
       type="button"
@@ -2278,7 +2274,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="ms-multiselect-listbox-test-id-menu ms-multiselect-listbox-test-id-menu-button"
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
     type="button"
@@ -2351,7 +2346,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     aria-haspopup="listbox"
     aria-labelledby="ms-multiselect-listbox-test-id-menu ms-multiselect-listbox-test-id-menu-button"
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
     type="button"
@@ -2869,7 +2863,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     aria-haspopup="listbox"
     aria-labelledby="ms-multiselect-listbox-test-id-menu ms-multiselect-listbox-test-id-menu-button"
     className="chakra-button css-1xdhyk6"
-    data-testid="button"
     id="ms-multiselect-listbox-test-id-menu-button"
     onClick={[Function]}
     type="button"

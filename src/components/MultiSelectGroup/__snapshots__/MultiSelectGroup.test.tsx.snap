@@ -55,7 +55,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-colors-menu-button"
           onClick={[Function]}
           type="button"
@@ -168,7 +167,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-pets-menu-button"
           onClick={[Function]}
           type="button"
@@ -281,7 +279,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-tools-menu-button"
           onClick={[Function]}
           type="button"
@@ -412,7 +409,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-colors-menu-button"
           onClick={[Function]}
           type="button"
@@ -525,7 +521,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-pets-menu-button"
           onClick={[Function]}
           type="button"
@@ -638,7 +633,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       >
         <button
           className="chakra-button css-1xdhyk6"
-          data-testid="button"
           id="ms-tools-menu-button"
           onClick={[Function]}
           type="button"
