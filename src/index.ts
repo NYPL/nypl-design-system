@@ -120,6 +120,8 @@ export {
   TabPanel,
 } from "./components/Tabs/Tabs";
 export { default as TagSet } from "./components/TagSet/TagSet";
+export { TagSetExploreDataProps } from "./components/TagSet/TagSetExplore";
+export { TagSetFilterDataProps } from "./components/TagSet/TagSetFilter";
 export {
   TemplateAppContainer,
   Template,
