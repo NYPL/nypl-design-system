@@ -1,7 +1,7 @@
 import { defaultElementSizes } from "./global";
 
 // Style object for base or default style
-const baseStyle = {
+export const buttonBaseStyle = {
   alignItems: "center",
   borderRadius: "sm",
   display: "flex",
@@ -60,11 +60,11 @@ const generalSizeValues = (size = "medium", isPill = false) => {
 
 // Styles for different visual variants:
 // primary, secondary, link, text, pill, iconOnly, callout, noBrand
-const primary = ({ buttonSize = "medium" }) => ({
+export const primary = ({ buttonSize = "medium" }) => ({
   bg: "ui.link.primary",
   ...generalSizeValues(buttonSize),
 });
-const secondary = ({ buttonSize = "medium" }) => ({
+export const secondary = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.link.primary",
@@ -108,7 +108,7 @@ const text = ({ buttonSize = "medium" }) => ({
     color: "ui.link.secondary",
   },
 });
-const pill = ({ buttonSize = "medium" }) => ({
+export const pill = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
@@ -137,7 +137,7 @@ const iconOnly = ({ buttonSize = "medium" }) => ({
     color: "ui.link.primary",
   },
 });
-const callout = ({ buttonSize = "medium" }) => ({
+export const callout = ({ buttonSize = "medium" }) => ({
   bg: "brand.primary",
   ...generalSizeValues(buttonSize),
   _hover: {
@@ -147,7 +147,7 @@ const callout = ({ buttonSize = "medium" }) => ({
     bg: "brand.secondary",
   },
 });
-const noBrand = ({ buttonSize = "medium" }) => ({
+export const noBrand = ({ buttonSize = "medium" }) => ({
   bg: "ui.black",
   color: "ui.white",
   ...generalSizeValues(buttonSize),
@@ -157,7 +157,7 @@ const noBrand = ({ buttonSize = "medium" }) => ({
 });
 
 const Button = {
-  baseStyle,
+  baseStyle: buttonBaseStyle,
   // Available variants:
   variants: {
     primary,

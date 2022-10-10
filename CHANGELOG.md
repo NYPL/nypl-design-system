@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 
 ### Updates
 
