@@ -14,6 +14,8 @@ interface LabelProps {
   /** Controls whether the "(Required)" text should be displayed alongside the
    * label's text. False by default. */
   isRequired?: boolean;
+  /** Allows the 'Required' text to be changed for language purposes*/
+  requiredLabelText?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ export const Label = chakra(
       id,
       isInlined = false,
       isRequired = false,
+      requiredLabelText,
       ...rest
     } = props;
     const styles = useStyleConfig("Label", { isInlined });
@@ -52,7 +55,11 @@ export const Label = chakra(
         {...rest}
       >
         {children}
-        {isRequired && <span> (Required)</span>}
+        {isRequired && (
+          <span>
+            {requiredLabelText ? ` (${requiredLabelText})` : " (Required)"}
+          </span>
+        )}
       </Box>
     );
   })

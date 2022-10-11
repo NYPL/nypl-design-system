@@ -85,6 +85,8 @@ export interface InputProps {
   /** Whether or not to display the "(Required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
+  /** Allows the 'Required' text to be changed for language purposes*/
+  requiredLabelText?: string;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
@@ -130,6 +132,7 @@ export const TextInput = chakra(
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
+        requiredLabelText,
         step = 1,
         textInputType = "default",
         type = "text",
@@ -235,6 +238,7 @@ export const TextInput = chakra(
               htmlFor={id}
               id={`${id}-label`}
               isRequired={showRequiredLabel && isRequired}
+              requiredLabelText={requiredLabelText}
             >
               {labelText}
             </Label>
