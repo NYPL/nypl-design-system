@@ -41,6 +41,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how content in the `Table` component is aligned.
 - Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
   `Tabs` components based on the new `size` prop.
+- Updates the `content` prop of the `Tooltip` component to accept number values.
 
 ### Removals
 
