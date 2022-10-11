@@ -84,6 +84,12 @@ export { default as List, ListTypes } from "./components/List/List";
 export { default as Logo, LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export {
+  default as MultiSelect,
+  MultiSelectProps,
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelect";
+export {
   default as Notification,
   NotificationTypes,
 } from "./components/Notification/Notification";
@@ -140,6 +146,7 @@ export {
 } from "./components/TextInput/TextInput";
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
+export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";
