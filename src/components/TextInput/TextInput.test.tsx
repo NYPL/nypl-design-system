@@ -100,6 +100,40 @@ describe("TextInput", () => {
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
   });
 
+  it("renders a custom 'Required' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        isRequired
+        requiredLabelText="Obligatoire"
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.getByText(/Obligatoire/i)).toBeInTheDocument();
+  });
+
+  it("does not render a custom '(Required)' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        isRequired
+        requiredLabelText="Obligatoire"
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showRequiredLabel={false}
+        type="text"
+      />
+    );
+
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.queryByText(/Obligatoire/i)).not.toBeInTheDocument();
+  });
+
   it("does not render the label but adds it as an aria-label attribute", () => {
     utils.rerender(
       <TextInput
@@ -340,6 +374,18 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const requiredLabelText = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          requiredLabelText="Obiligatoire"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type="text"
+        />
+      )
+      .toJSON();
     const optional = renderer
       .create(
         <TextInput
@@ -424,6 +470,7 @@ describe("UI Snapshots", () => {
 
     expect(basicTextarea).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(requiredLabelText).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
     expect(hiddenLabelText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();

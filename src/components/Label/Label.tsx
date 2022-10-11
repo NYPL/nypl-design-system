@@ -14,7 +14,8 @@ interface LabelProps {
   /** Controls whether the "(Required)" text should be displayed alongside the
    * label's text. False by default. */
   isRequired?: boolean;
-  /** Allows the 'Required' text to be changed for language purposes*/
+  /** Allows the '(Required)' text to be changed for language purposes
+   * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
 }
 

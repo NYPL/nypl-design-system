@@ -66,6 +66,36 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     id="myTextInput-label"
   >
     Custom Input Label
+    <span>
+       (Obiligatoire)
+    </span>
+  </label>
+  <input
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
+<div
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
   </label>
   <input
     className="chakra-input css-0"
@@ -81,7 +111,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
   id="myTextInput-wrapper"
@@ -102,7 +132,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
   id="myTextInput-wrapper"
@@ -145,7 +175,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
   id="myTextInput-wrapper"
@@ -189,7 +219,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
   className="css-1u8qly9"
   id="myTextInput-wrapper"
@@ -219,7 +249,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
   className="css-1y4kn3e"
   id="chakra-wrapper"
@@ -245,7 +275,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
