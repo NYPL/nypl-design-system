@@ -39,7 +39,7 @@ import { getCategory } from "../../utils/componentCategories";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [isRequired helper text](#isrequired-helper-text)
-- [requiredLabelText](#requiredlabeltext-to-customize-helper-text)
+- [requiredLabelText to customize required label](#requiredlabeltext-to-customize-required-label)
 
 ## Overview
 
@@ -100,18 +100,18 @@ by default.
   </Story>
 </Canvas>
 
-## requiredLabelText to customize helper text
+## requiredLabelText to customize required label
 
-The requiredLabelText prop accepts values fot type string and is available to update the "(Required)" text.
+The `requiredLabelText` prop accepts values for type string and is available to update the "(Required)" text.
 It is recommend to be used carefully and to only pass text that means "required", including in other languages.
 We also recommend a maximum of two words for this text.
-Note: The arenthesis will be added automatically by the component.
+Note: The parenthesis will be added automatically by the component.
 
 <Canvas>
   <Story name="requiredLabelText">
     <VStack>
       <Label htmlFor="label-id1" id="regular" isRequired>
-        A regular isRequired helper text
+        A regular isRequired label
       </Label>
       <Label
         htmlFor="label-id2"
