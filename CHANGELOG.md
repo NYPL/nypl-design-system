@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
 
 ### Updates
 
