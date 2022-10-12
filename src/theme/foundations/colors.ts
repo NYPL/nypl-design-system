@@ -204,7 +204,7 @@ const colors: Colors = {
     ui: {
       /// State and link utilities
       disabled: {
-        primary: grayxDark,
+        primary: grayDark,
         secondary: grayxxDark,
       },
       error: {
