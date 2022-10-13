@@ -1,3 +1,5 @@
+import { defaultElementSizes } from "./global";
+
 const MultiSelectMenuButton = {
   parts: [
     "buttonLabel",
@@ -22,8 +24,11 @@ const MultiSelectMenuButton = {
       borderBottomLeftRadius: isOpen ? "0" : "button.default",
       borderBottomRightRadius: isOpen ? "0" : "button.default",
       borderColor: isOpen ? "ui.gray.dark" : "ui.gray.medium",
+      borderRadius: "button.default",
       borderWidth: "1px",
-      padding: "8px 8px 7px 16px",
+      fontSize: "button.default",
+      minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
+      padding: "8px 8px 8px 16px",
       display: "inline-flex",
       justifyContent: "space-between",
       width: "100%",
@@ -48,7 +53,7 @@ const MultiSelectMenuButton = {
       left: "15px",
       marginRight: "xs",
       position: "absolute",
-      top: "10px",
+      top: { base: "12px", md: "10px" },
       width: "46px",
       _hover: {
         borderColor: "ui.gray.dark",
