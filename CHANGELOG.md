@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.2.0 (October 17, 2022)
+
 ### Adds
 
 - Adds a variant for `NYCDOE` to the `Logo` component.
