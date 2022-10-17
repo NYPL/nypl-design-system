@@ -8,6 +8,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.2.0 (October 17, 2022)
+
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `TagSet` component.
+- Adds the `AlphabetFilter` component.
+- Adds the `AudioPlayer` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
+
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+- Updates `ComponentWrapper` prop `descriptionText` type to `string | JSX.Element`.
+
 ## 1.1.2 (September 29, 2022)
 
 ### Adds
@@ -29,6 +45,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how content in the `Table` component is aligned.
 - Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
   `Tabs` components based on the new `size` prop.
+- Updates the `content` prop of the `Tooltip` component to accept number values.
 
 ### Removals
 
@@ -115,7 +132,6 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `Placeholder` component's CSS to better display in the `Template` components.
 - Updates how HTML attributes are passed down in the `Image` component to the HTML `img` element.
 - Updates the `Accordion` so that its panel content only renders when the `Accordion` is open.
-  > > > > > > > development
 
 ## 1.0.7 (July 29, 2022)
 
