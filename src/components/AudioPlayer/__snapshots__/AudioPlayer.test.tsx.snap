@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+/>
+`;
+
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="undefined-componentWrapper-heading"
+  >
+    Audio Player Heading
+  </h2>
+  <p
+    className="chakra-text css-1xdhyk6"
+  >
+    Audio Player description text.
+  </p>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Audio Player helper text.",
+      }
+    }
+    data-isinvalid={false}
+    id="undefined-componentWrapper-helperText"
+  />
+</div>
+`;
+
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+>
+  <div
+    className="css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<iframe style=\\"border-radius:12px\\" src=\\"https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowfullscreen=\\"\\" allow=\\"clipboard-write; encrypted-media; fullscreen; picture-in-picture\\" title=\\"Embedded audio player\\"></iframe>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+/>
+`;
+
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+>
+  <div
+    className="css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<iframe title=\\"Libsyn Player\\" style=\\"border: none\\" src=\\"//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/\\" height=\\"90\\" width=\\"100%\\" scrolling=\\"no\\" allowfullscreen=\\"\\" webkitallowfullscreen=\\"\\" mozallowfullscreen=\\"\\" oallowfullscreen=\\"\\" msallowfullscreen=\\"\\"></iframe>",
+      }
+    }
+  />
+</div>
+`;
