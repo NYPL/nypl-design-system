@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `TagSet` component.
 - Adds the `AlphabetFilter` component.
 - Adds the `AudioPlayer` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
 
 ### Updates
 
