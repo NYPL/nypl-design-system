@@ -5,6 +5,7 @@ import { VStack } from "@chakra-ui/react";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
+import { action } from "@storybook/addon-actions";
 
 const multiSelectItems = [
   {
@@ -56,6 +57,18 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
 
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = React.useState("");
+
+  React.useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action(actionName)(selectedItems);
+    }
+    if (actionName === "onClear") {
+      action(actionName)(selectedItems);
+    }
+  }, [actionName, selectedItems]);
+
   return (
     <MultiSelectGroup {...args}>
       {multiSelectItems &&
@@ -69,14 +82,23 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
             selectedItems={selectedItems}
             onChange={(e) => {
               onChange(e.target.id, multiSelect.id);
+              setActionName("onChange");
             }}
-            onMixedStateChange={(e) =>
-              onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items)
-            }
+            onMixedStateChange={(e) => {
+              onMixedStateChange(
+                e.target.id,
+                multiSelect.id,
+                multiSelect.items
+              );
+              setActionName("onMixedStateChange");
+            }}
             onClear={() => {
               onClear(multiSelect.id);
+              setActionName("onClear");
             }}
-            onApply={() => {}}
+            onApply={() => {
+              setActionName("onApply");
+            }}
           />
         ))}
     </MultiSelectGroup>
@@ -86,13 +108,14 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
 export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
   const [selectedItems, setSelectedItems] = React.useState({});
 
-  function handleChange(itemId: string, groupId: string) {
+  function handleChange(itemId: string, multiSelectId: string) {
     let itemIds;
     // Check if the id already exists in the state
-    if (selectedItems[groupId] !== undefined) {
-      let itemIdExists = selectedItems[groupId].items.indexOf(itemId) > -1;
+    if (selectedItems[multiSelectId] !== undefined) {
+      let itemIdExists =
+        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
       // Make a copy of the existing array.
-      itemIds = selectedItems[groupId].items.slice();
+      itemIds = selectedItems[multiSelectId].items.slice();
       // If termId exists, remove it from the array.
       if (itemIdExists) {
         itemIds = itemIds.filter((id) => id !== itemId);
@@ -106,7 +129,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
     }
     setSelectedItems({
       ...selectedItems,
-      [groupId]: {
+      [multiSelectId]: {
         items: itemIds,
       },
     });
@@ -172,6 +195,7 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
               }}
               onClear={() => {
                 handleClear(group.id);
+                action("onClear")({});
               }}
               onApply={() => {}}
             />
