@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react/types-6-0";
 import { VStack } from "@chakra-ui/react";
 
-import MultiSelect from "../MultiSelect/MultiSelect";
+import MultiSelect, { MultiSelectItem } from "../MultiSelect/MultiSelect";
 import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import { action } from "@storybook/addon-actions";
@@ -135,21 +135,29 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
     });
   }
 
-  function handleMixedStateChange(groupId: string, childItems: string[]) {
+  function handleMixedStateChange(
+    parentId: string,
+    multiSelectId: string,
+    items: MultiSelectItem[]
+  ) {
+    const childItems = items
+      .filter((item) => item.id === parentId)[0]
+      .children.map((child) => child.id);
+
     let newItems;
-    // Some selected items for group already exist in state.
-    if (selectedItems[groupId] !== undefined) {
+    // Some selected items for multiSelect already exist in state.
+    if (selectedItems[multiSelectId] !== undefined) {
       if (
         childItems.every((childItem) =>
-          selectedItems[groupId].items.includes(childItem)
+          selectedItems[multiSelectId].items.includes(childItem)
         )
       ) {
-        newItems = selectedItems[groupId].items.filter(
+        newItems = selectedItems[multiSelectId].items.filter(
           (stateItem) => !childItems.includes(stateItem)
         );
       } else {
         // Merge all child items.
-        newItems = [...childItems, ...selectedItems[groupId].items];
+        newItems = [...childItems, ...selectedItems[multiSelectId].items];
       }
     } else {
       newItems = childItems;
@@ -157,16 +165,16 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
 
     setSelectedItems({
       ...selectedItems,
-      [groupId]: {
+      [multiSelectId]: {
         items: newItems,
       },
     });
   }
 
-  function handleClear(groupId: string) {
+  function handleClear(multiSelectId: string) {
     let newSelectedItems = {};
     for (let key of Object.keys(selectedItems)) {
-      if (key !== groupId) {
+      if (key !== multiSelectId) {
         newSelectedItems[key] = selectedItems[key];
       }
     }
@@ -176,25 +184,26 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
     <VStack align="stretch" spacing="s">
       <MultiSelectGroup showLabel={true} id="row" labelText="Row (default)">
         {multiSelectItems &&
-          multiSelectItems.map((group) => (
+          multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={group.id}
-              id={group.id}
-              label={group.name}
+              key={multiSelect.id}
+              id={multiSelect.id}
+              label={multiSelect.name}
               variant="dialog"
-              items={group.items}
+              items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
-                handleChange(e.target.id, group.id);
+                handleChange(e.target.id, multiSelect.id);
               }}
               onMixedStateChange={(e) => {
-                const childItems = group.items
-                  .filter((items) => items.id === e.target.id)[0]
-                  .children.map((child) => child.id);
-                return handleMixedStateChange(group.id, childItems);
+                return handleMixedStateChange(
+                  e.target.id,
+                  multiSelect.id,
+                  multiSelect.items
+                );
               }}
               onClear={() => {
-                handleClear(group.id);
+                handleClear(multiSelect.id);
                 action("onClear")({});
               }}
               onApply={() => {}}
@@ -208,25 +217,26 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
         labelText="Column"
       >
         {multiSelectItems &&
-          multiSelectItems.map((group) => (
+          multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${group.id}-3`}
-              id={`${group.id}-3`}
-              label={group.name}
+              key={`${multiSelect.id}-1`}
+              id={`${multiSelect.id}-1`}
+              label={multiSelect.name}
               variant="dialog"
-              items={group.items}
+              items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
-                handleChange(e.target.id, `${group.id}-3`);
+                handleChange(e.target.id, `${multiSelect.id}-1`);
               }}
               onMixedStateChange={(e) => {
-                const childItems = group.items
-                  .filter((items) => items.id === e.target.id)[0]
-                  .children.map((child) => child.id);
-                return handleMixedStateChange(`${group.id}-3`, childItems);
+                return handleMixedStateChange(
+                  e.target.id,
+                  `${multiSelect.id}-1`,
+                  multiSelect.items
+                );
               }}
               onClear={() => {
-                handleClear(`${group.id}-3`);
+                handleClear(`${multiSelect.id}-1`);
               }}
               onApply={() => {}}
             />
@@ -240,25 +250,26 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
         multiSelectWidth="full"
       >
         {multiSelectItems &&
-          multiSelectItems.map((group) => (
+          multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${group.id}-2`}
-              id={`${group.id}-2`}
-              label={group.name}
+              key={`${multiSelect.id}-2`}
+              id={`${multiSelect.id}-2`}
+              label={multiSelect.name}
               variant="dialog"
-              items={group.items}
+              items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
-                handleChange(e.target.id, `${group.id}-2`);
+                handleChange(e.target.id, `${multiSelect.id}-2`);
               }}
               onMixedStateChange={(e) => {
-                const childItems = group.items
-                  .filter((items) => items.id === e.target.id)[0]
-                  .children.map((child) => child.id);
-                return handleMixedStateChange(`${group.id}-2`, childItems);
+                return handleMixedStateChange(
+                  e.target.id,
+                  `${multiSelect.id}-2`,
+                  multiSelect.items
+                );
               }}
               onClear={() => {
-                handleClear(`${group.id}-2`);
+                handleClear(`${multiSelect.id}-2`);
               }}
               onApply={() => {}}
             />
@@ -272,25 +283,26 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
         multiSelectWidth="full"
       >
         {multiSelectItems &&
-          multiSelectItems.map((group) => (
+          multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${group.id}-4`}
-              id={`${group.id}-4`}
-              label={group.name}
+              key={`${multiSelect.id}-3`}
+              id={`${multiSelect.id}-3`}
+              label={multiSelect.name}
               variant="dialog"
-              items={group.items}
+              items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
-                handleChange(e.target.id, `${group.id}-4`);
+                handleChange(e.target.id, `${multiSelect.id}-3`);
               }}
               onMixedStateChange={(e) => {
-                const childItems = group.items
-                  .filter((items) => items.id === e.target.id)[0]
-                  .children.map((child) => child.id);
-                return handleMixedStateChange(`${group.id}-4`, childItems);
+                return handleMixedStateChange(
+                  e.target.id,
+                  `${multiSelect.id}-3`,
+                  multiSelect.items
+                );
               }}
               onClear={() => {
-                handleClear(`${group.id}-4`);
+                handleClear(`${multiSelect.id}-3`);
               }}
               onApply={() => {}}
             />
