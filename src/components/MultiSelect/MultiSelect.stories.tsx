@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { action } from "@storybook/addon-actions";
 import { Story } from "@storybook/react/types-6-0";
 
@@ -73,22 +73,26 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   const multiSelectId = args.id;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = useState("");
+
   useEffect(() => {
     if (Object.keys(selectedItems).length !== 0) {
-      action("onChange")(selectedItems);
+      action(actionName)(selectedItems);
     }
-  }, [selectedItems]);
+  }, [actionName, selectedItems]);
+
   return (
     <MultiSelect
       {...args}
       items={items}
       selectedItems={selectedItems}
-      onChange={(selectedItem, multiSelectId) =>
-        onChange(selectedItem.id, multiSelectId)
-      }
+      onChange={(selectedItem) => {
+        onChange(selectedItem.id, multiSelectId);
+        setActionName("onChange");
+      }}
       onClear={() => {
         onClear(multiSelectId);
-        action("onClear")({});
+        setActionName("onClear");
       }}
     />
   );
@@ -101,11 +105,16 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   const multiSelectId = args.id;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = useState("");
+
   useEffect(() => {
     if (Object.keys(selectedItems).length !== 0) {
-      action("onChange")(selectedItems);
+      action(actionName)(selectedItems);
     }
-  }, [selectedItems]);
+    if (actionName === "onClear") {
+      action(actionName)(selectedItems);
+    }
+  }, [actionName, selectedItems]);
 
   return (
     <MultiSelect
@@ -115,16 +124,18 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
+        setActionName("onChange");
       }}
-      onMixedStateChange={(e) =>
-        onMixedStateChange(e.target.id, multiSelectId, items)
-      }
+      onMixedStateChange={(e) => {
+        onMixedStateChange(e.target.id, multiSelectId, items);
+        setActionName("onMixedStateChange");
+      }}
       onClear={() => {
         onClear(multiSelectId);
-        action("onClear")({});
+        setActionName("onClear");
       }}
       onApply={() => {
-        action("onApply")(selectedItems);
+        setActionName("onApply");
       }}
     />
   );
