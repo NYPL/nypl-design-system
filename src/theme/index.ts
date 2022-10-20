@@ -41,6 +41,7 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import Modal from "./components/modal";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -126,6 +127,7 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    Modal,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
