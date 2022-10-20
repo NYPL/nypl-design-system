@@ -48,9 +48,9 @@ const primary = {
   minWidth: "none",
   _dark: {
     bg: "dark.ui.link.primary",
+    color: "ui.gray.xxx-dark",
     _hover: {
       bg: "dark.ui.link.secondary",
-      color: "ui.gray.xxx-dark",
     },
   },
 };
@@ -184,9 +184,9 @@ const noBrand = {
     bg: "ui.gray.x-dark",
   },
   _dark: {
-    bg: "ui.gray.xx-dark",
+    bg: "ui.gray.x-dark",
     _hover: {
-      bg: "ui.gray.x-dark",
+      bg: "ui.gray.dark",
     },
   },
 };
