@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates background styles for `Hero` component's `primary` and `campaign` variants.
+
 ## 1.2.0 (October 17, 2022)
 
 ### Adds
