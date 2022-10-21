@@ -17,6 +17,9 @@ const baseStyleControl = {
   backgroundColor: "ui.gray.xx-light-cool",
   color: "ui.white",
   outline: "none",
+  _hover: {
+    borderColor: "ui.black",
+  },
   _checked: {
     bg: "ui.gray.xx-light-cool",
     borderColor: "ui.focus",
@@ -38,6 +41,7 @@ const baseStyleControl = {
       },
     },
     _hover: {
+      borderColor: "ui.focus",
       bg: "ui.gray.xx-light-cool",
     },
     _before: {
@@ -52,6 +56,9 @@ const baseStyleControl = {
   _disabled: {
     borderColor: "ui.disabled.primary",
     bg: "ui.gray.xx-light-cool",
+    _hover: {
+      borderColor: "ui.disabled.primary",
+    },
   },
   _focus: {
     ...activeFocus(),
@@ -60,12 +67,10 @@ const baseStyleControl = {
   },
   _invalid: {
     borderColor: "ui.error.primary",
+    _hover: {
+      borderColor: "ui.error.primary",
+    },
   },
-  // TODO:
-  // _indeterminate: {
-  //   borderColor: "ui.gray.medium",
-  //   bg: "ui.white",
-  // },
 };
 
 // Style object for the Radio's label

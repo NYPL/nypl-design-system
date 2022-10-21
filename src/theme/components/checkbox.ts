@@ -26,12 +26,17 @@ const baseStyleControl = {
   transitionProperty: "box-shadow",
   transitionDuration: "normal",
 
+  _hover: {
+    borderColor: "ui.black",
+  },
+
   _checked: {
     bg: "ui.white",
     borderColor: "ui.focus",
     color: "ui.focus",
 
     _hover: {
+      borderColor: "ui.focus",
       bg: "ui.gray.xx-light-cool",
     },
 
@@ -57,6 +62,9 @@ const baseStyleControl = {
   _disabled: {
     bg: "ui.white",
     borderColor: "ui.disabled.primary",
+    _hover: {
+      borderColor: "ui.disabled.primary",
+    },
   },
 
   _focus: {
@@ -67,6 +75,9 @@ const baseStyleControl = {
   _invalid: {
     borderColor: "ui.error.primary",
     color: "ui.error.primary",
+    _hover: {
+      borderColor: "ui.error.primary",
+    },
   },
 };
 
