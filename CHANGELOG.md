@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Improves `TagSet` `"filter"` type accessibility by adding an `aria-label` that includes `"click to remove filter"`.
+
 ## 1.2.0 (October 17, 2022)
 
 ### Adds

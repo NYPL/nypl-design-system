@@ -62,6 +62,11 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
         return (
           <TooltipWrapper key={key} label={tagSet.label}>
             <Button
+              aria-label={
+                isDismissible
+                  ? `${tagSet.label}, click to remove filter`
+                  : undefined
+              }
               data-testid="filter-tags"
               id={`ts-filter-${id}-${key}`}
               onClick={
