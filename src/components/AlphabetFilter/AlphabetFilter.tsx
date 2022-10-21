@@ -109,7 +109,7 @@ export const AlphabetFilter = chakra(
         ? {
             ...styles.button,
             border: "1px solid",
-            borderColor: "ui.border.default",
+            borderColor: "ui.border.hover",
           }
         : {
             ...styles.button,
@@ -143,7 +143,7 @@ export const AlphabetFilter = chakra(
     };
 
     return (
-      <Box as="nav" role="navigation" ref={ref}>
+      <Box as="nav" ref={ref} aria-label="Filter by letter">
         <ComponentWrapper
           id={id}
           className={className}

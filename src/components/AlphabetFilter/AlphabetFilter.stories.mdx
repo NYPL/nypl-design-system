@@ -100,6 +100,11 @@ The `AlphabetFilter` component is accessible via keyboard. The color contrast be
 foreground color and background color is 4.5:1. If text size is 200%, the
 button scales with text so there is no overlap.
 
+Only one `AlphabetFilter` component should be rendered on a page. This is because only one HTML
+`<nav>` element with an aria-label attribute value of "Alphabet Filter" should be rendered on a
+page. The DS `AlphabetFilter` component renders this HTML landmark, so only one component must
+be rendered on a page.
+
 Resources:
 
 - [MDN aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
