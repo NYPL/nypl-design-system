@@ -136,23 +136,15 @@ const getElementsFromData = (
                 }}
                 _dark={{
                   _expanded: {
-                    bg:
-                      !content.accordionType ||
-                      content.accordionType === "default"
-                        ? "dark.ui.bg.active"
-                        : "dark.ui.bg.default",
+                    bg: "dark.ui.bg.active",
                   },
                   bg: "dark.ui.bg.default",
                   color: "dark.ui.typography.heading",
-                  borderLeft:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "1px solid"
-                      : "4px solid",
+                  borderLeft: "4px solid",
                   borderLeftColor:
                     !content.accordionType ||
                     content.accordionType === "default"
-                      ? "dark.ui.border.default"
+                      ? "dark.ui.border.hover"
                       : bgColorByAccordionType,
                 }}
               >
