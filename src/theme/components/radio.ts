@@ -4,6 +4,7 @@ import {
   checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
   screenreaderOnly,
+  checkboxRadioHoverStyles,
 } from "./global";
 
 // Style object for the Radio's "control" or visual icon.
@@ -17,9 +18,6 @@ const baseStyleControl = {
   backgroundColor: "ui.gray.xx-light-cool",
   color: "ui.white",
   outline: "none",
-  _hover: {
-    borderColor: "ui.black",
-  },
   _checked: {
     bg: "ui.gray.xx-light-cool",
     borderColor: "ui.focus",
@@ -41,7 +39,6 @@ const baseStyleControl = {
       },
     },
     _hover: {
-      borderColor: "ui.focus",
       bg: "ui.gray.xx-light-cool",
     },
     _before: {
@@ -56,9 +53,6 @@ const baseStyleControl = {
   _disabled: {
     borderColor: "ui.disabled.primary",
     bg: "ui.gray.xx-light-cool",
-    _hover: {
-      borderColor: "ui.disabled.primary",
-    },
   },
   _focus: {
     ...activeFocus(),
@@ -67,9 +61,6 @@ const baseStyleControl = {
   },
   _invalid: {
     borderColor: "ui.error.primary",
-    _hover: {
-      borderColor: "ui.error.primary",
-    },
   },
 };
 
@@ -80,8 +71,6 @@ const baseStyleLabel = checkboxRadioLabelStyles;
 const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
-  bg: "red",
-  fontSize: "40px",
   // Chakra-inserted elements in the Chakra Radio component
   control: baseStyleControl,
   label: baseStyleLabel,
@@ -107,6 +96,16 @@ const Radio = {
   // Default values
   defaultProps: {
     size: "md",
+  },
+};
+
+// Target the Radio's ComponentWrapper parent to be able to
+// style the hover styles when the label is hovered.
+export const RadioWrapper = {
+  baseStyle: {
+    label: {
+      ...checkboxRadioHoverStyles,
+    },
   },
 };
 
