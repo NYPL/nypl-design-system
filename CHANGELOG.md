@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Updates Storybook npm packages to fix copying documentation and table of contents heading linking.
+
 ## 1.2.0 (October 17, 2022)
 
 ### Adds
