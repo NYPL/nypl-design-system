@@ -13,6 +13,9 @@ const Tooltip = {
     maxWidth: "240px",
     px: "s",
     py: "xs",
+    _dark: {
+      [$bg.variable]: "colors.ui.gray.x-dark",
+    },
   },
 };
 

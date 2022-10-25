@@ -5,6 +5,7 @@ import {
   AccordionPanel,
   Box,
   chakra,
+  useColorMode,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -34,10 +35,20 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false, index: number, id: string) => {
+const getIcon = (
+  isExpanded = false,
+  index: number,
+  id: string,
+  iconColor: string
+) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
-    <Icon id={`accordion-${id}-icon-${index}`} name={iconName} size="small" />
+    <Icon
+      id={`accordion-${id}-icon-${index}`}
+      name={iconName}
+      size="small"
+      color={iconColor}
+    />
   );
 };
 
@@ -49,13 +60,20 @@ const getIcon = (isExpanded = false, index: number, id: string) => {
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
   id: string,
-  panelMaxHeight: string
+  panelMaxHeight: string,
+  isDarkMode: boolean
 ) => {
-  const colorMap = {
-    default: "ui.white",
-    warning: "ui.status.primary",
-    error: "ui.status.secondary",
-  };
+  const colorMap = isDarkMode
+    ? {
+        default: "ui.white",
+        warning: "ui.status.primary",
+        error: "dark.ui.error.primary",
+      }
+    : {
+        default: "ui.white",
+        warning: "ui.status.primary",
+        error: "ui.status.secondary",
+      };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multipleFontSize = data?.length > 1 ? "text.default" : "text.caption";
@@ -92,7 +110,9 @@ const getElementsFromData = (
             <>
               <AccordionButton
                 id={`${id}-button-${index}`}
-                borderColor="ui.gray.medium"
+                borderColor={
+                  isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
+                }
                 padding={multiplePadding}
                 bg={
                   !content.accordionType
@@ -114,6 +134,19 @@ const getElementsFromData = (
                       : bgColorByAccordionType,
                   borderColor: "ui.gray.dark",
                 }}
+                _dark={{
+                  _expanded: {
+                    bg: "dark.ui.bg.active",
+                  },
+                  bg: "dark.ui.bg.default",
+                  color: "dark.ui.typography.heading",
+                  borderLeft: "4px solid",
+                  borderLeftColor:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "dark.ui.border.hover"
+                      : bgColorByAccordionType,
+                }}
               >
                 <Box
                   as="span"
@@ -123,7 +156,12 @@ const getElementsFromData = (
                 >
                   {content.label}
                 </Box>
-                {getIcon(isExpanded, index, id)}
+                {getIcon(
+                  isExpanded,
+                  index,
+                  id,
+                  isDarkMode ? "dark.ui.typography.heading" : "ui.black"
+                )}
               </AccordionButton>
               {isExpanded && panel}
             </>
@@ -148,6 +186,7 @@ export const Accordion = chakra(
       ...rest
     } = props;
 
+    const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
     const openFirstAccordion = isDefaultOpen ? [0] : undefined;
 
@@ -159,7 +198,7 @@ export const Accordion = chakra(
         ref={ref}
         {...rest}
       >
-        {getElementsFromData(accordionData, id, panelMaxHeight)}
+        {getElementsFromData(accordionData, id, panelMaxHeight, isDarkMode)}
       </ChakraAccordion>
     );
   })
