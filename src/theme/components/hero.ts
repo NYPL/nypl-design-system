@@ -71,6 +71,8 @@ const getSecondaryVariantStyles = (bgColor: string = "ui.black") => ({
 // Variant styling
 const primary = {
   alignItems: "center",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
   display: "flex",
   flexFlow: {
     base: "column nowrap",
@@ -136,6 +138,8 @@ const tertiary = {
 };
 const campaign = {
   alignItems: "center",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
   display: "flex",
   justifyContent: "center",
   marginBottom: ["0", "0", "xxl"],

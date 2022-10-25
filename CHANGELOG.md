@@ -10,12 +10,35 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds a variant for `NYCDOE` to the `Logo` component.
 - Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
+
+### Deprecates
+
+- Deprecates the `"button"` `type` variant for the `Link` component. Use any of the new `"buttonX"` variants instead.
+
+### Updates
+
+- Updates the `AlphabetFilter` component by adding `aria-label=“Filter by letter"` attribute
+  and removing the `role` attribute on the `<nav>` element.
+- Updates `AlphabetFilter` border color for the `active letter` indicator from
+  `ui.gray.medium` to `ui.gray.dark`.
+- Updates background styles for `Hero` component's `primary` and `campaign` variants.
+
+## 1.2.0 (October 17, 2022)
+
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `TagSet` component.
+- Adds the `AlphabetFilter` component.
+- Adds the `AudioPlayer` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
 
 ### Updates
 
 - Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+- Updates `ComponentWrapper` prop `descriptionText` type to `string | JSX.Element`.
 
 ## 1.1.2 (September 29, 2022)
 
