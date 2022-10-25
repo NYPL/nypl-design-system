@@ -85,6 +85,14 @@ describe("AlphabetFilter", () => {
     expect(buttons[2]).toBeDisabled();
   });
 
+  it("should have correct aria-label", () => {
+    const { container } = render(
+      <AlphabetFilter id="alphabet-filter-id" onClick={onClick} />
+    );
+    const navLabel = container.querySelector("nav").getAttribute("aria-label");
+    expect(navLabel).toEqual("Filter by letter");
+  });
+
   it("should have corresponding aria-labels for each button", () => {
     render(<AlphabetFilter onClick={onClick} id="alphabet-filter-id" />);
     const buttons = screen.getAllByRole("button");

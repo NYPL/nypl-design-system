@@ -4,6 +4,7 @@ import {
   checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
   screenreaderOnly,
+  checkboxRadioHoverStyles,
 } from "./global";
 
 // Style object for the Radio's "control" or visual icon.
@@ -61,11 +62,6 @@ const baseStyleControl = {
   _invalid: {
     borderColor: "ui.error.primary",
   },
-  // TODO:
-  // _indeterminate: {
-  //   borderColor: "ui.gray.medium",
-  //   bg: "ui.white",
-  // },
 };
 
 // Style object for the Radio's label
@@ -75,8 +71,6 @@ const baseStyleLabel = checkboxRadioLabelStyles;
 const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
-  bg: "red",
-  fontSize: "40px",
   // Chakra-inserted elements in the Chakra Radio component
   control: baseStyleControl,
   label: baseStyleLabel,
@@ -102,6 +96,16 @@ const Radio = {
   // Default values
   defaultProps: {
     size: "md",
+  },
+};
+
+// Target the Radio's ComponentWrapper parent to be able to
+// style the hover styles when the label is hovered.
+export const RadioWrapper = {
+  baseStyle: {
+    label: {
+      ...checkboxRadioHoverStyles,
+    },
   },
 };
 
