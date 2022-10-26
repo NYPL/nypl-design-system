@@ -23,6 +23,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `AlphabetFilter` border color for the `active letter` indicator from
   `ui.gray.medium` to `ui.gray.dark`.
 - Updates background styles for `Hero` component's `primary` and `campaign` variants.
+- Updates the hover styles for the `Checkbox` and `Radio` components.
+
+### Fixes
+
+- Updates Storybook npm packages to fix copying documentation and table of contents heading linking.
 
 ## 1.2.0 (October 17, 2022)
 
