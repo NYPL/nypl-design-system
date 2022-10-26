@@ -75,10 +75,13 @@ const Notification = {
           bg: "inherit",
         },
       },
-      icon: {
-        flexShrink: "0",
-        marginEnd: "xs",
-      },
+      // icon: {
+      //   flexShrink: "0",
+      //   marginEnd: "xs",
+      //   _dark: {
+      //     marginEnd: "0",
+      //   },
+      // },
     };
   },
 };
@@ -109,6 +112,7 @@ const NotificationContent = {
             : "dark.ui.error.primary",
         borderLeftStyle: !isCentered ? "solid" : "none",
         borderLeftWidth: "2px",
+        marginTop: "0",
         paddingStart: !isCentered ? "xs" : "0",
         color: "dark.ui.typography.body",
         ml: !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
