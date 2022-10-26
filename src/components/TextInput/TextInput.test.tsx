@@ -36,6 +36,21 @@ describe("TextInput Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with `clear` button", async () => {
+    const { container } = render(
+      <TextInput
+        id="textInput"
+        isClearable
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        type="text"
+        value="input value"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
@@ -235,6 +250,40 @@ describe("TextInput", () => {
     );
   });
 
+  it("renders a `clear` button and clears the input field when clicked", () => {
+    const onChangeSpy = jest.fn();
+
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        isClearable
+        labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    let clearButton = screen.queryByRole("button");
+
+    // Renders when `isClearable` is true and the input has a value.
+    expect(clearButton).not.toBeInTheDocument();
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button");
+    expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
   it("logs a warning for the number type when the min prop is greater than the max prop", () => {
     const warn = jest.spyOn(console, "warn");
     render(
@@ -260,6 +309,21 @@ describe("TextInput", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+    );
+  });
+
+  it("logs a warning when `isClearable` is set to true for `textarea` type", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <TextInput
+        id="isClearable-warningn"
+        isClearable
+        labelText="Custom Input Label"
+        type="textarea"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: The `isClearable` prop cannot be used with the `textarea` type."
     );
   });
 });
@@ -444,6 +508,17 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const withClearButton = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isClearable
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type="text"
+        />
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <TextInput
@@ -476,6 +551,7 @@ describe("UI Snapshots", () => {
     expect(withHelperText).toMatchSnapshot();
     expect(errorState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
+    expect(withClearButton).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
