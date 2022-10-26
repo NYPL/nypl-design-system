@@ -24,6 +24,11 @@ export {
   default as Accordion,
   AccordionTypes,
 } from "./components/Accordion/Accordion";
+export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
+export {
+  default as AudioPlayer,
+  AudioType,
+} from "./components/AudioPlayer/AudioPlayer";
 export {
   default as Breadcrumbs,
   BreadcrumbsTypes,
@@ -114,6 +119,9 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
+export { default as TagSet } from "./components/TagSet/TagSet";
+export { TagSetExploreDataProps } from "./components/TagSet/TagSetExplore";
+export { TagSetFilterDataProps } from "./components/TagSet/TagSetFilter";
 export {
   TemplateAppContainer,
   Template,

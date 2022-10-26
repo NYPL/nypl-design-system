@@ -6,7 +6,15 @@ import Icon from "../Icons/Icon";
 export type LinkTypes =
   | "action"
   | "backwards"
+  // The "button" type is deprecated as of 1.2.x.
   | "button"
+  // Instead, use the following "buttonX" types.
+  | "buttonPrimary"
+  | "buttonSecondary"
+  | "buttonPill"
+  | "buttonCallout"
+  | "buttonNoBrand"
+  | "buttonDisabled"
   | "default"
   | "external"
   | "forwards";
@@ -130,15 +138,20 @@ export const Link = chakra(
       type === "external"
     ) {
       variant = "moreLink";
-    } else if (type === "button") {
-      variant = "button";
+    } else if (type.includes("button")) {
+      if (type === "button") {
+        console.warn(
+          `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
+        );
+      }
+      variant = type;
     }
     const style = useStyleConfig("Link", { variant });
     const rel = type === "external" ? "nofollow" : null;
     const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
-    // Forwards or Backwards.  Or render with the launch icon
-    // if the type is External.  Otherwise, do not add an icon.
+    // "forwards" or "backwards". Or render with the launch icon
+    // if the type is "external". Otherwise, do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children as JSX.Element, type, id)) ||

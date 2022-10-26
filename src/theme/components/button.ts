@@ -1,20 +1,15 @@
 import { defaultElementSizes } from "./global";
 
 // Style object for base or default style
-const baseStyle = {
+export const buttonBaseStyle = {
   alignItems: "center",
   borderRadius: "sm",
   display: "flex",
   cursor: "pointer",
   color: "ui.white",
   fontWeight: "button.default",
-  height: "10",
   justifyContent: "center",
   lineHeight: "1.5",
-  maxHeight: "2.5rem",
-  minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
-  py: "inset.narrow",
-  px: "inset.default",
   textDecoration: "none",
   wordWrap: "normal",
   svg: {
@@ -39,13 +34,55 @@ const baseStyle = {
     },
   },
 };
+
+const ghostDarkStyles = {
+  bg: "dark.ui.bg.default",
+  borderColor: "dark.ui.link.primary",
+  color: "dark.ui.link.primary",
+  _hover: {
+    bg: "dark.ui.bg.hover",
+    borderColor: "dark.ui.link.secondary",
+    color: "dark.ui.link.secondary",
+  },
+  _disabled: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.disabled.primary",
+  },
+};
+const generalSizeValues = (size = "medium", isPill = false) => {
+  const sizes = {
+    small: {
+      fontSize: "button.small",
+      height: "fit-content",
+      minHeight: "auto",
+      px: isPill ? "s" : "button.small.px",
+      py: isPill ? "xxxs" : "button.small.py",
+    },
+    medium: {
+      fontSize: "button.default",
+      height: isPill ? "fit-content" : undefined,
+      minHeight: isPill
+        ? "auto"
+        : { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
+      px: isPill ? "m" : "button.medium.px",
+      py: isPill ? "xxxs" : "button.medium.py",
+    },
+    large: {
+      fontSize: "button.large",
+      height: "fit-content",
+      minHeight: "auto",
+      px: isPill ? "l" : "button.large.px",
+      py: isPill ? "xxs" : "button.large.py",
+    },
+  };
+  return sizes[size];
+};
+
 // Styles for different visual variants:
-// primary, secondary, link, pill, iconOnly, callout, searchbar, noBrand
-const primary = {
+// primary, secondary, link, text, pill, iconOnly, callout, noBrand
+export const primary = ({ buttonSize = "medium" }) => ({
   bg: "ui.link.primary",
-  height: "none",
-  fontSize: "button.default",
-  minWidth: "none",
+  ...generalSizeValues(buttonSize),
   _dark: {
     bg: "dark.ui.link.primary",
     color: "ui.gray.xxx-dark",
@@ -53,13 +90,13 @@ const primary = {
       bg: "dark.ui.link.secondary",
     },
   },
-};
-const secondary = {
+});
+export const secondary = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.link.primary",
   color: "ui.link.primary",
-  fontSize: "button.default",
+  ...generalSizeValues(buttonSize),
   _hover: {
     bg: "ui.bg.default",
     borderColor: "ui.link.secondary",
@@ -71,25 +108,16 @@ const secondary = {
     color: "ui.disabled.primary",
   },
   _dark: {
-    bg: "dark.ui.bg.default",
-    borderColor: "dark.ui.link.primary",
-    color: "dark.ui.link.primary",
-    _hover: {
-      bg: "dark.ui.bg.hover",
-      borderColor: "dark.ui.link.secondary",
-      color: "dark.ui.link.secondary",
-    },
-    _disabled: {
-      bg: "dark.ui.bg.default",
-      borderColor: "dark.ui.disabled.primary",
-    },
+    ...ghostDarkStyles,
   },
-};
-const link = {
+});
+// The "link" type is deprecated but we still want to style
+// it correctly for backwards compatibility.
+const link = ({ buttonSize = "medium" }) => ({
   bg: "transparent",
   color: "ui.link.primary",
-  lineHeight: "2.5",
   textDecoration: "underline",
+  ...generalSizeValues(buttonSize),
   _disabled: {
     bg: "transparent",
   },
@@ -106,11 +134,11 @@ const link = {
       color: "dark.ui.link.secondary",
     },
   },
-};
-const text = {
+});
+const text = ({ buttonSize = "medium" }) => ({
   bg: "transparent",
   color: "ui.link.primary",
-  fontSize: "button.default",
+  ...generalSizeValues(buttonSize),
   _disabled: {
     bg: "transparent",
   },
@@ -118,16 +146,23 @@ const text = {
     bg: "transparent",
     color: "ui.link.secondary",
   },
-};
-const pill = {
+  _dark: {
+    color: "dark.ui.link.primary",
+    _disabled: {
+      bg: "transparent",
+    },
+    _hover: {
+      color: "dark.ui.link.secondary",
+    },
+  },
+});
+export const pill = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
-  borderRadius: "pill",
+  borderRadius: "button.pill",
   color: "inherit",
-  fontSize: "button.default",
-  py: "inset.narrow",
-  px: "inset.wide",
+  ...generalSizeValues(buttonSize, true),
   _hover: {
     bg: "ui.gray.xx-light-cool",
     borderColor: "ui.gray.medium",
@@ -136,36 +171,29 @@ const pill = {
     bg: "ui.gray.x-light-cool",
   },
   _dark: {
-    bg: "dark.ui.bg.default",
-    borderColor: "dark.ui.link.primary",
-    color: "dark.ui.link.primary",
-    _hover: {
-      bg: "dark.ui.bg.hover",
-      borderColor: "dark.ui.link.secondary",
-      color: "dark.ui.link.secondary",
-    },
-    _disabled: {
-      bg: "dark.ui.bg.default",
-      borderColor: "dark.ui.disabled.primary",
-    },
+    ...ghostDarkStyles,
   },
-};
-const iconOnly = {
+});
+const iconOnly = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.link.primary",
   color: "ui.link.primary",
+  ...generalSizeValues(buttonSize),
+  paddingInlineStart: "inset.narrow",
+  paddingInlineEnd: "inset.narrow",
   _hover: {
     bg: "ui.bg.default",
     borderColor: "ui.link.primary",
     color: "ui.link.primary",
   },
-  paddingInlineStart: "inset.narrow",
-  paddingInlineEnd: "inset.narrow",
-};
-const callout = {
+  _dark: {
+    ...ghostDarkStyles,
+  },
+});
+export const callout = ({ buttonSize = "medium" }) => ({
   bg: "brand.primary",
-  fontSize: "button.default",
+  ...generalSizeValues(buttonSize),
   _hover: {
     bg: "brand.secondary",
   },
@@ -174,12 +202,15 @@ const callout = {
   },
   _dark: {
     bg: "dark.brand.primary",
+    _hover: {
+      bg: "dark.brand.secondary",
+    },
   },
-};
-const noBrand = {
-  ...primary,
+});
+export const noBrand = ({ buttonSize = "medium" }) => ({
   bg: "ui.black",
   color: "ui.white",
+  ...generalSizeValues(buttonSize),
   _hover: {
     bg: "ui.gray.x-dark",
   },
@@ -189,15 +220,16 @@ const noBrand = {
       bg: "ui.gray.dark",
     },
   },
-};
+});
 
 const Button = {
-  baseStyle,
+  baseStyle: buttonBaseStyle,
   // Available variants:
   variants: {
     primary,
     secondary,
     text,
+    // Deprecated type. Use "text" instead.
     link,
     pill,
     iconOnly,

@@ -12,7 +12,7 @@ export interface ComponentWrapperProps {
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to set the text for the component's description */
-  descriptionText?: string;
+  descriptionText?: string | JSX.Element;
   /** Optional string to set the text for a `Heading` component */
   headingText?: string;
   /** Optional string to set the text for a `HelperErrorText` component */

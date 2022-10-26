@@ -39,6 +39,7 @@ import { getCategory } from "../../utils/componentCategories";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [isRequired helper text](#isrequired-helper-text)
+- [requiredLabelText to customize required label](#requiredlabeltext-to-customize-required-label)
 
 ## Overview
 
@@ -94,6 +95,31 @@ by default.
       </Label>
       <Label htmlFor="label-id2" id="required" isRequired>
         A label that is required
+      </Label>
+    </VStack>
+  </Story>
+</Canvas>
+
+## requiredLabelText to customize required label
+
+The `requiredLabelText` prop accepts values for type string and is available to update the "(Required)" text.
+It is recommend to be used carefully and to only pass text that means "required", including in other languages.
+We also recommend a maximum of two words for this text.
+Note: The parenthesis will be added automatically by the component.
+
+<Canvas>
+  <Story name="requiredLabelText">
+    <VStack>
+      <Label htmlFor="label-id1" id="regular" isRequired>
+        A regular isRequired label
+      </Label>
+      <Label
+        htmlFor="label-id2"
+        id="required"
+        isRequired
+        requiredLabelText="Obligatoire"
+      >
+        A label that has a customized required label
       </Label>
     </VStack>
   </Story>

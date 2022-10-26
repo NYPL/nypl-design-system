@@ -170,7 +170,7 @@ export const SearchBar = chakra(
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
-        __css={searchBarButtonStyles}
+        sx={searchBarButtonStyles}
       >
         <Icon
           align="left"

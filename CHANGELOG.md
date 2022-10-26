@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 - Adds `dark` color mode support for `background-color` and `color` global styles.
 - Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark` color mode support for the `Card` and `Hero` components.
@@ -20,10 +21,66 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
 - Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
 
+### Deprecates
+
+- Deprecates the `"button"` `type` variant for the `Link` component. Use any of the new `"buttonX"` variants instead.
+
+### Updates
+
+- Updates the `AlphabetFilter` component by adding `aria-label=“Filter by letter"` attribute
+  and removing the `role` attribute on the `<nav>` element.
+- Updates `AlphabetFilter` border color for the `active letter` indicator from
+  `ui.gray.medium` to `ui.gray.dark`.
+- Updates background styles for `Hero` component's `primary` and `campaign` variants.
+- Updates the hover styles for the `Checkbox` and `Radio` components.
+- Improves `TagSet` `"filter"` type accessibility by adding an `aria-label` that includes `"click to remove filter"`, when `isDismissible` is true.
+
+### Fixes
+
+- Updates Storybook npm packages to fix copying documentation and table of contents heading linking.
+
+## 1.2.0 (October 17, 2022)
+
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `TagSet` component.
+- Adds the `AlphabetFilter` component.
+- Adds the `AudioPlayer` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
+
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+- Updates `ComponentWrapper` prop `descriptionText` type to `string | JSX.Element`.
+
+## 1.1.2 (September 29, 2022)
+
+### Adds
+
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
+- Adds the `value` prop to the `CheckboxGroup` component to programmatically
+  update the values of the `Checkbox`es within it.
+
 ### Updates
 
 - Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
 - Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates whether the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
+- Updates the spacing of the icon and text in the `Notification` component.
+- Updates the padding and placement of the links in the `Footer` component.
+- Updates how content in the `Table` component is aligned.
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
+- Updates the `content` prop of the `Tooltip` component to accept number values.
+
+### Removals
+
+- Removed the `data-testid` attribute from the `Button` component.
 
 ## 1.1.1 (September 19, 2022)
 

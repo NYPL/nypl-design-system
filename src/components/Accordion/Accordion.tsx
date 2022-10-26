@@ -24,6 +24,9 @@ export interface AccordionProps {
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
+  /** Whether the contents of the Accordion should always be rendered.
+   *  Useful for form-components. `false` by default. */
+  isAlwaysRendered?: boolean;
   /** Sets max height of accordion panel. This value should be entered with the
    * formatting of a CSS height attribute (ex. 100px, 8rem). If height of content
    * within accordion panel is greater than height set by panelMaxHeight, a
@@ -60,8 +63,9 @@ const getIcon = (
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
   id: string,
-  panelMaxHeight: string,
-  isDarkMode: boolean
+  isAlwaysRendered: boolean = false,
+  isDarkMode: boolean,
+  panelMaxHeight: string
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -163,7 +167,7 @@ const getElementsFromData = (
                   isDarkMode ? "dark.ui.typography.heading" : "ui.black"
                 )}
               </AccordionButton>
-              {isExpanded && panel}
+              {(isAlwaysRendered || isExpanded) && panel}
             </>
           );
         }}
@@ -182,6 +186,7 @@ export const Accordion = chakra(
       accordionData,
       id,
       isDefaultOpen = false,
+      isAlwaysRendered = false,
       panelMaxHeight,
       ...rest
     } = props;
@@ -198,7 +203,13 @@ export const Accordion = chakra(
         ref={ref}
         {...rest}
       >
-        {getElementsFromData(accordionData, id, panelMaxHeight, isDarkMode)}
+        {getElementsFromData(
+          accordionData,
+          id,
+          isAlwaysRendered,
+          isDarkMode,
+          panelMaxHeight
+        )}
       </ChakraAccordion>
     );
   })

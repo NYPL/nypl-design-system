@@ -2,7 +2,7 @@ import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React from "react";
 import renderer from "react-test-renderer";
 
 import CheckboxGroup from "./CheckboxGroup";
@@ -291,6 +291,38 @@ describe("Checkbox", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
     );
+  });
+
+  it("updates the selected checkboxes programmatically through the `value` prop", () => {
+    const value = ["physics", "english", "math"];
+    render(
+      <CheckboxGroup
+        id="programmatically-update-example"
+        labelText="Course Selection"
+        name="courseSelection"
+        value={value}
+      >
+        <Checkbox id="art" labelText="Art" value="art" />
+        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
+        <Checkbox id="english" labelText="English" value="english" />
+        <Checkbox id="magic" labelText="Magic" value="magic" />
+        <Checkbox id="math" labelText="Math" value="math" />
+        <Checkbox id="music" labelText="Music" value="music" />
+        <Checkbox id="physics" labelText="Physics" value="physics" />
+        <Checkbox id="science" labelText="Science" value="science" />
+      </CheckboxGroup>
+    );
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    // Only "physics", "english", and "math" are checked
+    expect(checkboxes[0]).not.toHaveAttribute("checked");
+    expect(checkboxes[1]).not.toHaveAttribute("checked");
+    expect(checkboxes[2]).toHaveAttribute("checked");
+    expect(checkboxes[3]).not.toHaveAttribute("checked");
+    expect(checkboxes[4]).toHaveAttribute("checked");
+    expect(checkboxes[5]).not.toHaveAttribute("checked");
+    expect(checkboxes[6]).toHaveAttribute("checked");
+    expect(checkboxes[7]).not.toHaveAttribute("checked");
   });
 
   it("renders the UI snapshot correctly", () => {

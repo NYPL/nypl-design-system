@@ -49,6 +49,25 @@ const checkboxRadioHelperErrorTextStyle = {
     fontStyle: "italic",
   },
 };
+// General hover styles for Checkbox and Radio
+const checkboxRadioHoverStyles = {
+  _hover: {
+    span: {
+      _first: {
+        borderColor: "ui.black",
+      },
+      _checked: {
+        borderColor: "ui.focus",
+      },
+      _disabled: {
+        borderColor: "ui.disabled.primary",
+      },
+      _invalid: {
+        borderColor: "ui.error.primary",
+      },
+    },
+  },
+};
 const checkboxRadioGroupStyles = (isFullWidth = false) => ({
   helperErrorText: {
     marginTop: "xs",
@@ -107,6 +126,7 @@ export {
   checkboxRadioControlSize,
   checkboxRadioGroupStyles,
   checkboxRadioHelperErrorTextStyle,
+  checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
   defaultElementSizes,
   labelLegendText,

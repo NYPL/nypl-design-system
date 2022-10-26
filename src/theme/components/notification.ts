@@ -75,6 +75,10 @@ const Notification = {
           bg: "inherit",
         },
       },
+      icon: {
+        flexShrink: "0",
+        marginEnd: "xs",
+      },
     };
   },
 };
@@ -91,6 +95,7 @@ const NotificationContent = {
     justifyContent: "center",
     content: {
       color: notificationType === "warning" ? "brand.primary" : "currentColor",
+      marginTop: showIcon ? "xxxs" : "0",
       paddingStart:
         !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
       pt: !isCentered && notificationHeading ? "xxs" : "0",

@@ -9,6 +9,7 @@ import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
+import AlphabetFilter from "./components/alphabetFilter";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -45,7 +46,7 @@ import Modal from "./components/modal";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
-import Radio from "./components/radio";
+import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
@@ -55,12 +56,14 @@ import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
+import TagSetStyles from "./components/tagSet";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
 import Toggle from "./components/toggle";
 import Tooltip from "./components/tooltip";
 import VideoPlayer from "./components/videoPlayer";
+import AudioPlayer from "./components/audioPlayer";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -94,6 +97,8 @@ const theme = extendTheme({
    */
   components: {
     Accordion,
+    AlphabetFilter,
+    AudioPlayer,
     Breadcrumb,
     Button,
     ButtonGroup,
@@ -133,6 +138,7 @@ const theme = extendTheme({
     ProgressIndicator,
     Radio,
     RadioGroup,
+    RadioWrapper,
     SearchBar,
     Skeleton,
     SkeletonLoader,
@@ -142,6 +148,7 @@ const theme = extendTheme({
     StructuredContent,
     Tabs,
     CustomTable,
+    ...TagSetStyles,
     ...TemplateStyles,
     Text,
     TextInput,

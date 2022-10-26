@@ -1,0 +1,374 @@
+import { VStack } from "@chakra-ui/react";
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import TagSet from "./TagSet";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("TagSet")}
+  component={TagSet}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=51380%3A41869",
+    },
+    jest: ["TagSet.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    isDismissible: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    onClick: { control: false },
+    tagSetData: { control: false },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "filter" } },
+    },
+  }}
+/>
+
+# TagSet
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.2.0`    |
+| Latest            | `1.2.1`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Explore Component Props](#explore-component-props)
+- [Filter Component Props](#filter-component-props)
+- [Accessibility](#accessibility)
+- [Examples](#examples)
+
+## Overview
+
+<Description of={TagSet} />
+
+## Explore Component Props
+
+An "explore" `TagSet` variant is used to display content that can help a user
+start a search and promote exploration. These tags are not dismissible and should
+be used as links to other pages with the content highlighted on the new page.
+
+Notes:
+
+- The `isDismissible` and `onClick` props are not used in this variant.
+
+<Canvas withToolbar>
+  <Story
+    name="TagSet Explore with Controls"
+    argTypes={{
+      isDismissible: { table: { disable: true } },
+      onClick: { table: { disable: true } },
+      tagSetData: { control: false },
+    }}
+    args={{
+      className: undefined,
+      id: "tagSet-id-explore",
+      isDismissible: undefined,
+      onClick: undefined,
+      tagSetData: [
+        {
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+              Card
+            </a>
+          ),
+        },
+        {
+          iconName: "fileTypeDoc",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+              StructuredContent
+            </a>
+          ),
+        },
+        {
+          iconName: "alertWarningOutline",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+              ProgressIndicator
+            </a>
+          ),
+        },
+        {
+          iconName: "actionSettings",
+          label: (
+            <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+              useNYPLBreakpoints React hook
+            </a>
+          ),
+        },
+      ],
+      type: "explore",
+    }}
+  >
+    {(args) => <TagSet {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TagSet Explore with Controls" />
+
+### Explore `tagSetData` Prop
+
+The `tagSetData` prop is an array of objects that contain `iconName` and `label`
+properties. The `iconName` is the name of the icon to display through the
+Reservoir `Icon` component and is optional. The `label` _MUST_ be a React
+element; typically, links are expected to be used for the "explore" variant.
+
+```tsx
+const tagSetData = [
+  {
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+        Card
+      </a>
+    ),
+  },
+  {
+    iconName: "fileTypeDoc",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+        StructuredContent
+      </a>
+    ),
+  },
+  {
+    iconName: "alertWarningOutline",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+        ProgressIndicator
+      </a>
+    ),
+  },
+  {
+    iconName: "actionSettings",
+    label: (
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+        useNYPLBreakpoints React hook
+      </a>
+    ),
+  },
+];
+```
+
+## Filter Component Props
+
+A "filter" `TagSet` variant is used to display keywords the user selected to
+filter content on a page. For example, in a search results page, the filter
+criteria a user selects would be displayed back to the user through the "filter"
+`TagSet` variant. These tags can be dismissed by the user and the scope of the
+content should be updated accordingly -- but the update to display the proper
+filters and updated results are the responsibility of the consuming application.
+
+Notes:
+
+- The `isDismissible` prop is optional and the `onClick` prop is required for
+  this variant.
+- The `onClick` prop will only fire when `isDismissible` is true and the user
+  clicks a tag.
+- Icons will not be rendered when `isDismissible` is true. In this case, the "X"
+  close icon will be rendered instead.
+- When the `isDismissible` prop is true, a "Clear Filters" button will be
+  rendered at the end of the list of tags. Clicking this button will also
+  trigger the `onClick` prop.
+
+<Canvas withToolbar>
+  <Story
+    name="TagSet Filter with Controls"
+    args={{
+      className: undefined,
+      id: "tagSet-id-filter",
+      isDismissible: true,
+      onClick: (tagLabel) => {
+        console.log(`Clicked from the onClick props: ${tagLabel}`);
+      },
+      tagSetData: [
+        { iconName: "utilityAccountFilled", label: "Abbey Road" },
+        { iconName: "actionLaunch", label: "The Beatles" },
+        { iconName: "alertWarningOutline", label: "Revolver" },
+        {
+          iconName: "check",
+          label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
+        },
+      ],
+      type: "filter",
+    }}
+  >
+    {(args) => <TagSet {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TagSet Filter with Controls" />
+
+### Filter `tagSetData` Prop
+
+The `tagSetData` prop is an array of objects that contain `iconName` and `label`
+properties. The `iconName` is the name of the icon to display through the
+Reservoir `Icon` component and is optional. The `label` _MUST_ be a string for
+the filter type.
+
+```tsx
+const tagSetData = [
+  { iconName: "utilityAccountFilled", label: "Abbey Road" },
+  { iconName: "actionLaunch", label: "The Beatles" },
+  { iconName: "alertWarningOutline", label: "Revolver" },
+  {
+    iconName: "check",
+    label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
+  },
+];
+```
+
+## Accessibility
+
+All properly implemented tags in the "explore" and "filter" `TagSet` variants
+are accessible.
+
+For the "explore" variant, tags are expected to be set as links and are
+therefore focusable.
+
+For the "filter" variant, tags are rendered as buttons to perform in-page
+clicking behavior. When `isDismissible` is true, the `aria-label` attribute is
+updated to include `", click to remove filter"`. For example, for a tag with a
+label of `"Abbey Road"`, the `aria-label` will be
+`"Abbey Road, click to remove filter"`.
+
+Resources:
+
+- [W3C WAI-ARIA Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+
+## Examples
+
+<Canvas>
+  <DSProvider>
+    <VStack align="stretch" gap="l">
+      <TagSet
+        tagSetData={[
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+                Card
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+                StructuredContent
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+                ProgressIndicator
+              </a>
+            ),
+          },
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+                useNYPLBreakpoints React hook
+              </a>
+            ),
+          },
+        ]}
+        type="explore"
+      />
+      <TagSet
+        tagSetData={[
+          {
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+                Card
+              </a>
+            ),
+          },
+          {
+            iconName: "fileTypeDoc",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+                StructuredContent
+              </a>
+            ),
+          },
+          {
+            iconName: "alertWarningOutline",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+                ProgressIndicator
+              </a>
+            ),
+          },
+          {
+            iconName: "actionSettings",
+            label: (
+              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+                useNYPLBreakpoints React hook
+              </a>
+            ),
+          },
+        ]}
+        type="explore"
+      />
+      <TagSet
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { label: "Red" },
+          { label: "Orange" },
+          { label: "Yellow" },
+          { label: "Green" },
+          { label: "Blue" },
+          { label: "Indigo" },
+          { label: "Violet" },
+        ]}
+      />
+      <TagSet
+        isDismissible
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { label: "Red" },
+          { label: "Orange" },
+          { label: "Yellow" },
+          { label: "Green" },
+          { label: "Blue" },
+          { label: "Indigo" },
+          { label: "Violet" },
+        ]}
+      />
+      <TagSet
+        onClick={(tagLabel) =>
+          console.log(`Clicked from the onClick props: ${tagLabel}`)
+        }
+        tagSetData={[
+          { iconName: "alertWarningFilled", label: "Red" },
+          { iconName: "check", label: "Orange" },
+          { iconName: "check", label: "Yellow" },
+          { iconName: "alertWarningFilled", label: "Green" },
+          { iconName: "check", label: "Blue" },
+          { iconName: "check", label: "Indigo" },
+          { iconName: "check", label: "Violet" },
+        ]}
+      />
+    </VStack>
+  </DSProvider>
+</Canvas>

@@ -10,7 +10,6 @@ const HeaderSearchButton = {
     fontWeight: "medium",
     minHeight: { md: "40px" },
     minWidth: { md: "80px" },
-    px: "0",
     textDecoration: "none",
     _dark: {
       color: isOpen ? "ui.white" : "dark.ui.link.primary",
@@ -18,7 +17,7 @@ const HeaderSearchButton = {
     span: {
       alignItems: "center",
       borderBottom: { md: "3px solid #1B7FA7" },
-      display: "flex",
+      display: "inline-flex",
       lineHeight: "1.3",
       _dark: {
         borderBottom: isOpen ? "0" : { md: "3px solid" },
@@ -27,8 +26,8 @@ const HeaderSearchButton = {
     },
     svg: {
       marginLeft: { base: "0", md: "xxs" },
-      color: {
-        base: isOpen ? "ui.white" : "black",
+      fill: {
+        base: isOpen ? "ui.white" : "ui.black",
         md: isOpen ? "ui.white" : "ui.link.primary",
       },
       _dark: {

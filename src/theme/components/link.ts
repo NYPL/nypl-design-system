@@ -1,3 +1,12 @@
+import {
+  buttonBaseStyle,
+  callout,
+  noBrand,
+  pill,
+  primary,
+  secondary,
+} from "./button";
+
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
@@ -10,6 +19,11 @@ export const baseLinkStyles = {
       color: "dark.ui.link.secondary",
     },
   },
+};
+
+const baseButtonLinkStyles = {
+  ...buttonBaseStyle,
+  display: "inline-flex",
 };
 
 const variants = {
@@ -28,6 +42,7 @@ const variants = {
       fill: "currentColor",
     },
   },
+  // The "button" variant is deprecated.
   button: {
     width: "100px",
     borderRadius: "sm",
@@ -53,6 +68,43 @@ const variants = {
         color: "ui.white",
         bg: "dark.ui.link.secondary",
       },
+    },
+  },
+  buttonPrimary: {
+    ...baseButtonLinkStyles,
+    ...primary({}),
+  },
+  buttonSecondary: {
+    ...baseButtonLinkStyles,
+    ...secondary({}),
+    _visited: {
+      color: "ui.link.primary",
+    },
+  },
+  buttonPill: {
+    ...baseButtonLinkStyles,
+    ...pill({}),
+    _visited: {
+      color: "ui.black",
+    },
+  },
+  buttonCallout: {
+    ...baseButtonLinkStyles,
+    ...callout({}),
+  },
+  buttonNoBrand: {
+    ...baseButtonLinkStyles,
+    ...noBrand({}),
+  },
+  buttonDisabled: {
+    ...baseButtonLinkStyles,
+    ...primary({}),
+    bg: "ui.gray.light-cool",
+    color: "ui.gray.dark",
+    opacity: "1",
+    pointerEvents: "none",
+    _visited: {
+      color: "ui.gray.dark",
     },
   },
 };

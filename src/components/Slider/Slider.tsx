@@ -12,7 +12,7 @@ import {
   useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -68,6 +68,8 @@ export interface SliderProps {
   showValues?: boolean;
   /** The amount to increase or decrease when using the slider thumb(s). */
   step?: number;
+  /** The value(s) to programmatically update the Slider or RangeSlider. */
+  value?: number | number[];
 }
 
 /**
@@ -99,6 +101,7 @@ export const Slider = chakra(
         showRequiredLabel = true,
         showValues = true,
         step = 1,
+        value,
         ...rest
       } = props;
 
@@ -118,6 +121,22 @@ export const Slider = chakra(
       const [currentValue, setCurrentValue] =
         React.useState<typeof defaultValue>(finalDevaultValue);
       const isDarkMode = useColorMode().colorMode === "dark";
+
+      // If the value(s) needs to be updated programmatically,
+      // listen to the `value` prop.
+      useEffect(() => {
+        if (value) {
+          if (typeof value === "number" && value !== currentValue) {
+            setCurrentValue(value);
+          } else if (
+            value[0] !== currentValue[0] ||
+            value[1] !== currentValue[1]
+          ) {
+            setCurrentValue(value);
+          }
+        }
+      }, [value, currentValue]);
+
       let finalIsInvalid = isInvalid;
       // In the Range Slider, if the first value is bigger than the second value,
       // then set the invalid state.

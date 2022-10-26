@@ -165,12 +165,16 @@ export const baseStyle = ({
         ? { base: "ui.gray.x-light-cool", md: "unset" }
         : undefined,
       color: "ui.black",
+      verticalAlign: "top",
       _dark: {
         backgroundColor: useRowHeaders
           ? { base: "dark.ui.bg.default", md: "unset" }
           : undefined,
         color: "dark.ui.typography.heading",
       },
+    },
+    td: {
+      verticalAlign: "top",
     },
   },
   thead: {
