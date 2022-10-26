@@ -1000,6 +1000,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   className="css-1xdhyk6"
 >
   <button
+    aria-label="Red, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-0"
@@ -1043,6 +1044,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Orange, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-1"
@@ -1086,6 +1088,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Yellow, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-2"
@@ -1129,6 +1132,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Green, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-3"
@@ -1172,6 +1176,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Blue, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-4"
@@ -1215,6 +1220,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Indigo, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-5"
@@ -1258,6 +1264,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     </svg>
   </button>
   <button
+    aria-label="Violet, click to remove filter"
     className="chakra-button css-1xdhyk6"
     data-testid="filter-tags"
     id="ts-filter-undefined-6"

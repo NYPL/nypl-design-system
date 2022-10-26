@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   `ui.gray.medium` to `ui.gray.dark`.
 - Updates background styles for `Hero` component's `primary` and `campaign` variants.
 - Updates the hover styles for the `Checkbox` and `Radio` components.
+- Improves `TagSet` `"filter"` type accessibility by adding an `aria-label` that includes `"click to remove filter"`, when `isDismissible` is true.
 
 ### Fixes
 
