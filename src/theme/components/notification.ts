@@ -75,13 +75,6 @@ const Notification = {
           bg: "inherit",
         },
       },
-      // icon: {
-      //   flexShrink: "0",
-      //   marginEnd: "xs",
-      //   _dark: {
-      //     marginEnd: "0",
-      //   },
-      // },
     };
   },
 };
