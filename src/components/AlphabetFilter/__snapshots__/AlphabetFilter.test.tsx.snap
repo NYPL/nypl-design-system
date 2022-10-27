@@ -2,8 +2,8 @@
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-1u8qly9"
@@ -299,8 +299,8 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-1u8qly9"
@@ -624,8 +624,8 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-1u8qly9"
@@ -927,8 +927,8 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-1u8qly9"
@@ -1229,8 +1229,8 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-2bbtg1"
@@ -1526,8 +1526,8 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
 
 exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
 <nav
+  aria-label="Filter by letter"
   className="css-0"
-  role="navigation"
 >
   <div
     className="css-1u8qly9"

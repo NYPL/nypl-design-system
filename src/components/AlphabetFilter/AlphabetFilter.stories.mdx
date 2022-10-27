@@ -39,7 +39,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.2.0`    |
-| Latest            | `1.2.0`    |
+| Latest            | `1.2.1`    |
 
 ## Table of Contents
 
@@ -99,6 +99,11 @@ and removed from all other letter buttons.
 The `AlphabetFilter` component is accessible via keyboard. The color contrast between
 foreground color and background color is 4.5:1. If text size is 200%, the
 button scales with text so there is no overlap.
+
+Only one `AlphabetFilter` component should be rendered on a page. This is because only one HTML
+`<nav>` element with an `aria-label` attribute value of `"Filter by letter"` should be rendered on a
+page. The DS `AlphabetFilter` component renders this HTML landmark, so only one component must
+be rendered on a page.
 
 Resources:
 
