@@ -12,6 +12,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render that will clear any text value in the input field.
 
+## 1.2.1 (October 27, 2022)
+
+### Adds
+
+- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
+
+### Deprecates
+
+- Deprecates the `"button"` `type` variant for the `Link` component. Use any of the new `"buttonX"` variants instead.
+
 ### Updates
 
 - Updates the `AlphabetFilter` component by adding `aria-label=“Filter by letter"` attribute
@@ -20,6 +30,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   `ui.gray.medium` to `ui.gray.dark`.
 - Updates background styles for `Hero` component's `primary` and `campaign` variants.
 - Updates the hover styles for the `Checkbox` and `Radio` components.
+- Improves `TagSet` `"filter"` type accessibility by adding an `aria-label` that includes `"click to remove filter"`, when `isDismissible` is true.
 
 ### Fixes
 

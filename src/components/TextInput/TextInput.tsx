@@ -253,7 +253,7 @@ export const TextInput = chakra(
               sx={styles.clearButton}
             >
               <Icon color="ui.black" name="close" size="medium" />
-              <span>Clear text in the input field</span>
+              <span>Clear {labelText}</span>
             </Button>
           );
         }
