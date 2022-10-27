@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AudioPlay Snapshots renders the UI snapshot correctly 1`] = `
+exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
+<div
+  className="audioplayer css-1u8qly9"
+  data-testid="audio-player-component"
+  id="undefined-componentWrapper-wrapper"
+/>
+`;
+
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
@@ -18,14 +26,6 @@ exports[`AudioPlay Snapshots renders the UI snapshot correctly 1`] = `
     Audio Player description text.
   </p>
   <div
-    className="css-0"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<iframe title=\\"Libsyn Player\\" style=\\"border: none\\" src=\\"//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/\\" height=\\"90\\" width=\\"100%\\" scrolling=\\"no\\" allowfullscreen=\\"\\" webkitallowfullscreen=\\"\\" mozallowfullscreen=\\"\\" oallowfullscreen=\\"\\" msallowfullscreen=\\"\\"></iframe>",
-      }
-    }
-  />
-  <div
     aria-atomic={true}
     aria-live="off"
     className="css-1xdhyk6"
@@ -40,7 +40,7 @@ exports[`AudioPlay Snapshots renders the UI snapshot correctly 1`] = `
 </div>
 `;
 
-exports[`AudioPlay Snapshots renders the UI snapshot correctly 2`] = `
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
@@ -57,24 +57,15 @@ exports[`AudioPlay Snapshots renders the UI snapshot correctly 2`] = `
 </div>
 `;
 
-exports[`AudioPlay Snapshots renders the UI snapshot correctly 3`] = `
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
   id="undefined-componentWrapper-wrapper"
->
-  <div
-    className="css-0"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=\\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true\\" title=\\"Embedded audio player\\"></iframe>",
-      }
-    }
-  />
-</div>
+/>
 `;
 
-exports[`AudioPlay Snapshots renders the UI snapshot correctly 4`] = `
+exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
@@ -85,23 +76,6 @@ exports[`AudioPlay Snapshots renders the UI snapshot correctly 4`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "<iframe title=\\"Libsyn Player\\" style=\\"border: none\\" src=\\"//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/\\" height=\\"90\\" width=\\"100%\\" scrolling=\\"no\\" allowfullscreen=\\"\\" webkitallowfullscreen=\\"\\" mozallowfullscreen=\\"\\" oallowfullscreen=\\"\\" msallowfullscreen=\\"\\"></iframe>",
-      }
-    }
-  />
-</div>
-`;
-
-exports[`AudioPlay Snapshots renders the UI snapshot correctly 5`] = `
-<div
-  className="audioplayer css-1u8qly9"
-  data-testid="audio-player-component"
-  id="undefined-componentWrapper-wrapper"
->
-  <div
-    className="css-0"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<strong>Error: </strong>This audio player has not been configured properly. Please contact the site administrator.",
       }
     }
   />

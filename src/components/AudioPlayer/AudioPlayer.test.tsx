@@ -87,7 +87,7 @@ describe("AudioPlayer valid render", () => {
   });
 });
 
-describe("custom iframe title", () => {
+describe("Custom iframe title", () => {
   it("Uses the default iframe title if it exists", () => {
     render(
       <AudioPlayer
@@ -159,7 +159,7 @@ describe("Props validation", () => {
 });
 
 describe("AudioPlay Snapshots", () => {
-  it("renders the UI snapshot correctly", () => {
+  it("Renders the well formatted AudioPlayer UI ", () => {
     const audioWithFullText = renderer
       .create(
         <AudioPlayer
@@ -180,16 +180,18 @@ describe("AudioPlay Snapshots", () => {
     const libsynAudio = renderer
       .create(<AudioPlayer embedCode={libsynCode} audioType="libsyn" />)
       .toJSON();
-    const audioPlayerError = renderer
-      .create(
-        <AudioPlayer embedCode="<h1>Hello, World</h1>" audioType="libsyn" />
-      )
-      .toJSON();
 
     expect(audioWithFullText).toMatchSnapshot();
     expect(spotifyAudio).toMatchSnapshot();
     expect(soundcloudAudio).toMatchSnapshot();
     expect(libsynAudio).toMatchSnapshot();
+  });
+  it("Renders the errored AudioPlayer UI", () => {
+    const audioPlayerError = renderer
+      .create(
+        <AudioPlayer embedCode="<h1>Hello, World</h1>" audioType="libsyn" />
+      )
+      .toJSON();
     expect(audioPlayerError).toMatchSnapshot();
   });
 });

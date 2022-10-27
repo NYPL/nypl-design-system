@@ -47,7 +47,7 @@ import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
-import Radio from "./components/radio";
+import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
@@ -140,6 +140,7 @@ const theme = extendTheme({
     ProgressIndicator,
     Radio,
     RadioGroup,
+    RadioWrapper,
     SearchBar,
     Skeleton,
     SkeletonLoader,

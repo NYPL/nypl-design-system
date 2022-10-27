@@ -183,7 +183,6 @@ describe("TagSet Explore", () => {
 
 describe("TagSet Filter", () => {
   let onClick: jest.MockedFunction<() => void>;
-  // let utils: RenderResult;
 
   it("renders tags", () => {
     onClick = jest.fn();
@@ -225,6 +224,49 @@ describe("TagSet Filter", () => {
     );
 
     expect(screen.getAllByTestId("filter-close-icon")).toHaveLength(7);
+  });
+
+  it("renders the correct aria-label when `isDismissible` is true", () => {
+    onClick = jest.fn();
+    render(
+      <TagSet
+        isDismissible
+        onClick={onClick}
+        tagSetData={filterTagSetData.simple}
+        type="filter"
+      />
+    );
+
+    const tagSets = screen.getAllByRole("button");
+
+    expect(tagSets[0]).toHaveAttribute(
+      "aria-label",
+      "Red, click to remove filter"
+    );
+    expect(tagSets[1]).toHaveAttribute(
+      "aria-label",
+      "Orange, click to remove filter"
+    );
+    expect(tagSets[2]).toHaveAttribute(
+      "aria-label",
+      "Yellow, click to remove filter"
+    );
+    expect(tagSets[3]).toHaveAttribute(
+      "aria-label",
+      "Green, click to remove filter"
+    );
+    expect(tagSets[4]).toHaveAttribute(
+      "aria-label",
+      "Blue, click to remove filter"
+    );
+    expect(tagSets[5]).toHaveAttribute(
+      "aria-label",
+      "Indigo, click to remove filter"
+    );
+    expect(tagSets[6]).toHaveAttribute(
+      "aria-label",
+      "Violet, click to remove filter"
+    );
   });
 
   it("returns the clicked tag's label to the `onClick` function", () => {

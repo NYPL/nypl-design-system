@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
@@ -58,33 +58,50 @@ export const AudioPlayer = chakra(
         ...rest
       } = props;
 
-      // The root iframe object generated from the embedCode.
-      const iframeDoc = parseIframeEmbedCode(embedCode);
-      // when no embedCode or it was a broken code.
-      let isInvalidEmbed =
-        !embedCode || !iframeDoc || !isValidEmbedCode(iframeDoc);
+      const [invalidEmbed, setInvalidEmbed] = useState<boolean>(false);
+      const [iframeDoc, setIframeDoc] = useState<HTMLIFrameElement | undefined>(
+        undefined
+      );
+
+      /**
+       * Main hooks to check the embedCode structure.
+       */
+      useEffect(() => {
+        // The root iframe object generated from the embedCode.
+        const iframe = parseIframeEmbedCode(embedCode);
+
+        // when no embedCode or it was a broken code.
+        let isInvalidEmbed =
+          !embedCode || !iframe || !isValidEmbedCode(audioType, iframe);
+
+        // Only set the iframe title if it doesn't already have it in the iframe.
+        if (iframe && !iframe.title) {
+          iframe.title = iframeTitle ? iframeTitle : "Embedded audio player";
+        }
+
+        const isThirdPartyService: boolean = !!thirdPartyServices.find(
+          (service) => service === audioType
+        );
+        const isThirdPartyWithoutCode = isThirdPartyService && !embedCode;
+        if (isThirdPartyWithoutCode) {
+          console.warn(
+            "NYPL Reservoir AudioPlayer: The `embedCode` prop is required when using a 3rd party streaming service."
+          );
+          isInvalidEmbed = true;
+        }
+
+        setInvalidEmbed(isInvalidEmbed);
+        setIframeDoc(iframe);
+      }, [embedCode, audioType, iframeTitle]);
 
       const errorMessage =
         "<strong>Error: </strong>This audio player has not been configured properly. Please contact the site administrator.";
 
-      function isValidEmbedCode(doc: HTMLIFrameElement): boolean {
+      function isValidEmbedCode(
+        audioType: AudioType,
+        doc: HTMLIFrameElement
+      ): boolean {
         return audioType !== "file" && doc?.src?.includes(`${audioType}.com`);
-      }
-
-      // Only set the iframe title if it doesn't already have it in the iframe.
-      if (iframeDoc && !iframeDoc.title) {
-        iframeDoc.title = iframeTitle ? iframeTitle : "Embedded audio player";
-      }
-
-      const isThirdPartyService: boolean = !!thirdPartyServices.find(
-        (service) => service === audioType
-      );
-      const isThirdPartyWithoutCode = isThirdPartyService && !embedCode;
-      if (isThirdPartyWithoutCode) {
-        console.warn(
-          "NYPL Reservoir AudioPlayer: The `embedCode` prop is required when using a 3rd party streaming service."
-        );
-        isInvalidEmbed = true;
       }
 
       const styles = useMultiStyleConfig("AudioPlayer", {});
@@ -117,7 +134,7 @@ export const AudioPlayer = chakra(
           __css={styles}
           {...rest}
         >
-          {isInvalidEmbed ? (
+          {invalidEmbed ? (
             <Box
               dangerouslySetInnerHTML={{ __html: errorMessage }}
               __css={styles.invalid}

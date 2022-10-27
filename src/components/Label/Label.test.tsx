@@ -61,6 +61,31 @@ describe("Label", () => {
     expect(screen.queryByText(/Required/i)).toBeInTheDocument();
   });
 
+  it("renders a custom '(Required)' helper text when provided", () => {
+    const { rerender } = render(
+      <Label id="label" htmlFor="some-input-id" requiredLabelText="Obligatoire">
+        <span>Cupcakes</span>
+      </Label>
+    );
+
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Obligatoire/i)).not.toBeInTheDocument();
+
+    rerender(
+      <Label
+        id="label"
+        htmlFor="some-input-id"
+        isRequired
+        requiredLabelText="Obligatoire"
+      >
+        <span>Cupcakes</span>
+      </Label>
+    );
+
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Obligatoire/i)).toBeInTheDocument();
+  });
+
   it("Logs a warning when there is no `id` passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
@@ -88,6 +113,18 @@ describe("Label", () => {
         </Label>
       )
       .toJSON();
+    const requiredLabelText = renderer
+      .create(
+        <Label
+          id="label3"
+          htmlFor="some-input-id"
+          isRequired
+          requiredLabelText="Obligatoire"
+        >
+          Cupcakes
+        </Label>
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <Label
@@ -110,6 +147,7 @@ describe("Label", () => {
 
     expect(simple).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(requiredLabelText).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
