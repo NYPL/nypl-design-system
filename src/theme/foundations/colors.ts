@@ -208,7 +208,7 @@ const colors: Colors = {
         secondary: grayxxDark,
       },
       error: {
-        primary: "#E1454C",
+        primary: "#DC4850",
         secondary: "#F67C82",
       },
       focus: "#5181D4",

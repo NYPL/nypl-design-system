@@ -706,7 +706,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -748,7 +748,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -790,7 +790,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -832,7 +832,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -874,7 +874,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -916,7 +916,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
@@ -958,7 +958,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-q3eg3a"
       data-testid="ts-icon"
       focusable={false}
       role="img"
