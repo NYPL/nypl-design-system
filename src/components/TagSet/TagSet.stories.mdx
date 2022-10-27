@@ -44,7 +44,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.2.0`    |
-| Latest            | `1.2.0`    |
+| Latest            | `1.2.1`    |
 
 ## Table of Contents
 
@@ -237,9 +237,16 @@ const tagSetData = [
 ## Accessibility
 
 All properly implemented tags in the "explore" and "filter" `TagSet` variants
-are accessible. For the "explore" variant, tags are expected to be set as links
-and are therefore focusable. For the "filter" variant, tags are rendered as
-buttons to perform in-page clicking behavior.
+are accessible.
+
+For the "explore" variant, tags are expected to be set as links and are
+therefore focusable.
+
+For the "filter" variant, tags are rendered as buttons to perform in-page
+clicking behavior. When `isDismissible` is true, the `aria-label` attribute is
+updated to include `", click to remove filter"`. For example, for a tag with a
+label of `"Abbey Road"`, the `aria-label` will be
+`"Abbey Road, click to remove filter"`.
 
 Resources:
 
