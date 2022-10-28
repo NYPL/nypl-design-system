@@ -21,6 +21,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
 - Adds `dark` color mode support for the `ALphabetFilter`, `AudioPlayer`, and `TagSet` components.
 
+### Updates
+
+- Updates the hex value for `dark.ui.error.primary`.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
