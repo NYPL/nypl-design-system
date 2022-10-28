@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
