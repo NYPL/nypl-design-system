@@ -112,6 +112,7 @@ export {
   default as StructuredContent,
   StructuredContentImagePosition,
 } from "./components/StructuredContent/StructuredContent";
+export { default as StyledList } from "./components/StyledList/StyledList";
 export {
   default as Tabs,
   TabList,

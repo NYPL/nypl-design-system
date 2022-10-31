@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `StyledList` component.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
