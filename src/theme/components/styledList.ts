@@ -9,8 +9,11 @@ const StyledList = {
   variants: {
     capped: {
       li: {
-        borderLeft: "2px solid",
-        borderRight: "2px solid",
+        borderLeft: "1px solid",
+        borderRight: {
+          base: "1px solid",
+          md: "none",
+        },
         borderColor: "ui.border.default",
         my: "xs",
         px: "xs",
