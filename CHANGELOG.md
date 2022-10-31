@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `StyledList` component.
 
+### Fixes
+
+- Fixes an invalid TOC link on the `Card` component Storybook page.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
