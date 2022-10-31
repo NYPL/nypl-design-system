@@ -17,7 +17,6 @@ const StyledList = {
         borderColor: "ui.border.default",
         my: "xs",
         px: "xs",
-        width: "fit-content",
       },
     },
   },
