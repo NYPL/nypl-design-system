@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes an invalid TOC link on the `Card` component Storybook page.
+- Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
 
 ## 1.2.1 (October 27, 2022)
 
