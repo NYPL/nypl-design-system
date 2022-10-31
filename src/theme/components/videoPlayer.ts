@@ -12,8 +12,15 @@ const square = {
 
 const invalid = {
   backgroundColor: "ui.gray.light-cool",
+  border: "1px solid",
+  borderColor: "ui.border.default",
   height: "auto",
   padding: "s",
+  _dark: {
+    bg: "dark.ui.bg.default",
+    border: "1px solid",
+    borderColor: "dark.ui.border.default",
+  },
 };
 
 const VideoPlayer = {

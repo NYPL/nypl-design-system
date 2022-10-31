@@ -10,7 +10,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 - Adds `dark` color mode support for `background-color` and `color` global styles.
 - Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark` color mode support for the `Card` and `Hero` components.
@@ -20,6 +19,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
 - Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
 - Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
+- Adds `dark` color mode support for the `ALphabetFilter`, `AudioPlayer`, and `TagSet` components.
+
+### Updates
+
+- Updates the hex value for `dark.ui.error.primary`.
+
+## 1.2.1 (October 27, 2022)
+
+### Adds
+
+- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 
 ### Deprecates
 
