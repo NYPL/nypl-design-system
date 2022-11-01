@@ -71,6 +71,7 @@ export const MultiSelectGroup = chakra(
           id={`${id}-multiselect-group`}
           legendText={labelText}
           isLegendHidden={!showLabel}
+          width={multiSelectWidth}
           {...rest}
         >
           <Stack

@@ -1,0 +1,56 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import FilterBar from "./FilterBar";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import * as story from "./FilterBar.stories";
+
+<Meta
+  title={getCategory("FilterBar")}
+  component={FilterBar}
+  decorators={[withDesign]}
+  argTypes={{
+    children: { table: { disable: true } },
+    id: { control: false },
+  }}
+/>
+
+# FilterBar
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.2.1`    |
+| Latest            | `1.2.1`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+
+## Overview
+
+<Description of={FilterBar} />
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="FilterBar"
+    args={{
+      id: "filterbar-id",
+      headingText: "FilterBar",
+      layout: "row",
+    }}
+  >
+    {(args) => <story.FilterBarStory {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="FilterBar" />
