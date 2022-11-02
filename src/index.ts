@@ -91,6 +91,10 @@ export {
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";
 export {
+  default as MultiSelectGroup,
+  MultiSelectGroupProps,
+} from "./components/MultiSelectGroup/MultiSelectGroup";
+export {
   default as Notification,
   NotificationTypes,
 } from "./components/Notification/Notification";
