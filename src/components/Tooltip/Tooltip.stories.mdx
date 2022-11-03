@@ -7,6 +7,8 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
+import SimpleGrid from "../Grid/SimpleGrid";
 import Tooltip from "./Tooltip";
 import Button from "../Button/Button";
 import Radio from "../Radio/Radio";
@@ -15,6 +17,7 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Label from "../Label/Label";
 import Image from "../Image/Image";
+import Text from "../Text/Text";
 import { VStack } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -48,7 +51,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.1.0`    |
-| Latest            | `1.1.2`    |
+| Latest            | `1.2.2`    |
 
 ## Table of Contents
 
@@ -157,6 +160,50 @@ in sync with the rendered visual control.
         />
       </Tooltip>
     </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+### Tooltip on Image component
+
+When using the `Tooltip` component on an `Image` component, the
+`shouldWrapChildren` prop should _not_ be used. This causes the `Image`'s
+aspect ratio to not render properly.
+
+<Canvas>
+  <DSProvider>
+    <Text level="three">
+      Images with aspect ratios but Tooltips use shouldWrapChildren. Don't do
+      this.
+    </Text>
+    <SimpleGrid>
+      <Tooltip content="square aspect ratio" shouldWrapChildren>
+        <Image
+          alt="Alt text"
+          caption="Square"
+          aspectRatio="square"
+          size="large"
+          src="https://placeimg.com/400/400/animals"
+        />
+      </Tooltip>
+      <Tooltip content="fourByThree aspect ratio" shouldWrapChildren>
+        <Image
+          alt="Alt text"
+          caption="Four by Three"
+          aspectRatio="fourByThree"
+          size="default"
+          src="https://placeimg.com/400/400/animals"
+        />
+      </Tooltip>
+      <Tooltip content="threeByFour aspect ratio" shouldWrapChildren>
+        <Image
+          alt="Alt text"
+          caption="Three by Four"
+          aspectRatio="threeByFour"
+          size="default"
+          src="https://placeimg.com/400/400/animals"
+        />
+      </Tooltip>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 

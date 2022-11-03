@@ -19,7 +19,6 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <figure
       className="css-0"
@@ -75,7 +74,6 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <figure
       className="css-0"
@@ -193,7 +191,6 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <img
       alt="Image alt text"
@@ -225,7 +222,6 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <figure
       className="css-0"
@@ -303,7 +299,6 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <figure
       className="css-0"
@@ -360,7 +355,6 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   </h3>
   <div
     className="css-0"
-    data-testid="test"
   >
     <figure
       className="css-0"
