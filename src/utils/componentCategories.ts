@@ -43,6 +43,7 @@ const categories = {
     title: "Components/Feedback",
     components: [
       "Alert",
+      "FeedbackBox",
       "InlineLoading",
       "Notification",
       "ProgressIndicator",
