@@ -78,7 +78,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.2.0`    |
+| Latest            | `1.2.2`    |
 
 ## Table of Contents
 
@@ -248,13 +248,13 @@ export const iconRotationTypesValues = [
   "rotate270",
 ];
 export const iconSizesValues = [
-  "default",
-  "small",
-  "medium",
-  "large",
-  "xlarge",
-  "xxlarge",
-  "xxxlarge",
+  { size: "default", display: "default (100%)" },
+  { size: "small", display: "small (14px)" },
+  { size: "medium", display: "medium (18px)" },
+  { size: "large", display: "large (24px)" },
+  { size: "xlarge", display: "xlarge (32px)" },
+  { size: "xxlarge", display: "xxlarge (48px)" },
+  { size: "xxxlarge", display: "xxxlarge (64px)" },
 ];
 for (const icon in iconNamesValues) {
   icons.push(
@@ -285,8 +285,8 @@ for (const iconColor in iconColorsValues) {
 for (const iconSize in iconSizesValues) {
   sizes.push(
     iconRow("actionCheckCircle", {
-      displayValue: iconSizesValues[iconSize],
-      size: iconSizesValues[iconSize],
+      displayValue: iconSizesValues[iconSize].display,
+      size: iconSizesValues[iconSize].size,
     })
   );
 }
