@@ -49,19 +49,18 @@ export const MultiSelectGroup = chakra(
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement) => {
-          if (child.type !== MultiSelect) {
-            console.warn(
-              "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
-            );
-            return;
-          }
-          if (child !== undefined && child !== null) {
-            newChildren.push(
-              React.cloneElement(child, {
-                isBlockElement,
-                width: multiSelectWidth,
-              })
-            );
+          if (React.isValidElement(child)) {
+            // @TODO: DXP needs to pass custom MultiSelects that wrap DS Mutliselects - type check deos not allow DXP to use MultiSelectGroup
+            // if (child.type !== MultiSelect) {
+            //   console.warn(
+            //     "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
+            //   );
+            //   return;
+            // }
+            if (child.type === MultiSelect) {
+              const props = { isBlockElement, width: multiSelectWidth };
+              newChildren.push(React.cloneElement(child, props));
+            }
           }
         }
       );
