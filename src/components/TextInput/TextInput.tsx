@@ -4,12 +4,14 @@ import {
   Textarea as ChakraTextarea,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import Button from "../Button/Button";
+import Icon from "../Icons/Icon";
 
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export type TextInputTypes =
@@ -47,6 +49,8 @@ export interface InputProps {
   id: string;
   /** Populates the HelperErrorText for the error state */
   invalidText?: HelperErrorTextType;
+  /** Adds a button to clear existing text in the input field. */
+  isClearable?: boolean;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
   isDisabled?: boolean;
   /** Adds errored styling to the input/textarea and helper text elements */
@@ -77,6 +81,9 @@ export interface InputProps {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
+  /** Allows the '(Required)' text to be changed for language purposes
+   * Note: Parenthesis will be added automatically by the component */
+  requiredLabelText?: string;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the label onscreen or hide it. Refer to the
@@ -85,9 +92,6 @@ export interface InputProps {
   /** Whether or not to display the "(Required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** Allows the '(Required)' text to be changed for language purposes
-   * Note: Parenthesis will be added automatically by the component */
-  requiredLabelText?: string;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
@@ -118,6 +122,7 @@ export const TextInput = chakra(
         helperText,
         id,
         invalidText,
+        isClearable = false,
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
@@ -140,7 +145,9 @@ export const TextInput = chakra(
         value,
         ...rest
       } = props;
+      const [finalValue, setFinalValue] = useState<string>(value || "");
       const styles = useMultiStyleConfig("TextInput", {
+        showLabel,
         variant: textInputType,
       });
       const isTextArea = type === "textarea";
@@ -148,6 +155,14 @@ export const TextInput = chakra(
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
+      const internalOnChange = (
+        e:
+          | React.ChangeEvent<HTMLInputElement>
+          | React.ChangeEvent<HTMLTextAreaElement>
+      ) => {
+        setFinalValue(e.target.value);
+        onChange && onChange(e);
+      };
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
@@ -160,7 +175,14 @@ export const TextInput = chakra(
       });
       let finalIsInvalid = isInvalid;
       let fieldOutput;
+      let clearButtonOutput;
       let options;
+
+      useEffect(() => {
+        if (value && value !== finalValue) {
+          setFinalValue(value);
+        }
+      }, [finalValue, value]);
 
       if (!id) {
         console.warn(
@@ -188,7 +210,14 @@ export const TextInput = chakra(
 
       // When the type is "hidden", the input element needs fewer attributes.
       options = isHidden
-        ? { defaultValue, id, "aria-hidden": isHidden, name, onChange, ref }
+        ? {
+            defaultValue,
+            id,
+            "aria-hidden": isHidden,
+            name,
+            onChange: internalOnChange,
+            ref,
+          }
         : {
             "aria-required": isRequired,
             defaultValue,
@@ -200,7 +229,7 @@ export const TextInput = chakra(
             maxLength,
             min,
             name,
-            onChange,
+            onChange: internalOnChange,
             onClick,
             onFocus,
             placeholder,
@@ -213,9 +242,27 @@ export const TextInput = chakra(
       // For `input` and `textarea`, all attributes are the same but `input`
       // also needs `type` and `value` to render correctly.
       if (!isTextArea) {
-        options = { type, value, ...options } as any;
+        options = { type, value: finalValue, ...options } as any;
         fieldOutput = <ChakraInput {...options} __css={styles.input} />;
+        if (isClearable) {
+          clearButtonOutput = (
+            <Button
+              buttonType="text"
+              id={`${id}-clear-btn`}
+              onClick={() => setFinalValue("")}
+              sx={styles.clearButton}
+            >
+              <Icon color="ui.black" name="close" size="medium" />
+              <span>Clear {labelText}</span>
+            </Button>
+          );
+        }
       } else {
+        if (isClearable) {
+          console.warn(
+            "NYPL Reservoir TextInput: The `isClearable` prop cannot be used with the `textarea` type."
+          );
+        }
         fieldOutput = (
           <ChakraTextarea {...options} __css={styles.textarea}>
             {value}
@@ -245,6 +292,7 @@ export const TextInput = chakra(
             </Label>
           )}
           {fieldOutput}
+          {!isHidden && finalValue.length > 0 && clearButtonOutput}
         </ComponentWrapper>
       );
     }
