@@ -60,6 +60,8 @@ export const MultiSelectGroup = chakra(
             if (child.type === MultiSelect) {
               const props = { isBlockElement, width: multiSelectWidth };
               newChildren.push(React.cloneElement(child, props));
+            } else {
+              newChildren.push(React.cloneElement(child));
             }
           }
         }
