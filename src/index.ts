@@ -153,6 +153,7 @@ export {
 } from "./components/TextInput/TextInput";
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
+export { default as useFiterBar } from "./hooks/useFilterBar";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
