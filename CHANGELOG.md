@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render that will clear any text value in the input field.
+
 ### Updates
 
 - Updates the `Icon` and `Logo` documentation to include size values in px.
