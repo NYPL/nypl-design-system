@@ -110,10 +110,16 @@ export default function useMultiSelect() {
     setSelectedItems(newSelectedItems);
   };
 
+  /**
+   * handleClearAll is used to clear all MultiSelects of a group. It will remove all selected items.
+   */
+  const handleClearAll = () => setSelectedItems({});
+
   return {
     selectedItems,
     onChange: handleChange,
     onMixedStateChange: handleMixedStateChange,
     onClear: handleClear,
+    onClearAll: handleClearAll,
   };
 }
