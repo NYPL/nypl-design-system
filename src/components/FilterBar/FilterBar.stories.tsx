@@ -4,8 +4,7 @@ import { Story } from "@storybook/react/types-6-0";
 import FilterBar, { FilterBarProps } from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
-import TextInput from "../TextInput/TextInput";
-import useMultiSelect from "../../hooks/useMultiSelect";
+import useFilterBar from "../../hooks/useFilterBar";
 
 const multiSelectItems = [
   {
@@ -54,17 +53,23 @@ const multiSelectItems = [
 ];
 
 export const FilterBarStory: Story<FilterBarProps> = (args) => {
-  const { onChange, onMixedStateChange, selectedItems, onClear } =
-    useMultiSelect();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const {
+    onChange,
+    onMixedStateChange,
+    selectedItems,
+    onClear,
+    onClearAll,
+    isModalOpen,
+    onToggle,
+  } = useFilterBar();
   return (
-    <FilterBar {...args} isOpen={isOpen} onToggle={setIsOpen}>
-      <TextInput
-        labelText="Text Input Search"
-        id="text-input"
-        key="text-input-key"
-        width="full"
-      />
+    <FilterBar
+      {...args}
+      isOpen={isModalOpen}
+      onToggle={onToggle}
+      onClear={onClearAll}
+      selectedItems={selectedItems}
+    >
       <MultiSelectGroup
         id="multiselect-group"
         key="multiselect-group-key"

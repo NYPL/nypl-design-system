@@ -1,40 +1,58 @@
 import {
   Box,
   chakra,
-  Stack,
-  // VStack,
   Modal,
   ModalBody,
-  ModalContent,
-  // ModalOverlay,
-  ModalHeader,
   ModalCloseButton,
+  ModalContent,
   ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   useMultiStyleConfig,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import { LayoutTypes } from "../../helpers/types";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Heading from "../Heading/Heading";
-import { SelectedItems } from "../MultiSelect/MultiSelect";
-import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
+import { LayoutTypes } from "../../helpers/types";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
+import RadioGroup from "../RadioGroup/RadioGroup";
+import { SelectedItems } from "../MultiSelect/MultiSelect";
 import TextInput from "../TextInput/TextInput";
+import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
 
-export interface FilterBarProps {
-  children: any;
+interface FilterBarCommonProps {
+  children: React.ReactNode;
   id?: string;
   isOpen: boolean;
   headingText: string;
   layout?: LayoutTypes;
-  onClear: () => void;
-  onSubmit: () => void;
   onToggle: React.Dispatch<React.SetStateAction<boolean>>;
-  selectedItems: SelectedItems[];
+  selectedItems: SelectedItems;
 }
+
+type ClearAllProps =
+  | {
+      showClearAll: false;
+      onClear: never;
+    }
+  | { showClearAll: true; onClear: () => void };
+
+type SubmitAllProps =
+  | {
+      showSubmitAll: false;
+      onSubmit: never;
+    }
+  | { showSubmitAll: true; onSubmit: () => void };
+
+export type FilterBarProps = FilterBarCommonProps &
+  ClearAllProps &
+  SubmitAllProps;
 
 export const FilterBar = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FilterBarProps>>(
@@ -48,34 +66,67 @@ export const FilterBar = chakra(
         onClear,
         onSubmit,
         onToggle,
+        selectedItems,
+        showClearAll = false,
+        showSubmitAll = false,
       } = props;
+
       const { isLargerThanMedium } = useNYPLBreapoints();
       const finalLayout = isLargerThanMedium ? layout : "column";
       const styles = useMultiStyleConfig("FilterBar", { layout: finalLayout });
+      const getSelectedItemsCount = () =>
+        Object.entries(selectedItems).length
+          ? `(${Object.entries(selectedItems).length})`
+          : "";
+      //@TODO: resolved using Typescript descriminated unions
+      // // Warning if a function was passed but the button not rendered.
+      // if (onClear && showClearAll === false) {
+      //   console.warn(
+      //     "NYPL Reservoir FilterBar: The `onClearFilters` handler was set, but the `Clear Filters` button is not visible."
+      //   );
+      // }
+
+      // // Warning if schowClearAll is set to true but no corresponding fucntion was passed.
+      // if (onClear === null && showClearAll === true) {
+      //   console.warn(
+      //     "NYPL Reservoir FilterBar: The `onClearFilters` handler was not set."
+      //   );
+      // }
       const newChildren: JSX.Element[] = [];
-      // Go through the MultiSelect children and update props as needed.
+      // Go through the FilterBar children and update props as needed.
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement) => {
           if (React.isValidElement(child)) {
-            if (child.type === TextInput) {
-              newChildren.push(React.cloneElement(child));
-            } else if (child.type === MultiSelectGroup) {
+            if (child.type === MultiSelectGroup) {
               const props = {
                 layout: finalLayout,
-                multiSelectWidth: "full",
+                multiSelectWidth: "default",
               };
               newChildren.push(React.cloneElement(child, props));
-            } else if (child.type === MultiSelect) {
+            }
+            if (child.type === MultiSelect) {
               const props = {
                 isBlockElement: finalLayout === "column",
-                width: "full",
+                width: "default",
+              };
+              newChildren.push(React.cloneElement(child, props));
+            }
+            if (child.type === TextInput) {
+              newChildren.push(React.cloneElement(child));
+            }
+            if (
+              child.type === ButtonGroup ||
+              child.type === CheckboxGroup ||
+              child.type === RadioGroup
+            ) {
+              const props = {
+                layout: finalLayout,
               };
               newChildren.push(React.cloneElement(child, props));
             } else {
-              console.log(child);
               console.warn(
-                "NYPL Reservoir FilterBar: Only MultiSelect or MultiSelectGroup components can be children of FilterBar."
+                "NYPL Reservoir FilterBar: Invalid child component was passed"
               );
               return;
             }
@@ -87,9 +138,37 @@ export const FilterBar = chakra(
           {headingText && (
             <Heading text={headingText} level="two" size="tertiary" />
           )}
-          <Stack ref={ref} width="full" spacing="xs">
-            {newChildren}
-          </Stack>
+          <Wrap
+            ref={ref}
+            spacing={layout === "row" ? "l" : "s"}
+            direction={layout}
+            width="full"
+          >
+            <WrapItem>{newChildren}</WrapItem>
+            <WrapItem alignItems={layout === "row" ? "end" : ""}>
+              <ButtonGroup>
+                {showSubmitAll && (
+                  <Button
+                    buttonType="primary"
+                    id={`${id}-clear-all-button`}
+                    onClick={onClear}
+                  >
+                    Apply Filters
+                  </Button>
+                )}
+                {showClearAll && (
+                  <Button
+                    buttonType="text"
+                    id={`${id}-clear-all-button`}
+                    onClick={onClear}
+                    textAlign="center"
+                  >
+                    Clear Filters
+                  </Button>
+                )}
+              </ButtonGroup>
+            </WrapItem>
+          </Wrap>
         </Box>
       ) : (
         <>
@@ -98,29 +177,34 @@ export const FilterBar = chakra(
             buttonType="secondary"
             onClick={() => onToggle(!isOpen)}
           >
-            Show Filters
+            {`Show Filter ${getSelectedItemsCount()}`}
           </Button>
           <Modal isOpen={isOpen} onClose={() => onToggle(!isOpen)} size="full">
+            <ModalOverlay />
             <ModalContent>
               <ModalHeader sx={styles.modalHeader}>Filter Criteria</ModalHeader>
               <ModalCloseButton sx={styles.modalCloseButton} />
               <ModalBody>{newChildren}</ModalBody>
-              <ModalFooter>
+              <ModalFooter sx={styles.modalFooter}>
                 <ButtonGroup layout="row" buttonWidth="full">
                   <Button
+                    id={`filter-bar-${id}-see-results`}
+                    type="submit"
+                    onClick={() => {
+                      onSubmit();
+                      onToggle(!isOpen);
+                    }}
+                  >
+                    Show Results
+                  </Button>
+                  <Button
                     id={`filter-bar-${id}-clear`}
-                    buttonType="link"
+                    buttonType="text"
                     type="reset"
                     textAlign="center"
                     onClick={onClear}
                   >
                     Clear Filters
-                  </Button>
-                  <Button
-                    id={`filter-bar-${id}-see-results`}
-                    onClick={onSubmit}
-                  >
-                    {`Show Results`}
                   </Button>
                 </ButtonGroup>
               </ModalFooter>
@@ -131,4 +215,5 @@ export const FilterBar = chakra(
     }
   )
 );
+
 export default FilterBar;

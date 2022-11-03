@@ -19,6 +19,20 @@ import * as story from "./FilterBar.stories";
   argTypes={{
     children: { table: { disable: true } },
     id: { control: false },
+    showClearAll: {
+      type: { name: "boolean", required: false },
+      description: "`boolean`",
+    },
+    showSubmitAll: {
+      type: { name: "boolean", required: false },
+      description: "`boolean`",
+    },
+    onSubmit: {
+      type: { name: "() => void", required: false },
+    },
+    onClear: {
+      type: { name: "() => void", required: false },
+    },
   }}
 />
 
