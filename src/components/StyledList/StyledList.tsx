@@ -21,6 +21,11 @@ export interface StyledListProps {
   textSize?: TextSizes;
 }
 
+/**
+ * The `StyledList` component renders an HTML list with styles that do not
+ * adhere to traditional numbered and bulleted list styles. Unlike
+ * the `List` component, `StyledList` only renders an unordered list.
+ */
 export const StyledList = chakra(
   forwardRef<HTMLDivElement & HTMLUListElement, StyledListProps>(
     (props, ref?) => {

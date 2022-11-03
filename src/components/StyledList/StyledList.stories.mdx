@@ -52,6 +52,8 @@ import DSProvider from "../../theme/provider";
 
 <Description of={StyledList} />
 
+## Component Props
+
 export const itemGroups = [
   'FULL TITLE: "...and for the City of New York"',
   'ALTERNATIVE TITLES: "...Society of New York delivered at..." + 1 more',
@@ -138,11 +140,14 @@ If `<li>` elements cannot be passed as children to the `StyledList` component,
 an array with data can be passed into the `listItems` prop. Note: either
 children elements or the `listItems` prop should be passed but not both.
 
-For data in the `listItems` prop, the `StyledList` component will render the
-`li` elements. There is no need to add them in the `listItems` array.
+Data in the `listItems` prop array can be JSX Elements or strings. The
+`StyledList` component will render the data as `li` elements, so there is no
+need to add them in the `listItems` array. _If `li` elements wrap the data in the
+`listItems` array, they will be rendered as nested `li` elements and incorrectly
+render two styled borders instead of the desired single border._
 
 ```jsx
-<!-- With `itemList` data prop -->
+<!-- With `listItems` data prop -->
 const listItems = [
   <>FULL TITLE: <i>"...and for the <b>City of New York</b>"</i></>,
   <>ALTERNATIVE TITLES: <i>"...Society of <b>New York</b> delivered at..."</i> + 1 more</>,
