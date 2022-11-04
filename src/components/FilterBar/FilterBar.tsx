@@ -69,6 +69,7 @@ export const FilterBar = chakra(
         selectedItems,
         showClearAll = false,
         showSubmitAll = false,
+        ...rest
       } = props;
 
       const { isLargerThanMedium } = useNYPLBreapoints();
@@ -134,7 +135,7 @@ export const FilterBar = chakra(
         }
       );
       return isLargerThanMedium ? (
-        <Box id={`filter-bar-${id}`} __css={styles}>
+        <Box id={`filter-bar-${id}`} __css={styles} {...rest}>
           {headingText && (
             <Heading text={headingText} level="two" size="tertiary" />
           )}
