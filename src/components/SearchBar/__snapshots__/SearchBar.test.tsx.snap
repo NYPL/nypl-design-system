@@ -23,12 +23,13 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         id="searchbar-textinput-basic"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -230,12 +231,13 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         id="searchbar-textinput-withSelect"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -317,12 +319,13 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         id="searchbar-textinput-withoutHelperText"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -393,12 +396,13 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         id="searchbar-textinput-invalidState"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
     </div>
     <button
@@ -467,12 +471,13 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         id="searchbar-textinput-disabledState"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -544,12 +549,13 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         id="searchbar-textinput-requiredState"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search (Required)"
         required={true}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -621,12 +627,13 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         id="searchbar-textinput-noBrandButtonType"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search (Required)"
         required={true}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -884,12 +891,13 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
         id="searchbar-textinput-chakra"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
@@ -972,12 +980,13 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         id="searchbar-textinput-props"
         name="textInputName"
         onBlur={[Function]}
-        onChange={[MockFunction]}
+        onChange={[Function]}
         onFocus={[Function]}
         placeholder="Item Search "
         required={false}
         step={null}
         type="text"
+        value=""
       />
       
     </div>
