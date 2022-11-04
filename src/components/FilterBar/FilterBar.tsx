@@ -127,91 +127,101 @@ export const FilterBar = chakra(
               newChildren.push(React.cloneElement(child, props));
             } else {
               console.warn(
-                "NYPL Reservoir FilterBar: Invalid child component was passed"
+                "NYPL Reservoir FilterBar: Invalid child component was passed",
+                child
               );
               return;
             }
           }
         }
       );
-      return isLargerThanMedium ? (
-        <Box id={`filter-bar-${id}`} __css={styles} {...rest}>
-          {headingText && (
-            <Heading text={headingText} level="two" size="tertiary" />
+      return (
+        <Box id={`filter-bar-${id}`} __css={styles} ref={ref} {...rest}>
+          {isLargerThanMedium ? (
+            <>
+              {headingText && (
+                <Heading text={headingText} level="two" size="tertiary" />
+              )}
+              <Wrap
+                spacing={layout === "row" ? "l" : "s"}
+                direction={layout}
+                width="full"
+              >
+                <WrapItem>{newChildren}</WrapItem>
+                <WrapItem alignItems={layout === "row" ? "end" : ""}>
+                  <ButtonGroup>
+                    {showSubmitAll && (
+                      <Button
+                        buttonType="primary"
+                        id={`${id}-clear-all-button`}
+                        onClick={onClear}
+                      >
+                        Apply Filters
+                      </Button>
+                    )}
+                    {showClearAll && (
+                      <Button
+                        buttonType="text"
+                        id={`${id}-clear-all-button`}
+                        onClick={onClear}
+                        textAlign="center"
+                      >
+                        Clear Filters
+                      </Button>
+                    )}
+                  </ButtonGroup>
+                </WrapItem>
+              </Wrap>
+            </>
+          ) : (
+            <>
+              <Button
+                id={`filter-bar-${id}-show-filters`}
+                buttonType="secondary"
+                onClick={() => onToggle(!isOpen)}
+              >
+                {`Show Filter ${getSelectedItemsCount()}`}
+              </Button>
+              <Modal
+                isOpen={isOpen}
+                onClose={() => onToggle(!isOpen)}
+                size="full"
+              >
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader sx={styles.modalHeader}>
+                    Filter Criteria
+                  </ModalHeader>
+                  <ModalCloseButton sx={styles.modalCloseButton} />
+                  <ModalBody>{newChildren}</ModalBody>
+                  <ModalFooter sx={styles.modalFooter}>
+                    <ButtonGroup layout="row" buttonWidth="full">
+                      <Button
+                        id={`filter-bar-${id}-see-results`}
+                        type="submit"
+                        onClick={() => {
+                          onSubmit();
+                          onToggle(!isOpen);
+                        }}
+                      >
+                        Show Results
+                      </Button>
+                      <Button
+                        id={`filter-bar-${id}-clear`}
+                        buttonType="text"
+                        type="reset"
+                        textAlign="center"
+                        onClick={onClear}
+                      >
+                        Clear Filters
+                      </Button>
+                    </ButtonGroup>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+            </>
           )}
-          <Wrap
-            ref={ref}
-            spacing={layout === "row" ? "l" : "s"}
-            direction={layout}
-            width="full"
-          >
-            <WrapItem>{newChildren}</WrapItem>
-            <WrapItem alignItems={layout === "row" ? "end" : ""}>
-              <ButtonGroup>
-                {showSubmitAll && (
-                  <Button
-                    buttonType="primary"
-                    id={`${id}-clear-all-button`}
-                    onClick={onClear}
-                  >
-                    Apply Filters
-                  </Button>
-                )}
-                {showClearAll && (
-                  <Button
-                    buttonType="text"
-                    id={`${id}-clear-all-button`}
-                    onClick={onClear}
-                    textAlign="center"
-                  >
-                    Clear Filters
-                  </Button>
-                )}
-              </ButtonGroup>
-            </WrapItem>
-          </Wrap>
         </Box>
-      ) : (
-        <>
-          <Button
-            id={`filter-bar-${id}-show-filters`}
-            buttonType="secondary"
-            onClick={() => onToggle(!isOpen)}
-          >
-            {`Show Filter ${getSelectedItemsCount()}`}
-          </Button>
-          <Modal isOpen={isOpen} onClose={() => onToggle(!isOpen)} size="full">
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader sx={styles.modalHeader}>Filter Criteria</ModalHeader>
-              <ModalCloseButton sx={styles.modalCloseButton} />
-              <ModalBody>{newChildren}</ModalBody>
-              <ModalFooter sx={styles.modalFooter}>
-                <ButtonGroup layout="row" buttonWidth="full">
-                  <Button
-                    id={`filter-bar-${id}-see-results`}
-                    type="submit"
-                    onClick={() => {
-                      onSubmit();
-                      onToggle(!isOpen);
-                    }}
-                  >
-                    Show Results
-                  </Button>
-                  <Button
-                    id={`filter-bar-${id}-clear`}
-                    buttonType="text"
-                    type="reset"
-                    textAlign="center"
-                    onClick={onClear}
-                  >
-                    Clear Filters
-                  </Button>
-                </ButtonGroup>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
-        </>
       );
     }
   )
