@@ -435,6 +435,18 @@ export const buttonData = [
       No Brand
     </Button>,
   ],
+  [
+    "link (deprecated)",
+    <Button buttonType="link" id="l-small" size="small">
+      Link
+    </Button>,
+    <Button buttonType="link" id="l-medium" size="medium">
+      Link
+    </Button>,
+    <Button buttonType="link" id="l-large" size="large">
+      Link
+    </Button>,
+  ],
 ];
 
 <Canvas>
@@ -445,6 +457,16 @@ export const buttonData = [
       showRowDividers
       tableData={buttonData}
       useRowHeaders
+      sx={{
+        tbody: {
+          th: {
+            verticalAlign: "middle",
+          },
+          td: {
+            verticalAlign: "middle",
+          },
+        },
+      }}
     />
   </DSProvider>
 </Canvas>

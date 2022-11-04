@@ -91,24 +91,27 @@ component.
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup alignItems="center">
       <Button buttonType="primary" id="primary">
-        Primary Button
+        Primary
       </Button>
       <Button buttonType="secondary" id="secondary">
-        Secondary Button
+        Secondary
       </Button>
       <Button buttonType="text" id="text">
-        Text Button
+        Text
       </Button>
       <Button buttonType="pill" id="pill">
-        Pill Button
+        Pill
       </Button>
       <Button buttonType="callout" id="callout">
-        Callout Button
+        CalloutButton
       </Button>
       <Button buttonType="noBrand" id="noBrand">
-        NoBrand Button
+        NoBrand
+      </Button>
+      <Button buttonType="link" id="link">
+        Link (deprecated)
       </Button>
     </ButtonGroup>
   </DSProvider>
@@ -153,13 +156,15 @@ The `size` prop should be used to render various sizes of the button component:
 
 ### Small
 
-- Even though the `"small"` size is available, we recommend to use the `"medium"`
-  or `"large"` sizes.
-- Use cases: TBD
+- **IMPORTAN:** Even though the `"small"` size is available, it is recommended
+  to use the `"medium"` or `"large"` sizes.
+- This is a reduced button size.
+- This size can be used when space is limited or when the action is of lesser 
+  significance.
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup alignItems="center">
       <Button buttonType="primary" id="small-primary" size="small">
         Primary
       </Button>
@@ -178,17 +183,22 @@ The `size` prop should be used to render various sizes of the button component:
       <Button buttonType="pill" id="small-pill" size="small">
         Pill
       </Button>
+      <Button buttonType="link" id="small-link" size="small">
+        Link (deprecated)
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
 
 ### Medium
 
-- This is the default button size and this size should be used whenever possible.
+- This is the default button size.
+- This button size should be used unless there is a very compelling reason to
+  use one of the other sizes.
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup alignItems="center">
       <Button buttonType="primary" id="medium-primary" size="medium">
         Primary
       </Button>
@@ -207,17 +217,22 @@ The `size` prop should be used to render various sizes of the button component:
       <Button buttonType="pill" id="medium-pill" size="medium">
         Pill
       </Button>
+      <Button buttonType="link" id="medium-link" size="medium">
+        Link (deprecated)
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
 
 ### Large
 
-- Use cases: TBD
+- This is an enlarged button size.
+- This size can be used to bring prominence to a button that needs to have a major impact.
+- **Use large buttons sparingly.** Layouts should generally have only one large button.
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup alignItems="center">
       <Button buttonType="primary" id="large-primary" size="large">
         Primary
       </Button>
@@ -235,6 +250,9 @@ The `size` prop should be used to render various sizes of the button component:
       </Button>
       <Button buttonType="pill" id="large-pill" size="large">
         Pill
+      </Button>
+      <Button buttonType="link" id="large-link" size="large">
+        Link (deprecated)
       </Button>
     </ButtonGroup>
   </DSProvider>
