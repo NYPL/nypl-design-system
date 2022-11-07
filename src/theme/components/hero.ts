@@ -121,10 +121,10 @@ const tertiary = {
     display: "flex",
     flexFlow: "column nowrap",
     px: "inset.default",
-    py: {base: "inset.default", xl: "inset.wide"},
+    py: { base: "inset.default", xl: "inset.wide" },
     p: {
       marginBottom: "0",
-      marginTop: {base: "xxs", xl: "xs"},
+      marginTop: { base: "xxs", xl: "xs" },
     },
   },
   heading: {
