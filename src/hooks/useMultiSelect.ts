@@ -119,6 +119,7 @@ export default function useMultiSelect(initialState?: SelectedItems) {
 
   return {
     selectedItems,
+    setSelectedItems: (newState: SelectedItems) => setSelectedItems(newState),
     onChange: handleChange,
     onMixedStateChange: handleMixedStateChange,
     onClear: handleClear,

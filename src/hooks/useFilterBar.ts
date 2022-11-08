@@ -5,11 +5,18 @@ import useMultiSelect from "./useMultiSelect";
 
 export default function useFilterBar(initialState?: SelectedItems) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { selectedItems, onChange, onMixedStateChange, onClear, onClearAll } =
-    useMultiSelect(initialState);
+  const {
+    selectedItems,
+    setSelectedItems,
+    onChange,
+    onMixedStateChange,
+    onClear,
+    onClearAll,
+  } = useMultiSelect(initialState);
 
   return {
     selectedItems,
+    setSelectedItems,
     isModalOpen,
     onToggle: setIsModalOpen,
     onChange,
