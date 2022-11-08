@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Drawer,
   DrawerBody,
@@ -7,18 +8,22 @@ import {
   DrawerOverlay,
   Spacer,
   useDisclosure,
+  useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Form, { FormField } from "../Form/Form";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
+import Notification from "../Notification/Notification";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
+
+type ViewType = "form" | "confirmation" | "error";
 
 interface FeedbackBoxProps {
   /** Additional class name to add. */
@@ -33,10 +38,32 @@ interface FeedbackBoxProps {
   notificationText?: string | JSX.Element;
   onSubmit: any;
   showCategoryField?: boolean;
-  showCommentField?: boolean;
   showEmailField?: boolean;
   title: string;
-  view?: "form" | "confirmation" | "error";
+  view?: ViewType;
+}
+
+const defaultConfirmationText = (
+  <Box textAlign="center">
+    <Text isBold>Thank you for submitting your feedback!</Text>
+    <Text>
+      If you provided an email address and require a response, our service staff
+      will reach out to you via email.
+    </Text>
+  </Box>
+);
+const defaultErrorText = (
+  <Text isBold color="ui.error.primary" textAlign="center">
+    Oops! Something went wrong. An error occured while processing your feedback.
+  </Text>
+);
+
+function useStateWithDep(defaultValue: any) {
+  const [value, setValue] = useState(defaultValue);
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
+  return [value, setValue];
 }
 
 /**
@@ -45,142 +72,267 @@ interface FeedbackBoxProps {
  */
 export const FeedbackBox = chakra(
   forwardRef<any, FeedbackBoxProps>(
-    ({
-      // className,
-      // confirmationText,
-      descriptionText,
-      // hiddenFields,
-      // id,
-      // isInvalidComment,
-      // isInvalidEmail,
-      // notificationText,
-      // onSubmit,
-      // showCategoryField,
-      // showCommentField,
-      // showEmailField,
-      title,
-      // view,
-    }) => {
+    (
+      {
+        className,
+        confirmationText = defaultConfirmationText,
+        descriptionText,
+        // hiddenFields,
+        id = "feedbackbox",
+        isInvalidComment = false,
+        isInvalidEmail = false,
+        notificationText,
+        onSubmit,
+        showCategoryField = false,
+        showEmailField = false,
+        title,
+        view = "form",
+      },
+      ref?
+    ) => {
+      const [tryAgain, setTryAgain] = useState<boolean>(false);
+      const [viewType, setViewType] = useStateWithDep(view);
+      const [categoryValue, setCategoryValue] = useState<string>("comment");
+      const [commentValue, setCommentValue] = useState<string>("");
+      const [emailValue, setEmailValue] = useState<string>("");
+      const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       const { isOpen, onOpen, onClose } = useDisclosure();
+      const styles = useMultiStyleConfig("FeedbackBox", {});
+      const commentOnChange = (e) => {
+        setCommentValue(e.target.value);
+      };
+      const maxCommentChars = 500;
+
+      useEffect(() => {
+        if (tryAgain) {
+          setViewType("form");
+          setTryAgain(false);
+        }
+      }, [tryAgain, setViewType]);
+      useEffect(() => {
+        let timer;
+        if (isSubmitted) {
+          timer = setTimeout(() => {
+            setIsSubmitted(false);
+            setViewType("confirmation");
+            setCategoryValue("comment");
+            setCommentValue("");
+            setEmailValue("");
+          }, 3000);
+        }
+        return () => clearTimeout(timer);
+      }, [isSubmitted, setViewType]);
+
+      const closeAndResetForm = () => {
+        onClose();
+        setViewType("form");
+        setCategoryValue("comment");
+        setCommentValue("");
+        setEmailValue("");
+      };
+
       return (
-        <>
-          <Button
-            id="open"
-            onClick={onOpen}
-            sx={{
-              position: "fixed",
-              borderRadius: 0,
-              bottom: 0,
-              right: 0,
-              zIndex: 5,
-            }}
-          >
+        <Box className={className} id={id} ref={ref} sx={styles}>
+          <Button id="open" onClick={onOpen} sx={styles.openBtn}>
             {title}
           </Button>
-          <Drawer
-            isOpen={isOpen}
-            onClose={onClose}
-            placement="bottom"
-            size="xs"
-          >
+          <Drawer isOpen={isOpen} onClose={onClose} placement="bottom">
             <DrawerOverlay />
-            <DrawerContent
-              marginLeft="auto"
-              width={{ base: "100%", md: "500px" }}
-            >
-              <DrawerHeader
-                background="ui.gray.light-cool"
-                borderBottomWidth="1px"
-                // pl="l"
-                // pr="s"
-                display="flex"
-                alignItems="baseline"
-                justifyContent="space-between"
-              >
+            <DrawerContent sx={styles.content}>
+              <DrawerHeader sx={styles.header}>
                 <Text>{title}</Text>
                 <Spacer />
                 <Button
+                  buttonType="text"
                   id="close-btn"
                   onClick={onClose}
-                  buttonType="text"
-                  width="20px"
+                  sx={styles.closeBtn}
                 >
-                  <Icon color="ui.black" name="minus" />
-                  {/* <span>Close</span> */}
+                  <Icon color="ui.black" name="minus" size="medium" />
+                  <span>Close {title}</span>
                 </Button>
               </DrawerHeader>
 
-              <DrawerBody>
-                <Text size="caption">{descriptionText}</Text>
+              <DrawerBody sx={styles.body}>
+                {notificationText && viewType === "form" && (
+                  <Notification
+                    isCentered
+                    noMargin
+                    notificationContent={notificationText}
+                    showIcon={false}
+                    mt="s"
+                    mb="s"
+                  />
+                )}
+                {viewType === "form" && (
+                  <Text size="caption">{descriptionText}</Text>
+                )}
                 <Form
+                  gap="grid.s"
                   id="feedback-form"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    console.log("submitted");
+                    setIsSubmitted(true);
+                    console.log(categoryValue);
+                    console.log(commentValue);
+                    console.log(emailValue);
+                    // {
+                    //   category: categoryValue,
+                    //   comment: commentValue,
+                    //   email: emailValue
+                    // }
+                    // add hiddenfields
+
+                    onSubmit && onSubmit();
                   }}
                 >
-                  <FormField>
-                    <RadioGroup
-                      defaultValue="comment"
-                      id="feedback-type"
-                      labelText="What is your feedback about?"
-                      layout="row"
-                      name="feedback_Type"
-                    >
-                      <Radio id="comment" labelText="Comment" value="comment" />
-                      <Radio
-                        id="correction"
-                        labelText="Correction"
-                        value="correction"
+                  {viewType === "form" && (
+                    <>
+                      {showCategoryField && (
+                        <FormField>
+                          <RadioGroup
+                            defaultValue={categoryValue}
+                            id={`${id}-category`}
+                            isDisabled={isSubmitted}
+                            labelText="What is your feedback about?"
+                            layout="row"
+                            name={`${id}-category`}
+                            onChange={(selected) => setCategoryValue(selected)}
+                          >
+                            <Radio
+                              id="comment"
+                              labelText="Comment"
+                              value="comment"
+                            />
+                            <Radio
+                              id="correction"
+                              labelText="Correction"
+                              value="correction"
+                            />
+                            <Radio id="bug" labelText="Bug" value="bug" />
+                          </RadioGroup>
+                        </FormField>
+                      )}
+                      <FormField>
+                        <TextInput
+                          helperText={`${
+                            maxCommentChars - commentValue.length
+                          } characters remaining`}
+                          id={`${id}-comment`}
+                          invalidText="Please fill out this field."
+                          isDisabled={isSubmitted}
+                          isInvalid={isInvalidComment}
+                          isRequired
+                          labelText="Comment"
+                          maxLength={maxCommentChars}
+                          name={`${id}-comment`}
+                          onChange={commentOnChange}
+                          placeholder="Enter your question or feedback here"
+                          type="textarea"
+                          defaultValue={commentValue}
+                        />
+                      </FormField>
+                      {showEmailField && (
+                        <FormField>
+                          <TextInput
+                            id={`${id}-email`}
+                            invalidText="Please enter a valid email address."
+                            isDisabled={isSubmitted}
+                            isInvalid={isInvalidEmail}
+                            labelText="Email"
+                            name={`${id}-email`}
+                            onChange={(e) => setEmailValue(e.target.value)}
+                            placeholder="Enter your email address here"
+                            type="email"
+                            value={emailValue}
+                          />
+                        </FormField>
+                      )}
+                    </>
+                  )}
+                  {viewType === "confirmation" && (
+                    <Box textAlign="center">
+                      <Icon name="actionCheckCircleFilled" size="large" />
+                      {confirmationText}
+                    </Box>
+                  )}
+                  {viewType === "error" && (
+                    <Box textAlign="center">
+                      <Icon
+                        color="ui.error.primary"
+                        name="errorFilled"
+                        size="large"
                       />
-                      <Radio id="bug" labelText="Bug" value="bug" />
-                    </RadioGroup>
-                  </FormField>
-                  <FormField>
-                    <TextInput
-                      id="comment"
-                      isRequired
-                      labelText="Comment"
-                      type="textarea"
-                      placeholder="Enter your feedback here"
-                      helperText="500 chracters remaining"
-                    />
-                  </FormField>
-                  <FormField>
-                    <TextInput
-                      id="email"
-                      labelText="Email"
-                      placeholder="Enter your email address here"
-                      type="email"
-                    />
-                  </FormField>
+                      {defaultErrorText}
+                    </Box>
+                  )}
                   <FormField>
                     <Link
                       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
                       type="external"
+                      fontSize="text.caption"
                     >
                       Privacy Policy
                     </Link>
                   </FormField>
                   <FormField>
-                    <ButtonGroup buttonWidth="full" id="submit-cancel">
-                      <Button id="submit" type="submit">
-                        Submit
-                      </Button>
-                      <Button
-                        buttonType="secondary"
-                        id="submit"
-                        onClick={onClose}
-                      >
-                        Cancel
-                      </Button>
-                    </ButtonGroup>
+                    {viewType === "form" && (
+                      <ButtonGroup buttonWidth="full" id="submit-cancel">
+                        <Button
+                          id="submit"
+                          isDisabled={isSubmitted}
+                          key="submit"
+                          type="submit"
+                        >
+                          Submit
+                        </Button>
+                        <Button
+                          buttonType="secondary"
+                          id="cancel"
+                          isDisabled={isSubmitted}
+                          key="cancel"
+                          onClick={closeAndResetForm}
+                        >
+                          Cancel
+                        </Button>
+                      </ButtonGroup>
+                    )}
+                    {viewType === "confirmation" && (
+                      <ButtonGroup buttonWidth="full" id="submit-cancel">
+                        <Button
+                          id="return-browsing"
+                          buttonType="secondary"
+                          onClick={closeAndResetForm}
+                        >
+                          Return to Browsing
+                        </Button>
+                      </ButtonGroup>
+                    )}
+                    {viewType === "error" && (
+                      <ButtonGroup buttonWidth="full" id="submit-cancel">
+                        <Button
+                          id="try-again"
+                          key="try-again"
+                          onClick={() => setTryAgain(true)}
+                        >
+                          Try Again
+                        </Button>
+                        <Button
+                          id="return-browsing2"
+                          key="return-browsing2"
+                          buttonType="secondary"
+                          onClick={closeAndResetForm}
+                        >
+                          Return to Browsing
+                        </Button>
+                      </ButtonGroup>
+                    )}
                   </FormField>
                 </Form>
               </DrawerBody>
             </DrawerContent>
           </Drawer>
-        </>
+        </Box>
       );
     }
   )

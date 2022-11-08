@@ -19,18 +19,16 @@ import DSProvider from "../../theme/provider";
     jest: ["FeedbackBox.test.tsx"],
   }}
   argTypes={{
-    children: { table: { disable: true } },
     className: { control: false },
+    hiddenFields: { control: false },
     id: { control: false },
-    isLegendHidden: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
-    showRequiredLabel: {
-      table: { defaultValue: { summary: false } },
-    },
+    isInvalidComment: { table: { defaultValue: { summary: false } } },
+    isInvalidEmail: { table: { defaultValue: { summary: false } } },
+    notificationText: { control: false },
+    onSubmit: { control: false },
+    showCategoryField: { table: { defaultValue: { summary: false } } },
+    showEmailField: { table: { defaultValue: { summary: true } } },
+    view: { table: { defaultValue: { summary: "form" } } },
   }}
 />
 
@@ -58,9 +56,18 @@ import DSProvider from "../../theme/provider";
     name="FeedbackBox with Controls"
     args={{
       className: undefined,
-      id: "FeedbackBox-id",
-      title: "Help and Feedback",
+      confirmationText: undefined,
       descriptionText: "Please share your question or feedback.",
+      hiddenFields: undefined,
+      id: "feedbackBox-id",
+      isInvalidComment: false,
+      isInvalidEmail: false,
+      notificationText: undefined,
+      onSubmit: undefined,
+      showCategoryField: false,
+      showEmailField: false,
+      title: "Help and Feedback",
+      view: "form",
     }}
   >
     {(args) => <FeedbackBox {...args} />}
@@ -70,21 +77,3 @@ import DSProvider from "../../theme/provider";
 <ArgsTable story="FeedbackBox with Controls" />
 
 ## Accessibility
-
-This is a simple component but is very important to use when building web forms.
-Syntactically, the `FeedbackBox` component is used to group form elements. Semantically,
-the form elements that are group should have a similar theme or context. For
-example, when building out a form for a user to create an account, one `FeedbackBox`
-should be used to group the user's first and last names and another `FeedbackBox`
-to group the user's address information.
-
-The Reservoir DS implements the `FeedbackBox` component in the following form
-components:
-
-- `CheckboxGroup`, `DatePicker`, `RadioGroup`.
-
-Resources:
-
-- [W3C Grouping form controls with FeedbackBox and LEGEND](https://www.w3.org/TR/2008/WD-WCAG20-TECHS-20080430/H82.html)
-- [GOV.UK Using the FeedbackBox and legend elements](https://accessibility.blog.gov.uk/2016/07/22/using-the-FeedbackBox-and-legend-elements/)
-- [MDN FeedbackBox: The Field Set element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/FeedbackBox)
