@@ -11,8 +11,10 @@ import {
  * and the current state of the selection: selectedItems.
  */
 
-export default function useMultiSelect() {
-  const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>({});
+export default function useMultiSelect(initialState?: SelectedItems) {
+  const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>(
+    initialState !== undefined ? initialState : {}
+  );
 
   /**
    * handleChange is used for both MultiSelect variants. It handles the state for checkbox options that either have no child options or are child options themselves.
