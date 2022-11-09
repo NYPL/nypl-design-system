@@ -284,6 +284,36 @@ describe("TextInput", () => {
     expect(clearButton).not.toBeInTheDocument();
   });
 
+  it("returns focus to the input field when the `clear` button is clicked", () => {
+    const onChangeSpy = jest.fn();
+
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        isClearable
+        labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    let inputElement = screen.getByRole("textbox");
+    let clearButton;
+
+    // Type some value
+    userEvent.type(inputElement, "text value");
+    clearButton = screen.queryByRole("button");
+    expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+
+    // The text should no longer be in the input field.
+    expect(inputElement).toHaveValue("");
+    expect(inputElement).toHaveFocus();
+  });
+
   it("logs a warning for the number type when the min prop is greater than the max prop", () => {
     const warn = jest.spyOn(console, "warn");
     render(
