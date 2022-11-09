@@ -129,6 +129,9 @@ Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
 required `labelText` value.
 
+When the `isClearable` prop is set to `true`, a button is rendered to clear the
+input value. Once clicked, focus will be set to the input element.
+
 When the `type` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
 accessibility rules described above.
