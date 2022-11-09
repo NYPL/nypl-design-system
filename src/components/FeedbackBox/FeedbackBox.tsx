@@ -67,8 +67,6 @@ function useStateWithDep(defaultValue: any) {
 }
 
 /**
- * A wrapper component that renders a `FeedbackBox` element along with a `legend`
- * element as its first child. Commonly used to wrap form components.
  */
 export const FeedbackBox = chakra(
   forwardRef<any, FeedbackBoxProps>(
@@ -77,7 +75,7 @@ export const FeedbackBox = chakra(
         className,
         confirmationText = defaultConfirmationText,
         descriptionText,
-        // hiddenFields,
+        hiddenFields,
         id = "feedbackbox",
         isInvalidComment = false,
         isInvalidEmail = false,
@@ -101,8 +99,44 @@ export const FeedbackBox = chakra(
       const commentOnChange = (e) => {
         setCommentValue(e.target.value);
       };
-      const maxCommentChars = 500;
+      const maxCommentCharacters = 500;
+      const closeAndResetForm = () => {
+        onClose();
+        setViewType("form");
+        setCategoryValue("comment");
+        setCommentValue("");
+        setEmailValue("");
+      };
+      const internalOnSubmit = (e) => {
+        e.preventDefault();
+        const submittedValues = {
+          category: categoryValue,
+          comment: commentValue,
+          email: emailValue,
+        };
+        if (hiddenFields) {
+          submittedValues["hiddenFields"] = hiddenFields;
+        }
 
+        onSubmit && onSubmit(submittedValues);
+        setIsSubmitted(true);
+      };
+
+      const notificationElement =
+        notificationText && viewType === "form" ? (
+          <Notification
+            isCentered
+            noMargin
+            notificationContent={notificationText}
+            showIcon={false}
+            mt="s"
+            mb="s"
+          />
+        ) : undefined;
+      const descriptionElement =
+        viewType === "form" ? (
+          <Text size="caption">{descriptionText}</Text>
+        ) : undefined;
       useEffect(() => {
         if (tryAgain) {
           setViewType("form");
@@ -114,22 +148,18 @@ export const FeedbackBox = chakra(
         if (isSubmitted) {
           timer = setTimeout(() => {
             setIsSubmitted(false);
-            setViewType("confirmation");
+            if (view === "error") {
+              setViewType("error");
+            } else {
+              setViewType("confirmation");
+            }
             setCategoryValue("comment");
             setCommentValue("");
             setEmailValue("");
           }, 3000);
         }
         return () => clearTimeout(timer);
-      }, [isSubmitted, setViewType]);
-
-      const closeAndResetForm = () => {
-        onClose();
-        setViewType("form");
-        setCategoryValue("comment");
-        setCommentValue("");
-        setEmailValue("");
-      };
+      }, [isSubmitted, setViewType, view]);
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles}>
@@ -154,37 +184,13 @@ export const FeedbackBox = chakra(
               </DrawerHeader>
 
               <DrawerBody sx={styles.body}>
-                {notificationText && viewType === "form" && (
-                  <Notification
-                    isCentered
-                    noMargin
-                    notificationContent={notificationText}
-                    showIcon={false}
-                    mt="s"
-                    mb="s"
-                  />
-                )}
-                {viewType === "form" && (
-                  <Text size="caption">{descriptionText}</Text>
-                )}
+                {notificationElement}
+                {descriptionElement}
+
                 <Form
                   gap="grid.s"
                   id="feedback-form"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setIsSubmitted(true);
-                    console.log(categoryValue);
-                    console.log(commentValue);
-                    console.log(emailValue);
-                    // {
-                    //   category: categoryValue,
-                    //   comment: commentValue,
-                    //   email: emailValue
-                    // }
-                    // add hiddenfields
-
-                    onSubmit && onSubmit();
-                  }}
+                  onSubmit={internalOnSubmit}
                 >
                   {viewType === "form" && (
                     <>
@@ -216,7 +222,7 @@ export const FeedbackBox = chakra(
                       <FormField>
                         <TextInput
                           helperText={`${
-                            maxCommentChars - commentValue.length
+                            maxCommentCharacters - commentValue.length
                           } characters remaining`}
                           id={`${id}-comment`}
                           invalidText="Please fill out this field."
@@ -224,7 +230,7 @@ export const FeedbackBox = chakra(
                           isInvalid={isInvalidComment}
                           isRequired
                           labelText="Comment"
-                          maxLength={maxCommentChars}
+                          maxLength={maxCommentCharacters}
                           name={`${id}-comment`}
                           onChange={commentOnChange}
                           placeholder="Enter your question or feedback here"
