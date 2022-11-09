@@ -2,9 +2,10 @@ import {
   chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
+  useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
@@ -146,6 +147,10 @@ export const TextInput = chakra(
         ...rest
       } = props;
       const [finalValue, setFinalValue] = useState<string>(value || "");
+      const closedRef = useRef<HTMLInputElement>();
+      const mergedRefs = useMergeRefs(closedRef, ref);
+      // If a ref is not passed, then merging refs won't work.
+      const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
         variant: textInputType,
@@ -173,6 +178,11 @@ export const TextInput = chakra(
         name: "TextInput",
         showLabel,
       });
+      const onClearClick = () => {
+        setFinalValue("");
+        // Set focus back to the input element.
+        (finalRef as any).current.focus();
+      };
       let finalIsInvalid = isInvalid;
       let fieldOutput;
       let clearButtonOutput;
@@ -216,7 +226,7 @@ export const TextInput = chakra(
             "aria-hidden": isHidden,
             name,
             onChange: internalOnChange,
-            ref,
+            ref: finalRef,
           }
         : {
             "aria-required": isRequired,
@@ -233,7 +243,7 @@ export const TextInput = chakra(
             onClick,
             onFocus,
             placeholder,
-            ref,
+            ref: finalRef,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
             ...ariaAttributes,
@@ -244,12 +254,12 @@ export const TextInput = chakra(
       if (!isTextArea) {
         options = { type, value: finalValue, ...options } as any;
         fieldOutput = <ChakraInput {...options} __css={styles.input} />;
-        if (isClearable) {
+        if (isClearable && !isHidden) {
           clearButtonOutput = (
             <Button
               buttonType="text"
               id={`${id}-clear-btn`}
-              onClick={() => setFinalValue("")}
+              onClick={onClearClick}
               sx={styles.clearButton}
             >
               <Icon color="ui.black" name="close" size="medium" />
