@@ -6,7 +6,7 @@ type Action = {
   payload?: string;
 };
 interface FeedbackBoxState {
-  category: string;
+  category?: string;
   comment: string;
   email?: string;
 }
@@ -17,6 +17,10 @@ const initialState: FeedbackBoxState = {
   email: "",
 };
 
+/**
+ * Simple reducer to manage the internal state of the form
+ * fields in the FeedbackBox component.
+ */
 function reducer(state: FeedbackBoxState, action: Action) {
   switch (action.type) {
     case "category":
@@ -46,7 +50,15 @@ function reducer(state: FeedbackBoxState, action: Action) {
  */
 function useFeedbackBoxReducer() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return { state, dispatch };
+  const setCategory = (category: string) =>
+    dispatch({ type: "category", payload: category });
+  const setComment = (comment: string) =>
+    dispatch({ type: "comment", payload: comment });
+  const setEmail = (email: string) =>
+    dispatch({ type: "email", payload: email });
+  const clearValues = () => dispatch({ type: "clear" });
+
+  return { state, setCategory, setComment, setEmail, clearValues };
 }
 
 export default useFeedbackBoxReducer;

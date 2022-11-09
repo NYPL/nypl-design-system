@@ -30,44 +30,54 @@ type ViewType = "form" | "confirmation" | "error";
 interface FeedbackBoxProps {
   /** Additional class name to add. */
   className?: string;
+  /** Used to add additional information to the default confirmation message in
+   * the confirmation view. */
   confirmationText?: string | JSX.Element;
+  /** Used to add description text above the form input fields in
+   * the initial/form view. */
   descriptionText?: string | JSX.Element;
+  /** A data object containing key/value pairs that will be added to the form
+   * field submitted data. */
   hiddenFields?: any;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Toggles the invalid state for the email field. */
   isInvalidComment?: boolean;
+  /** Toggles the invalid state for the comment field. */
   isInvalidEmail?: boolean;
+  /** Used to add a notification above the description in the
+   * initial/form view.*/
   notificationText?: string | JSX.Element;
-  onSubmit: any;
+  /** Callback function that will be invoked when the form is submitted.
+   * The returned data object contains key/value pairs including the
+   * values from the `hiddenFields` prop.
+   */
+  onSubmit: (values: { [key: string]: string }) => any;
+  /** Toggles the category radio group field. */
   showCategoryField?: boolean;
+  /** Toggles the email input field. */
   showEmailField?: boolean;
+  /** Used to populate the label on the open button and the `Drawer`'s
+   * header title. */
   title: string;
+  /** Used to specify what screen should be displayed. */
   view?: ViewType;
 }
 
-const defaultConfirmationText = (
-  <>
-    <Text isBold>Thank you for submitting your feedback!</Text>
-    <Text>
-      If you provided an email address and require a response, our service staff
-      will reach out to you via email.
-    </Text>
-  </>
-);
-const defaultErrorText = (
-  <Text isBold>
-    Oops! Something went wrong. An error occured while processing your feedback.
-  </Text>
-);
-
 /**
+ * The `FeedbackBox` component renders a fixed-positioned button on the bottom
+ * right corner of a page that opens a Chakra `Drawer` popup component. Inside
+ * of the popup, a form is rendered with fields that allows users to provide
+ * feedback. The `FeedbackBox` component does *not* call any API with the
+ * submitted data; that feature is the responsibility of the consuming
+ * application.
  */
 export const FeedbackBox = chakra(
   forwardRef<any, FeedbackBoxProps>(
     (
       {
         className,
-        confirmationText = defaultConfirmationText,
+        confirmationText,
         descriptionText,
         hiddenFields,
         id = "feedbackbox",
@@ -87,7 +97,9 @@ export const FeedbackBox = chakra(
       // success and failure responses.
       const [viewType, setViewType] = useStateWithDependencies(view);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-      const { state, dispatch } = useFeedbackBoxReducer();
+      // Helps keep track of form field state values.
+      const { state, setCategory, setComment, setEmail, clearValues } =
+        useFeedbackBoxReducer();
       // Chakra's hook to control Drawer's actions.
       const { isOpen, onOpen, onClose } = useDisclosure();
       const isFormView = viewType === "form";
@@ -98,13 +110,13 @@ export const FeedbackBox = chakra(
       const closeAndResetForm = () => {
         onClose();
         setViewType("form");
-        dispatch({ type: "clear" });
+        clearValues();
       };
       const internalOnSubmit = (e) => {
         e.preventDefault();
-        const submittedValues = { ...state };
+        let submittedValues = { ...state };
         if (hiddenFields) {
-          submittedValues["hiddenFields"] = hiddenFields;
+          submittedValues = { ...submittedValues, ...hiddenFields };
         }
         onSubmit && onSubmit(submittedValues);
         setIsSubmitted(true);
@@ -116,7 +128,6 @@ export const FeedbackBox = chakra(
             noMargin
             notificationContent={notificationText}
             showIcon={false}
-            marginTop="s"
             marginBottom="s"
           />
         ) : undefined;
@@ -136,13 +147,15 @@ export const FeedbackBox = chakra(
         </FormField>
       );
 
-      // When the submit button is clicked, set a timeout before
-      // viewing the confirmation or error screen. This automatically
-      // goes to the confirmation view, but the consuming app
+      // When the submit button is clicked, set a timeout before displaying
+      // the confirmation or error screen. This automatically goes to the
+      // confirmation view after three (3) seconds, but the consuming app
       // can set the error view if there are any issues.
       useEffect(() => {
         let timer;
         if (isSubmitted) {
+          // If the consuming app does not provide any updates based
+          // on its API response, go to confirmation screen.
           timer = setTimeout(() => {
             setIsSubmitted(false);
             if (isErrorView) {
@@ -150,12 +163,21 @@ export const FeedbackBox = chakra(
             } else {
               setViewType("confirmation");
             }
-            dispatch({ type: "clear" });
+            clearValues();
           }, 3000);
+
+          // If the consuming app does pass the API response to the
+          // component, then cancel the timeout above and display the
+          // appropriate screen.
+          if (view !== viewType) {
+            setIsSubmitted(false);
+            setViewType(view);
+            clearTimeout(timer);
+          }
         }
 
         return () => clearTimeout(timer);
-      }, [dispatch, isSubmitted, isErrorView, setViewType]);
+      }, [clearValues, isErrorView, isSubmitted, setViewType, view, viewType]);
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles}>
@@ -203,9 +225,7 @@ export const FeedbackBox = chakra(
                             labelText="What is your feedback about?"
                             layout="row"
                             name={`${id}-category`}
-                            onChange={(selected) =>
-                              dispatch({ type: "category", payload: selected })
-                            }
+                            onChange={(selected) => setCategory(selected)}
                           >
                             <Radio
                               id="comment"
@@ -234,12 +254,7 @@ export const FeedbackBox = chakra(
                           labelText="Comment"
                           maxLength={maxCommentCharacters}
                           name={`${id}-comment`}
-                          onChange={(e) =>
-                            dispatch({
-                              type: "comment",
-                              payload: e.target.value,
-                            })
-                          }
+                          onChange={(e) => setComment(e.target.value)}
                           placeholder="Enter your question or feedback here"
                           type="textarea"
                           defaultValue={state.comment}
@@ -254,12 +269,7 @@ export const FeedbackBox = chakra(
                             isInvalid={isInvalidEmail}
                             labelText="Email"
                             name={`${id}-email`}
-                            onChange={(e) =>
-                              dispatch({
-                                type: "email",
-                                payload: e.target.value,
-                              })
-                            }
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email address here"
                             type="email"
                             value={state.email}
@@ -296,7 +306,17 @@ export const FeedbackBox = chakra(
                     <>
                       <Box textAlign="center">
                         <Icon name="actionCheckCircleFilled" size="large" />
-                        {confirmationText}
+                        <Text isBold>
+                          Thank you for submitting your feedback!
+                        </Text>
+                        <Text>
+                          If you provided an email address and require a
+                          response, our service staff will reach out to you via
+                          email.
+                        </Text>
+                        {confirmationText ? (
+                          <Text>{confirmationText}</Text>
+                        ) : undefined}
                       </Box>
                       {privacyPolicyField}
                       <FormField>
@@ -322,7 +342,10 @@ export const FeedbackBox = chakra(
                           name="errorFilled"
                           size="large"
                         />
-                        {defaultErrorText}
+                        <Text isBold>
+                          Oops! Something went wrong. An error occured while
+                          processing your feedback.
+                        </Text>
                       </Box>
                       {privacyPolicyField}
                       <FormField>
