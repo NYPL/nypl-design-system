@@ -1,23 +1,26 @@
 import { screenreaderOnly } from "./globalMixins";
 
 const FeedbackBox = {
-  parts: ["closeBtn", "content", "header"],
+  parts: [
+    "closeButton",
+    "drawerBody",
+    "drawerContent",
+    "drawerHeader",
+    "openButton",
+  ],
   baseStyle: {
-    openBtn: {
-      position: "fixed",
-      borderRadius: "0",
-      bottom: "0",
-      right: "0",
-      zIndex: "5",
-    },
-    closeBtn: {
+    closeButton: {
       span: screenreaderOnly(),
     },
-    content: {
+    drawerBody: {
+      paddingTop: "m",
+      paddingBottom: "m",
+    },
+    drawerContent: {
       marginStart: "auto",
       width: { base: "100%", md: "450px" },
     },
-    header: {
+    drawerHeader: {
       alignItems: "baseline",
       background: "ui.gray.light-cool",
       borderBottomWidth: "1px",
@@ -29,9 +32,12 @@ const FeedbackBox = {
         marginBottom: "0",
       },
     },
-    body: {
-      paddingTop: "m",
-      paddingBottom: "m",
+    openButton: {
+      position: "fixed",
+      borderRadius: "0",
+      bottom: "0",
+      right: "0",
+      zIndex: "5",
     },
   },
 };

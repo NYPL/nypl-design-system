@@ -44,16 +44,16 @@ interface FeedbackBoxProps {
 }
 
 const defaultConfirmationText = (
-  <Box textAlign="center">
+  <>
     <Text isBold>Thank you for submitting your feedback!</Text>
     <Text>
       If you provided an email address and require a response, our service staff
       will reach out to you via email.
     </Text>
-  </Box>
+  </>
 );
 const defaultErrorText = (
-  <Text isBold color="ui.error.primary" textAlign="center">
+  <Text isBold>
     Oops! Something went wrong. An error occured while processing your feedback.
   </Text>
 );
@@ -88,13 +88,15 @@ export const FeedbackBox = chakra(
       },
       ref?
     ) => {
-      const [tryAgain, setTryAgain] = useState<boolean>(false);
       const [viewType, setViewType] = useStateWithDep(view);
       const [categoryValue, setCategoryValue] = useState<string>("comment");
       const [commentValue, setCommentValue] = useState<string>("");
       const [emailValue, setEmailValue] = useState<string>("");
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       const { isOpen, onOpen, onClose } = useDisclosure();
+      const isViewForm = viewType === "form";
+      const isViewConfirmation = viewType === "confirmation";
+      const isViewError = viewType === "error";
       const styles = useMultiStyleConfig("FeedbackBox", {});
       const commentOnChange = (e) => {
         setCommentValue(e.target.value);
@@ -121,34 +123,43 @@ export const FeedbackBox = chakra(
         onSubmit && onSubmit(submittedValues);
         setIsSubmitted(true);
       };
-
       const notificationElement =
-        notificationText && viewType === "form" ? (
+        isViewForm && notificationText ? (
           <Notification
             isCentered
             noMargin
             notificationContent={notificationText}
             showIcon={false}
-            mt="s"
-            mb="s"
+            marginTop="s"
+            marginBottom="s"
           />
         ) : undefined;
       const descriptionElement =
-        viewType === "form" ? (
+        isViewForm && descriptionText ? (
           <Text size="caption">{descriptionText}</Text>
         ) : undefined;
-      useEffect(() => {
-        if (tryAgain) {
-          setViewType("form");
-          setTryAgain(false);
-        }
-      }, [tryAgain, setViewType]);
+      const privacyPolicyField = (
+        <FormField>
+          <Link
+            href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+            type="external"
+            fontSize="text.caption"
+          >
+            Privacy Policy
+          </Link>
+        </FormField>
+      );
+
+      // When the submit button is clicked, set a timeout before
+      // viewing the confirmation or error screen. This automatically
+      // goes to the confirmation view, but the consuming app
+      // can set the error view if there are any issues.
       useEffect(() => {
         let timer;
         if (isSubmitted) {
           timer = setTimeout(() => {
             setIsSubmitted(false);
-            if (view === "error") {
+            if (isViewError) {
               setViewType("error");
             } else {
               setViewType("confirmation");
@@ -158,32 +169,36 @@ export const FeedbackBox = chakra(
             setEmailValue("");
           }, 3000);
         }
+
         return () => clearTimeout(timer);
-      }, [isSubmitted, setViewType, view]);
+      }, [isSubmitted, setViewType, isViewError]);
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles}>
-          <Button id="open" onClick={onOpen} sx={styles.openBtn}>
+          <Button id="open" onClick={onOpen} sx={styles.openButton}>
             {title}
           </Button>
+
           <Drawer isOpen={isOpen} onClose={onClose} placement="bottom">
+            {/* Adds the opaque background. */}
             <DrawerOverlay />
-            <DrawerContent sx={styles.content}>
-              <DrawerHeader sx={styles.header}>
+
+            <DrawerContent sx={styles.drawerContent}>
+              <DrawerHeader sx={styles.drawerHeader}>
                 <Text>{title}</Text>
                 <Spacer />
                 <Button
                   buttonType="text"
                   id="close-btn"
                   onClick={onClose}
-                  sx={styles.closeBtn}
+                  sx={styles.closeButton}
                 >
                   <Icon color="ui.black" name="minus" size="medium" />
                   <span>Close {title}</span>
                 </Button>
               </DrawerHeader>
 
-              <DrawerBody sx={styles.body}>
+              <DrawerBody sx={styles.drawerBody}>
                 {notificationElement}
                 {descriptionElement}
 
@@ -192,7 +207,8 @@ export const FeedbackBox = chakra(
                   id="feedback-form"
                   onSubmit={internalOnSubmit}
                 >
-                  {viewType === "form" && (
+                  {/* Initial form Screen */}
+                  {isViewForm && (
                     <>
                       {showCategoryField && (
                         <FormField>
@@ -254,86 +270,86 @@ export const FeedbackBox = chakra(
                           />
                         </FormField>
                       )}
+                      {privacyPolicyField}
+                      <FormField>
+                        <ButtonGroup buttonWidth="full" id="submit-cancel">
+                          <Button
+                            id="submit"
+                            isDisabled={isSubmitted}
+                            key="submit"
+                            type="submit"
+                          >
+                            Submit
+                          </Button>
+                          <Button
+                            buttonType="secondary"
+                            id="cancel"
+                            isDisabled={isSubmitted}
+                            key="cancel"
+                            onClick={closeAndResetForm}
+                          >
+                            Cancel
+                          </Button>
+                        </ButtonGroup>
+                      </FormField>
                     </>
                   )}
-                  {viewType === "confirmation" && (
-                    <Box textAlign="center">
-                      <Icon name="actionCheckCircleFilled" size="large" />
-                      {confirmationText}
-                    </Box>
+
+                  {/* Confirmation Screen */}
+                  {isViewConfirmation && (
+                    <>
+                      <Box textAlign="center">
+                        <Icon name="actionCheckCircleFilled" size="large" />
+                        {confirmationText}
+                      </Box>
+                      {privacyPolicyField}
+                      <FormField>
+                        <ButtonGroup buttonWidth="full" id="submit-cancel">
+                          <Button
+                            id="return-browsing"
+                            buttonType="secondary"
+                            onClick={closeAndResetForm}
+                          >
+                            Return to Browsing
+                          </Button>
+                        </ButtonGroup>
+                      </FormField>
+                    </>
                   )}
-                  {viewType === "error" && (
-                    <Box textAlign="center">
-                      <Icon
-                        color="ui.error.primary"
-                        name="errorFilled"
-                        size="large"
-                      />
-                      {defaultErrorText}
-                    </Box>
+
+                  {/* Error Screen */}
+                  {isViewError && (
+                    <>
+                      <Box textAlign="center" color="ui.error.primary">
+                        <Icon
+                          color="ui.error.primary"
+                          name="errorFilled"
+                          size="large"
+                        />
+                        {defaultErrorText}
+                      </Box>
+                      {privacyPolicyField}
+                      <FormField>
+                        <ButtonGroup buttonWidth="full" id="submit-cancel">
+                          <Button
+                            id="try-again"
+                            key="try-again"
+                            onClick={() => setViewType("form")}
+                          >
+                            Try Again
+                          </Button>
+                          <Button
+                            id="return-browsing2"
+                            key="return-browsing2"
+                            buttonType="secondary"
+                            onClick={closeAndResetForm}
+                          >
+                            Return to Browsing
+                          </Button>
+                        </ButtonGroup>
+                      </FormField>
+                    </>
                   )}
-                  <FormField>
-                    <Link
-                      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-                      type="external"
-                      fontSize="text.caption"
-                    >
-                      Privacy Policy
-                    </Link>
-                  </FormField>
-                  <FormField>
-                    {viewType === "form" && (
-                      <ButtonGroup buttonWidth="full" id="submit-cancel">
-                        <Button
-                          id="submit"
-                          isDisabled={isSubmitted}
-                          key="submit"
-                          type="submit"
-                        >
-                          Submit
-                        </Button>
-                        <Button
-                          buttonType="secondary"
-                          id="cancel"
-                          isDisabled={isSubmitted}
-                          key="cancel"
-                          onClick={closeAndResetForm}
-                        >
-                          Cancel
-                        </Button>
-                      </ButtonGroup>
-                    )}
-                    {viewType === "confirmation" && (
-                      <ButtonGroup buttonWidth="full" id="submit-cancel">
-                        <Button
-                          id="return-browsing"
-                          buttonType="secondary"
-                          onClick={closeAndResetForm}
-                        >
-                          Return to Browsing
-                        </Button>
-                      </ButtonGroup>
-                    )}
-                    {viewType === "error" && (
-                      <ButtonGroup buttonWidth="full" id="submit-cancel">
-                        <Button
-                          id="try-again"
-                          key="try-again"
-                          onClick={() => setTryAgain(true)}
-                        >
-                          Try Again
-                        </Button>
-                        <Button
-                          id="return-browsing2"
-                          key="return-browsing2"
-                          buttonType="secondary"
-                          onClick={closeAndResetForm}
-                        >
-                          Return to Browsing
-                        </Button>
-                      </ButtonGroup>
-                    )}
-                  </FormField>
                 </Form>
               </DrawerBody>
             </DrawerContent>
