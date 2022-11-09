@@ -22,6 +22,8 @@ import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
 
 type ViewType = "form" | "confirmation" | "error";
 
@@ -58,14 +60,6 @@ const defaultErrorText = (
   </Text>
 );
 
-function useStateWithDep(defaultValue: any) {
-  const [value, setValue] = useState(defaultValue);
-  useEffect(() => {
-    setValue(defaultValue);
-  }, [defaultValue]);
-  return [value, setValue];
-}
-
 /**
  */
 export const FeedbackBox = chakra(
@@ -88,43 +82,35 @@ export const FeedbackBox = chakra(
       },
       ref?
     ) => {
-      const [viewType, setViewType] = useStateWithDep(view);
-      const [categoryValue, setCategoryValue] = useState<string>("comment");
-      const [commentValue, setCommentValue] = useState<string>("");
-      const [emailValue, setEmailValue] = useState<string>("");
+      // We want to keep internal state for the view but also
+      // update if the consuming app updates it, based on API
+      // success and failure responses.
+      const [viewType, setViewType] = useStateWithDependencies(view);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+      const { state, dispatch } = useFeedbackBoxReducer();
+      // Chakra's hook to control Drawer's actions.
       const { isOpen, onOpen, onClose } = useDisclosure();
-      const isViewForm = viewType === "form";
-      const isViewConfirmation = viewType === "confirmation";
-      const isViewError = viewType === "error";
+      const isFormView = viewType === "form";
+      const isConfirmationView = viewType === "confirmation";
+      const isErrorView = viewType === "error";
       const styles = useMultiStyleConfig("FeedbackBox", {});
-      const commentOnChange = (e) => {
-        setCommentValue(e.target.value);
-      };
       const maxCommentCharacters = 500;
       const closeAndResetForm = () => {
         onClose();
         setViewType("form");
-        setCategoryValue("comment");
-        setCommentValue("");
-        setEmailValue("");
+        dispatch({ type: "clear" });
       };
       const internalOnSubmit = (e) => {
         e.preventDefault();
-        const submittedValues = {
-          category: categoryValue,
-          comment: commentValue,
-          email: emailValue,
-        };
+        const submittedValues = { ...state };
         if (hiddenFields) {
           submittedValues["hiddenFields"] = hiddenFields;
         }
-
         onSubmit && onSubmit(submittedValues);
         setIsSubmitted(true);
       };
       const notificationElement =
-        isViewForm && notificationText ? (
+        isFormView && notificationText ? (
           <Notification
             isCentered
             noMargin
@@ -135,7 +121,7 @@ export const FeedbackBox = chakra(
           />
         ) : undefined;
       const descriptionElement =
-        isViewForm && descriptionText ? (
+        isFormView && descriptionText ? (
           <Text size="caption">{descriptionText}</Text>
         ) : undefined;
       const privacyPolicyField = (
@@ -159,19 +145,17 @@ export const FeedbackBox = chakra(
         if (isSubmitted) {
           timer = setTimeout(() => {
             setIsSubmitted(false);
-            if (isViewError) {
+            if (isErrorView) {
               setViewType("error");
             } else {
               setViewType("confirmation");
             }
-            setCategoryValue("comment");
-            setCommentValue("");
-            setEmailValue("");
+            dispatch({ type: "clear" });
           }, 3000);
         }
 
         return () => clearTimeout(timer);
-      }, [isSubmitted, setViewType, isViewError]);
+      }, [dispatch, isSubmitted, isErrorView, setViewType]);
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles}>
@@ -208,18 +192,20 @@ export const FeedbackBox = chakra(
                   onSubmit={internalOnSubmit}
                 >
                   {/* Initial form Screen */}
-                  {isViewForm && (
+                  {isFormView && (
                     <>
                       {showCategoryField && (
                         <FormField>
                           <RadioGroup
-                            defaultValue={categoryValue}
+                            defaultValue={state.category}
                             id={`${id}-category`}
                             isDisabled={isSubmitted}
                             labelText="What is your feedback about?"
                             layout="row"
                             name={`${id}-category`}
-                            onChange={(selected) => setCategoryValue(selected)}
+                            onChange={(selected) =>
+                              dispatch({ type: "category", payload: selected })
+                            }
                           >
                             <Radio
                               id="comment"
@@ -238,7 +224,7 @@ export const FeedbackBox = chakra(
                       <FormField>
                         <TextInput
                           helperText={`${
-                            maxCommentCharacters - commentValue.length
+                            maxCommentCharacters - state.comment.length
                           } characters remaining`}
                           id={`${id}-comment`}
                           invalidText="Please fill out this field."
@@ -248,10 +234,15 @@ export const FeedbackBox = chakra(
                           labelText="Comment"
                           maxLength={maxCommentCharacters}
                           name={`${id}-comment`}
-                          onChange={commentOnChange}
+                          onChange={(e) =>
+                            dispatch({
+                              type: "comment",
+                              payload: e.target.value,
+                            })
+                          }
                           placeholder="Enter your question or feedback here"
                           type="textarea"
-                          defaultValue={commentValue}
+                          defaultValue={state.comment}
                         />
                       </FormField>
                       {showEmailField && (
@@ -263,10 +254,15 @@ export const FeedbackBox = chakra(
                             isInvalid={isInvalidEmail}
                             labelText="Email"
                             name={`${id}-email`}
-                            onChange={(e) => setEmailValue(e.target.value)}
+                            onChange={(e) =>
+                              dispatch({
+                                type: "email",
+                                payload: e.target.value,
+                              })
+                            }
                             placeholder="Enter your email address here"
                             type="email"
-                            value={emailValue}
+                            value={state.email}
                           />
                         </FormField>
                       )}
@@ -296,7 +292,7 @@ export const FeedbackBox = chakra(
                   )}
 
                   {/* Confirmation Screen */}
-                  {isViewConfirmation && (
+                  {isConfirmationView && (
                     <>
                       <Box textAlign="center">
                         <Icon name="actionCheckCircleFilled" size="large" />
@@ -318,7 +314,7 @@ export const FeedbackBox = chakra(
                   )}
 
                   {/* Error Screen */}
-                  {isViewError && (
+                  {isErrorView && (
                     <>
                       <Box textAlign="center" color="ui.error.primary">
                         <Icon
