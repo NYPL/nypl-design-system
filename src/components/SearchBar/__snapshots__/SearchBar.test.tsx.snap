@@ -375,6 +375,94 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 exports[`SearchBar renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
+  id="withClearButton-wrapper"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-1xdhyk6"
+    id="searchbar-form-withClearButton"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1u8qly9"
+      id="searchbar-textinput-withClearButton-wrapper"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-withClearButton"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+        value=""
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-r60hgy"
+      id="searchbar-button-withClearButton"
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withClearButton"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
+      }
+    }
+    data-isinvalid={false}
+    id="withClearButton-helperText"
+  />
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
   id="invalidState-wrapper"
 >
   <form
@@ -448,7 +536,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 5`] = `
+exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
   id="disabledState-wrapper"
@@ -525,7 +613,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 6`] = `
+exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
   id="requiredState-wrapper"
@@ -603,7 +691,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 7`] = `
+exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
   id="noBrandButtonType-wrapper"
@@ -681,7 +769,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 8`] = `
+exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
   id="withHeading-wrapper"
@@ -742,7 +830,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 9`] = `
+exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
   id="withDescription-wrapper"
@@ -802,7 +890,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 10`] = `
+exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-1xdhyk6"
   id="withHeadingAndDescription-wrapper"
@@ -868,7 +956,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 11`] = `
+exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-1xdhyk6"
   id="chakra-wrapper"
@@ -956,7 +1044,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 12`] = `
+exports[`SearchBar renders the UI snapshot correctly 13`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
