@@ -58,12 +58,16 @@ export const Tooltip = chakra(
 
     return (
       <ChakraTooltip
-        hasArrow
         aria-label={typeof content !== "string" ? "Tooltip" : undefined}
-        label={content}
+        closeDelay={750}
+        closeOnClick
+        closeOnEsc
+        closeOnMouseDown
+        hasArrow
         isDisabled={isDisabled}
-        placement="top"
+        label={content}
         openDelay={500}
+        placement="top"
         ref={ref}
         __css={styles}
         {...rest}

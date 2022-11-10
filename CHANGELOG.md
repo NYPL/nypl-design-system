@@ -8,6 +8,25 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.2.2 (November 10, 2022)
+
+### Adds
+
+- Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render on top of the input element. Once clicked, any text value in the input field will be cleared and focus will return to the input element.
+- Adds the `isClearable` property to the `textInputProps` prop object in the `SearchBar` component. This allows the `isClearable` prop to be passed to the `TextInput` component to render the close `Button` component.
+
+### Updates
+
+- Updates the `Icon` and `Logo` documentation to include size values in px.
+- Updates the spacing within the `tertiary` variant of the `Hero` component.
+- Updates the `Buttons Style Guide` to extend the information about button sizes.
+
+### Fixes
+
+- Fixes an invalid TOC link on the `Card` component Storybook page.
+- Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
+- Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
