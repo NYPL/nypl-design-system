@@ -120,10 +120,11 @@ const tertiary = {
     color: "ui.white",
     display: "flex",
     flexFlow: "column nowrap",
-    padding: "inset.default",
+    px: "inset.default",
+    py: { base: "inset.default", xl: "inset.wide" },
     p: {
       marginBottom: "0",
-      marginTop: "s",
+      marginTop: { base: "xxs", xl: "xs" },
     },
   },
   heading: {
