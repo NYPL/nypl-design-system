@@ -45,8 +45,10 @@ function reducer(state: FeedbackBoxState, action: Action) {
 }
 
 /**
- * DS internal helper reducer hook to manage internal state for
- * the FeedbackBox component.
+ * DS internal helper reducer hook to manage internal state for the FeedbackBox
+ * component. Note: this custom hook is not tested directly as it's an
+ * implementation detail of the FeedbackBox component, following the guidance
+ * of RTL: https://testing-library.com/docs/example-react-hooks-useReducer
  */
 function useFeedbackBoxReducer() {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -10,7 +10,7 @@ import {
   useDisclosure,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -45,9 +45,15 @@ interface FeedbackBoxProps {
   isInvalidComment?: boolean;
   /** Toggles the invalid state for the comment field. */
   isInvalidEmail?: boolean;
+  /** Only used for internal purposes. */
+  isOpen?: boolean;
   /** Used to add a notification above the description in the
    * initial/form view.*/
   notificationText?: string | JSX.Element;
+  /** Only used for internal purposes. */
+  onClose?: any;
+  /** Only used for internal purposes. */
+  onOpen?: any;
   /** Callback function that will be invoked when the form is submitted.
    * The returned data object contains key/value pairs including the
    * values from the `hiddenFields` prop.
@@ -89,6 +95,10 @@ export const FeedbackBox = chakra(
         showEmailField = false,
         title,
         view = "form",
+        isOpen,
+        onOpen,
+        onClose,
+        ...rest
       },
       ref?
     ) => {
@@ -101,14 +111,19 @@ export const FeedbackBox = chakra(
       const { state, setCategory, setComment, setEmail, clearValues } =
         useFeedbackBoxReducer();
       // Chakra's hook to control Drawer's actions.
-      const { isOpen, onOpen, onClose } = useDisclosure();
+      const disclosure = useDisclosure();
+      const finalIsOpen = isOpen ? isOpen : disclosure.isOpen;
+      const finalOnOpen = onOpen ? onOpen : disclosure.onOpen;
+      const finalOnClose = onClose ? onClose : disclosure.onClose;
+      const focusRef = useRef<HTMLDivElement>();
+      const styles = useMultiStyleConfig("FeedbackBox", {});
       const isFormView = viewType === "form";
       const isConfirmationView = viewType === "confirmation";
       const isErrorView = viewType === "error";
-      const styles = useMultiStyleConfig("FeedbackBox", {});
+      const confirmationTimeout = 3000;
       const maxCommentCharacters = 500;
       const closeAndResetForm = () => {
-        onClose();
+        finalOnClose();
         setViewType("form");
         clearValues();
       };
@@ -164,7 +179,7 @@ export const FeedbackBox = chakra(
               setViewType("confirmation");
             }
             clearValues();
-          }, 3000);
+          }, confirmationTimeout);
 
           // If the consuming app does pass the API response to the
           // component, then cancel the timeout above and display the
@@ -179,24 +194,41 @@ export const FeedbackBox = chakra(
         return () => clearTimeout(timer);
       }, [clearValues, isErrorView, isSubmitted, setViewType, view, viewType]);
 
+      // Delay focusing on the confirmation or error message
+      // because it's an element that dynamically gets rendered,
+      // so it is not always available in the DOM.
+      useEffect(() => {
+        let timer;
+        if (viewType === "error" || viewType === "confirmation") {
+          timer = setTimeout(() => {
+            focusRef?.current?.focus();
+          }, 250);
+        }
+        return () => clearTimeout(timer);
+      }, [focusRef, viewType]);
+
       return (
-        <Box className={className} id={id} ref={ref} sx={styles}>
-          <Button id="open" onClick={onOpen} sx={styles.openButton}>
+        <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
+          <Button id="open" onClick={finalOnOpen} sx={styles.openButton}>
             {title}
           </Button>
 
-          <Drawer isOpen={isOpen} onClose={onClose} placement="bottom">
+          <Drawer
+            isOpen={finalIsOpen}
+            onClose={finalOnClose}
+            placement="bottom"
+          >
             {/* Adds the opaque background. */}
             <DrawerOverlay />
 
             <DrawerContent sx={styles.drawerContent}>
               <DrawerHeader sx={styles.drawerHeader}>
-                <Text>{title}</Text>
+                <Text data-testid="title">{title}</Text>
                 <Spacer />
                 <Button
                   buttonType="text"
                   id="close-btn"
-                  onClick={onClose}
+                  onClick={finalOnClose}
                   sx={styles.closeButton}
                 >
                   <Icon color="ui.black" name="minus" size="medium" />
@@ -304,7 +336,12 @@ export const FeedbackBox = chakra(
                   {/* Confirmation Screen */}
                   {isConfirmationView && (
                     <>
-                      <Box textAlign="center">
+                      <Box
+                        key="confirmationWrapper"
+                        tabIndex={0}
+                        textAlign="center"
+                        ref={focusRef}
+                      >
                         <Icon name="actionCheckCircleFilled" size="large" />
                         <Text isBold>
                           Thank you for submitting your feedback!
@@ -336,7 +373,13 @@ export const FeedbackBox = chakra(
                   {/* Error Screen */}
                   {isErrorView && (
                     <>
-                      <Box textAlign="center" color="ui.error.primary">
+                      <Box
+                        color="ui.error.primary"
+                        key="errorWrapper"
+                        tabIndex={0}
+                        textAlign="center"
+                        ref={focusRef}
+                      >
                         <Icon
                           color="ui.error.primary"
                           name="errorFilled"
@@ -378,5 +421,21 @@ export const FeedbackBox = chakra(
     }
   )
 );
+
+export function useFeedbackBox() {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const InternalFeedbackBox = chakra((props) => {
+    return (
+      <FeedbackBox
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+        {...props}
+      />
+    );
+  });
+
+  return { isOpen, onClose, onOpen, FeedbackBox: InternalFeedbackBox };
+}
 
 export default FeedbackBox;
