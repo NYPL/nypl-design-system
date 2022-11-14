@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.2.2 (November 10, 2022)
+
 ### Adds
 
 - Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render on top of the input element. Once clicked, any text value in the input field will be cleared and focus will return to the input element.
@@ -18,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Icon` and `Logo` documentation to include size values in px.
 - Updates the spacing within the `tertiary` variant of the `Hero` component.
+- Updates the `Buttons Style Guide` to extend the information about button sizes.
 
 ### Fixes
 
