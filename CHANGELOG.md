@@ -27,6 +27,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
 - Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
 
+### Removes
+
+- Removes the `Button` component warning about the deprecated `link` variant. This change is temporary and will be reverted once teams are able to update their `Button`s appropriately.
+
 ## 1.2.1 (October 27, 2022)
 
 ### Adds
