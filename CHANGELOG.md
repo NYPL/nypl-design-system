@@ -29,7 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Removes
 
-- Removes the `Button` component's warning about the `link` variant being deprecated.
+- Removes the `Button` component's warning about the `link` variant being deprecated. This change is intended to be temporary.
 
 ## 1.2.1 (October 27, 2022)
 
