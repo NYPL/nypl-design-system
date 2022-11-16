@@ -97,7 +97,6 @@ export const FilterBar = chakra(
         (child: React.ReactElement) => {
           if (React.isValidElement(child)) {
             if (child.type === MultiSelectGroup) {
-              console.log("it's a MultiSelectGroup");
               const props = {
                 layout: finalLayout,
                 multiSelectWidth: "default",
