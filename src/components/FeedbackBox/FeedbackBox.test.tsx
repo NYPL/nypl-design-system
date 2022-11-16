@@ -169,6 +169,27 @@ describe("FeedbackBox", () => {
       screen.getByText(/thank you for submitting your feedback/i)
     ).toBeInTheDocument();
     expect(
+      screen.queryByText(
+        /if you provided an email address and require a response/i
+      )
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the email `confirmation` message when showEmailField is true", () => {
+    render(
+      <FeedbackBox
+        onSubmit={onSubmit}
+        showEmailField
+        title="Help and Feedback"
+        view="confirmation"
+      />
+    );
+
+    const button = screen.getByRole("button", { name: "Help and Feedback" });
+
+    button.click();
+
+    expect(
       screen.getByText(
         /if you provided an email address and require a response/i
       )

@@ -144,6 +144,13 @@ export const FeedbackBox = chakra(
             notificationContent={notificationText}
             showIcon={false}
             marginBottom="s"
+            sx={{
+              // The padding of the Notification is smaller than
+              // the initial one.
+              "> div": {
+                py: "xs",
+              },
+            }}
           />
         ) : undefined;
       const descriptionElement =
@@ -214,6 +221,7 @@ export const FeedbackBox = chakra(
           </Button>
 
           <Drawer
+            blockScrollOnMount={false}
             isOpen={finalIsOpen}
             onClose={finalOnClose}
             placement="bottom"
@@ -346,11 +354,13 @@ export const FeedbackBox = chakra(
                         <Text isBold>
                           Thank you for submitting your feedback!
                         </Text>
-                        <Text>
-                          If you provided an email address and require a
-                          response, our service staff will reach out to you via
-                          email.
-                        </Text>
+                        {showEmailField && (
+                          <Text>
+                            If you provided an email address and require a
+                            response, our service staff will reach out to you
+                            via email.
+                          </Text>
+                        )}
                         {confirmationText ? (
                           <Text>{confirmationText}</Text>
                         ) : undefined}

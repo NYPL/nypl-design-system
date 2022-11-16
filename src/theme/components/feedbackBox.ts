@@ -18,13 +18,14 @@ const FeedbackBox = {
     },
     drawerContent: {
       marginStart: "auto",
-      width: { base: "100%", md: "450px" },
+      width: { base: "100%", md: "375px" },
     },
     drawerHeader: {
       alignItems: "baseline",
       background: "ui.gray.light-cool",
       borderBottomWidth: "1px",
       display: "flex",
+      fontSize: "text.default",
       px: "m",
       paddingTop: "s",
       paddingBottom: "s",

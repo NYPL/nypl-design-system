@@ -43,7 +43,6 @@ const categories = {
     title: "Components/Feedback",
     components: [
       "Alert",
-      "FeedbackBox",
       "InlineLoading",
       "Notification",
       "ProgressIndicator",
@@ -60,6 +59,7 @@ const categories = {
       "DatePicker",
       "DateRangePicker",
       "Dropdown",
+      "FeedbackBox",
       "Fieldset",
       "FileUploader",
       "FilterBar",
