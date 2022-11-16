@@ -16,14 +16,11 @@ import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Heading from "../Heading/Heading";
 import { LayoutTypes } from "../../helpers/types";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
-import RadioGroup from "../RadioGroup/RadioGroup";
 import { SelectedItems } from "../MultiSelect/MultiSelect";
-import TextInput from "../TextInput/TextInput";
 import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
 
 interface FilterBarCommonProps {
@@ -100,29 +97,16 @@ export const FilterBar = chakra(
         (child: React.ReactElement) => {
           if (React.isValidElement(child)) {
             if (child.type === MultiSelectGroup) {
+              console.log("it's a MultiSelectGroup");
               const props = {
                 layout: finalLayout,
                 multiSelectWidth: "default",
               };
               newChildren.push(React.cloneElement(child, props));
-            }
-            if (child.type === MultiSelect) {
+            } else if (child.type === MultiSelect) {
               const props = {
                 isBlockElement: finalLayout === "column",
                 width: "default",
-              };
-              newChildren.push(React.cloneElement(child, props));
-            }
-            if (child.type === TextInput) {
-              newChildren.push(React.cloneElement(child));
-            }
-            if (
-              child.type === ButtonGroup ||
-              child.type === CheckboxGroup ||
-              child.type === RadioGroup
-            ) {
-              const props = {
-                layout: finalLayout,
               };
               newChildren.push(React.cloneElement(child, props));
             } else {
