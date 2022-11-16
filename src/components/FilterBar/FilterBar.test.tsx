@@ -1,9 +1,10 @@
 import { axe } from "jest-axe";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 // import renderer from "react-test-renderer";
 // import userEvent from "@testing-library/user-event";
 import * as React from "react";
 import renderer from "react-test-renderer";
+import userEvent from "@testing-library/user-event";
 
 import FilterBar from "./FilterBar";
 import useFilterBar from "../../hooks/useFilterBar";
@@ -136,13 +137,34 @@ const MulitSelectTestGroup = (multiSelectItems) => (
     ))}
   </MultiSelectGroup>
 );
-
-describe("FilterBar", () => {
-  //   let selectedTestItems;
-  //   beforeEach(() => (selectedTestItems = {}));
+describe("FilterBar Accessibility", () => {
   it("should have no axe violations for the 'listbox' variant", async () => {
     const { container } = render(<FilterBarTestComponent />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+describe("FilterBar", () => {
+  it("should clear all selectedItems when 'Clear All' button is clicked", () => {
+    render(<FilterBarTestComponent />);
+    userEvent.click(screen.getByRole("button", { name: /show filter/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /colors/i }));
+    // Check item
+    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /pets/i }));
+    // Check item
+    userEvent.click(screen.getByText("Dog"));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /tools/i }));
+    // Check item
+    userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
+    expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(3);
+    // click Clear All button
+    userEvent.click(screen.getByRole("button", { name: /clear filters/i }));
+    expect(
+      Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
+    ).toBe(0);
   });
   it("renders the UI snapshots correctly", () => {
     const defaultFilterBarNoButtons = renderer
@@ -150,12 +172,11 @@ describe("FilterBar", () => {
         <FilterBar
           id="filterbar-id"
           headingText="FilterBar"
-          layout="row"
           isOpen={false}
           onToggle={() => null}
+          selectedItems={{}}
           onClear={() => null}
           onSubmit={() => null}
-          selectedItems={{}}
           showClearAll={false}
           showSubmitAll={false}
         >
@@ -168,7 +189,6 @@ describe("FilterBar", () => {
         <FilterBar
           id="filterbar-id"
           headingText="FilterBar"
-          layout="row"
           isOpen={false}
           onToggle={() => null}
           onClear={() => null}
