@@ -48,6 +48,7 @@ import * as story from "./FilterBar.stories";
 
 - [Overview](#overview)
 - [Component Props](#component-props)
+- [Layout Patterns](#layout-patterns)
 
 ## Overview
 
@@ -69,3 +70,15 @@ import * as story from "./FilterBar.stories";
 </Canvas>
 
 <ArgsTable story="FilterBar" />
+
+## Layout Patterns
+
+The display of the FilterBar child components can be set to a "row" or a "column" layout.
+On screen width under 600px width the `layout` is automatically set to "column".
+Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default.
+
+<Canvas>
+  <DSProvider>
+    <story.FilterBarLayoutStory />
+  </DSProvider>
+</Canvas>
