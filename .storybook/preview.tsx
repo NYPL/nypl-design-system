@@ -37,38 +37,38 @@ addDecorator((StoryFn) => (
 // Custom viewport options
 const customViewports = {
   sm: {
-    name: 'sm (320px)',
+    name: "sm (320px)",
     styles: {
-      width: '320px',
-      height: '568px',
+      width: "320px",
+      height: "568px",
     },
   },
   md: {
-    name: 'md (600px)',
+    name: "md (600px)",
     styles: {
-      width: '600px',
-      height: '800px',
+      width: "600px",
+      height: "800px",
     },
   },
   lg: {
-    name: 'lg (960px)',
+    name: "lg (960px)",
     styles: {
-      width: '960px',
-      height: '800px',
+      width: "960px",
+      height: "800px",
     },
   },
   xl: {
-    name: 'xl (1280px)',
+    name: "xl (1280px)",
     styles: {
-      width: '1280px',
-      height: '1080px',
+      width: "1280px",
+      height: "1080px",
     },
   },
   "2xl": {
-    name: '2xl (1536px)',
+    name: "2xl (1536px)",
     styles: {
-      width: '1536px',
-      height: '1080px',
+      width: "1536px",
+      height: "1080px",
     },
   },
 };
