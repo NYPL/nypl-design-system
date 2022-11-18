@@ -10,6 +10,7 @@ const FeedbackBox = {
   ],
   baseStyle: {
     closeButton: {
+      p: "0",
       span: screenreaderOnly(),
     },
     drawerBody: {
@@ -27,8 +28,8 @@ const FeedbackBox = {
       display: "flex",
       fontSize: "text.default",
       px: "m",
-      paddingTop: "s",
-      paddingBottom: "s",
+      paddingTop: "xs",
+      paddingBottom: "xs",
       p: {
         marginBottom: "0",
       },

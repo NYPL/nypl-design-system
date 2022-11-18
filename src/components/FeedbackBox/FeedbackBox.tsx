@@ -122,6 +122,11 @@ export const FeedbackBox = chakra(
       const isErrorView = viewType === "error";
       const confirmationTimeout = 3000;
       const maxCommentCharacters = 500;
+      const initMinHeight = "440px";
+      const minHeightWithCategory = "510px";
+      const minHeightWithEmail = "550px";
+      const minHeightWithCategoryAndEmail = "620px";
+      let drawerMinHeight = initMinHeight;
       const closeAndResetForm = () => {
         finalOnClose();
         setViewType("form");
@@ -213,6 +218,15 @@ export const FeedbackBox = chakra(
         }
         return () => clearTimeout(timer);
       }, [focusRef, viewType]);
+      if (showCategoryField) {
+        drawerMinHeight = minHeightWithCategory;
+      }
+      if (showEmailField) {
+        drawerMinHeight = minHeightWithEmail;
+      }
+      if (showCategoryField && showEmailField) {
+        drawerMinHeight = minHeightWithCategoryAndEmail;
+      }
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
@@ -229,7 +243,10 @@ export const FeedbackBox = chakra(
             {/* Adds the opaque background. */}
             <DrawerOverlay />
 
-            <DrawerContent sx={styles.drawerContent}>
+            <DrawerContent
+              minHeight={drawerMinHeight}
+              sx={styles.drawerContent}
+            >
               <DrawerHeader sx={styles.drawerHeader}>
                 <Text data-testid="title">{title}</Text>
                 <Spacer />
