@@ -83,6 +83,7 @@ const categories = {
     components: [
       "useCarouselStyles",
       "useCloseDropDown",
+      "useFilterBar",
       "useMultiSelect",
       "useNYPLBreakpoints",
       "useNYPLTheme",

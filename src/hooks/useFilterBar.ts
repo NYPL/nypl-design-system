@@ -14,11 +14,15 @@ export default function useFilterBar(initialState?: SelectedItems) {
     onClearAll,
   } = useMultiSelect(initialState);
 
+  const handleToggle = () => setIsModalOpen(!isModalOpen);
+
   return {
     selectedItems,
     setSelectedItems,
     isModalOpen,
-    onToggle: setIsModalOpen,
+    onOpen: () => setIsModalOpen(true),
+    onClose: () => setIsModalOpen(false),
+    onToggle: handleToggle,
     onChange,
     onMixedStateChange,
     onClear,
