@@ -324,6 +324,7 @@ This is the first stable release of the NYPL Reservoir Design System! We've been
 - Adds `max`, `maxLength`, `min`, and `onClick` props to the `TextInput` component.
 - Adds the `SkipNavigation` component and adds this component inside the `TemplateAppContainer` component. The `SkipNavigation` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
 - Adds the `ButtonGroup` component for `Button` layout.
+- Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.body.inverse`, `ui.typography.heading.inverse`, `dark.ui.typography.body.inverse`, and `dark.ui.typography.heading.inverse`.
 
 ### Updates
 
