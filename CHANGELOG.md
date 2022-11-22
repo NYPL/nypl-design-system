@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` and `Logo` documentation to include size values in px.
 - Updates the spacing within the `tertiary` variant of the `Hero` component.
 - Updates the `Buttons Style Guide` to extend the information about button sizes.
+- Updates the `viewport` options in Storybook to align with the Reservoir breakpoints.
 
 ### Fixes
 
