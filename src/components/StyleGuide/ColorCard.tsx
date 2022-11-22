@@ -248,7 +248,9 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
   const border =
-    backgroundColor === "ui.white"
+    backgroundColor === "ui.white" ||
+    backgroundColor === "ui.typography.inverse.heading" ||
+    backgroundColor === "ui.typography.inverse.body"
       ? "1px solid var(--nypl-colors-ui-gray-light-cool)"
       : undefined;
   return (
