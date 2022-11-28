@@ -59,14 +59,14 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={FeedbackBox} />
 
-An NYPL privacy policy link will always render on every screen and the link
-will open in a new tab.
+An NYPL privacy policy link will render within every screen of the FeedbackBox
+("form", "confirmation", and "error" ), and the link will open in a new tab.
 
 **Note**: For the purposes of Storybook, only one (1) `FeedbackBox` component
-example is rendered on the page. The `FeedbackBox` example below alternately
-renders the "confirmation" and "error" screens on each form submission. This is
-just to demonstrate the different states of the component. In practice, the
-consuming app is responsible for handling the form submission.
+example is rendered on the bottom right of this page. The `FeedbackBox` example
+below alternately renders the "confirmation" and "error" screens on each form
+submission. This is just to demonstrate the different states of the component.
+In practice, the consuming app is responsible for handling the form submission.
 
 ## Component Props
 
@@ -137,7 +137,7 @@ DS and Chakra components. The two main components are the DS `Button` component
 used to open Chakra's `Drawer` component.
 
 When the primary button is clicked, the dialog opens and focus is set to the
-first focusable element which is the "Close" button that contains minus icon in
+first focusable element which is the "close" button that contains minus icon in
 the header of the dialog. While opened, focus is trapped within the dialog until
 it is closed either by clicking on the "close" or "Cancel" buttons, pressing the
 "Escape" key, or by clicking outside of the dialog. When the `FeedbackBox`
@@ -152,7 +152,7 @@ descriptive piece of text within the dialog.
 
 Within the `FeedbackBox` component, the radio input field is created from the DS
 `RadioGroup` and `Radio` components, and input fields are created from the DS
-`TextInput` component. Each of these components have their own accessibility
+`TextInput` component. Each of these components has their own accessibility
 features documented in their respective Storybook pages.
 
 When the form is submitted, focus is set to the confirmation message or the
@@ -236,10 +236,11 @@ to render the "confirmation" screen. This is useful if the consuming application
 wants to render the "confirmation" screen immediately after a successful
 API request.
 
-The "confirmation" screen will render a check icon, a success message, an
-additional confirmation text through the `confirmationText` prop, the privacy
-policy link, and a "Return to Browsing" button. When rendered, focus will be
-set to the confirmation message.
+The "confirmation" screen will render a check icon, a basic success message that
+is always the same, an email-specific message when `showEmailField` is set to
+`true`, an additional confirmation message set through the `confirmationText`
+prop, the privacy policy link, and a "Return to Browsing" button. When rendered,
+focus will be set to the confirmation message.
 
 Below is an example of the "confirmation" screen rendered immediately after a
 successful API request. Setting the `view` prop through a `useState` value is

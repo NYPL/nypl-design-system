@@ -61,7 +61,8 @@ interface FeedbackBoxProps {
   onSubmit: (values: { [key: string]: string }) => any;
   /** Toggles the category radio group field. */
   showCategoryField?: boolean;
-  /** Toggles the email input field. */
+  /** Toggles the email input field. When set to `true`, an additional
+   * confirmation message will be rendered. */
   showEmailField?: boolean;
   /** Used to populate the label on the open button and the `Drawer`'s
    * header title. */
@@ -122,10 +123,11 @@ export const FeedbackBox = chakra(
       const isErrorView = viewType === "error";
       const confirmationTimeout = 3000;
       const maxCommentCharacters = 500;
-      const initMinHeight = "440px";
-      const minHeightWithCategory = "510px";
-      const minHeightWithEmail = "550px";
-      const minHeightWithCategoryAndEmail = "620px";
+      const initMinHeight = "275px";
+      const initTemplateRows = "auto 1fr";
+      const minHeightWithCategory = "345px";
+      const minHeightWithEmail = "385px";
+      const minHeightWithCategoryAndEmail = "455px";
       let drawerMinHeight = initMinHeight;
       const closeAndResetForm = () => {
         finalOnClose();
@@ -148,7 +150,6 @@ export const FeedbackBox = chakra(
             noMargin
             notificationContent={notificationText}
             showIcon={false}
-            marginBottom="s"
             sx={{
               // The padding of the Notification is smaller than
               // the initial one.
@@ -160,14 +161,16 @@ export const FeedbackBox = chakra(
         ) : undefined;
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text size="caption">{descriptionText}</Text>
+          <Text fontWeight="medium" mb="0">
+            {descriptionText}
+          </Text>
         ) : undefined;
       const privacyPolicyField = (
         <FormField>
           <Link
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
             type="external"
-            fontSize="text.caption"
+            fontSize="text.tag"
           >
             Privacy Policy
           </Link>
@@ -244,7 +247,7 @@ export const FeedbackBox = chakra(
             <DrawerOverlay />
 
             <DrawerContent
-              minHeight={drawerMinHeight}
+              // minHeight={drawerMinHeight}
               sx={styles.drawerContent}
             >
               <DrawerHeader sx={styles.drawerHeader}>
@@ -262,14 +265,21 @@ export const FeedbackBox = chakra(
               </DrawerHeader>
 
               <DrawerBody sx={styles.drawerBody}>
-                {notificationElement}
-                {descriptionElement}
-
                 <Form
                   gap="grid.s"
                   id="feedback-form"
                   onSubmit={internalOnSubmit}
+                  sx={{
+                    "> div": {
+                      minHeight: drawerMinHeight,
+                      gridTemplateRows: initTemplateRows,
+                    },
+                  }}
                 >
+                  <FormField>
+                    {notificationElement}
+                    {descriptionElement}
+                  </FormField>
                   {/* Initial form Screen */}
                   {isFormView && (
                     <>
@@ -363,13 +373,14 @@ export const FeedbackBox = chakra(
                     <>
                       <Box
                         key="confirmationWrapper"
+                        margin="auto"
                         tabIndex={0}
                         textAlign="center"
                         ref={focusRef}
                       >
                         <Icon name="actionCheckCircleFilled" size="large" />
-                        <Text isBold>
-                          Thank you for submitting your feedback!
+                        <Text fontWeight="medium">
+                          Thank you for submitting your feedback.
                         </Text>
                         {showEmailField && (
                           <Text>
@@ -403,6 +414,7 @@ export const FeedbackBox = chakra(
                       <Box
                         color="ui.error.primary"
                         key="errorWrapper"
+                        margin="auto"
                         tabIndex={0}
                         textAlign="center"
                         ref={focusRef}
@@ -412,7 +424,7 @@ export const FeedbackBox = chakra(
                           name="errorFilled"
                           size="large"
                         />
-                        <Text isBold>
+                        <Text fontWeight="medium">
                           Oops! Something went wrong. An error occured while
                           processing your feedback.
                         </Text>

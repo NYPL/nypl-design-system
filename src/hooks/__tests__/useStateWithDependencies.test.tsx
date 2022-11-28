@@ -3,7 +3,7 @@ import React from "react";
 
 import useStateWithDependencies from "../useStateWithDependencies";
 
-// This hooks allows us to use React's `useState` hook when there are also
+// This hook allows us to use React's `useState` hook when there are also
 // updates from the parent component for the "default" value. This properly
 // synchronizes the internal state with passed prop value when the internal
 // state value can also be updated through the set function.
