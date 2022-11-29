@@ -1,23 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useFilterBar from "../useFilterBar";
 
-// const multiSelectId = "filterbar-hook-test-id";
-// const items = [
-//   { id: "dogs", name: "Dogs" },
-//   { id: "cats", name: "Cats" },
-//   { id: "cars", name: "Cars" },
-//   {
-//     id: "colors",
-//     name: "Colors",
-//     children: [
-//       { id: "red", name: "Red" },
-//       { id: "blue", name: "Blue" },
-//     ],
-//   },
-//   { id: "plants", name: "Plants" },
-//   { id: "furniture", name: "Furniture" },
-// ];
-
 describe("usFilterBar hook", () => {
   it("should return a boolean value isModalOpen, functions onOpen, onClose and onToggle to change the isModalOpen state and all functions from useMultiSelect", () => {
     const { result } = renderHook(() => useFilterBar());

@@ -31,3 +31,35 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
   </button>
 </div>
 `;
+
+exports[`FilterBar renders the UI snapshots correctly 3`] = `
+<div
+  className="css-1xdhyk6"
+  id="filter-bar-filterbar-id"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    id="filter-bar-filterbar-id-show-filters"
+    onClick={[Function]}
+    type="button"
+  >
+    Show Filter 
+  </button>
+</div>
+`;
+
+exports[`FilterBar renders the UI snapshots correctly 4`] = `
+<div
+  className="css-1xdhyk6"
+  id="filter-bar-filterbar-id"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    id="filter-bar-filterbar-id-show-filters"
+    onClick={[Function]}
+    type="button"
+  >
+    Show Filter 
+  </button>
+</div>
+`;

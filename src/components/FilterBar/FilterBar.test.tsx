@@ -138,7 +138,7 @@ const MulitSelectTestGroup = (multiSelectItems) => (
   </MultiSelectGroup>
 );
 describe("FilterBar Accessibility", () => {
-  it("should have no axe violations for the 'listbox' variant", async () => {
+  it("should have no axe violations", async () => {
     const { container } = render(<FilterBarTestComponent />);
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -175,16 +175,43 @@ describe("FilterBar", () => {
           isOpen={false}
           onToggle={() => null}
           selectedItems={{}}
-          onClear={() => null}
-          onSubmit={() => null}
-          showClearAll={false}
-          showSubmitAll={false}
         >
           <MulitSelectTestGroup multiSelectItems={multiSelectItems} />
         </FilterBar>
       )
       .toJSON();
-    const defaultFilterBarWithButtons = renderer
+    const filterBarWithClearAllButton = renderer
+      .create(
+        <FilterBar
+          id="filterbar-id"
+          headingText="FilterBar"
+          isOpen={false}
+          onToggle={() => null}
+          onClear={() => null}
+          selectedItems={{}}
+          showClearAll={true}
+        >
+          <MulitSelectTestGroup multiSelectItems={multiSelectItems} />
+        </FilterBar>
+      )
+      .toJSON();
+    const filterBarWithSubmitAllButton = renderer
+      .create(
+        <FilterBar
+          id="filterbar-id"
+          headingText="FilterBar"
+          isOpen={false}
+          onToggle={() => null}
+          onClear={() => null}
+          onSubmit={() => null}
+          selectedItems={{}}
+          showSubmitAll={true}
+        >
+          <MulitSelectTestGroup multiSelectItems={multiSelectItems} />
+        </FilterBar>
+      )
+      .toJSON();
+    const filterBarWithButtons = renderer
       .create(
         <FilterBar
           id="filterbar-id"
@@ -203,6 +230,8 @@ describe("FilterBar", () => {
       .toJSON();
 
     expect(defaultFilterBarNoButtons).toMatchSnapshot();
-    expect(defaultFilterBarWithButtons).toMatchSnapshot();
+    expect(filterBarWithClearAllButton).toMatchSnapshot();
+    expect(filterBarWithSubmitAllButton).toMatchSnapshot();
+    expect(filterBarWithButtons).toMatchSnapshot();
   });
 });
