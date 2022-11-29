@@ -29,27 +29,49 @@ interface FilterBarCommonProps {
   isOpen: boolean;
   headingText: string;
   layout?: LayoutTypes;
-  onToggle: React.Dispatch<React.SetStateAction<boolean>>;
   selectedItems: SelectedItems;
 }
 
 type ClearAllProps =
   | {
-      showClearAll: false;
-      onClear: never;
+      showClearAll?: false;
+      onClear?: never;
     }
   | { showClearAll: true; onClear: () => void };
 
 type SubmitAllProps =
   | {
-      showSubmitAll: false;
-      onSubmit: never;
+      showSubmitAll?: false;
+      onSubmit?: never;
     }
   | { showSubmitAll: true; onSubmit: () => void };
 
+type HandleModalProps =
+  | {
+      onToggle: () => void;
+      onOpen?: never;
+      onClose?: never;
+    }
+  | {
+      onToggle?: undefined;
+      onOpen: () => void;
+      onClose: () => void;
+    };
+
 export type FilterBarProps = FilterBarCommonProps &
   ClearAllProps &
-  SubmitAllProps;
+  SubmitAllProps &
+  HandleModalProps;
+
+/**
+ * `FilterBar` is a wrapper component for filter components.
+ * The DS considers the following components as filter components:
+ * - `MultiSelectGroup`
+ *
+ * The wrapped components/ component groups can be displayed in a column or
+ * in a row layout. `FilterBar` can render additional `Clear All` and a `Apply Filters` buttons. The two
+ * _optional_ buttons are controlled by the `showClearAll`/ `onClear` or `showSubmitAll`/`onSubmit` props repectively.
+ */
 
 export const FilterBar = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FilterBarProps>>(
@@ -63,6 +85,8 @@ export const FilterBar = chakra(
         onClear,
         onSubmit,
         onToggle,
+        onOpen,
+        onClose,
         selectedItems,
         showClearAll = false,
         showSubmitAll = false,
@@ -137,7 +161,7 @@ export const FilterBar = chakra(
                       <Button
                         buttonType="primary"
                         id={`${id}-clear-all-button`}
-                        onClick={onClear}
+                        onClick={onSubmit}
                       >
                         Apply Filters
                       </Button>
@@ -161,13 +185,17 @@ export const FilterBar = chakra(
               <Button
                 id={`filter-bar-${id}-show-filters`}
                 buttonType="secondary"
-                onClick={() => onToggle(!isOpen)}
+                onClick={() => {
+                  onToggle === undefined ? onOpen() : onToggle();
+                }}
               >
                 {`Show Filter ${getSelectedItemsCount()}`}
               </Button>
               <Modal
                 isOpen={isOpen}
-                onClose={() => onToggle(!isOpen)}
+                onClose={() => {
+                  onToggle === undefined ? onClose() : onToggle();
+                }}
                 size="full"
               >
                 <ModalOverlay />
@@ -184,7 +212,7 @@ export const FilterBar = chakra(
                         type="submit"
                         onClick={() => {
                           onSubmit();
-                          onToggle(!isOpen);
+                          onToggle === undefined ? onClose() : onToggle();
                         }}
                       >
                         Show Results
