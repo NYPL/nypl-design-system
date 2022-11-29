@@ -25,12 +25,14 @@ import DSProvider from "../../theme/provider";
   }}
   argTypes={{
     id: { control: false },
+    isClearable: { table: { defaultValue: { summary: false } } },
     isDisabled: { table: { defaultValue: { summary: false } } },
     isInvalid: { table: { defaultValue: { summary: false } } },
     isRequired: { table: { defaultValue: { summary: false } } },
     key: { table: { disable: true } },
     onChange: { control: false },
     ref: { table: { disable: true } },
+    requiredLabelText: { table: { defaultValue: { summary: true } } },
     showHelperInvalidText: { table: { defaultValue: { summary: true } } },
     showLabel: { table: { defaultValue: { summary: true } } },
     showRequiredLabel: { table: { defaultValue: { summary: true } } },
@@ -51,7 +53,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `1.2.0`    |
+| Latest            | `1.2.2`    |
 
 ## Table of Contents
 
@@ -59,6 +61,8 @@ import DSProvider from "../../theme/provider";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [Labelling Variations](#labelling-variations)
+- [Browser States](#browser-states)
+- [isClearable Button](#isclearable-button)
 - [Number Type](#number-type)
 - [HTML in Helper Text](#html-in-helper-text)
 - [Textarea](#textarea)
@@ -83,21 +87,28 @@ is left blank, a value will be generated for you.
       defaultValue: undefined,
       helperText: "Choose wisely.",
       id: "textInput-id",
-      invalidText: "This is error text :(",
+      isClearable: false,
       isDisabled: false,
       isInvalid: false,
+      invalidText: "This is error text :(",
       isRequired: true,
       labelText: "What is your favorite color?",
+      max: undefined,
+      maxLength: undefined,
+      min: undefined,
       name: undefined,
       onChange: undefined,
+      onClick: undefined,
+      onFocus: undefined,
       placeholder: "e.g. blue, green, etc.",
+      requiredLabelText: undefined,
       showHelperInvalidText: true,
       showLabel: true,
       showRequiredLabel: true,
       step: 1,
+      textInputType: "default",
       type: "text",
       value: undefined,
-      textInputType: "default",
     }}
   >
     {(args) => <TextInput {...args} />}
@@ -117,6 +128,11 @@ prop.
 Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
 required `labelText` value.
+
+When the `isClearable` prop is set to `true`, as text is added to the input
+field a close button is rendered to clear the input value. Once the close button
+is clicked, the input value will be cleared, the close button will become hidden,
+and focus will be set to the input element.
 
 When the `type` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
@@ -176,6 +192,8 @@ within the `label` element.
   </Story>
 </Canvas>
 
+## Browser States
+
 ### Errored
 
 <Canvas>
@@ -199,6 +217,27 @@ within the `label` element.
       helperText="Choose wisely!"
       id="disabled"
       isDisabled
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
+    />
+  </DSProvider>
+</Canvas>
+
+## isClearable Button
+
+Set the `isClearable` prop to `true` to render a button that clears the input
+value. This close button will render when the input has a value and disappear
+when the input is empty, including after it is clicked.
+
+This button has visually hidden text, a "close" icon, and renders on top
+of the input field on the right side. This clear button does not render when
+the `type` prop is set to `"textarea"`.
+
+<Canvas>
+  <DSProvider>
+    <TextInput
+      id="isClearable-example"
+      isClearable
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
     />

@@ -197,7 +197,7 @@ export const Image = chakra(
     );
 
     return (
-      <Box ref={finalRefs} data-testid="test">
+      <Box ref={finalRefs}>
         {caption || credit ? (
           <Box
             as="figure"
