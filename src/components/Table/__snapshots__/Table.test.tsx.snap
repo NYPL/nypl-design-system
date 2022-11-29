@@ -2403,7 +2403,6 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-          data-testid="test"
         >
           <img
             alt="Tom Nook"
@@ -2435,7 +2434,6 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-          data-testid="test"
         >
           <img
             alt="Isabelle"
@@ -2467,7 +2465,6 @@ exports[`Table renders the UI snapshot correctly 8`] = `
       >
         <div
           className="css-0"
-          data-testid="test"
         >
           <img
             alt="K.K Slider"
