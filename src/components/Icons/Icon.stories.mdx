@@ -40,7 +40,11 @@ import { getIconNames } from "./IconNames";
       table: { defaultValue: { summary: "rotate0" } },
     },
     id: { control: false },
-    name: {},
+    name: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "check" } },
+      options: getIconNames(),
+    },
     size: {
       table: { defaultValue: { summary: "medium" } },
     },

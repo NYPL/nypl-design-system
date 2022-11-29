@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
 
 ### Fixes
 

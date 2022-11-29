@@ -52,7 +52,7 @@ const iconNames = [
   "utilityAccountUnfilled",
   "utilityHamburger",
   "utilitySearch",
-];
+] as const;
 
 export const getIconNames = () => iconNames;
 
