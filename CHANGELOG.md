@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
 
+### Updates
+
+- Updates the data displayed on the Colors Style Guide to expand the details for `typography` and `typography.inverse` design tokens.
+
 ## 1.2.2 (November 10, 2022)
 
 ### Adds

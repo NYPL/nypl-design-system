@@ -1,32 +1,76 @@
-import { Box } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import * as React from "react";
 
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-import SimpleGrid from "../Grid/SimpleGrid";
+// import SimpleGrid from "../Grid/SimpleGrid";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
 import useNYPLTheme from "../../hooks/useNYPLTheme";
 
+// Small Color Swatch
+interface SmallColorSwatchProps {
+  /** The backgroundColor of the color swatch. */
+  backgroundColor: string;
+  border?: boolean;
+  darkBorder?: boolean;
+}
+const SmallColorSwatch = (
+  props: React.PropsWithChildren<SmallColorSwatchProps>
+) => {
+  const { backgroundColor, border, darkBorder } = props;
+  return (
+    <span
+      style={{
+        backgroundColor: backgroundColor,
+        border:
+          !border && !darkBorder
+            ? null
+            : darkBorder
+            ? "1px solid #191919"
+            : "1px solid #E9E9E9",
+        display: "inline-block",
+        height: "1rem",
+        marginRight: ".5rem",
+        verticalAlign: "middle",
+        width: "1rem",
+      }}
+    ></span>
+  );
+};
+
 export interface DataTableProps {
-  /** Contrast and WCAG compliance data related to the color gray.xxxx-dark when
+  /** Contrast and WCAG compliance data related to the color ui.bg.page when
    * used with the current color. */
   dataBgPageColor: string[];
-  /** Contrast and WCAG compliance data related to the color gray.xxx-dark when
+  /** Contrast and WCAG compliance data related to the color ui.bg.default when
    * used with the current color. */
   dataBgDefaultColor: string[];
+  /** Contrast and WCAG compliance data related to the color dark.ui.bg.page when
+   * used with the current color. */
+  dataDarkBgPageColor: string[];
+  /** Contrast and WCAG compliance data related to the color dark.ui.bg.default when
+   * used with the current color. */
+  dataDarkBgDefaultColor: string[];
   /** Contrast and WCAG compliance data related to the color black when used
    * with the current color. */
   dataBlackColor: string[];
-  /** Contrast and WCAG compliance data related to the default color for
-   * heading elements when used with the current color. */
-  dataHeadingColor?: string[];
+  /** Contrast and WCAG compliance data related to the NYPL Brand primary color
+   * when used with the current color. */
+  dataBrandPrimaryColor: string[];
   /** Contrast and WCAG compliance data related to the default color for basic
    * text elements when used with the current color. */
-  dataBodyColor?: string[];
+  dataDarkBodyColor?: string[];
+  /** Contrast and WCAG compliance data related to the NYPL Brand secondary color
+   * when used with the current color. */
+  dataBrandSecondaryColor: string[];
+  /** Contrast and WCAG compliance data related to the default color for
+   * heading elements when used with the current color. */
+  dataDarkHeadingColor?: string[];
   /** Contrast and WCAG compliance data related to the color white when used
    * with the current color. */
   dataWhiteColor: string[];
+
   /** The color to use for text in the color card. */
   textColor: string;
 }
@@ -44,19 +88,23 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const {
     dataBgPageColor,
     dataBgDefaultColor,
+    dataDarkBgPageColor,
+    dataDarkBgDefaultColor,
     dataBlackColor = ["--", "--", "--"],
-    dataHeadingColor,
-    dataBodyColor,
+    dataDarkHeadingColor,
+    dataDarkBodyColor,
     dataWhiteColor = ["--", "--", "--"],
+    dataBrandPrimaryColor,
+    dataBrandSecondaryColor,
     textColor = "ui.white",
   } = props;
   const {
-    colors: { ui },
+    // colors: { ui },
   } = useNYPLTheme();
-  const grayxxxxDark = ui.gray["xxxx-dark"];
-  const grayxxxDark = ui.gray["xxx-dark"];
-  const grayLightCool = ui.gray["light-cool"];
-  const grayMedium = ui.gray.medium;
+  // const grayxxxxDark = ui.gray["xxxx-dark"];
+  // const grayxxxDark = ui.gray["xxx-dark"];
+  // const grayLightCool = ui.gray["light-cool"];
+  // const grayMedium = ui.gray.medium;
   const SuccessIcon = () => (
     <Icon
       color={textColor}
@@ -81,6 +129,17 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const whiteLargeTextSuccess = successfulContrast(dataWhiteColor, "large");
   const blackSmallTextSuccess = successfulContrast(dataBlackColor);
   const blackLargeTextSuccess = successfulContrast(dataBlackColor, "large");
+
+  const brandPrimarySmallTextSuccess =
+    dataBrandPrimaryColor && successfulContrast(dataBrandPrimaryColor);
+  const brandPrimaryLargeTextSuccess =
+    dataBrandPrimaryColor && successfulContrast(dataBrandPrimaryColor, "large");
+  const brandSecondarySmallTextSuccess =
+    dataBrandSecondaryColor && successfulContrast(dataBrandSecondaryColor);
+  const brandSecondaryLargeTextSuccess =
+    dataBrandSecondaryColor &&
+    successfulContrast(dataBrandSecondaryColor, "large");
+
   // The dark theme colors might have the following color contrast information.
   const bgPageSmallTextSuccess =
     dataBgPageColor && successfulContrast(dataBgPageColor);
@@ -90,18 +149,28 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBgDefaultColor && successfulContrast(dataBgDefaultColor);
   const bgDefaultLargeTextSuccess =
     dataBgDefaultColor && successfulContrast(dataBgDefaultColor, "large");
-  const headingSmallTextSuccess =
-    dataHeadingColor && successfulContrast(dataHeadingColor);
-  const headingLargeTextSuccess =
-    dataHeadingColor && successfulContrast(dataHeadingColor, "large");
+  const darkBgPageSmallTextSuccess =
+    dataDarkBgPageColor && successfulContrast(dataDarkBgPageColor);
+  const darkBgPageLargeTextSuccess =
+    dataDarkBgPageColor && successfulContrast(dataDarkBgPageColor, "large");
+  const darkBgDefaultSmallTextSuccess =
+    dataDarkBgDefaultColor && successfulContrast(dataDarkBgDefaultColor);
+  const darkBgDefaultLargeTextSuccess =
+    dataDarkBgDefaultColor &&
+    successfulContrast(dataDarkBgDefaultColor, "large");
+  const darkHeadingSmallTextSuccess =
+    dataDarkHeadingColor && successfulContrast(dataDarkHeadingColor);
+  const darkHeadingLargeTextSuccess =
+    dataDarkHeadingColor && successfulContrast(dataDarkHeadingColor, "large");
   const textSmallTextSuccess =
-    dataBodyColor && successfulContrast(dataBodyColor);
+    dataDarkBodyColor && successfulContrast(dataDarkBodyColor);
   const textLargeTextSuccess =
-    dataBodyColor && successfulContrast(dataBodyColor, "large");
+    dataDarkBodyColor && successfulContrast(dataDarkBodyColor, "large");
   // All ColorCards have these two rows.
   const tableData = [
     [
-      <span key="colorUiWhite" style={{ color: "white", padding: 0 }}>
+      <span key="colorUiWhite" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="white" border />
         ui.white
       </span>,
       `${dataWhiteColor[0]}:1`,
@@ -115,7 +184,8 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ],
     [
-      <span key="colorUiBlack" style={{ color: "black", padding: 0 }}>
+      <span key="colorUiBlack" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="black" darkBorder />
         ui.black
       </span>,
       `${dataBlackColor[0]}:1`,
@@ -138,29 +208,73 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const tableStyles = {
     tbody: {
       td: {
-        fontSize: "text.caption",
+        fontSize: "text.tag",
         ...cellStyles,
       },
       th: {
-        fontSize: "text.caption",
+        fontSize: "text.tag",
         textTransform: "none",
         ...cellStyles,
+        _first: {
+          span: {
+            color: textColor,
+          },
+        },
       },
     },
     thead: {
       th: {
         color: textColor,
         fontSize: "text.tag",
+        textTransform: "uppercase",
         ...cellStyles,
       },
     },
   };
 
-  // For dark mode `ColorCard`s, there are four extra rows.
+  // The Brand colors are needed for some `ColorCard`s.
+  if (dataBrandPrimaryColor && dataBrandPrimaryColor.length > 0) {
+    tableData.push([
+      <span key="colorBrandPrimaryPage" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-brand-primary)" />
+        brand.primary
+      </span>,
+      `${dataBrandPrimaryColor[0]}:1`,
+      <>
+        {dataBrandPrimaryColor[1]}
+        {brandPrimarySmallTextSuccess}
+      </>,
+      <>
+        {dataBrandPrimaryColor[2]}
+        {brandPrimaryLargeTextSuccess}
+      </>,
+    ]);
+  }
+  if (dataBrandSecondaryColor && dataBrandSecondaryColor.length > 0) {
+    tableData.push([
+      <span key="colorBrandSecondaryPage" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-brand-secondary)" />
+        brand.secondary
+      </span>,
+      `${dataBrandSecondaryColor[0]}:1`,
+      <>
+        {dataBrandSecondaryColor[1]}
+        {brandSecondarySmallTextSuccess}
+      </>,
+      <>
+        {dataBrandSecondaryColor[2]}
+        {brandSecondaryLargeTextSuccess}
+      </>,
+    ]);
+  }
   if (dataBgPageColor && dataBgPageColor.length > 0) {
     tableData.push([
-      <span key="colorBgPage" style={{ color: grayxxxxDark, padding: 0 }}>
-        bg page
+      <span key="colorBgPage" style={{ padding: 0 }}>
+        <SmallColorSwatch
+          backgroundColor="var(--nypl-colors-ui-bg-page)"
+          border
+        />
+        ui.bg.page
       </span>,
       `${dataBgPageColor[0]}:1`,
       <>
@@ -175,8 +289,9 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   }
   if (dataBgDefaultColor && dataBgDefaultColor.length > 0) {
     tableData.push([
-      <span key="colorBgDefault" style={{ color: grayxxxDark, padding: 0 }}>
-        bg default
+      <span key="colorBgDefault" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-bg-default)" />
+        ui.bg.default
       </span>,
       `${dataBgDefaultColor[0]}:1`,
       <>
@@ -189,34 +304,73 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ]);
   }
-  if (dataHeadingColor && dataHeadingColor.length > 0) {
+  
+
+  // For dark mode `ColorCard`s, there are four extra rows.
+  if (dataDarkBgPageColor && dataDarkBgPageColor.length > 0) {
     tableData.push([
-      <span key="colorHeading" style={{ color: grayLightCool, padding: 0 }}>
-        heading
+      <span key="colorDarkBgPage" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-dark-ui-bg-page)" />
+        dark.ui.bg.page
       </span>,
-      `${dataHeadingColor[0]}:1`,
+      `${dataDarkBgPageColor[0]}:1`,
       <>
-        {dataHeadingColor[1]}
-        {headingSmallTextSuccess}
+        {dataDarkBgPageColor[1]}
+        {darkBgPageSmallTextSuccess}
       </>,
       <>
-        {dataHeadingColor[2]}
-        {headingLargeTextSuccess}
+        {dataDarkBgPageColor[2]}
+        {darkBgPageLargeTextSuccess}
       </>,
     ]);
   }
-  if (dataBodyColor && dataBodyColor.length > 0) {
+  if (dataDarkBgDefaultColor && dataDarkBgDefaultColor.length > 0) {
     tableData.push([
-      <span key="colorText" style={{ color: grayMedium, padding: 0 }}>
-        body
+      <span key="colorDarkBgDefault" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-dark-ui-bg-default)" />
+        dark.ui.bg.default
       </span>,
-      `${dataBodyColor[0]}:1`,
+      `${dataDarkBgDefaultColor[0]}:1`,
       <>
-        {dataBodyColor[1]}
+        {dataDarkBgDefaultColor[1]}
+        {darkBgDefaultSmallTextSuccess}
+      </>,
+      <>
+        {dataDarkBgDefaultColor[2]}
+        {darkBgDefaultLargeTextSuccess}
+      </>,
+    ]);
+  }
+  if (dataDarkHeadingColor && dataDarkHeadingColor.length > 0) {
+    tableData.push([
+      <span key="colorDarkHeading" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-typography-heading)" />
+        ui.typography.heading
+      </span>,
+      `${dataDarkHeadingColor[0]}:1`,
+      <>
+        {dataDarkHeadingColor[1]}
+        {darkHeadingSmallTextSuccess}
+      </>,
+      <>
+        {dataDarkHeadingColor[2]}
+        {darkHeadingLargeTextSuccess}
+      </>,
+    ]);
+  }
+  if (dataDarkBodyColor && dataDarkBodyColor.length > 0) {
+    tableData.push([
+      <span key="colorDarkText" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-typography-body)" />
+        ui.typography.body
+      </span>,
+      `${dataDarkBodyColor[0]}:1`,
+      <>
+        {dataDarkBodyColor[1]}
         {textSmallTextSuccess}
       </>,
       <>
-        {dataBodyColor[2]}
+        {dataDarkBodyColor[2]}
         {textLargeTextSuccess}
       </>,
     ]);
@@ -238,12 +392,16 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     backgroundColor,
     dataBgPageColor,
     dataBgDefaultColor,
+    dataDarkBgPageColor,
+    dataDarkBgDefaultColor,
     colorName = "",
     colorSource,
     dataBlackColor = ["--", "--", "--"],
-    dataHeadingColor,
-    dataBodyColor,
+    dataDarkHeadingColor,
+    dataDarkBodyColor,
     dataWhiteColor = ["--", "--", "--"],
+    dataBrandPrimaryColor,
+    dataBrandSecondaryColor,
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -262,8 +420,9 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
       paddingTop="s"
       border={border}
     >
-      <SimpleGrid columns={2}>
-        <Box>
+      {/* <SimpleGrid columns={2}> */}
+      <HStack alignItems="top">
+        <Box width="80%">
           <Heading noSpace size="tertiary">
             {backgroundColor}
           </Heading>
@@ -279,13 +438,18 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
         <DataTable
           dataBgPageColor={dataBgPageColor}
           dataBgDefaultColor={dataBgDefaultColor}
+          dataDarkBgPageColor={dataDarkBgPageColor}
+          dataDarkBgDefaultColor={dataDarkBgDefaultColor}
           dataBlackColor={dataBlackColor}
-          dataHeadingColor={dataHeadingColor}
-          dataBodyColor={dataBodyColor}
+          dataDarkHeadingColor={dataDarkHeadingColor}
+          dataDarkBodyColor={dataDarkBodyColor}
           dataWhiteColor={dataWhiteColor}
+          dataBrandPrimaryColor={dataBrandPrimaryColor}
+          dataBrandSecondaryColor={dataBrandSecondaryColor}
           textColor={textColor}
         />
-      </SimpleGrid>
+      </HStack>
+      {/* </SimpleGrid> */}
     </Box>
   );
 };
