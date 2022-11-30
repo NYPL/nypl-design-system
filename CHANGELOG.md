@@ -14,7 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the data displayed on the Colors Style Guide to expand the details for `typography` and `typography.inverse` design tokens.
+- Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
 
 ## 1.2.2 (November 10, 2022)
 
