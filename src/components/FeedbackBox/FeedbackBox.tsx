@@ -246,10 +246,7 @@ export const FeedbackBox = chakra(
             {/* Adds the opaque background. */}
             <DrawerOverlay />
 
-            <DrawerContent
-              // minHeight={drawerMinHeight}
-              sx={styles.drawerContent}
-            >
+            <DrawerContent sx={styles.drawerContent}>
               <DrawerHeader sx={styles.drawerHeader}>
                 <Text data-testid="title">{title}</Text>
                 <Spacer />
@@ -347,14 +344,6 @@ export const FeedbackBox = chakra(
                       <FormField>
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
                           <Button
-                            id="submit"
-                            isDisabled={isSubmitted}
-                            key="submit"
-                            type="submit"
-                          >
-                            Submit
-                          </Button>
-                          <Button
                             buttonType="secondary"
                             id="cancel"
                             isDisabled={isSubmitted}
@@ -362,6 +351,14 @@ export const FeedbackBox = chakra(
                             onClick={closeAndResetForm}
                           >
                             Cancel
+                          </Button>
+                          <Button
+                            id="submit"
+                            isDisabled={isSubmitted}
+                            key="submit"
+                            type="submit"
+                          >
+                            Submit
                           </Button>
                         </ButtonGroup>
                       </FormField>
