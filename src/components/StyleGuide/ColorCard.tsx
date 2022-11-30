@@ -304,7 +304,6 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ]);
   }
-  
 
   // For dark mode `ColorCard`s, there are four extra rows.
   if (dataDarkBgPageColor && dataDarkBgPageColor.length > 0) {
