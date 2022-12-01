@@ -430,19 +430,19 @@ export const FeedbackBox = chakra(
                       <FormField>
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
                           <Button
-                            id="try-again"
-                            key="try-again"
-                            onClick={() => setViewType("form")}
-                          >
-                            Try Again
-                          </Button>
-                          <Button
                             id="return-browsing2"
                             key="return-browsing2"
                             buttonType="secondary"
                             onClick={closeAndResetForm}
                           >
                             Return to Browsing
+                          </Button>
+                          <Button
+                            id="try-again"
+                            key="try-again"
+                            onClick={() => setViewType("form")}
+                          >
+                            Try Again
                           </Button>
                         </ButtonGroup>
                       </FormField>
