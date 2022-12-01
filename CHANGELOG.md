@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
+
 ### Fixes
 
 - Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
