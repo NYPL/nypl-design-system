@@ -9,7 +9,7 @@ const Footer = {
     padding: { base: "15px 20px 100px", md: "15px 0", lg: "30px 0" },
     position: "relative",
     _dark: {
-      backgroundColor: "dark.ui.bg.hover",
+      backgroundColor: "dark.ui.bg.default",
     },
     // The two main lists.
     listsContainer: {

@@ -157,7 +157,7 @@ const tertiary = {
     marginBottom: "0",
   },
   _dark: {
-    bg: "dark.ui.bg.hover",
+    bg: "dark.ui.bg.default",
   },
 };
 const campaign = {
