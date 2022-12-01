@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds additional color options to `Icon` component.
 - Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
 
+## Updates
+
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
 ### Fixes
 
 - Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
