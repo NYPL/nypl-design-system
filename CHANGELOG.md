@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.3.0-rc (Release Candidate December 2, 2022)
+
 ### Adds
 
 - Adds additional color options to `Icon` component.
