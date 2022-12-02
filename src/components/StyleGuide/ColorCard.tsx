@@ -3,15 +3,16 @@ import * as React from "react";
 
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-// import SimpleGrid from "../Grid/SimpleGrid";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
-import useNYPLTheme from "../../hooks/useNYPLTheme";
 
 // Small Color Swatch
 interface SmallColorSwatchProps {
   /** The backgroundColor of the color swatch. */
   backgroundColor: string;
+  /** Add a border to a small color swatch when better definition is needed
+   * between the color swatch and the color card background color. Use a light
+   * or dark border as needed. */
   border?: boolean;
   darkBorder?: boolean;
 }
@@ -98,13 +99,6 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBrandSecondaryColor,
     textColor = "ui.white",
   } = props;
-  const {
-    // colors: { ui },
-  } = useNYPLTheme();
-  // const grayxxxxDark = ui.gray["xxxx-dark"];
-  // const grayxxxDark = ui.gray["xxx-dark"];
-  // const grayLightCool = ui.gray["light-cool"];
-  // const grayMedium = ui.gray.medium;
   const SuccessIcon = () => (
     <Icon
       color={textColor}
@@ -419,7 +413,6 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
       paddingTop="s"
       border={border}
     >
-      {/* <SimpleGrid columns={2}> */}
       <HStack alignItems="top">
         <Box width="80%">
           <Heading noSpace size="tertiary">
@@ -448,7 +441,6 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           textColor={textColor}
         />
       </HStack>
-      {/* </SimpleGrid> */}
     </Box>
   );
 };
