@@ -10,18 +10,43 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render that will clear any text value in the input field.
+- Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
+- Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
 - Adds the `StyledList` component.
 
 ### Updates
 
+- Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
+### Fixes
+
+- Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
+
+## 1.2.2 (November 10, 2022)
+
+### Adds
+
+- Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render on top of the input element. Once clicked, any text value in the input field will be cleared and focus will return to the input element.
+- Adds the `isClearable` property to the `textInputProps` prop object in the `SearchBar` component. This allows the `isClearable` prop to be passed to the `TextInput` component to render the close `Button` component.
+
+### Updates
+
 - Updates the `Icon` and `Logo` documentation to include size values in px.
+- Updates the spacing within the `tertiary` variant of the `Hero` component.
+- Updates the `Buttons Style Guide` to extend the information about button sizes.
+- Updates the `viewport` options in Storybook to align with the Reservoir breakpoints.
 
 ### Fixes
 
 - Fixes an invalid TOC link on the `Card` component Storybook page.
 - Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
 - Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
+
+### Removes
+
+- Removes the `Button` component warning about the deprecated `link` variant. This change is temporary and will be reverted once teams are able to update their `Button`s appropriately.
 
 ## 1.2.1 (October 27, 2022)
 
