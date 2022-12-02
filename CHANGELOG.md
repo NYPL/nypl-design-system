@@ -18,6 +18,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
 
+## Updates
+
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
 ### Fixes
 
 - Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
