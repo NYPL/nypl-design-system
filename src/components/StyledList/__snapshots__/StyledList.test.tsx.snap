@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledList Renders the UI snapshot correctly 1`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 2`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 3`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    <b>
+      Mahi-mahi
+    </b>
+  </li>
+  <li>
+    <b>
+      Golden trout
+    </b>
+  </li>
+  <li>
+    <i>
+      Rainbowfish
+    </i>
+  </li>
+  <li>
+    <span>
+      Suckerfish
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 4`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 5`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 6`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 7`] = `
+<ul
+  className="css-1xdhyk6"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 8`] = `
+<ul
+  className="css-kle7zy"
+  id="chakra"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`StyledList Renders the UI snapshot correctly 9`] = `
+<ul
+  className="css-1xdhyk6"
+  id="other"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
