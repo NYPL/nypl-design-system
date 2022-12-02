@@ -55,6 +55,7 @@ import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
+import StyledList from "./components/styledList";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
 import TagSetStyles from "./components/tagSet";
@@ -146,6 +147,7 @@ const theme = extendTheme({
     CustomSlider,
     StatusBadge,
     StructuredContent,
+    StyledList,
     Tabs,
     CustomTable,
     ...TagSetStyles,

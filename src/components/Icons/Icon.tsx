@@ -6,83 +6,14 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
+import iconColors from "./IconColors";
+import iconNames from "./IconNames";
 import iconSvgs from "./IconSvgs";
 
 export type IconAlign = "left" | "right" | "none";
-export type IconColors =
-  | "ui.black"
-  | "ui.white"
-  | "brand.primary"
-  | "brand.secondary"
-  | "section.blogs.primary"
-  | "section.blogs.secondary"
-  | "section.books-and-more.primary"
-  | "section.books-and-more.secondary"
-  | "section.education.primary"
-  | "section.education.secondary"
-  | "section.locations.primary"
-  | "section.locations.secondary"
-  | "section.research.primary"
-  | "section.research.secondary"
-  | "section.research-library.lpa"
-  | "section.research-library.schomburg"
-  | "section.research-library.schwartzman"
-  | "section.whats-on.primary"
-  | "section.whats-on.secondary";
-export type IconNames =
-  | "accessibilityFull"
-  | "accessibilityPartial"
-  | "actionCheckCircle"
-  | "actionCheckCircleFilled"
-  | "actionExit"
-  | "actionHelpDefault"
-  | "actionHelpOutline"
-  | "actionLaunch"
-  | "actionPower"
-  | "actionRegistration"
-  | "actionSettings"
-  | "alertNotificationImportant"
-  | "alertWarningFilled"
-  | "alertWarningOutline"
-  | "arrow"
-  | "building"
-  | "check"
-  | "clock"
-  | "close"
-  | "decorativeEnvelope"
-  | "decorativeLibraryCard"
-  | "decorativeShoppingBag"
-  | "download"
-  | "errorFilled"
-  | "errorOutline"
-  | "fileTypeAudio"
-  | "fileTypeDoc"
-  | "fileTypeGenericDoc"
-  | "fileTypeImage"
-  | "fileTypePdf"
-  | "fileTypeSpreadsheet"
-  | "fileTypeVideo"
-  | "headset"
-  | "legacyAccountFilled"
-  | "legacyAccountUnfilled"
-  | "legacySocialFacebook"
-  | "legacySocialInstagram"
-  | "legacySocialTwitter"
-  | "legacySocialYoutube"
-  | "locator"
-  | "minus"
-  | "plus"
-  | "search"
-  | "socialFacebook"
-  | "socialInstagram"
-  | "socialTumblr"
-  | "socialTwitter"
-  | "socialYoutube"
-  | "speakerNotes"
-  | "utilityAccountFilled"
-  | "utilityAccountUnfilled"
-  | "utilityHamburger"
-  | "utilitySearch";
+export type IconColors = typeof iconColors[number];
+export type IconNames = typeof iconNames[number];
+
 export type IconRotationTypes =
   | "rotate0"
   | "rotate90"
