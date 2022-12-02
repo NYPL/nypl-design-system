@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
 - Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
 - Adds the `StyledList` component.
+- Adds the `FeedbackBox` component, `useFeedbackBox` component hook, and `useStateWithDependencies` helper hook.
 
 ### Updates
 
