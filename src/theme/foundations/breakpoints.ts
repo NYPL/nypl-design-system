@@ -7,7 +7,7 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
  * Chakra Value |     DS Variable           | EM/PX value
  * ------------------------------------------------------
  *      sm      | --nypl-breakpoint-small   | 20em/320px
- *      md      | --nypl-breakpoint-medium  | 38em/600px
+ *      md      | --nypl-breakpoint-medium  | 37.5em/600px
  *      lg      | --nypl-breakpoint-large   | 60em/960px
  *      xl      | --nypl-breakpoint-xl      | 80em/1280px
  *     2xl      |        N/A                | 96em/1536px
@@ -17,7 +17,7 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
  */
 export default createBreakpoints({
   sm: "20em",
-  md: "38em",
+  md: "37.5em",
   lg: "60em",
   xl: "80em",
   "2xl": "96em",
