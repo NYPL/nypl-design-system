@@ -340,24 +340,24 @@ export const FilterBarLayoutStory = () => {
               if (i > 1) return;
               return (
                 <MultiSelect
-                  key={`${multiSelect.id}-3`}
-                  id={`${multiSelect.id}-3`}
+                  key={`${multiSelect.id}-4`}
+                  id={`${multiSelect.id}-4`}
                   label={multiSelect.name}
                   variant="dialog"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => {
-                    onChange(e.target.id, `${multiSelect.id}-3`);
+                    onChange(e.target.id, `${multiSelect.id}-4`);
                   }}
                   onMixedStateChange={(e) => {
                     return onMixedStateChange(
                       e.target.id,
-                      `${multiSelect.id}-3`,
+                      `${multiSelect.id}-4`,
                       multiSelect.items
                     );
                   }}
                   onClear={() => {
-                    onClear(`${multiSelect.id}-3`);
+                    onClear(`${multiSelect.id}-4`);
                   }}
                   onApply={() => {}}
                 />
@@ -384,24 +384,24 @@ export const FilterBarLayoutStory = () => {
           {multiSelectItems &&
             multiSelectItems.map((multiSelect) => (
               <MultiSelect
-                key={`${multiSelect.id}-3`}
-                id={`${multiSelect.id}-3`}
+                key={`${multiSelect.id}-5`}
+                id={`${multiSelect.id}-5`}
                 label={multiSelect.name}
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-3`);
+                  onChange(e.target.id, `${multiSelect.id}-5`);
                 }}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
-                    `${multiSelect.id}-3`,
+                    `${multiSelect.id}-5`,
                     multiSelect.items
                   );
                 }}
                 onClear={() => {
-                  onClear(`${multiSelect.id}-3`);
+                  onClear(`${multiSelect.id}-5`);
                 }}
                 onApply={() => {}}
               />
@@ -429,24 +429,24 @@ export const FilterBarLayoutStory = () => {
               if (i > 1) return;
               return (
                 <MultiSelect
-                  key={`${multiSelect.id}-3`}
-                  id={`${multiSelect.id}-3`}
+                  key={`${multiSelect.id}-6`}
+                  id={`${multiSelect.id}-6`}
                   label={multiSelect.name}
                   variant="dialog"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => {
-                    onChange(e.target.id, `${multiSelect.id}-3`);
+                    onChange(e.target.id, `${multiSelect.id}-6`);
                   }}
                   onMixedStateChange={(e) => {
                     return onMixedStateChange(
                       e.target.id,
-                      `${multiSelect.id}-3`,
+                      `${multiSelect.id}-6`,
                       multiSelect.items
                     );
                   }}
                   onClear={() => {
-                    onClear(`${multiSelect.id}-3`);
+                    onClear(`${multiSelect.id}-6`);
                   }}
                   onApply={() => {}}
                 />
@@ -474,24 +474,24 @@ export const FilterBarLayoutStory = () => {
           {multiSelectItems &&
             multiSelectItems.map((multiSelect) => (
               <MultiSelect
-                key={`${multiSelect.id}-3`}
-                id={`${multiSelect.id}-3`}
+                key={`${multiSelect.id}-7`}
+                id={`${multiSelect.id}-7`}
                 label={multiSelect.name}
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-3`);
+                  onChange(e.target.id, `${multiSelect.id}-7`);
                 }}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
-                    `${multiSelect.id}-3`,
+                    `${multiSelect.id}-7`,
                     multiSelect.items
                   );
                 }}
                 onClear={() => {
-                  onClear(`${multiSelect.id}-3`);
+                  onClear(`${multiSelect.id}-7`);
                 }}
                 onApply={() => {}}
               />
