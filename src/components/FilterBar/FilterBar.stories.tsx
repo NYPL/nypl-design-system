@@ -53,6 +53,8 @@ const multiSelectItems = [
     ],
   },
 ];
+const shortMultiSelectItems = [...multiSelectItems];
+shortMultiSelectItems.pop();
 
 export const FilterBarStory: Story<FilterBarProps> = (args) => {
   const {
@@ -91,22 +93,20 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
       showSubmitAll={args.showSubmitAll}
       onOpen={() => {
         onOpen();
-        setActionName("onOpen");
+        return setActionName("onOpen");
       }}
       onClose={() => {
         onClose();
-        setActionName("onClose");
+        return setActionName("onClose");
       }}
       {...(args.showClearAll && {
         onClear: () => {
           onClearAll();
-          setActionName("onClearAll");
+          return setActionName("onClearAll");
         },
       })}
       {...(args.showSubmitAll && {
-        onSubmit: () => {
-          setActionName("onSubmit");
-        },
+        onSubmit: () => setActionName("onSubmit"),
       })}
       selectedItems={selectedItems}
     >
@@ -126,7 +126,7 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
               selectedItems={selectedItems}
               onChange={(e) => {
                 onChange(e.target.id, multiSelect.id);
-                setActionName("onChange");
+                return setActionName("onChange");
               }}
               onMixedStateChange={(e) => {
                 onMixedStateChange(
@@ -134,15 +134,13 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
                   multiSelect.id,
                   multiSelect.items
                 );
-                setActionName("onMixedStateChange");
+                return setActionName("onMixedStateChange");
               }}
               onClear={() => {
                 onClear(multiSelect.id);
-                setActionName("onClear");
+                return setActionName("onClear");
               }}
-              onApply={() => {
-                setActionName("onApply");
-              }}
+              onApply={() => setActionName("onApply")}
             />
           ))}
       </MultiSelectGroup>
@@ -179,9 +177,7 @@ export const FilterBarLayoutStory = () => {
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
-                onChange={(e) => {
-                  onChange(e.target.id, multiSelect.id);
-                }}
+                onChange={(e) => onChange(e.target.id, multiSelect.id)}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
@@ -189,9 +185,7 @@ export const FilterBarLayoutStory = () => {
                     multiSelect.items
                   );
                 }}
-                onClear={() => {
-                  onClear(multiSelect.id);
-                }}
+                onClear={() => onClear(multiSelect.id)}
                 onApply={() => {}}
               />
             ))}
@@ -216,9 +210,7 @@ export const FilterBarLayoutStory = () => {
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
-                onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-1`);
-                }}
+                onChange={(e) => onChange(e.target.id, `${multiSelect.id}-1`)}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
@@ -226,9 +218,7 @@ export const FilterBarLayoutStory = () => {
                     multiSelect.items
                   );
                 }}
-                onClear={() => {
-                  onClear(`${multiSelect.id}-1`);
-                }}
+                onClear={() => onClear(`${multiSelect.id}-1`)}
                 onApply={() => {}}
               />
             ))}
@@ -248,9 +238,8 @@ export const FilterBarLayoutStory = () => {
           id="clear-all"
           labelText="Row with Clear All button"
         >
-          {multiSelectItems &&
-            multiSelectItems.map((multiSelect, i) => {
-              if (i > 1) return;
+          {shortMultiSelectItems &&
+            shortMultiSelectItems.map((multiSelect) => {
               return (
                 <MultiSelect
                   key={`${multiSelect.id}-3`}
@@ -259,9 +248,7 @@ export const FilterBarLayoutStory = () => {
                   variant="dialog"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
-                  onChange={(e) => {
-                    onChange(e.target.id, `${multiSelect.id}-3`);
-                  }}
+                  onChange={(e) => onChange(e.target.id, `${multiSelect.id}-3`)}
                   onMixedStateChange={(e) => {
                     return onMixedStateChange(
                       e.target.id,
@@ -269,9 +256,7 @@ export const FilterBarLayoutStory = () => {
                       multiSelect.items
                     );
                   }}
-                  onClear={() => {
-                    onClear(`${multiSelect.id}-3`);
-                  }}
+                  onClear={() => onClear(`${multiSelect.id}-3`)}
                   onApply={() => {}}
                 />
               );
@@ -302,9 +287,7 @@ export const FilterBarLayoutStory = () => {
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
-                onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-2`);
-                }}
+                onChange={(e) => onChange(e.target.id, `${multiSelect.id}-2`)}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
@@ -312,9 +295,7 @@ export const FilterBarLayoutStory = () => {
                     multiSelect.items
                   );
                 }}
-                onClear={() => {
-                  onClear(`${multiSelect.id}-2`);
-                }}
+                onClear={() => onClear(`${multiSelect.id}-2`)}
                 onApply={() => {}}
               />
             ))}
@@ -335,9 +316,8 @@ export const FilterBarLayoutStory = () => {
           id="submit-button"
           labelText="Submit Button"
         >
-          {multiSelectItems &&
-            multiSelectItems.map((multiSelect, i) => {
-              if (i > 1) return;
+          {shortMultiSelectItems &&
+            shortMultiSelectItems.map((multiSelect) => {
               return (
                 <MultiSelect
                   key={`${multiSelect.id}-4`}
@@ -346,9 +326,7 @@ export const FilterBarLayoutStory = () => {
                   variant="dialog"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
-                  onChange={(e) => {
-                    onChange(e.target.id, `${multiSelect.id}-4`);
-                  }}
+                  onChange={(e) => onChange(e.target.id, `${multiSelect.id}-4`)}
                   onMixedStateChange={(e) => {
                     return onMixedStateChange(
                       e.target.id,
@@ -356,9 +334,7 @@ export const FilterBarLayoutStory = () => {
                       multiSelect.items
                     );
                   }}
-                  onClear={() => {
-                    onClear(`${multiSelect.id}-4`);
-                  }}
+                  onClear={() => onClear(`${multiSelect.id}-4`)}
                   onApply={() => {}}
                 />
               );
@@ -390,9 +366,7 @@ export const FilterBarLayoutStory = () => {
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
-                onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-5`);
-                }}
+                onChange={(e) => onChange(e.target.id, `${multiSelect.id}-5`)}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
@@ -400,9 +374,7 @@ export const FilterBarLayoutStory = () => {
                     multiSelect.items
                   );
                 }}
-                onClear={() => {
-                  onClear(`${multiSelect.id}-5`);
-                }}
+                onClear={() => onClear(`${multiSelect.id}-5`)}
                 onApply={() => {}}
               />
             ))}
@@ -424,9 +396,8 @@ export const FilterBarLayoutStory = () => {
           id="submit-button"
           labelText="Submit Button"
         >
-          {multiSelectItems &&
-            multiSelectItems.map((multiSelect, i) => {
-              if (i > 1) return;
+          {shortMultiSelectItems &&
+            shortMultiSelectItems.map((multiSelect) => {
               return (
                 <MultiSelect
                   key={`${multiSelect.id}-6`}
@@ -435,9 +406,7 @@ export const FilterBarLayoutStory = () => {
                   variant="dialog"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
-                  onChange={(e) => {
-                    onChange(e.target.id, `${multiSelect.id}-6`);
-                  }}
+                  onChange={(e) => onChange(e.target.id, `${multiSelect.id}-6`)}
                   onMixedStateChange={(e) => {
                     return onMixedStateChange(
                       e.target.id,
@@ -445,9 +414,7 @@ export const FilterBarLayoutStory = () => {
                       multiSelect.items
                     );
                   }}
-                  onClear={() => {
-                    onClear(`${multiSelect.id}-6`);
-                  }}
+                  onClear={() => onClear(`${multiSelect.id}-6`)}
                   onApply={() => {}}
                 />
               );
@@ -480,9 +447,7 @@ export const FilterBarLayoutStory = () => {
                 variant="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
-                onChange={(e) => {
-                  onChange(e.target.id, `${multiSelect.id}-7`);
-                }}
+                onChange={(e) => onChange(e.target.id, `${multiSelect.id}-7`)}
                 onMixedStateChange={(e) => {
                   return onMixedStateChange(
                     e.target.id,
@@ -490,9 +455,7 @@ export const FilterBarLayoutStory = () => {
                     multiSelect.items
                   );
                 }}
-                onClear={() => {
-                  onClear(`${multiSelect.id}-7`);
-                }}
+                onClear={() => onClear(`${multiSelect.id}-7`)}
                 onApply={() => {}}
               />
             ))}

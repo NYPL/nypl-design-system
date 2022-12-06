@@ -41,16 +41,6 @@ interface FilterBarCommonProps {
   showClearAll?: boolean;
 }
 
-// /** Types related to a optional global clear button */
-// type ClearAllProps =
-//   | {
-//       /** If passed a `Clear Filters` button will render to reset all filters */
-//       showClearAll?: false;
-//       /** Function to clear all selectedItems */
-//       onClear?: never;
-//     }
-//   | { showClearAll: true; onClear: () => void };
-
 /** Types related to an optional global submit button `Apply Filters` */
 type SubmitAllProps =
   | {
