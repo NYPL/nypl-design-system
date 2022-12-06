@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes the z-index value of the SVG icon in the `Select` component so it does not render above other elements on a consuming application's page.
+
 ## 1.3.0-rc (Release Candidate December 2, 2022)
 
 ### Adds
