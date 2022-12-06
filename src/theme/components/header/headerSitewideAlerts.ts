@@ -25,7 +25,7 @@ const SitewideAlerts = {
           color: "ui.typography.heading",
           _hover: {
             color: "ui.typography.heading",
-          }
+          },
         },
       },
     },
