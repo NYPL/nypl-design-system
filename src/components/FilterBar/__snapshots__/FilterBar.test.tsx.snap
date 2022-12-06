@@ -3,11 +3,11 @@
 exports[`FilterBar renders the UI snapshots correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterbar-id"
+  id="filter-bar-defaultFilterBarNoButtons"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterbar-id-show-filters"
+    id="filter-bar-defaultFilterBarNoButtons-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -19,27 +19,51 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
 exports[`FilterBar renders the UI snapshots correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterbar-id"
+  id="filter-bar-filterBarWithClearAllButton"
 >
-  <button
-    className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterbar-id-show-filters"
-    onClick={[Function]}
-    type="button"
+  <h2
+    className="chakra-heading css-1xdhyk6"
   >
-    Show Filter 
-  </button>
+    FilterBar
+  </h2>
+  <div
+    className="chakra-wrap css-13rbvqk"
+  >
+    <ul
+      className="chakra-wrap__list css-1k89tde"
+    >
+      <li
+        className="chakra-wrap__listitem css-1yp4ln"
+      />
+      <li
+        className="chakra-wrap__listitem css-1yl4gnp"
+      >
+        <div
+          className="chakra-stack css-ytb711"
+        >
+          <button
+            className="chakra-button css-1e643n3"
+            id="filterBarWithClearAllButton-clear-all-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Clear Filters
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`FilterBar renders the UI snapshots correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterbar-id"
+  id="filter-bar-filterBarWithSubmitAllButton"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterbar-id-show-filters"
+    id="filter-bar-filterBarWithSubmitAllButton-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -51,15 +75,47 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
 exports[`FilterBar renders the UI snapshots correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterbar-id"
+  id="filter-bar-filterBarWithButtons"
 >
-  <button
-    className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterbar-id-show-filters"
-    onClick={[Function]}
-    type="button"
+  <h2
+    className="chakra-heading css-1xdhyk6"
   >
-    Show Filter 
-  </button>
+    FilterBar
+  </h2>
+  <div
+    className="chakra-wrap css-13rbvqk"
+  >
+    <ul
+      className="chakra-wrap__list css-1k89tde"
+    >
+      <li
+        className="chakra-wrap__listitem css-1yp4ln"
+      />
+      <li
+        className="chakra-wrap__listitem css-1yl4gnp"
+      >
+        <div
+          className="chakra-stack css-ytb711"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="filterBarWithButtons-submit-all-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Apply Filters
+          </button>
+          <button
+            className="chakra-button css-1e643n3"
+            id="filterBarWithButtons-clear-all-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Clear Filters
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

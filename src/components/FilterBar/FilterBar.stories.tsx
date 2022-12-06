@@ -1,7 +1,7 @@
+import { action } from "@storybook/addon-actions";
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
 import { VStack } from "@chakra-ui/react";
-import { action } from "@storybook/addon-actions";
 
 import FilterBar, { FilterBarProps } from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
@@ -87,6 +87,8 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
       headingText={args.headingText}
       layout={args.layout}
       isOpen={isModalOpen}
+      showClearAll={args.showClearAll}
+      showSubmitAll={args.showSubmitAll}
       onOpen={() => {
         onOpen();
         setActionName("onOpen");
@@ -95,13 +97,17 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
         onClose();
         setActionName("onClose");
       }}
-      onClear={() => {
-        onClearAll();
-        setActionName("onClearAll");
-      }}
-      onSubmit={() => {
-        setActionName("onSubmit");
-      }}
+      {...(args.showClearAll && {
+        onClear: () => {
+          onClearAll();
+          setActionName("onClearAll");
+        },
+      })}
+      {...(args.showSubmitAll && {
+        onSubmit: () => {
+          setActionName("onSubmit");
+        },
+      })}
       selectedItems={selectedItems}
     >
       <MultiSelectGroup
@@ -161,6 +167,7 @@ export const FilterBarLayoutStory = () => {
         selectedItems={selectedItems}
         isOpen={isModalOpen}
         onToggle={onToggle}
+        onClear={onClearAll}
       >
         <MultiSelectGroup showLabel={false} id="row" labelText="Row (default)">
           {multiSelectItems &&
@@ -197,6 +204,7 @@ export const FilterBarLayoutStory = () => {
         selectedItems={selectedItems}
         isOpen={isModalOpen}
         onToggle={onToggle}
+        onClear={onClearAll}
       >
         <MultiSelectGroup showLabel={false} id="column" labelText="Column">
           {multiSelectItems &&
@@ -233,7 +241,7 @@ export const FilterBarLayoutStory = () => {
         isOpen={isModalOpen}
         onToggle={onToggle}
         onClear={onClearAll}
-        showClearAll={true}
+        showClearAll
       >
         <MultiSelectGroup
           showLabel={false}
@@ -278,7 +286,7 @@ export const FilterBarLayoutStory = () => {
         onToggle={onToggle}
         onClear={onClearAll}
         layout="column"
-        showClearAll={true}
+        showClearAll
       >
         <MultiSelectGroup
           showLabel={false}
@@ -320,7 +328,7 @@ export const FilterBarLayoutStory = () => {
         onToggle={onToggle}
         onClear={onClearAll}
         onSubmit={() => null}
-        showSubmitAll={true}
+        showSubmitAll
       >
         <MultiSelectGroup
           showLabel={false}
@@ -366,7 +374,7 @@ export const FilterBarLayoutStory = () => {
         onClear={onClearAll}
         layout="column"
         onSubmit={() => null}
-        showSubmitAll={true}
+        showSubmitAll
       >
         <MultiSelectGroup
           showLabel={false}
@@ -408,8 +416,8 @@ export const FilterBarLayoutStory = () => {
         onToggle={onToggle}
         onClear={onClearAll}
         onSubmit={() => null}
-        showClearAll={true}
-        showSubmitAll={true}
+        showClearAll
+        showSubmitAll
       >
         <MultiSelectGroup
           showLabel={false}
@@ -455,8 +463,8 @@ export const FilterBarLayoutStory = () => {
         onClear={onClearAll}
         onSubmit={() => null}
         layout="column"
-        showClearAll={true}
-        showSubmitAll={true}
+        showClearAll
+        showSubmitAll
       >
         <MultiSelectGroup
           showLabel={false}

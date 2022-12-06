@@ -50,7 +50,6 @@ export const ButtonGroup = chakra(
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement, key: number) => {
-          // @TODO: discuss with DS team - this fixes the issue of a null hcild passed (see FilterBar conditional buttons)
           if (React.isValidElement(child)) {
             if (child.type !== Button) {
               // Special case for Storybook MDX documentation.

@@ -25,41 +25,62 @@ import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
 
 interface FilterBarCommonProps {
   children: React.ReactNode;
+  /** The id of the MultiSelect. */
   id?: string;
+  /** Determines on Mobile if filter modal overlay is open or closed */
   isOpen: boolean;
+  /** Heading text of FilterBar */
   headingText: string;
+  /** Renders the layout of the FilterBar child components in a row or column. */
   layout?: LayoutTypes;
+  /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
+  /** User for the global `Clear Filters` button. This button is always shown on mobile, optional on desktop */
+  onClear: () => void;
+  /** If passed, the global `Clear Filters` button will render on desktop and tablet */
+  showClearAll?: boolean;
 }
 
-type ClearAllProps =
-  | {
-      showClearAll?: false;
-      onClear?: never;
-    }
-  | { showClearAll: true; onClear: () => void };
+// /** Types related to a optional global clear button */
+// type ClearAllProps =
+//   | {
+//       /** If passed a `Clear Filters` button will render to reset all filters */
+//       showClearAll?: false;
+//       /** Function to clear all selectedItems */
+//       onClear?: never;
+//     }
+//   | { showClearAll: true; onClear: () => void };
 
+/** Types related to an optional global submit button `Apply Filters` */
 type SubmitAllProps =
   | {
+      /** If passed the `Apply Filters` button will render on desktop and tablet */
       showSubmitAll?: false;
+      /** Function for `Apply Filters` button, needs to be provided by the consuming app */
       onSubmit?: never;
     }
+  /** onSubmit is required only if showSubmitAll is passed */
   | { showSubmitAll: true; onSubmit: () => void };
 
+/** Types related to the Modal handling */
 type HandleModalProps =
   | {
+      /** If onToggle is passed as prop, it will open and close the filter modal on mobile */
       onToggle: () => void;
+      /** onOpen and onClose will not be used in this scenario */
       onOpen?: never;
       onClose?: never;
     }
   | {
+      /** If onToggle is omitted, onOpen and onClose should be provided instead */
       onToggle?: undefined;
+      /** onOpen will open the filter modal on mobile */
       onOpen: () => void;
+      /** onClose will close the filter modal on mobile */
       onClose: () => void;
     };
 
 export type FilterBarProps = FilterBarCommonProps &
-  ClearAllProps &
   SubmitAllProps &
   HandleModalProps;
 
@@ -100,20 +121,19 @@ export const FilterBar = chakra(
         Object.entries(selectedItems).length
           ? `(${Object.entries(selectedItems).length})`
           : "";
-      //@TODO: resolved using Typescript descriminated unions
-      // // Warning if a function was passed but the button not rendered.
-      // if (onClear && showClearAll === false) {
-      //   console.warn(
-      //     "NYPL Reservoir FilterBar: The `onClearFilters` handler was set, but the `Clear Filters` button is not visible."
-      //   );
-      // }
+      // Warning when onSubmit is passed but the showSubmitAll is missing
+      if (onSubmit && showSubmitAll === false) {
+        console.warn(
+          "NYPL Reservoir FilterBar: The `onSubmit` handler was set, but the `Apply Filters` button is not visible."
+        );
+      }
+      // Warning when showSubmitAll is passed but onSubmit is missing
+      if (onSubmit === undefined && showSubmitAll === true) {
+        console.warn(
+          "NYPL Reservoir FilterBar: The `Apply Filters` button is rendering but no onSubmit function was passed."
+        );
+      }
 
-      // // Warning if schowClearAll is set to true but no corresponding fucntion was passed.
-      // if (onClear === null && showClearAll === true) {
-      //   console.warn(
-      //     "NYPL Reservoir FilterBar: The `onClearFilters` handler was not set."
-      //   );
-      // }
       const newChildren: JSX.Element[] = [];
       // Go through the FilterBar children and update props as needed.
       React.Children.map(
@@ -160,7 +180,7 @@ export const FilterBar = chakra(
                     {showSubmitAll && (
                       <Button
                         buttonType="primary"
-                        id={`${id}-clear-all-button`}
+                        id={`${id}-submit-all-button`}
                         onClick={onSubmit}
                       >
                         Apply Filters

@@ -30,7 +30,42 @@ const {
 } = useFilterBar();
 ```
 
-## useFilterBar Hook simple implementation with no buttons or modul
+## useFilterBar Hook implementation
+
+The data structure used to render two `MultiSelect` components in all following examples:
+
+```jsx
+const multiSelectItems = [
+  {
+    id: "colors",
+    name: "Colors",
+    items: [
+      { id: "red", name: "Red" },
+      { id: "blue", name: "Blue" },
+      { id: "yellow", name: "Yellow" },
+    ],
+  },
+  {
+    id: "pets",
+    name: "Pets",
+    items: [
+      { id: "cat", name: "Cat" },
+      {
+        id: "dog",
+        name: "Dog",
+        children: [
+          { id: "corgy", name: "Corgy" },
+          { id: "german-sheperd", name: "German Sheperd" },
+          { id: "afghan-hound", name: "Afghan Hound" },
+        ],
+      },
+      { id: "rat", name: "Rat" },
+    ],
+  },
+];
+```
+
+### Implementation with no global buttons or modal
 
 ```jsx
 import React from "react";
@@ -44,7 +79,7 @@ import {
 export default function FilterBarWithHookExample() {
   // Without this hook, you'd have to add handlers for onChange, onMixedStateChange and onClear,
   // and also manage the selectedItems state yourself.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useFilterBar();
   return (
     <FilterBar
@@ -52,6 +87,7 @@ export default function FilterBarWithHookExample() {
       headingText="FilterBar"
       layout="row"
       selectedItems={selectedItems}
+      onClear={onClearAll}
     >
       <MultiSelectGroup
         id="multiselect-group"
@@ -89,7 +125,7 @@ export default function FilterBarWithHookExample() {
 }
 ```
 
-## useFilterBar Hook implementation with `Clear All` and `Apply Filters` button
+### Implementation with `Clear Filters` and `Apply Filters` button
 
 ```jsx
 import React from "react";
@@ -101,8 +137,8 @@ import {
 } from "@nypl/design-system-react-components";
 
 export default function FilterBarWithHookExample() {
-  // Without this hook, you'd have to add handlers for onChange, onMixedStateChange, onClear and onClearAll,
-  // and also manage the selectedItems state yourself.
+  // Without this hook, the consuming app will have to provide handlers for onChange, onMixedStateChange, onClear and onClearAll,
+  // and also manage the selectedItems state.
   const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useFilterBar();
 
@@ -112,9 +148,10 @@ export default function FilterBarWithHookExample() {
       headingText="FilterBar"
       layout="row"
       selectedItems={selectedItems}
-      showClearAll={true}
+      showClearAll
       onClear={onClearAll}
-      showSubmitAll={true}
+      showSubmitAll
+      // onSubmit has to be provided by the consuming app
       onSubmit={() => {}}
     >
       <MultiSelectGroup
@@ -153,61 +190,30 @@ export default function FilterBarWithHookExample() {
 }
 ```
 
-## useFilterBar Hook implementation using setSelectedItems for a initial selection of filters
-
-```jsx
-const multiSelectItems = [
-  {
-    id: "colors",
-    name: "Colors",
-    items: [
-      { id: "red", name: "Red" },
-      { id: "blue", name: "Blue" },
-      { id: "yellow", name: "Yellow" },
-    ],
-  },
-  {
-    id: "pets",
-    name: "Pets",
-    items: [
-      { id: "cat", name: "Cat" },
-      {
-        id: "dog",
-        name: "Dog",
-        children: [
-          { id: "corgy", name: "Corgy" },
-          { id: "german-sheperd", name: "German Sheperd" },
-          { id: "afghan-hound", name: "Afghan Hound" },
-        ],
-      },
-      { id: "rat", name: "Rat" },
-    ],
-  },
-];
-```
+### Implementation using setSelectedItems for a initial selection of filters
 
 The required data structure to set the selectedItems object:
 
 ```jsx
-// The selectedItems structur for one MultiSelect
+// The selectedItems structure for one MultiSelect
 const initialFilter = {
   colors: {
     items: ["red"],
   },
 };
 
-// The selectedItems structur for setting state on multiple filters
+// The selectedItems structure for setting state on multiple filters
 const initialFilters = {
   colors: {
     items: ["red"],
   },
-  locations: {
+  pets: {
     items: ["corgy", "german-sheperd"],
   },
 };
 ```
 
-The implemntation of the `useFilterBar` hook setting a inital selection of selectedItems in the MultiSelect.
+Implemntation:
 
 ```jsx
 import React from "react";
@@ -221,7 +227,20 @@ import {
 export default function FilterBarWithHookExample() {
   const { onChange, onClear, onClearAll, setSelectedItems, selectedItems } =
     useFilterBar();
-  setSelectedItems(initialFilter);
+
+  const initialFilters = {
+    colors: {
+      items: ["red"],
+    },
+    pets: {
+      items: ["corgy", "german-sheperd"],
+    },
+  };
+
+  //Set the initial state of selectedItems
+  React.useEffect(() => {
+    setSelectedItems(initialSelectedItems);
+  }, []);
 
   return (
     <FilterBar
@@ -229,9 +248,9 @@ export default function FilterBarWithHookExample() {
       headingText="FilterBar"
       layout="row"
       selectedItems={selectedItems}
-      showClearAll={true}
+      showClearAll
       onClear={onClearAll}
-      showSubmitAll={true}
+      showSubmitAll
       onSubmit={() => {}}
     >
       <MultiSelectGroup

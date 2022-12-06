@@ -72,7 +72,9 @@ import * as story from "./FilterBar.stories";
 
 - [Overview](#overview)
 - [Component Props](#component-props)
+- [Accessibility](#accessibility)
 - [Layout Patterns](#layout-patterns)
+- [useFilterBar hook](#usefilterbar-hook)
 
 ## Overview
 
@@ -87,6 +89,8 @@ import * as story from "./FilterBar.stories";
       id: "filterbar-id",
       headingText: "FilterBar",
       layout: "row",
+      showClearAll: "false",
+      showSubmitAll: "false",
     }}
   >
     {(args) => <story.FilterBarStory {...args} />}
@@ -94,6 +98,15 @@ import * as story from "./FilterBar.stories";
 </Canvas>
 
 <ArgsTable story="FilterBar" />
+
+## Accessibility
+
+The `FilterBar` component is a wrapper component for components with filter functionality.
+The accessibility of `FilterBar` depends on the passed child components accessibility.
+See the accessibility details of valid FilterBar child components:
+
+- [MultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselect--multi-select-list-box#accessibility)
+- [MultiSelectGroup](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselectgroup--multi-select-group#accessibility)
 
 ## Layout Patterns
 
