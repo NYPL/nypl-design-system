@@ -1,10 +1,13 @@
-import { headerFocus, headerRed } from "./header";
+import { headerFocus, headerRed, headerRedDark } from "./header";
 
 const linkFocusHoverStyles = {
   borderBottom: "3px solid",
   color: headerRed,
   paddingBottom: "2px",
   textDecoration: "none",
+  _dark: {
+    color: headerRedDark,
+  },
 };
 
 const HeaderLowerNav = {

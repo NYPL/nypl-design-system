@@ -29,6 +29,9 @@ const HeaderUpperNav = {
       _focus: headerFocus,
       _dark: {
         color: "dark.ui.typography.heading",
+        _hover: {
+          color: "dark.ui.typography.heading",
+        },
       },
     },
     svg: {
@@ -52,6 +55,9 @@ const HeaderUpperNav = {
       width: "85px",
       _hover: {
         bg: headerRed,
+      },
+      _dark: {
+        color: "var(--nypl-colors-ui-black) !important",
       },
     },
   },
