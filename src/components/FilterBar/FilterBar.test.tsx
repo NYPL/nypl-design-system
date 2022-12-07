@@ -198,82 +198,16 @@ describe("FilterBar", () => {
   afterEach(() => {
     matchMedia.clear();
   });
-  it("should render a 'Clear Filters' button when showClearAll prop is passed", () => {
-    window.resizeTo(1024, 600);
-    render(<FilterBarTestComponent showClearAll id="filter-bar-test-1" />);
-    expect(
-      screen.getByRole("button", { name: /clear filters/i })
-    ).toBeInTheDocument();
-  });
-  it("should clear the selectedItems when 'Clear Filters' button is clicked", () => {
-    const { rerender } = render(
-      <FilterBarTestComponent showClearAll id="filter-bar-test-2" />
-    );
-    rerender(<FilterBarTestComponent showClearAll id="filter-bar-test-2" />);
-    // Open menu
-    userEvent.click(screen.getByRole("button", { name: /colors/i }));
-    // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
-    // Open menu
-    userEvent.click(screen.getByRole("button", { name: /pets/i }));
-    // Check item
-    userEvent.click(screen.getByText("Dog"));
-    // Open menu
-    userEvent.click(screen.getByRole("button", { name: /tools/i }));
-    // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
-    expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(3);
-    // click Clear All button
-    userEvent.click(screen.getByRole("button", { name: /clear filters/i }));
-    expect(
-      Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
-    ).toBe(0);
-  });
-  it("should render a 'Apply Filters' button when showSubmitAll prop is passed", () => {
-    const { rerender } = render(
-      <FilterBarTestComponent showSubmitAll id="filter-bar-test-3" />
-    );
-    rerender(<FilterBarTestComponent showSubmitAll id="filter-bar-test-3" />);
-    expect(
-      screen.getByRole("button", { name: /apply filters/i })
-    ).toBeInTheDocument();
-  });
-  it("should call onSubmit function when 'Apply Filters' button is clicked", () => {
-    const mockonSubmit = jest.fn();
-    const { rerender } = render(
-      <FilterBarTestComponent
-        showSubmitAll
-        onSubmitAll={mockonSubmit}
-        id="filter-bar-test-4"
-      />
-    );
-    rerender(
-      <FilterBarTestComponent
-        showSubmitAll
-        onSubmitAll={mockonSubmit}
-        id="filter-bar-test-4"
-      />
-    );
-    // click Submit All button
-    userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
-    expect(mockonSubmit).toBeCalledTimes(1);
-  });
   it("should render the `Show Filter` button when window size is mobile", () => {
+    render(<FilterBarTestComponent id="filter-bar-test-5" />);
     window.resizeTo(300, 300);
-    const { rerender } = render(
-      <FilterBarTestComponent id="filter-bar-test-5" />
-    );
-    rerender(<FilterBarTestComponent id="filter-bar-test-5" />);
     expect(
       screen.getByRole("button", { name: /show filter/i })
     ).toBeInTheDocument();
   });
   it("should open the filter modal whene `Show Filter` button is clicked", async () => {
+    render(<FilterBarTestComponent id="filter-bar-test-5" />);
     window.resizeTo(300, 300);
-    const { rerender } = render(
-      <FilterBarTestComponent id="filter-bar-test-5" />
-    );
-    rerender(<FilterBarTestComponent id="filter-bar-test-5" />);
     expect(
       screen.getByRole("button", { name: /show filter/i })
     ).toBeInTheDocument();
@@ -300,6 +234,63 @@ describe("FilterBar", () => {
         screen.getByRole("button", { name: /show filter/i })
       ).toBeInTheDocument();
     });
+  });
+  it("should render a 'Clear Filters' button when showClearAll prop is passed", () => {
+    render(<FilterBarTestComponent showClearAll id="filter-bar-test-1" />);
+    window.resizeTo(1024, 600);
+    expect(
+      screen.getByRole("button", { name: /clear filters/i })
+    ).toBeInTheDocument();
+  });
+  it("should render a 'Apply Filters' button when showSubmitAll prop is passed", () => {
+    render(<FilterBarTestComponent showSubmitAll id="filter-bar-test-3" />);
+    window.resizeTo(1024, 600);
+    expect(
+      screen.getByRole("button", { name: /apply filters/i })
+    ).toBeInTheDocument();
+  });
+  it("should clear the selectedItems when 'Clear Filters' button is clicked", () => {
+    render(<FilterBarTestComponent showClearAll id="filter-bar-test-2" />);
+    window.resizeTo(1024, 600);
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /colors/i }));
+    // Check item
+    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /pets/i }));
+    // Check item
+    userEvent.click(screen.getByText("Dog"));
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /tools/i }));
+    // Check item
+    userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
+    expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(3);
+    // click Clear All button
+    userEvent.click(screen.getByRole("button", { name: /clear filters/i }));
+    expect(
+      Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
+    ).toBe(0);
+  });
+  it("should call onSubmit function when 'Apply Filters' button is clicked", () => {
+    const mockonSubmit = jest.fn();
+    const { rerender } = render(
+      <FilterBarTestComponent
+        showSubmitAll
+        onSubmitAll={mockonSubmit}
+        id="filter-bar-test-4"
+      />
+    );
+    window.resizeTo(1024, 600);
+    rerender(
+      <FilterBarTestComponent
+        showSubmitAll
+        onSubmitAll={mockonSubmit}
+        id="filter-bar-test-4"
+      />
+    );
+    // click Submit All button
+    userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
+    expect(mockonSubmit).toBeCalledTimes(1);
   });
   // @TODO Fix window.matchMedia isssue causing first and third snapshot to render the mobile view of the component
   it("renders the UI snapshots correctly", () => {
