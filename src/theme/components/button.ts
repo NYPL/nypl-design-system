@@ -71,7 +71,7 @@ export const secondary = ({ buttonSize = "medium" }) => ({
   color: "ui.link.primary",
   ...generalSizeValues(buttonSize),
   _hover: {
-    bg: "ui.bg.default",
+    bg: "ui.link.wash",
     borderColor: "ui.link.secondary",
     color: "ui.link.secondary",
   },

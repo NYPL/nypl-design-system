@@ -1,4 +1,5 @@
 import { Colors } from "@chakra-ui/react";
+import { hexToRGB } from "../../utils/utils";
 
 /**
  * All colors can be found in Storybook:
@@ -31,6 +32,8 @@ const grayMedium = "#BDBDBD";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
+const linkPrimary = "#0576D3";
+const linkSecondary = "#004B98";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const brandObj = {
@@ -56,8 +59,9 @@ const colors: Colors = {
     },
     focus: "#4181F1",
     link: {
-      primary: "#0576D3",
-      secondary: "#004B98",
+      primary: linkPrimary,
+      secondary: linkSecondary,
+      wash: hexToRGB(linkPrimary, 0.05),
     },
     status: {
       primary: "#F9E08E",
