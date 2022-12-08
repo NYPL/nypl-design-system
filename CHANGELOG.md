@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Updates
+
+- Updates the background color for the `hover` state in the `secondary` variant of the `Button` component.
+
 ## 1.3.0 (December 8, 2022)
 
 This release is exactly the same as the `1.3.0-rc` release candidate published on December 2, 2022. The `rc` release was reviewed and validated.
