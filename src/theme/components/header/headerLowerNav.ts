@@ -1,4 +1,4 @@
-import { headerFocus, headerRed, headerRedDark } from "./header";
+import { headerFocus, headerRed, headerRedDarkMode } from "./header";
 
 const linkFocusHoverStyles = {
   borderBottom: "3px solid",
@@ -6,7 +6,7 @@ const linkFocusHoverStyles = {
   paddingBottom: "2px",
   textDecoration: "none",
   _dark: {
-    color: headerRedDark,
+    color: headerRedDarkMode,
   },
 };
 
