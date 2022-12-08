@@ -10,6 +10,7 @@ import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
+import AudioPlayer from "./components/audioPlayer";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -20,6 +21,7 @@ import CheckboxGroup from "./components/checkboxGroup";
 import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
+import FeedbackBox from "./components/feedbackBox";
 import Fieldset from "./components/fieldset";
 import Footer from "./components/footer";
 import Header from "./components/header/header";
@@ -53,6 +55,7 @@ import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
+import StyledList from "./components/styledList";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
 import TagSetStyles from "./components/tagSet";
@@ -62,7 +65,6 @@ import TextInput from "./components/textInput";
 import Toggle from "./components/toggle";
 import Tooltip from "./components/tooltip";
 import VideoPlayer from "./components/videoPlayer";
-import AudioPlayer from "./components/audioPlayer";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -109,6 +111,7 @@ const theme = extendTheme({
     CustomImageWrapper,
     CustomSelect,
     DatePicker,
+    FeedbackBox,
     Fieldset,
     Footer,
     Header,
@@ -144,6 +147,7 @@ const theme = extendTheme({
     CustomSlider,
     StatusBadge,
     StructuredContent,
+    StyledList,
     Tabs,
     CustomTable,
     ...TagSetStyles,

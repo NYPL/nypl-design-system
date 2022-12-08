@@ -76,7 +76,13 @@ semantic elements can be overwritten using the `size` prop.
       urlClass: undefined,
     }}
   >
-    {(args) => <Heading {...args} />}
+    {(args) => (
+      <>
+        <Heading {...args} />
+        <Heading {...args} color="ui.typography.heading" />
+        <Heading {...args} color="ui.typography.inverse.heading" bgColor="brand.primary" />
+      </>
+    )}
   </Story>
 </Canvas>
 

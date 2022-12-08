@@ -74,6 +74,7 @@ const colors: Colors = {
     },
     // Semantic colors
     bg: {
+      page: white,
       default: grayxLightCool,
       hover: grayLightCool,
       active: grayMedium,
@@ -85,6 +86,10 @@ const colors: Colors = {
     typography: {
       heading: black,
       body: black,
+      inverse: {
+        heading: white,
+        body: white,
+      },
     },
     // Grayscale
     gray: {
@@ -147,6 +152,10 @@ const colors: Colors = {
       typography: {
         heading: grayLightCool,
         body: grayMedium,
+        inverse: {
+          heading: grayxxDark,
+          body: grayxxDark,
+        },
       },
     },
   },
