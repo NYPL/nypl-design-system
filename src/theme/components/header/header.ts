@@ -5,6 +5,7 @@ export const headerFocusColor = "#0F465C";
 export const headerLightBlue = "#78CCED";
 export const headerLightBlueIcon = "#1DA1D4";
 export const headerRed = "#ED1C24";
+export const headerRedDarkMode = "#DC6F73";
 export const headerRedDonate = "#E32B31";
 export const headerYellow = "#FEE34A";
 export const headerFocus = {

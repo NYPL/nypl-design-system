@@ -31,7 +31,7 @@ const HeaderSearchButton = {
         md: isOpen ? "ui.white" : "ui.link.primary",
       },
       _dark: {
-        color: {
+        fill: {
           base: isOpen ? "ui.white" : "dark.ui.typography.heading",
           md: isOpen ? "ui.white" : "dark.ui.link.primary",
         },

@@ -24,9 +24,9 @@ import { hexToRGB } from "../../utils/utils";
 const black = "#000";
 const white = "#fff";
 const grayDark = "#616161";
-const grayxxxxDark = "#121212";
-const grayxxxDark = "#191919";
-const grayxxDark = "#212121";
+const grayxxxxDark = "#191919";
+const grayxxxDark = "#252525";
+const grayxxDark = "#2e2e2e";
 const grayxDark = "#424242";
 const grayMedium = "#BDBDBD";
 const grayLightCool = "#E9E9E9";
@@ -208,26 +208,26 @@ const colors: Colors = {
         secondary: grayxxDark,
       },
       error: {
-        primary: "#DC4850",
-        secondary: "#F67C82",
+        primary: "#E1767B",
+        secondary: "#F08F93",
       },
-      focus: "#5181D4",
+      focus: "#6090E3",
       link: {
-        primary: "#2085D8",
-        secondary: "#50A0E1",
+        primary: "#79B7EB",
+        secondary: "#95CFFF",
       },
       status: {
-        primary: "#6F6544",
-        secondary: "#6F6765",
+        primary: "#B69C46",
+        secondary: "#CB8E7C",
       },
       success: {
-        primary: "#0E3B15",
-        secondary: "#0F2912",
+        primary: "#52AA60",
+        secondary: "#81C88A",
       },
       test: "#592B22",
       warning: {
-        primary: "#493320",
-        secondary: "#482C15",
+        primary: "#DC8034",
+        secondary: "#F1A66A",
       },
       // Semantic colors
       bg: {

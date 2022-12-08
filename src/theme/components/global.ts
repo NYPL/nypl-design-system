@@ -10,6 +10,9 @@ const activeFocus = (darkMode = false) => ({
   outlineOffset: "2px",
   outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
   zIndex: "9999",
+  _dark: {
+    outlineColor: "dark.ui.focus",
+  },
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
@@ -64,6 +67,22 @@ const checkboxRadioHoverStyles = {
       },
       _invalid: {
         borderColor: "ui.error.primary",
+      },
+    },
+    _dark: {
+      span: {
+        _first: {
+          borderColor: "ui.gray.dark",
+        },
+        _checked: {
+          borderColor: "dark.ui.focus",
+        },
+        _disabled: {
+          borderColor: "dark.ui.disabled.primary",
+        },
+        _invalid: {
+          borderColor: "dark.ui.error.primary",
+        },
       },
     },
   },
