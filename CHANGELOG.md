@@ -8,6 +8,29 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.3.0 (December 8, 2022)
+
+This release is exactly the same as the `1.3.0-rc` release candidate published on December 2, 2022. The `rc` release was reviewed and validated.
+
+## 1.3.0-rc (Release Candidate December 2, 2022)
+
+### Adds
+
+- Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
+- Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
+- Adds the `StyledList` component.
+- Adds the `FeedbackBox` component, `useFeedbackBox` component hook, and `useStateWithDependencies` helper hook.
+
+### Updates
+
+- Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
+### Fixes
+
+- Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
+
 ## 1.2.2 (November 10, 2022)
 
 ### Adds
@@ -20,12 +43,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Icon` and `Logo` documentation to include size values in px.
 - Updates the spacing within the `tertiary` variant of the `Hero` component.
 - Updates the `Buttons Style Guide` to extend the information about button sizes.
+- Updates the `viewport` options in Storybook to align with the Reservoir breakpoints.
 
 ### Fixes
 
 - Fixes an invalid TOC link on the `Card` component Storybook page.
 - Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
 - Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
+
+### Removes
+
+- Removes the `Button` component warning about the deprecated `link` variant. This change is temporary and will be reverted once teams are able to update their `Button`s appropriately.
 
 ## 1.2.1 (October 27, 2022)
 
