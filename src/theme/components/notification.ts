@@ -116,7 +116,10 @@ const NotificationContent = {
         color: "ui.black",
         textDecoration: "underline",
         _dark: {
-          color: "dark.ui.typography.body",
+          color: "dark.ui.link.primary",
+          _hover: {
+            color: "dark.ui.link.secondary",
+          },
         },
       },
     },

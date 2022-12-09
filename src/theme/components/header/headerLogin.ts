@@ -77,6 +77,15 @@ const HeaderLogin = {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px" },
       },
+      _dark: {
+        color: "ui.gray.xx-dark",
+        svg: {
+          fill: "ui.gray.xx-dark",
+        },
+        _hover: {
+          color: "ui.gray.xx-dark",
+        },
+      },
     },
     patronGreeting: {
       alignSelf: "flex-start",
@@ -121,6 +130,15 @@ const HeaderLogin = {
       _focus: {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px !important" },
+      },
+      _dark: {
+        color: "ui.gray.xx-dark",
+        svg: {
+          fill: "ui.gray.xx-dark",
+        },
+        _hover: {
+          color: "ui.gray.xx-dark",
+        },
       },
     },
   }),

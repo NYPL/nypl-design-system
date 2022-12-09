@@ -368,7 +368,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-1grhd2q"
+      className="chakra-icon css-13thq4x"
       focusable={false}
       id="notificationID7-dismissible-notification-icon"
       role="img"

@@ -2,6 +2,7 @@ import {
   Box,
   chakra,
   useColorMode,
+  useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
@@ -197,6 +198,12 @@ export const Notification = chakra(
         />
       );
     };
+    /** Setting the icon color in the styles is not working, so we need to
+     * explicitly override the icon color directly on the component. */
+    const dismissibleButtonIconColor = useColorModeValue(
+      "ui.black",
+      "dark.ui.typography.heading"
+    );
     const dismissibleButton = dismissible && (
       <Button
         aria-label="Close the notification"
@@ -206,6 +213,7 @@ export const Notification = chakra(
         __css={styles.dismissibleButton}
       >
         <Icon
+          fill={dismissibleButtonIconColor}
           id={`${id}-dismissible-notification-icon`}
           name="close"
           size="large"
