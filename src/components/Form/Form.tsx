@@ -102,7 +102,9 @@ export const Form = chakra(
     const alteredChildren = React.Children.map(
       children as JSX.Element,
       (child: React.ReactElement, i) => {
-        return React.cloneElement(child, { gap, id: `${id}-child${i}` });
+        return (
+          child && React.cloneElement(child, { gap, id: `${id}-child${i}` })
+        );
       }
     );
 

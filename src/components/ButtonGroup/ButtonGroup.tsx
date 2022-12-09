@@ -50,9 +50,9 @@ export const ButtonGroup = chakra(
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement, key: number) => {
-          if (child.type !== Button) {
+          if (child?.type !== Button) {
             // Special case for Storybook MDX documentation.
-            if (child.props.mdxType && child.props.mdxType === "Button") {
+            if (child?.props.mdxType && child?.props.mdxType === "Button") {
               noop();
             } else {
               console.warn(
@@ -62,9 +62,10 @@ export const ButtonGroup = chakra(
             }
           }
           const disabledProps = isDisabled ? { isDisabled } : {};
-          newChildren.push(
-            React.cloneElement(child, { key, ...disabledProps })
-          );
+          child &&
+            newChildren.push(
+              React.cloneElement(child, { key, ...disabledProps })
+            );
         }
       );
 

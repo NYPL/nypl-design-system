@@ -1,5 +1,6 @@
 import {
   defaultElementSizes,
+  screenreaderOnly,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
@@ -64,14 +65,27 @@ const input = {
 
 const TextInput = {
   parts: ["input", "textarea"],
-  baseStyle: {
+  baseStyle: ({ showLabel }) => ({
+    position: "relative",
     input,
     textarea: {
       ...input,
       lineheight: "1.5",
       minHeight: "xxl",
     },
-  },
+    clearButton: {
+      position: "absolute",
+      // When `showLabel` is false, the input field is at the top
+      // which means the clear button should float higher.
+      top: showLabel ? "32px" : "0",
+      px: "xs",
+      right: "0",
+      // Don't visually show the text. This also helps
+      // use the "text" `Button` type.
+      span: screenreaderOnly(),
+      zIndex: "9999",
+    },
+  }),
   variants: {
     searchBar: {
       flex: "1 1 80%",

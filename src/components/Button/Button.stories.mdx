@@ -133,10 +133,10 @@ that can be rendered.
 - `"primary"` is used for actions that move the user forward. This is the default.
 - `"secondary"` is used for actions that move the user back, such as cancellations.
 - `"text"` is used for equally weighted actions in a text based list.
-- `"pill"` is used for equally weighted actions within cards and always in a set.
 - `"callout"` is used for call to action text such as "Donate".
 - `"noBrand"` is a variant used when there is no brand and will display the
   background color as black.
+- `"pill"` is used for equally weighted actions within cards and always in a set.
 - `"link"` has been deprecated and should not be used.
 
 When one and only one `Icon` component is passed inside a `Button` component with
@@ -325,14 +325,14 @@ The variations modified by the `buttonType` prop:
       <Button buttonType="text" id="text-btn">
         Text
       </Button>
-      <Button buttonType="pill" id="pill-btn">
-        Pill
-      </Button>
       <Button buttonType="callout" id="callout-btn">
         Callout
       </Button>
       <Button buttonType="noBrand" id="nobrand-btn">
         No Brand
+      </Button>
+      <Button buttonType="pill" id="pill-btn">
+        Pill
       </Button>
       <Button buttonType="link" id="link-btn">
         Link (deprecated)
@@ -400,18 +400,6 @@ export const buttonData = [
     </Button>,
   ],
   [
-    "pill",
-    <Button buttonType="pill" id="pill-small" size="small">
-      Pill
-    </Button>,
-    <Button buttonType="pill" id="pill-medium" size="medium">
-      Pill
-    </Button>,
-    <Button buttonType="pill" id="pill-large" size="large">
-      Pill
-    </Button>,
-  ],
-  [
     "callout",
     <Button buttonType="callout" id="c-small" size="small">
       Callout
@@ -435,6 +423,30 @@ export const buttonData = [
       No Brand
     </Button>,
   ],
+  [
+    "pill",
+    <Button buttonType="pill" id="pill-small" size="small">
+      Pill
+    </Button>,
+    <Button buttonType="pill" id="pill-medium" size="medium">
+      Pill
+    </Button>,
+    <Button buttonType="pill" id="pill-large" size="large">
+      Pill
+    </Button>,
+  ],
+  [
+    "link (deprecated)",
+    <Button buttonType="link" id="l-small" size="small">
+      Link
+    </Button>,
+    <Button buttonType="link" id="l-medium" size="medium">
+      Link
+    </Button>,
+    <Button buttonType="link" id="l-large" size="large">
+      Link
+    </Button>,
+  ],
 ];
 
 <Canvas>
@@ -445,6 +457,16 @@ export const buttonData = [
       showRowDividers
       tableData={buttonData}
       useRowHeaders
+      sx={{
+        tbody: {
+          th: {
+            verticalAlign: "middle",
+          },
+          td: {
+            verticalAlign: "middle",
+          },
+        },
+      }}
     />
   </DSProvider>
 </Canvas>
