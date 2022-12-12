@@ -1,4 +1,4 @@
-import { chakra, Stack } from "@chakra-ui/react";
+import { chakra, Stack, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -43,7 +43,11 @@ export const MultiSelectGroup = chakra(
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
+      const finallWidth = isLargerThanMobile ? multiSelectWidth : "full";
       const isBlockElement = layout === "column" ? true : false;
+      const styles = useMultiStyleConfig("MultiSelectGroup", {
+        width: finallWidth,
+      });
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
@@ -72,7 +76,7 @@ export const MultiSelectGroup = chakra(
           id={`${id}-multiselect-group`}
           legendText={labelText}
           isLegendHidden={!showLabel}
-          width={multiSelectWidth}
+          __css={styles}
           {...rest}
         >
           <Stack

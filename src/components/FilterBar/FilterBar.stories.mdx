@@ -22,12 +22,10 @@ import * as story from "./FilterBar.stories";
     selectedItems: { control: false },
     showClearAll: {
       type: { name: "boolean", required: false },
-      defaultValue: false,
       description: "`boolean`",
     },
     showSubmitAll: {
       type: { name: "boolean", required: false },
-      defaultValue: false,
       description: "`boolean`",
     },
     onSubmit: {
@@ -112,7 +110,9 @@ See the accessibility details of valid FilterBar child components:
 
 The display of the FilterBar child components can be set to a "row" or a "column" layout.
 On screen width under 600px width the `layout` is automatically set to "column".
-Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default.
+Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default and the child components `width` will be set to `"full"`.
+However, the child components `width` can be controlled by the `filterWidth` prop and set to either `"full"` or `"default"`.
+The passed in width will take precedence over the default behavior.
 
 <Canvas>
   <DSProvider>
@@ -122,13 +122,13 @@ Note: when `layout = "column"` is passed, the MultiSelect components will have `
 
 ## `useFilterBar` hook
 
+Find the full documentation under [useFilterBar](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usefilterbar--page).
+
 `useFilterBar` is an optional hook for
 cases where managing the state of the component in the consuming app is less
 of a concern and general ease of use is prefered.
 
 The hook returns an object containing all the props and state needed to handle the selectedItems.
 That includes the functions `onChange`, `onMixedStateChange`, `onClear`, `onClearAll` for handling any changes to the selection of items,
-a `setSelectedItems` function to control or manipulate the (initial) state of selectedItems and the current state of the selection: `selectedItems`.
+a `setSelectedItems` function to control or manipulate the (initial) state of `selectedItems`, and a `selectedItems` object to house the current state of the selections.
 Additionally it returns an `onToggle` function or `onClose`/`onOpen` to control the `isModalOpen` state, and the boolean value `isModalOpen` for a Filter Modal overlay.
-
-Find the full documentation under [useFilterBar](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usefilterbar--page).

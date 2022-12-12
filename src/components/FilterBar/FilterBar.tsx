@@ -39,6 +39,8 @@ interface FilterBarCommonProps {
   onClear: () => void;
   /** If passed, the global `Clear Filters` button will render on desktop and tablet */
   showClearAll?: boolean;
+  /** Set width of `FilterBar` child components */
+  filterWidth?: string;
 }
 
 /** Types related to an optional global submit button `Apply Filters` */
@@ -101,12 +103,24 @@ export const FilterBar = chakra(
         selectedItems,
         showClearAll = false,
         showSubmitAll = false,
+        filterWidth,
         ...rest
       } = props;
 
       const { isLargerThanMedium } = useNYPLBreapoints();
       const finalLayout = isLargerThanMedium ? layout : "column";
-      const styles = useMultiStyleConfig("FilterBar", { layout: finalLayout });
+      const finalWidth = isLargerThanMedium
+        ? filterWidth
+          ? filterWidth
+          : finalLayout === "column"
+          ? "full"
+          : "default"
+        : "full";
+      const styles = useMultiStyleConfig("FilterBar", {
+        layout: finalLayout,
+        width: finalWidth,
+      });
+
       const getSelectedItemsCount = () =>
         Object.entries(selectedItems).length
           ? `(${Object.entries(selectedItems).length})`
@@ -133,13 +147,13 @@ export const FilterBar = chakra(
             if (child.type === MultiSelectGroup) {
               const props = {
                 layout: finalLayout,
-                multiSelectWidth: "default",
+                multiSelectWidth: finalWidth,
               };
               newChildren.push(React.cloneElement(child, props));
             } else if (child.type === MultiSelect) {
               const props = {
                 isBlockElement: finalLayout === "column",
-                width: "default",
+                width: finalWidth,
               };
               newChildren.push(React.cloneElement(child, props));
             } else {
@@ -159,14 +173,22 @@ export const FilterBar = chakra(
               {headingText && (
                 <Heading text={headingText} level="two" size="tertiary" />
               )}
-              <Wrap
-                spacing={layout === "row" ? "l" : "s"}
-                direction={layout}
-                width="full"
-              >
-                <WrapItem>{newChildren}</WrapItem>
-                <WrapItem alignItems={layout === "row" ? "end" : ""}>
-                  <ButtonGroup>
+              <Wrap spacing={layout === "row" ? "l" : "s"} direction={layout}>
+                {newChildren &&
+                  newChildren.map((newChild, i) => (
+                    <WrapItem key={`filter-bar-child-${i}`}>
+                      {newChild}
+                    </WrapItem>
+                  ))}
+                <WrapItem
+                  alignItems={layout === "row" ? "end" : ""}
+                  sx={styles.globalButtonGroupWrapper}
+                >
+                  <ButtonGroup
+                    layout={finalLayout}
+                    __css={styles.globalButtonGroup}
+                    buttonWidth="full"
+                  >
                     {showSubmitAll && (
                       <Button
                         buttonType="primary"
