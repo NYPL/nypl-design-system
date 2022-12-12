@@ -229,6 +229,7 @@ export const FilterBar = chakra(
                   onToggle === undefined ? onClose() : onToggle();
                 }}
                 size="full"
+                scrollBehavior="inside"
               >
                 <ModalOverlay />
                 <ModalContent>
