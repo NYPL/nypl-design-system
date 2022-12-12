@@ -27,14 +27,11 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-wrap css-13rbvqk"
+    className="chakra-wrap css-0"
   >
     <ul
       className="chakra-wrap__list css-1k89tde"
     >
-      <li
-        className="chakra-wrap__listitem css-1yp4ln"
-      />
       <li
         className="chakra-wrap__listitem css-1yl4gnp"
       >
@@ -83,14 +80,11 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-wrap css-13rbvqk"
+    className="chakra-wrap css-0"
   >
     <ul
       className="chakra-wrap__list css-1k89tde"
     >
-      <li
-        className="chakra-wrap__listitem css-1yp4ln"
-      />
       <li
         className="chakra-wrap__listitem css-1yl4gnp"
       >

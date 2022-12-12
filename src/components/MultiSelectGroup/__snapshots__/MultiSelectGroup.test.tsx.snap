@@ -2,7 +2,7 @@
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
-  className="css-1y80h0p"
+  className="css-1xdhyk6"
   id="MultiSelectGroup-multiselect-group"
 >
   <legend>
@@ -355,7 +355,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
-  className="css-1y80h0p"
+  className="css-1xdhyk6"
   id="MultiSelectGroup-multiselect-group"
 >
   <legend>
