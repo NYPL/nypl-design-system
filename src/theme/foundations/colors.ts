@@ -60,8 +60,8 @@ const colors: Colors = {
     focus: "#4181F1",
     link: {
       primary: linkPrimary,
+      "primary-05": hexToRGB(linkPrimary, 0.05),
       secondary: linkSecondary,
-      wash: hexToRGB(linkPrimary, 0.05),
     },
     status: {
       primary: "#F9E08E",
