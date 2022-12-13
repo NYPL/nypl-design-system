@@ -171,6 +171,10 @@ const colors: Colors = {
     typography: {
       heading: black,
       body: black,
+      inverse: {
+        heading: white,
+        body: white,
+      }
     },
     // Grayscale
     gray: {
@@ -243,6 +247,10 @@ const colors: Colors = {
       typography: {
         heading: grayLightCool,
         body: grayMedium,
+        inverse: {
+          heading: grayxxxDark,
+          body: grayxxxDark,
+        }
       },
     },
   },

@@ -88,6 +88,7 @@ export const primary = ({ buttonSize = "medium" }) => ({
     color: "ui.gray.xxx-dark",
     _hover: {
       bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
     },
   },
 });
@@ -201,9 +202,11 @@ export const callout = ({ buttonSize = "medium" }) => ({
     bg: "brand.secondary",
   },
   _dark: {
-    bg: "dark.brand.primary",
+    bg: "brand.primary",
+    color: "ui.white",
     _hover: {
-      bg: "dark.brand.secondary",
+      bg: "brand.secondary",
+      color: "ui.white",
     },
   },
 });
@@ -216,8 +219,10 @@ export const noBrand = ({ buttonSize = "medium" }) => ({
   },
   _dark: {
     bg: "ui.gray.x-dark",
+    color: "ui.white",
     _hover: {
       bg: "ui.gray.dark",
+      color: "ui.white",
     },
   },
 });
