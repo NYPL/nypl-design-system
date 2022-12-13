@@ -174,7 +174,7 @@ const colors: Colors = {
       inverse: {
         heading: white,
         body: white,
-      }
+      },
     },
     // Grayscale
     gray: {
@@ -250,7 +250,7 @@ const colors: Colors = {
         inverse: {
           heading: grayxxxDark,
           body: grayxxxDark,
-        }
+        },
       },
     },
   },
