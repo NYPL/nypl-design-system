@@ -129,6 +129,7 @@ export const FeedbackBox = chakra(
       const minHeightWithEmail = "385px";
       const minHeightWithCategoryAndEmail = "455px";
       let drawerMinHeight = initMinHeight;
+      const describedBy = React.useRef();
       const closeAndResetForm = () => {
         finalOnClose();
         setViewType("form");
@@ -161,7 +162,7 @@ export const FeedbackBox = chakra(
         ) : undefined;
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text fontWeight="medium" mb="0">
+          <Text fontWeight="medium" mb="0" ref={describedBy}>
             {descriptionText}
           </Text>
         ) : undefined;
