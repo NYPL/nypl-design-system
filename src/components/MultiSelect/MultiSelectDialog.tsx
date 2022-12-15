@@ -5,7 +5,6 @@ import {
   ListItem,
   UnorderedList,
   useMultiStyleConfig,
-  useOutsideClick,
   useMergeRefs,
 } from "@chakra-ui/react";
 // @TODO Add "@chakra-ui/focus-lock" to package.json dependencies ?
@@ -53,12 +52,29 @@ export const MultiSelectDialog = chakra(
       });
 
       // Create a ref that we add to the element for which we want to detect outside clicks.
-      const internalRef = useRef<HTMLDivElement>();
-      // Closes the MultiSelect if user clicks outside.
-      useOutsideClick({
-        ref: internalRef,
-        handler: () => setIsOpen(false),
-      });
+      const internalRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
+
+      // Custom Hook, Closes the MultiSelect if user clicks outside.
+      function useOnClickOutside(ref, handler) {
+        React.useEffect(() => {
+          const listener = (event) => {
+            // Do nothing if clicking ref's element or descendent elements
+            if (!ref.current || ref.current.contains(event.target)) {
+              return;
+            }
+            handler(event);
+          };
+          document.addEventListener("mousedown", listener);
+          document.addEventListener("touchstart", listener);
+          return () => {
+            document.removeEventListener("mousedown", listener);
+            document.removeEventListener("touchstart", listener);
+          };
+        }, [ref, handler]);
+      }
+      useOnClickOutside(internalRef, () => setIsOpen(false));
+
       // Merge internal ref with the ref passed through the chakra function.
       const mergedRefs = useMergeRefs(internalRef, ref);
 
