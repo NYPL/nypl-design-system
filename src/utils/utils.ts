@@ -82,3 +82,16 @@ export const getAriaAttrs = ({
 
   return ariaAttributes;
 };
+
+/** Convert a hex color value to an rgb or rgba value */
+export const hexToRGB = (hex: string, alpha: number) => {
+  const shortHex = hex.length === 4;
+  const rSlice = shortHex ? hex.slice(1, 2).repeat(2) : hex.slice(1, 3),
+    gSlice = shortHex ? hex.slice(2, 3).repeat(2) : hex.slice(3, 5),
+    bSlice = shortHex ? hex.slice(3, 4).repeat(2) : hex.slice(5, 7);
+  const r = parseInt(rSlice, 16),
+    g = parseInt(gSlice, 16),
+    b = parseInt(bSlice, 16);
+  const rgb = `${r}, ${g}, ${b}`;
+  return alpha ? `rgba(${rgb},${alpha})` : `rgb(${rgb})`;
+};
