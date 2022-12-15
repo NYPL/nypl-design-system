@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
-    "build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",
+    "build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",
     "prebuild:storybook": "npm run test:generate-output"
   },
   "lint-staged": {
