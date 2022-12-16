@@ -36,11 +36,11 @@ export const buttonBaseStyle = {
 };
 
 const ghostDarkStyles = {
-  bg: "dark.ui.bg.default",
+  bg: "transparent",
   borderColor: "dark.ui.link.primary",
   color: "dark.ui.link.primary",
   _hover: {
-    bg: "dark.ui.bg.hover",
+    bg: "dark.ui.link.primary-10",
     borderColor: "dark.ui.link.secondary",
     color: "dark.ui.link.secondary",
   },
