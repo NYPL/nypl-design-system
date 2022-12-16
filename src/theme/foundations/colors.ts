@@ -222,7 +222,7 @@ const colors: Colors = {
       link: {
         primary: "#79B7EB",
         "primary-05": hexToRGB("#79B7EB", 0.05),
-        "primary-10": hexToRGB("#79B7EB", 0.10),
+        "primary-10": hexToRGB("#79B7EB", 0.1),
         secondary: "#95CFFF",
       },
       status: {
