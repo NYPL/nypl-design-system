@@ -1,7 +1,7 @@
 import { render, RenderResult, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React from "react";
 import renderer from "react-test-renderer";
 
 import TextInput, { TextInputRefType } from "./TextInput";
@@ -255,7 +255,7 @@ describe("TextInput", () => {
 
     utils.rerender(
       <TextInput
-        id="inputID-attributes"
+        id="isClearable"
         isClearable
         labelText="Input Label"
         maxLength={10}
@@ -275,6 +275,40 @@ describe("TextInput", () => {
     expect(screen.getByRole("textbox")).toHaveValue("text value");
     clearButton = screen.queryByRole("button");
     expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
+  it("calls the `isClearableCallback` when the clear button is clicked for controlled TextInput", () => {
+    let value = "";
+    const setValue = (v) => {
+      value = v;
+    };
+
+    utils.rerender(
+      <TextInput
+        id="isClearable"
+        isClearable
+        isClearableCallback={() => setValue("")}
+        labelText="Input Label"
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Input Placeholder"
+        type="text"
+        value={value}
+      />
+    );
+    let clearButton = screen.queryByRole("button");
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button");
 
     // Click on the clear button
     userEvent.click(clearButton);

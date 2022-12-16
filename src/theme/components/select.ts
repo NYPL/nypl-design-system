@@ -25,7 +25,15 @@ const select = {
   _disabled: {
     ...selectTextInputDisabledStyles,
   },
-  _focus: selectTextInputFocusStyles,
+  _focus: {
+    ...selectTextInputFocusStyles,
+    // When the select is focused, the icon should be on top of the dropdown.
+    // This should only be done when focused, otherswise the icon will render
+    // above any other elements on the page.
+    "+ .chakra-select__icon-wrapper": {
+      zIndex: "9999",
+    },
+  },
   _invalid: {
     border: "1px solid",
     borderColor: "ui.error.primary",
@@ -49,12 +57,6 @@ const Select = {
   parts: ["helperText", "inline", "select"],
   baseStyle: ({ labelPosition }: SelectBaseStyle) => {
     return {
-      // The backgroundColor set to "ui.white" hides the arrow SVG icon when
-      // the component is focused. The background is added for dark mode and
-      // so we need to add specific selector.
-      ".chakra-select__icon-wrapper": {
-        zIndex: "9999",
-      },
       inline: {
         display: { md: "flex" },
         gap: { md: "var(--nypl-space-xs)" },
