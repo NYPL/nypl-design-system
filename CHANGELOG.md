@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Updates
 
 - Updates the background color for the `hover` state in the `secondary` variant of the `Button` component.
+- Updates `Link` so that non-button variants are underlined on hover only and change color once visited.
 
 ### Fixes
 

@@ -9,9 +9,13 @@ import {
 
 export const baseLinkStyles = {
   color: "ui.link.primary",
-  textDecoration: "underline",
+  textDecoration: "none",
   _hover: {
     color: "ui.link.secondary",
+    textDecoration: "underline",
+  },
+  _visited: {
+    color: "ui.link.tertiary",
   },
 };
 
@@ -39,6 +43,11 @@ const variants = {
       color: "ui.link.secondary",
       textDecoration: "underline",
     },
+    _visited: {
+      svg: {
+        color: "ui.link.tertiary",
+      },
+    },
   },
   // The "button" variant is deprecated.
   button: {
@@ -58,6 +67,9 @@ const variants = {
       color: "ui.white",
       bg: "ui.link.secondary",
       textDecoration: "none",
+    },
+    _visited: {
+      color: "ui.white",
     },
   },
   buttonPrimary: {
