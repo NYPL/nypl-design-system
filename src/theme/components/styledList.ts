@@ -21,8 +21,8 @@ const StyledList = {
       _dark: {
         li: {
           borderColor: "dark.ui.border.default",
-        }
-      }
+        },
+      },
     },
   },
 };
