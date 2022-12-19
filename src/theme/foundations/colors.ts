@@ -129,7 +129,6 @@ const colors: Colors = {
       link: {
         primary: "#2085D8",
         secondary: "#50A0E1",
-        tertiary: "#B583E1",
       },
       status: {
         primary: "#6F6544",
