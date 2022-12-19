@@ -15,9 +15,9 @@ export interface ListProps {
   id?: string;
   /** Display the list in a row. */
   inline?: boolean;
-  /** Data to render if children are not passed. For `listTypes` orderd `"ol"`
+  /** Data to render if children are not passed. For `listTypes` ordered `"ol"`
    * and unordered `"ul"` `List` types, the data structure is an array of strings
-   * to renders as `li` items. For descroption `"dl"` `List` types, the data
+   * to renders as `li` items. For description `"dl"` `List` types, the data
    * structure is an array of objects with `term` and `description` properties
    * to render `dt` and `dd` elements, respectively.
    */
@@ -97,22 +97,6 @@ export const List = chakra(
       return null;
     };
     /**
-     * Checks for `li` elements and consoles a warning if the
-     * children are different HTML elements.
-     */
-    const checkListChildrenError = (listType: ListTypes) => {
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
-            console.warn(
-              `NYPL Reservoir List: Direct children of \`List\` (${listType}) must be \`<li>\`s.`
-            );
-          }
-        }
-      );
-    };
-    /**
      * Checks for `dt` and `dd` elements and consoles a warning if the
      * children are different HTML elements.
      */
@@ -138,7 +122,7 @@ export const List = chakra(
     };
 
     if (type === "ol" || type === "ul") {
-      checkListChildrenError(type);
+      checkListChildrenError(children, type);
       listElement = (
         <Box
           as={type as As}
@@ -171,5 +155,23 @@ export const List = chakra(
     return listElement;
   })
 );
+
+/**
+ * Checks for `li` elements and consoles a warning if the
+ * children are different HTML elements.
+ */
+export const checkListChildrenError = (
+  children: React.ReactNode,
+  listType = "ul",
+  componentName = "List"
+) => {
+  React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
+    if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
+      console.warn(
+        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${listType}) must be \`<li>\`s.`
+      );
+    }
+  });
+};
 
 export default List;

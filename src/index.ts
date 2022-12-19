@@ -50,6 +50,10 @@ export {
   FullDateType,
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
+export {
+  default as FeedbackBox,
+  useFeedbackBox,
+} from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
@@ -118,6 +122,7 @@ export {
   default as StructuredContent,
   StructuredContentImagePosition,
 } from "./components/StructuredContent/StructuredContent";
+export { default as StyledList } from "./components/StyledList/StyledList";
 export {
   default as Tabs,
   TabList,

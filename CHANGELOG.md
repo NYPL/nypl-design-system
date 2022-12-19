@@ -8,6 +8,39 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.3.1 (December 15, 2022)
+
+### Adds
+
+- Adds the optional `isClearableCallback` prop to the `TextInput` component. This prop works with the `isClearable` prop and the passed function is invoked when the "clear" button is clicked. This is most helpful for controlled `TextInput` component implementations.
+
+## Updates
+
+- Updates the background color for the `hover` state in the `secondary` variant of the `Button` component.
+
+### Fixes
+
+- Fixes the z-index value of the SVG icon in the `Select` component so it does not render above other elements on a consuming application's page.
+
+## 1.3.0 (December 8, 2022)
+
+This release is exactly the same as the `1.3.0-rc` release candidate published on December 2, 2022. The `rc` release was reviewed and validated.
+
+## 1.3.0-rc (Release Candidate December 2, 2022)
+
+### Adds
+
+- Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
+- Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
+- Adds the `StyledList` component.
+- Adds the `FeedbackBox` component, `useFeedbackBox` component hook, and `useStateWithDependencies` helper hook.
+
+### Updates
+
+- Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
 ### Fixes
 
 - Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
