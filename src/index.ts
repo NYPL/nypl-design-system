@@ -55,6 +55,7 @@ export {
   useFeedbackBox,
 } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
+export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Header } from "./components/Header/Header";
@@ -93,6 +94,10 @@ export {
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";
+export {
+  default as MultiSelectGroup,
+  MultiSelectGroupProps,
+} from "./components/MultiSelectGroup/MultiSelectGroup";
 export {
   default as Notification,
   NotificationTypes,
@@ -153,6 +158,7 @@ export {
 } from "./components/TextInput/TextInput";
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
+export { default as useFilterBar } from "./hooks/useFilterBar";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";

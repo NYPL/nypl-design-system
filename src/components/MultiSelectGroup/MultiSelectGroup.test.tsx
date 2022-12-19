@@ -133,7 +133,7 @@ describe("MulitSelectGroup Accessibility", () => {
       "MultiSelectGroup example"
     );
   });
-  it("should throw warning when a non-MultiSelect component is used as a child", () => {
+  xit("should throw warning when a non-MultiSelect component is used as a child", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <MultiSelectGroup

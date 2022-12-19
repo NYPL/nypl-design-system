@@ -1,4 +1,4 @@
-import { chakra, Stack } from "@chakra-ui/react";
+import { chakra, Stack, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -43,25 +43,30 @@ export const MultiSelectGroup = chakra(
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const finalLayout = isLargerThanMobile ? layout : "column";
+      const finallWidth = isLargerThanMobile ? multiSelectWidth : "full";
       const isBlockElement = layout === "column" ? true : false;
+      const styles = useMultiStyleConfig("MultiSelectGroup", {
+        width: finallWidth,
+      });
 
       // Go through the MultiSelect children and update props as needed.
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement) => {
-          if (child.type !== MultiSelect) {
-            console.warn(
-              "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
-            );
-            return;
-          }
-          if (child !== undefined && child !== null) {
-            newChildren.push(
-              React.cloneElement(child, {
-                isBlockElement,
-                width: multiSelectWidth,
-              })
-            );
+          if (React.isValidElement(child)) {
+            // @TODO: DXP needs to pass custom MultiSelects that wrap DS Mutliselects - type check deos not allow DXP to use MultiSelectGroup
+            // if (child.type !== MultiSelect) {
+            //   console.warn(
+            //     "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
+            //   );
+            //   return;
+            // }
+            if (child.type === MultiSelect) {
+              const props = { isBlockElement, width: multiSelectWidth };
+              newChildren.push(React.cloneElement(child, props));
+            } else {
+              newChildren.push(React.cloneElement(child));
+            }
           }
         }
       );
@@ -71,6 +76,7 @@ export const MultiSelectGroup = chakra(
           id={`${id}-multiselect-group`}
           legendText={labelText}
           isLegendHidden={!showLabel}
+          __css={styles}
           {...rest}
         >
           <Stack

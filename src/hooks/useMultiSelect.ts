@@ -11,8 +11,10 @@ import {
  * and the current state of the selection: selectedItems.
  */
 
-export default function useMultiSelect() {
-  const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>({});
+export default function useMultiSelect(initialState?: SelectedItems) {
+  const [selectedItems, setSelectedItems] = useState<SelectedItems | {}>(
+    initialState !== undefined ? initialState : {}
+  );
 
   /**
    * handleChange is used for both MultiSelect variants. It handles the state for checkbox options that either have no child options or are child options themselves.
@@ -110,10 +112,17 @@ export default function useMultiSelect() {
     setSelectedItems(newSelectedItems);
   };
 
+  /**
+   * handleClearAll is used to clear all MultiSelects of a group. It will remove all selected items.
+   */
+  const handleClearAll = () => setSelectedItems({});
+
   return {
     selectedItems,
+    setSelectedItems: (newState: SelectedItems) => setSelectedItems(newState),
     onChange: handleChange,
     onMixedStateChange: handleMixedStateChange,
     onClear: handleClear,
+    onClearAll: handleClearAll,
   };
 }
