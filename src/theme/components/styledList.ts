@@ -18,6 +18,11 @@ const StyledList = {
         my: "xs",
         px: "xs",
       },
+      _dark: {
+        li: {
+          borderColor: "dark.ui.border.default",
+        }
+      }
     },
   },
 };
