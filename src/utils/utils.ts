@@ -84,7 +84,11 @@ export const getAriaAttrs = ({
 };
 
 /** Convert a hex color value to an rgb or rgba value */
-export const hexToRGB = (hex: string, alpha: number) => {
+export const hexToRGB = (
+  hex: string,
+  alpha: number,
+  asArray: boolean = false
+) => {
   const shortHex = hex.length === 4;
   const rSlice = shortHex ? hex.slice(1, 2).repeat(2) : hex.slice(1, 3),
     gSlice = shortHex ? hex.slice(2, 3).repeat(2) : hex.slice(3, 5),
@@ -93,5 +97,28 @@ export const hexToRGB = (hex: string, alpha: number) => {
     g = parseInt(gSlice, 16),
     b = parseInt(bSlice, 16);
   const rgb = `${r}, ${g}, ${b}`;
-  return alpha ? `rgba(${rgb},${alpha})` : `rgb(${rgb})`;
+  return asArray ? [r, g, b] : alpha ? `rgba(${rgb},${alpha})` : `rgb(${rgb})`;
+};
+
+/** Calculate color luminance */
+export const colorLuminance = (r, g, b) => {
+  const a = [r, g, b].map(function (v) {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+};
+
+/** Calculate color contrast ratio */
+export const contrastRatio = (hex1: string, hex2: string) => {
+  const rgb1 = hexToRGB(hex1, null, true);
+  const rgb2 = hexToRGB(hex2, null, true);
+  const colorLuminance1 = colorLuminance(rgb1[0], rgb1[1], rgb1[2]);
+  const colorLuminance2 = colorLuminance(rgb2[0], rgb2[1], rgb2[2]);
+  const ratio =
+    colorLuminance1 > colorLuminance2
+      ? (colorLuminance2 + 0.05) / (colorLuminance1 + 0.05)
+      : (colorLuminance1 + 0.05) / (colorLuminance2 + 0.05);
+
+  return (ratio * 10).toFixed(2);
 };
