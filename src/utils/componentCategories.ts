@@ -59,6 +59,7 @@ const categories = {
       "DatePicker",
       "DateRangePicker",
       "Dropdown",
+      "FeedbackBox",
       "Fieldset",
       "FileUploader",
       "FilterBar",
@@ -149,7 +150,7 @@ const categories = {
   },
   typography: {
     title: "Components/Typography & Styles",
-    components: ["Heading", "List", "Text"],
+    components: ["Heading", "List", "StyledList", "Text"],
   },
 };
 

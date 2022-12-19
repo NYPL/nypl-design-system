@@ -68,6 +68,11 @@ export const ButtonGroup = chakra(
               React.cloneElement(child, { key, ...disabledProps })
             );
           }
+          const disabledProps = isDisabled ? { isDisabled } : {};
+          child &&
+            newChildren.push(
+              React.cloneElement(child, { key, ...disabledProps })
+            );
         }
       );
 
