@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useFilterBar from "../useFilterBar";
 
-describe("usFilterBar hook", () => {
+describe("useFilterBar hook", () => {
   it("should return a boolean value isModalOpen, functions onOpen, onClose and onToggle to change the isModalOpen state and all functions from useMultiSelect", () => {
     const { result } = renderHook(() => useFilterBar());
     expect(typeof result.current.onChange).toEqual("function");
