@@ -12,10 +12,21 @@ const FeedbackBox = {
     closeButton: {
       p: "0",
       span: screenreaderOnly(),
+      _dark: {
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
+      },
     },
     drawerBody: {
+      borderLeft: { base: undefined, md: "1px solid" },
+      borderColor: "ui.border.default",
       paddingTop: "m",
       paddingBottom: "m",
+      _dark: {
+        background: "dark.ui.bg.page",
+        borderColor: "dark.ui.border.default",
+      },
     },
     drawerContent: {
       marginStart: "auto",
@@ -25,6 +36,8 @@ const FeedbackBox = {
       alignItems: "baseline",
       background: "ui.gray.light-cool",
       borderBottomWidth: "1px",
+      borderLeftWidth: { base: undefined, md: "1px" },
+      borderTopWidth: "1px",
       display: "flex",
       fontSize: "text.default",
       px: "m",
@@ -32,6 +45,9 @@ const FeedbackBox = {
       paddingBottom: "xs",
       p: {
         marginBottom: "0",
+      },
+      _dark: {
+        background: "dark.ui.bg.hover",
       },
     },
     openButton: {

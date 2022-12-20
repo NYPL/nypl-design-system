@@ -7,6 +7,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Spacer,
+  useColorModeValue,
   useDisclosure,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -128,6 +129,7 @@ export const FeedbackBox = chakra(
       const minHeightWithCategory = "345px";
       const minHeightWithEmail = "385px";
       const minHeightWithCategoryAndEmail = "455px";
+      const iconColor = useColorModeValue(null, "dark.ui.typography.body");
       let drawerMinHeight = initMinHeight;
       const closeAndResetForm = () => {
         finalOnClose();
@@ -150,6 +152,7 @@ export const FeedbackBox = chakra(
             noMargin
             notificationContent={notificationText}
             showIcon={false}
+            p="0"
             sx={{
               // The padding of the Notification is smaller than
               // the initial one.
@@ -375,7 +378,11 @@ export const FeedbackBox = chakra(
                         textAlign="center"
                         ref={focusRef}
                       >
-                        <Icon name="actionCheckCircleFilled" size="large" />
+                        <Icon
+                          color={iconColor}
+                          name="actionCheckCircleFilled"
+                          size="large"
+                        />
                         <Text fontWeight="medium">
                           Thank you for submitting your feedback.
                         </Text>
