@@ -1,0 +1,137 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import FilterBar from "./FilterBar";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import * as story from "./FilterBar.stories";
+
+<Meta
+  title={getCategory("FilterBar")}
+  component={FilterBar}
+  decorators={[withDesign]}
+  argTypes={{
+    children: { table: { disable: true } },
+    id: { control: false },
+    selectedItems: { control: false },
+    showClearAll: {
+      type: { name: "boolean", required: false },
+    },
+    showSubmitAll: {
+      type: { name: "boolean", required: false },
+      description:
+        "If passed the `Apply Filters` button will render on desktop and tablet `boolean`",
+    },
+    onSubmit: {
+      type: { name: "() => void", required: false },
+      description:
+        "Function to handle submit of all selectedItems - needs to be provided from consuming app",
+    },
+    onClear: {
+      type: { name: "() => void", required: false },
+      description:
+        "Function to clear all selectedItems - available through hook",
+    },
+    onOpen: {
+      contol: false,
+      description:
+        "Function to open the filter modal overlay on mobile viewport - available through hook",
+      type: { name: "() => void", required: false },
+    },
+    onClose: {
+      control: false,
+      description:
+        "Function to close the filter modal overlay on mobile viewport - available through hook",
+      type: { name: "() => void", required: false },
+    },
+    onToggle: {
+      control: false,
+      description:
+        "Function to toggle the filter modal overlay on mobile viewport - available through hook",
+      type: { name: "() => void", required: false },
+    },
+  }}
+/>
+
+# FilterBar
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.4.0`    |
+| Latest            | `1.4.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+- [useFilterBar hook](#usefilterbar-hook)
+
+## Overview
+
+<Description of={FilterBar} />
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="FilterBar"
+    args={{
+      id: "filterbar-id",
+      headingText: "FilterBar",
+      layout: "row",
+      showClearAll: "false",
+      showSubmitAll: "false",
+    }}
+  >
+    {(args) => <story.FilterBarStory {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="FilterBar" />
+
+## Accessibility
+
+The `FilterBar` component is a wrapper component for components with filter functionality.
+The accessibility of `FilterBar` depends on the passed child components accessibility.
+See the accessibility details of valid FilterBar child components:
+
+- [MultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselect--multi-select-list-box#accessibility)
+- [MultiSelectGroup](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselectgroup--multi-select-group#accessibility)
+
+## Layout Patterns
+
+The display of the FilterBar child components can be set to a "row" or a "column" layout.
+On screen width under 600px width the `layout` is automatically set to "column".
+Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default and the child components `width` will be set to `"full"`.
+However, the child components `width` can be controlled by the `filterWidth` prop and set to either `"full"` or `"default"`.
+The passed in width will take precedence over the default behavior.
+
+Note: It's suggested that the global Apply and Clear buttons be used with `listbox` MultiSelect variants.
+MultiSelect `dialog` variants render an Apply and a Clear button within each MultiSelect component.
+
+<Canvas>
+  <DSProvider>
+    <story.FilterBarLayoutStory />
+  </DSProvider>
+</Canvas>
+
+## `useFilterBar` hook
+
+Find the full documentation under [useFilterBar](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usefilterbar--page).
+
+`useFilterBar` is an optional hook for
+cases where managing the state of the component in the consuming app is less
+of a concern and general ease of use is prefered.
+
+The hook returns an object containing all the props and state needed to handle the selectedItems.
+That includes the functions `onChange`, `onMixedStateChange`, `onClear`, `onClearAll` for handling any changes to the selection of items,
+a `setSelectedItems` function to control or manipulate the (initial) state of `selectedItems`, and a `selectedItems` object to house the current state of the selections.
+Additionally it returns an `onToggle` function or `onClose`/`onOpen` to control the `isModalOpen` state, and the boolean value `isModalOpen` for a Filter Modal overlay.

@@ -1,0 +1,107 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import DSProvider from "../../theme/provider";
+import { getCategory } from "../../utils/componentCategories";
+import MultiSelectGroup from "./MultiSelectGroup";
+import * as stories from "./MultiSelectGroup.stories";
+
+<Meta
+  title={getCategory("MultiSelectGroup")}
+  component={MultiSelectGroup}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelectGroup.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    layout: {
+      table: { defaultValue: { summary: "row" } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    multiSelectWidth: {
+      table: { defaultValue: { summary: "default" } },
+    },
+  }}
+/>
+
+# MultiSelectGroup
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.4.0`    |
+| Latest            | `1.4.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+
+## Overview
+
+<Description of={MultiSelectGroup} />
+
+## Component Props
+
+<Canvas withToolbar>
+  <Story
+    name="MultiSelectGroup"
+    args={{
+      id: "multiselect-group",
+      labelText: "Label Text",
+    }}
+  >
+    {(args) => <stories.MultiSelectGroupStory {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="MultiSelectGroup" />
+
+## Accessibility
+
+The `MultiSelectGroup` renders a group of `MultiSelect` components that are wrapped in
+a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
+can be visually hidden through the `showLabel` prop. If the `<legend>` is hidden an `aria-label`
+attribute with `labelText` value will be rendered instead.
+For accessibility information on the `MultiSelect` component, see the [MultiSelect Accessibility](https://nypl-design-system-vvscfj2pn-nypl.vercel.app/?path=/docs/components-form-elements-multiselect--multi-select-list-box) documentation.
+
+## Layout Patterns
+
+The width of the MultiSelect components can be passed through the `multiSelectWidth`
+prop, with values of `"default"`, `"fitContent"`, and `"full"`.
+On screen width under 600px width the `layout` is automatically set to "column" and the `multiSelectWidth` to "full".
+Note: when `layout = "column"` is passed, the MultiSelect components will have `isBlockElement` set to `true` by default.
+
+<Canvas>
+  <DSProvider>
+    <stories.MultiSelectGroupLayoutStory />
+  </DSProvider>
+</Canvas>
+
+## `useMultiSelect` hook
+
+`useMultiSelect` is an optional hook for
+cases where managing the state of the component in the consuming app is less
+of a concern and general ease of use is prefered.
+
+The hook returns an object containing all the props and state needed to handle the selectedItems.
+That includes the functions `onChange`, `onClear`, `onClearAll`, `onMixedStateChange` for handling any changes to the selection of items and the current state of the selection: `selectedItems`.
+Additionally it returns `setSelectedItems` for setting an initial state of `selectedItems` or manipulate the `selectedItems` if needed.
+
+Due to it's data structure and functions setup, it is capable to handle a group of `MultiSelect` components.
+Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page).
