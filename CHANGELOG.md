@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
+- Adds the `useMultiSelect`, `useFilterBar` hook.
+
 ## 1.3.1 (December 15, 2022)
 
 ### Adds

@@ -23,6 +23,7 @@ import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
 import Fieldset from "./components/fieldset";
+import FilterBar from "./components/filterBar";
 import Footer from "./components/footer";
 import Header from "./components/header/header";
 import HeaderLogin from "./components/header/headerLogin";
@@ -44,6 +45,9 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import MultiSelect from "./components/multiSelect";
+import MultiSelectMenuButton from "./components/multiSelectMenuButton";
+import MultiSelectGroup from "./components/multiSelectGroup";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -113,6 +117,7 @@ const theme = extendTheme({
     DatePicker,
     FeedbackBox,
     Fieldset,
+    FilterBar,
     Footer,
     Header,
     HeaderLogin,
@@ -134,6 +139,9 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    MultiSelect,
+    MultiSelectMenuButton,
+    MultiSelectGroup,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
