@@ -95,3 +95,26 @@ export const hexToRGB = (hex: string, alpha: number) => {
   const rgb = `${r}, ${g}, ${b}`;
   return alpha ? `rgba(${rgb},${alpha})` : `rgb(${rgb})`;
 };
+
+/** Calculate color luminance */
+export const colorLuminance = (r, g, b) => {
+  const a = [r, g, b].map(function (v) {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+};
+
+/** Calculate color contrast ratio */
+export const contrastRatio = (hex1: string, hex2: string) => {
+  const rgb1 = hexToRGB(hex1, null);
+  const rgb2 = hexToRGB(hex2, null);
+  const colorLuminance1 = colorLuminance(rgb1[0], rgb1[1], rgb1[2]);
+  const colorLuminance2 = colorLuminance(rgb2[0], rgb2[1], rgb2[2]);
+  const ratio =
+    colorLuminance1 > colorLuminance2
+      ? (colorLuminance2 + 0.05) / (colorLuminance1 + 0.05)
+      : (colorLuminance1 + 0.05) / (colorLuminance2 + 0.05);
+
+  return (ratio * 10).toFixed(2);
+};
