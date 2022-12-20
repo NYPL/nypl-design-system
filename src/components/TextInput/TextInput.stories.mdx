@@ -233,6 +233,8 @@ This button has visually hidden text, a "close" icon, and renders on top
 of the input field on the right side. This clear button does not render when
 the `type` prop is set to `"textarea"`.
 
+Note: This works best when the `TextInput` is used as an uncontrolled component.
+
 <Canvas>
   <DSProvider>
     <TextInput
@@ -242,6 +244,53 @@ the `type` prop is set to `"textarea"`.
       placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
+</Canvas>
+
+### Controlled isClearableCallback Example
+
+A `TextInput` component is controlled when the `value` and `onChange` props are
+set. For a controlled component, the `isClearableCallback` prop can be used to
+clear the input value in the consuming application. This callback is only called
+when the close button is clicked.
+
+```jsx
+// ExampleControlled.js
+export const App = () => {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <TextInput
+      id="isClearable-controlled-example"
+      isClearable
+      isClearableCallback={() => setValue("")}
+      labelText="What is your favorite color?"
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="i.e. blue, green, etc."
+      value={value}
+    />
+  );
+};
+```
+
+export const ControlledExample = () => {
+  const [value, setValue] = React.useState("");
+  return (
+    <DSProvider>
+      <TextInput
+        id="isClearable-controlled-example"
+        isClearable
+        isClearableCallback={() => setValue("")}
+        labelText="What is your favorite color?"
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="i.e. blue, green, etc."
+        value={value}
+      />
+    </DSProvider>
+  );
+};
+
+<Canvas>
+  <ControlledExample />
 </Canvas>
 
 ## Number Type

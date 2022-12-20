@@ -52,6 +52,8 @@ export interface InputProps {
   invalidText?: HelperErrorTextType;
   /** Adds a button to clear existing text in the input field. */
   isClearable?: boolean;
+  /** The callback function that is called when the clear button is clicked. */
+  isClearableCallback?: () => void;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
   isDisabled?: boolean;
   /** Adds errored styling to the input/textarea and helper text elements */
@@ -124,6 +126,7 @@ export const TextInput = chakra(
         id,
         invalidText,
         isClearable = false,
+        isClearableCallback,
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
@@ -180,6 +183,7 @@ export const TextInput = chakra(
       });
       const onClearClick = () => {
         setFinalValue("");
+        isClearableCallback && isClearableCallback();
         // Set focus back to the input element.
         (finalRef as any).current.focus();
       };
