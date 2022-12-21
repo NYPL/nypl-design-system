@@ -24,6 +24,7 @@ import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
 
 type ViewType = "form" | "confirmation" | "error";
@@ -112,6 +113,8 @@ export const FeedbackBox = chakra(
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
         useFeedbackBoxReducer();
+      // Hook into NYPL breakpoint
+      const { isLargerThanMobile } = useNYPLBreakpoints();
       // Chakra's hook to control Drawer's actions.
       const disclosure = useDisclosure();
       const finalIsOpen = isOpen ? isOpen : disclosure.isOpen;
@@ -318,7 +321,7 @@ export const FeedbackBox = chakra(
                               id={`${id}-category`}
                               isDisabled={isSubmitted}
                               labelText="What is your feedback about?"
-                              layout="row"
+                              layout={isLargerThanMobile ? "row" : "column"}
                               name={`${id}-category`}
                               onChange={(selected) => setCategory(selected)}
                             >

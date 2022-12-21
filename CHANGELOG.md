@@ -16,10 +16,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`, `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`, `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`, `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`, `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`, `dark.ui.success.secondary`, `dark.ui.warning.primary` and `dark.ui.warning.secondary`.
+- Updates the layout of the category `RadioGroup` to `column` for the mobie view of the `FeedbackBox` component.
 
 ### Fixes
 
 - Fixes spacing and alignment issues in the `FeedbackBox` component.
+- Fixes the width of the Privacy Policy link in the `FeedbackBox` component.
 
 ## 1.3.1 (December 15, 2022)
 
