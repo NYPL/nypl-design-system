@@ -17,6 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`, `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`, `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`, `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`, `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`, `dark.ui.success.secondary`, `dark.ui.warning.primary` and `dark.ui.warning.secondary`.
 
+### Removes
+
+- Removes the `Link` component warning about the deprecated `button` variant. This change is temporary and will be reverted once teams are able to update their `Link`s appropriately.
+
 ## 1.3.1 (December 15, 2022)
 
 ### Adds
