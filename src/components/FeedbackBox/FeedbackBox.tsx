@@ -298,12 +298,6 @@ export const FeedbackBox = chakra(
                     },
                   }}
                 >
-                  {/* {(notificationElement || descriptionElement) && (
-                    <FormField>
-                      {notificationElement}
-                      {descriptionElement}
-                    </FormField>
-                  )} */}
                   {/* Initial form Screen */}
                   {isFormView && (
                     <>
