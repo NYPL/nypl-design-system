@@ -20,7 +20,7 @@ const MultiSelectMenuButton = {
     },
     menuButton: {
       alignItems: "center",
-      backgroundColor: isOpen ? "ui.gray.x-light-cool" : "ui.white",
+      backgroundColor: isOpen ? "ui.bg.active" : "ui.white",
       borderBottomLeftRadius: isOpen ? "0" : "button.default",
       borderBottomRightRadius: isOpen ? "0" : "button.default",
       borderColor: isOpen ? "ui.gray.dark" : "ui.gray.medium",
@@ -34,7 +34,7 @@ const MultiSelectMenuButton = {
       justifyContent: "space-between",
       width: "100%",
       _hover: {
-        backgroundColor: isOpen ? "ui.gray.x-light-cool" : "ui.white",
+        backgroundColor: isOpen ? "ui.bg.active" : "ui.white",
         borderColor: "ui.gray.dark",
       },
       svg: {
@@ -46,7 +46,7 @@ const MultiSelectMenuButton = {
       backgroundColor: "ui.gray.light-cool",
       border: "1px",
       borderRadius: "20px",
-      borderColor: "ui.gray.medium",
+      borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
       display: "flex",
       flexShrink: 0,
       fontSize: "text.tag",
@@ -57,7 +57,7 @@ const MultiSelectMenuButton = {
       top: { base: "12px", md: "10px" },
       width: "46px",
       _hover: {
-        borderColor: "ui.gray.dark",
+        borderColor: isOpen ? "ui.gray.xx-dark" : "ui.border.hover",
       },
       svg: {
         marginLeft: "xxs",

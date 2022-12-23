@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 
 import FilterBar, { FilterBarProps } from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
@@ -177,7 +177,7 @@ export const FilterBarLayoutStory = () => {
     onToggle,
   } = useFilterBar();
   return (
-    <VStack align="stretch" spacing="s" key="filter-bar-layout-story">
+    <VStack align="stretch" spacing="l" key="filter-bar-layout-story">
       <FilterBar
         key="row-filter-bar"
         id="row-filter-bar"
@@ -379,7 +379,6 @@ export const FilterBarLayoutStory = () => {
       <FilterBar
         key="column-with-submit-button"
         id="column-with-submit-button"
-        filterWidth="default"
         headingText="Column with Submit button"
         selectedItems={selectedItems}
         isOpen={isModalOpen}
@@ -767,6 +766,260 @@ export const FilterBarLayoutStory = () => {
             ))}
         </MultiSelectGroup>
       </FilterBar>
+    </VStack>
+  );
+};
+
+export const FilterBarLayoutContainerStory = () => {
+  const {
+    onChange,
+    onMixedStateChange,
+    selectedItems,
+    onClear,
+    onClearAll,
+    isModalOpen,
+    onToggle,
+  } = useFilterBar();
+  return (
+    <VStack align="stretch" spacing="l" key="filter-bar-layout-story">
+      <Box bg="ui.bg.default" p="inset.wide">
+        <FilterBar
+          key="row-with-buttons"
+          id="row-with-buttons"
+          headingText="Row with Clear All and Submit butttons"
+          selectedItems={selectedItems}
+          isOpen={isModalOpen}
+          onToggle={onToggle}
+          onClear={onClearAll}
+          onSubmit={() => null}
+          showClearAll
+          showSubmitAll
+        >
+          <MultiSelectGroup
+            showLabel={false}
+            id="row-all-buttons"
+            key="row-all-buttons"
+            labelText="Submit Button"
+          >
+            {shortMultiSelectItems &&
+              shortMultiSelectItems.map((multiSelect) => {
+                return (
+                  <MultiSelect
+                    key={`${multiSelect.id}-6`}
+                    id={`${multiSelect.id}-6`}
+                    label={multiSelect.name}
+                    variant="listbox"
+                    items={multiSelect.items}
+                    selectedItems={selectedItems}
+                    onChange={(e) =>
+                      onChange(e.target.id, `${multiSelect.id}-6`)
+                    }
+                    onMixedStateChange={(e) => {
+                      return onMixedStateChange(
+                        e.target.id,
+                        `${multiSelect.id}-6`,
+                        multiSelect.items
+                      );
+                    }}
+                    onClear={() => onClear(`${multiSelect.id}-6`)}
+                    onApply={() => {}}
+                  />
+                );
+              })}
+          </MultiSelectGroup>
+        </FilterBar>
+      </Box>
+      <Box bg="ui.bg.default" p="inset.wide">
+        <FilterBar
+          key="row-multiple-multiselect-groups-buttons"
+          id="row-multiple-multiselect-groups-buttons"
+          headingText="Row with multiple MultiselectGroups - with Buttons"
+          selectedItems={selectedItems}
+          isOpen={isModalOpen}
+          onToggle={onToggle}
+          onClear={onClearAll}
+          onSubmit={() => null}
+          showClearAll
+          showSubmitAll
+        >
+          <MultiSelectGroup
+            id="group-one"
+            key="group-one-4"
+            labelText="Group One"
+          >
+            {multiSelectItems &&
+              multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  key={`${multiSelect.id}-17`}
+                  id={`${multiSelect.id}-17`}
+                  label={multiSelect.name}
+                  variant="listbox"
+                  items={multiSelect.items}
+                  selectedItems={selectedItems}
+                  onChange={(e) =>
+                    onChange(e.target.id, `${multiSelect.id}-17`)
+                  }
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange(
+                      e.target.id,
+                      `${multiSelect.id}-17`,
+                      multiSelect.items
+                    );
+                  }}
+                  onClear={() => onClear(`${multiSelect.id}-17`)}
+                  onApply={() => {}}
+                />
+              ))}
+          </MultiSelectGroup>
+          <MultiSelectGroup
+            id="group-two"
+            key="group-two-4"
+            labelText="Group Two"
+          >
+            {multiSelectItems &&
+              multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  key={`${multiSelect.id}-18`}
+                  id={`${multiSelect.id}-18`}
+                  label={multiSelect.name}
+                  variant="listbox"
+                  items={multiSelect.items}
+                  selectedItems={selectedItems}
+                  onChange={(e) =>
+                    onChange(e.target.id, `${multiSelect.id}-18`)
+                  }
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange(
+                      e.target.id,
+                      `${multiSelect.id}-18`,
+                      multiSelect.items
+                    );
+                  }}
+                  onClear={() => onClear(`${multiSelect.id}-18`)}
+                  onApply={() => {}}
+                />
+              ))}
+          </MultiSelectGroup>
+        </FilterBar>
+      </Box>
+      <Box bg="ui.bg.default" p="inset.default" width="255px">
+        <FilterBar
+          key="column-with-buttons"
+          id="column-with-buttons"
+          headingText="Column with Clear All and Submit butttons"
+          selectedItems={selectedItems}
+          isOpen={isModalOpen}
+          onToggle={onToggle}
+          onClear={onClearAll}
+          onSubmit={() => null}
+          layout="column"
+          showClearAll
+          showSubmitAll
+        >
+          <MultiSelectGroup
+            showLabel={false}
+            id="column-all-buttons"
+            key="column-all-buttons"
+            labelText="Submit Button"
+          >
+            {multiSelectItems &&
+              multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  key={`${multiSelect.id}-7`}
+                  id={`${multiSelect.id}-7`}
+                  label={multiSelect.name}
+                  variant="listbox"
+                  items={multiSelect.items}
+                  selectedItems={selectedItems}
+                  onChange={(e) => onChange(e.target.id, `${multiSelect.id}-7`)}
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange(
+                      e.target.id,
+                      `${multiSelect.id}-7`,
+                      multiSelect.items
+                    );
+                  }}
+                  onClear={() => onClear(`${multiSelect.id}-7`)}
+                  onApply={() => {}}
+                />
+              ))}
+          </MultiSelectGroup>
+        </FilterBar>
+      </Box>
+      <Box bg="ui.bg.default" p="inset.default" width="255px">
+        <FilterBar
+          key="column-multiple-multiselect-groups-buttons"
+          id="column-multiple-multiselect-groups-buttons"
+          headingText="Column with multiple MultiselectGroups - with Buttons"
+          selectedItems={selectedItems}
+          isOpen={isModalOpen}
+          onToggle={onToggle}
+          onClear={onClearAll}
+          onSubmit={() => null}
+          showClearAll
+          showSubmitAll
+          layout="column"
+        >
+          <MultiSelectGroup
+            id="group-one"
+            key="group-one-3"
+            labelText="Group One"
+          >
+            {multiSelectItems &&
+              multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  key={`${multiSelect.id}-11`}
+                  id={`${multiSelect.id}-11`}
+                  label={multiSelect.name}
+                  variant="listbox"
+                  items={multiSelect.items}
+                  selectedItems={selectedItems}
+                  onChange={(e) =>
+                    onChange(e.target.id, `${multiSelect.id}-11`)
+                  }
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange(
+                      e.target.id,
+                      `${multiSelect.id}-11`,
+                      multiSelect.items
+                    );
+                  }}
+                  onClear={() => onClear(`${multiSelect.id}-11`)}
+                  onApply={() => {}}
+                />
+              ))}
+          </MultiSelectGroup>
+          <MultiSelectGroup
+            id="group-two"
+            key="group-two-3"
+            labelText="Group Two"
+          >
+            {multiSelectItems &&
+              multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  key={`${multiSelect.id}-12`}
+                  id={`${multiSelect.id}-12`}
+                  label={multiSelect.name}
+                  variant="listbox"
+                  items={multiSelect.items}
+                  selectedItems={selectedItems}
+                  onChange={(e) =>
+                    onChange(e.target.id, `${multiSelect.id}-12`)
+                  }
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange(
+                      e.target.id,
+                      `${multiSelect.id}-12`,
+                      multiSelect.items
+                    );
+                  }}
+                  onClear={() => onClear(`${multiSelect.id}-12`)}
+                  onApply={() => {}}
+                />
+              ))}
+          </MultiSelectGroup>
+        </FilterBar>
+      </Box>
     </VStack>
   );
 };
