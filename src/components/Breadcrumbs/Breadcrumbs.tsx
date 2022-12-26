@@ -32,6 +32,26 @@ export interface BreadcrumbProps {
   id?: string;
 }
 
+const truncateText = (str, n, useWordBoundary) => {
+  if (str.length <= n) {
+    return str;
+  }
+  const subString = str.substr(0, n - 1);
+  return (
+    (useWordBoundary
+      ? subString.substr(0, subString.lastIndexOf(" "))
+      : subString) + "..."
+  );
+};
+
+const breadcrumbText = (title) => {
+  if (title.length >= 60) {
+    return truncateText(title, 60, true);
+  } else {
+    return truncateText(title, 60, false);
+  }
+};
+
 const getElementsFromData = (
   data: BreadcrumbsDataProps[],
   breadcrumbsID?: string
@@ -56,7 +76,9 @@ const getElementsFromData = (
             type="breadcrumbs"
           />
         )}
-        <span className="breadcrumb-label">{breadcrumbData.text}</span>
+        <span className="breadcrumb-label">
+          {breadcrumbText(breadcrumbData.text)}
+        </span>
       </BreadcrumbLink>
     </BreadcrumbItem>
   ));
