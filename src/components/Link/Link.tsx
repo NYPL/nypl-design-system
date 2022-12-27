@@ -79,16 +79,20 @@ function getWithDirectionIcon(
   );
 }
 
-function getExternalIcon(children: JSX.Element, linkId: string) {
+function getExternalExtraElements(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-icon`;
   const icon = (
-    <Icon
-      align={"right"}
-      className="more-link"
-      id={iconId}
-      name="actionLaunch"
-      size="medium"
-    />
+    <>
+      <span>This link opens in a new window</span>
+      <Icon
+        align={"right"}
+        className="more-link"
+        id={iconId}
+        name="actionLaunch"
+        size="medium"
+        title="External link"
+      />
+    </>
   );
 
   return (
@@ -155,7 +159,8 @@ export const Link = chakra(
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children as JSX.Element, type, id)) ||
-      (type === "external" && getExternalIcon(children as JSX.Element, id)) ||
+      (type === "external" &&
+        getExternalExtraElements(children as JSX.Element, id)) ||
       children;
 
     if (!href) {
