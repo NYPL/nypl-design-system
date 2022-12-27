@@ -528,7 +528,6 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
