@@ -5,11 +5,11 @@ export type AriaLiveValues = "assertive" | "off" | "polite" | undefined;
 export type HelperErrorTextType = string | JSX.Element;
 
 interface HelperErrorTextProps {
-  /** Aria attribute. When true, assistive technologies will read the entire 
-   * DOM element. When false, only changes (additionals or removals) will be 
+  /** Aria attribute. When true, assistive technologies will read the entire
+   * DOM element. When false, only changes (additionals or removals) will be
    * read. True by default. */
   ariaAtomic?: boolean;
-  /** DEPRECATED: The `ariaLive` prop was found to be unnecessary. The prop 
+  /** DEPRECATED: The `ariaLive` prop was found to be unnecessary. The prop
    * has been deprecated and it will eventually be removed. */
   ariaLive?: AriaLiveValues;
   /** Additional className to add. */
