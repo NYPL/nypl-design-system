@@ -30,9 +30,6 @@ import DSProvider from "../../theme/provider";
       control: false,
       table: { defaultValue: { summary: true } },
     },
-    ariaLive: {
-      table: { defaultValue: { summary: "undefined" } },
-    },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
@@ -68,7 +65,7 @@ import DSProvider from "../../theme/provider";
     name="HelperErrorText with Controls"
     args={{
       ariaAtomic: undefined,
-      ariaLive: "polite",
+      ariaLive: undefined,
       className: undefined,
       id: "helperErrorText-id",
       isInvalid: false,
@@ -89,9 +86,17 @@ import DSProvider from "../../theme/provider";
 ## Accessibility
 
 In the Reservoir Design System (DS), the `HelperErrorText` component is always
-associated with a related element by using the `aria-describedby` attribute in
-the associated element. In this way, the content of the `HelperErrorText` is
-made available to screenreaders.
+used as a child component when composing more complex components. In the case
+of form components, the `HelperErrorText` component is associated with a
+related input field by using the `aria-describedby` attribute in the
+associated element. In this way, the content of the `HelperErrorText` component
+is made available to screenreaders.
+
+The example below is rendered using the `TextInput` component. The `TextInput`
+component uses the `HelperErrorText` component to render the red
+`"This is error text :("` below the input field and that text element is
+referenced with the `aria-describedby` attribute on the HTML input element.
+This type of association is handled automatically by all DS `Form Elements` components.
 
 <Canvas>
   <Story
