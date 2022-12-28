@@ -24,6 +24,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes spacing and alignment issues in the `FeedbackBox` component.
 - Fixes the width of the Privacy Policy link in the `FeedbackBox` component.
 
+### Removes
+
+- Removes the `Link` component warning about the deprecated `button` variant. This change is temporary and will be reverted once teams are able to update their `Link`s appropriately.
+
 ## 1.3.1 (December 15, 2022)
 
 ### Adds
