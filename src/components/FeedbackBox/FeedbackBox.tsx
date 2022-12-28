@@ -9,6 +9,7 @@ import {
   Spacer,
   useDisclosure,
   useMultiStyleConfig,
+  VStack,
 } from "@chakra-ui/react";
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 
@@ -23,6 +24,7 @@ import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
 
 type ViewType = "form" | "confirmation" | "error";
@@ -111,6 +113,8 @@ export const FeedbackBox = chakra(
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
         useFeedbackBoxReducer();
+      // Hook into NYPL breakpoint
+      const { isLargerThanMobile } = useNYPLBreakpoints();
       // Chakra's hook to control Drawer's actions.
       const disclosure = useDisclosure();
       const finalIsOpen = isOpen ? isOpen : disclosure.isOpen;
@@ -123,11 +127,13 @@ export const FeedbackBox = chakra(
       const isErrorView = viewType === "error";
       const confirmationTimeout = 3000;
       const maxCommentCharacters = 500;
-      const initMinHeight = "275px";
+      const initMinHeight = 165;
       const initTemplateRows = "auto 1fr";
-      const minHeightWithCategory = "345px";
-      const minHeightWithEmail = "385px";
-      const minHeightWithCategoryAndEmail = "455px";
+      const minHeightWithCategory = 235;
+      const minHeightWithEmail = 275;
+      const minHeightWithCategoryAndEmail = 345;
+      const notificationHeightAdjustment = 37;
+      const descriptionHeightAdjustment = 24;
       let drawerMinHeight = initMinHeight;
       const closeAndResetForm = () => {
         finalOnClose();
@@ -157,11 +163,12 @@ export const FeedbackBox = chakra(
                 py: "xs",
               },
             }}
+            width="100%"
           />
         ) : undefined;
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text fontWeight="medium" mb="0">
+          <Text fontWeight="medium" noSpace>
             {descriptionText}
           </Text>
         ) : undefined;
@@ -171,6 +178,7 @@ export const FeedbackBox = chakra(
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
             type="external"
             fontSize="text.tag"
+            width="fit-content"
           >
             Privacy Policy
           </Link>
@@ -230,6 +238,16 @@ export const FeedbackBox = chakra(
       if (showCategoryField && showEmailField) {
         drawerMinHeight = minHeightWithCategoryAndEmail;
       }
+      if (notificationText) {
+        drawerMinHeight += notificationHeightAdjustment;
+      }
+      if (descriptionText) {
+        drawerMinHeight += descriptionHeightAdjustment;
+      }
+      if (notificationText && descriptionText) {
+        drawerMinHeight += 16;
+      }
+      let finalDrawerMinHeight = drawerMinHeight + "px";
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
@@ -267,79 +285,90 @@ export const FeedbackBox = chakra(
                   id="feedback-form"
                   onSubmit={internalOnSubmit}
                   sx={{
-                    "> div": {
-                      minHeight: drawerMinHeight,
+                    ".feedback-body": {
+                      alignItems: "flex-start",
+                      minHeight: finalDrawerMinHeight,
                       gridTemplateRows: initTemplateRows,
+                    },
+                    ".feedback-body.response": {
+                      alignItems: "center",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
                     },
                   }}
                 >
-                  <FormField>
-                    {notificationElement}
-                    {descriptionElement}
-                  </FormField>
                   {/* Initial form Screen */}
                   {isFormView && (
                     <>
-                      {showCategoryField && (
-                        <FormField>
-                          <RadioGroup
-                            defaultValue={state.category}
-                            id={`${id}-category`}
-                            isDisabled={isSubmitted}
-                            labelText="What is your feedback about?"
-                            layout="row"
-                            name={`${id}-category`}
-                            onChange={(selected) => setCategory(selected)}
-                          >
-                            <Radio
-                              id="comment"
-                              labelText="Comment"
-                              value="comment"
-                            />
-                            <Radio
-                              id="correction"
-                              labelText="Correction"
-                              value="correction"
-                            />
-                            <Radio id="bug" labelText="Bug" value="bug" />
-                          </RadioGroup>
-                        </FormField>
-                      )}
-                      <FormField>
-                        <TextInput
-                          helperText={`${
-                            maxCommentCharacters - state.comment.length
-                          } characters remaining`}
-                          id={`${id}-comment`}
-                          invalidText="Please fill out this field."
-                          isDisabled={isSubmitted}
-                          isInvalid={isInvalidComment}
-                          isRequired
-                          labelText="Comment"
-                          maxLength={maxCommentCharacters}
-                          name={`${id}-comment`}
-                          onChange={(e) => setComment(e.target.value)}
-                          placeholder="Enter your question or feedback here"
-                          type="textarea"
-                          defaultValue={state.comment}
-                        />
-                      </FormField>
-                      {showEmailField && (
-                        <FormField>
+                      <VStack className="feedback-body" spacing="s">
+                        {(notificationElement || descriptionElement) && (
+                          <>
+                            {notificationElement}
+                            {descriptionElement}
+                          </>
+                        )}
+                        {showCategoryField && (
+                          <FormField>
+                            <RadioGroup
+                              defaultValue={state.category}
+                              id={`${id}-category`}
+                              isDisabled={isSubmitted}
+                              labelText="What is your feedback about?"
+                              layout={isLargerThanMobile ? "row" : "column"}
+                              name={`${id}-category`}
+                              onChange={(selected) => setCategory(selected)}
+                            >
+                              <Radio
+                                id="comment"
+                                labelText="Comment"
+                                value="comment"
+                              />
+                              <Radio
+                                id="correction"
+                                labelText="Correction"
+                                value="correction"
+                              />
+                              <Radio id="bug" labelText="Bug" value="bug" />
+                            </RadioGroup>
+                          </FormField>
+                        )}
+                        <FormField width="100%">
                           <TextInput
-                            id={`${id}-email`}
-                            invalidText="Please enter a valid email address."
+                            helperText={`${
+                              maxCommentCharacters - state.comment.length
+                            } characters remaining`}
+                            id={`${id}-comment`}
+                            invalidText="Please fill out this field."
                             isDisabled={isSubmitted}
-                            isInvalid={isInvalidEmail}
-                            labelText="Email"
-                            name={`${id}-email`}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter your email address here"
-                            type="email"
-                            value={state.email}
+                            isInvalid={isInvalidComment}
+                            isRequired
+                            labelText="Comment"
+                            maxLength={maxCommentCharacters}
+                            name={`${id}-comment`}
+                            onChange={(e) => setComment(e.target.value)}
+                            placeholder="Enter your question or feedback here"
+                            type="textarea"
+                            defaultValue={state.comment}
                           />
                         </FormField>
-                      )}
+                        {showEmailField && (
+                          <FormField width="100%">
+                            <TextInput
+                              id={`${id}-email`}
+                              invalidText="Please enter a valid email address."
+                              isDisabled={isSubmitted}
+                              isInvalid={isInvalidEmail}
+                              labelText="Email"
+                              name={`${id}-email`}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Enter your email address here"
+                              type="email"
+                              value={state.email}
+                            />
+                          </FormField>
+                        )}
+                      </VStack>
                       {privacyPolicyField}
                       <FormField>
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
@@ -369,6 +398,7 @@ export const FeedbackBox = chakra(
                   {isConfirmationView && (
                     <>
                       <Box
+                        className="feedback-body response"
                         key="confirmationWrapper"
                         margin="auto"
                         tabIndex={0}
@@ -409,6 +439,7 @@ export const FeedbackBox = chakra(
                   {isErrorView && (
                     <>
                       <Box
+                        className="feedback-body response"
                         color="ui.error.primary"
                         key="errorWrapper"
                         margin="auto"
