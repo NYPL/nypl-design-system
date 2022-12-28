@@ -100,6 +100,7 @@ const variants = {
   },
 };
 const Link = {
+  parts: ["srOnly"],
   baseStyle: {
     ...baseLinkStyles,
     /** This is needed for custom anchor elements or link components
@@ -109,9 +110,9 @@ const Link = {
         color: "ui.link.secondary",
       },
     },
-    /** The span element will handle descriptive text added to aid
+    /** The element will handle descriptive text added to aid
      * screen readers. */
-    span: screenreaderOnly(),
+    srOnly: screenreaderOnly(),
   },
   variants,
 };

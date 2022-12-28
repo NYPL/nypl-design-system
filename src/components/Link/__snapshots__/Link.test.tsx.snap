@@ -109,7 +109,9 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   target="_blank"
 >
   External
-  <span>
+  <span
+    className="css-0"
+  >
     This link opens in a new window
   </span>
   <svg

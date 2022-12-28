@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
@@ -79,11 +79,17 @@ function getWithDirectionIcon(
   );
 }
 
-function getExternalExtraElements(children: JSX.Element, linkId: string) {
+function getExternalExtraElements(
+  children: JSX.Element,
+  linkId: string,
+  styles: object
+) {
   const iconId = `${linkId}-icon`;
-  const icon = (
+  const extraElements = (
     <>
-      <span>This link opens in a new window</span>
+      <Box as="span" __css={styles}>
+        This link opens in a new window
+      </Box>
       <Icon
         align={"right"}
         className="more-link"
@@ -98,7 +104,7 @@ function getExternalExtraElements(children: JSX.Element, linkId: string) {
   return (
     <>
       {children}
-      {icon}
+      {extraElements}
     </>
   );
 }
@@ -150,7 +156,7 @@ export const Link = chakra(
       }
       variant = type;
     }
-    const style = useStyleConfig("Link", { variant });
+    const styles = useMultiStyleConfig("Link", { variant });
     const rel = type === "external" ? "nofollow" : null;
     const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
@@ -160,7 +166,7 @@ export const Link = chakra(
       ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children as JSX.Element, type, id)) ||
       (type === "external" &&
-        getExternalExtraElements(children as JSX.Element, id)) ||
+        getExternalExtraElements(children as JSX.Element, id, styles.srOnly)) ||
       children;
 
     if (!href) {
@@ -175,7 +181,7 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style} {...rest}>
+        <Box as="span" __css={styles} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -200,7 +206,7 @@ export const Link = chakra(
           onClick={onClick}
           target={target}
           {...linkProps}
-          __css={style}
+          __css={styles}
         >
           {newChildren}
         </Box>
