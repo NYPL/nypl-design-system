@@ -34,11 +34,12 @@ export interface BreadcrumbProps {
 
 // Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
 const breadcrumbText = (title) => {
+  let useWord = false;
+
   if (title.length >= 60) {
-    return truncateText(title, 60, true);
-  } else {
-    return truncateText(title, 60, false);
+    useWord = true;
   }
+  return truncateText(title, 60, useWord);
 };
 
 const truncateText = (str, n, useWordBoundary) => {
