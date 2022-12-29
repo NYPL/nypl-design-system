@@ -8,6 +8,7 @@ import {
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
+import Tooltip from "../Tooltip/Tooltip";
 
 export type BreadcrumbsTypes =
   | "blogs"
@@ -34,12 +35,15 @@ export interface BreadcrumbProps {
 
 // Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
 const breadcrumbText = (title) => {
-  let useWord = false;
-
   if (title.length >= 60) {
-    useWord = true;
+    return (
+      <Tooltip content={title} id={"tooltip-" + title}>
+        {truncateText(title, 60, true)}
+      </Tooltip>
+    );
+  } else {
+    return truncateText(title, 60, false);
   }
-  return truncateText(title, 60, useWord);
 };
 
 const truncateText = (str, n, useWordBoundary) => {
