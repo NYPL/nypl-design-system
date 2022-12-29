@@ -174,7 +174,7 @@ describe("Truncate breadcrumb text", () => {
       "Child with an Even Longer Name"
     );
     // The last breadcrumb (the active page) is not a link.
-    // text beyond 60 characters should be truncated to 60 characters with ellipsis.
+    // Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
     expect(
       screen.getByText(
         /Great-Grandchild with the Longest Name That Will Wrap onto.../
