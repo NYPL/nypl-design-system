@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the layout of the category `RadioGroup` to `column` for the mobie view of the `FeedbackBox` component.
 - Updates the background color for the `"iconOnly"` and `"text"` variants of the `Button` component.
 - Updates the DOM in the header of the `FeedbackBox` component to improve accessibility.
+- Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
 
 ### Fixes
 
