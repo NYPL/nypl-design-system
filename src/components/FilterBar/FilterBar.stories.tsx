@@ -781,7 +781,7 @@ export const FilterBarRowContainerStory = () => {
     onToggle,
   } = useFilterBar();
   return (
-    <VStack align="stretch" spacing="l" key="filter-bar-layout-story">
+    <VStack align="stretch" spacing="l" key="filter-bar-row-container-story">
       <Box bg="ui.bg.default" p="inset.wide">
         <FilterBar
           key="row-with-buttons"
@@ -917,7 +917,7 @@ export const FilterBarColumnContainerStory = () => {
     onToggle,
   } = useFilterBar();
   return (
-    <VStack align="stretch" spacing="l" key="filter-bar-layout-story">
+    <VStack align="stretch" spacing="l" key="filter-bar-column-container-story">
       <Box bg="ui.bg.default" p="inset.default" width="255px">
         <FilterBar
           key="column-with-buttons"
