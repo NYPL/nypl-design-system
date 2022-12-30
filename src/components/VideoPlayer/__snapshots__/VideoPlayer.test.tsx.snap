@@ -61,7 +61,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     </div>
     <div
       aria-atomic={true}
-      aria-live="off"
       className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
@@ -109,7 +108,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     </div>
     <div
       aria-atomic={true}
-      aria-live="off"
       className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {

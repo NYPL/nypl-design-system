@@ -21,7 +21,6 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -66,7 +65,6 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {

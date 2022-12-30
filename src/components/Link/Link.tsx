@@ -149,11 +149,13 @@ export const Link = chakra(
     ) {
       variant = "moreLink";
     } else if (type.includes("button")) {
-      if (type === "button") {
-        console.warn(
-          `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
-        );
-      }
+      /** This deprecation warning is temporarily being removed, but it will be
+       * reinstated once teams are able to update their `Link`s appropriately. */
+      // if (type === "button") {
+      //   console.warn(
+      //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
+      //   );
+      // }
       variant = type;
     }
     const styles = useMultiStyleConfig("Link", { variant });
