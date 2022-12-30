@@ -10,8 +10,6 @@ import {
   ModalOverlay,
   Stack,
   useMultiStyleConfig,
-  // Wrap,
-  // WrapItem,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 

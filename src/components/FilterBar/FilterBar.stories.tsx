@@ -770,7 +770,7 @@ export const FilterBarLayoutStory = () => {
   );
 };
 
-export const FilterBarLayoutContainerStory = () => {
+export const FilterBarRowContainerStory = () => {
   const {
     onChange,
     onMixedStateChange,
@@ -902,6 +902,22 @@ export const FilterBarLayoutContainerStory = () => {
           </MultiSelectGroup>
         </FilterBar>
       </Box>
+    </VStack>
+  );
+};
+
+export const FilterBarColumnContainerStory = () => {
+  const {
+    onChange,
+    onMixedStateChange,
+    selectedItems,
+    onClear,
+    onClearAll,
+    isModalOpen,
+    onToggle,
+  } = useFilterBar();
+  return (
+    <VStack align="stretch" spacing="l" key="filter-bar-layout-story">
       <Box bg="ui.bg.default" p="inset.default" width="255px">
         <FilterBar
           key="column-with-buttons"
