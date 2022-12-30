@@ -36,15 +36,16 @@ export interface BreadcrumbProps {
 const breadcrumbTextLength = 60;
 
 // Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
-const breadcrumbText = (title) => {
-
-  if (title.length <= breadcrumbTextLength) {
-    return title;
+const breadcrumbText = (text) => {
+  if (text.length <= breadcrumbTextLength) {
+    return text;
   }
 
-  const subString = title.substr(0, breadcrumbTextLength - 1);
+  const subString = text.substr(0, breadcrumbTextLength - 1);
   return (
-    <Tooltip content={title} id={`tooltip-${title}`}>{subString.substr(0, subString.lastIndexOf(" ")) + `...`}</Tooltip>
+    <Tooltip content={text} id={`tooltip-${text}`}>
+      {subString.substr(0, subString.lastIndexOf(" ")) + `...`}
+    </Tooltip>
   );
 };
 
