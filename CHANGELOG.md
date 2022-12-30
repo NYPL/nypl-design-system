@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the layout of the category `RadioGroup` to `column` for the mobie view of the `FeedbackBox` component.
 - Updates the background color for the `"iconOnly"` and `"text"` variants of the `Button` component.
 - Updates the DOM in the header of the `FeedbackBox` component to improve accessibility.
+- Updates the `Link` component to include descriptive text for screen readers in the component's `"external"` variant.
 
 ### Fixes
 
