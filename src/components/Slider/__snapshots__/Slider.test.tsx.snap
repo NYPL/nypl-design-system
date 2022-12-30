@@ -162,7 +162,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -339,7 +338,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -519,7 +517,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -696,7 +693,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -977,7 +973,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1214,7 +1209,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1346,7 +1340,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1481,7 +1474,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1614,7 +1606,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1827,7 +1818,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -2040,7 +2030,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -2172,7 +2161,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {

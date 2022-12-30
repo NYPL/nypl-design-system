@@ -39,10 +39,14 @@ describe("HelperErrorText", () => {
     expect(screen.getByText("Text")).toHaveAttribute("data-isinvalid", "true");
   });
 
-  it("has aria-live and aria-atomic attributes when errored", () => {
+  it("has aria-atomic attributes when errored", () => {
     render(<HelperErrorText isInvalid text="Text" />);
-    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
     expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
+  });
+
+  it("has aria-live attributes when ariaLive prop is passed", () => {
+    render(<HelperErrorText ariaLive="polite" text="Text" />);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
   });
 
   it("accepts an aria-atomic value of false", () => {
