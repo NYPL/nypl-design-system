@@ -92,7 +92,9 @@ denoted by an `aria-current` attribute value of "page".
 - [W3 Breadcrumbs Practice](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
 - [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
 
-## Long Titles shorten to 60 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text.
+## Long Titles 
+  Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
+  If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered
 
 <Canvas>
   <DSProvider>
