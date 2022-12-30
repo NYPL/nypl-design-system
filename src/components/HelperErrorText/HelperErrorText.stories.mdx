@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import HelperErrorText from "./HelperErrorText";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
+import TextInput from "../TextInput/TextInput";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -29,9 +30,6 @@ import DSProvider from "../../theme/provider";
       control: false,
       table: { defaultValue: { summary: true } },
     },
-    ariaLive: {
-      table: { defaultValue: { summary: "polite" } },
-    },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
@@ -46,7 +44,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `1.0.6`    |
+| Latest            | `1.4.0`    |
 
 ## Table of Contents
 
@@ -67,7 +65,7 @@ import DSProvider from "../../theme/provider";
     name="HelperErrorText with Controls"
     args={{
       ariaAtomic: undefined,
-      ariaLive: "polite",
+      ariaLive: undefined,
       className: undefined,
       id: "helperErrorText-id",
       isInvalid: false,
@@ -87,10 +85,35 @@ import DSProvider from "../../theme/provider";
 
 ## Accessibility
 
-In the "invalid" state when `isInvalid` is set to true, the text passed to the
-`invalidText` prop will be presented to screen readers be default. If you need
-to turn this off, set the `ariaLive` prop to `"off"`. This is used in DS "form"
-components for invalid form submissions or incorrect values entered.
+In the Reservoir Design System (DS), the `HelperErrorText` component is always
+used as a child component when composing more complex components. In the case
+of form components, the `HelperErrorText` component is associated with a
+related input field by using the `aria-describedby` attribute in the
+associated element. In this way, the content of the `HelperErrorText` component
+is made available to screenreaders.
+
+The example below is rendered using the `TextInput` component. The `TextInput`
+component uses the `HelperErrorText` component to render the red
+`"This is error text :("` below the input field and that text element is
+referenced with the `aria-describedby` attribute on the HTML input element.
+This type of association is handled automatically by all DS `Form Elements` components.
+
+<Canvas>
+  <Story
+    name="Text Input with HelperErrorText"
+    args={{
+      helperText: "Choose wisely.",
+      id: "textInput-id",
+      invalidText: "This is error text :(",
+      isInvalid: true,
+      labelText: "What is your favorite color?",
+      name: "textInput-name",
+      placeholder: "e.g. blue, green, etc.",
+    }}
+  >
+    {(args) => <TextInput {...args} />}
+  </Story>
+</Canvas>
 
 ### ariaAtomic
 
@@ -100,6 +123,10 @@ technologies. When it is set to `false`, only additionals or removals will be
 read by assistive technologies.
 
 ### ariaLive
+
+IMPORTANT: The `ariaLive` prop has been deprecated. Due to how the `HelperErrorText`
+component is used within the DS, this prop was found to be unnecessary and it will
+eventually be removed.
 
 The `ariaLive` prop sets the `aria-live` attribute; `"polite"` is set by default
 in the "invalid" state and `"off"` otherwise. This sets the priority of when the
@@ -128,6 +155,7 @@ should be announced immediately.
 
 Resources:
 
+- [MDN aria-describedby Attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
 - [MDN ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - [W3C WAI-ARIA 1.1 - aria-live (property)](https://www.w3.org/TR/wai-aria-1.1/#aria-live)
 - [W3C ARIA19: Using ARIA role=alert or Live Regions to Identify Errors](https://www.w3.org/TR/WCAG20-TECHS/ARIA19.html)

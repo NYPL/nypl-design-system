@@ -29,6 +29,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Removes the `Link` component warning about the deprecated `button` variant. This change is temporary and will be reverted once teams are able to update their `Link`s appropriately.
 
+### Deprecates
+
+- Deprecates the `ariaLive` prop in the `HelperErrorText` component.
+
 ## 1.3.1 (December 15, 2022)
 
 ### Adds
