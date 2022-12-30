@@ -92,7 +92,7 @@ denoted by an `aria-current` attribute value of "page".
 - [W3 Breadcrumbs Practice](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
 - [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
 
-## Long Titles
+## Long Titles shorten to 60 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text.
 
 <Canvas>
   <DSProvider>
@@ -107,6 +107,25 @@ denoted by an `aria-current` attribute value of "page".
         {
           url: "#",
           text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
+        },
+      ]}
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent with a Long Name" },
+        { url: "#", text: "Child with an Even Longer Name" },
+        {
+          url: "#",
+          text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 60 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters "
+        },
+        {
+          url: "#",
+          text: "Great-Grandchild with the Longest Name",
         },
       ]}
     />
