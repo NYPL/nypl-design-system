@@ -6,7 +6,6 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-
 import Icon from "../Icons/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 
@@ -36,16 +35,15 @@ export interface BreadcrumbProps {
 const breadcrumbTextLength = 60;
 
 // Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
-const breadcrumbText = (text) => {
-  
+const breadcrumbText = (text, id) => {
   if (text.length <= breadcrumbTextLength) {
     return text;
   }
 
   const subString = text.substr(0, breadcrumbTextLength - 1);
   return (
-    <Tooltip content={text} id={`breadcrumb-${text}-tooltip`}>
-      {subString.substr(0, subString.lastIndexOf(" ")) + `...`}
+    <Tooltip content={text} id={`breadcrumb-${id}-tooltip`}>
+      {`${subString.substr(0, subString.lastIndexOf(" "))}...`}
     </Tooltip>
   );
 };
@@ -75,7 +73,7 @@ const getElementsFromData = (
           />
         )}
         <span className="breadcrumb-label">
-          {breadcrumbText(breadcrumbData.text)}
+          {breadcrumbText(breadcrumbData.text, breadcrumbsID)}
         </span>
       </BreadcrumbLink>
     </BreadcrumbItem>

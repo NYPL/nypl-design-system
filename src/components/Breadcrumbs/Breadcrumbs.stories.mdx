@@ -93,7 +93,7 @@ denoted by an `aria-current` attribute value of "page".
 - [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
 
 ## Long Titles 
-  Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
+  Breadcrumb text titles should be short and concise. When they are over 60 characters truncate breadcrumb text then add ellipsis at the end.
   If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered
 
 <Canvas>
@@ -127,7 +127,7 @@ denoted by an `aria-current` attribute value of "page".
         },
         {
           url: "#",
-          text: "Great-Grandchild with the Longest Name",
+          text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
         },
       ]}
     />
