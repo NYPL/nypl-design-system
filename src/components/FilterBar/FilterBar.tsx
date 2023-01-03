@@ -8,9 +8,8 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Stack,
   useMultiStyleConfig,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -173,21 +172,31 @@ export const FilterBar = chakra(
               {headingText && (
                 <Heading text={headingText} level="two" size="tertiary" />
               )}
-              <Wrap spacing={layout === "row" ? "l" : "s"} direction={layout}>
+              <Stack
+                alignItems={layout === "row" ? "flex-end" : null}
+                columnGap="l"
+                direction={layout}
+                rowGap="s"
+                spacing="0"
+                wrap={layout === "row" ? "wrap" : null}
+                sx={{
+                  "> div": {
+                    _notFirst: {
+                      mx: "0",
+                    },
+                  },
+                }}
+              >
                 {newChildren &&
                   newChildren.map((newChild, i) => (
-                    <WrapItem key={`filter-bar-child-${i}`}>
-                      {newChild}
-                    </WrapItem>
+                    <Box key={`filter-bar-child-${i}`}>{newChild}</Box>
                   ))}
-                <WrapItem
-                  alignItems={layout === "row" ? "end" : ""}
-                  sx={styles.globalButtonGroupWrapper}
-                >
+
+                {(showSubmitAll || showClearAll) && (
                   <ButtonGroup
                     layout={finalLayout}
                     __css={styles.globalButtonGroup}
-                    buttonWidth="full"
+                    buttonWidth={layout === "column" ? "full" : "default"}
                   >
                     {showSubmitAll && (
                       <Button
@@ -209,8 +218,8 @@ export const FilterBar = chakra(
                       </Button>
                     )}
                   </ButtonGroup>
-                </WrapItem>
-              </Wrap>
+                )}
+              </Stack>
             </>
           ) : (
             <>
