@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Link` component to include descriptive text for screen readers in the component's `"external"` variant.
 - Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
   If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+
 ### Fixes
 
 - Fixes spacing and alignment issues in the `FeedbackBox` component.

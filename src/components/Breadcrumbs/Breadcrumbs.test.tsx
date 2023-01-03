@@ -157,7 +157,10 @@ describe("Breadcrumbs Snapshot", () => {
 describe("Truncate breadcrumb text", () => {
   const breadcrumbsData = [
     { url: "#string1", text: "Parent with a Long Name" },
-    { url: "#string2", text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 60 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters" },
+    {
+      url: "#string2",
+      text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 60 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters",
+    },
     {
       url: "#string3",
       text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component",
