@@ -27,28 +27,20 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-wrap css-0"
+    className="chakra-stack css-gpv9hk"
   >
-    <ul
-      className="chakra-wrap__list css-1k89tde"
+    <div
+      className="chakra-stack css-6dfzd0"
     >
-      <li
-        className="chakra-wrap__listitem css-1yl4gnp"
+      <button
+        className="chakra-button css-1e643n3"
+        id="filterBarWithClearAllButton-clear-all-button"
+        onClick={[Function]}
+        type="button"
       >
-        <div
-          className="chakra-stack css-ytb711"
-        >
-          <button
-            className="chakra-button css-1e643n3"
-            id="filterBarWithClearAllButton-clear-all-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Clear Filters
-          </button>
-        </div>
-      </li>
-    </ul>
+        Clear Filters
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -58,14 +50,27 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
   className="css-1xdhyk6"
   id="filter-bar-filterBarWithSubmitAllButton"
 >
-  <button
-    className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterBarWithSubmitAllButton-show-filters"
-    onClick={[Function]}
-    type="button"
+  <h2
+    className="chakra-heading css-1xdhyk6"
   >
-    Show Filter 
-  </button>
+    FilterBar
+  </h2>
+  <div
+    className="chakra-stack css-gpv9hk"
+  >
+    <div
+      className="chakra-stack css-6dfzd0"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        id="filterBarWithSubmitAllButton-submit-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Apply Filters
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
@@ -80,36 +85,28 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-wrap css-0"
+    className="chakra-stack css-gpv9hk"
   >
-    <ul
-      className="chakra-wrap__list css-1k89tde"
+    <div
+      className="chakra-stack css-6dfzd0"
     >
-      <li
-        className="chakra-wrap__listitem css-1yl4gnp"
+      <button
+        className="chakra-button css-1xdhyk6"
+        id="filterBarWithButtons-submit-all-button"
+        onClick={[Function]}
+        type="button"
       >
-        <div
-          className="chakra-stack css-ytb711"
-        >
-          <button
-            className="chakra-button css-1xdhyk6"
-            id="filterBarWithButtons-submit-all-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Apply Filters
-          </button>
-          <button
-            className="chakra-button css-1e643n3"
-            id="filterBarWithButtons-clear-all-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Clear Filters
-          </button>
-        </div>
-      </li>
-    </ul>
+        Apply Filters
+      </button>
+      <button
+        className="chakra-button css-1e643n3"
+        id="filterBarWithButtons-clear-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Clear Filters
+      </button>
+    </div>
   </div>
 </div>
 `;
