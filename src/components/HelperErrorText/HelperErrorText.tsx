@@ -47,7 +47,7 @@ export const HelperErrorText = chakra(
       const styles = useStyleConfig("HelperErrorText", { isInvalid });
       const props = {
         "aria-atomic": ariaAtomic,
-        "aria-live": ariaLive,
+        "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
         id,

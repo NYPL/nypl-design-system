@@ -80,13 +80,23 @@ export const MultiSelectGroup = chakra(
           {...rest}
         >
           <Stack
-            id={id}
-            ref={ref}
-            data-testid="multi-select-group"
             aria-label={!showLabel ? labelText : undefined}
             className={className}
+            columnGap="xs"
+            data-testid="multi-select-group"
             direction={finalLayout}
-            spacing="xs"
+            id={id}
+            ref={ref}
+            rowGap={finalLayout === "row" ? "xs" : "0"}
+            spacing={isLargerThanMobile ? "xs" : "0"}
+            wrap={layout === "row" ? "wrap" : null}
+            sx={{
+              "> div": {
+                _notFirst: {
+                  mx: "0",
+                },
+              },
+            }}
           >
             {newChildren}
           </Stack>

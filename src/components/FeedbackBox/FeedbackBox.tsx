@@ -6,7 +6,6 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  Spacer,
   useDisclosure,
   useMultiStyleConfig,
   VStack,
@@ -265,18 +264,17 @@ export const FeedbackBox = chakra(
             <DrawerOverlay />
 
             <DrawerContent sx={styles.drawerContent}>
+              <Button
+                buttonType="text"
+                id="close-btn"
+                onClick={finalOnClose}
+                sx={styles.closeButton}
+              >
+                <Icon color="ui.black" name="minus" size="medium" />
+                <span>Close {title}</span>
+              </Button>
               <DrawerHeader sx={styles.drawerHeader}>
                 <Text data-testid="title">{title}</Text>
-                <Spacer />
-                <Button
-                  buttonType="text"
-                  id="close-btn"
-                  onClick={finalOnClose}
-                  sx={styles.closeButton}
-                >
-                  <Icon color="ui.black" name="minus" size="medium" />
-                  <span>Close {title}</span>
-                </Button>
               </DrawerHeader>
 
               <DrawerBody sx={styles.drawerBody}>

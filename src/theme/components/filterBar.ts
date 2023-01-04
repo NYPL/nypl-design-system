@@ -18,9 +18,8 @@ const FilterBar = {
     "globalButtonGroup",
     "globalButtonGroupWrapper",
   ],
-  baseStyle: ({ layout, width }) => ({
+  baseStyle: ({ width }) => ({
     width: "full",
-    pt: layout === "row" ? "l" : "s",
     modalHeader: {
       bg: "ui.gray.x-light-cool",
     },
@@ -29,9 +28,6 @@ const FilterBar = {
     },
     modalCloseButton: {
       mt: "8px",
-    },
-    globalButtonGroup: {
-      margin: { base: "s", md: "xs" },
     },
     globalButtonGroupWrapper: {
       ...filterBarWidth[width],
