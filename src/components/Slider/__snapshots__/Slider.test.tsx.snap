@@ -21,6 +21,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     >
       <input
         aria-label="Label - start value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="defaultRangeSlider-textInput-start"
@@ -145,6 +146,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     >
       <input
         aria-label="Label - end value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="defaultRangeSlider-textInput-end"
@@ -196,6 +198,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       <input
         aria-invalid={true}
         aria-label="Label - start value - There is an error related to this field."
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="errored-textInput-start"
@@ -321,6 +324,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       <input
         aria-invalid={true}
         aria-label="Label - end value - There is an error related to this field."
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="errored-textInput-end"
@@ -375,6 +379,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       <input
         aria-label="Label - start value"
         aria-required={true}
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="required-textInput-start"
@@ -500,6 +505,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       <input
         aria-label="Label - end value"
         aria-required={true}
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="required-textInput-end"
@@ -550,6 +556,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     >
       <input
         aria-label="Label - start value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={true}
         id="disabled-textInput-start"
@@ -676,6 +683,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     >
       <input
         aria-label="Label - end value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={true}
         id="disabled-textInput-end"
@@ -719,6 +727,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     >
       <input
         aria-label="Label - start value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="noLabels-textInput-start"
@@ -843,6 +852,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     >
       <input
         aria-label="Label - end value"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="noLabels-textInput-end"
@@ -1192,6 +1202,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     >
       <input
         aria-label="Label"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="defaultSlider-textInput-end"
@@ -1323,6 +1334,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       <input
         aria-invalid={true}
         aria-label="Label - There is an error related to this field."
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="errored-textInput-end"
@@ -1457,6 +1469,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       <input
         aria-label="Label"
         aria-required={true}
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="required-textInput-end"
@@ -1589,6 +1602,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     >
       <input
         aria-label="Label"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={true}
         id="disabled-textInput-end"
@@ -1712,6 +1726,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
     >
       <input
         aria-label="Label"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="noLabels-textInput-end"
@@ -2013,6 +2028,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     >
       <input
         aria-label="Label"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="chakra-textInput-end"
@@ -2144,6 +2160,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     >
       <input
         aria-label="Label"
+        autocomplete={null}
         className="chakra-input css-0"
         disabled={false}
         id="props-textInput-end"
