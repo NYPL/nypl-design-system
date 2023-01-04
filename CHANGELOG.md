@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
 - Adds the `useMultiSelect`, `useFilterBar` hook.
+- Adds the `onChangeEnd` prop in the `Slider` component.
 
 ### Updates
 
