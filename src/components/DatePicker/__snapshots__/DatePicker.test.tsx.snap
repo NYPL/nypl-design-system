@@ -379,6 +379,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               />
               <div
                 aria-atomic={true}
+                aria-live="polite"
                 className="css-1xdhyk6"
                 dangerouslySetInnerHTML={
                   Object {
@@ -434,6 +435,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               />
               <div
                 aria-atomic={true}
+                aria-live="polite"
                 className="css-1xdhyk6"
                 dangerouslySetInnerHTML={
                   Object {
@@ -450,6 +452,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     </div>
     <div
       aria-atomic={true}
+      aria-live="polite"
       className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
@@ -568,6 +571,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     </div>
     <div
       aria-atomic={true}
+      aria-live="polite"
       className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
@@ -775,6 +779,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           />
           <div
             aria-atomic={true}
+            aria-live="polite"
             className="css-1xdhyk6"
             dangerouslySetInnerHTML={
               Object {
@@ -837,6 +842,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           />
           <div
             aria-atomic={true}
+            aria-live="polite"
             className="css-1xdhyk6"
             dangerouslySetInnerHTML={
               Object {
@@ -899,6 +905,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           />
           <div
             aria-atomic={true}
+            aria-live="polite"
             className="css-1xdhyk6"
             dangerouslySetInnerHTML={
               Object {
@@ -962,6 +969,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           />
           <div
             aria-atomic={true}
+            aria-live="polite"
             className="css-1xdhyk6"
             dangerouslySetInnerHTML={
               Object {
