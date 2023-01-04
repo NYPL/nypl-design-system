@@ -50,6 +50,7 @@ import DSProvider from "../../theme/provider";
     },
     name: { control: false },
     onChange: { control: false },
+    onChangeEnd: { control: false },
     showBoxes: {
       table: { defaultValue: { summary: true } },
     },
@@ -116,6 +117,7 @@ For this type of component, the `value` prop must be a single number.
       min: 0,
       name: undefined,
       onChange: undefined,
+      onChangeEnd: undefined,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
@@ -197,6 +199,7 @@ numbers. This signifies the starting and ending values of the range slider.
       min: 0,
       name: undefined,
       onChange: undefined,
+      onChangeEnd: undefined,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
@@ -645,6 +648,55 @@ export function RangeSliderExample() {
 <Canvas>
   <DSProvider>
     <RangeSliderExample />
+  </DSProvider>
+</Canvas>
+
+### Get Final Slider Value
+
+Pass a callback function to the `onChangeEnd` prop to get the final number value
+of the `Slider` component or an array of two numbers when it is a range slider.
+
+Dragging the slider can trigger lots of updates and the consuming app might
+only be interested in the final result after sliding is complete. You can use
+`onChangeEnd` for this.
+
+Open up the browser's developer console to see the value of the `Slider` after
+updating it. Notice the value is updated only when you stop dragging the slider.
+
+```tsx
+// Typescript example:
+function SliderEndExample() {
+  const onChangeEnd = (newValue: number) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      id="slider"
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+```
+
+export function SliderEndExample() {
+  const onChangeEnd = (newValue) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      id="slider"
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SliderEndExample />
   </DSProvider>
 </Canvas>
 
