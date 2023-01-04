@@ -173,6 +173,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   />
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -218,6 +219,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
   />
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
