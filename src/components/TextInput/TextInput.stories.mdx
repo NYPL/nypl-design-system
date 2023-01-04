@@ -53,7 +53,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `1.3.1`    |
+| Latest            | `1.3.2`    |
 
 ## Table of Contents
 
@@ -129,6 +129,9 @@ Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
 required `labelText` value.
 
+The `helperText` and the `invalidText` are associated with the `<input>` element
+through the `aria-describedby` attribute.
+
 When the `isClearable` prop is set to `true`, as text is added to the input
 field a close button is rendered to clear the input value. Once the close button
 is clicked, the input value will be cleared, the close button will become hidden,
@@ -137,6 +140,10 @@ and focus will be set to the input element.
 When the `type` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
 accessibility rules described above.
+
+If the `type` prop is set to `"email"`, `"tel"`, or `"url"`, the appropriate
+`autocomplete` attribute will be added. The autocomplete attribute makes inputs
+easier and more efficient to complete for all users.
 
 Resources:
 

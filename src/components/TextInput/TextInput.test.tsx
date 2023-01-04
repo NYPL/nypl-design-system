@@ -1,4 +1,4 @@
-import { render, RenderResult, screen } from "@testing-library/react";
+import { render, RenderResult, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -96,6 +96,32 @@ describe("TextInput", () => {
   it("renders 'Required' along with the label text", () => {
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
+  });
+
+  it("adds aria-describedby attribute", async () => {
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-describedby",
+      "myTextInput-helperText"
+    );
+
+    utils.rerender(
+      <TextInput
+        helperText="Custom Email Helper Text"
+        id="myEmailInput"
+        isRequired
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        placeholder="Email Input Placeholder"
+        type="email"
+      />
+    );
+
+    await waitFor(() =>
+      expect(screen.getByRole("textbox")).toHaveAttribute(
+        "aria-describedby",
+        "myEmailInput-helperText"
+      )
+    );
   });
 
   it("does not render '(Required)' along with the label text", () => {
