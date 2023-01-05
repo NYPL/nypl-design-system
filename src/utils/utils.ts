@@ -118,7 +118,7 @@ export const contrastRatio = (hex1: string, hex2: string) => {
   return (ratio * 10).toFixed(2);
 };
 
-export const truncateText = (text: string, truncateTextLength: 60) => {
+export const truncateText = (text: string, truncateTextLength: number = 60) => {
   const subString = text.substr(0, truncateTextLength - 1);
   return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
 };
