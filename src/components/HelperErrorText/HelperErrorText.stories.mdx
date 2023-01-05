@@ -30,6 +30,9 @@ import DSProvider from "../../theme/provider";
       control: false,
       table: { defaultValue: { summary: true } },
     },
+    ariaLive: {
+      table: { defaultValue: { summary: "polite" } },
+    },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
@@ -117,23 +120,21 @@ This type of association is handled automatically by all DS `Form Elements` comp
 
 ### ariaAtomic
 
-The `ariaAtomic` prop sets the `aria-atomic` attribute and it is set to `true`
-by default. This allows the entire DOM element to be presented to assistive
-technologies. When it is set to `false`, only additionals or removals will be
-read by assistive technologies.
+The `ariaAtomic` prop sets the `aria-atomic` attribute. This allows the entire
+DOM element to be presented to assistive technologies. When it is set to
+`false`, only additions or removals will be read by assistive technologies.
+
+By default, this prop is set to `true`.
 
 ### ariaLive
 
-IMPORTANT: The `ariaLive` prop has been deprecated. Due to how the `HelperErrorText`
-component is used within the DS, this prop was found to be unnecessary and it will
-eventually be removed.
+The `ariaLive` prop sets the `aria-live` attribute. This determines the priority
+of when text updates in this component should be read to users by assistive
+technologies. The `"off"` value indicates that updates should not be announced,
+`"polite"` indicates that updates will be announced at the next available time
+slot, and `"assertive"` indicates that updates should be announced immediately.
 
-The `ariaLive` prop sets the `aria-live` attribute; `"polite"` is set by default
-in the "invalid" state and `"off"` otherwise. This sets the priority of when the
-text in this component should be read to users by assistive technologies. The
-`"off"` value indicates that the content should not be presented, `"polite"` that
-it will be announced at the next available time slot, and `"assertive"` that it
-should be announced immediately.
+By default, this prop is set to `"polite"`.
 
 <Canvas>
   <Story
@@ -141,13 +142,12 @@ should be announced immediately.
     args={{
       ariaAtomic: true,
       ariaLive: "polite",
-      isInvalid: true,
     }}
   >
     {(args) => (
       <HelperErrorText
         {...args}
-        text="Only invalid text can be read to screen readers with the appropriate aria-atomic and aria-live props."
+        text="Live updates to the helper and error text can be read to screen readers with the appropriate aria-atomic and aria-live props."
       />
     )}
   </Story>

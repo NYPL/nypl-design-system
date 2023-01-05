@@ -9,8 +9,12 @@ interface HelperErrorTextProps {
    * DOM element. When false, only changes (additionals or removals) will be
    * read. True by default. */
   ariaAtomic?: boolean;
-  /** DEPRECATED: The `ariaLive` prop was found to be unnecessary. The prop
-   * has been deprecated and it will eventually be removed. */
+  /** Aria attribute used to handle live updates for the helper and error text.
+   * This indicates the priority of the text and when it should be presented to
+   * users using screen readers; "off" indicates that the content should not be
+   * presented, "polite" that it will be announced at the next available time
+   * slot, and "assertive" that it should be announced immediately. This is set
+   * to "polite" by default. */
   ariaLive?: AriaLiveValues;
   /** Additional className to add. */
   className?: string;
@@ -30,7 +34,7 @@ export const HelperErrorText = chakra(
     (
       {
         ariaAtomic = true,
-        ariaLive = undefined,
+        ariaLive = "polite",
         className = "",
         id,
         isInvalid = false,
@@ -43,7 +47,7 @@ export const HelperErrorText = chakra(
       const styles = useStyleConfig("HelperErrorText", { isInvalid });
       const props = {
         "aria-atomic": ariaAtomic,
-        "aria-live": ariaLive,
+        "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
         id,
