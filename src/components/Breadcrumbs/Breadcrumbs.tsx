@@ -8,6 +8,7 @@ import {
 import React, { forwardRef } from "react";
 import Icon from "../Icons/Icon";
 import Tooltip from "../Tooltip/Tooltip";
+import { truncateText } from "../../utils/utils";
 
 export type BreadcrumbsTypes =
   | "blogs"
@@ -32,18 +33,17 @@ export interface BreadcrumbProps {
   id?: string;
 }
 
-const breadcrumbTextLength = 60;
+const breadcrumbTextLength = 40;
 
-// Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end.
+// Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
 const breadcrumbText = (text, id) => {
   if (text.length <= breadcrumbTextLength) {
     return text;
   }
 
-  const subString = text.substr(0, breadcrumbTextLength - 1);
   return (
     <Tooltip content={text} id={`breadcrumb-${id}-tooltip`}>
-      {`${subString.substr(0, subString.lastIndexOf(" "))}...`}
+      {truncateText(text, breadcrumbTextLength)}
     </Tooltip>
   );
 };
