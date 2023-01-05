@@ -76,6 +76,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   </form>
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -284,6 +285,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   </form>
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -449,6 +451,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   </form>
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1037,6 +1040,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   </form>
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
@@ -1126,6 +1130,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   </form>
   <div
     aria-atomic={true}
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {

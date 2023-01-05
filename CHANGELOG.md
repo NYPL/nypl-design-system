@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color for the `"iconOnly"` and `"text"` variants of the `Button` component.
 - Updates the DOM in the header of the `FeedbackBox` component to improve accessibility.
 - Updates the `Link` component to include descriptive text for screen readers in the component's `"external"` variant.
+- Updates the `HelperErrorText` component to set the `ariaLive` default value to `"polite"`.
 
 ### Fixes
 
@@ -33,10 +34,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 - Removes the `Link` component warning about the deprecated `button` variant. This change is temporary and will be reverted once teams are able to update their `Link`s appropriately.
-
-### Deprecates
-
-- Deprecates the `ariaLive` prop in the `HelperErrorText` component.
 
 ## 1.3.1 (December 15, 2022)
 
