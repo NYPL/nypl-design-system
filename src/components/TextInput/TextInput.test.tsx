@@ -124,6 +124,46 @@ describe("TextInput", () => {
     );
   });
 
+  it("has an 'autocomplete' attribute if the type is 'email', 'tel', or 'url'", () => {
+    expect(screen.getByRole("textbox")).not.toHaveAttribute("autocomplete");
+
+    utils.rerender(
+      <TextInput
+        id="myEmailInput"
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        type="email"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "autocomplete",
+      "email"
+    );
+
+    utils.rerender(
+      <TextInput
+        id="myTelInput"
+        labelText="Custom Tel Input Label"
+        onChange={changeHandler}
+        type="tel"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "tel");
+
+    utils.rerender(
+      <TextInput
+        id="myURLInput"
+        labelText="Custom URL Input Label"
+        onChange={changeHandler}
+        type="url"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "url");
+  });
+
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
