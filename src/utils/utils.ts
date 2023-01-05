@@ -119,8 +119,6 @@ export const contrastRatio = (hex1: string, hex2: string) => {
 };
 
 export const truncateText = (text: string, truncateTextLength: 60) => {
-  if (text.length > truncateTextLength) {
-    const subString = text.substr(0, truncateTextLength - 1);
-    return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
-  }
+  const subString = text.substr(0, truncateTextLength - 1);
+  return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
 };
