@@ -179,9 +179,7 @@ describe("Truncate breadcrumb text", () => {
     // The last breadcrumb (the active page) is not a link.
     // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
     expect(
-      screen.getByText(
-        /Great-Grandchild with the Longest Name.../
-      )
+      screen.getByText(/Great-Grandchild with the Longest Name.../)
     ).toBeInTheDocument();
   });
 });
