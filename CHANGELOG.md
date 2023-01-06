@@ -22,7 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the DOM in the header of the `FeedbackBox` component to improve accessibility.
 - Updates the `Link` component to include descriptive text for screen readers in the component's `"external"` variant.
 - Updates the `HelperErrorText` component to set the `ariaLive` default value to `"polite"`.
-- Truncate breadcrumb text if beyond 60 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
 
 ### Fixes
 
