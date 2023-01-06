@@ -374,6 +374,62 @@ describe("Slider", () => {
       expect(currentValue).toEqual(84);
     });
 
+    it("gets the current value through the onChangeEnd callback function", () => {
+      let currentValue = 0;
+      function onChangeEnd(value: number | number[]) {
+        currentValue = value as number;
+      }
+
+      render(
+        <Slider
+          id="slider"
+          defaultValue={50}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+          onChangeEnd={onChangeEnd}
+        />
+      );
+
+      const input = screen.getByRole("spinbutton");
+      fireEvent.change(input, {
+        target: { value: "42" },
+      });
+      expect(currentValue).toEqual(42);
+
+      fireEvent.change(input, {
+        target: { value: "84" },
+      });
+      expect(currentValue).toEqual(84);
+    });
+
+    it("logs a warning when both `onChange` and `onChangeEnd` are passed", () => {
+      const warn = jest.spyOn(console, "warn");
+      let currentValue = 0;
+      function onChange(value: number | number[]) {
+        currentValue = value as number;
+      }
+      function onChangeEnd(value: number | number[]) {
+        currentValue = value as number;
+      }
+
+      render(
+        <Slider
+          id="slider"
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+          onChange={onChange}
+          onChangeEnd={onChangeEnd}
+        />
+      );
+
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
+      );
+      expect(currentValue).toEqual(0);
+    });
+
     it("updates the value programmatically through the `value` prop", () => {
       let value = 15;
 
@@ -868,5 +924,35 @@ describe("Slider", () => {
 
       expect(container.querySelectorAll("div")[0]).toBe(ref.current);
     });
+  });
+
+  it("gets the current value through the onChangeEnd callback function", () => {
+    let currentValue = [0, 100];
+    function onChangeEnd(value: number | number[]) {
+      currentValue = value as number[];
+    }
+
+    render(
+      <Slider
+        id="rangeSlider"
+        defaultValue={[25, 75]}
+        helperText="Component helper text."
+        invalidText="Component error text :("
+        labelText="Label"
+        isRangeSlider
+        onChangeEnd={onChangeEnd}
+      />
+    );
+
+    const inputs = screen.getAllByRole("spinbutton");
+    fireEvent.change(inputs[0], {
+      target: { value: "42" },
+    });
+    expect(currentValue).toEqual([42, 75]);
+
+    fireEvent.change(inputs[1], {
+      target: { value: "84" },
+    });
+    expect(currentValue).toEqual([42, 84]);
   });
 });
