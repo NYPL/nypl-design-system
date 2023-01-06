@@ -160,6 +160,7 @@ export const TextInput = chakra(
       });
       const isTextArea = type === "textarea";
       const isHidden = type === "hidden";
+      let hasAutocomplete = false;
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -174,6 +175,19 @@ export const TextInput = chakra(
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
+
+      if (type === "tel" || type === "url" || type === "email") {
+        hasAutocomplete = true;
+        const example = TextInputFormats[type] || "";
+        footnote = (
+          <>
+            Ex: {example}
+            <br />
+            {footnote}
+          </>
+        );
+      }
+
       const ariaAttributes = getAriaAttrs({
         footnote,
         id,
@@ -181,6 +195,7 @@ export const TextInput = chakra(
         name: "TextInput",
         showLabel,
       });
+
       const onClearClick = () => {
         setFinalValue("");
         isClearableCallback && isClearableCallback();
@@ -210,18 +225,6 @@ export const TextInput = chakra(
           "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
         );
       }
-
-      if (type === "tel" || type === "url" || type === "email") {
-        const example = TextInputFormats[type] || "";
-        footnote = (
-          <>
-            Ex: {example}
-            <br />
-            {footnote}
-          </>
-        );
-      }
-
       // When the type is "hidden", the input element needs fewer attributes.
       options = isHidden
         ? {
@@ -234,6 +237,7 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
+            autocomplete: hasAutocomplete ? type : null,
             defaultValue,
             id,
             isDisabled,
