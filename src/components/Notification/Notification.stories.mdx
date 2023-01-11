@@ -134,13 +134,13 @@ the button, an `aria-label` attribute is added to the button.
 When the `Notification` component is rendered, the text within the component
 should always included wording that aligns with the type of notitication that
 is being delivered. For example, if the notification is a warning or error, the
-heading or body copy within the notification should use the words "warning" or
-"error" and provide a clear description of the existing or potential isssue.
+heading or body copy within the notification should use the words `"warning"` or
+`"error"` and provide a clear description of the existing or potential isssue.
 
 **Dynamic Notifications**<br />
 If dynamically generated notifications are required, a container into which the
 notification will be injected should be included in the DOM. The container
-element should have aria-live="polite" applied. The container element should
+element should have `aria-live="polite"` applied. The container element should
 always be rendered in the DOM regardless of the presence of the Notification
 component. This DOM structure will allow the newly generated content to be
 recognized and announced by assistive technology.
