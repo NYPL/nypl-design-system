@@ -307,7 +307,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     no label
   </legend>
   <div
-    aria-label="no label"
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="noLabel"

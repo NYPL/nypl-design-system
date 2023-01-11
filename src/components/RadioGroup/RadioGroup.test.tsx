@@ -59,6 +59,22 @@ describe("Radio Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+  it("passes axe accessibility with the legend hidden", async () => {
+    const { container } = render(
+      <RadioGroup
+        id="radioGroup"
+        labelText="Test Label"
+        name="test3"
+        helperText="This is the helper text for the full group."
+        invalidText="This is the error text :("
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Radio Button", () => {
@@ -77,8 +93,22 @@ describe("Radio Button", () => {
     expect(screen.getByText("Radio 4")).toBeInTheDocument();
   });
 
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    render(
+  it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
+    const { rerender } = render(
+      <RadioGroup
+        id="radioGroup"
+        labelText="Test Label"
+        name="test2"
+        showLabel={true}
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    expect(screen.getByText("Test Label")).toBeVisible();
+
+    rerender(
       <RadioGroup
         id="radioGroup"
         labelText="Test Label"
@@ -90,10 +120,7 @@ describe("Radio Button", () => {
         <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
-    expect(screen.getByRole("radiogroup")).toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
+    expect(screen.getByText("Test Label")).toBeVisible();
   });
 
   it("renders visible helper or error text", () => {

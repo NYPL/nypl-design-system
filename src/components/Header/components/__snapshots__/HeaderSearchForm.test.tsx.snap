@@ -154,7 +154,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               Type of search
             </legend>
             <div
-              aria-label="Type of search"
               className="chakra-radio-group css-0"
               role="radiogroup"
             >
