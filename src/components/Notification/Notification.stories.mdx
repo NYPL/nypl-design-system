@@ -118,15 +118,32 @@ be rendered inside other landmark elements such as the `header` and `footer`
 landmark elements. Adding a `Notification` component inside an HTML `main` landmark
 element is acceptable.
 
+**Arial Label**<br />
 Every `Notification` component must have a unique `aria-label` attribute. This
 is set through the `ariaLabel` prop. A unique `aria-label` value, along with the
 `aside` HTML landmark element, helps screen readers better navigate a page with
 multiple `Notification`s.
 
+**Icons**<br />
 Icons rendered in the `Notification` component are decorative by default which
 means that they are hidden to screen readers. Since the "X" close icon inside the
 dismissible button is decorative and because there is no discernible text inside
 the button, an `aria-label` attribute is added to the button.
+
+**Language Patterns**<br />
+When the `Notification` component is rendered, the text within the component
+should always included wording that aligns with the type of notitication that
+is being delivered. For example, if the notification is a warning or error, the
+heading or body copy within the notification should use the words "warning" or
+"error" and provide a clear description of the existing or potential isssue.
+
+**Dynamic Notifications**<br />
+If dynamically generated notifications are required, a container into which the
+notification will be injected should be included in the DOM. The container
+element should have aria-live="polite" applied. The container element should
+always be rendered in the DOM regardless of the presence of the Notification
+component. This DOM structure will allow the newly generated content to be
+recognized and announced by assistive technology.
 
 Resources:
 
