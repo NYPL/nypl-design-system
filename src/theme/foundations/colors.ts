@@ -32,7 +32,7 @@ const grayMedium = "#BDBDBD";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
-const linkPrimary = "#0576D3";
+const linkPrimary = "#0069BF";
 const linkSecondary = "#004B98";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
@@ -284,18 +284,18 @@ const colors: Colors = {
     800: "#066014",
     900: "#03300A",
   },
-  /** based on ui.link.primary = #0576D3 */
+  /** based on ui.link.primary = #0069BF */
   blue: {
-    50: "#E6F3FE",
-    100: "#B9DFFD",
-    200: "#8CCAFC",
-    300: "#60B5FB",
-    400: "#33A0FA",
-    500: "#068BF9",
-    600: "#056FC7",
-    700: "#045495",
-    800: "#023864",
-    900: "#011C32",
+    50: "#E6F0F9",
+    100: "#ACCEEA",
+    200: "#73ADDC",
+    300: "#398BCD",
+    400: "#0069BF",
+    500: "#0058A0",
+    600: "#004782",
+    700: "#003763",
+    800: "#002645",
+    900: "#73ADDC",
   },
 };
 
