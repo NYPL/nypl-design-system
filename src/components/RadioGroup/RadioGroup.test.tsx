@@ -94,7 +94,7 @@ describe("Radio Button", () => {
   });
 
   it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
-    const { rerender } = render(
+    const { container, rerender } = render(
       <RadioGroup
         id="radioGroup"
         labelText="Test Label"
@@ -106,7 +106,8 @@ describe("Radio Button", () => {
         <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
-    expect(screen.getByText("Test Label")).toBeVisible();
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
 
     rerender(
       <RadioGroup
@@ -120,7 +121,8 @@ describe("Radio Button", () => {
         <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
-    expect(screen.getByText("Test Label")).toBeVisible();
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
   });
 
   it("renders visible helper or error text", () => {

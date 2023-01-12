@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -105,7 +105,7 @@ describe("MulitSelectGroup Accessibility", () => {
   });
   it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
     const handleChangeMock = jest.fn();
-    const { rerender } = render(
+    const { container, rerender } = render(
       <MultiSelectGroup
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
@@ -126,7 +126,10 @@ describe("MulitSelectGroup Accessibility", () => {
         ))}
       </MultiSelectGroup>
     );
-    expect(screen.getByText("MultiSelectGroup example")).toBeVisible();
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent(
+      "MultiSelectGroup example"
+    );
 
     rerender(
       <MultiSelectGroup
@@ -149,7 +152,10 @@ describe("MulitSelectGroup Accessibility", () => {
         ))}
       </MultiSelectGroup>
     );
-    expect(screen.getByText("MultiSelectGroup example")).toBeVisible();
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent(
+      "MultiSelectGroup example"
+    );
   });
   xit("should throw warning when a non-MultiSelect component is used as a child", () => {
     const warn = jest.spyOn(console, "warn");
