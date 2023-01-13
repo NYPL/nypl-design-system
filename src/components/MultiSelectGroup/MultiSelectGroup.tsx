@@ -80,7 +80,6 @@ export const MultiSelectGroup = chakra(
           {...rest}
         >
           <Stack
-            aria-label={!showLabel ? labelText : undefined}
             className={className}
             columnGap="xs"
             data-testid="multi-select-group"
