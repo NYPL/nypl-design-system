@@ -35,6 +35,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   in the component's `"external"` variant.
 - Updates the `HelperErrorText` component to set the `ariaLive` default value
   to `"polite"`.
+- Updates the `Accessibility` details for the `Notification` component.
 
 ### Fixes
 
