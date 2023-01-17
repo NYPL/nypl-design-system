@@ -41,7 +41,7 @@ provided for screen reader users in several ways, including:
 
 For example, a link that is visibly titled "Read more" can:
 
-- include `<span class="sr-only">about jobs<?span>` after the visible text
+- include `<span class="sr-only">about jobs</span>` after the visible text
   within the link where `sr-only` is a custom class with styles to position the
   `<span>` element off-screen
 - add the `aria-label` attribute with complete descriptive text
@@ -53,7 +53,18 @@ For example, a link that is visibly titled "Read more" can:
 
 #### sr-only
 
-```jsx
+```html
+<style>
+  .sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal;
+  }
+</style>
+
 <a href="..." id="link1">
   Read more <span class="sr-only">about jobs</span>
 </a>
@@ -61,7 +72,7 @@ For example, a link that is visibly titled "Read more" can:
 
 #### aria-label
 
-```jsx
+```html
 <a href="..." id="link1" aria-label="read more about jobs">
   Read more
 </a>
@@ -69,7 +80,7 @@ For example, a link that is visibly titled "Read more" can:
 
 #### aria-labelledby
 
-```jsx
+```html
 <h2 id="jobsheading">Jobs</h2>
 ...
 <a href="..." id="link1" aria-labelledby="link1 jobsheading">
