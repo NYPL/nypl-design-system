@@ -94,7 +94,6 @@ export const RadioGroup = chakra(
       const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
       // Props for the `ChakraRadioGroup` component.
       const radioGroupProps = {
-        "aria-label": !showLabel ? labelText : undefined,
         name,
         onChange: (selected: string) => {
           setValue(selected);

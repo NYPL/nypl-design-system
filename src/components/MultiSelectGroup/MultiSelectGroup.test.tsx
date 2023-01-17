@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -78,9 +78,34 @@ describe("MulitSelectGroup Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
+  it("passes axe accessibility with the legend hidden", async () => {
     const handleChangeMock = jest.fn();
-    const { rerender } = render(
+    const { container } = render(
+      <MultiSelectGroup
+        id="MultiSelectGroup"
+        labelText="MultiSelectGroup example"
+        showLabel={false}
+        multiSelectWidth="default"
+      >
+        {multiSelectItems.map((multiSelectItem) => (
+          <MultiSelect
+            key={multiSelectItem.id}
+            id={multiSelectItem.id}
+            variant="listbox"
+            label={multiSelectItem.name}
+            items={multiSelectItem.items}
+            selectedItems={{}}
+            onChange={handleChangeMock}
+            onClear={() => "clear"}
+          />
+        ))}
+      </MultiSelectGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+  it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
+    const handleChangeMock = jest.fn();
+    const { container, rerender } = render(
       <MultiSelectGroup
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
@@ -101,9 +126,8 @@ describe("MulitSelectGroup Accessibility", () => {
         ))}
       </MultiSelectGroup>
     );
-    expect(screen.getByText("MultiSelectGroup example")).toBeInTheDocument();
-    expect(screen.getByTestId("multi-select-group")).not.toHaveAttribute(
-      "aria-label",
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent(
       "MultiSelectGroup example"
     );
 
@@ -128,8 +152,8 @@ describe("MulitSelectGroup Accessibility", () => {
         ))}
       </MultiSelectGroup>
     );
-    expect(screen.getByTestId("multi-select-group")).toHaveAttribute(
-      "aria-label",
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent(
       "MultiSelectGroup example"
     );
   });
