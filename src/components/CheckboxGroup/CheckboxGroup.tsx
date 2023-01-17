@@ -158,7 +158,6 @@ export const CheckboxGroup = chakra(
             direction={[layout]}
             spacing={spacingProp}
             ref={ref}
-            aria-label={!showLabel ? labelText : undefined}
           >
             {newChildren}
           </Stack>

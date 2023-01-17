@@ -362,7 +362,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     MultiSelectGroup example
   </legend>
   <div
-    aria-label="MultiSelectGroup example"
     className="chakra-stack css-10aqanz"
     data-testid="multi-select-group"
     id="MultiSelectGroup"
