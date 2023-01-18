@@ -1,8 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -17,6 +18,7 @@ import DSProvider from "../../theme/provider";
 - [Guidelines](#guidelines)
 - [Button Groups](#button-groups)
 - [Button Types](#button-types)
+- [Button Sizes](#button-sizes)
 - [Patterns](#patterns)
 - [Figma Reference](#figma-reference)
 
@@ -89,24 +91,27 @@ component.
 
 <Canvas>
   <DSProvider>
-    <ButtonGroup>
+    <ButtonGroup alignItems="center">
       <Button buttonType="primary" id="primary">
-        Primary Button
+        Primary
       </Button>
       <Button buttonType="secondary" id="secondary">
-        Secondary Button
+        Secondary
       </Button>
       <Button buttonType="text" id="text">
-        Text Button
-      </Button>
-      <Button buttonType="pill" id="pill">
-        Pill Button
+        Text
       </Button>
       <Button buttonType="callout" id="callout">
-        Callout Button
+        Callout
       </Button>
       <Button buttonType="noBrand" id="noBrand">
-        NoBrand Button
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="pill">
+        Pill
+      </Button>
+      <Button buttonType="link" id="link">
+        Link (deprecated)
       </Button>
     </ButtonGroup>
   </DSProvider>
@@ -128,12 +133,6 @@ component.
 - used for equally weighted actions
 - Visual Treatment: plain text only without an underline
 
-### Pill
-
-- used for equally weighted actions
-- should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
-- Visual Treatment: rounded, outlined
-
 ### Callout
 
 - used for call to actions such as donation buttons
@@ -143,6 +142,129 @@ component.
 
 - used in cases where there is no brand color
 - Visual Treatment: rectangular, filled with a black background
+
+### Pill
+
+- used for equally weighted actions
+- should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
+- Visual Treatment: rounded, outlined
+
+### Link (deprecated)
+
+The `link` variant has been deprecated for accessibility reasons. From a visual
+standpoint, an underlined link has the expected functionality of navigating to
+a new page within the current site. If we are true to semantic coding, buttons
+will not be used for this same type of navigational functionality and styling 
+a button to mimic the look of a standard link could cause unnecessary confusion.
+
+## Button Sizes
+
+The `size` prop should be used to render various sizes of the button component:
+`"small"`, `"medium"` (default) and `"large"`.
+
+### Small
+
+- This is a reduced button size.
+- This size can be used when space is limited or when the action is of lesser
+  significance.
+- **IMPORTANT:** Even though the `"small"` size is available, it is recommended
+  to use the `"medium"` or `"large"` sizes.
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup alignItems="center">
+      <Button buttonType="primary" id="small-primary" size="small">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="small-secondary" size="small">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="small-text" size="small">
+        Text
+      </Button>
+      <Button buttonType="callout" id="small-callout" size="small">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="small-nobrand" size="small">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="small-pill" size="small">
+        Pill
+      </Button>
+      <Button buttonType="link" id="small-link" size="small">
+        Link (deprecated)
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
+
+### Medium
+
+- This is the default button size.
+- This button size should be used unless there is a very compelling reason to
+  use one of the other sizes.
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup alignItems="center">
+      <Button buttonType="primary" id="medium-primary" size="medium">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="medium-secondary" size="medium">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="medium-text" size="medium">
+        Text
+      </Button>
+      <Button buttonType="callout" id="medium-callout" size="medium">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="medium-nobrand" size="medium">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="medium-pill" size="medium">
+        Pill
+      </Button>
+      <Button buttonType="link" id="medium-link" size="medium">
+        Link (deprecated)
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
+
+### Large
+
+- This is an enlarged button size.
+- This size can be used to bring prominence to a button that needs to have a major impact.
+- **IMPORTANT:** Use the `"large"` size sparingly. Layouts should generally have only one `"large"` button.
+
+<Canvas>
+  <DSProvider>
+    <ButtonGroup alignItems="center">
+      <Button buttonType="primary" id="large-primary" size="large">
+        Primary
+      </Button>
+      <Button buttonType="secondary" id="large-secondary" size="large">
+        Secondary
+      </Button>
+      <Button buttonType="text" id="large-text" size="large">
+        Text
+      </Button>
+      <Button buttonType="callout" id="large-callout" size="large">
+        Callout
+      </Button>
+      <Button buttonType="noBrand" id="large-nobrand" size="large">
+        NoBrand
+      </Button>
+      <Button buttonType="pill" id="large-pill" size="large">
+        Pill
+      </Button>
+      <Button buttonType="link" id="large-link" size="large">
+        Link (deprecated)
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
+</Canvas>
 
 ## Patterns
 

@@ -48,6 +48,24 @@ describe("SearchBar Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with `clear` button", async () => {
+    const { container } = render(
+      <SearchBar
+        helperText={helperText}
+        id="id"
+        invalidText={invalidText}
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={{
+          isClearable: true,
+          value: "input value",
+          ...textInputProps,
+        }}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with a Select component", async () => {
     const { container } = render(
       <SearchBar
@@ -160,6 +178,44 @@ describe("SearchBar", () => {
 
     // Seven times for every letter in the search string
     expect(textInputProps.onChange).toHaveBeenCalledTimes(7);
+  });
+
+  it("renders a `clear` button and clears the input field when clicked", () => {
+    render(
+      <SearchBar
+        helperText={helperText}
+        id="id"
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={{
+          isClearable: true,
+          ...textInputProps,
+        }}
+      />
+    );
+    // The `labelText` value is "Item Search".
+    let clearButton = screen.queryByRole("button", {
+      name: "Clear Item Search",
+    });
+
+    // Renders when `isClearable` is true and the input has a value.
+    expect(clearButton).not.toBeInTheDocument();
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button", {
+      name: "Clear Item Search",
+    });
+    expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
   });
 
   it("calls the Select onChange callback function", () => {
@@ -315,6 +371,20 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withClearButton = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="withClearButton"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={{
+            isClearable: true,
+            ...textInputProps,
+          }}
+        />
+      )
+      .toJSON();
     const invalidState = renderer
       .create(
         <SearchBar
@@ -422,6 +492,7 @@ describe("SearchBar", () => {
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
     expect(withoutHelperText).toMatchSnapshot();
+    expect(withClearButton).toMatchSnapshot();
     expect(invalidState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
     expect(requiredState).toMatchSnapshot();

@@ -30,6 +30,7 @@ export interface SelectProps extends BaseProps {
   onChange?: (event: React.FormEvent) => void;
 }
 export interface TextInputProps extends BaseProps {
+  isClearable?: boolean;
   placeholder?: string;
 }
 
@@ -152,6 +153,7 @@ export const SearchBar = chakra(
     const textInputNative = textInputProps && (
       <TextInput
         id={textInputProps?.id || `searchbar-textinput-${id}`}
+        isClearable={textInputProps?.isClearable}
         labelText={textInputProps?.labelText}
         name={textInputProps?.name}
         onChange={textInputProps?.onChange}
@@ -170,7 +172,7 @@ export const SearchBar = chakra(
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
-        __css={searchBarButtonStyles}
+        sx={searchBarButtonStyles}
       >
         <Icon
           align="left"

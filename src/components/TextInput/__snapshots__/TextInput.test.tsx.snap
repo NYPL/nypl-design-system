@@ -13,10 +13,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     Custom textarea Label
   </label>
   <textarea
+    autocomplete={null}
     className="chakra-textarea css-0"
     disabled={false}
     id="myTextarea"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Textarea Placeholder"
     required={false}
@@ -42,15 +44,18 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
   </label>
   <input
     aria-required={true}
+    autocomplete={null}
     className="chakra-input css-0"
     disabled={false}
     id="myTextInput"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={true}
     step={null}
     type="text"
+    value=""
   />
 </div>
 `;
@@ -66,43 +71,29 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     id="myTextInput-label"
   >
     Custom Input Label
+    <span>
+       (Obiligatoire)
+    </span>
   </label>
   <input
-    className="chakra-input css-0"
-    disabled={false}
-    id="myTextInput"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    placeholder="Input Placeholder"
-    required={false}
-    step={null}
-    type="text"
-  />
-</div>
-`;
-
-exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
-<div
-  className="css-1u8qly9"
-  id="myTextInput-wrapper"
->
-  <input
-    aria-label="Custom Input Label"
     aria-required={true}
+    autocomplete={null}
     className="chakra-input css-0"
     disabled={false}
     id="myTextInput"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={true}
     step={null}
     type="text"
+    value=""
   />
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
   id="myTextInput-wrapper"
@@ -113,34 +104,44 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <span>
-       (Required)
-    </span>
   </label>
   <input
-    aria-describedby="myTextInput-helperText"
-    aria-required={true}
+    autocomplete={null}
     className="chakra-input css-0"
     disabled={false}
     id="myTextInput"
     onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
+<div
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
+>
+  <input
+    aria-label="Custom Input Label"
+    aria-required={true}
+    autocomplete={null}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={true}
     step={null}
     type="text"
-  />
-  <div
-    aria-atomic={true}
-    aria-live="off"
-    className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Custom helper text",
-      }
-    }
-    data-isinvalid={false}
-    id="myTextInput-helperText"
+    value=""
   />
 </div>
 `;
@@ -162,17 +163,19 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   </label>
   <input
     aria-describedby="myTextInput-helperText"
-    aria-invalid={true}
     aria-required={true}
+    autocomplete={null}
     className="chakra-input css-0"
     disabled={false}
     id="myTextInput"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={true}
     step={null}
     type="text"
+    value=""
   />
   <div
     aria-atomic={true}
@@ -180,10 +183,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
-        "__html": "There is an error related to this field.",
+        "__html": "Custom helper text",
       }
     }
-    data-isinvalid={true}
+    data-isinvalid={false}
     id="myTextInput-helperText"
   />
 </div>
@@ -205,21 +208,100 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     </span>
   </label>
   <input
+    aria-describedby="myTextInput-helperText"
+    aria-invalid={true}
     aria-required={true}
+    autocomplete={null}
     className="chakra-input css-0"
-    disabled={true}
+    disabled={false}
     id="myTextInput"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={true}
     step={null}
     type="text"
+    value=""
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "There is an error related to this field.",
+      }
+    }
+    data-isinvalid={true}
+    id="myTextInput-helperText"
   />
 </div>
 `;
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
+<div
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+    <span>
+       (Required)
+    </span>
+  </label>
+  <input
+    aria-required={true}
+    autocomplete={null}
+    className="chakra-input css-0"
+    disabled={true}
+    id="myTextInput"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
+<div
+  className="css-1u8qly9"
+  id="myTextInput-wrapper"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+  </label>
+  <input
+    autocomplete={null}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
   className="css-1y4kn3e"
   id="chakra-wrapper"
@@ -232,20 +314,23 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     Custom Input Label
   </label>
   <input
+    autocomplete={null}
     className="chakra-input css-0"
     disabled={false}
     id="chakra"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={false}
     step={null}
     type="text"
+    value=""
   />
 </div>
 `;
 
-exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
+exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
@@ -259,16 +344,19 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     Custom Input Label
   </label>
   <input
+    autocomplete={null}
     className="chakra-input css-0"
     data-testid="props"
     disabled={false}
     id="props"
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     placeholder="Input Placeholder"
     required={false}
     step={null}
     type="text"
+    value=""
   />
 </div>
 `;

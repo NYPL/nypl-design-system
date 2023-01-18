@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
@@ -6,7 +6,15 @@ import Icon from "../Icons/Icon";
 export type LinkTypes =
   | "action"
   | "backwards"
+  // The "button" type is deprecated as of 1.2.x.
   | "button"
+  // Instead, use the following "buttonX" types.
+  | "buttonPrimary"
+  | "buttonSecondary"
+  | "buttonPill"
+  | "buttonCallout"
+  | "buttonNoBrand"
+  | "buttonDisabled"
   | "default"
   | "external"
   | "forwards";
@@ -71,22 +79,32 @@ function getWithDirectionIcon(
   );
 }
 
-function getExternalIcon(children: JSX.Element, linkId: string) {
+function getExternalExtraElements(
+  children: JSX.Element,
+  linkId: string,
+  styles: object
+) {
   const iconId = `${linkId}-icon`;
-  const icon = (
-    <Icon
-      align={"right"}
-      className="more-link"
-      id={iconId}
-      name="actionLaunch"
-      size="medium"
-    />
+  const extraElements = (
+    <>
+      <Box as="span" __css={styles}>
+        This link opens in a new window
+      </Box>
+      <Icon
+        align={"right"}
+        className="more-link"
+        id={iconId}
+        name="actionLaunch"
+        size="medium"
+        title="External link"
+      />
+    </>
   );
 
   return (
     <>
       {children}
-      {icon}
+      {extraElements}
     </>
   );
 }
@@ -130,19 +148,27 @@ export const Link = chakra(
       type === "external"
     ) {
       variant = "moreLink";
-    } else if (type === "button") {
-      variant = "button";
+    } else if (type.includes("button")) {
+      /** This deprecation warning is temporarily being removed, but it will be
+       * reinstated once teams are able to update their `Link`s appropriately. */
+      // if (type === "button") {
+      //   console.warn(
+      //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
+      //   );
+      // }
+      variant = type;
     }
-    const style = useStyleConfig("Link", { variant });
+    const styles = useMultiStyleConfig("Link", { variant });
     const rel = type === "external" ? "nofollow" : null;
     const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
-    // Forwards or Backwards.  Or render with the launch icon
-    // if the type is External.  Otherwise, do not add an icon.
+    // "forwards" or "backwards". Or render with the launch icon
+    // if the type is "external". Otherwise, do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children as JSX.Element, type, id)) ||
-      (type === "external" && getExternalIcon(children as JSX.Element, id)) ||
+      (type === "external" &&
+        getExternalExtraElements(children as JSX.Element, id, styles.srOnly)) ||
       children;
 
     if (!href) {
@@ -157,7 +183,7 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style} {...rest}>
+        <Box as="span" __css={styles} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -182,7 +208,7 @@ export const Link = chakra(
           onClick={onClick}
           target={target}
           {...linkProps}
-          __css={style}
+          __css={styles}
         >
           {newChildren}
         </Box>

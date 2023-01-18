@@ -3,7 +3,7 @@
 const categories = {
   accessibility: {
     title: "Accessibility Guide",
-    components: ["Skip Navigation"],
+    components: ["Links", "Repetitive Actions", "Skip Navigation"],
   },
   basicContent: {
     title: "Components/Basic Elements",
@@ -59,16 +59,21 @@ const categories = {
       "DatePicker",
       "DateRangePicker",
       "Dropdown",
+      "FeedbackBox",
       "Fieldset",
       "FileUploader",
+      "FilterBar",
       "Form",
       "Label",
+      "MultiSelect",
+      "MultiSelectGroup",
       "NumberInput",
       "Radio",
       "RadioGroup",
       "SearchBar",
       "Select",
       "Slider",
+      "TagSet",
       "Textarea",
       "TextInput",
       "Toggle",
@@ -79,6 +84,8 @@ const categories = {
     components: [
       "useCarouselStyles",
       "useCloseDropDown",
+      "useFilterBar",
+      "useMultiSelect",
       "useNYPLBreakpoints",
       "useNYPLTheme",
       "useWindowSize",
@@ -116,6 +123,7 @@ const categories = {
   navigation: {
     title: "Components/Navigation",
     components: [
+      "AlphabetFilter",
       "Breadcrumbs",
       "Link",
       "Menu",
@@ -142,7 +150,7 @@ const categories = {
   },
   typography: {
     title: "Components/Typography & Styles",
-    components: ["Heading", "List", "Text"],
+    components: ["Heading", "List", "StyledList", "Text"],
   },
 };
 

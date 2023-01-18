@@ -71,6 +71,8 @@ const getSecondaryVariantStyles = (bgColor: string = "ui.black") => ({
 // Variant styling
 const primary = {
   alignItems: "center",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
   display: "flex",
   flexFlow: {
     base: "column nowrap",
@@ -118,10 +120,11 @@ const tertiary = {
     color: "ui.white",
     display: "flex",
     flexFlow: "column nowrap",
-    padding: "inset.default",
+    px: "inset.default",
+    py: { base: "inset.default", xl: "inset.wide" },
     p: {
       marginBottom: "0",
-      marginTop: "s",
+      marginTop: { base: "xxs", xl: "xs" },
     },
   },
   heading: {
@@ -136,6 +139,8 @@ const tertiary = {
 };
 const campaign = {
   alignItems: "center",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
   display: "flex",
   justifyContent: "center",
   marginBottom: ["0", "0", "xxl"],

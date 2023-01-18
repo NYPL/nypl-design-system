@@ -1,7 +1,7 @@
-import { render, RenderResult, screen } from "@testing-library/react";
+import { render, RenderResult, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React from "react";
 import renderer from "react-test-renderer";
 
 import TextInput, { TextInputRefType } from "./TextInput";
@@ -31,6 +31,21 @@ describe("TextInput Accessibility", () => {
         placeholder="Input Placeholder"
         showLabel={false}
         type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with `clear` button", async () => {
+    const { container } = render(
+      <TextInput
+        id="textInput"
+        isClearable
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        type="text"
+        value="input value"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -83,6 +98,72 @@ describe("TextInput", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
+  it("adds aria-describedby attribute", async () => {
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-describedby",
+      "myTextInput-helperText"
+    );
+
+    utils.rerender(
+      <TextInput
+        helperText="Custom Email Helper Text"
+        id="myEmailInput"
+        isRequired
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        placeholder="Email Input Placeholder"
+        type="email"
+      />
+    );
+
+    await waitFor(() =>
+      expect(screen.getByRole("textbox")).toHaveAttribute(
+        "aria-describedby",
+        "myEmailInput-helperText"
+      )
+    );
+  });
+
+  it("has an 'autocomplete' attribute if the type is 'email', 'tel', or 'url'", () => {
+    expect(screen.getByRole("textbox")).not.toHaveAttribute("autocomplete");
+
+    utils.rerender(
+      <TextInput
+        id="myEmailInput"
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        type="email"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "autocomplete",
+      "email"
+    );
+
+    utils.rerender(
+      <TextInput
+        id="myTelInput"
+        labelText="Custom Tel Input Label"
+        onChange={changeHandler}
+        type="tel"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "tel");
+
+    utils.rerender(
+      <TextInput
+        id="myURLInput"
+        labelText="Custom URL Input Label"
+        onChange={changeHandler}
+        type="url"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "url");
+  });
+
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
@@ -98,6 +179,40 @@ describe("TextInput", () => {
 
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+  });
+
+  it("renders a custom 'Required' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        isRequired
+        requiredLabelText="Obligatoire"
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.getByText(/Obligatoire/i)).toBeInTheDocument();
+  });
+
+  it("does not render a custom '(Required)' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        isRequired
+        requiredLabelText="Obligatoire"
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showRequiredLabel={false}
+        type="text"
+      />
+    );
+
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.queryByText(/Obligatoire/i)).not.toBeInTheDocument();
   });
 
   it("does not render the label but adds it as an aria-label attribute", () => {
@@ -201,6 +316,104 @@ describe("TextInput", () => {
     );
   });
 
+  it("renders a `clear` button and clears the input field when clicked", () => {
+    const onChangeSpy = jest.fn();
+
+    utils.rerender(
+      <TextInput
+        id="isClearable"
+        isClearable
+        labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    let clearButton = screen.queryByRole("button");
+
+    // Renders when `isClearable` is true and the input has a value.
+    expect(clearButton).not.toBeInTheDocument();
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button");
+    expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
+  it("calls the `isClearableCallback` when the clear button is clicked for controlled TextInput", () => {
+    let value = "";
+    const setValue = (v) => {
+      value = v;
+    };
+
+    utils.rerender(
+      <TextInput
+        id="isClearable"
+        isClearable
+        isClearableCallback={() => setValue("")}
+        labelText="Input Label"
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Input Placeholder"
+        type="text"
+        value={value}
+      />
+    );
+    let clearButton = screen.queryByRole("button");
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button");
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
+  it("returns focus to the input field when the `clear` button is clicked", () => {
+    const onChangeSpy = jest.fn();
+
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        isClearable
+        labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    let inputElement = screen.getByRole("textbox");
+    let clearButton;
+
+    // Type some value
+    userEvent.type(inputElement, "text value");
+    clearButton = screen.queryByRole("button");
+    expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+
+    // The text should no longer be in the input field.
+    expect(inputElement).toHaveValue("");
+    expect(inputElement).toHaveFocus();
+  });
+
   it("logs a warning for the number type when the min prop is greater than the max prop", () => {
     const warn = jest.spyOn(console, "warn");
     render(
@@ -226,6 +439,21 @@ describe("TextInput", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+    );
+  });
+
+  it("logs a warning when `isClearable` is set to true for `textarea` type", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <TextInput
+        id="isClearable-warningn"
+        isClearable
+        labelText="Custom Input Label"
+        type="textarea"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: The `isClearable` prop cannot be used with the `textarea` type."
     );
   });
 });
@@ -340,6 +568,18 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const requiredLabelText = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          requiredLabelText="Obiligatoire"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type="text"
+        />
+      )
+      .toJSON();
     const optional = renderer
       .create(
         <TextInput
@@ -398,6 +638,17 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const withClearButton = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isClearable
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type="text"
+        />
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <TextInput
@@ -424,11 +675,13 @@ describe("UI Snapshots", () => {
 
     expect(basicTextarea).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(requiredLabelText).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
     expect(hiddenLabelText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();
     expect(errorState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
+    expect(withClearButton).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

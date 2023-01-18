@@ -12,7 +12,7 @@ export interface TooltipProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Value used to populate the tooltip content. */
-  content: string | React.ReactNode;
+  content: string | number | React.ReactNode;
   /** A class name for the Tooltip parent div. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -35,13 +35,13 @@ export const Tooltip = chakra(
       ...rest
     } = props;
 
-    if (typeof content !== "string") {
+    if (typeof content !== "string" && typeof content !== "number") {
       React.Children.map(
         content as React.ReactNode,
         (contentChild: React.ReactElement) => {
           if (contentChild.type !== Icon || contentChild.type !== Image) {
             console.warn(
-              "NYPL Reservoir Tooltip: Pass in a string, DS Icon, or DS Image into the 'content' prop."
+              "NYPL Reservoir Tooltip: Pass in a string, number, DS Icon, or DS Image into the 'content' prop."
             );
           }
         }
@@ -58,12 +58,16 @@ export const Tooltip = chakra(
 
     return (
       <ChakraTooltip
-        hasArrow
         aria-label={typeof content !== "string" ? "Tooltip" : undefined}
-        label={content}
+        closeDelay={750}
+        closeOnClick
+        closeOnEsc
+        closeOnMouseDown
+        hasArrow
         isDisabled={isDisabled}
-        placement="top"
+        label={content}
         openDelay={500}
+        placement="top"
         ref={ref}
         __css={styles}
         {...rest}

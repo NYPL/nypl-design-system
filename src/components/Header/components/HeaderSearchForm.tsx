@@ -165,13 +165,13 @@ const HeaderSearchForm = chakra(
               >
                 <Radio
                   id="circulatingCatalogSearch"
-                  labelText="Search books, music and movies"
+                  labelText="Search books, music, and movies"
                   value="circulatingCatalog"
                   __css={styles.radio}
                 />
                 <Radio
                   id="researchcatalogSearch"
-                  labelText="Search the research catalog"
+                  labelText="Search the Research Catalog"
                   value="researchCatalog"
                   __css={styles.radio}
                 />

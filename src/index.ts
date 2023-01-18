@@ -24,6 +24,11 @@ export {
   default as Accordion,
   AccordionTypes,
 } from "./components/Accordion/Accordion";
+export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
+export {
+  default as AudioPlayer,
+  AudioType,
+} from "./components/AudioPlayer/AudioPlayer";
 export {
   default as Breadcrumbs,
   BreadcrumbsTypes,
@@ -45,7 +50,12 @@ export {
   FullDateType,
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
+export {
+  default as FeedbackBox,
+  useFeedbackBox,
+} from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
+export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Header } from "./components/Header/Header";
@@ -79,6 +89,16 @@ export { default as List, ListTypes } from "./components/List/List";
 export { default as Logo, LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export {
+  default as MultiSelect,
+  MultiSelectProps,
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelect";
+export {
+  default as MultiSelectGroup,
+  MultiSelectGroupProps,
+} from "./components/MultiSelectGroup/MultiSelectGroup";
+export {
   default as Notification,
   NotificationTypes,
 } from "./components/Notification/Notification";
@@ -107,6 +127,7 @@ export {
   default as StructuredContent,
   StructuredContentImagePosition,
 } from "./components/StructuredContent/StructuredContent";
+export { default as StyledList } from "./components/StyledList/StyledList";
 export {
   default as Tabs,
   TabList,
@@ -114,6 +135,9 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
+export { default as TagSet } from "./components/TagSet/TagSet";
+export { TagSetExploreDataProps } from "./components/TagSet/TagSetExplore";
+export { TagSetFilterDataProps } from "./components/TagSet/TagSetFilter";
 export {
   TemplateAppContainer,
   Template,
@@ -134,6 +158,8 @@ export {
 } from "./components/TextInput/TextInput";
 export { default as Toggle, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
+export { default as useFilterBar } from "./hooks/useFilterBar";
+export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";

@@ -51,6 +51,8 @@ export interface CheckboxGroupProps {
   /** Whether or not to display the "(Required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
+  /** The values to programmatically update the selected `Checkbox`es. */
+  value?: string[];
 }
 
 const noop = () => {};
@@ -80,6 +82,7 @@ export const CheckboxGroup = chakra(
       showHelperInvalidText = true,
       showLabel = true,
       showRequiredLabel = true,
+      value,
       ...rest
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
@@ -96,12 +99,15 @@ export const CheckboxGroup = chakra(
           }
         : {};
 
+    if (value) {
+      checkboxProps["value"] = value;
+    }
+
     if (!id) {
       console.warn(
         "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
       );
     }
-
     // Go through the Checkbox children and update them as needed.
     React.Children.map(
       children as JSX.Element,
@@ -152,7 +158,6 @@ export const CheckboxGroup = chakra(
             direction={[layout]}
             spacing={spacingProp}
             ref={ref}
-            aria-label={!showLabel ? labelText : undefined}
           >
             {newChildren}
           </Stack>

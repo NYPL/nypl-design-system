@@ -11,7 +11,7 @@ import {
   SliderTrack as ChakraSliderTrack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -53,6 +53,8 @@ export interface SliderProps {
   name?: string;
   /** Callback function that gets the value(s) selected. */
   onChange?: (val: number | number[]) => void;
+  /** Callback function when the user is done selecting a new value. */
+  onChangeEnd?: (val: number | number[]) => void;
   /** Offers the ability to hide the `TextInput` boxes. */
   showBoxes?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
@@ -67,6 +69,8 @@ export interface SliderProps {
   showValues?: boolean;
   /** The amount to increase or decrease when using the slider thumb(s). */
   step?: number;
+  /** The value(s) to programmatically update the Slider or RangeSlider. */
+  value?: number | number[];
 }
 
 /**
@@ -92,18 +96,25 @@ export const Slider = chakra(
         min = 0,
         name,
         onChange,
+        onChangeEnd,
         showBoxes = true,
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
         showValues = true,
         step = 1,
+        value,
         ...rest
       } = props;
 
       if (!id) {
         console.warn(
           "NYPL Reservoir Slider: This component's required `id` prop was not passed."
+        );
+      }
+      if (onChange && onChangeEnd) {
+        console.warn(
+          "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
         );
       }
       // For the RangeSlider, if the defaultValue is not an array, then we set
@@ -116,6 +127,22 @@ export const Slider = chakra(
         : defaultValue;
       const [currentValue, setCurrentValue] =
         React.useState<typeof defaultValue>(finalDevaultValue);
+
+      // If the value(s) needs to be updated programmatically,
+      // listen to the `value` prop.
+      useEffect(() => {
+        if (value) {
+          if (typeof value === "number" && value !== currentValue) {
+            setCurrentValue(value);
+          } else if (
+            value[0] !== currentValue[0] ||
+            value[1] !== currentValue[1]
+          ) {
+            setCurrentValue(value);
+          }
+        }
+      }, [value, currentValue]);
+
       let finalIsInvalid = isInvalid;
       // In the Range Slider, if the first value is bigger than the second value,
       // then set the invalid state.
@@ -150,6 +177,10 @@ export const Slider = chakra(
         onChange: (val) => {
           setCurrentValue(val);
           onChange && onChange(val);
+        },
+        onChangeEnd: (val) => {
+          setCurrentValue(val);
+          onChangeEnd && onChangeEnd(val);
         },
         step,
         // Additional margins so slider thumbs don't overflow past the
@@ -189,7 +220,12 @@ export const Slider = chakra(
               setCurrentValue(newValue);
               // If the text input was updated directly,
               // send the data back to the user.
-              onChange && onChange(newValue);
+              if (onChange) {
+                onChange && onChange(newValue);
+              }
+              if (onChangeEnd) {
+                onChangeEnd && onChangeEnd(newValue);
+              }
             },
             ...textInputSharedProps,
           },
@@ -218,7 +254,12 @@ export const Slider = chakra(
               setCurrentValue(newValue);
               // If the text input was updated directly,
               // send the data back to the user.
-              onChange && onChange(newValue);
+              if (onChange) {
+                onChange && onChange(newValue);
+              }
+              if (onChangeEnd) {
+                onChangeEnd && onChangeEnd(newValue);
+              }
             },
             ...textInputSharedProps,
           },

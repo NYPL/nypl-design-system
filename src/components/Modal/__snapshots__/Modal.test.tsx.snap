@@ -3,7 +3,6 @@
 exports[`ModalTrigger renders the UI snapshot correctly 1`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  data-testid="button"
   id="modal-open-btn"
   onClick={[Function]}
   type="button"
@@ -15,7 +14,6 @@ exports[`ModalTrigger renders the UI snapshot correctly 1`] = `
 exports[`useModal renders the UI snapshot correctly 1`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  data-testid="button"
   id="1"
   onClick={[Function]}
   type="button"

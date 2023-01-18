@@ -1,4 +1,4 @@
-import { headerBlue, headerFocus } from "./header";
+import { headerLightBlue, headerBlue, headerFocus } from "./header";
 
 const HeaderSearchForm = {
   parts: ["searchBtn", "form", "radio", "textInput"],
@@ -49,12 +49,16 @@ const HeaderSearchForm = {
     searchBtn: {
       alignSelf: "end",
       backgroundColor: "transparent",
+      borderColor: "ui.white",
       borderRadius: "100px",
       borderWidth: "2px",
       height: { base: "65px", md: "60px" },
       marginTop: "40px",
-      marginRight: "0",
+      marginEnd: "0",
       maxHeight: "65px",
+      svg: {
+        marginTop: "xs",
+      },
       width: { base: "65px", md: "60px" },
       _focus: { ...headerFocus, borderRadius: "100px" },
       _hover: {
@@ -76,6 +80,24 @@ const HeaderSearchForm = {
     // Specifically target the radio labels.
     ".chakra-radio__label": {
       fontWeight: "medium",
+    },
+    mobileBtns: {
+      alignItems: "center",
+      backgroundColor: headerBlue,
+      borderRadius: "0",
+      display: "flex",
+      fontSize: "16px",
+      flex: "1",
+      justifyContent: "center",
+      padding: "25px 0",
+      svg: {
+        fill: headerLightBlue,
+        marginLeft: "15px",
+      },
+      _hover: {
+        backgroundColor: headerBlue,
+      },
+      _focus: headerFocus,
     },
   },
 };

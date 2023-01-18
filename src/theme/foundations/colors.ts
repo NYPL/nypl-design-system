@@ -1,4 +1,5 @@
 import { Colors } from "@chakra-ui/react";
+import { hexToRGB } from "../../utils/utils";
 
 /**
  * All colors can be found in Storybook:
@@ -23,14 +24,16 @@ import { Colors } from "@chakra-ui/react";
 const black = "#000";
 const white = "#fff";
 const grayDark = "#616161";
-const grayxxxxDark = "#121212";
-const grayxxxDark = "#191919";
-const grayxxDark = "#212121";
+const grayxxxxDark = "#191919";
+const grayxxxDark = "#252525";
+const grayxxDark = "#2E2E2E";
 const grayxDark = "#424242";
 const grayMedium = "#BDBDBD";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
+const linkPrimary = "#0576D3";
+const linkSecondary = "#004B98";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const brandObj = {
@@ -56,8 +59,9 @@ const colors: Colors = {
     },
     focus: "#4181F1",
     link: {
-      primary: "#0576D3",
-      secondary: "#004B98",
+      primary: linkPrimary,
+      "primary-05": hexToRGB(linkPrimary, 0.05),
+      secondary: linkSecondary,
     },
     status: {
       primary: "#F9E08E",
@@ -74,6 +78,7 @@ const colors: Colors = {
     },
     // Semantic colors
     bg: {
+      page: white,
       default: grayxLightCool,
       hover: grayLightCool,
       active: grayMedium,
@@ -85,6 +90,10 @@ const colors: Colors = {
     typography: {
       heading: black,
       body: black,
+      inverse: {
+        heading: white,
+        body: white,
+      },
     },
     // Grayscale
     gray: {
@@ -112,26 +121,26 @@ const colors: Colors = {
         secondary: grayxxDark,
       },
       error: {
-        primary: "#E1454C",
-        secondary: "#F67C82",
+        primary: "#E1767B",
+        secondary: "#F08F93",
       },
-      focus: "#5181D4",
+      focus: "#6090E3",
       link: {
-        primary: "#2085D8",
-        secondary: "#50A0E1",
+        primary: "#79B7EB",
+        secondary: "#95CFFF",
       },
       status: {
-        primary: "#6F6544",
-        secondary: "#6F6765",
+        primary: "#B69C46",
+        secondary: "#CB8E7C",
       },
       success: {
-        primary: "#0E3B15",
-        secondary: "#0F2912",
+        primary: "#52AA60",
+        secondary: "#81C88A",
       },
       test: "#592B22",
       warning: {
-        primary: "#493320",
-        secondary: "#482C15",
+        primary: "#DC8034",
+        secondary: "#F1A66A",
       },
       // Semantic colors
       bg: {
@@ -147,6 +156,10 @@ const colors: Colors = {
       typography: {
         heading: grayLightCool,
         body: grayMedium,
+        inverse: {
+          heading: grayxxDark,
+          body: grayxxDark,
+        },
       },
     },
   },

@@ -25,6 +25,19 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
 
 exports[`Label Renders the UI snapshot correctly 3`] = `
 <label
+  className="css-1xdhyk6"
+  htmlFor="some-input-id"
+  id="label3"
+>
+  Cupcakes
+  <span>
+     (Obligatoire)
+  </span>
+</label>
+`;
+
+exports[`Label Renders the UI snapshot correctly 4`] = `
+<label
   className="css-kle7zy"
   htmlFor="some-input-id"
   id="chakra"
@@ -33,7 +46,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
 </label>
 `;
 
-exports[`Label Renders the UI snapshot correctly 4`] = `
+exports[`Label Renders the UI snapshot correctly 5`] = `
 <label
   className="css-1xdhyk6"
   data-testid="props"

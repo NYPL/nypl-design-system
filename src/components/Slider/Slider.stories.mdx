@@ -8,8 +8,10 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
+import Form, { FormRow, FormField } from "../Form/Form";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Slider from "./Slider";
+import TextInput from "../TextInput/TextInput";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -48,6 +50,7 @@ import DSProvider from "../../theme/provider";
     },
     name: { control: false },
     onChange: { control: false },
+    onChangeEnd: { control: false },
     showBoxes: {
       table: { defaultValue: { summary: true } },
     },
@@ -66,6 +69,7 @@ import DSProvider from "../../theme/provider";
     step: {
       table: { defaultValue: { summary: 1 } },
     },
+    value: { control: false },
   }}
 />
 
@@ -74,7 +78,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.4`   |
-| Latest            | `1.0.6`    |
+| Latest            | `1.4.0`    |
 
 ## Table of Contents
 
@@ -84,6 +88,7 @@ import DSProvider from "../../theme/provider";
 - [RangeSlider](#rangeslider)
 - [Examples](#examples)
 - [Get Input Values](#get-input-values)
+- [Programmatically Update](#programmatically-update)
 
 ## Overview
 
@@ -112,12 +117,14 @@ For this type of component, the `value` prop must be a single number.
       min: 0,
       name: undefined,
       onChange: undefined,
+      onChangeEnd: undefined,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
       showRequiredLabel: true,
       showValues: true,
       step: 1,
+      value: undefined,
     }}
     argTypes={{
       isRangeSlider: {
@@ -192,12 +199,14 @@ numbers. This signifies the starting and ending values of the range slider.
       min: 0,
       name: undefined,
       onChange: undefined,
+      onChangeEnd: undefined,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
       showRequiredLabel: true,
       showValues: true,
       step: 1,
+      value: undefined,
     }}
     argTypes={{
       isRangeSlider: {
@@ -639,5 +648,212 @@ export function RangeSliderExample() {
 <Canvas>
   <DSProvider>
     <RangeSliderExample />
+  </DSProvider>
+</Canvas>
+
+### Get Final Slider Value
+
+Pass a callback function to the `onChangeEnd` prop to get the final number value
+of the `Slider` component or an array of two numbers when it is a range slider.
+
+Dragging the slider can trigger lots of updates and the consuming app might
+only be interested in the final result after sliding is complete. You can use
+`onChangeEnd` for this.
+
+#### Single Slider Value
+
+Open up the browser's developer console to see the value of the `Slider` after
+updating it. Notice the value is updated only when you stop dragging the slider.
+
+```tsx
+// Typescript example:
+function SliderEndExample() {
+  const onChangeEnd = (newValue: number) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      id="slider"
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+```
+
+export function SliderEndExample() {
+  const onChangeEnd = (newValue) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      id="slider"
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SliderEndExample />
+  </DSProvider>
+</Canvas>
+
+#### Range Slider Values
+
+Open up the browser's developer console to see the values of the `Slider`
+after updating it in the `isRangeSlider` state.
+
+```tsx
+// Typescript example:
+function RangeSliderEndExample() {
+  const onChangeEnd = (newValue: number[]) => {
+    const [start, end] = newValue;
+    console.log(`The Range Slider updated start value is: ${start}`);
+    console.log(`The Range Slider updated end value is: ${end}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      id="range-slider"
+      isRangeSlider
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+```
+
+export function RangeSliderEndExample() {
+  const onChangeEnd = (newValue) => {
+    const [start, end] = newValue;
+    console.log(`The Range Slider updated start value is: ${start}`);
+    console.log(`The Range Slider updated end value is: ${end}`);
+  };
+  return (
+    <Slider
+      defaultValue={[15, 75]}
+      helperText="Component helper text."
+      id="range-slider"
+      isRangeSlider
+      labelText="Label"
+      onChangeEnd={onChangeEnd}
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <RangeSliderEndExample />
+  </DSProvider>
+</Canvas>
+
+### Programmatically Update
+
+The `Slider` can be updated programmatically through the `value` prop. Like the
+`defaultValue` prop, the `value` prop also takes in a single number for the regular
+`Slider` component or an array of two numbers for the "Range" `Slider` component.
+
+When doing this, the consuming app is controlling the state of the values. By
+default, the `Slider` component internally keeps track of the current value(s)
+and returns the value(s) to the consuming app through the `onChange` callback.
+
+Open up the browser's developer console to see the values of the `Slider` after
+updating the two corresponding input elements below.
+
+```jsx
+function RangeSliderValuesUpdateExample() {
+  const [value, setValue] = React.useState([15, 75]);
+  const onChangeFirst = (newValue) => {
+    setValue([newValue.target.value, value[1]]);
+  };
+  const onChangeSecond = (newValue) => {
+    setValue([value[0], newValue.target.value]);
+  };
+  return (
+    <Form id="slider-example">
+      <FormRow>
+        <FormField>
+          <TextInput
+            id="textInput-s1"
+            labelText="First Slider value"
+            onChange={onChangeFirst}
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="textInput-s2"
+            labelText="Second Slider value"
+            onChange={onChangeSecond}
+          />
+        </FormField>
+      </FormRow>
+      <FormRow>
+        <FormField>
+          <Slider
+            defaultValue={[15, 75]}
+            helperText="Values can be updated through the two inputs aboev."
+            id="range-slider-text-example"
+            isRangeSlider
+            labelText="Slider with Updated Values"
+            showBoxes={false}
+            value={value}
+          />
+        </FormField>
+      </FormRow>
+    </Form>
+  );
+}
+```
+
+export function RangeSliderValuesUpdateExample() {
+  const [value, setValue] = React.useState([15, 75]);
+  const onChangeFirst = (newValue) => {
+    setValue([newValue.target.value, value[1]]);
+  };
+  const onChangeSecond = (newValue) => {
+    setValue([value[0], newValue.target.value]);
+  };
+  return (
+    <Form id="slider-example">
+      <FormRow>
+        <FormField>
+          <TextInput
+            id="textInput-s1"
+            labelText="First Slider value"
+            onChange={onChangeFirst}
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="textInput-s2"
+            labelText="Second Slider value"
+            onChange={onChangeSecond}
+          />
+        </FormField>
+      </FormRow>
+      <FormRow>
+        <FormField>
+          <Slider
+            defaultValue={[15, 75]}
+            helperText="Values can be updated through the two inputs aboev."
+            id="range-slider-text-example"
+            isRangeSlider
+            labelText="Slider with Updated Values"
+            showBoxes={false}
+            value={value}
+          />
+        </FormField>
+      </FormRow>
+    </Form>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <RangeSliderValuesUpdateExample />
   </DSProvider>
 </Canvas>

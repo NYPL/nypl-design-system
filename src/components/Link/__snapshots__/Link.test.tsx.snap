@@ -109,13 +109,18 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   target="_blank"
 >
   External
+  <span
+    className="css-0"
+  >
+    This link opens in a new window
+  </span>
   <svg
     aria-hidden={true}
     className="chakra-icon more-link css-1grhd2q"
     focusable={false}
     id="external-link-icon"
     role="img"
-    title="actionLaunch icon"
+    title="External link"
     viewBox="0 0 24 24"
   >
     <g
@@ -152,11 +157,71 @@ exports[`Link renders the UI snapshot correctly 5`] = `
   rel={null}
   target={null}
 >
-  Button
+  Button Primary
 </a>
 `;
 
 exports[`Link renders the UI snapshot correctly 6`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button Secondary
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 7`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button Pill
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 8`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button Callout
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 9`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button No Brand
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 10`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button Disabled
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 11`] = `
 <a
   className="css-1xdhyk6"
   href="#passed-in-link"
@@ -200,7 +265,7 @@ exports[`Link renders the UI snapshot correctly 6`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 7`] = `
+exports[`Link renders the UI snapshot correctly 12`] = `
 <span
   className="css-0"
 >
@@ -216,7 +281,7 @@ exports[`Link renders the UI snapshot correctly 7`] = `
 </span>
 `;
 
-exports[`Link renders the UI snapshot correctly 8`] = `
+exports[`Link renders the UI snapshot correctly 13`] = `
 <span
   className="css-0"
 >
@@ -260,7 +325,7 @@ exports[`Link renders the UI snapshot correctly 8`] = `
 </span>
 `;
 
-exports[`Link renders the UI snapshot correctly 9`] = `
+exports[`Link renders the UI snapshot correctly 14`] = `
 <a
   className="css-kle7zy"
   href="#passed-in-link"
@@ -272,7 +337,7 @@ exports[`Link renders the UI snapshot correctly 9`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 10`] = `
+exports[`Link renders the UI snapshot correctly 15`] = `
 <a
   className="css-1xdhyk6"
   data-testid="props"
@@ -285,7 +350,7 @@ exports[`Link renders the UI snapshot correctly 10`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 11`] = `
+exports[`Link renders the UI snapshot correctly 16`] = `
 <span
   className="css-0"
   data-testid="props"

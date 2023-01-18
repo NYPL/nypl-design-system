@@ -44,7 +44,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `1.0.6`    |
+| Latest            | `1.2.0`    |
 
 ## Table of Contents
 
@@ -136,6 +136,7 @@ export const logoNameValues = [
   "mlnBlack",
   "mlnColor",
   "mlnWhite",
+  "nycdoeColor",
   "nyplFullBlack",
   "nyplFullWhite",
   "nyplLionBlack",
@@ -168,12 +169,12 @@ export const logoNameValues = [
   "treasuresColorNegative",
 ];
 export const logoSizeValues = [
-  "default",
-  "xxsmall",
-  "xsmall",
-  "small",
-  "medium",
-  "large",
+  { size: "default", display: "default (100%)" },
+  { size: "xxsmall", display: "xxsmall (64px)" },
+  { size: "xsmall", display: "xsmall (96px)" },
+  { size: "small", display: "small (165px)" },
+  { size: "medium", display: "medium (225px)" },
+  { size: "large", display: "large (360px)" },
 ];
 for (const logo in logoNameValues) {
   logos.push(
@@ -183,8 +184,8 @@ for (const logo in logoNameValues) {
 for (const logoSize in logoSizeValues) {
   sizes.push(
     logoRow("nyplFullBlack", {
-      displayValue: logoSizeValues[logoSize],
-      size: logoSizeValues[logoSize],
+      displayValue: logoSizeValues[logoSize].display,
+      size: logoSizeValues[logoSize].size,
     })
   );
 }
@@ -236,7 +237,7 @@ Update the icon of the `Logo` component by passing the `name` prop with a value
 from the `LogoNames` type. The values are `"appleAppStoreBlack"`,
 `"appleAppStoreWhite"`,`"bplBlack"`, `"bplWhite"`, `"cleverBadgeColor"`, `"cleverColor"`,
 `"cleverWhite"`, `"firstbookColor"`, `"firstbookColorNegative"`, `"googlePlayBlack"`,
-`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnColor"`, `"mlnWhite"`,
+`"lpaBlack"`, `"lpaColor"`, `"lpaWhite"`, `"mlnBlack"`, `"mlnColor"`, `"mlnWhite"`, `"nycdoeColor"`,
 `"nyplFullBlack"`, `"nyplFullWhite"`, `"nyplLionBlack"`, `"nyplLionWhite"`, `"nyplTextBlack"`,
 `"nyplTextWhite"`, `"openebooksColor"`, `"openebooksNegative"`, `"openebooksWithTextColor"`,
 `"openebooksWithTextNegative"`, `"qplAltBlack"`, `"qplAltWhite"`, `"qplBlack"`,

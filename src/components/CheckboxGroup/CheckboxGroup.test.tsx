@@ -2,7 +2,7 @@ import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React from "react";
 import renderer from "react-test-renderer";
 
 import CheckboxGroup from "./CheckboxGroup";
@@ -58,6 +58,21 @@ describe("CheckboxGroup Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+  it("passes axe accessibility with the legend hidden", async () => {
+    const { container } = render(
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="Test Label"
+        name="test2"
+        showLabel={false}
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Checkbox", () => {
@@ -76,18 +91,16 @@ describe("Checkbox", () => {
     expect(screen.getByLabelText("Checkbox 4")).toBeInTheDocument();
   });
 
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    const { rerender } = render(
+  it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
+    const { container, rerender } = render(
       <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test2">
         <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
         <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
-    expect(screen.getByTestId("checkbox-group")).not.toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
 
     rerender(
       <CheckboxGroup
@@ -101,10 +114,8 @@ describe("Checkbox", () => {
         <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
-    expect(screen.getByTestId("checkbox-group")).toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
   });
 
   it("renders visible helper or error text", () => {
@@ -291,6 +302,38 @@ describe("Checkbox", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
     );
+  });
+
+  it("updates the selected checkboxes programmatically through the `value` prop", () => {
+    const value = ["physics", "english", "math"];
+    render(
+      <CheckboxGroup
+        id="programmatically-update-example"
+        labelText="Course Selection"
+        name="courseSelection"
+        value={value}
+      >
+        <Checkbox id="art" labelText="Art" value="art" />
+        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
+        <Checkbox id="english" labelText="English" value="english" />
+        <Checkbox id="magic" labelText="Magic" value="magic" />
+        <Checkbox id="math" labelText="Math" value="math" />
+        <Checkbox id="music" labelText="Music" value="music" />
+        <Checkbox id="physics" labelText="Physics" value="physics" />
+        <Checkbox id="science" labelText="Science" value="science" />
+      </CheckboxGroup>
+    );
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    // Only "physics", "english", and "math" are checked
+    expect(checkboxes[0]).not.toHaveAttribute("checked");
+    expect(checkboxes[1]).not.toHaveAttribute("checked");
+    expect(checkboxes[2]).toHaveAttribute("checked");
+    expect(checkboxes[3]).not.toHaveAttribute("checked");
+    expect(checkboxes[4]).toHaveAttribute("checked");
+    expect(checkboxes[5]).not.toHaveAttribute("checked");
+    expect(checkboxes[6]).toHaveAttribute("checked");
+    expect(checkboxes[7]).not.toHaveAttribute("checked");
   });
 
   it("renders the UI snapshot correctly", () => {

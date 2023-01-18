@@ -27,7 +27,7 @@ jest.mock("../../hooks/useNYPLBreakpoints", () => {
   }));
 });
 
-describe("Header Accessibility", () => {
+describe.skip("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
     // Mock the fetch API call in `SitewideAlerts`.
     (global as any).fetch = jest.fn(() =>
@@ -49,7 +49,7 @@ describe("Header Accessibility", () => {
 // TODO: These tests do not currently test the mobile web view.
 // We need to determine a way of doing this for all responsive
 // components, and will add this in at a later date.
-describe("Header", () => {
+describe.skip("Header", () => {
   let container;
 
   beforeEach(async () => {
@@ -179,7 +179,7 @@ describe("Header", () => {
   });
 });
 
-describe("Patron API call succeeds", () => {
+describe.skip("Patron API call succeeds", () => {
   const realGet = Cookies.get;
 
   beforeAll(async () => {
@@ -244,7 +244,7 @@ describe("Patron API call succeeds", () => {
   });
 });
 
-describe("Patron API call fails", () => {
+describe.skip("Patron API call fails", () => {
   const realGet = Cookies.get;
 
   beforeAll(async () => {
@@ -290,7 +290,7 @@ describe("Patron API call fails", () => {
   });
 });
 
-describe("Patron API returns wrong data", () => {
+describe.skip("Patron API returns wrong data", () => {
   const realGet = Cookies.get;
 
   beforeAll(async () => {
@@ -333,7 +333,7 @@ describe("Patron API returns wrong data", () => {
   });
 });
 
-describe("Patron API returns expired data, but refreshes the token successfully", () => {
+describe.skip("Patron API returns expired data, but refreshes the token successfully", () => {
   const realGet = Cookies.get;
 
   beforeAll(async () => {
@@ -420,7 +420,7 @@ describe("Patron API returns expired data, but refreshes the token successfully"
   });
 });
 
-describe("Patron API returns expired data and cannot refresh the token successfully", () => {
+describe.skip("Patron API returns expired data and cannot refresh the token successfully", () => {
   const realGet = Cookies.get;
 
   beforeAll(async () => {

@@ -1,4 +1,4 @@
-import { Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Spacer, VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -6,8 +6,11 @@ import {
   Meta,
   Story,
 } from "@storybook/addon-docs";
+import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
+import { Button } from "../Button/Button";
+import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
 import { getCategory } from "../../utils/componentCategories";
@@ -56,6 +59,7 @@ import DSProvider from "../../theme/provider";
     showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
+    value: { control: false },
   }}
 />
 
@@ -64,7 +68,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `1.0.2`    |
+| Latest            | `1.4.0`    |
 
 ## Table of Contents
 
@@ -78,6 +82,7 @@ import DSProvider from "../../theme/provider";
 - [With JSX Element labels](#with-jsx-element-labels)
 - [Indeterminate Example](#indeterminate-example)
 - [Getting Checkbox Input Values](#getting-checkbox-input-values)
+- [Programmatically Update](#programmatically-update)
 
 ## Overview
 
@@ -460,3 +465,128 @@ const onSubmit = () => {
   const CheckboxGroupValue = CheckboxGroupRef.current.value;
 };
 ```
+
+### Programmatically Update
+
+Within the `CheckboxGroup`, individual `Checkbox`es can be updated programmatically
+through the `value` prop. Similar to the `defaultValue` prop, the `value` prop
+also accepts an array of strings.
+
+When passing selected values through the `value` prop, the consuming app is now
+controlling the state of the values. By default, the `CheckboxGroup` component
+returns the value(s) checked to the consuming app through the `onChange` callback.
+Note that the `defaultValue` prop is not necessary unless there are values that
+should be checked when the component first renders.
+
+In the following example, the `CheckboxGroup` component works as expected, but
+now there are three (3) additional buttons that can update the selected checkboxes
+within the `CheckboxGroup` component. Open the browser's console to see the
+`onChange` callback being called _only_ when checkboxes are checked or unchecked.
+Clicking on a button does not trigger the `onChange` callback but does update
+the values.
+
+```jsx
+export function CheckboxGroupValuesUpdateExample() {
+  const [value, setValue] = useState([]);
+  const onClick1 = () => {
+    setValue(["art", "science", "math"]);
+  };
+  const onClick2 = () => {
+    setValue(["math", "music", "magic"]);
+  };
+  const onClick3 = () => {
+    setValue(["physics", "science", "chemistry"]);
+  };
+  const onChange = (data) => {
+    setValue(data);
+    console.log("Selected values:", data);
+  };
+  return (
+    <VStack align="stretch" spacing="m">
+      <span>Set values to:</span>
+      <ButtonGroup>
+        <Button id="btn1" onClick={onClick1}>
+          "art", "science", "math"
+        </Button>
+        <Button id="btn2" onClick={onClick2}>
+          "math", "music", "magic"
+        </Button>
+        <Button id="btn3" onClick={onClick3}>
+          "physics", "science", "chemistry"
+        </Button>
+      </ButtonGroup>
+      <CheckboxGroup
+        id="programmatically-update-example"
+        labelText="Course Selection"
+        name="courseSelection"
+        onChange={onChange}
+        value={value}
+      >
+        <Checkbox id="art" labelText="Art" value="art" />
+        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
+        <Checkbox id="english" labelText="English" value="english" />
+        <Checkbox id="magic" labelText="Magic" value="magic" />
+        <Checkbox id="math" labelText="Math" value="math" />
+        <Checkbox id="music" labelText="Music" value="music" />
+        <Checkbox id="physics" labelText="Physics" value="physics" />
+        <Checkbox id="science" labelText="Science" value="science" />
+      </CheckboxGroup>
+    </VStack>
+  );
+}
+```
+
+export function CheckboxGroupValuesUpdateExample() {
+  const [value, setValue] = useState([]);
+  const onClick1 = () => {
+    setValue(["art", "science", "math"]);
+  };
+  const onClick2 = () => {
+    setValue(["math", "music", "magic"]);
+  };
+  const onClick3 = () => {
+    setValue(["physics", "science", "chemistry"]);
+  };
+  const onChange = (data) => {
+    setValue(data);
+    console.log("Selected values:", data);
+  };
+  return (
+    <VStack align="stretch" spacing="m">
+      <span>Set values to:</span>
+      <ButtonGroup>
+        <Button id="btn1" onClick={onClick1}>
+          "art", "science", "math"
+        </Button>
+        <Button id="btn2" onClick={onClick2}>
+          "math", "music", "magic"
+        </Button>
+        <Button id="btn3" onClick={onClick3}>
+          "physics", "science", "chemistry"
+        </Button>
+      </ButtonGroup>
+      <CheckboxGroup
+        id="programmatically-update-example"
+        labelText="Course Selection"
+        name="courseSelection"
+        onChange={onChange}
+        value={value}
+      >
+        <Checkbox id="art" labelText="Art" value="art" />
+        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
+        <Checkbox id="english" labelText="English" value="english" />
+        <Checkbox id="magic" labelText="Magic" value="magic" />
+        <Checkbox id="math" labelText="Math" value="math" />
+        <Checkbox id="music" labelText="Music" value="music" />
+        <Checkbox id="physics" labelText="Physics" value="physics" />
+        <Checkbox id="science" labelText="Science" value="science" />
+      </CheckboxGroup>
+    </VStack>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroupValuesUpdateExample />
+  </DSProvider>
+</Canvas>

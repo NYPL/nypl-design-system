@@ -99,7 +99,7 @@ describe("HeaderSearchForm", () => {
 
     it("makes a request to the Research Catalog", async () => {
       const searchInput = screen.getByRole("textbox");
-      const researchRadio = screen.getByText("Search the research catalog");
+      const researchRadio = screen.getByText("Search the Research Catalog");
       const searchBtn = screen.getByRole("button");
 
       userEvent.type(searchInput, "cats");
@@ -159,10 +159,10 @@ describe("HeaderSearchForm", () => {
       expect(searchInput).toBeInTheDocument();
       expect(radios).toHaveLength(3);
       expect(
-        screen.getByLabelText("Search books, music and movies")
+        screen.getByLabelText("Search books, music, and movies")
       ).toBeInTheDocument();
       expect(
-        screen.getByLabelText("Search the research catalog")
+        screen.getByLabelText("Search the Research Catalog")
       ).toBeInTheDocument();
       expect(
         screen.getByLabelText("Search the library website")
@@ -174,7 +174,7 @@ describe("HeaderSearchForm", () => {
       const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
       userEvent.type(searchInput, "cats");
-      // Select the books, music and movies radio button
+      // Select the books, music, and movies radio button
       userEvent.click(circulatingCatalogRadio);
 
       // Fast-forward until all timers have been executed.

@@ -12,6 +12,180 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
 
+### Adds
+
+- Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
+- Adds the `useMultiSelect`, `useFilterBar` hook.
+- Adds the `onChangeEnd` prop in the `Slider` component.
+- Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
+  and `"url"`.
+- Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
+
+### Updates
+
+- Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`,
+  `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`,
+  `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`,
+  `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`,
+  `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
+  `dark.ui.success.secondary`, `dark.ui.warning.primary`
+  and `dark.ui.warning.secondary`.
+- Updates the layout of the category `RadioGroup` to `column` for the mobie
+  view of the `FeedbackBox` component.
+- Updates the background color for the `"iconOnly"` and `"text"` variants of
+  the `Button` component.
+- Updates the DOM in the header of the `FeedbackBox` component to improve
+  accessibility.
+- Updates the `Link` component to include descriptive text for screen readers
+  in the component's `"external"` variant.
+- Updates the `HelperErrorText` component to set the `ariaLive` default value
+  to `"polite"`.
+- Updates the `Accessibility` details for the `Notification` component.
+
+### Fixes
+
+- Fixes spacing and alignment issues in the `FeedbackBox` component.
+- Fixes the width of the Privacy Policy link in the `FeedbackBox` component.
+- Fixes issue where `aria-describedby` attribute was not being added to
+  some `TextInput`s.
+
+### Removes
+
+- Removes the `Link` component warning about the deprecated `button` variant.
+  This change is temporary and will be reverted once teams are able to update
+  their `Link`s appropriately.
+- Removes the `arial-label` attribute from the `CheckboxGroup` and `RadioGroup`
+  components for improved accessibility. Using the attribute is redundant with
+  the existing "screen reader only" `<legend>` element.
+
+## 1.3.1 (December 15, 2022)
+
+### Adds
+
+- Adds the optional `isClearableCallback` prop to the `TextInput` component. This prop works with the `isClearable` prop and the passed function is invoked when the "clear" button is clicked. This is most helpful for controlled `TextInput` component implementations.
+
+### Updates
+
+- Updates the background color for the `hover` state in the `secondary` variant of the `Button` component.
+
+### Fixes
+
+- Fixes the z-index value of the SVG icon in the `Select` component so it does not render above other elements on a consuming application's page.
+
+## 1.3.0 (December 8, 2022)
+
+This release is exactly the same as the `1.3.0-rc` release candidate published on December 2, 2022. The `rc` release was reviewed and validated.
+
+## 1.3.0-rc (Release Candidate December 2, 2022)
+
+### Adds
+
+- Adds additional color options to `Icon` component.
+- Adds reusable iconColors and iconNames arrays/types for DRYer, easier-to-update code.
+- Adds the following color options to the color theme object: `ui.bg.page`, `ui.typography.inverse.body`, `ui.typography.inverse.heading`, `dark.ui.typography.inverse.body`, and `dark.ui.typography.inverse.heading`.
+- Adds the `StyledList` component.
+- Adds the `FeedbackBox` component, `useFeedbackBox` component hook, and `useStateWithDependencies` helper hook.
+
+### Updates
+
+- Updates the data displayed on the Colors Style Guide to expand the contrast details for the `ui` and `dark.ui` color.
+- Updates the `md` breakpoint to `"37.5em"`, which is equal to `"600px"`.
+
+### Fixes
+
+- Adds Node environment variable to npm script that Vercel uses to build the site. This patches an error from webpack not building correctly.
+
+## 1.2.2 (November 10, 2022)
+
+### Adds
+
+- Adds an `isClearable` prop to the `TextInput` component. When set to `true`, a close `Button` component will render on top of the input element. Once clicked, any text value in the input field will be cleared and focus will return to the input element.
+- Adds the `isClearable` property to the `textInputProps` prop object in the `SearchBar` component. This allows the `isClearable` prop to be passed to the `TextInput` component to render the close `Button` component.
+
+### Updates
+
+- Updates the `Icon` and `Logo` documentation to include size values in px.
+- Updates the spacing within the `tertiary` variant of the `Hero` component.
+- Updates the `Buttons Style Guide` to extend the information about button sizes.
+- Updates the `viewport` options in Storybook to align with the Reservoir breakpoints.
+
+### Fixes
+
+- Fixes an invalid TOC link on the `Card` component Storybook page.
+- Fixes the sizing of the `errorFilled` and `errorOutline` icons in the `Icon` component.
+- Adds new props to Chakra's `ToolTip` to more forcefully close the DS `ToolTip`. New props include `closeDelay`, `closeOnClick`, `closeOnEsc`, and `closeOnMouseDown`.
+
+### Removes
+
+- Removes the `Button` component warning about the deprecated `link` variant. This change is temporary and will be reverted once teams are able to update their `Button`s appropriately.
+
+## 1.2.1 (October 27, 2022)
+
+### Adds
+
+- Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
+
+### Deprecates
+
+- Deprecates the `"button"` `type` variant for the `Link` component. Use any of the new `"buttonX"` variants instead.
+
+### Updates
+
+- Updates the `AlphabetFilter` component by adding `aria-label=“Filter by letter"` attribute
+  and removing the `role` attribute on the `<nav>` element.
+- Updates `AlphabetFilter` border color for the `active letter` indicator from
+  `ui.gray.medium` to `ui.gray.dark`.
+- Updates background styles for `Hero` component's `primary` and `campaign` variants.
+- Updates the hover styles for the `Checkbox` and `Radio` components.
+- Improves `TagSet` `"filter"` type accessibility by adding an `aria-label` that includes `"click to remove filter"`, when `isDismissible` is true.
+
+### Fixes
+
+- Updates Storybook npm packages to fix copying documentation and table of contents heading linking.
+
+## 1.2.0 (October 17, 2022)
+
+### Adds
+
+- Adds a variant for `NYCDOE` to the `Logo` component.
+- Adds the `TagSet` component.
+- Adds the `AlphabetFilter` component.
+- Adds the `AudioPlayer` component.
+- Adds the `requiredLabelText` prop to the `TextInput` and `Label` component.
+  This allows customizing the "(Required)" text for other languages.
+
+### Updates
+
+- Updates the `hamburger` SVG for the `Icon` component to allow for color assignments.
+- Updates `ComponentWrapper` prop `descriptionText` type to `string | JSX.Element`.
+
+## 1.1.2 (September 29, 2022)
+
+### Adds
+
+- Adds the `size` prop to the `Button` component. The accepted values are "small",
+  "medium", and "large". The default size value is "medium".
+- Adds the `value` prop to the `Slider` component to programmatically update the
+  values of the `Slider` component.
+- Adds the `value` prop to the `CheckboxGroup` component to programmatically
+  update the values of the `Checkbox`es within it.
+
+### Updates
+
+- Updates the colors for the `secondary` and `iconOnly` variants of the `Button` component.
+- Updates the `Tooltip` component to remove the dropshadow effect.
+- Updates whether the content inside of an `Accordion` is always rendered through the `isAlwaysRendered` prop.
+- Updates the spacing of the icon and text in the `Notification` component.
+- Updates the padding and placement of the links in the `Footer` component.
+- Updates how content in the `Table` component is aligned.
+- Updates the `Button` styles in the `Header`, `Notification`, `SearchBar`, and
+  `Tabs` components based on the new `size` prop.
+- Updates the `content` prop of the `Tooltip` component to accept number values.
+
+### Removals
+
+- Removed the `data-testid` attribute from the `Button` component.
+
 ## 1.1.1 (September 19, 2022)
 
 ### Adds

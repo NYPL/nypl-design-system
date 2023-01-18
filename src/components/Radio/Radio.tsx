@@ -3,6 +3,7 @@ import {
   chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -70,6 +71,7 @@ export const Radio = chakra(
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Radio", { showLabel });
+    const wrapperStyles = useStyleConfig("RadioWrapper");
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
@@ -96,6 +98,7 @@ export const Radio = chakra(
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
+        sx={wrapperStyles}
         {...rest}
       >
         <ChakraRadio
@@ -110,7 +113,7 @@ export const Radio = chakra(
           ref={ref}
           value={value}
           alignItems="flex-start"
-          __css={styles}
+          sx={styles}
           {...ariaAttributes}
         >
           <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>

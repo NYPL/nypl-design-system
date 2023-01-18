@@ -1,9 +1,24 @@
+import {
+  buttonBaseStyle,
+  callout,
+  noBrand,
+  pill,
+  primary,
+  secondary,
+} from "./button";
+import { screenreaderOnly } from "./globalMixins";
+
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
   _hover: {
     color: "ui.link.secondary",
   },
+};
+
+const baseButtonLinkStyles = {
+  ...buttonBaseStyle,
+  display: "inline-flex",
 };
 
 const variants = {
@@ -26,6 +41,7 @@ const variants = {
       textDecoration: "underline",
     },
   },
+  // The "button" variant is deprecated.
   button: {
     width: "100px",
     borderRadius: "sm",
@@ -45,17 +61,58 @@ const variants = {
       textDecoration: "none",
     },
   },
+  buttonPrimary: {
+    ...baseButtonLinkStyles,
+    ...primary({}),
+  },
+  buttonSecondary: {
+    ...baseButtonLinkStyles,
+    ...secondary({}),
+    _visited: {
+      color: "ui.link.primary",
+    },
+  },
+  buttonPill: {
+    ...baseButtonLinkStyles,
+    ...pill({}),
+    _visited: {
+      color: "ui.black",
+    },
+  },
+  buttonCallout: {
+    ...baseButtonLinkStyles,
+    ...callout({}),
+  },
+  buttonNoBrand: {
+    ...baseButtonLinkStyles,
+    ...noBrand({}),
+  },
+  buttonDisabled: {
+    ...baseButtonLinkStyles,
+    ...primary({}),
+    bg: "ui.gray.light-cool",
+    color: "ui.gray.dark",
+    opacity: "1",
+    pointerEvents: "none",
+    _visited: {
+      color: "ui.gray.dark",
+    },
+  },
 };
 const Link = {
+  parts: ["srOnly"],
   baseStyle: {
     ...baseLinkStyles,
-    // This is needed for custom anchor elements or link components
-    // that are passed as children to the `Link` component.
+    /** This is needed for custom anchor elements or link components
+     * that are passed as children to the `Link` component. */
     a: {
       _hover: {
         color: "ui.link.secondary",
       },
     },
+    /** The element will handle descriptive text added to aid
+     * screen readers. */
+    srOnly: screenreaderOnly(),
   },
   variants,
 };

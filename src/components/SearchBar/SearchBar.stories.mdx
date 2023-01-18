@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.0.7`    |
+| Latest            | `1.2.2`    |
 
 ## Table of Contents
 
@@ -230,11 +230,12 @@ const selectProps = {
 To render the `TextInput` component, an object must be passed to the
 `textInputProps` prop. It _must_ include `labelText` and `name` properties. The
 `labelText` value won't be rendered but will be used for its `aria-label`
-attribute. Optional properties to pass include `id`, `onChange`, `placeholder`,
-and `value`.
+attribute. Optional properties to pass include `id`, `isClearable`, `onChange`,
+`placeholder`, and `value`.
 
 ```
 const textInputProps = {
+  isClearable: true,
   labelText: "Item Search",
   name: "textInputName",
   onChange: (event) => {
@@ -252,6 +253,29 @@ const textInputProps = {
   // ...
 />
 ```
+
+#### isClearable
+
+Set the `isClearable` property in the `textInputProps` prop to `true` to render
+a button that clears the input value. The behavior for this feature is
+documented in the TextInput component's [isClearable Button](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls#isclearable-button)
+section.
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="Begin typing for the clear button to appear. Once clicked, the value in the text input field will be cleared."
+      id="textInput-isClearable"
+      onSubmit={() => {}}
+      textInputProps={{
+        isClearable: true,
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
 
 ### Custom Input Component
 

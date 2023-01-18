@@ -9,6 +9,8 @@ import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
+import AlphabetFilter from "./components/alphabetFilter";
+import AudioPlayer from "./components/audioPlayer";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -19,7 +21,9 @@ import CheckboxGroup from "./components/checkboxGroup";
 import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
+import FeedbackBox from "./components/feedbackBox";
 import Fieldset from "./components/fieldset";
+import FilterBar from "./components/filterBar";
 import Footer from "./components/footer";
 import Header from "./components/header/header";
 import HeaderLogin from "./components/header/headerLogin";
@@ -41,10 +45,12 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import MultiSelect from "./components/multiSelect";
+import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
-import Radio from "./components/radio";
+import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
@@ -52,8 +58,10 @@ import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
+import StyledList from "./components/styledList";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
+import TagSetStyles from "./components/tagSet";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -93,6 +101,8 @@ const theme = extendTheme({
    */
   components: {
     Accordion,
+    AlphabetFilter,
+    AudioPlayer,
     Breadcrumb,
     Button,
     ButtonGroup,
@@ -104,7 +114,9 @@ const theme = extendTheme({
     CustomImageWrapper,
     CustomSelect,
     DatePicker,
+    FeedbackBox,
     Fieldset,
+    FilterBar,
     Footer,
     Header,
     HeaderLogin,
@@ -126,11 +138,14 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    MultiSelect,
+    MultiSelectMenuButton,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
     Radio,
     RadioGroup,
+    RadioWrapper,
     SearchBar,
     Skeleton,
     SkeletonLoader,
@@ -138,8 +153,10 @@ const theme = extendTheme({
     CustomSlider,
     StatusBadge,
     StructuredContent,
+    StyledList,
     Tabs,
     CustomTable,
+    ...TagSetStyles,
     ...TemplateStyles,
     Text,
     TextInput,
