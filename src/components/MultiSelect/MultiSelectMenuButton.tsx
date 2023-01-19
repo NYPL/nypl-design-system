@@ -56,7 +56,7 @@ const MultiSelectMenuButton = forwardRef<
   if (selectedItems[multiSelectId]?.items.length > 0) {
     getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
     const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
-    selectedItemsAriaLabel = `${getSelectedItemsCount} item${itemPlural} selected`;
+    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabel}`;
   }
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
@@ -112,6 +112,7 @@ const MultiSelectMenuButton = forwardRef<
             marginLeft="xs"
             name="close"
             size="xsmall"
+            title="Remove selected items"
           />
         </Box>
       )}
