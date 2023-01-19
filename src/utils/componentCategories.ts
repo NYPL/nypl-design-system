@@ -3,7 +3,7 @@
 const categories = {
   accessibility: {
     title: "Accessibility Guide",
-    components: ["Skip Navigation"],
+    components: ["Links", "Repetitive Actions", "Skip Navigation"],
   },
   basicContent: {
     title: "Components/Basic Elements",

@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `onChangeEnd` prop in the `Slider` component.
 - Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
   and `"url"`.
+- Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
 
 ### Updates
 
