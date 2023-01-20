@@ -334,14 +334,15 @@ field is visible through the `showCategoryField` prop, then the object will also
 contain the `category` field. If the "email" field is visible through the
 `showEmailField` prop, then the object will also contain the `email` field.
 
-Below is an example a callback function named `onSubmit` that is passed to the
+Below is an example callback function named `onSubmit` that is passed to the
 `FeedbackBox` component's `onSubmit` prop. The form data will be returned through
 the function's argument as an object, called `values` in the example below.
 
 ```jsx
 const onSubmit = (values) => {
   console.log("Submitted values:", values);
-  // values = {
+  // "Submitted values:",
+  // {
   //   category: "Bug",
   //   comment: "Typo in the second paragraph, third sentence.",
   //   email: "email@email.com",
