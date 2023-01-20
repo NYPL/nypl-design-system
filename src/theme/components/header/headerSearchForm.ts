@@ -31,7 +31,11 @@ const HeaderSearchForm = {
     },
     textInput: {
       label: {
-        fontSize: { base: "heading.tertiary", md: "heading.secondary" },
+        fontSize: {
+          base: "heading.callout",
+          sm: "heading.tertiary",
+          md: "heading.secondary",
+        },
       },
       input: {
         borderRadius: { md: "5px" },
