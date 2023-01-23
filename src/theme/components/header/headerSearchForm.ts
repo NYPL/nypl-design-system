@@ -33,7 +33,6 @@ const HeaderSearchForm = {
       label: {
         fontSize: {
           base: "heading.callout",
-          sm: "heading.tertiary",
           md: "heading.secondary",
         },
       },
