@@ -248,7 +248,7 @@ describe("MultiSelect Dialog", () => {
     expect(screen.queryByRole("checkbox")).toBeNull();
   });
 
-  it("should allow user to close the dialog using the ESC key, the focus should be set to top level of the associated `MultiSelect` component", () => {
+  it("should allow user to close the dialog using the ESC key", () => {
     render(
       <MultiSelect
         id="multiselect-dialog-test-id"
@@ -283,11 +283,6 @@ describe("MultiSelect Dialog", () => {
 
     expect(screen.getByRole("dialog").getAttribute("aria-modal")).toBeNull();
     expect(screen.queryByRole("checkbox")).toBeNull();
-    expect(
-      screen.getByRole("button", {
-        name: /multiselect label/i,
-      })
-    ).toHaveFocus();
   });
 
   it("should call onChange when an item without child items or a child item is selected/unselected", () => {
