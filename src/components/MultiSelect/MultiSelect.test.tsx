@@ -248,6 +248,48 @@ describe("MultiSelect Dialog", () => {
     expect(screen.queryByRole("checkbox")).toBeNull();
   });
 
+  it("should allow user to close the dialog using the ESC key, the focus should be set to top level of the associated `MultiSelect` component", () => {
+    render(
+      <MultiSelect
+        id="multiselect-dialog-test-id"
+        label="MultiSelect Label"
+        variant="dialog"
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+        onApply={() => null}
+      />
+    );
+
+    // Initially closed
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toBeNull();
+    expect(screen.queryByRole("checkbox")).toBeNull();
+
+    // Open multiselect.
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    );
+
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toEqual(
+      "true"
+    );
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
+
+    // Close the diaog using the ESC key.
+    userEvent.keyboard("{Escape}");
+
+    expect(screen.getByRole("dialog").getAttribute("aria-modal")).toBeNull();
+    expect(screen.queryByRole("checkbox")).toBeNull();
+    expect(
+      screen.getByRole("button", {
+        name: /multiselect label/i,
+      })
+    ).toHaveFocus();
+  });
+
   it("should call onChange when an item without child items or a child item is selected/unselected", () => {
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
