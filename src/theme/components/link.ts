@@ -10,10 +10,9 @@ import { screenreaderOnly } from "./globalMixins";
 
 export const baseLinkStyles = {
   color: "ui.link.primary",
-  textDecoration: "none",
+  textDecoration: "underline",
   _hover: {
     color: "ui.link.secondary",
-    textDecoration: "underline",
   },
   _visited: {
     color: "ui.link.tertiary",
