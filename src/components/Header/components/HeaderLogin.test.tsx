@@ -37,11 +37,12 @@ describe("HeaderLogin", () => {
       const links = screen.getAllByRole("link");
 
       expect(links.length).toEqual(2);
-      expect(links[0]).toHaveTextContent(/log into the catalog/i);
-      expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      expect(links[0]).toHaveTextContent(/go to the catalog/i);
+      expect(links[1]).toHaveTextContent(/go to the research catalog/i);
     });
 
-    it("renders the logged in UI if there is a `patronName` value", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("renders the logged in UI if there is a `patronName` value", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLogin />
@@ -76,11 +77,12 @@ describe("HeaderLogin", () => {
       const links = screen.getAllByRole("link");
 
       expect(links.length).toEqual(2);
-      expect(links[0]).toHaveTextContent(/log into the catalog/i);
-      expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      expect(links[0]).toHaveTextContent(/go to the catalog/i);
+      expect(links[1]).toHaveTextContent(/go to the research catalog/i);
     });
 
-    it("renders the logged in UI if there is a `patronName` value", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("renders the logged in UI if there is a `patronName` value", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLogin isMobile />
