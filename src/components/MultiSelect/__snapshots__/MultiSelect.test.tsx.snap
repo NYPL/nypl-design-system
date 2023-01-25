@@ -4,7 +4,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
 <div
   className="css-fxdbg"
   id="multiselect-dialog-test-id"
-  variant="dialog"
+  type="dialog"
 >
   <div
     data-focus-guard={true}
@@ -119,7 +119,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
 <div
   className="css-fxdbg"
   id="multiselect-dialog-test-id"
-  variant="dialog"
+  type="dialog"
 >
   <div
     data-focus-guard={true}
@@ -793,7 +793,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
 <div
   className="css-fxdbg"
   id="multiselect-dialog-test-id"
-  variant="dialog"
+  type="dialog"
 >
   <div
     data-focus-guard={true}
@@ -1538,7 +1538,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
 <div
   className="css-fxdbg"
   id="multiselect-dialog-test-id"
-  variant="dialog"
+  type="dialog"
 >
   <div
     data-focus-guard={true}
@@ -2267,7 +2267,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
 <div
   className="css-fxdbg"
   id="multiselect-listbox-test-id"
-  variant="listbox"
+  type="listbox"
 >
   <button
     aria-expanded={false}
@@ -2339,7 +2339,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
 <div
   className="css-fxdbg"
   id="multiselect-listbox-test-id"
-  variant="listbox"
+  type="listbox"
 >
   <button
     aria-expanded={true}
@@ -2856,7 +2856,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
 <div
   className="css-fxdbg"
   id="multiselect-listbox-test-id"
-  variant="listbox"
+  type="listbox"
 >
   <button
     aria-expanded={true}
