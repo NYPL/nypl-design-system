@@ -394,7 +394,7 @@ describe("MultiSelect Dialog", () => {
     // Check for the count of selectedItems
     expect(countButton).toHaveTextContent("3");
     // Close menu
-    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    userEvent.click(screen.getByRole("button", { name: "MultiSelect Label" }));
     // Count button is still present
     expect(countButton).toHaveTextContent("3");
     // Click count button
@@ -646,7 +646,9 @@ describe("MultiSelect Listbox", () => {
     // Check for the count of selectedItems
     expect(countButton).toHaveTextContent("2");
     // Close menu
-    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    userEvent.click(
+      screen.getByRole("button", { name: "Colors MultiSelect Label" })
+    );
     // Count button is still present
     expect(countButton).toHaveTextContent("2");
     // Click count button
