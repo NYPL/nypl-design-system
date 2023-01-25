@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
   and `"url"`.
 - Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
+- Adds the `pattern` prop to the `TextInput` component.
 
 ### Updates
 
@@ -37,6 +38,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `HelperErrorText` component to set the `ariaLive` default value
   to `"polite"`.
 - Updates the `Accessibility` details for the `Notification` component.
+- Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
 
 ### Fixes
 
