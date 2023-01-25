@@ -6,6 +6,7 @@ import {
   primary,
   secondary,
 } from "./button";
+import { screenreaderOnly } from "./globalMixins";
 
 export const baseLinkStyles = {
   color: "ui.link.primary",
@@ -111,15 +112,19 @@ const variants = {
   },
 };
 const Link = {
+  parts: ["srOnly"],
   baseStyle: {
     ...baseLinkStyles,
-    // This is needed for custom anchor elements or link components
-    // that are passed as children to the `Link` component.
+    /** This is needed for custom anchor elements or link components
+     * that are passed as children to the `Link` component. */
     a: {
       _hover: {
         color: "ui.link.secondary",
       },
     },
+    /** The element will handle descriptive text added to aid
+     * screen readers. */
+    srOnly: screenreaderOnly(),
   },
   variants,
 };

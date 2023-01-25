@@ -10,7 +10,53 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Updates
 
-- Updates `Link` so that non-button variants are underlined on hover only and change color once visited.
+- Updates `Link` so that non-button variants change color once visited.
+
+### Adds
+
+- Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
+- Adds the `useMultiSelect`, `useFilterBar` hook.
+- Adds the `onChangeEnd` prop in the `Slider` component.
+- Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
+  and `"url"`.
+- Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
+
+### Updates
+
+- Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`,
+  `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`,
+  `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`,
+  `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`,
+  `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
+  `dark.ui.success.secondary`, `dark.ui.warning.primary`
+  and `dark.ui.warning.secondary`.
+- Updates the layout of the category `RadioGroup` to `column` for the mobie
+  view of the `FeedbackBox` component.
+- Updates the background color for the `"iconOnly"` and `"text"` variants of
+  the `Button` component.
+- Updates the DOM in the header of the `FeedbackBox` component to improve
+  accessibility.
+- Updates the `Link` component to include descriptive text for screen readers
+  in the component's `"external"` variant.
+- Updates the `HelperErrorText` component to set the `ariaLive` default value
+  to `"polite"`.
+- Updates the `Accessibility` details for the `Notification` component.
+
+### Fixes
+
+- Fixes spacing and alignment issues in the `FeedbackBox` component.
+- Fixes the width of the Privacy Policy link in the `FeedbackBox` component.
+- Fixes issue where `aria-describedby` attribute was not being added to
+  some `TextInput`s.
+
+### Removes
+
+- Removes the `Link` component warning about the deprecated `button` variant.
+  This change is temporary and will be reverted once teams are able to update
+  their `Link`s appropriately.
+- Removes the `arial-label` attribute from the `CheckboxGroup` and `RadioGroup`
+  components for improved accessibility. Using the attribute is redundant with
+  the existing "screen reader only" `<legend>` element.
 
 ## 1.3.1 (December 15, 2022)
 
@@ -18,7 +64,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the optional `isClearableCallback` prop to the `TextInput` component. This prop works with the `isClearable` prop and the passed function is invoked when the "clear" button is clicked. This is most helpful for controlled `TextInput` component implementations.
 
-## Updates
+### Updates
 
 - Updates the background color for the `hover` state in the `secondary` variant of the `Button` component.
 
