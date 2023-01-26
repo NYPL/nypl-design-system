@@ -53,6 +53,8 @@ export interface SliderProps {
   name?: string;
   /** Callback function that gets the value(s) selected. */
   onChange?: (val: number | number[]) => void;
+  /** Callback function when the user is done selecting a new value. */
+  onChangeEnd?: (val: number | number[]) => void;
   /** Offers the ability to hide the `TextInput` boxes. */
   showBoxes?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
@@ -94,6 +96,7 @@ export const Slider = chakra(
         min = 0,
         name,
         onChange,
+        onChangeEnd,
         showBoxes = true,
         showHelperInvalidText = true,
         showLabel = true,
@@ -107,6 +110,11 @@ export const Slider = chakra(
       if (!id) {
         console.warn(
           "NYPL Reservoir Slider: This component's required `id` prop was not passed."
+        );
+      }
+      if (onChange && onChangeEnd) {
+        console.warn(
+          "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
         );
       }
       // For the RangeSlider, if the defaultValue is not an array, then we set
@@ -170,6 +178,10 @@ export const Slider = chakra(
           setCurrentValue(val);
           onChange && onChange(val);
         },
+        onChangeEnd: (val) => {
+          setCurrentValue(val);
+          onChangeEnd && onChangeEnd(val);
+        },
         step,
         // Additional margins so slider thumbs don't overflow past the
         // edge when the value boxes or min/max values are hidden.
@@ -208,7 +220,12 @@ export const Slider = chakra(
               setCurrentValue(newValue);
               // If the text input was updated directly,
               // send the data back to the user.
-              onChange && onChange(newValue);
+              if (onChange) {
+                onChange && onChange(newValue);
+              }
+              if (onChangeEnd) {
+                onChangeEnd && onChangeEnd(newValue);
+              }
             },
             ...textInputSharedProps,
           },
@@ -237,7 +254,12 @@ export const Slider = chakra(
               setCurrentValue(newValue);
               // If the text input was updated directly,
               // send the data back to the user.
-              onChange && onChange(newValue);
+              if (onChange) {
+                onChange && onChange(newValue);
+              }
+              if (onChangeEnd) {
+                onChangeEnd && onChangeEnd(newValue);
+              }
             },
             ...textInputSharedProps,
           },

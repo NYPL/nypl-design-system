@@ -395,7 +395,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
+    aria-live="polite"
     className="css-bl03f5"
     dangerouslySetInnerHTML={
       Object {

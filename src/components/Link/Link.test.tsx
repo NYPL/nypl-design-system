@@ -114,18 +114,19 @@ describe("Link", () => {
     );
   });
 
-  it("logs a deprecated warning if 'button' `type` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Link href="#test" type="button">
-        Test
-      </Link>
-    );
-
-    expect(warn).toHaveBeenCalledWith(
-      `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
-    );
-  });
+  /** This deprecation warning is temporarily being removed, but it will be
+   * reinstated once teams are able to update their `Link`s appropriately. */
+  // it("logs a deprecated warning if 'button' `type` passed", () => {
+  //   const warn = jest.spyOn(console, "warn");
+  //   render(
+  //     <Link href="#test" type="button">
+  //       Test
+  //     </Link>
+  //   );
+  //   expect(warn).toHaveBeenCalledWith(
+  //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
+  //   );
+  // });
 
   it("renders the UI snapshot correctly", () => {
     const standard = renderer

@@ -58,6 +58,21 @@ describe("CheckboxGroup Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+  it("passes axe accessibility with the legend hidden", async () => {
+    const { container } = render(
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="Test Label"
+        name="test2"
+        showLabel={false}
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Checkbox", () => {
@@ -76,18 +91,16 @@ describe("Checkbox", () => {
     expect(screen.getByLabelText("Checkbox 4")).toBeInTheDocument();
   });
 
-  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    const { rerender } = render(
+  it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
+    const { container, rerender } = render(
       <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test2">
         <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
         <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
-    expect(screen.getByTestId("checkbox-group")).not.toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
 
     rerender(
       <CheckboxGroup
@@ -101,10 +114,8 @@ describe("Checkbox", () => {
         <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
-    expect(screen.getByTestId("checkbox-group")).toHaveAttribute(
-      "aria-label",
-      "Test Label"
-    );
+    expect(container.querySelector("legend")).toBeVisible();
+    expect(container.querySelector("legend")).toHaveTextContent("Test Label");
   });
 
   it("renders visible helper or error text", () => {
