@@ -3,7 +3,7 @@
 exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 <div
   aria-atomic={true}
-  aria-live="off"
+  aria-live="polite"
   className="css-1xdhyk6"
   dangerouslySetInnerHTML={
     Object {
@@ -64,7 +64,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 <div
   aria-atomic={true}
-  aria-live="off"
+  aria-live="polite"
   className="css-10g9ftz"
   dangerouslySetInnerHTML={
     Object {
@@ -79,7 +79,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 <div
   aria-atomic={true}
-  aria-live="off"
+  aria-live="polite"
   className="css-1xdhyk6"
   dangerouslySetInnerHTML={
     Object {

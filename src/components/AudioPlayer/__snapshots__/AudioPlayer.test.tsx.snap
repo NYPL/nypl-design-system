@@ -27,7 +27,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   </p>
   <div
     aria-atomic={true}
-    aria-live="off"
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
