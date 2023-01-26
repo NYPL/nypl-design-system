@@ -8,7 +8,7 @@ export interface MultiSelectMenuButtonProps {
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
-  /** The labelText of the MultiSelect using this button. */
+  /** The label text rendered within the MultiSelect using this button. */
   multiSelectLabelText: string;
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;

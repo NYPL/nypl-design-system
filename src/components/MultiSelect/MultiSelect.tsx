@@ -24,11 +24,11 @@ interface MultiSelectCommonProps {
   isBlockElement?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
-  /** The labelText of the MultiSelect. */
+  /** The label text rendered within the MultiSelect. */
   labelText: string;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
-  /** The type of the MultiSelect. */
+  /** The type of MultiSelect that will be rendered. */
   type: "listbox" | "dialog";
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;

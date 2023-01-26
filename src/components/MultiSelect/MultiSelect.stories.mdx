@@ -69,8 +69,8 @@ import * as stories from "./MultiSelect.stories.tsx";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props for MultiSelect Listbox type](#component-props-multiselect-listbox-type)
-- [Component Props for MultiSelect Dialog type](#component-props-multiselect-dialog-type)
+- [Component Props for MultiSelect Listbox](#component-props-multiselect-listbox)
+- [Component Props for MultiSelect Dialog](#component-props-multiselect-dialog)
 - [Accessibility](#accessibility)
 - [Using the items prop](#using-the-items-prop)
 - [Controlling state using selectedItems and onChange prop](#controlling-state-using-selecteditems-and-onchange-prop)
@@ -81,9 +81,9 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 <Description of={MultiSelect} />
 
-## Component Props for MultiSelect Listbox type
+## Component Props for MultiSelect Listbox
 
-The `MultiSelect` listbox type renders a non-hierarchical list of items to select from.
+The `MultiSelect` listbox renders a non-hierarchical list of items to select from.
 
 <Canvas withToolbar>
   <Story
@@ -100,9 +100,9 @@ The `MultiSelect` listbox type renders a non-hierarchical list of items to selec
 
 <ArgsTable story="MultiSelect ListBox" />
 
-## Component Props for MultiSelect Dialog type
+## Component Props for MultiSelect Dialog
 
-The `MultiSelect` dialog type allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
+The `MultiSelect` dialog allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
 If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
 
 <Canvas withToolbar>
@@ -124,7 +124,7 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
 
 ### ListBox
 
-The `MultiSelect` type `listbox` leverages `downshift.js` to assist with
+The `MultiSelect` `listbox` leverages `downshift.js` to assist with
 accessibility compliance. By using Downshift's `useSelect` hook and prop getters
 `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3
 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow
@@ -132,7 +132,7 @@ keys are used for navigating through the `MultiSelect` options.
 
 ### Dialog
 
-The `MultiSelect` type `dialog` looks similar to the Listbox type, but because
+The `MultiSelect` `dialog` looks similar to the `MultiSelect` `listbox`, but because
 of its “clear” and “apply” buttons, it has some key functionality differences,
 and accessibility must be handled differently. When the `MultiSelect` is open,
 focus is trapped inside the dropdown menu, and the tab key is used to move through
@@ -195,7 +195,7 @@ The expected data structure is an array of objects, in the following format:
 />
 ```
 
-If choosing the `type = 'dialog'` you can also add a second level of child items, in the following format:
+If you are using `type = 'dialog'`, you can also add a second level of child items, in the following format:
 
 ```tsx
 <MultiSelect
