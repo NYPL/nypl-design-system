@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.4.0 (January 26, 2023)
+
 ### Adds
 
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
