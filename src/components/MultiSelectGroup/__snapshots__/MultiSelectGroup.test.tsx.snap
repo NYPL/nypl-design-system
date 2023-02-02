@@ -16,7 +16,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-hhryjt"
       id="colors"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}
@@ -128,7 +128,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-hhryjt"
       id="pets"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}
@@ -240,7 +240,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-hhryjt"
       id="tools"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}
@@ -362,7 +362,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     MultiSelectGroup example
   </legend>
   <div
-    aria-label="MultiSelectGroup example"
     className="chakra-stack css-10aqanz"
     data-testid="multi-select-group"
     id="MultiSelectGroup"
@@ -370,7 +369,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-hhryjt"
       id="colors"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}
@@ -482,7 +481,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-hhryjt"
       id="pets"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}
@@ -594,7 +593,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-hhryjt"
       id="tools"
-      variant="dialog"
+      type="dialog"
     >
       <div
         data-focus-guard={true}

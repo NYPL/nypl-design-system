@@ -8,30 +8,59 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+- Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+
+## 1.4.0 (January 26, 2023)
+
 ### Adds
 
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
 - Adds the `useMultiSelect`, `useFilterBar` hook.
 - Adds the `onChangeEnd` prop in the `Slider` component.
+- Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
+  and `"url"`.
+- Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
 
 ### Updates
 
-- Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`, `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`, `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`, `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`, `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`, `dark.ui.success.secondary`, `dark.ui.warning.primary` and `dark.ui.warning.secondary`.
-- Updates the layout of the category `RadioGroup` to `column` for the mobie view of the `FeedbackBox` component.
-- Updates the background color for the `"iconOnly"` and `"text"` variants of the `Button` component.
-- Updates the DOM in the header of the `FeedbackBox` component to improve accessibility.
-- Updates the `Link` component to include descriptive text for screen readers in the component's `"external"` variant.
-- Updates the `HelperErrorText` component to set the `ariaLive` default value to `"polite"`.
-- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+- Updates the hex value for `ui.gray.xx-dark`, `ui.gray.xxx-dark`,
+  `ui.gray.xxxx-dark`, `dark.ui.bg.page`, `dark.ui.bg.hover`, `dark.ui.bg.active`,
+  `dark.ui.disabled.secondary`, `dark.ui.error.primary`, `dark.ui.error.secondary`,
+  `dark.ui.focus`, `dark.ui.link.primary`, `dark.ui.link.secondary`,
+  `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
+  `dark.ui.success.secondary`, `dark.ui.warning.primary`
+  and `dark.ui.warning.secondary`.
+- Updates the layout of the category `RadioGroup` to `column` for the mobile
+  view of the `FeedbackBox` component.
+- Updates the background color for the `"iconOnly"` and `"text"` variants of
+  the `Button` component.
+- Updates the DOM in the header of the `FeedbackBox` component to improve
+  accessibility.
+- Updates the `Link` component to include descriptive text for screen readers
+  in the component's `"external"` variant.
+- Updates the `HelperErrorText` component to set the `ariaLive` default value
+  to `"polite"`.
+- Updates the `Accessibility` details for the `Notification` component.
 
 ### Fixes
 
 - Fixes spacing and alignment issues in the `FeedbackBox` component.
 - Fixes the width of the Privacy Policy link in the `FeedbackBox` component.
+- Fixes issue where `aria-describedby` attribute was not being added to
+  some `TextInput`s.
 
 ### Removes
 
-- Removes the `Link` component warning about the deprecated `button` variant. This change is temporary and will be reverted once teams are able to update their `Link`s appropriately.
+- Removes the `Link` component warning about the deprecated `button` variant.
+  This change is temporary and will be reverted once teams are able to update
+  their `Link`s appropriately.
+- Removes the `arial-label` attribute from the `CheckboxGroup` and `RadioGroup`
+  components for improved accessibility. Using the attribute is redundant with
+  the existing "screen reader only" `<legend>` element.
 
 ## 1.3.1 (December 15, 2022)
 
@@ -175,7 +204,7 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 - Deprecates the `link` variant in the `Button` component.
 
-## 1.1.0 (Ausut 30, 2022)
+## 1.1.0 (August 30, 2022)
 
 This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
 
