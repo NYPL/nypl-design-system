@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   chakra,
   Box,
@@ -21,16 +21,7 @@ import HeaderSitewideAlerts from "./components/HeaderSitewideAlerts";
 import HeaderUpperNav from "./components/HeaderUpperNav";
 /** Internal Header-only utils */
 import { HeaderProvider } from "./context/headerContext";
-import {
-  deleteCookieValue,
-  extractPatronName,
-  getLoginData,
-  getCookieValue,
-  refreshAccessToken,
-  tokenRefreshLink,
-} from "./utils/headerUtils";
 import gaUtils from "./utils/googleAnalyticsUtils";
-import EncoreCatalogLogOutTimer from "./utils/encoreCatalogLogOutTimer";
 
 export interface GAOptionProps {
   debug?: boolean;
@@ -58,37 +49,8 @@ export const Header = chakra(
     gaOptions = {},
     isProduction = true,
   }: HeaderProps) => {
-    const [patronName, setPatronName] = useState<string>("");
     const { isLargerThanMobile, isLargerThanLarge } = useNYPLBreakpoints();
     const styles = useMultiStyleConfig("Header", {});
-    // Create a new instance of the EncoreCatalogLogOutTimer.
-    // The timer will start when the component is mounted.
-    const encoreCatalogLogOutTimer = new EncoreCatalogLogOutTimer(
-      Date.now(),
-      false
-    );
-
-    const loginDataCallback = (data) => {
-      // If the `statusCode` of the returned data is 401 and the expired
-      // key is set to true, try to refresh the accessToken.
-      if (data?.data?.statusCode === 401 && data?.data?.expired === true) {
-        refreshAccessToken(
-          tokenRefreshLink(isProduction),
-          loginDataCallback,
-          deleteCookieValue
-        );
-        // Else, extract the patron's name from the returned data.
-      } else {
-        const fullName = extractPatronName(data);
-        setPatronName(fullName);
-      }
-    };
-
-    // Once the `Header` component is mounted, start a timer that will
-    // log the user out of Encore and the NYPL Catalog after 30 minutes.
-    useEffect(() => {
-      encoreCatalogLogOutTimer.setEncoreLoggedInTimer(window.location.host);
-    });
 
     useEffect(() => {
       if (!(window as any)?.ga) {
@@ -107,20 +69,8 @@ export const Header = chakra(
       }
     }, [gaOptions, isProduction]);
 
-    useEffect(() => {
-      // After mounting,look for a cookie named "nyplIdentityPatron"
-      // and try to grab its value.
-      const { accessToken, cookieValue } = getCookieValue();
-      // If the cookie exists, use its `accessToken` to make a fetch
-      // request for the patron's data.
-      if (cookieValue) {
-        getLoginData(accessToken, loginDataCallback);
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
     return (
-      <HeaderProvider isProduction={isProduction} patronName={patronName}>
+      <HeaderProvider isProduction={isProduction}>
         <Box __css={styles}>
           <SkipNavigation />
           {fetchSitewideAlerts ? <HeaderSitewideAlerts /> : null}
