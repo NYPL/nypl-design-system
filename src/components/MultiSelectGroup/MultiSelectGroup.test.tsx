@@ -66,8 +66,8 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant="listbox"
-            label={multiSelectItem.name}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
             onChange={handleChangeMock}
@@ -91,8 +91,8 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant="listbox"
-            label={multiSelectItem.name}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
             onChange={handleChangeMock}
@@ -116,8 +116,8 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant="listbox"
-            label={multiSelectItem.name}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
             onChange={handleChangeMock}
@@ -142,8 +142,8 @@ describe("MulitSelectGroup Accessibility", () => {
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
-            variant="listbox"
-            label={multiSelectItem.name}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
             onChange={handleChangeMock}
@@ -188,8 +188,8 @@ describe("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
-              variant="dialog"
-              label={multiSelectItem.name}
+              type="dialog"
+              labelText={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}
               onChange={handleChangeMock}
@@ -213,8 +213,8 @@ describe("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
-              variant="dialog"
-              label={multiSelectItem.name}
+              type="dialog"
+              labelText={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}
               onChange={handleChangeMock}

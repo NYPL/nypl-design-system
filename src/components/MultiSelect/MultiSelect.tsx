@@ -24,12 +24,12 @@ interface MultiSelectCommonProps {
   isBlockElement?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
-  /** The label of the MultiSelect. */
-  label: string;
+  /** The label text rendered within the MultiSelect. */
+  labelText: string;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
-  /** The variant of the MultiSelect. */
-  variant: "listbox" | "dialog";
+  /** The type of MultiSelect that will be rendered. */
+  type: "listbox" | "dialog";
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
@@ -40,15 +40,15 @@ type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 type MultiSelectVariantsProps =
   | {
-      variant: "listbox";
+      type: "listbox";
       onApply?: never;
       /** The action to perform for downshift's onSelectedItemChange function. */
       onChange: ListboxOnChange;
-      // These are props that are never allowed on the listbox variant.
+      // These are props that are never allowed on the listbox type.
       onMixedStateChange?: never;
     }
   | {
-      variant: "dialog";
+      type: "dialog";
       /** The action to perform for save/apply button of multiselect. */
       onApply: () => void;
       /** The action to perform on the checkbox's onChange function.  */
@@ -75,13 +75,13 @@ export const MultiSelect = chakra(
         isBlockElement = false,
         isDefaultOpen = false,
         items,
-        label,
+        labelText,
         onApply,
         onChange,
         onClear,
         onMixedStateChange,
         selectedItems,
-        variant,
+        type,
         width = "default",
         ...rest
       } = props;
@@ -91,14 +91,14 @@ export const MultiSelect = chakra(
         isBlockElement,
         isDefaultOpen,
         items,
-        label,
+        labelText,
         onClear,
         selectedItems,
-        variant,
+        type,
         width,
       };
 
-      if (variant === "listbox") {
+      if (type === "listbox") {
         const listboxOnChange = onChange as ListboxOnChange;
 
         return (
@@ -111,7 +111,7 @@ export const MultiSelect = chakra(
         );
       }
 
-      if (variant === "dialog") {
+      if (type === "dialog") {
         const dialogOnChange = onChange as DialogOnChange;
 
         return (
