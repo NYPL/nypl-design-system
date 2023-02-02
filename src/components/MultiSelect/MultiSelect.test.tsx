@@ -252,8 +252,8 @@ describe("MultiSelect Dialog", () => {
     render(
       <MultiSelect
         id="multiselect-dialog-test-id"
-        label="MultiSelect Label"
-        variant="dialog"
+        labelText="MultiSelect Label"
+        type="dialog"
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
