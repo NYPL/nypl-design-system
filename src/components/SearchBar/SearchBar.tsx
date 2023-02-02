@@ -5,34 +5,44 @@ import Button from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
-import Select from "../Select/Select";
-import TextInput from "../TextInput/TextInput";
+import Select, { SelectProps as InitialSelectProps } from "../Select/Select";
+import TextInput, {
+  InputProps as InitialInputProps,
+} from "../TextInput/TextInput";
 
-interface BaseProps {
-  id?: string;
-  labelText: string;
-  name: string;
-  onChange?: (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => void;
-  value?: string;
-}
 interface SelectOptionsProps {
   text: string;
   value: string;
 }
 
-// Internal interfaces that are used only for `SearchBar` props.
-export interface SelectProps extends BaseProps {
+// Internal types that are used only for `SearchBar` props. View the
+// respective `Select` and `TextInput` components to get full details
+// of each prop type value.
+
+// From the `Select` component, we only need a certain set of optional props,
+// except for `optionsData`.
+export type SelectProps = Partial<
+  Pick<InitialSelectProps, "id" | "labelText" | "name" | "onChange" | "value">
+> & {
   optionsData: SelectOptionsProps[];
-  onChange?: (event: React.FormEvent) => void;
-}
-export interface TextInputProps extends BaseProps {
-  isClearable?: boolean;
-  placeholder?: string;
-}
+};
+// From the `TextInput` component, we only need a certain set of optional props.
+export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
+  Partial<
+    Pick<
+      InitialInputProps,
+      | "id"
+      | "isClearable"
+      | "isClearableCallback"
+      | "max"
+      | "maxLength"
+      | "min"
+      | "onChange"
+      | "pattern"
+      | "placeholder"
+      | "value"
+    >
+  >;
 
 export interface SearchBarProps {
   /** Adds 'action' property to the `form` element. */
@@ -154,9 +164,14 @@ export const SearchBar = chakra(
       <TextInput
         id={textInputProps?.id || `searchbar-textinput-${id}`}
         isClearable={textInputProps?.isClearable}
+        isClearableCallback={textInputProps?.isClearableCallback}
         labelText={textInputProps?.labelText}
         name={textInputProps?.name}
+        max={textInputProps?.max}
+        maxLength={textInputProps?.maxLength}
+        min={textInputProps?.min}
         onChange={textInputProps?.onChange}
+        pattern={textInputProps?.pattern}
         placeholder={textInputPlaceholder}
         textInputType={selectElem ? "searchBarSelect" : "searchBar"}
         type="text"

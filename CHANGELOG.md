@@ -8,11 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `pattern` prop to the `TextInput` component.
+
 ### Updates
 
 - Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
 - Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
 - Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+- Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
 
 ## 1.4.0 (January 26, 2023)
 
