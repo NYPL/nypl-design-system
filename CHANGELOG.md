@@ -13,6 +13,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
 - Temporarily removes the "log in" state, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
 
+## 1.4.0 (January 26, 2023)
+
 ### Adds
 
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.

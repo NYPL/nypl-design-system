@@ -21,7 +21,7 @@ const items = [
   {
     id: "design",
     name: "Design",
-    // Children array will only be renderd in a "dialog" variant
+    // Children array will only be renderd in a "dialog" type
     children: [
       {
         id: "fashion",

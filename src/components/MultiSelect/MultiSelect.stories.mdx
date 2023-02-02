@@ -35,7 +35,7 @@ import * as stories from "./MultiSelect.stories.tsx";
       control: false,
     },
     items: { control: false },
-    label: { table: { default: "" } },
+    labelText: { table: { default: "" } },
     onApply: {
       description:
         "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
@@ -49,7 +49,7 @@ import * as stories from "./MultiSelect.stories.tsx";
         "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
     },
     selectedItems: { control: false },
-    variant: { control: false },
+    type: { control: false },
     width: {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
@@ -69,8 +69,8 @@ import * as stories from "./MultiSelect.stories.tsx";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props for MultiSelect Listbox Variant](#component-props-multiselect-listbox-variant)
-- [Component Props for MultiSelect Dialog Variant](#component-props-multiselect-dialog-variant)
+- [Component Props for MultiSelect Listbox](#component-props-multiselect-listbox)
+- [Component Props for MultiSelect Dialog](#component-props-multiselect-dialog)
 - [Accessibility](#accessibility)
 - [Using the items prop](#using-the-items-prop)
 - [Controlling state using selectedItems and onChange prop](#controlling-state-using-selecteditems-and-onchange-prop)
@@ -81,17 +81,17 @@ import * as stories from "./MultiSelect.stories.tsx";
 
 <Description of={MultiSelect} />
 
-## Component Props for MultiSelect Listbox Variant
+## Component Props for MultiSelect Listbox
 
-The `MultiSelect` listbox variant renders a non-hierarchical list of items to select from.
+The `MultiSelect` listbox renders a non-hierarchical list of items to select from.
 
 <Canvas withToolbar>
   <Story
     name="MultiSelect ListBox"
     args={{
       id: "multiselect-listbox",
-      label: "MultiSelect Listbox",
-      variant: "listbox",
+      labelText: "MultiSelect Listbox",
+      type: "listbox",
     }}
   >
     {(args) => <stories.MultiSelectListboxStory {...args} />}
@@ -100,9 +100,9 @@ The `MultiSelect` listbox variant renders a non-hierarchical list of items to se
 
 <ArgsTable story="MultiSelect ListBox" />
 
-## Component Props for MultiSelect Dialog Variant
+## Component Props for MultiSelect Dialog
 
-The `MultiSelect` dialog variant allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
+The `MultiSelect` dialog allows for an optional set of child checkboxes to be passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
 If all of the children checkboxes are checked, the parent `isChecked` prop will be true. If only some of the child checkboxes are checked, the parent checkbox will have a `isIndeterminate` prop set to true, implying that it is not checked or unchecked.
 
 <Canvas withToolbar>
@@ -110,8 +110,8 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
     name="MultiSelect Dialog"
     args={{
       id: "multiselect-dialog",
-      label: "MultiSelect Dialog",
-      variant: "dialog",
+      labelText: "MultiSelect Dialog",
+      type: "dialog",
     }}
   >
     {(args) => <stories.MultiSelectDialogStory {...args} />}
@@ -124,7 +124,7 @@ If all of the children checkboxes are checked, the parent `isChecked` prop will 
 
 ### ListBox
 
-The `MultiSelect` variant `listbox` leverages `downshift.js` to assist with
+The `MultiSelect` `listbox` leverages `downshift.js` to assist with
 accessibility compliance. By using Downshift's `useSelect` hook and prop getters
 `getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3
 WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow
@@ -132,7 +132,7 @@ keys are used for navigating through the `MultiSelect` options.
 
 ### Dialog
 
-The `MultiSelect` variant `dialog` looks similar to the Listbox variant, but because
+The `MultiSelect` `dialog` looks similar to the `MultiSelect` `listbox`, but because
 of its “clear” and “apply” buttons, it has some key functionality differences,
 and accessibility must be handled differently. When the `MultiSelect` is open,
 focus is trapped inside the dropdown menu, and the tab key is used to move through
@@ -143,7 +143,7 @@ package under the hood.
 NOTE: The `react-focus-lock` package renders two "focus guard" elements and one
 has a `tabindex` set to `1`, in order to perform the focus trap behavior. The
 Storybook accessibility checker [complains](https://dequeuniversity.com/rules/axe/4.4/tabindex?application=axeAPI)
-about this whenever the "dialog" variant is opened.
+about this whenever the "dialog" type is opened.
 
 While this is an accessibility issue, we explicitly want the focus trap behavior
 within the `MultiSelect`. Once the component is closed, the issue goes away. For
@@ -176,8 +176,8 @@ The expected data structure is an array of objects, in the following format:
 ```tsx
 <MultiSelect
   id="subject"
-  label="Subject Specialities"
-  variant="listbox"
+  labelText="Subject Specialities"
+  type="listbox"
   items={[
     {
       id: "art",
@@ -195,13 +195,13 @@ The expected data structure is an array of objects, in the following format:
 />
 ```
 
-If choosing the `variant = 'dialog'` you can also add a second level of child items, in the following format:
+If you are using `type = 'dialog'`, you can also add a second level of child items, in the following format:
 
 ```tsx
 <MultiSelect
   id="subject"
-  label="Subject Specialities"
-  variant="dialog"
+  labelText="Subject Specialities"
+  type="dialog"
   items={[
     {
       id: "art",
@@ -322,9 +322,9 @@ function MultiSelectControlledExample() {
   return (
     <MultiSelect
       id="subjects"
-      label="Subjects"
+      labelText="Subjects"
       items={items}
-      variant="listbox"
+      type="listbox"
       selectedItems={selectedItems}
       onChange={(selectedItem) => {
         handleChange(selectedItem.id, "subjects");
