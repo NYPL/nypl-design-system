@@ -8,8 +8,8 @@ export interface MultiSelectMenuButtonProps {
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
-  /** The label of the MultiSelect using this button. */
-  multiSelectLabel: string;
+  /** The label text rendered within the MultiSelect using this button. */
+  multiSelectLabelText: string;
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
@@ -40,7 +40,7 @@ const MultiSelectMenuButton = forwardRef<
     id,
     isOpen,
     multiSelectId,
-    multiSelectLabel,
+    multiSelectLabelText,
     onClear,
     onKeyDown,
     onMenuToggle,
@@ -56,7 +56,7 @@ const MultiSelectMenuButton = forwardRef<
   if (selectedItems[multiSelectId]?.items.length > 0) {
     getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
     const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
-    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabel}`;
+    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
   }
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
@@ -87,8 +87,8 @@ const MultiSelectMenuButton = forwardRef<
         __css={styles.menuButton}
         {...rest}
       >
-        <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
-          {multiSelectLabel}
+        <Box as="span" title={multiSelectLabelText} __css={styles.buttonLabel}>
+          {multiSelectLabelText}
         </Box>
         <Icon id={`ms-${multiSelectId}-icon`} name={iconType} size="small" />
       </Button>

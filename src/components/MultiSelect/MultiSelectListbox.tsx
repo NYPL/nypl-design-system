@@ -16,7 +16,7 @@ type MultiSelectListboxProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (selectedItem: MultiSelectItem, id: string) => void;
 };
 
-/** MultiSelectListbox renders a non-hierarchical list of checkbox options for the `variant="listbox". It leverager downshift-js for accessiblity. */
+/** MultiSelectListbox renders a non-hierarchical list of checkbox options for the `type="listbox". It leverager downshift-js for accessiblity. */
 export const MultiSelectListbox = chakra(
   forwardRef<HTMLElement, React.PropsWithChildren<MultiSelectListboxProps>>(
     (props, ref?) => {
@@ -25,7 +25,7 @@ export const MultiSelectListbox = chakra(
         isBlockElement,
         isDefaultOpen,
         items,
-        label,
+        labelText,
         onChange,
         onClear,
         selectedItems,
@@ -71,17 +71,17 @@ export const MultiSelectListbox = chakra(
         isBlockElement,
         isOpen,
       });
-      // If a item passed to the listbox variant has children,
+      // If a item passed to the listbox type has children,
       if (items.some((item) => item.children)) {
         console.warn(
-          "NYPL Reservoir MultiSelect: Only the variant 'dialog' can render nested select items."
+          "NYPL Reservoir MultiSelect: Only the type 'dialog' can render nested select items."
         );
       }
       return (
         <Box id={id} __css={styles} {...rest}>
           <MultiSelectMenuButton
             multiSelectId={id}
-            multiSelectLabel={label}
+            multiSelectLabelText={labelText}
             isOpen={isOpen}
             selectedItems={selectedItems}
             onClear={onClear}

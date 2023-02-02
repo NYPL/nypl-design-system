@@ -29,7 +29,7 @@ export const MultiSelectDialog = chakra(
         isBlockElement,
         isDefaultOpen,
         items,
-        label,
+        labelText,
         onApply,
         onChange,
         onClear,
@@ -125,7 +125,7 @@ export const MultiSelectDialog = chakra(
             <MultiSelectMenuButton
               id={`ms-${id}-menu-button`}
               multiSelectId={id}
-              multiSelectLabel={label}
+              multiSelectLabelText={labelText}
               isOpen={isOpen}
               selectedItems={selectedItems}
               onMenuToggle={() => {
