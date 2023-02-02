@@ -45,6 +45,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `HelperErrorText` component to set the `ariaLive` default value
   to `"polite"`.
 - Updates the `Accessibility` details for the `Notification` component.
+- Better docs for the `onSubmit` prop in the `FeedbackBox` component.
 
 ### Fixes
 
