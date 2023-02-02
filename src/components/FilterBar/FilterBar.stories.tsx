@@ -139,8 +139,8 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
             <MultiSelect
               key={multiSelect.id}
               id={multiSelect.id}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
@@ -198,8 +198,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={multiSelect.id}
                 id={multiSelect.id}
-                label={multiSelect.name}
-                variant="dialog"
+                labelText={multiSelect.name}
+                type="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, multiSelect.id)}
@@ -237,8 +237,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-1`}
                 id={`${multiSelect.id}-1`}
-                label={multiSelect.name}
-                variant="dialog"
+                labelText={multiSelect.name}
+                type="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-1`)}
@@ -276,8 +276,8 @@ export const FilterBarLayoutStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-3`}
                   id={`${multiSelect.id}-3`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => onChange(e.target.id, `${multiSelect.id}-3`)}
@@ -317,8 +317,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-2`}
                 id={`${multiSelect.id}-2`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-2`)}
@@ -357,8 +357,8 @@ export const FilterBarLayoutStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-4`}
                   id={`${multiSelect.id}-4`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => onChange(e.target.id, `${multiSelect.id}-4`)}
@@ -399,8 +399,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-5`}
                 id={`${multiSelect.id}-5`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-5`)}
@@ -441,8 +441,8 @@ export const FilterBarLayoutStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-6`}
                   id={`${multiSelect.id}-6`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => onChange(e.target.id, `${multiSelect.id}-6`)}
@@ -484,8 +484,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-7`}
                 id={`${multiSelect.id}-7`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-7`)}
@@ -522,8 +522,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-8`}
                 id={`${multiSelect.id}-8`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-8`)}
@@ -549,8 +549,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-9`}
                 id={`${multiSelect.id}-9`}
-                label={multiSelect.name}
-                variant="dialog"
+                labelText={multiSelect.name}
+                type="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-9`)}
@@ -586,8 +586,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-14`}
                 id={`${multiSelect.id}-14`}
-                label={multiSelect.name}
-                variant="dialog"
+                labelText={multiSelect.name}
+                type="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-14`)}
@@ -613,8 +613,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-15`}
                 id={`${multiSelect.id}-15`}
-                label={multiSelect.name}
-                variant="dialog"
+                labelText={multiSelect.name}
+                type="dialog"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-15`)}
@@ -654,8 +654,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-11`}
                 id={`${multiSelect.id}-11`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-11`)}
@@ -681,8 +681,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-12`}
                 id={`${multiSelect.id}-12`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-12`)}
@@ -721,8 +721,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-17`}
                 id={`${multiSelect.id}-17`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-17`)}
@@ -748,8 +748,8 @@ export const FilterBarLayoutStory = () => {
               <MultiSelect
                 key={`${multiSelect.id}-18`}
                 id={`${multiSelect.id}-18`}
-                label={multiSelect.name}
-                variant="listbox"
+                labelText={multiSelect.name}
+                type="listbox"
                 items={multiSelect.items}
                 selectedItems={selectedItems}
                 onChange={(e) => onChange(e.target.id, `${multiSelect.id}-18`)}
@@ -807,8 +807,8 @@ export const FilterBarRowContainerStory = () => {
                   <MultiSelect
                     key={`${multiSelect.id}-6`}
                     id={`${multiSelect.id}-6`}
-                    label={multiSelect.name}
-                    variant="listbox"
+                    labelText={multiSelect.name}
+                    type="listbox"
                     items={multiSelect.items}
                     selectedItems={selectedItems}
                     onChange={(e) =>
@@ -852,8 +852,8 @@ export const FilterBarRowContainerStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-17`}
                   id={`${multiSelect.id}-17`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) =>
@@ -881,8 +881,8 @@ export const FilterBarRowContainerStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-18`}
                   id={`${multiSelect.id}-18`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) =>
@@ -943,8 +943,8 @@ export const FilterBarColumnContainerStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-7`}
                   id={`${multiSelect.id}-7`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) => onChange(e.target.id, `${multiSelect.id}-7`)}
@@ -986,8 +986,8 @@ export const FilterBarColumnContainerStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-11`}
                   id={`${multiSelect.id}-11`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) =>
@@ -1015,8 +1015,8 @@ export const FilterBarColumnContainerStory = () => {
                 <MultiSelect
                   key={`${multiSelect.id}-12`}
                   id={`${multiSelect.id}-12`}
-                  label={multiSelect.name}
-                  variant="listbox"
+                  labelText={multiSelect.name}
+                  type="listbox"
                   items={multiSelect.items}
                   selectedItems={selectedItems}
                   onChange={(e) =>

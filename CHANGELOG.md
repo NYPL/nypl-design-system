@@ -10,13 +10,25 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `pattern` prop to the `TextInput` component.
+
+### Updates
+
+- Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+- Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+- Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
+
+## 1.4.0 (January 26, 2023)
+
+### Adds
+
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
 - Adds the `useMultiSelect`, `useFilterBar` hook.
 - Adds the `onChangeEnd` prop in the `Slider` component.
 - Adds `autocomplete` attribute to `TextInput`s with type `"tel"`, `"email"`,
   and `"url"`.
 - Adds docs for `Links` and `Repetitive Actions` to the `Accessibility Guide`.
-- Adds the `pattern` prop to the `TextInput` component.
 
 ### Updates
 
@@ -27,7 +39,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
   `dark.ui.success.secondary`, `dark.ui.warning.primary`
   and `dark.ui.warning.secondary`.
-- Updates the layout of the category `RadioGroup` to `column` for the mobie
+- Updates the layout of the category `RadioGroup` to `column` for the mobile
   view of the `FeedbackBox` component.
 - Updates the background color for the `"iconOnly"` and `"text"` variants of
   the `Button` component.
@@ -38,7 +50,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `HelperErrorText` component to set the `ariaLive` default value
   to `"polite"`.
 - Updates the `Accessibility` details for the `Notification` component.
-- Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
+- Better docs for the `onSubmit` prop in the `FeedbackBox` component.
 
 ### Fixes
 
@@ -198,7 +210,7 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 - Deprecates the `link` variant in the `Button` component.
 
-## 1.1.0 (Ausut 30, 2022)
+## 1.1.0 (August 30, 2022)
 
 This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
 
