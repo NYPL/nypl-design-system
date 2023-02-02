@@ -1,0 +1,82 @@
+import { Meta } from "@storybook/addon-docs";
+
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta title={getCategory("Dynamic Content")} />
+
+# Dynamic Content
+
+## Table of Contents
+
+- [General Information](#general-information)
+- [ARIA Live Regions](#aria-live-regions)
+- [Anti-Patterns](#anti-patterns)
+- [NYPL Patterns](#nypl-patterns)
+- [Resources](#resources)
+
+## General Information
+
+Most websites have elements on the page that are updated dynamically. For these
+scenarios, it should be clear to the user what and where the changes are taken
+place. Typically, the update is indicated by displaying a visual loading
+animation before the new content is displayed. For most able-bodied users, this
+is usually not a problem but for users who use assistive technology, we need to
+make sure that the changes are understood and announced by the assistive
+technology.
+
+The quick takeaway for implementing this necessary functionality is to always
+render a container for the dynamic content in the DOM on the server-side. The
+container element should have an `aria-live="polite"` attribute applied. The
+following example shows one possible DOM structure that allows newly generated
+content to be recognized and announced by assistive technology.
+
+```html
+<div class="container">
+  <div class="dynamic-content" aria-live="polite">
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+  </div>
+</div>
+```
+
+## ARIA Live Regions
+
+Aria is tricky. It's not always clear what the best practice is. For example,
+the aria-live attribute is used to indicate that an element's content will be
+updated dynamically. The attribute can be set to "polite" or "assertive". The
+difference between the two is that "polite" will wait until the user is done
+interacting with the page before announcing the change. "Assertive" will
+announce the change immediately. The problem is that "assertive" can be
+annoying to users. It's not clear what the best practice is here.
+
+aria-live="off"
+the default value which is the same as not having the attribute at all
+
+aria-live="polite"
+the screen reader will wait until the user is done interacting with the page
+
+aria-live="assertive"
+the screen reader will announce the change immediately
+
+Always include aria-live attribute for dynamic content in the initial DOM render.
+asssitive tech will be able to track the updates for the specified elements with
+the aria-live attribute.
+
+## Anti-Patterns
+
+Do not dynamically add or remove the aria-live attribute from the element.
+
+do not assign the aria-live attribute to the an entire section or the entire page.
+instead, add the attribute to the specific element that will be updated.
+for example, on an entire page that updates how many results were found and lists the
+exact results, only focus on the element that contains the number of results.
+
+## NYPL Patterns
+
+TBD
+
+## Resources
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider />
