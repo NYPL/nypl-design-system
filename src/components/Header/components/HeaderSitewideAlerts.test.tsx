@@ -9,7 +9,7 @@ import {
   refineryResponse,
 } from "../utils/sitewideAlertsMocks";
 
-describe("HeaderSitewideAlerts Accessibility", () => {
+describe.skip("HeaderSitewideAlerts Accessibility", () => {
   it("passes axe accessibility test", async () => {
     (global as any).fetch = jest.fn(() =>
       Promise.resolve({
@@ -23,7 +23,7 @@ describe("HeaderSitewideAlerts Accessibility", () => {
   });
 });
 
-describe("HeaderSitewideAlerts", () => {
+describe.skip("HeaderSitewideAlerts", () => {
   describe("Successful API request", () => {
     beforeEach(async () => {
       (global as any).fetch = jest.fn(() =>

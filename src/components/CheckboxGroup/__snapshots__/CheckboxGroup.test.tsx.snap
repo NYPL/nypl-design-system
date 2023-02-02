@@ -307,7 +307,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     no label
   </legend>
   <div
-    aria-label="no label"
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
     id="noLabel"
@@ -596,7 +595,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {

@@ -42,6 +42,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               </label>
               <input
                 aria-required={true}
+                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="searchInput"
@@ -153,7 +154,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               Type of search
             </legend>
             <div
-              aria-label="Type of search"
               className="chakra-radio-group css-0"
               role="radiogroup"
             >
@@ -321,6 +321,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               <input
                 aria-label="Enter Search Keyword"
                 aria-required={true}
+                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="searchInput"

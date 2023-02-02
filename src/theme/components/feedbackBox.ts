@@ -10,8 +10,14 @@ const FeedbackBox = {
   ],
   baseStyle: {
     closeButton: {
+      /** This is overriding the default min-height value in order to keep the
+       * button spacing symmetrical. */
+      minHeight: "40px",
+      right: "xs",
       p: "0",
+      position: "absolute",
       span: screenreaderOnly(),
+      top: "xs",
       _dark: {
         svg: {
           fill: "dark.ui.typography.heading",
@@ -41,8 +47,8 @@ const FeedbackBox = {
       display: "flex",
       fontSize: "text.default",
       px: "m",
-      paddingTop: "xs",
-      paddingBottom: "xs",
+      paddingTop: "s",
+      paddingBottom: "s",
       p: {
         marginBottom: "0",
       },
