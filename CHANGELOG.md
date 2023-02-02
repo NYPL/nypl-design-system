@@ -8,10 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Header V2
+### Updates
 
-- Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
-- Temporarily removes the "log in" state, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+- Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+- Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
 
 ## 1.4.0 (January 26, 2023)
 
@@ -33,7 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
   `dark.ui.success.secondary`, `dark.ui.warning.primary`
   and `dark.ui.warning.secondary`.
-- Updates the layout of the category `RadioGroup` to `column` for the mobie
+- Updates the layout of the category `RadioGroup` to `column` for the mobile
   view of the `FeedbackBox` component.
 - Updates the background color for the `"iconOnly"` and `"text"` variants of
   the `Button` component.
