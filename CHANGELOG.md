@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Header V2
+
+- Adds a third radio button, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+- Temporarily removes the "log in" state, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+
 ## 1.4.0 (January 26, 2023)
 
 ### Adds
@@ -198,7 +203,7 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 - Deprecates the `link` variant in the `Button` component.
 
-## 1.1.0 (Ausut 30, 2022)
+## 1.1.0 (August 30, 2022)
 
 This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
 
