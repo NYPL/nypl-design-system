@@ -11,6 +11,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `pattern` prop to the `TextInput` component.
+- Adds `dark` color mode support for `background-color` and `color` global styles.
+- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
+- Adds `dark` color mode support for the `Card` and `Hero` components.
+- Adds `dark` color mode support for the `Heading` and `List` components.
+- Adds `dark` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
+- Adds `dark` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+- Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
+- Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
+- Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
+- Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
 
 ### Updates
 
@@ -133,16 +144,7 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 ### Adds
 
-- Adds `dark` color mode support for `background-color` and `color` global styles.
-- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
-- Adds `dark` color mode support for the `Card` and `Hero` components.
-- Adds `dark` color mode support for the `Heading` and `List` components.
-- Adds `dark` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
-- Adds `dark` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
-- Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
-- Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
 - Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
-- Adds `dark` color mode support for the `ALphabetFilter`, `AudioPlayer`, and `TagSet` components.
 
 ### Updates
 

@@ -36,11 +36,11 @@ export const buttonBaseStyle = {
 };
 
 const ghostDarkStyles = {
-  bg: "dark.ui.bg.default",
+  bg: "transparent",
   borderColor: "dark.ui.link.primary",
   color: "dark.ui.link.primary",
   _hover: {
-    bg: "dark.ui.bg.hover",
+    bg: "dark.ui.link.primary-10",
     borderColor: "dark.ui.link.secondary",
     color: "dark.ui.link.secondary",
   },
@@ -88,6 +88,7 @@ export const primary = ({ buttonSize = "medium" }) => ({
     color: "ui.gray.xxx-dark",
     _hover: {
       bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
     },
   },
 });
@@ -159,7 +160,7 @@ const text = ({ buttonSize = "medium" }) => ({
 export const pill = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
+  borderColor: "ui.border.default",
   borderRadius: "button.pill",
   color: "inherit",
   ...generalSizeValues(buttonSize, true),
@@ -171,7 +172,14 @@ export const pill = ({ buttonSize = "medium" }) => ({
     bg: "ui.gray.x-light-cool",
   },
   _dark: {
-    ...ghostDarkStyles,
+    background: "transparent",
+    borderColor: "dark.ui.border.default",
+    color: "dark.ui.typography.heading",
+    _hover: {
+      background: "dark.ui.bg.hover",
+      borderColor: "dark.ui.border.hover",
+      color: "dark.ui.typography.heading",
+    },
   },
 });
 const iconOnly = ({ buttonSize = "medium" }) => ({
@@ -201,9 +209,11 @@ export const callout = ({ buttonSize = "medium" }) => ({
     bg: "brand.secondary",
   },
   _dark: {
-    bg: "dark.brand.primary",
+    bg: "brand.primary",
+    color: "ui.white",
     _hover: {
-      bg: "dark.brand.secondary",
+      bg: "brand.secondary",
+      color: "ui.white",
     },
   },
 });
@@ -216,8 +226,10 @@ export const noBrand = ({ buttonSize = "medium" }) => ({
   },
   _dark: {
     bg: "ui.gray.x-dark",
+    color: "ui.white",
     _hover: {
       bg: "ui.gray.dark",
+      color: "ui.white",
     },
   },
 });

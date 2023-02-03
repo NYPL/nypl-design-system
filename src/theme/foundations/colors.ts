@@ -174,6 +174,10 @@ const colors: Colors = {
     typography: {
       heading: black,
       body: black,
+      inverse: {
+        heading: white,
+        body: white,
+      },
     },
     // Grayscale
     gray: {
@@ -217,6 +221,8 @@ const colors: Colors = {
       focus: "#6090E3",
       link: {
         primary: "#79B7EB",
+        "primary-05": hexToRGB("#79B7EB", 0.05),
+        "primary-10": hexToRGB("#79B7EB", 0.1),
         secondary: "#95CFFF",
       },
       status: {
@@ -246,6 +252,10 @@ const colors: Colors = {
       typography: {
         heading: grayLightCool,
         body: grayMedium,
+        inverse: {
+          heading: grayxxxDark,
+          body: grayxxxDark,
+        },
       },
     },
   },
