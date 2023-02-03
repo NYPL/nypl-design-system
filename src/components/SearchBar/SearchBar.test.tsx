@@ -218,6 +218,42 @@ describe("SearchBar", () => {
     expect(clearButton).not.toBeInTheDocument();
   });
 
+  it("calls the isClearableCallback function for the `TextInput` component when `isClearable` is true", () => {
+    let called = false;
+
+    render(
+      <SearchBar
+        helperText={helperText}
+        id="id"
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={{
+          ...textInputProps,
+          isClearable: true,
+          isClearableCallback: () => {
+            called = true;
+          },
+        }}
+      />
+    );
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    let clearButton = screen.queryByRole("button", {
+      name: "Clear Item Search",
+    });
+
+    // The `isClearableCallback` function should not be called.
+    expect(called).toEqual(false);
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+
+    // But now it should!
+    expect(called).toEqual(true);
+  });
+
   it("calls the Select onChange callback function", () => {
     let selectValue = "Songs";
     selectProps.onChange = (e) => (selectValue = (e.target as any).value);
@@ -293,6 +329,31 @@ describe("SearchBar", () => {
     );
 
     expect(screen.getByPlaceholderText("Search terms")).toBeInTheDocument();
+  });
+
+  it("sets additional TextInput props", () => {
+    const textInputProps: TextInputProps = {
+      labelText: "Enter 5-digit zip code",
+      maxLength: 5,
+      name: "textInputName",
+      pattern: "[0-9]+",
+      placeholder: "Item Search",
+    };
+
+    render(
+      <SearchBar
+        id="requiredZipCode"
+        isDisabled
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+
+    const input = screen.getByRole("textbox");
+
+    expect(input).toHaveAttribute("pattern", "[0-9]+");
+    expect(input).toHaveAttribute("maxlength", "5");
   });
 
   it("renders 'required' in the placeholder text", () => {

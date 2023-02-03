@@ -1,4 +1,4 @@
-import { Box, chakra, HStack, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import Button from "../../Button/Button";
@@ -10,12 +10,21 @@ import Radio from "../../Radio/Radio";
 import RadioGroup from "../../RadioGroup/RadioGroup";
 import TextInput from "../../TextInput/TextInput";
 
-import { getEncoreCatalogURL, getNYPLSearchURL } from "../utils/headerUtils";
+import {
+  getEncoreCatalogURL,
+  getNYPLSearchURL,
+  getResearchCatalogURL,
+} from "../utils/headerUtils";
 import gaUtils, { gaConfig } from "../utils/googleAnalyticsUtils";
 
 export interface HeaderSearchFormProps {
   isMobile?: boolean;
 }
+
+export type SearchOptionType =
+  | "circulatingCatalog"
+  | "researchCatalog"
+  | "website";
 
 /**
  * Displays the search form for the Header's search interface. On mobile, two
@@ -23,11 +32,14 @@ export interface HeaderSearchFormProps {
  */
 const HeaderSearchForm = chakra(
   ({ isMobile = false }: HeaderSearchFormProps) => {
+    const defaultSearchRadioValue: SearchOptionType = "circulatingCatalog";
     const [placeholder, setPlaceholder] = useState<string>(
       "What would you like to find?"
     );
     const [searchInput, setSearchInput] = useState<string>("");
-    const [searchOption, setSearchOption] = useState<string>("catalog");
+    const [searchOption, setSearchOption] = useState<SearchOptionType>(
+      defaultSearchRadioValue
+    );
     const [isSearchRequested, setIsSearchRequested] = useState<boolean>(false);
     const [isGAResponseReceived, setIsGAResponseReceived] =
       useState<boolean>(false);
@@ -35,7 +47,7 @@ const HeaderSearchForm = chakra(
     // GASearchedRepo indicates which kind of search is sent.
     let gaSearchedRepo = "Unknown";
 
-    const onSubmit = (e: any, mobileType = "") => {
+    const onSubmit = (e: any) => {
       e.preventDefault();
       const newGaConfig = { ...gaConfig };
       let gaSearchLabel;
@@ -43,12 +55,17 @@ const HeaderSearchForm = chakra(
 
       // If there is a search input, make the request.
       if (searchInput) {
-        if (searchOption === "catalog" || mobileType === "catalog") {
-          gaSearchLabel = "Submit Catalog Search";
+        if (searchOption === "circulatingCatalog") {
+          gaSearchLabel = "Submit Circulating Catalog Search";
           gaSearchedRepo = "Encore";
           requestUrl = getEncoreCatalogURL(searchInput);
         }
-        if (searchOption === "website" || mobileType === "website") {
+        if (searchOption === "researchCatalog") {
+          gaSearchLabel = "Submit Research Catalog Search";
+          gaSearchedRepo = "Research Catalog";
+          requestUrl = getResearchCatalogURL(searchInput);
+        }
+        if (searchOption === "website") {
           gaSearchLabel = "Submit Search";
           gaSearchedRepo = "DrupalSearch";
           requestUrl = getNYPLSearchURL(searchInput);
@@ -110,88 +127,61 @@ const HeaderSearchForm = chakra(
                 legendText="Enter a keyword, then choose to search either the catalog or the website"
               >
                 <TextInput
-                  // eslint-disable-next-line jsx-a11y/no-autofocus
-                  // autoFocus
                   id="searchInput"
                   isRequired
                   labelText="Enter Search Keyword"
                   onChange={(e) => setSearchInput(e.target.value)}
                   placeholder={placeholder}
                   showRequiredLabel={false}
-                  showLabel={!isMobile}
                   value={searchInput}
                   __css={styles.textInput}
                 />
-                <Icon
-                  name="search"
-                  size="small"
-                  __css={styles.mobileSearchIcon}
-                />
               </Fieldset>
             </FormField>
-            {!isMobile && (
-              <FormField gridColumn="4">
-                <ButtonGroup>
-                  <Button
-                    aria-label="Search"
-                    buttonType="pill"
-                    id="search-btn"
-                    onClick={onSubmit}
-                    __css={styles.desktopSearchBtn}
-                  >
-                    <Icon name="search" size="large" />
-                  </Button>
-                </ButtonGroup>
-              </FormField>
-            )}
+            <FormField gridColumn={{ base: "3", md: "4" }}>
+              <ButtonGroup>
+                <Button
+                  aria-label="Search"
+                  buttonType="pill"
+                  id="search-btn"
+                  onClick={onSubmit}
+                  __css={styles.searchBtn}
+                >
+                  <Icon name="search" size="large" />
+                </Button>
+              </ButtonGroup>
+            </FormField>
           </FormRow>
           <FormRow>
             <FormField>
-              {isMobile ? (
-                <HStack spacing="0">
-                  <Button
-                    aria-label="Submit Catalog Search"
-                    id="mobile-catalog"
-                    onClick={(e) => onSubmit(e, "catalog")}
-                    __css={styles.mobileBtns}
-                  >
-                    CATALOG
-                    <Icon name="arrow" size="small" iconRotation="rotate270" />
-                  </Button>
-                  <Button
-                    aria-label="Submit NYPL Website Search"
-                    id="mobile-website"
-                    onClick={(e) => onSubmit(e, "website")}
-                    __css={styles.mobileBtns}
-                  >
-                    NYPL.ORG
-                    <Icon name="arrow" size="small" iconRotation="rotate270" />
-                  </Button>
-                </HStack>
-              ) : (
-                <RadioGroup
-                  defaultValue="catalog"
-                  id="search-type"
-                  labelText="Type of search"
-                  layout="row"
-                  name="catalogWebsiteSearch"
-                  onChange={(val) => setSearchOption(val)}
-                  showLabel={false}
-                >
-                  <Radio
-                    id="catalogSearch"
-                    labelText="Search the Catalog"
-                    value="catalog"
-                    __css={styles.radio}
-                  />
-                  <Radio
-                    id="websiteSearch"
-                    labelText="Search NYPL.org"
-                    value="website"
-                    __css={styles.radio}
-                  />
-                </RadioGroup>
-              )}
+              <RadioGroup
+                defaultValue="circulatingCatalog"
+                id="search-type"
+                labelText="Type of search"
+                layout={isMobile ? "column" : "row"}
+                name="catalogWebsiteSearch"
+                onChange={(val: SearchOptionType) => setSearchOption(val)}
+                showLabel={false}
+              >
+                <Radio
+                  id="circulatingCatalogSearch"
+                  labelText="Search books, music, and movies"
+                  value="circulatingCatalog"
+                  __css={styles.radio}
+                />
+                <Radio
+                  id="researchcatalogSearch"
+                  labelText="Search the Research Catalog"
+                  value="researchCatalog"
+                  __css={styles.radio}
+                />
+                <Radio
+                  id="websiteSearch"
+                  labelText="Search the library website"
+                  value="website"
+                  __css={styles.radio}
+                />
+              </RadioGroup>
             </FormField>
           </FormRow>
         </Form>
