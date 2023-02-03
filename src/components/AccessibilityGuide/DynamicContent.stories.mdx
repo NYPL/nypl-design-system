@@ -18,11 +18,11 @@ import DSProvider from "../../theme/provider";
 ## General Information
 
 Most websites have elements on the page that are updated dynamically. For these
-scenarios, it should be clear to the user what and where the changes are taken
-place. Typically, the update is indicated by displaying a visual loading
-animation before the new content is displayed. For most able-bodied users, this
-is usually not a problem but for users who use assistive technology, we need to
-make sure that the changes are understood and announced by the assistive
+scenarios, it should be clear to the user what the changes are and where the
+changes will take place. Typically, the update is indicated by displaying a visual
+loading animation before the new content is displayed. For most able-bodied users,
+this is usually not a problem but for users who use assistive technology, we
+need to make sure that the changes are understood and announced by the assistive
 technology.
 
 The quick takeaway for implementing this necessary functionality is to _always_
@@ -40,10 +40,10 @@ content to be recognized and announced by assistive technology.
 ## ARIA Live Regions
 
 The `aria-live` attribute is used to indicate that an element's content will be
-updated dynamically and that it should be announced. _When_ the content should
-be read by the assistant technology depends on the value that is set. The
-`aria-live` attribute can be set to "off", "polite", or "assertive". This
-attribute does not manage focus on the element.
+updated dynamically and that it should be announced to assistive technology.
+The `aria-live` attribute can be set to "off", "polite", or "assertive". _When_
+the content should be read by the assistant technology depends which of the three
+values is use. This attribute does not manage focus on the element.
 
 _Always include the `aria-live` attribute for dynamic content in the initial DOM
 render to allow assistive technology to track the updates for the specified
@@ -103,11 +103,11 @@ const container = document.getElementById("dynamic-content-container");
 container.setAttribute("aria-live", "polite");
 ```
 
-**Do not assign the `aria-live` attribute to the an entire section or the
+**Do not assign the `aria-live` attribute to an entire section or the
 entire page.**
 
 Add the `aria-live` attribute to the specific element that will be updated. For
-example, on an search results page that updates the amount of results found and
+example, on a search results page that updates the amount of results found and
 the list of results, only add the `aria-live` attribute to the element that
 contains the number of results. The following is not recommended:
 
@@ -134,8 +134,9 @@ contains the number of results. The following is not recommended:
 
 This is not recommended because the screen reader will announce:
 
-- "10 results found Title: Result 1 Author: Author 1 Title: Result 2 Author:
-  Author 2 ..."
+```
+"10 results found Title: Result 1 Author: Author 1 Title: Result 2 Author: Author 2 ..."
+```
 
 This is information overload. Instead, add the `aria-live` attribute to the
 element that contains the updated number of results found. In this case, it's
@@ -201,4 +202,3 @@ return (
 <!-- hack to make sure correct styles are used on the page -->
 
 <DSProvider />
-```
