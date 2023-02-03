@@ -52,6 +52,8 @@ export interface InputProps {
   invalidText?: HelperErrorTextType;
   /** Adds a button to clear existing text in the input field. */
   isClearable?: boolean;
+  /** The callback function that is called when the clear button is clicked. */
+  isClearableCallback?: () => void;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
   isDisabled?: boolean;
   /** Adds errored styling to the input/textarea and helper text elements */
@@ -80,6 +82,8 @@ export interface InputProps {
   onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
   /** The action to perform on the `input`/`textarea`'s onFocus function  */
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Regex to query the user input against. */
+  pattern?: string;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
   /** Allows the '(Required)' text to be changed for language purposes
@@ -124,6 +128,7 @@ export const TextInput = chakra(
         id,
         invalidText,
         isClearable = false,
+        isClearableCallback,
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
@@ -135,6 +140,7 @@ export const TextInput = chakra(
         onChange,
         onClick,
         onFocus,
+        pattern,
         placeholder,
         showHelperInvalidText = true,
         showLabel = true,
@@ -157,6 +163,7 @@ export const TextInput = chakra(
       });
       const isTextArea = type === "textarea";
       const isHidden = type === "hidden";
+      let hasAutocomplete = false;
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -171,6 +178,19 @@ export const TextInput = chakra(
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
+
+      if (type === "tel" || type === "url" || type === "email") {
+        hasAutocomplete = true;
+        const example = TextInputFormats[type] || "";
+        footnote = (
+          <>
+            Ex: {example}
+            <br />
+            {footnote}
+          </>
+        );
+      }
+
       const ariaAttributes = getAriaAttrs({
         footnote,
         id,
@@ -178,8 +198,10 @@ export const TextInput = chakra(
         name: "TextInput",
         showLabel,
       });
+
       const onClearClick = () => {
         setFinalValue("");
+        isClearableCallback && isClearableCallback();
         // Set focus back to the input element.
         (finalRef as any).current.focus();
       };
@@ -206,18 +228,6 @@ export const TextInput = chakra(
           "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
         );
       }
-
-      if (type === "tel" || type === "url" || type === "email") {
-        const example = TextInputFormats[type] || "";
-        footnote = (
-          <>
-            Ex: {example}
-            <br />
-            {footnote}
-          </>
-        );
-      }
-
       // When the type is "hidden", the input element needs fewer attributes.
       options = isHidden
         ? {
@@ -230,6 +240,7 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
+            autocomplete: hasAutocomplete ? type : null,
             defaultValue,
             id,
             isDisabled,
@@ -242,6 +253,7 @@ export const TextInput = chakra(
             onChange: internalOnChange,
             onClick,
             onFocus,
+            pattern,
             placeholder,
             ref: finalRef,
             // The `step` attribute is useful for the number type.

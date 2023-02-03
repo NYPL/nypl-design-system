@@ -98,7 +98,7 @@ export const secondary = ({ buttonSize = "medium" }) => ({
   color: "ui.link.primary",
   ...generalSizeValues(buttonSize),
   _hover: {
-    bg: "ui.bg.default",
+    bg: "ui.link.primary-05",
     borderColor: "ui.link.secondary",
     color: "ui.link.secondary",
   },
@@ -143,7 +143,7 @@ const text = ({ buttonSize = "medium" }) => ({
     bg: "transparent",
   },
   _hover: {
-    bg: "transparent",
+    bg: "ui.link.primary-05",
     color: "ui.link.secondary",
   },
   _dark: {
@@ -183,9 +183,9 @@ const iconOnly = ({ buttonSize = "medium" }) => ({
   paddingInlineStart: "inset.narrow",
   paddingInlineEnd: "inset.narrow",
   _hover: {
-    bg: "ui.bg.default",
-    borderColor: "ui.link.primary",
-    color: "ui.link.primary",
+    bg: "ui.link.primary-05",
+    borderColor: "ui.link.secondary",
+    color: "ui.link.secondary",
   },
   _dark: {
     ...ghostDarkStyles,

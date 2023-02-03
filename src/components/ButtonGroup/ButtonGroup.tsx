@@ -50,22 +50,24 @@ export const ButtonGroup = chakra(
       React.Children.map(
         children as JSX.Element,
         (child: React.ReactElement, key: number) => {
-          if (child?.type !== Button) {
-            // Special case for Storybook MDX documentation.
-            if (child?.props.mdxType && child?.props.mdxType === "Button") {
-              noop();
-            } else {
-              console.warn(
-                "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
-              );
-              return;
+          if (React.isValidElement(child)) {
+            if (child.type !== Button) {
+              // Special case for Storybook MDX documentation.
+              // @ts-ignore
+              if (child.props.mdxType && child.props.mdxType === "Button") {
+                noop();
+              } else {
+                console.warn(
+                  "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
+                );
+                return;
+              }
             }
-          }
-          const disabledProps = isDisabled ? { isDisabled } : {};
-          child &&
+            const disabledProps = isDisabled ? { isDisabled } : {};
             newChildren.push(
               React.cloneElement(child, { key, ...disabledProps })
             );
+          }
         }
       );
 

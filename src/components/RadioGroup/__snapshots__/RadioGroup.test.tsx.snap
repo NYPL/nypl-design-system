@@ -273,7 +273,6 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     no label
   </legend>
   <div
-    aria-label="no label"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -528,7 +527,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
   </div>
   <div
     aria-atomic={true}
-    aria-live="off"
+    aria-live="polite"
     className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {

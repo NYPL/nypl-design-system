@@ -1,7 +1,7 @@
-import { render, RenderResult, screen } from "@testing-library/react";
+import { render, RenderResult, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
+import React from "react";
 import renderer from "react-test-renderer";
 
 import TextInput, { TextInputRefType } from "./TextInput";
@@ -96,6 +96,72 @@ describe("TextInput", () => {
   it("renders 'Required' along with the label text", () => {
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
+  });
+
+  it("adds aria-describedby attribute", async () => {
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-describedby",
+      "myTextInput-helperText"
+    );
+
+    utils.rerender(
+      <TextInput
+        helperText="Custom Email Helper Text"
+        id="myEmailInput"
+        isRequired
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        placeholder="Email Input Placeholder"
+        type="email"
+      />
+    );
+
+    await waitFor(() =>
+      expect(screen.getByRole("textbox")).toHaveAttribute(
+        "aria-describedby",
+        "myEmailInput-helperText"
+      )
+    );
+  });
+
+  it("has an 'autocomplete' attribute if the type is 'email', 'tel', or 'url'", () => {
+    expect(screen.getByRole("textbox")).not.toHaveAttribute("autocomplete");
+
+    utils.rerender(
+      <TextInput
+        id="myEmailInput"
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        type="email"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "autocomplete",
+      "email"
+    );
+
+    utils.rerender(
+      <TextInput
+        id="myTelInput"
+        labelText="Custom Tel Input Label"
+        onChange={changeHandler}
+        type="tel"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "tel");
+
+    utils.rerender(
+      <TextInput
+        id="myURLInput"
+        labelText="Custom URL Input Label"
+        onChange={changeHandler}
+        type="url"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "url");
   });
 
   it("does not render '(Required)' along with the label text", () => {
@@ -250,12 +316,30 @@ describe("TextInput", () => {
     );
   });
 
+  it("has a pattern for the input element", () => {
+    const onChangeSpy = jest.fn();
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        pattern="[0-9]+"
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
+      "pattern",
+      "[0-9]+"
+    );
+  });
+
   it("renders a `clear` button and clears the input field when clicked", () => {
     const onChangeSpy = jest.fn();
 
     utils.rerender(
       <TextInput
-        id="inputID-attributes"
+        id="isClearable"
         isClearable
         labelText="Input Label"
         maxLength={10}
@@ -275,6 +359,40 @@ describe("TextInput", () => {
     expect(screen.getByRole("textbox")).toHaveValue("text value");
     clearButton = screen.queryByRole("button");
     expect(clearButton).toBeInTheDocument();
+
+    // Click on the clear button
+    userEvent.click(clearButton);
+    // The text should no longer be in the input field.
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    // The clear button does not render.
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
+  it("calls the `isClearableCallback` when the clear button is clicked for controlled TextInput", () => {
+    let value = "";
+    const setValue = (v) => {
+      value = v;
+    };
+
+    utils.rerender(
+      <TextInput
+        id="isClearable"
+        isClearable
+        isClearableCallback={() => setValue("")}
+        labelText="Input Label"
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Input Placeholder"
+        type="text"
+        value={value}
+      />
+    );
+    let clearButton = screen.queryByRole("button");
+
+    // Type some value
+    userEvent.type(screen.getByRole("textbox"), "text value");
+
+    expect(screen.getByRole("textbox")).toHaveValue("text value");
+    clearButton = screen.queryByRole("button");
 
     // Click on the clear button
     userEvent.click(clearButton);

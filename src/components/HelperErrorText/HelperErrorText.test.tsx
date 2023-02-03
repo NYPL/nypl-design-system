@@ -39,10 +39,26 @@ describe("HelperErrorText", () => {
     expect(screen.getByText("Text")).toHaveAttribute("data-isinvalid", "true");
   });
 
-  it("has aria-live and aria-atomic attributes when errored", () => {
-    render(<HelperErrorText isInvalid text="Text" />);
-    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+  it("has aria-atomic and aria-live attributes by default", () => {
+    render(<HelperErrorText text="Text" />);
     expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+  });
+
+  it("sets custom aria-live attribute when ariaLive prop is passed as 'polite' or 'assertive'", () => {
+    const utils = render(<HelperErrorText text="Text" />);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+
+    utils.rerender(<HelperErrorText ariaLive="assertive" text="Text" />);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "assertive");
+  });
+
+  it("does not have aria-live attribute when ariaLive prop is set to 'off'", () => {
+    const utils = render(<HelperErrorText text="Text" />);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+
+    utils.rerender(<HelperErrorText ariaLive="off" text="Text" />);
+    expect(screen.getByText("Text")).not.toHaveAttribute("aria-live");
   });
 
   it("accepts an aria-atomic value of false", () => {
