@@ -17,13 +17,11 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Most websites have elements on the page that are updated dynamically. For these
-scenarios, it should be clear to the user what the changes are and where the
-changes will take place. Typically, the update is indicated by displaying a visual
-loading animation before the new content is displayed. For most able-bodied users,
-this is usually not a problem but for users who use assistive technology, we
-need to make sure that the changes are understood and announced by the assistive
-technology.
+Most websites have elements on that are updated dynamically. Typically, these
+updates are indicated with a visual loading animation before the new content is
+displayed. This visual cue, however, is not helpful for visually impaired users
+or users who use assistive technology. We need to ensure that the changes are
+understood and announced by the assistive technology.
 
 The quick takeaway for implementing this necessary functionality is to _always_
 render an empty container for the dynamic content in the DOM on the server-side.
@@ -42,7 +40,7 @@ content to be recognized and announced by assistive technology.
 The `aria-live` attribute is used to indicate that an element's content will be
 updated dynamically and that it should be announced to assistive technology.
 The `aria-live` attribute can be set to "off", "polite", or "assertive". _When_
-the content should be read by the assistant technology depends which of the three
+the content should be read by the assistive technology depends which of the three
 values is use. This attribute does not manage focus on the element.
 
 _Always include the `aria-live` attribute for dynamic content in the initial DOM
@@ -66,15 +64,15 @@ should announce the entire content or only the changes. This is useful when an
 element's entire content is not replaced on every update but all of the content
 should still be read.
 
-- `aria-atomic="true"` - the entire content of the element will be read by the
-  assistive technology.
-- `aria-atomic="false"` - only the changes to the content will be read by the
-  assistive technology.
-
 For example, if the content of an element is updated to "Results found: 5" and
 then updated again to "Results found: 10", the assistive technology will announce
 "10" when `aria-atomic="false"` but will announce "Results found: 10" when
 `aria-atomic="true"`.
+
+- `aria-atomic="true"` - the entire content of the element will be read by the
+  assistive technology.
+- `aria-atomic="false"` - only the changes to the content will be read by the
+  assistive technology.
 
 ```html
 <div class="dynamic-content-container" aria-live="polite" aria-atomic="true">
@@ -90,7 +88,7 @@ then updated again to "Results found: 10", the assistive technology will announc
 **Do not dynamically add or remove the `aria-live` attribute from the element.**
 
 The `aria-live` attribute should be set on the element when the page is rendered.
-The following is **incorrect**:
+The following are **incorrect**:
 
 ```html
 <div id="dynamic-content-container">
@@ -99,8 +97,25 @@ The following is **incorrect**:
 ```
 
 ```js
+// Javascript anti-pattern example
 const container = document.getElementById("dynamic-content-container");
 container.setAttribute("aria-live", "polite");
+```
+
+```js
+// React anti-pattern example
+const [ariaLive, setAriaLive] = useState(undefined);
+
+// When the component mounts, set the aria-live attribute.
+useEffect(() => {
+  setAriaLive("polite");
+}, [])
+
+return (
+  <div id="dynamic-content-container" aria-live={ariaLive}>
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+  </div>
+);
 ```
 
 **Do not assign the `aria-live` attribute to an entire section or the
@@ -147,10 +162,11 @@ the element with `id` of `results-count` only.
 ### HelperErrorText
 
 The `HelperErrorText` component renders an empty `div` element with the
-`aria-live` attribute set to `"polite"` by default. This element can be used to
-display content that is dynamically updated through the `text` prop. This
-component should not be conditionally rendered on the page. Instead, the content
-should be dynamically updated.
+`aria-live` attribute set to `"polite"` by default. This component should not be
+conditionally rendered on the page. Instead, the content should be dynamically
+updated.
+
+[HelperErrorText Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-content-display-helpererrortext--helper-error-text-with-controls)
 
 ```jsx
 // Very naive example.
@@ -176,6 +192,8 @@ In the following example, the helper text "Please enter a 5-digit value." is set
 by default. If the user does not enter a 5-digit value, the error text "The zip
 code needs to be 5-digits." is displayed _and_ also announced by assistive
 technology.
+
+[TextInput Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls)
 
 ```jsx
 // Very naive example.
