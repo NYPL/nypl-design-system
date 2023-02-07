@@ -55,6 +55,8 @@ const MultiSelectMenuButton = forwardRef<
   const iconType = isOpen ? "minus" : "plus";
   const growAnimation = `${grow} 150ms ease-out`;
 
+  const [prevIsOpen, setPrevIsOpen] = React.useState(isOpen);
+
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
   let selectedItemsAriaLabel;
@@ -88,10 +90,14 @@ const MultiSelectMenuButton = forwardRef<
   }
   // Manage focus upon closing the MultiSelect
   React.useEffect(() => {
-    if (!isOpen && internalRef) {
-      internalRef.current?.focus();
+    setPrevIsOpen(isOpen);
+    // Catching the inital render of the page
+    if (isOpen !== prevIsOpen) {
+      if (!isOpen && internalRef) {
+        internalRef.current?.focus();
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, prevIsOpen]);
 
   return (
     <>
