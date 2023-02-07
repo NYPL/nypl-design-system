@@ -583,7 +583,7 @@ describe("MultiSelect Dialog", () => {
       <MultiSelectTestDialogComponent
         multiSelectId="multiselect-dialog-test-id"
         initialSelectedItems={{
-          ["multiselect-dialog-test-id"]: { items: ["red", "blue", "dogs"] },
+          "multiselect-dialog-test-id": { items: ["red", "blue", "dogs"] },
         }}
       />
     );
