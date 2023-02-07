@@ -11,6 +11,7 @@ import DSProvider from "../../theme/provider";
 
 - [General Information](#general-information)
 - [ARIA Live Regions](#aria-live-regions)
+- [Managing Focus](#managing-focus)
 - [Anti-Patterns](#anti-patterns)
 - [NYPL Patterns](#nypl-patterns)
 - [Resources](#resources)
@@ -81,6 +82,62 @@ then updated again to "Results found: 10", the assistive technology will announc
     <!-- Any dynamic content should be inserted, removed, or updated here. -->
   </span>
 </div>
+```
+
+## Managing Focus
+
+Not all instances of dynamic content updates require a focus change, but some do.
+When a process completes and an important message is displayed, the focus should
+be moved to the message. For example, when a user submits a form and the form is
+cleared from the page, and a status message is added in its place, then focus
+should be placed on the status message. It is generally inappropriate to forcefully
+move focus to the message or search results when it is anticipated that the user
+might be interacting with multiple facets of filtering in succession and a focus
+change would be disruptive to their flow.
+
+As mentioned above, the `aria-live` attribute does not manage focus on the
+element. In order to move focus to the element, the `tabindex` (`tabIndex` in React)
+attribute must be set to `-1` to programmatically focus on the element, and a
+`focus()` method must be called on the element. The following example shows how
+to move focus to an element with the `aria-live` attribute.
+
+```html
+<div class="dynamic-content-container" aria-live="polite" tabindex="-1">
+  <!-- Any dynamic content should be inserted, removed, or updated here. -->
+</div>
+```
+
+```js
+// Javascript example
+const container = document.querySelector(".dynamic-content-container");
+
+// Once the content is updated, move focus to the container.
+container.focus();
+```
+
+```js
+// React example
+const [text, setText] = useState(undefined);
+const containerRef = useRef(null);
+
+// Once the content is updated, move focus to the container.
+// Pseudocode example - the actual conditional logic will vary.
+useEffect(() => {
+  // When content is updated, move focus to the container.
+  containerRef.current.focus();
+}, [text])
+
+return (
+  <div
+    aria-live="polite"
+    class="dynamic-content-container"
+    ref={containerRef}
+    tabIndex="-1"
+  >
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+    {text}
+  </div>
+);
 ```
 
 ## Anti-Patterns
@@ -188,10 +245,10 @@ The `TextInput` component internally implements the `HelperErrorText` component
 to display helper or error text. This is especially useful when there is an error
 that needs to be displayed after the user has interacted with the input.
 
-In the following example, the helper text "Please enter a 5-digit value." is set
-by default. If the user does not enter a 5-digit value, the error text "The zip
-code needs to be 5-digits." is displayed _and_ also announced by assistive
-technology.
+In the following example, the helper text "ErrorL Please enter a 5-digit value."
+is set by default. If the user does not enter a 5-digit value, the error text
+"Error: The zip code needs to be 5-digits." is displayed _and_ also announced by
+assistive technology.
 
 [TextInput Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls)
 
@@ -205,7 +262,7 @@ return (
     isInvalid={inputValue.length !== 5}
     onChange={(e) => setInputValue(e.target.value)}
     helperText="Please enter a 5-digit value."
-    invalidText="The zip code needs to be 5-digits."
+    invalidText="Error: The zip code needs to be 5-digits."
     value={inputValue}
   />
 );
