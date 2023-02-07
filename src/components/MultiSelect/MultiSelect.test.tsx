@@ -41,6 +41,7 @@ const MultiSelectTestDialogComponent = ({
 
   React.useEffect(() => {
     setSelectedItems(initialSelectedItems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -68,6 +69,7 @@ const MultiSelectTestListboxComponent = ({
 
   React.useEffect(() => {
     setSelectedItems(initialSelectedItems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
