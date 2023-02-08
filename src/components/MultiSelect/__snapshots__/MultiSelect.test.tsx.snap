@@ -278,6 +278,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Dogs
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="dogs-helperText"
+            />
           </div>
         </li>
         <li
@@ -347,6 +355,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Cats
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cats-helperText"
+            />
           </div>
         </li>
         <li
@@ -416,6 +432,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Cars
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cars-helperText"
+            />
           </div>
         </li>
         <li
@@ -485,6 +509,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Colors
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="colors-helperText"
+            />
           </div>
           <ul
             className="css-10ns9zz"
@@ -557,6 +589,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                     Red
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="red-helperText"
+                />
               </div>
             </li>
             <li
@@ -626,6 +666,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                     Blue
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="blue-helperText"
+                />
               </div>
             </li>
           </ul>
@@ -697,6 +745,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Plants
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="plants-helperText"
+            />
           </div>
         </li>
         <li
@@ -766,6 +822,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 Furniture
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="furniture-helperText"
+            />
           </div>
         </li>
       </ul>
@@ -998,6 +1062,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Dogs
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="dogs-helperText"
+            />
           </div>
         </li>
         <li
@@ -1067,6 +1139,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Cats
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cats-helperText"
+            />
           </div>
         </li>
         <li
@@ -1136,6 +1216,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Cars
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cars-helperText"
+            />
           </div>
         </li>
         <li
@@ -1227,6 +1315,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Colors
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="colors-helperText"
+            />
           </div>
           <ul
             className="css-10ns9zz"
@@ -1302,6 +1398,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                     Red
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="red-helperText"
+                />
               </div>
             </li>
             <li
@@ -1371,6 +1475,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                     Blue
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="blue-helperText"
+                />
               </div>
             </li>
           </ul>
@@ -1442,6 +1554,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Plants
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="plants-helperText"
+            />
           </div>
         </li>
         <li
@@ -1511,6 +1631,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 Furniture
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="furniture-helperText"
+            />
           </div>
         </li>
       </ul>
@@ -1743,6 +1871,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Dogs
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="dogs-helperText"
+            />
           </div>
         </li>
         <li
@@ -1812,6 +1948,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Cats
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cats-helperText"
+            />
           </div>
         </li>
         <li
@@ -1881,6 +2025,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Cars
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="cars-helperText"
+            />
           </div>
         </li>
         <li
@@ -1953,6 +2105,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Colors
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="colors-helperText"
+            />
           </div>
           <ul
             className="css-10ns9zz"
@@ -2028,6 +2188,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                     Red
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="red-helperText"
+                />
               </div>
             </li>
             <li
@@ -2100,6 +2268,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                     Blue
                   </span>
                 </label>
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className="css-1xdhyk6"
+                  data-isinvalid={false}
+                  data-testid="helperErrorText"
+                  id="blue-helperText"
+                />
               </div>
             </li>
           </ul>
@@ -2171,6 +2347,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Plants
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="plants-helperText"
+            />
           </div>
         </li>
         <li
@@ -2240,6 +2424,14 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 Furniture
               </span>
             </label>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="furniture-helperText"
+            />
           </div>
         </li>
       </ul>
@@ -2475,6 +2667,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Dogs
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="dogs-helperText"
+          />
         </div>
       </li>
       <li
@@ -2549,6 +2749,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Cats
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="cats-helperText"
+          />
         </div>
       </li>
       <li
@@ -2623,6 +2831,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Cars
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="cars-helperText"
+          />
         </div>
       </li>
       <li
@@ -2697,6 +2913,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Colors
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="colors-helperText"
+          />
         </div>
       </li>
       <li
@@ -2771,6 +2995,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Plants
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="plants-helperText"
+          />
         </div>
       </li>
       <li
@@ -2845,6 +3077,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               Furniture
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="furniture-helperText"
+          />
         </div>
       </li>
     </ul>
@@ -3041,6 +3281,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Dogs
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="dogs-helperText"
+          />
         </div>
       </li>
       <li
@@ -3118,6 +3366,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Cats
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="cats-helperText"
+          />
         </div>
       </li>
       <li
@@ -3192,6 +3448,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Cars
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="cars-helperText"
+          />
         </div>
       </li>
       <li
@@ -3266,6 +3530,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Colors
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="colors-helperText"
+          />
         </div>
       </li>
       <li
@@ -3340,6 +3612,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Plants
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="plants-helperText"
+          />
         </div>
       </li>
       <li
@@ -3414,6 +3694,14 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               Furniture
             </span>
           </label>
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            data-testid="helperErrorText"
+            id="furniture-helperText"
+          />
         </div>
       </li>
     </ul>

@@ -440,13 +440,12 @@ export const DatePicker = chakra(
             <FormField id={`${id}-end-form`}>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
-        {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helper-text`}
-            isInvalid={false}
-            text={helperText}
-          />
-        )}
+        <HelperErrorText
+          id={`${id}-helper-text`}
+          isInvalid={false}
+          renderText={isDateRange && showHelperInvalidText}
+          text={helperText}
+        />
       </DatePickerWrapper>
     );
   }),

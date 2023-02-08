@@ -5,14 +5,18 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
   aria-atomic={true}
   aria-live="polite"
   className="css-1xdhyk6"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "Text",
-    }
-  }
   data-isinvalid={false}
+  data-testid="helperErrorText"
   id="basic"
-/>
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Text",
+      }
+    }
+  />
+</div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
@@ -20,14 +24,18 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   aria-atomic={true}
   aria-live="polite"
   className="css-1xdhyk6"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "Text",
-    }
-  }
   data-isinvalid={true}
+  data-testid="helperErrorText"
   id="invalid"
-/>
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Text",
+      }
+    }
+  />
+</div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
@@ -35,14 +43,18 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   aria-atomic={true}
   aria-live="polite"
   className="css-1xdhyk6"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "This helper text <b>contains HTML in the string</b>.",
-    }
-  }
   data-isinvalid={true}
+  data-testid="helperErrorText"
   id="invalid"
-/>
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "This helper text <b>contains HTML in the string</b>.",
+      }
+    }
+  />
+</div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
@@ -51,6 +63,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
+  data-testid="helperErrorText"
   id="invalid"
 >
   This helper text 
@@ -66,14 +79,18 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
   aria-atomic={true}
   aria-live="polite"
   className="css-10g9ftz"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "Text",
-    }
-  }
   data-isinvalid={false}
+  data-testid="helperErrorText"
   id="chakra"
-/>
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Text",
+      }
+    }
+  />
+</div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
@@ -81,13 +98,16 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
   aria-atomic={true}
   aria-live="polite"
   className="css-1xdhyk6"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "Text",
-    }
-  }
   data-isinvalid={false}
   data-testid="props"
   id="props"
-/>
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Text",
+      }
+    }
+  />
+</div>
 `;

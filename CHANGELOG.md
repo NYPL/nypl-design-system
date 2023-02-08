@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `pattern` prop to the `TextInput` component.
+- Adds the `renderText` prop to the `HelperErrorText` component.
 
 ### Updates
 
@@ -18,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
 - Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
 - Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
+- Updates how the `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, and `RadioGroup` components internally render the `HelperErrorText` component.
 
 ## 1.4.0 (January 26, 2023)
 

@@ -55,6 +55,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                 type="text"
                 value=""
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                data-testid="helperErrorText"
+                id="searchInput-helperText"
+              />
             </div>
           </fieldset>
         </div>
@@ -187,6 +195,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="circulatingCatalogSearch-helperText"
+                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -243,6 +259,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="researchcatalogSearch-helperText"
+                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -299,9 +323,25 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="websiteSearch-helperText"
+                  />
                 </div>
               </div>
             </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="search-type-helperErrorText"
+            />
           </fieldset>
         </div>
       </div>
@@ -364,6 +404,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                 step={null}
                 type="text"
                 value=""
+              />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                data-testid="helperErrorText"
+                id="searchInput-helperText"
               />
             </div>
           </fieldset>
@@ -497,6 +545,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="circulatingCatalogSearch-helperText"
+                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -553,6 +609,14 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="researchcatalogSearch-helperText"
+                  />
                 </div>
                 <div
                   className="css-1xdhyk6"
@@ -609,9 +673,25 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       </span>
                     </span>
                   </label>
+                  <div
+                    aria-atomic={true}
+                    aria-live="polite"
+                    className="css-1xdhyk6"
+                    data-isinvalid={false}
+                    data-testid="helperErrorText"
+                    id="websiteSearch-helperText"
+                  />
                 </div>
               </div>
             </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              data-testid="helperErrorText"
+              id="search-type-helperErrorText"
+            />
           </fieldset>
         </div>
       </div>

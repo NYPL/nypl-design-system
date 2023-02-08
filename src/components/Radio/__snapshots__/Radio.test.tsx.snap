@@ -54,6 +54,14 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="inputID-helperText"
+  />
 </div>
 `;
 
@@ -114,6 +122,14 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="radio-checked-helperText"
+  />
 </div>
 `;
 
@@ -172,6 +188,14 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="radio-required-helperText"
+  />
 </div>
 `;
 
@@ -233,6 +257,14 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={true}
+    data-testid="helperErrorText"
+    id="radio-invalid-helperText"
+  />
 </div>
 `;
 
@@ -294,6 +326,14 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="radio-disabled-helperText"
+  />
 </div>
 `;
 
@@ -364,6 +404,14 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="jsxLabel-helperText"
+  />
 </div>
 `;
 
@@ -421,6 +469,14 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="chakra-helperText"
+  />
 </div>
 `;
 
@@ -479,5 +535,13 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       </span>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="props-helperText"
+  />
 </div>
 `;

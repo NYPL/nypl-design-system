@@ -22,6 +22,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
         title="Vimeo video player"
       />
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="helperErrorText"
+      id="video-player-without-text-componentWrapper-helperText"
+    />
   </div>
 </div>
 `;
@@ -63,14 +71,18 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       aria-atomic={true}
       aria-live="polite"
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "VideoPlayer helper test.",
-        }
-      }
       data-isinvalid={false}
+      data-testid="helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
-    />
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
+      />
+    </div>
   </div>
 </div>
 `;
@@ -111,14 +123,18 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       aria-atomic={true}
       aria-live="polite"
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "VideoPlayer helper test.",
-        }
-      }
       data-isinvalid={false}
+      data-testid="helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
-    />
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
+      />
+    </div>
   </div>
 </div>
 `;
@@ -161,6 +177,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
         title="Vimeo video player"
       />
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="helperErrorText"
+      id="chakra-componentWrapper-helperText"
+    />
   </div>
 </div>
 `;
@@ -187,6 +211,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
         title="Vimeo video player"
       />
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="helperErrorText"
+      id="props-componentWrapper-helperText"
+    />
   </div>
 </div>
 `;

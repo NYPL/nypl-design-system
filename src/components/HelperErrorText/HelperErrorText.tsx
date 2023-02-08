@@ -22,12 +22,17 @@ interface HelperErrorTextProps {
   id?: string;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
+  /** Offers the ability to render or not render the content passed in
+   * the `text` prop; `true` by default. */
+  renderText?: boolean;
   /** The text to display. */
   text: HelperErrorTextType;
 }
 
 /**
- * Helper or error text for forms components.
+ * Component that always renders a div even if the text content is not passed.
+ * This pattern guarantees accessibility guidelines are met if the text content
+ * is dynamically updated by the app or component that implements it.
  */
 export const HelperErrorText = chakra(
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
@@ -38,27 +43,35 @@ export const HelperErrorText = chakra(
         className = "",
         id,
         isInvalid = false,
+        renderText = true,
         text,
         ...rest
       },
       ref?
     ) => {
-      // Only announce the text in the invalid state.
       const styles = useStyleConfig("HelperErrorText", { isInvalid });
       const props = {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
+        "data-testid": "helperErrorText",
         id,
+        ref,
         __css: styles,
         ...rest,
       };
-      return typeof text === "string" ? (
-        <Box {...props} dangerouslySetInnerHTML={{ __html: text }} ref={ref} />
-      ) : (
-        <Box {...props} ref={ref}>
-          {text}
+
+      // Always render the wrapper div element with the proper aria attributes.
+      return (
+        <Box {...props}>
+          {renderText ? (
+            typeof text === "string" ? (
+              <span dangerouslySetInnerHTML={{ __html: text }} />
+            ) : (
+              text
+            )
+          ) : null}
         </Box>
       );
     }

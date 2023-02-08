@@ -39,6 +39,9 @@ import DSProvider from "../../theme/provider";
     isInvalid: {
       table: { defaultValue: { summary: false } },
     },
+    renderText: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -47,7 +50,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `1.4.0`    |
+| Latest            | `1.4.1`    |
 
 ## Table of Contents
 
@@ -89,17 +92,24 @@ import DSProvider from "../../theme/provider";
 ## Accessibility
 
 In the Reservoir Design System (DS), the `HelperErrorText` component is always
-used as a child component when composing more complex components. In the case
-of form components, the `HelperErrorText` component is associated with a
-related input field by using the `aria-describedby` attribute in the
-associated element. In this way, the content of the `HelperErrorText` component
-is made available to screenreaders.
+used as a child component when composing more complex components.
 
-The example below is rendered using the `TextInput` component. The `TextInput`
-component uses the `HelperErrorText` component to render the red
-`"This is error text :("` below the input field and that text element is
-referenced with the `aria-describedby` attribute on the HTML input element.
-This type of association is handled automatically by all DS `Form Elements` components.
+In the case of form components, the `HelperErrorText` component is associated
+with a related input field by using the `aria-describedby` attribute in the
+associated element. This pattern ensures that the content of the `HelperErrorText`
+component is made available to screenreaders.
+
+This component will always render at least an empty `<div>` element even if no
+text content is passed. This is to ensure that the accessibility guideline for
+dynamic content is met. One expected use case of the `HelperErrorText` component
+is to dynamically render error text when a form field is invalid. In that
+scenario, the dynamically updated error text will be read by assistive
+technologies.
+
+The example below is shows a `TextInput` component. The `TextInput` component
+uses the `HelperErrorText` component to render the red-colored `"This is error text :("` text below the input field and that text element is referenced with
+the `aria-describedby` attribute on the HTML input element. This type of
+association is handled automatically by all DS `Form Elements` components.
 
 <Canvas>
   <Story
@@ -120,19 +130,28 @@ This type of association is handled automatically by all DS `Form Elements` comp
 
 ### ariaAtomic
 
-The `ariaAtomic` prop sets the `aria-atomic` attribute. This allows the entire
-DOM element to be presented to assistive technologies. When it is set to
+The `ariaAtomic` prop sets the `aria-atomic` HTMl attribute. This allows the
+entire DOM element to be presented to assistive technologies. When it is set to
 `false`, only additions or removals will be read by assistive technologies.
 
 By default, this prop is set to `true`.
 
 ### ariaLive
 
-The `ariaLive` prop sets the `aria-live` attribute. This determines the priority
-of when text updates in this component should be read to users by assistive
-technologies. The `"off"` value indicates that updates should not be announced,
-`"polite"` indicates that updates will be announced at the next available time
-slot, and `"assertive"` indicates that updates should be announced immediately.
+The `ariaLive` prop sets the `aria-live` HTML attribute. This determines the
+priority of when text updates in this component should be read to users by
+assistive technologies. The possible values are the same as the native HTML
+`aria-live` attribute: `"off"`, `"polite"`, and `"assertive"`.
+
+The `"off"` value indicates that updates should not be announced and when this
+value is passed, the `aria-live` attribute will not be added at all. The
+`"polite"` value indicates that updates will be announced at the next available
+time slot. The `"assertive"` value indicates that updates should be announced
+immediately, but this is not recommended as it can interruptive to the user.
+
+In order to meet the accessibility guidelines for dynamic content updates, this
+attribute is set in the wrapper `<div>` element that is always rendered by the
+`HelperErrorText` component.
 
 By default, this prop is set to `"polite"`.
 
@@ -190,7 +209,7 @@ through the `text` prop.
 
 ## Invalid State
 
-Set the `isInvalid` prop to `true` to render the passed text in the
+Set the `isInvalid` prop to `true` to render the passed text content with the
 NYPL "invalid" styling.
 
 <Canvas>

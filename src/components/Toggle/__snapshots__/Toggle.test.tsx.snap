@@ -62,6 +62,14 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="inputID-helperText"
+  />
 </div>
 `;
 
@@ -131,6 +139,14 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="Toggle-checked-helperText"
+  />
 </div>
 `;
 
@@ -199,6 +215,14 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={true}
+    data-testid="helperErrorText"
+    id="Toggle-invalid-helperText"
+  />
 </div>
 `;
 
@@ -267,6 +291,14 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="Toggle-disabled-helperText"
+  />
 </div>
 `;
 
@@ -335,6 +367,14 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="Toggle-disabled-helperText"
+  />
 </div>
 `;
 
@@ -400,6 +440,14 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="chakra-helperText"
+  />
 </div>
 `;
 
@@ -466,5 +514,13 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
       </span>
     </label>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="props-helperText"
+  />
 </div>
 `;

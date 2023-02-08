@@ -23,14 +23,18 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "helper text",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="id-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "helper text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -42,6 +46,14 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
   <div>
     children elements
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="id-helperText"
+  />
 </div>
 `;
 
@@ -68,14 +80,18 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "invalid text",
-      }
-    }
     data-isinvalid={true}
+    data-testid="helperErrorText"
     id="id-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "invalid text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -87,6 +103,14 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
   <div>
     children elements
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="chakra-helperText"
+  />
 </div>
 `;
 
@@ -99,5 +123,13 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
   <div>
     children elements
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="props-helperText"
+  />
 </div>
 `;

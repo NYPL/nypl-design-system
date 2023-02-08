@@ -35,6 +35,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
         type="number"
         value="25"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="defaultRangeSlider-textInput-start-helperText"
+      />
     </div>
     <div
       className="css-0"
@@ -160,20 +168,32 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
         type="number"
         value="75"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="defaultRangeSlider-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="defaultRangeSlider-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -212,6 +232,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         step={1}
         type="number"
         value="25"
+      />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={true}
+        data-testid="helperErrorText"
+        id="errored-textInput-start-helperText"
       />
     </div>
     <div
@@ -339,20 +367,32 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         type="number"
         value="75"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={true}
+        data-testid="helperErrorText"
+        id="errored-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component error text :(",
-      }
-    }
     data-isinvalid={true}
+    data-testid="helperErrorText"
     id="errored-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component error text :(",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -394,6 +434,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
         step={1}
         type="number"
         value="25"
+      />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="required-textInput-start-helperText"
       />
     </div>
     <div
@@ -521,20 +569,32 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
         type="number"
         value="75"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="required-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="required-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -572,6 +632,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
         step={1}
         type="number"
         value="25"
+      />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="disabled-textInput-start-helperText"
       />
     </div>
     <div
@@ -700,20 +768,32 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
         type="number"
         value="75"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="disabled-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="disabled-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -744,6 +824,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
         step={1}
         type="number"
         value="25"
+      />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="noLabels-textInput-start-helperText"
       />
     </div>
     <div
@@ -870,8 +958,24 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
         type="number"
         value="75"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="noLabels-textInput-end-helperText"
+      />
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="noLabels-helperText"
+  />
 </div>
 `;
 
@@ -989,14 +1093,18 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="noVisibleValues-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1103,6 +1211,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
       />
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="onlySlider-helperText"
+  />
 </div>
 `;
 
@@ -1221,20 +1337,32 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="defaultSlider-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="defaultSlider-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1354,20 +1482,32 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={true}
+        data-testid="helperErrorText"
+        id="errored-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component error text :(",
-      }
-    }
     data-isinvalid={true}
+    data-testid="helperErrorText"
     id="errored-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component error text :(",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1490,20 +1630,32 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="required-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="required-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1624,20 +1776,32 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="disabled-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="disabled-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1749,8 +1913,24 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="noLabels-textInput-end-helperText"
+      />
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="noLabels-helperText"
+  />
 </div>
 `;
 
@@ -1844,14 +2024,18 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="noVisibleValues-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1934,6 +2118,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
       />
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="helperErrorText"
+    id="onlySlider-helperText"
+  />
 </div>
 `;
 
@@ -2052,20 +2244,32 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="chakra-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="chakra-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -2185,19 +2389,31 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
         type="number"
         value="50"
       />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="helperErrorText"
+        id="props-textInput-end-helperText"
+      />
     </div>
   </div>
   <div
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Component helper text.",
-      }
-    }
     data-isinvalid={false}
+    data-testid="helperErrorText"
     id="props-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
