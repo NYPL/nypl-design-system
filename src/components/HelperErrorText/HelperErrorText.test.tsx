@@ -13,7 +13,7 @@ describe("HelperErrorText Accessibility", () => {
 
   it("passes axe accessibility test when not rendering", async () => {
     const { container } = render(
-      <HelperErrorText renderText={false} text="Text" />
+      <HelperErrorText isRenderedText={false} text="Text" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });

@@ -11,7 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `pattern` prop to the `TextInput` component.
-- Adds the `renderText` prop to the `HelperErrorText` component.
+- Adds the `isRenderedText` prop to the `HelperErrorText` component.
 
 ### Updates
 

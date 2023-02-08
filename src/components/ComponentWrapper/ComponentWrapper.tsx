@@ -72,7 +72,7 @@ export const ComponentWrapper = chakra(
           <HelperErrorText
             id={`${id}-helperText`}
             isInvalid={isInvalid}
-            renderText={showHelperInvalidText}
+            isRenderedText={showHelperInvalidText}
             text={footnote}
             __css={{ ...styles.helperErrorText, ...helperTextStyles }}
           />

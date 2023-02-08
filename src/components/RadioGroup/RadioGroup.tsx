@@ -156,7 +156,7 @@ export const RadioGroup = chakra(
           <HelperErrorText
             id={`${id}-helperErrorText`}
             isInvalid={isInvalid}
-            renderText={showHelperInvalidText}
+            isRenderedText={showHelperInvalidText}
             text={footnote}
             __css={styles.helperErrorText}
           />

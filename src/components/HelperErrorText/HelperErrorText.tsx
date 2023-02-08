@@ -24,7 +24,7 @@ interface HelperErrorTextProps {
   isInvalid?: boolean;
   /** Offers the ability to render or not render the content passed in
    * the `text` prop; `true` by default. */
-  renderText?: boolean;
+  isRenderedText?: boolean;
   /** The text to display. */
   text: HelperErrorTextType;
 }
@@ -43,7 +43,7 @@ export const HelperErrorText = chakra(
         className = "",
         id,
         isInvalid = false,
-        renderText = true,
+        isRenderedText = true,
         text,
         ...rest
       },
@@ -65,7 +65,7 @@ export const HelperErrorText = chakra(
       // Always render the wrapper div element with the proper aria attributes.
       return (
         <Box {...props}>
-          {renderText ? (
+          {isRenderedText ? (
             typeof text === "string" ? (
               <span dangerouslySetInnerHTML={{ __html: text }} />
             ) : (

@@ -443,7 +443,7 @@ export const DatePicker = chakra(
         <HelperErrorText
           id={`${id}-helper-text`}
           isInvalid={false}
-          renderText={isDateRange && showHelperInvalidText}
+          isRenderedText={isDateRange && showHelperInvalidText}
           text={helperText}
         />
       </DatePickerWrapper>
