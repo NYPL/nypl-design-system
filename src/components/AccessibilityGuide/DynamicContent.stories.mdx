@@ -98,11 +98,12 @@ change would be disruptive to their flow.
 As mentioned above, the `aria-live` attribute does not manage focus on the
 element. In order to move focus to the element, the `tabindex` (`tabIndex` in React)
 attribute must be set to `-1` to programmatically focus on the element, and a
-`focus()` method must be called on the element. The following example shows how
-to move focus to an element with the `aria-live` attribute.
+`focus()` method must be called on the element. When focusing on an element,
+the focus will automatically cause the updated content to be read and the
+`aria-live` attribute should no longer be used.
 
 ```html
-<div class="dynamic-content-container" aria-live="polite" tabindex="-1">
+<div class="dynamic-content-container" tabindex="-1">
   <!-- Any dynamic content should be inserted, removed, or updated here. -->
 </div>
 ```
@@ -128,12 +129,7 @@ useEffect(() => {
 }, [text])
 
 return (
-  <div
-    aria-live="polite"
-    class="dynamic-content-container"
-    ref={containerRef}
-    tabIndex="-1"
-  >
+  <div class="dynamic-content-container" ref={containerRef} tabIndex="-1">
     <!-- Any dynamic content should be inserted, removed, or updated here. -->
     {text}
   </div>
@@ -245,7 +241,7 @@ The `TextInput` component internally implements the `HelperErrorText` component
 to display helper or error text. This is especially useful when there is an error
 that needs to be displayed after the user has interacted with the input.
 
-In the following example, the helper text "ErrorL Please enter a 5-digit value."
+In the following example, the helper text "Error: Please enter a 5-digit value."
 is set by default. If the user does not enter a 5-digit value, the error text
 "Error: The zip code needs to be 5-digits." is displayed _and_ also announced by
 assistive technology.
