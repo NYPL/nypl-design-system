@@ -67,7 +67,6 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="inputID-helperText"
   />
 </div>
@@ -144,7 +143,6 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="Toggle-checked-helperText"
   />
 </div>
@@ -220,7 +218,6 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    data-testid="helperErrorText"
     id="Toggle-invalid-helperText"
   />
 </div>
@@ -296,7 +293,6 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="Toggle-disabled-helperText"
   />
 </div>
@@ -372,7 +368,6 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="Toggle-disabled-helperText"
   />
 </div>
@@ -445,7 +440,6 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="chakra-helperText"
   />
 </div>
@@ -519,7 +513,6 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="props-helperText"
   />
 </div>

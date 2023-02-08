@@ -55,7 +55,6 @@ export const HelperErrorText = chakra(
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
-        "data-testid": "helperErrorText",
         id,
         ref,
         __css: styles,

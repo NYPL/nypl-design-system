@@ -283,7 +283,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="dogs-helperText"
             />
           </div>
@@ -360,7 +359,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cats-helperText"
             />
           </div>
@@ -437,7 +435,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cars-helperText"
             />
           </div>
@@ -514,7 +511,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="colors-helperText"
             />
           </div>
@@ -594,7 +590,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="red-helperText"
                 />
               </div>
@@ -671,7 +666,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="blue-helperText"
                 />
               </div>
@@ -750,7 +744,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="plants-helperText"
             />
           </div>
@@ -827,7 +820,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="furniture-helperText"
             />
           </div>
@@ -1067,7 +1059,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="dogs-helperText"
             />
           </div>
@@ -1144,7 +1135,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cats-helperText"
             />
           </div>
@@ -1221,7 +1211,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cars-helperText"
             />
           </div>
@@ -1320,7 +1309,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="colors-helperText"
             />
           </div>
@@ -1403,7 +1391,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="red-helperText"
                 />
               </div>
@@ -1480,7 +1467,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="blue-helperText"
                 />
               </div>
@@ -1559,7 +1545,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="plants-helperText"
             />
           </div>
@@ -1636,7 +1621,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="furniture-helperText"
             />
           </div>
@@ -1876,7 +1860,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="dogs-helperText"
             />
           </div>
@@ -1953,7 +1936,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cats-helperText"
             />
           </div>
@@ -2030,7 +2012,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="cars-helperText"
             />
           </div>
@@ -2110,7 +2091,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="colors-helperText"
             />
           </div>
@@ -2193,7 +2173,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="red-helperText"
                 />
               </div>
@@ -2273,7 +2252,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  data-testid="helperErrorText"
                   id="blue-helperText"
                 />
               </div>
@@ -2352,7 +2330,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="plants-helperText"
             />
           </div>
@@ -2429,7 +2406,6 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="furniture-helperText"
             />
           </div>
@@ -2672,7 +2648,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="dogs-helperText"
           />
         </div>
@@ -2754,7 +2729,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="cats-helperText"
           />
         </div>
@@ -2836,7 +2810,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="cars-helperText"
           />
         </div>
@@ -2918,7 +2891,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="colors-helperText"
           />
         </div>
@@ -3000,7 +2972,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="plants-helperText"
           />
         </div>
@@ -3082,7 +3053,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="furniture-helperText"
           />
         </div>
@@ -3286,7 +3256,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="dogs-helperText"
           />
         </div>
@@ -3371,7 +3340,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="cats-helperText"
           />
         </div>
@@ -3453,7 +3421,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="cars-helperText"
           />
         </div>
@@ -3535,7 +3502,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="colors-helperText"
           />
         </div>
@@ -3617,7 +3583,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="plants-helperText"
           />
         </div>
@@ -3699,7 +3664,6 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            data-testid="helperErrorText"
             id="furniture-helperText"
           />
         </div>

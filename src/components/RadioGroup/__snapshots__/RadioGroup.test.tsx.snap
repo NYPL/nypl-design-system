@@ -75,7 +75,6 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -139,7 +138,6 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -150,7 +148,6 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="column-helperErrorText"
   />
 </fieldset>
@@ -231,7 +228,6 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -295,7 +291,6 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -306,7 +301,6 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="row-helperErrorText"
   />
 </fieldset>
@@ -387,7 +381,6 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -451,7 +444,6 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -462,7 +454,6 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="noLabel-helperErrorText"
   />
 </fieldset>
@@ -543,7 +534,6 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -607,7 +597,6 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -618,7 +607,6 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="helperText-helperErrorText"
   >
     <span
@@ -707,7 +695,6 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -771,7 +758,6 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -782,7 +768,6 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="invalidText-helperErrorText"
   />
 </fieldset>
@@ -864,7 +849,6 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -929,7 +913,6 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -940,7 +923,6 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="noRequiredLabel-helperErrorText"
   />
 </fieldset>
@@ -1025,7 +1007,6 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -1090,7 +1071,6 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -1101,7 +1081,6 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="required-helperErrorText"
   />
 </fieldset>
@@ -1186,7 +1165,6 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={true}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -1254,7 +1232,6 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={true}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -1265,7 +1242,6 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    data-testid="helperErrorText"
     id="invalid-helperErrorText"
   />
 </fieldset>
@@ -1350,7 +1326,6 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -1418,7 +1393,6 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -1429,7 +1403,6 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="disabled-helperErrorText"
   />
 </fieldset>
@@ -1522,7 +1495,6 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="arts-helperText"
         />
       </div>
@@ -1598,7 +1570,6 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="English-helperText"
         />
       </div>
@@ -1609,7 +1580,6 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="jsxLabels-helperErrorText"
   />
 </fieldset>
@@ -1690,7 +1660,6 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -1754,7 +1723,6 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -1765,7 +1733,6 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="chakra-helperErrorText"
   />
 </fieldset>
@@ -1847,7 +1814,6 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-2-helperText"
         />
       </div>
@@ -1911,7 +1877,6 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={false}
-          data-testid="helperErrorText"
           id="radio-3-helperText"
         />
       </div>
@@ -1922,7 +1887,6 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="props-helperErrorText"
   />
 </fieldset>

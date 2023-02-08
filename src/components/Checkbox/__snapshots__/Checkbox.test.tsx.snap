@@ -70,7 +70,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="inputID-helperText"
   />
 </div>
@@ -149,7 +148,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-checked-helperText"
   />
 </div>
@@ -250,7 +248,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-checked-helperText"
   />
 </div>
@@ -326,7 +323,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-required-helperText"
   />
 </div>
@@ -405,7 +401,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    data-testid="helperErrorText"
     id="checkbox-invalid-helperText"
   />
 </div>
@@ -484,7 +479,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-disabled-helperText"
   />
 </div>
@@ -573,7 +567,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="jsxLabel-helperText"
   />
 </div>
@@ -649,7 +642,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-chakra-helperText"
   />
 </div>
@@ -726,7 +718,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="checkbox-props-helperText"
   />
 </div>

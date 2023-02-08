@@ -27,7 +27,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="video-player-without-text-componentWrapper-helperText"
     />
   </div>
@@ -72,7 +71,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
     >
       <span
@@ -124,7 +122,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
     >
       <span
@@ -182,7 +179,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="chakra-componentWrapper-helperText"
     />
   </div>
@@ -216,7 +212,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="props-componentWrapper-helperText"
     />
   </div>

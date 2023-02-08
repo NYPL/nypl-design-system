@@ -21,8 +21,12 @@ describe("HelperErrorText Accessibility", () => {
 
 describe("HelperErrorText", () => {
   it("renders the text passed", () => {
-    render(<HelperErrorText text="Text" />);
-    expect(screen.getByText("Text")).toBeInTheDocument();
+    const { container } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).toBeInTheDocument();
+    expect(container.querySelector("div")).toHaveAttribute(
+      "aria-live",
+      "polite"
+    );
   });
 
   it("renders the text passed as an HTML string", () => {
@@ -36,73 +40,69 @@ describe("HelperErrorText", () => {
   });
 
   it("renders the invalid state", () => {
-    const utils = render(<HelperErrorText text="Text" />);
+    const { container, rerender } = render(<HelperErrorText text="Text" />);
 
     // False by default. Note, this is a custom `data-*` attribute only used
     // for testing the invalid state.
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    expect(container.querySelector("div")).toHaveAttribute(
       "data-isinvalid",
       "false"
     );
 
-    utils.rerender(<HelperErrorText isInvalid text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    rerender(<HelperErrorText isInvalid text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute(
       "data-isinvalid",
       "true"
     );
   });
 
   it("has aria-atomic and aria-live attributes by default", () => {
-    render(<HelperErrorText text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
-      "aria-atomic"
-    );
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    const { container } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute("aria-atomic");
+    expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
     );
   });
 
   it("sets custom aria-live attribute when ariaLive prop is passed as 'polite' or 'assertive'", () => {
-    const utils = render(<HelperErrorText text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    const { container, rerender } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
     );
 
-    utils.rerender(<HelperErrorText ariaLive="assertive" text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    rerender(<HelperErrorText ariaLive="assertive" text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "assertive"
     );
   });
 
   it("does not have aria-live attribute when ariaLive prop is set to 'off'", () => {
-    const utils = render(<HelperErrorText text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    const { container, rerender } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
     );
 
-    utils.rerender(<HelperErrorText ariaLive="off" text="Text" />);
-    expect(screen.getByTestId("helperErrorText")).not.toHaveAttribute(
-      "aria-live"
-    );
+    rerender(<HelperErrorText ariaLive="off" text="Text" />);
+    expect(container.querySelector("div")).not.toHaveAttribute("aria-live");
   });
 
   it("accepts an aria-atomic value of false", () => {
-    const utils = render(<HelperErrorText isInvalid text="Static Text" />);
-    // The default is "true".
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
-      "aria-atomic"
+    const { container, rerender } = render(
+      <HelperErrorText isInvalid text="Static Text" />
     );
+    // The default is "true".
+    expect(container.querySelector("div")).toHaveAttribute("aria-atomic");
 
-    utils.rerender(
+    rerender(
       <HelperErrorText ariaAtomic={false} isInvalid text="Static Text" />
     );
     // But the prop accepts false in case only part of the helper text
     // should only be read instead of the whole region.
-    expect(screen.getByTestId("helperErrorText")).toHaveAttribute(
+    expect(container.querySelector("div")).toHaveAttribute(
       "aria-atomic",
       "false"
     );

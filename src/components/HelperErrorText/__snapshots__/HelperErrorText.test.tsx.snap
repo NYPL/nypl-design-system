@@ -6,7 +6,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={false}
-  data-testid="helperErrorText"
   id="basic"
 >
   <span
@@ -25,7 +24,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  data-testid="helperErrorText"
   id="invalid"
 >
   <span
@@ -44,7 +42,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  data-testid="helperErrorText"
   id="invalid"
 >
   <span
@@ -63,7 +60,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  data-testid="helperErrorText"
   id="invalid"
 >
   This helper text 
@@ -80,7 +76,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
   aria-live="polite"
   className="css-10g9ftz"
   data-isinvalid={false}
-  data-testid="helperErrorText"
   id="chakra"
 >
   <span

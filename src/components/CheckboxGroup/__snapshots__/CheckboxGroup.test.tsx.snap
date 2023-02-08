@@ -83,7 +83,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="column-0-helperText"
       />
     </div>
@@ -157,7 +156,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="column-1-helperText"
       />
     </div>
@@ -167,7 +165,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="column-helperErrorText"
   />
 </fieldset>
@@ -256,7 +253,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="row-0-helperText"
       />
     </div>
@@ -330,7 +326,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="row-1-helperText"
       />
     </div>
@@ -340,7 +335,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="row-helperErrorText"
   />
 </fieldset>
@@ -429,7 +423,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="noLabel-0-helperText"
       />
     </div>
@@ -503,7 +496,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="noLabel-1-helperText"
       />
     </div>
@@ -513,7 +505,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="noLabel-helperErrorText"
   />
 </fieldset>
@@ -602,7 +593,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="helperText-0-helperText"
       />
     </div>
@@ -676,7 +666,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="helperText-1-helperText"
       />
     </div>
@@ -686,7 +675,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="helperText-helperErrorText"
   >
     <span
@@ -783,7 +771,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="invalidText-0-helperText"
       />
     </div>
@@ -857,7 +844,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="invalidText-1-helperText"
       />
     </div>
@@ -867,7 +853,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="invalidText-helperErrorText"
   />
 </fieldset>
@@ -956,7 +941,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="noRequiredLabel-0-helperText"
       />
     </div>
@@ -1030,7 +1014,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="noRequiredLabel-1-helperText"
       />
     </div>
@@ -1040,7 +1023,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="noRequiredLabel-helperErrorText"
   />
 </fieldset>
@@ -1132,7 +1114,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="required-0-helperText"
       />
     </div>
@@ -1206,7 +1187,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="required-1-helperText"
       />
     </div>
@@ -1216,7 +1196,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="required-helperErrorText"
   />
 </fieldset>
@@ -1308,7 +1287,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        data-testid="helperErrorText"
         id="invalid-0-helperText"
       />
     </div>
@@ -1385,7 +1363,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        data-testid="helperErrorText"
         id="invalid-1-helperText"
       />
     </div>
@@ -1395,7 +1372,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    data-testid="helperErrorText"
     id="invalid-helperErrorText"
   />
 </fieldset>
@@ -1487,7 +1463,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="disabled-0-helperText"
       />
     </div>
@@ -1564,7 +1539,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="disabled-1-helperText"
       />
     </div>
@@ -1574,7 +1548,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="disabled-helperErrorText"
   />
 </fieldset>
@@ -1675,7 +1648,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="jsxLabels-0-helperText"
       />
     </div>
@@ -1761,7 +1733,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="jsxLabels-1-helperText"
       />
     </div>
@@ -1771,7 +1742,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="jsxLabels-helperErrorText"
   />
 </fieldset>
@@ -1860,7 +1830,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="chakraProps-0-helperText"
       />
     </div>
@@ -1934,7 +1903,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="chakraProps-1-helperText"
       />
     </div>
@@ -1944,7 +1912,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="chakraProps-helperErrorText"
   />
 </fieldset>
@@ -2034,7 +2001,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="otherProps-0-helperText"
       />
     </div>
@@ -2108,7 +2074,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="otherProps-1-helperText"
       />
     </div>
@@ -2118,7 +2083,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="otherProps-helperErrorText"
   />
 </fieldset>

@@ -11,7 +11,6 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="undefined-componentWrapper-helperText"
   />
 </div>
@@ -39,7 +38,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="undefined-componentWrapper-helperText"
   >
     <span
@@ -72,7 +70,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="undefined-componentWrapper-helperText"
   />
 </div>
@@ -89,7 +86,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="undefined-componentWrapper-helperText"
   />
 </div>
@@ -114,7 +110,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="undefined-componentWrapper-helperText"
   />
 </div>

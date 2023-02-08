@@ -298,7 +298,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>
@@ -631,7 +630,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>
@@ -942,7 +940,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>
@@ -1252,7 +1249,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>
@@ -1557,7 +1553,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>
@@ -1863,7 +1858,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      data-testid="helperErrorText"
       id="alphabet-filter-helperText"
     />
   </div>

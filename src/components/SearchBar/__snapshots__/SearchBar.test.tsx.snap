@@ -37,7 +37,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-basic-helperText"
       />
     </div>
@@ -86,7 +85,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="basic-helperText"
   >
     <span
@@ -235,7 +233,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-bl03f5"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-select-withSelect-helperText"
       />
     </div>
@@ -264,7 +261,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-withSelect-helperText"
       />
     </div>
@@ -313,7 +309,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withSelect-helperText"
   >
     <span
@@ -364,7 +359,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-withoutHelperText-helperText"
       />
     </div>
@@ -413,7 +407,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withoutHelperText-helperText"
   />
 </div>
@@ -456,7 +449,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-withClearButton-helperText"
       />
     </div>
@@ -505,7 +497,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withClearButton-helperText"
   >
     <span
@@ -557,7 +548,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        data-testid="helperErrorText"
         id="searchbar-textinput-invalidState-helperText"
       />
     </div>
@@ -606,7 +596,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    data-testid="helperErrorText"
     id="invalidState-helperText"
   />
 </div>
@@ -649,7 +638,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-disabledState-helperText"
       />
     </div>
@@ -699,7 +687,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="disabledState-helperText"
   />
 </div>
@@ -743,7 +730,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-requiredState-helperText"
       />
     </div>
@@ -793,7 +779,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="requiredState-helperText"
   />
 </div>
@@ -837,7 +822,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-noBrandButtonType-helperText"
       />
     </div>
@@ -887,7 +871,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="noBrandButtonType-helperText"
   />
 </div>
@@ -956,7 +939,6 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withHeading-helperText"
   />
 </div>
@@ -1024,7 +1006,6 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withDescription-helperText"
   />
 </div>
@@ -1098,7 +1079,6 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="withHeadingAndDescription-helperText"
   />
 </div>
@@ -1141,7 +1121,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-chakra-helperText"
       />
     </div>
@@ -1190,7 +1169,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="chakra-helperText"
   >
     <span
@@ -1242,7 +1220,6 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={false}
-        data-testid="helperErrorText"
         id="searchbar-textinput-props-helperText"
       />
     </div>
@@ -1291,7 +1268,6 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    data-testid="helperErrorText"
     id="props-helperText"
   >
     <span

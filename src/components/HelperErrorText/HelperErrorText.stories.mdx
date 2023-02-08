@@ -99,12 +99,12 @@ with a related input field by using the `aria-describedby` attribute in the
 associated element. This pattern ensures that the content of the `HelperErrorText`
 component is made available to screenreaders.
 
-This component will always render at least an empty `<div>` element even if no
-text content is passed. This is to ensure that the accessibility guideline for
-dynamic content is met. One expected use case of the `HelperErrorText` component
-is to dynamically render error text when a form field is invalid. In that
-scenario, the dynamically updated error text will be read by assistive
-technologies.
+This component will always render at least an empty `<div>` element with an
+`aria-live="polite"` attribute set even if no text content is passed. This is to
+ensure that the accessibility guideline for dynamic content is met. One expected
+use case of the `HelperErrorText` component is to dynamically render error text
+when a form field is invalid. In that scenario, the dynamically updated error
+text will be read by assistive technologies.
 
 The example below is shows a `TextInput` component. The `TextInput` component
 uses the `HelperErrorText` component to render the red-colored `"This is error text :("` text below the input field and that text element is referenced with
@@ -130,7 +130,7 @@ association is handled automatically by all DS `Form Elements` components.
 
 ### ariaAtomic
 
-The `ariaAtomic` prop sets the `aria-atomic` HTMl attribute. This allows the
+The `ariaAtomic` prop sets the `aria-atomic` HTML attribute. This allows the
 entire DOM element to be presented to assistive technologies. When it is set to
 `false`, only additions or removals will be read by assistive technologies.
 

@@ -60,7 +60,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                data-testid="helperErrorText"
                 id="searchInput-helperText"
               />
             </div>
@@ -200,7 +199,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="circulatingCatalogSearch-helperText"
                   />
                 </div>
@@ -264,7 +262,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="researchcatalogSearch-helperText"
                   />
                 </div>
@@ -328,7 +325,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="websiteSearch-helperText"
                   />
                 </div>
@@ -339,7 +335,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="search-type-helperErrorText"
             />
           </fieldset>
@@ -410,7 +405,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                data-testid="helperErrorText"
                 id="searchInput-helperText"
               />
             </div>
@@ -550,7 +544,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="circulatingCatalogSearch-helperText"
                   />
                 </div>
@@ -614,7 +607,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="researchcatalogSearch-helperText"
                   />
                 </div>
@@ -678,7 +670,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                     aria-live="polite"
                     className="css-1xdhyk6"
                     data-isinvalid={false}
-                    data-testid="helperErrorText"
                     id="websiteSearch-helperText"
                   />
                 </div>
@@ -689,7 +680,6 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              data-testid="helperErrorText"
               id="search-type-helperErrorText"
             />
           </fieldset>
