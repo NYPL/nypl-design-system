@@ -18,7 +18,7 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Most websites have elements on that are updated dynamically. Typically, these
+Most websites have elements that are updated dynamically. Typically, these
 updates are indicated with a visual loading animation before the new content is
 displayed. This visual cue, however, is not helpful for visually impaired users
 or users who use assistive technology. We need to ensure that the changes are
@@ -41,11 +41,11 @@ content to be recognized and announced by assistive technology.
 The `aria-live` attribute is used to indicate that an element's content will be
 updated dynamically and that it should be announced to assistive technology.
 The `aria-live` attribute can be set to "off", "polite", or "assertive". _When_
-the content should be read by the assistive technology depends which of the three
-values is use. This attribute does not manage focus on the element.
+the content should be read by the assistive technology depends on which of the
+three values is used. This attribute does not manage focus on the element.
 
-_Always include the `aria-live` attribute for dynamic content in the initial DOM
-render to allow assistive technology to track the updates for the specified
+_For dynamic content, always include the `aria-live` attribute in the initial
+DOM render to allow assistive technology to track the updates for the specified
 element._
 
 - `aria-live="off"` - the default value which is the same as not having the
@@ -97,10 +97,10 @@ change would be disruptive to their flow.
 
 As mentioned above, the `aria-live` attribute does not manage focus on the
 element. In order to move focus to the element, the `tabindex` (`tabIndex` in React)
-attribute must be set to `-1` to programmatically focus on the element, and a
-`focus()` method must be called on the element. When focusing on an element,
-the focus will automatically cause the updated content to be read and the
-`aria-live` attribute should no longer be used.
+attribute must be set to `-1` to allow for programmatic focus on the element,
+and a `focus()` method must be called on the element. When focusing on an
+element, the focus will automatically cause the updated content to be read and
+the `aria-live` attribute should no longer be used.
 
 ```html
 <div class="dynamic-content-container" tabindex="-1">
@@ -140,7 +140,7 @@ return (
 
 **Do not dynamically add or remove the `aria-live` attribute from the element.**
 
-The `aria-live` attribute should be set on the element when the page is rendered.
+The `aria-live` attribute must be set on the element when the page is rendered.
 The following are **incorrect**:
 
 ```html
@@ -235,16 +235,20 @@ useEffect(() => {
 return <HelperErrorText text={text} />;
 ```
 
-### TextInput
+### Form Components
 
-The `TextInput` component internally implements the `HelperErrorText` component
-to display helper or error text. This is especially useful when there is an error
-that needs to be displayed after the user has interacted with the input.
+The pattern described in this section is true for the `Checkbox`, `CheckboxGroup`,
+`DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`,
+and `Toggle` DS components. All these form components internally implement the
+`HelperErrorText` component described above. Implementing the `HelperErrorText`
+component allows the component to display helper or error text. This is
+especially useful when there is an error that needs to be displayed after the
+user has interacted with the form component.
 
-In the following example, the helper text "Error: Please enter a 5-digit value."
-is set by default. If the user does not enter a 5-digit value, the error text
-"Error: The zip code needs to be 5-digits." is displayed _and_ also announced by
-assistive technology.
+For simplicity, the `TextInput` component will be in the following example. The
+helper text "Please enter a 5-digit value." is set by default. If the user does
+not enter a 5-digit value, the error text "Error: The zip code needs to be 5-digits."
+is displayed _and_ also announced by assistive technology.
 
 [TextInput Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls)
 
