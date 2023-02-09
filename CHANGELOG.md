@@ -23,6 +23,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
 - Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
 - Updates how the `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, and `RadioGroup` components internally render the `HelperErrorText` component. The update in the `ComponentWrapper` component affects the `AudioPlayer`, `Checkbox`, `Radio`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, and `VideoPlayer` DS components, each of which render helper or error text.
+- Updates the `MultiSelect` component so it closes when the "escape" key is pressed.
+- Updates where the focus is set in the `MultiSelect` "dialog" variant after the "Apply" button is clicked.
+- Updates where the focus is set in the `MultiSelect` component after the selected items count button is clicked.
 
 ## 1.4.0 (January 26, 2023)
 
