@@ -87,7 +87,7 @@ export const MultiSelectGroup = chakra(
             id={id}
             ref={ref}
             rowGap={finalLayout === "row" ? "xs" : "0"}
-            spacing={isLargerThanMobile ? "xs" : "0"}
+            spacing="xs"
             wrap={layout === "row" ? "wrap" : null}
             sx={{
               "> div": {

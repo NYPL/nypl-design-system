@@ -316,6 +316,24 @@ describe("TextInput", () => {
     );
   });
 
+  it("has a pattern for the input element", () => {
+    const onChangeSpy = jest.fn();
+    utils.rerender(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        pattern="[0-9]+"
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
+      "pattern",
+      "[0-9]+"
+    );
+  });
+
   it("renders a `clear` button and clears the input field when clicked", () => {
     const onChangeSpy = jest.fn();
 

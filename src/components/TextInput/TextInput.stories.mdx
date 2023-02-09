@@ -53,7 +53,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `1.4.0`    |
+| Latest            | `1.4.1`    |
 
 ## Table of Contents
 
@@ -100,6 +100,7 @@ is left blank, a value will be generated for you.
       onChange: undefined,
       onClick: undefined,
       onFocus: undefined,
+      pattern: undefined,
       placeholder: "e.g. blue, green, etc.",
       requiredLabelText: undefined,
       showHelperInvalidText: true,
@@ -340,6 +341,43 @@ the invalid state.
         type="number"
       />
     </VStack>
+  </DSProvider>
+</Canvas>
+
+### Alternate Number Pattern
+
+Another pattern for entering numbers in a restrictive way is to use the
+`maxLength` and `pattern` props. Together, these props can be set to define how
+many digits and what characters are allowed. For example, if a zip code is
+required, the `maxLength` prop can be set to "5" and the `pattern` prop can be
+set to `"[0-9]\*"` to allow only numbers to be entered and limit the number of
+characters to 5.
+
+Note that the `type` prop is not set to "number" in this example and that the
+consuming application must handle validating the value entered. Browsers will
+also provide their own validation for the input.
+
+```jsx
+<TextInput
+  helperText="Enter a 5-digit zip code."
+  id="number-pattern"
+  labelText="Enter a zip code"
+  maxLength={5}
+  pattern="[0-9]*"
+  placeholder="i.e. 10018"
+/>
+```
+
+<Canvas>
+  <DSProvider>
+    <TextInput
+      helperText="Enter a 5-digit zip code."
+      id="number-pattern"
+      labelText="Enter a zip code"
+      maxLength={5}
+      pattern="[0-9]+"
+      placeholder="i.e. 10018"
+    />
   </DSProvider>
 </Canvas>
 
