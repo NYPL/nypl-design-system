@@ -92,6 +92,13 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -188,6 +195,13 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -289,14 +303,17 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-bl03f5"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Tom doesn't count as a sibling :(.",
-      }
-    }
     data-isinvalid={true}
     id="select-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Tom doesn't count as a sibling :(.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -397,14 +414,17 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-bl03f5"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Remember, Logan will judge you no matter who you pick.",
-      }
-    }
     data-isinvalid={false}
     id="select-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Remember, Logan will judge you no matter who you pick.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -504,6 +524,13 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -603,6 +630,13 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -700,6 +734,13 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -795,6 +836,13 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="chakra-helperText"
+  />
 </div>
 `;
 
@@ -891,5 +939,12 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    id="props-helperText"
+  />
 </div>
 `;
