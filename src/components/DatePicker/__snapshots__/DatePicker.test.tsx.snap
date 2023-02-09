@@ -56,6 +56,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 type="text"
                 value="1988-01-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="basic-start-helperText"
+              />
             </div>
           </div>
         </div>
@@ -100,11 +107,25 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 type="text"
                 value="1988-02-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="basic-end-helperText"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      id="basic-helper-text"
+    />
   </fieldset>
 </div>
 `;
@@ -165,6 +186,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 type="text"
                 value="1988-01-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="no-label-start-helperText"
+              />
             </div>
           </div>
         </div>
@@ -209,11 +237,25 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 type="text"
                 value="1988-02-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="no-label-end-helperText"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      id="no-label-helper-text"
+    />
   </fieldset>
 </div>
 `;
@@ -274,6 +316,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 type="text"
                 value="1988/02/01"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="custom-format-start-helperText"
+              />
             </div>
           </div>
         </div>
@@ -318,11 +367,25 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 type="text"
                 value="1988/02/02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="custom-format-end-helperText"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      id="custom-format-helper-text"
+    />
   </fieldset>
 </div>
 `;
@@ -388,14 +451,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 aria-atomic={true}
                 aria-live="polite"
                 className="css-1xdhyk6"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Please select a valid date.",
-                  }
-                }
                 data-isinvalid={true}
                 id="invalid-start-helperText"
-              />
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "Please select a valid date.",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -445,14 +511,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 aria-atomic={true}
                 aria-live="polite"
                 className="css-1xdhyk6"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Please select a valid date.",
-                  }
-                }
                 data-isinvalid={true}
                 id="invalid-end-helperText"
-              />
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "Please select a valid date.",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -462,14 +531,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       aria-atomic={true}
       aria-live="polite"
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Note that the Library may be closed on Sundays.",
-        }
-      }
       data-isinvalid={false}
       id="invalid-helper-text"
-    />
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
+        }
+      />
+    </div>
   </fieldset>
 </div>
 `;
@@ -530,6 +602,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 type="text"
                 value="1988-01-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="disabled-start-helperText"
+              />
             </div>
           </div>
         </div>
@@ -574,6 +653,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 type="text"
                 value="1988-02-02"
               />
+              <div
+                aria-atomic={true}
+                aria-live="polite"
+                className="css-1xdhyk6"
+                data-isinvalid={false}
+                id="disabled-end-helperText"
+              />
             </div>
           </div>
         </div>
@@ -583,14 +669,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       aria-atomic={true}
       aria-live="polite"
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Note that the Library may be closed on Sundays.",
-        }
-      }
       data-isinvalid={false}
       id="disabled-helper-text"
-    />
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
+        }
+      />
+    </div>
   </fieldset>
 </div>
 `;
@@ -640,10 +729,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             type="text"
             value="1988-01-02"
           />
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            id="basic-start-helperText"
+          />
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="basic-helper-text"
+  />
 </div>
 `;
 
@@ -686,10 +789,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             type="text"
             value="1988-01-02"
           />
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            id="no-label-start-helperText"
+          />
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="no-label-helper-text"
+  />
 </div>
 `;
 
@@ -738,10 +855,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             type="text"
             value="1988/02/01"
           />
+          <div
+            aria-atomic={true}
+            aria-live="polite"
+            className="css-1xdhyk6"
+            data-isinvalid={false}
+            id="custom-format-start-helperText"
+          />
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="custom-format-helper-text"
+  />
 </div>
 `;
 
@@ -795,18 +926,28 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             aria-atomic={true}
             aria-live="polite"
             className="css-1xdhyk6"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Please select a valid date.",
-              }
-            }
             data-isinvalid={true}
             id="invalid-start-helperText"
-          />
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Please select a valid date.",
+                }
+              }
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="invalid-helper-text"
+  />
 </div>
 `;
 
@@ -859,18 +1000,28 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             aria-atomic={true}
             aria-live="polite"
             className="css-1xdhyk6"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Note that the Library may be closed on Sundays.",
-              }
-            }
             data-isinvalid={false}
             id="disabled-start-helperText"
-          />
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="disabled-helper-text"
+  />
 </div>
 `;
 
@@ -923,18 +1074,28 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             aria-atomic={true}
             aria-live="polite"
             className="css-1xdhyk6"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Note that the Library may be closed on Sundays.",
-              }
-            }
             data-isinvalid={false}
             id="chakra-start-helperText"
-          />
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="chakra-helper-text"
+  />
 </div>
 `;
 
@@ -988,17 +1149,27 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             aria-atomic={true}
             aria-live="polite"
             className="css-1xdhyk6"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Note that the Library may be closed on Sundays.",
-              }
-            }
             data-isinvalid={false}
             id="props-start-helperText"
-          />
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="props-helper-text"
+  />
 </div>
 `;

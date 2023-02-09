@@ -1,6 +1,5 @@
 import { HelperErrorTextType } from "../components/HelperErrorText/HelperErrorText";
 import { AriaAttributes } from "./interfaces";
-
 // Utility functions to use throughout the codebase
 
 /**
@@ -117,4 +116,10 @@ export const contrastRatio = (hex1: string, hex2: string) => {
       : (colorLuminance1 + 0.05) / (colorLuminance2 + 0.05);
 
   return (ratio * 10).toFixed(2);
+};
+
+/** This method will truncate text by centain length. Default length is 60. */
+export const truncateText = (text: string, truncateTextLength: number = 60) => {
+  const subString = text.substr(0, truncateTextLength - 1);
+  return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
 };

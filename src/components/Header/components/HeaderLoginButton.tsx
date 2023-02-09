@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import FocusLock from "@chakra-ui/focus-lock";
 
@@ -6,7 +6,6 @@ import Button from "../../Button/Button";
 import HeaderLogin from "./HeaderLogin";
 import Icon from "../../Icons/Icon";
 import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
-import { HeaderContext } from "../context/headerContext";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface HeaderLoginButtonProps {
@@ -21,29 +20,17 @@ export interface HeaderLoginButtonProps {
 const HeaderLoginButton = chakra(
   ({ isMobile = false }: HeaderLoginButtonProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const { patronName } = useContext(HeaderContext);
     const catalogRef = useRef<HTMLDivElement & HTMLAnchorElement>(null);
-    const greetingRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const styles = useStyleConfig("HeaderLoginButton", {
       isOpen,
     });
     const desktopIcon = isOpen ? "close" : "arrow";
-    const mobileIcon = isOpen
-      ? "close"
-      : patronName
-      ? "legacyAccountFilled"
-      : "legacyAccountUnfilled";
-    const desktopButtonLabel = isOpen
-      ? "Close"
-      : patronName
-      ? "My Account"
-      : "Log In";
-    const gaAction = isMobile ? "Click" : patronName ? "My Account" : "Log In";
+    const mobileIcon = isOpen ? "close" : "legacyAccountFilled";
+    const desktopButtonLabel = isOpen ? "Close" : "My Account";
+    const gaAction = isMobile ? "Click" : "My Account";
     const gaLabelBase = isMobile
-      ? patronName
-        ? "clickMyAccount"
-        : "clickLogIn"
+      ? "clickMyAccount"
       : `MyNyplButton - ${isOpen ? "Closed" : "Open"}`;
     const gaLabel = `${isMobile ? "Mobile " : ""}${gaLabelBase}`;
 
@@ -51,13 +38,9 @@ const HeaderLoginButton = chakra(
 
     useEffect(() => {
       if (isOpen) {
-        if (patronName) {
-          greetingRef.current.focus();
-        } else {
-          catalogRef.current.focus();
-        }
+        catalogRef.current.focus();
       }
-    }, [isOpen, patronName]);
+    }, [isOpen]);
 
     return (
       <Box ref={wrapperRef}>
@@ -81,11 +64,7 @@ const HeaderLoginButton = chakra(
             />
           </Button>
           {isOpen && (
-            <HeaderLogin
-              catalogRef={catalogRef}
-              greetingRef={greetingRef}
-              isMobile={isMobile}
-            />
+            <HeaderLogin catalogRef={catalogRef} isMobile={isMobile} />
           )}
         </FocusLock>
       </Box>

@@ -55,7 +55,7 @@ export default function MultiSelectWithHookExample() {
   return (
     <MultiSelect
       id={multiSelectId}
-      variant="listbox"
+      type="listbox"
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
@@ -88,7 +88,6 @@ export default function MultiSelectWithHookExample() {
   return (
     <MultiSelect
       id={multiSelectId}
-      variant="dialog"
       items={items}
       selectedItems={selectedItems}
       onChange={(e) => onChange(e.target.id, multiSelectId)}
@@ -98,6 +97,7 @@ export default function MultiSelectWithHookExample() {
       onClear={() => {
         onClear(multiSelectId);
       }}
+      type="dialog"
     />
   );
 }
@@ -165,8 +165,8 @@ export default function MultiSelectGroupWithHookExample() {
           <MultiSelect
             key={multiSelect.id}
             id={multiSelect.id}
-            label={multiSelect.name}
-            variant="dialog"
+            labelText={multiSelect.name}
+            type="dialog"
             items={multiSelect.items}
             selectedItems={selectedItems}
             onChange={(e) => {
@@ -232,8 +232,8 @@ export default function MultiSelectGroupWithHookExample() {
           <MultiSelect
             key={multiSelect.id}
             id={multiSelect.id}
-            label={multiSelect.name}
-            variant="dialog"
+            labelText={multiSelect.name}
+            type="dialog"
             items={multiSelect.items}
             selectedItems={selectedItems}
             onChange={(e) => {
