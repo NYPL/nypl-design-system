@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `pattern` prop to the `TextInput` component.
+- Adds documentation page "Dynamic Content" to the `Accessibility Guide`.
 
 ### Updates
 
