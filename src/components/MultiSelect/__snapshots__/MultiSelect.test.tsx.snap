@@ -825,6 +825,26 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
           </div>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-6dfzd0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -1626,6 +1646,26 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
           </div>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-6dfzd0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -2411,6 +2451,26 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
           </div>
         </li>
       </ul>
+      <div
+        className="chakra-stack css-6dfzd0"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-clear"
+          onClick={[Function]}
+          type="button"
+        >
+          Clear
+        </button>
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="ms-multiselect-dialog-test-id-apply"
+          onClick={[Function]}
+          type="button"
+        >
+          Apply
+        </button>
+      </div>
     </div>
   </div>
   <div

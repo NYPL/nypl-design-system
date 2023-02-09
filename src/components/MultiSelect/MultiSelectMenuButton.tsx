@@ -1,5 +1,10 @@
 import React, { forwardRef } from "react";
-import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
+import {
+  Box,
+  keyframes,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
 import { SelectedItems } from "./MultiSelect";
@@ -50,6 +55,8 @@ const MultiSelectMenuButton = forwardRef<
   const iconType = isOpen ? "minus" : "plus";
   const growAnimation = `${grow} 150ms ease-out`;
 
+  const [prevIsOpen, setPrevIsOpen] = React.useState(isOpen);
+
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
   let selectedItemsAriaLabel;
@@ -62,6 +69,10 @@ const MultiSelectMenuButton = forwardRef<
     isOpen,
     hasSelectedItems: getSelectedItemsCount,
   });
+  // We need an internal Ref to manage the focus
+  const internalRef = React.useRef(null);
+  const mergedRefs = useMergeRefs(internalRef, ref);
+
   // We need this for our "fake" button inside the main menu button.
   function onKeyPress(e) {
     const enterOrSpace =
@@ -74,8 +85,19 @@ const MultiSelectMenuButton = forwardRef<
     if (enterOrSpace) {
       e.preventDefault();
       onClear();
+      internalRef?.current.focus();
     }
   }
+  // Manage focus upon closing the MultiSelect
+  React.useEffect(() => {
+    setPrevIsOpen(isOpen);
+    // Catching the inital render of the page
+    if (isOpen !== prevIsOpen) {
+      if (!isOpen && internalRef) {
+        internalRef.current?.focus();
+      }
+    }
+  }, [isOpen, prevIsOpen]);
 
   return (
     <>
@@ -83,7 +105,7 @@ const MultiSelectMenuButton = forwardRef<
         buttonType="secondary"
         id={id}
         onClick={onMenuToggle}
-        ref={ref}
+        ref={mergedRefs}
         __css={styles.menuButton}
         {...rest}
       >
@@ -97,7 +119,10 @@ const MultiSelectMenuButton = forwardRef<
           animation={growAnimation}
           aria-label={selectedItemsAriaLabel}
           as="span"
-          onClick={onClear}
+          onClick={() => {
+            internalRef?.current.focus();
+            onClear();
+          }}
           onKeyPress={onKeyPress}
           role="button"
           tabIndex={0}
