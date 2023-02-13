@@ -10,7 +10,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `pattern` prop to the `TextInput` component.
 - Adds `dark` color mode support for `background-color` and `color` global styles.
 - Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
@@ -23,12 +22,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
 - Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
 
+## 1.4.1 (February 9, 2023)
+
+### Adds
+
+- Adds the `pattern` prop to the `TextInput` component.
+- Adds documentation page "Dynamic Content" to the `Accessibility Guide`.
+- Adds the `isRenderedText` prop to the `HelperErrorText` component.
+
 ### Updates
 
 - Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
 - Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
 - Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
 - Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
+- Updates how the `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, and `RadioGroup` components internally render the `HelperErrorText` component. The update in the `ComponentWrapper` component affects the `AudioPlayer`, `Checkbox`, `Radio`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, and `VideoPlayer` DS components, each of which render helper or error text.
+- Updates the `MultiSelect` component so it closes when the "escape" key is pressed.
+- Updates where the focus is set in the `MultiSelect` "dialog" variant after the "Apply" button is clicked.
+- Updates where the focus is set in the `MultiSelect` component after the selected items count button is clicked.
 
 ## 1.4.0 (January 26, 2023)
 
