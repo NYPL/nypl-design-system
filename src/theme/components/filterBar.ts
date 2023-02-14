@@ -24,21 +24,21 @@ const FilterBar = {
     modalBody: {
       _dark: {
         background: "dark.ui.bg.page",
-      }
+      },
     },
     modalHeader: {
       bg: "ui.bg.default",
       _dark: {
         background: "dark.ui.bg.default",
-        borderBottom:"1px solid",
+        borderBottom: "1px solid",
         borderColor: "dark.ui.border.default",
-      }
+      },
     },
     modalFooter: {
       bg: "ui.bg.default",
       _dark: {
         background: "dark.ui.bg.default",
-        borderTop:"1px solid",
+        borderTop: "1px solid",
         borderColor: "dark.ui.border.default",
         color: "dark.ui.typography.heading",
       },

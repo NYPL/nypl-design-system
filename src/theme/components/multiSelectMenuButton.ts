@@ -79,17 +79,13 @@ const MultiSelectMenuButton = {
       },
       _dark: {
         backgroundColor: "dark.ui.bg.hover",
-        borderColor: isOpen
-          ? "dark.ui.border.hover"
-          : "dark.ui.border.default",
+        borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
         svg: {
           fill: "dark.ui.typography.heading",
         },
         _hover: {
-          borderColor: isOpen
-          ? "ui.white"
-          : "dark.ui.border.hover",
-        }
+          borderColor: isOpen ? "ui.white" : "dark.ui.border.hover",
+        },
       },
     },
   }),
