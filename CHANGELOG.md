@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
 - Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
 - Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
+- Adds `dark` color mode support for the `FilterBar`, `Modal` and `MultiSelect` components.
 
 ## 1.4.1 (February 9, 2023)
 
