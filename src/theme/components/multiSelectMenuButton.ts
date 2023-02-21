@@ -10,7 +10,7 @@ const GetStyles = (props) => {
     ),
     borderColor: useColorModeValue(
       isOpen ? "ui.border.hover" : "ui.border.default",
-      isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
+      isOpen ? "dark.ui.border.hover" : "dark.ui.border.default"
     ),
   };
 };

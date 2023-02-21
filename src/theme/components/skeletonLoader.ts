@@ -17,7 +17,7 @@ const borderRules = {
   padding: "s",
   _dark: {
     borderColor: "ui.gray.xx-dark",
-  }
+  },
 };
 const imagePaddingBottomStyles = {
   landscape: "50%",
