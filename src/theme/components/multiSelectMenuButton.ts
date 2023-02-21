@@ -1,4 +1,19 @@
 import { defaultElementSizes } from "./global";
+import { useColorModeValue } from "@chakra-ui/react";
+
+const GetStyles = (props) => {
+  const { isOpen } = props;
+  return {
+    bgColor: useColorModeValue(
+      isOpen ? "ui.bg.active" : "ui.white",
+      isOpen ? "dark.ui.bg.active" : "dark.ui.bg.default"
+    ),
+    borderColor: useColorModeValue(
+      isOpen ? "ui.border.hover" : "ui.border.default",
+      isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
+    ),
+  };
+};
 
 const MultiSelectMenuButton = {
   parts: [
@@ -20,10 +35,12 @@ const MultiSelectMenuButton = {
     },
     menuButton: {
       alignItems: "center",
-      backgroundColor: isOpen ? "ui.bg.active" : "ui.white",
+      // backgroundColor: isOpen ? "ui.bg.active" : "ui.white",
+      backgroundColor: GetStyles(isOpen).bgColor,
       borderBottomLeftRadius: isOpen ? "0" : "button.default",
       borderBottomRightRadius: isOpen ? "0" : "button.default",
-      borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
+      // borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
+      borderColor: GetStyles(isOpen).borderColor,
       borderRadius: "button.default",
       borderWidth: "1px",
       fontSize: "button.default",
@@ -41,10 +58,10 @@ const MultiSelectMenuButton = {
         marginTop: "0",
       },
       _dark: {
-        backgroundColor: isOpen ? "dark.ui.bg.active" : "dark.ui.bg.default",
+        // backgroundColor: isOpen ? "dark.ui.bg.active" : "dark.ui.bg.default",
         borderBottomLeftRadius: isOpen ? "0" : "button.default",
         borderBottomRightRadius: isOpen ? "0" : "button.default",
-        borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
+        // borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
         svg: {
           fill: "dark.ui.typography.heading",
         },

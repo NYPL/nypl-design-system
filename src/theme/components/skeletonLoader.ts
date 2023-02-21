@@ -13,8 +13,11 @@ const element = {
 };
 const borderRules = {
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
+  borderColor: "ui.gray.x-light-cool",
   padding: "s",
+  _dark: {
+    borderColor: "ui.gray.xx-dark",
+  }
 };
 const imagePaddingBottomStyles = {
   landscape: "50%",
