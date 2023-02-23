@@ -388,6 +388,7 @@ describe("Slider", () => {
           invalidText="Component error text :("
           labelText="Label"
           onChangeEnd={onChangeEnd}
+          value={currentValue}
         />
       );
 
@@ -935,12 +936,12 @@ describe("Slider", () => {
     render(
       <Slider
         id="rangeSlider"
-        defaultValue={[25, 75]}
         helperText="Component helper text."
         invalidText="Component error text :("
         labelText="Label"
         isRangeSlider
         onChangeEnd={onChangeEnd}
+        value={currentValue}
       />
     );
 
@@ -948,7 +949,7 @@ describe("Slider", () => {
     fireEvent.change(inputs[0], {
       target: { value: "42" },
     });
-    expect(currentValue).toEqual([42, 75]);
+    expect(currentValue).toEqual([42, 100]);
 
     fireEvent.change(inputs[1], {
       target: { value: "84" },
