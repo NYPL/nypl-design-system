@@ -90,6 +90,19 @@ const MultiSelect = {
           },
         },
       },
+      _dark: {
+        background: "dark.ui.bg.default",
+        borderColor: "dark.ui.border.hover",
+        ul: {
+          li: {
+            div: {
+              _hover: {
+                bg: "dark.ui.bg.hover",
+              },
+            },
+          },
+        },
+      },
     },
     menu: {
       paddingX: "xs",
