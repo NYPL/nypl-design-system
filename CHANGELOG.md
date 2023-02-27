@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Logo` component to include "black" and "white" variants for `Digital Collections`.
+
 ## 1.4.1 (February 9, 2023)
 
 ### Adds
