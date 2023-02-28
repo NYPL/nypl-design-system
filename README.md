@@ -272,9 +272,69 @@ Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branc
 
 ### Node Version
 
-We recommend using Node version 12.22.x since the DS has some issues with versions higher than 12.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 12.x.
+We recommend using Node version 14.x since the DS has some issues with versions higher than 14.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 14.x.
 
-If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `12.22.x`).
+If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `14.x`).
+
+### Git Branch Workflow
+
+There are currently two main branches for the DS:
+
+- `development` is the main and default branch for the DS. All new feature and bug fix pull requests should be made against this branch.
+- `release` is the branch used to deploy the static Storybook instance to Github Pages, the DS' production Storybook instance.
+
+When a new version of the DS is ready for release, the `development` branch is merged into the `release` branch through a pull request. Once merged, Github Actions will run to deploy the static Storybook as well as publish the new version to npm. Here is a [pull request](https://github.com/NYPL/nypl-design-system/pull/1249) that follows the convention outlined in [How to Run a Release](https://github.com/NYPL/nypl-design-system/wiki/How-to-Run-a-Release).
+
+When working on a new feature or a bug fix:
+
+1. Create a new branch off of `development` with the following naming convention: `[ticket-number]/your-feature-or-bug-name`. For example, if the JIRA ticket is DSD-1234 and the feature is "Add more Animal Crossing examples", then potential branch names can be `DSD-1234/add-more-animal-crossing-examples`, `DSD-1234/more-ac-examples`, or `DSD-1234/animal-crossing-examples`. The ticket number in the branch name is usually more helpful than the text that follows.
+2. Create a pull request that points to the `development` branch.
+3. If your pull request is approved and _should_ be merged, merge it. This is indicated with the "SHIP IT" Github label. Sometimes, some features must wait and the "DO NOT MERGE" label is added to the pull request.
+
+### Release Candidates
+
+For new big feature updates, we typically want to QA it in the Turbine test app before the real stable release is made. In this case, we create "release candidate" npm packages. This can be based off the feature branch or the `developement` branch once the feature is merged in.
+
+At the moment, this is a manual process. For this example, we will use version `1.5.0` as the new version that will be released.
+
+1. Whether on the feature branch or the `development` branch, the version in the `package.json` file must be updated to include the `-rc` suffix. For example, `1.5.0` becomes `1.5.0-rc`. This is to indicate that this is a release candidate version.
+2. Delete the `package-lock.json` file and the `node_modules` directory.
+3. Run `npm install` to install all the dependencies and create a new `package-lock.json` file with the updated version.
+4. Run `npm publish` to publish the new release candidate version to npm. Make sure you have an npm account, are logged in to npm on your machine, and have the correct permissions to publish to the `@nypl/design-system-react-components` package.
+
+What happens if QA finds a bug in the release candidate version in the Turbine test app?
+
+1. Update or fix the bug in a new branch.
+2. Once approved, merge the pull request into the feature branch or the `development` branch.
+3. Follow the same steps above to create a new release candidate version but this time the `-rc` suffix should be incremented. For example, `1.5.0-rc` becomes `1.5.0-rc1`.
+4. QA the new release candidate version in the Turbine test app.
+
+The release candidate version passed QA and is ready for production! What do we do now?
+
+1. Celebrate.
+2. Make sure all the new changes are merged into the `development` branch.
+3. Remove the `-rc` suffix from the version in the `package.json` file.
+4. Delete the `package-lock.json` file and the `node_modules` directory.
+5. Run `npm install` to install all the dependencies and create a new `package-lock.json` file with the updated version.
+6. Push the changes to Github and create a new pull request from `development` that points to the `release` branch.
+7. Once approved and merged, a Github Action will run that will automatically deploy the static Storybook to Github Pages and publish the new version to npm.
+
+#### Release Troubleshooting
+
+There is currently a bug with node that causes Vercel preview instances to fail and not build correctly. In order to fix this, the build script has an included node flag added. This can be found in package.json:
+
+```json
+  "build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",
+```
+
+Unfortunately, while this helps the Vercel previews to build correctly, it causes the Github Action that builds the production Storybook to fail. Because of this, the `release` branch must _not_ include the `NODE_OPTIONS=--openssl-legacy-provider` flag. This means that the `release` branch must be updated to remove this flag before merging the `development` branch into it.
+
+For now, this is a manual process until the repo's node version and build system are updated.
+
+| Branch        | Script                                                                                                                                          |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `development` | `"build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",` |
+| `release`     | `"build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",`                                        |
 
 ## Developing with NPM Link
 
