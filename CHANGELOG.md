@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Logo` component to include "black" and "white" variants for `Digital Collections`.
 
+### Fixes
+
+- Updates the `Slider` component's `currentValue` state to use the `useStateWithDependencies` hook.
+
 ## 1.4.1 (February 9, 2023)
 
 ### Adds
