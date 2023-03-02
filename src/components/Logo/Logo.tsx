@@ -16,6 +16,8 @@ export type LogoNames =
   | "cleverBadgeColor"
   | "cleverColor"
   | "cleverWhite"
+  | "digitalCollectionsBlack"
+  | "digitalCollectionsWhite"
   | "firstbookColor"
   | "firstbookColorNegative"
   | "googlePlayBlack"
