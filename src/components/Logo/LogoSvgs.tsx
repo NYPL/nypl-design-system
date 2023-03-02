@@ -6,6 +6,8 @@ import bplWhite from "../../../icons/svg/logo-bpl-white.svg";
 import cleverBadgeColor from "../../../icons/svg/logo-clever-badge-color.svg";
 import cleverColor from "../../../icons/svg/logo-clever-color.svg";
 import cleverWhite from "../../../icons/svg/logo-clever-white.svg";
+import digitalCollectionsBlack from "../../../icons/svg/logo-digital-collections-black.svg";
+import digitalCollectionsWhite from "../../../icons/svg/logo-digital-collections-white.svg";
 import firstbookColor from "../../../icons/svg/logo-firstbook-color.svg";
 import firstbookColorNegative from "../../../icons/svg/logo-firstbook-color-negative.svg";
 import googlePlayBlack from "../../../icons/svg/logo-google-play-black.svg";
@@ -55,6 +57,8 @@ export default {
   cleverBadgeColor,
   cleverColor,
   cleverWhite,
+  digitalCollectionsBlack,
+  digitalCollectionsWhite,
   firstbookColor,
   firstbookColorNegative,
   googlePlayBlack,
