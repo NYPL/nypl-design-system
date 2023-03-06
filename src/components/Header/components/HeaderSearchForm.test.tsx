@@ -80,7 +80,8 @@ describe("HeaderSearchForm", () => {
       const searchInput = screen.getByRole("textbox");
       const searchBtn = screen.getByRole("button");
 
-      // The default value of the radio button is set to "Search the Catalog".
+      // The default value of the radio button is set to
+      // "Search books, music and movies".
       userEvent.type(searchInput, "cats");
       userEvent.click(searchBtn);
 
@@ -96,9 +97,31 @@ describe("HeaderSearchForm", () => {
       );
     });
 
+    it("makes a request to the Research Catalog", async () => {
+      const searchInput = screen.getByRole("textbox");
+      const researchRadio = screen.getByText("Search the Research Catalog");
+      const searchBtn = screen.getByRole("button");
+
+      userEvent.type(searchInput, "cats");
+      // Select the "Search the research catalog" radio button.
+      userEvent.click(researchRadio);
+      userEvent.click(searchBtn);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
+
+      // The second call to `window.location.assign` should be...
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        2,
+        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
     it("makes a request to the web catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const webRadio = screen.getByText("Search NYPL.org");
+      const webRadio = screen.getByText("Search the library website");
       const searchBtn = screen.getByRole("button");
 
       userEvent.type(searchInput, "cats");
@@ -114,9 +137,9 @@ describe("HeaderSearchForm", () => {
 
       // We mock `window.location.assign` before ALL tests and restore after
       // ALL tests. So we should have two calls to `window.location.assign`.
-      // The second call to `window.location.assign` should be...
+      // The third call to `window.location.assign` should be...
       expect(window.location.assign).toHaveBeenNthCalledWith(
-        2,
+        3,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
       );
     });
@@ -127,25 +150,32 @@ describe("HeaderSearchForm", () => {
       render(<HeaderSearchForm isMobile />);
     });
 
-    it("renders a form with an input and two buttons on mobile", () => {
+    it("renders a form with an input and three radios on mobile", () => {
       const form = screen.getByRole("form");
       const searchInput = screen.getByRole("textbox");
-      const buttons = screen.getAllByRole("button");
+      const radios = screen.getAllByRole("radio");
 
       expect(form).toBeInTheDocument();
       expect(searchInput).toBeInTheDocument();
-      expect(buttons).toHaveLength(2);
-      expect(buttons[0]).toHaveTextContent("CATALOG");
-      expect(buttons[1]).toHaveTextContent("NYPL.ORG");
+      expect(radios).toHaveLength(3);
+      expect(
+        screen.getByLabelText("Search books, music, and movies")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByLabelText("Search the Research Catalog")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByLabelText("Search the library website")
+      ).toBeInTheDocument();
     });
 
     it("makes a request to the Encore catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const catalogButton = screen.getAllByRole("button")[0];
+      const circulatingCatalogRadio = screen.getAllByRole("radio")[0];
 
       userEvent.type(searchInput, "cats");
-      // Click on the "CATALOG" button.
-      userEvent.click(catalogButton);
+      // Select the books, music, and movies radio button
+      userEvent.click(circulatingCatalogRadio);
 
       // Fast-forward until all timers have been executed.
       // The SearchForm calls `gaUtils.trackSearchQuerySend` which
@@ -158,13 +188,13 @@ describe("HeaderSearchForm", () => {
       );
     });
 
-    it("makes a request to the web catalog", () => {
+    it("makes a request to the Research Catalog", () => {
       const searchInput = screen.getByRole("textbox");
-      const websiteButton = screen.getAllByRole("button")[1];
+      const researchCatalogRadio = screen.getAllByRole("radio")[1];
 
       userEvent.type(searchInput, "cats");
-      // Click on the "NYPL.ORG" button.
-      userEvent.click(websiteButton);
+      // Select the Research Catalog
+      userEvent.click(researchCatalogRadio);
 
       // Fast-forward until all timers have been executed.
       // The SearchForm calls `gaUtils.trackSearchQuerySend` which
@@ -173,6 +203,25 @@ describe("HeaderSearchForm", () => {
 
       expect(window.location.assign).toHaveBeenNthCalledWith(
         2,
+        "https://www.nypl.org/research/research-catalog/search?q=cats&?searched_from=header_search&timestamp=1640995200000&lang=eng"
+      );
+    });
+
+    it("makes a request to the web catalog", () => {
+      const searchInput = screen.getByRole("textbox");
+      const websiteRadio = screen.getAllByRole("radio")[2];
+
+      userEvent.type(searchInput, "cats");
+      // Select the Website
+      userEvent.click(websiteRadio);
+
+      // Fast-forward until all timers have been executed.
+      // The SearchForm calls `gaUtils.trackSearchQuerySend` which
+      // internally has a timer.
+      jest.runAllTimers();
+
+      expect(window.location.assign).toHaveBeenNthCalledWith(
+        3,
         "//www.nypl.org/search/cats?searched_from=header_search&timestamp=1640995200000"
       );
     });

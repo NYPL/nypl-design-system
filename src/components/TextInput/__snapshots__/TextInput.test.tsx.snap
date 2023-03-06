@@ -24,6 +24,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     required={false}
     step={null}
   />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextarea-helperText"
+  />
 </div>
 `;
 
@@ -56,6 +63,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     step={null}
     type="text"
     value=""
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
   />
 </div>
 `;
@@ -90,6 +104,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     type="text"
     value=""
   />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 
@@ -119,6 +140,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     type="text"
     value=""
   />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 
@@ -142,6 +170,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     step={null}
     type="text"
     value=""
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
   />
 </div>
 `;
@@ -181,14 +216,17 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Custom helper text",
-      }
-    }
     data-isinvalid={false}
     id="myTextInput-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Custom helper text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -228,14 +266,17 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "There is an error related to this field.",
-      }
-    }
     data-isinvalid={true}
     id="myTextInput-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "There is an error related to this field.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -269,6 +310,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     type="text"
     value=""
   />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 
@@ -298,6 +346,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     type="text"
     value=""
   />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 
@@ -326,6 +381,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     step={null}
     type="text"
     value=""
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="chakra-helperText"
   />
 </div>
 `;
@@ -357,6 +419,13 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     step={null}
     type="text"
     value=""
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="props-helperText"
   />
 </div>
 `;
