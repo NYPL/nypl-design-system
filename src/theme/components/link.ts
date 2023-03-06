@@ -10,7 +10,6 @@ import { screenreaderOnly } from "./globalMixins";
 
 export const baseLinkStyles = {
   color: "ui.link.primary",
-  textDecoration: "underline",
   _hover: {
     color: "ui.link.secondary",
   },
@@ -112,8 +111,9 @@ const variants = {
 };
 const Link = {
   parts: ["srOnly"],
-  baseStyle: {
+  baseStyle: ({ isUnderlined }) => ({
     ...baseLinkStyles,
+    textDecoration: isUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
      * that are passed as children to the `Link` component. */
     a: {
@@ -124,7 +124,7 @@ const Link = {
     /** The element will handle descriptive text added to aid
      * screen readers. */
     srOnly: screenreaderOnly(),
-  },
+  }),
   variants,
 };
 

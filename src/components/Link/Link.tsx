@@ -27,6 +27,8 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
+  /** Determines whether link text will be underlined for all browser states (default, hover, etc.). `true` by default. */
+  isUnderlined?: boolean;
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
@@ -120,6 +122,7 @@ export const Link = chakra(
       className,
       href,
       id,
+      isUnderlined = true,
       onClick,
       type = "default",
       ...rest
@@ -158,7 +161,7 @@ export const Link = chakra(
       // }
       variant = type;
     }
-    const styles = useMultiStyleConfig("Link", { variant });
+    const styles = useMultiStyleConfig("Link", { variant, isUnderlined });
     const rel = type === "external" ? "nofollow" : null;
     const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
