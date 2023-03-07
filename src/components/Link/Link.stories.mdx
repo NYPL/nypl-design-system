@@ -36,10 +36,10 @@ import DSProvider from "../../theme/provider";
 
 # Link
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `1.4.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -81,6 +81,13 @@ interface action is required, a `Button` component should be used instead. The
 
 The `"external"` variant of the `Link` component includes `"screen reader only"`
 descriptive text to clarify that the link will open in a new tab/window.
+
+### isUnderlined Prop
+
+As mentioned in the [Links Accessibility Guide](/story/accessibility-guide-links--page),
+there is no explicit rule that dictates using an underline to indicate a link. The optional
+`isUnderlined` prop is true by default, but can be set to false to remove the underline in
+all browser states except for hover.
 
 <Canvas>
   <DSProvider>

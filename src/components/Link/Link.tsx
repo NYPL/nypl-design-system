@@ -27,7 +27,7 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
-  /** Determines whether link text will be underlined for all browser states (default, hover, etc.). `true` by default. */
+  /** If true, link text will always be underlined; if false, only in hover state. `true` by default. */
   isUnderlined?: boolean;
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
