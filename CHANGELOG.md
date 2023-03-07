@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Adds
 
-- Adds an `isUnderlined` prop to `Link` and updates non-button variants to change color once visited.
+- Adds an `isUnderlined` prop to `Link`.
 
 ## 1.4.2 (March 2, 2023)
 
