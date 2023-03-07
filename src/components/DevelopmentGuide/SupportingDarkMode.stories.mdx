@@ -375,21 +375,24 @@ and dark mode style values for specific style attributes.
 
 Please note that when passing style attributes to custom components or native
 HTML elements, you must use the React `style` prop rather than the Chakra `sx`
-prop or the [Chakra style props](#chakra-style-props). Additionally, [design
+prop or the [Chakra style props](#chakra-style-props). Additionally, javascript [design
 tokens](#design-tokens) cannot be used as they are not compatible with the React
-style prop.
+style prop, so CSS design tokens or native CSS attribute values must be used.
 
 ```tsx
 import { useColorModeValue } from "@nypl/design-system-react-components";
 
-// Style values assigned to variables
-const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
-const color = useColorModeValue(
-  "ui.typography.heading",
-  "dark.ui.typography.heading"
+// Style values assigned to variables using CSS design tokens
+const bg = useColorModeValue(
+  "var(--nypl-colors-ui-bg-default)",
+  "var(--nypl-colors-dark-ui-bg-default)"
 );
-const fontWeight = "medium";
-const padding = "inset.default";
+const color = useColorModeValue(
+  "var(--nypl-colors-ui-typography-heading)",
+  "var(--nypl-colors-dark-ui-typography-heading)"
+);
+const fontWeight = "var(--nypl-fontWeights-medium)";
+const padding = "var(--nypl-space-inset-default)";
 
 const stylesUsingVariables = {
   backgroundColor: bg,
@@ -400,12 +403,18 @@ const stylesUsingVariables = {
 
 <div style={stylesUsingVariables} />;
 
-// Style values assigned directly
+// Style values assigned directly using native CSS attribute values
 const stylesDirectlyAssigned = {
-  backgroundColor: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
-  color: useColorModeValue("ui.black", "dark.ui.typography.heading"),
-  fontWeight: "medium",
-  padding: "inset.default",
+  backgroundColor: useColorModeValue(
+    "#5F5F5F",
+    "#252525"
+  ),
+  color: useColorModeValue(
+    "#000000",
+    "#E9E9E9"
+  ),
+  fontWeight: 500,
+  padding: "1rem",
 };
 
 <div style={stylesDirectlyAssigned} />;
