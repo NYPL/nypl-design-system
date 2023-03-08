@@ -15,11 +15,11 @@ addParameters({
       order: [
         "Welcome",
         "Chakra UI",
+        "Development Guide",
         "Style Guide",
         "Accessibility Guide",
         "Components",
         "Hooks",
-        "Development Guide",
       ],
     },
   },

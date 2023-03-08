@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
 - Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
 - Adds `dark` color mode support for the `FilterBar` and `MultiSelect` components.
+- Adds `Supporting Dark Mode` under the `Development Guide`.
 
 ## 1.4.2 (March 2, 2023)
 

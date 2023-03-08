@@ -42,7 +42,7 @@ const categories = {
   },
   devguide: {
     title: "Development Guide",
-    components: ["Autosuggest"],
+    components: ["Autosuggest", "Supporting Dark Mode"],
   },
   feedback: {
     title: "Components/Feedback",
