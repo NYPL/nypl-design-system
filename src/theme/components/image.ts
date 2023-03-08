@@ -89,8 +89,11 @@ const CustomImage = {
       width: "100%",
       ...imageSizes[size],
       img: {
-        backgroundColor: "ui.gray.x-light-cool",
+        backgroundColor: "ui.bg.default",
         marginBottom: "xxs",
+        _dark: {
+          backgroundColor: "dark.ui.bg.default",
+        },
       },
     },
     figcaption: {
@@ -99,12 +102,15 @@ const CustomImage = {
     },
     img: {
       display: "block",
-      backgroundColor: "ui.gray.x-light-cool",
+      backgroundColor: "ui.bg.default",
       boxSizing: "border-box",
       objectFit: "cover",
       position: "relative",
       width: "100%",
       ...imageSizes[size],
+      _dark: {
+        backgroundColor: "dark.ui.bg.default",
+      },
     },
     captionWrappers: {
       marginTop: "xxs",
@@ -125,13 +131,16 @@ const CustomImageWrapper = {
       ...imageRatios[ratio],
     },
     img: {
-      backgroundColor: "ui.gray.x-light-cool",
+      backgroundColor: "ui.bg.default",
       height: "100%",
       left: "0",
       maxWidth: "100%",
       position: "absolute",
       top: "0",
       width: "100%",
+      _dark: {
+        backgroundColor: "dark.ui.bg.default",
+      },
     },
   }),
 };

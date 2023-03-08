@@ -69,28 +69,6 @@ describe("ProgressIndicator Accessibility", () => {
     expect(await axe(linearUtils.container)).toHaveNoViolations();
     expect(await axe(circularUtils.container)).toHaveNoViolations();
   });
-
-  it("passes axe accessibility for linear and circular types for dark mode", async () => {
-    const linearUtils = render(
-      <ProgressIndicator
-        id="progressIndicatorLinear"
-        labelText="Linear"
-        value={50}
-        darkMode
-      />
-    );
-    const circularUtils = render(
-      <ProgressIndicator
-        id="progressIndicatorCircular"
-        labelText="Circular"
-        value={50}
-        indicatorType="circular"
-        darkMode
-      />
-    );
-    expect(await axe(linearUtils.container)).toHaveNoViolations();
-    expect(await axe(circularUtils.container)).toHaveNoViolations();
-  });
 });
 
 describe("ProgressIndicator", () => {
@@ -241,27 +219,6 @@ describe("ProgressIndicator", () => {
         />
       )
       .toJSON();
-    const linearDarkMode = renderer
-      .create(
-        <ProgressIndicator
-          id="linearDarkMode"
-          labelText="Linear"
-          value={50}
-          darkMode
-        />
-      )
-      .toJSON();
-    const circularDarkMode = renderer
-      .create(
-        <ProgressIndicator
-          id="circularDarkMode"
-          labelText="Circular"
-          value={50}
-          indicatorType="circular"
-          darkMode
-        />
-      )
-      .toJSON();
     const withChakraProps = renderer
       .create(
         <ProgressIndicator
@@ -290,8 +247,6 @@ describe("ProgressIndicator", () => {
     expect(circularNoLabel).toMatchSnapshot();
     expect(linearIndeterminate).toMatchSnapshot();
     expect(circularIndeterminate).toMatchSnapshot();
-    expect(linearDarkMode).toMatchSnapshot();
-    expect(circularDarkMode).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

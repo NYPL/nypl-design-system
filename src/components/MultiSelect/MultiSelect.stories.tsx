@@ -84,6 +84,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   return (
     <MultiSelect
       {...args}
+      isDefaultOpen
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => {

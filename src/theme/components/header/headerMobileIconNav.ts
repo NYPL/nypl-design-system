@@ -14,6 +14,11 @@ const HeaderMobileIconNav = {
       minWidth: "60px",
       _focus: headerFocus,
     },
+    _dark: {
+      svg: {
+        fill: "dark.ui.typography.heading",
+      },
+    },
   },
 };
 

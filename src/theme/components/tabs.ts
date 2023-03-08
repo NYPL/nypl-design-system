@@ -2,7 +2,6 @@ const tablist = {
   borderColor: "ui.black",
 };
 const tab = {
-  color: "black !important",
   paddingInlineStart: "s",
   paddingStart: "s",
   background: "transparent",
@@ -38,9 +37,26 @@ const tab = {
   _focus: {
     boxShadow: "0",
   },
+  _dark: {
+    color: "dark.ui.typography.heading",
+    border: "1px solid transparent",
+    borderBottom: "1px solid",
+    borderBottomColor: "dark.ui.border.hover",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+    },
+    _selected: {
+      color: "dark.ui.typography.heading",
+      border: "0",
+      bg: "dark.ui.bg.active",
+      borderBottom: "3px solid",
+    },
+  },
 };
 // Only display the previous/next arrow buttons on mobile.
 const buttonArrows = {
+  bg: "transparent",
+  color: "black",
   border: "0",
   borderRadius: "0",
   display: {
@@ -56,6 +72,20 @@ const buttonArrows = {
   pos: "absolute",
   transition: "0.6s ease",
   zIndex: "9999",
+  _hover: {
+    bg: "unset",
+    color: "unset",
+    borderColor: "unset",
+  },
+  _disabled: {
+    color: "ui.disabled.primary",
+  },
+  _dark: {
+    color: "dark.ui.typography.heading",
+    _disabled: {
+      color: "dark.ui.disabled.primary",
+    },
+  },
 };
 const tablistWrapper = {
   display: "flex",
@@ -72,6 +102,9 @@ const tablistWrapper = {
   paddingEnd: { base: "4px", md: "0" },
   paddingTop: { base: "4px", md: "0" },
   position: "relative",
+  _dark: {
+    borderColor: "dark.ui.border.hover",
+  },
 };
 const tabpanels = {
   paddingTop: "2px",
@@ -103,6 +136,9 @@ const CustomTabs = {
     tablistWrapper,
     tabpanels,
     carouselParent,
+  },
+  defaultProps: {
+    colorScheme: "ui.black",
   },
 };
 

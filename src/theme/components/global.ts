@@ -8,8 +8,11 @@ const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
-  outlineColor: darkMode ? "ui.white" : "ui.focus",
+  outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
   zIndex: "9999",
+  _dark: {
+    outlineColor: "dark.ui.focus",
+  },
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
@@ -25,6 +28,14 @@ const checkboxRadioLabelStyles = {
   },
   _invalid: {
     color: "ui.error.primary",
+  },
+  _dark: {
+    _disabled: {
+      color: "dark.ui.disabled.primary",
+    },
+    _invalid: {
+      color: "dark.ui.error.primary",
+    },
   },
 };
 // Custom values not in the spacing theme.
@@ -58,6 +69,22 @@ const checkboxRadioHoverStyles = {
         borderColor: "ui.error.primary",
       },
     },
+    _dark: {
+      span: {
+        _first: {
+          borderColor: "ui.gray.dark",
+        },
+        _checked: {
+          borderColor: "dark.ui.focus",
+        },
+        _disabled: {
+          borderColor: "dark.ui.disabled.primary",
+        },
+        _invalid: {
+          borderColor: "dark.ui.error.primary",
+        },
+      },
+    },
   },
 };
 const checkboxRadioGroupStyles = (isFullWidth = false) => ({
@@ -82,6 +109,9 @@ const labelLegendText = {
   span: {
     fontWeight: "regular",
   },
+  _dark: {
+    color: "dark.ui.typography.heading",
+  },
 };
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {
@@ -89,11 +119,20 @@ const selectTextInputDisabledStyles = {
   borderColor: "ui.disabled.primary",
   color: "ui.gray.dark",
   opacity: "1",
+  _dark: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.disabled.secondary",
+    color: "dark.ui.disabled.primary",
+  },
 };
 // Used for the focus state of Select and TextInput
 const selectTextInputFocusStyles = {
   ...activeFocus(),
   borderColor: "ui.focus",
+  _dark: {
+    ...activeFocus(true),
+    borderColor: "dark.ui.focus",
+  },
 };
 // Used for p, ul, and ol
 const textMargin = {

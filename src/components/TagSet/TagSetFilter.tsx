@@ -1,4 +1,8 @@
-import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  useColorModeValue,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
 import Button from "../Button/Button";
@@ -37,6 +41,13 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
   const finalOnClick = (tagLabel: string) => {
     onClick && onClick(tagLabel);
   };
+
+  // Set element colors based on color mode
+  const dismissButtonColor = useColorModeValue(
+    "ui.gray.x-dark",
+    "dark.ui.typography.body"
+  );
+  const iconColor = useColorModeValue("ui.black", "dark.ui.typography.body");
 
   // This expects that the consuming app passes in a new set of data
   // whenever the current list of tags needs to be updated.
@@ -77,6 +88,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
               {!isDismissible && tagSet.iconName ? (
                 <Icon
                   align="left"
+                  color={iconColor}
                   data-testid="ts-icon"
                   name={tagSet.iconName}
                   size="small"
@@ -89,7 +101,7 @@ export const TagSetFilter = chakra((props: TagSetFilterProps) => {
                   align="right"
                   name="close"
                   size="small"
-                  color="ui.gray.x-dark"
+                  color={dismissButtonColor}
                   width="12px"
                 />
               ) : null}

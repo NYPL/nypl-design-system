@@ -1,5 +1,11 @@
 import React, { forwardRef, useRef, useState } from "react";
-import { Box, chakra, Flex, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  Flex,
+  useColorModeValue,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import { Button } from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
@@ -97,6 +103,12 @@ export const AlphabetFilter = chakra(
       onClick && onClick(clickedLetter);
     };
 
+    // Set the color of the border of the selected letter based on the color mode.
+    const selectedLetterBorderColor = useColorModeValue(
+      "ui.gray.dark",
+      "ui.gray.medium"
+    );
+
     const getButtonElement = (item) => {
       const isSelectedLetter =
         selectedLetter === item.value && item.value !== "showAll";
@@ -109,7 +121,7 @@ export const AlphabetFilter = chakra(
         ? {
             ...styles.button,
             border: "1px solid",
-            borderColor: "ui.border.hover",
+            borderColor: selectedLetterBorderColor,
           }
         : {
             ...styles.button,

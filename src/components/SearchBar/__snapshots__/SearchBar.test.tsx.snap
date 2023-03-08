@@ -188,7 +188,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           >
             <svg
               aria-hidden={true}
-              className="chakra-icon chakra-select__icon css-1grhd2q"
+              className="chakra-icon chakra-select__icon css-q3eg3a"
               focusable={false}
               id="searchbar-select-withSelect-icon"
               role="presentation"

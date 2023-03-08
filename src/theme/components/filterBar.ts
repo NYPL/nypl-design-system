@@ -12,6 +12,7 @@ export const filterBarWidth = {
 
 const FilterBar = {
   parts: [
+    "modalBody",
     "modalHeader",
     "modalFooter",
     "modalCloseButton",
@@ -20,11 +21,27 @@ const FilterBar = {
   ],
   baseStyle: ({ width }) => ({
     width: "full",
+    modalBody: {
+      _dark: {
+        background: "dark.ui.bg.page",
+      },
+    },
     modalHeader: {
-      bg: "ui.gray.x-light-cool",
+      bg: "ui.bg.default",
+      _dark: {
+        background: "dark.ui.bg.default",
+        borderBottom: "1px solid",
+        borderColor: "dark.ui.border.default",
+      },
     },
     modalFooter: {
-      bg: "ui.gray.x-light-cool",
+      bg: "ui.bg.default",
+      _dark: {
+        background: "dark.ui.bg.default",
+        borderTop: "1px solid",
+        borderColor: "dark.ui.border.default",
+        color: "dark.ui.typography.heading",
+      },
     },
     modalCloseButton: {
       mt: "8px",

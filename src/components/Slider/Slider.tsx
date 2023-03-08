@@ -9,6 +9,7 @@ import {
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
+  useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -125,7 +126,9 @@ export const Slider = chakra(
           "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
         );
       }
+
       const [currentValue, setCurrentValue] = useStateWithDependencies(value);
+      const isDarkMode = useColorMode().colorMode === "dark";
 
       let finalIsInvalid = isInvalid;
       // In the Range Slider, if the first value is bigger than the second value,
@@ -143,6 +146,7 @@ export const Slider = chakra(
         );
       }
       const styles = useMultiStyleConfig("CustomSlider", {
+        isDarkMode,
         isDisabled,
         isInvalid: finalIsInvalid,
         showBoxes,

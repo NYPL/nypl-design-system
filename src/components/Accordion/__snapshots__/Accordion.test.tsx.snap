@@ -11,7 +11,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c6323r"
+      className="chakra-accordion__button css-1qa7iva"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -26,7 +26,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -72,7 +72,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c6323r"
+      className="chakra-accordion__button css-1qa7iva"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -133,7 +133,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c6323r"
+      className="chakra-accordion__button css-1qa7iva"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -148,7 +148,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -195,7 +195,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c6323r"
+      className="chakra-accordion__button css-1qa7iva"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -210,7 +210,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -256,7 +256,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c6323r"
+      className="chakra-accordion__button css-1qa7iva"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -271,7 +271,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -317,7 +317,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1c8csqn"
+      className="chakra-accordion__button css-wztri9"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -332,7 +332,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
@@ -378,7 +378,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1lty5mh"
+      className="chakra-accordion__button css-17kfyub"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -393,7 +393,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="accordion-accordian-icon-0"
         role="img"
