@@ -26,7 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `Design Tokens Style Guide` to include more detailed infomration about the available tokens.
+- Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
 
 ## 1.4.2 (March 2, 2023)
 

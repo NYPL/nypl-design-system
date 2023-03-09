@@ -12,7 +12,6 @@ import DSProvider from "../../theme/provider";
 ## Table of Contents
 
 - [What are Design Tokens?](#what-are-design-tokens)
-- [Why Use Design Tokens?](#why-use-design-tokens)
 - [How to Use the Reservoir Design Tokens](#figma-reference)
 - [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript)
 - [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
@@ -20,60 +19,50 @@ import DSProvider from "../../theme/provider";
 
 ## What are Design Tokens?
 
-Design tokens are the style values that define a design system. These values can
-include, but may not be limited to, spacing, color, typography, breakpoints and
-object styles. Ultimately, these values are used to construct and maintain the
-components that make up our system.
-
-## Why Use Design Tokens?
-
 _"With design tokens, you can capture low-level values and then use them to
 create the styles for your product or app. You can maintain a scalable and
 consistent visual system for UI development."_ - Jina Bolton, Lead Designer for
 the Salesforce Design System
 
-Design tokens are a single source of truth when it comes to styles. They allow
-an organization to more easily build multiple applications - web and/or native -
-that feel and look the same without slowing down the development team.
+Design tokens are a collection of style values &ndash; spacing, colors,
+typography, breakpoints, and more &ndash; used throughout a design system. They
+are a single source of truth for design styles, bringing consistency and
+cohesion to components within a design system, and they allow teams to more
+quickly and easily build various applications with the same look and feel.
 
 ## How to Use the Reservoir Design Tokens
 
 The NYPL design tokens are built into the Reservoir Design System (DS) and are
-offered in two formats for consumption: javascript theme objects (recommended)
-and CSS variables. To access either of these formats, the DS`v0.25.9` or higher
+offered in two formats for consumption: Javascript theme objects (recommended)
+and CSS variables. To access either of these formats, the DS `v0.25.9` or higher
 needs to be properly installed in a consuming React application.
 
 ## Using Reservoir Design Tokens in Javascript
 
-It is recommended that consuming apps use javascript (i.e. CSS-in-JS) to apply
-styles to UI elements. Additionally, consuming apps should, as much as possible,
-use DS and native Chakra components. With that, apps will be able to utilize the
-[javascript design tokens](#reservoir-design-token-categories).
+It is recommended that consuming apps use Javascript (rather than CSS) to apply
+styles to UI elements whenever possible.
 
-To use the DS javascript design tokens, the`DSProvider` wrapper component must
-be imported and implemented properly in a consuming app. Please refer to the
-`DSProvider` section of the [DS Chakra
-UI](?path=/story/chakra-ui--page#dsprovider) page for instructions on how to
-implement the`DSProvider` component in a consuming app. Once this has been
-completed, javascript design tokens can be used to style DS and Chakra
-components.
+To use the DS [Javascript design tokens](#reservoir-design-token-categories),
+the `DSProvider` wrapper component must first be imported and implemented
+properly in a consuming app. Please refer to the `DSProvider` section of the [DS
+Chakra UI](?path=/story/chakra-ui--page#dsprovider) page for instructions on how
+to do this.
 
 #### Design Tokens for DS and Chakra Components
 
 **IMPORTANT:** The general rule of thumb is that the styles and functionality of
 the DS components should not be altered. The components should be used with the
 styles and variants as they are depicted in Storybook. There may be times,
-however, when a component does require a modification. That being said, if a DS
-component does need a style change in a consuming app, designers/developers
-should first contact the Reservoir and UX teams about the change before it is
-implemented.
+however, when a component does require a modification. If a DS component does
+need a style change in a consuming app, designers/developers should first
+contact the Reservoir team about the change before it is implemented.
 
-The javascript design tokens can be used to populate the values for style props
-added directly to the components. The shorthard nature of the javascript tokens
+The Javascript design tokens can be used to populate the values for style props
+added directly to the components. The shorthard nature of the Javascript tokens
 make it easy to quickly and logically add styles to a DS component.
 
-For example, if a`Heading` component needs to sit within a wrapper element
-and render its text using Reservoir's`brand primary` color and use a`light`
+For example, if a `Heading` component needs to sit within a wrapper element
+and render its text using Reservoir's `brand primary` color and use a `light`
 font weight, the following can be done:
 
 ```tsx
@@ -96,8 +85,8 @@ components and native HTML elements as they are not compatible with the way
 styles are passed into these elements. Instead, CSS design tokens must be used.
 
 To pass style attributes to custom components and native HTML elements, the
-React`style` prop must be used rather than the individual javascript style
-props. The`style` prop can be populated in a number of ways.
+React `style` prop must be used rather than the individual Javascript style
+props. The `style` prop can be populated in a number of ways.
 
 ```tsx
 // Style values assigned to variables
@@ -218,7 +207,7 @@ For more information about NYPL breakpoints, see the [Breakpoints Style Guide](/
 
 ### Color
 
-The`color` design tokens can be used for any styles where a color styles be assigned:
+The `color` design tokens can be used for any styles where a color styles be assigned:
 
 - `color`
 - `border-color`
@@ -366,7 +355,7 @@ The semantic `color` tokens have both light and dark mode values.
 
 ### Radii
 
-The`radii` design tokens can be used for the`border-radius` attribute.
+The `radii` design tokens can be used for the `border-radius` attribute.
 
 ### Radii Semantic Tokens
 
@@ -385,7 +374,7 @@ The`radii` design tokens can be used for the`border-radius` attribute.
 
 ### Space
 
-The`space` design tokens can be used for any styles related to space or size:
+The `space` design tokens can be used for any styles related to space or size:
 
 - `padding`
 - `margin`
@@ -449,7 +438,7 @@ For more information about NYPL spacing, see the [Spacing Style Guide](/story/do
 
 ### Typography
 
-The`typography` design tokens include options for the following styles:
+The `typography` design tokens include options for the following styles:
 
 - `font-family`
 - `font-size`
@@ -480,7 +469,7 @@ For more information about NYPL typography, see the [Typography Style Guide](/st
 
 #### Font Size Semantic Tokens
 
-The following tokens can be used with the`font-size` style attribute.
+The following tokens can be used with the `font-size` style attribute.
 
 |                 | JS Token            | CSS Token                            | Value |
 | --------------- | :------------------ | :----------------------------------- | :---- |
@@ -507,7 +496,7 @@ The following tokens can be used with the`font-size` style attribute.
 
 #### Font Weight Semantic Tokens
 
-The following tokens can be used with the`font-weight` style attribute.
+The following tokens can be used with the `font-weight` style attribute.
 
 |                 | JS Token              | CSS Token                                | Value   |
 | --------------- | :-------------------- | :--------------------------------------- | :------ |
