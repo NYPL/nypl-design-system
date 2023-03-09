@@ -270,8 +270,8 @@ consuming app in addition to the default "light mode" styles.
 
 As an organization, NYPL is trending away from using traditional CSS and CSS
 preprocessors like SCSS in React applications. In their place, CSS-in-JS is
-being used to leverage the style patterns and design tokens available in the DS
-and Chakra UI.
+being used to leverage the style patterns and [design tokens](#design-tokens)
+available in the DS and Chakra UI.
 
 #### Benefits
 
@@ -299,8 +299,8 @@ style values. For example, in the code snippets found later in this section, the
 color values `ui.bg.default` and `dark.ui.bg.default` are color design tokens
 and `inset.default` is a spacing design token. For a full reference chart
 showing all available design tokens, refer to the [Design
-Tokens](/docs/style-guide-design-tokens--page#using-reservoir-design-tokens-in-javascript)
-page in Reservoir Storybook.
+Tokens](/docs/development-guide-design-tokens--page) page in Reservoir
+Storybook.
 
 ##### Responsive Styles
 
@@ -405,14 +405,8 @@ const stylesUsingVariables = {
 
 // Style values assigned directly using native CSS attribute values
 const stylesDirectlyAssigned = {
-  backgroundColor: useColorModeValue(
-    "#5F5F5F",
-    "#252525"
-  ),
-  color: useColorModeValue(
-    "#000000",
-    "#E9E9E9"
-  ),
+  backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
+  color: useColorModeValue("#000000", "#E9E9E9"),
   fontWeight: 500,
   padding: "1rem",
 };

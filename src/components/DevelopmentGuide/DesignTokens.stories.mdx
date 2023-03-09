@@ -1,0 +1,525 @@
+import { Box } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/addon-docs";
+
+import { getCategory } from "../../utils/componentCategories";
+import Heading from "../Heading/Heading";
+import DSProvider from "../../theme/provider";
+
+<Meta title={getCategory("Design Tokens")} />
+
+# Design Tokens
+
+## Table of Contents
+
+- [What are Design Tokens?](#what-are-design-tokens)
+- [How to Use the Reservoir Design Tokens](#figma-reference)
+- [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript)
+- [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
+- [Reservoir Design Token Categories](#reservoir-design-token-categories)
+
+## What are Design Tokens?
+
+_"With design tokens, you can capture low-level values and then use them to
+create the styles for your product or app. You can maintain a scalable and
+consistent visual system for UI development."_ - Jina Bolton, Lead Designer for
+the Salesforce Design System
+
+Design tokens are a collection of style values &ndash; spacing, colors,
+typography, breakpoints, and more &ndash; used throughout a design system. They
+are a single source of truth for design styles, bringing consistency and
+cohesion to components within a design system, and they allow teams to more
+quickly and easily build various applications with the same look and feel.
+
+## How to Use the Reservoir Design Tokens
+
+The NYPL design tokens are built into the Reservoir Design System (DS) and are
+offered in two formats for consumption: Javascript theme objects (recommended)
+and CSS variables. To access either of these formats, the DS `v0.25.9` or higher
+needs to be properly installed in a consuming React application.
+
+## Using Reservoir Design Tokens in Javascript
+
+It is recommended that consuming apps use Javascript (rather than CSS) to apply
+styles to UI elements whenever possible.
+
+To use the DS [Javascript design tokens](#reservoir-design-token-categories),
+the `DSProvider` wrapper component must first be imported and implemented
+properly in a consuming app. Please refer to the `DSProvider` section of the [DS
+Chakra UI](?path=/story/chakra-ui--page#dsprovider) page for instructions on how
+to do this.
+
+#### Design Tokens for DS and Chakra Components
+
+**IMPORTANT:** The general rule of thumb is that the styles and functionality of
+the DS components should not be altered. The components should be used with the
+styles and variants as they are depicted in Storybook. There may be times,
+however, when a component does require a modification. If a DS component does
+need a style change in a consuming app, designers/developers should first
+contact the Reservoir team about the change before it is implemented.
+
+The Javascript design tokens can be used to populate the values for style props
+added directly to the components. The shorthard nature of the Javascript tokens
+make it easy to quickly and logically add styles to a DS component.
+
+For example, if a `Heading` component needs to sit within a wrapper element
+and render its text using Reservoir's `brand primary` color and use a `light`
+font weight, the following can be done:
+
+```tsx
+<Box
+  backgroundColor="ui.bg.default"
+  border="1px solid"
+  borderColor="ui.border.default"
+  padding="inset.default"
+>
+  <Heading color="brand.primary" fontWeight="light">
+    Get a Digital Library Card Today in a Few Easy Steps
+  </Heading>
+</Box>
+```
+
+#### Design Tokens for Custom Components and Native HTML Elements
+
+**IMPORTANT:** Javascript design tokens **cannot be used** with custom
+components and native HTML elements as they are not compatible with the way
+styles are passed into these elements. Instead, CSS design tokens must be used.
+
+To pass style attributes to custom components and native HTML elements, the
+React `style` prop must be used rather than the individual Javascript style
+props. The `style` prop can be populated in a number of ways.
+
+```tsx
+// Style values assigned to variables
+const bg = "var(--nypl-colors-ui-bg-default)";
+const color = "var(--nypl-colors-ui-typography-heading)";
+const fontWeight = "var(--nypl-fontWeights-medium)";
+const padding = "var(--nypl-space-inset-default)";
+
+<div
+  style={{
+    backgroundColor: bg,
+    color: color,
+    fontWeight: fontWeight,
+    padding: padding,
+  }}
+/>;
+
+// Style values assigned to a data object
+const stylesDirectlyAssigned = {
+  backgroundColor: "var(--nypl-colors-ui-bg-default)",
+  color: "var(--nypl-colors-ui-typography-heading)",
+  fontWeight: "var(--nypl-fontWeights-medium)",
+  padding: "var(--nypl-space-inset-default)",
+};
+
+<div style={stylesDirectlyAssigned} />;
+
+// Style values assigned directly
+<div
+  style={{
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  }}
+/>;
+```
+
+Below is an example using a custom component. Please note that consuming apps
+are responsible for handling how styles are propagated and applied within custom
+components.
+
+```tsx
+// Styles for a custom component
+const stylesForCustomComponent = {
+  backgroundColor: "var(--nypl-colors-ui-bg-default)",
+  color: "var(--nypl-colors-ui-typography-heading)",
+  fontWeight: "var(--nypl-fontWeights-medium)",
+  padding: "var(--nypl-space-inset-default)",
+};
+
+<CustomComponent style={stylesForCustomComponent} />;
+```
+
+## Using Reservoir Design Tokens in CSS
+
+If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
+custom properties (e.g. variables) for consumption in your stylesheets. If the
+DS is properly installed, the CSS custom properties will be available for you
+to use. Nothing more needs to be done to your app.
+
+To assist with CSS scope isolation, all of the CSS custom properties created
+by the DS are prefixed with "nypl." Please see the examples below.
+
+```css
+--nypl-colors-brand-primary
+--nypl-colors-brand-secondary
+--nypl-fontSizes-sm
+--nypl-fontSizes-md
+--nypl-fontSizes-lg
+--nypl-fontSizes-xl
+--nypl-space-xxs
+--nypl-space-xs
+--nypl-space-s
+--nypl-space-m
+--nypl-space-l
+```
+
+The CSS custom properties are defined on the :root pseudo-class and should be
+implemented using standard CSS custom properties conventions.
+
+```css
+/* Property Declaration in the DS */
+:root {
+  --nypl-colors-brand-primary: #c60917;
+}
+
+/* Property Usage in Your Application */
+.custom-button {
+  background: var(--nypl-colors-brand-primary);
+}
+```
+
+## Reservoir Design Token Categories
+
+The DS design tokens are broken into the following categories:
+
+- [Breakpoints](#breakpoints)
+- [Color](#color)
+- [Radii](#radii)
+- [Space](#space)
+- [Typography](#typography)
+
+When using the DS design tokens, semantic tokens should be used ahead of the
+base tokens.
+
+### Breakpoints
+
+For more information about NYPL breakpoints, see the [Breakpoints Style Guide](/story/documentation-style-guide-breakpoints--page) page.
+
+| JS Token | CSS Token                | Value              |
+| :------- | :----------------------- | :----------------- |
+| --       | --nypl-breakpoint-small  | `20em` / `320px`   |
+| --       | --nypl-breakpoint-medium | `37.5em` / `600px` |
+| --       | --nypl-breakpoint-large  | `60em` / `960px`   |
+| --       | --nypl-breakpoint-xl     | `80em` / `1280px`  |
+| --       | --nypl-breakpoint-2xl    | `96em` / `1536px`  |
+
+### Color
+
+The `color` design tokens can be used for any styles where a color styles be assigned:
+
+- `color`
+- `border-color`
+- `background-color`
+- `fill`
+- `stroke`
+
+For more information about NYPL colors and to view the actual hue, see the
+[Colors Style Guide](/story/documentation-style-guide-colors--page) page.
+
+#### Root Tokens
+
+|               | JS Token          | CSS Token                           | Value   |
+| ------------- | :---------------- | :---------------------------------- | :------ |
+| **Grayscale** | ui.black          | --nypl-colors-ui-black              | #000    |
+|               | ui.white          | --nypl-colors-ui-white              | #FFF    |
+|               | ui.gray.xxxx-dark | --nypl-colors-ui-gray-xxxx-dark     | #191919 |
+|               | ui.gray.xxx-dark  | --nypl-colors-ui-gray-xxx-dark      | #252525 |
+|               | ui.gray.xx-dark   | --nypl-colors-ui-gray-xx-dark       | #2E2E2E |
+|               | ui.gray.x-dark    | --nypl-colors-ui-gray-x-dark        | #424242 |
+|               | ui.gray.dark      | --nypl-colors-ui-gray-dark          | #616161 |
+|               | ui.gray.dark      | --nypl-colors-ui-gray-medium        | #BDBDBD |
+|               | ui.gray.dark      | --nypl-colors-ui-gray-light-cool    | #E9E9E9 |
+|               | ui.gray.dark      | --nypl-colors-ui-gray-x-light-cool  | #F5F5F5 |
+|               | ui.gray.dark      | --nypl-colors-ui-gray-xx-light-cool | #FAFAFA |
+
+**The following root `color` tokens have both light and dark mode values.**
+
+##### Light Mode
+
+|             | JS Token                             | CSS Token                                          | Value                  |
+| ----------- | :----------------------------------- | :------------------------------------------------- | :--------------------- |
+| **Action**  | ui.disabled.primary                  | --nypl-colors-ui-disabled-primary                  | ui.gray.light-cool     |
+|             | ui.disabled.secondary                | --nypl-colors-ui-disabled-secondary                | ui.gray.xx-light-cool  |
+|             | ui.error.primary                     | --nypl-colors-ui-error-primary                     | #97272C                |
+|             | ui.error.secondary                   | --nypl-colors-ui-error-secondary                   | #6F0106                |
+|             | ui.focus                             | --nypl-colors-ui-focus                             | #4181F1                |
+|             | ui.link.primary                      | --nypl-colors-ui-link-primary                      | #0576D3                |
+|             | ui.link.primary-05                   | --nypl-colors-ui-link-primary-05                   | rgba(5, 118, 211,0.05) |
+|             | ui.link.secondary                    | --nypl-colors-ui-link-secondary                    | #004B98                |
+|             | ui.status.primary                    | --nypl-colors-ui-status-primary                    | #F9E08E                |
+|             | ui.status.secondary                  | --nypl-colors-ui-status-secondary                  | #FBE7E1                |
+|             | ui.success.primary                   | --nypl-colors-ui-success-primary                   | #077719                |
+|             | ui.success.secondary                 | --nypl-colors-ui-success-secondary                 | #095212                |
+|             | ui.test                              | --nypl-colors-ui-test                              | #FF6347                |
+|             | ui.warning.primary                   | --nypl-colors-ui-warning-primary                   | #F0974E                |
+|             | ui.warning.secondary                 | --nypl-colors-ui-warning-secondary                 | #EC7B1F                |
+|             |                                      |                                                    |                        |
+| **Brand**   | brand.primary                        | --nypl-colors-brand-primary                        | #C60917                |
+|             | brand.secondary                      | --nypl-colors-brand-secondary                      | #760000                |
+|             |                                      |                                                    |                        |
+| **Section** | section.blogs.primary                | --nypl-colors-section-blogs-primary                | ui.gray.light-cool     |
+|             | section.blogs.secondary              | --nypl-colors-section-blogs-secondary              | ui.gray.medium         |
+|             | section.books-and-more.primary       | --nypl-colors-section-books-and-more-primary       | brand.primary          |
+|             | section.books-and-more.secondary     | --nypl-colors-section-books-and-more-secondary     | brand.secondary        |
+|             | section.education.primary            | --nypl-colors-section-education-primary            | #1D62E6                |
+|             | section.education.secondary          | --nypl-colors-section-education-secondary          | #2540A4                |
+|             | section.locations.primary            | --nypl-colors-section-locations-primary            | brand.primary          |
+|             | section.locations.secondary          | --nypl-colors-section-locations-secondary          | brand.secondary        |
+|             | section.research.primary             | --nypl-colors-section-research-primary             | #00838A                |
+|             | section.research.secondary           | --nypl-colors-section-research-secondary           | #006166                |
+|             | section.research-library-lpa         | --nypl-colors-section-research-library-lpa         | #005D53                |
+|             | section.research-library-schomburg   | --nypl-colors-section-research-library-schomburh   | #A03E31                |
+|             | section.research-library-schwartzman | --nypl-colors-section-research-library-schwartzman | brand.secondary        |
+|             | section.whats-on.primary             | --nypl-colors-section-whats-on-primary             | #242424                |
+|             | section.whats-on.secondary           | --nypl-colors-section-whats-on-secondary           | ui.black               |
+
+##### Dark Mode
+
+|             | JS Token                                  | CSS Token                                               | Value                    |
+| ----------- | :---------------------------------------- | :------------------------------------------------------ | :----------------------- |
+| **Action**  | dark.ui.disabled.primary                  | --nypl-colors-dark-ui-disabled-primary                  | ui.gray.dark             |
+|             | dark.ui.disabled.secondary                | --nypl-colors-dark-ui-disabled-secondary                | ui.gray.xx-dark          |
+|             | dark.ui.error.primary                     | --nypl-colors-dark-ui-error-primary                     | #E1767B                  |
+|             | dark.ui.error.secondary                   | --nypl-colors-dark-ui-error-secondary                   | #F08F93                  |
+|             | dark.ui.focus                             | --nypl-colors-dark-ui-focus                             | #6090E3                  |
+|             | dark.ui.link.primary                      | --nypl-colors-dark-ui-link-primary                      | #79B7EB                  |
+|             | dark.ui.link.primary-05                   | --nypl-colors-dark-ui-link-primary-05                   | rgba(121, 183, 235,0.05) |
+|             | dark.ui.link.primary-10                   | --nypl-colors-dark-ui-link-primary-10                   | rgba(121, 183, 235,0.1)  |
+|             | dark.ui.link.secondary                    | --nypl-colors-dark-ui-link-secondary                    | #95CFFF                  |
+|             | dark.ui.status.primary                    | --nypl-colors-dark-ui-status-primary                    | #B69C46                  |
+|             | dark.ui.status.secondary                  | --nypl-colors-dark-ui-status-secondary                  | #CB8E7C                  |
+|             | dark.ui.success.primary                   | --nypl-colors-dark-ui-success-primary                   | #52AA60                  |
+|             | dark.ui.success.secondary                 | --nypl-colors-dark-ui-success-secondary                 | #81C88A                  |
+|             | dark.ui.test                              | --nypl-colors-dark-ui-test                              | #592B22                  |
+|             | dark.ui.warning.primary                   | --nypl-colors-dark-ui-warning-primary                   | #DC8034                  |
+|             | dark.ui.warning.secondary                 | --nypl-colors-dark-ui-warning-secondary                 | #F1A66A                  |
+|             |                                           |                                                         |                          |
+| **Brand**   | dark.brand.primary                        | --nypl-colors-dark-brand-primary                        | gba(198, 9, 23,0.2)      |
+|             | dark.brand.secondary                      | --nypl-colors-dark-brand-secondary                      | rgba(118, 0, 0,0.2);     |
+|             |                                           |                                                         |                          |
+| **Section** | dark.section.blogs.primary                | --nypl-colors-dark-section-blogs-primary                | rgba(233, 233, 233,0.2)  |
+|             | dark.section.blogs.secondary              | --nypl-colors-dark-section-blogs-secondary              | rgba(189, 189, 189,0.2)  |
+|             | dark.section.books-and-more.primary       | --nypl-colors-dark-section-books-and-more-primary       | dark.brand.primary       |
+|             | dark.section.books-and-more.secondary     | --nypl-colors-dark-section-books-and-more-secondary     | dark.brand.secondary     |
+|             | dark.section.education.primary            | --nypl-colors-dark-section-education-primary            | rgba(29, 98, 230,0.2)    |
+|             | dark.section.education.secondary          | --nypl-colors-dark-section-education-secondary          | rgba(37, 64, 164,0.2)    |
+|             | dark.section.locations.primary            | --nypl-colors-dark-section-locations-primary            | dark.brand.primary       |
+|             | dark.section.locations.secondary          | --nypl-colors-dark-section-locations-secondary          | dark.brand.secondary     |
+|             | dark.section.research.primary             | --nypl-colors-dark-section-research-primary             | rgba(0, 131, 138,0.2)    |
+|             | dark.section.research.secondary           | --nypl-colors-dark-section-research-secondary           | rgba(0, 97, 102,0.2)     |
+|             | dark.section.research-library-lpa         | --nypl-colors-dark-section-research-library-lpa         | rgba(0, 93, 83,0.2)      |
+|             | dark.section.research-library-schomburg   | --nypl-colors-dark-section-research-library-schomburh   | rgba(160, 62, 49,0.2)    |
+|             | dark.section.research-library-schwartzman | --nypl-colors-dark-section-research-library-schwartzman | dark.brand.secondary     |
+|             | dark.section.whats-on.primary             | --nypl-colors-dark-section-whats-on-primary             | rgba(233, 233, 233,0.2)  |
+|             | dark.section.whats-on.secondary           | --nypl-colors-dark-section-whats-on-secondary           | rgba(255, 255, 255,0.05) |
+
+#### Color Semantic Tokens
+
+The semantic `color` tokens have both light and dark mode values.
+
+##### Light Mode
+
+|                | JS Token                      | CSS Token                                   | Value                |
+| -------------- | :---------------------------- | :------------------------------------------ | :------------------- |
+| **Background** | ui.bg.page                    | --nypl-colors-ui-bg-page                    | ui.white             |
+|                | ui.bg.default                 | --nypl-colors-ui-bg-default                 | ui.gray.x-light-cool |
+|                | ui.bg.hover                   | --nypl-colors-ui-bg-hover                   | ui.gray.light-cool   |
+|                | ui.bg.active                  | --nypl-colors-ui-bg-active                  | ui.gray.medium       |
+|                |                               |                                             |                      |
+| **Border**     | ui.border.default             | --nypl-colors-ui-border-default             | ui.gray.medium       |
+|                | ui.border.hover               | --nypl-colors-ui-order-hover                | ui.gray.dark         |
+|                |                               |                                             |                      |
+| **Typography** | ui.typography.heading         | --nypl-colors-ui-typography-heading         | ui.black             |
+|                | ui.typography.body            | --nypl-colors-ui-typography-body            | ui.black             |
+|                | ui.inverse.typography.heading | --nypl-colors-ui-inverse-typography-heading | ui.white             |
+|                | ui.inverse.typography.body    | --nypl-colors-ui-inverse-typography-body    | ui.white             |
+
+##### Dark Mode
+
+|                | JS Token                           | CSS Token                                        | Value              |
+| -------------- | :--------------------------------- | :----------------------------------------------- | :----------------- |
+| **Background** | dark.ui.bg.page                    | --nypl-colors-dark-ui-bg-page                    | ui.gray.xxxx-dark  |
+|                | dark.ui.bg.default                 | --nypl-colors-dark-ui-bg-default                 | ui.gray.xxx-dark   |
+|                | dark.ui.bg.hover                   | --nypl-colors-dark-ui-bg-hover                   | ui.gray.xx-dark    |
+|                | dark.ui.bg.active                  | --nypl-colors-dark-ui-bg-active                  | ui.gray.x-dark     |
+|                |                                    |                                                  |                    |
+| **Border**     | dark.ui.border.default             | --nypl-colors-dark-ui-border-default             | ui.gray.x-dark     |
+|                | dark.ui.border.hover               | --nypl-colors-dark-ui-order-hover                | ui.gray.medium     |
+|                |                                    |                                                  |                    |
+| **Typography** | dark.ui.typography.heading         | --nypl-colors-dark-ui-typography-heading         | ui.gray.light-cool |
+|                | dark.ui.typography.body            | --nypl-colors-dark-ui-typography-body            | ui.gray.medium     |
+|                | dark.ui.inverse.typography.heading | --nypl-colors-dark-ui-inverse-typography-heading | ui.gray.xxx-dark   |
+|                | dark.ui.inverse.typography.body    | --nypl-colors-dark-ui-inverse-typography-body    | ui.gray.xxx-dark   |
+
+### Radii
+
+The `radii` design tokens can be used for the `border-radius` attribute.
+
+### Radii Semantic Tokens
+
+|                   | JS Token       | CSS Token                   | Value  |
+| ----------------- | :------------- | :-------------------------- | :----- |
+| **Button**        | button.default | --nypl-radii-button-default | 2px    |
+|                   | button.pill    | --nypl-radii-button-pill    | 20px   |
+|                   |                |                             |        |
+| **Checkbox**      | button.default | --nypl-radii-button-default | 3px    |
+|                   |                |                             |        |
+| **Header Donate** | headerDonate   | --nypl-radii-headerDonate   | .25rem |
+|                   |                |                             |        |
+| **Pill**          | pill           | --nypl-radii-pill           | 20px   |
+|                   |                |                             |        |
+| **Round**         | round          | --nypl-radii-round          | 100%   |
+
+### Space
+
+The `space` design tokens can be used for any styles related to space or size:
+
+- `padding`
+- `margin`
+- `top`
+- `left`
+- `right`
+- `bottom`
+
+For more information about NYPL spacing, see the [Spacing Style Guide](/story/documentation-style-guide-spacing--page) page.
+
+#### Root Tokens
+
+| JS Token | CSS Token         | Value         |
+| :------- | :---------------- | :------------ |
+| xxxs     | --nypl-space-xxxs | .125rem / 2px |
+| xxs      | --nypl-space-xxs  | .25rem / 4px  |
+| xs       | --nypl-space-xs   | .5rem / 8px   |
+| s        | --nypl-space-s    | 1rem / 16px   |
+| m        | --nypl-space-m    | 1.5rem / 24px |
+| l        | --nypl-space-l    | 2rem / 32px   |
+| xl       | --nypl-space-xl   | 3rem / 48px   |
+| xxl      | --nypl-space-xxl  | 4rem / 64px   |
+| xxxl     | --nypl-space-xxxl | 6rem / 96px   |
+
+#### Space Semantic Tokens
+
+|            | JS Token                   | CSS Token                         | Value |
+| ---------- | :------------------------- | :-------------------------------- | :---- |
+| **Button** | button.small.px            | --nypl-space-button-small-px      | xs    |
+|            | button.small.py            | --nypl-space-button-small-py      | xxs   |
+|            | button.medium.px           | --nypl-space-button-medium-px     | s     |
+|            | button.medium.py           | --nypl-space-button-medium-py     | xs    |
+|            | button.large.px            | --nypl-space-button-large-px      | l     |
+|            | button.large.py            | --nypl-space-button-large-py      | s     |
+|            |                            |                                   |       |
+| **Input**  | input.group.button.hstack  | --nypl-space-input-group-hstack   | xs    |
+|            | input.group.button.vstack  | --nypl-space-input-group-vstack   | xs    |
+|            | input.group.default.hstack | --nypl-space-input-default-hstack | l     |
+|            | input.group.default.vstack | --nypl-space-input-default-vstack | s     |
+|            |                            |                                   |       |
+| **Inset**  | inset.default              | --nypl-space-inset-default        | s     |
+|            | inset.extranarrow          | --nypl-space-inset-extranarrow    | xxs   |
+|            | inset.narrow               | --nypl-space-inset-narrow         | xs    |
+|            | inset.wide                 | --nypl-space-inset-wide           | l     |
+|            | inset.extrawide            | --nypl-space-inset-extrawide      | xl    |
+|            |                            |                                   |       |
+| **Grid**   | grid.default               | --nypl-space-grid-default         | l     |
+|            | grid.xxs                   | --nypl-space-grid-xxs             | xxs   |
+|            | grid.xs                    | --nypl-space-grid-xs              | xs    |
+|            | grid.s                     | --nypl-space-grid-s               | s     |
+|            | grid.m                     | --nypl-space-grid-m               | m     |
+|            | grid.l                     | --nypl-space-grid-l               | l     |
+|            | grid.xl                    | --nypl-space-grid-xl              | xl    |
+|            | grid.xxl                   | --nypl-space-grid-xxl             | xxl   |
+|            |                            |                                   |       |
+| **Page**   | page.hstack                | --nypl-space-page-hstack          | l     |
+|            | inset.vstack               | --nypl-space-page-vstack          | l     |
+|            |                            |                                   |       |
+| **Table**  | table.column               | --nypl-space-table-column         | m     |
+|            | table.row                  | --nypl-space-table-row            | l     |
+
+### Typography
+
+The `typography` design tokens include options for the following styles:
+
+- `font-family`
+- `font-size`
+- `font-weight`
+
+For more information about NYPL typography, see the [Typography Style Guide](/story/documentation-style-guide-typography--page) page.
+
+#### Root Tokens
+
+|                 | JS Token | CSS Token                | Value                                                    |
+| --------------- | :------- | :----------------------- | :------------------------------------------------------- |
+| **Font Family** | body     | --nypl-fonts-body        | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
+|                 | heading  | --nypl-fonts-heading     | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
+|                 |          |                          |                                                          |
+| **Font Size**   | -3       | --nypl-fontSizes--3      | .625rem / 10px                                           |
+|                 | -2       | --nypl-fontSizes--2      | .75rem / 12px                                            |
+|                 | -1       | --nypl-fontSizes--1      | .825rem / 14px                                           |
+|                 | 0        | --nypl-fontSizes-0       | 1rem / 16px                                              |
+|                 | 1        | --nypl-fontSizes-1       | 1.125rem / 18px                                          |
+|                 | 2        | --nypl-fontSizes-2       | 1.375rem / 22px                                          |
+|                 | 3        | --nypl-fontSizes-3       | 1.75rem / 28px                                           |
+|                 | 4        | --nypl-fontSizes-4       | 2.25rem / 36px                                           |
+|                 |          |                          |                                                          |
+| **Font Weight** | light    | --nypl-fontWeights-light | 300                                                      |
+|                 | regular  | --nypl-fontWeights-light | 400                                                      |
+|                 | medium   | --nypl-fontWeights-light | 500                                                      |
+|                 | bold     | --nypl-fontWeights-light | 700                                                      |
+
+#### Font Size Semantic Tokens
+
+The following tokens can be used with the `font-size` style attribute.
+
+|                 | JS Token            | CSS Token                            | Value |
+| --------------- | :------------------ | :----------------------------------- | :---- |
+| **Breadcrumbs** | breadcrumbs.default | --nypl-fontSizes-breadcrumbs-default | -1    |
+|                 |                     |                                      |       |
+| **Button**      | button.small        | --nypl-fontSizes-button-small        | -2    |
+|                 | button.default      | --nypl-fontSizes-button-default      | -1    |
+|                 | button.large        | --nypl-fontSizes-button-large        | 0     |
+|                 |                     |                                      |       |
+| **Heading**     | heading.primary     | --nypl-fontSizes-heading-primary     | 4     |
+|                 | heading.secondary   | --nypl-fontSizes-heading-secondary   | 3     |
+|                 | heading.tertiary    | --nypl-fontSizes-heading-tertiary    | 2     |
+|                 | heading.callout     | --nypl-fontSizes-heading-callout     | 1     |
+|                 |                     |                                      |       |
+| **Helper**      | helper.default      | --nypl-fontSizes-helper-default      | -2    |
+|                 |                     |                                      |       |
+| **Label**       | label.default       | --nypl-fontSizes-label-default       | -1    |
+|                 | label.secondary     | --nypl-fontSizes-label-secondary     | -2    |
+|                 |                     |                                      |       |
+| **Text**        | text.default        | --nypl-fontSizes-text-default        | 0     |
+|                 | text.caption        | --nypl-fontSizes-text-caption        | -1    |
+|                 | text.tag            | --nypl-fontSizes-text-tag            | -2    |
+|                 | text.mini           | --nypl-fontSizes-text-mini           | -3    |
+
+#### Font Weight Semantic Tokens
+
+The following tokens can be used with the `font-weight` style attribute.
+
+|                 | JS Token              | CSS Token                                | Value   |
+| --------------- | :-------------------- | :--------------------------------------- | :------ |
+| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular |
+|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold    |
+|                 |                       |                                          |         |
+| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular |
+|                 |                       |                                          |         |
+| **Heading**     | heading.primary       | --nypl-fontWeights-heading-primary       | light   |
+|                 | heading.secondary     | --nypl-fontWeights-heading-secondary     | medium  |
+|                 | heading.tertiary      | --nypl-fontWeights-heading-tertiary      | medium  |
+|                 | heading.callout       | --nypl-fontWeights-heading-callout       | medium  |
+|                 |                       |                                          |         |
+| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | light   |
+|                 |                       |                                          |         |
+| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium  |
+|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular |
+|                 |                       |                                          |         |
+| **Text**        | text.default          | --nypl-fontWeights-text-default          | light   |
+|                 | text.caption          | --nypl-fontWeights-text-caption          | light   |
+|                 | text.tag              | --nypl-fontWeights-text-tag              | regular |
+|                 | text.mini             | --nypl-fontWeights-text-mini             | regular |
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider />
