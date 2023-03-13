@@ -101,7 +101,7 @@ const NotificationContent = {
           notificationType === "standard"
             ? "ui.status.primary"
             : notificationType === "announcement"
-            ? "ui.success.primary"
+            ? "dark.ui.success.primary"
             : "dark.ui.error.primary",
         borderLeftStyle: !isCentered ? "solid" : "none",
         borderLeftWidth: "2px",
@@ -151,7 +151,7 @@ const NotificationHeading = {
           notificationType === "standard"
             ? "ui.status.primary"
             : notificationType === "announcement"
-            ? "ui.success.primary"
+            ? "dark.ui.success.primary"
             : "dark.ui.error.primary",
         borderBottomStyle: isCentered ? "solid" : "none",
         borderBottomWidth: "2px",
@@ -167,7 +167,7 @@ const NotificationHeading = {
             notificationType === "standard"
               ? "ui.status.primary"
               : notificationType === "announcement"
-              ? "ui.success.primary"
+              ? "dark.ui.success.primary"
               : "dark.ui.error.primary",
           borderLeftStyle: !isCentered ? "solid" : "none",
           borderLeftWidth: "2px",

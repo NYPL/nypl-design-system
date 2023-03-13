@@ -172,7 +172,7 @@ export const Notification = chakra(
         announcement: {
           color:
             colorMode === "dark"
-              ? "ui.gray.medium"
+              ? "dark.ui.success.primary"
               : "section.research.secondary",
           name: "speakerNotes",
           title: "Notification announcement icon",
