@@ -3,7 +3,12 @@
 const categories = {
   accessibility: {
     title: "Accessibility Guide",
-    components: ["Links", "Repetitive Actions", "Skip Navigation"],
+    components: [
+      "Dynamic Content",
+      "Links",
+      "Repetitive Actions",
+      "Skip Navigation",
+    ],
   },
   basicContent: {
     title: "Components/Basic Elements",
@@ -37,7 +42,7 @@ const categories = {
   },
   devguide: {
     title: "Development Guide",
-    components: ["Autosuggest"],
+    components: ["Autosuggest", "Design Tokens", "Supporting Dark Mode"],
   },
   feedback: {
     title: "Components/Feedback",
@@ -139,8 +144,6 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
-      "Color Mode",
-      "Design Tokens",
       "Forms",
       "Iconography",
       "Spacing",

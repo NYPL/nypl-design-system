@@ -65,6 +65,13 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="inputID-helperText"
+  />
 </div>
 `;
 
@@ -136,6 +143,13 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-checked-helperText"
+  />
 </div>
 `;
 
@@ -229,6 +243,13 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-checked-helperText"
+  />
 </div>
 `;
 
@@ -297,6 +318,13 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-required-helperText"
+  />
 </div>
 `;
 
@@ -368,6 +396,13 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={true}
+    id="checkbox-invalid-helperText"
+  />
 </div>
 `;
 
@@ -439,6 +474,13 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-disabled-helperText"
+  />
 </div>
 `;
 
@@ -520,6 +562,13 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       </div>
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="jsxLabel-helperText"
+  />
 </div>
 `;
 
@@ -588,6 +637,13 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-chakra-helperText"
+  />
 </div>
 `;
 
@@ -657,5 +713,12 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       Test Label
     </span>
   </label>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="checkbox-props-helperText"
+  />
 </div>
 `;

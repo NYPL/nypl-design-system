@@ -82,6 +82,8 @@ export interface InputProps {
   onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
   /** The action to perform on the `input`/`textarea`'s onFocus function  */
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Regex to query the user input against. */
+  pattern?: string;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
   /** Allows the '(Required)' text to be changed for language purposes
@@ -138,6 +140,7 @@ export const TextInput = chakra(
         onChange,
         onClick,
         onFocus,
+        pattern,
         placeholder,
         showHelperInvalidText = true,
         showLabel = true,
@@ -250,6 +253,7 @@ export const TextInput = chakra(
             onChange: internalOnChange,
             onClick,
             onFocus,
+            pattern,
             placeholder,
             ref: finalRef,
             // The `step` attribute is useful for the number type.

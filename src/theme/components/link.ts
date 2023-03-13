@@ -11,8 +11,14 @@ import { screenreaderOnly } from "./globalMixins";
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
+  _dark: {
+    color: "dark.ui.link.primary",
+  },
   _hover: {
     color: "ui.link.secondary",
+    _dark: {
+      color: "dark.ui.link.secondary",
+    },
   },
   _visited: {
     color: "ui.link.tertiary",
@@ -63,10 +69,18 @@ const variants = {
     textDecoration: "none",
     fontWeight: "button.default",
     bg: "ui.link.primary",
+    _dark: {
+      color: "ui.gray.xxx-dark",
+      bg: "dark.ui.link.primary",
+    },
     _hover: {
       color: "ui.white",
       bg: "ui.link.secondary",
-      textDecoration: "none",
+      textDecoration: "underline",
+      _dark: {
+        color: "ui.gray.xxx-dark",
+        bg: "dark.ui.link.secondary",
+      },
     },
     _visited: {
       color: "ui.white",
@@ -107,6 +121,10 @@ const variants = {
     pointerEvents: "none",
     _visited: {
       color: "ui.gray.dark",
+    },
+    _dark: {
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
     },
   },
 };

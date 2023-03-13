@@ -163,6 +163,20 @@ export const getEncoreCatalogURL = (searchValue) => {
 };
 
 /**
+ * Returns the final URL for the NYPL Research Catalog search.
+ */
+export const getResearchCatalogURL = (searchValue) => {
+  const catalogUrl = "https://www.nypl.org/research/research-catalog/search?q=";
+
+  if (searchValue) {
+    return `${catalogUrl}${encodeURIComponent(
+      searchValue
+    )}&${generateQueriesForGA()}&lang=eng`;
+  }
+  return null;
+};
+
+/**
  * Returns the final URL for the NYPL catalog search.
  */
 export const getNYPLSearchURL = (searchString) => {

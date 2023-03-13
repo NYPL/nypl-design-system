@@ -9,9 +9,11 @@ import {
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
+  useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef } from "react";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -103,7 +105,14 @@ export const Slider = chakra(
         showRequiredLabel = true,
         showValues = true,
         step = 1,
-        value,
+        // For the RangeSlider, if the defaultValue is not an array, then we set
+        // the defaultValue to an array with the min and max values.
+        // We need to set the default value correctly for both types of sliders.
+        value = isRangeSlider
+          ? typeof defaultValue === "number"
+            ? [min, max]
+            : defaultValue
+          : defaultValue,
         ...rest
       } = props;
 
@@ -117,31 +126,9 @@ export const Slider = chakra(
           "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
         );
       }
-      // For the RangeSlider, if the defaultValue is not an array, then we set
-      // the defaultValue to an array with the min and max values.
-      const rangeSliderDefault =
-        typeof defaultValue === "number" ? [min, max] : defaultValue;
-      // We need to set the default value correctly for both types of sliders.
-      const finalDevaultValue = isRangeSlider
-        ? rangeSliderDefault
-        : defaultValue;
-      const [currentValue, setCurrentValue] =
-        React.useState<typeof defaultValue>(finalDevaultValue);
 
-      // If the value(s) needs to be updated programmatically,
-      // listen to the `value` prop.
-      useEffect(() => {
-        if (value) {
-          if (typeof value === "number" && value !== currentValue) {
-            setCurrentValue(value);
-          } else if (
-            value[0] !== currentValue[0] ||
-            value[1] !== currentValue[1]
-          ) {
-            setCurrentValue(value);
-          }
-        }
-      }, [value, currentValue]);
+      const [currentValue, setCurrentValue] = useStateWithDependencies(value);
+      const isDarkMode = useColorMode().colorMode === "dark";
 
       let finalIsInvalid = isInvalid;
       // In the Range Slider, if the first value is bigger than the second value,
@@ -159,6 +146,7 @@ export const Slider = chakra(
         );
       }
       const styles = useMultiStyleConfig("CustomSlider", {
+        isDarkMode,
         isDisabled,
         isInvalid: finalIsInvalid,
         showBoxes,
