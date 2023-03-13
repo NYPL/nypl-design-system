@@ -226,6 +226,7 @@ const colors: Colors = {
         "primary-05": hexToRGB("#79B7EB", 0.05),
         "primary-10": hexToRGB("#79B7EB", 0.1),
         secondary: "#95CFFF",
+        tertiary: "#B583E1",
       },
       status: {
         primary: "#B69C46",

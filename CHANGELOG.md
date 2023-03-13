@@ -8,10 +8,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## Updates
-
-- Updates `Link` so that non-button variants change color once visited.
-
 ### Adds
 
 - Adds `dark` color mode support for `background-color` and `color` global styles.
@@ -32,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
 - Updates the hex value for the `Link Primary` color style.
+- Updates `Link` so that non-button variants change color once visited.
 
 ## 1.4.2 (March 2, 2023)
 
