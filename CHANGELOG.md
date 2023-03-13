@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
+- Updates the hex value for the `Link Primary` color style.
 
 ## 1.4.2 (March 2, 2023)
 

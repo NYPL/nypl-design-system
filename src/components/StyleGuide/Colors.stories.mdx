@@ -336,10 +336,11 @@ export const cssVars = {
     },
     {
       name: "ui.link.primary",
-      dataBlackColor: checkContrast(4.54),
-      dataWhiteColor: checkContrast(4.63),
-      dataBgPageColor: checkContrast(4.63),
-      dataBgDefaultColor: checkContrast(4.24),
+      dataBlackColor: checkContrast(3.77),
+      dataWhiteColor: checkContrast(5.57),
+      dataBgPageColor: checkContrast(5.57),
+      dataBgDefaultColor: checkContrast(5.11),
+      dataBgHoverColor: checkContrast(4.58),
       textColor: "ui.white",
     },
     {
@@ -348,6 +349,7 @@ export const cssVars = {
       dataWhiteColor: checkContrast(8.54),
       dataBgPageColor: checkContrast(8.54),
       dataBgDefaultColor: checkContrast(7.83),
+      dataBgHoverColor: checkContrast(7.03),
       textColor: "ui.white",
     },
     {
@@ -752,6 +754,7 @@ export const makeColorCard = function (data) {
     colorSource,
     dataBgPageColor,
     dataBgDefaultColor,
+    dataBgHoverColor,
     dataBlackColor,
     dataBrandPrimaryColor,
     dataBrandSecondaryColor,
@@ -768,6 +771,7 @@ export const makeColorCard = function (data) {
       backgroundColor={name}
       dataBgPageColor={dataBgPageColor}
       dataBgDefaultColor={dataBgDefaultColor}
+      dataBgHoverColor={dataBgHoverColor}
       dataDarkBgPageColor={dataDarkBgPageColor}
       dataDarkBgDefaultColor={dataDarkBgDefaultColor}
       colorName={name}

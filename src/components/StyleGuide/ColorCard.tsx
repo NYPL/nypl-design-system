@@ -47,6 +47,9 @@ export interface DataTableProps {
   /** Contrast and WCAG compliance data related to the color ui.bg.default when
    * used with the current color. */
   dataBgDefaultColor: string[];
+  /** Contrast and WCAG compliance data related to the color ui.bg.hover when
+   * used with the current color. */
+  dataBgHoverColor: string[];
   /** Contrast and WCAG compliance data related to the color dark.ui.bg.page when
    * used with the current color. */
   dataDarkBgPageColor: string[];
@@ -89,6 +92,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const {
     dataBgPageColor,
     dataBgDefaultColor,
+    dataBgHoverColor,
     dataDarkBgPageColor,
     dataDarkBgDefaultColor,
     dataBlackColor = ["--", "--", "--"],
@@ -143,6 +147,10 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     dataBgDefaultColor && successfulContrast(dataBgDefaultColor);
   const bgDefaultLargeTextSuccess =
     dataBgDefaultColor && successfulContrast(dataBgDefaultColor, "large");
+  const bgHoverSmallTextSuccess =
+    dataBgHoverColor && successfulContrast(dataBgHoverColor);
+  const bgHoverLargeTextSuccess =
+    dataBgHoverColor && successfulContrast(dataBgHoverColor, "large");
   const darkBgPageSmallTextSuccess =
     dataDarkBgPageColor && successfulContrast(dataDarkBgPageColor);
   const darkBgPageLargeTextSuccess =
@@ -298,6 +306,23 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       </>,
     ]);
   }
+  if (dataBgHoverColor && dataBgHoverColor.length > 0) {
+    tableData.push([
+      <span key="colorBgHover" style={{ padding: 0 }}>
+        <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-bg-hover)" />
+        ui.bg.hover
+      </span>,
+      `${dataBgHoverColor[0]}:1`,
+      <>
+        {dataBgHoverColor[1]}
+        {bgHoverSmallTextSuccess}
+      </>,
+      <>
+        {dataBgHoverColor[2]}
+        {bgHoverLargeTextSuccess}
+      </>,
+    ]);
+  }
 
   // For dark mode `ColorCard`s, there are four extra rows.
   if (dataDarkBgPageColor && dataDarkBgPageColor.length > 0) {
@@ -385,6 +410,7 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     backgroundColor,
     dataBgPageColor,
     dataBgDefaultColor,
+    dataBgHoverColor,
     dataDarkBgPageColor,
     dataDarkBgDefaultColor,
     colorName = "",
@@ -430,6 +456,7 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
         <DataTable
           dataBgPageColor={dataBgPageColor}
           dataBgDefaultColor={dataBgDefaultColor}
+          dataBgHoverColor={dataBgHoverColor}
           dataDarkBgPageColor={dataDarkBgPageColor}
           dataDarkBgDefaultColor={dataDarkBgDefaultColor}
           dataBlackColor={dataBlackColor}
