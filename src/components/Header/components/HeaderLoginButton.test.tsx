@@ -41,7 +41,7 @@ describe("HeaderLoginButton", () => {
 
       let dropDownButton = screen.getByRole("button");
 
-      expect(dropDownButton).toHaveTextContent(/log in/i);
+      expect(dropDownButton).toHaveTextContent(/my account/i);
 
       userEvent.click(dropDownButton);
 
@@ -50,15 +50,15 @@ describe("HeaderLoginButton", () => {
 
       expect(dropDownButton).toHaveTextContent(/close/i);
       expect(links.length).toEqual(2);
-      expect(links[0]).toHaveTextContent(/log into the catalog/i);
-      expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      expect(links[0]).toHaveTextContent(/go to the catalog/i);
+      expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       // The first call is the initializing call.
       // The second call is what we want.
       expect(ReactGa.testModeAPI.calls[1]).toEqual([
         "send",
         {
           eventCategory: "Global Header",
-          eventAction: "Log In",
+          eventAction: "My Account",
           eventLabel: "MyNyplButton - Open",
           hitType: "event",
         },
@@ -77,12 +77,13 @@ describe("HeaderLoginButton", () => {
       userEvent.click(dropDownButton);
 
       const catalogLink = screen.getByRole("link", {
-        name: /log into the catalog/i,
+        name: /go to the catalog/i,
       });
       expect(catalogLink).toHaveFocus();
     });
 
-    it("renders the logged in UI if there is a `patronName` value", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("renders the logged in UI if there is a `patronName` value", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
@@ -124,7 +125,8 @@ describe("HeaderLoginButton", () => {
       ]);
     });
 
-    it("focuses on the greeting message when the login is opened and there is a patron", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("focuses on the greeting message when the login is opened and there is a patron", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton />
@@ -150,7 +152,7 @@ describe("HeaderLoginButton", () => {
 
       let dropDownButton = screen.getByRole("button");
       // There is no visible text on the button in the mobile view.
-      expect(dropDownButton).toHaveAttribute("aria-label", "Log In");
+      expect(dropDownButton).toHaveAttribute("aria-label", "My Account");
 
       userEvent.click(dropDownButton);
 
@@ -159,15 +161,15 @@ describe("HeaderLoginButton", () => {
 
       expect(dropDownButton).toHaveAttribute("aria-label", "Close");
       expect(links.length).toEqual(2);
-      expect(links[0]).toHaveTextContent(/log into the catalog/i);
-      expect(links[1]).toHaveTextContent(/log into the research catalog/i);
+      expect(links[0]).toHaveTextContent(/go to the catalog/i);
+      expect(links[1]).toHaveTextContent(/go to the research catalog/i);
       // The sixth call is the click event for this test.
-      expect(ReactGa.testModeAPI.calls[5]).toEqual([
+      expect(ReactGa.testModeAPI.calls[3]).toEqual([
         "send",
         {
           eventCategory: "Global Header",
           eventAction: "Click",
-          eventLabel: "Mobile clickLogIn",
+          eventLabel: "Mobile clickMyAccount",
           hitType: "event",
         },
       ]);
@@ -184,12 +186,13 @@ describe("HeaderLoginButton", () => {
       userEvent.click(dropDownButton);
 
       const catalogLink = screen.getByRole("link", {
-        name: /log into the catalog/i,
+        name: /go to the catalog/i,
       });
       expect(catalogLink).toHaveFocus();
     });
 
-    it("renders the logged in UI if there is a `patronName` value", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("renders the logged in UI if there is a `patronName` value", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />
@@ -230,7 +233,8 @@ describe("HeaderLoginButton", () => {
       ]);
     });
 
-    it("focuses on the greeting message when the login is opened and there is a patron", () => {
+    // Skipping because this feature is temporarily removed.
+    it.skip("focuses on the greeting message when the login is opened and there is a patron", () => {
       render(
         <HeaderProvider patronName="PATRON, JANE A">
           <HeaderLoginButton isMobile />

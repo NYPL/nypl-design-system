@@ -16,6 +16,7 @@ import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import useNYPLBreakpoints from "./../../hooks/useNYPLBreakpoints";
+import { useCloseDropDown } from "./../../hooks/useCloseDropDown";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -29,7 +30,7 @@ export const MultiSelectDialog = chakra(
         isBlockElement,
         isDefaultOpen,
         items,
-        label,
+        labelText,
         onApply,
         onChange,
         onClear,
@@ -74,6 +75,9 @@ export const MultiSelectDialog = chakra(
         }, [ref, handler]);
       }
       useOnClickOutside(internalRef, () => setIsOpen(false));
+
+      // Hook to close Dialog on ESC key storke
+      useCloseDropDown(() => setIsOpen(false), internalRef);
 
       // Merge internal ref with the ref passed through the chakra function.
       const mergedRefs = useMergeRefs(internalRef, ref);
@@ -125,7 +129,7 @@ export const MultiSelectDialog = chakra(
             <MultiSelectMenuButton
               id={`ms-${id}-menu-button`}
               multiSelectId={id}
-              multiSelectLabel={label}
+              multiSelectLabelText={labelText}
               isOpen={isOpen}
               selectedItems={selectedItems}
               onMenuToggle={() => {

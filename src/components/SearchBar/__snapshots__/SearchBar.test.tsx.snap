@@ -32,7 +32,13 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-basic-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -78,14 +84,17 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Search for items in Animal Crossing New Horizons",
-      }
-    }
     data-isinvalid={false}
     id="basic-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -179,7 +188,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           >
             <svg
               aria-hidden={true}
-              className="chakra-icon chakra-select__icon css-1grhd2q"
+              className="chakra-icon chakra-select__icon css-q3eg3a"
               focusable={false}
               id="searchbar-select-withSelect-icon"
               role="presentation"
@@ -219,7 +228,13 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           </div>
         </div>
       </div>
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-bl03f5"
+        data-isinvalid={false}
+        id="searchbar-select-withSelect-helperText"
+      />
     </div>
     <div
       className="css-1u8qly9"
@@ -241,7 +256,13 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-withSelect-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -287,14 +308,17 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Search for items in Animal Crossing New Horizons",
-      }
-    }
     data-isinvalid={false}
     id="withSelect-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -330,7 +354,13 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-withoutHelperText-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -372,6 +402,13 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="withoutHelperText-helperText"
+  />
 </div>
 `;
 
@@ -407,7 +444,13 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-withClearButton-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -453,14 +496,17 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Search for items in Animal Crossing New Horizons",
-      }
-    }
     data-isinvalid={false}
     id="withClearButton-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -496,6 +542,13 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         step={null}
         type="text"
         value=""
+      />
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={true}
+        id="searchbar-textinput-invalidState-helperText"
       />
     </div>
     <button
@@ -538,6 +591,13 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={true}
+    id="invalidState-helperText"
+  />
 </div>
 `;
 
@@ -573,7 +633,13 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-disabledState-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -616,6 +682,13 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="disabledState-helperText"
+  />
 </div>
 `;
 
@@ -652,7 +725,13 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-requiredState-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -695,6 +774,13 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="requiredState-helperText"
+  />
 </div>
 `;
 
@@ -731,7 +817,13 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-noBrandButtonType-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -774,6 +866,13 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="noBrandButtonType-helperText"
+  />
 </div>
 `;
 
@@ -835,6 +934,13 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="withHeading-helperText"
+  />
 </div>
 `;
 
@@ -895,6 +1001,13 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="withDescription-helperText"
+  />
 </div>
 `;
 
@@ -961,6 +1074,13 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       Search
     </button>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    id="withHeadingAndDescription-helperText"
+  />
 </div>
 `;
 
@@ -996,7 +1116,13 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-chakra-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -1042,14 +1168,17 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Search for items in Animal Crossing New Horizons",
-      }
-    }
     data-isinvalid={false}
     id="chakra-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -1086,7 +1215,13 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         type="text"
         value=""
       />
-      
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        id="searchbar-textinput-props-helperText"
+      />
     </div>
     <button
       className="chakra-button css-r60hgy"
@@ -1132,13 +1267,16 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     aria-atomic={true}
     aria-live="polite"
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Search for items in Animal Crossing New Horizons",
-      }
-    }
     data-isinvalid={false}
     id="props-helperText"
-  />
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
 </div>
 `;

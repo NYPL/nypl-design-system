@@ -16,15 +16,24 @@ import * as story from "./FilterBar.stories";
   title={getCategory("FilterBar")}
   component={FilterBar}
   decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=53603%3A41770&t=j06bIokU6KAF2JHN-0",
+    },
+    jest: ["FilterBar.test.tsx"],
+  }}
   argTypes={{
     children: { table: { disable: true } },
     id: { control: false },
     selectedItems: { control: false },
     showClearAll: {
       type: { name: "boolean", required: false },
+      table: { defaultValue: { summary: "false" } },
     },
     showSubmitAll: {
       type: { name: "boolean", required: false },
+      table: { defaultValue: { summary: "false" } },
       description:
         "If passed the `Apply Filters` button will render on desktop and tablet `boolean`",
     },
@@ -88,15 +97,13 @@ import * as story from "./FilterBar.stories";
       id: "filterbar-id",
       headingText: "FilterBar",
       layout: "row",
-      showClearAll: "false",
-      showSubmitAll: "false",
     }}
   >
     {(args) => <story.FilterBarStory {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="FilterBar" />
+<ArgsTable story="FilterBar with Controls" />
 
 ## Accessibility
 

@@ -21,7 +21,7 @@ const items = [
   {
     id: "design",
     name: "Design",
-    // Children array will only be renderd in a "dialog" variant
+    // Children array will only be renderd in a "dialog" type
     children: [
       {
         id: "fashion",
@@ -84,6 +84,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   return (
     <MultiSelect
       {...args}
+      isDefaultOpen
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => {

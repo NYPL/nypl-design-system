@@ -36,9 +36,94 @@ const linkPrimary = "#0069BF";
 const linkSecondary = "#004B98";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
+const blogsPrimary = grayLightCool;
+const blogsSecondary = grayMedium;
+const educationPrimary = "#1D62E6";
+const educationSecondary = "#2540A4";
+const researchPrimary = "#00838A";
+const researchSecondary = "#006166";
+const researchLibraryLpa = "#005D53";
+const researchLibrarySchomburg = "#A03E31";
+const researchLibrarySchwartzman = brandSecondary;
+const whatsOnPrimary = "#242424";
+const whatsOnSecondary = black;
+
 const brandObj = {
-  primary: brandPrimary,
-  secondary: brandSecondary,
+  light: {
+    primary: brandPrimary,
+    secondary: brandSecondary,
+  },
+  dark: {
+    primary: hexToRGB(brandPrimary, 0.2),
+    secondary: hexToRGB(brandSecondary, 0.2),
+  },
+};
+
+const blogsObj = {
+  light: {
+    primary: blogsPrimary,
+    secondary: blogsSecondary,
+  },
+  dark: {
+    primary: hexToRGB(blogsPrimary, 0.2),
+    secondary: hexToRGB(blogsSecondary, 0.2),
+  },
+};
+
+const booksAndMoreObj = {
+  light: brandObj.light,
+  dark: brandObj.dark,
+};
+
+const educationObj = {
+  light: {
+    primary: educationPrimary,
+    secondary: educationSecondary,
+  },
+  dark: {
+    primary: hexToRGB(educationPrimary, 0.2),
+    secondary: hexToRGB(educationSecondary, 0.2),
+  },
+};
+
+const locationsObj = {
+  light: brandObj.light,
+  dark: brandObj.dark,
+};
+
+const researchObj = {
+  light: {
+    primary: researchPrimary,
+    secondary: researchSecondary,
+  },
+  dark: {
+    primary: hexToRGB(researchPrimary, 0.2),
+    secondary: hexToRGB(researchSecondary, 0.2),
+  },
+};
+
+const researchLibraryObj = {
+  light: {
+    lpa: researchLibraryLpa,
+    schomburg: researchLibrarySchomburg,
+    schwatzman: researchLibrarySchwartzman,
+  },
+  dark: {
+    lpa: hexToRGB(researchLibraryLpa, 0.2),
+    schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
+    schwatzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+  },
+};
+
+const whatsOnObj = {
+  light: {
+    primary: whatsOnPrimary,
+    secondary: whatsOnSecondary,
+  },
+  dark: {
+    primary: hexToRGB(grayLightCool, 0.2),
+    secondary: hexToRGB(white, 0.05),
+  },
 };
 
 const colors: Colors = {
@@ -78,7 +163,6 @@ const colors: Colors = {
     },
     // Semantic colors
     bg: {
-      page: white,
       default: grayxLightCool,
       hover: grayLightCool,
       active: grayMedium,
@@ -112,12 +196,22 @@ const colors: Colors = {
     },
   },
 
-  // dark mode ui fills
+  // dark mode fills
   dark: {
+    brand: brandObj.dark,
+    section: {
+      blogs: blogsObj.dark,
+      "books-and-more": booksAndMoreObj.dark,
+      education: educationObj.dark,
+      locations: locationsObj.dark,
+      research: researchObj.dark,
+      "research-library": researchLibraryObj.dark,
+      "whats-on": whatsOnObj.dark,
+    },
     ui: {
       /// State and link utilities
       disabled: {
-        primary: grayxDark,
+        primary: grayDark,
         secondary: grayxxDark,
       },
       error: {
@@ -127,6 +221,8 @@ const colors: Colors = {
       focus: "#6090E3",
       link: {
         primary: "#79B7EB",
+        "primary-05": hexToRGB("#79B7EB", 0.05),
+        "primary-10": hexToRGB("#79B7EB", 0.1),
         secondary: "#95CFFF",
       },
       status: {
@@ -157,57 +253,41 @@ const colors: Colors = {
         heading: grayLightCool,
         body: grayMedium,
         inverse: {
-          heading: grayxxDark,
-          body: grayxxDark,
+          heading: grayxxxDark,
+          body: grayxxxDark,
         },
       },
     },
   },
 
   /** Brand fills are the NYPL primary and secondary colors. */
-  brand: brandObj,
+  brand: brandObj.light,
 
   /** Brand fills for sections on NYPL pages. */
   section: {
     /** Blogs is used for the Blogs section. */
-    blogs: {
-      primary: grayLightCool,
-      secondary: grayMedium,
-    },
+    blogs: blogsObj.light,
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
-    "books-and-more": brandObj,
+    "books-and-more": booksAndMoreObj.light,
 
     /** Education is used for the Education section front and associated
      * sub-sections. */
-    education: {
-      primary: "#1D62E6",
-      secondary: "#2540A4",
-    },
+    education: educationObj.light,
 
     /** Locations is used for Location Finder and all branch pages with
      * the exceptions of some research libraries. */
-    locations: brandObj,
+    locations: locationsObj.light,
 
     /** Research is used for the Research Catalog and SCC. */
-    research: {
-      primary: "#00838A",
-      secondary: "#006166",
-    },
+    research: researchObj.light,
 
     /** Research libraries with specific brand colors to adhere to. */
-    "research-library": {
-      lpa: "#005D53",
-      schomburg: "#A03E31",
-      schwartzman: brandSecondary,
-    },
+    "research-library": researchLibraryObj.light,
 
     /** What's On is used for Exhibitions & Events. */
-    "whats-on": {
-      primary: "#242424",
-      secondary: black,
-    },
+    "whats-on": whatsOnObj.light,
   },
 
   /**

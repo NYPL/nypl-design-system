@@ -16,7 +16,7 @@ const HeaderLogin = {
     flexDirection: "column",
     left: { base: "0", md: null },
     marginTop: { md: "1px" },
-    minHeight: { base: "215px", md: "225px" },
+    minHeight: { base: "215px", md: "175px" },
     minWidth: { base: "100%", md: "360px" },
     position: "absolute",
     padding: { base: "0", md: "20px 10px 20px 30px" },
@@ -26,7 +26,7 @@ const HeaderLogin = {
       marginBottom: "0",
       marginTop: {
         base: !patronName ? "60px" : "0",
-        md: !patronName ? "25px" : "0",
+        md: !patronName ? "10px" : "0",
       },
       width: "100%",
       li: {
@@ -54,15 +54,14 @@ const HeaderLogin = {
       display: "flex",
       fontSize: "14px",
       fontWeight: "medium",
-      justifyContent: { md: "flex-start" },
+      justifyContent: { md: "center" },
       lineHeight: { base: "normal", md: "1.5" },
       marginTop: { base: "0" },
       minHeight: { base: "105px", md: "45px" },
       padding: { base: "10px", md: "10px 20px" },
-      textAlign: { base: "center", md: "left" },
       textTransform: "uppercase",
       whiteSpace: "normal",
-      width: { base: "100%", md: "fit-content" },
+      width: "100%",
       svg: {
         marginRight: { base: "10px", md: null },
       },
@@ -76,6 +75,15 @@ const HeaderLogin = {
       _focus: {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px" },
+      },
+      _dark: {
+        color: "ui.gray.xx-dark",
+        svg: {
+          fill: "ui.gray.xx-dark",
+        },
+        _hover: {
+          color: "ui.gray.xx-dark",
+        },
       },
     },
     patronGreeting: {
@@ -121,6 +129,15 @@ const HeaderLogin = {
       _focus: {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px !important" },
+      },
+      _dark: {
+        color: "ui.gray.xx-dark",
+        svg: {
+          fill: "ui.gray.xx-dark",
+        },
+        _hover: {
+          color: "ui.gray.xx-dark",
+        },
       },
     },
   }),

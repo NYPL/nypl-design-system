@@ -10,6 +10,58 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `dark` color mode support for `background-color` and `color` global styles.
+- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
+- Adds `dark` color mode support for the `Card` and `Hero` components.
+- Adds `dark` color mode support for the `Heading` and `List` components.
+- Adds `dark` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
+- Adds `dark` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+- Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
+- Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
+- Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
+- Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
+- Adds `dark` color mode support for the `FilterBar` and `MultiSelect` components.
+- Adds `Supporting Dark Mode` under the `Development Guide`.
+
+### Updates
+
+- Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
+- Updates the hex value for the `Link Primary` color style.
+
+## 1.4.2 (March 2, 2023)
+
+### Updates
+
+- Updates the `Logo` component to include "black" and "white" variants for `Digital Collections`.
+
+### Fixes
+
+- Updates the `Slider` component's `currentValue` state to use the `useStateWithDependencies` hook.
+
+## 1.4.1 (February 9, 2023)
+
+### Adds
+
+- Adds the `pattern` prop to the `TextInput` component.
+- Adds documentation page "Dynamic Content" to the `Accessibility Guide`.
+- Adds the `isRenderedText` prop to the `HelperErrorText` component.
+
+### Updates
+
+- Adds a third radio button to the `Header` component, separating search options between the Circulating Catalog, Research Catalog, and the NYPL.org website.
+- Temporarily removes the "log in" state from the `Header` component, the feature to read auth cookies, and the patron's name when logged in, and the log out link.
+- Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end. If the breadcrumb text is truncated, the DS `Tooltip` component is used to display the full text in a tooltip when the text is hovered.
+- Updates the `SearchBar`'s `textInputProps` prop to include the following props to pass to the `TextInput` component: `isClearableCallback`, `max`, `maxLength`, `min`, and `pattern`.
+- Updates how the `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, and `RadioGroup` components internally render the `HelperErrorText` component. The update in the `ComponentWrapper` component affects the `AudioPlayer`, `Checkbox`, `Radio`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, and `VideoPlayer` DS components, each of which render helper or error text.
+- Updates the `MultiSelect` component so it closes when the "escape" key is pressed.
+- Updates where the focus is set in the `MultiSelect` "dialog" variant after the "Apply" button is clicked.
+- Updates where the focus is set in the `MultiSelect` component after the selected items count button is clicked.
+
+## 1.4.0 (January 26, 2023)
+
+### Adds
+
 - Adds the `MultiSelect`, `MultiSelectGroup`, `FilterBar` component.
 - Adds the `useMultiSelect`, `useFilterBar` hook.
 - Adds the `onChangeEnd` prop in the `Slider` component.
@@ -26,7 +78,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   `dark.ui.status.primary`, `dark.ui.status.secondary`, `dark.ui.success.primary`,
   `dark.ui.success.secondary`, `dark.ui.warning.primary`
   and `dark.ui.warning.secondary`.
-- Updates the layout of the category `RadioGroup` to `column` for the mobie
+- Updates the layout of the category `RadioGroup` to `column` for the mobile
   view of the `FeedbackBox` component.
 - Updates the background color for the `"iconOnly"` and `"text"` variants of
   the `Button` component.
@@ -37,7 +89,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `HelperErrorText` component to set the `ariaLive` default value
   to `"polite"`.
 - Updates the `Accessibility` details for the `Notification` component.
-- Updates the hex value for the `Link Primary` color style.
+- Better docs for the `onSubmit` prop in the `FeedbackBox` component.
 
 ### Fixes
 
@@ -120,6 +172,16 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 ### Adds
 
+- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
+
+### Updates
+
+- Updates the hex value for `dark.ui.error.primary`.
+
+## 1.2.1 (October 27, 2022)
+
+### Adds
+
 - Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 
 ### Deprecates
@@ -196,8 +258,9 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 ### Deprecates
 
 - Deprecates the `link` variant in the `Button` component.
+- Deprecates the `darkMode` prop in the `ProgressIndicator` component.
 
-## 1.1.0 (Ausut 30, 2022)
+## 1.1.0 (August 30, 2022)
 
 This release is exactly the same as the `1.1.0-rc5` release candidate which was published and reviewed. Minor bug fixes, listed below, were made.
 
@@ -239,6 +302,7 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `onClick` event type for the `Pagination` links `onClick` function.
 - Updates the `Link` component's `onClick` event type.
 - Makes small, clarifying update to `Color Mode` story in Storybook.
+- Updates background color values available in Storybook.
 
 ### Fixes
 

@@ -17,6 +17,12 @@ const HeaderMobileNavButton = {
       },
     },
     _focus: headerFocus,
+    _dark: {
+      backgroundColor: isOpen ? headerBlack : "transparent",
+      svg: {
+        fill: "dark.ui.typography.heading",
+      },
+    },
   }),
 };
 

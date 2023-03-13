@@ -76,8 +76,8 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
           <MultiSelect
             key={multiSelect.id}
             id={multiSelect.id}
-            label={multiSelect.name}
-            variant="dialog"
+            labelText={multiSelect.name}
+            type="dialog"
             items={multiSelect.items}
             selectedItems={selectedItems}
             onChange={(e) => {
@@ -188,8 +188,8 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             <MultiSelect
               key={multiSelect.id}
               id={multiSelect.id}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
@@ -221,8 +221,8 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             <MultiSelect
               key={`${multiSelect.id}-1`}
               id={`${multiSelect.id}-1`}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
@@ -254,8 +254,8 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             <MultiSelect
               key={`${multiSelect.id}-2`}
               id={`${multiSelect.id}-2`}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
@@ -287,8 +287,8 @@ export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
             <MultiSelect
               key={`${multiSelect.id}-3`}
               id={`${multiSelect.id}-3`}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {

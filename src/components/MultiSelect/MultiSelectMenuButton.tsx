@@ -1,5 +1,10 @@
 import React, { forwardRef } from "react";
-import { Box, useMultiStyleConfig, keyframes } from "@chakra-ui/react";
+import {
+  Box,
+  keyframes,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
 import { SelectedItems } from "./MultiSelect";
@@ -8,8 +13,8 @@ export interface MultiSelectMenuButtonProps {
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
-  /** The label of the MultiSelect using this button. */
-  multiSelectLabel: string;
+  /** The label text rendered within the MultiSelect using this button. */
+  multiSelectLabelText: string;
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
@@ -40,7 +45,7 @@ const MultiSelectMenuButton = forwardRef<
     id,
     isOpen,
     multiSelectId,
-    multiSelectLabel,
+    multiSelectLabelText,
     onClear,
     onKeyDown,
     onMenuToggle,
@@ -50,18 +55,24 @@ const MultiSelectMenuButton = forwardRef<
   const iconType = isOpen ? "minus" : "plus";
   const growAnimation = `${grow} 150ms ease-out`;
 
+  const [prevIsOpen, setPrevIsOpen] = React.useState(isOpen);
+
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
   let selectedItemsAriaLabel;
   if (selectedItems[multiSelectId]?.items.length > 0) {
     getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
     const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
-    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabel}`;
+    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
   }
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
     hasSelectedItems: getSelectedItemsCount,
   });
+  // We need an internal Ref to manage the focus
+  const internalRef = React.useRef(null);
+  const mergedRefs = useMergeRefs(internalRef, ref);
+
   // We need this for our "fake" button inside the main menu button.
   function onKeyPress(e) {
     const enterOrSpace =
@@ -74,8 +85,19 @@ const MultiSelectMenuButton = forwardRef<
     if (enterOrSpace) {
       e.preventDefault();
       onClear();
+      internalRef?.current.focus();
     }
   }
+  // Manage focus upon closing the MultiSelect
+  React.useEffect(() => {
+    setPrevIsOpen(isOpen);
+    // Catching the inital render of the page
+    if (isOpen !== prevIsOpen) {
+      if (!isOpen && internalRef) {
+        internalRef.current?.focus();
+      }
+    }
+  }, [isOpen, prevIsOpen]);
 
   return (
     <>
@@ -83,12 +105,12 @@ const MultiSelectMenuButton = forwardRef<
         buttonType="secondary"
         id={id}
         onClick={onMenuToggle}
-        ref={ref}
+        ref={mergedRefs}
         __css={styles.menuButton}
         {...rest}
       >
-        <Box as="span" title={multiSelectLabel} __css={styles.buttonLabel}>
-          {multiSelectLabel}
+        <Box as="span" title={multiSelectLabelText} __css={styles.buttonLabel}>
+          {multiSelectLabelText}
         </Box>
         <Icon id={`ms-${multiSelectId}-icon`} name={iconType} size="small" />
       </Button>
@@ -97,7 +119,10 @@ const MultiSelectMenuButton = forwardRef<
           animation={growAnimation}
           aria-label={selectedItemsAriaLabel}
           as="span"
-          onClick={onClear}
+          onClick={() => {
+            internalRef?.current.focus();
+            onClear();
+          }}
           onKeyPress={onKeyPress}
           role="button"
           tabIndex={0}

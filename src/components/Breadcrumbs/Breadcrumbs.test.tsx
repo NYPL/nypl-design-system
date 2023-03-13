@@ -153,3 +153,33 @@ describe("Breadcrumbs Snapshot", () => {
     expect(withOtherProps).toMatchSnapshot();
   });
 });
+
+describe("Truncate breadcrumb text", () => {
+  const breadcrumbsData = [
+    { url: "#string1", text: "Parent with a Long Name" },
+    {
+      url: "#string2",
+      text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 40 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters",
+    },
+    {
+      url: "#string3",
+      text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component",
+    },
+  ];
+
+  it("Truncate breadcrumbs text if beyond 40 characters", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent(
+      "Parent with a Long Name"
+    );
+    expect(screen.getAllByRole("link")[1]).toHaveTextContent(
+      "Grandchild with an Exceptionally Long..."
+    );
+    // The last breadcrumb (the active page) is not a link.
+    // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
+    expect(
+      screen.getByText(/Great-Grandchild with the Longest Name.../)
+    ).toBeInTheDocument();
+  });
+});

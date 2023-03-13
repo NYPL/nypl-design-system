@@ -102,8 +102,8 @@ const FilterBarTestComponent = ({
             <MultiSelect
               key={multiSelect.id}
               id={multiSelect.id}
-              label={multiSelect.name}
-              variant="dialog"
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
               onChange={(e) => {
@@ -137,8 +137,8 @@ const MultiSelectTestGroup = (multiSelectItems) => (
       <MultiSelect
         key={multiSelectItem.id}
         id={multiSelectItem.id}
-        variant="listbox"
-        label={multiSelectItem.name}
+        type="listbox"
+        labelText={multiSelectItem.name}
         items={multiSelectItem.items}
         selectedItems={{}}
         onChange={() => null}
