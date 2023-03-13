@@ -20,6 +20,12 @@ export const baseLinkStyles = {
       color: "dark.ui.link.secondary",
     },
   },
+  _visited: {
+    color: "ui.link.tertiary",
+    _dark: {
+      color: "dark.ui.link.tertiary",
+    },
+  },
 };
 
 const baseButtonLinkStyles = {
@@ -41,6 +47,20 @@ const variants = {
       width: "s",
       textDecoration: "none",
       fill: "currentColor",
+    },
+    _hover: {
+      color: "ui.link.secondary",
+      textDecoration: "underline",
+    },
+    _visited: {
+      svg: {
+        fill: "ui.link.tertiary",
+      },
+      _dark: {
+        svg: {
+          fill: "dark.ui.link.tertiary",
+        },
+      },
     },
   },
   // The "button" variant is deprecated.
@@ -70,16 +90,33 @@ const variants = {
         bg: "dark.ui.link.secondary",
       },
     },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        _visited: {
+          color: "ui.gray.xxx-dark",
+        },
+      },
+    },
   },
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.gray.xxx-dark",
+      },
+    },
   },
   buttonSecondary: {
     ...baseButtonLinkStyles,
     ...secondary({}),
     _visited: {
       color: "ui.link.primary",
+      _dark: {
+        color: "dark.ui.link.primary",
+      },
     },
   },
   buttonPill: {
@@ -87,15 +124,30 @@ const variants = {
     ...pill({}),
     _visited: {
       color: "ui.black",
+      _dark: {
+        color: "ui.white",
+      },
     },
   },
   buttonCallout: {
     ...baseButtonLinkStyles,
     ...callout({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonNoBrand: {
     ...baseButtonLinkStyles,
     ...noBrand({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonDisabled: {
     ...baseButtonLinkStyles,
@@ -106,6 +158,9 @@ const variants = {
     pointerEvents: "none",
     _visited: {
       color: "ui.gray.dark",
+      _dark: {
+        color: "dark.ui.disabled.primary",
+      },
     },
     _dark: {
       bg: "dark.ui.disabled.secondary",
