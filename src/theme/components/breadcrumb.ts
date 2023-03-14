@@ -7,7 +7,12 @@ const blogs = {
   },
   a: {
     _hover: {
-      color: "ui.gray.x-dark",
+      color: "ui.gray.xx-dark",
+    },
+    _dark: {
+      _hover: {
+        color: "dark.ui.typography.heading",
+      },
     },
   },
   svg: {
