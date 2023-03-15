@@ -142,6 +142,9 @@ The `FilterBar` component will often be rendered within a UI container with
 `background-color` and `padding` styles applied. This treatment can easily be
 accomplished using the `Box` component with inline styles.
 
+If a consuming app supports dark mode, styles for both light and dark mode will
+be required for the UI container element.
+
 **Note:** Future DS updates may provide a standalone component to implement a
 UI container similar to what is used in these example.
 
@@ -154,7 +157,9 @@ UI container similar to what is used in these example.
 </Canvas>
 
 ```jsx
-// Container for row layout
+/* LIGHT MODE ONLY */
+
+// Add container for row layout
 <Box bg="ui.bg.default" p="inset.wide">
   <FilterBar
     layout="row"
@@ -163,6 +168,29 @@ UI container similar to what is used in these example.
     // MultiSelect and MultiSelectGroup components...
   </FilterBar>
 </Box>
+```
+
+```jsx
+/* DARK MODE SUPPORT */
+
+// Import useColorModeValue hook
+import { useColorModeValue } from "@nypl/design-system-react-components";
+
+// Use hook to set values for light and dark mode
+const containerBgColor = useColorModeValue(
+  "ui.bg.default",
+  "dark.ui.bg.default"
+);
+
+// Add container for row layout
+<Box bg={containerBgColor} p="inset.wide">
+  <FilterBar
+    layout="row"
+    // ...
+  >
+    // MultiSelect and MultiSelectGroup components...
+  </FilterBar>
+</Box>;
 ```
 
 ### Column Layout
@@ -174,7 +202,9 @@ UI container similar to what is used in these example.
 </Canvas>
 
 ```jsx
-// Container for column layout
+/* LIGHT MODE ONLY */
+
+// Add container for column layout
 <Box bg="ui.bg.default" p="inset.default">
   <FilterBar
     layout="column"
@@ -183,6 +213,29 @@ UI container similar to what is used in these example.
     // MultiSelect and MultiSelectGroup components...
   </FilterBar>
 </Box>
+```
+
+```jsx
+/* DARK MODE SUPPORT */
+
+// Import useColorModeValue hook
+import { useColorModeValue } from "@nypl/design-system-react-components";
+
+// Use hook to set values for light and dark mode
+const containerBgColor = useColorModeValue(
+  "ui.bg.default",
+  "dark.ui.bg.default"
+);
+
+// Add container for column layout
+<Box bg={containerBgColor} p="inset.default">
+  <FilterBar
+    layout="column"
+    // ...
+  >
+    // MultiSelect and MultiSelectGroup components...
+  </FilterBar>
+</Box>;
 ```
 
 ## `useFilterBar` hook
