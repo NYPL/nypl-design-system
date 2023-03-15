@@ -117,7 +117,7 @@ const primary = {
       marginBottom: "0",
     },
     _dark: {
-      bg: "dark.ui.bg.default",
+      bgColor: "dark.ui.bg.default",
       color: "dark.ui.typography.body",
     },
   },
@@ -253,9 +253,9 @@ const fiftyFifty = {
 };
 const Hero = {
   baseStyle: {
-    bg: "ui.gray.x-light-cool",
+    bgColor: "ui.gray.x-light-cool",
     _dark: {
-      bg: "dark.ui.bg.default",
+      bgColor: "dark.ui.bg.default",
     },
   },
   // Available variants:
