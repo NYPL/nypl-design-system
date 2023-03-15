@@ -120,6 +120,9 @@ const MultiSelect = {
       _focus: {
         outline: "0px !important",
       },
+      _dark: {
+        colorScheme: "dark",
+      },
     },
     menuChildren: {
       paddingLeft: "m",
