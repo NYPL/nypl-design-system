@@ -1,4 +1,4 @@
-import { headerYellow, headerYellowDark } from "./header";
+import { headerYellow } from "./header";
 
 const SitewideAlerts = {
   baseStyle: {
@@ -30,7 +30,9 @@ const SitewideAlerts = {
       },
     },
     _dark: {
-      backgroundColor: headerYellowDark,
+      backgroundColor: "dark.ui.bg.active",
+      borderBottom: "1px solid",
+      borderColor: "dark.ui.status.primary",
       color: "dark.ui.typography.heading",
     },
   },
