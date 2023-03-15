@@ -106,6 +106,7 @@ const HeaderSearchForm = {
       _focus: headerFocus,
     },
     _dark: {
+      bgColor: "section.research.secondary",
       color: "ui.white",
       label: {
         color: "ui.white",

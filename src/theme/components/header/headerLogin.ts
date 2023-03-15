@@ -77,12 +77,14 @@ const HeaderLogin = {
         borderRadius: { base: "0", md: "28px" },
       },
       _dark: {
-        color: "ui.gray.xx-dark",
+        bgColor: { base: "brand.secondary", md: "dark.ui.link.primary" },
+        color: { base: "ui.white", md: "ui.gray.xx-dark" },
         svg: {
-          fill: "ui.gray.xx-dark",
+          fill: { base: "ui.white", md: "ui.gray.xx-dark" },
         },
         _hover: {
-          color: "ui.gray.xx-dark",
+          bgColor: { base: "brand.primary", md: "dark.ui.link.secondary" },
+          color: { base: "ui.white", md: "ui.gray.xx-dark" },
         },
       },
     },

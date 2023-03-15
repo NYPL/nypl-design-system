@@ -8,6 +8,7 @@ export const headerRed = "#ED1C24";
 export const headerRedDarkMode = "#DC6F73";
 export const headerRedDonate = "#E32B31";
 export const headerYellow = "#FEE34A";
+export const headerYellowDark = "#403B2D";
 export const headerFocus = {
   borderRadius: "none",
   outlineColor: `${headerDarkBlue} !important`,
@@ -20,9 +21,6 @@ const Header = {
   parts: ["container", "horizontalRule", "logo"],
   baseStyle: {
     fontFamily: "'system-ui', 'Segoe UI', Tahoma, 'Helvetica', 'arial'",
-    _dark: {
-      backgroundColor: "dark.ui.bg.default",
-    },
     container: {
       marginX: { md: "20px", xl: "auto" },
       maxWidth: "1300px",
