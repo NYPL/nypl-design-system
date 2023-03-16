@@ -2,6 +2,7 @@ import {
   Box,
   chakra,
   Select as ChakraSelect,
+  useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useEffect, useState, useRef } from "react";
@@ -113,6 +114,12 @@ export const Select = chakra(
       // when the labelPosition is inline (equivalent to --nypl-space-xs).
       const labelSelectGap = 8;
 
+      // Set the color of the dropdown arrow based on the color mode.
+      const arrowColor = useColorModeValue(
+        isInvalid ? "ui.error.primary" : "ui.black",
+        isInvalid ? "dark.ui.error.primary" : "dark.ui.typography.body"
+      );
+
       if (!id) {
         console.warn(
           "NYPL Reservoir Select: This component's required `id` prop was not passed."
@@ -168,7 +175,14 @@ export const Select = chakra(
               ref={ref}
               {...controlledProps}
               {...ariaAttributes}
-              icon={<Icon id={`${id}-icon`} name="arrow" size="medium" />}
+              icon={
+                <Icon
+                  color={arrowColor}
+                  id={`${id}-icon`}
+                  name="arrow"
+                  size="medium"
+                />
+              }
               __css={styles.select}
             >
               {children}

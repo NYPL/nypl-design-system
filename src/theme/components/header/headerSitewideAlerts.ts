@@ -19,6 +19,21 @@ const SitewideAlerts = {
       p: {
         marginBottom: "0",
       },
+      _dark: {
+        color: "dark.ui.typography.heading",
+        a: {
+          color: "dark.ui.typography.heading",
+          _hover: {
+            color: "dark.ui.typography.heading",
+          },
+        },
+      },
+    },
+    _dark: {
+      backgroundColor: "dark.ui.bg.active",
+      borderBottom: "1px solid",
+      borderColor: "dark.ui.status.primary",
+      color: "dark.ui.typography.heading",
     },
   },
 };

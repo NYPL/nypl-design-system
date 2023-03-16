@@ -6,9 +6,9 @@ const TagSetFilter = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    bg: "ui.gray.x-light-cool",
+    bg: "ui.bg.default",
     border: "1px solid",
-    borderColor: "ui.gray.medium",
+    borderColor: "ui.border.default",
     borderRadius: "pill",
     color: "ui.black",
     cursor: isDismissible ? "pointer" : "auto",
@@ -26,13 +26,28 @@ const TagSetFilter = {
       whiteSpace: "nowrap",
     },
     _hover: {
-      bg: isDismissible ? "ui.gray.light-cool" : "ui.gray.x-light-cool",
+      bg: isDismissible ? "ui.bg.hover" : "ui.bg.default",
+      borderColor: isDismissible ? "ui.border.hover" : "ui.border.default",
+    },
+    _dark: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.border.default",
+      color: "dark.ui.typography.body",
+      _hover: {
+        bg: isDismissible ? "dark.ui.bg.hover" : "dark.ui.bg.default",
+        borderColor: isDismissible
+          ? "dark.ui.border.hover"
+          : "dark.ui.border.default",
+      },
     },
     clearAll: {
       color: "ui.black",
       height: { base: "32px", md: "22px" },
       fontSize: "text.tag",
       minHeight: "22px",
+      _dark: {
+        color: "dark.ui.typography.heading",
+      },
     },
   }),
 };
@@ -82,6 +97,29 @@ const TagSetExplore = {
       },
       "> span": {
         color: "ui.white",
+      },
+    },
+    _dark: {
+      bg: "dark.ui.bg.default",
+      borderColor: "dark.ui.link.primary",
+      color: "dark.ui.link.primary",
+      a: {
+        color: "dark.ui.link.primary",
+      },
+      svg: {
+        fill: "dark.ui.link.primary",
+      },
+      _hover: {
+        bg: "dark.ui.link.primary",
+        a: {
+          color: "ui.gray.xxx-dark",
+        },
+        svg: {
+          fill: "ui.gray.xxx-dark",
+        },
+        "> span": {
+          color: "ui.gray.xxx-dark",
+        },
       },
     },
   },

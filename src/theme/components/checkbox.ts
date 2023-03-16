@@ -69,6 +69,58 @@ const baseStyleControl = {
     borderColor: "ui.error.primary",
     color: "ui.error.primary",
   },
+
+  _dark: {
+    borderColor: "dark.ui.border.default",
+    backgroundColor: "dark.ui.bg.default",
+    color: "dark.ui.typography.body",
+
+    _checked: {
+      borderColor: "dark.ui.focus",
+      color: "dark.ui.focus",
+
+      _disabled: {
+        backgroundColor: "dark.ui.bg.default",
+        borderColor: "dark.ui.disabled.secondary",
+        svg: {
+          color: "dark.ui.disabled.secondary",
+        },
+      },
+
+      _indeterminate: {
+        color: "dark.ui.focus",
+        borderColor: "dark.ui.focus",
+      },
+
+      _invalid: {
+        borderColor: "dark.ui.error.primary",
+        color: "dark.ui.error.primary",
+      },
+    },
+
+    _indeterminate: {
+      color: "dark.ui.focus",
+      borderColor: "dark.ui.focus",
+    },
+
+    _disabled: {
+      backgroundColor: "dark.ui.bg.default",
+      borderColor: "dark.ui.disabled.secondary",
+      svg: {
+        color: "dark.ui.disabled.secondary",
+      },
+    },
+
+    _focus: {
+      boxShadow: "none",
+      outlineColor: "dark.ui.focus",
+    },
+
+    _invalid: {
+      borderColor: "dark.ui.error.primary",
+      color: "dark.ui.error.primary",
+    },
+  },
 };
 
 // Style object for the Checkbox's label

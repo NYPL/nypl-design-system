@@ -66,6 +66,13 @@ const HeaderMobileNav = {
           _hover: {
             backgroundColor: headerRedDonate,
           },
+          _dark: {
+            bgColor: "brand.secondary",
+            color: "ui.white",
+            _hover: {
+              bgColor: "brand.primary",
+            },
+          },
         },
       },
     },

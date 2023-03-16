@@ -1,0 +1,598 @@
+import { Box } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/addon-docs";
+
+import { getCategory } from "../../utils/componentCategories";
+import Link from "../Link/Link";
+import DSProvider from "../../theme/provider";
+
+<Meta title={getCategory("Supporting Dark Mode")} />
+
+# Supporting Dark Mode
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [Reservoir Default Configuration](#reservoir-default-configuration)
+- [Consuming App Configuration](#consuming-app-configuration)
+  <!-- - [Required Setup](#required-setup) -->
+  <!-- - [Optional Configuration](#optional-configuration) -->
+- [Hooks](#hooks)
+- [Using Custom Dark Mode Styles](#using-custom-dark-mode-styles)
+  <!-- - [Javascript](#javascript-recommended)
+    - [Benefits](#benefits)
+    - [Preparing Your Components](#preparing-your-components)
+    - [Applying Styles](#applying-styles)
+  - [Css and CSS Compilers](#css-and-css-compilers) -->
+- [Color Mapping](#color-mapping)
+
+## Overview
+
+Offering dark mode color styles on a website might be considered a hip feature
+or a sign of the times, but it is also a way to improve accessibility. Dark
+mode can be beneficial for all users, making text easier to read for longer
+periods of time and reducing the likelihood of eye strain or fatigue, but it
+can be especially beneficial for users with low vision and light sensitivity.
+
+With these accessibility benefits in mind, NYPL is aiming to implement dark
+mode on its websites over the coming months and years. To get this migration
+started, the Reservoir Design System has added dark color mode support to all
+components in the React Component Library. As NYPL projects adopt the Reservoir
+Design System, and when portfolio groups are fully prepared and time allows,
+engineers should utilize this documentation to configure React web apps to
+enable and implement dark color mode styles.
+
+## Accessibility
+
+All DS components support light and dark color mode and have gone through color
+contrast accessibility review.
+
+Resources:
+
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [W3 WAI Colors with Good Contrast](https://www.w3.org/WAI/perspective-videos/contrast/)
+- [The A11y Project - Operating System and Browser Accessibility Display Modes](https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/)
+
+## Reservoir Default Configuration
+
+By default, the Reservoir Design System (DS) is configured to ignore a user's
+system color mode and to render the DS components using light color mode styles.
+This means that users will see the light mode styles, regardless of their
+system's settings.
+
+This configuration is controlled with the `useSystemColorMode` and
+`initialColorMode` global attributes found in
+[src/theme/index.ts](https://github.com/NYPL/nypl-design-system/blob/b52c9a5fea6b5eed929119e9dd5ed155044e44c7/src/theme/index.ts#L161)
+(lines 161 - 166) in the Reservoir repo. They are set to `false` and `"light"`
+respectively.
+
+If desired, the `initialColorMode` can be overridden by the consuming
+application. To do this, please refer to the [Consuming App
+Configuration](#consuming-app-configuration) section.
+
+## Consuming App Configuration
+
+To enable and control the color mode styles of the Reservoir Design System (DS)
+components and to control the color mode for the entire app, consuming
+applications must add the `ColorModeScript` component, which helps keep track of
+and set the current color mode.
+
+For proper configuration, the `initialColorMode` prop must be passed to the
+`ColorModeScript` component. With this prop, consuming apps can set the value for
+the preferred color mode in the consuming app.
+
+**Color Mode Options**
+
+The `initialColorMode` prop can be set to one of three values: `"light"`, `"dark"`, or
+`"system"`.
+
+- light: DS components will initially render using light color mode styles.
+
+- dark: DS components will initially render using dark color mode styles.
+
+- system: DS components will initially render using color mode styles based on a
+  user's system, or OS, color settings. If the system color mode cannot be
+  resolved, `"light"` will be used as the fallback value.
+
+**NOTE:** Although the `initialColorMode` prop can be set to the `"light"` value,
+which would mirror the default configuration from the DS and render the DS
+components using the light mode color style, it is more likely that consuming
+apps will use the `"dark"` or `"system"` values in order to enable the dark mode
+color styles.
+
+### Required Setup
+
+The `ColorModeScript` component with the `initialColorMode` prop should be added
+to the top level of the consuming application, before all content. More often
+than not, the `ColorModeScript` component will be added alongside the
+`DSProvider` component ([see the
+docs](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)).
+
+```tsx
+import {
+  ColorModeScript,
+  DSProvider
+} from "@nypl/design-system-react-components";
+import * as ReactDOM from "react-dom/client";
+import App from "./App";
+
+const rootElement = document.getElementById("root");
+ReactDOM.createRoot(rootElement).render(
+  <>
+    <ColorModeScript initialColorMode={"light" | "dark" | "system"} />
+    <DSProvider>
+      <App />
+    <DSProvider>
+  </>,
+);
+```
+
+### Optional Configuration
+
+**For SSR Frameworks (ex. Next.js)**
+
+For Next.js (or another SSR framework) apps that are using a toggle to control
+the color mode, it is recommended to also add the `colorModeManager` prop in the
+`DSProvider` component to aid with proper color rendering. When `colorModeManager`
+is implemented, the app will load the `initialColorMode` before rendering the
+components, avoiding the flashing that can happen if the color mode is set
+during hydration.
+
+The example below provides all required code necessary to enable this
+functionality. The `cookieStorageManager` and `localStorageManager` functions can
+be used to help to store the `chakra-ui-color-mode` value in the browser, but, by
+default, the necessary variables will be stored in `localStorage` unless otherwise
+specified. The `getServerSideProps` function runs before the page loads, ensuring
+the cookie is never undefined.
+
+```tsx
+// pages/_app.tsx
+
+import {
+  cookieStorageManager,
+  DSProvider,
+  localStorageManager,
+  useColorModeValue,
+} from "@nypl/design-system-react-components";
+import type { AppProps } from "next/app";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  // Decides where the chakra-ui-color-mode value should be stored in the browser.
+  const colorModeManager =
+    typeof pageProps.cookies === "string"
+      ? cookieStorageManager(pageProps.cookies)
+      : localStorageManager;
+
+  return (
+    <>
+      <ColorModeScript initialColorMode="system" />
+      <DSProvider colorModeManager={colorModeManager}>
+        <Component {...pageProps} />
+      </DSProvider>
+    </>
+  );
+}
+
+export function getServerSideProps({ req }: any) {
+  return {
+    props: {
+      // First time users will not have any cookies and you may not return
+      // undefined here, hence `??` is necessary.
+      cookies: req.headers.cookie ?? "",
+    },
+  };
+}
+```
+
+## Hooks
+
+To manage color mode in your application, the Reservoir Design System (DS)
+exposes Chakra's `useColorMode` and `useColorModeValue` hooks.
+
+### useColorMode
+
+`useColorMode` gives you access to the current color mode, and a function to
+toggle the color mode.
+
+```tsx
+import { Toggle, useColorMode } from "@nypl/design-system-react-components";
+
+function Example() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <header>
+      <Toggle
+        id="color-mode-toggle"
+        labelText="Toggle Color Mode"
+        onChange={toggleColorMode}
+      />
+    </header>
+  );
+}
+```
+
+### useColorModeValue
+
+`useColorModeValue` is a React hook used to change any value or style based on the
+color mode. It takes two arguments: the value in light mode, and the value in
+dark mode.
+
+```tsx
+import {
+  Box,
+  Button,
+  useColorMode,
+  useColorModeValue,
+} from "@nypl/design-system-react-components";
+
+function StyleColorMode() {
+  const { toggleColorMode } = useColorMode();
+
+  // if color mode is light, `bg` is set to "ui.bg.default"
+  // if color mode is dark, `bg` is set to "dark.ui.bg.default"
+  const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
+
+  // if color mode is light, `color` is set to "ui.typography.heading"
+  // if color mode is dark, `color` is set to "dark.ui.typography.heading"
+  const color = useColorModeValue(
+    "ui.typography.heading",
+    "dark.ui.typography.heading"
+  );
+
+  return (
+    <>
+      <Box mb="s" bg={bg} color={color}>
+        This box's style will change based on the color mode.
+      </Box>
+      <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+    </>
+  );
+}
+```
+
+### React Syntax Reminder
+
+The `useColorMode` and `useColorModeValue` hooks only work if called inside the
+`DSProvider` wrapper. Additionally, like all hooks, they must be called from
+within a React function component or a custom React Hook function.
+
+## Using Custom Dark Mode Styles
+
+If all NYPL consuming apps were composed using only Reservoir Design System (DS)
+components, this section of the documentation would not be necessary - all
+elements would support dark color mode styles out of the box and no further
+configuration would be needed. Nevertheless, this generally will not be the
+case. Therefore, in situations where custom components or custom UI elements
+are necessary, dark mode styles will need to be added for these elements in the
+consuming app in addition to the default "light mode" styles.
+
+### Setting Styles with Javascript (recommended)
+
+As an organization, NYPL is trending away from using traditional CSS and CSS
+preprocessors like SCSS in React applications. In their place, CSS-in-JS is
+being used to leverage the style patterns and [design tokens](#design-tokens)
+available in the DS and Chakra UI.
+
+#### Benefits
+
+Outside of simply consolidating code into one location, using CSS-in-JS opens
+the door to many ease-of-use benefits when it comes to applying styles to UI
+elements, such as [Chakra style props](#chakra-style-props), [design
+tokens](#design-tokens) and [responsive styles](#responsive-styles).
+
+##### Chakra Style Props
+
+The [style props](https://chakra-ui.com/docs/styled-system/style-props)
+established by Charka have been exposed and made available through the DS. These
+style props, along with a wide array of [pseudo
+selectors](https://chakra-ui.com/docs/styled-system/style-props#pseudo), provide
+helpful and time-saving shorthand to style components. Examples include the `bg`
+prop in place of the `background` CSS attribute and the `px` prop to add both
+the `padding-left` and `padding-right` CSS attributes to an element.
+
+##### Design Tokens
+
+Design tokens are available for many style attribute values, including, but not
+limited to, colors, font sizes, and spacing. These semantically-named design
+tokens allow you to logically apply styles without having to know the actual
+style values. For example, in the code snippets found later in this section, the
+color values `ui.bg.default` and `dark.ui.bg.default` are color design tokens
+and `inset.default` is a spacing design token. For a full reference chart
+showing all available design tokens, refer to the [Design
+Tokens](/docs/development-guide-design-tokens--page) page in Reservoir
+Storybook.
+
+##### Responsive Styles
+
+Instead of manually adding `@media` queries and nested styles, CSS-in-JS allows
+you to access Chakra style patterns which provide object and array values to add
+mobile-first [responsive
+styles](https://chakra-ui.com/docs/styled-system/responsive-styles).
+
+#### Preparing Your Components
+
+To use CSS-in-JS effectively, custom components and custom UI elements should be
+composed using [DS components](#using-ds-components) or Chakra [Structural UI
+components](#using-structural-ui-components).
+
+##### Using DS Components
+
+If a DS component can be used to take the place of a custom components or custom
+UI elements, developers should aim to make the necessary changes to do so. Out
+of the box, the DS components will not require any additional configuration for
+dark color mode support.
+
+##### Using Structural UI Components
+
+If an app-specific component cannot be directly replaced with a DS component,
+consuming apps should try to rebuild it using basic structural components
+available in the DS. If using this approach, two of the most important
+components to note are `Box` ([see the docs](/docs/components-chakra-exports-layout-box--box)),
+the component on top of which many DS and all other Chakra UI components are
+built, and
+`Stack` ([see the
+docs](/docs/components-chakra-exports-layout-stack-hstack-vstack--stack-h-stack-v-stack)),
+a layout component used to group elements together and apply a space between
+them.
+
+#### Applying Styles
+
+For app-specific components, dark mode styles should be applied using CSS-in-JS.
+There are two methods to do this.
+
+##### Method 1 (recommended)
+
+To add styles to DS and Chakra UI components, pass a style object to the `sx`
+prop. Within the style object, use the `_dark` pseudo selector to add the styles
+that should be used when dark mode is active.
+
+```tsx
+const customStyles = {
+  bg: "ui.bg.default",
+  color: "ui.typography.heading",
+  fontWeight: "medium",
+  p: "inset.default",
+  _hover: {
+    bg: "ui.bg.hover",
+  },
+  _dark: {
+    bg: "dark.ui.bg.default",
+    color: "dark.ui.typography.heading",
+    _hover: {
+      bg: "dark.ui.bg.hover",
+    },
+  },
+};
+
+<Box sx={customStyles}>Click Me</Button>
+```
+
+##### Method 2
+
+To add styles to app-specific components and native HTML elements, you may use
+the `useColorModeValue` hook ([see the docs](#usecolormode)) to specify light
+and dark mode style values for specific style attributes.
+
+Please note that when passing style attributes to custom components or native
+HTML elements, you must use the React `style` prop rather than the Chakra `sx`
+prop or the [Chakra style props](#chakra-style-props). Additionally, javascript [design
+tokens](#design-tokens) cannot be used as they are not compatible with the React
+style prop, so CSS design tokens or native CSS attribute values must be used.
+
+```tsx
+import { useColorModeValue } from "@nypl/design-system-react-components";
+
+// Style values assigned to variables using CSS design tokens
+const bg = useColorModeValue(
+  "var(--nypl-colors-ui-bg-default)",
+  "var(--nypl-colors-dark-ui-bg-default)"
+);
+const color = useColorModeValue(
+  "var(--nypl-colors-ui-typography-heading)",
+  "var(--nypl-colors-dark-ui-typography-heading)"
+);
+const fontWeight = "var(--nypl-fontWeights-medium)";
+const padding = "var(--nypl-space-inset-default)";
+
+const stylesUsingVariables = {
+  backgroundColor: bg,
+  color: color,
+  fontWeight: fontWeight,
+  padding: padding,
+};
+
+<div style={stylesUsingVariables} />;
+
+// Style values assigned directly using native CSS attribute values
+const stylesDirectlyAssigned = {
+  backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
+  color: useColorModeValue("#000000", "#E9E9E9"),
+  fontWeight: 500,
+  padding: "1rem",
+};
+
+<div style={stylesDirectlyAssigned} />;
+```
+
+Below is an example using a custom component. Please note that consuming apps
+are responsible for handling how styles are propagated and applied within custom
+components.
+
+```tsx
+// Styles for a custom component
+const stylesForCustomComponent = {
+  backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
+  color: useColorModeValue("#000000", "#BDBDBD"),
+  fontWeight: 500,
+  padding: "1rem",
+};
+
+<CustomComponent style={stylesForCustomComponent} />;
+```
+
+### CSS and CSS Precompilers
+
+Applying dark mode styles using Javascript is the recommended method, but using
+CSS or a CSS precompiler like SCSS is still an option for custom components,
+custom UI elements and native HTML elements. For those elements, dark mode
+styles can be added with the prefers-color-scheme media query and the Reservoir
+CSS vars ([Colors Storybook page](/docs/style-guide-colors--page)).
+
+The following example is only applicable if a consuming application is using
+system color mode without a toggle. In this configuration, please note that the
+order in which the styles are written into the stylesheet is important. The
+default styles should be written first and the dark mode style in the
+`prefers-color-scheme` media query must be written after the default styles.
+
+```css
+// styles.scss
+
+// DEFAULT STYLES (the shared and light mode color styles)
+.container {
+  background: var(--nypl-colors-ui-bg-default);
+  border: 1px solid var(--nypl-colors-ui-border-default);
+  color: var(--nypl-colors-ui-typography-body);
+  padding: 1rem;
+}
+
+// DARK MODE STYLES (to override the light mode color styles)
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: var(--nypl-colors-dark-ui-bg-default);
+    color: var(--nypl-colors-dark-ui-typography-body);
+  }
+}
+```
+
+If the consuming application uses a toggle, you can use the `useColorMode` hook to
+retrieve the current `colorMode` and add `"light"` or `"dark"` classes to applicable
+components.
+
+```tsx
+// Component file
+
+const { colorMode } = useColorMode(); // returns "light" or "dark"
+<div className={`${colorMode} container`}>a container</div>;
+```
+
+```css
+// styles.scss
+
+.container {
+  // shared styles
+}
+
+.dark.container {
+  background: var(--nypl-colors-dark-ui-bg-default);
+  color: var(--nypl-colors-dark-ui-typography-body);
+}
+
+.light.container {
+  background: var(--nypl-colors-ui-bg-default);
+  color: var(--nypl-colors-ui-typography-body);
+}
+```
+
+## Color Mapping
+
+If mockups have not been specifically created to show the dark mode version of a
+page design, then the colors used for the default view (light mode) can be
+mapped to corresponding dark mode colors. Use the tables below to find the
+necessary colors.
+
+For reference, all Reservoir Design System dark mode colors can be found in the
+Storybook documentation under [Colors](/docs/style-guide-colors--page)
+and in the [Visual Design
+Library](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=61991%3A45315).
+
+### Grayscale Colors
+
+Grayscale colors (i.e. black, white and all grays in between) are utility colors
+and in many cases they are used as the basis for the semantic colors. As
+utility colors, the light/dark color map does not apply. If any application
+level style values have been written using the grayscale color design tokens,
+the values should be updated to use the applicable semantic color design tokens.
+For more details, please refer to the [Legacy Color Conversions](#legacy-color-conversions) section.
+
+### Legacy Color Conversions
+
+In older designs and consuming apps, grayscale colors may have been used in the
+CSS styles of some application level UI elements, including color styles for
+background, border, text and disabled states. Going forward, style attributes
+color design token. Once styles have been updated to use proper semantic color
+that use grayscale colors should be updated to use the corresponding semantic
+design tokens, the color mapping for dark color mode will be apparent.
+
+Use the following tables to update legacy color values.
+
+#### Background Colors
+
+| Legacy Grayscale Color | Current Semantic Color |
+| ---------------------- | ---------------------- |
+| ui.gray.x-light-cool   | ui.bg.default          |
+| ui.gray.light-cool     | ui.bg.hover            |
+| ui.gray.medium         | ui.bg.active           |
+
+#### Border Colors
+
+| Legacy Grayscale Color | Current Semantic Color |
+| ---------------------- | ---------------------- |
+| ui.gray.medium         | ui.border.default      |
+| ui.gray.dark           | ui.border.hover        |
+
+#### Heading Colors
+
+| Legacy Grayscale Color | Current Semantic Color        |
+| ---------------------- | ----------------------------- |
+| ui.white               | ui.typography.heading.inverse |
+| ui.black               | ui.typography.heading         |
+
+#### Text Colors
+
+| Legacy Grayscale Color | Current Semantic Color     |
+| ---------------------- | -------------------------- |
+| ui.white               | ui.typography.body.inverse |
+| ui.black               | ui.typography.body         |
+
+#### Disabled State Colors
+
+| Legacy Grayscale Color | Current Semantic Color |
+| ---------------------- | ---------------------- |
+| ui.gray.xx-light-cool  | ui.disabled.secondary  |
+| ui.gray.light-cool     | ui.disabled.primary    |
+
+### Light/Dark Color Map
+
+Each brand color, section color and semantic color design token in the light
+color mode palette has a corresponding design token in the dark color mode
+palette. Please refer to the table below.
+
+| Light Color Palette           | Dark Color Palette                 |
+| ----------------------------- | ---------------------------------- |
+| ui.disabled.primary           | dark.ui.disabled.primary           |
+| ui.disabled.secondary         | dark.ui.disabled.secondary         |
+| ui.error.primary              | dark.ui.error.primary              |
+| ui.error.secondary            | dark.ui.error.secondary            |
+| ui.focus                      | dark.ui.focus                      |
+| ui.link.primary               | dark.ui.link.primary               |
+| ui.link.secondary             | dark.ui.link.secondary             |
+| ui.status.primary             | dark.ui.status.primary             |
+| ui.status.secondary           | dark.ui.status.secondary           |
+| ui.success.primary            | dark.ui.success.primary            |
+| ui.success.secondary          | dark.ui.success.secondary          |
+| ui.test                       | dark.ui.test                       |
+| ui.warning.primary            | dark.ui.warning.primary            |
+| ui.warning.secondary          | dark.ui.warning.secondary          |
+| ui.bg.default                 | dark.ui.bg.default                 |
+| ui.bg.hover                   | dark.ui.bg.hover                   |
+| ui.bg.active                  | dark.ui.bg.active                  |
+| ui.border.default             | dark.ui.border.default             |
+| ui.border.hover               | dark.ui.border.hover               |
+| ui.typography.body            | dark.ui.typography.body            |
+| ui.typography.body.inverse    | dark.ui.typography.body.inverse    |
+| ui.typography.heading         | dark.ui.typography.heading         |
+| ui.typography.heading.inverse | dark.ui.typography.heading.inverse |
+
+<!-- hack to make sure correct styles are used on the page -->
+
+<DSProvider />

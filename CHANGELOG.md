@@ -8,6 +8,35 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.5.0 (March 16, 2023)
+
+### Adds
+
+- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
+- Adds `dark` color mode support for `background-color` and `color` global styles.
+- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
+- Adds `dark` color mode support for the `Card` and `Hero` components.
+- Adds `dark` color mode support for the `Heading` and `List` components.
+- Adds `dark` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
+- Adds `dark` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+- Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
+- Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
+- Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
+- Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
+- Adds `dark` color mode support for the `FilterBar` and `MultiSelect` components.
+- Adds `Supporting Dark Mode` under the `Development Guide`.
+
+### Updates
+
+- Updates background color values available in Storybook.
+- Updates the hex value for `dark.ui.error.primary`.
+- Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
+
+### Deprecates
+
+- Deprecates the `darkMode` prop in the `ProgressIndicator` component.
+
 ## 1.4.2 (March 2, 2023)
 
 ### Updates

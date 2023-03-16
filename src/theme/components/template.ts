@@ -12,6 +12,9 @@ const Template = {
       min(1280px, 100%)
       1fr`,
     rowGap: "grid.l",
+    _dark: {
+      color: "dark.ui.typography.body",
+    },
   },
   sizes: {},
   defaultProps: {},

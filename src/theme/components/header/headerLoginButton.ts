@@ -32,6 +32,22 @@ const HeaderLoginButton = {
       textDecoration: "none",
     },
     _focus: headerFocus,
+
+    _dark: {
+      bg: {
+        base: isOpen ? headerBlack : "transparent",
+        md: isOpen ? headerDarkBlue : "transparent",
+      },
+      color: "dark.ui.typography.heading",
+      svg: {
+        fill: isOpen ? "dark.ui.typography.heading" : null,
+      },
+      _hover: {
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
+      },
+    },
   }),
 };
 
