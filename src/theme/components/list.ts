@@ -37,6 +37,11 @@ export const baseUnorderedStyles = (noStyling = false) => ({
       marginStart: "-1rem",
       width: "1rem",
     },
+    _dark: {
+      _before: {
+        color: "dark.ui.bg.active",
+      },
+    },
   },
 });
 export const baseSectionDescriptionStyles = {
@@ -45,9 +50,15 @@ export const baseSectionDescriptionStyles = {
   paddingStart: "0",
   h2: {
     borderTop: "3px solid",
-    borderColor: "ui.gray.medium",
+    borderColor: "ui.border.default",
     margin: "0",
     padding: "var(--nypl-space-xs) 0 0",
+    _dark: {
+      borderColor: "dark.ui.border.default",
+    },
+  },
+  _dark: {
+    borderColor: "dark.ui.border.default",
   },
 };
 export const baseDescriptionStyles = {
@@ -60,18 +71,25 @@ export const baseDescriptionStyles = {
   },
   dt: {
     borderTop: "1px solid",
-    borderColor: "ui.gray.light-cool",
+    borderColor: "ui.border.default",
     fontWeight: "label.default",
     paddingBottom: { base: "0", md: "s" },
     paddingTop: "s",
     paddingEnd: { md: "table.column" },
+    _dark: {
+      borderColor: "dark.ui.border.default",
+      color: "dark.ui.typography.heading",
+    },
   },
   dd: {
     margin: "0",
     paddingBottom: "s",
     borderTop: { base: "none", md: "1px solid" },
-    borderColor: { md: "ui.gray.light-cool" },
+    borderColor: { md: "ui.border.default" },
     paddingTop: { md: "s" },
+    _dark: {
+      borderColor: { md: "dark.ui.border.default" },
+    },
   },
 };
 

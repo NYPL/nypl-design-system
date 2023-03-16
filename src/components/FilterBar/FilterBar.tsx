@@ -246,7 +246,7 @@ export const FilterBar = chakra(
                     Filter Criteria
                   </ModalHeader>
                   <ModalCloseButton sx={styles.modalCloseButton} />
-                  <ModalBody>{newChildren}</ModalBody>
+                  <ModalBody sx={styles.modalBody}>{newChildren}</ModalBody>
                   <ModalFooter sx={styles.modalFooter}>
                     <ButtonGroup layout="row" buttonWidth="full">
                       <Button

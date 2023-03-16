@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  useColorModeValue,
   useDisclosure,
   useMultiStyleConfig,
   VStack,
@@ -128,6 +129,7 @@ export const FeedbackBox = chakra(
       const maxCommentCharacters = 500;
       const initMinHeight = 165;
       const initTemplateRows = "auto 1fr";
+      const iconColor = useColorModeValue(null, "dark.ui.typography.body");
       const minHeightWithCategory = 235;
       const minHeightWithEmail = 275;
       const minHeightWithCategoryAndEmail = 345;
@@ -155,6 +157,7 @@ export const FeedbackBox = chakra(
             noMargin
             notificationContent={notificationText}
             showIcon={false}
+            p="0"
             sx={{
               // The padding of the Notification is smaller than
               // the initial one.
@@ -403,7 +406,11 @@ export const FeedbackBox = chakra(
                         textAlign="center"
                         ref={focusRef}
                       >
-                        <Icon name="actionCheckCircleFilled" size="large" />
+                        <Icon
+                          color={iconColor}
+                          name="actionCheckCircleFilled"
+                          size="large"
+                        />
                         <Text fontWeight="medium">
                           Thank you for submitting your feedback.
                         </Text>

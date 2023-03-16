@@ -27,8 +27,28 @@ export const buttonBaseStyle = {
     opacity: "1",
     pointerEvents: "none",
   },
+  _dark: {
+    _disabled: {
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
+    },
+  },
 };
 
+const ghostDarkStyles = {
+  bg: "transparent",
+  borderColor: "dark.ui.link.primary",
+  color: "dark.ui.link.primary",
+  _hover: {
+    bg: "dark.ui.link.primary-10",
+    borderColor: "dark.ui.link.secondary",
+    color: "dark.ui.link.secondary",
+  },
+  _disabled: {
+    bg: "dark.ui.bg.default",
+    borderColor: "dark.ui.disabled.primary",
+  },
+};
 const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
@@ -63,6 +83,14 @@ const generalSizeValues = (size = "medium", isPill = false) => {
 export const primary = ({ buttonSize = "medium" }) => ({
   bg: "ui.link.primary",
   ...generalSizeValues(buttonSize),
+  _dark: {
+    bg: "dark.ui.link.primary",
+    color: "ui.gray.xxx-dark",
+    _hover: {
+      bg: "dark.ui.link.secondary",
+      color: "ui.gray.xxx-dark",
+    },
+  },
 });
 export const secondary = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
@@ -80,6 +108,9 @@ export const secondary = ({ buttonSize = "medium" }) => ({
     borderColor: "ui.disabled.primary",
     color: "ui.disabled.primary",
   },
+  _dark: {
+    ...ghostDarkStyles,
+  },
 });
 // The "link" type is deprecated but we still want to style
 // it correctly for backwards compatibility.
@@ -95,6 +126,15 @@ const link = ({ buttonSize = "medium" }) => ({
     bg: "transparent",
     color: "ui.link.secondary",
   },
+  _dark: {
+    color: "dark.ui.link.primary",
+    _disabled: {
+      bg: "transparent",
+    },
+    _hover: {
+      color: "dark.ui.link.secondary",
+    },
+  },
 });
 const text = ({ buttonSize = "medium" }) => ({
   bg: "transparent",
@@ -107,11 +147,20 @@ const text = ({ buttonSize = "medium" }) => ({
     bg: "ui.link.primary-05",
     color: "ui.link.secondary",
   },
+  _dark: {
+    color: "dark.ui.link.primary",
+    _disabled: {
+      bg: "transparent",
+    },
+    _hover: {
+      color: "dark.ui.link.secondary",
+    },
+  },
 });
 export const pill = ({ buttonSize = "medium" }) => ({
   bg: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.light-cool",
+  borderColor: "ui.border.default",
   borderRadius: "button.pill",
   color: "inherit",
   ...generalSizeValues(buttonSize, true),
@@ -121,6 +170,16 @@ export const pill = ({ buttonSize = "medium" }) => ({
   },
   _disabled: {
     bg: "ui.gray.x-light-cool",
+  },
+  _dark: {
+    background: "transparent",
+    borderColor: "dark.ui.border.default",
+    color: "dark.ui.typography.heading",
+    _hover: {
+      background: "dark.ui.bg.hover",
+      borderColor: "dark.ui.border.hover",
+      color: "dark.ui.typography.heading",
+    },
   },
 });
 const iconOnly = ({ buttonSize = "medium" }) => ({
@@ -136,6 +195,9 @@ const iconOnly = ({ buttonSize = "medium" }) => ({
     borderColor: "ui.link.secondary",
     color: "ui.link.secondary",
   },
+  _dark: {
+    ...ghostDarkStyles,
+  },
 });
 export const callout = ({ buttonSize = "medium" }) => ({
   bg: "brand.primary",
@@ -146,6 +208,14 @@ export const callout = ({ buttonSize = "medium" }) => ({
   _active: {
     bg: "brand.secondary",
   },
+  _dark: {
+    bg: "brand.primary",
+    color: "ui.white",
+    _hover: {
+      bg: "brand.secondary",
+      color: "ui.white",
+    },
+  },
 });
 export const noBrand = ({ buttonSize = "medium" }) => ({
   bg: "ui.black",
@@ -153,6 +223,14 @@ export const noBrand = ({ buttonSize = "medium" }) => ({
   ...generalSizeValues(buttonSize),
   _hover: {
     bg: "ui.gray.x-dark",
+  },
+  _dark: {
+    bg: "ui.gray.x-dark",
+    color: "ui.white",
+    _hover: {
+      bg: "ui.gray.dark",
+      color: "ui.white",
+    },
   },
 });
 

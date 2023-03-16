@@ -15,11 +15,11 @@ addParameters({
       order: [
         "Welcome",
         "Chakra UI",
+        "Development Guide",
         "Style Guide",
         "Accessibility Guide",
         "Components",
         "Hooks",
-        "Development Guide",
       ],
     },
   },
@@ -77,6 +77,18 @@ const customViewports = {
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
+  backgrounds: {
+    values: [
+      { name: "Light mode page background", value: "#FFFFFF" },
+      { name: "Light mode default background", value: "#F5F5F5" },
+      { name: "Light mode hover background", value: "#E9E9E9" },
+      { name: "Light mode active background", value: "#BDBDBD" },
+      { name: "Dark mode page background", value: "#191919" },
+      { name: "Dark mode default background", value: "#252525" },
+      { name: "Dark mode hover background", value: "#2E2E2E" },
+      { name: "Dark mode active background", value: "#424242" },
+    ],
+  },
   // Load the Reservoir's Chakra-based theme.
   chakra: {
     theme: nyplTheme,

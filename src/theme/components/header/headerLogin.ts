@@ -76,6 +76,17 @@ const HeaderLogin = {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px" },
       },
+      _dark: {
+        bgColor: { base: "brand.secondary", md: "dark.ui.link.primary" },
+        color: { base: "ui.white", md: "ui.gray.xx-dark" },
+        svg: {
+          fill: { base: "ui.white", md: "ui.gray.xx-dark" },
+        },
+        _hover: {
+          bgColor: { base: "brand.primary", md: "dark.ui.link.secondary" },
+          color: { base: "ui.white", md: "ui.gray.xx-dark" },
+        },
+      },
     },
     patronGreeting: {
       alignSelf: "flex-start",
@@ -120,6 +131,15 @@ const HeaderLogin = {
       _focus: {
         ...loginFocus(),
         borderRadius: { base: "0", md: "28px !important" },
+      },
+      _dark: {
+        color: "ui.gray.xx-dark",
+        svg: {
+          fill: "ui.gray.xx-dark",
+        },
+        _hover: {
+          color: "ui.gray.xx-dark",
+        },
       },
     },
   }),

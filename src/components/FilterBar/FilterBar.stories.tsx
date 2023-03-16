@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
-import { Box, VStack } from "@chakra-ui/react";
+import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 
 import FilterBar, { FilterBarProps } from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
@@ -780,9 +780,13 @@ export const FilterBarRowContainerStory = () => {
     isModalOpen,
     onToggle,
   } = useFilterBar();
+  const containerBgColor = useColorModeValue(
+    "ui.bg.default",
+    "dark.ui.bg.default"
+  );
   return (
     <VStack align="stretch" spacing="l" key="filter-bar-row-container-story">
-      <Box bg="ui.bg.default" p="inset.wide">
+      <Box bg={containerBgColor} p="inset.wide">
         <FilterBar
           key="row-with-buttons"
           id="row-with-buttons"
@@ -829,7 +833,7 @@ export const FilterBarRowContainerStory = () => {
           </MultiSelectGroup>
         </FilterBar>
       </Box>
-      <Box bg="ui.bg.default" p="inset.wide">
+      <Box bg={containerBgColor} p="inset.wide">
         <FilterBar
           key="row-multiple-multiselect-groups-buttons"
           id="row-multiple-multiselect-groups-buttons"

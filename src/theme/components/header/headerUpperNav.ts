@@ -27,9 +27,18 @@ const HeaderUpperNav = {
         textDecoration: "none",
       },
       _focus: headerFocus,
+      _dark: {
+        color: "dark.ui.typography.heading",
+        _hover: {
+          color: "dark.ui.typography.heading",
+        },
+      },
     },
     svg: {
       marginTop: "0",
+      _dark: {
+        fill: "white",
+      },
     },
     emailUpdatesLink: {
       display: "flex",
@@ -46,6 +55,12 @@ const HeaderUpperNav = {
       width: "85px",
       _hover: {
         bg: headerRed,
+      },
+      _dark: {
+        bgColor: "brand.secondary",
+        _hover: {
+          bgColor: "brand.primary",
+        },
       },
     },
   },

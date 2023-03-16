@@ -132,6 +132,9 @@ export const Pagination = chakra(
         ? {
             color: "ui.black",
             pointerEvent: "none",
+            _dark: {
+              color: "dark.ui.typography.body",
+            },
           }
         : {};
       const allAttrs = {
