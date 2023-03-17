@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Button` component to use a transparent background for the default
+  state of the "secondary" variant.
+
 ## 1.5.0 (March 16, 2023)
 
 ### Adds
