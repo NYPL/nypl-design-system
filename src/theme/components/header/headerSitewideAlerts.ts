@@ -20,17 +20,20 @@ const SitewideAlerts = {
         marginBottom: "0",
       },
       _dark: {
-        color: "ui.typography.heading",
+        color: "dark.ui.typography.heading",
         a: {
-          color: "ui.typography.heading",
+          color: "dark.ui.typography.heading",
           _hover: {
-            color: "ui.typography.heading",
+            color: "dark.ui.typography.heading",
           },
         },
       },
     },
     _dark: {
-      backgroundColor: "dark.ui.status.primary",
+      backgroundColor: "dark.ui.bg.active",
+      borderBottom: "1px solid",
+      borderColor: "dark.ui.status.primary",
+      color: "dark.ui.typography.heading",
     },
   },
 };

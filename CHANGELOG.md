@@ -8,8 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.5.0 (March 16, 2023)
+
 ### Adds
 
+- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
 - Adds `dark` color mode support for `background-color` and `color` global styles.
 - Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
 - Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
@@ -26,9 +29,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates background color values available in Storybook.
+- Updates the hex value for `dark.ui.error.primary`.
 - Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
 - Updates the hex value for the `Link Primary` color style.
 - Updates `Link` so that non-button variants change color once visited.
+
+### Deprecates
+
+- Deprecates the `darkMode` prop in the `ProgressIndicator` component.
 
 ## 1.4.2 (March 2, 2023)
 
@@ -173,16 +182,6 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 
 ### Adds
 
-- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
-
-### Updates
-
-- Updates the hex value for `dark.ui.error.primary`.
-
-## 1.2.1 (October 27, 2022)
-
-### Adds
-
 - Adds the `"buttonPrimary"`, `"buttonSecondary"`, `"buttonPill"`, `"buttonCallout"`, `"buttonNoBrand"`, `"buttonDisabled"` variants for the the `Link` component, set through the `type` prop.
 
 ### Deprecates
@@ -259,7 +258,6 @@ This release is exactly the same as the `1.3.0-rc` release candidate published o
 ### Deprecates
 
 - Deprecates the `link` variant in the `Button` component.
-- Deprecates the `darkMode` prop in the `ProgressIndicator` component.
 
 ## 1.1.0 (August 30, 2022)
 
@@ -303,7 +301,6 @@ This release is exactly the same as the `1.1.0-rc5` release candidate which was 
 - Updates the `onClick` event type for the `Pagination` links `onClick` function.
 - Updates the `Link` component's `onClick` event type.
 - Makes small, clarifying update to `Color Mode` story in Storybook.
-- Updates background color values available in Storybook.
 
 ### Fixes
 

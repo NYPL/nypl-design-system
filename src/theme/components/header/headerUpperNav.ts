@@ -57,7 +57,10 @@ const HeaderUpperNav = {
         bg: headerRed,
       },
       _dark: {
-        color: "var(--nypl-colors-ui-black) !important",
+        bgColor: "brand.secondary",
+        _hover: {
+          bgColor: "brand.primary",
+        },
       },
     },
   },

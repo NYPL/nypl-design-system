@@ -12,6 +12,7 @@ const HeaderSearchButton = {
     minWidth: { md: "80px" },
     textDecoration: "none",
     _dark: {
+      bgColor: isOpen ? "section.research.secondary" : "transparent",
       color: isOpen ? "ui.white" : "dark.ui.link.primary",
     },
     span: {

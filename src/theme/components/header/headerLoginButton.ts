@@ -35,8 +35,8 @@ const HeaderLoginButton = {
 
     _dark: {
       bg: {
-        base: isOpen ? headerBlack : "dark.ui.bg.default",
-        md: isOpen ? headerDarkBlue : "dark.ui.bg.default",
+        base: isOpen ? headerBlack : "transparent",
+        md: isOpen ? headerDarkBlue : "transparent",
       },
       color: "dark.ui.typography.heading",
       svg: {
