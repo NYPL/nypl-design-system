@@ -52,7 +52,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
       className="css-0"
       style={
         Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
+          "backgroundImage": undefined,
         }
       }
     >
@@ -97,7 +97,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
       className="css-0"
       style={
         Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
+          "backgroundImage": undefined,
         }
       }
     >
@@ -142,7 +142,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
       className="css-0"
       style={
         Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
+          "backgroundImage": undefined,
         }
       }
     >
@@ -187,7 +187,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
       className="css-0"
       style={
         Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
+          "backgroundImage": undefined,
         }
       }
     >
@@ -232,7 +232,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
       className="css-0"
       style={
         Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
+          "backgroundImage": undefined,
         }
       }
     >
