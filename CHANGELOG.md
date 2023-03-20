@@ -10,8 +10,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `Button` component to use a transparent background for the default
-  state of the "secondary" variant.
+- Updates the `Button` component to use a transparent background for the default state of the "secondary" variant.
+
+### Fixes
+
+- Removes the `Slider` component's internal state update function (`setCurrentValue`) from Chakra's own `RangeSlider` component's `onChangeEnd` prop function. This fixes an issue where both Chakra's `onChange` and `onChangeEnd` prop functions were being called regardless of whether they were passed to the DS `Slider` component or not. Since Chakra's `onChange` function will always be called, the internal state function is kept. This ensures that there is no multiple calls or loop of state update calls when using keyboard controls to change the range slider's value.
 
 ## 1.5.0 (March 16, 2023)
 
