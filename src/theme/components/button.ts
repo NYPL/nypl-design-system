@@ -93,7 +93,6 @@ export const primary = ({ buttonSize = "medium" }) => ({
   },
 });
 export const secondary = ({ buttonSize = "medium" }) => ({
-  bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.link.primary",
   color: "ui.link.primary",
