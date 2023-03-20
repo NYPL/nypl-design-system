@@ -1,4 +1,5 @@
 import { wrapperStyles } from "./global";
+import { screenreaderOnly } from "./globalMixins";
 
 // Used for all "secondary" variants.
 const secondaryBase = {
@@ -176,13 +177,13 @@ const campaign = {
   },
   position: "relative",
   content: {
-    alignItems: "center",
+    alignItems: "stretch",
     bg: "ui.black",
     color: "ui.white",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
-      md: "row nowrap",
+      lg: "row nowrap",
     },
     minHeight: "320px",
     flex: { md: "0 0 90%" },
@@ -199,56 +200,63 @@ const campaign = {
     display: "inline-block",
   },
   img: {
-    flex: {
-      base: "1 1 100%",
-      md: "0 0 50%",
+    ...screenreaderOnly(),
+  },
+  imgWrapper: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    minHeight: "230px",
+    width: {
+      base: "100%",
+      lg: "50%",
     },
-    minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
-    objectFit: "cover",
-    width: "100%",
-    height: { md: "320px" },
   },
   interior: {
-    flex: {
-      base: "0 0 100%",
-      md: "0 0 50%",
-    },
-    padding: "inset.wide",
+    alignSelf: "center",
     maxWidth: { md: "960px" },
+    padding: {
+      base: "inset.default",
+      md: "inset.wide",
+    },
+    width: {
+      base: "100%",
+      lg: "50%",
+    },
   },
 };
 const fiftyFifty = {
   content: {
     ...wrapperStyles,
-    alignItems: "center",
+    alignItems: "stretch",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
       lg: "row nowrap",
     },
-    paddingBottom: "s",
-    paddingEnd: "s",
-    paddingStart: "s",
-    padding: {
-      lg: "unset",
-    },
   },
   imgWrapper: {
-    marginBottom: {
-      base: "s",
-      lg: "unset",
-    },
-    marginEnd: {
-      base: "-15px",
-      lg: "s",
-    },
-    marginStart: {
-      base: "-15px",
-    },
-    maxWidth: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    minHeight: "160px",
+    width: {
+      base: "100%",
       lg: "50%",
     },
-    width: "auto",
+  },
+  img: {
+    ...screenreaderOnly(),
+  },
+  bodyText: {
+    alignSelf: "center",
+    maxWidth: { md: "960px" },
+    padding: {
+      base: "inset.default",
+      md: "inset.wide",
+    },
+    width: {
+      base: "100%",
+      lg: "50%",
+    },
   },
 };
 const Hero = {

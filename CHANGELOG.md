@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Hero` component so that the height of the image in the "campaign" and "fiftyFifty" variants will grow and shrink based on the text content.
+
 ## 1.5.0 (March 16, 2023)
 
 ### Adds

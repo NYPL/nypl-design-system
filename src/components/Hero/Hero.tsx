@@ -160,7 +160,14 @@ export const Hero = chakra(
       const childrenToRender =
         heroType === "campaign" ? (
           <>
-            <Image alt={imageProps.alt} src={imageProps.src} />
+            <Box
+              __css={styles.imgWrapper}
+              style={{
+                backgroundImage: `url(${imageProps.src})`,
+              }}
+            >
+              <Image alt={imageProps.alt} src={imageProps.src} />
+            </Box>
             <Box __css={styles.interior}>
               {finalHeading}
               {subHeaderText}
@@ -169,7 +176,15 @@ export const Hero = chakra(
         ) : (
           <>
             {heroType !== "primary" && heroType !== "tertiary" && (
-              <Box __css={styles.imgWrapper}>
+              <Box
+                __css={styles.imgWrapper}
+                style={{
+                  backgroundImage:
+                    heroType === "fiftyFifty"
+                      ? `url(${imageProps.src})`
+                      : undefined,
+                }}
+              >
                 <Image alt={imageProps.alt} src={imageProps.src} />
               </Box>
             )}
