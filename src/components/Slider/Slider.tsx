@@ -167,7 +167,6 @@ export const Slider = chakra(
           onChange && onChange(val);
         },
         onChangeEnd: (val) => {
-          setCurrentValue(val);
           onChangeEnd && onChangeEnd(val);
         },
         step,
