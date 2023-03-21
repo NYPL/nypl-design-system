@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Button` component to use a transparent background for the default state of the "secondary" variant.
+- Updates the `Hero` component so that the height of the image in the "campaign" and "fiftyFifty" variants will grow and shrink based on the text content.
 
 ### Fixes
 
