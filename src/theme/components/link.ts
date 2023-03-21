@@ -100,7 +100,7 @@ const variants = {
 };
 const Link = {
   parts: ["srOnly"],
-  baseStyle: ({ isUnderlined }) => ({
+  baseStyle: ({ isUnderlined = true }) => ({
     ...baseLinkStyles,
     textDecoration: isUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
