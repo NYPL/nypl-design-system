@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import { Stack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Hero, { heroSecondaryTypes } from "./Hero";
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -48,6 +49,23 @@ export const secondarySubHeaderText = (
 );
 export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+export const otherSubHeaderTextLong = (
+  <>
+    <Heading level="two" noSpace>
+      Subheading
+    </Heading>
+    <Text size="caption">Lorem Parturient Bibendum Aenean Cras</Text>
+    <Heading level="three">Subheading</Heading>
+    <Text noSpace>
+      Donec ullamcorper nulla non metus auctor fringilla. Cras mattis
+      consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
+      augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta
+      felis euismod semper. Donec sed odio dui. Nullam quis risus eget urna
+      mollis ornare vel eu leo.
+    </Text>
+  </>
+);
 export const imageProps = {
   alt: "Image example",
   src: "https://placeimg.com/800/400/animals",
@@ -55,10 +73,10 @@ export const imageProps = {
 
 # Hero
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `1.5.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -196,13 +214,13 @@ heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
 ```
 
 <Canvas>
-  <DSProvider>
+  <Story name="All Variations">
     <Hero
       backgroundImageSrc="https://placeimg.com/1600/800/arch"
       heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
       heroType="primary"
     />
-  </DSProvider>
+  </Story>
 </Canvas>
 
 ### Secondary
@@ -254,8 +272,8 @@ subHeaderText={otherSubHeaderText}
       heading={
         <Heading
           level="one"
-          id="tertiary-hero"
-          text="Hero Tertiary with Sub-Header"
+          id="tertiary-hero-subheading"
+          text="Hero Tertiary with Sub-Heading"
         />
       }
       heroType="tertiary"
@@ -267,7 +285,7 @@ subHeaderText={otherSubHeaderText}
         <Heading
           level="one"
           id="tertiary-hero"
-          text="Hero Tertiary without Sub-Header text"
+          text="Hero Tertiary without Sub-Heading text"
         />
       }
       heroType="tertiary"
@@ -293,13 +311,46 @@ subHeaderText={otherSubHeaderText}
 
 <Canvas>
   <DSProvider>
-    <Hero
-      backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-      heroType="campaign"
-      heading={<Heading level="one" id="campaign-hero" text="Hero Campaign" />}
-      imageProps={imageProps}
-      subHeaderText={otherSubHeaderText}
-    />
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          text="Campaign Hero at Default Height"
+        />
+        <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="one"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderText}
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          text="Campaign Hero with Long Text"
+        />
+        <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="one"
+              id="campaign-hero-long-text-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+    </Stack>
   </DSProvider>
 </Canvas>
 
@@ -316,11 +367,30 @@ subHeaderText={otherSubHeaderText}
 
 <Canvas>
   <DSProvider>
-    <Hero
-      heroType="fiftyFifty"
-      imageProps={imageProps}
-      subHeaderText={otherSubHeaderText}
-    />
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="fiftyfifty-default"
+          text="FiftyFifty Hero at Default Height"
+        />
+        <Hero
+          heroType="fiftyFifty"
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderText}
+        />
+      </div>
+      <div>
+        <Heading
+          id="fiftyfifty-long-text"
+          text="FiftyFifty Hero with Long Text"
+        />
+        <Hero
+          heroType="fiftyFifty"
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+    </Stack>
   </DSProvider>
 </Canvas>
 
