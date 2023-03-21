@@ -50,11 +50,6 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-      style={
-        Object {
-          "backgroundImage": undefined,
-        }
-      }
     >
       <div
         className="css-0"
@@ -95,11 +90,6 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      style={
-        Object {
-          "backgroundImage": undefined,
-        }
-      }
     >
       <div
         className="css-0"
@@ -140,11 +130,6 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-      style={
-        Object {
-          "backgroundImage": undefined,
-        }
-      }
     >
       <div
         className="css-0"
@@ -185,11 +170,6 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
-      style={
-        Object {
-          "backgroundImage": undefined,
-        }
-      }
     >
       <div
         className="css-0"
@@ -230,11 +210,6 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-      style={
-        Object {
-          "backgroundImage": undefined,
-        }
-      }
     >
       <div
         className="css-0"
@@ -317,12 +292,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-0"
-      style={
-        Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
-        }
-      }
+      className="css-mswi6j"
     >
       <div
         className="css-0"
@@ -371,12 +341,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-0"
-      style={
-        Object {
-          "backgroundImage": "url(https://placeimg.com/800/400/animals)",
-        }
-      }
+      className="css-mswi6j"
     >
       <div
         className="css-0"

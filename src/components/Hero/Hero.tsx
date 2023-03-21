@@ -161,8 +161,8 @@ export const Hero = chakra(
         heroType === "campaign" ? (
           <>
             <Box
-              __css={styles.imgWrapper}
-              style={{
+              __css={{
+                ...styles.imgWrapper,
                 backgroundImage: `url(${imageProps.src})`,
               }}
             >
@@ -177,8 +177,8 @@ export const Hero = chakra(
           <>
             {heroType !== "primary" && heroType !== "tertiary" && (
               <Box
-                __css={styles.imgWrapper}
-                style={{
+                __css={{
+                  ...styles.imgWrapper,
                   backgroundImage:
                     heroType === "fiftyFifty"
                       ? `url(${imageProps.src})`

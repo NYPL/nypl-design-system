@@ -214,7 +214,7 @@ heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
 ```
 
 <Canvas>
-  <Story name="All Variantions">
+  <Story name="All Variations">
     <Hero
       backgroundImageSrc="https://placeimg.com/1600/800/arch"
       heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
@@ -272,8 +272,8 @@ subHeaderText={otherSubHeaderText}
       heading={
         <Heading
           level="one"
-          id="tertiary-hero"
-          text="Hero Tertiary with Sub-Header"
+          id="tertiary-hero-subheading"
+          text="Hero Tertiary with Sub-Heading"
         />
       }
       heroType="tertiary"
@@ -285,7 +285,7 @@ subHeaderText={otherSubHeaderText}
         <Heading
           level="one"
           id="tertiary-hero"
-          text="Hero Tertiary without Sub-Header text"
+          text="Hero Tertiary without Sub-Heading text"
         />
       }
       heroType="tertiary"
@@ -314,26 +314,37 @@ subHeaderText={otherSubHeaderText}
     <Stack spacing="l">
       <div>
         <Heading
-          id="campaign-stabdard"
+          id="campaign-hero-default"
           text="Campaign Hero at Default Height"
         />
         <Hero
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType="campaign"
           heading={
-            <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+            <Heading
+              level="one"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
       </div>
       <div>
-        <Heading id="campaign-stabdard" text="Campaign Hero with Long Text" />
+        <Heading
+          id="campaign-hero-long-text"
+          text="Campaign Hero with Long Text"
+        />
         <Hero
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType="campaign"
           heading={
-            <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+            <Heading
+              level="one"
+              id="campaign-hero-long-text-heading"
+              text="Hero Campaign"
+            />
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
@@ -356,10 +367,10 @@ subHeaderText={otherSubHeaderText}
 
 <Canvas>
   <DSProvider>
-    <Stack>
+    <Stack spacing="l">
       <div>
         <Heading
-          id="campaign-stabdard"
+          id="fiftyfifty-default"
           text="FiftyFifty Hero at Default Height"
         />
         <Hero
@@ -369,7 +380,10 @@ subHeaderText={otherSubHeaderText}
         />
       </div>
       <div>
-        <Heading id="campaign-stabdard" text="FiftyFifty Hero with Long Text" />
+        <Heading
+          id="fiftyfifty-long-text"
+          text="FiftyFifty Hero with Long Text"
+        />
         <Hero
           heroType="fiftyFifty"
           imageProps={imageProps}

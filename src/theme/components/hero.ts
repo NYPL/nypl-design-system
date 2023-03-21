@@ -199,9 +199,7 @@ const campaign = {
     color: "inherit",
     display: "inline-block",
   },
-  img: {
-    ...screenreaderOnly(),
-  },
+  img: screenreaderOnly(),
   imgWrapper: {
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -243,9 +241,7 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-  img: {
-    ...screenreaderOnly(),
-  },
+  img: screenreaderOnly(),
   bodyText: {
     alignSelf: "center",
     maxWidth: { md: "960px" },
