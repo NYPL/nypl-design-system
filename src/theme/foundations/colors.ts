@@ -34,7 +34,6 @@ const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
 const linkPrimary = "#0069BF";
 const linkSecondary = "#004B98";
-const linkTertiary = "#551A8B";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
@@ -148,7 +147,6 @@ const colors: Colors = {
       primary: linkPrimary,
       "primary-05": hexToRGB(linkPrimary, 0.05),
       secondary: linkSecondary,
-      tertiary: linkTertiary,
     },
     status: {
       primary: "#F9E08E",

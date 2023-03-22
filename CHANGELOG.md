@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Adds
+
+- Adds an `isUnderlined` prop to `Link`.
+
 ### Updates
 
 - Updates the `Button` component to use a transparent background for the default state of the "secondary" variant.
