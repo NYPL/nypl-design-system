@@ -16,10 +16,13 @@ const SkipNavigation = {
       _focus: {
         height: "auto",
         left: "1rem",
-        paddingX: "inset.extranarrow",
+        paddingX: "inset.narrow",
         paddingY: "inset.extranarrow",
         top: "1rem",
         width: "auto",
+      },
+      _dark: {
+        backgroundColor: "dark.ui.bg.page",
       },
     },
   },

@@ -292,13 +292,17 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-0"
+      className="css-mswi6j"
     >
-      <img
-        alt="Image example"
+      <div
         className="css-0"
-        src="https://placeimg.com/800/400/animals"
-      />
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="https://placeimg.com/800/400/animals"
+        />
+      </div>
     </div>
     <div
       className="css-0"
@@ -337,7 +341,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-0"
+      className="css-mswi6j"
     >
       <div
         className="css-0"

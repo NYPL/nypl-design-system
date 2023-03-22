@@ -47,6 +47,9 @@ const HeaderSearchForm = {
         },
         _focus: headerFocus,
         _hover: headerFocus,
+        _dark: {
+          color: "dark.ui.typography.body",
+        },
       },
     },
     searchBtn: {
@@ -101,6 +104,13 @@ const HeaderSearchForm = {
         backgroundColor: headerBlue,
       },
       _focus: headerFocus,
+    },
+    _dark: {
+      bgColor: "section.research.secondary",
+      color: "ui.white",
+      label: {
+        color: "ui.white",
+      },
     },
   },
 };

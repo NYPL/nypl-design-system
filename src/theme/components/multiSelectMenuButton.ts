@@ -23,7 +23,7 @@ const MultiSelectMenuButton = {
       backgroundColor: isOpen ? "ui.bg.active" : "ui.white",
       borderBottomLeftRadius: isOpen ? "0" : "button.default",
       borderBottomRightRadius: isOpen ? "0" : "button.default",
-      borderColor: isOpen ? "ui.gray.dark" : "ui.gray.medium",
+      borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
       borderRadius: "button.default",
       borderWidth: "1px",
       fontSize: "button.default",
@@ -39,6 +39,19 @@ const MultiSelectMenuButton = {
       },
       svg: {
         marginTop: "0",
+      },
+      _dark: {
+        backgroundColor: isOpen ? "dark.ui.bg.active" : "dark.ui.bg.default",
+        borderBottomLeftRadius: isOpen ? "0" : "button.default",
+        borderBottomRightRadius: isOpen ? "0" : "button.default",
+        borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
+        _hover: {
+          backgroundColor: isOpen ? "dark.ui.bg.active" : "dark.ui.bg.default",
+          borderColor: "dark.ui.border.hover",
+        },
       },
     },
     selectedItemsCountButton: {
@@ -63,6 +76,16 @@ const MultiSelectMenuButton = {
         marginLeft: "xxs",
         marginRight: "6px",
         marginTop: "0",
+      },
+      _dark: {
+        backgroundColor: "dark.ui.bg.hover",
+        borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
+        _hover: {
+          borderColor: isOpen ? "ui.white" : "dark.ui.border.hover",
+        },
       },
     },
   }),

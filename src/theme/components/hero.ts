@@ -1,4 +1,5 @@
 import { wrapperStyles } from "./global";
+import { screenreaderOnly } from "./globalMixins";
 
 // Used for all "secondary" variants.
 const secondaryBase = {
@@ -54,20 +55,34 @@ const secondaryHeadingBase = {
     width: "4000px",
     zIndex: "-1",
   },
+  _dark: {
+    color: "dark.ui.typography.heading",
+  },
 };
+
 // Get all the styles for the specific Secondary variant but
 // update the background color.
-const getSecondaryVariantStyles = (bgColor: string = "ui.black") => ({
-  ...secondaryBase,
-  heading: {
-    ...secondaryHeadingBase,
-    bg: bgColor,
-    _before: {
-      ...secondaryHeadingBase["_before"],
-      bg: bgColor,
+const getSecondaryVariantStyles = (bgColor: string = "") => {
+  const finalBgColor = {
+    light: bgColor ? bgColor : "ui.black",
+    dark: bgColor ? `dark.${bgColor}` : "dark.ui.bg.active",
+  };
+  return {
+    ...secondaryBase,
+    heading: {
+      ...secondaryHeadingBase,
+      _before: {
+        ...secondaryHeadingBase["_before"],
+        bg: finalBgColor.light,
+      },
+      _dark: {
+        _before: {
+          bg: finalBgColor.dark,
+        },
+      },
     },
-  },
-});
+  };
+};
 // Variant styling
 const primary = {
   alignItems: "center",
@@ -102,6 +117,10 @@ const primary = {
     bodyText: {
       marginBottom: "0",
     },
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+      color: "dark.ui.typography.body",
+    },
   },
 };
 const secondary = getSecondaryVariantStyles();
@@ -126,6 +145,9 @@ const tertiary = {
       marginBottom: "0",
       marginTop: { base: "xxs", xl: "xs" },
     },
+    _dark: {
+      color: "dark.ui.typography.body",
+    },
   },
   heading: {
     marginBottom: "0",
@@ -135,6 +157,9 @@ const tertiary = {
   },
   p: {
     marginBottom: "0",
+  },
+  _dark: {
+    bg: "dark.ui.bg.default",
   },
 };
 const campaign = {
@@ -152,80 +177,90 @@ const campaign = {
   },
   position: "relative",
   content: {
-    alignItems: "center",
+    alignItems: "stretch",
     bg: "ui.black",
     color: "ui.white",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
-      md: "row nowrap",
+      lg: "row nowrap",
     },
     minHeight: "320px",
     flex: { md: "0 0 90%" },
     maxWidth: { md: "1280px" },
     position: { md: "relative" },
     top: { md: "xxl" },
+    _dark: {
+      bg: "dark.ui.bg.default",
+      color: "dark.ui.typography.body",
+    },
   },
   a: {
     color: "inherit",
     display: "inline-block",
   },
-  img: {
-    flex: {
-      base: "1 1 100%",
-      md: "0 0 50%",
+  img: screenreaderOnly(),
+  imgWrapper: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    minHeight: "230px",
+    width: {
+      base: "100%",
+      lg: "50%",
     },
-    minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
-    objectFit: "cover",
-    width: "100%",
-    height: { md: "320px" },
   },
   interior: {
-    flex: {
-      base: "0 0 100%",
-      md: "0 0 50%",
-    },
-    padding: "inset.wide",
+    alignSelf: "center",
     maxWidth: { md: "960px" },
+    padding: {
+      base: "inset.default",
+      md: "inset.wide",
+    },
+    width: {
+      base: "100%",
+      lg: "50%",
+    },
   },
 };
 const fiftyFifty = {
   content: {
     ...wrapperStyles,
-    alignItems: "center",
+    alignItems: "stretch",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
       lg: "row nowrap",
     },
-    paddingBottom: "s",
-    paddingEnd: "s",
-    paddingStart: "s",
-    padding: {
-      lg: "unset",
-    },
   },
   imgWrapper: {
-    marginBottom: {
-      base: "s",
-      lg: "unset",
-    },
-    marginEnd: {
-      base: "-15px",
-      lg: "s",
-    },
-    marginStart: {
-      base: "-15px",
-    },
-    maxWidth: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    minHeight: "160px",
+    width: {
+      base: "100%",
       lg: "50%",
     },
-    width: "auto",
+  },
+  img: screenreaderOnly(),
+  bodyText: {
+    alignSelf: "center",
+    maxWidth: { md: "960px" },
+    padding: {
+      base: "inset.default",
+      md: "inset.wide",
+    },
+    width: {
+      base: "100%",
+      lg: "50%",
+    },
   },
 };
 const Hero = {
   baseStyle: {
-    bg: "ui.gray.x-light-cool",
+    bgColor: "ui.gray.x-light-cool",
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+    },
   },
   // Available variants:
   variants: {

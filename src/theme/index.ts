@@ -45,6 +45,7 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NotificationStyles from "./components/notification";
@@ -138,6 +139,7 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    Modal,
     MultiSelect,
     MultiSelectMenuButton,
     ...NotificationStyles,

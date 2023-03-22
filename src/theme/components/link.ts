@@ -10,8 +10,21 @@ import { screenreaderOnly } from "./globalMixins";
 
 export const baseLinkStyles = {
   color: "ui.link.primary",
+  textDecoration: "underline",
+  _dark: {
+    color: "dark.ui.link.primary",
+  },
   _hover: {
     color: "ui.link.secondary",
+    _dark: {
+      color: "dark.ui.link.secondary",
+    },
+  },
+  _visited: {
+    color: "ui.link.tertiary",
+    _dark: {
+      color: "dark.ui.link.tertiary",
+    },
   },
 };
 
@@ -39,6 +52,16 @@ const variants = {
       color: "ui.link.secondary",
       textDecoration: "underline",
     },
+    _visited: {
+      svg: {
+        fill: "ui.link.tertiary",
+      },
+      _dark: {
+        svg: {
+          fill: "dark.ui.link.tertiary",
+        },
+      },
+    },
   },
   // The "button" variant is deprecated.
   button: {
@@ -54,21 +77,46 @@ const variants = {
     textDecoration: "none",
     fontWeight: "button.default",
     bg: "ui.link.primary",
+    _dark: {
+      color: "ui.gray.xxx-dark",
+      bg: "dark.ui.link.primary",
+    },
     _hover: {
       color: "ui.white",
       bg: "ui.link.secondary",
-      textDecoration: "none",
+      textDecoration: "underline",
+      _dark: {
+        color: "ui.gray.xxx-dark",
+        bg: "dark.ui.link.secondary",
+      },
+    },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        _visited: {
+          color: "ui.gray.xxx-dark",
+        },
+      },
     },
   },
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.gray.xxx-dark",
+      },
+    },
   },
   buttonSecondary: {
     ...baseButtonLinkStyles,
     ...secondary({}),
     _visited: {
       color: "ui.link.primary",
+      _dark: {
+        color: "dark.ui.link.primary",
+      },
     },
   },
   buttonPill: {
@@ -76,15 +124,30 @@ const variants = {
     ...pill({}),
     _visited: {
       color: "ui.black",
+      _dark: {
+        color: "ui.white",
+      },
     },
   },
   buttonCallout: {
     ...baseButtonLinkStyles,
     ...callout({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonNoBrand: {
     ...baseButtonLinkStyles,
     ...noBrand({}),
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonDisabled: {
     ...baseButtonLinkStyles,
@@ -95,6 +158,13 @@ const variants = {
     pointerEvents: "none",
     _visited: {
       color: "ui.gray.dark",
+      _dark: {
+        color: "dark.ui.disabled.primary",
+      },
+    },
+    _dark: {
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
     },
   },
 };

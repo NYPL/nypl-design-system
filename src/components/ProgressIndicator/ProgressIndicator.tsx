@@ -13,7 +13,7 @@ import Label from "../Label/Label";
 export type ProgressIndicatorSizes = "default" | "small";
 export type ProgressIndicatorTypes = "circular" | "linear";
 export interface ProgressIndicatorProps {
-  /** Flag to render the component in a dark background. */
+  /** The darkMode prop is deprecated and should no longer be used. */
   darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;

@@ -3,6 +3,7 @@ import {
   chakra,
   Box,
   HStack,
+  useColorModeValue,
   useMultiStyleConfig,
   Spacer,
   VStack,
@@ -84,7 +85,11 @@ export const Header = chakra(
               >
                 <Logo
                   aria-label="NYPL Header Logo"
-                  name={isLargerThanLarge ? "nyplFullBlack" : "nyplLionBlack"}
+                  name={
+                    isLargerThanLarge
+                      ? useColorModeValue("nyplFullBlack", "nyplFullWhite")
+                      : useColorModeValue("nyplLionBlack", "nyplLionWhite")
+                  }
                   size={isLargerThanMobile ? "large" : "small"}
                   title="NYPL Header Logo"
                 />

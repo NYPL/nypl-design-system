@@ -13,6 +13,7 @@ import { truncateText } from "../../utils/utils";
 export type BreadcrumbsTypes =
   | "blogs"
   | "booksAndMore"
+  | "brand"
   | "education"
   | "locations"
   | "research"

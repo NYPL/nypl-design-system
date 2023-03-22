@@ -12,6 +12,46 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds an `isUnderlined` prop to `Link`.
 
+### Updates
+
+- Updates the `Button` component to use a transparent background for the default state of the "secondary" variant.
+- Updates the `Hero` component so that the height of the image in the "campaign" and "fiftyFifty" variants will grow and shrink based on the text content.
+
+### Fixes
+
+- Removes the `Slider` component's internal state update function (`setCurrentValue`) from Chakra's own `RangeSlider` component's `onChangeEnd` prop function. This fixes an issue where both Chakra's `onChange` and `onChangeEnd` prop functions were being called regardless of whether they were passed to the DS `Slider` component or not. Since Chakra's `onChange` function will always be called, the internal state function is kept. This ensures that there is no multiple calls or loop of state update calls when using keyboard controls to change the range slider's value.
+
+## 1.5.0 (March 16, 2023)
+
+### Adds
+
+- Adds `brand` as a `breadcrumbsType` to the `Breadcrumbs` component.
+- Adds `dark` color mode support for `background-color` and `color` global styles.
+- Adds `dark` color mode support for the `HelperErrorText` and `StatusBadge` components.
+- Adds `dark` color mode support for the `Button`, `Checkbox`, `DatePicker`, `ProgressIndicator`, `Radio`, `SearchBar`, `Select`, `Slider` and `Toggle` components.
+- Adds `dark` color mode support for the `Card` and `Hero` components.
+- Adds `dark` color mode support for the `Heading` and `List` components.
+- Adds `dark` color mode support for the `Footer`, `Header`, `HorizontalRule` and `Table` components.
+- Adds `dark` color mode support for the `Notification`, `ProgressIndicator`, and `SkeletonLoader` components.
+- Adds `dark` color mode support for the `Breadcrumbs`, `Link Types`, and `Pagination` components.
+- Adds `dark` color mode support for the `Accordion`, `Modal`, `Tabs`, and `Tooltip` components.
+- Adds `dark` color mode support for the `AlphabetFilter`, `AudioPlayer`, and `TagSet` components.
+- Adds `dark` color mode support for the `FeedbackBox` and `StyledList` components.
+- Adds `dark` color mode support for the `FilterBar` and `MultiSelect` components.
+- Adds `Supporting Dark Mode` under the `Development Guide`.
+
+### Updates
+
+- Updates background color values available in Storybook.
+- Updates the hex value for `dark.ui.error.primary`.
+- Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
+- Updates the hex value for the `Link Primary` color style.
+- Updates `Link` so that non-button variants change color once visited.
+
+### Deprecates
+
+- Deprecates the `darkMode` prop in the `ProgressIndicator` component.
+
 ## 1.4.2 (March 2, 2023)
 
 ### Updates
