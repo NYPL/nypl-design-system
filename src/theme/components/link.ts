@@ -11,6 +11,9 @@ import { screenreaderOnly } from "./globalMixins";
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
+  textDecorationStyle: "dotted",
+  textDecorationThickness: "1px",
+  textUnderlineOffset: "2px",
   _dark: {
     color: "dark.ui.link.primary",
   },
