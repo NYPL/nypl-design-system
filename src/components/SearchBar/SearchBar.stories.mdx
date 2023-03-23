@@ -230,12 +230,13 @@ const selectProps = {
 To render the `TextInput` component, an object must be passed to the
 `textInputProps` prop. It _must_ include `labelText` and `name` properties. The
 `labelText` value won't be rendered but will be used for its `aria-label`
-attribute. Optional properties to pass include `id`, `isClearable`,
+attribute. Optional properties to pass include `defaultValue`, `id`, `isClearable`,
 `isClearableCallback`, `max`, `maxLength`, `min`, `onChange`, `pattern`,
 `placeholder`, and `value`.
 
 ```
 const textInputProps = {
+  defaultValue: "Horizon",
   isClearable: true,
   isClearableCallback: () => {},
   labelText: "Item Search",
