@@ -70,7 +70,7 @@
     "react-intersection-observer": "9.2.2",
     "system-font-css": "2.0.2",
     "tough-cookie": "4.0.0",
-    "typescript": "*"
+    "typescript": "4.9.5"
   },
   "peerDependencies": {
     "@chakra-ui/focus-lock": ">=1.2.6 <2.0.0",
@@ -81,7 +81,7 @@
     "framer-motion": "4.1.17",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0",
-    "typescript": "*"
+    "typescript": "4.9.5"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
