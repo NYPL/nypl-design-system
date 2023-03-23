@@ -10,6 +10,7 @@ import React, { forwardRef } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import Tooltip from "../Tooltip/Tooltip";
 
 export interface RadioProps {
   /** Additional class name. */
@@ -49,6 +50,7 @@ export interface RadioProps {
   showLabel?: boolean;
   /** Populates the value of the input. */
   value?: string;
+  tooltipLabelText?: any;
 }
 
 export const Radio = chakra(
@@ -68,6 +70,7 @@ export const Radio = chakra(
       showHelperInvalidText = true,
       showLabel = true,
       value,
+      tooltipLabelText,
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Radio", { showLabel });
@@ -101,25 +104,49 @@ export const Radio = chakra(
         sx={wrapperStyles}
         {...rest}
       >
-        <ChakraRadio
-          className={className}
-          id={id}
-          isChecked={isChecked}
-          isDisabled={isDisabled}
-          isInvalid={isInvalid}
-          isRequired={isRequired}
-          name={name}
-          onChange={onChange}
-          ref={ref}
-          value={value}
-          alignItems="flex-start"
-          sx={styles}
-          {...ariaAttributes}
-        >
-          <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>
-            {labelText}
-          </Box>
-        </ChakraRadio>
+        {tooltipLabelText ? (
+          <Tooltip content={tooltipLabelText}>
+            <ChakraRadio
+              className={className}
+              id={id}
+              isChecked={isChecked}
+              isDisabled={isDisabled}
+              isInvalid={isInvalid}
+              isRequired={isRequired}
+              name={name}
+              onChange={onChange}
+              ref={ref}
+              value={value}
+              alignItems="flex-start"
+              sx={styles}
+              {...ariaAttributes}
+            >
+              <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>
+                {labelText}
+              </Box>
+            </ChakraRadio>
+          </Tooltip>
+        ) : (
+          <ChakraRadio
+            className={className}
+            id={id}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
+            isRequired={isRequired}
+            name={name}
+            onChange={onChange}
+            ref={ref}
+            value={value}
+            alignItems="flex-start"
+            sx={styles}
+            {...ariaAttributes}
+          >
+            <Box as="span" __css={showLabel ? {} : styles.hiddenLabel}>
+              {labelText}
+            </Box>
+          </ChakraRadio>
+        )}
       </ComponentWrapper>
     );
   })

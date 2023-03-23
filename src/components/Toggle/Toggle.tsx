@@ -10,6 +10,7 @@ import React, { forwardRef } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import Tooltip from "../Tooltip/Tooltip";
 
 export type ToggleSizes = "default" | "small";
 export interface ToggleProps {
@@ -44,6 +45,7 @@ export interface ToggleProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The size of the Toggle. Defaults to "large". */
   size?: ToggleSizes;
+  tooltipLabelText?: any;
 }
 
 export const onChangeDefault = () => {
@@ -68,6 +70,7 @@ export const Toggle = chakra(
       name,
       onChange = onChangeDefault,
       size = "default",
+      tooltipLabelText,
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
@@ -97,28 +100,55 @@ export const Toggle = chakra(
         {...rest}
       >
         <Box __css={styles}>
-          <Switch
-            id={id}
-            isDisabled={isDisabled}
-            isInvalid={isInvalid}
-            isRequired={isRequired}
-            name={name || "default"}
-            ref={ref}
-            size={size === "default" ? "lg" : "sm"}
-            lineHeight="1.5"
-            {...(isChecked !== undefined
-              ? {
-                  isChecked,
-                  onChange,
-                }
-              : {
-                  defaultChecked,
-                })}
-            {...ariaAttributes}
-            __css={switchStyles}
-          >
-            {labelText}
-          </Switch>
+          {tooltipLabelText ? (
+            <Tooltip content={tooltipLabelText}>
+              <Switch
+                id={id}
+                isDisabled={isDisabled}
+                isInvalid={isInvalid}
+                isRequired={isRequired}
+                name={name || "default"}
+                ref={ref}
+                size={size === "default" ? "lg" : "sm"}
+                lineHeight="1.5"
+                {...(isChecked !== undefined
+                  ? {
+                      isChecked,
+                      onChange,
+                    }
+                  : {
+                      defaultChecked,
+                    })}
+                {...ariaAttributes}
+                __css={switchStyles}
+              >
+                {labelText}
+              </Switch>
+            </Tooltip>
+          ) : (
+            <Switch
+              id={id}
+              isDisabled={isDisabled}
+              isInvalid={isInvalid}
+              isRequired={isRequired}
+              name={name || "default"}
+              ref={ref}
+              size={size === "default" ? "lg" : "sm"}
+              lineHeight="1.5"
+              {...(isChecked !== undefined
+                ? {
+                    isChecked,
+                    onChange,
+                  }
+                : {
+                    defaultChecked,
+                  })}
+              {...ariaAttributes}
+              __css={switchStyles}
+            >
+              {labelText}
+            </Switch>
+          )}
         </Box>
       </ComponentWrapper>
     );

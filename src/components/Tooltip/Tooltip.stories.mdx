@@ -18,6 +18,7 @@ import Link from "../Link/Link";
 import Label from "../Label/Label";
 import Image from "../Image/Image";
 import Text from "../Text/Text";
+import Toggle from "../Toggle/Toggle";
 import { VStack } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -122,43 +123,34 @@ in sync with the rendered visual control.
 
 <Canvas>
   <DSProvider>
-    <Tooltip
-      content="Invite library staff to share resources at your community event"
-      shouldWrapChildren
-    >
-      <Toggle
-        id="radio3"
-        labelText="Offsite Community Outreach"
-        value="Offsite Community Outreach"
-      />
-    </Tooltip>
+    <Toggle
+      id="radio3"
+      labelText="Offsite Community Outreach"
+      tooltipLabelText="General library orientation or a customized research lesson"
+    />
     <RadioGroup
       labelText="What would you like to request?"
       id="radio-group"
       name="tooltip-example"
     >
-      <Tooltip
-        content="General library orientation or a customized research lesson"
-        shouldWrapChildren
-      >
-        <Radio id="radio1" labelText="Class Visit" value="Class Visit" />
-      </Tooltip>
-      <Tooltip
-        content="Guided exploration of the library and its resources"
-        shouldWrapChildren
-      >
-        <Radio id="radio2" labelText="Group Tour" value="Group Tour" />
-      </Tooltip>
-      <Tooltip
-        content="Invite library staff to share resources at your community event"
-        shouldWrapChildren
-      >
-        <Radio
-          id="radio3"
-          labelText="Offsite Community Outreach"
-          value="Offsite Community Outreach"
-        />
-      </Tooltip>
+      <Radio
+        id="radio1"
+        labelText="Class Visit"
+        value="Class Visit"
+        tooltipLabelText="General library orientation or a customized research lesson"
+      />
+      <Radio
+        id="radio2"
+        labelText="Group Tour"
+        value="Group Tour"
+        tooltipLabelText="Guided exploration of the library and its resources"
+      />
+      <Radio
+        id="radio3"
+        labelText="Offsite Community Outreach"
+        value="Offsite Community Outreach"
+        tooltipLabelText="Invite library staff to share resources at your community event"
+      />
     </RadioGroup>
   </DSProvider>
 </Canvas>
