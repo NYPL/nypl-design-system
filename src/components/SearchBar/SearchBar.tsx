@@ -31,6 +31,7 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
   Partial<
     Pick<
       InitialInputProps,
+      | "defaultValue"
       | "id"
       | "isClearable"
       | "isClearableCallback"
@@ -162,6 +163,7 @@ export const SearchBar = chakra(
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
+        defaultValue={textInputProps?.defaultValue}
         id={textInputProps?.id || `searchbar-textinput-${id}`}
         isClearable={textInputProps?.isClearable}
         isClearableCallback={textInputProps?.isClearableCallback}
