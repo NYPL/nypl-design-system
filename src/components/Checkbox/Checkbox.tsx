@@ -53,6 +53,7 @@ export interface CheckboxProps extends CheckboxIconProps {
   showLabel?: boolean;
   /** Populates the value of the input */
   value?: string;
+  tooltipLabelText?: any;
 }
 
 function CheckboxIcon(props: CheckboxIconProps) {
@@ -89,6 +90,7 @@ export const Checkbox = chakra(
       showHelperInvalidText = true,
       showLabel = true,
       value,
+      tooltipLabelText,
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
@@ -117,6 +119,7 @@ export const Checkbox = chakra(
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
+        tooltipLabelText={tooltipLabelText}
         {...rest}
       >
         <ChakraCheckbox

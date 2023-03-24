@@ -6,6 +6,8 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Text from "../Text/Text";
+import Tooltip from "../Tooltip/Tooltip";
+
 export interface ComponentWrapperProps {
   /** The UI elements that will be wrapped by this component */
   children: React.ReactNode;
@@ -28,6 +30,7 @@ export interface ComponentWrapperProps {
   isInvalid?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
+  tooltipLabelText?: any;
 }
 
 export const ComponentWrapper = chakra(
@@ -44,6 +47,7 @@ export const ComponentWrapper = chakra(
         invalidText,
         isInvalid = false,
         showHelperInvalidText = true,
+        tooltipLabelText,
         ...rest
       } = props;
       const hasChildren = !!children;
@@ -68,7 +72,11 @@ export const ComponentWrapper = chakra(
         >
           {headingText && <Heading id={`${id}-heading`} text={headingText} />}
           {descriptionText && <Text>{descriptionText}</Text>}
-          {children}
+          {tooltipLabelText ? (
+            <Tooltip content={tooltipLabelText}>{children}</Tooltip>
+          ) : (
+            <>{children}</>
+          )}
           <HelperErrorText
             id={`${id}-helperText`}
             isInvalid={isInvalid}
