@@ -199,6 +199,7 @@ export const Tabs = chakra(
             id={`tabs-previous-icon-${id}`}
             name="arrow"
             size="small"
+            title="left arrow"
           />
         </Button>
       );
@@ -217,6 +218,7 @@ export const Tabs = chakra(
             id={`tabs-next-icon-${id}`}
             name="arrow"
             size="small"
+            title="next arrow"
           />
         </Button>
       );
