@@ -37,16 +37,54 @@ export interface BreadcrumbProps {
 const breadcrumbTextLength = 40;
 
 // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
-const breadcrumbText = (text, id) => {
+const breadcrumbText = (text) => {
   if (text.length <= breadcrumbTextLength) {
     return text;
   }
 
-  return (
-    <Tooltip content={text} id={`breadcrumb-${id}-tooltip`}>
-      {truncateText(text, breadcrumbTextLength)}
-    </Tooltip>
+  return truncateText(text, breadcrumbTextLength);
+};
+
+const tooltipWrapperOrText = (
+  breadcrumbsData: BreadcrumbsDataProps,
+  breadcrumbsID,
+  renderIcon = false,
+  isCurrentPage = false
+) => {
+  const renderTooltip =
+    (breadcrumbsData.text as string).length >= breadcrumbTextLength;
+  const linkWrapper = (
+    <BreadcrumbLink
+      href={breadcrumbsData.url}
+      aria-current={isCurrentPage ? "page" : undefined}
+    >
+      {renderIcon && (
+        <Icon
+          name="arrow"
+          size="small"
+          iconRotation="rotate90"
+          id={`${breadcrumbsID}__backarrow`}
+          className="breadcrumbs-icon"
+          type="breadcrumbs"
+        />
+      )}
+      <span className="breadcrumb-label">
+        {breadcrumbText(breadcrumbsData.text)}
+      </span>
+    </BreadcrumbLink>
   );
+  const wrapper = renderTooltip ? (
+    <Tooltip
+      content={breadcrumbsData.text}
+      id={`breadcrumb-${breadcrumbsID}-tooltip`}
+    >
+      {linkWrapper}
+    </Tooltip>
+  ) : (
+    <>{linkWrapper}</>
+  );
+
+  return wrapper;
 };
 
 const getElementsFromData = (
@@ -57,30 +95,18 @@ const getElementsFromData = (
     return {};
   }
 
-  const breadcrumbItems = data.map((breadcrumbData, index) => (
-    <BreadcrumbItem
-      key={index}
-      isCurrentPage={index === data.length - 1 ? true : false}
-    >
-      <BreadcrumbLink href={breadcrumbData.url}>
-        {index === data.length - 2 && (
-          <Icon
-            name="arrow"
-            size="small"
-            iconRotation="rotate90"
-            id={`${breadcrumbsID}__backarrow`}
-            className="breadcrumbs-icon"
-            type="breadcrumbs"
-          />
-        )}
-        <span className="breadcrumb-label">
-          {breadcrumbText(breadcrumbData.text, breadcrumbsID)}
-        </span>
-      </BreadcrumbLink>
+  const breadcrumbsItems = data.map((breadcrumbsData, index) => (
+    <BreadcrumbItem key={index}>
+      {tooltipWrapperOrText(
+        breadcrumbsData,
+        breadcrumbsID,
+        index === data.length,
+        index === data.length - 1 ? true : false
+      )}
     </BreadcrumbItem>
   ));
 
-  return breadcrumbItems;
+  return breadcrumbsItems;
 };
 
 export const Breadcrumbs = chakra(
