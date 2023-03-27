@@ -95,6 +95,17 @@ const theme = extendTheme({
   radii,
   shadows,
   space: spacing,
+  transitions: {
+    duration: {
+      "ultra-fast": "1000ms",
+      faster: "1000ms",
+      fast: "1000ms",
+      normal: "1000ms",
+      slow: "1000ms",
+      slower: "1000ms",
+      "ultra-slow": "1000ms",
+    },
+  },
   ...typography,
   /**
    * Chakra documentation on component styles:
