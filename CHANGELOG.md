@@ -8,15 +8,27 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## Adds
+### Adds
 
-- Adds an `isUnderlined` prop to `Link`.
+- Adds the `isUnderlined` prop to the `Link` component.
+
+### Updates
+
+- Updates underline styles of the `Link` component.
+- Updates the hex value for the `Link Primary` color style.
+- Updates the `Link` component so that non-button variants change color once visited.
+
+## 1.5.1 (March 23, 2023)
 
 ### Updates
 
 - Updates the `Button` component to use a transparent background for the default state of the "secondary" variant.
 - Updates the `Hero` component so that the height of the image in the "campaign" and "fiftyFifty" variants will grow and shrink based on the text content.
-- Updates underline styles of `Link` component.
+- Updates the `SearchBar` component to include `defaultValue` as a prop in `textInputProps`.
+
+### Removes
+
+- Removes the `Color Mode` docs page from Storybook due to the addition of the `Supporting Dark Mode` docs page.
 
 ### Fixes
 
@@ -46,8 +58,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates background color values available in Storybook.
 - Updates the hex value for `dark.ui.error.primary`.
 - Updates the `Design Tokens Style Guide` to include more detailed information about the available tokens.
-- Updates the hex value for the `Link Primary` color style.
-- Updates `Link` so that non-button variants change color once visited.
 
 ### Deprecates
 
