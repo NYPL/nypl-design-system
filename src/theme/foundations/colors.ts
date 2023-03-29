@@ -133,7 +133,7 @@ const colors: Colors = {
   ui: {
     black,
     white,
-    /// State and link utilities
+    // State and link utilities
     disabled: {
       primary: grayLightCool,
       secondary: grayxxLightCool,
@@ -209,7 +209,7 @@ const colors: Colors = {
       "whats-on": whatsOnObj.dark,
     },
     ui: {
-      /// State and link utilities
+      // State and link utilities
       disabled: {
         primary: grayDark,
         secondary: grayxxDark,

@@ -1,11 +1,9 @@
-"use strict";
-
-const gulp = require("gulp");
-const concat = require("gulp-concat");
+import gulp from "gulp";
+import concat from "gulp-concat";
 
 gulp.task("default", mergeSass);
 
-function mergeSass(_done) {
+export default function mergeSass(_done) {
   return gulp
     .src([
       "src/styles/base/_01-breakpoints.scss",

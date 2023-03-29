@@ -221,7 +221,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Custom helper text",
         }
       }
@@ -271,7 +271,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "There is an error related to this field.",
         }
       }

@@ -184,7 +184,7 @@ export default class MatchMedia {
         };
 
         listeners.forEach((listener) => {
-          (listener as Function)?.call(
+          listener?.call(
             this.mediaQueryList,
             mqListEvent as MediaQueryListEvent
           );
@@ -260,7 +260,6 @@ export default class MatchMedia {
    */
   public destroy(): void {
     this.clear();
-    // @ts-ignore
     delete window.matchMedia;
   }
 }

@@ -1,8 +1,10 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["src", "types", "tsd.d.ts"],
+  // "include": ["src", "types", "tsd.d.ts", "vite.config.ts"],
   "exclude": ["node_modules", "lib"],
   "compilerOptions": {
+    "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
@@ -32,6 +34,23 @@
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
+    // From header
+    // "target": "ESNext",
+    // "useDefineForClassFields": true,
+    // "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    // "allowJs": false,
+    // "skipLibCheck": true,
+    // "esModuleInterop": false,
+    // "allowSyntheticDefaultImports": true,
+    // "strict": false,
+    // "forceConsistentCasingInFileNames": true,
+    // "module": "ESNext",
+    // "moduleResolution": "Node",
+    // "resolveJsonModule": true,
+    "isolatedModules": true,
+    // "noEmit": true,
+    // "jsx": "react-jsx"
     "types": ["node", "webpack-env", "jest", "@testing-library/jest-dom"]
-  }
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

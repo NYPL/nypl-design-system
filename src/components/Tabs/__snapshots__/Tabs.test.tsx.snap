@@ -166,7 +166,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-labelledby="basic--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -179,7 +179,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-labelledby="basic--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }
@@ -358,7 +358,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-labelledby="chakra--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -371,7 +371,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-labelledby="chakra--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }
@@ -551,7 +551,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-labelledby="props--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -564,7 +564,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-labelledby="props--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }

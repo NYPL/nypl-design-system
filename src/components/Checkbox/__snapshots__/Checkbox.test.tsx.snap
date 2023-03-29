@@ -24,7 +24,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -100,7 +100,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -178,7 +178,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -204,7 +204,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     >
       <div
         style={
-          Object {
+          {
             "alignItems": "center",
             "display": "flex",
             "height": "100%",
@@ -216,7 +216,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
         <svg
           className="css-o8vbdw"
           style={
-            Object {
+            {
               "opacity": 1,
               "stroke": "currentColor",
               "strokeWidth": 4,
@@ -277,7 +277,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       onKeyUp={[Function]}
       required={true}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -353,7 +353,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -431,7 +431,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -508,7 +508,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -596,7 +596,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
@@ -672,7 +672,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       onKeyUp={[Function]}
       required={false}
       style={
-        Object {
+        {
           "border": "0px",
           "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",

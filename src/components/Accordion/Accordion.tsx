@@ -63,7 +63,7 @@ const getIcon = (
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
   id: string,
-  isAlwaysRendered: boolean = false,
+  isAlwaysRendered = false,
   isDarkMode: boolean,
   panelMaxHeight: string
 ) => {

@@ -3,4 +3,4 @@
  * used in our case to mock SVG files.
  */
 
-module.exports = "div";
+export default "div";

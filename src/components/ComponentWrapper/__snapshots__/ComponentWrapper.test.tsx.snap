@@ -28,7 +28,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "helper text",
         }
       }
@@ -83,7 +83,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "invalid text",
         }
       }

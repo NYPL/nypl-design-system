@@ -9,3 +9,5 @@ lib
 dist
 .vscode
 .eslintcache
+coverage
+reservoir

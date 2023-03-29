@@ -53,7 +53,6 @@ export const ButtonGroup = chakra(
           if (React.isValidElement(child)) {
             if (child.type !== Button) {
               // Special case for Storybook MDX documentation.
-              // @ts-ignore
               if (child.props.mdxType && child.props.mdxType === "Button") {
                 noop();
               } else {
