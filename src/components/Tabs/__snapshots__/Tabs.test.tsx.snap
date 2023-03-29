@@ -21,7 +21,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         focusable={false}
         id="tabs-previous-icon-basic"
         role="img"
-        title="left arrow"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -213,7 +213,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         focusable={false}
         id="tabs-previous-icon-chakra"
         role="img"
-        title="left arrow"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -406,7 +406,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         focusable={false}
         id="tabs-previous-icon-props"
         role="img"
-        title="left arrow"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
