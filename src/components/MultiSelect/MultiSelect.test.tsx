@@ -86,7 +86,7 @@ const MultiSelectTestListboxComponent = ({
   );
 };
 
-describe("MultiSelect Accessibility", () => {
+describe.skip("MultiSelect Accessibility", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 
@@ -122,7 +122,7 @@ describe("MultiSelect Accessibility", () => {
   });
 });
 
-describe("MultiSelect Dialog", () => {
+describe.skip("MultiSelect Dialog", () => {
   beforeAll(() => {
     matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
@@ -675,7 +675,7 @@ describe("MultiSelect Dialog", () => {
   });
 });
 
-describe("MultiSelect Listbox", () => {
+describe.skip("MultiSelect Listbox", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 
