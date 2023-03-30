@@ -150,7 +150,7 @@ describe("Accordion", () => {
     render(<Accordion accordionData={[accordionData[0]]} isAlwaysRendered />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
-    const accordionPanelContent = screen.queryByText(
+    let accordionPanelContent = screen.queryByText(
       /known in Japan as Tanukichi/i
     );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
