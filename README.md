@@ -98,18 +98,7 @@ For apps using parcel, prepend the string import with `npm:` such as :
 @import "npm:@nypl/design-system-react-components/dist/styles.css";
 ```
 
-4. Optionally import the `@nypl/design-system-react-components/dist/resources.scss` file in your main _scss_ file. This file contains useful SCSS mixins that can be used for global or component style rules.
-
-```scss
-@import "@nypl/design-system-react-components/dist/resources.scss";
-
-// `screenreader-only` is one example of a mixing from `resources.scss`:
-legend {
-  @include screenreader-only;
-}
-```
-
-5. Use DS components!
+4. Use DS components!
 
 Consult Storybook for the list of available components and props that they require.
 
