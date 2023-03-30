@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
@@ -74,7 +74,7 @@ describe("HeaderLoginButton", () => {
 
       const dropDownButton = screen.getByRole("button");
 
-      userEvent.click(dropDownButton);
+      act(() => userEvent.click(dropDownButton));
 
       const catalogLink = screen.getByRole("link", {
         name: /go to the catalog/i,
@@ -183,7 +183,7 @@ describe("HeaderLoginButton", () => {
       );
       const dropDownButton = screen.getByRole("button");
 
-      userEvent.click(dropDownButton);
+      act(() => userEvent.click(dropDownButton));
 
       const catalogLink = screen.getByRole("link", {
         name: /go to the catalog/i,
