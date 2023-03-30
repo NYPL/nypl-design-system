@@ -1,7 +1,6 @@
 # For all pushes, this workflow will
 #     - Install deps
 #     - Lint
-#     - Typecheck
 #     - Test
 name: CI
 
