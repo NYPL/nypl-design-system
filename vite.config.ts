@@ -9,17 +9,21 @@ const outDir = resolve(__dirname, "dist");
 
 export default defineConfig({
   plugins: [
+    // For React support
     react(),
+    // For SVG support
     svgr({
       svgrOptions: {
         titleProp: true,
       },
     }),
+    // For Typescript support
     dts(),
   ],
   root,
   build: {
     outDir,
+    // Sets this repo as a library instead of the default "app".
     lib: {
       entry: resolve(root, "src/index.ts"),
       formats: ["es", "cjs"],
@@ -29,7 +33,6 @@ export default defineConfig({
       external: ["react", "@chakra-ui/react", "@chakra-ui/system"],
       output: {
         name: "design-system-react-components",
-        dir: outDir,
         globals: {
           react: "React",
           "@chakra-ui/react": "ChakraUI",
