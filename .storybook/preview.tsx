@@ -1,38 +1,41 @@
 // Load the Reservoir's stylesheet for some components.
-import "!style-loader!css-loader!sass-loader!../src/styles.scss";
+import "../src/styles.scss";
 
-import { addDecorator, addParameters } from "@storybook/react";
+import { Preview } from "@storybook/react";
 import { withTests } from "@storybook/addon-jest";
 import React from "react";
 
 import nyplTheme from "../src/theme";
+import { DSProvider } from "../src/index";
 import results from "../.jest-test-results.json";
+import { MDXProvider } from "@mdx-js/react";
+import { DocsContainer } from "@storybook/blocks";
 
-addParameters({
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        "Welcome",
-        "Chakra UI",
-        "Development Guide",
-        "Style Guide",
-        "Accessibility Guide",
-        "Components",
-        "Hooks",
-      ],
-    },
-  },
-});
+// addParameters({
+//   options: {
+//     storySort: {
+//       method: "alphabetical",
+//       order: [
+//         "Welcome",
+//         "Chakra UI",
+//         "Development Guide",
+//         "Style Guide",
+//         "Accessibility Guide",
+//         "Components",
+//         "Hooks",
+//       ],
+//     },
+//   },
+// });
 
-// Show the Jest results in the Storybook UI.
-addDecorator(withTests({ results }));
+// // Show the Jest results in the Storybook UI.
+// addDecorator(withTests({ results }));
 
-addDecorator((StoryFn) => (
-  <div style={{ margin: "10px" }}>
-    <StoryFn />
-  </div>
-));
+// addDecorator((StoryFn) => (
+//   <div style={{ margin: "10px" }}>
+//     <StoryFn />
+//   </div>
+// ));
 
 // Custom viewport options
 const customViewports = {
@@ -72,9 +75,16 @@ const customViewports = {
     },
   },
 };
+export const MyDocsContainer = (props) => (
+  <MDXProvider>
+    <DSProvider>
+      <DocsContainer {...props} />
+    </DSProvider>
+  </MDXProvider>
+);
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
-export const parameters = {
+const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
   backgrounds: {
@@ -98,4 +108,43 @@ export const parameters = {
   controls: { expanded: true },
   // Sets custom viewport options for testing under the Canvas view
   viewport: { viewports: customViewports },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: [
+        "Welcome",
+        "Chakra UI",
+        "Development Guide",
+        "Style Guide",
+        "Accessibility Guide",
+        "Components",
+        "Hooks",
+      ],
+    },
+  },
+  docs: {
+    container: MyDocsContainer,
+  },
 };
+
+const preview: Preview = {
+  decorators: [
+    withTests({ results }),
+    (Story) => (
+      <div style={{ margin: "10px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters,
+};
+
+// Show the Jest results in the Storybook UI.
+// addDecorator(withTests({ results }));
+
+// addDecorator((StoryFn) => (
+//   <div style={{ margin: "10px" }}>
+//     <StoryFn />
+//   </div>
+// ));
+export default preview;

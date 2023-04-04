@@ -3,7 +3,7 @@ import { Meta } from "@storybook/addon-docs";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-<Meta title={getCategory("Repetitive Actions")} />
+<Meta title="Repetitive Actions" />
 
 # Repetitive Actions
 
@@ -65,17 +65,13 @@ For example, a link that is visibly titled "Read more" can:
   }
 </style>
 
-<a href="..." id="link1">
-  Read more <span class="sr-only">about jobs</span>
-</a>
+<a href="..." id="link1"> Read more <span class="sr-only">about jobs</span> </a>
 ```
 
 #### aria-label
 
 ```html
-<a href="..." id="link1" aria-label="read more about jobs">
-  Read more
-</a>
+<a href="..." id="link1" aria-label="read more about jobs"> Read more </a>
 ```
 
 #### aria-labelledby
@@ -83,9 +79,7 @@ For example, a link that is visibly titled "Read more" can:
 ```html
 <h2 id="jobsheading">Jobs</h2>
 ...
-<a href="..." id="link1" aria-labelledby="link1 jobsheading">
-  Read more
-</a>
+<a href="..." id="link1" aria-labelledby="link1 jobsheading"> Read more </a>
 ```
 
 ## NYPL Patterns
@@ -98,6 +92,6 @@ TBD
 - [University of Washington: Links and Buttons](https://www.washington.edu/accessibility/checklist/links-buttons/)
 - [University of Washington: Links and Buttons on Websites](https://www.washington.edu/accessibility/websites/links-buttons/)
 
-<!-- hack to make sure correct styles are used on the page -->
+{/* hack to make sure correct styles are used on the page */}
 
 <DSProvider />

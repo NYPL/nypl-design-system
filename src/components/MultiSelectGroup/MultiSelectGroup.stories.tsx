@@ -1,9 +1,9 @@
 import React from "react";
-import { Story } from "@storybook/react/types-6-0";
+// import { Story } from "@storybook/react/types-6-0";
 import { VStack } from "@chakra-ui/react";
 
 import MultiSelect, { MultiSelectItem } from "../MultiSelect/MultiSelect";
-import MultiSelectGroup, { MultiSelectGroupProps } from "./MultiSelectGroup";
+import MultiSelectGroup from "./MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import { action } from "@storybook/addon-actions";
 
@@ -53,7 +53,7 @@ const multiSelectItems = [
   },
 ];
 
-export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
+export const MultiSelectGroupStory = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
 
@@ -105,7 +105,7 @@ export const MultiSelectGroupStory: Story<MultiSelectGroupProps> = (args) => {
   );
 };
 
-export const MultiSelectGroupLayoutStory: Story<MultiSelectGroupProps> = () => {
+export const MultiSelectGroupLayoutStory = () => {
   const [selectedItems, setSelectedItems] = React.useState({});
 
   function handleChange(itemId: string, multiSelectId: string) {

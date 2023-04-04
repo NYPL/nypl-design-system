@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { action } from "@storybook/addon-actions";
-import { Story } from "@storybook/react/types-6-0";
+// import { Story } from "@storybook/react/types-6-0";
 
-import MultiSelect, { MultiSelectProps } from "./MultiSelect";
+import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
 const items = [
@@ -67,7 +67,7 @@ const items = [
   },
 ];
 
-export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
+export const MultiSelectListboxStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onClear, selectedItems } = useMultiSelect();
   const multiSelectId = args.id;
@@ -99,7 +99,7 @@ export const MultiSelectListboxStory: Story<MultiSelectProps> = (args) => {
   );
 };
 
-export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
+export const MultiSelectDialogStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
