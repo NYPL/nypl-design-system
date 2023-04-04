@@ -83,7 +83,7 @@ const getElementsFromData = (
   const multipleFontSize = data?.length > 1 ? "text.default" : "text.caption";
   const multiplePadding = data?.length > 1 ? "s" : "xs s";
 
-  return data.map((content, index) => {
+  return data.map((content: any, index) => {
     // This is done to support both string and DOM element input.
     const panel =
       typeof content.panel === "string" ? (
@@ -184,10 +184,10 @@ export const Accordion = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
-      id,
+      id = "",
       isDefaultOpen = false,
       isAlwaysRendered = false,
-      panelMaxHeight,
+      panelMaxHeight = "",
       ...rest
     } = props;
 

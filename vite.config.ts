@@ -30,7 +30,12 @@ export default defineConfig({
       name: "design-system-react-components",
     },
     rollupOptions: {
-      external: ["react", "@chakra-ui/react", "@chakra-ui/system"],
+      external: [
+        "react",
+        "@chakra-ui/react",
+        "@chakra-ui/system",
+        "@emotion/react",
+      ],
       output: {
         name: "design-system-react-components",
         globals: {

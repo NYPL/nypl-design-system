@@ -1,11 +1,12 @@
 import { VStack } from "@chakra-ui/react";
 import {
-  ArgsTable,
-  Canvas,
+  // Meta,
+  // Story,
+  // Canvas,
+  // ArgsTable,
   Description,
-  Meta,
-  Story,
 } from "@storybook/addon-docs";
+import { Meta, Story, Canvas, ArgsTable, Controls } from "@storybook/blocks";
 import ReactDOMServer from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
 
@@ -140,6 +141,9 @@ export const accordionData = [
 <Canvas withToolbar>
   <Story
     name="Accordion with Controls"
+    argTypes={{
+      accordionData: { control: false },
+    }}
     args={{
       accordionData: accordionData,
       id: "accordion-id",
@@ -152,7 +156,7 @@ export const accordionData = [
   </Story>
 </Canvas>
 
-<ArgsTable story="Accordion with Controls" />
+<ArgsTable of={Accordion} />
 
 ## Accessibility
 

@@ -11,32 +11,6 @@ import results from "../.jest-test-results.json";
 import { MDXProvider } from "@mdx-js/react";
 import { DocsContainer } from "@storybook/blocks";
 
-// addParameters({
-//   options: {
-//     storySort: {
-//       method: "alphabetical",
-//       order: [
-//         "Welcome",
-//         "Chakra UI",
-//         "Development Guide",
-//         "Style Guide",
-//         "Accessibility Guide",
-//         "Components",
-//         "Hooks",
-//       ],
-//     },
-//   },
-// });
-
-// // Show the Jest results in the Storybook UI.
-// addDecorator(withTests({ results }));
-
-// addDecorator((StoryFn) => (
-//   <div style={{ margin: "10px" }}>
-//     <StoryFn />
-//   </div>
-// ));
-
 // Custom viewport options
 const customViewports = {
   sm: {
@@ -131,20 +105,14 @@ const preview: Preview = {
   decorators: [
     withTests({ results }),
     (Story) => (
-      <div style={{ margin: "10px" }}>
-        <Story />
-      </div>
+      <DSProvider>
+        <div style={{ margin: "10px" }}>
+          <Story />
+        </div>
+      </DSProvider>
     ),
   ],
   parameters,
 };
 
-// Show the Jest results in the Storybook UI.
-// addDecorator(withTests({ results }));
-
-// addDecorator((StoryFn) => (
-//   <div style={{ margin: "10px" }}>
-//     <StoryFn />
-//   </div>
-// ));
 export default preview;
