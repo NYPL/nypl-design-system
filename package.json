@@ -18,7 +18,7 @@
       "import": "./dist/design-system-react-components.js",
       "require": "./dist/design-system-react-components.umd.cjs"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/styles.css": "./dist/styles.css"
   },
   "engines": {
     "node": ">=14 <=16"
@@ -44,7 +44,7 @@
   },
   "lint-staged": {
     "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx,css}": "prettier --write"
   },
   "prettier": {
     "printWidth": 80,

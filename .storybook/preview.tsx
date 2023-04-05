@@ -3,10 +3,10 @@ import "../src/styles.scss";
 
 import { Preview } from "@storybook/react";
 import { withTests } from "@storybook/addon-jest";
-import React from "react";
+import React, { useEffect } from "react";
 
 import nyplTheme from "../src/theme";
-import { DSProvider } from "../src/index";
+import { DSProvider, useColorMode } from "../src/index";
 import results from "../.jest-test-results.json";
 import { MDXProvider } from "@mdx-js/react";
 import { DocsContainer } from "@storybook/blocks";
@@ -100,19 +100,47 @@ const parameters = {
     container: MyDocsContainer,
   },
 };
+interface ColorModeProps {
+  colorMode: "light" | "dark";
+  children: JSX.Element;
+}
 
+function ColorMode(props: ColorModeProps) {
+  const { setColorMode } = useColorMode();
+
+  useEffect(() => {
+    setColorMode(props.colorMode);
+  }, [props.colorMode]);
+
+  return props.children;
+}
 const preview: Preview = {
   decorators: [
     withTests({ results }),
-    (Story) => (
+    (Story, context) => (
       <DSProvider>
-        <div style={{ margin: "10px" }}>
-          <Story />
-        </div>
+        <ColorMode colorMode={context.globals.colorMode}>
+          <div style={{ margin: "10px" }}>
+            <Story />
+          </div>
+        </ColorMode>
       </DSProvider>
     ),
   ],
   parameters,
+  globalTypes: {
+    colorMode: {
+      name: "Color Mode",
+      defaultValue: "light",
+      toolbar: {
+        items: [
+          { title: "Light", value: "light" },
+          { title: "Dark", value: "dark" },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
 };
 
 export default preview;

@@ -42,6 +42,10 @@ export default defineConfig({
           react: "React",
           "@chakra-ui/react": "ChakraUI",
         },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") return "styles.css";
+          return assetInfo.name;
+        },
       },
     },
   },

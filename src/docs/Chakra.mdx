@@ -433,12 +433,13 @@ wrapper element of the component; this means if you want to target a specific
 element or component in a Reservoir component, you won't be able to with style
 props.
 
-<DSProvider>
-  <Text isBold>
-    While this is available to use, it is not recommended. If you see a need to
-    override styles, please reach out to the NYPL Reservoir team for assistance.
-  </Text>
-</DSProvider>
+{
+
+<Text isBold>
+  While this is available to use, it is not recommended. If you see a need to
+  override styles, please reach out to the NYPL Reservoir team for assistance.
+</Text>
+}
 
 In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
@@ -449,9 +450,12 @@ props which are shorthand for "padding" and "max-width", respectively.
 </Button>
 ```
 
+{
+
 <Button id="styled-button" p="s" maxH="none" maxW="200px">
   Button
 </Button>
+}
 
 Find more information and a full list of all the available props, check the Chakra
 UI [Style Props page](https://chakra-ui.com/docs/styled-system/features/style-props).

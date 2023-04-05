@@ -11,8 +11,9 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: [
-    "../src/docs/*.stories.mdx",
-    "../src/components/Accordion/*.stories.@(tsx|mdx)",
+    "../src/docs/*.mdx",
+    "../src/components/Accordion/*.stories.tsx",
+    "../src/components/Accordion/Accordion.mdx",
     // "../src/components/**/*.stories.@(tsx|mdx)",
     // "../src/hooks/*.stories.@(tsx|mdx)",
   ],
@@ -58,6 +59,7 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+    defaultName: "Docs",
   },
   refs: {
     "@chakra-ui/react": { disable: true },
