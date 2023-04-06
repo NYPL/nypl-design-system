@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `useCloseDropDown` hook to be exported for nypl-header-app.
+
 ## 1.5.1 (March 23, 2023)
 
 ### Updates
