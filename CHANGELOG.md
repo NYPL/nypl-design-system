@@ -8,8 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.5.2 (April 6, 2023)
+
 ### Updates
 
+- Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
 - Updates `useCloseDropDown` hook to be exported for nypl-header-app.
 - Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
 
