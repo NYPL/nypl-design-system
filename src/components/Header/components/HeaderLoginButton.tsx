@@ -5,7 +5,7 @@ import FocusLock from "@chakra-ui/focus-lock";
 import Button from "../../Button/Button";
 import HeaderLogin from "./HeaderLogin";
 import Icon from "../../Icons/Icon";
-import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import useCloseDropDown from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface HeaderLoginButtonProps {

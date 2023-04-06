@@ -186,7 +186,7 @@ export const Tabs = chakra(
 
       const previousButton = (
         <Button
-          aria-label="Previous"
+          aria-label="Scroll tabs left"
           id={`tabs-previous-${id}`}
           onClick={prevSlide}
           __css={{
@@ -199,12 +199,13 @@ export const Tabs = chakra(
             id={`tabs-previous-icon-${id}`}
             name="arrow"
             size="small"
+            title="previous arrow"
           />
         </Button>
       );
       const nextButton = (
         <Button
-          aria-label="Next"
+          aria-label="Scroll tabs right"
           id={`tabs-next-${id}`}
           onClick={nextSlide}
           __css={{
@@ -217,6 +218,7 @@ export const Tabs = chakra(
             id={`tabs-next-icon-${id}`}
             name="arrow"
             size="small"
+            title="next arrow"
           />
         </Button>
       );
