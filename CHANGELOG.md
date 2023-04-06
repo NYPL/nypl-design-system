@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `useCloseDropDown` hook to be exported for nypl-header-app.
+- Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
 
 ## 1.5.1 (March 23, 2023)
 
