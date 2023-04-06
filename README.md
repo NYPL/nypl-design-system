@@ -138,20 +138,6 @@ function NewComponent(props) {
 }
 ```
 
-### NYPL DS, NYPL Header, and NYPL Footer
-
-```jsx
-<body>
-  <NYPLHeader />
-
-  <div class="app">
-    <!-- your code here -->
-  </div>
-
-  <NYPLFooter />
-</body>
-```
-
 ## Using Chakra UI Components
 
 The Chakra UI component library has been integrated into the Reservoir Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
