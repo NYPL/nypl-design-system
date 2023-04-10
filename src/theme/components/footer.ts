@@ -64,7 +64,7 @@ const Footer = {
         width: "45px",
         a: {
           display: "block",
-          color: "#FFF",
+          color: "ui.white",
           fontSize: { base: "40px", md: "50px" },
           lineHeight: "45px",
           textDecoration: "none",
@@ -95,6 +95,9 @@ const Footer = {
       },
       _dark: {
         color: "dark.ui.typography.body",
+        _hover: {
+          color: "dark.ui.typography.body",
+        }
       },
     },
     // All SVGs in the footer.

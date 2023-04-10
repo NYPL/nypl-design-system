@@ -8,6 +8,20 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
+
+### Updates
+
+- Updates the `dark.ui.border.default` design token to use `ui.gray.semi-dark` as its base.
+- Updates the `dark.ui.border.hover` design token to use `ui.gray.semi-medium` as its base.
+- Updates the `dark.ui.disabled.primary` design token to use `ui.gray.dark` as its base.
+- Updates the `dark.ui.disabled.secondary` design token to use `ui.gray.x-dark` as its base.
+- Updates the `Toggle` component to use `ui.gray.semi-dark` color for its background color.
+- Updates the `List` and `StyledList` components to use `ui.gray.semi-dark` for the bullet color in the "ul" variant.
+- Updates the `Slider` component to use `ui.bg.active` for the color of the track bar in the "disabled" state.
+
 ## 1.5.1 (March 23, 2023)
 
 ### Updates
