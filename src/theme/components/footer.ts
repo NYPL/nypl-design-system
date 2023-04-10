@@ -97,7 +97,7 @@ const Footer = {
         color: "dark.ui.typography.body",
         _hover: {
           color: "dark.ui.typography.body",
-        }
+        },
       },
     },
     // All SVGs in the footer.
