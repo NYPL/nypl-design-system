@@ -18,7 +18,7 @@ Storybook documentation
 | 3.                | [Storybook](#storybook)                                                             |
 | 4.                | [Accessibility](#accessibility)                                                     |
 | 5.                | [Contributing Quickstart](#contributing-quickstart)                                 |
-| 6.                | [Developing with NPM Link](#developing-with-npm-link)                               |
+| 6.                | [Local App Development](#local-app-development)                                     |
 | 7.                | [Typescript Usage](#typescript-usage)                                               |
 | 8.                | [Unit Testing](#unit-testing)                                                       |
 | 9.                | [CDN](#cdn)                                                                         |
@@ -336,7 +336,23 @@ For now, this is a manual process until the repo's node version and build system
 | `development` | `"build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",` |
 | `release`     | `"build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",`                                        |
 
-## Developing with NPM Link
+## Local App Development
+
+Sometimes, you may want to test out a new feature or bug fix in a local app rather than publishing a release candidate version to npm. While this is possible, it is not always straightforward.
+
+_Please note that the following instructions depend on the node version for both the Design System and the local app. If the node versions are different, the instructions may not work. This is a limitation of npm._
+
+### Developing with npm install
+
+To develop with a local version of the Design System:
+
+1. In the root of the consuming application directory, run:
+
+```sh
+$ npm install --no-save [../path/to/design-system]
+```
+
+### Developing with npm link
 
 To develop with a local version of the Design System:
 
@@ -352,13 +368,13 @@ $ npm link
 $ npm link @nypl/design-system-react-components
 ```
 
-3. Go back to the Design System directory and run the following command. It allos the local Design System to be rebuilt and exported automatically:
+3. Go back to the Design System directory and run the following command. It allows the local Design System to be rebuilt and exported automatically:
 
 ```sh
 $ npm start
 ```
 
-### Error Troubleshooting
+#### Error Troubleshooting
 
 It's possible when running `npm link` that you'll get an `Invalid Hook` issue. If this occurs, it's most likely caused by having two versions of React when trying to run the application while the NYPL DS package is linked. This [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) issue is covered by the React team.
 
@@ -370,7 +386,7 @@ $ npm link [../path/to/application]/node_modules/react
 
 Now you should be able to run `npm start` in the DS directory and `npm run dev` (or whatever your application uses) in the application directory and not get an `Invalid Hook` error.
 
-### npm Unlink
+#### npm Unlink
 
 To unlink the DS codebase:
 
