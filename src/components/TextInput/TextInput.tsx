@@ -152,7 +152,7 @@ export const TextInput = chakra(
         value,
         ...rest
       } = props;
-      const [finalValue, setFinalValue] = useState<string>(value || "");
+      const [finalValue, setFinalValue] = useState<string|undefined>(value);
       const closedRef = useRef<HTMLInputElement>();
       const mergedRefs = useMergeRefs(closedRef, ref);
       // If a ref is not passed, then merging refs won't work.
