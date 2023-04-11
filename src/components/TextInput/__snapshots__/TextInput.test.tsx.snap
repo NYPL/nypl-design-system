@@ -62,7 +62,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     required={true}
     step={null}
     type="text"
-    value=""
   />
   <div
     aria-atomic={true}
@@ -138,7 +137,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     required={false}
     step={null}
     type="text"
-    value=""
   />
   <div
     aria-atomic={true}
@@ -210,7 +208,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     required={true}
     step={null}
     type="text"
-    value=""
   />
   <div
     aria-atomic={true}
@@ -308,7 +305,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     required={true}
     step={null}
     type="text"
-    value=""
   />
   <div
     aria-atomic={true}
@@ -380,7 +376,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     required={false}
     step={null}
     type="text"
-    value=""
   />
   <div
     aria-atomic={true}

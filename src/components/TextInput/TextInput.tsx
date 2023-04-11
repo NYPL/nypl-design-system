@@ -211,10 +211,10 @@ export const TextInput = chakra(
       let options;
 
       useEffect(() => {
-        if (value && value !== finalValue) {
+        if (value !== finalValue) {
           setFinalValue(value);
         }
-      }, [finalValue, value]);
+      }, [value]);
 
       if (!id) {
         console.warn(
@@ -314,7 +314,7 @@ export const TextInput = chakra(
             </Label>
           )}
           {fieldOutput}
-          {!isHidden && finalValue.length > 0 && clearButtonOutput}
+          {!isHidden && finalValue?.length > 0 && clearButtonOutput}
         </ComponentWrapper>
       );
     }
