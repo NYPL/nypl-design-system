@@ -8,14 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
 ## 1.5.2 (April 6, 2023)
+
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant.
+- Updates the `Breadcrumbs` component so that the last breadcrumb item is now a link. If the link text is too long, it will get truncated and the DS `Tooltip` component will be used to display the full text in a tooltip when the text is hovered.
 
 ### Updates
 
 - Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
 - Updates `useCloseDropDown` hook to be exported for nypl-header-app.
 - Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
-- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant
 
 ## 1.5.1 (March 23, 2023)
 
