@@ -105,7 +105,7 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="external-link"
-  rel="nofollow"
+  rel="nofollow noopener noreferrer"
   target="_blank"
 >
   External
