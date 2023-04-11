@@ -5,11 +5,12 @@ import {
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import { getAriaAttrs } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
@@ -152,7 +153,7 @@ export const TextInput = chakra(
         value,
         ...rest
       } = props;
-      const [finalValue, setFinalValue] = useState<string | undefined>(value);
+      const [finalValue, setFinalValue] = useStateWithDependencies(value);
       const closedRef = useRef<HTMLInputElement>();
       const mergedRefs = useMergeRefs(closedRef, ref);
       // If a ref is not passed, then merging refs won't work.
@@ -209,12 +210,6 @@ export const TextInput = chakra(
       let fieldOutput;
       let clearButtonOutput;
       let options;
-
-      useEffect(() => {
-        if (value !== finalValue) {
-          setFinalValue(value);
-        }
-      }, [value]);
 
       if (!id) {
         console.warn(
