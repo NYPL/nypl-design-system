@@ -84,16 +84,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -183,16 +184,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -282,16 +284,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -381,16 +384,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -480,16 +484,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -579,16 +584,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>
@@ -679,16 +685,17 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
     >
-      <span
+      <a
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
+        href="#string3"
       >
         <span
           className="breadcrumb-label"
         >
           string3
         </span>
-      </span>
+      </a>
     </li>
   </ol>
 </nav>

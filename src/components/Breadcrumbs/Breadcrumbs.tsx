@@ -36,23 +36,23 @@ export interface BreadcrumbProps {
 
 const breadcrumbTextLength = 40;
 
-// Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
-const breadcrumbText = (text) => {
-  if (text.length <= breadcrumbTextLength) {
-    return text;
-  }
-
-  return truncateText(text, breadcrumbTextLength);
-};
-
+/**
+ * Truncate breadcrumb text if it is more than 40 characters in length and
+ * then add ellipsis at the end.
+ */
 const tooltipWrapperOrText = (
   breadcrumbsData: BreadcrumbsDataProps,
   breadcrumbsID,
   renderIcon = false,
   isCurrentPage = false
 ) => {
-  const renderTooltip =
-    (breadcrumbsData.text as string).length >= breadcrumbTextLength;
+  const textLength = (breadcrumbsData.text as string).length;
+  const renderTooltip = textLength >= breadcrumbTextLength;
+  // If the text is more than 40 characters in length, truncate it.
+  const updatedText =
+    textLength <= breadcrumbTextLength
+      ? breadcrumbsData.text
+      : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
       href={breadcrumbsData.url}
@@ -68,12 +68,13 @@ const tooltipWrapperOrText = (
           type="breadcrumbs"
         />
       )}
-      <span className="breadcrumb-label">
-        {breadcrumbText(breadcrumbsData.text)}
-      </span>
+      <span className="breadcrumb-label">{updatedText}</span>
     </BreadcrumbLink>
   );
-  const wrapper = renderTooltip ? (
+  // If the text is more than 40 characters in length, we need a ToolTip
+  // component wrapped *directly* around the anchor element for
+  // accessibility purposes.
+  const breadcrumbLink = renderTooltip ? (
     <Tooltip
       content={breadcrumbsData.text}
       id={`breadcrumb-${breadcrumbsID}-tooltip`}
@@ -84,7 +85,7 @@ const tooltipWrapperOrText = (
     <>{linkWrapper}</>
   );
 
-  return wrapper;
+  return breadcrumbLink;
 };
 
 const getElementsFromData = (
@@ -92,19 +93,27 @@ const getElementsFromData = (
   breadcrumbsID?: string
 ) => {
   if (!data?.length) {
-    return {};
+    return null;
   }
 
-  const breadcrumbsItems = data.map((breadcrumbsData, index) => (
-    <BreadcrumbItem key={index}>
-      {tooltipWrapperOrText(
-        breadcrumbsData,
-        breadcrumbsID,
-        index === data.length,
-        index === data.length - 1 ? true : false
-      )}
-    </BreadcrumbItem>
-  ));
+  const breadcrumbsItems = data.map((breadcrumbsData, index) => {
+    // The icon renders only on mobile and it should be
+    // part of the second to last element in the nav.
+    const renderIcon = index === data.length - 2;
+    // The current page is the last item in the breadcrumbs
+    // and needs an additional aria attribute.
+    const isCurrentPage = index === data.length - 1;
+    return (
+      <BreadcrumbItem key={index}>
+        {tooltipWrapperOrText(
+          breadcrumbsData,
+          breadcrumbsID,
+          renderIcon,
+          isCurrentPage
+        )}
+      </BreadcrumbItem>
+    );
+  });
 
   return breadcrumbsItems;
 };
