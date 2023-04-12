@@ -162,7 +162,7 @@ export const Link = chakra(
       variant = type;
     }
     const styles = useMultiStyleConfig("Link", { variant, isUnderlined });
-    const rel = type === "external" ? "nofollow" : null;
+    const rel = type === "external" ? "nofollow noopener noreferrer" : null;
     const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
     // "forwards" or "backwards". Or render with the launch icon

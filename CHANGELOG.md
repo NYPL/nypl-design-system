@@ -18,6 +18,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
 
+## 1.5.2 (April 6, 2023)
+
+### Updates
+
+- Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
+- Updates `useCloseDropDown` hook to be exported for nypl-header-app.
+- Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant
+
 ## 1.5.1 (March 23, 2023)
 
 ### Updates

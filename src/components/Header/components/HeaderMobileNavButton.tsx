@@ -5,7 +5,7 @@ import React, { useState, useRef } from "react";
 import Button from "../../Button/Button";
 import Icon from "../../Icons/Icon";
 import HeaderMobileNav from "./HeaderMobileNav";
-import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import useCloseDropDown from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 /**

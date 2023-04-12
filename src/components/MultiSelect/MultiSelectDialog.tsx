@@ -16,7 +16,7 @@ import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import useNYPLBreakpoints from "./../../hooks/useNYPLBreakpoints";
-import { useCloseDropDown } from "./../../hooks/useCloseDropDown";
+import useCloseDropDown from "../../hooks/useCloseDropDown";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

@@ -6,7 +6,7 @@ import { useOutsideClick } from "@chakra-ui/react";
  * the escape key. It expects an action callback that will set
  * the dropdown state to false (close).
  */
-export const useCloseDropDown = (
+const useCloseDropDown = (
   actionCb: (val: boolean) => void,
   ref: React.RefObject<HTMLDivElement>
 ) => {
@@ -30,3 +30,5 @@ export const useCloseDropDown = (
     handler: () => actionCb(false),
   });
 };
+
+export default useCloseDropDown;

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
-import { useCloseDropDown } from "../useCloseDropDown";
+import useCloseDropDown from "../useCloseDropDown";
 
 describe("useCloseDropDown hook", () => {
   const TestComponent = () => {
