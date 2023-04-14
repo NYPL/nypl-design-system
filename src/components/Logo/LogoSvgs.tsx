@@ -17,7 +17,9 @@ import { ReactComponent as lpaWhite } from "../../../icons/svg/logo-lpa-white.sv
 import { ReactComponent as mlnBlack } from "../../../icons/svg/logo-mln-black.svg";
 import { ReactComponent as mlnColor } from "../../../icons/svg/logo-mln-color.svg";
 import { ReactComponent as mlnWhite } from "../../../icons/svg/logo-mln-white.svg";
+import { ReactComponent as nycdoeBlack } from "../../../icons/svg/logo-nycdoe-black.svg";
 import { ReactComponent as nycdoeColor } from "../../../icons/svg/logo-nycdoe-color.svg";
+import { ReactComponent as nycdoeWhite } from "../../../icons/svg/logo-nycdoe-white.svg";
 import { ReactComponent as nyplFullBlack } from "../../../icons/svg/logo-nypl-full-black.svg";
 import { ReactComponent as nyplFullWhite } from "../../../icons/svg/logo-nypl-full-white.svg";
 import { ReactComponent as nyplLionBlack } from "../../../icons/svg/logo-nypl-lion-black.svg";
@@ -68,7 +70,9 @@ export default {
   mlnBlack,
   mlnColor,
   mlnWhite,
+  nycdoeBlack,
   nycdoeColor,
+  nycdoeWhite,
   nyplFullBlack,
   nyplFullWhite,
   nyplLionBlack,

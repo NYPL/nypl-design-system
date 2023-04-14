@@ -23,12 +23,14 @@ import { hexToRGB } from "../../utils/utils";
 // Reusable variables:
 const black = "#000";
 const white = "#fff";
-const grayDark = "#616161";
 const grayxxxxDark = "#191919";
 const grayxxxDark = "#252525";
 const grayxxDark = "#2E2E2E";
 const grayxDark = "#424242";
+const grayDark = "#616161";
+const graySemiDark = "#8D8D8D";
 const grayMedium = "#BDBDBD";
+const graySemiMedium = "#D9D9D9";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
@@ -186,7 +188,9 @@ const colors: Colors = {
       "xx-dark": grayxxDark,
       "x-dark": grayxDark,
       dark: grayDark,
+      "semi-dark": graySemiDark,
       medium: grayMedium,
+      "semi-medium": graySemiMedium,
       "light-cool": grayLightCool,
       "x-light-cool": grayxLightCool,
       "xx-light-cool": grayxxLightCool,
@@ -212,7 +216,7 @@ const colors: Colors = {
       // State and link utilities
       disabled: {
         primary: grayDark,
-        secondary: grayxxDark,
+        secondary: grayxDark,
       },
       error: {
         primary: "#E1767B",
@@ -246,8 +250,8 @@ const colors: Colors = {
         active: grayxDark,
       },
       border: {
-        default: grayxDark,
-        hover: grayMedium,
+        default: graySemiDark,
+        hover: graySemiMedium,
       },
       typography: {
         heading: grayLightCool,
