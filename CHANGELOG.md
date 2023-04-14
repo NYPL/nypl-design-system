@@ -23,6 +23,35 @@ This updates replaces TSDX with Vite for the build tool. This allows the Reservo
 - Storybook is updated to v6.5.16, which is a minor update from v6.5.13.
 - Due to moving to ESM as the default for the repo, types are exported separated from components in the main `/src/index.ts` file. This doesn't affect the final build but just how components, interfaces, and types are exported.
 
+### Adds
+
+- Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
+
+### Updates
+
+- Updates the `dark.ui.border.default` design token to use `ui.gray.semi-dark` as its base.
+- Updates the `dark.ui.border.hover` design token to use `ui.gray.semi-medium` as its base.
+- Updates the `dark.ui.disabled.primary` design token to use `ui.gray.dark` as its base.
+- Updates the `dark.ui.disabled.secondary` design token to use `ui.gray.x-dark` as its base.
+- Updates the `Toggle` component to use `ui.gray.semi-dark` color for its background color.
+- Updates the `List` and `StyledList` components to use `ui.gray.semi-dark` for the bullet color in the "ul" variant.
+- Updates the `Slider` component to use `ui.bg.active` for the color of the track bar in the "disabled" state.
+
+### Fixes
+
+- Fixes a `border-radius` formatting issues on the hover state of the search field for the dark mode version of the `Header` component.
+- Fixes a `color` issue on the hover state of the links for the dark mode version of the `Footer` component.
+- Fixes a `border-color` issue for the dark mode version of the `FeedbackBox` component.
+
+## 1.5.2 (April 6, 2023)
+
+### Updates
+
+- Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
+- Updates `useCloseDropDown` hook to be exported for nypl-header-app.
+- Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant
+
 ## 1.5.1 (March 23, 2023)
 
 ### Updates

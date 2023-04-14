@@ -5,7 +5,7 @@ import React, { useState, useRef } from "react";
 import Button from "../../Button/Button";
 import HeaderSearchForm from "./HeaderSearchForm";
 import Icon from "../../Icons/Icon";
-import { useCloseDropDown } from "../../../hooks/useCloseDropDown";
+import useCloseDropDown from "../../../hooks/useCloseDropDown";
 import gaUtils from "../utils/googleAnalyticsUtils";
 
 export interface HeaderSearchButtonProps {
