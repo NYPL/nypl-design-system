@@ -61,9 +61,19 @@ export const colorContrastData = {
         dataWhiteColor: checkContrast("6.19"),
         textColor: "ui.white",
       },
+      semiDark: {
+        dataBlackColor: checkContrast("6.33"),
+        dataWhiteColor: checkContrast("3.32"),
+        textColor: "ui.black",
+      },
       medium: {
-        dataBlackColor: ["11.18", "AAA", "AAA"],
-        dataWhiteColor: ["1.88", "Fail", "Fail"],
+        dataBlackColor: checkContrast("11.18"),
+        dataWhiteColor: checkContrast("1.88"),
+        textColor: "ui.black",
+      },
+      semiMedium: {
+        dataBlackColor: checkContrast("14.88"),
+        dataWhiteColor: checkContrast("1.41"),
         textColor: "ui.black",
       },
       lightCool: {
@@ -241,18 +251,6 @@ export const cssVars = {
     },
   ],
   ui: [
-    {
-      name: "ui.black",
-      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
-      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
-      textColor: colorContrastData.ui.black.textColor,
-    },
-    {
-      name: "ui.white",
-      dataBlackColor: colorContrastData.ui.white.dataBlackColor,
-      dataWhiteColor: colorContrastData.ui.white.dataWhiteColor,
-      textColor: colorContrastData.ui.white.textColor,
-    },
     {
       colorSource: "ui.gray.x-light-cool",
       name: "ui.bg.default",
@@ -451,7 +449,21 @@ export const cssVars = {
       textColor: "ui.black",
     },
   ],
-  grayscale: [
+  grayscaleRoot: [
+    {
+      name: "ui.black",
+      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      name: "ui.white",
+      dataBlackColor: colorContrastData.ui.white.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.white.dataWhiteColor,
+      textColor: colorContrastData.ui.white.textColor,
+    },
+  ],
+  grayscaleCool: [
     {
       name: "ui.gray.xxxx-dark",
       dataBlackColor: colorContrastData.ui.gray.xxxxDark.dataBlackColor,
@@ -483,10 +495,22 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.dark.textColor,
     },
     {
+      name: "ui.gray.semi-dark",
+      dataBlackColor: colorContrastData.ui.gray.semiDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.semiDark.textColor,
+    },
+    {
       name: "ui.gray.medium",
       dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
       textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      name: "ui.gray.semi-medium",
+      dataBlackColor: colorContrastData.ui.gray.semiMedium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiMedium.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.semiMedium.textColor,
     },
     {
       name: "ui.gray.light-cool",
@@ -507,7 +531,7 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.xxLightCool.textColor,
     },
   ],
-  grayscaleAlt: [
+  grayscaleWarm: [
     {
       name: "ui.gray.light-warm",
       dataBlackColor: colorContrastData.ui.gray.lightWarm.dataBlackColor,
@@ -559,48 +583,40 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.xDark.textColor,
     },
     {
-      colorSource: "ui.gray.x-dark",
+      colorSource: "ui.gray.semi-dark",
       name: "dark.ui.border.default",
-      dataBlackColor: colorContrastData.ui.gray.xDark.dataBlackColor,
-      dataWhiteColor: colorContrastData.ui.gray.xDark.dataWhiteColor,
-      dataHeadingColor: colorContrastData.dark.ui.gray.xDark.dataHeadingColor,
-      dataBodyColor: colorContrastData.dark.ui.gray.xDark.dataBodyColor,
-      dataDarkBgPageColor: ["1.86", "Fail", "Fail"],
-      dataDarkBgDefaultColor: ["1.75", "Fail", "Fail"],
-      textColor: colorContrastData.ui.gray.xDark.textColor,
+      dataBlackColor: colorContrastData.ui.gray.semiDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiDark.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("5.30"),
+      dataDarkBgDefaultColor: checkContrast("4.62"),
+      textColor: colorContrastData.ui.gray.semiDark.textColor,
     },
     {
-      colorSource: "ui.gray.medium",
+      colorSource: "ui.gray.semi-medium",
       name: "dark.ui.border.hover",
-      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
-      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
-      dataHeadingColor: ["1.55", "Fail", "Fail"],
-      dataBodyColor: ["1.00", "Fail", "Fail"],
-      dataDarkBgPageColor: ["9.97", "AAA", "AAA"],
-      dataDarkBgDefaultColor: ["9.36", "AAA", "AAA"],
-      textColor: colorContrastData.ui.gray.medium.textColor,
+      dataBlackColor: colorContrastData.ui.gray.semiMedium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiMedium.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("12.46"),
+      dataDarkBgDefaultColor: checkContrast("10.86"),
+      textColor: colorContrastData.ui.gray.semiMedium.textColor,
+    },
+    {
+      colorSource: "ui.gray.dark",
+      name: "dark.ui.disabled.primary",
+      dataBlackColor: colorContrastData.ui.gray.dark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.dark.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("1.86"),
+      dataDarkBgDefaultColor: checkContrast("1.75"),
+      textColor: colorContrastData.ui.gray.dark.textColor,
     },
     {
       colorSource: "ui.gray.x-dark",
-      name: "dark.ui.disabled.primary",
+      name: "dark.ui.disabled.secondary",
       dataBlackColor: colorContrastData.ui.gray.xDark.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.gray.xDark.dataWhiteColor,
-      dataHeadingColor: colorContrastData.dark.ui.gray.xDark.dataHeadingColor,
-      dataBodyColor: colorContrastData.dark.ui.gray.xDark.dataBodyColor,
-      dataDarkBgPageColor: ["1.86", "Fail", "Fail"],
-      dataDarkBgDefaultColor: ["1.75", "Fail", "Fail"],
+      dataDarkBgPageColor: checkContrast("1.16"),
+      dataDarkBgDefaultColor: checkContrast("1.09"),
       textColor: colorContrastData.ui.gray.xDark.textColor,
-    },
-    {
-      colorSource: "ui.gray.xx-dark",
-      name: "dark.ui.disabled.secondary",
-      dataBlackColor: colorContrastData.ui.gray.xxDark.dataBlackColor,
-      dataWhiteColor: colorContrastData.ui.gray.xxDark.dataWhiteColor,
-      dataHeadingColor: colorContrastData.dark.ui.gray.xxDark.dataHeadingColor,
-      dataBodyColor: colorContrastData.dark.ui.gray.xxDark.dataBodyColor,
-      dataDarkBgPageColor: ["1.16", "Fail", "Fail"],
-      dataDarkBgDefaultColor: ["1.09", "Fail", "Fail"],
-      textColor: colorContrastData.ui.gray.xxDark.textColor,
     },
     {
       name: "dark.ui.error.primary",
@@ -802,14 +818,13 @@ export const getColorCards = (category) => {
 ## Table of Contents
 
 - [Overview](#overview)
-- [Brand Fills](#brand-fills)
+- [Brand Colors](#brand-colors)
   - [NYPL Brand Colors](#nypl-brand-colors)
   - [NYPL Section Colors](#nypl-section-colors)
-- [UI Fills](#ui-fills)
-  - [Utility Colors](#utility-colors)
+- [UI Colors](#ui-colors)
+  - [Semantic Colors](#semantic-colors)
   - [Grayscale Colors](#grayscale-colors)
-- [Dark Mode UI Fills](#dark-mode-ui-fills)
-- [Semantic Design Tokens](#semantic-design-tokens)
+- [Dark Mode UI Colors](#dark-mode-ui-colors)
 - [Figma Reference](#figma-reference)
 
 ## Overview
@@ -830,7 +845,7 @@ Resources:
 
 - [W3C WCAG 2.1 Contrast Minimum](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 
-## Brand Fills
+## Brand Colors
 
 These colors are connected to the NYPL brand and are not intended to be generic.
 
@@ -930,13 +945,15 @@ used to add visual context for a user's location on an NYPL website.
   </DSProvider>
 </Canvas>
 
-## UI Fills
+## UI Colors
 
-UI Fills are colors used for typography and to communicate component and/or
-application state. These colors are not connected to the NYPL brand and are
-intended to be generic.
+UI color are not connected to the NYPL brand and are intended to be generic.
 
-### Utility Colors
+### Semantic Colors
+
+Semantic colors are named to match their function. They are generally used in
+common UI and typography patterns, and to communicate component and/or
+application state.
 
 <Canvas>
   <DSProvider>
@@ -948,25 +965,32 @@ intended to be generic.
 
 ### Grayscale Colors
 
-Grays are used for secondary body copy and non-semantic UI design.
+Grayscale colors are used as a base for the semantic colors. Outside of
+`ui.black` and `ui.white`, these colors should not be used directly in designs
+and coding.
 
 <Canvas>
   <DSProvider>
-    <Heading level="four">Cool (standard options)</Heading>
     <SimpleGrid columns={1} gap="s">
-      {getColorCards("grayscale")}
+      {getColorCards("grayscaleRoot")}
+    </SimpleGrid>
+    <Heading level="four" marginTop="l">
+      Cool (standard options)
+    </Heading>
+    <SimpleGrid columns={1} gap="s">
+      {getColorCards("grayscaleCool")}
     </SimpleGrid>
     <Heading level="four" marginTop="l">
       Warm
     </Heading>
     <Text>The warm grays are alternate options to the cool grays.</Text>
     <SimpleGrid columns={1} gap="s" marginTop="s">
-      {getColorCards("grayscaleAlt")}
+      {getColorCards("grayscaleWarm")}
     </SimpleGrid>
   </DSProvider>
 </Canvas>
 
-## Dark Mode UI Fills
+## Dark Mode UI Colors
 
 The following "dark mode" color fills are used for body copy and to communicate
 component and/or application state in dark mode.
@@ -980,13 +1004,6 @@ These colors are not connected to the NYPL brand, but are intended to be generic
     </SimpleGrid>
   </DSProvider>
 </Canvas>
-
-## Semantic Design Tokens
-
-The color design tokens offer a selection of semantically named tokens which
-help make it easy to quickly and logically add styles to a DS component. A list
-of the sematic tokens can be found on the [Design
-Tokens](/story/development-guide-design-tokens--page#color-semantic-tokens) page.
 
 ## Figma Reference
 
