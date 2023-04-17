@@ -48,7 +48,7 @@
     "isolatedModules": true,
     // "noEmit": true,
     // "jsx": "react-jsx"
-    "types": ["node", "webpack-env", "jest", "@testing-library/jest-dom"]
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }

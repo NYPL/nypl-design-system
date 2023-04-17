@@ -13,11 +13,11 @@ import DSProvider from "../theme/provider";
 
 <Meta title="Welcome" />
 
+{
+
 <DSProvider>
   <VStack spacing="s">
-    <Center>
-      <Logo name="reservoirVerticalColor" size="small" />
-    </Center>
+    <Logo name="reservoirVerticalColor" size="small" />
     <Box>
       <Center>
         <Heading level="one" size="tertiary">
@@ -55,21 +55,18 @@ import DSProvider from "../theme/provider";
           <CardContent>
             <Text size="caption">
               To start using Reservoir Design System, refer to Reservoir's
-              Github{" "}
+              Github
               <Link
                 href="https://github.com/NYPL/nypl-design-system/wiki"
                 type="external"
               >
                 Wiki
-              </Link>{" "}
-              and{" "}
-              <Link
+              </Link> and <Link
                 href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
                 type="external"
               >
                 ReadMe
-              </Link>{" "}
-              to setup your project. You can also learn about our component
+              </Link> to setup your project. You can also learn about our component
               architecture and additional documentation.
             </Text>
           </CardContent>
@@ -126,19 +123,21 @@ import DSProvider from "../theme/provider";
           <CardContent>
             <Text size="caption">
               The Reservoir Design System React component library is currently
-              published on{" "}
+              published on
               <Link
                 href="https://www.npmjs.com/package/@nypl/design-system-react-components"
                 type="external"
               >
                 npm
-              </Link>
-              . If you're looking to contribute to this project, checkout the <Link
+              </Link>. If you're looking to contribute to this project, checkout
+              the
+              <Link
                 href="https://github.com/NYPL/nypl-design-system"
                 type="external"
               >
                 nypl-design-system
-              </Link> repo on Github for more information.
+              </Link>
+              repo on Github for more information.
             </Text>
           </CardContent>
         </Card>
@@ -146,3 +145,5 @@ import DSProvider from "../theme/provider";
     </SimpleGrid>
   </VStack>
 </DSProvider>
+
+}

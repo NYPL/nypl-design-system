@@ -93,7 +93,7 @@ export const Icon = chakra(
       title,
       ...rest,
     };
-    let childSVG = null;
+    let childSVG: any = null;
 
     // Component prop validation
     if (name && children) {

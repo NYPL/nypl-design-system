@@ -115,7 +115,7 @@ export const Logo = chakra(
       title,
       ...rest,
     };
-    let childSVG = null;
+    let childSVG: any = null;
 
     // Component prop validation
     if (name && children) {

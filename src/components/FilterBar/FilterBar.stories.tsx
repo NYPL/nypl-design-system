@@ -1,9 +1,9 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
-import { Story } from "@storybook/react/types-6-0";
+// import { Story } from "@storybook/react/types-6-0";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 
-import FilterBar, { FilterBarProps } from "./FilterBar";
+import FilterBar from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import useFilterBar from "../../hooks/useFilterBar";
@@ -72,7 +72,7 @@ const multiSelectItems = [
 const shortMultiSelectItems = [...multiSelectItems];
 shortMultiSelectItems.pop();
 
-export const FilterBarStory: Story<FilterBarProps> = (args) => {
+export const FilterBarStory = (args) => {
   const {
     onChange,
     onMixedStateChange,
