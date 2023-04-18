@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes a `border-radius` formatting issues on the hover state of the search field for the dark mode version of the `Header` component.
 - Fixes a `color` issue on the hover state of the links for the dark mode version of the `Footer` component.
 - Fixes a `border-color` issue for the dark mode version of the `FeedbackBox` component.
+- Fixes the focus rectangle around the `TextInput` clear button so it is centered on both desktop and mobile views.
 
 ## 1.5.2 (April 6, 2023)
 
