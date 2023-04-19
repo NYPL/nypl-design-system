@@ -42,6 +42,7 @@ export default defineConfig({
         globals: {
           react: "React",
           "@chakra-ui/react": "ChakraUI",
+          "@emotion/react": "Emotion",
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === "style.css") return "styles.css";

@@ -19,12 +19,12 @@
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     // use Node's module resolution algorithm, instead of the legacy TS one
     "moduleResolution": "node",
     // transpile JSX to React.createElement
-    "jsx": "react",
+    "jsx": "react-jsx",
     // interop between ESM and CJS modules. Recommended by TS
     "esModuleInterop": true,
     // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
@@ -32,6 +32,7 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "jsxImportSource": "@emotion/react",
     // From header
     // "target": "ESNext",
     // "useDefineForClassFields": true,

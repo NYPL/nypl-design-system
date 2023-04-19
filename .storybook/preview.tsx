@@ -1,13 +1,22 @@
+// Add the DS styles.
 import "../src/styles.scss";
 
-import type { Preview } from "@storybook/react";
-import { withTests } from "@storybook/addon-jest";
-import React, { useEffect } from "react";
-import nyplTheme from "../src/theme";
-import { DSProvider, useColorMode } from "../src/index";
-import results from "../.jest-test-results.json";
 import { MDXProvider } from "@mdx-js/react";
+import { withTests } from "@storybook/addon-jest";
 import { DocsContainer } from "@storybook/blocks";
+import type { Preview } from "@storybook/react";
+import React, { useEffect } from "react";
+
+import {
+  DSProvider,
+  Heading,
+  Link,
+  List,
+  Text,
+  useColorMode,
+} from "../src/index";
+import nyplTheme from "../src/theme";
+import results from "../.jest-test-results.json";
 
 // Custom viewport options
 const customViewports = {
@@ -48,15 +57,32 @@ const customViewports = {
   },
 };
 
+/**
+ * This allows Storybook document pages to use DS specific components
+ * and styles. We need to explicitly set each one, however.
+ */
 const MyDocsContainer = (props) => (
-  <MDXProvider>
+  <MDXProvider
+    components={{
+      h1: ({ children }) => <Heading level="one">{children}</Heading>,
+      h2: ({ children }) => <Heading level="two">{children}</Heading>,
+      h3: ({ children }) => <Heading level="three">{children}</Heading>,
+      h4: ({ children }) => <Heading level="four">{children}</Heading>,
+      h5: ({ children }) => <Heading level="five">{children}</Heading>,
+      h6: ({ children }) => <Heading level="six">{children}</Heading>,
+      a: Link as any,
+      p: Text as any,
+      // TODO: Make this monospacing font
+      code: ({ children }) => <code>{children}</code>,
+      ul: List as any,
+    }}
+  >
     <DSProvider>
       <DocsContainer {...props} />
     </DSProvider>
   </MDXProvider>
 );
 
-// https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
@@ -103,32 +129,40 @@ interface ColorModeProps {
   colorMode: "light" | "dark";
   children: JSX.Element;
 }
-function ColorMode(props: ColorModeProps) {
+/**
+ * Small component that adds a light/dark mode switch in the
+ * Storybook toolbar.
+ */
+function ColorMode({ children, colorMode }: ColorModeProps) {
   const { setColorMode } = useColorMode();
 
   useEffect(() => {
-    setColorMode(props.colorMode);
-  }, [props.colorMode]);
+    setColorMode(colorMode);
+  }, [colorMode]);
 
-  return props.children;
+  return children;
 }
 
+/**
+ * The main config object for Storybook. This wraps all components
+ * in a `DSProvider` so they render appropriately, adds Jest test results
+ * in the addon toolbar, and adds the light/dark mode switch in the
+ * top toolbar.
+ */
 const preview: Preview = {
   decorators: [
     withTests({ results }),
     (Story, context) => (
       <DSProvider>
         <ColorMode colorMode={context.globals.colorMode}>
-          <div style={{ margin: "10px" }}>
-            <Story />
-          </div>
+          <Story />
         </ColorMode>
       </DSProvider>
     ),
   ],
   globalTypes: {
     colorMode: {
-      name: "Color Mode",
+      title: "Color Mode",
       defaultValue: "light",
       toolbar: {
         items: [

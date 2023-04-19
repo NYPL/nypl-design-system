@@ -3,7 +3,7 @@ import React from "react";
 
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
-import { TooltipWrapper } from "./TagSet";
+import { TooltipWrapper } from "./TooltipWrapper";
 
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */

@@ -24,7 +24,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/strict",
-    "prettier"
+    "prettier",
+    "plugin:react/jsx-runtime"
   ],
   "rules": {
     // Allow exporting simple anonymous objects
