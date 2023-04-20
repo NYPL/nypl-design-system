@@ -39,7 +39,7 @@ export const baseUnorderedStyles = (noStyling = false) => ({
     },
     _dark: {
       _before: {
-        color: "dark.ui.bg.active",
+        color: "ui.gray.semi-dark",
       },
     },
   },
