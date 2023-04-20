@@ -15,6 +15,14 @@ const blogs = {
       },
     },
   },
+  "li:last-child": {
+    ".chakra-breadcrumb__link": {
+      _hover: {
+        // Override the default hover color.
+        color: "ui.gray.xx-dark",
+      },
+    },
+  },
   svg: {
     fill: "ui.black",
   },
@@ -85,6 +93,8 @@ const Breadcrumb = {
       fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
       ".chakra-breadcrumb__link": {
         _hover: {
+          // Override the default hover color.
+          color: "ui.white",
           cursor: "default",
           textDecoration: "none",
         },
