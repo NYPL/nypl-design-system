@@ -157,7 +157,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",
@@ -222,7 +222,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",
@@ -285,7 +285,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",
@@ -502,7 +502,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",
@@ -567,7 +567,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",
@@ -630,7 +630,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
                       onKeyUp={[Function]}
                       required={false}
                       style={
-                        Object {
+                        {
                           "border": "0px",
                           "clip": "rect(0px, 0px, 0px, 0px)",
                           "height": "1px",

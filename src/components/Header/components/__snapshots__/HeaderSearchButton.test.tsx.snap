@@ -7,7 +7,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -22,7 +22,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -87,7 +87,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -109,7 +109,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -124,7 +124,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -188,7 +188,7 @@ exports[`HeaderSearchButton renders the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",

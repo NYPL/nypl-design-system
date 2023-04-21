@@ -98,18 +98,7 @@ For apps using parcel, prepend the string import with `npm:` such as :
 @import "npm:@nypl/design-system-react-components/dist/styles.css";
 ```
 
-4. Optionally import the `@nypl/design-system-react-components/dist/resources.scss` file in your main _scss_ file. This file contains useful SCSS mixins that can be used for global or component style rules.
-
-```scss
-@import "@nypl/design-system-react-components/dist/resources.scss";
-
-// `screenreader-only` is one example of a mixing from `resources.scss`:
-legend {
-  @include screenreader-only;
-}
-```
-
-5. Use DS components!
+4. Use DS components!
 
 Consult Storybook for the list of available components and props that they require.
 
@@ -196,7 +185,7 @@ When actively developing components or fixing bugs, make sure that the related s
 For stand-alone document pages in Storybook, you need to:
 
 1. create the `[page-name].stories.mdx` file in `src/docs/`
-2. add the file reference to the `.storybook/main.js` file in the `stories` array
+2. add the file reference to the `.storybook/main.cjs` file in the `stories` array
 
 ### React Component Versions
 
@@ -272,9 +261,9 @@ Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branc
 
 ### Node Version
 
-We recommend using Node version 14.x since the DS has some issues with versions higher than 14.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 14.x.
+We recommend using Node version 16.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 16.x.
 
-If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `14.x`).
+If you are using `nvm`, the local `.nvmrc` file (using `16.x`) can be use to set your local Node version with the `nvm use` command. Make sure your machine has Node version 16.x installed through `nvm` already.
 
 ### Git Branch Workflow
 
@@ -317,24 +306,7 @@ The release candidate version passed QA and is ready for production! What do we 
 4. Delete the `package-lock.json` file and the `node_modules` directory.
 5. Run `npm install` to install all the dependencies and create a new `package-lock.json` file with the updated version.
 6. Push the changes to Github and create a new pull request from `development` that points to the `release` branch.
-7. Once approved and merged, a Github Action will run that will automatically deploy the static Storybook to Github Pages and publish the new version to npm.
-
-#### Release Troubleshooting
-
-There is currently a bug with node that causes Vercel preview instances to fail and not build correctly. In order to fix this, the build script has an included node flag added. This can be found in package.json:
-
-```json
-  "build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",
-```
-
-Unfortunately, while this helps the Vercel previews to build correctly, it causes the Github Action that builds the production Storybook to fail. Because of this, the `release` branch must _not_ include the `NODE_OPTIONS=--openssl-legacy-provider` flag. This means that the `release` branch must be updated to remove this flag before merging the `development` branch into it.
-
-For now, this is a manual process until the repo's node version and build system are updated.
-
-| Branch        | Script                                                                                                                                          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `development` | `"build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",` |
-| `release`     | `"build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",`                                        |
+7. Once approved and merged, a Github Action will run that will automatically deploy the static Storybook to Github Pages and publish the new version to npm. |
 
 ## Local App Development
 
@@ -481,24 +453,36 @@ After writing new tests, run `npm run test:generate-output` to create a new JSON
 
 ## CDN
 
-You can also use the Design System styles in your project through the `unpkg` CDN:
+You can also use the Design System styles in your project through the `unpkg` CDN, but not that this is not recommended for production use.
 
 ```html
 <link
   href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css"
 />
-<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.cjs.production.min.js" />
-<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.esm.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.umd.cjs" />
+<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.js" />
 ```
 
-If you need to reference a particular version you can do do by including the version number in the URL:
+If you need to reference a particular version you can do do by including the version number in the URL.
+
+For version < 1.6.0:
 
 ```html
 <link
-  href="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/styles.css"
+  href="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/styles.css"
 />
-<script src="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/design-system-react-components.cjs.production.min.js" />
-<script src="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/design-system-react-components.esm.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/design-system-react-components.cjs.production.min.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/design-system-react-components.esm.js" />
+```
+
+For version >= 1.6.0:
+
+```html
+<link
+  href="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/styles.css"
+/>
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/design-system-react-components.umd.cjs" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/design-system-react-components.js" />
 ```
 
 You can check out a working Codepen with unpkg [here](https://codepen.io/edwinguzman/pen/ExmXGKx).

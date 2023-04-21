@@ -89,7 +89,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -193,7 +193,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
               id="searchbar-select-withSelect-icon"
               role="presentation"
               style={
-                Object {
+                {
                   "color": "currentColor",
                   "height": "1em",
                   "width": "1em",
@@ -313,7 +313,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -501,7 +501,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -1173,7 +1173,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -1272,7 +1272,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }

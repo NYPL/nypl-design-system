@@ -75,7 +75,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     >
       <span
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "VideoPlayer helper test.",
           }
         }
@@ -111,8 +111,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     >
       <span
         dangerouslySetInnerHTML={
-          Object {
-            "__html": "<iframe title=\\"Video player\\" src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>",
+          {
+            "__html": "<iframe title="Video player" src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>",
           }
         }
       />
@@ -126,7 +126,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     >
       <span
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "VideoPlayer helper test.",
           }
         }
@@ -144,7 +144,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<strong>Error:</strong> This video player has not been configured properly. Please contact the site administrator.",
       }
     }

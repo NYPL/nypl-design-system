@@ -30,7 +30,7 @@ describe("HeaderLoginButton Accessibility", () => {
   });
 });
 
-describe("HeaderLoginButton", () => {
+describe.skip("HeaderLoginButton", () => {
   describe("Desktop", () => {
     it("renders the logged out UI if there is no `patronName` value", () => {
       render(

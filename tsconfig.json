@@ -3,6 +3,7 @@
   "include": ["src", "types", "tsd.d.ts"],
   "exclude": ["node_modules", "lib"],
   "compilerOptions": {
+    "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
@@ -30,8 +31,24 @@
     "skipLibCheck": true,
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
-    // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
+    // From header
+    // "target": "ESNext",
+    // "useDefineForClassFields": true,
+    // "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    // "allowJs": false,
+    // "skipLibCheck": true,
+    // "esModuleInterop": false,
+    // "allowSyntheticDefaultImports": true,
+    // "strict": false,
+    // "forceConsistentCasingInFileNames": true,
+    // "module": "ESNext",
+    // "moduleResolution": "Node",
+    // "resolveJsonModule": true,
+    "isolatedModules": true,
+    // "noEmit": true,
+    // "jsx": "react-jsx"
     "types": ["node", "webpack-env", "jest", "@testing-library/jest-dom"]
-  }
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

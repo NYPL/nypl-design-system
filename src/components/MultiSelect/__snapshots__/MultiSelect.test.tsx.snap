@@ -9,7 +9,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -24,7 +24,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -100,7 +100,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 1`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -124,7 +124,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -139,7 +139,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -237,7 +237,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -313,7 +313,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -389,7 +389,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -465,7 +465,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -544,7 +544,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -620,7 +620,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -698,7 +698,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -774,7 +774,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -850,7 +850,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 2`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -874,7 +874,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -889,7 +889,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -1033,7 +1033,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1109,7 +1109,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1185,7 +1185,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1261,7 +1261,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1286,7 +1286,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
               >
                 <div
                   style={
-                    Object {
+                    {
                       "alignItems": "center",
                       "display": "flex",
                       "height": "100%",
@@ -1298,7 +1298,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                   <svg
                     className="css-o8vbdw"
                     style={
-                      Object {
+                      {
                         "opacity": 1,
                         "stroke": "currentColor",
                         "strokeWidth": 4,
@@ -1363,7 +1363,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -1441,7 +1441,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -1519,7 +1519,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1595,7 +1595,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1671,7 +1671,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 3`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -1695,7 +1695,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -1710,7 +1710,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -1854,7 +1854,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -1930,7 +1930,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -2006,7 +2006,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -2083,7 +2083,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -2165,7 +2165,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -2244,7 +2244,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                     onKeyUp={[Function]}
                     required={false}
                     style={
-                      Object {
+                      {
                         "border": "0px",
                         "clip": "rect(0px, 0px, 0px, 0px)",
                         "height": "1px",
@@ -2324,7 +2324,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -2400,7 +2400,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
                 onKeyUp={[Function]}
                 required={false}
                 style={
-                  Object {
+                  {
                     "border": "0px",
                     "clip": "rect(0px, 0px, 0px, 0px)",
                     "height": "1px",
@@ -2476,7 +2476,7 @@ exports[`MultiSelect Dialog should render the UI snapshot correctly 4`] = `
   <div
     data-focus-guard={true}
     style={
-      Object {
+      {
         "height": "0px",
         "left": "1px",
         "overflow": "hidden",
@@ -2662,7 +2662,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -2743,7 +2743,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -2824,7 +2824,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -2905,7 +2905,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -2986,7 +2986,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3067,7 +3067,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3268,7 +3268,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3352,7 +3352,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3435,7 +3435,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3516,7 +3516,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3597,7 +3597,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",
@@ -3678,7 +3678,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
               onKeyUp={[Function]}
               required={false}
               style={
-                Object {
+                {
                   "border": "0px",
                   "clip": "rect(0px, 0px, 0px, 0px)",
                   "height": "1px",

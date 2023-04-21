@@ -456,7 +456,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 <span
                   dangerouslySetInnerHTML={
-                    Object {
+                    {
                       "__html": "Please select a valid date.",
                     }
                   }
@@ -516,7 +516,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 <span
                   dangerouslySetInnerHTML={
-                    Object {
+                    {
                       "__html": "Please select a valid date.",
                     }
                   }
@@ -536,7 +536,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     >
       <span
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "Note that the Library may be closed on Sundays.",
           }
         }
@@ -674,7 +674,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     >
       <span
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "Note that the Library may be closed on Sundays.",
           }
         }
@@ -931,7 +931,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           >
             <span
               dangerouslySetInnerHTML={
-                Object {
+                {
                   "__html": "Please select a valid date.",
                 }
               }
@@ -1005,7 +1005,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           >
             <span
               dangerouslySetInnerHTML={
-                Object {
+                {
                   "__html": "Note that the Library may be closed on Sundays.",
                 }
               }
@@ -1079,7 +1079,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           >
             <span
               dangerouslySetInnerHTML={
-                Object {
+                {
                   "__html": "Note that the Library may be closed on Sundays.",
                 }
               }
@@ -1154,7 +1154,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           >
             <span
               dangerouslySetInnerHTML={
-                Object {
+                {
                   "__html": "Note that the Library may be closed on Sundays.",
                 }
               }
