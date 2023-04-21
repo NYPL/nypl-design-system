@@ -314,7 +314,7 @@ export const TextInput = chakra(
               {labelText}
             </Label>
           )}
-          <Box>
+          <Box position="relative">
             {fieldOutput}
             {!isHidden && finalValue.length > 0 && clearButtonOutput}
           </Box>
