@@ -19,7 +19,7 @@ const blogs = {
     ".chakra-breadcrumb__link": {
       _hover: {
         // Override the default hover color.
-        color: "ui.gray.xx-dark",
+        color: "ui.black",
       },
     },
   },
