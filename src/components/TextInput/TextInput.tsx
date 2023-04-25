@@ -150,7 +150,7 @@ export const TextInput = chakra(
         step = 1,
         textInputType = "default",
         type = "text",
-        value = "",
+        value,
         ...rest
       } = props;
       const [finalValue, setFinalValue] = useStateWithDependencies(value);

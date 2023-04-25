@@ -350,7 +350,7 @@ export const FeedbackBox = chakra(
                             onChange={(e) => setComment(e.target.value)}
                             placeholder="Enter your question or feedback here"
                             type="textarea"
-                            value={state.comment}
+                            defaultValue={state.comment}
                           />
                         </FormField>
                         {showEmailField && (
