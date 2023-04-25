@@ -23,7 +23,6 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:jsx-a11y/strict",
     "prettier",
-    "prettier/react",
     "plugin:storybook/recommended",
   ],
   rules: {
