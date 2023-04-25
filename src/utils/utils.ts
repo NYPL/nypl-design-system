@@ -120,6 +120,6 @@ export const contrastRatio = (hex1: string, hex2: string) => {
 
 /** This method will truncate text by centain length. Default length is 60. */
 export const truncateText = (text: string, truncateTextLength: number = 60) => {
-  const subString = text.substr(0, truncateTextLength - 1);
-  return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
+  const updatedText = text.substring(0, truncateTextLength - 1);
+  return `${updatedText.substring(0, updatedText.lastIndexOf(" "))}...`;
 };

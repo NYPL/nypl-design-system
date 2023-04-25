@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant.
 - Updates the `dark.ui.border.default` design token to use `ui.gray.semi-dark` as its base.
 - Updates the `dark.ui.border.hover` design token to use `ui.gray.semi-medium` as its base.
 - Updates the `dark.ui.disabled.primary` design token to use `ui.gray.dark` as its base.
@@ -22,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Toggle` component to use `ui.gray.semi-dark` color for its background color.
 - Updates the `List` and `StyledList` components to use `ui.gray.semi-dark` for the bullet color in the "ul" variant.
 - Updates the `Slider` component to use `ui.bg.active` for the color of the track bar in the "disabled" state.
+- Updates the `Breadcrumbs` component so that the last breadcrumb item is now a link. If the link text is too long, it will get truncated and the DS `Tooltip` component will be used to display the full text in a tooltip when the text is hovered.
 
 ### Fixes
 
@@ -37,7 +39,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
 - Updates `useCloseDropDown` hook to be exported for nypl-header-app.
 - Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
-- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant
 
 ## 1.5.1 (March 23, 2023)
 
