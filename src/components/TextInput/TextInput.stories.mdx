@@ -273,7 +273,7 @@ export const App = () => {
       isClearable
       isClearableCallback={() => setValue("")}
       labelText="What is your favorite color?"
-      onChange={undefined}
+      onChange={(e) => setValue(e.target.value)}
       placeholder="i.e. blue, green, etc."
       value={value}
     />
