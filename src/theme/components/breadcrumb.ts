@@ -98,6 +98,11 @@ const Breadcrumb = {
           cursor: "default",
           textDecoration: "none",
         },
+        _dark: {
+          _hover: {
+            color: "dark.ui.typography.heading",
+          },
+        },
       },
       ".icon": {
         display: "none",
