@@ -30,7 +30,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -254,7 +253,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -352,7 +350,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -442,7 +439,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -541,7 +537,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -631,7 +626,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -723,7 +717,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         required={true}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -815,7 +808,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         required={true}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -1114,7 +1106,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}
@@ -1213,7 +1204,6 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         required={false}
         step={null}
         type="text"
-        value=""
       />
       <div
         aria-atomic={true}

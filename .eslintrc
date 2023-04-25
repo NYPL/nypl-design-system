@@ -25,7 +25,7 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/strict",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:react/jsx-runtime"
   ],
   "rules": {
     // Allow exporting simple anonymous objects
