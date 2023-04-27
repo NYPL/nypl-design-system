@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
 - Adds `Audio and Video` page to the `Accessibility Guide` section of Storybook.
+- Adds "Pinterest" and "SoundCloud" options to the `Icon` component.
 
 ### Updates
 
