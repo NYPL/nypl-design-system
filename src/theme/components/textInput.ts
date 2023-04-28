@@ -80,7 +80,7 @@ const TextInput = {
       position: "absolute",
       // When `showLabel` is false, the input field is at the top
       // which means the clear button should float higher.
-      top: showLabel ? "1px" : "0",
+      top: showLabel ? "0.5px" : "1px",
       px: "xs",
       right: "1px",
       // Don't visually show the text. This also helps
