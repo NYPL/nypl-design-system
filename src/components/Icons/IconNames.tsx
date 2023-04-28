@@ -44,6 +44,8 @@ const iconNames = [
   "search",
   "socialFacebook",
   "socialInstagram",
+  "socialPinterest",
+  "socialSoundCloud",
   "socialTumblr",
   "socialTwitter",
   "socialYoutube",

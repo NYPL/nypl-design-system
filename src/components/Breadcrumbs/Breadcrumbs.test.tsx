@@ -5,6 +5,23 @@ import renderer from "react-test-renderer";
 
 import Breadcrumbs from "./Breadcrumbs";
 
+const breadcrumbsData = [
+  { url: "#string1", text: "string1" },
+  { url: "#string2", text: "string2" },
+  { url: "#string3", text: "string3" },
+];
+const breadcrumbsDataLongText = [
+  { url: "#string1", text: "Parent with a Long Name" },
+  {
+    url: "#string2",
+    text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 40 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters",
+  },
+  {
+    url: "#string3",
+    text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component",
+  },
+];
+
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbsData = [
     { url: "#string1", text: "string1" },
@@ -34,23 +51,17 @@ describe("Breadcrumbs Accessibility", () => {
 });
 
 describe("Breadcrumbs", () => {
-  const breadcrumbsData = [
-    { url: "#string1", text: "string1" },
-    { url: "#string2", text: "string2" },
-    { url: "#string3", text: "string3" },
-  ];
-
   it("Renders a tag with custom text", () => {
     render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
 
-    // The last breadcrumb (the active page) is not a link.
-    expect(screen.getAllByRole("link")).toHaveLength(2);
+    // The last breadcrumb (the active page) is also a link.
+    expect(screen.getAllByRole("link")).toHaveLength(3);
     expect(screen.getAllByRole("link")[0]).toHaveTextContent("string1");
     expect(screen.getAllByRole("link")[1]).toHaveTextContent("string2");
-    expect(screen.getByText(/string3/)).toBeInTheDocument();
+    expect(screen.getAllByRole("link")[2]).toHaveTextContent("string3");
   });
 
-  it("Renders icon", () => {
+  it("Renders icon on mobile", () => {
     const { container } = render(
       <Breadcrumbs breadcrumbsData={breadcrumbsData} />
     );
@@ -60,6 +71,21 @@ describe("Breadcrumbs", () => {
   it("Throws error when nothing is passed into Breadcrumb", () => {
     expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
       "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
+    );
+  });
+
+  it("Truncates breadcrumbs text if it is longer than 40 characters", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsDataLongText} />);
+
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent(
+      "Parent with a Long Name"
+    );
+    // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
+    expect(screen.getAllByRole("link")[1]).toHaveTextContent(
+      "Grandchild with an Exceptionally Long..."
+    );
+    expect(screen.getAllByRole("link")[2]).toHaveTextContent(
+      /Great-Grandchild with the Longest Name.../
     );
   });
 
@@ -77,12 +103,6 @@ describe("Breadcrumbs", () => {
 
 describe("Breadcrumbs Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
-    const breadcrumbsData = [
-      { url: "#string1", text: "string1" },
-      { url: "#string2", text: "string2" },
-      { url: "#string3", text: "string3" },
-    ];
-
     const breadcrumbsSnapshot = renderer
       .create(
         <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbsData} />
@@ -151,35 +171,5 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsEducationVariant).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
-  });
-});
-
-describe("Truncate breadcrumb text", () => {
-  const breadcrumbsData = [
-    { url: "#string1", text: "Parent with a Long Name" },
-    {
-      url: "#string2",
-      text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 40 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters",
-    },
-    {
-      url: "#string3",
-      text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component",
-    },
-  ];
-
-  it("Truncate breadcrumbs text if beyond 40 characters", () => {
-    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
-
-    expect(screen.getAllByRole("link")[0]).toHaveTextContent(
-      "Parent with a Long Name"
-    );
-    expect(screen.getAllByRole("link")[1]).toHaveTextContent(
-      "Grandchild with an Exceptionally Long..."
-    );
-    // The last breadcrumb (the active page) is not a link.
-    // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
-    expect(
-      screen.getByText(/Great-Grandchild with the Longest Name.../)
-    ).toBeInTheDocument();
   });
 });
