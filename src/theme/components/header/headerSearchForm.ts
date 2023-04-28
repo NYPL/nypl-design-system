@@ -45,8 +45,8 @@ const HeaderSearchForm = {
           fontSize: { base: "20px" },
           fontStyle: "normal",
         },
-        _focus: headerFocus,
-        _hover: headerFocus,
+        _focus: { ...headerFocus, borderRadius: "5px" },
+        _hover: { ...headerFocus, borderRadius: "5px" },
         _dark: {
           color: "dark.ui.typography.body",
         },

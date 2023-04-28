@@ -44,6 +44,8 @@ import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
 import socialFacebook from "../../../icons/svg/social-facebook.svg";
 import socialInstagram from "../../../icons/svg/social-instagram.svg";
+import socialPinterest from "../../../icons/svg/social-pinterest.svg";
+import socialSoundCloud from "../../../icons/svg/social-soundcloud.svg";
 import socialTumblr from "../../../icons/svg/social-tumblr.svg";
 import socialTwitter from "../../../icons/svg/social-twitter.svg";
 import socialYoutube from "../../../icons/svg/social-youtube.svg";
@@ -99,6 +101,8 @@ export default {
   search,
   socialFacebook,
   socialInstagram,
+  socialPinterest,
+  socialSoundCloud,
   socialTumblr,
   socialTwitter,
   socialYoutube,
