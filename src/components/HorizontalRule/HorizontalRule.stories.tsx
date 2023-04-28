@@ -20,7 +20,7 @@ type Story = StoryObj<typeof HorizontalRule>;
  *  and `parameters` properties in this object.
  */
 export const WithControls: Story = {
-  args: {},
+  args: { align: undefined, className: undefined },
   parameters: {
     design: {
       type: "figma",
