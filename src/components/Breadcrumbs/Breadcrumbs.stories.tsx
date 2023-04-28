@@ -51,8 +51,8 @@ type Story = StoryObj<typeof Breadcrumbs>;
 export const WithControls: Story = {
   args: {
     breadcrumbsData,
-    className: undefined,
     breadcrumbsType: "whatsOn",
+    className: undefined,
     id: "breadcrumbs-id",
   },
   parameters: {
