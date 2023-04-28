@@ -65,7 +65,7 @@ const input = {
 
 const TextInput = {
   parts: ["input", "textarea"],
-  baseStyle: ({ showLabel }) => ({
+  baseStyle: () => ({
     position: "relative",
     input,
     textarea: {
@@ -80,9 +80,9 @@ const TextInput = {
       position: "absolute",
       // When `showLabel` is false, the input field is at the top
       // which means the clear button should float higher.
-      top: showLabel ? "0.5px" : "1px",
+      top: "1px",
       px: "xs",
-      right: "1px",
+      right: "0.5px",
       // Don't visually show the text. This also helps
       // use the "text" `Button` type.
       span: screenreaderOnly(),
