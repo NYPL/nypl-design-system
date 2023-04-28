@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.5.3 (April 28, 2023)
+
 ### Adds
 
 - Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
