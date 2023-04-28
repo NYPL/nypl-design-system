@@ -41,7 +41,7 @@ const tab = {
     color: "dark.ui.typography.heading",
     border: "1px solid transparent",
     borderBottom: "1px solid",
-    borderBottomColor: "dark.ui.border.hover",
+    borderBottomColor: "dark.ui.border.default",
     _hover: {
       bg: "dark.ui.bg.hover",
     },

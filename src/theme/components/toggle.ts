@@ -26,9 +26,9 @@ const Switch = {
     return {
       alignItems: "start",
       track: {
-        backgroundColor: "ui.gray.medium",
+        backgroundColor: "ui.gray.semi-dark",
         border: "1px solid",
-        borderColor: "ui.gray.medium",
+        borderColor: "ui.gray.semi-dark",
         p: "1px",
         _checked: {
           bg: "ui.link.primary",
@@ -56,8 +56,8 @@ const Switch = {
           zIndex: "9999",
         },
         _dark: {
-          bgColor: "ui.gray.dark",
-          borderColor: "ui.gray.dark",
+          bgColor: "ui.gray.semi-dark",
+          borderColor: "ui.gray.semi-dark",
           _checked: {
             bg: "dark.ui.link.primary",
             borderColor: "dark.ui.link.primary",

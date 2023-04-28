@@ -72,13 +72,13 @@ const checkboxRadioHoverStyles = {
     _dark: {
       span: {
         _first: {
-          borderColor: "ui.gray.dark",
+          borderColor: "dark.ui.border.hover",
         },
         _checked: {
           borderColor: "dark.ui.focus",
         },
         _disabled: {
-          borderColor: "dark.ui.disabled.primary",
+          borderColor: "dark.ui.disabled.secondary",
         },
         _invalid: {
           borderColor: "dark.ui.error.primary",

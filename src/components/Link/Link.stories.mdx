@@ -39,7 +39,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.5.0`    |
+| Latest            | `1.5.3`    |
 
 ## Table of Contents
 
@@ -80,6 +80,8 @@ interface action is required, a `Button` component should be used instead. The
 
 The `"external"` variant of the `Link` component includes `"screen reader only"`
 descriptive text to clarify that the link will open in a new tab/window.
+Additionally it renders with the `rel` attribute containing
+the relation names "nofollow", "noopener" and "noreferrer".
 
 <Canvas>
   <DSProvider>
@@ -94,6 +96,7 @@ Resources:
 - [W3C WAI Link Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/link/link.html)
 - [Yale Usability & Web Accessibility Links](https://usability.yale.edu/web-accessibility/articles/links)
 - [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [IANA: Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
 
 ## Links With Icons
 
