@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -70,34 +70,49 @@ export const LongText: Story = {
 };
 export const ColorVariations: Story = {
   render: () => (
-    <VStack align="stretch" spacing="s">
-      <Heading level="three">Blogs</Heading>
-      <Breadcrumbs breadcrumbsData={breadcrumbsData} breadcrumbsType="blogs" />
-      <Heading level="three">Books and More</Heading>
-      <Breadcrumbs
-        breadcrumbsData={breadcrumbsData}
-        breadcrumbsType="booksAndMore"
-      />
-      <Heading level="three">Education</Heading>
-      <Breadcrumbs
-        breadcrumbsData={breadcrumbsData}
-        breadcrumbsType="education"
-      />
-      <Heading level="three">Locations</Heading>
-      <Breadcrumbs
-        breadcrumbsData={breadcrumbsData}
-        breadcrumbsType="locations"
-      />
-      <Heading level="three">Research</Heading>
-      <Breadcrumbs
-        breadcrumbsData={breadcrumbsData}
-        breadcrumbsType="research"
-      />
-      <Heading level="three">What's On</Heading>
-      <Breadcrumbs
-        breadcrumbsData={breadcrumbsData}
-        breadcrumbsType="whatsOn"
-      />
+    <VStack align="stretch" spacing="l">
+      <Box>
+        <Heading level="three">Blogs</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="blogs"
+        />
+      </Box>
+      <Box>
+        <Heading level="three">Books and More</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="booksAndMore"
+        />
+      </Box>
+      <Box>
+        <Heading level="three">Education</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="education"
+        />
+      </Box>
+      <Box>
+        <Heading level="three">Locations</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="locations"
+        />
+      </Box>
+      <Box>
+        <Heading level="three">Research</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="research"
+        />
+      </Box>
+      <Box>
+        <Heading level="three">What's On</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="whatsOn"
+        />
+      </Box>
     </VStack>
   ),
 };
