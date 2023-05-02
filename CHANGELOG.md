@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Select` component to use a set text color value.
 
+### Fixes
+
+- Fixes the focus rectangle around the `TextInput` clear button so it is centered on both desktop and mobile views.
+
 ## 1.5.3 (April 28, 2023)
 
 ### Adds
