@@ -39,9 +39,15 @@ const config: StorybookConfig = {
   },
   // Explicit for now just to test.
   stories: [
+    "../src/docs/Welcome.mdx",
+    "../src/docs/Chakra.mdx",
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
-    "../src/docs/Welcome.mdx",
+    "../src/components/Chakra/Box.mdx",
+    "../src/components/Chakra/Center.mdx",
+    "../src/components/Chakra/Flex.mdx",
+    "../src/components/Chakra/Grid.mdx",
+    "../src/components/Chakra/Stack.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.
