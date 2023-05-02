@@ -43,6 +43,7 @@ const select = {
   _dark: {
     backgroundColor: "dark.ui.bg.default",
     borderColor: "dark.ui.border.default",
+    color: "dark.ui.typography.body",
     _hover: {
       borderColor: "dark.ui.border.hover",
     },
