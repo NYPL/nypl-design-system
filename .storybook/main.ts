@@ -39,6 +39,10 @@ const config: StorybookConfig = {
   },
   // Explicit for now just to test.
   stories: [
+    "../src/components/AccessibilityGuide/DynamicContent.mdx",
+    "../src/components/AccessibilityGuide/Links.mdx",
+    "../src/components/AccessibilityGuide/RepetitiveActions.mdx",
+    "../src/components/AccessibilityGuide/SkipNavigation.mdx",
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
