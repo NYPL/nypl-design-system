@@ -27,7 +27,12 @@ import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
 
-type ViewType = "form" | "confirmation" | "error";
+export const feedbackBoxViewTypeArray = [
+  "form",
+  "confirmation",
+  "error",
+] as const;
+export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
 
 interface FeedbackBoxProps {
   /** Additional class name to add. */
@@ -70,7 +75,7 @@ interface FeedbackBoxProps {
    * header title. */
   title: string;
   /** Used to specify what screen should be displayed. */
-  view?: ViewType;
+  view?: FeedbackBoxViewType;
 }
 
 /**

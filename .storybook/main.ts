@@ -39,9 +39,11 @@ const config: StorybookConfig = {
   },
   // Explicit for now just to test.
   stories: [
+    "../src/docs/Welcome.mdx",
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
-    "../src/docs/Welcome.mdx",
+    "../src/components/FeedbackBox/FeedbackBox.stories.tsx",
+    "../src/components/FeedbackBox/FeedbackBox.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.
