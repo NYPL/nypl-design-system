@@ -4,27 +4,26 @@ import { withDesign } from "storybook-addon-designs";
 import Fieldset from "./Fieldset";
 
 const FieldsetTemplate: Story = {
-    render: ({ ...args }) => {
-        return (<Fieldset
-            {...args}
-        >
-            <p>Text children in the Fieldset component.</p>
-        </Fieldset >
-        );
-    }
+  render: ({ ...args }) => {
+    return (
+      <Fieldset {...args}>
+        <p>Text children in the Fieldset component.</p>
+      </Fieldset>
+    );
+  },
 };
 
 const meta: Meta<typeof Fieldset> = {
-    title: "Components/Form Elements/Fieldset",
-    component: Fieldset,
-    decorators: [withDesign],
-    argTypes: {
-        id: { control: false },
-        isLegendHidden: { table: { defaultValue: { summary: false } } },
-        isRequired: { table: { defaultValue: { summary: false } } },
-        legendText: { control: { type: "text" } },
-        showRequiredLabel: { table: { defaultValue: { summary: false } } },
-    },
+  title: "Components/Form Elements/Fieldset",
+  component: Fieldset,
+  decorators: [withDesign],
+  argTypes: {
+    id: { control: false },
+    isLegendHidden: { table: { defaultValue: { summary: false } } },
+    isRequired: { table: { defaultValue: { summary: false } } },
+    legendText: { control: { type: "text" } },
+    showRequiredLabel: { table: { defaultValue: { summary: false } } },
+  },
 };
 
 export default meta;
@@ -36,15 +35,15 @@ type Story = StoryObj<typeof Fieldset>;
  */
 
 export const WithControls: Story = {
-    ...FieldsetTemplate,
-    args: {
-        id: "fieldset-id",
-        isLegendHidden: false,
-        isRequired: false,
-        legendText: "This is the legend text",
-        showRequiredLabel: false
-    },
-    parameters: {
-        jest: "Fieldset.test.tsx",
-    },
+  ...FieldsetTemplate,
+  args: {
+    id: "fieldset-id",
+    isLegendHidden: false,
+    isRequired: false,
+    legendText: "This is the legend text",
+    showRequiredLabel: false,
+  },
+  parameters: {
+    jest: "Fieldset.test.tsx",
+  },
 };
