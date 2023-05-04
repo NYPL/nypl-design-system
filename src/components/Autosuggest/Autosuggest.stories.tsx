@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
+
 
 import Autosuggest from "react-autosuggest";
 import Icon from "../Icons/Icon";
@@ -9,7 +12,7 @@ import TextInput from "../TextInput/TextInput";
  * Wrapper component just to give the Autosuggest examples more space for the
  * suggestions dropdown to display.
  */
-const StoryWrapper = ({ children }: { children: JSX.Element }) => (
+const StoryWrapper = ({ children }: { children: JSX.Element; }) => (
   <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
 );
 
@@ -58,7 +61,7 @@ const LibraryExample = ({
     { label: "Soundview Branch" },
     { label: "St. George Library Center" },
   ];
-  const onChange = (_: any, { newValue }: { newValue: string }) =>
+  const onChange = (_: any, { newValue }: { newValue: string; }) =>
     setValue(newValue);
   // Tell autosuggest to suggest by the first letter of the library. This can
   // be manipulated.
@@ -69,13 +72,13 @@ const LibraryExample = ({
     return inputLength === 0
       ? []
       : list.filter(
-          (l) => l.label.toLowerCase().slice(0, inputLength) === inputValue
-        );
+        (l) => l.label.toLowerCase().slice(0, inputLength) === inputValue
+      );
   };
 
   // Autosuggest will call this function every time suggestions need to be
   // updated. `getSuggestions` must be passed.
-  const onSuggestionsFetchRequested = ({ value }: { value: string }) =>
+  const onSuggestionsFetchRequested = ({ value }: { value: string; }) =>
     setSuggestions(getSuggestions(value, libraryList));
   // Clear out any suggestions.
   const onSuggestionsClearRequested = () => setSuggestions([]);
@@ -106,11 +109,19 @@ const LibraryExample = ({
   );
 };
 
-export const AutosuggestLibrary = () => (
-  <StoryWrapper>
-    <LibraryExample renderInputComponent={libraryRenderInputComponent as any} />
-  </StoryWrapper>
-);
+const meta: Meta<typeof Autosuggest> = {
+  title: "Autosuggest",
+  component: Autosuggest,
+  decorators: [withDesign],
+};
+
+export default meta;
+type Story = StoryObj<typeof Autosuggest>;
+
+export const AutosuggestLibrary: Story = {
+  render: () => (<StoryWrapper><LibraryExample renderInputComponent={libraryRenderInputComponent as any} /></StoryWrapper>),
+  name: "Basic Search Bar",
+};
 
 /**
  * FishExample
@@ -188,24 +199,7 @@ const FishExample = () => {
   );
 };
 
-export const AutosuggestFish = () => (
-  <StoryWrapper>
-    <FishExample />
-  </StoryWrapper>
-);
-
-const searchBarRenderInputComponent = (inputProps: any) => {
-  return (
-    <TextInput
-      id="autosuggest-searchBar"
-      isRequired
-      labelText="home library"
-      name="homeLibraryName"
-      {...inputProps}
-    />
-  );
+export const AutosuggestFish: Story = {
+  render: () => (<StoryWrapper><FishExample /></StoryWrapper>),
+  name: "With custom icons",
 };
-
-export const SearchBarExample = () => (
-  <LibraryExample renderInputComponent={searchBarRenderInputComponent as any} />
-);

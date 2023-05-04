@@ -1,10 +1,13 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import Autosuggest from "react-autosuggest";
+import {
+  Meta,
+  Canvas,
+  Description,
+  ArgTypes,
+  Controls,
+  Source,
+} from "@storybook/blocks";
 
-import * as stories from "./Autosuggest.stories.tsx";
-import { getCategory } from "../../utils/componentCategories";
-
-<Meta title={getCategory("Autosuggest")} component={Autosuggest} />
+import * as AutoSuggestStories from "./AutoSuggest.stories";
 
 # Autosuggest
 
@@ -21,9 +24,7 @@ every input element. Since the suggestion dropdown will appear on top of page co
 we've added a min-height to make it easier to see the dropdown. This is for demonstration
 purposes only and you will not need to do this in your application.
 
-<Canvas withToolbar>
-  <Story name="Basic" story={stories.AutosuggestLibrary} />
-</Canvas>
+<Canvas of={AutoSuggestStories.AutosuggestLibrary} />
 
 ## With custom icons
 
@@ -32,16 +33,19 @@ You can customize how suggestions appear by updating what the
 component is added to render a checkmark after each suggestion. View it by
 typing "c" or "tr" in the following input.
 
-```jsx
+<Source
+  code={`
 const renderSuggestion = (suggestion) => (
   <span>
     {suggestion}
     <Icon name="check" />
   </span>
-);
-```
+  );
+`}
+  language="tsx"
+/>
 
-<Story name="With custom icons" story={stories.AutosuggestFish} />
+<Canvas of={AutoSuggestStories.AutosuggestFish} />
 
 ## Code Implementation
 
@@ -50,7 +54,8 @@ component that stores state. State is needed to keep track of all the
 suggestions and of the current input value. The custom component returns the
 `Autosuggest` component with the following suggested props:
 
-```
+<Source
+  code={`
 <Autosuggest
   suggestions={suggestions}
   onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -60,7 +65,9 @@ suggestions and of the current input value. The custom component returns the
   inputProps={inputProps}
   renderInputComponent={renderInputComponent}
 />
-```
+`}
+  language="tsx"
+/>
 
 | prop                          | notes                                                                                                                                         |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
