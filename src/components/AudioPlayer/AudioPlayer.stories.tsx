@@ -8,7 +8,10 @@ const meta: Meta<typeof AudioPlayer> = {
   component: AudioPlayer,
   decorators: [withDesign],
   argTypes: {
-    audioType: {},
+    audioType: {
+      control: { type: "radio" },
+      options: ["file", "libsyn", "soundcloud", "spotify"],
+    },
     className: { control: false },
     id: { control: false },
   },
@@ -18,7 +21,7 @@ export default meta;
 type Story = StoryObj<typeof AudioPlayer>;
 
 /**
- * Main Story for the Accordion component. This must contains the `args`
+ * Main Story for the AudioPlayer component. This must contains the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
@@ -42,7 +45,7 @@ export const WithControls: Story = {
   },
 };
 
-// The following are additional Accordion example Stories.
+// The following are additional AudioPlayer example Stories.
 export const LibsynExample: Story = {
   render: () => (
     <AudioPlayer
