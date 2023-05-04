@@ -47,7 +47,7 @@ export const WithControls: Story = {
   },
 };
 
-// The following are additional Accordion example Stories.
+// The following are additional AlphabetFilter example Stories.
 export const SetActiveLetters: Story = {
   render: () => (
     <AlphabetFilter
@@ -81,5 +81,6 @@ function CurrentLetterExample() {
   return <AlphabetFilter currentLetter={currentLetter} onClick={onClick} />;
 }
 export const UsingOnClick: Story = {
+  name: "Using onClick",
   render: () => <CurrentLetterExample />,
 };
