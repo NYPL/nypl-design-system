@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 
-import DatePicker from "./DatePicker";
+import DatePicker, { datePickerTypesArray } from "./DatePicker";
 
 const currentYear = new Date().getFullYear();
 
 const meta: Meta<typeof DatePicker> = {
-  title: "DatePicker",
+  title: "Components/Form Elements/DatePicker",
   component: DatePicker,
   decorators: [withDesign],
   parameters: {
@@ -25,6 +25,7 @@ const meta: Meta<typeof DatePicker> = {
     },
     dateType: {
       control: { type: "select" },
+      options: datePickerTypesArray,
       table: { defaultValue: { summary: "full" } },
     },
     id: { control: false },
@@ -46,7 +47,7 @@ const meta: Meta<typeof DatePicker> = {
     },
     nameFrom: { control: false },
     nameTo: { control: false },
-    onChange: { control: false },
+    onChange: { control: false, action: "onChange" },
     ref: { table: { disable: true } },
     refTo: { control: false },
     showHelperInvalidText: {
@@ -89,13 +90,12 @@ export const WithControls: Story = {
     minDate: "1/1/2022",
     nameFrom: "visit-dates-from",
     nameTo: "visit-dates-to",
-    onChange: undefined,
     refTo: undefined,
     showHelperInvalidText: true,
     showLabel: true,
     showRequiredLabel: true,
   },
-  render: (args) => <DatePicker {...args} onChange={undefined} />,
+  render: (args) => <DatePicker {...args} />,
 };
 
 // The following are additional DatePicker example Stories.
