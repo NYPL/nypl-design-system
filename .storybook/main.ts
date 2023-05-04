@@ -41,6 +41,10 @@ const config: StorybookConfig = {
   stories: [
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
+    "../src/components/Button/Button.stories.tsx",
+    "../src/components/Button/Button.mdx",
+    "../src/components/ButtonGroup/ButtonGroup.stories.tsx",
+    "../src/components/ButtonGroup/ButtonGroup.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/docs/Welcome.mdx",
