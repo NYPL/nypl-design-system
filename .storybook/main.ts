@@ -49,6 +49,8 @@ const config: StorybookConfig = {
     "../src/components/AlphabetFilter/AlphabetFilter.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
+    "../src/components/ProgressIndicator/ProgressIndicator.stories.tsx",
+    "../src/components/ProgressIndicator/ProgressIndicator.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
     "../src/docs/Welcome.mdx",
