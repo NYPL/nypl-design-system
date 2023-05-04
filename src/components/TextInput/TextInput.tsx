@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
@@ -308,8 +309,10 @@ export const TextInput = chakra(
               {labelText}
             </Label>
           )}
-          {fieldOutput}
-          {!isHidden && finalValue?.length > 0 && clearButtonOutput}
+          <Box position="relative">
+            {fieldOutput}
+            {!isHidden && finalValue?.length > 0 && clearButtonOutput}
+          </Box>
         </ComponentWrapper>
       );
     }
