@@ -39,10 +39,20 @@ const config: StorybookConfig = {
   },
   // Explicit for now just to test.
   stories: [
+    "../src/components/AccessibilityGuide/DynamicContent.mdx",
+    "../src/components/AccessibilityGuide/Links.mdx",
+    "../src/components/AccessibilityGuide/RepetitiveActions.mdx",
+    "../src/components/AccessibilityGuide/SkipNavigation.mdx",
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
+    "../src/components/AlphabetFilter/AlphabetFilter.stories.tsx",
+    "../src/components/AlphabetFilter/AlphabetFilter.mdx",
     "../src/components/Breadcrumbs/Breadcrumbs.stories.tsx",
     "../src/components/Breadcrumbs/Breadcrumbs.mdx",
+    "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
+    "../src/components/HorizontalRule/HorizontalRule.mdx",
+    "../src/components/StatusBadge/StatusBadge.stories.tsx",
+    "../src/components/StatusBadge/StatusBadge.mdx",
     "../src/docs/Welcome.mdx",
   ],
   typescript: {
