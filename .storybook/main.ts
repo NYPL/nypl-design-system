@@ -41,6 +41,8 @@ const config: StorybookConfig = {
   stories: [
     "../src/components/Accordion/Accordion.stories.tsx",
     "../src/components/Accordion/Accordion.mdx",
+    "../src/components/DatePicker/DatePicker.stories.tsx",
+    "../src/components/DatePicker/DatePicker.mdx",
     "../src/docs/Welcome.mdx",
   ],
   typescript: {
