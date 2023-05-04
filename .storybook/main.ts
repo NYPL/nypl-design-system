@@ -47,6 +47,8 @@ const config: StorybookConfig = {
     "../src/components/Accordion/Accordion.mdx",
     "../src/components/AlphabetFilter/AlphabetFilter.stories.tsx",
     "../src/components/AlphabetFilter/AlphabetFilter.mdx",
+    "../src/components/Hero/Hero.stories.tsx",
+    "../src/components/Hero/Hero.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
