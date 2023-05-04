@@ -5,64 +5,8 @@ import { withDesign } from "storybook-addon-designs";
 import Button from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
+import iconNames from "../Icons/IconNames";
 import Table from "../Table/Table";
-
-const iconNames = [
-  "accessibilityFull",
-  "accessibilityPartial",
-  "actionCheckCircle",
-  "actionCheckCircleFilled",
-  "actionExit",
-  "actionHelpDefault",
-  "actionHelpOutline",
-  "alertNotificationImportant",
-  "actionLaunch",
-  "actionRegistration",
-  "actionPower",
-  "actionSettings",
-  "alertNotificationImportant",
-  "alertWarningFilled",
-  "alertWarningOutline",
-  "arrow",
-  "building",
-  "check",
-  "clock",
-  "close",
-  "decorativeEnvelope",
-  "decorativeLibraryCard",
-  "decorativeShoppingBag",
-  "download",
-  "errorFilled",
-  "errorOutline",
-  "fileTypeAudio",
-  "fileTypeDoc",
-  "fileTypeGenericDoc",
-  "fileTypeImage",
-  "fileTypePdf",
-  "fileTypeSpreadsheet",
-  "fileTypeVideo",
-  "headset",
-  "legacyAccountFilled",
-  "legacyAccountUnfilled",
-  "legacySocialFacebook",
-  "legacySocialInstagram",
-  "legacySocialTwitter",
-  "legacySocialYoutube",
-  "locator",
-  "minus",
-  "plus",
-  "search",
-  "socialFacebook",
-  "socialInstagram",
-  "socialTumblr",
-  "socialTwitter",
-  "socialYoutube",
-  "speakerNotes",
-  "utilityAccountFilled",
-  "utilityAccountUnfilled",
-  "utilityHamburger",
-  "utilitySearch",
-];
 
 const meta: Meta<typeof Button> = {
   title: "Components/Form Elements/Button",
@@ -71,10 +15,23 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     buttonText: { description: "Only used for Storybook" },
     buttonType: {
+      control: { type: "select" },
+      options: [
+        "primary",
+        "secondary",
+        "text",
+        "pill",
+        "callout",
+        "noBrand",
+        "link",
+      ],
       table: { defaultValue: { summary: "primary" } },
     },
     className: { control: false },
-    displayIcon: { description: "Only used for Storybook." },
+    displayIcon: {
+      control: { type: "boolean" },
+      description: "Only used for Storybook.",
+    },
     displayIconLeft: {
       description: "Move the icon left or right. Only used for Storybook.",
     },
@@ -87,6 +44,14 @@ const meta: Meta<typeof Button> = {
     isDisabled: { table: { defaultValue: { summary: false } } },
     mouseDown: { table: { defaultValue: { summary: false } } },
     onClick: { control: false },
+    size: {
+      control: { type: "radio" },
+      options: ["small", "medium", "large"],
+    },
+    type: {
+      control: { type: "radio" },
+      options: ["button", "submit", "reset"],
+    },
   },
 };
 
@@ -109,7 +74,7 @@ export const WithControls: Story = {
     isDisabled: false,
     mouseDown: undefined,
     onClick: undefined,
-    size: "medium",
+    size: undefined,
     type: "button",
   },
   parameters: {
@@ -119,7 +84,11 @@ export const WithControls: Story = {
     },
     jest: ["Button.test.tsx"],
   },
-  render: () => <Button id="button-id">Button Text</Button>,
+  render: (args) => (
+    <Button id="button-id" {...args}>
+      Button Text
+    </Button>
+  ),
 };
 
 // The following are additional Button example Stories.
