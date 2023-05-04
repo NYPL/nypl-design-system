@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.5.4 (May 4, 2023)
+
 ### Updates
 
 - Updates the `Select` component to use a set text color value.
