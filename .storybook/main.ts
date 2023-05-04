@@ -43,6 +43,8 @@ const config: StorybookConfig = {
     "../src/components/Accordion/Accordion.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
+    "../src/components/StatusBadge/StatusBadge.stories.tsx",
+    "../src/components/StatusBadge/StatusBadge.mdx",
     "../src/docs/Welcome.mdx",
   ],
   typescript: {
