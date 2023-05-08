@@ -87,7 +87,7 @@ export const CircularType: Story = {
     <ProgressIndicator
       id="circular"
       indicatorType="circular"
-      labelText="Linear Progress Type"
+      labelText="Circular Progress Type"
       value={50}
     />
   ),
