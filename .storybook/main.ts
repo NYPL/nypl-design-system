@@ -51,6 +51,8 @@ const config: StorybookConfig = {
     "../src/components/Breadcrumbs/Breadcrumbs.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
+    "../src/components/SearchBar/SearchBar.stories.tsx",
+    "../src/components/SearchBar/SearchBar.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
     "../src/docs/Welcome.mdx",
