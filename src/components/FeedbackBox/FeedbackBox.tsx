@@ -48,9 +48,9 @@ interface FeedbackBoxProps {
   hiddenFields?: any;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Toggles the invalid state for the email field. */
-  isInvalidComment?: boolean;
   /** Toggles the invalid state for the comment field. */
+  isInvalidComment?: boolean;
+  /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
   /** Only used for internal purposes. */
   isOpen?: boolean;
