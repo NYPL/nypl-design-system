@@ -657,7 +657,7 @@ export const CardFullClickTurbineExample: Story = {
       </Card>
     </SimpleGrid>
   ),
-  name: "Card with Full-Click Functionality Turbine EXample",
+  name: "Card with Full-Click Functionality Turbine Example",
 };
 export const CardWithRightSideCardActions: Story = {
   render: () => (
