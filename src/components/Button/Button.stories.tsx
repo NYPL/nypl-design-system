@@ -13,7 +13,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [withDesign],
   argTypes: {
-    buttonText: { description: "Only used for Storybook" },
+    buttonText: { description: "**Only used for Storybook – ** Set the button label text." },
     buttonType: {
       control: { type: "select" },
       options: [
@@ -30,15 +30,15 @@ const meta: Meta<typeof Button> = {
     className: { control: false },
     displayIcon: {
       control: { type: "boolean" },
-      description: "Only used for Storybook.",
+      description: "**Only used for Storybook – ** Toggle the icon visibility.",
     },
     displayIconLeft: {
-      description: "Move the icon left or right. Only used for Storybook.",
+      description: "**Only used for Storybook – ** Move the icon left or right.",
     },
     iconType: {
       control: { type: "select" },
       options: iconNames,
-      description: "Select the icon. Only used for Storybook.",
+      description: "**Only used for Storybook – ** Select an icon. ",
     },
     id: { control: false },
     isDisabled: { table: { defaultValue: { summary: false } } },
@@ -47,10 +47,12 @@ const meta: Meta<typeof Button> = {
     size: {
       control: { type: "radio" },
       options: ["small", "medium", "large"],
+      table: { defaultValue: { summary: "medium" } },
     },
     type: {
       control: { type: "radio" },
       options: ["button", "submit", "reset"],
+      table: { defaultValue: { summary: "button" } },
     },
   },
 };
@@ -86,7 +88,13 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <Button id="button-id" {...args}>
-      Button Text
+      {args.displayIcon && args.displayIconLeft && (
+        <Icon name={args.iconType} align="left" size="small" />
+      )}
+      {args.buttonText}
+      {args.displayIcon && !args.displayIconLeft && (
+        <Icon name={args.iconType} align="right" size="small" />
+      )}
     </Button>
   ),
 };

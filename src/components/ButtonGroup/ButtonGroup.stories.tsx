@@ -11,11 +11,19 @@ const meta: Meta<typeof ButtonGroup> = {
   component: ButtonGroup,
   decorators: [withDesign],
   argTypes: {
-    buttonWidth: { table: { defaultValue: { summary: "default" } } },
+    buttonWidth: {
+      control: { type: "radio" },
+      options: ["default", "full"],
+      table: { defaultValue: { summary: "default" } },
+    },
     className: { control: false },
     id: { control: false },
     isDisabled: { table: { defaultValue: { summary: false } } },
-    layout: { table: { defaultValue: { summary: "row" } } },
+    layout: {
+      control: { type: "radio" },
+      options: ["column", "row"],
+      table: { defaultValue: { summary: "row" } },
+    },
   },
 };
 
@@ -37,8 +45,8 @@ export const WithControls: Story = {
   parameters: {
     jest: ["ButtonGroup.test.tsx"],
   },
-  render: () => (
-    <ButtonGroup>
+  render: (args) => (
+    <ButtonGroup {...args}>
       <Button buttonType="secondary" id="group-1">
         Button
       </Button>
