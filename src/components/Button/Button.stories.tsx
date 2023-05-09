@@ -13,7 +13,9 @@ const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [withDesign],
   argTypes: {
-    buttonText: { description: "**Only used for Storybook – ** Set the button label text." },
+    buttonText: {
+      description: "**Only used for Storybook – ** Set the button label text.",
+    },
     buttonType: {
       control: { type: "select" },
       options: [
@@ -33,7 +35,8 @@ const meta: Meta<typeof Button> = {
       description: "**Only used for Storybook – ** Toggle the icon visibility.",
     },
     displayIconLeft: {
-      description: "**Only used for Storybook – ** Move the icon left or right.",
+      description:
+        "**Only used for Storybook – ** Move the icon left or right.",
     },
     iconType: {
       control: { type: "select" },
