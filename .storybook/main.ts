@@ -51,6 +51,8 @@ const config: StorybookConfig = {
     "../src/components/AudioPlayer/AudioPlayer.mdx",
     "../src/components/Breadcrumbs/Breadcrumbs.stories.tsx",
     "../src/components/Breadcrumbs/Breadcrumbs.mdx",
+    "../src/components/Fieldset/Fieldset.stories.tsx",
+    "../src/components/Fieldset/Fieldset.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
