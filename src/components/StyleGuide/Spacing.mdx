@@ -1,11 +1,6 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta } from "@storybook/blocks";
 
-import Card from "../Card/Card";
-import List from "../List/List";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
-
-<Meta title={getCategory("Spacing")} />
+<Meta title="Style Guide/Spacing" />
 
 # Spacing
 
@@ -26,7 +21,6 @@ of `16px` (`1rem` = `16px`).
 
 ## Default Spacing Values
 
-<DSProvider>
 The following default spacing values are available through the DS.
 
 | JS Token | CSS Token           | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
@@ -40,8 +34,6 @@ The following default spacing values are available through the DS.
 | `xl`     | `--nypl-space-xl`   | `3rem`         | `48px`           | <div style={{ width: "var(--nypl-space-xl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
 | `xxl`    | `--nypl-space-xxl`  | `4rem`         | `64px`           | <div style={{ width: "var(--nypl-space-xxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
 | `xxxl`   | `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
-
-</DSProvider>
 
 ## Page Section Spacing
 

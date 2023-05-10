@@ -53,7 +53,14 @@ const config: StorybookConfig = {
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
-    "../src/docs/Welcome.mdx",
+    "../src/components/StyleGuide/Bidirectionality.mdx",
+    "../src/components/StyleGuide/Breakpoints.mdx",
+    "../src/components/StyleGuide/Buttons.mdx",
+    "../src/components/StyleGuide/Colors.mdx",
+    "../src/components/StyleGuide/Forms.mdx",
+    "../src/components/StyleGuide/Iconography.mdx",
+    "../src/components/StyleGuide/Spacing.mdx",
+    "../src/components/StyleGuide/Typography.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.

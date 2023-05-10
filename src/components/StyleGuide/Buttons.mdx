@@ -1,0 +1,350 @@
+import { Box, VStack } from "@chakra-ui/react";
+import { Meta, Source } from "@storybook/blocks";
+
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
+
+<Meta title="Style Guide/Buttons" />
+
+# Buttons
+
+## Table of Contents
+
+- [General Information](#general-information)
+- [Guidelines](#guidelines)
+- [Button Groups](#button-groups)
+- [Button Types](#button-types)
+- [Button Sizes](#button-sizes)
+- [Patterns](#patterns)
+- [Figma Reference](#figma-reference)
+
+## General Information
+
+Use the [Button](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-button--button-with-controls)
+component to render form buttons.
+
+<Source
+  code={`
+import { Button } from "@nypl/design-system-react-components";
+// ...
+<Button id="btn">Button Text</Button>; `}
+  language="jsx"
+/>
+
+## Guidelines
+
+- Button text is optional.
+- Button text should be title case.
+- Button icon is optional.
+- Buttons may have an icon on either the left or the right.
+- Buttons by default are blue. However, Donation callout buttons are red.
+- Buttons used for Back to Top actions have a Secondary button style with an
+  arrow icon pointing up.
+- When buttons are used in a group, they should be wrapped in a `ButtonGroup`.
+- When buttons are used in a group where the user can move forward or backward,
+  the `Primary` button is on the right and the `Secondary` button on the left
+  (i.e. cancel = secondary, submit = primary).
+
+## Button Groups
+
+When `Button` components are displayed in a group, use the `ButtonGroup`
+component to handle the spacing and layout. The `ButtonGroup` component will use
+`--nypl-space-xs` (0.5rem) for spacing in horizontal group layouts.
+
+Standalone `Button` components and the `ButtonGroup` component should use
+`--nypl-space-l` (2rem) for spacing between all other UI elements. This spacing
+can be achieved by using the `Form` component to wrap the `Button`s.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup mb="16px">
+    <Button id="basic">Button Text</Button>
+    <Button id="btn-search">
+      <Icon name="search" size="small" align="left" />
+      Button Text
+    </Button>
+    <Button id="only-icon">
+      <Icon name="close" size="medium" />
+    </Button>
+    <Button buttonType="callout" id="donate">
+      Donate
+    </Button>
+    <Button buttonType="secondary" id="btn-back-to-top">
+      Back to Top
+      <Icon name="arrow" size="small" align="right" iconRotation="rotate180" />
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+## Button Types
+
+The `buttonType` prop should be used to render various forms of the button
+component.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup alignItems="center" mb="16px">
+    <Button buttonType="primary" id="primary">
+      Primary
+    </Button>
+    <Button buttonType="secondary" id="secondary">
+      Secondary
+    </Button>
+    <Button buttonType="text" id="text">
+      Text
+    </Button>
+    <Button buttonType="callout" id="callout">
+      Callout
+    </Button>
+    <Button buttonType="noBrand" id="noBrand">
+      NoBrand
+    </Button>
+    <Button buttonType="pill" id="pill">
+      Pill
+    </Button>
+    <Button buttonType="link" id="link">
+      Link (deprecated)
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+### Primary
+
+- used for actions that move the user forward
+- Visual Treatment: rectangular, filled
+
+### Secondary
+
+- used for actions that move the user back, such as a form cancel button
+- often paired with a `Primary` button
+- Visual Treatment: rectangular, outlined
+
+### Text
+
+- used for equally weighted actions
+- Visual Treatment: plain text only without an underline
+
+### Callout
+
+- used for call to actions such as donation buttons
+- Visual Treatment: rectangular, NYPL red background
+
+### NoBrand
+
+- used in cases where there is no brand color
+- Visual Treatment: rectangular, filled with a black background
+
+### Pill
+
+- used for equally weighted actions
+- should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
+- Visual Treatment: rounded, outlined
+
+### Link (deprecated)
+
+The `link` variant has been deprecated for accessibility reasons. From a visual
+standpoint, an underlined link has the expected functionality of navigating to
+a new page within the current site. If we are true to semantic coding, buttons
+will not be used for this same type of navigational functionality and styling
+a button to mimic the look of a standard link could cause unnecessary confusion.
+
+## Button Sizes
+
+The `size` prop should be used to render various sizes of the button component:
+`"small"`, `"medium"` (default) and `"large"`.
+
+### Small
+
+- This is a reduced button size.
+- This size can be used when space is limited or when the action is of lesser
+  significance.
+- **IMPORTANT:** Even though the `"small"` size is available, it is recommended
+  to use the `"medium"` or `"large"` sizes.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup alignItems="center" mb="16px">
+    <Button buttonType="primary" id="small-primary" size="small">
+      Primary
+    </Button>
+    <Button buttonType="secondary" id="small-secondary" size="small">
+      Secondary
+    </Button>
+    <Button buttonType="text" id="small-text" size="small">
+      Text
+    </Button>
+    <Button buttonType="callout" id="small-callout" size="small">
+      Callout
+    </Button>
+    <Button buttonType="noBrand" id="small-nobrand" size="small">
+      NoBrand
+    </Button>
+    <Button buttonType="pill" id="small-pill" size="small">
+      Pill
+    </Button>
+    <Button buttonType="link" id="small-link" size="small">
+      Link (deprecated)
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+### Medium
+
+- This is the default button size.
+- This button size should be used unless there is a very compelling reason to
+  use one of the other sizes.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup alignItems="center" mb="16px">
+    <Button buttonType="primary" id="medium-primary" size="medium">
+      Primary
+    </Button>
+    <Button buttonType="secondary" id="medium-secondary" size="medium">
+      Secondary
+    </Button>
+    <Button buttonType="text" id="medium-text" size="medium">
+      Text
+    </Button>
+    <Button buttonType="callout" id="medium-callout" size="medium">
+      Callout
+    </Button>
+    <Button buttonType="noBrand" id="medium-nobrand" size="medium">
+      NoBrand
+    </Button>
+    <Button buttonType="pill" id="medium-pill" size="medium">
+      Pill
+    </Button>
+    <Button buttonType="link" id="medium-link" size="medium">
+      Link (deprecated)
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+### Large
+
+- This is an enlarged button size.
+- This size can be used to bring prominence to a button that needs to have a major impact.
+- **IMPORTANT:** Use the `"large"` size sparingly. Layouts should generally have only one `"large"` button.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup alignItems="center" mb="16px">
+    <Button buttonType="primary" id="large-primary" size="large">
+      Primary
+    </Button>
+    <Button buttonType="secondary" id="large-secondary" size="large">
+      Secondary
+    </Button>
+    <Button buttonType="text" id="large-text" size="large">
+      Text
+    </Button>
+    <Button buttonType="callout" id="large-callout" size="large">
+      Callout
+    </Button>
+    <Button buttonType="noBrand" id="large-nobrand" size="large">
+      NoBrand
+    </Button>
+    <Button buttonType="pill" id="large-pill" size="large">
+      Pill
+    </Button>
+    <Button buttonType="link" id="large-link" size="large">
+      Link (deprecated)
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+## Patterns
+
+- Buttons are blue by default.
+- Buttons that are intended as a call out (i.e. Donation buttons) should be set
+  as `"callout"`.
+- The "Back to Top" button must be set as `"secondary"` and must include an up
+  arrow icon.
+- Previous and Next buttons should be set as `"secondary"` and be wrapped in a
+  `ButtonGroup`.
+- Only use the `"noBrand"` style where there is no brand color. _This should be
+  rarely used._
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+  pb="0"
+>
+  <ButtonGroup>
+    <Button buttonType="callout" id="callout2" mb="16px">
+      Donate to this library
+    </Button>
+    <Button buttonType="secondary" id="secondary2">
+      Back to Top
+      <Icon align="right" iconRotation="rotate180" name="arrow" size="small" />
+    </Button>
+    <Button buttonType="secondary" id="previous">
+      <Icon align="left" iconRotation="rotate90" name="arrow" size="small" />
+      Previous
+    </Button>
+    <Button buttonType="secondary" id="next">
+      Next
+      <Icon align="right" iconRotation="rotate270" name="arrow" size="small" />
+    </Button>
+  </ButtonGroup>
+</Box>
+}
+
+## Figma Reference
+
+For more styling information, please refer to the Figma Main file.
+
+- https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298

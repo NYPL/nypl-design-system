@@ -43,4 +43,38 @@
   .docblock-argstable-body select:focus {
     border: 1px solid var(--nypl-colors-ui-gray-medium);
   }
+
+  .sb-show-main
+    :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) {
+    border: none;
+  }
+  .sb-show-main
+    :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table))
+    tr
+    td,
+  .sb-show-main table td > span:first-of-type {
+    color: unset;
+  }
+  .sb-show-main
+    :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table))
+    tr
+    span {
+    font-size: 12px;
+  }
+  .sb-show-main
+    :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table))
+    tr:nth-of-type(2n) {
+    background-color: unset;
+  }
+  .sb-show-main thead tr,
+  .sb-show-main thead th,
+  .sb-show-main thead th:last-of-type,
+  .sb-show-main thead td:last-of-type,
+  .sb-show-main tbody tr,
+  .sb-show-main tbody th,
+  .sb-show-main tbody td,
+  .sb-show-main tbody th:last-of-type,
+  .sb-show-main tbody td:last-of-type {
+    border: unset;
+  }
 </style>

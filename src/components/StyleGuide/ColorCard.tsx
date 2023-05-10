@@ -5,6 +5,805 @@ import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
+import { checkContrast } from "../../utils/colorUtils";
+
+export const colorContrastData = {
+  brand: {
+    primary: {
+      dataBlackColor: ["3.45", "Fail", "AA"],
+      dataWhiteColor: ["6.08", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    secondary: {
+      dataBlackColor: ["1.77", "Fail", "Fail"],
+      dataWhiteColor: ["11.86", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+  },
+  ui: {
+    black: {
+      dataBlackColor: ["1.00", "Fail", "Fail"],
+      dataWhiteColor: ["21.00", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    gray: {
+      xxxxDark: {
+        dataBlackColor: checkContrast("1.19"),
+        dataWhiteColor: checkContrast("17.58"),
+        textColor: "ui.white",
+      },
+      xxxDark: {
+        dataBlackColor: checkContrast("1.37"),
+        dataWhiteColor: checkContrast("15.33"),
+        textColor: "ui.white",
+      },
+      xxDark: {
+        dataBlackColor: checkContrast("1.55"),
+        dataWhiteColor: checkContrast("13.58"),
+        textColor: "ui.white",
+      },
+      xDark: {
+        dataBlackColor: checkContrast("2.09"),
+        dataWhiteColor: checkContrast("10.05"),
+        textColor: "ui.white",
+      },
+      dark: {
+        dataBlackColor: checkContrast("3.39"),
+        dataWhiteColor: checkContrast("6.19"),
+        textColor: "ui.white",
+      },
+      semiDark: {
+        dataBlackColor: checkContrast("6.33"),
+        dataWhiteColor: checkContrast("3.32"),
+        textColor: "ui.black",
+      },
+      medium: {
+        dataBlackColor: checkContrast("11.18"),
+        dataWhiteColor: checkContrast("1.88"),
+        textColor: "ui.black",
+      },
+      semiMedium: {
+        dataBlackColor: checkContrast("14.88"),
+        dataWhiteColor: checkContrast("1.41"),
+        textColor: "ui.black",
+      },
+      lightCool: {
+        dataBlackColor: ["17.30", "AAA", "AAA"],
+        dataWhiteColor: ["1.21", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xLightCool: {
+        dataBlackColor: ["19.26", "AAA", "AAA"],
+        dataWhiteColor: ["1.09", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xxLightCool: {
+        dataBlackColor: ["20.12", "AAA", "AAA"],
+        dataWhiteColor: ["1.04", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      lightWarm: {
+        dataBlackColor: ["17.98", "AAA", "AAA"],
+        dataWhiteColor: ["1.17", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+      xLightWarm: {
+        dataBlackColor: ["19.76", "AAA", "AAA"],
+        dataWhiteColor: ["1.06", "Fail", "Fail"],
+        textColor: "ui.black",
+      },
+    },
+    white: {
+      dataBlackColor: ["21.00", "AAA", "AAA"],
+      dataWhiteColor: ["1.00", "Fail", "Fail"],
+      textColor: "ui.black",
+    },
+  },
+  dark: {
+    ui: {
+      gray: {
+        xxDark: {
+          dataHeadingColor: ["13.26", "AAA", "AAA"],
+          dataBodyColor: ["8.57", "AAA", "AAA"],
+        },
+        xDark: {
+          dataHeadingColor: ["8.28", "AAA", "AAA"],
+          dataBodyColor: ["5.35", "AA", "AAA"],
+        },
+      },
+    },
+  },
+};
+export const cssVars = {
+  brand: [
+    {
+      name: "brand.primary",
+      dataBlackColor: colorContrastData.brand.primary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.primary.dataWhiteColor,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      name: "brand.secondary",
+      dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
+  ],
+  blogs: [
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "section.blogs.primary",
+      dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "section.blogs.secondary",
+      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+  ],
+  booksAndMore: [
+    {
+      colorSource: "brand.primary",
+      name: "section.books-and-more.primary",
+      dataBlackColor: colorContrastData.brand.primary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.primary.dataWhiteColor,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.books-and-more.secondary",
+      dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
+  ],
+  education: [
+    {
+      name: "section.education.primary",
+      dataBlackColor: ["3.94", "Fail", "AA"],
+      dataWhiteColor: ["5.33", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.education.secondary",
+      dataBlackColor: ["2.35", "Fail", "Fail"],
+      dataWhiteColor: ["8.94", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+  ],
+  locations: [
+    {
+      colorSource: "brand.primary",
+      name: "section.locations.primary",
+      dataBlackColor: colorContrastData.brand.primary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.primary.dataWhiteColor,
+      textColor: colorContrastData.brand.primary.textColor,
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.locations.secondary",
+      dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
+  ],
+  research: [
+    {
+      name: "section.research.primary",
+      dataBlackColor: ["4.16", "AA", "AAA"],
+      dataWhiteColor: ["4.44", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.research.secondary",
+      dataBlackColor: ["2.90", "Fail", "Fail"],
+      dataWhiteColor: ["7.24", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+  ],
+  researchLibraries: [
+    {
+      name: "section.research-library.lpa",
+      dataBlackColor: ["2.69", "Fail", "Fail"],
+      dataWhiteColor: ["7.80", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      name: "section.research-library.schomburg",
+      dataBlackColor: ["3.23", "Fail", "AA"],
+      dataWhiteColor: ["6.51", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "brand.secondary",
+      name: "section.research-library.schwartzman",
+      dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
+      dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
+      textColor: colorContrastData.brand.secondary.textColor,
+    },
+  ],
+  whatsOn: [
+    {
+      name: "section.whats-on.primary",
+      dataBlackColor: ["1.35", "Fail", "Fail"],
+      dataWhiteColor: ["15.52", "AAA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.black",
+      name: "section.whats-on.secondary",
+      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+  ],
+  ui: [
+    {
+      colorSource: "ui.gray.x-light-cool",
+      name: "ui.bg.default",
+      dataBlackColor: colorContrastData.ui.gray.xLightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xLightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "ui.bg.hover",
+      dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "ui.bg.active",
+      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "ui.border.default",
+      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
+      dataBgPageColor: ["1.88", "Fail", "Fail"],
+      dataBgDefaultColor: ["1.72", "Fail", "Fail"],
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      colorSource: "ui.gray.dark",
+      name: "ui.border.hover",
+      dataBlackColor: colorContrastData.ui.gray.dark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.dark.dataWhiteColor,
+      dataBgPageColor: ["6.19", "AA", "AAA"],
+      dataBgDefaultColor: ["5.68", "AA", "AAA"],
+      textColor: colorContrastData.ui.gray.dark.textColor,
+    },
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "ui.disabled.primary",
+      dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      dataBgPageColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      dataBgDefaultColor: ["1.11", "Fail", "Fail"],
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.xx-light-cool",
+      name: "ui.disabled.secondary",
+      dataBlackColor: colorContrastData.ui.gray.xxLightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxLightCool.dataWhiteColor,
+      dataBgPageColor: colorContrastData.ui.gray.xxLightCool.dataWhiteColor,
+      dataBgDefaultColor: ["1.04", "Fail", "Fail"],
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
+    },
+    {
+      name: "ui.error.primary",
+      dataBlackColor: checkContrast(2.64),
+      dataWhiteColor: checkContrast(7.95),
+      dataBgPageColor: checkContrast(7.95),
+      dataBgDefaultColor: checkContrast(7.29),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.error.secondary",
+      dataBlackColor: checkContrast(1.68),
+      dataWhiteColor: checkContrast(12.48),
+      dataBgPageColor: checkContrast(12.48),
+      dataBgDefaultColor: checkContrast(11.45),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.focus",
+      dataBlackColor: checkContrast(5.64),
+      dataWhiteColor: checkContrast(3.73),
+      dataBgPageColor: checkContrast(3.73),
+      dataBgDefaultColor: checkContrast(3.42),
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.link.primary",
+      dataBlackColor: checkContrast(4.54),
+      dataWhiteColor: checkContrast(4.63),
+      dataBgPageColor: checkContrast(4.63),
+      dataBgDefaultColor: checkContrast(4.24),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.link.secondary",
+      dataBlackColor: checkContrast(2.46),
+      dataWhiteColor: checkContrast(8.54),
+      dataBgPageColor: checkContrast(8.54),
+      dataBgDefaultColor: checkContrast(7.83),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.status.primary",
+      dataBlackColor: checkContrast(16.08),
+      dataWhiteColor: checkContrast(1.31),
+      dataBgPageColor: checkContrast(1.31),
+      dataBgDefaultColor: checkContrast(1.2),
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.status.secondary",
+      dataBlackColor: checkContrast(17.62),
+      dataWhiteColor: checkContrast(1.19),
+      dataBgPageColor: checkContrast(1.19),
+      dataBgDefaultColor: checkContrast(1.09),
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.success.primary",
+      dataBlackColor: checkContrast(3.66),
+      dataWhiteColor: checkContrast(5.73),
+      dataBgPageColor: checkContrast(5.73),
+      dataBgDefaultColor: checkContrast(5.26),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.success.secondary",
+      dataBlackColor: checkContrast(2.23),
+      dataWhiteColor: checkContrast(9.43),
+      dataBgPageColor: checkContrast(9.43),
+      dataBgDefaultColor: checkContrast(8.65),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.test",
+      dataBlackColor: checkContrast(7.13),
+      dataWhiteColor: checkContrast(2.95),
+      dataBgPageColor: checkContrast(2.95),
+      dataBgDefaultColor: checkContrast(2.7),
+      textColor: "ui.black",
+    },
+    {
+      colorSource: "ui.black",
+      name: "ui.typography.heading",
+      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(3.45),
+      dataBrandSecondaryColor: checkContrast(1.77),
+      dataBgPageColor: colorContrastData.ui.black.dataWhiteColor,
+      dataBgDefaultColor: checkContrast(19.26),
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      colorSource: "ui.black",
+      name: "ui.typography.body",
+      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(3.45),
+      dataBrandSecondaryColor: checkContrast(1.77),
+      dataBgPageColor: colorContrastData.ui.black.dataWhiteColor,
+      dataBgDefaultColor: checkContrast(19.26),
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      colorSource: "ui.white",
+      name: "ui.typography.inverse.heading",
+      dataBlackColor: colorContrastData.ui.white.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.white.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(6.08),
+      dataBrandSecondaryColor: checkContrast(11.86),
+      dataBgPageColor: colorContrastData.ui.white.dataWhiteColor,
+      dataBgDefaultColor: checkContrast(1.09),
+      textColor: colorContrastData.ui.white.textColor,
+    },
+    {
+      colorSource: "ui.white",
+      name: "ui.typography.inverse.body",
+      dataBlackColor: colorContrastData.ui.white.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.white.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(6.08),
+      dataBrandSecondaryColor: checkContrast(11.86),
+      dataBgPageColor: colorContrastData.ui.white.dataWhiteColor,
+      dataBgDefaultColor: checkContrast(1.09),
+      textColor: colorContrastData.ui.white.textColor,
+    },
+    {
+      name: "ui.warning.primary",
+      dataBlackColor: checkContrast(9.24),
+      dataWhiteColor: checkContrast(2.27),
+      dataBgPageColor: checkContrast(2.27),
+      dataBgDefaultColor: checkContrast(2.08),
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.warning.secondary",
+      dataBlackColor: checkContrast(7.42),
+      dataWhiteColor: checkContrast(2.83),
+      dataBgPageColor: checkContrast(2.83),
+      dataBgDefaultColor: checkContrast(2.6),
+      textColor: "ui.black",
+    },
+  ],
+  grayscaleRoot: [
+    {
+      name: "ui.black",
+      dataBlackColor: colorContrastData.ui.black.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
+      textColor: colorContrastData.ui.black.textColor,
+    },
+    {
+      name: "ui.white",
+      dataBlackColor: colorContrastData.ui.white.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.white.dataWhiteColor,
+      textColor: colorContrastData.ui.white.textColor,
+    },
+  ],
+  grayscaleCool: [
+    {
+      name: "ui.gray.xxxx-dark",
+      dataBlackColor: colorContrastData.ui.gray.xxxxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxxxDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xxxxDark.textColor,
+    },
+    {
+      name: "ui.gray.xxx-dark",
+      dataBlackColor: colorContrastData.ui.gray.xxxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxxDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xxxDark.textColor,
+    },
+    {
+      name: "ui.gray.xx-dark",
+      dataBlackColor: colorContrastData.ui.gray.xxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
+    },
+    {
+      name: "ui.gray.x-dark",
+      dataBlackColor: colorContrastData.ui.gray.xDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      name: "ui.gray.dark",
+      dataBlackColor: colorContrastData.ui.gray.dark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.dark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.dark.textColor,
+    },
+    {
+      name: "ui.gray.semi-dark",
+      dataBlackColor: colorContrastData.ui.gray.semiDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiDark.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.semiDark.textColor,
+    },
+    {
+      name: "ui.gray.medium",
+      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      name: "ui.gray.semi-medium",
+      dataBlackColor: colorContrastData.ui.gray.semiMedium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiMedium.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.semiMedium.textColor,
+    },
+    {
+      name: "ui.gray.light-cool",
+      dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      name: "ui.gray.x-light-cool",
+      dataBlackColor: colorContrastData.ui.gray.xLightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xLightCool.textColor,
+    },
+    {
+      name: "ui.gray.xx-light-cool",
+      dataBlackColor: colorContrastData.ui.gray.xxLightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxLightCool.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xxLightCool.textColor,
+    },
+  ],
+  grayscaleWarm: [
+    {
+      name: "ui.gray.light-warm",
+      dataBlackColor: colorContrastData.ui.gray.lightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightWarm.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.lightWarm.textColor,
+    },
+    {
+      name: "ui.gray.x-light-warm",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      textColor: colorContrastData.ui.gray.xLightWarm.textColor,
+    },
+  ],
+  dark: [
+    {
+      colorSource: "ui.gray.xxxx-dark",
+      name: "dark.ui.bg.page",
+      dataBlackColor: colorContrastData.ui.gray.xxxxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxxxDark.dataWhiteColor,
+      dataHeadingColor: ["15.43", "AAA", "AAA"],
+      dataBodyColor: ["9.97", "AAA", "AAA"],
+      textColor: colorContrastData.ui.gray.xxxxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.xxx-dark",
+      name: "dark.ui.bg.default",
+      dataBlackColor: colorContrastData.ui.gray.xxxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxxDark.dataWhiteColor,
+      dataHeadingColor: ["14.48", "AAA", "AAA"],
+      dataBodyColor: ["9.36", "AAA", "AAA"],
+      textColor: colorContrastData.ui.gray.xxxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.xx-dark",
+      name: "dark.ui.bg.hover",
+      dataBlackColor: colorContrastData.ui.gray.xxDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xxDark.dataWhiteColor,
+      dataHeadingColor: colorContrastData.dark.ui.gray.xxDark.dataHeadingColor,
+      dataBodyColor: colorContrastData.dark.ui.gray.xxDark.dataBodyColor,
+      textColor: colorContrastData.ui.gray.xxDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.x-dark",
+      name: "dark.ui.bg.active",
+      dataBlackColor: colorContrastData.ui.gray.xDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xDark.dataWhiteColor,
+      dataHeadingColor: colorContrastData.dark.ui.gray.xDark.dataHeadingColor,
+      dataBodyColor: colorContrastData.dark.ui.gray.xDark.dataBodyColor,
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.semi-dark",
+      name: "dark.ui.border.default",
+      dataBlackColor: colorContrastData.ui.gray.semiDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiDark.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("5.30"),
+      dataDarkBgDefaultColor: checkContrast("4.62"),
+      textColor: colorContrastData.ui.gray.semiDark.textColor,
+    },
+    {
+      colorSource: "ui.gray.semi-medium",
+      name: "dark.ui.border.hover",
+      dataBlackColor: colorContrastData.ui.gray.semiMedium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.semiMedium.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("12.46"),
+      dataDarkBgDefaultColor: checkContrast("10.86"),
+      textColor: colorContrastData.ui.gray.semiMedium.textColor,
+    },
+    {
+      colorSource: "ui.gray.dark",
+      name: "dark.ui.disabled.primary",
+      dataBlackColor: colorContrastData.ui.gray.dark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.dark.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("1.86"),
+      dataDarkBgDefaultColor: checkContrast("1.75"),
+      textColor: colorContrastData.ui.gray.dark.textColor,
+    },
+    {
+      colorSource: "ui.gray.x-dark",
+      name: "dark.ui.disabled.secondary",
+      dataBlackColor: colorContrastData.ui.gray.xDark.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xDark.dataWhiteColor,
+      dataDarkBgPageColor: checkContrast("1.16"),
+      dataDarkBgDefaultColor: checkContrast("1.09"),
+      textColor: colorContrastData.ui.gray.xDark.textColor,
+    },
+    {
+      name: "dark.ui.error.primary",
+      dataBlackColor: checkContrast("7.08"),
+      dataWhiteColor: checkContrast("2.97"),
+      dataDarkBgPageColor: checkContrast("5.93"),
+      dataDarkBgDefaultColor: checkContrast("5.17"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.error.secondary",
+      dataBlackColor: checkContrast("9.06"),
+      dataWhiteColor: checkContrast("2.32"),
+      dataDarkBgPageColor: checkContrast("7.58"),
+      dataDarkBgDefaultColor: checkContrast("6.61"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.focus",
+      dataBlackColor: checkContrast("5.64"),
+      dataWhiteColor: checkContrast("3.73"),
+      dataDarkBgPageColor: checkContrast("4.72"),
+      dataDarkBgDefaultColor: checkContrast("4.11"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.primary",
+      dataBlackColor: checkContrast("9.79"),
+      dataWhiteColor: checkContrast("2.15"),
+      dataDarkBgPageColor: checkContrast("8.19"),
+      dataDarkBgDefaultColor: checkContrast("7.14"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.secondary",
+      dataBlackColor: checkContrast("12.65"),
+      dataWhiteColor: checkContrast("1.66"),
+      dataDarkBgPageColor: checkContrast("10.59"),
+      dataDarkBgDefaultColor: checkContrast("9.23"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.status.primary",
+      dataBlackColor: checkContrast("7.83"),
+      dataWhiteColor: checkContrast("2.68"),
+      dataDarkBgPageColor: checkContrast("6.56"),
+      dataDarkBgDefaultColor: checkContrast("5.72"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.status.secondary",
+      dataBlackColor: checkContrast("7.70"),
+      dataWhiteColor: checkContrast("2.73"),
+      dataDarkBgPageColor: checkContrast("6.45"),
+      dataDarkBgDefaultColor: checkContrast("5.62"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.success.primary",
+      dataBlackColor: checkContrast("7.28"),
+      dataWhiteColor: checkContrast("2.89"),
+      dataDarkBgPageColor: checkContrast("6.09"),
+      dataDarkBgDefaultColor: checkContrast("5.31"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.success.secondary",
+      dataBlackColor: checkContrast("10.56"),
+      dataWhiteColor: checkContrast("1.99"),
+      dataDarkBgPageColor: checkContrast("8.84"),
+      dataDarkBgDefaultColor: checkContrast("7.71"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.test",
+      dataDarkBgPageColor: ["1.60", "Fail", "Fail"],
+      dataDarkBgDefaultColor: ["1.50", "Fail", "Fail"],
+      dataBlackColor: ["1.79", "Fail", "Fail"],
+      dataWhiteColor: ["11.71", "AAA", "AAA"],
+      dataHeadingColor: ["9.64", "AAA", "AAA"],
+      dataBodyColor: ["6.23", "AA", "AAA"],
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.gray.light-cool",
+      name: "dark.ui.typography.heading",
+      dataBlackColor: colorContrastData.ui.gray.lightCool.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.lightCool.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(5.01),
+      dataBrandSecondaryColor: checkContrast(9.77),
+      dataDarkBgPageColor: checkContrast(15.43),
+      dataDarkBgDefaultColor: checkContrast(14.48),
+      textColor: colorContrastData.ui.gray.lightCool.textColor,
+    },
+    {
+      colorSource: "ui.gray.medium",
+      name: "dark.ui.typography.body",
+      dataBlackColor: colorContrastData.ui.gray.medium.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.medium.dataWhiteColor,
+      dataBrandPrimaryColor: checkContrast(3.24),
+      dataBrandSecondaryColor: checkContrast(6.31),
+      dataDarkBgPageColor: checkContrast(9.97),
+      dataDarkBgDefaultColor: checkContrast(9.36),
+      textColor: colorContrastData.ui.gray.medium.textColor,
+    },
+    {
+      colorSource: "ui.gray.xxDark",
+      name: "dark.ui.typography.inverse.heading",
+      dataBlackColor: checkContrast(1.3),
+      dataWhiteColor: checkContrast(16.1),
+      dataBrandPrimaryColor: checkContrast(2.65),
+      dataBrandSecondaryColor: checkContrast(1.36),
+      dataDarkBgPageColor: checkContrast(1.16),
+      dataDarkBgDefaultColor: checkContrast(1.09),
+      textColor: "ui.white",
+    },
+    {
+      colorSource: "ui.gray.xxDark",
+      name: "dark.ui.typography.inverse.body",
+      dataBlackColor: checkContrast(1.3),
+      dataWhiteColor: checkContrast(16.1),
+      dataBrandPrimaryColor: checkContrast(2.65),
+      dataBrandSecondaryColor: checkContrast(1.36),
+      dataDarkBgPageColor: checkContrast(1.16),
+      dataDarkBgDefaultColor: checkContrast(1.09),
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.warning.primary",
+      dataBlackColor: checkContrast("7.18"),
+      dataWhiteColor: checkContrast("2.92"),
+      dataDarkBgPageColor: checkContrast("6.01"),
+      dataDarkBgDefaultColor: checkContrast("5.24"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.warning.secondary",
+      dataBlackColor: checkContrast("10.40"),
+      dataWhiteColor: checkContrast("2.02"),
+      dataDarkBgPageColor: checkContrast("8.71"),
+      dataDarkBgDefaultColor: checkContrast("7.59"),
+      textColor: "ui.black",
+    },
+  ],
+};
+
+export const makeColorCard = function (data) {
+  const {
+    colorSource,
+    dataBgPageColor,
+    dataBgDefaultColor,
+    dataBlackColor,
+    dataBrandPrimaryColor,
+    dataBrandSecondaryColor,
+    dataDarkBgPageColor,
+    dataDarkBgDefaultColor,
+    dataWhiteColor,
+    dataHeadingColor,
+    dataBodyColor,
+    name,
+    textColor,
+  } = data;
+  const card = (
+    <ColorCard
+      backgroundColor={name}
+      dataBgPageColor={dataBgPageColor}
+      dataBgDefaultColor={dataBgDefaultColor}
+      dataDarkBgPageColor={dataDarkBgPageColor}
+      dataDarkBgDefaultColor={dataDarkBgDefaultColor}
+      colorName={name}
+      colorSource={colorSource}
+      dataWhiteColor={dataWhiteColor}
+      dataBlackColor={dataBlackColor}
+      dataDarkHeadingColor={dataHeadingColor}
+      dataDarkBodyColor={dataBodyColor}
+      dataBrandPrimaryColor={dataBrandPrimaryColor}
+      dataBrandSecondaryColor={dataBrandSecondaryColor}
+      textColor={textColor}
+      key={name}
+    />
+  );
+  return card;
+};
+export const getColorCards = (category) => {
+  const cards = [];
+  const catArr = cssVars[category];
+  if (category === "researchLibraries") {
+    console.log(catArr);
+  }
+  for (let i = 0; i < catArr.length; i++) {
+    const colorData = catArr[i];
+    const card = makeColorCard(colorData);
+    cards.push(card);
+  }
+  return cards;
+};
 
 // Small Color Swatch
 interface SmallColorSwatchProps {
@@ -71,7 +870,6 @@ export interface DataTableProps {
   /** Contrast and WCAG compliance data related to the color white when used
    * with the current color. */
   dataWhiteColor: string[];
-
   /** The color to use for text in the color card. */
   textColor: string;
 }
@@ -167,7 +965,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="white" border />
         ui.white
       </span>,
-      `${dataWhiteColor[0]}:1`,
+      <span key="colorUiWhiteRatio">{`${dataWhiteColor[0]}:1`}</span>,
       <>
         {dataWhiteColor[1]}
         {whiteSmallTextSuccess}
@@ -182,7 +980,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="black" darkBorder />
         ui.black
       </span>,
-      `${dataBlackColor[0]}:1`,
+      <span key="colorUiBlackRatio">{`${dataBlackColor[0]}:1`}</span>,
       <>
         {dataBlackColor[1]}
         {blackSmallTextSuccess}
@@ -204,11 +1002,13 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
       td: {
         fontSize: "text.tag",
         ...cellStyles,
+        borderTop: "1px solid !important",
       },
       th: {
         fontSize: "text.tag",
         textTransform: "none",
         ...cellStyles,
+        borderTop: `1px solid ${cellStyles.borderColor}`,
         _first: {
           span: {
             color: textColor,
@@ -233,7 +1033,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-brand-primary)" />
         brand.primary
       </span>,
-      `${dataBrandPrimaryColor[0]}:1`,
+      <span key="colorBrandPrimaryPageRatio">{`${dataBrandPrimaryColor[0]}:1`}</span>,
       <>
         {dataBrandPrimaryColor[1]}
         {brandPrimarySmallTextSuccess}
@@ -250,7 +1050,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-brand-secondary)" />
         brand.secondary
       </span>,
-      `${dataBrandSecondaryColor[0]}:1`,
+      <span key="colorBrandSecondaryPageRatio">{`${dataBrandSecondaryColor[0]}:1`}</span>,
       <>
         {dataBrandSecondaryColor[1]}
         {brandSecondarySmallTextSuccess}
@@ -270,7 +1070,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         />
         ui.bg.page
       </span>,
-      `${dataBgPageColor[0]}:1`,
+      <span key="colorBgPageRatio">{`${dataBgPageColor[0]}:1`}</span>,
       <>
         {dataBgPageColor[1]}
         {bgPageSmallTextSuccess}
@@ -287,7 +1087,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-bg-default)" />
         ui.bg.default
       </span>,
-      `${dataBgDefaultColor[0]}:1`,
+      <span key="colorBgDefaultRatio">{`${dataBgDefaultColor[0]}:1`}</span>,
       <>
         {dataBgDefaultColor[1]}
         {bgDefaultSmallTextSuccess}
@@ -306,7 +1106,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-dark-ui-bg-page)" />
         dark.ui.bg.page
       </span>,
-      `${dataDarkBgPageColor[0]}:1`,
+      <span key="colorDarkBgPageRatio">{`${dataDarkBgPageColor[0]}:1`}</span>,
       <>
         {dataDarkBgPageColor[1]}
         {darkBgPageSmallTextSuccess}
@@ -323,7 +1123,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-dark-ui-bg-default)" />
         dark.ui.bg.default
       </span>,
-      `${dataDarkBgDefaultColor[0]}:1`,
+      <span key="colorDarkBgDefaultRatio">{`${dataDarkBgDefaultColor[0]}:1`}</span>,
       <>
         {dataDarkBgDefaultColor[1]}
         {darkBgDefaultSmallTextSuccess}
@@ -340,7 +1140,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-typography-heading)" />
         ui.typography.heading
       </span>,
-      `${dataDarkHeadingColor[0]}:1`,
+      <span key="colorDarkHeadingRatio">{`${dataDarkHeadingColor[0]}:1`}</span>,
       <>
         {dataDarkHeadingColor[1]}
         {darkHeadingSmallTextSuccess}
@@ -357,7 +1157,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
         <SmallColorSwatch backgroundColor="var(--nypl-colors-ui-typography-body)" />
         ui.typography.body
       </span>,
-      `${dataDarkBodyColor[0]}:1`,
+      <span key="colorDarkTextRatio">{`${dataDarkBodyColor[0]}:1`}</span>,
       <>
         {dataDarkBodyColor[1]}
         {textSmallTextSuccess}
@@ -415,14 +1215,20 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
     >
       <HStack alignItems="top">
         <Box width="80%">
-          <Heading noSpace size="tertiary">
+          <Heading
+            noSpace
+            size="tertiary"
+            border="none"
+            color={textColor}
+            pb="0"
+          >
             {backgroundColor}
           </Heading>
-          <Text fontWeight="medium" noSpace size="tag">
+          <Text fontWeight="medium" noSpace size="tag" m="0" color={textColor}>
             {"CSS: var(" + cssVarName + ")"}
           </Text>
           {colorSource && (
-            <Text fontWeight="medium" noSpace size="tag">
+            <Text fontWeight="medium" noSpace size="tag" color={textColor}>
               Source: {colorSource}
             </Text>
           )}
