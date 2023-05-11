@@ -62,6 +62,8 @@ const config: StorybookConfig = {
     "../src/components/Checkbox/Checkbox.mdx",
     "../src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
     "../src/components/CheckboxGroup/CheckboxGroup.mdx",
+    "../src/components/DatePicker/DatePicker.stories.tsx",
+    "../src/components/DatePicker/DatePicker.mdx",
     "../src/components/Fieldset/Fieldset.stories.tsx",
     "../src/components/Fieldset/Fieldset.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
