@@ -76,6 +76,8 @@ const config: StorybookConfig = {
     "../src/components/ProgressIndicator/ProgressIndicator.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
+    "../src/components/Tooltip/Tooltip.stories.tsx",
+    "../src/components/Tooltip/Tooltip.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.
