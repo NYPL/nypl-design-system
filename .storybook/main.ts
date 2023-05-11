@@ -58,6 +58,8 @@ const config: StorybookConfig = {
     "../src/components/AudioPlayer/AudioPlayer.mdx",
     "../src/components/Breadcrumbs/Breadcrumbs.stories.tsx",
     "../src/components/Breadcrumbs/Breadcrumbs.mdx",
+    "../src/components/Card/Card.stories.tsx",
+    "../src/components/Card/Card.mdx",
     "../src/components/Checkbox/Checkbox.stories.tsx",
     "../src/components/Checkbox/Checkbox.mdx",
     "../src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
