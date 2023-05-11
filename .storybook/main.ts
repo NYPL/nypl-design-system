@@ -39,6 +39,13 @@ const config: StorybookConfig = {
   },
   // Explicit for now just to test.
   stories: [
+    "../src/docs/Welcome.mdx",
+    "../src/docs/Chakra.mdx",
+    "../src/components/Chakra/Box.mdx",
+    "../src/components/Chakra/Center.mdx",
+    "../src/components/Chakra/Flex.mdx",
+    "../src/components/Chakra/Grid.mdx",
+    "../src/components/Chakra/Stack.mdx",
     "../src/components/AccessibilityGuide/DynamicContent.mdx",
     "../src/components/AccessibilityGuide/Links.mdx",
     "../src/components/AccessibilityGuide/RepetitiveActions.mdx",
@@ -61,7 +68,6 @@ const config: StorybookConfig = {
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
-    "../src/docs/Welcome.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.
