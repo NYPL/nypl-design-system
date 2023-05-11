@@ -1,8 +1,7 @@
-import { Meta } from "@storybook/addon-docs";
+import { Canvas, Meta, Source } from "@storybook/blocks";
 
 import Button from "../components/Button/Button";
 import Text from "../components/Text/Text";
-import DSProvider from "../theme/provider";
 
 <Meta title="Chakra UI" />
 
@@ -59,10 +58,10 @@ will render styles properly. Internally, the `DSProvider` is built on top of
 Chakra's `ChakraProvider` component with NYPL's custom theme as input. This sets
 up the style context to propogate through all the children nodes in the DOM tree.
 
-```tsx
-// your main application file
+<Source
+  code={`
+// Your main application file
 import { DSProvider } from "@nypl/design-system-react-components";
-
 // ...
 const Application = (props) => {
   // ...
@@ -77,7 +76,9 @@ const Application = (props) => {
     </DSProvider>
   );
 };
-```
+`}
+  language="tsx"
+/>
 
 ### Chakra Components in Storybook
 
@@ -86,7 +87,8 @@ appropriately. Unfortunately, this only works within the `Story` component.
 When rendering components in documentation examples within a `Canvas` component,
 wrap the elements in the `DSProvider` component.
 
-```tsx
+<Source
+  code={`
 // These buttons are not a part of a "story" but still appear only
 // in the documentation.
 <Canvas>
@@ -101,7 +103,9 @@ wrap the elements in the `DSProvider` component.
     </ButtonGroup>
   </DSProvider>
 </Canvas>
-```
+`}
+  language="tsx"
+/>
 
 ## Components
 
@@ -125,18 +129,21 @@ components that internally are composed with Chakra components.
 
 Components built from Chakra rename the component with the `Chakra` name prefix.
 
-```tsx
+<Source
+  code={`
 import { Tabs as ChakraTabs, useStyleConfig } from "@chakra-ui/react";
-```
+`}
+  language="tsx"
+/>
 
 In this example, the `ChakraTabs` component is returned with NYPL specific
 functionality, styles, and other requirements.
 
-```tsx
+<Source
+  code={`
 function Tabs(props) {
   // ...
   const styles = useStyleConfig("Tabs", { variant: props.tabsType });
-
   return (
     <ChakraTabs
       id={id}
@@ -146,7 +153,9 @@ function Tabs(props) {
       {children}
     </ChakraTabs>
 }
-```
+`}
+  language="tsx"
+/>
 
 #### Patterns
 
@@ -189,7 +198,8 @@ components and their theme or variants.
 _Note_: There are some SCSS files used to style third party plugins and to
 generate SCSS mixins.
 
-```ts
+<Source
+  code={`
 const theme = extendTheme({
   styles: { ... },
   breakpoints: { ... },
@@ -201,7 +211,9 @@ const theme = extendTheme({
     // ...
   },
 });
-```
+`}
+  language="jsx"
+/>
 
 ### Anatomy of a Component Styling Object
 
@@ -210,7 +222,8 @@ For in-depth information, read Chakra's [Component Style documentation](https://
 Component theme files can be found in the `src/theme/components/` directory.
 Here is an example using the `Button` component.
 
-```ts
+<Source
+  code={`
 // The basic structure for all component style objects.
 const Button = {
   baseStyle: {},
@@ -218,28 +231,32 @@ const Button = {
   variants: {},
   defaultProps: {},
 };
-```
+`}
+  language="js"
+/>
 
 A current variant class rule can be converted to a Javascript object and go in
 the `variants` object as in the following example.
 
-```scss
+<Source
+  code={`
 // Button.scss
 // This is the "Secondary" variant.
 .button--outline {
   @include button-base;
-
   background-color: var(--nypl-colors-ui-white);
   border: 1px solid var(--nypl-colors-ui-gray-light-cool);
   color: inherit;
-
   &:hover {
     background-color: var(--nypl-colors-ui-gray-xx-light-cool);
   }
 }
-```
+`}
+  language="css"
+/>
 
-```ts
+<Source
+  code={`
 // button.ts
 const Button = {
   baseStyle: { ... },
@@ -258,15 +275,20 @@ const Button = {
   },
   defaultProps: { ... },
 };
-```
+`}
+  language="js"
+/>
 
 Now this variant can be rendered:
 
-```tsx
+<Source
+  code={`
 <Button buttonType="secondary" id="secondary">
   Press me
 </Button>
-```
+`}
+  language="jsx"
+/>
 
 ### Breakpoints
 
@@ -293,7 +315,8 @@ to increase the width of the `Button` component as the device width increases.
 We start at value "100px" and increase by "50px" at every breakpoint. In the
 `button.ts` style file, we can define it as in the example below:
 
-```ts
+<Source
+  code={`
 // button.ts
 const Button = {
   baseStyle: {
@@ -307,12 +330,15 @@ const Button = {
   },
   // ...
 };
-```
+`}
+  language="js"
+/>
 
 You do not have to define every breakpoint. If you only want to change the width
 of the `Button` at the `lg` breakpoint, it can be defined as:
 
-```ts
+<Source
+  code={`
 // button.ts
 const Button = {
   baseStyle: {
@@ -323,7 +349,9 @@ const Button = {
   },
   // ...
 };
-```
+`}
+  language="js"
+/>
 
 #### Array Method
 
@@ -331,7 +359,8 @@ We do not recommend this pattern because it is harder to read and implicit on
 breakpoint values. Following the same example as the one above, the width of the
 `Button` component can be updated wiht all five values in an array:
 
-```ts
+<Source
+  code={`
 // button.ts
 const Button = {
   baseStyle: {
@@ -339,7 +368,9 @@ const Button = {
   },
   // ...
 };
-```
+`}
+  language="js"
+/>
 
 ### Colors
 
@@ -347,7 +378,8 @@ All available colors can be found in `src/theme/foundations/colors.ts`. Chakra
 autogenerates the `colors` object into CSS variables. We will rely on these
 variables rather than creating our own.
 
-```tsx
+<Source
+  code={`
 const colors: Colors = {
   // ui fills
   ui: {
@@ -368,7 +400,9 @@ const colors: Colors = {
   },
   // ...
 };
-```
+`}
+  language="js"
+/>
 
 In the shorten object example above, the following will be generated by Chakra:
 
@@ -402,7 +436,8 @@ file. While Chakra provides many values, only use the eight DS defined values.
 
 For example, to make all `button`s have a `padding: 8px 16px` value:
 
-```jsx
+<Source
+  code={`
 // src/theme/components/button.ts
 const Button = {
   baseStyle: {
@@ -414,7 +449,9 @@ const Button = {
   variants: { ... },
   defaultProps: { ... },
 };
-```
+`}
+  language="js"
+/>
 
 ### Typography
 
@@ -433,27 +470,32 @@ wrapper element of the component; this means if you want to target a specific
 element or component in a Reservoir component, you won't be able to with style
 props.
 
-<DSProvider>
-  <Text isBold>
-    While this is available to use, it is not recommended. If you see a need to
-    override styles, please reach out to the NYPL Reservoir team for assistance.
-  </Text>
-</DSProvider>
+{
+
+<Text isBold>
+  While this is available to use, it is not recommended. If you see a need to
+  override styles, please reach out to the NYPL Reservoir team for assistance.
+</Text>
+}
 
 In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
 
-```jsx
+<Source
+  code={`
 <Button id="styled-button" p="s" maxH="none" maxW="200px">
   Button
 </Button>
-```
+`}
+  language="jsx"
+/>
 
-<DSProvider>
-  <Button id="styled-button" p="s" maxH="none" maxW="200px">
-    Button
-  </Button>
-</DSProvider>
+{
+
+<Button id="styled-button" p="s" maxH="none" maxW="200px">
+  Button
+</Button>
+}
 
 Find more information and a full list of all the available props, check the Chakra
 UI [Style Props page](https://chakra-ui.com/docs/styled-system/features/style-props).
@@ -475,18 +517,21 @@ After importing and rendering the `DSProvider` wrapper component, as explained
 in the [DSProvider](#dsprovider) section, your children components can use this
 hook function.
 
-```tsx
+<Source
+  code={`
 import { useNYPLTheme } from "@nypl/design-system-react-components";
 // ...
-
 const theme = useNYPLTheme();
-```
+`}
+  language="jsx"
+/>
 
 The `theme` variable will be a JS object with style values discussed in the
 sections above. This will allow you to use NYPL-specific styles in your
 components through CSS-in-JS.
 
-```ts
+<Source
+  code={`
 // theme:
 {
   breakpoints: { ... },
@@ -502,7 +547,9 @@ components through CSS-in-JS.
   radii: { ... },
   space: { ... },
 }
-```
+`}
+  language="js"
+/>
 
 #### Usage
 
@@ -519,9 +566,9 @@ For example, if the `Heading` component should render the text in NYPL's green
 color used for "success primary" and add a bold font weight, then you can do
 the following:
 
-```tsx
+<Source
+  code={`
 const theme = useNYPLTheme();
-
 // ...
 return (
   <div>
@@ -534,9 +581,12 @@ return (
     </Heading>
 
     {/* Other components */}
+
   </div>
 );
-```
+`}
+  language="jsx"
+/>
 
 Of course, you can destructure the `theme` object to only get the object keys
 you need for your component (this is a general example). Log the object to the
@@ -546,14 +596,17 @@ console to see all the available styles.
 
 Use the `style` attribute in HTML components to add inline styles.
 
-```tsx
+<Source
+  code={`
 <p style={{ color: theme.colors.ui.success.primary }}>
   If you are 13 or older and live, work, attend school, or pay property taxes in
   New York State, you can get a free digital library card right now using this
   online form. Visitors to New York State can also use this form to apply for a
   temporary card.
 </p>
-```
+`}
+  language="jsx"
+/>
 
 ## Testing
 
