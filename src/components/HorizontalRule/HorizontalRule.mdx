@@ -1,34 +1,17 @@
-import { action } from "@storybook/addon-actions";
 import {
-  ArgsTable,
+  Meta,
   Canvas,
   Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+  ArgTypes,
+  Controls,
+  Source,
+} from "@storybook/blocks";
 
-import HorizontalRule from "./HorizontalRule";
-import SimpleGrid from "../Grid/SimpleGrid";
-import { getCategory } from "../../utils/componentCategories";
+import * as HorizontalRuleStories from "./HorizontalRule.stories";
 
-<Meta
-  title={getCategory("HorizontalRule")}
-  component={HorizontalRule}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
-    },
-    jest: ["HorizontalRule.test.tsx"],
-  }}
-  argTypes={{
-    className: { control: false },
-  }}
-/>
+<Meta of={HorizontalRuleStories} />
 
-# Horizontal Rule
+# HorizontalRule
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
@@ -43,7 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={HorizontalRule} />
+<Description of={HorizontalRuleStories} />
 
 The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
 `width`, and `align` props can be customized. For the `height` prop, use a whole
@@ -52,13 +35,9 @@ value of "2px" will be used.
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story name="HorizontalRule" args={{ align: "left" }}>
-    {(args) => <HorizontalRule {...args} />}
-  </Story>
-</Canvas>
+<Canvas of={HorizontalRuleStories.WithControls} />
 
-<ArgsTable story="HorizontalRule" />
+<ArgTypes of={HorizontalRuleStories.WithControls} />
 
 ## Accessibility
 
