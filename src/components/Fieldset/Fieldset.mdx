@@ -1,38 +1,8 @@
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+import { Meta, Canvas, Description, ArgTypes } from "@storybook/blocks";
 
-import Fieldset from "./Fieldset";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import * as FieldsetStories from "./Fieldset.stories";
 
-<Meta
-  title={getCategory("Fieldset")}
-  component={Fieldset}
-  decorators={[withDesign]}
-  parameters={{
-    jest: ["Fieldset.test.tsx"],
-  }}
-  argTypes={{
-    children: { table: { disable: true } },
-    className: { control: false },
-    id: { control: false },
-    isLegendHidden: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
-    showRequiredLabel: {
-      table: { defaultValue: { summary: false } },
-    },
-  }}
-/>
+<Meta of={FieldsetStories} />
 
 # Fieldset
 
@@ -49,31 +19,13 @@ import DSProvider from "../../theme/provider";
 
 ## Overview
 
-<Description of={Fieldset} />
+<Description of={FieldsetStories} />
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="Fieldset"
-    args={{
-      className: undefined,
-      id: "fieldset-id",
-      isLegendHidden: false,
-      isRequired: false,
-      legendText: "This is the legend text",
-      showRequiredLabel: true,
-    }}
-  >
-    {(args) => (
-      <Fieldset {...args}>
-        <p>Text children in the Fieldset component.</p>
-      </Fieldset>
-    )}
-  </Story>
-</Canvas>
+<Canvas of={FieldsetStories.WithControls} />
 
-<ArgsTable story="Fieldset" />
+<ArgTypes of={FieldsetStories.WithControls} />
 
 ## Accessibility
 

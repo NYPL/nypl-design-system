@@ -49,6 +49,7 @@ export {
   default as FeedbackBox,
   useFeedbackBox,
 } from "./components/FeedbackBox/FeedbackBox";
+export type { FeedbackBoxViewType } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Footer } from "./components/Footer/Footer";

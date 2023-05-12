@@ -10,8 +10,12 @@ import React, { forwardRef } from "react";
 
 import Label from "../Label/Label";
 
-export type ProgressIndicatorSizes = "default" | "small";
-export type ProgressIndicatorTypes = "circular" | "linear";
+export const progressIndicatorSizesArray = ["default", "small"] as const;
+export const progressIndicatorTypesArray = ["circular", "linear"] as const;
+
+export type ProgressIndicatorSizes = typeof progressIndicatorSizesArray[number];
+export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
+
 export interface ProgressIndicatorProps {
   /** The darkMode prop is deprecated and should no longer be used. */
   darkMode?: boolean;
