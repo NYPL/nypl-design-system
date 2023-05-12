@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
@@ -127,24 +127,28 @@ export const LabellingVariations: Story = {
 
 export const BrowserStates: Story = {
   render: () => (
-    <VStack align="stretch" spacing="s">
-      <Heading level="three">Invalid</Heading>
-      <TextInput
-        helperText="Choose wisely!"
-        id="errored"
-        invalidText="This is error text :("
-        isInvalid
-        labelText="What is your favorite color?"
-        placeholder="i.e. blue, green, etc."
-      />
-      <Heading level="three">Disabled</Heading>
-      <TextInput
-        helperText="Choose wisely!"
-        id="disabled"
-        isDisabled
-        labelText="What is your favorite color?"
-        placeholder="i.e. blue, green, etc."
-      />
+    <VStack align="stretch" spacing="l">
+      <Box>
+        <Heading level="three">Invalid</Heading>
+        <TextInput
+          helperText="Choose wisely!"
+          id="errored"
+          invalidText="This is error text :("
+          isInvalid
+          labelText="What is your favorite color?"
+          placeholder="i.e. blue, green, etc."
+        />
+      </Box>
+      <Box>
+        <Heading level="three">Disabled</Heading>
+        <TextInput
+          helperText="Choose wisely!"
+          id="disabled"
+          isDisabled
+          labelText="What is your favorite color?"
+          placeholder="i.e. blue, green, etc."
+        />
+      </Box>
     </VStack>
   ),
 };
