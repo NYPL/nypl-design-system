@@ -1,42 +1,8 @@
-import { useState } from "react";
-import { VStack } from "@chakra-ui/react";
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import Button from "../Button/Button";
-import DSProvider from "../../theme/provider";
-import Pagination from "./Pagination";
-import { getCategory } from "../../utils/componentCategories";
-import { getStorybookHrefProps } from "../../utils/utils";
+import * as PaginationStories from "./Pagination.stories";
 
-export const hrefProps = getStorybookHrefProps(10);
-
-<Meta
-  title={getCategory("Pagination")}
-  component={Pagination}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
-    },
-    jest: ["Pagination.test.tsx"],
-  }}
-  argTypes={{
-    className: { control: false },
-    currentPage: { control: false },
-    getPageHref: { control: false },
-    id: { control: false },
-    initialPage: { table: { defaultValue: { summary: 1 } } },
-    onPageChange: { control: false },
-  }}
-/>
+<Meta of={PaginationStories} />
 
 # Pagination
 
@@ -54,7 +20,7 @@ export const hrefProps = getStorybookHrefProps(10);
 
 ## Overview
 
-<Description of={Pagination} />
+<Description of={PaginationStories} />
 
 The `Pagination` component helps navigate between pages of a multi-page
 application. It is commonly used on a search results page. Update the `pageCount`
@@ -85,31 +51,21 @@ In the following example, the `getPageHref` function will compute a new URL that
 has `&page=` as a URL query. In your own application this query parameter can be
 named anything but you have to pick up the value in the wrapper component.
 
-```tsx
+<Source
+  code={`
 // Example in a search results page.
 const getPageHref = (selectedPage: number) => {
   // This should be updated for your router system, if any, including the
   // base or origin URL.
-  return `${location.origin}?q=celeste&page=${selectedPage}`;
+  return \`{location.origin}?q=celeste&page=\$\{selectedPage\}\`;
 };
-```
+`}
+  language="jsx"
+/>
 
-<Canvas withToolbar>
-  <Story
-    name="Pagination with URL Updates"
-    args={{
-      className: undefined,
-      getPageHref: hrefProps.getPageHref,
-      id: "pagination-id",
-      initialPage: hrefProps.computedCurrentPage || 1,
-      pageCount: 10,
-    }}
-  >
-    {(args) => <Pagination {...args} onPageChange={undefined} />}
-  </Story>
-</Canvas>
+<Canvas of={PaginationStories.URLUpdates} />
 
-<ArgsTable story="Pagination with URL Updates" />
+<ArgTypes of={PaginationStories.URLUpdates} />
 
 ## Pagination with Unchanging URL
 
@@ -122,30 +78,18 @@ In the following example, the `onPageChange` function gets the selected page as
 its only function argument. This is computed internally in the `Pagination`
 component through its own state.
 
-```tsx
+<Source
+  code={`
 // Example in a search results page.
 const onPageChange = (selectedPage: number) => {
-  console.log(`Current page: ${selectedPage}`);
-  // Do what you need to with the `currentPage` value.
+  console.log(\`Current page: \$\{selectedPage\}\`);
+  // Do what you need to with the \`currentPage\` value.
 };
-```
+`}
+  language="jsx"
+/>
 
-<Canvas withToolbar>
-  <Story
-    name="Pagination with Unchanging URL"
-    args={{
-      className: undefined,
-      id: "pagination-id-2",
-      initialPage: 7,
-      onPageChange: (selectedPage) => {
-        console.log(`Current page: ${selectedPage}`);
-      },
-      pageCount: 100,
-    }}
-  >
-    {(args) => <Pagination {...args} getPageHref={undefined} />}
-  </Story>
-</Canvas>
+<Canvas of={PaginationStories.UnchangingURL} />
 
 ### Forcing a Page Change Programmatically
 
@@ -156,29 +100,7 @@ You can use the `currentPage` prop to do this. Note, the `currentPage` prop can
 only be used with the client-side, unchanging URL version of the `Pagination`
 component, and in combination with the `onPageChange` function.
 
-The following example shows that the user can be brought to page 1 without clicking
-on the `Pagination` component.
+The following example shows that the user can be brought to page 1 without
+clicking on the `Pagination` component.
 
-export function CurrentPagePaginationExample() {
-  const [page, setPage] = useState(1);
-  const handleClick = () => setPage(1);
-  const handleSelection = (selectedPage) => setPage(selectedPage);
-  return (
-    <VStack align="start" spacing={6}>
-      <Pagination
-        pageCount={10}
-        currentPage={page}
-        onPageChange={(selectedPage) => handleSelection(selectedPage)}
-      />
-      <Button id="go-to-btn" type="button" onClick={handleClick}>
-        Go to Page 1
-      </Button>
-    </VStack>
-  );
-}
-
-<Canvas>
-  <DSProvider>
-    <CurrentPagePaginationExample />
-  </DSProvider>
-</Canvas>
+<Canvas of={PaginationStories.UpdateProgrammatically} />
