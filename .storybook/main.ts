@@ -80,6 +80,8 @@ const config: StorybookConfig = {
     "../src/components/SearchBar/SearchBar.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
+    "../src/components/Toggle/Toggle.stories.tsx",
+    "../src/components/Toggle/Toggle.mdx",
   ],
   typescript: {
     // Type-check stories during Storybook build.
