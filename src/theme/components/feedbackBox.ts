@@ -26,12 +26,12 @@ const FeedbackBox = {
     },
     drawerBody: {
       borderLeft: { base: undefined, md: "1px solid" },
-      borderColor: "ui.border.default",
+      borderColor: { base: undefined, md: "ui.border.default" },
       paddingTop: "m",
       paddingBottom: "m",
       _dark: {
         background: "dark.ui.bg.page",
-        borderColor: "dark.ui.border.default",
+        borderColor: { base: undefined, md: "dark.ui.border.default" },
       },
     },
     drawerContent: {
@@ -40,7 +40,7 @@ const FeedbackBox = {
     },
     drawerHeader: {
       alignItems: "baseline",
-      background: "ui.gray.light-cool",
+      background: "ui.bg.hover",
       borderBottomWidth: "1px",
       borderLeftWidth: { base: undefined, md: "1px" },
       borderTopWidth: "1px",
@@ -54,6 +54,7 @@ const FeedbackBox = {
       },
       _dark: {
         background: "dark.ui.bg.hover",
+        borderColor: "dark.ui.border.default",
       },
     },
     openButton: {

@@ -3,14 +3,14 @@
   font-family: var(--nypl-fonts-body);
 
   .react-datepicker {
-    border-color: var(--nypl-colors-ui-gray-medium);
+    border-color: var(--nypl-colors-ui-border-default);
   }
   // The styles for the triangle arrow above the calendar popup.
   .react-datepicker__triangle {
     // Shift the triangle to the left.
     transform: translate(32px, 0px) !important;
     &::before {
-      border-bottom-color: var(--nypl-colors-ui-gray-medium) !important;
+      border-bottom-color: var(--nypl-colors-ui-border-default) !important;
     }
     &::after {
       border-bottom-color: var(--nypl-colors-ui-gray-x-light-cool) !important;
@@ -22,7 +22,7 @@
       top: 5px;
       width: 0px;
       &::before {
-        border-color: var(--nypl-colors-ui-gray-medium);
+        border-color: var(--nypl-colors-ui-border-default);
       }
     }
     &:hover {
@@ -33,7 +33,7 @@
   }
   // The header with the appropriate date.
   .react-datepicker__header {
-    border-color: var(--nypl-colors-ui-gray-medium);
+    border-color: var(--nypl-colors-ui-border-default);
     background-color: var(--nypl-colors-ui-gray-x-light-cool);
   }
   // Make sure the width is enough to fit 12 selectable years.
@@ -108,7 +108,7 @@
   // The styles for the triangle arrow above the calendar popup.
   .react-datepicker__triangle {
     &::before {
-      border-bottom-color: var(--nypl-colors-ui-gray-dark) !important;
+      border-bottom-color: var(--nypl-colors-ui-border-default) !important;
     }
     &::after {
       border-bottom-color: var(--nypl-colors-dark-ui-bg-hover) !important;

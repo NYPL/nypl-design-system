@@ -18,6 +18,43 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
 
+## 1.5.4 (May 4, 2023)
+
+### Updates
+
+- Updates the `Select` component to use a set text color value.
+
+### Fixes
+
+- Fixes the focus rectangle around the `TextInput` clear button so it is centered on both desktop and mobile views.
+
+## 1.5.3 (April 28, 2023)
+
+### Adds
+
+- Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
+- Adds `Audio and Video` page to the `Accessibility Guide` section of Storybook.
+- Adds "Pinterest" and "SoundCloud" options to the `Icon` component.
+
+### Updates
+
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant.
+- Updates the `dark.ui.border.default` design token to use `ui.gray.semi-dark` as its base.
+- Updates the `dark.ui.border.hover` design token to use `ui.gray.semi-medium` as its base.
+- Updates the `dark.ui.disabled.primary` design token to use `ui.gray.dark` as its base.
+- Updates the `dark.ui.disabled.secondary` design token to use `ui.gray.x-dark` as its base.
+- Updates the `Toggle` component to use `ui.gray.semi-dark` color for its background color.
+- Updates the `List` and `StyledList` components to use `ui.gray.semi-dark` for the bullet color in the "ul" variant.
+- Updates the `Slider` component to use `ui.bg.active` for the color of the track bar in the "disabled" state.
+- Updates the `Breadcrumbs` component so that the last breadcrumb item is now a link. If the link text is too long, it will get truncated and the DS `Tooltip` component will be used to display the full text in a tooltip when the text is hovered.
+
+### Fixes
+
+- Fixes a `border-radius` formatting issues on the hover state of the search field for the dark mode version of the `Header` component.
+- Fixes a `color` issue on the hover state of the links for the dark mode version of the `Footer` component.
+- Fixes a `border-color` issue for the dark mode version of the `FeedbackBox` component.
+- Fixes a bug in `TextInput` that prevented the external clearing of `value`.
+
 ## 1.5.2 (April 6, 2023)
 
 ### Updates
@@ -25,7 +62,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
 - Updates `useCloseDropDown` hook to be exported for nypl-header-app.
 - Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
-- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant
 
 ## 1.5.1 (March 23, 2023)
 

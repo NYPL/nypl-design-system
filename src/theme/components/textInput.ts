@@ -74,12 +74,15 @@ const TextInput = {
       minHeight: "xxl",
     },
     clearButton: {
+      borderRadius: "1px",
+      minHeight: { base: "42px", md: "auto" },
+      height: "38px",
       position: "absolute",
       // When `showLabel` is false, the input field is at the top
       // which means the clear button should float higher.
-      top: showLabel ? "32px" : "0",
+      top: showLabel ? ".75px" : "1px",
       px: "xs",
-      right: "0",
+      right: "0.5px",
       // Don't visually show the text. This also helps
       // use the "text" `Button` type.
       span: screenreaderOnly(),
