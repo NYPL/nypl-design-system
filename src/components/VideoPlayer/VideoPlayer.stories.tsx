@@ -57,7 +57,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=36835-25314&t=AEGDRpspvTyuSWSA-4",
     },
     jest: "VideoPlayer.test.tsx",
   },
