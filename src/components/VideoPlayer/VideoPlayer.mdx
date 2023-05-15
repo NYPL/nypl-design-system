@@ -1,42 +1,15 @@
-import { action } from "@storybook/addon-actions";
 import {
-  ArgsTable,
+  Meta,
   Canvas,
   Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+  ArgTypes,
+  Controls,
+  Source,
+} from "@storybook/blocks";
 
-import VideoPlayer from "./VideoPlayer";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import * as VideoPlayerStories from "./VideoPlayer.stories";
 
-<Meta
-  title={getCategory("VideoPlayer")}
-  component={VideoPlayer}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
-    },
-    jest: ["VideoPlayer.test.tsx"],
-  }}
-  argTypes={{
-    aspectRatio: {
-      table: {
-        defaultValue: { summary: "sixteenByNine" },
-      },
-    },
-    className: { control: false },
-    id: { control: false },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
-    videoType: {},
-  }}
-/>
+<Meta of={VideoPlayerStories} />
 
 # Video Player
 
@@ -57,7 +30,7 @@ import DSProvider from "../../theme/provider";
 
 ## Overview
 
-<Description of={VideoPlayer} />
+<Description of={VideoPlayerStories} />
 
 The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
 on a page. The component requires the `embedCode` prop or both the `videoType`
@@ -74,38 +47,9 @@ is `16:9`.
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="VideoPlayer"
-    args={{
-      aspectRatio: "sixteenByNine",
-      className: undefined,
-      descriptionText:
-        "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-      embedCode: `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`,
-      headingText: "NYPL Video",
-      helperText:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-      id: "videoPlayer-id",
-      iframeTitle: undefined,
-      showHelperInvalidText: true,
-      videoId: undefined,
-      videoType: undefined,
-    }}
-  >
-    {(args) => (
-      <VideoPlayer
-        {...args}
-        aspectRatio={args.aspectRatio}
-        embedCode={args.embedCode}
-        videoId={args.videoId && args.videoId}
-        videoType={args.videoType && args.videoType}
-      />
-    )}
-  </Story>
-</Canvas>
+<Canvas of={VideoPlayerStories.WithControls} />
 
-<ArgsTable story="VideoPlayer" />
+<ArgTypes of={VideoPlayerStories.WithControls} />
 
 **Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
 **Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
@@ -114,9 +58,10 @@ is `16:9`.
 
 The `VideoPlayer` component renders an `iframe` element with either a Vimeo or
 YouTube video. `iframe`s can be accessible if a `title` attribute is provided.
-When passing in a video type and a video `id`, make sure to pass a title. Otherwise,
-the title must already be provided in the embed code value that is passed to the
-`embedCode` prop. A default one is provided but a custom one is recommended.
+When passing in a video type and a video `id`, make sure to pass a title.
+Otherwise, the title must already be provided in the embed code value that is
+passed to the `embedCode` prop. A default one is provided but a custom one is
+recommended.
 
 Not all the Vimeo or YouTube videos passed to the `VideoPlayer` component will
 be owned by The New York Public Library. Because these videos are hosted on a
@@ -126,8 +71,8 @@ can reduce accessibility issues.
 
 - Never use autoplay on videos; a user must click the play button to start the
   video.
-- Always show all the video player's controls for the user to interact with
-  the video.
+- Always show all the video player's controls for the user to interact with the
+  video.
 - Keep the full screen option available.
 
 Resources:
@@ -141,17 +86,23 @@ Resources:
 
 ### Vimeo
 
-```
+<Source
+  code={`
 https://vimeo.com/[VIDEO_ID]
 https://vimeo.com/474719268
-```
+`}
+  language="html"
+/>
 
 ### YouTube
 
-```
+<Source
+  code={`
 https://www.youtube.com/watch?v=[VIDEO_ID]
 https://www.youtube.com/watch?v=nm-dD2tx6bk
-```
+`}
+  language="html"
+/>
 
 ## Example Embed Code Snippets
 
@@ -161,7 +112,8 @@ long string.
 
 ### Vimeo
 
-```html
+<Source
+  code={`
 <iframe
   src="https://player.vimeo.com/video/421404144?h=5467db7edd"
   width="640"
@@ -170,11 +122,14 @@ long string.
   allow="autoplay; fullscreen; picture-in-picture"
   allowfullscreen
 ></iframe>
-```
+`}
+  language="html"
+/>
 
 ### YouTube
 
-```html
+<Source
+  code={`
 <iframe
   width="560"
   height="315"
@@ -184,29 +139,19 @@ long string.
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
-```
+`}
+  language="html"
+/>
 
 ## Errored
 
 If the necessary props are not passed to the `VideoPlayer` component, the
 component UI will display an error message.
 
-<Canvas>
-  <DSProvider>
-    <VideoPlayer videoId="https://vimeo.com/474719268" videoType="vimeo" />
-  </DSProvider>
-</Canvas>
+<Canvas of={VideoPlayerStories.Errored} />
 
 ## HTML in Helper Text
 
 It's possible to include HTML in the `helperText` prop.
 
-<Canvas>
-  <DSProvider>
-    <VideoPlayer
-      helperText="This helper text <b>contains HTML</b>."
-      videoId="474719268"
-      videoType="vimeo"
-    />
-  </DSProvider>
-</Canvas>
+<Canvas name="HTML in Helper Text" of={VideoPlayerStories.HTMLInHelperText} />
