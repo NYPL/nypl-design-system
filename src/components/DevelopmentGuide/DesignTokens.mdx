@@ -1,11 +1,6 @@
-import { Box } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../../utils/componentCategories";
-import Heading from "../Heading/Heading";
-import DSProvider from "../../theme/provider";
-
-<Meta title={getCategory("Design Tokens")} />
+<Meta title="Development Guide/Design Tokens" />
 
 # Design Tokens
 
@@ -65,7 +60,8 @@ For example, if a `Heading` component needs to sit within a wrapper element
 and render its text using Reservoir's `brand primary` color and use a `light`
 font weight, the following can be done:
 
-```tsx
+<Source
+  code={`
 <Box
   backgroundColor="ui.bg.default"
   border="1px solid"
@@ -76,7 +72,9 @@ font weight, the following can be done:
     Get a Digital Library Card Today in a Few Easy Steps
   </Heading>
 </Box>
-```
+`}
+  language="jsx"
+/>
 
 #### Design Tokens for Custom Components and Native HTML Elements
 
@@ -88,13 +86,14 @@ To pass style attributes to custom components and native HTML elements, the
 React `style` prop must be used rather than the individual Javascript style
 props. The `style` prop can be populated in a number of ways.
 
-```tsx
+<Source
+  code={`
 // Style values assigned to variables
 const bg = "var(--nypl-colors-ui-bg-default)";
 const color = "var(--nypl-colors-ui-typography-heading)";
 const fontWeight = "var(--nypl-fontWeights-medium)";
 const padding = "var(--nypl-space-inset-default)";
-
+// ...
 <div
   style={{
     backgroundColor: bg,
@@ -102,8 +101,8 @@ const padding = "var(--nypl-space-inset-default)";
     fontWeight: fontWeight,
     padding: padding,
   }}
-/>;
-
+/>
+/******************/
 // Style values assigned to a data object
 const stylesDirectlyAssigned = {
   backgroundColor: "var(--nypl-colors-ui-bg-default)",
@@ -111,9 +110,9 @@ const stylesDirectlyAssigned = {
   fontWeight: "var(--nypl-fontWeights-medium)",
   padding: "var(--nypl-space-inset-default)",
 };
-
-<div style={stylesDirectlyAssigned} />;
-
+// ...
+<div style={stylesDirectlyAssigned} />
+/******************/
 // Style values assigned directly
 <div
   style={{
@@ -122,14 +121,17 @@ const stylesDirectlyAssigned = {
     fontWeight: "var(--nypl-fontWeights-medium)",
     padding: "var(--nypl-space-inset-default)",
   }}
-/>;
-```
+/>
+`}
+  language="jsx"
+/>
 
 Below is an example using a custom component. Please note that consuming apps
 are responsible for handling how styles are propagated and applied within custom
 components.
 
-```tsx
+<Source
+  code={`
 // Styles for a custom component
 const stylesForCustomComponent = {
   backgroundColor: "var(--nypl-colors-ui-bg-default)",
@@ -137,9 +139,11 @@ const stylesForCustomComponent = {
   fontWeight: "var(--nypl-fontWeights-medium)",
   padding: "var(--nypl-space-inset-default)",
 };
-
-<CustomComponent style={stylesForCustomComponent} />;
-```
+// ...
+<CustomComponent style={stylesForCustomComponent} />
+`}
+  language="jsx"
+/>
 
 ## Using Reservoir Design Tokens in CSS
 
@@ -151,7 +155,8 @@ to use. Nothing more needs to be done to your app.
 To assist with CSS scope isolation, all of the CSS custom properties created
 by the DS are prefixed with "nypl." Please see the examples below.
 
-```css
+<Source
+  code={`
 --nypl-colors-brand-primary
 --nypl-colors-brand-secondary
 --nypl-fontSizes-sm
@@ -163,22 +168,26 @@ by the DS are prefixed with "nypl." Please see the examples below.
 --nypl-space-s
 --nypl-space-m
 --nypl-space-l
-```
+`}
+  language="css"
+/>
 
 The CSS custom properties are defined on the :root pseudo-class and should be
 implemented using standard CSS custom properties conventions.
 
-```css
+<Source
+  code={`
 /* Property Declaration in the DS */
 :root {
   --nypl-colors-brand-primary: #c60917;
 }
-
 /* Property Usage in Your Application */
 .custom-button {
   background: var(--nypl-colors-brand-primary);
 }
-```
+`}
+  language="css"
+/>
 
 ## Reservoir Design Token Categories
 
@@ -519,7 +528,3 @@ The following tokens can be used with the `font-weight` style attribute.
 |                 | text.caption          | --nypl-fontWeights-text-caption          | light   |
 |                 | text.tag              | --nypl-fontWeights-text-tag              | regular |
 |                 | text.mini             | --nypl-fontWeights-text-mini             | regular |
-
-<!-- hack to make sure correct styles are used on the page -->
-
-<DSProvider />
