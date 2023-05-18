@@ -41,7 +41,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 From
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="basic-start"
@@ -92,7 +91,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 To
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="basic-end"
@@ -171,7 +169,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 From
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="no-label-start"
@@ -222,7 +219,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 To
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="no-label-end"
@@ -301,7 +297,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 From
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="custom-format-start"
@@ -352,7 +347,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 To
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="custom-format-end"
@@ -432,7 +426,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               </label>
               <input
                 aria-invalid={true}
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="invalid-start"
@@ -492,7 +485,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               </label>
               <input
                 aria-invalid={true}
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={false}
                 id="invalid-end"
@@ -587,7 +579,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 From
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={true}
                 id="disabled-start"
@@ -638,7 +629,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 To
               </label>
               <input
-                autocomplete={null}
                 className="chakra-input css-0"
                 disabled={true}
                 id="disabled-end"
@@ -714,7 +704,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             Select the full date you want to visit NYPL
           </label>
           <input
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="basic-start"
@@ -774,7 +763,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         >
           <input
             aria-label="Select the date you want to visit NYPL"
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="no-label-start"
@@ -840,7 +828,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="custom-format-start"
@@ -907,7 +894,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           </label>
           <input
             aria-invalid={true}
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="invalid-start"
@@ -981,7 +967,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={true}
             id="disabled-start"
@@ -1055,7 +1040,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="chakra-start"
@@ -1130,7 +1114,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             Select the date you want to visit NYPL
           </label>
           <input
-            autocomplete={null}
             className="chakra-input css-0"
             disabled={false}
             id="props-start"
