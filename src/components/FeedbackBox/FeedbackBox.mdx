@@ -1,41 +1,15 @@
 import {
-  ArgsTable,
+  ArgTypes,
   Canvas,
+  Controls,
   Description,
   Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
+  Source,
+} from "@storybook/blocks";
 
-import Button from "../Button/Button";
-import FeedbackBox from "./FeedbackBox";
-import useStateWithDependencies from "../../hooks/useStateWithDependencies";
-import { getCategory } from "../../utils/componentCategories";
+import * as FeedbackBoxStories from "./FeedbackBox.stories";
 
-<Meta
-  title={getCategory("FeedbackBox")}
-  component={FeedbackBox}
-  decorators={[withDesign]}
-  parameters={{
-    jest: ["FeedbackBox.test.tsx"],
-  }}
-  argTypes={{
-    className: { control: false },
-    hiddenFields: { control: false },
-    id: { control: false },
-    isInvalidComment: { table: { defaultValue: { summary: false } } },
-    isInvalidEmail: { table: { defaultValue: { summary: false } } },
-    isOpen: { table: { disable: true } },
-    notificationText: { control: false },
-    onClose: { table: { disable: true } },
-    onOpen: { table: { disable: true } },
-    onSubmit: { control: false },
-    showCategoryField: { table: { defaultValue: { summary: false } } },
-    showEmailField: { table: { defaultValue: { summary: true } } },
-    view: { table: { defaultValue: { summary: "form" } } },
-  }}
-/>
+<Meta of={FeedbackBoxStories} />
 
 # FeedbackBox
 
@@ -57,7 +31,7 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={FeedbackBox} />
+<Description of={FeedbackBoxStories} />
 
 An NYPL privacy policy link will render within every screen of the FeedbackBox
 ("form", "confirmation", and "error" ), and the link will open in a new tab.
@@ -70,65 +44,9 @@ In practice, the consuming app is responsible for handling the form submission.
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="FeedbackBox with Controls"
-    args={{
-      className: undefined,
-      confirmationText: "",
-      descriptionText: "Please share your question or feedback.",
-      hiddenFields: undefined,
-      id: "feedbackBox-id",
-      isInvalidComment: false,
-      isInvalidEmail: false,
-      isOpen: undefined,
-      notificationText: undefined,
-      onClose: undefined,
-      onOpen: undefined,
-      onSubmit: undefined,
-      showCategoryField: false,
-      showEmailField: false,
-      title: "Help and Feedback",
-      view: "form",
-    }}
-  >
-    {(args) => {
-      // This hook is used because the `view` prop can be controlled
-      // by Storybook controls.
-      const [internalView, setInternalView] = useStateWithDependencies(
-        args.view
-      );
-      const [count, setCount] = useState(0);
-      // Example hidden field values.
-      const hiddenFields = {
-        "hidden-field-1": "hidden-field-value-1",
-        "hidden-field-2": "hidden-field-value-2",
-      };
-      // For the purposes of the Storybook example, the confirmation and
-      // error screens display on alternate form submissions.
-      const onSubmit = (values) => {
-        setCount((prev) => prev + 1);
-        setInternalView(count % 2 === 0 ? "confirmation" : "error");
-        console.log("Submitted values:", values);
-      };
-      return (
-        <FeedbackBox
-          {...args}
-          hiddenFields={hiddenFields}
-          notificationText={
-            <span>
-              <b>Call Number:</b> JFE 95-8555
-            </span>
-          }
-          onSubmit={onSubmit}
-          view={internalView}
-        />
-      );
-    }}
-  </Story>
-</Canvas>
+<Canvas of={FeedbackBoxStories.WithControls} />
 
-<ArgsTable story="FeedbackBox with Controls" />
+<ArgTypes of={FeedbackBoxStories.WithControls} />
 
 ## Accessibility
 
@@ -247,7 +165,8 @@ successful API request. Setting the `view` prop through a `useState` value is
 only one way to update and pass the "confirmation" value to the `FeedbackBox`
 component. Using the `fetch` API is one possible approach.
 
-```jsx
+<Source
+  code={`
 const [view, setView] = React.useState("form");
 const apiEndpoint = "...";
 const onSubmit = (values) => {
@@ -271,8 +190,8 @@ const onSubmit = (values) => {
   showEmailField
   title="Help and Feedback"
   view={view}
-/>;
-```
+/>
+`} language="jsx" />
 
 ### Error
 
@@ -289,7 +208,8 @@ API request. Setting the `view` prop through a `useState` value is only one way
 to update and pass the "error" value to the `FeedbackBox` component. Using the
 `fetch` API is one possible approach.
 
-```jsx
+<Source
+  code={`
 const [view, setView] = React.useState("form");
 const apiEndpoint = "...";
 const onSubmit = (values) => {
@@ -317,8 +237,8 @@ const onSubmit = (values) => {
   showEmailField
   title="Help and Feedback"
   view={view}
-/>;
-```
+/>
+`} language="jsx" />
 
 ## Form Submission Data
 
@@ -338,7 +258,8 @@ Below is an example callback function named `onSubmit` that is passed to the
 `FeedbackBox` component's `onSubmit` prop. The form data will be returned through
 the function's argument as an object, called `values` in the example below.
 
-```jsx
+<Source
+  code={`
 const onSubmit = (values) => {
   console.log("Submitted values:", values);
   // "Submitted values:",
@@ -356,8 +277,8 @@ const onSubmit = (values) => {
   showCategoryField
   showEmailField
   title="Help and Feedback"
-/>;
-```
+/>
+`} language="jsx" />
 
 ### Hidden Field Values
 
@@ -366,7 +287,8 @@ the form data from the `FeedbackBox` component, the `hiddenFields` prop can be
 used. This prop accepts an object of key/value pairs. The object data will be
 merged with the submitted form data.
 
-```jsx
+<Source
+  code={`
 const hiddenFields = {
   "hidden-field-1": "hidden-field-value-1",
   "hidden-field-2": "hidden-field-value-2",
@@ -390,8 +312,8 @@ const onSubmit = (values) => {
   showCategoryField
   showEmailField
   title="Help and Feedback"
-/>;
-```
+/>
+`} language="jsx" />
 
 ## Programmatically Open
 
@@ -400,16 +322,22 @@ requires an extra step when importing and implementing the component. Instead
 of importing the `FeedbackBox` component directly, use the `useFeedbackBox` hook
 to get the `FeedbackBox` component and helper functions.
 
-```jsx
+<Source
+  code={`
 import { useFeedbackBox } from "@nypl/design-system-react-components";
-```
+`}
+  language="jsx"
+/>
 
 This hook will return an object with the `FeedbackBox` component, a boolean
 value, and two functions.
 
-```jsx
+<Source
+  code={`
 const { FeedbackBox, isOpen, onClose, onOpen } = useFeedbackBox();
-```
+`}
+  language="jsx"
+/>
 
 The `FeedbackBox` component is the same as the one imported directly, but now
 the `isOpen` value and `onClose` and `onOpen` functions are exposed and
@@ -417,32 +345,33 @@ available to the consuming application. The only function that will be used
 directly is the `onOpen` function. Pass `isOpen` and `onClose` to the
 `FeedbackBox`.
 
-```jsx
+<Source
+  code={`
 const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
 
 // ...
+
 <FeedbackBox
   isOpen={isOpen}
   onClose={onClose}
   onOpen={onOpen}
   title="Help and Feedback"
   {...otherProps}
-/>;
-```
+/>
+`} language="jsx" />
 
 Finally, the `onOpen` function can be used to programmatically open the `FeedbackBox`
 component through another element or behavior in the consuming app. See the
 example below that uses a custom `Button` to open the Modal. The existing button
 that is rendered by the `FeedbackBox` component will still work as expected.
 
-```jsx
+<Source
+  code={`
 import { useFeedbackBox } from "@nypl/design-system-react-components";
-
 // ...
 const MyComponent = () => {
   const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
   // ...
-
   return (
     <>
       <Button id="open-feedback-box" onClick={onOpen}>
@@ -457,5 +386,6 @@ const MyComponent = () => {
       />
     </>
   );
-};
-```
+}; `}
+  language="jsx"
+/>

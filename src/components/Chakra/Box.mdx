@@ -1,11 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Meta } from "@storybook/blocks";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 
-<Meta title={getCategory("Box")} component={Box} />
+<Meta title="Components/Chakra Exports/Layout/Box" />
 
 # Box
 
@@ -24,29 +22,27 @@ a `div` but can render another element using the `as` prop.
 All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
 guide on the Chakra UI site.
 
+In the following example, the padding, background color, and text color are
+updated with the `p`, `bg`, and `color` props respectively.
+
 <Canvas>
-  <Story
-    name="Box"
-    args={{
-      padding: "s",
-      bg: "var(--nypl-colors-brand-primary)",
-      color: "white",
-    }}
-  >
-    {(args) => <Box {...args}>This text is inside a `Box` component.</Box>}
-  </Story>
+  <Box p="s" bg="brand.primary" color="ui.white">
+    This text is inside a `Box` component.
+  </Box>
 </Canvas>
 
 ## With VideoPlayer Component Example
 
+In this example, the props added to the `Box` component are `borderWidth`,
+`padding`, `borderRadius`, and `overflow` to create a wrapper around the
+`VideoPlayer` component.
+
 <Canvas>
-  <DSProvider>
-    <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
-      <VideoPlayer
-        videoId="nm-dD2tx6bk"
-        videoType="youTube"
-        aspectRatio="sixteenByNine"
-      />
-    </Box>
-  </DSProvider>
+  <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
+    <VideoPlayer
+      videoId="nm-dD2tx6bk"
+      videoType="youtube"
+      aspectRatio="sixteenByNine"
+    />
+  </Box>
 </Canvas>
