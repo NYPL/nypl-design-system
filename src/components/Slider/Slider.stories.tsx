@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
@@ -149,7 +149,7 @@ export const RangeSliderWithControls: Story = {
 export const SingleSliderStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <div>
+      <Box>
         <Heading
           id="heading-single-default"
           level="four"
@@ -162,8 +162,8 @@ export const SingleSliderStates: Story = {
           invalidText="Component error text :("
           labelText="Label"
         />
-      </div>
-      <SimpleGrid columns={1} gap="grid.l">
+      </Box>
+      <Box>
         <Heading
           id="heading-single-errored"
           level="four"
@@ -190,8 +190,8 @@ export const SingleSliderStates: Story = {
           max={30}
           min={80}
         />
-      </SimpleGrid>
-      <div>
+      </Box>
+      <Box>
         <Heading
           id="heading-single-required"
           level="four"
@@ -205,8 +205,8 @@ export const SingleSliderStates: Story = {
           labelText="Label"
           isRequired
         />
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Heading
           id="heading-single-disabled"
           level="four"
@@ -220,7 +220,7 @@ export const SingleSliderStates: Story = {
           labelText="Label"
           isDisabled
         />
-      </div>
+      </Box>
     </VStack>
   ),
 };
