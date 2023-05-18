@@ -28,7 +28,7 @@ export default meta;
 type Story = StoryObj<typeof TagSet>;
 
 /**
- * Main Story for the Accordion component. This must contains the `args`
+ * Main Story for the TagSet component. This must contains the `args`
  * and `parameters` properties in this object.
  */
 export const WithControlsExplore: Story = {
@@ -102,7 +102,7 @@ export const WithControlsFilter: Story = {
   },
 };
 
-// The following are additional Accordion example Stories.
+// The following are additional TagSet example Stories.
 export const FormattingExamples: Story = {
   render: () => (
     <VStack align="stretch" gap="l">
