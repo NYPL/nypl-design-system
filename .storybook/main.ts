@@ -82,6 +82,8 @@ const config: StorybookConfig = {
     "../src/components/ProgressIndicator/ProgressIndicator.mdx",
     "../src/components/SearchBar/SearchBar.stories.tsx",
     "../src/components/SearchBar/SearchBar.mdx",
+    "../src/components/Select/Select.stories.tsx",
+    "../src/components/Select/Select.mdx",
     "../src/components/Slider/Slider.stories.tsx",
     "../src/components/Slider/Slider.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
