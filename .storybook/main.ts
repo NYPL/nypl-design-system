@@ -80,6 +80,8 @@ const config: StorybookConfig = {
     "../src/components/SearchBar/SearchBar.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
+    "../src/components/TagSet/TagSet.stories.tsx",
+    "../src/components/TagSet/TagSet.mdx",
     "../src/components/Text/Text.stories.tsx",
     "../src/components/Text/Text.mdx",
     "../src/components/VideoPlayer/VideoPlayer.stories.tsx",
