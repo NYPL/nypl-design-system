@@ -3,16 +3,18 @@ import React, { forwardRef } from "react";
 
 import Image, { ComponentImageProps } from "../Image/Image";
 
-export type HeroTypes =
-  | "primary"
-  | "secondary"
-  | "secondaryBooksAndMore"
-  | "secondaryLocations"
-  | "secondaryResearch"
-  | "secondaryWhatsOn"
-  | "tertiary"
-  | "campaign"
-  | "fiftyFifty";
+export const heroTypesArray = [
+  "primary",
+  "secondary",
+  "secondaryBooksAndMore",
+  "secondaryLocations",
+  "secondaryResearch",
+  "secondaryWhatsOn",
+  "tertiary",
+  "campaign",
+  "fiftyFifty",
+] as const;
+export type HeroTypes = typeof heroTypesArray[number];
 // Only used for internal purposes.
 export const heroSecondaryTypes = [
   "secondary",

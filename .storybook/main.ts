@@ -70,6 +70,8 @@ const config: StorybookConfig = {
     "../src/components/FeedbackBox/FeedbackBox.mdx",
     "../src/components/Fieldset/Fieldset.stories.tsx",
     "../src/components/Fieldset/Fieldset.mdx",
+    "../src/components/Hero/Hero.stories.tsx",
+    "../src/components/Hero/Hero.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/Pagination/Pagination.stories.tsx",
