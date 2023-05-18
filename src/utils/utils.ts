@@ -24,22 +24,24 @@ export const range = (start: number, stop: number, step = 1): number[] => {
  * @NOTE this is only used for Storybook documentation.
  */
 export const getStorybookHrefProps = (pageCount: number) => {
-  // This uses the `addon-queryparams` Storybook addon.
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
 
-  const getPageNumber = (page: number, pageCount: number) => {
+  const getPageNumber = (page: number) => {
     return page > 0 && page <= pageCount ? page : 1;
   };
   const computedCurrentPage =
-    pageParam &&
-    Number(pageParam) &&
-    getPageNumber(Number(pageParam), pageCount);
+    pageParam && Number(pageParam) && getPageNumber(Number(pageParam));
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
+  // NOTE: This is very flaky. It removes the `&page=[number]` from the URL
+  // and replaces it with the new page number. This is not ideal, but if it is
+  // not removed, the example `Pagination` won't work.
+  // Not a problem in real life apps (maybe?).
   const getPageHref = (selectedPage: number) => {
-    return `${location.href}&page=${selectedPage}`;
+    const updatedHref = location.href.replace(/&page=.*/, "");
+    return `${updatedHref}&page=${selectedPage}`;
   };
 
   return { computedCurrentPage, getPageHref };

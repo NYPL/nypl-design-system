@@ -127,7 +127,7 @@ const faqContentData: AccordionDataProps[] = [
 ];
 
 const meta: Meta<typeof Accordion> = {
-  title: "Accordion",
+  title: "Components/Overlays & Switchers/Accordion",
   component: Accordion,
   decorators: [withDesign],
   argTypes: {

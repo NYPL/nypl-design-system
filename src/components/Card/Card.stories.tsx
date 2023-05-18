@@ -1,36 +1,20 @@
 import { action } from "@storybook/addon-actions";
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
+import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import { layoutTypesArray } from "../../helpers/types";
 
-<Meta
-  title={getCategory("Card")}
-  component={Card}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25747",
-    },
-    jest: ["Card.test.tsx"],
-  }}
-  argTypes={{
+const meta: Meta<typeof Card> = {
+  title: "Components/Basic Elements/Card",
+  component: Card,
+  decorators: [withDesign],
+  argTypes: {
     backgroundColor: { control: { type: "color" } },
     className: { control: false },
     foregroundColor: { control: { type: "color" } },
@@ -65,189 +49,99 @@ import DSProvider from "../../theme/provider";
       table: { defaultValue: { summary: false } },
     },
     layout: {
+      control: { type: "select" },
+      options: layoutTypesArray,
       table: { defaultValue: { summary: "column" } },
     },
-  }}
-/>
+  },
+};
 
-# Card
+export default meta;
+type Story = StoryObj<typeof Card>;
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
-| Latest            | `1.5.0`    |
+/**
+ * Main Story for the Card component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const WithControls: Story = {
+  args: {
+    backgroundColor: undefined,
+    className: undefined,
+    foregroundColor: undefined,
+    id: "card-id",
+    "imageProps.alt": "Alt text",
+    "imageProps.aspectRatio": "square",
+    "imageProps.component": undefined,
+    "imageProps.isAtEnd": false,
+    "imageProps.size": "default",
+    "imageProps.src": "https://placeimg.com/400/300/animals",
+    isAlignedRightActions: false,
+    isBordered: false,
+    isCentered: false,
+    layout: "row",
+    mainActionLink: undefined,
+  },
+  render: (args) => (
+    <Card
+      backgroundColor={args.backgroundColor}
+      className={args.className}
+      foregroundColor={args.foregroundColor}
+      id={args.id}
+      imageProps={{
+        alt: args["imageProps.alt"],
+        aspectRatio: args["imageProps.aspectRatio"],
+        component: args["imageProps.component"],
+        isAtEnd: args["imageProps.isAtEnd"],
+        size: args["imageProps.size"],
+        src: args["imageProps.src"],
+      }}
+      isAlignedRightActions={args.isAlignedRightActions}
+      isBordered={args.isBordered}
+      isCentered={args.isCentered}
+      layout={args.layout}
+      mainActionLink={args.mainActionLink}
+    >
+      <CardHeading level="two" id="main-heading1">
+        Optional Header
+      </CardHeading>
+      <CardHeading level="three" id="main-heading2">
+        Sollicitudin Lorem Tortor Purus Ornare
+      </CardHeading>
+      <CardContent>
+        Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+        libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel
+        eu leo. Nulla vitae elit libero, a pharetra augue.
+      </CardContent>
+      <CardActions topBorder bottomBorder>
+        <Button id="main-button1" onClick={action("clicked")} type="submit">
+          Primary
+        </Button>
+        <Button
+          buttonType="secondary"
+          id="main-button2"
+          onClick={action("clicked")}
+          type="submit"
+        >
+          Secondary
+        </Button>
+      </CardActions>
+      <CardActions>
+        <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
+        <Link href="#">#hash3</Link>
+      </CardActions>
+    </Card>
+  ),
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25747",
+    },
+    jest: ["Card.test.tsx"],
+  },
+};
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Image Position](#image-position)
-- [Image Size](#image-size)
-- [Custom Image Component](#custom-image-component)
-- [Card With Link Heading](#card-with-link-heading)
-- [Card With Full-Click Functionality](#card-with-full-click-functionality)
-- [Card with Right Side CardActions](#card-with-right-side-cardactions)
-- [Cards in a Grid](#cards-in-a-grid)
-- [Cards in a Stack](#cards-in-a-stack)
-- [Cards Without Images](#cards-without-images)
-
-## Overview
-
-<Description of={Card} />
-
-The `Card` component is viewed as a contained, stand-alone element. It is highly
-configurable and composable. It can be shown with or without an image and the
-content area is composed using Card-specific child components: `CardHeading`,
-`CardActions` and `CardContent`. These child components can be arranged in any
-order and each child component may be used multiple times within the content
-area. Although a `Card` is a self-contained unit, `Card` components are often
-grouped together and displayed in some type of grid layout.
-
-### CardHeading
-
-The `CardHeading` component mirrors the standard Reservoir Design System (DS)
-`Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-typography-styles-heading--heading-with-controls).
-
-### CardActions
-
-The `CardActions` component is used to display "call to action" (CTA) buttons
-and links for the card. The DS `Button` and `Link` components should be passed
-as children into the `CardActions` component.
-
-Set the `isAlignedRightActions` prop to true in the `Card` component to align the
-`CardActions` to the right of the the main content area. This is only applicable
-in the row layout of the `Card` component.
-
-### CardContent
-
-The `CardContent` component should be used to display all content other than
-headings and CTAs.
-
-## Component Props
-
-<Canvas withToolbar>
-  <Story
-    name="Card with Controls"
-    args={{
-      backgroundColor: undefined,
-      className: undefined,
-      foregroundColor: undefined,
-      id: "card-id",
-      "imageProps.alt": "Alt text",
-      "imageProps.aspectRatio": "square",
-      "imageProps.component": undefined,
-      "imageProps.isAtEnd": false,
-      "imageProps.size": "default",
-      "imageProps.src": "https://placeimg.com/400/300/animals",
-      isAlignedRightActions: false,
-      isBordered: false,
-      isCentered: false,
-      layout: "row",
-      mainActionLink: undefined,
-    }}
-  >
-    {(args) => (
-      <Card
-        backgroundColor={args.backgroundColor}
-        className={args.className}
-        foregroundColor={args.foregroundColor}
-        id={args.id}
-        imageProps={{
-          alt: args["imageProps.alt"],
-          aspectRatio: args["imageProps.aspectRatio"],
-          component: args["imageProps.component"],
-          isAtEnd: args["imageProps.isAtEnd"],
-          size: args["imageProps.size"],
-          src: args["imageProps.src"],
-        }}
-        isAlignedRightActions={args.isAlignedRightActions}
-        isBordered={args.isBordered}
-        isCentered={args.isCentered}
-        layout={args.layout}
-        mainActionLink={args.mainActionLink}
-      >
-        <CardHeading level="two" id="main-heading1">
-          Optional Header
-        </CardHeading>
-        <CardHeading level="three" id="main-heading2">
-          Sollicitudin Lorem Tortor Purus Ornare
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
-          vel eu leo. Nulla vitae elit libero, a pharetra augue.
-        </CardContent>
-        <CardActions topBorder bottomBorder>
-          <Button id="main-button1" onClick={action("clicked")} type="submit">
-            Primary
-          </Button>
-          <Button
-            buttonType="secondary"
-            id="main-button2"
-            onClick={action("clicked")}
-            type="submit"
-          >
-            Secondary
-          </Button>
-        </CardActions>
-        <CardActions>
-          <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
-          <Link href="#">#hash3</Link>
-        </CardActions>
-      </Card>
-    )}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Card with Controls" />
-
-## Accessibility
-
-### Headings
-
-In general, headings from `h1` through `h6` must be in sequential order in the
-DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
-Therefore, when adding `CardHeading` components, make sure to add them in
-sequential order with the proper `level` prop.
-
-```tsx
-// Correct
-<CardHeading level="three" id="headingthree">
-  Heading level three
-</CardHeading>
-<CardHeading level="four" id="headingfour">
-  Heading level four
-</CardHeading>
-
-// Incorrect
-<CardHeading level="two" id="headingtwo">
-  Heading level Two
-</CardHeading>
-<CardHeading level="four" id="headingfour">
-  Heading level four
-</CardHeading>
-```
-
-### Full-Click Functionality
-
-Passing in a URL in the `mainActionLink` prop will make the entire `Card`
-clickable. Other links in the `CardActions` component can still be accessed by
-tabbing through and pressing "enter" or by clicking as you normally would on a
-link.
-
-## Image Position
-
-By default, the image is always the first element within a `Card`. This means
-the image is at the top of a `Card` with a column layout and on the left side of
-a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean prop
-to override the default placement and move the image to the last element within
-a `Card`.
-
-### Column Cards
-
-<Canvas>
-  <Story name="Card Image Position">
+export const ImagePositionColumnCards: Story = {
+  render: () => (
     <SimpleGrid columns={2}>
       <Card
         imageProps={{
@@ -281,13 +175,11 @@ a `Card`.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </Story>
-</Canvas>
+  ),
+};
 
-### Row Cards
-
-<Canvas>
-  <DSProvider>
+export const ImagePositionRowCards: Story = {
+  render: () => (
     <SimpleGrid columns={1}>
       <Card
         imageProps={{
@@ -327,19 +219,11 @@ a `Card`.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </DSProvider>
-</Canvas>
+  ),
+};
 
-## Image Size
-
-By default, the image width is `100%` for a `Card` with a column layout and
-`225px` for a `Card` with a row layout. However, you can use the `imageProps.size`
-prop to override the default width.
-
-### Column Cards
-
-<Canvas>
-  <Story name="Card Image Size">
+export const ImageSizeColumnCards: Story = {
+  render: () => (
     <SimpleGrid columns={1}>
       <Card
         imageProps={{
@@ -466,13 +350,10 @@ prop to override the default width.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </Story>
-</Canvas>
-
-### Row Cards
-
-<Canvas>
-  <DSProvider>
+  ),
+};
+export const ImageSizeRowCards: Story = {
+  render: () => (
     <SimpleGrid columns={1}>
       <Card
         imageProps={{
@@ -599,16 +480,11 @@ prop to override the default width.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </DSProvider>
-</Canvas>
+  ),
+};
 
-## Custom Image Component
-
-Instead of passing a path for the `imageProps.src` prop, you can pass a custom
-image component in using the `imageProps.component` prop.
-
-<Canvas withToolbar>
-  <Story name="Custom Image Component">
+export const CustomImageComponent: Story = {
+  render: () => (
     <Card
       imageProps={{
         alt: "Alt text",
@@ -639,18 +515,10 @@ image component in using the `imageProps.component` prop.
         </Link>
       </CardActions>
     </Card>
-  </Story>
-</Canvas>
-
-## Card with Link Heading
-
-The `CardHeading` component works just like the DS `Heading` component. This
-means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
-component can be used as a child. Click on "Show code" in the example below to
-see both patterns.
-
-<Canvas>
-  <Story name="Card With Link Heading">
+  ),
+};
+export const CardWithLinkHeading: Story = {
+  render: () => (
     <Card
       imageProps={{
         alt: "Alt text",
@@ -680,22 +548,11 @@ see both patterns.
         </Link>
       </CardActions>
     </Card>
-  </Story>
-</Canvas>
+  ),
+};
 
-## Card With Full-Click Functionality
-
-To enable the full-click functionality in the `Card` component, pass a URL in
-the `mainActionLink` prop. This will make the entire `Card` component clickable.
-If the `Card` has action links or buttons, they can still be accessed by tabbing
-through the `Card` and pressing `enter` or clicking like a regular link.
-
-Internally, if multiple `CardHeading` components are passed, only the first one
-will have the full-click link. This, however, does not affect the `Card` itself
-from being having the full-click functionality.
-
-<Canvas>
-  <Story name="Card With Full-Click Functionality">
+export const CardFullClick: Story = {
+  render: () => (
     <SimpleGrid columns={2}>
       <Card
         imageProps={{
@@ -742,13 +599,12 @@ from being having the full-click functionality.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </Story>
-</Canvas>
+  ),
+  name: "Card with Full-Click Functionality",
+};
 
-This example can be found in the [Turbine homepage](https://nypl-ds-test-app.vercel.app/).
-
-<Canvas>
-  <DSProvider>
+export const CardFullClickTurbineExample: Story = {
+  render: () => (
     <SimpleGrid columns={3}>
       <Card
         isBordered
@@ -800,18 +656,11 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
         </CardContent>
       </Card>
     </SimpleGrid>
-  </DSProvider>
-</Canvas>
-
-## Card with Right Side CardActions
-
-It's possible to set only the `CardActions` component on the right side of the
-main content area of the `Card`. This is possible only in the `layout="row"`
-layout and through the `Card` component's `isAlignedRightActions` prop which
-must be set to `true`.
-
-<Canvas>
-  <Story name="Card with Right Side CardActions">
+  ),
+  name: "Card with Full-Click Functionality Turbine Example",
+};
+export const CardWithRightSideCardActions: Story = {
+  render: () => (
     <Card
       imageProps={{
         alt: "Alt text",
@@ -852,13 +701,11 @@ must be set to `true`.
         <Link href="#">#hash3</Link>
       </CardActions>
     </Card>
-  </Story>
-</Canvas>
-
-## Cards in a Grid
-
-<Canvas>
-  <Story name="Cards in a Grid">
+  ),
+  name: "Card with Right Side CardActions",
+};
+export const CardsInAGrid: Story = {
+  render: () => (
     <SimpleGrid columns={3}>
       <Card
         imageProps={{
@@ -951,13 +798,11 @@ must be set to `true`.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </Story>
-</Canvas>
+  ),
+};
 
-## Cards in a Stack
-
-<Canvas>
-  <Story name="Cards in a Stack">
+export const CardsInAStack: Story = {
+  render: () => (
     <SimpleGrid columns={1}>
       <Card
         imageProps={{
@@ -1014,86 +859,86 @@ must be set to `true`.
         </CardContent>
       </Card>
     </SimpleGrid>
-  </Story>
-</Canvas>
+  ),
+};
 
-## Cards Without Images
-
-<Canvas>
-  <Story name="Cards Without Images">
-    <SimpleGrid columns={3}>
-      <Card isBordered>
-        <CardHeading level="three" id="no-img1-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-      <Card isBordered>
-        <CardHeading level="three" id="no-img2-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-      <Card isBordered>
-        <CardHeading level="three" id="no-img3-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-    <br />
-    <SimpleGrid columns={1}>
-      <Card layout="row" isBordered>
-        <CardHeading level="three" id="no-img4-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-      <Card layout="row" isBordered>
-        <CardHeading level="three" id="no-img5-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-      <Card layout="row" isBordered>
-        <CardHeading level="three" id="no-img6-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-  </Story>
-</Canvas>
+export const CardsWithoutImages: Story = {
+  render: () => (
+    <>
+      <SimpleGrid columns={3}>
+        <Card isBordered>
+          <CardHeading level="three" id="no-img1-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+            Praesent commodo cursus magna, vel scelerisque nisl.
+          </CardContent>
+        </Card>
+        <Card isBordered>
+          <CardHeading level="three" id="no-img2-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+            Praesent commodo cursus magna, vel scelerisque nisl.
+          </CardContent>
+        </Card>
+        <Card isBordered>
+          <CardHeading level="three" id="no-img3-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+            Praesent commodo cursus magna, vel scelerisque nisl.
+          </CardContent>
+        </Card>
+      </SimpleGrid>
+      <br />
+      <SimpleGrid columns={1}>
+        <Card layout="row" isBordered>
+          <CardHeading level="three" id="no-img4-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+            semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+            libero, a pharetra augue. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec id elit non mi porta gravida
+            at eget metus.
+          </CardContent>
+        </Card>
+        <Card layout="row" isBordered>
+          <CardHeading level="three" id="no-img5-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+            semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+            libero, a pharetra augue. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec id elit non mi porta gravida
+            at eget metus.
+          </CardContent>
+        </Card>
+        <Card layout="row" isBordered>
+          <CardHeading level="three" id="no-img6-heading1">
+            Card Heading
+          </CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+            semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+            libero, a pharetra augue. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec id elit non mi porta gravida
+            at eget metus.
+          </CardContent>
+        </Card>
+      </SimpleGrid>
+    </>
+  ),
+};
