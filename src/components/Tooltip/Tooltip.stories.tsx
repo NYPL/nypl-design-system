@@ -105,7 +105,7 @@ export const TooltipsOnFormOptions: Story = {
 
 export const TooltipOnImageComponent: Story = {
   render: () => (
-    <>
+    <VStack align="stretch" spacing="l">
       <Text>
         Images with aspect ratios but Tooltips use shouldWrapChildren. Don't do
         this.
@@ -139,7 +139,7 @@ export const TooltipOnImageComponent: Story = {
           />
         </Tooltip>
       </SimpleGrid>
-    </>
+    </VStack>
   ),
 };
 

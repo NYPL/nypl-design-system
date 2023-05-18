@@ -1,30 +1,15 @@
-import { Box, VStack } from "@chakra-ui/react";
 import {
-  ArgsTable,
+  ArgTypes,
   Canvas,
+  Controls,
   Description,
   Meta,
-  Story,
-} from "@storybook/addon-docs";
+  Source,
+} from "@storybook/blocks";
 
-import Label from "./Label";
-import { getCategory } from "../../utils/componentCategories";
+import * as LabelStories from "./Label.stories";
 
-<Meta
-  title={getCategory("Label")}
-  component={Label}
-  parameters={{
-    jest: ["Label.test.tsx"],
-  }}
-  argTypes={{
-    className: { control: false },
-    id: { control: false },
-    isInlined: { table: { disable: true } },
-    text: {
-      description: "Only used for Storybook",
-    },
-  }}
-/>
+<Meta of={LabelStories} />
 
 # Label
 
@@ -43,26 +28,13 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={Label} />
+<Description of={LabelStories} />
 
 ## Component Props
 
-<Canvas>
-  <Story
-    name="Label with Controls"
-    args={{
-      className: undefined,
-      htmlFor: "id-of-input-element",
-      id: "label-id",
-      isRequired: false,
-      text: "A label for a villager.",
-    }}
-  >
-    {(args) => <Label {...args}>{args.text}</Label>}
-  </Story>
-</Canvas>
+<Canvas of={LabelStories.WithControls} />
 
-<ArgsTable story="Label with Controls" />
+<ArgTypes of={LabelStories.WithControls} />
 
 ## Accessibility
 
@@ -87,18 +59,7 @@ the `isRequired` prop. This is useful for visually labeling a field as required
 with the `"(Required)"` text next to the label's text. This is set to `false`
 by default.
 
-<Canvas>
-  <Story name="isRequired helper text">
-    <VStack>
-      <Label htmlFor="label-id1" id="regular">
-        A regular label
-      </Label>
-      <Label htmlFor="label-id2" id="required" isRequired>
-        A label that is required
-      </Label>
-    </VStack>
-  </Story>
-</Canvas>
+<Canvas of={LabelStories.RequiredState} />
 
 ## requiredLabelText to customize required label
 
@@ -107,20 +68,4 @@ It is recommend to be used carefully and to only pass text that means "required"
 We also recommend a maximum of two words for this text.
 Note: The parenthesis will be added automatically by the component.
 
-<Canvas>
-  <Story name="requiredLabelText">
-    <VStack>
-      <Label htmlFor="label-id1" id="regular" isRequired>
-        A regular isRequired label
-      </Label>
-      <Label
-        htmlFor="label-id2"
-        id="required"
-        isRequired
-        requiredLabelText="Obligatoire"
-      >
-        A label that has a customized required label
-      </Label>
-    </VStack>
-  </Story>
-</Canvas>
+<Canvas of={LabelStories.CustomRequiredText} />
