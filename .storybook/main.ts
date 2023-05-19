@@ -88,6 +88,8 @@ const config: StorybookConfig = {
     "../src/components/SearchBar/SearchBar.mdx",
     "../src/components/Select/Select.stories.tsx",
     "../src/components/Select/Select.mdx",
+    "../src/components/SkipNavigation/SkipNavigation.stories.tsx",
+    "../src/components/SkipNavigation/SkipNavigation.mdx",
     "../src/components/Slider/Slider.stories.tsx",
     "../src/components/Slider/Slider.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
