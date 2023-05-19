@@ -1,0 +1,64 @@
+import { Meta, Canvas, Description, ArgTypes, Source } from "@storybook/blocks";
+
+import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
+
+<Meta of={SkeletonLoaderStories} />
+
+# SkeletonLoader
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.17.3`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Card Placeholders in a Grid](#card-placeholders-in-a-grid)
+- [Text Placeholders in a List](#text-placeholders-in-a-list)
+
+## Overview
+
+<Description of={SkeletonLoaderStories} />
+
+The `layout`, `width`, and placeholder elements within the `SkeletonLoader` can
+be customized.
+
+Please note that the initial rendering below has the `width` prop set to `300px`
+to better view the example. The default value is `100%`.
+
+## Component Props
+
+<Canvas of={SkeletonLoaderStories.WithControls} />
+
+<ArgTypes of={SkeletonLoaderStories.WithControls} />
+
+## Accessibility
+
+According to W3C's success criterion 2.2.2 for operable user interfaces:
+
+> For any moving, blinking or scrolling information that (1) starts
+> automatically, (2) lasts more than five seconds, and (3) is presented in
+> parallel with other content, there is a mechanism for the user to pause, stop,
+> or hide it unless the movement, blinking, or scrolling is part of an activity
+> where it is essential;
+
+The `SkeletonLoader` component can be used as a placeholder for local content
+that is loaded in parallel but it typically does not last more than five (5)
+seconds. For the DS usage, this is purely a visual cue and should not be picked
+up by screen readers.
+
+Resources:
+
+- [W3C Perceivable Pause, Stop, Hide](https://www.w3.org/TR/WCAG/#pause-stop-hide)
+- [More Accessible Skeletons](https://adrianroselli.com/2020/11/more-accessible-skeletons.html)
+
+## Card Placeholders in a Grid
+
+<Canvas of={SkeletonLoaderStories.InGrid} />
+
+## Text Placeholders in a List
+
+<Canvas of={SkeletonLoaderStories.InList} />
