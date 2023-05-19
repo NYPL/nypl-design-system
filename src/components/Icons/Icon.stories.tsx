@@ -17,7 +17,7 @@ const meta: Meta<typeof Icon> = {
   decorators: [withDesign],
   argTypes: {
     align: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: iconAlignArray,
       table: { defaultValue: { summary: "none" } },
     },
@@ -29,7 +29,7 @@ const meta: Meta<typeof Icon> = {
       table: { defaultValue: { summary: "ui.black" } },
     },
     iconRotation: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: iconRotationTypesArray,
       table: { defaultValue: { summary: "rotate0" } },
     },
