@@ -18,7 +18,7 @@ const meta: Meta<typeof Toggle> = {
     onChange: { control: false },
     ref: { table: { disable: true } },
     size: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: toggleSizesArray,
       table: { defaultValue: { summary: "default" } },
     },
