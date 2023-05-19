@@ -14,9 +14,10 @@ export interface TagSetExploreDataProps {
 export interface TagSetExploreProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** Whether the tags should be removable. */
+  /** Whether the tags should be removable. This prop is not used in the "explore" variant. */
   isDismissible?: never;
-  /** The function to perform when a tag is clicked when `isDismissible` is true. */
+  /** The function to perform when a tag is clicked when `isDismissible` is
+   * true.  This prop is not used in the "explore" variant.*/
   onClick?: never;
   /** The array of data to display as tags. */
   tagSetData: TagSetExploreDataProps[];
