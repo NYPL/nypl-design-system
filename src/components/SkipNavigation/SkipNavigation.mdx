@@ -1,28 +1,8 @@
-import { Box, VStack } from "@chakra-ui/react";
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import Button from "../Button/Button";
-import SkipNavigation from "./SkipNavigation";
-import { getCategory } from "../../utils/componentCategories";
+import * as SkipNavigationStories from "./SkipNavigation.stories";
 
-<Meta
-  title={getCategory("SkipNavigation")}
-  component={SkipNavigation}
-  parameters={{
-    jest: ["SkipNavigation.test.tsx"],
-  }}
-  argTypes={{
-    className: { control: false },
-    id: { control: false },
-    target: { control: false },
-  }}
-/>
+<Meta of={SkipNavigationStories} />
 
 # SkipNavigation
 
@@ -39,7 +19,7 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={SkipNavigation} />
+<Description of={SkipNavigationStories} />
 
 **NOTE: In order to see the links in the `SkipNavigation` component, start by focusing
 on the button below by tabbing or clicking on it. Then press "tab" to see the
@@ -48,25 +28,9 @@ intentional as the links should initially be visually hidden.**
 
 ## Component Props
 
-<Canvas>
-  <Story
-    name="SkipNavigation with Controls"
-    args={{
-      className: undefined,
-      id: "skip-nav",
-      target: "mainContent",
-    }}
-  >
-    {(args) => (
-      <>
-        <Button id="example-btn">Focus on me and then press "tab"</Button>
-        <SkipNavigation {...args} />
-      </>
-    )}
-  </Story>
-</Canvas>
+<Canvas of={SkipNavigationStories.Controls} />
 
-<ArgsTable story="SkipNavigation with Controls" />
+<ArgTypes of={SkipNavigationStories.Controls} />
 
 ## Accessibility
 
