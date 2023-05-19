@@ -8,7 +8,13 @@ import React, { forwardRef } from "react";
 
 import { LayoutTypes } from "../../helpers/types";
 
-export type SkeletonLoaderImageRatios = "landscape" | "portrait" | "square";
+export const skeletonLoaderImageRatiosArray = [
+  "landscape",
+  "portrait",
+  "square",
+] as const;
+export type SkeletonLoaderImageRatios =
+  typeof skeletonLoaderImageRatiosArray[number];
 
 export interface SkeletonLoaderProps {
   /** Additional class name for the Skeleton component. */
@@ -33,7 +39,7 @@ export interface SkeletonLoaderProps {
   showContent?: boolean;
   /** Optional boolean value to control visibility of heading placeholder. */
   showHeading?: boolean;
-  /** Optional boolean value to control visibility of image placeholder. */
+  /** Optional boolean value to control visibility of image placeholder! */
   showImage?: boolean;
   /** Optional width value. This value should be entered with the same
    * formatting as a CSS width attribute (ex. `50%`, `640px`, `20rem`).
