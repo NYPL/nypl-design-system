@@ -94,6 +94,8 @@ const config: StorybookConfig = {
     "../src/components/Table/Table.mdx",
     "../src/components/Tabs/Tabs.stories.tsx",
     "../src/components/Tabs/Tabs.mdx",
+    "../src/components/Template/Template.stories.tsx",
+    "../src/components/Template/Template.mdx",
     "../src/components/Text/Text.stories.tsx",
     "../src/components/Text/Text.mdx",
     "../src/components/TextInput/TextInput.stories.tsx",
