@@ -1,37 +1,8 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import { Box } from "@chakra-ui/react";
-import Image from "../Image/Image";
-import Table from "./Table";
-import DSProvider from "../../theme/provider";
-import { getCategory } from "../../utils/componentCategories";
+import * as TableStories from "./Table.stories";
 
-<Meta
-  title={getCategory("Table")}
-  component={Table}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=46780%3A27675",
-    },
-    jest: ["Table.test.tsx"],
-  }}
-  argTypes={{
-    columnHeaders: { control: { disable: true } },
-    columnHeadersBackgroundColor: { control: { type: "color" } },
-    columnHeadersTextColor: { control: { type: "color" } },
-    id: { control: false },
-    tableData: { control: false },
-  }}
-/>
+<Meta of={TableStories} />
 
 # Table
 
@@ -54,54 +25,13 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={Table} />
-
-export const columnHeaders = [
-  "First Name",
-  "Last Name",
-  "Nick Name",
-  "Address1",
-  "City",
-  "State",
-  "Zipcode",
-];
-export const tableData = [
-  ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "NY", "23458"],
-  ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "NY", "23458"],
-  ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "NY", "98765"],
-  [
-    "Sonny",
-    "Resetti",
-    "Risetto san",
-    "Village Road",
-    "New York",
-    "NY",
-    "09873",
-  ],
-];
+<Description of={TableStories} />
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="Table"
-    args={{
-      className: undefined,
-      columnHeaders,
-      columnHeadersBackgroundColor: undefined,
-      columnHeadersTextColor: undefined,
-      id: undefined,
-      showRowDividers: false,
-      tableData,
-      titleText: undefined,
-      useRowHeaders: false,
-    }}
-  >
-    {(args) => <Table {...args}></Table>}
-  </Story>
-</Canvas>
+<Canvas of={TableStories.WithControls} />
 
-<ArgsTable story="Table" />
+<ArgTypes of={TableStories.WithControls} />
 
 ## Accessibility
 
@@ -138,47 +68,20 @@ Resources:
 
 Use the `titleText` prop to add a title to the table.
 
-<Canvas>
-  <DSProvider>
-    <Table
-      columnHeaders={columnHeaders}
-      id="title-table"
-      tableData={tableData}
-      titleText="Table with a title"
-    />
-  </DSProvider>
-</Canvas>
+<Canvas of={TableStories.WithATitle} />
 
 ## With Row Dividers
 
 Use the `showRowDividers` prop to render a divider between each row.
 
-<Canvas>
-  <DSProvider>
-    <Table
-      columnHeaders={columnHeaders}
-      id="showRowDividers-table"
-      showRowDividers
-      tableData={tableData}
-    />
-  </DSProvider>
-</Canvas>
+<Canvas of={TableStories.WithRowDividers} />
 
 ## With Row Headers
 
 Use the `useRowHeaders` prop to render the first cell in every row as a header.
 Notice that they turn bold.
 
-<Canvas>
-  <DSProvider>
-    <Table
-      columnHeaders={columnHeaders}
-      id="rowHeaders-table"
-      tableData={tableData}
-      useRowHeaders
-    />
-  </DSProvider>
-</Canvas>
+<Canvas of={TableStories.WithRowHeaders} />
 
 ## With Custom Header Colors
 
@@ -186,56 +89,14 @@ It's possible to customize the header colors by using the `columnHeadersBackgrou
 and `columnHeadersTextColor` props. Note that the colors need to have sufficient
 color contrast.
 
-<Canvas>
-  <DSProvider>
-    <Table
-      columnHeaders={columnHeaders}
-      columnHeadersBackgroundColor="var(--nypl-colors-ui-link-secondary)"
-      columnHeadersTextColor="var(--nypl-colors-ui-white)"
-      id="rowHeaders-table"
-      showRowDividers
-      tableData={tableData}
-      useRowHeaders
-    />
-  </DSProvider>
-</Canvas>
+<Canvas of={TableStories.WithCustomHeaderColors} />
 
 ## With JSX Elements
 
-export const characterHeaders = ["First Name", "Last Name", "Avatar"];
-export const charactersData = [
-  [
-    "Tom",
-    "Nook",
-    <Image
-      alt="Tom Nook"
-      size="small"
-      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-  [
-    "Isabelle",
-    "-",
-    <Image
-      alt="Isabelle"
-      size="small"
-      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-  [
-    "K.K.",
-    "Slider",
-    <Image
-      alt="K.K Slider"
-      size="small"
-      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-];
-
 It's possible to pass in JSX elements in the `tableData` prop.
 
-```jsx
+<Source
+  code={`
 export const charactersData = [
   [
     "Tom",
@@ -265,18 +126,11 @@ export const charactersData = [
     />,
   ],
 ];
-```
+`}
+  language="jsx"
+/>
 
-<Canvas>
-  <DSProvider>
-    <Table
-      columnHeaders={characterHeaders}
-      id="jsx-example"
-      showRowDividers
-      tableData={charactersData}
-    />
-  </DSProvider>
-</Canvas>
+<Canvas of={TableStories.WithJSXElement} />
 
 ## Responsive Mobile Layout
 
