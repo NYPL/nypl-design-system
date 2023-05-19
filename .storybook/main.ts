@@ -84,6 +84,8 @@ const config: StorybookConfig = {
     "../src/components/Label/Label.mdx",
     "../src/components/Modal/Modal.stories.tsx",
     "../src/components/Modal/Modal.mdx",
+    "../src/components/Notification/Notification.stories.tsx",
+    "../src/components/Notification/Notification.mdx",
     "../src/components/Pagination/Pagination.stories.tsx",
     "../src/components/Pagination/Pagination.mdx",
     "../src/components/ProgressIndicator/ProgressIndicator.stories.tsx",
