@@ -14,8 +14,8 @@ import * as TagSetStories from "./TagSet.stories";
 ## Table of Contents
 
 - [Overview](#overview)
-- [Explore Component Props](#explore-component-props)
-- [Filter Component Props](#filter-component-props)
+- [Explore Variant](#explore-variant)
+- [Filter Variant](#filter-variant)
 - [Accessibility](#accessibility)
 - [Examples](#examples)
 
@@ -23,7 +23,7 @@ import * as TagSetStories from "./TagSet.stories";
 
 <Description of={TagSetStories} />
 
-## Explore Component Props
+## Explore Variant
 
 An "explore" `TagSet` variant is used to display content that can help a user
 start a search and promote exploration. These tags are not dismissible and
@@ -34,11 +34,11 @@ Notes:
 
 - The `isDismissible` and `onClick` props are not used in this variant.
 
-<Canvas of={TagSetStories.WithControlsExplore} />
+<Canvas of={TagSetStories.ExploreVariant} />
 
-<ArgTypes of={TagSetStories.WithControlsExplore} />
+<ArgTypes of={TagSetStories.ExploreVariant} />
 
-### Explore tagSetData Prop
+### \`tagSetData\` Prop for Explore Variant
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the
@@ -84,7 +84,7 @@ const tagSetData = [
   language="tsx"
 />
 
-## Filter Component Props
+## Filter Variant
 
 A "filter" `TagSet` variant is used to display keywords the user selected to
 filter content on a page. For example, in a search results page, the filter
@@ -105,11 +105,11 @@ Notes:
   rendered at the end of the list of tags. Clicking this button will also
   trigger the `onClick` prop.
 
-<Canvas of={TagSetStories.WithControlsFilter} />
+<Canvas of={TagSetStories.FilterVariant} />
 
-<ArgTypes of={TagSetStories.WithControlsFilter} />
+<ArgTypes of={TagSetStories.FilterVariant} />
 
-### Filter tagSetData Prop
+### \`tagSetData\` Prop for Filter Variant
 
 The `tagSetData` prop is an array of objects that contain `iconName` and `label`
 properties. The `iconName` is the name of the icon to display through the

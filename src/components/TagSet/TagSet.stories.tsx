@@ -31,7 +31,7 @@ type Story = StoryObj<typeof TagSet>;
  * Main Story for the TagSet component. This must contains the `args`
  * and `parameters` properties in this object.
  */
-export const WithControlsExplore: Story = {
+export const ExploreVariant: Story = {
   args: {
     className: undefined,
     id: "tagSet-id-explore",
@@ -72,6 +72,10 @@ export const WithControlsExplore: Story = {
     ],
     type: "explore",
   },
+  argTypes: {
+    isDismissible: { table: { disable: true } },
+    onClick: { table: { disable: true } },
+  },
   parameters: {
     design: {
       type: "figma",
@@ -81,7 +85,7 @@ export const WithControlsExplore: Story = {
   },
 };
 
-export const WithControlsFilter: Story = {
+export const FilterVariant: Story = {
   args: {
     className: undefined,
     id: "tagSet-id-filter",
@@ -104,6 +108,14 @@ export const WithControlsFilter: Story = {
 
 // The following are additional TagSet example Stories.
 export const FormattingExamples: Story = {
+  args: {
+    className: undefined,
+    id: undefined,
+    isDismissible: undefined,
+    onClick: undefined,
+    tagSetData: undefined,
+    type: undefined,
+  },
   render: () => (
     <VStack align="stretch" gap="l">
       <TagSet
