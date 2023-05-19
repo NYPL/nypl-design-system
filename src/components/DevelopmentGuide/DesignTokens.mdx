@@ -102,7 +102,12 @@ const padding = "var(--nypl-space-inset-default)";
     padding: padding,
   }}
 />
-/******************/
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
 // Style values assigned to a data object
 const stylesDirectlyAssigned = {
   backgroundColor: "var(--nypl-colors-ui-bg-default)",
@@ -112,7 +117,12 @@ const stylesDirectlyAssigned = {
 };
 // ...
 <div style={stylesDirectlyAssigned} />
-/******************/
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
 // Style values assigned directly
 <div
   style={{
