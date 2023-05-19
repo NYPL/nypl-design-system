@@ -26,7 +26,7 @@ export const Controls: Story = {
   args: {
     className: undefined,
     id: "skip-nav",
-    target: "mainContent",
+    target: "#mainContent",
   },
   render: (args) => (
     <>

@@ -1,117 +1,45 @@
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { useState } from "react";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import type { Meta, StoryObj } from "@storybook/react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import { ModalTrigger, useModal } from "./Modal";
-import { getCategory } from "../../utils/componentCategories";
 
-<Meta
-  title={getCategory("Modal")}
-  component={Modal}
-  parameters={{
-    jest: ["Modal.test.tsx"],
-  }}
-/>
+const meta: Meta<typeof ModalTrigger> = {
+  title: "Components/Overlays & Switchers/Modal",
+  component: ModalTrigger,
+};
 
-# Modal
+export default meta;
+type Story = StoryObj<typeof ModalTrigger>;
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `1.5.0`    |
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Accessibility](#accessibility)
-- [ModalTrigger](#modaltrigger)
-- [ModalTrigger Component Props](#modaltrigger-component-props)
-- [useModal](#usemodal)
-- [useModal Component Props](#usemodal-component-props)
-- [Content Window Scrolling](#content-window-scrolling)
-
-## Overview
-
-_Note: This component is going through an accessibility review and is not
-recommended for use until it is updated._
-
-## Accessibility
-
-TBD
-
-## ModalTrigger
-
-<Description of={ModalTrigger} />
-
-```jsx
-import { ModalTrigger } from "@nypl/design-system-react-components";
-
-//...
-<ModalTrigger
-  buttonText="Button Text"
-  id="modal-trigger"
-  modalProps={{
-    bodyContent: "body text",
-    closeButtonLabel: "Close Button",
-    headingText: "Modal Heading Text",
-    onClose: () => {
-      console.log("custom close");
-    },
-  }}
-/>;
-```
-
-## ModalTrigger Component Props
-
-<Canvas withToolbar>
-  <Story
-    name="ModalTrigger"
-    args={{
-      buttonText: "Button Text",
-      id: "modal-trigger",
-      modalProps: {
-        bodyContent: "body text",
-        closeButtonLabel: "Close Button",
-        headingText: "Modal Heading Text",
-        onClose: () => {
-          console.log("custom close");
-        },
+/**
+ * Main Story for the Modal component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const WithControls: Story = {
+  args: {
+    buttonText: "Button Text",
+    id: "modal-trigger",
+    modalProps: {
+      bodyContent: "body text",
+      closeButtonLabel: "Close Button",
+      headingText: "Modal Heading Text",
+      onClose: () => {
+        console.log("custom close");
       },
-    }}
-  >
-    {(args) => <ModalTrigger {...args} />}
-  </Story>
-</Canvas>
+    },
+  },
+  render: (args) => <ModalTrigger {...args} />,
+  parameters: {
+    jest: ["Modal.test.tsx"],
+  },
+};
 
-<ArgsTable story="ModalTrigger" />
-
-## useModal
-
-<Description of={useModal} />
-
-You can retrieve the DS `Modal` component and the `onOpen` and `onClose` function
-handlers when calling the `useModal` function. The `onOpen` function handler is
-used to open the `Modal` React component. This function can be passed to any
-number of elements that use the `onClick` attribute. The `onClose` function can
-be used on any element that uses the `onClick` attribute.
-
-**NOTE: in this case, the `buttonText` prop is not necessary since you have to
-create and render your own button.**
-
-```jsx
-import { useModal } from "@nypl/design-system-react-components";
-
-// ...
-export const ModalStory = (args) => {
+const ModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
     bodyContent: (
@@ -132,47 +60,7 @@ export const ModalStory = (args) => {
       onClose();
     },
   };
-  return (
-    <>
-      <ButtonGroup>
-        <Button id="1" onClick={onOpen}>
-          Open Modal
-        </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
-          I can open the modal, too
-        </Button>
-      </ButtonGroup>
-      <div onClick={onOpen}>
-        I'm just a div and shouldn't be used in production but this is just an
-        example
-      </div>
-      <Modal {...modalProps} />
-    </>
-  );
-};
-```
 
-export const ModalStory = (args) => {
-  const { onClose, onOpen, Modal } = useModal();
-  const modalProps = {
-    bodyContent: (
-      <>
-        <Button id="custom-close" onClick={onClose}>
-          Go back
-        </Button>
-        <p>This is the body content.</p>
-        <Button id="custom-close2" onClick={onClose}>
-          This is a custom close button.
-        </Button>
-      </>
-    ),
-    closeButtonLabel: "Close Button",
-    headingText: "Modal Heading Text",
-    onClose: () => {
-      console.log("custom close");
-      onClose();
-    },
-  };
   return (
     <>
       <ButtonGroup>
@@ -192,21 +80,13 @@ export const ModalStory = (args) => {
   );
 };
 
-## useModal Component Props
+// The following are additional Modal example Stories.
+export const useModalStory: Story = {
+  render: () => <ModalStory />,
+  name: "useModal Component",
+};
 
-<Canvas withToolbar>
-  <Story name="Modal">
-    <ModalStory />
-  </Story>
-</Canvas>
-
-## Content Window Scrolling
-
-In either `Modal` pattern, the main content inside the `Modal` component will
-scroll while the `Modal`'s header and footer still stay static. Check the
-example below with a lot of content inside the `Modal`.
-
-export const scrollModalProps = {
+const scrollModalProps = {
   bodyContent: (
     <>
       <Heading text="Content Title" />
@@ -214,8 +94,8 @@ export const scrollModalProps = {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
         placerat duis ultricies lacus sed turpis tincidunt.
-        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu risus
-        quis varius. Faucibus in ornare quam viverra orci sagittis.
+        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
+        risus quis varius. Faucibus in ornare quam viverra orci sagittis.
       </p>
       <p>
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
@@ -248,8 +128,8 @@ export const scrollModalProps = {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
         placerat duis ultricies lacus sed turpis tincidunt.
-        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu risus
-        quis varius. Faucibus in ornare quam viverra orci sagittis.
+        <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
+        risus quis varius. Faucibus in ornare quam viverra orci sagittis.
       </p>
       <p>
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
@@ -283,12 +163,12 @@ export const scrollModalProps = {
   headingText: "Modal Heading Text",
 };
 
-<Canvas withToolbar>
-  <Story name="Content Window Scrolling">
+export const ContentWindowScrolling: Story = {
+  render: () => (
     <ModalTrigger
       buttonText="Button Text"
       id="modal-scrolling"
       modalProps={scrollModalProps}
     />
-  </Story>
-</Canvas>
+  ),
+};
