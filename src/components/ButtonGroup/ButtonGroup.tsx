@@ -5,7 +5,8 @@ import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-export type ButtonGroupWidths = "default" | "full";
+export const buttonGroupWidthsArray = ["default", "full"] as const;
+export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
 
 interface ButtonGroupProps {
   /** Sets the width to "default" (for "fit-content") or "full". */

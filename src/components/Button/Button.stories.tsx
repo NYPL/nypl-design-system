@@ -2,7 +2,11 @@ import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
-import Button from "./Button";
+import Button, {
+  buttonElementTypeArray,
+  buttonSizesArray,
+  buttonTypesArray,
+} from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import iconNames from "../Icons/IconNames";
@@ -18,15 +22,7 @@ const meta: Meta<typeof Button> = {
     },
     buttonType: {
       control: { type: "select" },
-      options: [
-        "primary",
-        "secondary",
-        "text",
-        "pill",
-        "callout",
-        "noBrand",
-        "link",
-      ],
+      options: buttonTypesArray,
       table: { defaultValue: { summary: "primary" } },
     },
     className: { control: false },
@@ -49,12 +45,12 @@ const meta: Meta<typeof Button> = {
     onClick: { control: false },
     size: {
       control: { type: "radio" },
-      options: ["small", "medium", "large"],
+      options: buttonSizesArray,
       table: { defaultValue: { summary: "medium" } },
     },
     type: {
       control: { type: "radio" },
-      options: ["button", "submit", "reset"],
+      options: buttonElementTypeArray,
       table: { defaultValue: { summary: "button" } },
     },
   },

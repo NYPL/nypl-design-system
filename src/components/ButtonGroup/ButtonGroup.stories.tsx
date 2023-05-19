@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
-import ButtonGroup from "./ButtonGroup";
+import ButtonGroup, { buttonGroupWidthsArray } from "./ButtonGroup";
 import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof ButtonGroup> = {
@@ -13,7 +13,7 @@ const meta: Meta<typeof ButtonGroup> = {
   argTypes: {
     buttonWidth: {
       control: { type: "radio" },
-      options: ["default", "full"],
+      options: buttonGroupWidthsArray,
       table: { defaultValue: { summary: "default" } },
     },
     className: { control: false },
