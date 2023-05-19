@@ -395,7 +395,7 @@ export const ExampleWithThreeComponents: Story = {
   render: () => (
     <>
       <StructuredContent
-        bodyContent="This is the body text"
+        bodyContent={<p>This is the body text</p>}
         calloutText="This is the callout text"
         headingText="Heading text"
       />
