@@ -76,6 +76,8 @@ const config: StorybookConfig = {
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/Label/Label.stories.tsx",
     "../src/components/Label/Label.mdx",
+    "../src/components/Modal/Modal.stories.tsx",
+    "../src/components/Modal/Modal.mdx",
     "../src/components/Pagination/Pagination.stories.tsx",
     "../src/components/Pagination/Pagination.mdx",
     "../src/components/ProgressIndicator/ProgressIndicator.stories.tsx",
