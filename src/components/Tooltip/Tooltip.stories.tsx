@@ -64,7 +64,7 @@ export const WithControls: Story = {
 // The following are additional Tooltip example Stories.
 export const TooltipsOnFormOptions: Story = {
   render: () => (
-    <>
+    <VStack align="stretch" spacing="l">
       <Tooltip
         content="Invite library staff to share resources at your community event"
         shouldWrapChildren
@@ -99,7 +99,7 @@ export const TooltipsOnFormOptions: Story = {
           />
         </Tooltip>
       </RadioGroup>
-    </>
+    </VStack>
   ),
 };
 
