@@ -13,8 +13,11 @@ import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
 
-export type SelectTypes = "default" | "searchbar";
-export type LabelPositions = "default" | "inline";
+export const selectTypesArray = ["default", "searchbar"];
+export const labelPositionsArray = ["default", "inline"];
+export type SelectTypes = typeof selectTypesArray[number];
+export type LabelPositions = typeof labelPositionsArray[number];
+
 export interface SelectProps {
   /** A class name for the `div` parent element. */
   className?: string;
