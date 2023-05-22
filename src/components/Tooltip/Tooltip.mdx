@@ -1,0 +1,100 @@
+import {
+  Meta,
+  Canvas,
+  Description,
+  ArgTypes,
+  Controls,
+  Source,
+} from "@storybook/blocks";
+
+import * as TooltipStories from "./Tooltip.stories";
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.1.0`    |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Examples](#examples)
+
+## Overview
+
+<Description of={TooltipStories} />
+
+The `Tooltip` component shows contextual help or information about a specific
+component when a user hovers or focuses on the component.
+
+## Component Props
+
+<Canvas of={TooltipStories.WithControls} />
+
+<ArgTypes of={TooltipStories.WithControls} />
+
+## Accessibility
+
+The DS `Tooltip` component is implemented with Chakra UI and Chakra handles the
+appropriate aria-describedby attribute for the element that the tooltip is associated with.
+
+The `Tooltip` component is accessible via keyboard. The color contrast between
+foreground color and background color is 4.5:1. If text size is 200%, the
+button scales with text so there is no overlap.
+
+If a tooltip is associated with a form control (text, radio, checkbox, etc),
+the text for the tooltip should be included in the form control label.
+
+Resources:
+
+- [W3C WAI ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+- [MDN ARIA: tooltip role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
+- [Chakra UI Tooltip](https://chakra-ui.com/docs/components/overlay/tooltip)
+
+## Examples
+
+### Tooltips on form options
+
+When using the `Tooltip` component in forms containing `Checkbox`, `Radio`, and `Toggle`,
+the `shouldWrapChildren` prop needs to be included to correctly position the tooltip in
+relation to it's child. The underlying `ref` of these components point to the visually hidden
+input element. `shouldWrapChildren` ensures that the size of the visually hidden element is
+in sync with the rendered visual control.
+
+<Canvas of={TooltipStories.TooltipsOnFormOptions} />
+
+### Tooltip on Image component
+
+When using the `Tooltip` component on an `Image` component, the
+`shouldWrapChildren` prop should _not_ be used. This causes the `Image`'s
+aspect ratio to not render properly.
+
+<Canvas of={TooltipStories.TooltipOnImageComponent} />
+
+### Tooltip on Linked Icon
+
+<Canvas of={TooltipStories.TooltipOnLinkedIcon} />
+
+### Tooltip with Icon Content
+
+<Canvas of={TooltipStories.TooltipWithIconContent} />
+
+### Tooltip with Image Content
+
+<Canvas of={TooltipStories.TooltipWithImageContent} />
+
+### Disabling Tooltip
+
+A tooltip can be disabled by passing the `isDisabled` prop.
+
+<Canvas of={TooltipStories.DisablingTooltip} />
+
+By default, the `Tooltip` is not shown for a disabled `Button`. To show the `Tooltip`
+on a disabled `Button`, pass the `shouldWrapChildren` prop.
+
+<Canvas of={TooltipStories.DisablingTooltipButton} />
