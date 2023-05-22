@@ -111,7 +111,7 @@ export const BrowserStates: Story = {
   ),
 };
 
-export const WithText: Story = {
+export const HelperAndErrorText: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
@@ -137,7 +137,7 @@ export const WithText: Story = {
   ),
 };
 
-export const JSXElement: Story = {
+export const JSXElementLabels: Story = {
   render: () => (
     <Radio
       id="jsx-label"
@@ -145,5 +145,4 @@ export const JSXElement: Story = {
       name="jsxElementLabel"
     />
   ),
-  name: "With JSX Element Label",
 };
