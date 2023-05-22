@@ -9,7 +9,7 @@ import Button, {
 } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
-import iconNames from "../Icons/IconNames";
+import { iconNamesArray } from "../Icons/iconVariables";
 import Table from "../Table/Table";
 
 const meta: Meta<typeof Button> = {
@@ -36,7 +36,7 @@ const meta: Meta<typeof Button> = {
     },
     iconType: {
       control: { type: "select" },
-      options: iconNames,
+      options: iconNamesArray,
       description: "**Only used for Storybook – ** Select an icon. ",
     },
     id: { control: false },
