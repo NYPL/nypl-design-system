@@ -4,11 +4,15 @@ import React, { forwardRef } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 
-export type VideoPlayerTypes = "vimeo" | "youtube";
+export const VideoPlayerAspectRatiosArray = [
+  "fourByThree",
+  "sixteenByNine",
+  "square",
+] as const;
+export const VideoPlayerTypesArray = ["vimeo", "youtube"] as const;
 export type VideoPlayerAspectRatios =
-  | "fourByThree"
-  | "sixteenByNine"
-  | "square";
+  typeof VideoPlayerAspectRatiosArray[number];
+export type VideoPlayerTypes = typeof VideoPlayerTypesArray[number];
 export interface VideoPlayerProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if
    * omitted, the video player defaults to `sixteen-by-nine` */

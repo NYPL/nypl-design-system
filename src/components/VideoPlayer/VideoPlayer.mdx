@@ -1,0 +1,156 @@
+import {
+  Meta,
+  Canvas,
+  Description,
+  ArgTypes,
+  Source,
+} from "@storybook/blocks";
+
+import * as VideoPlayerStories from "./VideoPlayer.stories";
+
+<Meta of={VideoPlayerStories} />
+
+# Video Player
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Extracting Video IDs](#extracting-video-ids)
+- [Example Embed Code Snippets](#example-embed-code-snippets)
+- [Errored](#errored)
+- [HTML in Helper Text](#html-in-helper-text)
+
+## Overview
+
+<Description of={VideoPlayerStories} />
+
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
+on a page. The component requires the `embedCode` prop or both the `videoType`
+and `videoId` props. The component will not function properly if you try to set
+all of them.
+
+You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to
+enter the full video URL as the `videoId` value.
+
+The `aspectRatio` prop is used to control the sizing of the space allotted for
+the video rendering. Ultimately, the `aspectRatio` prop should be set to match
+the aspect ratio of the video that is being rendered. The default aspect ratio
+is `16:9`.
+
+## Component Props
+
+<Canvas of={VideoPlayerStories.WithControls} />
+
+<ArgTypes of={VideoPlayerStories.WithControls} />
+
+**Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
+**Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
+
+## Accessibility
+
+The `VideoPlayer` component renders an `iframe` element with either a Vimeo or
+YouTube video. `iframe`s can be accessible if a `title` attribute is provided.
+When passing in a video type and a video `id`, make sure to pass a title.
+Otherwise, the title must already be provided in the embed code value that is
+passed to the `embedCode` prop. A default one is provided but a custom one is
+recommended.
+
+Not all the Vimeo or YouTube videos passed to the `VideoPlayer` component will
+be owned by The New York Public Library. Because these videos are hosted on a
+third-party platform, we cannot guarantee that the video will be accessible.
+Besides setting the `title` in the embedded `iframe`, there are _some_ ways we
+can reduce accessibility issues.
+
+- Never use autoplay on videos; a user must click the play button to start the
+  video.
+- Always show all the video player's controls for the user to interact with the
+  video.
+- Keep the full screen option available.
+
+Resources:
+
+- [W3C Making Audio and Video Media Accessible](https://www.w3.org/WAI/media/av/)
+- [WebAIM Creating Accessible Frames and Iframes](https://webaim.org/techniques/frames/)
+- [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+- [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
+
+## Extracting Video IDs
+
+### Vimeo
+
+<Source
+  code={`
+https://vimeo.com/[VIDEO_ID]
+https://vimeo.com/474719268
+`}
+  language="html"
+/>
+
+### YouTube
+
+<Source
+  code={`
+https://www.youtube.com/watch?v=[VIDEO_ID]
+https://www.youtube.com/watch?v=nm-dD2tx6bk
+`}
+  language="html"
+/>
+
+## Example Embed Code Snippets
+
+The examples below are shown with precise HTML formatting. However, often the
+embed code snippets provided by 3rd party video services are delivered as one
+long string.
+
+### Vimeo
+
+<Source
+  code={`
+<iframe
+  src="https://player.vimeo.com/video/421404144?h=5467db7edd"
+  width="640"
+  height="360"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+></iframe>
+`}
+  language="html"
+/>
+
+### YouTube
+
+<Source
+  code={`
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/nm-dD2tx6bk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+`}
+  language="html"
+/>
+
+## Errored
+
+If the necessary props are not passed to the `VideoPlayer` component, the
+component UI will display an error message.
+
+<Canvas of={VideoPlayerStories.Errored} />
+
+## HTML in Helper Text
+
+It's possible to include HTML in the `helperText` prop.
+
+<Canvas name="HTML in Helper Text" of={VideoPlayerStories.HTMLInHelperText} />

@@ -1,0 +1,391 @@
+import {
+  ArgTypes,
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/blocks";
+
+import * as FeedbackBoxStories from "./FeedbackBox.stories";
+
+<Meta of={FeedbackBoxStories} />
+
+# FeedbackBox
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.3.0`      |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Notification Text](#notification-text)
+- [Form Fields](#form-fields)
+- [FeedbackBox Screens](#feedbackbox-screens)
+- [Form Submission Data](#form-submission-data)
+- [Programmatically Open](#programmatically-open)
+
+## Overview
+
+<Description of={FeedbackBoxStories} />
+
+An NYPL privacy policy link will render within every screen of the FeedbackBox
+("form", "confirmation", and "error" ), and the link will open in a new tab.
+
+**Note**: For the purposes of Storybook, only one (1) `FeedbackBox` component
+example is rendered on the bottom right of this page. The `FeedbackBox` example
+below alternately renders the "confirmation" and "error" screens on each form
+submission. This is just to demonstrate the different states of the component.
+In practice, the consuming app is responsible for handling the form submission.
+
+## Component Props
+
+<Canvas of={FeedbackBoxStories.WithControls} />
+
+<ArgTypes of={FeedbackBoxStories.WithControls} />
+
+## Accessibility
+
+The `FeedbackBox` component is a complex component built from various Reservoir
+DS and Chakra components. The two main components are the DS `Button` component
+used to open Chakra's `Drawer` component.
+
+When the primary button is clicked, the dialog opens and focus is set to the
+first focusable element which is the "close" button that contains minus icon in
+the header of the dialog. While opened, focus is trapped within the dialog until
+it is closed either by clicking on the "close" or "Cancel" buttons, pressing the
+"Escape" key, or by clicking outside of the dialog. When the `FeedbackBox`
+component is closed, focus is set back to the primary button that opened the
+dialog.
+
+The markup of the `FeedbackBox` structurally matches the modal dialog pattern
+that is implemented by Chakra's `Modal` and `Drawer` components. The container
+has `role=”dialog”`, `aria-modal=”true”`, `tabindex={0}`, `aria-labelledby` that
+references the title within the dialog, and `aria-describedby` that references a
+descriptive piece of text within the dialog.
+
+Within the `FeedbackBox` component, the radio input field is created from the DS
+`RadioGroup` and `Radio` components, and input fields are created from the DS
+`TextInput` component. Each of these components has their own accessibility
+features documented in their respective Storybook pages.
+
+When the form is submitted, focus is set to the confirmation message or the
+error message if an error occurs.
+
+Whereas the `FeedbackBox`'s primary button element is placed within the DOM
+structure where it is rendered, the dialog DOM structure is appended to the end
+of the DOM tree and it is done by Chakra.
+
+Resources:
+
+- [MDN ARIA: dialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [W3C ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
+- [Chakra Modal Accessibility](https://v1.chakra-ui.com/docs/components/overlay/modal#accessibility)
+- [Chakra Drawer Accessibility](https://v1.chakra-ui.com/docs/components/overlay/drawer#accessibility)
+- [DS Button Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-button--button-with-controls#accessibility)
+- [DS TextInput Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls#accessibility)
+- [DS RadioGroup Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-radiogroup--radio-group#accessibility)
+- [DS Radio Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-radio--radio#accessibility)
+
+## Notification Text
+
+The `notificationText` prop can be used to display important or relevant
+information above the form's description text. The text or JSX element passed
+will be rendered in a Reservoir `Notification` component.
+
+## Form Fields
+
+### Comment Field
+
+By default, only the required "Comment" textarea field will render inside the
+`FeedbackBox` component. There is a 500 character limit for this textarea field.
+
+Validating the "Comment" textarea field is the responsibility of the consuming
+application. If there is an error, the `isInvalidComment` prop can be used to
+toggle the invalid state.
+
+### Category Field
+
+The "Category" field is an optional form field. This radio group form field
+contains three values: "Comment", "Correction", and "Bug". The "Comment" option
+will be selected by default. Use the `showCategoryField` prop to toggle the
+visibility of this field.
+
+### Email Field
+
+The "Email" field is an optional form field. This text input form field is an
+email field. Use the `showEmailField` prop to toggle the visibility of this
+field.
+
+Validating the "Email" address value is the responsibility of the consuming
+application. If there is an error, the `isInvalidEmail` prop can be used to
+toggle the invalid state.
+
+## FeedbackBox Screens
+
+There are three main screens that will render in the `FeedbackBox` component:
+the "form", "confirmation", and "error" screens. These are also based on the
+`view` prop available values.
+
+Once the form is submitted, a three (3) second timer starts. Once the timer is
+complete, the "confirmation" screen is rendered. This is the default behavior
+when no success or failure input is provided by the consuming application. This
+means that if there is an error and the consuming application does not tell the
+`FeedbackBox` component that there is an error, the "confirmation" screen will
+render and this is not the correct or expected behavior.
+
+### Form
+
+This is the initial screen that will render based on the default `view` prop
+value of `"form"`. The "form" screen will render an optional notification,
+an optional description, up to three form fields, the privacy policy link,
+and "Submit" and "Cancel" buttons.
+
+### Confirmation
+
+There are two ways to render the "confirmation" screen. This screen will render
+automatically after the form is submitted and the three (3) second timer is
+complete. The other option is to pass the `view` prop a value of `"confirmation"`
+to render the "confirmation" screen. This is useful if the consuming application
+wants to render the "confirmation" screen immediately after a successful
+API request.
+
+The "confirmation" screen will render a check icon, a basic success message that
+is always the same, an email-specific message when `showEmailField` is set to
+`true`, an additional confirmation message set through the `confirmationText`
+prop, the privacy policy link, and a "Return to Browsing" button. When rendered,
+focus will be set to the confirmation message.
+
+Below is an example of the "confirmation" screen rendered immediately after a
+successful API request. Setting the `view` prop through a `useState` value is
+only one way to update and pass the "confirmation" value to the `FeedbackBox`
+component. Using the `fetch` API is one possible approach.
+
+<Source
+  code={`
+const [view, setView] = React.useState("form");
+const apiEndpoint = "...";
+const onSubmit = (values) => {
+  fetch(apiEndpoint, {
+    method: "POST",
+    body: JSON.stringify(values),
+  }).then((response) => {
+    if (response.ok) {
+      // Resolve the promise according to your application.
+      // And then call:
+      setView("confirmation");
+    }
+  });
+};
+
+// ...
+
+<FeedbackBox
+  onSubmit={onSubmit}
+  showCategoryField
+  showEmailField
+  title="Help and Feedback"
+  view={view}
+/>
+`} language="jsx" />
+
+### Error
+
+The only way to render the "error" screen is by passing the `view` prop a value
+of `"error"`. This **should** be used if there is an error with the form
+submission API request. This is the responsibility of the consuming application.
+
+The "error" screen will render an error icon, an error message, the privacy
+policy link, and "Try Again" and "Return to Browsing" buttons. When rendered,
+focus will be set to the error message.
+
+Below is an example of the "error" screen rendered immediately after a failed
+API request. Setting the `view` prop through a `useState` value is only one way
+to update and pass the "error" value to the `FeedbackBox` component. Using the
+`fetch` API is one possible approach.
+
+<Source
+  code={`
+const [view, setView] = React.useState("form");
+const apiEndpoint = "...";
+const onSubmit = (values) => {
+  fetch(apiEndpoint, {
+    method: "POST",
+    body: JSON.stringify(values),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // ...
+      }
+    })
+    .catch((error) => {
+      // Reject the promise according to your application.
+      // And then call:
+      setView("error");
+    });
+};
+
+// ...
+
+<FeedbackBox
+  onSubmit={onSubmit}
+  showCategoryField
+  showEmailField
+  title="Help and Feedback"
+  view={view}
+/>
+`} language="jsx" />
+
+## Form Submission Data
+
+Submitted form data can be retrieved when the `FeedbackBox` component is
+submitted through the required `onSubmit` prop. This prop expects a function and
+it will be called when the form is submitted. Similar to other DS form-components
+that have function props, the data from the component will be returned in the
+function's argument. In this case, it will be a single object.
+
+The submitted form data will be passed as an object that the parent component
+can use. The object will always contain the `comment` field. If the "category"
+field is visible through the `showCategoryField` prop, then the object will also
+contain the `category` field. If the "email" field is visible through the
+`showEmailField` prop, then the object will also contain the `email` field.
+
+Below is an example callback function named `onSubmit` that is passed to the
+`FeedbackBox` component's `onSubmit` prop. The form data will be returned through
+the function's argument as an object, called `values` in the example below.
+
+<Source
+  code={`
+const onSubmit = (values) => {
+  console.log("Submitted values:", values);
+  // "Submitted values:",
+  // {
+  //   category: "Bug",
+  //   comment: "Typo in the second paragraph, third sentence.",
+  //   email: "email@email.com",
+  // }
+};
+
+// ...
+
+<FeedbackBox
+  onSubmit={onSubmit}
+  showCategoryField
+  showEmailField
+  title="Help and Feedback"
+/>
+`} language="jsx" />
+
+### Hidden Field Values
+
+If more key/value pair data needs to be submitted to the API endpoint along with
+the form data from the `FeedbackBox` component, the `hiddenFields` prop can be
+used. This prop accepts an object of key/value pairs. The object data will be
+merged with the submitted form data.
+
+<Source
+  code={`
+const hiddenFields = {
+  "hidden-field-1": "hidden-field-value-1",
+  "hidden-field-2": "hidden-field-value-2",
+};
+const onSubmit = (values) => {
+  console.log("Submitted values:", values);
+  // {
+  //   category: "Bug",
+  //   comment: "Typo in the second paragraph, third sentence.",
+  //   email: "email@email.com",
+  //   "hidden-field-1": "hidden-field-value-1",
+  //   "hidden-field-2": "hidden-field-value-2",
+  // }
+};
+
+// ...
+
+<FeedbackBox
+  hiddenFields={hiddenFields}
+  onSubmit={onSubmit}
+  showCategoryField
+  showEmailField
+  title="Help and Feedback"
+/>
+`} language="jsx" />
+
+## Programmatically Open
+
+The `FeedbackBox` component can be opened programmatically if needed, but this
+requires an extra step when importing and implementing the component. Instead
+of importing the `FeedbackBox` component directly, use the `useFeedbackBox` hook
+to get the `FeedbackBox` component and helper functions.
+
+<Source
+  code={`
+import { useFeedbackBox } from "@nypl/design-system-react-components";
+`}
+  language="jsx"
+/>
+
+This hook will return an object with the `FeedbackBox` component, a boolean
+value, and two functions.
+
+<Source
+  code={`
+const { FeedbackBox, isOpen, onClose, onOpen } = useFeedbackBox();
+`}
+  language="jsx"
+/>
+
+The `FeedbackBox` component is the same as the one imported directly, but now
+the `isOpen` value and `onClose` and `onOpen` functions are exposed and
+available to the consuming application. The only function that will be used
+directly is the `onOpen` function. Pass `isOpen` and `onClose` to the
+`FeedbackBox`.
+
+<Source
+  code={`
+const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
+
+// ...
+
+<FeedbackBox
+  isOpen={isOpen}
+  onClose={onClose}
+  onOpen={onOpen}
+  title="Help and Feedback"
+  {...otherProps}
+/>
+`} language="jsx" />
+
+Finally, the `onOpen` function can be used to programmatically open the `FeedbackBox`
+component through another element or behavior in the consuming app. See the
+example below that uses a custom `Button` to open the Modal. The existing button
+that is rendered by the `FeedbackBox` component will still work as expected.
+
+<Source
+  code={`
+import { useFeedbackBox } from "@nypl/design-system-react-components";
+// ...
+const MyComponent = () => {
+  const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
+  // ...
+  return (
+    <>
+      <Button id="open-feedback-box" onClick={onOpen}>
+        Manually Open FeedbackBox
+      </Button>
+      <FeedbackBox
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+        title="Help and Feedback"
+        {...otherProps}
+      />
+    </>
+  );
+}; `}
+  language="jsx"
+/>

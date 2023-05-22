@@ -1,0 +1,99 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as ToggleStories from "./Toggle.stories";
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.8`     |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Sizes](#sizes)
+- [Controlled Toggle](#controlled-toggle)
+- [Browser States](#browser-states)
+- [Layouts](#layouts)
+
+## Overview
+
+<Description of={ToggleStories} />
+
+The `Toggle` component is used as an alternative for the Checkbox component and
+returns a boolean response. Like the Checkbox component, the `Toggle` component
+can display a label to the right of the toggle and helper/error text below the toggle.
+
+### Best Practices
+
+`Toggle` components are commonly used for “on/off” switches to perform binary
+actions that occur immediately after a user “flips the switch.”
+
+The Toggle component label should clarify the action being performed. Labels
+should be short and to the point, often three words or less.
+
+## Component Props
+
+<Canvas of={ToggleStories.WithControls} />
+
+<ArgTypes of={ToggleStories.WithControls} />
+
+## Accessibility
+
+The `Toggle` component is implemented using Chakra's `Switch` component. While
+some accessibility resources state that using a `<button>` element is better for
+a toggle or switch component, Chakra UI internally uses a `checkbox` element.
+Because Chakra's `Switch` component handles the internal state so well and its
+styles, we chose this over implementing this component with a `<button>` element.
+
+For comparison and reference, resources that build toggle components with the
+`<button>` element are linked below.
+
+Resources:
+
+- [Chakra UI Switch](https://chakra-ui.com/docs/components/form/switch)
+- [W3C Switch Example Using HTML Button](https://w3c.github.io/aria-practices/examples/switch/switch-button.html)
+- [Inclusive Components Toggle Buttons](https://inclusive-components.design/toggle-button/)
+- [Accessible HTML Toggle Button (Switch)](https://www.erikkroes.nl/blog/accessible-html-toggle-button-switch/)
+
+## Sizes
+
+<Canvas of={ToggleStories.Sizes} />
+
+## Controlled Toggle
+
+Note that the `isChecked` property in this example is set to `true`. Clicking
+on it won't change the toggle; The `isChecked` prop must now be controlled
+and removed manually by the parent component that controls this state. The
+`onChange` function will be called every time the `isChecked` prop changes.
+
+<Source
+  code={`
+const isChecked = true;
+const onChange = (e) => {
+  // This will return the value through the event object.
+  console.log(e.target.value);
+};
+
+<Toggle
+  id="toggle"
+  isChecked={true}
+  labelText="Controlled Toggle"
+  onChange={onChange}
+/>
+`} language="jsx" />
+
+<Canvas of={ToggleStories.ControlledToggle} />
+
+## Browser States
+
+<Canvas of={ToggleStories.BrowserStates} />
+
+## Layouts
+
+<Canvas of={ToggleStories.Layouts} />

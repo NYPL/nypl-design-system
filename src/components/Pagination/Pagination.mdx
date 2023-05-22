@@ -1,0 +1,106 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as PaginationStories from "./Pagination.stories";
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [Pagination with URL Updates](#pagination-with-url-updates)
+- [Pagination with Unchanging URL](#pagination-with-unchanging-url)
+
+## Overview
+
+<Description of={PaginationStories} />
+
+The `Pagination` component helps navigate between pages of a multi-page
+application. It is commonly used on a search results page. Update the `pageCount`
+prop in the Controls to explore this component with many or few pages.
+
+## Accessibility
+
+Internally, the `Pagination` component is implemented with a `<nav>` element with
+an `aria-label` attribute of `"Pagination"` and an unordered `<ul>` element. This
+component uses anchor `<a>` tags because it is navigating between URLs. In the
+"unchanging URL" variation, each anchor tag has an `href` attribute with a value
+of `"#"`, because the URL is not changing.
+
+Resources:
+
+- [W3C Design System Pagination](https://design-system.w3.org/components/pagination.html)
+- [a11ymatters Accessible Pagination](https://www.a11ymatters.com/pattern/pagination/)
+
+## Pagination with URL Updates
+
+In order to update the URL with a query parameter, the parent component must
+declare and pass a `getPageHref` function to the `Pagination` component. This
+function takes a `selectedPage` number argument for the selected page and it
+should return a string with the desired URL that the pagination links should go
+to. Note that this will refresh the browser on every click.
+
+In the following example, the `getPageHref` function will compute a new URL that
+has `&page=` as a URL query. In your own application this query parameter can be
+named anything but you have to pick up the value in the wrapper component.
+
+<Source
+  code={`
+// Example in a search results page.
+const getPageHref = (selectedPage: number) => {
+  // This should be updated for your router system, if any, including the
+  // base or origin URL.
+  return \`{location.origin}?q=celeste&page=\$\{selectedPage\}\`;
+};
+`}
+  language="jsx"
+/>
+
+<Canvas of={PaginationStories.URLUpdates} />
+
+<ArgTypes of={PaginationStories.URLUpdates} />
+
+## Pagination with Unchanging URL
+
+It is preferred to use the `Pagination` component with the `getPageHref`
+function passed as a prop and that the URL is updated whenever a page is
+changed. However, the optional `onPageChange` prop is available in case URL
+updating is not desired.
+
+In the following example, the `onPageChange` function gets the selected page as
+its only function argument. This is computed internally in the `Pagination`
+component through its own state.
+
+<Source
+  code={`
+// Example in a search results page.
+const onPageChange = (selectedPage: number) => {
+  console.log(\`Current page: \$\{selectedPage\}\`);
+  // Do what you need to with the \`currentPage\` value.
+};
+`}
+  language="jsx"
+/>
+
+<Canvas of={PaginationStories.UnchangingURL} />
+
+### Forcing a Page Change Programmatically
+
+There may be circumstances when you want to programmatically force the page
+number to change without the user explicitly requesting it (for example, if
+you want a user to be brought back to page 1 after entering a new search term).
+You can use the `currentPage` prop to do this. Note, the `currentPage` prop can
+only be used with the client-side, unchanging URL version of the `Pagination`
+component, and in combination with the `onPageChange` function.
+
+The following example shows that the user can be brought to page 1 without
+clicking on the `Pagination` component.
+
+<Canvas of={PaginationStories.UpdateProgrammatically} />

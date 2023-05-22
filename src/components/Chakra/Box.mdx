@@ -1,0 +1,48 @@
+import { Box } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/blocks";
+
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+
+<Meta title="Components/Chakra Exports/Layout/Box" />
+
+# Box
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+
+Note: This needs the use of the `DSProvider` component. See the
+[README](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page#dsprovider)
+for more information.
+
+This component is directly exported from Chakra UI. The `Box` is a simple and
+composable component that can be used for many situations. By default it renders
+a `div` but can render another element using the `as` prop.
+
+All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
+guide on the Chakra UI site.
+
+In the following example, the padding, background color, and text color are
+updated with the `p`, `bg`, and `color` props respectively.
+
+<Canvas>
+  <Box p="s" bg="brand.primary" color="ui.white">
+    This text is inside a `Box` component.
+  </Box>
+</Canvas>
+
+## With VideoPlayer Component Example
+
+In this example, the props added to the `Box` component are `borderWidth`,
+`padding`, `borderRadius`, and `overflow` to create a wrapper around the
+`VideoPlayer` component.
+
+<Canvas>
+  <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
+    <VideoPlayer
+      videoId="nm-dD2tx6bk"
+      videoType="youtube"
+      aspectRatio="sixteenByNine"
+    />
+  </Box>
+</Canvas>
