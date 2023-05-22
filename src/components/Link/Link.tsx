@@ -3,21 +3,24 @@ import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
-export type LinkTypes =
-  | "action"
-  | "backwards"
+export const linkTypesArray = [
+  "action",
+  "backwards",
   // The "button" type is deprecated as of 1.2.x.
-  | "button"
+  "button",
   // Instead, use the following "buttonX" types.
-  | "buttonPrimary"
-  | "buttonSecondary"
-  | "buttonPill"
-  | "buttonCallout"
-  | "buttonNoBrand"
-  | "buttonDisabled"
-  | "default"
-  | "external"
-  | "forwards";
+  "buttonPrimary",
+  "buttonSecondary",
+  "buttonPill",
+  "buttonCallout",
+  "buttonNoBrand",
+  "buttonDisabled",
+  "default",
+  "external",
+  "forwards",
+] as const;
+export type LinkTypes = typeof linkTypesArray[number];
+
 export interface LinkProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
