@@ -11,7 +11,13 @@ import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Icon, { IconColors, IconNames, IconSizes } from "../Icons/Icon";
 
-export type NotificationTypes = "standard" | "announcement" | "warning";
+export const notificationTypesArray = [
+  "standard",
+  "announcement",
+  "warning",
+] as const;
+export type NotificationTypes = typeof notificationTypesArray[number];
+
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
