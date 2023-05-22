@@ -77,6 +77,8 @@ const config: StorybookConfig = {
     "../src/components/Fieldset/Fieldset.stories.tsx",
     "../src/components/Fieldset/Fieldset.mdx",
     "../src/components/Hero/Hero.stories.tsx",
+    "../src/components/HelperErrorText/HelperErrorText.stories.tsx",
+    "../src/components/HelperErrorText/HelperErrorText.mdx",
     "../src/components/Hero/Hero.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
