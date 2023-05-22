@@ -1,8 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../utils/componentCategories";
-
-<Meta title={getCategory("useFilterBar")} />
+<Meta title="Hooks/useFilterBar" />
 
 # useFilterBar
 
@@ -15,7 +13,8 @@ import { getCategory } from "../utils/componentCategories";
 
 Usage of useFilterBar
 
-```tsx
+<Source
+  code={`
 const {
   onChange,
   onMixedStateChange,
@@ -28,13 +27,16 @@ const {
   onToggle,
   isModalOpen,
 } = useFilterBar();
-```
+`}
+  language="jsx"
+/>
 
 ## useFilterBar Hook implementation
 
 The data structure used to render two `MultiSelect` components in all following examples:
 
-```jsx
+<Source
+  code={`
 const multiSelectItems = [
   {
     id: "colors",
@@ -63,11 +65,14 @@ const multiSelectItems = [
     ],
   },
 ];
-```
+`}
+  language="jsx"
+/>
 
 ### Implementation with no global buttons or modal
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   FilterBar,
@@ -75,7 +80,7 @@ import {
   MultiSelect,
   useFilterBar,
 } from "@nypl/design-system-react-components";
-
+// ...
 export default function FilterBarWithHookExample() {
   // Without this hook, you'd have to add handlers for onChange, onMixedStateChange and onClear,
   // and also manage the selectedItems state yourself.
@@ -123,11 +128,14 @@ export default function FilterBarWithHookExample() {
     </FilterBar>
   );
 }
-```
+`}
+  language="jsx"
+/>
 
-### Implementation with `Clear Filters` and `Apply Filters` button
+### Implementation with Clear Filters and Apply Filters buttons
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   FilterBar,
@@ -135,13 +143,12 @@ import {
   MultiSelect,
   useFilterBar,
 } from "@nypl/design-system-react-components";
-
+// ...
 export default function FilterBarWithHookExample() {
   // Without this hook, the consuming app will have to provide handlers for onChange, onMixedStateChange, onClear and onClearAll,
   // and also manage the selectedItems state.
   const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useFilterBar();
-
   return (
     <FilterBar
       id="filterbar"
@@ -188,20 +195,28 @@ export default function FilterBarWithHookExample() {
     </FilterBar>
   );
 }
-```
+`}
+  language="jsx"
+/>
 
 ### Implementation using setSelectedItems for a initial selection of filters
 
-The required data structure to set the selectedItems object:
+The required data structure to set the `selectedItems` object:
 
-```jsx
+<Source
+  code={`
 // The selectedItems structure for one MultiSelect
 const initialFilter = {
   colors: {
     items: ["red"],
   },
 };
+`}
+  language="jsx"
+/>
 
+<Source
+  code={`
 // The selectedItems structure for setting state on multiple filters
 const initialFilters = {
   colors: {
@@ -211,11 +226,14 @@ const initialFilters = {
     items: ["corgy", "german-sheperd"],
   },
 };
-```
+`}
+  language="jsx"
+/>
 
-Implemntation:
+Implementation:
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   FilterBar,
@@ -223,11 +241,10 @@ import {
   MultiSelect,
   useFilterBar,
 } from "@nypl/design-system-react-components";
-
+// ...
 export default function FilterBarWithHookExample() {
   const { onChange, onClear, onClearAll, setSelectedItems, selectedItems } =
     useFilterBar();
-
   const initialFilters = {
     colors: {
       items: ["red"],
@@ -236,12 +253,11 @@ export default function FilterBarWithHookExample() {
       items: ["corgy", "german-sheperd"],
     },
   };
-
   //Set the initial state of selectedItems
   React.useEffect(() => {
     setSelectedItems(initialSelectedItems);
   }, []);
-
+  // ...
   return (
     <FilterBar
       id="filterbar"
@@ -287,4 +303,6 @@ export default function FilterBarWithHookExample() {
     </FilterBar>
   );
 }
-```
+`}
+  language="jsx"
+/>

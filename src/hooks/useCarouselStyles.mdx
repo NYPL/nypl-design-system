@@ -1,8 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../utils/componentCategories";
-
-<Meta title={getCategory("useCarouselStyles")} />
+<Meta title="Hooks/useCarouselStyles" />
 
 # useCarouselStyles
 
@@ -22,9 +20,12 @@ the `goToStart` function.
 
 For a full implementation example, view the [`Tabs` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Tabs/Tabs.tsx).
 
-```tsx
+<Source
+  code={`
 const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
   slidesCount,
   slideWidth
 );
-```
+`}
+  language="jsx"
+/>

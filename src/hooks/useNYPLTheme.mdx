@@ -1,7 +1,6 @@
-import { Meta } from "@storybook/addon-docs";
-import { getCategory } from "../utils/componentCategories";
+import { Meta, Source } from "@storybook/blocks";
 
-<Meta title={getCategory("useNYPLTheme")} />
+<Meta title="Hooks/useNYPLTheme" />
 
 # useNYPLTheme
 
@@ -22,17 +21,20 @@ outside of this wrapper component, then the theme object will be empty. After
 importing and rendering the `DSProvider` wrapper component, your children
 components can use this hook function.
 
-```tsx
+<Source
+  code={`
 import { useNYPLTheme } from "@nypl/design-system-react-components";
 // ...
-
 const theme = useNYPLTheme();
-```
+`}
+  language="jsx"
+/>
 
 The `theme` variable will be a JS object with design token style values.
 This will allow you to use NYPL-specific styles in your components through CSS-in-JS.
 
-```ts
+<Source
+  code={`
 // theme:
 {
   breakpoints: { ... },
@@ -48,7 +50,9 @@ This will allow you to use NYPL-specific styles in your components through CSS-i
   radii: { ... },
   space: { ... },
 }
-```
+`}
+  language="jsx"
+/>
 
 1. NYPL DS Components
 
@@ -61,9 +65,9 @@ For example, if the `Heading` component should render the text in NYPL's green
 color used for "success primary" and add a bold font weight, then you can do
 the following:
 
-```tsx
+<Source
+  code={`
 const theme = useNYPLTheme();
-
 // ...
 return (
   <div>
@@ -74,11 +78,12 @@ return (
     >
       Get a Digital Library Card Today in a Few Easy Steps
     </Heading>
-
     {/* Other components */}
   </div>
 );
-```
+`}
+  language="jsx"
+/>
 
 Of course, you can destructure the `theme` object to only get the object keys
 you need for your component (this is a general example). Log the object to the
@@ -88,11 +93,14 @@ console to see all the available styles.
 
 Use the `style` attribute in HTML components to add inline styles.
 
-```tsx
+<Source
+  code={`
 <p style={{ color: theme.colors.ui.success.primary }}>
   If you are 13 or older and live, work, attend school, or pay property taxes in
   New York State, you can get a free digital library card right now using this
   online form. Visitors to New York State can also use this form to apply for a
   temporary card.
 </p>
-```
+`}
+  language="jsx"
+/>
