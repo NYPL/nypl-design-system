@@ -114,6 +114,8 @@ const config: StorybookConfig = {
     "../src/components/Text/Text.mdx",
     "../src/components/TextInput/TextInput.stories.tsx",
     "../src/components/TextInput/TextInput.mdx",
+    "../src/components/Toggle/Toggle.stories.tsx",
+    "../src/components/Toggle/Toggle.mdx",
     "../src/components/Tooltip/Tooltip.stories.tsx",
     "../src/components/Tooltip/Tooltip.mdx",
     "../src/components/VideoPlayer/VideoPlayer.stories.tsx",
