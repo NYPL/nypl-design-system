@@ -80,6 +80,8 @@ const config: StorybookConfig = {
     "../src/components/Hero/Hero.mdx",
     "../src/components/HorizontalRule/HorizontalRule.stories.tsx",
     "../src/components/HorizontalRule/HorizontalRule.mdx",
+    "../src/components/Icons/Icon.stories.tsx",
+    "../src/components/Icons/Icon.mdx",
     "../src/components/Label/Label.stories.tsx",
     "../src/components/Label/Label.mdx",
     "../src/components/Modal/Modal.stories.tsx",
