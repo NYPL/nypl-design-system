@@ -7,16 +7,21 @@ import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
-export type ButtonElementType = "submit" | "button" | "reset";
-export type ButtonSizes = "small" | "medium" | "large";
-export type ButtonTypes =
-  | "primary"
-  | "secondary"
-  | "text"
-  | "callout"
-  | "pill"
-  | "noBrand"
-  | "link";
+export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
+export const buttonSizesArray = ["small", "medium", "large"] as const;
+export const buttonTypesArray = [
+  "primary",
+  "secondary",
+  "text",
+  "callout",
+  "pill",
+  "noBrand",
+  "link",
+] as const;
+
+export type ButtonElementType = typeof buttonElementTypeArray[number];
+export type ButtonSizes = typeof buttonSizesArray[number];
+export type ButtonTypes = typeof buttonTypesArray[number];
 
 interface ButtonProps {
   /** The button variation to render based on the `ButtonTypes` type.*/

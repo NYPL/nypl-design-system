@@ -1,7 +1,8 @@
 import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-export type TextSizes = "caption" | "default" | "mini" | "tag";
+export const textSizesArray = ["default", "caption", "tag", "mini"] as const;
+export type TextSizes = typeof textSizesArray[number];
 
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
