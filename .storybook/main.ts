@@ -104,6 +104,8 @@ const config: StorybookConfig = {
     "../src/components/Slider/Slider.mdx",
     "../src/components/StatusBadge/StatusBadge.stories.tsx",
     "../src/components/StatusBadge/StatusBadge.mdx",
+    "../src/components/StructuredContent/StructuredContent.stories.tsx",
+    "../src/components/StructuredContent/StructuredContent.mdx",
     "../src/components/Table/Table.stories.tsx",
     "../src/components/Table/Table.mdx",
     "../src/components/Tabs/Tabs.stories.tsx",
