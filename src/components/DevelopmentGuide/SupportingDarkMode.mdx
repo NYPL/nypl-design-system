@@ -1,11 +1,6 @@
-import { Box } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../../utils/componentCategories";
-import Link from "../Link/Link";
-import DSProvider from "../../theme/provider";
-
-<Meta title={getCategory("Supporting Dark Mode")} />
+<Meta title="Development Guide/Supporting Dark Mode" />
 
 # Supporting Dark Mode
 
@@ -15,15 +10,8 @@ import DSProvider from "../../theme/provider";
 - [Accessibility](#accessibility)
 - [Reservoir Default Configuration](#reservoir-default-configuration)
 - [Consuming App Configuration](#consuming-app-configuration)
-  <!-- - [Required Setup](#required-setup) -->
-  <!-- - [Optional Configuration](#optional-configuration) -->
 - [Hooks](#hooks)
 - [Using Custom Dark Mode Styles](#using-custom-dark-mode-styles)
-  <!-- - [Javascript](#javascript-recommended)
-    - [Benefits](#benefits)
-    - [Preparing Your Components](#preparing-your-components)
-    - [Applying Styles](#applying-styles)
-  - [Css and CSS Compilers](#css-and-css-compilers) -->
 - [Color Mapping](#color-mapping)
 
 ## Overview
@@ -87,9 +75,7 @@ The `initialColorMode` prop can be set to one of three values: `"light"`, `"dark
 `"system"`.
 
 - light: DS components will initially render using light color mode styles.
-
 - dark: DS components will initially render using dark color mode styles.
-
 - system: DS components will initially render using color mode styles based on a
   user's system, or OS, color settings. If the system color mode cannot be
   resolved, `"light"` will be used as the fallback value.
@@ -108,14 +94,15 @@ than not, the `ColorModeScript` component will be added alongside the
 `DSProvider` component ([see the
 docs](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)).
 
-```tsx
+<Source
+  code={`
 import {
   ColorModeScript,
   DSProvider
 } from "@nypl/design-system-react-components";
 import * as ReactDOM from "react-dom/client";
 import App from "./App";
-
+// ...
 const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(
   <>
@@ -125,7 +112,9 @@ ReactDOM.createRoot(rootElement).render(
     <DSProvider>
   </>,
 );
-```
+`}
+  language="tsx"
+/>
 
 ### Optional Configuration
 
@@ -145,9 +134,9 @@ default, the necessary variables will be stored in `localStorage` unless otherwi
 specified. The `getServerSideProps` function runs before the page loads, ensuring
 the cookie is never undefined.
 
-```tsx
+<Source
+  code={`
 // pages/_app.tsx
-
 import {
   cookieStorageManager,
   DSProvider,
@@ -155,14 +144,13 @@ import {
   useColorModeValue,
 } from "@nypl/design-system-react-components";
 import type { AppProps } from "next/app";
-
 function MyApp({ Component, pageProps }: AppProps) {
   // Decides where the chakra-ui-color-mode value should be stored in the browser.
   const colorModeManager =
-    typeof pageProps.cookies === "string"
-      ? cookieStorageManager(pageProps.cookies)
-      : localStorageManager;
-
+  typeof pageProps.cookies === "string"
+  ? cookieStorageManager(pageProps.cookies)
+  : localStorageManager;
+  // ...
   return (
     <>
       <ColorModeScript initialColorMode="system" />
@@ -172,17 +160,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
+// ...
 export function getServerSideProps({ req }: any) {
   return {
     props: {
       // First time users will not have any cookies and you may not return
-      // undefined here, hence `??` is necessary.
+      // undefined here, hence \`??\` is necessary.
       cookies: req.headers.cookie ?? "",
     },
   };
 }
-```
+`}
+  language="tsx"
+/>
 
 ## Hooks
 
@@ -194,9 +184,10 @@ exposes Chakra's `useColorMode` and `useColorModeValue` hooks.
 `useColorMode` gives you access to the current color mode, and a function to
 toggle the color mode.
 
-```tsx
+<Source
+  code={`
 import { Toggle, useColorMode } from "@nypl/design-system-react-components";
-
+// ...
 function Example() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
@@ -209,7 +200,9 @@ function Example() {
     </header>
   );
 }
-```
+`}
+  language="tsx"
+/>
 
 ### useColorModeValue
 
@@ -217,28 +210,26 @@ function Example() {
 color mode. It takes two arguments: the value in light mode, and the value in
 dark mode.
 
-```tsx
+<Source
+  code={`
 import {
   Box,
   Button,
   useColorMode,
   useColorModeValue,
 } from "@nypl/design-system-react-components";
-
+// ...
 function StyleColorMode() {
   const { toggleColorMode } = useColorMode();
-
-  // if color mode is light, `bg` is set to "ui.bg.default"
-  // if color mode is dark, `bg` is set to "dark.ui.bg.default"
+  // if color mode is light, \`bg\` is set to "ui.bg.default"
+  // if color mode is dark, \`bg\` is set to "dark.ui.bg.default"
   const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
-
-  // if color mode is light, `color` is set to "ui.typography.heading"
-  // if color mode is dark, `color` is set to "dark.ui.typography.heading"
+  // if color mode is light, \`color\` is set to "ui.typography.heading"
+  // if color mode is dark, \`color\` is set to "dark.ui.typography.heading"
   const color = useColorModeValue(
     "ui.typography.heading",
     "dark.ui.typography.heading"
   );
-
   return (
     <>
       <Box mb="s" bg={bg} color={color}>
@@ -248,7 +239,9 @@ function StyleColorMode() {
     </>
   );
 }
-```
+`}
+  language="tsx"
+/>
 
 ### React Syntax Reminder
 
@@ -346,7 +339,8 @@ To add styles to DS and Chakra UI components, pass a style object to the `sx`
 prop. Within the style object, use the `_dark` pseudo selector to add the styles
 that should be used when dark mode is active.
 
-```tsx
+<Source
+  code={`
 const customStyles = {
   bg: "ui.bg.default",
   color: "ui.typography.heading",
@@ -363,9 +357,11 @@ const customStyles = {
     },
   },
 };
-
+// ...
 <Box sx={customStyles}>Click Me</Button>
-```
+`}
+  language="tsx"
+/>
 
 ##### Method 2
 
@@ -379,9 +375,9 @@ prop or the [Chakra style props](#chakra-style-props). Additionally, javascript 
 tokens](#design-tokens) cannot be used as they are not compatible with the React
 style prop, so CSS design tokens or native CSS attribute values must be used.
 
-```tsx
+<Source
+  code={`
 import { useColorModeValue } from "@nypl/design-system-react-components";
-
 // Style values assigned to variables using CSS design tokens
 const bg = useColorModeValue(
   "var(--nypl-colors-ui-bg-default)",
@@ -393,16 +389,15 @@ const color = useColorModeValue(
 );
 const fontWeight = "var(--nypl-fontWeights-medium)";
 const padding = "var(--nypl-space-inset-default)";
-
 const stylesUsingVariables = {
   backgroundColor: bg,
   color: color,
   fontWeight: fontWeight,
   padding: padding,
 };
-
+// ...
 <div style={stylesUsingVariables} />;
-
+/**********************/
 // Style values assigned directly using native CSS attribute values
 const stylesDirectlyAssigned = {
   backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
@@ -410,15 +405,18 @@ const stylesDirectlyAssigned = {
   fontWeight: 500,
   padding: "1rem",
 };
-
+// ...
 <div style={stylesDirectlyAssigned} />;
-```
+`}
+  language="tsx"
+/>
 
 Below is an example using a custom component. Please note that consuming apps
 are responsible for handling how styles are propagated and applied within custom
 components.
 
-```tsx
+<Source
+  code={`
 // Styles for a custom component
 const stylesForCustomComponent = {
   backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
@@ -426,9 +424,11 @@ const stylesForCustomComponent = {
   fontWeight: 500,
   padding: "1rem",
 };
-
+// ...
 <CustomComponent style={stylesForCustomComponent} />;
-```
+`}
+  language="tsx"
+/>
 
 ### CSS and CSS Precompilers
 
@@ -444,9 +444,9 @@ order in which the styles are written into the stylesheet is important. The
 default styles should be written first and the dark mode style in the
 `prefers-color-scheme` media query must be written after the default styles.
 
-```css
+<Source
+  code={`
 // styles.scss
-
 // DEFAULT STYLES (the shared and light mode color styles)
 .container {
   background: var(--nypl-colors-ui-bg-default);
@@ -454,7 +454,6 @@ default styles should be written first and the dark mode style in the
   color: var(--nypl-colors-ui-typography-body);
   padding: 1rem;
 }
-
 // DARK MODE STYLES (to override the light mode color styles)
 @media (prefers-color-scheme: dark) {
   .container {
@@ -462,36 +461,40 @@ default styles should be written first and the dark mode style in the
     color: var(--nypl-colors-dark-ui-typography-body);
   }
 }
-```
+`}
+  language="css"
+/>
 
 If the consuming application uses a toggle, you can use the `useColorMode` hook to
 retrieve the current `colorMode` and add `"light"` or `"dark"` classes to applicable
 components.
 
-```tsx
+<Source
+  code={`
 // Component file
-
 const { colorMode } = useColorMode(); // returns "light" or "dark"
-<div className={`${colorMode} container`}>a container</div>;
-```
+<div className={\`\${colorMode} container\`}>a container</div>;
+`}
+  language="tsx"
+/>
 
-```css
+<Source
+  code={`
 // styles.scss
-
 .container {
   // shared styles
 }
-
 .dark.container {
   background: var(--nypl-colors-dark-ui-bg-default);
   color: var(--nypl-colors-dark-ui-typography-body);
 }
-
 .light.container {
   background: var(--nypl-colors-ui-bg-default);
   color: var(--nypl-colors-ui-typography-body);
 }
-```
+`}
+  language="css"
+/>
 
 ## Color Mapping
 
@@ -592,7 +595,3 @@ palette. Please refer to the table below.
 | ui.typography.body.inverse    | dark.ui.typography.body.inverse    |
 | ui.typography.heading         | dark.ui.typography.heading         |
 | ui.typography.heading.inverse | dark.ui.typography.heading.inverse |
-
-<!-- hack to make sure correct styles are used on the page -->
-
-<DSProvider />
