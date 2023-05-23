@@ -1,11 +1,9 @@
-import { Stack } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/addon-docs";
+import { Box, Stack } from "@chakra-ui/react";
+import { Meta, Source } from "@storybook/blocks";
 
 import Icon from "../Icons/Icon";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 
-<Meta title={getCategory("Iconography")} />
+<Meta title="Style Guide/Iconography" />
 
 # Iconography
 
@@ -31,16 +29,20 @@ The graphic of the `Icon` component is handled through the `name` prop. To see
 all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-media-icons-icon--icon-with-controls)
 Storybook page.
 
-<Canvas>
-  <DSProvider>
-    <Stack spacing="s" direction="row">
-      <Icon decorative size="xxxlarge" name="check" />
-      <Icon decorative size="xxxlarge" name="close" />
-      <Icon decorative size="xxxlarge" name="errorOutline" />
-      <Icon decorative size="xxxlarge" name="speakerNotes" />
-    </Stack>
-  </DSProvider>
-</Canvas>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row">
+    <Icon decorative size="xxxlarge" name="check" />
+    <Icon decorative size="xxxlarge" name="close" />
+    <Icon decorative size="xxxlarge" name="errorOutline" />
+    <Icon decorative size="xxxlarge" name="speakerNotes" />
+  </Stack>
+</Box>
 
 | Values for Examples Above |
 | ------------------------- |
@@ -53,18 +55,22 @@ Storybook page.
 
 The size of the `Icon` component is handled through the `size` prop.
 
-<Canvas>
-  <DSProvider>
-    <Stack spacing="s" direction="row" alignItems="center">
-      <Icon size="small" name="check" />
-      <Icon size="medium" name="check" />
-      <Icon size="large" name="check" />
-      <Icon size="xlarge" name="check" />
-      <Icon size="xxlarge" name="check" />
-      <Icon size="xxxlarge" name="check" />
-    </Stack>
-  </DSProvider>
-</Canvas>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row" alignItems="center">
+    <Icon size="small" name="check" />
+    <Icon size="medium" name="check" />
+    <Icon size="large" name="check" />
+    <Icon size="xlarge" name="check" />
+    <Icon size="xxlarge" name="check" />
+    <Icon size="xxxlarge" name="check" />
+  </Stack>
+</Box>
 
 | Value      | CSS Value         | CSS Variable       |
 | ---------- | ----------------- | ------------------ |
@@ -80,25 +86,29 @@ The size of the `Icon` component is handled through the `size` prop.
 The color of the `Icon` component is handled through the `color` prop. Icons in
 NYPL projects should always be rendered with one color.
 
-<Canvas>
-  <DSProvider>
-    <Stack spacing="s" direction="row">
-      <Icon size="xxxlarge" name="check" />
-      <Icon name="check" size="xxxlarge" color="brand.primary" />
-      <Icon name="check" size="xxxlarge" color="section.research.primary" />
-      <Icon
-        name="check"
-        size="xxxlarge"
-        color="section.research-library.schwartzman"
-      />
-      <Icon
-        name="check"
-        size="xxxlarge"
-        color="section.research-library.schomburg"
-      />
-    </Stack>
-  </DSProvider>
-</Canvas>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row">
+    <Icon size="xxxlarge" name="check" />
+    <Icon name="check" size="xxxlarge" color="brand.primary" />
+    <Icon name="check" size="xxxlarge" color="section.research.primary" />
+    <Icon
+      name="check"
+      size="xxxlarge"
+      color="section.research-library.schwartzman"
+    />
+    <Icon
+      name="check"
+      size="xxxlarge"
+      color="section.research-library.schomburg"
+    />
+  </Stack>
+</Box>
 
 | Value                                  | CSS Variable                                         |
 | -------------------------------------- | ---------------------------------------------------- |

@@ -43,4 +43,42 @@
   .docblock-argstable-body select:focus {
     border: 1px solid var(--nypl-colors-ui-gray-medium);
   }
+
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example)) {
+    border: none;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    td,
+  .sb-show-main table.storybook-colors-example td > span:first-of-type {
+    color: unset;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    span {
+    font-size: 12px;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr:nth-of-type(2n) {
+    background-color: unset;
+  }
+  .sb-show-main table.storybook-colors-example thead tr,
+  .sb-show-main table.storybook-colors-example thead th,
+  .sb-show-main table.storybook-colors-example thead th:last-of-type,
+  .sb-show-main table.storybook-colors-example thead td:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody tr,
+  .sb-show-main table.storybook-colors-example tbody th,
+  .sb-show-main table.storybook-colors-example tbody td,
+  .sb-show-main table.storybook-colors-example tbody th:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody td:last-of-type {
+    border: unset;
+  }
 </style>
