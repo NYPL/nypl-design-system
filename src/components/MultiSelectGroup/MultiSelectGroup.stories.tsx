@@ -1,11 +1,16 @@
-import React from "react";
-// import { Story } from "@storybook/react/types-6-0";
 import { VStack } from "@chakra-ui/react";
+import { action } from "@storybook/addon-actions";
+import type { Meta, StoryObj } from "@storybook/react";
+import { useEffect, useState } from "react";
+import { withDesign } from "storybook-addon-designs";
 
-import MultiSelect, { MultiSelectItem } from "../MultiSelect/MultiSelect";
+import MultiSelect, {
+  MultiSelectItem,
+  multiSelectWidthsArray,
+} from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "./MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { action } from "@storybook/addon-actions";
+import { layoutTypesArray } from "../../helpers/types";
 
 const multiSelectItems = [
   {
@@ -53,14 +58,14 @@ const multiSelectItems = [
   },
 ];
 
-export const MultiSelectGroupStory = (args) => {
+const MultiSelectGroupStory = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
-  const [actionName, setActionName] = React.useState("");
+  const [actionName, setActionName] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
@@ -105,8 +110,8 @@ export const MultiSelectGroupStory = (args) => {
   );
 };
 
-export const MultiSelectGroupLayoutStory = () => {
-  const [selectedItems, setSelectedItems] = React.useState({});
+const MultiSelectGroupLayoutStory = () => {
+  const [selectedItems, setSelectedItems] = useState({});
 
   function handleChange(itemId: string, multiSelectId: string) {
     let itemIds;
@@ -180,6 +185,7 @@ export const MultiSelectGroupLayoutStory = () => {
     }
     setSelectedItems(newSelectedItems);
   }
+
   return (
     <VStack align="stretch" spacing="s">
       <MultiSelectGroup showLabel={true} id="row" labelText="Row (default)">
@@ -310,4 +316,58 @@ export const MultiSelectGroupLayoutStory = () => {
       </MultiSelectGroup>
     </VStack>
   );
+};
+
+const meta: Meta<typeof MultiSelectGroup> = {
+  title: "Components/Form Elements/MultiSelectGroup",
+  component: MultiSelectGroup,
+  decorators: [withDesign],
+  argTypes: {
+    className: { control: false },
+    id: { control: false },
+    layout: {
+      control: { type: "radio" },
+      options: layoutTypesArray,
+      table: { defaultValue: { summary: "row" } },
+    },
+    multiSelectWidth: {
+      control: { type: "radio" },
+      options: multiSelectWidthsArray,
+      table: { defaultValue: { summary: "default" } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof MultiSelectGroup>;
+
+/**
+ * Main Stories for the MultiSelectGroup component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const Controls: Story = {
+  args: {
+    className: undefined,
+    id: "multiselect-group",
+    labelText: "Label Text",
+    layout: "row",
+    multiSelectWidth: "default",
+    showLabel: true,
+  },
+  render: (args) => <MultiSelectGroupStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelectGroup.test.tsx"],
+  },
+};
+
+// The following are additional MultiSelectGroup example Stories.
+export const LayoutPatterns: Story = {
+  render: (args) => <MultiSelectGroupLayoutStory {...args} />,
 };
