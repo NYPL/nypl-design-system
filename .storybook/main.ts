@@ -76,6 +76,8 @@ const config: StorybookConfig = {
     "../src/components/FeedbackBox/FeedbackBox.mdx",
     "../src/components/Fieldset/Fieldset.stories.tsx",
     "../src/components/Fieldset/Fieldset.mdx",
+    "../src/components/Grid/SimpleGrid.stories.tsx",
+    "../src/components/Grid/SimpleGrid.mdx",
     "../src/components/Hero/Hero.stories.tsx",
     "../src/components/HelperErrorText/HelperErrorText.stories.tsx",
     "../src/components/HelperErrorText/HelperErrorText.mdx",
