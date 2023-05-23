@@ -92,12 +92,10 @@ const meta: Meta<typeof FilterBar> = {
         "If passed the `Apply Filters` button will render on desktop and tablet `boolean`",
     },
     onSubmit: {
-      // type: { name: "() => void", required: false },
       description:
         "Function to handle submit of all selectedItems - needs to be provided from consuming app",
     },
     onClear: {
-      // type: { name: "() => void", required: false },
       description:
         "Function to clear all selectedItems - available through hook",
     },
@@ -105,19 +103,16 @@ const meta: Meta<typeof FilterBar> = {
       contol: false,
       description:
         "Function to open the filter modal overlay on mobile viewport - available through hook",
-      // type: { name: "() => void", required: false },
     },
     onClose: {
       control: false,
       description:
         "Function to close the filter modal overlay on mobile viewport - available through hook",
-      // type: { name: "() => void", required: false },
     },
     onToggle: {
       control: false,
       description:
         "Function to toggle the filter modal overlay on mobile viewport - available through hook",
-      // type: { name: "() => void", required: false },
     },
   },
 };
@@ -151,13 +146,14 @@ export const LayoutPatterns: Story = {
 };
 export const UIContainers: Story = {
   render: () => <FilterBarRowContainerStory />,
-  name: "UI Containers",
+  name: "UI Containers for Row Layout",
 };
 export const ColumnLayout: Story = {
   render: () => <FilterBarColumnContainerStory />,
+  name: "UI Containers for Column Layout",
 };
 
-export const FilterBarStory = (args) => {
+const FilterBarStory = (args) => {
   const {
     onChange,
     onMixedStateChange,
@@ -251,7 +247,7 @@ export const FilterBarStory = (args) => {
     </FilterBar>
   );
 };
-export const FilterBarLayoutStory = () => {
+const FilterBarLayoutStory = () => {
   const {
     onChange,
     onMixedStateChange,
@@ -855,7 +851,7 @@ export const FilterBarLayoutStory = () => {
   );
 };
 
-export const FilterBarRowContainerStory = () => {
+const FilterBarRowContainerStory = () => {
   const {
     onChange,
     onMixedStateChange,
@@ -995,7 +991,7 @@ export const FilterBarRowContainerStory = () => {
   );
 };
 
-export const FilterBarColumnContainerStory = () => {
+const FilterBarColumnContainerStory = () => {
   const {
     onChange,
     onMixedStateChange,
