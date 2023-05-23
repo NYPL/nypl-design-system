@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
-import SimpleGrid from "./SimpleGrid";
+import SimpleGrid, { gridGapsArray } from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
@@ -19,15 +19,7 @@ const meta: Meta<typeof SimpleGrid> = {
     gap: {
       control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
-      options: [
-        "grid.xxs",
-        "grid.xs",
-        "grid.s",
-        "grid.m",
-        "grid.l",
-        "grid.xl",
-        "grid.xxl",
-      ],
+      options: gridGapsArray,
     },
     id: { control: false },
   },
