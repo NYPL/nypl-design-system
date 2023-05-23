@@ -994,21 +994,20 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   const cellStyles = {
     borderColor:
       textColor === "ui.white" ? "white !important" : "black !important",
+    fontSize: "text.tag",
     fontWeight: "medium",
     py: "xs",
   };
   const tableStyles = {
     tbody: {
       td: {
-        fontSize: "text.tag",
         ...cellStyles,
-        borderTop: "1px solid !important",
+        borderBottom: "1px solid !important",
       },
       th: {
-        fontSize: "text.tag",
+        borderBottom: `1px solid ${cellStyles.borderColor}`,
         textTransform: "none",
         ...cellStyles,
-        borderTop: `1px solid ${cellStyles.borderColor}`,
         _first: {
           span: {
             color: textColor,
@@ -1019,7 +1018,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
     thead: {
       th: {
         color: textColor,
-        fontSize: "text.tag",
+        borderBottom: "1px solid !important",
         textTransform: "uppercase",
         ...cellStyles,
       },
@@ -1171,6 +1170,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
 
   return (
     <Table
+      className="storybook-colors-example"
       columnHeaders={columnHeaders}
       showRowDividers
       sx={tableStyles}
