@@ -1,49 +1,8 @@
-import {
-  ArgsTable,
-  Canvas,
-  Description,
-  Meta,
-  Story,
-} from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+import { Meta, Canvas, Description, ArgTypes, Source } from "@storybook/blocks";
 
-import HelperErrorText from "./HelperErrorText";
-import Link from "../Link/Link";
-import Text from "../Text/Text";
-import TextInput from "../TextInput/TextInput";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import * as HelperErrorTextStories from "./HelperErrorText.stories";
 
-<Meta
-  title={getCategory("HelperErrorText")}
-  component={HelperErrorText}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "",
-    },
-    jest: ["HelperErrorText.test.tsx"],
-  }}
-  argTypes={{
-    ariaAtomic: {
-      control: false,
-      table: { defaultValue: { summary: true } },
-    },
-    ariaLive: {
-      table: { defaultValue: { summary: "polite" } },
-    },
-    children: { table: { disable: true } },
-    className: { control: false },
-    id: { control: false },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRenderedText: {
-      table: { defaultValue: { summary: false } },
-    },
-  }}
-/>
+<Meta of={HelperErrorTextStories} />
 
 # HelperErrorText
 
@@ -57,37 +16,18 @@ import DSProvider from "../../theme/provider";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [With HTML Children](#with-html-children)
+- [HTML and JSX Children](#html-and-jsx-children)
 - [Invalid State](#invalid-state)
 
 ## Overview
 
-<Description of={HelperErrorText} />
+<Description of={HelperErrorTextStories} />
 
 ## Component Props
 
-<Canvas withToolbar>
-  <Story
-    name="HelperErrorText with Controls"
-    args={{
-      ariaAtomic: undefined,
-      ariaLive: undefined,
-      className: undefined,
-      id: "helperErrorText-id",
-      isInvalid: false,
-      text: "This is the helper text!",
-    }}
-  >
-    {(args) => (
-      <HelperErrorText
-        {...args}
-        text={args.isInvalid ? "This is the error text :(" : args.text}
-      />
-    )}
-  </Story>
-</Canvas>
+<Canvas of={HelperErrorTextStories.WithControls} />
 
-<ArgsTable story="HelperErrorText with Controls" />
+<ArgTypes of={HelperErrorTextStories.WithControls} />
 
 ## Accessibility
 
@@ -96,8 +36,8 @@ used as a child component when composing more complex components.
 
 In the case of form components, the `HelperErrorText` component is associated
 with a related input field by using the `aria-describedby` attribute in the
-associated element. This pattern ensures that the content of the `HelperErrorText`
-component is made available to screenreaders.
+associated element. This pattern ensures that the content of the
+`HelperErrorText` component is made available to screenreaders.
 
 This component will always render at least an empty `<div>` element with an
 `aria-live="polite"` attribute set even if no text content is passed. This is to
@@ -111,22 +51,7 @@ uses the `HelperErrorText` component to render the red-colored `"This is error t
 the `aria-describedby` attribute on the HTML input element. This type of
 association is handled automatically by all DS `Form Elements` components.
 
-<Canvas>
-  <Story
-    name="Text Input with HelperErrorText"
-    args={{
-      helperText: "Choose wisely.",
-      id: "textInput-id",
-      invalidText: "This is error text :(",
-      isInvalid: true,
-      labelText: "What is your favorite color?",
-      name: "textInput-name",
-      placeholder: "e.g. blue, green, etc.",
-    }}
-  >
-    {(args) => <TextInput {...args} />}
-  </Story>
-</Canvas>
+<Canvas of={HelperErrorTextStories.TextInputExample} />
 
 ### ariaAtomic
 
@@ -155,22 +80,7 @@ attribute is set in the wrapper `<div>` element that is always rendered by the
 
 By default, this prop is set to `"polite"`.
 
-<Canvas>
-  <Story
-    name="With Aria Controls"
-    args={{
-      ariaAtomic: true,
-      ariaLive: "polite",
-    }}
-  >
-    {(args) => (
-      <HelperErrorText
-        {...args}
-        text="Live updates to the helper and error text can be read to screen readers with the appropriate aria-atomic and aria-live props."
-      />
-    )}
-  </Story>
-</Canvas>
+<Canvas of={HelperErrorTextStories.AriaControls} />
 
 Resources:
 
@@ -180,40 +90,16 @@ Resources:
 - [W3C ARIA19: Using ARIA role=alert or Live Regions to Identify Errors](https://www.w3.org/TR/WCAG20-TECHS/ARIA19.html)
 - [DigitalA11y WAI-ARIA:aria-live (Property)](https://www.digitala11y.com/aria-live-properties/)
 
-## With HTML Children
+## HTML and JSX Children
 
-The `HelperErrorText` component can render any React component or HTML element
+The `HelperErrorText` component can render any HTML element or React component
 through the `text` prop.
 
-<Canvas>
-  <Story name="With HTML Children">
-    <HelperErrorText
-      text={
-        <>
-          This first example uses an HTML anchor element for{" "}
-          <a href="#">a link</a>.
-        </>
-      }
-    />
-    <HelperErrorText
-      text={
-        <Text>
-          This second example uses Reservoir Design System (DS) components, such
-          as the <Link href="#">`Link`</Link> component, and the `Text`
-          component.
-        </Text>
-      }
-    />
-  </Story>
-</Canvas>
+<Canvas of={HelperErrorTextStories.HTMLChildren} />
 
 ## Invalid State
 
 Set the `isInvalid` prop to `true` to render the passed text content with the
 NYPL "invalid" styling.
 
-<Canvas>
-  <Story name="Invalid State">
-    <HelperErrorText isInvalid text="This is the error text :(" />
-  </Story>
-</Canvas>
+<Canvas of={HelperErrorTextStories.InvalidState} />
