@@ -7,8 +7,24 @@ import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 
-export type HeadingSizes = "primary" | "secondary" | "tertiary" | "callout";
-export type HeadingLevels = "one" | "two" | "three" | "four" | "five" | "six";
+export const headingSizesArray = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "callout",
+] as const;
+export const headingLevelsArray = [
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+] as const;
+
+export type HeadingSizes = typeof headingSizesArray[number];
+export type HeadingLevels = typeof headingLevelsArray[number];
+
 export interface HeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;

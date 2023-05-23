@@ -1,11 +1,6 @@
-import { Box } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/addon-docs";
+import { Canvas, Meta, Source } from "@storybook/blocks";
 
-import List from "../List/List";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
-
-<Meta title={getCategory("Breakpoints")} />
+<Meta title="Style Guide/Breakpoints" />
 
 # Breakpoints
 
@@ -29,12 +24,15 @@ responsive layouts and typography.
 
 The following CSS variables are available through the DS.
 
-```css
+<Source
+  code={`
 --nypl-breakpoint-small: 320px;
 --nypl-breakpoint-medium: 600px;
 --nypl-breakpoint-large: 960px;
 --nypl-breakpoint-xl: 1280px;
-```
+`}
+  language="css"
+/>
 
 ## SCSS Variables
 
@@ -42,20 +40,19 @@ If you are using SCSS and imported the DS `/dist/resources.scss` file, then you
 can use the following SCSS variables in your media queries or SCSS `breakpoint`
 function (if used).
 
-```scss
+<Source
+  code={`
 $nypl-breakpoint-small: 320px;
 $nypl-breakpoint-medium: 600px;
 $nypl-breakpoint-large: 960px;
 $nypl-breakpoint-xl: 1280px;
 $nypl-max-width: $nypl-breakpoint-xl;
-```
+`}
+  language="scss"
+/>
 
 ## Figma Reference
 
 For additional spacing information, please refer to the Figma Main file.
 
 - https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17983%3A60146
-
-<!-- hack to make sure correct styles are used on the page -->
-
-<DSProvider />
