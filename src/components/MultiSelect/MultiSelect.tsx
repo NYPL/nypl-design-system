@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
 import { chakra } from "@chakra-ui/react";
+import React, { forwardRef } from "react";
+
 import MultiSelectListBox from "./MultiSelectListbox";
 import MultiSelectDialog from "./MultiSelectDialog";
 
@@ -9,7 +10,12 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 
-export type MultiSelectWidths = "default" | "fitContent" | "full";
+export const multiSelectWidthsArray = [
+  "default",
+  "fitContent",
+  "full",
+] as const;
+export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 
 export interface SelectedItems {
   [name: string]: { items: string[] };
