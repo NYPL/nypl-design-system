@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import StyledList from "./StyledList";
 import * as StyledListStories from "./StyledList.stories";
 
 <Meta of={StyledListStories} />
@@ -70,7 +71,31 @@ Pass in `<li>` children elements as you normally would for the `<ul`> element.
   language="jsx"
 />
 
-<Canvas of={StyledListStories.LiChildren} />
+{
+
+<StyledList>
+  <li>
+    FULL TITLE:{" "}
+    <i>
+      "...and for the <b>City of New York</b>"
+    </i>
+  </li>
+  <li>
+    ALTERNATIVE TITLES:{" "}
+    <i>
+      "...Society of <b>New York</b> delivered at..."
+    </i>{" "}
+    + 1 more
+  </li>
+  <li>
+    SUBJECTS:{" "}
+    <i>
+      "...<b>City of New York</b>, in the"
+    </i>{" "}
+    + 2 more
+  </li>
+</StyledList>
+}
 
 ### listItems prop
 
@@ -97,4 +122,29 @@ const listItems = [
   language="jsx"
 />
 
-<Canvas of={StyledListStories.ListItemsProp} />
+export const listItems = [
+  <>
+    FULL TITLE:{" "}
+    <i>
+      "...and for the <b>City of New York</b>"
+    </i>
+  </>,
+  <>
+    ALTERNATIVE TITLES:{" "}
+    <i>
+      "...Society of <b>New York</b> delivered at..."
+    </i>{" "}
+    + 1 more
+  </>,
+  <>
+    SUBJECTS:{" "}
+    <i>
+      "...<b>City of New York</b>, in the"
+    </i>{" "}
+    + 2 more
+  </>,
+];
+
+{
+
+<StyledList listItems={listItems} />}

@@ -73,39 +73,6 @@ export const WithControls: Story = {
 };
 
 // The following are additional StyledList example Stories.
-export const LiChildren: Story = {
-  render: () => (
-    <StyledList>
-      <li>
-        FULL TITLE:{" "}
-        <i>
-          "...and for the <b>City of New York</b>"
-        </i>
-      </li>
-      <li>
-        ALTERNATIVE TITLES:{" "}
-        <i>
-          "...Society of <b>New York</b> delivered at..."
-        </i>{" "}
-        + 1 more
-      </li>
-      <li>
-        SUBJECTS:{" "}
-        <i>
-          "...<b>City of New York</b>, in the"
-        </i>{" "}
-        + 2 more
-      </li>
-    </StyledList>
-  ),
-  name: "li Children",
-};
-
-export const ListItemsProp: Story = {
-  render: () => <StyledList listItems={listItems} />,
-  name: "listItems Prop",
-};
-
 export const FontSize: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
