@@ -66,7 +66,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/CRPxcR5Olmz50IrFZxvLKE/DRB---Search-Highlighting-(SFR-1519)?node-id=1223%3A11775",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=71684-76060&t=XbyIY1tCtH4Qkkfo-4",
     },
     jest: ["StyledList.test.tsx"],
   },

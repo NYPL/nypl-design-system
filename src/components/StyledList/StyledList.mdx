@@ -16,8 +16,8 @@ import * as StyledListStories from "./StyledList.stories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [StyledList Children](#styledlist-children)
 - [Font Size](#font-size)
+- [StyledList Children](#styledlist-children)
 
 ## Overview
 
@@ -39,6 +39,14 @@ Resources:
 
 - [W3C WAI Content Structure Lists](https://www.w3.org/WAI/tutorials/page-structure/content/#lists)
 - [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
+
+## Font Size
+
+The font size can be changed through the `textSize` prop. The values are the same
+as the `size` prop in the `Text` component. This includes `"caption"`, `"default"`,
+`"mini"`, and `"tag"`.
+
+<Canvas of={StyledListStories.FontSize} />
 
 ## StyledList Children
 
@@ -90,11 +98,3 @@ const listItems = [
 />
 
 <Canvas of={StyledListStories.ListItemsProp} />
-
-## Font Size
-
-The font size can be changed through the `textSize` prop. The values are the same
-as the `size` prop in the `Text` component. This includes `"caption"`, `"default"`,
-`"mini"`, and `"tag"`.
-
-<Canvas of={StyledListStories.FontSize} />
