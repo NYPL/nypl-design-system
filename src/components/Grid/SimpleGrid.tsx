@@ -1,14 +1,17 @@
 import { chakra, SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-export type GridGaps =
-  | "grid.xxs"
-  | "grid.xs"
-  | "grid.s"
-  | "grid.m"
-  | "grid.l"
-  | "grid.xl"
-  | "grid.xxl";
+export const gridGapsArray = [
+  "grid.xxs",
+  "grid.xs",
+  "grid.s",
+  "grid.m",
+  "grid.l",
+  "grid.xl",
+  "grid.xxl",
+] as const;
+export type GridGaps = typeof gridGapsArray[number];
+
 export interface SimpleGridProps {
   /** Additional class name. */
   className?: string;
