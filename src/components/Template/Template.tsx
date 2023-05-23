@@ -32,11 +32,11 @@ export interface TemplateAppContainerProps
   aboveHeader?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateBreakout` component section. */
   breakout?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateContentBottom` component section. */
+  contentBottom?: React.ReactElement;
   /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
    * anchor for the application skip navigation. */
   contentId?: string;
-  /** DOM that will be rendered in the `TemplateContentBottom` component section. */
-  contentBottom?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
   contentPrimary?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
