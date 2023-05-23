@@ -84,6 +84,8 @@ const config: StorybookConfig = {
     "../src/components/HorizontalRule/HorizontalRule.mdx",
     "../src/components/Icons/Icon.stories.tsx",
     "../src/components/Icons/Icon.mdx",
+    "../src/components/Image/Image.stories.tsx",
+    "../src/components/Image/Image.mdx",
     "../src/components/Label/Label.stories.tsx",
     "../src/components/Label/Label.mdx",
     "../src/components/Modal/Modal.stories.tsx",
