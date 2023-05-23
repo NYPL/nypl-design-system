@@ -1224,11 +1224,25 @@ export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
           >
             {backgroundColor}
           </Heading>
-          <Text fontWeight="medium" noSpace size="tag" m="0" color={textColor}>
+          <Text
+            fontWeight="medium"
+            lineHeight="20px"
+            noSpace
+            size="tag"
+            m="0"
+            color={textColor}
+          >
             {"CSS: var(" + cssVarName + ")"}
           </Text>
           {colorSource && (
-            <Text fontWeight="medium" noSpace size="tag" color={textColor}>
+            <Text
+              color={textColor}
+              fontWeight="medium"
+              lineHeight="20px"
+              m="0"
+              noSpace
+              size="tag"
+            >
               Source: {colorSource}
             </Text>
           )}
