@@ -1,5 +1,9 @@
+import { Box } from "@chakra-ui/react";
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import { cloneElement } from "react";
 
+import Link from "./Link";
+import Icon from "../Icons/Icon";
 import * as LinkStories from "./Link.stories";
 
 <Meta of={LinkStories} />
@@ -87,7 +91,29 @@ can use the `href` prop to generate an `<a>` element.
   language="jsx"
 />
 
-<Canvas of={LinkStories.AnchorElementRendering} />
+{
+
+<>
+  This is a{" "}
+  <Link type="action">
+    <a href="#existing-anchor-tag">link</a>
+  </Link>{" "}
+  with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
+  <Link type="action" href="#passed-in-link">
+    link
+  </Link>{" "}
+  where the `Link` component uses the `href` prop and has a string-only child.
+  Finally, this is a{" "}
+  <Link type="action">
+    <>
+      <Icon name="check" align="left" size="small" />
+      <a href="#existing-anchor-tag">link</a>
+    </>
+  </Link>{" "}
+  with a check icon.
+  <Box mb="20px"></Box>
+</>
+}
 
 ## Link with Routers
 
@@ -176,4 +202,16 @@ export const NextJsLink = (props: HTMLAnchorElement) =>
   language="jsx"
 />
 
-<Canvas of={LinkStories.NextJSExample} />
+export const NextJsLink = (props) =>
+  cloneElement(
+    props.children,
+    { href: props.href },
+    props.children.props.children
+  );
+
+{
+
+<NextJsLink href="#" passHref>
+  <Link type="action">Next Page</Link>
+</NextJsLink>
+}

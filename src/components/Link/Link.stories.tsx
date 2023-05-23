@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { cloneElement } from "react";
+// import { cloneElement } from "react";
 
 import Link, { linkTypesArray } from "./Link";
 import Icon from "../Icons/Icon";
@@ -76,42 +76,42 @@ export const LinksWithIcons: Story = {
     </VStack>
   ),
 };
-export const AnchorElementRendering: Story = {
-  render: () => (
-    <>
-      This is a{" "}
-      <Link type="action">
-        <a href="#existing-anchor-tag">link</a>
-      </Link>{" "}
-      with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
-      <Link type="action" href="#passed-in-link">
-        link
-      </Link>{" "}
-      where the `Link` component uses the `href` prop and has a string-only
-      child. Finally, this is a{" "}
-      <Link type="action">
-        <>
-          <Icon name="check" align="left" size="small" />
-          <a href="#existing-anchor-tag">link</a>
-        </>
-      </Link>{" "}
-      with a check icon.
-    </>
-  ),
-};
+// export const AnchorElementRendering: Story = {
+//   render: () => (
+//     <>
+//       This is a{" "}
+//       <Link type="action">
+//         <a href="#existing-anchor-tag">link</a>
+//       </Link>{" "}
+//       with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
+//       <Link type="action" href="#passed-in-link">
+//         link
+//       </Link>{" "}
+//       where the `Link` component uses the `href` prop and has a string-only
+//       child. Finally, this is a{" "}
+//       <Link type="action">
+//         <>
+//           <Icon name="check" align="left" size="small" />
+//           <a href="#existing-anchor-tag">link</a>
+//         </>
+//       </Link>{" "}
+//       with a check icon.
+//     </>
+//   ),
+// };
 
-const NextJsLink = (props) =>
-  cloneElement(
-    props.children,
-    { href: props.href },
-    props.children.props.children
-  );
+// const NextJsLink = (props) =>
+//   cloneElement(
+//     props.children,
+//     { href: props.href },
+//     props.children.props.children
+//   );
 
-export const NextJSExample: Story = {
-  render: () => (
-    <NextJsLink href="#" passHref>
-      <Link type="action">Next Page</Link>
-    </NextJsLink>
-  ),
-  name: "Next.js Router example",
-};
+// export const NextJSExample: Story = {
+//   render: () => (
+//     <NextJsLink href="#" passHref>
+//       <Link type="action">Next Page</Link>
+//     </NextJsLink>
+//   ),
+//   name: "Next.js Router example",
+// };
