@@ -8,6 +8,7 @@ import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import DatePicker from "../DatePicker/DatePicker";
 import Form, { FormRow, FormField } from "./Form";
+import { gridGapsArray } from "../Grid/SimpleGrid";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Radio from "../Radio/Radio";
@@ -29,15 +30,7 @@ const meta: Meta<typeof Form> = {
     gap: {
       control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
-      options: [
-        "grid.xxs",
-        "grid.xs",
-        "grid.s",
-        "grid.m",
-        "grid.l",
-        "grid.xl",
-        "grid.xxl",
-      ],
+      options: gridGapsArray,
     },
   },
 };
@@ -232,7 +225,7 @@ export const WithControls: Story = {
   ),
 };
 
-// The following are additional Form example Stories.
+// The following functions are used in the remaining Form example stories
 const formRow = (gapValue) => {
   const labelText = `Size: ${gapValue}`;
   return (
@@ -303,6 +296,7 @@ for (const gap in gapValues) {
 }
 const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
+// The following are additional Form example Stories.
 export const FormSpacing: Story = {
   render: () => getForms(sizes),
 };
