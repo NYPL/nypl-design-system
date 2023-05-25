@@ -78,6 +78,8 @@ const config: StorybookConfig = {
     "../src/components/Fieldset/Fieldset.mdx",
     "../src/components/FilterBar/FilterBar.stories.tsx",
     "../src/components/FilterBar/FilterBar.mdx",
+    "../src/components/Form/Form.stories.tsx",
+    "../src/components/Form/Form.mdx",
     "../src/components/Grid/SimpleGrid.stories.tsx",
     "../src/components/Grid/SimpleGrid.mdx",
     "../src/components/Heading/Heading.stories.tsx",
