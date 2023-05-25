@@ -1,0 +1,131 @@
+import { Meta, Canvas, Description, ArgTypes, Source } from "@storybook/blocks";
+
+import * as FormStories from "./Form.stories";
+
+<Meta of={FormStories} />
+
+# Form
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `1.0.6`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Spacing Variants](#spacing-variants)
+- [Example Code](#example-code)
+
+## Overview
+
+<Description of={FormStories} />
+
+The `Form` component renders a standard `<form>` element and should be used to
+handle layout and spacing for child input fields. `FormRow` and `FormField`
+components should be used to build the `<form>` structure and to arrange input
+fields as needed.
+
+<Source
+  code={`
+<Form id="form-id">
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+</Form>
+`}
+  language="tsx"
+/>
+
+`FormField` should be used as a parent for all input components from the
+Reservoir Design System (DS) (`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you
+need to render multiple input components in a horizontal row.
+
+## Component Props
+
+<Canvas of={FormStories.WithControls} />
+
+<ArgTypes of={FormStories.WithControls} />
+
+## Accessibility
+
+The `Form` component renders a standard `<form>` element and should be used to
+wrap all form elements. A `Form` should have a `Button` component with a `type`
+of `submit` to submit the form to a server through the `Form`'s `action` prop.
+
+Resources:
+
+- [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/)
+- [Deque The Anatomy of Accessible Forms: Best Practices](https://www.deque.com/blog/anatomy-of-accessible-forms-best-practices/)
+
+## Spacing Variants
+
+By default, the `Form` component will handle the NYPL spacing around form input
+elements. The default spacing value is large `grid.l`, which corresponds to the
+CSS variable `--nypl-space-l` (2rem / 32px).
+
+**IMPORTANT:** The default spacing should not be overwritten without a very good
+reason.
+
+Below are examples of the spacing values available to use in the `gap` prop of
+the `Form` component: `"grid.xxs"`, `"grid.xs"`, `"grid.s"`, `"grid.m"`,
+`"grid.l"`, `"grid.xl"`, `"grid.xxl"`.
+
+<Canvas of={FormStories.FormSpacing} />
+
+## Example Code
+
+<Source
+  code={`
+<Form action="/end/point" method="get" gap="grid.l" id="example-form">
+  <FormField>
+    <TextInput
+      labelText="Username"
+      helperText="Make sure to complete this field."
+      isRequired
+    />
+  </FormField>
+  <FormField>
+    <TextInput
+      labelText="Password"
+      helperText="Make sure to complete this field."
+      isRequired
+    />
+  </FormField>
+  <FormRow>
+    <FormField>
+      <TextInput
+        labelText="Phone Field"
+        helperText="This one is up to you."
+        type="tel"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="URL Field"
+        helperText="This one is up to you."
+        type="url"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="Age"
+        helperText="This one is up to you."
+        type="number"
+      />
+    </FormField>
+  </FormRow>
+  <FormField>
+    <Button>Submit</Button>
+  </FormField>
+</Form>
+`}
+  language="tsx"
+/>
