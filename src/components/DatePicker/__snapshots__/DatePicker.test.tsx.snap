@@ -40,22 +40,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               >
                 From
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="basic-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-01-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="basic-start"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-01-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -91,22 +95,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               >
                 To
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="basic-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-02-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="basic-end"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-02-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -170,22 +178,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               >
                 From
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="no-label-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-01-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="no-label-start"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-01-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -221,22 +233,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               >
                 To
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="no-label-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-02-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="no-label-end"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-02-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -300,22 +316,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               >
                 From
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="custom-format-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988/02/01"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="custom-format-start"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988/02/01"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -351,22 +371,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               >
                 To
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="custom-format-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988/02/02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="custom-format-end"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988/02/02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -430,23 +454,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 From
               </label>
-              <input
-                aria-invalid={true}
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="invalid-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-01-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  aria-invalid={true}
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="invalid-start"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-01-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -490,23 +518,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 To
               </label>
-              <input
-                aria-invalid={true}
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="invalid-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-02-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  aria-invalid={true}
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="invalid-end"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-02-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -586,22 +618,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               >
                 From
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={true}
-                id="disabled-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-01-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={true}
+                  id="disabled-start"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-01-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -637,22 +673,26 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               >
                 To
               </label>
-              <input
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={true}
-                id="disabled-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                step={null}
-                type="text"
-                value="1988-02-02"
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={true}
+                  id="disabled-end"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  required={false}
+                  step={null}
+                  type="text"
+                  value="1988-02-02"
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -713,22 +753,26 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
           >
             Select the full date you want to visit NYPL
           </label>
-          <input
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="basic-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="basic-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -772,23 +816,27 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
           onKeyDown={[Function]}
           readOnly={false}
         >
-          <input
-            aria-label="Select the date you want to visit NYPL"
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="no-label-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              aria-label="Select the date you want to visit NYPL"
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="no-label-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -839,22 +887,26 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
           >
             Select the date you want to visit NYPL
           </label>
-          <input
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="custom-format-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988/02/01"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="custom-format-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988/02/01"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -905,23 +957,27 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           >
             Select the date you want to visit NYPL
           </label>
-          <input
-            aria-invalid={true}
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="invalid-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              aria-invalid={true}
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="invalid-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -980,22 +1036,26 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           >
             Select the date you want to visit NYPL
           </label>
-          <input
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={true}
-            id="disabled-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={true}
+              id="disabled-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -1054,22 +1114,26 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           >
             Select the date you want to visit NYPL
           </label>
-          <input
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="chakra-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="chakra-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"
@@ -1129,22 +1193,26 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           >
             Select the date you want to visit NYPL
           </label>
-          <input
-            autocomplete={null}
-            className="chakra-input css-0"
-            disabled={false}
-            id="props-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
-            required={false}
-            step={null}
-            type="text"
-            value="1988-01-02"
-          />
+          <div
+            className="css-79elbk"
+          >
+            <input
+              autocomplete={null}
+              className="chakra-input css-0"
+              disabled={false}
+              id="props-start"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              step={null}
+              type="text"
+              value="1988-01-02"
+            />
+          </div>
           <div
             aria-atomic={true}
             aria-live="polite"

@@ -23,10 +23,23 @@ This updates replaces TSDX with Vite for the build tool. This allows the Reservo
 - Storybook is updated to v6.5.16, which is a minor update from v6.5.13.
 - Due to moving to ESM as the default for the repo, types are exported separated from components in the main `/src/index.ts` file. This doesn't affect the final build but just how components, interfaces, and types are exported.
 
+## 1.5.4 (May 4, 2023)
+
+### Updates
+
+- Updates the `Select` component to use a set text color value.
+
+### Fixes
+
+- Fixes the focus rectangle around the `TextInput` clear button so it is centered on both desktop and mobile views.
+
+## 1.5.3 (April 28, 2023)
+
 ### Adds
 
 - Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
 - Adds `Audio and Video` page to the `Accessibility Guide` section of Storybook.
+- Adds "Pinterest" and "SoundCloud" options to the `Icon` component.
 
 ### Updates
 
