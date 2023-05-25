@@ -4,6 +4,7 @@ const categories = {
   accessibility: {
     title: "Accessibility Guide",
     components: [
+      "Audio and Video",
       "Dynamic Content",
       "Links",
       "Repetitive Actions",

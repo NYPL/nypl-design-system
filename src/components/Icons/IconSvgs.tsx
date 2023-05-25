@@ -44,6 +44,8 @@ import { ReactComponent as plus } from "../../../icons/svg/plus.svg";
 import { ReactComponent as search } from "../../../icons/svg/search.svg";
 import { ReactComponent as socialFacebook } from "../../../icons/svg/social-facebook.svg";
 import { ReactComponent as socialInstagram } from "../../../icons/svg/social-instagram.svg";
+import { ReactComponent as socialPinterest } from "../../../icons/svg/social-pinterest.svg";
+import { ReactComponent as socialSoundCloud } from "../../../icons/svg/social-soundcloud.svg";
 import { ReactComponent as socialTumblr } from "../../../icons/svg/social-tumblr.svg";
 import { ReactComponent as socialTwitter } from "../../../icons/svg/social-twitter.svg";
 import { ReactComponent as socialYoutube } from "../../../icons/svg/social-youtube.svg";
@@ -99,6 +101,8 @@ export default {
   search,
   socialFacebook,
   socialInstagram,
+  socialPinterest,
+  socialSoundCloud,
   socialTumblr,
   socialTwitter,
   socialYoutube,

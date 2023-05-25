@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
 
 const meta: Meta<typeof Heading> = {
-  title: "Components/Typography/Heading",
+  title: "Components/Typography & Styles/Heading",
   component: Heading,
   decorators: [withDesign],
   argTypes: {

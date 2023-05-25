@@ -40,21 +40,25 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               >
                 Enter Search Keyword
               </label>
-              <input
-                aria-required={true}
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="searchInput"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="What would you like to find?"
-                required={true}
-                step={null}
-                type="text"
-                value=""
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  aria-required={true}
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="searchInput"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="What would you like to find?"
+                  required={true}
+                  step={null}
+                  type="text"
+                  value=""
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"
@@ -385,21 +389,25 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               >
                 Enter Search Keyword
               </label>
-              <input
-                aria-required={true}
-                autocomplete={null}
-                className="chakra-input css-0"
-                disabled={false}
-                id="searchInput"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="What would you like to find?"
-                required={true}
-                step={null}
-                type="text"
-                value=""
-              />
+              <div
+                className="css-79elbk"
+              >
+                <input
+                  aria-required={true}
+                  autocomplete={null}
+                  className="chakra-input css-0"
+                  disabled={false}
+                  id="searchInput"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="What would you like to find?"
+                  required={true}
+                  step={null}
+                  type="text"
+                  value=""
+                />
+              </div>
               <div
                 aria-atomic={true}
                 aria-live="polite"

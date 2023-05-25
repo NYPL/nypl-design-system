@@ -5,7 +5,7 @@ import { withDesign } from "storybook-addon-designs";
 import StatusBadge, { statusBadgeTypeArray } from "./StatusBadge";
 
 const meta: Meta<typeof StatusBadge> = {
-  title: "Components/Page Layout/StatusBadge",
+  title: "Components/Content Display/StatusBadge",
   component: StatusBadge,
   decorators: [withDesign],
   argTypes: {

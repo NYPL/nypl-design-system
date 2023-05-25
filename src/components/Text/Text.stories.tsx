@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 import Text, { textSizesArray } from "./Text";
 
 const meta: Meta<typeof Text> = {
-  title: "Components/Typography/Text",
+  title: "Components/Typography & Styles/Text",
   component: Text,
   decorators: [withDesign],
   argTypes: {

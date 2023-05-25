@@ -19,22 +19,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       className="css-ho21zx"
       id="defaultRangeSlider-textInput-start-wrapper"
     >
-      <input
-        aria-label="Label - start value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="defaultRangeSlider-textInput-start"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="25"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - start value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="defaultRangeSlider-textInput-start"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="25"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -151,22 +155,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       className="css-1f1uedm"
       id="defaultRangeSlider-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label - end value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="defaultRangeSlider-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="75"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - end value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="defaultRangeSlider-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="75"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -213,23 +221,27 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       className="css-ho21zx"
       id="errored-textInput-start-wrapper"
     >
-      <input
-        aria-invalid={true}
-        aria-label="Label - start value - There is an error related to this field."
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="errored-textInput-start"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="25"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-invalid={true}
+          aria-label="Label - start value - There is an error related to this field."
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="errored-textInput-start"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="25"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -346,23 +358,27 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       className="css-1f1uedm"
       id="errored-textInput-end-wrapper"
     >
-      <input
-        aria-invalid={true}
-        aria-label="Label - end value - There is an error related to this field."
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="errored-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="75"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-invalid={true}
+          aria-label="Label - end value - There is an error related to this field."
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="errored-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="75"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -412,23 +428,27 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       className="css-ho21zx"
       id="required-textInput-start-wrapper"
     >
-      <input
-        aria-label="Label - start value"
-        aria-required={true}
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="required-textInput-start"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={true}
-        step={1}
-        type="number"
-        value="25"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - start value"
+          aria-required={true}
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="required-textInput-start"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          step={1}
+          type="number"
+          value="25"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -545,23 +565,27 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       className="css-1f1uedm"
       id="required-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label - end value"
-        aria-required={true}
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="required-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={true}
-        step={1}
-        type="number"
-        value="75"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - end value"
+          aria-required={true}
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="required-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          step={1}
+          type="number"
+          value="75"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -608,22 +632,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       className="css-ho21zx"
       id="disabled-textInput-start-wrapper"
     >
-      <input
-        aria-label="Label - start value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="disabled-textInput-start"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="25"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - start value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="disabled-textInput-start"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="25"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -742,22 +770,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       className="css-1f1uedm"
       id="disabled-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label - end value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="disabled-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="75"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - end value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="disabled-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="75"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -797,22 +829,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
       className="css-ho21zx"
       id="noLabels-textInput-start-wrapper"
     >
-      <input
-        aria-label="Label - start value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="noLabels-textInput-start"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="25"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - start value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="noLabels-textInput-start"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="25"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -929,22 +965,26 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
       className="css-1f1uedm"
       id="noLabels-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label - end value"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="noLabels-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="75"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label - end value"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="noLabels-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="75"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1304,22 +1344,26 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
       className="css-1f1uedm"
       id="defaultSlider-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="defaultSlider-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="defaultSlider-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1446,23 +1490,27 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       className="css-1f1uedm"
       id="errored-textInput-end-wrapper"
     >
-      <input
-        aria-invalid={true}
-        aria-label="Label - There is an error related to this field."
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="errored-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-invalid={true}
+          aria-label="Label - There is an error related to this field."
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="errored-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1592,23 +1640,27 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       className="css-1f1uedm"
       id="required-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        aria-required={true}
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="required-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={true}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          aria-required={true}
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="required-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1737,22 +1789,26 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       className="css-1f1uedm"
       id="disabled-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="disabled-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="disabled-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1872,22 +1928,26 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
       className="css-1f1uedm"
       id="noLabels-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="noLabels-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="noLabels-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -2199,22 +2259,26 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
       className="css-1f1uedm"
       id="chakra-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="chakra-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="chakra-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -2342,22 +2406,26 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
       className="css-1f1uedm"
       id="props-textInput-end-wrapper"
     >
-      <input
-        aria-label="Label"
-        autoComplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="props-textInput-end"
-        max={100}
-        min={0}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        required={false}
-        step={1}
-        type="number"
-        value="50"
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Label"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="props-textInput-end"
+          max={100}
+          min={0}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          step={1}
+          type="number"
+          value="50"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"

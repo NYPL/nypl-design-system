@@ -13,10 +13,10 @@ import * as FeedbackBoxStories from "./FeedbackBox.stories";
 
 # FeedbackBox
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.3.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.3.0`    |
+| Latest            | `1.5.3`    |
 
 ## Table of Contents
 
@@ -181,9 +181,7 @@ const onSubmit = (values) => {
     }
   });
 };
-
 // ...
-
 <FeedbackBox
   onSubmit={onSubmit}
   showCategoryField
@@ -191,7 +189,9 @@ const onSubmit = (values) => {
   title="Help and Feedback"
   view={view}
 />
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ### Error
 
@@ -228,9 +228,7 @@ const onSubmit = (values) => {
       setView("error");
     });
 };
-
 // ...
-
 <FeedbackBox
   onSubmit={onSubmit}
   showCategoryField
@@ -238,7 +236,9 @@ const onSubmit = (values) => {
   title="Help and Feedback"
   view={view}
 />
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ## Form Submission Data
 
@@ -269,16 +269,16 @@ const onSubmit = (values) => {
   //   email: "email@email.com",
   // }
 };
-
 // ...
-
 <FeedbackBox
   onSubmit={onSubmit}
   showCategoryField
   showEmailField
   title="Help and Feedback"
 />
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ### Hidden Field Values
 
@@ -303,9 +303,7 @@ const onSubmit = (values) => {
   //   "hidden-field-2": "hidden-field-value-2",
   // }
 };
-
 // ...
-
 <FeedbackBox
   hiddenFields={hiddenFields}
   onSubmit={onSubmit}
@@ -313,7 +311,9 @@ const onSubmit = (values) => {
   showEmailField
   title="Help and Feedback"
 />
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ## Programmatically Open
 
@@ -348,9 +348,7 @@ directly is the `onOpen` function. Pass `isOpen` and `onClose` to the
 <Source
   code={`
 const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
-
 // ...
-
 <FeedbackBox
   isOpen={isOpen}
   onClose={onClose}
@@ -358,7 +356,9 @@ const { onOpen, isOpen, onClose, FeedbackBox } = useFeedbackBox();
   title="Help and Feedback"
   {...otherProps}
 />
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 Finally, the `onOpen` function can be used to programmatically open the `FeedbackBox`
 component through another element or behavior in the consuming app. See the

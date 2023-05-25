@@ -397,7 +397,12 @@ const stylesUsingVariables = {
 };
 // ...
 <div style={stylesUsingVariables} />;
-/**********************/
+`}
+  language="tsx"
+/>
+
+<Source
+  code={`
 // Style values assigned directly using native CSS attribute values
 const stylesDirectlyAssigned = {
   backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
@@ -462,7 +467,7 @@ default styles should be written first and the dark mode style in the
   }
 }
 `}
-  language="css"
+  language="scss"
 />
 
 If the consuming application uses a toggle, you can use the `useColorMode` hook to

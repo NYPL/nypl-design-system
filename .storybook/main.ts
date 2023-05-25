@@ -41,6 +41,7 @@ const config: StorybookConfig = {
   stories: [
     "../src/docs/Welcome.mdx",
     "../src/docs/Chakra.mdx",
+    "../src/components/AccessibilityGuide/AudioAndVideo.mdx",
     "../src/components/AccessibilityGuide/DynamicContent.mdx",
     "../src/components/AccessibilityGuide/Links.mdx",
     "../src/components/AccessibilityGuide/RepetitiveActions.mdx",
