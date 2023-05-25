@@ -15,7 +15,7 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         titleProp: true,
-        icon: true,
+        // icon: true,
       },
     }),
     // For Typescript support

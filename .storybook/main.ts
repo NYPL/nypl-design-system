@@ -100,6 +100,8 @@ const config: StorybookConfig = {
     "../src/components/Link/Link.mdx",
     "../src/components/List/List.stories.tsx",
     "../src/components/List/List.mdx",
+    "../src/components/Logo/Logo.stories.tsx",
+    "../src/components/Logo/Logo.mdx",
     "../src/components/Modal/Modal.stories.tsx",
     "../src/components/Modal/Modal.mdx",
     "../src/components/MultiSelect/MultiSelect.stories.tsx",
