@@ -2,29 +2,36 @@
 <!-- Used or the "Docs" page -->
 
 <style>
-  .sbdocs h1:not(.chakra-heading) {
+  /* Custom heading styles */
+  .sbdocs h1:not(.innerZoomElementWrapper h1) {
     font-size: 54px;
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 1.05;
     margin-bottom: 2rem;
   }
-  .sbdocs h2:not(.chakra-heading) {
+  .sbdocs h2:not(.innerZoomElementWrapper h2) {
+    font-size: 24px;
     font-weight: 400;
   }
-  .sbdocs h3:not(.chakra-heading) {
+  .sbdocs h3:not(.innerZoomElementWrapper h3) {
+    font-size: 20px;
     font-weight: 400;
   }
-  .sbdocs h4:not(.chakra-heading) {
+  .sbdocs h4:not(.innerZoomElementWrapper h4) {
+    font-size: 16px;
     font-weight: 500;
   }
-  .sbdocs h5:not(.chakra-heading) {
+  .sbdocs h5:not(.innerZoomElementWrapper h5) {
+    font-size: 14px;
     font-weight: 500;
   }
-  .sbdocs h6:not(.chakra-heading) {
+  .sbdocs h6:not(.innerZoomElementWrapper h6) {
+    font-size: 12px;
     font-weight: 500;
   }
-  .sbdocs-a {
+  /* Custom link styles */
+  .sbdocs a:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-primary);
     text-decoration-color: var(--nypl-colors-dark-ui-link-primary);
     text-decoration-line: underline;
@@ -32,8 +39,18 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
   }
-  .sbdocs-a:hover {
+  .sbdocs a:hover:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  /* Custom list styles */
+  .sbdocs li:not(.innerZoomElementWrapper li)::before {
+    color: #2e3438;
+    font-size: 14px;
   }
   /* This targets the columns in the args table so they
   have more space to display their values. */
