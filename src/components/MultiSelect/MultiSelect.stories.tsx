@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { action } from "@storybook/addon-actions";
-// import { Story } from "@storybook/react/types-6-0";
+import type { Meta, StoryObj } from "@storybook/react";
+import { useEffect, useState } from "react";
+import { withDesign } from "storybook-addon-designs";
 
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
@@ -67,7 +68,84 @@ const items = [
   },
 ];
 
-export const MultiSelectListboxStory = (args) => {
+const meta: Meta<typeof MultiSelect> = {
+  title: "Components/Form Elements/MultiSelect",
+  component: MultiSelect,
+  decorators: [withDesign],
+  argTypes: {
+    id: { control: false },
+    isBlockElement: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
+    isDefaultOpen: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
+    items: { control: false },
+    labelText: { table: { default: "" } },
+    onApply: {
+      description:
+        "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
+    },
+    onChange: {
+      description:
+        "The action to perform on the checkbox's onChange function. <br /> For dialog: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> For listbox: `onChange: (selectedItem: MultiSelectItem, id: string) => void;`",
+    },
+    onMixedStateChange: {
+      description:
+        "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+    },
+    selectedItems: { control: false },
+    type: { control: false },
+    width: {
+      description: "Value used to set the width for the MultiSelect component",
+      control: "radio",
+      options: ["default", "fitContent", "full"],
+      table: { defaultValue: { summary: "default" } },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof MultiSelect>;
+
+/**
+ * Main Stories for the MultiSelect component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const ListboxControls: Story = {
+  args: {
+    id: "multiselect-listbox",
+    labelText: "MultiSelect Listbox",
+    type: "listbox",
+  },
+  render: (args) => <MultiSelectListboxStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+export const DialogControls: Story = {
+  args: {
+    id: "multiselect-dialog",
+    labelText: "MultiSelect Dialog",
+    type: "dialog",
+  },
+  render: (args) => <MultiSelectDialogStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
+const MultiSelectListboxStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onClear, selectedItems } = useMultiSelect();
   const multiSelectId = args.id;
@@ -99,7 +177,7 @@ export const MultiSelectListboxStory = (args) => {
   );
 };
 
-export const MultiSelectDialogStory = (args) => {
+const MultiSelectDialogStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();

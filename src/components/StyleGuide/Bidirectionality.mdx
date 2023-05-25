@@ -1,17 +1,13 @@
+import { Canvas, Meta, Source } from "@storybook/blocks";
 import { Box, Flex, VStack } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import SearchBar from "../SearchBar/SearchBar";
 import Text from "../Text/Text";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 
-<Meta title={getCategory("Bidirectionality")} />
+<Meta title="Style Guide/Bidirectionality" />
 
 # Bidirectionality
 
@@ -85,7 +81,8 @@ to give space between the image, the text area, and the button. In the RTL
 configuration, these same properties are applied appropriately and mirroring
 the original and intentional design layout is achieved in the RTL direction.
 
-```tsx
+<Source
+  code={`
 <Flex alignItems="center">
   <Box marginEnd="30px">
     <Image
@@ -102,52 +99,58 @@ the original and intentional design layout is achieved in the RTL direction.
   </VStack>
   <Button marginStart="50px">Follow me</Button>
 </Flex>
-```
+`}
+  language="jsx"
+/>
 
-<Canvas>
-  <DSProvider>
-    <VStack align="stretch" gap="30px">
-      <Box>
-        <Heading level="three" text="LTR" />
-        <Flex alignItems="center">
-          <Box marginEnd="30px">
-            <Image
-              alt="Alt text"
-              imageType="circle"
-              marginEnd="30px"
-              size="xsmall"
-              src="https://placeimg.com/400/400/animals"
-            />
-          </Box>
-          <VStack align="stretch">
-            <Text>Bark Twain</Text>
-            <Text size="caption">This is my profile</Text>
-          </VStack>
-          <Button marginStart="50px">Follow me</Button>
-        </Flex>
-      </Box>
-      <Box dir="rtl">
-        <Heading level="three" text="RTL" />
-        <Flex alignItems="center">
-          <Box marginEnd="30px">
-            <Image
-              alt="Alt text"
-              imageType="circle"
-              marginEnd="30px"
-              size="xsmall"
-              src="https://placeimg.com/400/400/animals"
-            />
-          </Box>
-          <VStack align="stretch">
-            <Text>Bark Twain</Text>
-            <Text size="caption">This is my profile</Text>
-          </VStack>
-          <Button marginStart="50px">Follow me</Button>
-        </Flex>
-      </Box>
-    </VStack>
-  </DSProvider>
-</Canvas>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <VStack align="stretch" gap="30px">
+    <Box>
+      <Heading level="three">LTR</Heading>
+      <Flex alignItems="center">
+        <Box marginEnd="30px">
+          <Image
+            alt="Alt text"
+            imageType="circle"
+            marginEnd="30px"
+            size="xsmall"
+            src="https://placeimg.com/400/400/animals"
+          />
+        </Box>
+        <VStack align="stretch">
+          <Text>Bark Twain</Text>
+          <Text size="caption">This is my profile</Text>
+        </VStack>
+        <Button marginStart="50px">Follow me</Button>
+      </Flex>
+    </Box>
+    <Box dir="rtl">
+      <Heading level="three">RTL</Heading>
+      <Flex alignItems="center">
+        <Box marginEnd="30px">
+          <Image
+            alt="Alt text"
+            imageType="circle"
+            marginEnd="30px"
+            size="xsmall"
+            src="https://placeimg.com/400/400/animals"
+          />
+        </Box>
+        <VStack align="stretch">
+          <Text>Bark Twain</Text>
+          <Text size="caption">This is my profile</Text>
+        </VStack>
+        <Button marginStart="50px">Follow me</Button>
+      </Flex>
+    </Box>
+  </VStack>
+</Box>
 
 Resources:
 
@@ -163,7 +166,7 @@ directionality should be implemented at the application level. The following are
 general guidelines on how to set up directionality but implementation will be up
 to the application and its architecture.
 
-### `dir` HTML attribute
+### dir HTML attribute
 
 The `dir` HTML attribute can be added to elements to indicate its directionality.
 The default direction is `"ltr"` or left to right. For languages, such as Arabic
@@ -175,18 +178,22 @@ also be placed in specific DOM elements within a page to target specific page
 sections. For example, if you only want to target NYPL DS components within your
 top-level `app` class, the `dir` attribute can be added to that element:
 
-```jsx
+<Source
+  code={`
 // Do this
 <div className="app" dir="rtl">
   ...
 </div>
-```
+`}
+  language="jsx"
+/>
 
 An anti-pattern is to add `dir` to all the elements you want to change
 directionality in. This HTML rule cascades down to its children elements so
 there is no need to do the following:
 
-```jsx
+<Source
+  code={`
 // Don't do this
 <div className="app" dir="rtl">
   <div dir="rtl">
@@ -195,7 +202,9 @@ there is no need to do the following:
     </p>
   </div>
 </div>
-```
+`}
+  language="jsx"
+/>
 
 The `dir` HTML attribute is the recommended way to change directionality, but
 note that this attribute is not supported in Internet Explorer.
@@ -203,26 +212,28 @@ note that this attribute is not supported in Internet Explorer.
 - [MDN dir Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
 - [W3C internationalization dir QA](https://www.w3.org/International/questions/qa-html-dir)
 
-### `direction` CSS rule
+### \`direction\` CSS rule
 
 Another option to change text and UI directionality is through the CSS `direction`
 rule. The default value for all elements is `direction: ltr;`. This rule is
 supported by all major browsers and can target specific elements through CSS rules:
 
-```css
+<Source
+  code={`
 .rightToLeft {
   direction: rtl;
 }
-
 .leftToRight {
   direction: ltr;
 }
-```
+`}
+  language="css"
+/>
 
 - [MDN direction Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
 - [CSS Tricks direction](https://css-tricks.com/almanac/properties/d/direction/)
 
-### Examples using `dir` and `direction`
+### Examples using \`dir\` and \`direction\`
 
 For the following examples, the main element we are targeting is a div wrapper
 that sets a 400px width container for a `SearchBar` component. Notice that in both
@@ -236,12 +247,42 @@ won't hurt.
 
 #1 - Left to right default
 
-<Canvas>
-  <DSProvider>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <div style={{ width: "400px" }}>
+    <SearchBar
+      helperText="Use a keyword or phrase to search!"
+      id="example1"
+      isRequired
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </div>
+</Box>
+
+#2 - Right to left using `dir="rtl"`. Click on "Show code" in the following
+block to see its code implementation.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <div dir="rtl">
     <div style={{ width: "400px" }}>
       <SearchBar
-        helperText="Use a keyword or phrase to search!"
-        id="example1"
+        helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
+        id="example2"
         isRequired
         textInputProps={{
           labelText: "Item Search",
@@ -250,49 +291,31 @@ won't hurt.
         }}
       />
     </div>
-  </DSProvider>
-</Canvas>
-
-#2 - Right to left using `dir="rtl"`. Click on "Show code" in the following
-block to see its code implementation.
-
-<Canvas>
-  <DSProvider>
-    <div dir="rtl">
-      <div style={{ width: "400px" }}>
-        <SearchBar
-          helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
-          id="example2"
-          isRequired
-          textInputProps={{
-            labelText: "Item Search",
-            name: "textInputName",
-            placeholder: "Item Search",
-          }}
-        />
-      </div>
-    </div>
-  </DSProvider>
-</Canvas>
+  </div>
+</Box>
 
 #3 - Right to left using `direction: rtl;`. Click on "Show code" in the following
 block to see its code implementation.
 
-<Canvas>
-  <DSProvider>
-    <div style={{ direction: "rtl" }}>
-      <div style={{ width: "400px" }}>
-        <SearchBar
-          helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
-          id="example3"
-          isRequired
-          textInputProps={{
-            labelText: "Item Search",
-            name: "textInputName",
-            placeholder: "Item Search",
-          }}
-        />
-      </div>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <div style={{ direction: "rtl" }}>
+    <div style={{ width: "400px" }}>
+      <SearchBar
+        helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
+        id="example3"
+        isRequired
+        textInputProps={{
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        }}
+      />
     </div>
-  </DSProvider>
-</Canvas>
+  </div>
+</Box>
