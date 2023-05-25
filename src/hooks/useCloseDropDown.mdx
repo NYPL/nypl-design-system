@@ -1,8 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../utils/componentCategories";
-
-<Meta title={getCategory("useCloseDropDown")} />
+<Meta title="Hooks/useCloseDropDown" />
 
 # useCloseDropDown
 
@@ -37,19 +35,19 @@ In the example below, the `ButtonDropDownExample` component keeps track of its
 own open/close state and passes the `setIsOpen` function to the
 `useCloseDropDown` hook.
 
-```tsx
+<Source
+  code={`
 const ButtonDropDownExample = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useCloseDropDown(setIsOpen, ref);
-
+  // ...
   return (
     <div ref={ref}>
       <Button onClick={() => setIsOpen(!isOpen)}>Button Drop Down</Button>
-
       {isOpen && <div>Your dropdown content here.</div>}
     </div>
   );
-};
-```
+}`}
+  language="jsx"
+/>

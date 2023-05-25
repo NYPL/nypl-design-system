@@ -1,8 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../utils/componentCategories";
-
-<Meta title={getCategory("useNYPLBreakpoints")} />
+<Meta title="Hooks/useNYPLBreakpoints" />
 
 # useNYPLBreakpoints
 
@@ -23,7 +21,8 @@ style guide.
 
 The hook returns an object with four boolean values:
 
-```tsx
+<Source
+  code={`
 const {
   isLargerThanSmall,
   isLargerThanMedium,
@@ -31,7 +30,9 @@ const {
   isLargerThanLarge,
   isLargerThanXLarge,
 } = useNYPLBreakpoints();
-```
+`}
+  language="jsx"
+/>
 
 For the following example, we'll use the NYPL specific mobile breakpoint value.
 This breakpoint value is based on the "medium" breakpoint value of `"38em"`
@@ -39,14 +40,17 @@ This breakpoint value is based on the "medium" breakpoint value of `"38em"`
 on the current size of the viewport, we can use the `isLargerThanMobile`
 boolean value.
 
-```tsx
+<Source
+  code={`
 const DesktopLayout = () => ...
 const MobileLayout = () => ...
-
+// ...
 <Box>
   <Text>
     {isLargerThanMobile ? "Larger than mobile" : "Smaller than mobile"}
   </Text>
   {isLargerThanMobile ? <DesktopLayout /> : <MobileLayout />}
 </Box>
-```
+`}
+  language="jsx"
+/>

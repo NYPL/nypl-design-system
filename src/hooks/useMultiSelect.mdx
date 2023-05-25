@@ -1,8 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/blocks";
 
-import { getCategory } from "../utils/componentCategories";
-
-<Meta title={getCategory("useMultiSelect")} />
+<Meta title="Hooks/useMultiSelect" />
 
 # useMultiSelect
 
@@ -25,7 +23,8 @@ function to set or manipulate the state of `selectedItems`. If using `setSelecte
 For a full implementation example with a single `MultiSelect` component, view the [MultiSelectListbox component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectListbox.tsx) or [MultiSelectDialog component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelectDialog.tsx).
 For an implementation with a `MultiSelectGroup`, view [MultiSelectGroup component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelectGroup/MultiSelectGroup.tsx).
 
-```tsx
+<Source
+  code={`
 const {
   onChange,
   onMixedStateChange,
@@ -34,19 +33,23 @@ const {
   selectedItems,
   setSelectedItems,
 } = useMultiSelect();
-```
+`}
+  language="jsx"
+/>
 
-## useMultiSelect Hook implementation in a `listbox` MultiSelect
+## useMultiSelect Hook implementation in a listbox MultiSelect
 
 The `listbox` variant can only display non hierarchical items.
 When the `useMultiSelect` hook is used within a `listbox` MultiSelect, you will only need the `onChange` and `onClear` functions and the selectedItems state.
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   MultiSelect,
   useMultiSelect,
 } from "@nypl/design-system-react-components";
+// ...
 export default function MultiSelectWithHookExample() {
   const multiSelectId = "multi-select-1";
   // Without this hook, you'd have to add handlers for onChange and onClear,
@@ -65,20 +68,24 @@ export default function MultiSelectWithHookExample() {
     />
   );
 }
-```
+`}
+  language="jsx"
+/>
 
-## useMultiSelect Hook implementation in a `dialog` MultiSelect
+## useMultiSelect Hook implementation in a dialog MultiSelect
 
 The `dialog`variant can display nested items.
 When the `useMultiSelect` hook is used within a `dialog` MultiSelect, additional to the selectedItems and the `onChange` and `onClear` functions, you will need
 a `onMixedStateChange` function. It is also provided by the hook and handles the state change of parent items.
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   MultiSelect,
   useMultiSelect,
 } from "@nypl/design-system-react-components";
+// ...
 export default function MultiSelectWithHookExample() {
   const multiSelectId = "multi-select-1";
   // Without this hook, you'd have to add handlers for onChange, onMixedStateChange and onClear,
@@ -101,13 +108,16 @@ export default function MultiSelectWithHookExample() {
     />
   );
 }
-```
+`}
+  language="jsx"
+/>
 
-## useMultiSelect Hook implementation in a `MultiSelectGroup`
+## useMultiSelect Hook implementation in a MultiSelectGroup
 
 The data structure used to render two `MultiSelect` components in the following `MultiSelectGroup` example:
 
-```jsx
+<Source
+  code={`
 const multiSelectItems = [
   {
     id: "pets",
@@ -144,17 +154,21 @@ const multiSelectItems = [
     ],
   },
 ];
-```
+`}
+  language="jsx"
+/>
 
 The implemntation of the `useMultiSelect` hook together with the `MultiSelectGroup` component.
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   MultiSelect,
   MultiSelectGroup,
   useMultiSelect,
 } from "@nypl/design-system-react-components";
+// ...
 export default function MultiSelectGroupWithHookExample() {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
@@ -183,22 +197,29 @@ export default function MultiSelectGroupWithHookExample() {
         ))}
     </MultiSelectGroup>
   );
-  );
 }
-```
+`}
+  language="jsx"
+/>
 
 ## setSelectedItems
 
 The data structure to pass the setSelectedItems function in order to set a inital state:
 
-```jsx
+<Source
+  code={`
 // The selectedItems structur for one MultiSelect
 const initialSelectedItems = {
   colors: {
     items: ["red"],
   },
 };
+`}
+  language="jsx"
+/>
 
+<Source
+  code={`
 // The selectedItems structur for setting state of multiple MultiSelects
 const initialSelectedItems = {
   colors: {
@@ -208,23 +229,26 @@ const initialSelectedItems = {
     items: ["corgy", "german-sheperd"],
   },
 };
-```
+`}
+  language="jsx"
+/>
 
-```jsx
+<Source
+  code={`
 import React from "react";
 import {
   MultiSelect,
   MultiSelectGroup,
   useMultiSelect,
 } from "@nypl/design-system-react-components";
+// ...
 export default function MultiSelectGroupWithHookExample() {
   const { onChange, onMixedStateChange, onClear, selectedItems, setSelectedItems } =
     useMultiSelect();
-
   React.useEffect(() => {
     setSelectedItems(initialSelectedItems)
   }, [])
-
+  // ...
   return (
     <MultiSelectGroup id="multiselect-group" labelText="MultiSelect Group">
       {multiSelectItems &&
@@ -250,6 +274,7 @@ export default function MultiSelectGroupWithHookExample() {
         ))}
     </MultiSelectGroup>
   );
-  );
 }
-```
+`}
+  language="jsx"
+/>
