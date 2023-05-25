@@ -1,0 +1,164 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as ListStories from "./List.stories";
+
+<Meta of={ListStories} />
+
+# List
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.7.0`      |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Description List](#description-list)
+- [Description List of Links](#description-list-of-links)
+- [Lists with Data Props](#lists-with-data-props)
+
+## Overview
+
+<Description of={ListStories} />
+
+<Canvas of={ListStories.WithControls} />
+
+<ArgTypes of={ListStories.WithControls} />
+
+## Accessibility
+
+Internally, the `List` component implements native HTML markup for unordered,
+ordered, and description lists. This includes `ul`, `ol`, and `dl` elements.
+When data is passed into the `listItems` data prop, the appropriate children
+HTML elements are used. This includes `li` for unorder and ordered lists, and
+`dt` and `dd` elements for description lists.
+
+The description type for the `List` component is wrapped in a `section` element
+with an `h2` header. Keep that in mind when ordering headings on the page.
+
+Resources:
+
+- [W3C WAI Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
+- [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
+
+## Description List
+
+_Note: This element is officially called the "Description List" element in HTML5.
+Before HTML5, it was called the "Definition List" element and some online resources
+may still use this name. In the Reservoir Design System, we will use the
+"Description List" name._
+
+- [W3C Using description lists](https://www.w3.org/WAI/WCAG21/Techniques/html/H40.html)
+- [MDN dl: The Description List element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+
+To render a description list, pass in `"dl"` to the `type` prop. The optional
+`title` prop will now render above the description list element. This type of
+list renders `dt` and `dd` elements.
+
+<Source
+  code={`
+<List type="dl">
+  <dt>Term</dt>
+  <dd>Description</dd>
+</List>
+`}
+  language="jsx"
+/>
+
+<Canvas of={ListStories.DescriptionList} />
+
+## Description List of Links
+
+An example with HTML elements inside of the `dd` elements.
+
+<Canvas of={ListStories.DescriptionListOfLinks} />
+
+## Lists with Data Props
+
+If `li` or `dt`/`dd` elements cannot be passed as children to the `List` element,
+an array with data can be passed into the `listItems` prop. Note: either
+children elements or the `listItems` prop should be passed but not both.
+
+### Unordered and Ordered
+
+For lists of type `"ul"` (unorderd) or `"ol"` (ordered), `li` list item elements
+can be passed as children. If that's not possible but the data to render is
+stored as an array of strings, then that data array can be passed into `listItems`.
+
+<Source
+  code={`
+// With \`li\` elements
+<List type={ul}>
+  <li>Mahi-mahi</li>
+  <li>Golden trout</li>
+  <li>Rainbowfish</li>
+  <li>Suckerfish</li>
+</List>
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// With \`itemList\` data prop
+const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
+<List type={ul} listItems={fishArray} />
+`}
+  language="jsx"
+/>
+
+### Description
+
+For lists of type `"dl"` (description), `dt` and `dd` elements can be
+passed as children. If that's not possible but the data to render is stored as
+an array of objects, then that data array can be passed into `listItems`. The
+object must have two keys, `term` and `description`.
+
+<Source
+  code={`
+// With \`dt\`/\`dd\` elements
+<List type="dl" title="Animal Crossing Fish">
+  <dt>Mahi-mahi</dt>
+  <dd>The mahi-mahi is an ocean fish known...</dd>
+  <dt>Golden trout</dt>
+  <dd>The golden trout is a beautifully colored fish...</dd>
+  <dt>Rainbowfish</dt>
+  <dd>The rainbowfish is a tropical fish known...</dd>
+  <dt>Suckerfish</dt>
+  <dd>The suckerfish is a curious fish that...</dd>
+</List>
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// With \`itemList\` data prop
+const fishDescriptions = [
+  {
+    term: "Mahi-mahi",
+    description: "The mahi-mahi is an ocean fish known..."
+  },
+  {
+    term: "Golden trout",
+    description: "The golden trout is a beautifully colored fish..."
+  },
+  {
+    term: "Rainbowfish",
+    description: "The rainbowfish is a tropical fish known..."
+  },
+  {
+    term: "Suckerfish"
+    description: "he suckerfish is a curious fish that..."
+  }
+];
+// ...
+<List listItems={fishDescriptions} title="Animal Crossing Fish" type="dl" />
+`}
+  language="jsx"
+/>
+
+<Canvas of={ListStories.ListWithDataProps} />

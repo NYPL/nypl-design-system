@@ -81,7 +81,7 @@ export type { LayoutTypes } from "./helpers/types";
 export { default as Link } from "./components/Link/Link";
 export type { LinkTypes } from "./components/Link/Link";
 export { default as List } from "./components/List/List";
-export type { ListTypes } from "./components/List/List";
+export type { DescriptionProps, ListTypes } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
