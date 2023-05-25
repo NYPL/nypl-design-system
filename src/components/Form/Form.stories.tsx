@@ -282,15 +282,7 @@ const formRow = (gapValue) => {
   );
 };
 const sizes = [];
-const gapValues = [
-  "grid.xxs",
-  "grid.xs",
-  "grid.s",
-  "grid.m",
-  "grid.l",
-  "grid.xl",
-  "grid.xxl",
-];
+const gapValues = gridGapsArray;
 for (const gap in gapValues) {
   sizes.push(formRow(gapValues[gap]));
 }
