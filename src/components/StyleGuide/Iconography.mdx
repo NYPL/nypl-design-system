@@ -1,0 +1,152 @@
+import { Box, Stack } from "@chakra-ui/react";
+import { Meta, Source } from "@storybook/blocks";
+
+import Icon from "../Icons/Icon";
+
+<Meta title="Style Guide/Iconography" />
+
+# Iconography
+
+## Table of Contents
+
+- [General Information](#general-information)
+- [Icon Examples](#icon-examples)
+- [Icon Sizes](#icon-sizes)
+- [Icon Colors](#icon-colors)
+- [Development Notes](#development-notes)
+- [Figma Reference](#figma-reference)
+
+## General Information
+
+Use the Reservoir Design System (DS) [Icon](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-media-icons-icon--icon-with-controls)
+component to render and control icons as `<svg>` elements within consuming apps.
+
+The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
+
+## Icon Examples
+
+The graphic of the `Icon` component is handled through the `name` prop. To see
+all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-media-icons-icon--icon-with-controls)
+Storybook page.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row">
+    <Icon decorative size="xxxlarge" name="check" />
+    <Icon decorative size="xxxlarge" name="close" />
+    <Icon decorative size="xxxlarge" name="errorOutline" />
+    <Icon decorative size="xxxlarge" name="speakerNotes" />
+  </Stack>
+</Box>
+
+| Values for Examples Above |
+| ------------------------- |
+| `check`                   |
+| `close`                   |
+| `errorOutline`            |
+| `speakerNotes`            |
+
+## Icon Sizes
+
+The size of the `Icon` component is handled through the `size` prop.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row" alignItems="center">
+    <Icon size="small" name="check" />
+    <Icon size="medium" name="check" />
+    <Icon size="large" name="check" />
+    <Icon size="xlarge" name="check" />
+    <Icon size="xxlarge" name="check" />
+    <Icon size="xxxlarge" name="check" />
+  </Stack>
+</Box>
+
+| Value      | CSS Value         | CSS Variable       |
+| ---------- | ----------------- | ------------------ |
+| `small`    | `0.875rem` (14px) | n/a                |
+| `medium`   | `1.125rem` (18px) | n/a                |
+| `large`    | `1.5rem` (24px)   | `--nypl-space-m`   |
+| `xlarge`   | `2rem` (32px)     | `--nypl-space-l`   |
+| `xxlarge`  | `3rem` (48px)     | `--nypl-space-xl`  |
+| `xxxlarge` | `4rem` (64px)     | `--nypl-space-xxl` |
+
+## Icon Colors
+
+The color of the `Icon` component is handled through the `color` prop. Icons in
+NYPL projects should always be rendered with one color.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Stack spacing="s" direction="row">
+    <Icon size="xxxlarge" name="check" />
+    <Icon name="check" size="xxxlarge" color="brand.primary" />
+    <Icon name="check" size="xxxlarge" color="section.research.primary" />
+    <Icon
+      name="check"
+      size="xxxlarge"
+      color="section.research-library.schwartzman"
+    />
+    <Icon
+      name="check"
+      size="xxxlarge"
+      color="section.research-library.schomburg"
+    />
+  </Stack>
+</Box>
+
+| Value                                  | CSS Variable                                         |
+| -------------------------------------- | ---------------------------------------------------- |
+| `ui.black`                             | `--nypl-colors-ui-black`                             |
+| `ui.white`                             | `--nypl-colors-ui-white`                             |
+| `brand.primary`                        | `--nypl-colors-brand-primary`                        |
+| `brand.secondary`                      | `--nypl-colors-brand-secondary`                      |
+| `section.blogs.primary`                | `--nypl-colors-section-blogs-primary`                |
+| `section.blogs.secondary`              | `--nypl-colors-section-blogs-secondary`              |
+| `section.books-and-more.primary`       | `--nypl-colors-section-books-and-more-primary`       |
+| `section.books-and-more.secondary`     | `--nypl-colors-section-books-and-more-secondary`     |
+| `section.education.primary`            | `--nypl-colors-section-education-primary`            |
+| `section.education.secondary`          | `--nypl-colors-section-education-secondary`          |
+| `section.locations.primary`            | `--nypl-colors-section-locations-primary`            |
+| `section.locations.secondary`          | `--nypl-colors-section-locations-secondary`          |
+| `section.research.primary`             | `--nypl-colors-section-research-primary`             |
+| `section.research.secondary`           | `--nypl-colors-section-research-secondary`           |
+| `section.research-library.lpa`         | `--nypl-colors-section-research-library-lpa`         |
+| `section.research.library.schomburg`   | `--nypl-colors-section-research-library-schomburg`   |
+| `section.research.library.schwartzman` | `--nypl-colors-section-research-library-schwartzman` |
+| `section.whats-on.primary`             | `--nypl-colors-section-whats-on-primary`             |
+| `section.whats-on.secondary`           | `--nypl-colors-section-whats-on-secondary`           |
+
+## Development Notes
+
+Icons have been added to the Icon component as they have been needed within NYPL
+development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
+and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
+and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37)
+colors are currently available through the DS Icon component. If your project
+requires an icon or color that is not currently available in the Icon component,
+please inform your project manager or reach out directly to the NYPL Design
+System team.
+
+## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
+
+- [NYPL Icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
+- [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
+- [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37)

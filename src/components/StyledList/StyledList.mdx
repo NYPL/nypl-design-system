@@ -1,0 +1,150 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import StyledList from "./StyledList";
+import * as StyledListStories from "./StyledList.stories";
+
+<Meta of={StyledListStories} />
+
+# StyledList
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.3.0`      |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Font Size](#font-size)
+- [StyledList Children](#styledlist-children)
+
+## Overview
+
+<Description of={StyledListStories} />
+
+## Component Props
+
+<Canvas of={StyledListStories.WithControls} />
+
+<ArgTypes of={StyledListStories.WithControls} />
+
+## Accessibility
+
+Internally, the `StyledList` component implements native HTML markup for
+unordered lists. When data is passed into the `listItems` data prop, the
+appropriate children `li` HTML elements are used.
+
+Resources:
+
+- [W3C WAI Content Structure Lists](https://www.w3.org/WAI/tutorials/page-structure/content/#lists)
+- [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
+
+## Font Size
+
+The font size can be changed through the `textSize` prop. The values are the same
+as the `size` prop in the `Text` component. This includes `"caption"`, `"default"`,
+`"mini"`, and `"tag"`.
+
+<Canvas of={StyledListStories.FontSize} />
+
+## StyledList Children
+
+### li children
+
+Pass in `<li>` children elements as you normally would for the `<ul`> element.
+
+<Source
+  code={`
+// With \`li\` elements
+<StyledList>
+  <li>
+    FULL TITLE: <i>"...and for the <b>City of New York</b>"</i>
+  </li>
+  <li>
+    ALTERNATIVE TITLES: <i>"...Society of <b>New York</b> delivered at..."</i> + 1 more
+  </li>
+  <li>SUBJECTS: <i>"...<b>City of New York</b>, in the"</i> + 2 more</li>
+</StyledList>
+`}
+  language="jsx"
+/>
+
+{
+
+<StyledList>
+  <li>
+    FULL TITLE:{" "}
+    <i>
+      "...and for the <b>City of New York</b>"
+    </i>
+  </li>
+  <li>
+    ALTERNATIVE TITLES:{" "}
+    <i>
+      "...Society of <b>New York</b> delivered at..."
+    </i>{" "}
+    + 1 more
+  </li>
+  <li>
+    SUBJECTS:{" "}
+    <i>
+      "...<b>City of New York</b>, in the"
+    </i>{" "}
+    + 2 more
+  </li>
+</StyledList>
+}
+
+### listItems prop
+
+If `<li>` elements cannot be passed as children to the `StyledList` component,
+an array with data can be passed into the `listItems` prop. Note: either
+children elements or the `listItems` prop should be passed but not both.
+
+Data in the `listItems` prop array can be JSX Elements or strings. The
+`StyledList` component will render the data as `li` elements, so there is no
+need to add them in the `listItems` array. _If `li` elements wrap the data in the
+`listItems` array, they will be rendered as nested `li` elements and incorrectly
+render two styled borders instead of the desired single border._
+
+<Source
+  code={`
+// With \`listItems\` data prop
+const listItems = [
+  <>FULL TITLE: <i>"...and for the <b>City of New York</b>"</i></>,
+  <>ALTERNATIVE TITLES: <i>"...Society of <b>New York</b> delivered at..."</i> + 1 more</>,
+  <>SUBJECTS: <i>"...<b>City of New York</b>, in the"</i> + 2 more</>
+];
+<StyledList listItems={listItems} />
+`}
+  language="jsx"
+/>
+
+export const listItems = [
+  <>
+    FULL TITLE:{" "}
+    <i>
+      "...and for the <b>City of New York</b>"
+    </i>
+  </>,
+  <>
+    ALTERNATIVE TITLES:{" "}
+    <i>
+      "...Society of <b>New York</b> delivered at..."
+    </i>{" "}
+    + 1 more
+  </>,
+  <>
+    SUBJECTS:{" "}
+    <i>
+      "...<b>City of New York</b>, in the"
+    </i>{" "}
+    + 2 more
+  </>,
+];
+
+{
+
+<StyledList listItems={listItems} />}

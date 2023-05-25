@@ -106,38 +106,41 @@ and the `aria-live` attribute should no longer be used.
 <div class="dynamic-content-container" tabindex="-1">
   <!-- Any dynamic content should be inserted, removed, or updated here. -->
 </div>
-`} language="html" />
+`}
+  language="html"
+/>
 
 <Source
   code={`
 // Javascript example
 const container = document.querySelector(".dynamic-content-container");
-
 // Once the content is updated, move focus to the container.
 container.focus();
-`} language="js" />
+`}
+  language="js"
+/>
 
 <Source
   code={`
 // React example
 const [text, setText] = useState(undefined);
 const containerRef = useRef(null);
-
 // Once the content is updated, move focus to the container.
 // Pseudocode example - the actual conditional logic will vary.
 useEffect(() => {
 // When content is updated, move focus to the container.
-containerRef.current.focus();
+  containerRef.current.focus();
 }, [text])
-
+// ...
 return (
-
   <div class="dynamic-content-container" ref={containerRef} tabIndex="-1">
     <!-- Any dynamic content should be inserted, removed, or updated here. -->
     {text}
   </div>
 );
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ## Anti-Patterns
 
@@ -151,7 +154,9 @@ The following are **incorrect**:
 <div id="dynamic-content-container">
   <!-- Any dynamic content should be inserted, removed, or updated here. -->
 </div>
-`} language="html" />
+`}
+  language="html"
+/>
 
 <Source
   code={`
@@ -166,19 +171,19 @@ container.setAttribute("aria-live", "polite");
   code={`
 // React anti-pattern example
 const [ariaLive, setAriaLive] = useState(undefined);
-
 // When the component mounts, set the aria-live attribute.
 useEffect(() => {
-setAriaLive("polite");
+  setAriaLive("polite");
 }, [])
-
+// ...
 return (
-
   <div id="dynamic-content-container" aria-live={ariaLive}>
     <!-- Any dynamic content should be inserted, removed, or updated here. -->
   </div>
 );
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 **Do not assign the `aria-live` attribute to an entire section or the entire
 page.**
@@ -208,7 +213,9 @@ contains the number of results. The following is not recommended:
     <!-- ... -->
   </ul>
 </div>
-`} language="html" />
+`}
+  language="html"
+/>
 
 This is not recommended because the screen reader will announce:
 
@@ -238,16 +245,18 @@ updated.
   code={`
 // Very naive example.
 const [text, setText] = useState("");
-
+// ...
 useEffect(() => {
-setText("This helper text was dynamically updated.");
+  setText("This helper text was dynamically updated.");
 }, []);
-
+// ...
 // Even though "text" is empty by default, the "HelperErrorText" component
 // is still rendered. The text that is dynamically updated will be announced
 // by assistive technology.
 return <HelperErrorText text={text} />;
-`} language="jsx" />
+`}
+  language="jsx"
+/>
 
 ### Form Components
 
@@ -270,9 +279,7 @@ not enter a 5-digit value, the error text "Error: The zip code needs to be
   code={`
 // Very naive example.
 const [inputValue, setInputValue] = useState();
-
 return (
-
 <TextInput
   labelText="Zip code example"
   isInvalid={inputValue.length !== 5}
@@ -281,7 +288,9 @@ return (
   invalidText="Error: The zip code needs to be 5-digits."
   value={inputValue}
 />
-); `} language="jsx" />
+); `}
+  language="jsx"
+/>
 
 ## Resources
 

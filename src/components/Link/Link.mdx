@@ -1,0 +1,217 @@
+import { Box } from "@chakra-ui/react";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import { cloneElement } from "react";
+
+import Link from "./Link";
+import Icon from "../Icons/Icon";
+import * as LinkStories from "./Link.stories";
+
+<Meta of={LinkStories} />
+
+# Link
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.4`    |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Links With Icons](#links-with-icons)
+- [Anchor Element Rendering](#anchor-element-rendering)
+- [Link with Routers](#link-with-routers)
+
+## Overview
+
+<Description of={LinkStories} />
+
+## Component Props
+
+<Canvas of={LinkStories.WithControls} />
+
+<ArgTypes of={LinkStories.WithControls} />
+
+## Accessibility
+
+The `Link` component should be used for navigation. If an `onClick` user
+interface action is required, a `Button` component should be used instead. The
+`Link` component renders an `<a>` element with the `href` attribute.
+
+The `"external"` variant of the `Link` component includes `"screen reader only"`
+descriptive text to clarify that the link will open in a new tab/window.
+Additionally it renders with the `rel` attribute containing
+the relation names "nofollow", "noopener" and "noreferrer".
+
+<Canvas of={LinkStories.Accessibility} />
+
+Resources:
+
+- [W3C WAI Link Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/link/link.html)
+- [Yale Usability & Web Accessibility Links](https://usability.yale.edu/web-accessibility/articles/links)
+- [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [IANA: Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+
+## Links With Icons
+
+To render an `Icon` as part of the link, make sure that the `Link` component
+wraps the `Icon`. Use `type="action"` to apply appropriate styling to
+links with icons. Icons can be rendered to the left or right of the link text.
+
+<Canvas of={LinkStories.LinksWithIcons} />
+
+## Anchor Element Rendering
+
+`Link` can wrap an existing `<a>` element (and `Icon` component) or it
+can use the `href` prop to generate an `<a>` element.
+
+<Source
+  code={`
+// Existing anchor element
+<Link type="action">
+  <a href="#existing-anchor-tag">link</a>
+</Link>
+// ...
+// Also works with an icon component. Make sure to wrap the icon and anchor
+// in a single element for this pattern.
+<Link type="action">
+  <>
+    <Icon name="check" align="left" size="small" />
+    <a href="#existing-anchor-tag">check link</a>
+  </>
+</Link>
+// ...
+// Otherwise, the \`href\` prop will generate an \`<a>\` tag.
+<Link type="action" href="#passed-in-link">
+  link
+</Link>
+`}
+  language="jsx"
+/>
+
+{
+
+<>
+  This is a{" "}
+  <Link type="action">
+    <a href="#existing-anchor-tag">link</a>
+  </Link>{" "}
+  with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
+  <Link type="action" href="#passed-in-link">
+    link
+  </Link>{" "}
+  where the `Link` component uses the `href` prop and has a string-only child.
+  Finally, this is a{" "}
+  <Link type="action">
+    <>
+      <Icon name="check" align="left" size="small" />
+      <a href="#existing-anchor-tag">link</a>
+    </>
+  </Link>{" "}
+  with a check icon.
+  <Box mb="20px"></Box>
+</>
+}
+
+## Link with Routers
+
+### React Router
+
+The Design System's `Link` component should wrap around `react-router`'s own
+`Link` component. To avoid name conflicts, rename either the Design System's
+or `react-router`'s `Link` component. Any of the following patterns are valid.
+
+<Source
+  code={`
+// In this first example, React Router's \`Link\` component
+// is renamed as \`ReactRouterLink\`.
+import {
+  BrowserRouter as Router,
+  Link as ReactRouterLink,
+} from "react-router-dom";
+import { Link } from "@nypl/design-system-react-components";
+// ...
+<Link type="action">
+  <ReactRouterLink to="#">Next Page</ReactRouterLink>
+</Link>;
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// In this second example, React Router's \`Link\` component
+// is not renamed but the DS's \`Link\` component is renamed
+// to \`DSLink\`.
+import { BrowserRouter, Link } from "react-router-dom";
+import { Link as DSLink } from "@nypl/design-system-react-components";
+// ...
+<DSLink type="action">
+  <Link to="#">Next Page</Link>
+</DSLink>;
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// In this third example, React Router's \`Link\` component
+// is not renamed and the DS's \`Link\` component is
+// imported and rendered as \`DS.Link\`.
+import { BrowserRouter, Link } from "react-router-dom";
+import DS from "@nypl/design-system-react-components";
+// ...
+<DS.Link type="action">
+  <Link to="#">Next Page</Link>
+</DS.Link>;
+`}
+  language="jsx"
+/>
+
+### NextJS
+
+NextJS's `Link` component should wrap the Design System's `Link` component.
+The `href` and `passHref` props MUST be passed into NextJS' `Link` component.
+These props, along with an implicit `ref` from NextJS and the Design System's
+`Link` component `forwardRef` implementation, handle correctly routing between
+pages in a NextJS app.
+
+<Source
+  code={`
+import { Link } from "@nypl/design-system-react-components";
+// ...
+/**
+ * This is just an example wrapper that works similarly to NextJS' \`Link\`
+ * component. In real life, NextJS's \`Link\` component will pass down the
+ * \`href\` and \`passHref\` props and a \`ref\` to make routing functional.
+ */
+export const NextJsLink = (props: HTMLAnchorElement) =>
+  React.cloneElement(
+    props.children,
+    { ...props },
+    props.children.props.children
+  );
+// ...
+// Note that NextJS' \`href\` and \`passHref\` props are required.
+<NextJsLink href="#" passHref>
+  <Link type="action">Next Page</Link>
+</NextJsLink>;
+`}
+  language="jsx"
+/>
+
+export const NextJsLink = (props) =>
+  cloneElement(
+    props.children,
+    { href: props.href },
+    props.children.props.children
+  );
+
+{
+
+<NextJsLink href="#" passHref>
+  <Link type="action">Next Page</Link>
+</NextJsLink>
+}

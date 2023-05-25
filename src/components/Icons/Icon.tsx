@@ -6,29 +6,22 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import iconColors from "./IconColors";
-import iconNames from "./IconNames";
 import iconSvgs from "./IconSvgs";
+import {
+  iconAlignArray,
+  iconColorsArray,
+  iconNamesArray,
+  iconRotationTypesArray,
+  iconSizesArray,
+  iconTypesArray,
+} from "./iconVariables";
 
-export type IconAlign = "left" | "right" | "none";
-export type IconColors = typeof iconColors[number];
-export type IconNames = typeof iconNames[number];
-
-export type IconRotationTypes =
-  | "rotate0"
-  | "rotate90"
-  | "rotate180"
-  | "rotate270";
-export type IconSizes =
-  | "default"
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large"
-  | "xlarge"
-  | "xxlarge"
-  | "xxxlarge";
-export type IconTypes = "default" | "breadcrumbs";
+export type IconAlign = typeof iconAlignArray[number];
+export type IconColors = typeof iconColorsArray[number];
+export type IconNames = typeof iconNamesArray[number];
+export type IconRotationTypes = typeof iconRotationTypesArray[number];
+export type IconSizes = typeof iconSizesArray[number];
+export type IconTypes = typeof iconTypesArray[number];
 
 export interface IconProps {
   /** Aligns the icon. */

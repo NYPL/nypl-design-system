@@ -108,12 +108,12 @@ const researchLibraryObj = {
   light: {
     lpa: researchLibraryLpa,
     schomburg: researchLibrarySchomburg,
-    schwatzman: researchLibrarySchwartzman,
+    schwartzman: researchLibrarySchwartzman,
   },
   dark: {
     lpa: hexToRGB(researchLibraryLpa, 0.2),
     schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
-    schwatzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+    schwartzman: hexToRGB(researchLibrarySchwartzman, 0.2),
   },
 };
 
