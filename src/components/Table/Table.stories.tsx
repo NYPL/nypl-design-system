@@ -71,7 +71,7 @@ export const WithControls: Story = {
 };
 
 // The following are additional Table example Stories.
-export const WithATitle: Story = {
+export const Title: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
@@ -82,7 +82,7 @@ export const WithATitle: Story = {
   ),
 };
 
-export const WithRowDividers: Story = {
+export const RowDividers: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
@@ -93,7 +93,7 @@ export const WithRowDividers: Story = {
   ),
 };
 
-export const WithRowHeaders: Story = {
+export const RowHeaders: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
@@ -104,7 +104,7 @@ export const WithRowHeaders: Story = {
   ),
 };
 
-export const WithCustomHeaderColors: Story = {
+export const CustomHeaderColors: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
@@ -151,7 +151,7 @@ const charactersData = [
     />,
   ],
 ];
-export const WithJSXElement: Story = {
+export const JSXElements: Story = {
   render: () => (
     <Table
       columnHeaders={characterHeaders}
@@ -160,5 +160,5 @@ export const WithJSXElement: Story = {
       tableData={charactersData}
     />
   ),
-  name: "With JSX Element",
+  name: "JSX Element",
 };

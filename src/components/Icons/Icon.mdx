@@ -16,10 +16,10 @@ import * as IconStories from "./Icon.stories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [Rotation Types](#rotation-types)
-- [IconColors Types](#icon-colors-types)
-- [IconSizes Types](#icon-sizes-types)
-- [All Display Icons](#all-display-icons)
+- [Rotation](#rotation)
+- [Colors](#colors)
+- [Sizes](#sizes)
+- [All Icons](#all-icons)
 - [Custom Icons](#custom-icons)
 
 ## Overview
@@ -50,7 +50,7 @@ Resources:
 - [CSS-Tricks Accessible SVG Icons](https://css-tricks.com/accessible-svg-icons/)
 - [Chakra UI Icon](https://chakra-ui.com/docs/components/media-and-icons/icon)
 
-## Rotation Types
+## Rotation
 
 Passing an `iconRotation` prop with a value from `IconRotationTypes` allows
 the icon to be rotated when it is rendered. The values are:
@@ -67,9 +67,9 @@ Note: All of the examples below have been rendered with the `size` prop set to
   language="jsx"
 />
 
-<Canvas of={IconStories.RotationTypes} />
+<Canvas of={IconStories.Rotation} />
 
-## IconColors Types
+## Colors
 
 Update an SVG icon by passing a `color` prop with a value from the `IconColors`
 type. The values are: `"ui.black"`, `"ui.white"`, `"brand.primary"`, `"brand.secondary"`,
@@ -95,9 +95,9 @@ Note: All of the examples below have been rendered with the `size` prop set to
   language="jsx"
 />
 
-<Canvas of={IconStories.IconColorsTypes} />
+<Canvas of={IconStories.Colors} />
 
-## IconSizes Types
+## Sizes
 
 Update an SVG icon by passing a `size` prop with a value from `IconSizes`. The
 values are: `"default"`, `"small"`, `"medium"`, `"large"`, `"xlarge"`,
@@ -114,9 +114,9 @@ fill the full width of the parent element.
   language="jsx"
 />
 
-<Canvas of={IconStories.IconSizesTypes} />
+<Canvas of={IconStories.Sizes} />
 
-## All Display Icons
+## All Icons
 
 The following icons are for generic purposes. All the available icon names can
 be found in the `IconNames` type. They are: `"accessibilityFull"`,
@@ -135,7 +135,7 @@ be found in the `IconNames` type. They are: `"accessibilityFull"`,
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
 
-<Canvas of={IconStories.AllDisplayIcons} />
+<Canvas of={IconStories.AllIcons} />
 
 ## Custom Icons
 

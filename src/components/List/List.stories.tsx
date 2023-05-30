@@ -172,7 +172,7 @@ export const DescriptionList: Story = {
   },
 };
 
-export const DescriptionListOfLinks: Story = {
+export const DescriptionListWithLinks: Story = {
   args: {
     noStyling: false,
     title: "Details",

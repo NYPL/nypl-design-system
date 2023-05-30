@@ -517,7 +517,7 @@ export const CustomImageComponent: Story = {
     </Card>
   ),
 };
-export const CardWithLinkHeading: Story = {
+export const HeadingAsLink: Story = {
   render: () => (
     <Card
       imageProps={{
@@ -551,7 +551,7 @@ export const CardWithLinkHeading: Story = {
   ),
 };
 
-export const CardFullClick: Story = {
+export const FullClick: Story = {
   render: () => (
     <SimpleGrid columns={2}>
       <Card
@@ -600,7 +600,7 @@ export const CardFullClick: Story = {
       </Card>
     </SimpleGrid>
   ),
-  name: "Card with Full-Click Functionality",
+  name: "Full-Click Functionality",
 };
 
 export const CardFullClickTurbineExample: Story = {
@@ -657,7 +657,7 @@ export const CardFullClickTurbineExample: Story = {
       </Card>
     </SimpleGrid>
   ),
-  name: "Card with Full-Click Functionality Turbine Example",
+  name: "Full-Click Turbine Example",
 };
 export const CardWithRightSideCardActions: Story = {
   render: () => (
@@ -702,9 +702,9 @@ export const CardWithRightSideCardActions: Story = {
       </CardActions>
     </Card>
   ),
-  name: "Card with Right Side CardActions",
+  name: "Right Side CardActions",
 };
-export const CardsInAGrid: Story = {
+export const GridExample: Story = {
   render: () => (
     <SimpleGrid columns={3}>
       <Card
@@ -801,7 +801,7 @@ export const CardsInAGrid: Story = {
   ),
 };
 
-export const CardsInAStack: Story = {
+export const StackExample: Story = {
   render: () => (
     <SimpleGrid columns={1}>
       <Card
@@ -862,7 +862,7 @@ export const CardsInAStack: Story = {
   ),
 };
 
-export const CardsWithoutImages: Story = {
+export const WithoutImages: Story = {
   render: () => (
     <>
       <SimpleGrid columns={3}>

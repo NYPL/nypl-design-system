@@ -231,7 +231,7 @@ export const JSXElement: Story = {
       />
     </RadioGroup>
   ),
-  name: "With JSX Element Label",
+  name: "Label Using JSX Elements",
 };
 
 function RadioGroupControlledExample() {

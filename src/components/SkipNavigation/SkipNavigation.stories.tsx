@@ -22,7 +22,7 @@ type Story = StoryObj<typeof SkipNavigation>;
  * Main Story for the SkipNavigation component. This must contains the `args`
  * and `parameters` properties in this object.
  */
-export const Controls: Story = {
+export const WithControls: Story = {
   args: {
     className: undefined,
     id: "skip-nav",

@@ -165,7 +165,7 @@ export const Disabled: Story = {
   ),
 };
 
-export const WithJSXElementLabels: Story = {
+export const LabelsUsingJSXElements: Story = {
   render: () => (
     <CheckboxGroup
       id="full-width"

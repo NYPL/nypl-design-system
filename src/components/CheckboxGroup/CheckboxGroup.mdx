@@ -20,7 +20,7 @@ import * as CheckboxGroupStories from "./CheckboxGroup.stories";
 - [Errored](#errored)
 - [Required](#required)
 - [Disabled](#disabled)
-- [With JSX Element labels](#with-jsx-element-labels)
+- [Lsbels Using JSX Elements](#labels-using-jsx-elements)
 - [Indeterminate Example](#indeterminate-example)
 - [Getting Checkbox Input Values](#getting-checkbox-input-values)
 - [Programmatically Update](#programmatically-update)
@@ -64,9 +64,8 @@ a row.
 
 <Canvas of={CheckboxGroupStories.Disabled} />
 
-## With JSX Element Labels
-
-React elements can be passed to the `labelText` prop of the `Checkbox` component.
+Lsbels Using JSX Elements Elementslabels-using
+React elementss be passed to the `labelText` prop of the `Checkbox` component.
 This is useful if you need to pass information as part of the label. For example,
 if a `Checkbox` label needs to display how many items that option has, it can be
 displayed with the help of the `Flex` and `Spacer` components.
@@ -74,7 +73,7 @@ displayed with the help of the `Flex` and `Spacer` components.
 Note: the width of `CheckboxGroup` is _not_ set to full width by default. In
 order to make this work, pass in the `isFullWidth` prop.
 
-<Canvas of={CheckboxGroupStories.WithJSXElementLabels} />
+<Canvas of={CheckboxGroupStories.LabelsUsingJSXElements} />
 
 ## Indeterminate Example
 

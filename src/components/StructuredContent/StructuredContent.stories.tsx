@@ -149,7 +149,7 @@ export const WithHTMLStringTextContent: Story = {
       }
     />
   ),
-  name: "With HTML String Text Content",
+  name: "HTML String Text Content",
 };
 
 export const WithHTMLElementTextContent: Story = {
@@ -329,7 +329,7 @@ export const WithHTMLElementTextContent: Story = {
       }
     />
   ),
-  name: "With HTML Element Text Content",
+  name: "HTML Element Text Content",
 };
 
 export const ExampleWithTwoComponents: Story = {

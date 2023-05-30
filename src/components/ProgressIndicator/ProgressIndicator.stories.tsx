@@ -92,7 +92,7 @@ export const CircularType: Story = {
     />
   ),
 };
-export const SizingLinear: Story = {
+export const LinearSizes: Story = {
   render: () => (
     <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
@@ -109,7 +109,7 @@ export const SizingLinear: Story = {
     </SimpleGrid>
   ),
 };
-export const SizingCircular: Story = {
+export const CircularSizes: Story = {
   render: () => (
     <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator

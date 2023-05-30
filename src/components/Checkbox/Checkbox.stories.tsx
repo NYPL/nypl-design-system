@@ -122,11 +122,11 @@ export const AdditionalStates: Story = {
   ),
 };
 
-export const WithJSXElementLabel: Story = {
+export const LabelUsingJSXElements: Story = {
   render: () => (
     <Checkbox
       id="jsx-label"
-      labelText={<span>Arts</span>}
+      labelText={<span>Arts and <strong>Entertainment</strong></span>}
       name="jsxElementLabel"
     />
   ),

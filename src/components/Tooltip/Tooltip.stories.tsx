@@ -62,7 +62,7 @@ export const WithControls: Story = {
 };
 
 // The following are additional Tooltip example Stories.
-export const TooltipsOnFormOptions: Story = {
+export const OnFormElements: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Tooltip
@@ -103,7 +103,7 @@ export const TooltipsOnFormOptions: Story = {
   ),
 };
 
-export const TooltipOnImageComponent: Story = {
+export const OnImageComponents: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Text>
@@ -143,7 +143,7 @@ export const TooltipOnImageComponent: Story = {
   ),
 };
 
-export const TooltipOnLinkedIcon: Story = {
+export const OnLinkedIcons: Story = {
   render: () => (
     <Tooltip content="This is the tooltip text">
       <Link type="action" href="#passed-in-link">
@@ -153,7 +153,7 @@ export const TooltipOnLinkedIcon: Story = {
   ),
 };
 
-export const TooltipWithIconContent: Story = {
+export const UsingIconContent: Story = {
   render: () => (
     <Tooltip
       content={
@@ -171,7 +171,7 @@ export const TooltipWithIconContent: Story = {
   ),
 };
 
-export const TooltipWithImageContent: Story = {
+export const UsingImageContent: Story = {
   render: () => (
     <Tooltip
       content={<Image src="https://placeimg.com/300/300/animals?x=1" alt="" />}

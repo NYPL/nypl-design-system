@@ -187,16 +187,16 @@ for (const iconSize in iconSizesValues) {
 const allIconsType = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
 // The following are additional Icon example Stories.
-export const RotationTypes: Story = {
+export const Rotation: Story = {
   render: () => allIconsType(rotations),
 };
-export const IconColorsTypes: Story = {
+export const Colors: Story = {
   render: () => allIconsType(colors),
 };
-export const IconSizesTypes: Story = {
+export const Sizes: Story = {
   render: () => allIconsType(sizes),
 };
-export const AllDisplayIcons: Story = {
+export const AllIcons: Story = {
   render: () => allIconsType(icons),
 };
 export const CustomIcons: Story = {

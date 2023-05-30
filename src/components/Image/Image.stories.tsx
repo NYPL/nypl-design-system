@@ -102,9 +102,10 @@ export const FigureAndFigcaption: Story = {
     size: { table: { disable: true } },
     src: { table: { disable: true } },
   },
+  name: "Credit and Caption",
   render: (args) => <Image {...args} />,
 };
-export const ImageSizes: Story = {
+export const Sizes: Story = {
   render: () => (
     <SimpleGrid columns={1}>
       <Box textAlign="center">
@@ -170,7 +171,7 @@ const imageBlockStyles = {
   textalign: "center",
   width: "100%",
 };
-export const ImageAspectRatios: Story = {
+export const AspectRatios: Story = {
   render: () => (
     <SimpleGrid columns={1}>
       <Box style={imageBlockStyles}>
@@ -240,7 +241,7 @@ export const ImageAspectRatios: Story = {
     </SimpleGrid>
   ),
 };
-export const ImageTypes: Story = {
+export const Types: Story = {
   render: () => (
     <SimpleGrid columns={1}>
       <Box style={imageBlockStyles}>
@@ -264,7 +265,7 @@ export const ImageTypes: Story = {
     </SimpleGrid>
   ),
 };
-export const ImageHTMLAttributes: Story = {
+export const HTMLAttributes: Story = {
   render: () => (
     <VStack align="start">
       <Box>
@@ -294,7 +295,6 @@ export const ImageHTMLAttributes: Story = {
       </Box>
     </VStack>
   ),
-  name: "Image HTML Attributes",
 };
 
 export const LazyLoading: Story = {
