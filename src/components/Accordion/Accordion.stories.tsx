@@ -173,7 +173,7 @@ export const WithControls: Story = {
 // The following are additional Accordion example Stories.
 export const FaqContent: Story = {
   render: () => <Accordion accordionData={faqContentData} />,
-  name: "FAQ Content"
+  name: "FAQ Content",
 };
 export const PanelMaxHeightExample: Story = {
   render: () => (

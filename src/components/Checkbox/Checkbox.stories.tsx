@@ -126,7 +126,11 @@ export const LabelUsingJSXElements: Story = {
   render: () => (
     <Checkbox
       id="jsx-label"
-      labelText={<span>Arts and <strong>Entertainment</strong></span>}
+      labelText={
+        <span>
+          Arts and <strong>Entertainment</strong>
+        </span>
+      }
       name="jsxElementLabel"
     />
   ),
