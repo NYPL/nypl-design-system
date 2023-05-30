@@ -124,7 +124,7 @@ const faqContentData: AccordionDataProps[] = [
  * Main Story for the Template component. This must contains the `args`
  * and `parameters` properties in this object.
  */
-export const Controls: Story = {
+export const WithControls: Story = {
   args: {
     aboveHeader: <Placeholder variant="short">Above Header</Placeholder>,
     breakout: (
@@ -173,7 +173,7 @@ export const Controls: Story = {
   },
 };
 // The following are additional Template example Stories.
-export const TemplateChildrenComponentProps: Story = {
+export const ChildrenComponentProps: Story = {
   args: {
     sidebar: "left",
   },

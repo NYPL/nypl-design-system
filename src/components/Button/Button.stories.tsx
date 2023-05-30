@@ -109,7 +109,7 @@ export const ButtonGroups: Story = {
     </ButtonGroup>
   ),
 };
-export const WithIcons: Story = {
+export const TextWithIcon: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <VStack align="left" spacing="input.group.button.vstack" width="150px">
@@ -144,6 +144,7 @@ export const WithIcons: Story = {
       </ButtonGroup>
     </VStack>
   ),
+  name: "Label and Icon",
 };
 export const IconOnly: Story = {
   render: () => (

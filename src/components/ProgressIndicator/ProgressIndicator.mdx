@@ -43,15 +43,16 @@ import * as ProgressIndicatorStories from "./ProgressIndicator.stories";
 
 ## Accessibility
 
-Chakra UI takes care of the internal accessibility attributes for this component.
-Specifically, the `role` attribute is set to `progressbar` and the `aria-valuenow`
-attribute is set to the value of the `value` prop, or the percentage completion
-value. The min and max values are set to "0" and "100", respectively, and are set
-with the `aria-valuemin` and `aria-valuemax` attributes. This makes this
-component and its value(s) visible to screen readers.
+Chakra UI takes care of the internal accessibility attributes for this
+component. Specifically, the `role` attribute is set to `progressbar` and the
+`aria-valuenow` attribute is set to the value of the `value` prop, or the
+percentage completion value. The min and max values are set to "0" and "100",
+respectively, and are set with the `aria-valuemin` and `aria-valuemax`
+attributes. This makes this component and its value(s) visible to screen
+readers.
 
-When `showLabel` is set to false, the `labelText` value will be set to the
-main `<div>`'s `aria-label` attribute. This is the same div that contains the
+When `showLabel` is set to false, the `labelText` value will be set to the main
+`<div>`'s `aria-label` attribute. This is the same div that contains the
 `aria-valuemin`, `aria-valuemax`, and `aria-valuenow` attributes.
 
 Resources:
@@ -83,7 +84,7 @@ through the `ProgressIndicatorSizes.Small` value.
 
 `size="small"`
 
-<Canvas of={ProgressIndicatorStories.SizingLinear} />
+<Canvas of={ProgressIndicatorStories.LinearSizes} />
 
 The starting size for the circular progress is 48px and can be made smaller to
 24px with the `size` prop. The small 24px size can be used for inline local
@@ -92,7 +93,7 @@ percentage will not displayed.
 
 `size="small"`
 
-<Canvas of={ProgressIndicatorStories.SizingCircular} />
+<Canvas of={ProgressIndicatorStories.CircularSizes} />
 
 ## Labels
 
@@ -102,7 +103,8 @@ can be hidden through the `showLabel` prop.
 `showLabel={false}`
 
 Accessibility Note: when `showLabel` is false, the `aria-label` prop is set in
-the progress element to provide a description of the progress for screen readers.
+the progress element to provide a description of the progress for screen
+readers.
 
 <Canvas of={ProgressIndicatorStories.Labels} />
 
