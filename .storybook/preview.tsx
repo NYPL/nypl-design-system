@@ -7,16 +7,10 @@ import { DocsContainer } from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
 import React, { useEffect } from "react";
 
-import {
-  DSProvider,
-  Heading,
-  Link,
-  List,
-  Text,
-  useColorMode,
-} from "../src/index";
+import { DSProvider, Heading, List, Text, useColorMode } from "../src/index";
 import nyplTheme from "../src/theme";
 import results from "../.jest-test-results.json";
+import { StorybookHeading, StorybookLink } from "./storybookComponents";
 
 // Custom viewport options
 const customViewports = {
@@ -64,13 +58,25 @@ const customViewports = {
 const MyDocsContainer = (props) => (
   <MDXProvider
     components={{
-      h1: ({ children }) => <Heading level="one">{children}</Heading>,
-      h2: ({ children }) => <Heading level="two">{children}</Heading>,
-      h3: ({ children }) => <Heading level="three">{children}</Heading>,
-      h4: ({ children }) => <Heading level="four">{children}</Heading>,
-      h5: ({ children }) => <Heading level="five">{children}</Heading>,
-      h6: ({ children }) => <Heading level="six">{children}</Heading>,
-      a: Link as any,
+      h1: ({ children }) => (
+        <StorybookHeading level="one">{children}</StorybookHeading>
+      ),
+      h2: ({ children }) => (
+        <StorybookHeading level="two">{children}</StorybookHeading>
+      ),
+      h3: ({ children }) => (
+        <StorybookHeading level="three">{children}</StorybookHeading>
+      ),
+      h4: ({ children }) => (
+        <StorybookHeading level="four">{children}</StorybookHeading>
+      ),
+      h5: ({ children }) => (
+        <StorybookHeading level="five">{children}</StorybookHeading>
+      ),
+      h6: ({ children }) => (
+        <StorybookHeading level="six">{children}</StorybookHeading>
+      ),
+      a: StorybookLink as any,
       p: Text as any,
       // TODO: Make this monospacing font
       code: ({ children }) => <code>{children}</code>,
