@@ -123,7 +123,7 @@ for (const logoSizeIndex in logoSizeValues) {
 const allLogosGrid = (list) => <SimpleGrid columns={1}>{list}</SimpleGrid>;
 
 // The following are additional Logo example Stories.
-export const LogoSizes: Story = {
+export const Sizes: Story = {
   render: () => allLogosGrid(sizes),
 };
 

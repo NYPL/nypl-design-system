@@ -238,7 +238,7 @@ export const HeadingDescriptionExample: Story = {
       }}
     />
   ),
-  name: "With Heading and Description Text",
+  name: "Heading and Description Text",
 };
 
 function SearchBarValueExampleComponent() {

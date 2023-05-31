@@ -16,11 +16,11 @@ import * as TableStories from "./Table.stories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [With a title](#with-a-title)
-- [With Row Dividers](#with-row-dividers)
-- [With Row Headers](#with-row-headers)
-- [With Custom Header Colors](#with-custom-header-colors)
-- [With JSX Elements](#with-jsx-elements)
+- [Title](#title)
+- [Row Dividers](#row-dividers)
+- [Row Headers](#row-headers)
+- [Custom Header Colors](#custom-header-colors)
+- [JSX Elements](#jsx-elements)
 - [Responsive Mobile Layout](#responsive-mobile-layout)
 
 ## Overview
@@ -64,34 +64,34 @@ Resources:
 - [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
 - [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
 
-## With a title
+## Title
 
 Use the `titleText` prop to add a title to the table.
 
-<Canvas of={TableStories.WithATitle} />
+<Canvas of={TableStories.Title} />
 
-## With Row Dividers
+## Row Dividers
 
 Use the `showRowDividers` prop to render a divider between each row.
 
-<Canvas of={TableStories.WithRowDividers} />
+<Canvas of={TableStories.RowDividers} />
 
-## With Row Headers
+## Row Headers
 
 Use the `useRowHeaders` prop to render the first cell in every row as a header.
 Notice that they turn bold.
 
-<Canvas of={TableStories.WithRowHeaders} />
+<Canvas of={TableStories.RowHeaders} />
 
-## With Custom Header Colors
+## Custom Header Colors
 
 It's possible to customize the header colors by using the `columnHeadersBackgroundColor`
 and `columnHeadersTextColor` props. Note that the colors need to have sufficient
 color contrast.
 
-<Canvas of={TableStories.WithCustomHeaderColors} />
+<Canvas of={TableStories.CustomHeaderColors} />
 
-## With JSX Elements
+## JSX Elements
 
 It's possible to pass in JSX elements in the `tableData` prop.
 
@@ -130,7 +130,7 @@ export const charactersData = [
   language="jsx"
 />
 
-<Canvas of={TableStories.WithJSXElement} />
+<Canvas of={TableStories.JSXElements} />
 
 ## Responsive Mobile Layout
 

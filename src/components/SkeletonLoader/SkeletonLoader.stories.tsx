@@ -67,8 +67,7 @@ export const WithControls: Story = {
 };
 
 // The following are additional SkeletonLoader example Stories.
-export const InGrid: Story = {
-  name: "Placeholders in a Grid",
+export const GridExample: Story = {
   render: () => (
     <SimpleGrid columns={3}>
       <SkeletonLoader imageAspectRatio="landscape" isBordered />
@@ -80,8 +79,7 @@ export const InGrid: Story = {
     </SimpleGrid>
   ),
 };
-export const InList: Story = {
-  name: "Placeholders in a List",
+export const ListExample: Story = {
   render: () => (
     <SimpleGrid columns={1}>
       <SkeletonLoader layout="row" showImage={false} />

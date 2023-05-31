@@ -16,11 +16,11 @@ import * as ImageStories from "./Image.stories";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [Image Figure](#image-figure)
-- [Image Sizes](#image-sizes)
-- [Image Aspect Ratios](#image-aspect-ratios)
-- [Image Types](#image-types)
-- [Image HTML Attributes](#image-html-attributes)
+- [Credit and Caption](#credit-and-caption)
+- [Sizes](#sizes)
+- [Aspect Ratios](#aspect-ratios)
+- [Types](#types)
+- [HTML Attributes](#html-attributes)
 - [Lazy Loading](#lazy-loading)
 
 ## Overview
@@ -48,7 +48,7 @@ Resources:
 - [WebAIM Accessible Images](https://webaim.org/techniques/images/)
 - [Yale Usability & Web Accessibility](https://usability.yale.edu/web-accessibility/articles/images)
 
-## Image Figure
+## Credit and Caption
 
 By passing in `credit` or `caption`, the `Image` component will
 render an HTML `figure` element and render an `img` element inside with the
@@ -57,13 +57,13 @@ then an `img` element will be rendered with or without wrapper style divs.
 
 <Canvas of={ImageStories.FigureAndFigcaption} />
 
-## Image Sizes
+## Sizes
 
 Use the `size` prop to set the desired size with the `ImageSizes` enum.
 
-<Canvas of={ImageStories.ImageSizes} />
+<Canvas of={ImageStories.Sizes} />
 
-## Image Aspect Ratios
+## Aspect Ratios
 
 Use the `aspectRatio` prop to set the desired aspect ratio. Note: the
 following example has `size` set to `ImageSizes.Small`.
@@ -71,9 +71,9 @@ following example has `size` set to `ImageSizes.Small`.
 For a better viewing experience, the `Image` components below have been wrapped
 in an element with a fixed width value.
 
-<Canvas of={ImageStories.ImageAspectRatios} />
+<Canvas of={ImageStories.AspectRatios} />
 
-## Image Types
+## Types
 
 Use the `imageType` prop to get an image variant. Note that to get a perfect
 circle, the `aspectRatio` prop _must_ be set to `"square"`.
@@ -81,9 +81,9 @@ circle, the `aspectRatio` prop _must_ be set to `"square"`.
 For a better viewing experience, the `Image` components below have been wrapped
 in an element with a fixed width value.
 
-<Canvas of={ImageStories.ImageTypes} />
+<Canvas of={ImageStories.Types} />
 
-## Image HTML Attributes
+## HTML Attributes
 
 The `Image` component accepts HTML image attributes. If needed, you can pass
 functions such as `onLoad` and `onError` or attributes such as `srcset`.
@@ -94,7 +94,7 @@ function callback is called. The image's dimensions are logged. In the second
 example, there is an (intentional) error with the image's URL. This will trigger
 the `onError` function callback.
 
-<Canvas of={ImageStories.ImageHTMLAttributes} />
+<Canvas of={ImageStories.HTMLAttributes} />
 
 ## Lazy Loading
 

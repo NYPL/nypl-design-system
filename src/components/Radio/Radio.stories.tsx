@@ -137,7 +137,7 @@ export const HelperAndErrorText: Story = {
   ),
 };
 
-export const JSXElementLabels: Story = {
+export const LabelUsingJSXElements: Story = {
   render: () => (
     <Radio
       id="jsx-label"
