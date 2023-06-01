@@ -1,17 +1,19 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Link from "../Link/Link";
+
 <Meta title="Accessibility Guide/Dynamic Content" />
 
 # Dynamic Content
 
 ## Table of Contents
 
-- [General Information](#general-information)
-- [ARIA Live Regions](#aria-live-regions)
-- [Managing Focus](#managing-focus)
-- [Anti-Patterns](#anti-patterns)
-- [NYPL Patterns](#nypl-patterns)
-- [Resources](#resources)
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#aria-live-regions" target="_self">ARIA Live Regions</Link>}
+- {<Link href="#managing-focus" target="_self">Managing Focus</Link>}
+- {<Link href="#anti-patterns" target="_self">Anti-Patterns</Link>}
+- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
 
 ## General Information
 
@@ -239,7 +241,7 @@ The `HelperErrorText` component renders an empty `div` element with the
 conditionally rendered on the page. Instead, the content should be dynamically
 updated.
 
-[HelperErrorText Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-content-display-helpererrortext--helper-error-text-with-controls)
+[HelperErrorText Storybook documentation](../?path=/docs/components-content-display-helpererrortext--docs)
 
 <Source
   code={`
@@ -273,7 +275,7 @@ helper text "Please enter a 5-digit value." is set by default. If the user does
 not enter a 5-digit value, the error text "Error: The zip code needs to be
 5-digits." is displayed _and_ also announced by assistive technology.
 
-[TextInput Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls)
+[TextInput Storybook documentation](../?path=/docs/components-form-elements-textinput--docs)
 
 <Source
   code={`

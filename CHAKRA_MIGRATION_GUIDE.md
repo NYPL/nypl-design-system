@@ -5,7 +5,7 @@ The first Reservoir Design System (DS) version that includes the Chakra UI libra
 If you would rather read documentation on the Design System's internal use of Chakra, check the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
-- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page)
+- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/chakra-ui--docs)
 
 | Table of Contents |                                                       |
 | ----------------- | ----------------------------------------------------- |

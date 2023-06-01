@@ -1,18 +1,20 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Link from "../Link/Link";
+
 <Meta title="Development Guide/Supporting Dark Mode" />
 
 # Supporting Dark Mode
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Accessibility](#accessibility)
-- [Reservoir Default Configuration](#reservoir-default-configuration)
-- [Consuming App Configuration](#consuming-app-configuration)
-- [Hooks](#hooks)
-- [Using Custom Dark Mode Styles](#using-custom-dark-mode-styles)
-- [Color Mapping](#color-mapping)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#reservoir-default-configuration" target="_self">Reservoir Default Configuration</Link>}
+- {<Link href="#consuming-app-configuration" target="_self">Consuming App Configuration</Link>}
+- {<Link href="#hooks" target="_self">Hooks</Link>}
+- {<Link href="#using-custom-dark-mode-styles" target="_self">Using Custom Dark Mode Styles</Link>}
+- {<Link href="#color-mapping" target="_self">Color Mapping</Link>}
 
 ## Overview
 
@@ -55,8 +57,8 @@ This configuration is controlled with the `useSystemColorMode` and
 respectively.
 
 If desired, the `initialColorMode` can be overridden by the consuming
-application. To do this, please refer to the [Consuming App
-Configuration](#consuming-app-configuration) section.
+application. To do this, please refer to the <Link href="#consuming-app-configuration" target="_self">Consuming App
+Configuration</Link> section.
 
 ## Consuming App Configuration
 
@@ -263,15 +265,15 @@ consuming app in addition to the default "light mode" styles.
 
 As an organization, NYPL is trending away from using traditional CSS and CSS
 preprocessors like SCSS in React applications. In their place, CSS-in-JS is
-being used to leverage the style patterns and [design tokens](#design-tokens)
+being used to leverage the style patterns and <Link href="#design-tokens" target="_self">design tokens</Link>
 available in the DS and Chakra UI.
 
 #### Benefits
 
 Outside of simply consolidating code into one location, using CSS-in-JS opens
 the door to many ease-of-use benefits when it comes to applying styles to UI
-elements, such as [Chakra style props](#chakra-style-props), [design
-tokens](#design-tokens) and [responsive styles](#responsive-styles).
+elements, such as <Link href="#chakra-style-props" target="_self">Chakra style props</Link>, <Link href="#design-tokens" target="_self">design tokens</Link>,
+and <Link href="#responsive-styles" target="_self">responsive styles</Link>.
 
 ##### Chakra Style Props
 
@@ -292,7 +294,7 @@ style values. For example, in the code snippets found later in this section, the
 color values `ui.bg.default` and `dark.ui.bg.default` are color design tokens
 and `inset.default` is a spacing design token. For a full reference chart
 showing all available design tokens, refer to the [Design
-Tokens](/docs/development-guide-design-tokens--page) page in Reservoir
+Tokens](../?path=/docs/development-guide-design-tokens--docs) page in Reservoir
 Storybook.
 
 ##### Responsive Styles
@@ -305,8 +307,7 @@ styles](https://chakra-ui.com/docs/styled-system/responsive-styles).
 #### Preparing Your Components
 
 To use CSS-in-JS effectively, custom components and custom UI elements should be
-composed using [DS components](#using-ds-components) or Chakra [Structural UI
-components](#using-structural-ui-components).
+composed using <Link href="#using-ds-components" target="_self">DS components</Link> or Chakra <Link href="#using-structural-ui-components" target="_self">Structural UI components</Link>.
 
 ##### Using DS Components
 
@@ -320,11 +321,11 @@ dark color mode support.
 If an app-specific component cannot be directly replaced with a DS component,
 consuming apps should try to rebuild it using basic structural components
 available in the DS. If using this approach, two of the most important
-components to note are `Box` ([see the docs](/docs/components-chakra-exports-layout-box--box)),
+components to note are `Box` ([see the docs](../?path=/docs/components-chakra-exports-layout-box--docs)),
 the component on top of which many DS and all other Chakra UI components are
 built, and
 `Stack` ([see the
-docs](/docs/components-chakra-exports-layout-stack-hstack-vstack--stack-h-stack-v-stack)),
+docs](../?path=/docs/components-chakra-exports-layout-stack-hstack-vstack--docs)),
 a layout component used to group elements together and apply a space between
 them.
 
@@ -366,14 +367,15 @@ const customStyles = {
 ##### Method 2
 
 To add styles to app-specific components and native HTML elements, you may use
-the `useColorModeValue` hook ([see the docs](#usecolormode)) to specify light
-and dark mode style values for specific style attributes.
+the `useColorModeValue` hook (<Link href="#usecolormode" target="_self">see the docs</Link>)
+to specify light and dark mode style values for specific style attributes.
 
 Please note that when passing style attributes to custom components or native
 HTML elements, you must use the React `style` prop rather than the Chakra `sx`
-prop or the [Chakra style props](#chakra-style-props). Additionally, javascript [design
-tokens](#design-tokens) cannot be used as they are not compatible with the React
-style prop, so CSS design tokens or native CSS attribute values must be used.
+prop or the <Link href="#chakra-style-props" target="_self">Chakra style props</Link>.
+Additionally, javascript <Link href="#design-tokens" target="_self">design tokens</Link>
+cannot be used as they are not compatible with the React style prop, so CSS
+design tokens or native CSS attribute values must be used.
 
 <Source
   code={`
@@ -441,7 +443,7 @@ Applying dark mode styles using Javascript is the recommended method, but using
 CSS or a CSS precompiler like SCSS is still an option for custom components,
 custom UI elements and native HTML elements. For those elements, dark mode
 styles can be added with the prefers-color-scheme media query and the Reservoir
-CSS vars ([Colors Storybook page](/docs/style-guide-colors--page)).
+CSS vars ([Colors Storybook page](../?path=/docs/style-guide-colors--docs)).
 
 The following example is only applicable if a consuming application is using
 system color mode without a toggle. In this configuration, please note that the
@@ -509,7 +511,7 @@ mapped to corresponding dark mode colors. Use the tables below to find the
 necessary colors.
 
 For reference, all Reservoir Design System dark mode colors can be found in the
-Storybook documentation under [Colors](/docs/style-guide-colors--page)
+Storybook documentation under [Colors](../?path=/docs/style-guide-colors--docs)
 and in the [Visual Design
 Library](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=61991%3A45315).
 
@@ -520,7 +522,7 @@ and in many cases they are used as the basis for the semantic colors. As
 utility colors, the light/dark color map does not apply. If any application
 level style values have been written using the grayscale color design tokens,
 the values should be updated to use the applicable semantic color design tokens.
-For more details, please refer to the [Legacy Color Conversions](#legacy-color-conversions) section.
+For more details, please refer to the <Link href="#legacy-color-conversions" target="_self">Legacy Color Conversions</Link> section.
 
 ### Legacy Color Conversions
 

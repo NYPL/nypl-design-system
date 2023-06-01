@@ -1,16 +1,18 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Link from "../Link/Link";
+
 <Meta title="Development Guide/Design Tokens" />
 
 # Design Tokens
 
 ## Table of Contents
 
-- [What are Design Tokens?](#what-are-design-tokens)
-- [How to Use the Reservoir Design Tokens](#how-to-use-the-reservoir-design-tokens)
-- [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript)
-- [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
-- [Reservoir Design Token Categories](#reservoir-design-token-categories)
+- {<Link href="#what-are-design-tokens" target="_self">What are Design Tokens?</Link>}
+- {<Link href="#how-to-use-the-reservoir-design-tokens" target="_self">How to Use the Reservoir Design Tokens</Link>}
+- {<Link href="#using-reservoir-design-tokens-in-javascript" target="_self">Using Reservoir Design Tokens in Javascript</Link>}
+- {<Link href="#using-reservoir-design-tokens-in-css" target="_self">Using Reservoir Design Tokens in CSS</Link>}
+- {<Link href="#reservoir-design-token-categories" target="_self">Reservoir Design Token Categories</Link>}
 
 ## What are Design Tokens?
 
@@ -37,10 +39,10 @@ needs to be properly installed in a consuming React application.
 It is recommended that consuming apps use Javascript (rather than CSS) to apply
 styles to UI elements whenever possible.
 
-To use the DS [Javascript design tokens](#reservoir-design-token-categories),
+To use the DS <Link href="#reservoir-design-token-categories" target="_self">Javascript design tokens</Link>,
 the `DSProvider` wrapper component must first be imported and implemented
 properly in a consuming app. Please refer to the `DSProvider` section of the [DS
-Chakra UI](?path=/story/chakra-ui--page#dsprovider) page for instructions on how
+Chakra UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how
 to do this.
 
 #### Design Tokens for DS and Chakra Components
@@ -203,18 +205,18 @@ implemented using standard CSS custom properties conventions.
 
 The DS design tokens are broken into the following categories:
 
-- [Breakpoints](#breakpoints)
-- [Color](#color)
-- [Radii](#radii)
-- [Space](#space)
-- [Typography](#typography)
+- {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
+- {<Link href="#color" target="_self">Color</Link>}
+- {<Link href="#radii" target="_self">Radii</Link>}
+- {<Link href="#space" target="_self">Space</Link>}
+- {<Link href="#typography" target="_self">Typography</Link>}
 
 When using the DS design tokens, semantic tokens should be used ahead of the
 base tokens.
 
 ### Breakpoints
 
-For more information about NYPL breakpoints, see the [Breakpoints Style Guide](/story/documentation-style-guide-breakpoints--page) page.
+For more information about NYPL breakpoints, see the [Breakpoints Style Guide](../?path=/docs/style-guide-breakpoints--docs) page.
 
 | JS Token | CSS Token                | Value              |
 | :------- | :----------------------- | :----------------- |
@@ -235,7 +237,7 @@ The `color` design tokens can be used for any styles where a color styles be ass
 - `stroke`
 
 For more information about NYPL colors and to view the actual hue, see the
-[Colors Style Guide](/story/documentation-style-guide-colors--page) page.
+[Colors Style Guide](../?path=/docs/style-guide-colors--docs) page.
 
 #### Root Tokens
 
@@ -402,7 +404,7 @@ The `space` design tokens can be used for any styles related to space or size:
 - `right`
 - `bottom`
 
-For more information about NYPL spacing, see the [Spacing Style Guide](/story/documentation-style-guide-spacing--page) page.
+For more information about NYPL spacing, see the [Spacing Style Guide](../?path=/docs/style-guide-spacing--docs) page.
 
 #### Root Tokens
 
@@ -463,7 +465,7 @@ The `typography` design tokens include options for the following styles:
 - `font-size`
 - `font-weight`
 
-For more information about NYPL typography, see the [Typography Style Guide](/story/documentation-style-guide-typography--page) page.
+For more information about NYPL typography, see the [Typography Style Guide](../?path=/docs/style-guide-typography--docs) page.
 
 #### Root Tokens
 

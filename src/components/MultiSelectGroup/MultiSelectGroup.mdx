@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
+import Link from "../Link/Link";
 
 <Meta of={MultiSelectGroupStories} />
 
@@ -13,10 +14,10 @@ import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Layout Patterns](#layout-patterns)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
 
 ## Overview
 
@@ -36,7 +37,7 @@ that can be visually hidden through the `showLabel` prop. If the `<legend>` is
 hidden an `aria-label` attribute with `labelText` value will be rendered instead.
 
 For accessibility information on the `MultiSelect` component, see the
-[MultiSelect Accessibility](https://nypl-design-system-vvscfj2pn-nypl.vercel.app/?path=/docs/components-form-elements-multiselect--multi-select-list-box) documentation.
+[MultiSelect Accessibility](../?path=/docs/components-form-elements-multiselect--docs#accessibility) documentation.
 
 ## Layout Patterns
 
@@ -63,4 +64,4 @@ the `selectedItems` if needed.
 
 Due to it's data structure and functions setup, it is capable to handle a group
 of `MultiSelect` components. Find the full documentation under
-[useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page).
+[useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).

@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TabsStories from "./Tabs.stories";
+import Link from "../Link/Link";
 
 <Meta of={TabsStories} />
 
@@ -13,14 +14,14 @@ import * as TabsStories from "./Tabs.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Composing with a Data Object](#composing-with-a-data-object)
-- [Responsive Mobile Carousel](#responsive-mobile-carousel)
-- [Callback Event Function](#callback-event-function)
-- [URL Hash Option](#url-hash-option)
-- [Children Components](#children-components)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#composing-with-a-data-object" target="_self">Composing with a Data Object</Link>}
+- {<Link href="#responsive-mobile-carousel" target="_self">Responsive Mobile Carousel</Link>}
+- {<Link href="#callback-event-function" target="_self">Callback Event Function</Link>}
+- {<Link href="#url-hash-option" target="_self">URL Hash Option</Link>}
+- {<Link href="#children-components" target="_self">Children Components</Link>}
 
 ## Overview
 
@@ -122,7 +123,7 @@ all the tabs while the panel stays static.
 
 Note that for the children component approach, we expect a `TabList` component
 to be passed or else the mobile carousel will _not_ be built. More on this in
-the [With Children Components](#with-children-components) section.
+the <Link href="#children-components" target="_self">Children Components</Link> section.
 
 To view and test this in Storybook, go to the "Canvas" tab and change the
 viewport in the Storybook toolbar at the top of the page.

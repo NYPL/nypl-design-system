@@ -1,19 +1,21 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Link from "../Link/Link";
+
 <Meta title="Development Guide/Header" />
 
 # Header
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Implementation](#implementation)
-- [Accessibility](#accessibility)
-- [Skip Navigation](#skip-navigation)
-- [Catalogs Log In](#catalog-log-in)
-- [Search](#search)
-- [Navigation](#navigation)
-- [Header Log In Timeout](#header-log-in-timeout)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#implementation" target="_self">Implementation</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#skip-navigation" target="_self">Skip Navigation</Link>}
+- {<Link href="#catalog-log-in" target="_self">Catalog Log In</Link>}
+- {<Link href="#search" target="_self">Search</Link>}
+- {<Link href="#navigation" target="_self">Navigation</Link>}
+- {<Link href="#header-log-in-timeout" target="_self">Header Log In Timeout</Link>}
 
 ## Overview
 
@@ -81,7 +83,7 @@ to make the component accessible. It contains:
 - Notification `<aside>` HTML element - This landmark element renders NYPL alert
   messages. Per accessibility guidelines, this element cannot be nested within
   the `<header>` element, so it is rendered above. More information can be found
-  in the [Notification Accessibility](?path=/docs/components-feedback-notification--docs)
+  in the [Notification Accessibility](../?path=/docs/components-feedback-notification--docs#accessibility)
   section.
 - `<header>` HTML element - This landmark element denotes the top content section
   of the page. There should only be one main `<header>` element on the page as a
@@ -121,9 +123,9 @@ Resources:
 
 The `Header` component implements the DS `SkipNavigation` component. More
 information about the component can be found in the
-[Storybook documentation](?path=/docs/components-navigation-skipnavigation--docs)
+[Storybook documentation](../?path=/docs/components-navigation-skipnavigation--docs)
 and why we should use it in its
-[accessibility guideline](?path=/docs/accessibility-guide-skip-navigation--docs).
+[accessibility guideline](../?path=/docs/accessibility-guide-skip-navigation--docs).
 
 It is important to note that the `SkipNavigation` component expects that the page
 it is on has a `main` HTML element with an `id` of `mainContent`. This allows
@@ -134,7 +136,7 @@ The second link in the skip navigation points to
 
 ### TemplateAppContainer
 
-The DS [`TemplateAppContainer`](?path=/docs/components-page-layout-template--docs)
+The DS [`TemplateAppContainer`](../?path=/docs/components-page-layout-template--docs)
 component renders the same `SkipNavigation` component that the `Header` component
 renders. When using both the `Header` and the `TemplateAppContainer` components,
 set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to

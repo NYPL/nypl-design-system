@@ -7,10 +7,10 @@ import { DocsContainer } from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
 import React, { useEffect } from "react";
 
-import { DSProvider, Heading, List, Text, useColorMode } from "../src/index";
+import { DSProvider, Link, List, Text, useColorMode } from "../src/index";
 import nyplTheme from "../src/theme";
 import results from "../.jest-test-results.json";
-import { StorybookHeading, StorybookLink } from "./storybookComponents";
+import { StorybookHeading } from "./storybookComponents";
 
 // Custom viewport options
 const customViewports = {
@@ -76,7 +76,7 @@ const MyDocsContainer = (props) => (
       h6: ({ children }) => (
         <StorybookHeading level="six">{children}</StorybookHeading>
       ),
-      a: StorybookLink as any,
+      a: Link as any,
       p: Text as any,
       // TODO: Make this monospacing font
       code: ({ children }) => <code>{children}</code>,

@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TableStories from "./Table.stories";
+import Link from "../Link/Link";
 
 <Meta of={TableStories} />
 
@@ -13,15 +14,15 @@ import * as TableStories from "./Table.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Title](#title)
-- [Row Dividers](#row-dividers)
-- [Row Headers](#row-headers)
-- [Custom Header Colors](#custom-header-colors)
-- [JSX Elements](#jsx-elements)
-- [Responsive Mobile Layout](#responsive-mobile-layout)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#title" target="_self">Title</Link>}
+- {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
+- {<Link href="#row-headers" target="_self">Row Headers</Link>}
+- {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
+- {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
+- {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
 
 ## Overview
 
@@ -140,5 +141,5 @@ layout, with each "row" visually separated by a prominent horizontal rule. Despi
 the significant visual changes in the responsive layout, all component props are
 still functional.
 
-To view and test this in Storybook, go to the "[Canvas](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-page-layout-table--table)"
-tab and change the viewport in the Storybook toolbar at the top of the page.
+To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
+Story and change the viewport in the Storybook toolbar at the top of the page.

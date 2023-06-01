@@ -37,8 +37,8 @@ export const StorybookHeading = ({ level, children }) => {
           style={{
             float: "left",
             color: "inherit",
-            "margin-left": "-20px",
-            "padding-right": "4px",
+            marginLeft: "-20px",
+            paddingRight: "4px",
           }}
         >
           <svg
@@ -61,11 +61,3 @@ export const StorybookHeading = ({ level, children }) => {
     </Heading>
   );
 };
-
-/*
- * This should have a `target="_self"` attribute but then non-DS document
- * links don't go to the correct location.
- */
-export const StorybookLink = ({ children, href }) => (
-  <Link href={href}>{children}</Link>
-);

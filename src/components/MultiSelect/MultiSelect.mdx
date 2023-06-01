@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as MultiSelectStories from "./MultiSelect.stories";
+import Link from "../Link/Link";
 
 <Meta of={MultiSelectStories} />
 
@@ -13,14 +14,14 @@ import * as MultiSelectStories from "./MultiSelect.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props for MultiSelect Listbox](#component-props-multiselect-listbox)
-- [Component Props for MultiSelect Dialog](#component-props-multiselect-dialog)
-- [Accessibility](#accessibility)
-- [Using the items prop](#using-the-items-prop)
-- [Controlling state using selectedItems and onChange prop](#controlling-state-using-selecteditems-and-onchange-prop)
-- [MultiSelect NextJS routing implementation](#multiselect-nextjs-routing-implementation)
-- [useMultiSelect hook](#usemultiselect-hook)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props-multiselect-listbox" target="_self">Component Props for MultiSelect Listbox</Link>}
+- {<Link href="#component-props-multiselect-dialog" target="_self">Component Props for MultiSelect Dialog</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
+- {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
+- {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
+- {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
 
 ## Overview
 
@@ -88,7 +89,7 @@ elements are not properly accessible by screen readers.
 Resources:
 
 - [downshift.js documentation](https://www.downshift-js.com/)
-- [Reservoir Checkbox Component](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-checkbox--checkbox#accessibility)
+- [Reservoir Checkbox Component](../?path=/docs/components-form-elements-checkbox--docs#accessibility)
 - [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
 - [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
 - [Chakra focus-lock npm](https://www.npmjs.com/package/@chakra-ui/focus-lock)
@@ -295,4 +296,4 @@ the selectedItems. That includes the functions `onChange`, `onClear`,
 `onMixedStateChange` for handling any changes to the selection of items and the
 current state of the selection: `selectedItems`.
 
-Find the full documentation under [useMultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usemultiselect--page).
+Find the full documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).

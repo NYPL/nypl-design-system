@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as FilterBarStories from "./FilterBar.stories";
+import Link from "../Link/Link";
 
 <Meta of={FilterBarStories} />
 
@@ -13,12 +14,12 @@ import * as FilterBarStories from "./FilterBar.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Layout Patterns](#layout-patterns)
-- [UI Containers](#ui-containers)
-- [useFilterBar hook](#usefilterbar-hook)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
+- {<Link href="#ui-containers" target="_self">UI Containers</Link>}
+- {<Link href="#usefilterbar-hook" target="_self">useFilterBar hook</Link>}
 
 ## Overview
 
@@ -37,8 +38,8 @@ functionality. The accessibility of `FilterBar` depends on the passed child
 components accessibility. See the accessibility details of valid FilterBar child
 components:
 
-- [MultiSelect](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselect--multi-select-list-box#accessibility)
-- [MultiSelectGroup](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-multiselectgroup--multi-select-group#accessibility)
+- [MultiSelect](../?path=/docs/components-form-elements-multiselect--docs#accessibility)
+- [MultiSelectGroup](../?path=/docs/components-form-elements-multiselectgroup--docs#accessibility)
 
 ## Layout Patterns
 
@@ -163,7 +164,7 @@ const containerBgColor = useColorModeValue(
 
 ## useFilterBar hook
 
-Find the full documentation under [useFilterBar](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/hooks-usefilterbar--page).
+Find the full documentation under [useFilterBar](../?path=/docs/hooks-usefilterbar--docs).
 
 `useFilterBar` is an optional hook for cases where managing the state of the
 component in the consuming app is less of a concern and general ease of use is

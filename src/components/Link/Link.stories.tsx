@@ -14,6 +14,7 @@ const meta: Meta<typeof Link> = {
     children: { table: { disable: true } },
     key: { table: { disable: true } },
     ref: { table: { disable: true } },
+    target: { control: false },
     type: {
       control: { type: "select" },
       options: linkTypesArray,
@@ -34,6 +35,7 @@ export const WithControls: Story = {
     className: "custom-class",
     href: "https://nypl.org",
     id: "nypl-link",
+    target: undefined,
     type: "action",
   },
   render: (args) => <Link {...args}>Link</Link>,

@@ -33,6 +33,7 @@ export interface LinkProps {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
+  /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
