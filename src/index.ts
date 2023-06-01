@@ -52,9 +52,7 @@ export {
 export type { FeedbackBoxViewType } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as FilterBar } from "./components/FilterBar/FilterBar";
-export { default as Footer } from "./components/Footer/Footer";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
-export { default as Header } from "./components/Header/Header";
 export { default as Heading } from "./components/Heading/Heading";
 export type { HeadingSizes, HeadingLevels } from "./components/Heading/Heading";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";

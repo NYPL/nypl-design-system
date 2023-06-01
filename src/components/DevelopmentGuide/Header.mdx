@@ -1,71 +1,76 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
+import { Meta, Source } from "@storybook/blocks";
 
-import Header from "./Header";
-import { getCategory } from "../../utils/componentCategories";
-
-<Meta
-  title={getCategory("Header")}
-  component={Header}
-  decorators={[withDesign]}
-  argTypes={{
-    gaOptions: {
-      control: false,
-      table: { defaultValue: { summary: "{}" } },
-    },
-    isProduction: {
-      control: false,
-      table: { defaultValue: { summary: "true" } },
-    },
-  }}
-/>
+<Meta title="Development Guide/Header" />
 
 # Header
-
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.1.0`    |
-| Latest            | `1.5.3`    |
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props](#component-props)
+- [Implementation](#implementation)
 - [Accessibility](#accessibility)
 - [Skip Navigation](#skip-navigation)
 - [Catalogs Log In](#catalog-log-in)
 - [Search](#search)
 - [Navigation](#navigation)
 - [Header Log In Timeout](#header-log-in-timeout)
-- [Google Analytics](#google-analytics)
 
 ## Overview
 
-<Description of={Header} />
+The NYPL `Header` is the top most feature on NYPL sites. Even though this component
+appears on various NYPL digital applications, it is itself a separate application
+that gets embedded on said digital applications. This complex component is composed
+using the Reservoir Design System and contains features for logging in, logging
+out, searching, and navigating the NYPL.org site.
 
-The `Header` component is meant to replicate (and eventually replace) the current
-[NYPL Header package](https://github.com/NYPL/dgx-header-component/) which is used
-across various NYPL digital products, with Reservoir Design System technologies
-and components.
+- [NYPL Header Preview](https://ds-header.nypl.org/header)
+- [NYPL Header App Github repo](https://github.com/NYPL/nypl-header-app)
 
-The `Header` component is a complete and complex component that
+The `Header` component:
 
 - fetches data from different APIs,
 - uses the DS' `SkipNavigation` component for webpage accessibility,
 - has static NYPL.org navigational links,
-- a log in form for patrons to log into NYPL's [Catalog](https://browse.nypl.org/iii/encore/)
+- a log in form for patrons to log into NYPL's [Catalog](https://nypl.na2.iiivega.com/)
   and [Research Catalog](https://www.nypl.org/research/research-catalog/),
 - a search form for patrons to search the Catalog and across [NYPL.org](https://www.nypl.org/).
 
-## Component Props
+## Implementation
 
-<Canvas withToolbar>
-  <Story name="Header" args={{ isProduction: true }}>
-    {({ args }) => <Header {...args} />}
-  </Story>
-</Canvas>
+The `Header` should be embedded on an NYPL app through the following code snippet:
 
-<ArgsTable story="Header" />
+<Source
+  code={`
+<style>
+  #header-placeholder {
+    minheight: 70px;
+  }
+  @media screen and (min-width: 1024px) {
+    #header-placeholder {
+      min-height: 230px;
+    }
+  }
+</style>
+<!-- .... -->
+<div id="header-placeholder">
+  <div id="nypl-header"></div>
+  <script
+    type="module"
+    src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header"
+    async
+  ></script>
+</div>
+  `}
+  language="html"
+/>
+
+The placeholder styles and `div` wrapper are additional elements that are used
+to mitigate the "jumping" effect that occurs when the `Header` is loaded on a
+page. The `Header` script is loaded asynchronously and this means that the
+`Header` will render after the rest of the page is rendered and it will push the
+main content down. The fixed height of the placeholder `div` prevents the main
+content from jumping down. Note that we cannot predict the length of the alert
+text in the banner (in any) and the page may still jump but not by much.
 
 ## Accessibility
 
@@ -76,7 +81,7 @@ to make the component accessible. It contains:
 - Notification `<aside>` HTML element - This landmark element renders NYPL alert
   messages. Per accessibility guidelines, this element cannot be nested within
   the `<header>` element, so it is rendered above. More information can be found
-  in the [Notification Accessibility](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-notification--notification-with-controls#Accessibility)
+  in the [Notification Accessibility](?path=/docs/components-feedback-notification--docs)
   section.
 - `<header>` HTML element - This landmark element denotes the top content section
   of the page. There should only be one main `<header>` element on the page as a
@@ -116,9 +121,9 @@ Resources:
 
 The `Header` component implements the DS `SkipNavigation` component. More
 information about the component can be found in the
-[Storybook documentation](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-navigation-skipnavigation--skip-navigation-with-controls)
+[Storybook documentation](?path=/docs/components-navigation-skipnavigation--docs)
 and why we should use it in its
-[accessibility guideline](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/accessibility-guide-skip-navigation--page).
+[accessibility guideline](?path=/docs/accessibility-guide-skip-navigation--docs).
 
 It is important to note that the `SkipNavigation` component expects that the page
 it is on has a `main` HTML element with an `id` of `mainContent`. This allows
@@ -129,7 +134,7 @@ The second link in the skip navigation points to
 
 ### TemplateAppContainer
 
-The DS [`TemplateAppContainer`](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-template--template-app-container-component)
+The DS [`TemplateAppContainer`](?path=/docs/components-page-layout-template--docs)
 component renders the same `SkipNavigation` component that the `Header` component
 renders. When using both the `Header` and the `TemplateAppContainer` components,
 set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
@@ -186,7 +191,7 @@ When using the search form, a patron can choose which location to search.
 
 When looking for an item, such as book, ebook, DVD, etc, the best search location
 is the Library Catalog. For example, please see the
-[Catalog search](https://browse.nypl.org/iii/encore/search/C__Scats__Orightresult__U?lang=eng&suite=def)
+[Catalog search](https://nypl.na2.iiivega.com/search?query=cats&searchType=everything&pageSize=10)
 for items about cats. This returns books, microform format items, and DVDs
 about cats.
 
@@ -270,37 +275,3 @@ will start in the `Header` component. Once this timer reaches 0, the Header will
 insert an `iframe` HTML element into the `body` HTML element of the webpage.
 This `iframe`'s `src` attribute is set to the necessary Encore Catalog logout
 link. This `iframe` element has a style of `display: none` so it is not visible.
-
-## Google Analytics
-
-Google will sunset Google Analytics (GA) in 2023, but the current NYPL Header
-uses GA and therefore the Reservoir `Header` component will continue to use GA
-until GA is sunset.
-
-The `Header` component takes two props that are used to configure GA:
-
-- `isProduction`: a boolean that determines whether the `Header` is in
-  production mode or not. If `true`, the production GA code is set and the
-  `testMode` status for unit testing is set to `false`; if `false`, the
-  development GA code is set and the `testMode` is set to `true`. This props is
-  set to `true` by default. Pass in `false` if you are rendering the
-  `Header` component in tests.
-- `fetchSitewideAlerts`: a boolean that determines whether the `Header` should
-  fetch sitewide alerts or not. Pass in `false` if you are rendering the
-  `Header` component in tests. This is to prevent calling the `fetch` function.
-- `gaOptions`: an object that contains the GA settings with the following
-  properties:
-  - `debug`: a boolean that determines whether to log GA debug messages to the
-    console. This is set to `false` by default.
-  - `standardImplementation`: a boolean to initialize GA with the standard
-    implementation. This is `false` by default, but if your app uses the
-    standard initialize GA code that is set in the HTML body element, then
-    set this to `true`.
-  - `testMode`: a boolean that determines whether to set GA to test mode to use
-    its special API for unit testing GA calls through the `testModeAPI`
-    property. `false` by default but set to `true` when running unit tests.
-  - `titleCase`: a boolean that determines whether to use title case for the
-    GA page title. By default, this is set to the opposite value of
-    `isProduction`. For example, when `isProduction` is `true`, then `titleCase`
-    is `false`. Since `isProduction` is `true` by default, `titleCase` is
-    `false` by default.

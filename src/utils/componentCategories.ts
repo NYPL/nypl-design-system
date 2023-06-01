@@ -102,8 +102,6 @@ const categories = {
     components: [
       "StructuredContent",
       "ContentSwitcher",
-      "Footer",
-      "Header",
       "HorizontalRule",
       "Section",
       "SimpleGrid",
