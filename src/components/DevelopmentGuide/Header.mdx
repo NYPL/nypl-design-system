@@ -19,9 +19,9 @@ import { Meta, Source } from "@storybook/blocks";
 
 The NYPL `Header` is the top most feature on NYPL sites. Even though this component
 appears on various NYPL digital applications, it is itself a separate application
-that gets embedded on said digital applications. This complex component implements
-the Reservoir Design System and contains features for logging in, logging out,
-searching, and navigating the NYPL.org site.
+that gets embedded on said digital applications. This complex component is composed
+using the Reservoir Design System and contains features for logging in, logging
+out, searching, and navigating the NYPL.org site.
 
 - [NYPL Header Preview](https://ds-header.nypl.org/header)
 - [NYPL Header App Github repo](https://github.com/NYPL/nypl-header-app)
@@ -37,22 +37,22 @@ The `Header` component:
 
 ## Implementation
 
-The `Header` can be embedded on an NYPL app through the following code snippet:
+The `Header` should be embedded on an NYPL app through the following code snippet:
 
 <Source
   code={`
 <style>
-  #Header-Placeholder {
+  #header-placeholder {
     minheight: 70px;
   }
   @media screen and (min-width: 1024px) {
-    #Header-Placeholder {
+    #header-placeholder {
       min-height: 230px;
     }
   }
 </style>
 <!-- .... -->
-<div id="Header-Placeholder">
+<div id="header-placeholder">
   <div id="nypl-header"></div>
   <script
     type="module"
@@ -63,6 +63,14 @@ The `Header` can be embedded on an NYPL app through the following code snippet:
   `}
   language="html"
 />
+
+The placeholder styles and `div` wrapper are additional elements that are used
+to mitigate the "jumping" effect that occurs when the `Header` is loaded on a
+page. The `Header` script is loaded asynchronously and this means that the
+`Header` will render after the rest of the page is rendered and it will push the
+main content down. The fixed height of the placeholder `div` prevents the main
+content from jumping down. Note that we cannot predict the length of the alert
+text in the banner (in any) and the page may still jump but not by much.
 
 ## Accessibility
 
