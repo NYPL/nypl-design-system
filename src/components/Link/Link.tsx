@@ -33,6 +33,7 @@ export interface LinkProps {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
+  target?: "_blank" | "_parent" | "_self" | "_top";
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
@@ -124,6 +125,7 @@ export const Link = chakra(
       href,
       id,
       onClick,
+      target,
       type = "default",
       ...rest
     } = props;
@@ -163,7 +165,8 @@ export const Link = chakra(
     }
     const styles = useMultiStyleConfig("Link", { variant });
     const rel = type === "external" ? "nofollow noopener noreferrer" : null;
-    const target = type === "external" ? "_blank" : null;
+    const internalTarget =
+      type === "external" ? "_blank" : target ? target : null;
     // Render with specific direction arrows if the type is
     // "forwards" or "backwards". Or render with the launch icon
     // if the type is "external". Otherwise, do not add an icon.
@@ -195,7 +198,7 @@ export const Link = chakra(
               ...childProps,
               ref,
               rel,
-              target,
+              target: internalTarget,
             },
             [childrenToClone.props.children]
           )}
@@ -209,7 +212,7 @@ export const Link = chakra(
           ref={ref}
           rel={rel}
           onClick={onClick}
-          target={target}
+          target={internalTarget}
           {...linkProps}
           __css={styles}
         >
