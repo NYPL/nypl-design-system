@@ -1,13 +1,7 @@
-import {
-  ArgTypes,
-  Canvas,
-  Controls,
-  Description,
-  Meta,
-  Source,
-} from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SearchBarStories from "./SearchBar.stories";
+import Link from "../Link/Link";
 
 <Meta of={SearchBarStories} />
 
@@ -20,14 +14,14 @@ import * as SearchBarStories from "./SearchBar.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
-- [Form Components](#form-components)
-- [Search Autocomplete](#search-autocomplete)
-- [Form States](#form-states)
-- [Heading and Description Text](#heading-and-description-text)
-- [TextInput and onSubmit Values](#textinput-and-onsubmit-values)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#form-components" target="_self">Form Components</Link>}
+- {<Link href="#search-autocomplete" target="_self">Search Autocomplete</Link>}
+- {<Link href="#form-states" target="_self">Form States</Link>}
+- {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
+- {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
 
 ## Overview
 
@@ -61,8 +55,8 @@ screenreaders to pick up this entire search form.
 
 Resources:
 
-- [Reservoir Select](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-select--select-with-controls)
-- [Reservoir TextInput](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls)
+- [Reservoir Select](../?path=/docs/components-form-elements-select--docs)
+- [Reservoir TextInput](../?path=/docs/components-form-elements-textinput--docs)
 - [a11ymatters Accessible Search Form](https://www.a11ymatters.com/pattern/accessible-search/)
 - [MDN ARIA: search role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/search_role)
 
@@ -172,7 +166,7 @@ a button that clears the input value. If additional functionality is needed
 when the button is clicked, pass a function to the `isClearableCallback` prop.
 
 The behavior for this feature is documented in the TextInput component's
-[isClearable Button](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-textinput--text-input-with-controls#isclearable-button)
+[isClearable Button](../?path=/docs/components-form-elements-textinput--docs#isclearable-button)
 section.
 
 <Source
@@ -254,8 +248,7 @@ const helperText = "";
 While the Design System does not implement an `Autosuggest` or `Autocomplete`
 component, it does show a pattern for using the `react-autosuggest` package.
 In this example, we're using the `react-autosuggest` example found in the
-[Basic Autosuggest story](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/development-guide-autosuggest--autosuggest-library)
-as the main component inside the `SearchBar` component.
+Basic Autosuggest story as the main component inside the `SearchBar` component.
 
 In order to render this custom input element in the `SearchBar` component, pass
 it in the `textInputElement` prop. Do not pass an object to the `textInputProps`

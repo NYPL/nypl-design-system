@@ -40,7 +40,7 @@ export const ExploreVariant: Story = {
     tagSetData: [
       {
         label: (
-          <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+          <a href="../?path=/story/components-basic-elements-card--with-controls">
             Card
           </a>
         ),
@@ -48,7 +48,7 @@ export const ExploreVariant: Story = {
       {
         iconName: "fileTypeDoc",
         label: (
-          <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+          <a href="../?path=/story/components-page-layout-structuredcontent--controls">
             StructuredContent
           </a>
         ),
@@ -56,7 +56,7 @@ export const ExploreVariant: Story = {
       {
         iconName: "alertWarningOutline",
         label: (
-          <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+          <a href="../?path=/story/components-feedback-progressindicator--with-controls">
             ProgressIndicator
           </a>
         ),
@@ -64,7 +64,7 @@ export const ExploreVariant: Story = {
       {
         iconName: "actionSettings",
         label: (
-          <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+          <a href="../?path=/docs/hooks-usenyplbreakpoints--docs">
             useNYPLBreakpoints React hook
           </a>
         ),
@@ -122,28 +122,28 @@ export const FormattingExamples: Story = {
         tagSetData={[
           {
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+              <a href="../?path=/story/components-basic-elements-card--card-with-controls">
                 Card
               </a>
             ),
           },
           {
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+              <a href="../?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
                 StructuredContent
               </a>
             ),
           },
           {
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+              <a href="../?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
                 ProgressIndicator
               </a>
             ),
           },
           {
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+              <a href="../?path=/docs/hooks-usenyplbreakpoints--page">
                 useNYPLBreakpoints React hook
               </a>
             ),
@@ -155,7 +155,7 @@ export const FormattingExamples: Story = {
         tagSetData={[
           {
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+              <a href="../?path=/story/components-basic-elements-card--card-with-controls">
                 Card
               </a>
             ),
@@ -163,7 +163,7 @@ export const FormattingExamples: Story = {
           {
             iconName: "fileTypeDoc",
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+              <a href="../?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
                 StructuredContent
               </a>
             ),
@@ -171,7 +171,7 @@ export const FormattingExamples: Story = {
           {
             iconName: "alertWarningOutline",
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+              <a href="../?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
                 ProgressIndicator
               </a>
             ),
@@ -179,7 +179,7 @@ export const FormattingExamples: Story = {
           {
             iconName: "actionSettings",
             label: (
-              <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+              <a href="../?path=/docs/hooks-usenyplbreakpoints--page">
                 useNYPLBreakpoints React hook
               </a>
             ),

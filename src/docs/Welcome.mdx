@@ -1,10 +1,9 @@
-import { Box, Center, Circle, VStack, Square } from "@chakra-ui/react";
+import { Box, Center, VStack } from "@chakra-ui/react";
 import { Meta } from "@storybook/blocks";
 
 import Card, { CardHeading, CardContent } from "../components/Card/Card";
 import Heading from "../components/Heading/Heading";
 import Icon from "../components/Icons/Icon";
-import Image from "../components/Image/Image";
 import Link from "../components/Link/Link";
 import Logo from "../components/Logo/Logo";
 import SimpleGrid from "../components/Grid/SimpleGrid";
@@ -52,18 +51,21 @@ import Text from "../components/Text/Text";
         </CardHeading>
         <CardContent>
           <Text size="caption">
-            To start using Reservoir Design System, refer to Reservoir's Github
+            To start using Reservoir Design System, refer to Reservoir's Github{" "}
             <Link
               href="https://github.com/NYPL/nypl-design-system/wiki"
               type="external"
             >
               Wiki
-            </Link> and <Link
+            </Link>{" "}
+            and{" "}
+            <Link
               href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
               type="external"
             >
               ReadMe
-            </Link> to setup your project. You can also learn about our component
+            </Link>{" "}
+            to setup your project. You can also learn about our component
             architecture and additional documentation.
           </Text>
         </CardContent>
@@ -120,20 +122,19 @@ import Text from "../components/Text/Text";
         <CardContent>
           <Text size="caption">
             The Reservoir Design System React component library is currently
-            published on
+            published on{" "}
             <Link
               href="https://www.npmjs.com/package/@nypl/design-system-react-components"
               type="external"
             >
               npm
-            </Link>. If you're looking to contribute to this project, checkout the
-            <Link
+            </Link>
+            . If you're looking to contribute to this project, checkout the <Link
               href="https://github.com/NYPL/nypl-design-system"
               type="external"
             >
               nypl-design-system
-            </Link>
-            repo on Github for more information.
+            </Link> repo on Github for more information.
           </Text>
         </CardContent>
       </Card>

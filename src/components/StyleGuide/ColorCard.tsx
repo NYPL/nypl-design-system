@@ -1,5 +1,5 @@
 import { Box, HStack } from "@chakra-ui/react";
-import * as React from "react";
+import { PropsWithChildren } from "react";
 
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
@@ -815,9 +815,7 @@ interface SmallColorSwatchProps {
   border?: boolean;
   darkBorder?: boolean;
 }
-const SmallColorSwatch = (
-  props: React.PropsWithChildren<SmallColorSwatchProps>
-) => {
+const SmallColorSwatch = (props: PropsWithChildren<SmallColorSwatchProps>) => {
   const { backgroundColor, border, darkBorder } = props;
   return (
     <span
@@ -883,7 +881,7 @@ export interface ColorCardProps extends DataTableProps {
   colorSource: string;
 }
 
-export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
+export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
   const {
     dataBgPageColor,
     dataBgDefaultColor,
@@ -1180,7 +1178,7 @@ export const DataTable = (props: React.PropsWithChildren<DataTableProps>) => {
   );
 };
 
-export const ColorCard = (props: React.PropsWithChildren<ColorCardProps>) => {
+export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
   const {
     backgroundColor,
     dataBgPageColor,

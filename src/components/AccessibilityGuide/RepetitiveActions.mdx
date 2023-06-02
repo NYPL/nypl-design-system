@@ -1,15 +1,17 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Link from "../Link/Link";
+
 <Meta title="Accessibility Guide/Repetitive Actions" />
 
 # Repetitive Actions
 
 ## Table of Contents
 
-- [General Information](#general-information)
-- [Unique Button Labels and Link Text](#unique-button-labels-and-link-text)
-- [NYPL Patterns](#nypl-patterns)
-- [Resources](#resources)
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#unique-button-labels-and-link-text" target="_self">Unique Button Labels and Link Text</Link>}
+- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
 
 ## General Information
 
@@ -75,7 +77,9 @@ For example, a link that is visibly titled "Read more" can:
 <a href="..." id="link1" aria-label="read more about jobs">
   Read more
 </a>
-`} language="html" />
+`}
+  language="html"
+/>
 
 #### aria-labelledby
 
@@ -86,7 +90,9 @@ For example, a link that is visibly titled "Read more" can:
 <a href="..." id="link1" aria-labelledby="link1 jobsheading">
   Read more
 </a>
-`} language="html" />
+`}
+  language="html"
+/>
 
 ## NYPL Patterns
 

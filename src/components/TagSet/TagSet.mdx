@@ -1,6 +1,7 @@
-import { Meta, Canvas, Description, ArgTypes, Source } from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TagSetStories from "./TagSet.stories";
+import Link from "../Link/Link";
 
 <Meta of={TagSetStories} />
 
@@ -13,11 +14,11 @@ import * as TagSetStories from "./TagSet.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Explore Variant](#explore-variant)
-- [Filter Variant](#filter-variant)
-- [Accessibility](#accessibility)
-- [Examples](#examples)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#explore-variant" target="_self">Explore Variant</Link>}
+- {<Link href="#filter-variant" target="_self">Filter Variant</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#examples" target="_self">Examples</Link>}
 
 ## Overview
 
@@ -50,7 +51,7 @@ element; typically, links are expected to be used for the "explore" variant.
 const tagSetData = [
   {
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--card-with-controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-basic-elements-card--with-controls">
         Card
       </a>
     ),
@@ -58,7 +59,7 @@ const tagSetData = [
   {
     iconName: "fileTypeDoc",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-page-layout-structuredcontent--structured-content-with-controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-page-layout-structuredcontent--controls">
         StructuredContent
       </a>
     ),
@@ -66,7 +67,7 @@ const tagSetData = [
   {
     iconName: "alertWarningOutline",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-feedback-progressindicator--progress-indicator-with-controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/components-feedback-progressindicator--with-controls">
         ProgressIndicator
       </a>
     ),
@@ -74,7 +75,7 @@ const tagSetData = [
   {
     iconName: "actionSettings",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--page">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/hooks-usenyplbreakpoints--docs">
         useNYPLBreakpoints React hook
       </a>
     ),

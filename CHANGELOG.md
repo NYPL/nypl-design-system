@@ -23,6 +23,10 @@ This updates replaces TSDX with Vite for the build tool. This allows the Reservo
 - Storybook is updated to v6.5.16, which is a minor update from v6.5.13.
 - Due to moving to ESM as the default for the repo, types are exported separated from components in the main `/src/index.ts` file. This doesn't affect the final build but just how components, interfaces, and types are exported.
 
+### Adds
+
+- Adds the `target` prop to the `Link` component.
+
 ### Removals
 
 - Removes the `Header` and `Footer` components from the DS. These components will be moved and maintained in the [nypl-header-app](https://github.com/NYPL/nypl-header-app).

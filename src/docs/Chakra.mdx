@@ -1,23 +1,24 @@
-import { Canvas, Meta, Source } from "@storybook/blocks";
+import { Meta, Source } from "@storybook/blocks";
 
 import Button from "../components/Button/Button";
+import Link from "../components/Link/Link";
 import Text from "../components/Text/Text";
 
 <Meta title="Chakra UI" />
 
 # Chakra UI
 
-| Table of Contents                   |
-| ----------------------------------- |
-| 1. [Why Chakra UI?](#why-chakra-ui) |
-| 2. [DSProvider](#dsprovider)        |
-| 3. [Components](#components)        |
-| 4. [Styling](#styling)              |
-| 5. [Style Props](#style-props)      |
-| 6. [Hooks](#hooks)                  |
-| 7. [Testing](#testing)              |
+## Table of Contents
 
-## Why Chakra UI?
+- {<Link href="#why-chakra-ui" target="_self">Why Chakra UI?</Link>}
+- {<Link href="#dsprovider" target="_self">DSProvider</Link>}
+- {<Link href="#components" target="_self">Components</Link>}
+- {<Link href="#styling" target="_self">Styling</Link>}
+- {<Link href="#style-props" target="_self">Style Props</Link>}
+- {<Link href="#hooks" target="_self">Hooks</Link>}
+- {<Link href="#testing" target="_self">Testing</Link>}
+
+## Why Chakra UI
 
 The Reservoir Design System (DS) project was influenced by other design systems but
 ultimately we decided to initially build DS components from scratch rather than
@@ -166,8 +167,8 @@ Internally, the right variant will be mapped to a Chakra theme variant that will
 provide all the necessary styles.
 
 For the `Button` component, for example, we would convert a SCSS class rule such
-as `.button-outline` to a Javascript object (more on this in the [Anatomy of a
-Component Styling Object](#anatomy-of-a-component-styling-object) section).
+as `.button-outline` to a Javascript object (more on this in the <Link href="#anatomy-of-a-component-styling-object" target="_self">Anatomy of a
+Component Styling Object</Link> section).
 
 ### Components re-exported from Chakra
 
@@ -514,8 +515,8 @@ component and if the function is used outside of this wrapper component, then
 the theme object will be empty.
 
 After importing and rendering the `DSProvider` wrapper component, as explained
-in the [DSProvider](#dsprovider) section, your children components can use this
-hook function.
+in the <Link href="#dsprovider" target="_self">DSProvider</Link> section, your
+children components can use this hook function.
 
 <Source
   code={`

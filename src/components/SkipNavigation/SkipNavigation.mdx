@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SkipNavigationStories from "./SkipNavigation.stories";
+import Link from "../Link/Link";
 
 <Meta of={SkipNavigationStories} />
 
@@ -13,9 +14,9 @@ import * as SkipNavigationStories from "./SkipNavigation.stories";
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Component Props](#component-props)
-- [Accessibility](#accessibility)
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
 
 ## Overview
 
@@ -44,7 +45,7 @@ The reason this is a navigation list of links is because the first main link
 points to the anchor of the main content, in this case `"#mainContent"`. The
 second link points to accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
 
-See the [Skip Navigation accessibility guide](/story/accessibility-guide-skip-navigation--page)
+See the [Skip Navigation accessibility guide](../?path=/docs/accessibility-guide-skip-navigation--docs)
 for more information on how to use this component with other DS components.
 
 Resources:
