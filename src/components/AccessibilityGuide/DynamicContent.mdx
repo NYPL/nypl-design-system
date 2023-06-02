@@ -1,0 +1,301 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Dynamic Content" />
+
+# Dynamic Content
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#aria-live-regions" target="_self">ARIA Live Regions</Link>}
+- {<Link href="#managing-focus" target="_self">Managing Focus</Link>}
+- {<Link href="#anti-patterns" target="_self">Anti-Patterns</Link>}
+- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+Most websites have elements that are updated dynamically. Typically, these
+updates are indicated with a visual loading animation before the new content is
+displayed. This visual cue, however, is not helpful for visually impaired users
+or users who use assistive technology. We need to ensure that the changes are
+understood and announced by the assistive technology.
+
+The quick takeaway for implementing this necessary functionality is to _always_
+render an empty container for the dynamic content in the DOM on the server-side.
+The container element should have an `aria-live="polite"` attribute applied. The
+following example shows one possible DOM structure that allows newly generated
+content to be recognized and announced by assistive technology.
+
+<Source
+  code={`
+<div class="dynamic-content-container" aria-live="polite">
+  <!-- Any dynamic content should be inserted, removed, or updated here. -->
+</div>
+`} language="html" />
+
+## ARIA Live Regions
+
+The `aria-live` attribute is used to indicate that an element's content will be
+updated dynamically and that it should be announced to assistive technology. The
+`aria-live` attribute can be set to "off", "polite", or "assertive". _When_ the
+content should be read by the assistive technology depends on which of the three
+values is used. This attribute does not manage focus on the element.
+
+_For dynamic content, always include the `aria-live` attribute in the initial
+DOM render to allow assistive technology to track the updates for the specified
+element._
+
+- `aria-live="off"` - the default value which is the same as not having the
+  attribute at all.
+- `aria-live="polite"` - the screen reader will wait until the user is done
+  interacting with the page before announcing the change. This is usually the
+  best option for dynamic content.
+- `aria-live="assertive"` - the screen reader will announce the change
+  immediately, even if the user is in the middle of interacting with the page.
+  This should be used sparingly when the update is time-sensitive or critical
+  because it can be disruptive to the user.
+
+## ARIA Atomic
+
+The `aria-atomic` attribute is used to indicate whether assistive technology
+should announce the entire content or only the changes. This is useful when an
+element's entire content is not replaced on every update but all of the content
+should still be read.
+
+For example, if the content of an element is updated to "Results found: 5" and
+then updated again to "Results found: 10", the assistive technology will
+announce "10" when `aria-atomic="false"` but will announce "Results found: 10"
+when `aria-atomic="true"`.
+
+- `aria-atomic="true"` - the entire content of the element will be read by the
+  assistive technology.
+- `aria-atomic="false"` - only the changes to the content will be read by the
+  assistive technology.
+
+<Source
+  code={`
+<div class="dynamic-content-container" aria-live="polite" aria-atomic="true">
+  Results found:
+  <span class="dynamic-content">
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+  </span>
+</div>
+`} language="html" />
+
+## Managing Focus
+
+Not all instances of dynamic content updates require a focus change, but some
+do. When a process completes and an important message is displayed, the focus
+should be moved to the message. For example, when a user submits a form and the
+form is cleared from the page, and a status message is added in its place, then
+focus should be placed on the status message. It is generally inappropriate to
+forcefully move focus to the message or search results when it is anticipated
+that the user might be interacting with multiple facets of filtering in
+succession and a focus change would be disruptive to their flow.
+
+As mentioned above, the `aria-live` attribute does not manage focus on the
+element. In order to move focus to the element, the `tabindex` (`tabIndex` in
+React) attribute must be set to `-1` to allow for programmatic focus on the
+element, and a `focus()` method must be called on the element. When focusing on
+an element, the focus will automatically cause the updated content to be read
+and the `aria-live` attribute should no longer be used.
+
+<Source
+  code={`
+<div class="dynamic-content-container" tabindex="-1">
+  <!-- Any dynamic content should be inserted, removed, or updated here. -->
+</div>
+`}
+  language="html"
+/>
+
+<Source
+  code={`
+// Javascript example
+const container = document.querySelector(".dynamic-content-container");
+// Once the content is updated, move focus to the container.
+container.focus();
+`}
+  language="js"
+/>
+
+<Source
+  code={`
+// React example
+const [text, setText] = useState(undefined);
+const containerRef = useRef(null);
+// Once the content is updated, move focus to the container.
+// Pseudocode example - the actual conditional logic will vary.
+useEffect(() => {
+// When content is updated, move focus to the container.
+  containerRef.current.focus();
+}, [text])
+// ...
+return (
+  <div class="dynamic-content-container" ref={containerRef} tabIndex="-1">
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+    {text}
+  </div>
+);
+`}
+  language="jsx"
+/>
+
+## Anti-Patterns
+
+**Do not dynamically add or remove the `aria-live` attribute from the element.**
+
+The `aria-live` attribute must be set on the element when the page is rendered.
+The following are **incorrect**:
+
+<Source
+  code={`
+<div id="dynamic-content-container">
+  <!-- Any dynamic content should be inserted, removed, or updated here. -->
+</div>
+`}
+  language="html"
+/>
+
+<Source
+  code={`
+// Javascript anti-pattern example
+const container = document.getElementById("dynamic-content-container");
+container.setAttribute("aria-live", "polite");
+`}
+  language="js"
+/>
+
+<Source
+  code={`
+// React anti-pattern example
+const [ariaLive, setAriaLive] = useState(undefined);
+// When the component mounts, set the aria-live attribute.
+useEffect(() => {
+  setAriaLive("polite");
+}, [])
+// ...
+return (
+  <div id="dynamic-content-container" aria-live={ariaLive}>
+    <!-- Any dynamic content should be inserted, removed, or updated here. -->
+  </div>
+);
+`}
+  language="jsx"
+/>
+
+**Do not assign the `aria-live` attribute to an entire section or the entire
+page.**
+
+Add the `aria-live` attribute to the specific element that will be updated. For
+example, on a search results page that updates the amount of results found and
+the list of results, only add the `aria-live` attribute to the element that
+contains the number of results. The following is not recommended:
+
+<Source
+  code={`
+<div id="search-results" aria-live="polite">
+  <div id="results-count">
+    <!-- Dynamic content. -->
+    <span>10 results found</span>
+  </div>
+  <ul id="results-list">
+    <!-- Dynamic list of li elements. -->
+    <li>
+      <p>Title: Result 1</p>
+      <p>Author: Author 1</p>
+    </li>
+    <li>
+      <p>Title: Result 2</p>
+      <p>Author: Author 2</p>
+    </li>
+    <!-- ... -->
+  </ul>
+</div>
+`}
+  language="html"
+/>
+
+This is not recommended because the screen reader will announce:
+
+<Source
+  code={`
+"10 results found Title: Result 1 Author: Author 1 Title: Result 2 Author: Author 2 ..."
+`}
+  language="html"
+/>
+
+This is information overload. Instead, add the `aria-live` attribute to the
+element that contains the updated number of results found. In this case, it's
+the element with `id` of `results-count` only.
+
+## NYPL Patterns
+
+### HelperErrorText
+
+The `HelperErrorText` component renders an empty `div` element with the
+`aria-live` attribute set to `"polite"` by default. This component should not be
+conditionally rendered on the page. Instead, the content should be dynamically
+updated.
+
+[HelperErrorText Storybook documentation](../?path=/docs/components-content-display-helpererrortext--docs)
+
+<Source
+  code={`
+// Very naive example.
+const [text, setText] = useState("");
+// ...
+useEffect(() => {
+  setText("This helper text was dynamically updated.");
+}, []);
+// ...
+// Even though "text" is empty by default, the "HelperErrorText" component
+// is still rendered. The text that is dynamically updated will be announced
+// by assistive technology.
+return <HelperErrorText text={text} />;
+`}
+  language="jsx"
+/>
+
+### Form Components
+
+The pattern described in this section is true for the `Checkbox`,
+`CheckboxGroup`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`,
+`Slider`, `TextInput`, and `Toggle` DS components. All these form components
+internally implement the `HelperErrorText` component described above.
+Implementing the `HelperErrorText` component allows the component to display
+helper or error text. This is especially useful when there is an error that
+needs to be displayed after the user has interacted with the form component.
+
+For simplicity, the `TextInput` component will be in the following example. The
+helper text "Please enter a 5-digit value." is set by default. If the user does
+not enter a 5-digit value, the error text "Error: The zip code needs to be
+5-digits." is displayed _and_ also announced by assistive technology.
+
+[TextInput Storybook documentation](../?path=/docs/components-form-elements-textinput--docs)
+
+<Source
+  code={`
+// Very naive example.
+const [inputValue, setInputValue] = useState();
+return (
+<TextInput
+  labelText="Zip code example"
+  isInvalid={inputValue.length !== 5}
+  onChange={(e) => setInputValue(e.target.value)}
+  helperText="Please enter a 5-digit value."
+  invalidText="Error: The zip code needs to be 5-digits."
+  value={inputValue}
+/>
+); `}
+  language="jsx"
+/>
+
+## Resources
+
+- [MDN aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live)
+- [W3 WAI-ARIA: aria-live](https://www.w3.org/TR/wai-aria/#aria-live)
+- [MDN ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)

@@ -8,8 +8,8 @@ The Reservoir Design System (DS) is NYPL’s open-source extensible React librar
 
 Storybook documentation
 
-- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page)
-- [Development/QA - deployed to Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page)
+- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs)
+- [Development/QA - deployed to Vercel](https://nypl-design-system.vercel.app/?path=/docs/welcome--docs)
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -127,20 +127,6 @@ function NewComponent(props) {
 }
 ```
 
-### NYPL DS, NYPL Header, and NYPL Footer
-
-```jsx
-<body>
-  <NYPLHeader />
-
-  <div class="app">
-    <!-- your code here -->
-  </div>
-
-  <NYPLFooter />
-</body>
-```
-
 ## Using Chakra UI Components
 
 The Chakra UI component library has been integrated into the Reservoir Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
@@ -152,13 +138,13 @@ The list of re-exported Chakra components can be found in the main [index.ts](/s
 Find more information about the Design System's internal use of Chakra to create and refactor components in the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
-- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page)
+- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/chakra-ui--docs)
 
 Chakra was integrated into the Design System in version `0.25.0`. For those looking to update to a version greater than or equal `0.25.0`, check out our [Chakra Migration Guide](/CHAKRA_MIGRATION_GUIDE.md).
 
 ## Storybook
 
-The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
+The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
 
 ### Documentation Instances
 
@@ -166,13 +152,13 @@ There are currently two main instances of the Reservoir Design System Storybook 
 
 **Production**
 
-The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
+The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
 
 As of July, 2021, the Github Pages production site gets deployed every two weeks on the same schedule as npm releases.
 
 **Development**
 
-The development Storybook documentation is deployed to [Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
+The development Storybook documentation is deployed to [Vercel](https://nypl-design-system.vercel.app/?path=/docs/welcome--docs). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
 **Preview Sites**
 
@@ -203,7 +189,9 @@ To help consuming application developers understand which version of the DS is r
 
 ### Static Build
 
-There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). In the event that you do run the static Storybook npm script, run:
+_Make sure not to commit the directory created from the following process_.
+
+There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). In the event that you do run the static Storybook npm script, run:
 
 ```sh
 $ npm run build-storybook:v1

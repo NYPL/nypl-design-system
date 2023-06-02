@@ -8,23 +8,29 @@ import {
 import React, { forwardRef, ImgHTMLAttributes } from "react";
 import { useInView } from "react-intersection-observer";
 
-export type ImageRatios =
-  | "fourByThree"
-  | "oneByTwo"
-  | "original"
-  | "sixteenByNine"
-  | "square"
-  | "threeByFour"
-  | "threeByTwo"
-  | "twoByOne";
-export type ImageSizes =
-  | "default"
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large";
-export type ImageTypes = "default" | "circle";
+export const imageRatiosArray = [
+  "fourByThree",
+  "oneByTwo",
+  "original",
+  "sixteenByNine",
+  "square",
+  "threeByFour",
+  "threeByTwo",
+  "twoByOne",
+] as const;
+export const imageSizesArray = [
+  "default",
+  "xxsmall",
+  "xsmall",
+  "small",
+  "medium",
+  "large",
+] as const;
+export const imageTypesArray = ["default", "circle"] as const;
+export type ImageRatios = typeof imageRatiosArray[number];
+export type ImageSizes = typeof imageSizesArray[number];
+export type ImageTypes = typeof imageTypesArray[number];
+
 // Used for components that have an `imageProps` prop.
 export interface ComponentImageProps extends Partial<HTMLImageElement> {
   /** String value used to populate the `alt` attribute of the internal `Image`

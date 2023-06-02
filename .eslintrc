@@ -40,7 +40,6 @@
     "react/display-name": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/ban-types": 0,
-    "storybook/default-exports": 0,
     "@typescript-eslint/no-inferrable-types": 0,
     "prefer-const": 0,
     "no-sparse-arrays": 0,

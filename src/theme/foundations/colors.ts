@@ -3,7 +3,7 @@ import { hexToRGB } from "../../utils/utils";
 
 /**
  * All colors can be found in Storybook:
- *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--page
+ *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--docs
  *
  * All UI Fills colors can be found in Figma:
  *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674
@@ -108,12 +108,12 @@ const researchLibraryObj = {
   light: {
     lpa: researchLibraryLpa,
     schomburg: researchLibrarySchomburg,
-    schwatzman: researchLibrarySchwartzman,
+    schwartzman: researchLibrarySchwartzman,
   },
   dark: {
     lpa: hexToRGB(researchLibraryLpa, 0.2),
     schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
-    schwatzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+    schwartzman: hexToRGB(researchLibrarySchwartzman, 0.2),
   },
 };
 

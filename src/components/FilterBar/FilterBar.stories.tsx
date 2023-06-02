@@ -1,9 +1,10 @@
-import { action } from "@storybook/addon-actions";
-import React from "react";
-import { Story } from "@storybook/react/types-6-0";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
+import { action } from "@storybook/addon-actions";
+import type { Meta, StoryObj } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
+import { useEffect, useState } from "react";
 
-import FilterBar, { FilterBarProps } from "./FilterBar";
+import FilterBar from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import useFilterBar from "../../hooks/useFilterBar";
@@ -72,7 +73,87 @@ const multiSelectItems = [
 const shortMultiSelectItems = [...multiSelectItems];
 shortMultiSelectItems.pop();
 
-export const FilterBarStory: Story<FilterBarProps> = (args) => {
+const meta: Meta<typeof FilterBar> = {
+  title: "Components/Form Elements/FilterBar",
+  component: FilterBar,
+  decorators: [withDesign],
+  argTypes: {
+    children: { table: { disable: true } },
+    id: { control: false },
+    selectedItems: { control: false },
+    showClearAll: {
+      type: { name: "boolean", required: false },
+      table: { defaultValue: { summary: "false" } },
+    },
+    showSubmitAll: {
+      type: { name: "boolean", required: false },
+      table: { defaultValue: { summary: "false" } },
+      description:
+        "If passed the `Apply Filters` button will render on desktop and tablet `boolean`",
+    },
+    onSubmit: {
+      description:
+        "Function to handle submit of all selectedItems - needs to be provided from consuming app",
+    },
+    onClear: {
+      description:
+        "Function to clear all selectedItems - available through hook",
+    },
+    onOpen: {
+      contol: false,
+      description:
+        "Function to open the filter modal overlay on mobile viewport - available through hook",
+    },
+    onClose: {
+      control: false,
+      description:
+        "Function to close the filter modal overlay on mobile viewport - available through hook",
+    },
+    onToggle: {
+      control: false,
+      description:
+        "Function to toggle the filter modal overlay on mobile viewport - available through hook",
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof FilterBar>;
+
+/**
+ * Main Story for the FilterBar component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const WithControls: Story = {
+  args: {
+    id: "filterbar-id",
+    headingText: "FilterBar",
+    layout: "row",
+  },
+  render: (args) => <FilterBarStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=53603%3A41770&t=j06bIokU6KAF2JHN-0",
+    },
+    jest: ["FilterBar.test.tsx"],
+  },
+};
+
+// The following are additional FilterBar example Stories.
+export const LayoutPatterns: Story = {
+  render: () => <FilterBarLayoutStory />,
+};
+export const UIContainers: Story = {
+  render: () => <FilterBarRowContainerStory />,
+  name: "UI Containers for Row Layout",
+};
+export const ColumnLayout: Story = {
+  render: () => <FilterBarColumnContainerStory />,
+  name: "UI Containers for Column Layout",
+};
+
+const FilterBarStory = (args) => {
   const {
     onChange,
     onMixedStateChange,
@@ -85,9 +166,9 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
   } = useFilterBar();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
-  const [actionName, setActionName] = React.useState("");
+  const [actionName, setActionName] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       actionName === "onClose" ||
       actionName === "onOpen" ||
@@ -166,7 +247,7 @@ export const FilterBarStory: Story<FilterBarProps> = (args) => {
     </FilterBar>
   );
 };
-export const FilterBarLayoutStory = () => {
+const FilterBarLayoutStory = () => {
   const {
     onChange,
     onMixedStateChange,
@@ -770,7 +851,7 @@ export const FilterBarLayoutStory = () => {
   );
 };
 
-export const FilterBarRowContainerStory = () => {
+const FilterBarRowContainerStory = () => {
   const {
     onChange,
     onMixedStateChange,
@@ -910,7 +991,7 @@ export const FilterBarRowContainerStory = () => {
   );
 };
 
-export const FilterBarColumnContainerStory = () => {
+const FilterBarColumnContainerStory = () => {
   const {
     onChange,
     onMixedStateChange,

@@ -16,7 +16,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     className="css-79elbk"
   >
     <textarea
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-textarea css-0"
       disabled={false}
       id="myTextarea"
@@ -58,7 +58,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
   >
     <input
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -101,7 +101,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
   >
     <input
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -140,7 +140,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     className="css-79elbk"
   >
     <input
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -174,7 +174,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     <input
       aria-label="Custom Input Label"
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -218,7 +218,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     <input
       aria-describedby="myTextInput-helperText"
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -271,7 +271,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
       aria-describedby="myTextInput-helperText"
       aria-invalid={true}
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -322,7 +322,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
   >
     <input
       aria-required={true}
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={true}
       id="myTextInput"
@@ -361,7 +361,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     className="css-79elbk"
   >
     <input
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
@@ -400,7 +400,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     className="css-79elbk"
   >
     <input
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       disabled={false}
       id="chakra"
@@ -440,7 +440,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     className="css-79elbk"
   >
     <input
-      autocomplete={null}
+      autoComplete={null}
       className="chakra-input css-0"
       data-testid="props"
       disabled={false}

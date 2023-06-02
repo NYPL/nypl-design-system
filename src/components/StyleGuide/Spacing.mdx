@@ -1,0 +1,110 @@
+import { Meta } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Style Guide/Spacing" />
+
+# Spacing
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#default-spacing-values" target="_self">Default Spacing Values</Link>}
+- {<Link href="#page-section-spacing" target="_self">Page Section Spacing</Link>}
+- {<Link href="#grid-spacing" target="_self">Grid Spacing</Link>}
+- {<Link href="#form-spacing" target="_self">Form Spacing</Link>}
+- {<Link href="#tabular-data-spacing" target="_self">Tabular Data Spacing</Link>}
+- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+
+## General Information
+
+The Reservoir Design System (DS) spacing values are based on a root unit
+of `16px` (`1rem` = `16px`).
+
+## Default Spacing Values
+
+The following default spacing values are available through the DS.
+
+| JS Token | CSS Token           | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
+| :------- | :------------------ | :------------- | :--------------- | :------------------------------------------------------------------------------------------------------------ |
+| `xxxs`   | `--nypl-space-xxxs` | `0.125rem`     | `2px`            | <div style={{ width: "var(--nypl-space-xxxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
+| `xxs`    | `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `xs`     | `--nypl-space-xs`   | `0.5rem`       | `8px`            | <div style={{ width: "var(--nypl-space-xs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `s`      | `--nypl-space-s`    | `1rem`         | `16px`           | <div style={{ width: "var(--nypl-space-s)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `m`      | `--nypl-space-m`    | `1.5rem`       | `24px`           | <div style={{ width: "var(--nypl-space-m)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `l`      | `--nypl-space-l`    | `2rem`         | `32px`           | <div style={{ width: "var(--nypl-space-l)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `xl`     | `--nypl-space-xl`   | `3rem`         | `48px`           | <div style={{ width: "var(--nypl-space-xl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `xxl`    | `--nypl-space-xxl`  | `4rem`         | `64px`           | <div style={{ width: "var(--nypl-space-xxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `xxxl`   | `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
+
+## Page Section Spacing
+
+In consuming apps, the major page sections should be separated vertically by
+`2rem`. This includes the space after the page global `header` and the space
+before the global `footer`. Similarly, the major page sections should be
+separated horizontally by `2rem`.
+
+|                        | JS Token      | CSS Token                    | Value  |
+| :--------------------- | :------------ | :--------------------------- | :----- |
+| **Vertical Spacing**   | `page.vstack` | `--nypl-spacing-page-vstack` | `2rem` |
+| **Horizontal Spacing** | `page.hstack` | `--nypl-spacing-page-hstack` | `2rem` |
+
+## Grid Spacing
+
+When elements are displayed in a grid (i.e. Cards, Images, etc.), the space
+between elements, both horizontal and vertical, should be `2rem`.
+
+|                 | JS Token       | CSS Token                     | Value  |
+| :-------------- | :------------- | :---------------------------- | :----- |
+| **Default Gap** | `grid.default` | `--nypl-spacing-grid-default` | `2rem` |
+
+## Form Spacing
+
+Form input components should have a `2rem` space between each form input
+component. This includes both vertical (column) and horizontal (row) stacking.
+The DS [Form](../?path=/docs/components-form-elements-form--docs)
+component has correct spacing incorporated into its UI structure and should
+always be used when building forms. Please note that the spacing in the `Form`
+component is identical to the spacing in the `Grid` component.
+
+When `Checkbox` and `Radio` components are grouped together, the components
+should have a `1rem` space between components for vertical (column) stacking
+and a `2rem` space between components for horizontal (row) stacking. The DS
+`CheckboxGroup` and `RadioGroup` components have the correct spacing built
+
+in and should be used respectively when multiple `Checkbox` or `radio`
+components are being used together.
+
+When `Button` components are grouped together, the `Button` components should
+have a `0.5rem` space between component. This includes both vertical (column)
+and horizontal (row) stacking. The DS `ButtonGroup` component has the correct
+spacing built in and should be used when multiple `Button` components are being
+used together.
+
+|                                        | JS Token                     | CSS Token                                   | Value    |
+| :------------------------------------- | :--------------------------- | :------------------------------------------ | :------- |
+| **Default Form Gap**                   | `grid.default`               | `--nypl-spacing-grid-default`               | `2rem`   |
+| **Input Group Default Row Spacing**    | `input.group.default.hstack` | `--nypl-spacing-input-group-default-hstack` | `2rem`   |
+| **Input Group Default Column Spacing** | `input.group.default.vstack` | `--nypl-spacing-input-group-default-vstack` | `1rem`   |
+| **Button Group Row Spacing**           | `input.group.button.hstack`  | `--nypl-spacing-input-group-button-hstack`  | `0.5rem` |
+| **Button Group Column Spacing**        | `input.group.button.vstack`  | `--nypl-spacing-input-group-button-vstack`  | `0.5rem` |
+
+## Tabular Data Spacing
+
+When data is displayed in a tabular layout (i.e. rows and columns in a table,
+a description list, etc.), the space between data cells in a row should be
+`1.5rem` and the space between rows should be `2rem`.
+
+|                | JS Token       | CSS Token                     | Value    |
+| :------------- | :------------- | :---------------------------- | :------- |
+| **Column Gap** | `table.column` | `--nypl-spacing-table-column` | `1.5rem` |
+| **Row Gap**    | `table.row`    | `--nypl-spacing-table-row`    | `2rem`   |
+
+## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
+
+- [General Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17249%3A13)
+- [Section Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17185%3A249)
+- [Grid Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17185%3A204)
+- [Tabular Data Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A5146)

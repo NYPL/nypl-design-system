@@ -3,11 +3,14 @@ import React, { forwardRef } from "react";
 
 import Heading from "../Heading/Heading";
 
-export type ListTypes = "ol" | "ul" | "dl";
-interface DescriptionProps {
+export const listTypesArray = ["ol", "ul", "dl"] as const;
+export type ListTypes = typeof listTypesArray[number];
+
+export interface DescriptionProps {
   term: string;
   description: string | JSX.Element;
 }
+
 export interface ListProps {
   /** ClassName you can add in addition to 'list' */
   className?: string;

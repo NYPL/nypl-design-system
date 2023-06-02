@@ -8,7 +8,13 @@ import React, { forwardRef } from "react";
 
 import { LayoutTypes } from "../../helpers/types";
 
-export type SkeletonLoaderImageRatios = "landscape" | "portrait" | "square";
+export const skeletonLoaderImageRatiosArray = [
+  "landscape",
+  "portrait",
+  "square",
+] as const;
+export type SkeletonLoaderImageRatios =
+  typeof skeletonLoaderImageRatiosArray[number];
 
 export interface SkeletonLoaderProps {
   /** Additional class name for the Skeleton component. */

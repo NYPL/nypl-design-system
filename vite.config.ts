@@ -15,6 +15,7 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         titleProp: true,
+        // icon: true,
       },
     }),
     // For Typescript support
@@ -30,12 +31,22 @@ export default defineConfig({
       name: "design-system-react-components",
     },
     rollupOptions: {
-      external: ["react", "@chakra-ui/react", "@chakra-ui/system"],
+      external: [
+        "react",
+        "@chakra-ui/react",
+        "@chakra-ui/system",
+        "@emotion/react",
+      ],
       output: {
         name: "design-system-react-components",
         globals: {
           react: "React",
           "@chakra-ui/react": "ChakraUI",
+          "@emotion/react": "Emotion",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") return "styles.css";
+          return assetInfo.name || "";
         },
       },
     },

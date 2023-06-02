@@ -1,0 +1,41 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as TextStories from "./Text.stories";
+import Link from "../Link/Link";
+
+<Meta of={TextStories} />
+
+# Text
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.1`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+
+## Overview
+
+<Description of={TextStories} />
+
+The `Text` component renders a basic `<p>` element. As its name indicates, the
+`size` prop controls the size of the text rendered in the component.
+
+## Component Props
+
+<Canvas of={TextStories.WithControls} />
+
+<ArgTypes of={TextStories.WithControls} />
+
+## Accessibility
+
+The `Text` component renders paragraph `p` HTML elements which are inherently
+accessible and will be read by screen readers.
+
+Resources:
+
+- [Chakra UI Text](https://chakra-ui.com/docs/components/typography/text)
