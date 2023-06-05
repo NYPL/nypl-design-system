@@ -1,12 +1,12 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.6.0-vite-rc-4",
+  "version": "1.6.0-vite-rc-5",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
     "url": "https://github.com/NYPL/nypl-design-system/"
   },
-  "main": "dist/design-system-react-components.umd.cjs",
+  "main": "dist/design-system-react-components.cjs",
   "types": "dist/src/index.d.ts",
   "module": "dist/design-system-react-components.js",
   "type": "module",
@@ -16,7 +16,7 @@
   "exports": {
     ".": {
       "import": "./dist/design-system-react-components.js",
-      "require": "./dist/design-system-react-components.umd.cjs"
+      "require": "./dist/design-system-react-components.cjs"
     },
     "./dist/styles.css": "./dist/styles.css"
   },
