@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.6.0 (June 8, 2023)
+
 ### Vite Foundation Update
 
 This updates replaces TSDX with Vite for the build tool. This allows the Reservoir DS library to be easily maintained and allow individual npm packages to be updated for security patches and general bug fixes. At the same time, the local and production build process are now much faster. Specific updates and changes:
