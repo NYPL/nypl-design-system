@@ -4,7 +4,7 @@ name: Deploy Static Storybook
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [release]
+    branches: [gh-pages]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -34,6 +34,8 @@ jobs:
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Build Storybook
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: npm run prebuild:storybook && npm run build-storybook:v1
       - name: Setup Pages
         uses: actions/configure-pages@v3
