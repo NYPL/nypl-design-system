@@ -27,7 +27,7 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -100,7 +100,7 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -176,7 +176,7 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -251,7 +251,7 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -326,7 +326,7 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -400,7 +400,7 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",
@@ -473,7 +473,7 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
         onKeyUp={[Function]}
         required={false}
         style={
-          Object {
+          {
             "border": "0px",
             "clip": "rect(0px, 0px, 0px, 0px)",
             "height": "1px",

@@ -6,7 +6,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
   data-responsive-background-image={true}
   data-testid="hero"
   style={
-    Object {
+    {
       "backgroundImage": "url(https://placeimg.com/1600/800/arch)",
     }
   }
@@ -15,7 +15,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }
@@ -41,12 +41,12 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   className="css-1xdhyk6"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="css-0"
     data-testid="hero-content"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="css-0"
@@ -81,12 +81,12 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   className="css-1xdhyk6"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="css-0"
     data-testid="hero-content"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="css-0"
@@ -121,12 +121,12 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   className="css-1xdhyk6"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="css-0"
     data-testid="hero-content"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="css-0"
@@ -161,12 +161,12 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   className="css-1xdhyk6"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="css-0"
     data-testid="hero-content"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="css-0"
@@ -201,12 +201,12 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   className="css-1xdhyk6"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="css-0"
     data-testid="hero-content"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="css-0"
@@ -242,7 +242,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
   data-responsive-background-image={true}
   data-testid="hero"
   style={
-    Object {
+    {
       "backgroundColor": undefined,
     }
   }
@@ -251,7 +251,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }
@@ -276,7 +276,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   data-responsive-background-image={true}
   data-testid="hero"
   style={
-    Object {
+    {
       "backgroundImage": "url(https://placeimg.com/2400/800/nature/grayscale)",
     }
   }
@@ -285,7 +285,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }
@@ -325,7 +325,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
   data-responsive-background-image={true}
   data-testid="hero"
   style={
-    Object {
+    {
       "backgroundColor": undefined,
     }
   }
@@ -334,7 +334,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }
@@ -368,7 +368,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
   data-responsive-background-image={true}
   data-testid="hero"
   style={
-    Object {
+    {
       "backgroundImage": "url(https://placeimg.com/1600/800/arch)",
     }
   }
@@ -377,7 +377,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }
@@ -404,7 +404,7 @@ exports[`Hero Renders the UI snapshot correctly 11`] = `
   data-responsive-background-image={true}
   data-testid="props"
   style={
-    Object {
+    {
       "backgroundImage": "url(https://placeimg.com/1600/800/arch)",
     }
   }
@@ -413,7 +413,7 @@ exports[`Hero Renders the UI snapshot correctly 11`] = `
     className="css-0"
     data-testid="hero-content"
     style={
-      Object {
+      {
         "backgroundColor": undefined,
         "color": undefined,
       }

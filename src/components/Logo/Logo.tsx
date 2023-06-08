@@ -7,66 +7,11 @@ import {
 import React, { forwardRef } from "react";
 
 import logoSvgs from "./LogoSvgs";
+import { logoNamesArray, logoSizesArray } from "./logoVariables";
 
-export type LogoNames =
-  | "appleAppStoreBlack"
-  | "appleAppStoreWhite"
-  | "bplBlack"
-  | "bplWhite"
-  | "cleverBadgeColor"
-  | "cleverColor"
-  | "cleverWhite"
-  | "digitalCollectionsBlack"
-  | "digitalCollectionsWhite"
-  | "firstbookColor"
-  | "firstbookColorNegative"
-  | "googlePlayBlack"
-  | "lpaBlack"
-  | "lpaColor"
-  | "lpaWhite"
-  | "mlnBlack"
-  | "mlnColor"
-  | "mlnWhite"
-  | "nycdoeBlack"
-  | "nycdoeColor"
-  | "nycdoeWhite"
-  | "nyplFullBlack"
-  | "nyplFullWhite"
-  | "nyplLionBlack"
-  | "nyplLionWhite"
-  | "nyplTextBlack"
-  | "nyplTextWhite"
-  | "openebooksColor"
-  | "openebooksNegative"
-  | "openebooksWithTextColor"
-  | "openebooksWithTextNegative"
-  | "qplAltBlack"
-  | "qplAltWhite"
-  | "qplBlack"
-  | "qplColor"
-  | "qplWhite"
-  | "reservoirIconColor"
-  | "reservoirVerticalColor"
-  | "schomburgBlack"
-  | "schomburgCircleBlack"
-  | "schomburgCircleColor"
-  | "schomburgCircleWhite"
-  | "schomburgColor"
-  | "schomburgWhite"
-  | "simplyeBlack"
-  | "simplyeWhite"
-  | "simplyeColor"
-  | "snflBlack"
-  | "snflWhite"
-  | "treasuresColor"
-  | "treasuresColorNegative";
-export type LogoSizes =
-  | "default"
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large";
+export type LogoNames = typeof logoNamesArray[number];
+export type LogoSizes = typeof logoSizesArray[number];
+
 export interface LogoProps {
   /** Optional className that will be added to the parent element */
   className?: string;
@@ -115,7 +60,7 @@ export const Logo = chakra(
       title,
       ...rest,
     };
-    let childSVG = null;
+    let childSVG: any = null;
 
     // Component prop validation
     if (name && children) {

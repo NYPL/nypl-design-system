@@ -1,0 +1,73 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as SimpleGridStories from "./SimpleGrid.stories";
+import Link from "../Link/Link";
+
+<Meta of={SimpleGridStories} />
+
+# SimpleGrid
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.1`   |
+| Latest            | `1.0.6`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#other-simplegrid-examples" target="_self">Other SimpleGrid Examples</Link>}
+
+## Overview
+
+<Description of={SimpleGridStories} />
+
+The `SimpleGrid` component is used to render UI elements in a uniform grid
+layout, with the column widths and grid spacing fixed throughout the grid.
+
+The NYPL standards for the items per row in a grid is `3` for desktop, `2` for
+tablet and `1` for mobile. By default, the `SimpleGrid` component uses these
+standards and the `columns` prop is optional. If the `columns` prop is used, the
+tablet breakpoint will be dropped and only the mobile breakpoint (1 item per
+row) will be triggered.
+
+## Component Props
+
+<Canvas of={SimpleGridStories.WithControls} />
+
+<ArgTypes of={SimpleGridStories.WithControls} />
+
+## Accessibility
+
+The CSS grid layout properties are used for the `SimpleGrid` component. We don't
+recommend using property rules that change the visual order of elements on the
+page that don't match with its DOM order. This is because a screenreader won't
+pick up `SimpleGrid` CSS rules and will read the page in the expected DOM order
+rather than the visual order.
+
+Resources:
+
+- [MDN CSS Grid Layout and Accessibility](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
+
+## Other SimpleGrid Examples
+
+### Icons
+
+This example is rendering `Icon` components with the `columns` prop set to `5`.
+
+<Canvas of={SimpleGridStories.IconExample} />
+
+### Images
+
+This example is rendering square `Image` components with the `columns` prop set
+to `6`.
+
+<Canvas of={SimpleGridStories.ImageExample} />
+
+### Horizontal Cards
+
+This example is rendering horizontal `Card` components with the `columns` prop
+set to `1`.
+
+<Canvas of={SimpleGridStories.CardExample} />

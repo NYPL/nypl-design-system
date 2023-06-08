@@ -1,0 +1,106 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Hooks/useNYPLTheme" />
+
+# useNYPLTheme
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `0.25.2`   |
+| Latest       | `0.25.2`   |
+
+This custom hook is based on Chakra UI's `useTheme` hook. If your application
+does not use CSS or SCSS files and you want to write CSS-in-JS styles in your
+React components, the `useNYPLTheme` hook will provide you with NYPL-specific
+style values.
+
+## Usage
+
+This hook depends on the `DSProvider` component and if the function is used
+outside of this wrapper component, then the theme object will be empty. After
+importing and rendering the `DSProvider` wrapper component, your children
+components can use this hook function.
+
+<Source
+  code={`
+import { useNYPLTheme } from "@nypl/design-system-react-components";
+// ...
+const theme = useNYPLTheme();
+`}
+  language="jsx"
+/>
+
+The `theme` variable will be a JS object with design token style values.
+This will allow you to use NYPL-specific styles in your components through CSS-in-JS.
+
+<Source
+  code={`
+// theme:
+{
+  breakpoints: { ... },
+  colors: {
+    brand: { ... },
+    section: { ... },
+    transparent: { ... },
+    ui: { ... },
+  },
+  fontSizes: { ... },
+  fontWeights: { ... },
+  fonts: { ... },
+  radii: { ... },
+  space: { ... },
+}
+`}
+  language="jsx"
+/>
+
+1. NYPL DS Components
+
+All DS components _should_ be used with their current styles. If a DS component
+needs an updated style, first contact the Design System and UX teams about this
+update. If you really _need_ to update a style and there is no available
+variant, then you can add styles directly as style prop.
+
+For example, if the `Heading` component should render the text in NYPL's green
+color used for "success primary" and add a bold font weight, then you can do
+the following:
+
+<Source
+  code={`
+const theme = useNYPLTheme();
+// ...
+return (
+  <div>
+    <Heading
+      level={2}
+      color={theme.colors.ui.success.primary}
+      fontWeight={theme.fontWeights.bold}
+    >
+      Get a Digital Library Card Today in a Few Easy Steps
+    </Heading>
+    {/* Other components */}
+  </div>
+);
+`}
+  language="jsx"
+/>
+
+Of course, you can destructure the `theme` object to only get the object keys
+you need for your component (this is a general example). Log the object to the
+console to see all the available styles.
+
+2. HTML Components
+
+Use the `style` attribute in HTML components to add inline styles.
+
+<Source
+  code={`
+<p style={{ color: theme.colors.ui.success.primary }}>
+  If you are 13 or older and live, work, attend school, or pay property taxes in
+  New York State, you can get a free digital library card right now using this
+  online form. Visitors to New York State can also use this form to apply for a
+  temporary card.
+</p>
+`}
+  language="jsx"
+/>

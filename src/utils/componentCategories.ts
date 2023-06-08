@@ -98,12 +98,10 @@ const categories = {
     ],
   },
   layout: {
-    title: "Components/Page Layout",
+    title: "Components/PageLayout",
     components: [
       "StructuredContent",
       "ContentSwitcher",
-      "Footer",
-      "Header",
       "HorizontalRule",
       "Section",
       "SimpleGrid",

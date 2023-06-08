@@ -1,0 +1,106 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as HelperErrorTextStories from "./HelperErrorText.stories";
+import Link from "../Link/Link";
+
+<Meta of={HelperErrorTextStories} />
+
+# HelperErrorText
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#html-and-jsx-children" target="_self">HTML and JSX Children</Link>}
+- {<Link href="#invalid-state" target="_self">Invalid State</Link>}
+
+## Overview
+
+<Description of={HelperErrorTextStories} />
+
+## Component Props
+
+<Canvas of={HelperErrorTextStories.WithControls} />
+
+<ArgTypes of={HelperErrorTextStories.WithControls} />
+
+## Accessibility
+
+In the Reservoir Design System (DS), the `HelperErrorText` component is always
+used as a child component when composing more complex components.
+
+In the case of form components, the `HelperErrorText` component is associated
+with a related input field by using the `aria-describedby` attribute in the
+associated element. This pattern ensures that the content of the
+`HelperErrorText` component is made available to screenreaders.
+
+This component will always render at least an empty `<div>` element with an
+`aria-live="polite"` attribute set even if no text content is passed. This is to
+ensure that the accessibility guideline for dynamic content is met. One expected
+use case of the `HelperErrorText` component is to dynamically render error text
+when a form field is invalid. In that scenario, the dynamically updated error
+text will be read by assistive technologies.
+
+The example below is shows a `TextInput` component. The `TextInput` component
+uses the `HelperErrorText` component to render the red-colored `"This is error text :("` text below the input field and that text element is referenced with
+the `aria-describedby` attribute on the HTML input element. This type of
+association is handled automatically by all DS `Form Elements` components.
+
+<Canvas of={HelperErrorTextStories.TextInputExample} />
+
+### ariaAtomic
+
+The `ariaAtomic` prop sets the `aria-atomic` HTML attribute. This allows the
+entire DOM element to be presented to assistive technologies. When it is set to
+`false`, only additions or removals will be read by assistive technologies.
+
+By default, this prop is set to `true`.
+
+### ariaLive
+
+The `ariaLive` prop sets the `aria-live` HTML attribute. This determines the
+priority of when text updates in this component should be read to users by
+assistive technologies. The possible values are the same as the native HTML
+`aria-live` attribute: `"off"`, `"polite"`, and `"assertive"`.
+
+The `"off"` value indicates that updates should not be announced and when this
+value is passed, the `aria-live` attribute will not be added at all. The
+`"polite"` value indicates that updates will be announced at the next available
+time slot. The `"assertive"` value indicates that updates should be announced
+immediately, but this is not recommended as it can interruptive to the user.
+
+In order to meet the accessibility guidelines for dynamic content updates, this
+attribute is set in the wrapper `<div>` element that is always rendered by the
+`HelperErrorText` component.
+
+By default, this prop is set to `"polite"`.
+
+<Canvas of={HelperErrorTextStories.AriaControls} />
+
+Resources:
+
+- [MDN aria-describedby Attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
+- [MDN ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [W3C WAI-ARIA 1.1 - aria-live (property)](https://www.w3.org/TR/wai-aria-1.1/#aria-live)
+- [W3C ARIA19: Using ARIA role=alert or Live Regions to Identify Errors](https://www.w3.org/TR/WCAG20-TECHS/ARIA19.html)
+- [DigitalA11y WAI-ARIA:aria-live (Property)](https://www.digitala11y.com/aria-live-properties/)
+
+## HTML and JSX Children
+
+The `HelperErrorText` component can render any HTML element or React component
+through the `text` prop.
+
+<Canvas of={HelperErrorTextStories.HTMLChildren} />
+
+## Invalid State
+
+Set the `isInvalid` prop to `true` to render the passed text content with the
+NYPL "invalid" styling.
+
+<Canvas of={HelperErrorTextStories.InvalidState} />

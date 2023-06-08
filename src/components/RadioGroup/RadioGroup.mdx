@@ -1,0 +1,202 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as RadioGroupStories from "./RadioGroup.stories";
+import Link from "../Link/Link";
+
+<Meta of={RadioGroupStories} />
+
+# RadioGroup
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.0`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
+- {<Link href="#browser-states" target="_self">Browser States</Link>}
+- {<Link href="#labels-using-jsx-elements" target="_self">Labels Using JSX Elements</Link>}
+- {<Link href="#getting-radio-input-values" target="_self">Getting Radio Input Values</Link>}
+
+## Overview
+
+<Description of={RadioGroupStories} />
+
+## Component Props
+
+<Canvas of={RadioGroupStories.Controls} />
+
+<ArgTypes of={RadioGroupStories.Controls} />
+
+## Accessibility
+
+The `RadioGroup` renders a group of `Radio` components that are wrapped in a
+`<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
+can be visually hidden through the `showLabel` prop.
+
+Resources:
+
+- [W3C ARIA radiogroup and radio example](https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/radio/radio.html)
+- [Deque University Radio and Radio Group](https://dequeuniversity.com/library/aria/radio-and-radio-group)
+- [Chakra UI Radio](https://chakra-ui.com/docs/components/form/radio)
+
+## Layout Patterns
+
+Use the `layout` prop to set the `Radio` buttons to display in a column or in
+a row.
+
+<Canvas of={RadioGroupStories.LayoutPatterns} />
+
+## Browser States
+
+<Canvas of={RadioGroupStories.BrowserStates} />
+
+## Labels Using JSX Elements
+
+React elements can be passed to the `labelText` prop of the `Radio` component.
+This is useful if you need to pass information as part of the label. For example,
+if a `Radio` label needs to display how many items that option has, it can be
+displayed with the help of the `Flex` and `Spacer` components.
+
+Note: the width of `RadioGroup` is _not_ set to full width by default. In
+order to make this work, pass in the `isFullWidth` prop.
+
+<Canvas of={RadioGroupStories.JSXElement} />
+
+## Getting Radio Input Values
+
+### Controlled Component using \`name\` and \`onChange\` props
+
+If your application uses controlled React components and the Reservoir Design
+System (DS) `RadioGroup` must be controlled, you can extract the data through the
+`name` and `onChange` props. This will be called every time a new `Radio` value
+is selected. Open the browser's console to see the output.
+
+<Source
+  code={`
+function RadioGroupControlledExample() {
+  const onChange = (selected) => {
+    // This will return the value selected as a string.
+    console.log(\`Controlled example. Selected: \${selected}\`);
+  };
+  return (
+    <RadioGroup
+      defaultValue="3"
+      id="controlled-example"
+      labelText="Controlled RadioGroup"
+      name="radioGroupExample"
+      onChange={onChange}
+    >
+      <Radio id="2" labelText="Radio 2" value="2" />
+      <Radio id="3" labelText="Radio 3" value="3" />
+      <Radio id="4" labelText="Radio 4" value="4" />
+    </RadioGroup>
+  );
+}
+`}
+  language="jsx"
+/>
+
+<Canvas of={RadioGroupStories.ControlledExample} />
+
+### Uncontrolled Component using \`ref\`s
+
+**NOTE: this, along with Chakra's own `RadioGroup` component, are not working
+at this time and we recommend to use the controlled pattern above.**
+
+If your application uses uncontrolled components, you can pass React `ref` props
+to the DS `RadioGroup` component to get the selected value from the DOM.
+
+The following example is using the `register` React `ref` from the
+`react-hook-form` package.
+
+<Source
+  code={`
+import { useFormContext, Controller } from "react-hook-form";
+// ...
+const { register, handleSubmit, control } = useFormContext();
+// ...
+const submitForm = (formData) => {
+  // This will return an object with all the DOM element values that were
+  // registered with a \`name\` attribute.
+  // {
+  //   radioExample: "3"
+  // }
+  console.log(formData);
+  // ...
+};
+<form
+  id="example-form"
+  onSubmit={handleSubmit(submitForm)}
+  method="post"
+  action="/some/api/endpoint"
+>
+  <Controller
+    as={
+      <RadioGroup
+        defaultValue="3"
+        id="uncontrolled-example"
+        labelText="RadioGroup Uncontrolled"
+        name="radioGroupExample"
+        ref={register()}
+      >
+        <Radio id="2" labelText="Radio 2" value="2" />
+        <Radio id="3" labelText="Radio 3" value="3" />
+        <Radio id="4" labelText="Radio 4" value="4" />
+      </RadioGroup>
+    }
+    control={control}
+    name="radioGroupExample"
+  />
+</form>
+`}
+  language="jsx"
+/>
+
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values. Open the browser's console to see the output
+**although, at the moment, forwarding the ref to Chakra's own `RadioGroup`
+component is not working.**
+
+<Source
+  code={`
+export function RadioGroupUncontrolledExample() {
+  const radioGroupRef = React.createRef();
+  // Get the value through:
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const radioGroupValue = radioGroupRef.current.value;
+    console.log(\`Uncontrolled example. Selected: \${radioGroupValue}\`);
+  };
+  return (
+    <Form id="form" onSubmit={onSubmit}>
+      <SimpleGrid columns="1">
+        <RadioGroup
+          defaultValue="3"
+          id="uncontrolled-example"
+          labelText="Uncontrolled RadioGroup"
+          name="radioGroupExample"
+          ref={radioGroupRef}
+        >
+          <Radio id="2" labelText="Radio 2" value="2" />
+          <Radio id="3" labelText="Radio 3" value="3" />
+          <Radio id="4" labelText="Radio 4" value="4" />
+        </RadioGroup>
+        <ButtonGroup>
+          <Button id="submit" type="submit">
+            Submit
+          </Button>
+        </ButtonGroup>
+      </SimpleGrid>
+    </Form>
+  );
+}
+`}
+  language="jsx"
+/>
+
+<Canvas of={RadioGroupStories.UncontrolledExample} />

@@ -1,0 +1,45 @@
+import { Meta } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Skip Navigation" />
+
+# Skip Navigation
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+An application's "skip navigation" is used to skip to the primary or main
+content of a page. This component usually contains one link that is located at
+the top of the page and is visually hidden until a user focuses on the link. In
+the case of NYPL applications, the skip navigation contains two links; the first
+link points to the main content of the page and the second link points to
+accessibility information on
+[NYPL.org/accessibility](https://nypl.org/accessibility). For most digitial
+applications on the NYPL.org platform, the [NYPL
+Header](https://github.com/NYPL/nypl-header-app) is used and this component
+already renders a skip navigation area with links.
+
+In the Reservoir Design System (DS), the `SkipNavigation` component renders two
+links.
+
+The first link points to the `"#mainContent"` anchor which an NYPL page is
+expected to have. The `TemplateAppContainer` component renders as a `main` HTML
+element with a default `id` of `"mainContent"`. While it's possible to update
+the target of the skip link and the id of the `<main>` element, this is not
+recommended. When using the DS' `SkipNavigation` and `TemplateAppContainer`
+components, this accessibility combination is automatically handled. When not
+using the `TemplateAppContainer` component, make sure to render a `main` HTML
+element with an `id` of `"mainContent"`.
+
+The second link points to additional accessibility information on
+[NYPL.org/accessibility](https://nypl.org/accessibility).
+
+## Resources
+
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)

@@ -11,7 +11,9 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
 
-export type ToggleSizes = "default" | "small";
+export const toggleSizesArray = ["default", "small"] as const;
+export type ToggleSizes = typeof toggleSizesArray[number];
+
 export interface ToggleProps {
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */

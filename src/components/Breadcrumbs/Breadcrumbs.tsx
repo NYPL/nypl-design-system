@@ -6,18 +6,21 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+
 import Icon from "../Icons/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 import { truncateText } from "../../utils/utils";
 
-export type BreadcrumbsTypes =
-  | "blogs"
-  | "booksAndMore"
-  | "brand"
-  | "education"
-  | "locations"
-  | "research"
-  | "whatsOn";
+export const breadcrumbTypeArray = [
+  "blogs",
+  "booksAndMore",
+  "brand",
+  "education",
+  "locations",
+  "research",
+  "whatsOn",
+] as const;
+export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
@@ -118,6 +121,11 @@ const getElementsFromData = (
   return breadcrumbsItems;
 };
 
+/**
+ * The `Breadcrumbs` component is a navigation element that provides a
+ * breadcrumb path that reflects the site structure and allows a user to
+ * navigate to any page available in the breadcrumb hierarchy.
+ */
 export const Breadcrumbs = chakra(
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {

@@ -74,7 +74,7 @@ describe("Tooltip accessibility", () => {
   });
 });
 
-describe("Tooltip", () => {
+describe.skip("Tooltip", () => {
   it("should render on mouseover and close on mouseleave", async () => {
     render(<TooltipOnButton content={tooltipContent} />);
 

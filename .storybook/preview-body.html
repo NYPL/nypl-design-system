@@ -2,29 +2,36 @@
 <!-- Used or the "Docs" page -->
 
 <style>
-  .sbdocs-h1 {
+  /* Custom heading styles */
+  .sbdocs h1:not(.innerZoomElementWrapper h1) {
     font-size: 54px;
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 1.05;
     margin-bottom: 2rem;
   }
-  .sbdocs-h2 {
+  .sbdocs h2:not(.innerZoomElementWrapper h2) {
+    font-size: 24px;
     font-weight: 400;
   }
-  .sbdocs-h3 {
+  .sbdocs h3:not(.innerZoomElementWrapper h3) {
+    font-size: 20px;
     font-weight: 400;
   }
-  .sbdocs-h4 {
+  .sbdocs h4:not(.innerZoomElementWrapper h4) {
+    font-size: 16px;
     font-weight: 500;
   }
-  .sbdocs-h5 {
+  .sbdocs h5:not(.innerZoomElementWrapper h5) {
+    font-size: 14px;
     font-weight: 500;
   }
-  .sbdocs-h6 {
+  .sbdocs h6:not(.innerZoomElementWrapper h6) {
+    font-size: 12px;
     font-weight: 500;
   }
-  .sbdocs-a {
+  /* Custom link styles */
+  .sbdocs a:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-primary);
     text-decoration-color: var(--nypl-colors-dark-ui-link-primary);
     text-decoration-line: underline;
@@ -32,8 +39,18 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
   }
-  .sbdocs-a:hover {
+  .sbdocs a:hover:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  /* Custom list styles */
+  .sbdocs li:not(.innerZoomElementWrapper li)::before {
+    color: #2e3438;
+    font-size: 14px;
   }
   /* This targets the columns in the args table so they
   have more space to display their values. */
@@ -42,5 +59,43 @@
   }
   .docblock-argstable-body select:focus {
     border: 1px solid var(--nypl-colors-ui-gray-medium);
+  }
+
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example)) {
+    border: none;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    td,
+  .sb-show-main table.storybook-colors-example td > span:first-of-type {
+    color: unset;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    span {
+    font-size: 12px;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr:nth-of-type(2n) {
+    background-color: unset;
+  }
+  .sb-show-main table.storybook-colors-example thead tr,
+  .sb-show-main table.storybook-colors-example thead th,
+  .sb-show-main table.storybook-colors-example thead th:last-of-type,
+  .sb-show-main table.storybook-colors-example thead td:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody tr,
+  .sb-show-main table.storybook-colors-example tbody th,
+  .sb-show-main table.storybook-colors-example tbody td,
+  .sb-show-main table.storybook-colors-example tbody th:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody td:last-of-type {
+    border: unset;
   }
 </style>

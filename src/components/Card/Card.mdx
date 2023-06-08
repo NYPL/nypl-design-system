@@ -1,0 +1,187 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as CardStories from "./Card.stories";
+import Link from "../Link/Link";
+
+<Meta of={CardStories} />
+
+# Card
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#image-position" target="_self">Image Position</Link>}
+- {<Link href="#image-size" target="_self">Image Size</Link>}
+- {<Link href="#custom-image-component" target="_self">Custom Image Component</Link>}
+- {<Link href="#card-with-link-heading" target="_self">Card With Link Heading</Link>}
+- {<Link href="#card-with-full-click-functionality" target="_self">Card With Full-Click Functionality</Link>}
+- {<Link href="#card-with-right-side-cardactions" target="_self">Card with Right Side CardActions</Link>}
+- {<Link href="#cards-in-a-grid" target="_self">Cards in a Grid</Link>}
+- {<Link href="#cards-in-a-stack" target="_self">Cards in a Stack</Link>}
+- {<Link href="#cards-without-images" target="_self">Cards Without Images</Link>}
+
+## Overview
+
+<Description of={CardStories} />
+
+The `Card` component is viewed as a contained, stand-alone element. It is highly
+configurable and composable. It can be shown with or without an image and the
+content area is composed using Card-specific child components: `CardHeading`,
+`CardActions` and `CardContent`. These child components can be arranged in any
+order and each child component may be used multiple times within the content
+area. Although a `Card` is a self-contained unit, `Card` components are often
+grouped together and displayed in some type of grid layout.
+
+### CardHeading
+
+The `CardHeading` component mirrors the standard Reservoir Design System (DS)
+`Heading` component and accepts the [same props](../?path=/story/components-typography-styles-heading--with-controls).
+
+### CardActions
+
+The `CardActions` component is used to display "call to action" (CTA) buttons
+and links for the card. The DS `Button` and `Link` components should be passed
+as children into the `CardActions` component.
+
+Set the `isAlignedRightActions` prop to true in the `Card` component to align the
+`CardActions` to the right of the the main content area. This is only applicable
+in the row layout of the `Card` component.
+
+### CardContent
+
+The `CardContent` component should be used to display all content other than
+headings and CTAs.
+
+## Component Props
+
+<Canvas of={CardStories.WithControls} />
+
+<ArgTypes of={CardStories.WithControls} />
+
+## Accessibility
+
+### Headings
+
+In general, headings from `h1` through `h6` must be in sequential order in the
+DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
+Therefore, when adding `CardHeading` components, make sure to add them in
+sequential order with the proper `level` prop.
+
+<Source
+  code={`
+// Correct
+
+<CardHeading level="three" id="headingthree">
+  Heading level three
+</CardHeading>
+<CardHeading level="four" id="headingfour">
+  Heading level four
+</CardHeading>
+
+// Incorrect
+
+<CardHeading level="two" id="headingtwo">
+  Heading level Two
+</CardHeading>
+<CardHeading level="four" id="headingfour">
+  Heading level four
+</CardHeading>
+`} language="jsx" />
+
+### Full-Click Functionality
+
+Passing in a URL in the `mainActionLink` prop will make the entire `Card`
+clickable. Other links in the `CardActions` component can still be accessed by
+tabbing through and pressing "enter" or by clicking as you normally would on a
+link.
+
+## Image Position
+
+By default, the image is always the first element within a `Card`. This means
+the image is at the top of a `Card` with a column layout and on the left side of
+a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean prop
+to override the default placement and move the image to the last element within
+a `Card`.
+
+### Column Cards
+
+<Canvas of={CardStories.ImagePositionColumnCards} />
+
+### Row Cards
+
+<Canvas of={CardStories.ImagePositionRowCards} />
+
+## Image Size
+
+By default, the image width is `100%` for a `Card` with a column layout and
+`225px` for a `Card` with a row layout. However, you can use the `imageProps.size`
+prop to override the default width.
+
+### Column Cards
+
+<Canvas of={CardStories.ImageSizeColumnCards} />
+
+### Row Cards
+
+<Canvas of={CardStories.ImageSizeRowCards} />
+
+## Custom Image Component
+
+Instead of passing a path for the `imageProps.src` prop, you can pass a custom
+image component in using the `imageProps.component` prop.
+
+<Canvas of={CardStories.CustomImageComponent} />
+
+## Card with Link Heading
+
+The `CardHeading` component works just like the DS `Heading` component. This
+means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
+component can be used as a child. Click on "Show code" in the example below to
+see both patterns.
+
+<Canvas of={CardStories.HeadingAsLink} />
+
+## Card With Full-Click Functionality
+
+To enable the full-click functionality in the `Card` component, pass a URL in
+the `mainActionLink` prop. This will make the entire `Card` component clickable.
+If the `Card` has action links or buttons, they can still be accessed by tabbing
+through the `Card` and pressing `enter` or clicking like a regular link.
+
+Internally, if multiple `CardHeading` components are passed, only the first one
+will have the full-click link. This, however, does not affect the `Card` itself
+from being having the full-click functionality.
+
+<Canvas of={CardStories.FullClick} />
+
+This example can be found in the [Turbine homepage](https://nypl-ds-test-app.vercel.app/).
+
+<Canvas of={CardStories.CardFullClickTurbineExample} />
+
+## Card with Right Side CardActions
+
+It's possible to set only the `CardActions` component on the right side of the
+main content area of the `Card`. This is possible only in the `layout="row"`
+layout and through the `Card` component's `isAlignedRightActions` prop which
+must be set to `true`.
+
+<Canvas of={CardStories.CardWithRightSideCardActions} />
+
+## Cards in a Grid
+
+<Canvas of={CardStories.GridExample} />
+
+## Cards in a Stack
+
+<Canvas of={CardStories.StackExample} />
+
+## Cards Without Images
+
+<Canvas of={CardStories.WithoutImages} />

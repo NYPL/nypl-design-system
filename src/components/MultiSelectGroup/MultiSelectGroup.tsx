@@ -10,7 +10,9 @@ export interface MultiSelectGroupProps {
   children: React.ReactNode;
   /** Additional className to use. */
   className?: string;
+  /** The id of the MultiSelectGroup. */
   id: string;
+  /** The label text rendered within the MultiSelectGroup. */
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
   layout?: LayoutTypes;
