@@ -1,0 +1,157 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as ProgressIndicatorStories from "./ProgressIndicator.stories";
+import Link from "../Link/Link";
+
+<Meta of={ProgressIndicatorStories} />
+
+# ProgressIndicator
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.4`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#linear-type" target="_self">Linear Type</Link>}
+- {<Link href="#circular-type" target="_self">Circular Type</Link>}
+- {<Link href="#sizing" target="_self">Sizing</Link>}
+- {<Link href="#labels" target="_self">Labels</Link>}
+- {<Link href="#indeterminate-state" target="_self">Indeterminate State</Link>}
+- {<Link href="#dark-mode" target="_self">Dark Mode</Link>}
+- {<Link href="#get-input-values" target="_self">Get Input Values</Link>}
+
+## Overview
+
+<Description of={ProgressIndicatorStories} />
+
+## Component Props
+
+<Canvas of={ProgressIndicatorStories.WithControls} />
+
+<ArgTypes of={ProgressIndicatorStories.WithControls} />
+
+## Accessibility
+
+Chakra UI takes care of the internal accessibility attributes for this
+component. Specifically, the `role` attribute is set to `progressbar` and the
+`aria-valuenow` attribute is set to the value of the `value` prop, or the
+percentage completion value. The min and max values are set to "0" and "100",
+respectively, and are set with the `aria-valuemin` and `aria-valuemax`
+attributes. This makes this component and its value(s) visible to screen
+readers.
+
+When `showLabel` is set to false, the `labelText` value will be set to the main
+`<div>`'s `aria-label` attribute. This is the same div that contains the
+`aria-valuemin`, `aria-valuemax`, and `aria-valuenow` attributes.
+
+Resources:
+
+- [DigitalA11y WAI-ARIA: ROLE=PROGRESSBAR](https://www.digitala11y.com/progressbar-role/)
+- [MDN Using the progressbar role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role)
+- [Chakra UI Progress](https://chakra-ui.com/docs/components/feedback/progress)
+- [Chakra UI Circular Progress](https://chakra-ui.com/docs/components/feedback/circular-progress)
+
+## Linear Type
+
+Progress bars are preferred in vertically narrow areas such as tables, cards,
+dialogs, etc.
+
+<Canvas of={ProgressIndicatorStories.LinearType} />
+
+## Circular Type
+
+The circular progress type is preferred for large content areas and for
+full-screen loading. Set the `indicatorType` prop to `"circular"` for this type.
+
+<Canvas of={ProgressIndicatorStories.CircularType} />
+
+## Sizing
+
+The starting height for the progress bar is 4px on mobile and 8px for desktop.
+The `size` prop can be used to optionally set the height to 4px for desktop
+through the `ProgressIndicatorSizes.Small` value.
+
+`size="small"`
+
+<Canvas of={ProgressIndicatorStories.LinearSizes} />
+
+The starting size for the circular progress is 48px and can be made smaller to
+24px with the `size` prop. The small 24px size can be used for inline local
+changes in content. Note that in the small size, the label text and the
+percentage will not displayed.
+
+`size="small"`
+
+<Canvas of={ProgressIndicatorStories.CircularSizes} />
+
+## Labels
+
+The `labelText` value and the `value` percentage are displayed by default. They
+can be hidden through the `showLabel` prop.
+
+`showLabel={false}`
+
+Accessibility Note: when `showLabel` is false, the `aria-label` prop is set in
+the progress element to provide a description of the progress for screen
+readers.
+
+<Canvas of={ProgressIndicatorStories.Labels} />
+
+## Indeterminate State
+
+When the `isIndeterminate` prop is set to true, the `value` prop is ignored and
+the state is set to an animated indeterminate state. This is often used when the
+exact value or progress of the task is unknown.
+
+<Canvas of={ProgressIndicatorStories.IndeterminateState} />
+
+## Dark Mode
+
+The `darkMode` prop is deprecated and should not be used. This component comes
+with built-in dark mode styles that display automatically if dark mode is turned
+on.
+
+## Get Input Values
+
+In the following example, we are setting the `value` prop based on a timer that
+increases the value every second by 10. Once it reaches 100, it resets to 0.
+This is a very simple example using `React.useState` to manage the state but in
+a real application the value would come from a data source or server.
+
+<Source
+  code={`
+// Example code
+function ProgressIndicatorExample() {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((value) => (value === 100 ? 0 : value + 10));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <SimpleGrid columns={1} gap="grid.m">
+      <ProgressIndicator
+        id="example"
+        labelText="Progress example"
+        value={value}
+      />
+      <ProgressIndicator
+        id="example-circular"
+        indicatorType="circular"
+        labelText="Progress example"
+        value={value}
+      />
+    </SimpleGrid>
+  );
+}
+`}
+  language="jsx"
+/>
+
+<Canvas of={ProgressIndicatorStories.WorkingExample} />

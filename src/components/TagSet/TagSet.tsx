@@ -1,6 +1,5 @@
-import { As, chakra, Flex, useStyleConfig } from "@chakra-ui/react";
+import { chakra, Flex, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import Tooltip from "../Tooltip/Tooltip";
 
 import TagSetExplore, {
   TagSetExploreProps,
@@ -27,23 +26,6 @@ export function isFilterType(type: TagSetProps["type"]): type is "filter" {
 }
 
 /**
- * This helper component wrapper renders a DS `Tooltip` component if the text is
- * long or a React fragment. This assumes that the `label` prop is a rather
- * simple single root JSX element, such as `<Link ...>....</Link>`.
- */
-export const TooltipWrapper = ({
-  label,
-  children,
-}: React.PropsWithChildren<{ label: any }>) => {
-  const maxCharLengthToShow = 20;
-  const labelText = typeof label === "string" ? label : label.props.children;
-  if (labelText.length > maxCharLengthToShow && typeof labelText === "string") {
-    return <Tooltip content={labelText}>{children}</Tooltip>;
-  }
-  return <>{children}</>;
-};
-
-/**
  * The `TagSet` component renders a group of individual tags which have two
  * variants: "explore" and "filter". The "explore" tags are meant to be used for
  * exploratory linkable elements, whereas the "filter" tags are used to display
@@ -55,7 +37,7 @@ export const TooltipWrapper = ({
  * The full label text will be automatically revealed when the tag is hovered
  * with a DS `Tooltip` component.
  */
-export const TagSet = chakra<As<TagSetProps>, TagSetProps>(
+export const TagSet = chakra(
   forwardRef<HTMLDivElement, TagSetProps>((props: TagSetProps, ref?) => {
     const {
       className,

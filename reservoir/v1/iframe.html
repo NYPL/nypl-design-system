@@ -1,5 +1,37 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_parent"><style>/* While we aren't showing the main block yet, but still preparing, we want everything the user
-     has rendered, which may or may not be in #root, to be display none */
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Storybook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="prefetch" href="./sb-common-assets/nunito-sans-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="prefetch" href="./sb-common-assets/nunito-sans-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="prefetch" href="./sb-common-assets/nunito-sans-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="prefetch" href="./sb-common-assets/nunito-sans-bold-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+
+  <script>
+    window.CONFIG_TYPE = 'PRODUCTION';
+    window.LOGLEVEL = 'info';
+    window.FRAMEWORK_OPTIONS = {};
+    window.CHANNEL_OPTIONS = {};
+    window.FEATURES = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false};
+    window.STORIES = [{"titlePrefix":"","directory":"./src/docs","files":"Welcome.mdx","importPathMatcher":"^\\.[\\\\/](?:src\\/docs\\/Welcome\\.mdx)$"},{"titlePrefix":"","directory":"./src/docs","files":"Chakra.mdx","importPathMatcher":"^\\.[\\\\/](?:src\\/docs\\/Chakra\\.mdx)$"},{"titlePrefix":"","directory":"./src/components","files":"**/*.mdx","importPathMatcher":"^\\.[\\\\/](?:src\\/components(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./src/components","files":"**/*.stories.tsx","importPathMatcher":"^\\.[\\\\/](?:src\\/components(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.tsx)$"},{"titlePrefix":"","directory":"./src/hooks","files":"*.mdx","importPathMatcher":"^\\.[\\\\/](?:src\\/hooks\\/(?!\\.)(?=.)[^/]*?\\.mdx)$"}];
+    window.DOCS_OPTIONS = {"defaultName":"Docs","autodocs":"tag"};
+
+    // We do this so that "module && module.hot" etc. in Storybook source code
+    // doesn't fail (it will simply be disabled)
+    window.module = undefined;
+    window.global = window;
+  </script>
+  <base target="_parent" />
+
+<style>
+  /* While we aren't showing the main block yet, but still preparing, we want everything the user
+     has rendered, which may or may not be in #storybook-root, to be display none */
   .sb-show-preparing-story:not(.sb-show-main) > :not(.sb-preparing-story) {
     display: none;
   }
@@ -23,7 +55,7 @@
     min-height: 100vh;
   }
 
-  .sb-show-main.sb-main-centered #root {
+  .sb-show-main.sb-main-centered #storybook-root {
     box-sizing: border-box;
     margin: auto;
     padding: 1rem;
@@ -307,7 +339,11 @@
     margin-right: 4px;
     margin-bottom: 4px;
     padding: 2px 5px;
-  }</style><script>/* globals window */
+  }
+</style>
+
+<script>
+  /* globals window */
   /* eslint-disable no-underscore-dangle */
   try {
     if (window.top !== window) {
@@ -319,51 +355,46 @@
     // eslint-disable-next-line no-console
     console.warn('unable to connect to top frame for connecting dev tools');
   }
+</script>
 
-  window.onerror = function onerror(message, source, line, column, err) {
-    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
-    // eslint-disable-next-line no-var, vars-on-top
-    var xhr = new window.XMLHttpRequest();
-    xhr.open('POST', '/runtime-error');
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(
-      JSON.stringify({
-        /* eslint-disable object-shorthand */
-        message: message,
-        source: source,
-        line: line,
-        column: column,
-        error: err && { message: err.message, name: err.name, stack: err.stack },
-        origin: 'preview',
-        /* eslint-enable object-shorthand */
-      })
-    );
-  };</script><style>#root[hidden],
-      #docs-root[hidden] {
-        display: none !important;
-      }</style></head><body><style>.sbdocs-h1 {
+  <script type="module" crossorigin src="./assets/iframe-359c5387.js"></script>
+</head>
+
+<body>
+  <!--  .storybook/preview-body.html -->
+<!-- Used or the "Docs" page -->
+
+<style>
+  /* Custom heading styles */
+  .sbdocs h1:not(.innerZoomElementWrapper h1) {
     font-size: 54px;
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 1.05;
     margin-bottom: 2rem;
   }
-  .sbdocs-h2 {
+  .sbdocs h2:not(.innerZoomElementWrapper h2) {
+    font-size: 24px;
     font-weight: 400;
   }
-  .sbdocs-h3 {
+  .sbdocs h3:not(.innerZoomElementWrapper h3) {
+    font-size: 20px;
     font-weight: 400;
   }
-  .sbdocs-h4 {
+  .sbdocs h4:not(.innerZoomElementWrapper h4) {
+    font-size: 16px;
     font-weight: 500;
   }
-  .sbdocs-h5 {
+  .sbdocs h5:not(.innerZoomElementWrapper h5) {
+    font-size: 14px;
     font-weight: 500;
   }
-  .sbdocs-h6 {
+  .sbdocs h6:not(.innerZoomElementWrapper h6) {
+    font-size: 12px;
     font-weight: 500;
   }
-  .sbdocs-a {
+  /* Custom link styles */
+  .sbdocs a:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-primary);
     text-decoration-color: var(--nypl-colors-dark-ui-link-primary);
     text-decoration-line: underline;
@@ -371,8 +402,18 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
   }
-  .sbdocs-a:hover {
+  .sbdocs a:hover:not(.innerZoomElementWrapper a) {
     color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-color: var(--nypl-colors-ui-link-secondary);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  /* Custom list styles */
+  .sbdocs li:not(.innerZoomElementWrapper li)::before {
+    color: #2e3438;
+    font-size: 14px;
   }
   /* This targets the columns in the args table so they
   have more space to display their values. */
@@ -381,24 +422,138 @@
   }
   .docblock-argstable-body select:focus {
     border: 1px solid var(--nypl-colors-ui-gray-medium);
-  }</style><div class="sb-preparing-story sb-wrapper"><div class="sb-loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="sb-previewBlock"><div class="sb-previewBlock_header"><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div></div><div class="sb-previewBlock_body"><div class="sb-loader"></div></div></div><table aria-hidden="true" class="sb-argstableBlock"><thead class="sb-argstableBlock-head"><tr><th><span>Name</span></th><th><span>Description</span></th><th><span>Default</span></th><th><span>Control</span></th></tr></thead><tbody class="sb-argstableBlock-body"><tr><td><span>propertyName</span><span title="Required">*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr></tbody></table></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
-          
-      
-          
-            window['LOGLEVEL'] = "info";
-          
-      
-          
-            window['FRAMEWORK_OPTIONS'] = {};
-          
-      
-          
-      
-          
-            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":false,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
-          
-      
-          
-      
-          
-            window['STORIES'] = [{"titlePrefix":"","directory":"./src/docs","files":"*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:src\\/docs\\/(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"},{"titlePrefix":"","directory":"./src/components","files":"**/*.stories.@(tsx|mdx)","importPathMatcher":"^\\.[\\\\/](?:src\\/components(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(tsx|mdx))$"},{"titlePrefix":"","directory":"./src/hooks","files":"*.stories.@(tsx|mdx)","importPathMatcher":"^\\.[\\\\/](?:src\\/hooks\\/(?!\\.)(?=.)[^/]*?\\.stories\\.(tsx|mdx))$"}];</script><script src="runtime~main.4ba433fc.iframe.bundle.js"></script><script src="vendors~main.ada0428c.iframe.bundle.js"></script><script src="main.b0cc6c9a.iframe.bundle.js"></script></body></html>
+  }
+
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example)) {
+    border: none;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    td,
+  .sb-show-main table.storybook-colors-example td > span:first-of-type {
+    color: unset;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr
+    span {
+    font-size: 12px;
+  }
+  .sb-show-main
+    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+        table.storybook-colors-example))
+    tr:nth-of-type(2n) {
+    background-color: unset;
+  }
+  .sb-show-main table.storybook-colors-example thead tr,
+  .sb-show-main table.storybook-colors-example thead th,
+  .sb-show-main table.storybook-colors-example thead th:last-of-type,
+  .sb-show-main table.storybook-colors-example thead td:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody tr,
+  .sb-show-main table.storybook-colors-example tbody th,
+  .sb-show-main table.storybook-colors-example tbody td,
+  .sb-show-main table.storybook-colors-example tbody th:last-of-type,
+  .sb-show-main table.storybook-colors-example tbody td:last-of-type {
+    border: unset;
+  }
+</style>
+<div class="sb-preparing-story sb-wrapper">
+  <div class="sb-loader"></div>
+</div>
+
+<div class="sb-preparing-docs sb-wrapper">
+  <div class="sb-previewBlock">
+    <div class="sb-previewBlock_header">
+      <div class="sb-previewBlock_icon"></div>
+      <div class="sb-previewBlock_icon"></div>
+      <div class="sb-previewBlock_icon"></div>
+      <div class="sb-previewBlock_icon"></div>
+    </div>
+    <div class="sb-previewBlock_body">
+      <div class="sb-loader"></div>
+    </div>
+  </div>
+  <table aria-hidden="true" class="sb-argstableBlock">
+    <thead class="sb-argstableBlock-head">
+      <tr>
+        <th><span>Name</span></th>
+        <th><span>Description</span></th>
+        <th><span>Default</span></th>
+        <th><span>Control </span></th>
+      </tr>
+    </thead>
+    <tbody class="sb-argstableBlock-body">
+      <tr>
+        <td><span>propertyName</span><span title="Required">*</span></td>
+        <td>
+          <div><span>This is a short description</span></div>
+          <div class="sb-argstableBlock-summary">
+            <div><span class="sb-argstableBlock-code">summary</span></div>
+          </div>
+        </td>
+        <td>
+          <div><span class="sb-argstableBlock-code">defaultValue</span></div>
+        </td>
+        <td><button>Set string</button></td>
+      </tr>
+      <tr>
+        <td><span>propertyName</span><span>*</span></td>
+        <td>
+          <div><span>This is a short description</span></div>
+          <div class="sb-argstableBlock-summary">
+            <div><span class="sb-argstableBlock-code">summary</span></div>
+          </div>
+        </td>
+        <td>
+          <div><span class="sb-argstableBlock-code">defaultValue</span></div>
+        </td>
+        <td><button>Set string</button></td>
+      </tr>
+      <tr>
+        <td><span>propertyName</span><span>*</span></td>
+        <td>
+          <div><span>This is a short description</span></div>
+          <div class="sb-argstableBlock-summary">
+            <div><span class="sb-argstableBlock-code">summary</span></div>
+          </div>
+        </td>
+        <td>
+          <div><span class="sb-argstableBlock-code">defaultValue</span></div>
+        </td>
+        <td><button>Set string</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sb-nopreview sb-wrapper">
+  <div class="sb-nopreview_main">
+    <h1 class="sb-nopreview_heading sb-heading">No Preview</h1>
+    <p>Sorry, but you either have no stories or none are selected somehow.</p>
+    <ul>
+      <li>Please check the Storybook config.</li>
+      <li>Try reloading the page.</li>
+    </ul>
+    <p>
+      If the problem persists, check the browser console, or the terminal you've run Storybook from.
+    </p>
+  </div>
+</div>
+
+<div class="sb-errordisplay sb-wrapper">
+  <pre id="error-message" class="sb-heading"></pre>
+  <pre class="sb-errordisplay_code"><code id="error-stack"></code></pre>
+</div>
+
+  <div id="storybook-root"></div>
+  <div id="storybook-docs"></div>
+  
+  
+</body>
+
+</html>

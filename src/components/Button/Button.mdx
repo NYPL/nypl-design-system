@@ -1,0 +1,116 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as ButtonStories from "./Button.stories";
+import Link from "../Link/Link";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.4`    |
+| Latest            | `1.5.1`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#button-groups" target="_self">Button Groups</Link>}
+- {<Link href="#with-icons" target="_self">With Icons</Link>}
+- {<Link href="#patterns" target="_self">Patterns</Link>}
+- {<Link href="#other-examples" target="_self">Other Examples</Link>}
+- {<Link href="#sizes" target="_self">Sizes</Link>}
+
+## Overview
+
+<Description of={ButtonStories} />
+
+Update the `buttonType` in the Controls section to see the types of buttons
+that can be rendered.
+
+- `"primary"` is used for actions that move the user forward. This is the default.
+- `"secondary"` is used for actions that move the user back, such as cancellations.
+- `"text"` is used for equally weighted actions in a text based list.
+- `"callout"` is used for call to action text such as "Donate".
+- `"noBrand"` is a variant used when there is no brand and will display the
+  background color as black.
+- `"pill"` is used for equally weighted actions within cards and always in a set.
+- `"link"` has been deprecated and should not be used.
+
+When one and only one `Icon` component is passed inside a `Button` component with
+no text, it will automatically be configured to use the `"iconOnly"` type.
+
+## Component Props
+
+<Canvas of={ButtonStories.WithControls} />
+
+<ArgTypes of={ButtonStories.WithControls} />
+
+## Accessibility
+
+The Reservoir `Button` component renders an HTML `<button>` element that is
+accessible. `Button`s should be used to perform user actions or submit forms,
+never to link and go to another page. For `Button`s without text and only an
+icon, make sure to pass an `aria-label` value to the `Button`. `Button`s cannot
+have images of text.
+
+`Button`s can be rendered in three sizes through the `size` prop: `"small"`,
+`"medium"`, and `"large"`. The default size is `"medium"`. Even though the `"small"`
+size is available, we recommend to use the `"medium"` and `"large"` sizes.
+
+Resources:
+
+- [W3C WAI ARIA Button](https://www.w3.org/TR/wai-aria-practices-1.1/#button)
+- [W3C WAI ARIA Button Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/button/button.html)
+- [MDN ARIA: button role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role)
+- [Chakra UI Button](https://chakra-ui.com/docs/components/form/button)
+- [W3C WAI WCAG Target Size](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+
+## Button Groups
+
+Primary and secondary buttons should be grouped like in the following example.
+The `ButtonGroup` component should be used to wrap the `Button` component.
+
+<Canvas of={ButtonStories.ButtonGroups} />
+
+## With Icons
+
+The `Icon` component collaborates great with the `Button` component. Check out
+[`src/components/Icons/Icon.tsx`](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Icons/Icon.tsx)
+to see the full list of icon names that can be rendered.
+
+The icon can be placed to the left or the right of the button text.
+
+<Canvas of={ButtonStories.TextWithIcon} />
+
+Text in a button is optional if an icon is rendered, but make sure that there
+is an `aria-label` passed to the `Button` component `aria-label="Previous"`.
+
+<Canvas of={ButtonStories.IconOnly} />
+
+## Patterns
+
+Buttons are blue by default but should be red when it is intended to be used as
+a call out. The "Back to Top" button must be of `buttonType="secondary"` and
+must include an up arrow icon on the right side.
+
+<Canvas of={ButtonStories.Patterns} />
+
+## Other Examples
+
+The variations modified by the `buttonType` prop:
+
+<Canvas of={ButtonStories.ButtonTypes} />
+
+Modifying the `isDisabled` prop:
+
+<Canvas of={ButtonStories.DisabledButtons} />
+
+## Sizes
+
+Update the size of the `Button` component with the `size` prop and values:
+`"small"`, `"medium"`, `"large"`. The default size is `"medium"`.
+
+<Canvas of={ButtonStories.ButtonSizes} />

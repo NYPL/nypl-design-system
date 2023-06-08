@@ -1,0 +1,88 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as CheckboxStories from "./Checkbox.stories";
+import Link from "../Link/Link";
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#checked" target="_self">Checked</Link>}
+- {<Link href="#indeterminate" target="_self">Indeterminate</Link>}
+- {<Link href="#focused" target="_self">Focused</Link>}
+- {<Link href="#errored" target="_self">Errored</Link>}
+- {<Link href="#disabled" target="_self">Disabled</Link>}
+- {<Link href="#helper-text" target="_self">Helper Text</Link>}
+- {<Link href="#error-text" target="_self">Error Text</Link>}
+- {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
+
+## Overview
+
+<Description of={CheckboxStories} />
+
+The `Checkbox` component renders a checkbox input element. The `Checkbox` component should be used to allow users to select one or more options from a list of choices.
+
+Please note that the examples on this page show the `Checkbox` component in isolation. It is recommended to use the `Checkbox` component inside the
+DS `CheckboxGroup` component. The `CheckboxGroup` component will handle all the states and data management.
+
+## Component Props
+
+<Canvas of={CheckboxStories.WithControls} />
+
+<ArgTypes of={CheckboxStories.WithControls} />
+
+## Accessibility
+
+The `Checkbox` component renders `<label>` and `<input type="checkbox" />`
+elements that are associated with each other; the label has a `for` attribute
+with the value of the `input`'s `id` element. If there is helper or invalid text,
+the `<input>` element will have a `aria-describedby` attribute with the value of
+the helper or invalid text.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+`<input>`'s `aria-label` attribute.
+
+Resources:
+
+- [W3C WAI ARIA Checkbox Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-1/checkbox-1.html)
+- [a11ymatters Accessible Checkbox](https://www.a11ymatters.com/pattern/checkbox/)
+- [MDN ARIA: checkbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [Chakra UI Checkbox](https://chakra-ui.com/docs/components/form/checkbox)
+
+## Checked
+
+Note that the `isChecked` property in this example is set to `true` and clicking
+on it won't remove the checkmark; the `isChecked` prop must now be controlled
+and removed manually by the parent component that controls this state.
+
+<Canvas of={CheckboxStories.Checked} />
+
+## Indeterminate
+
+Note: This state only changes the icon through the `isIndeterminate` prop. This
+does not affect whether the checkbox is checked. The `isIndeterminate` prop must
+now be controlled and removed by the parent component in order to remove this state.
+
+<Canvas of={CheckboxStories.Indeterminate} />
+
+## Additional States
+
+<Canvas of={CheckboxStories.AdditionalStates} />
+
+## Label Using JSX Elements
+
+This is useful when you want to add dynamic content to the label or add
+a layout to the label. View the `CheckboxGroup` documentation for this
+usage.
+
+<Canvas of={CheckboxStories.LabelUsingJSXElements} />

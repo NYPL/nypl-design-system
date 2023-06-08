@@ -95,6 +95,42 @@ describe("Link", () => {
     expect(screen.getByRole("link")).toBeInTheDocument();
   });
 
+  it("updates the target prop", () => {
+    const { rerender } = render(<Link href="#test">Test</Link>);
+    expect(screen.getByRole("link")).not.toHaveAttribute("target");
+
+    rerender(
+      <Link href="#test" target="_blank">
+        Test
+      </Link>
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_blank");
+    rerender(
+      <Link href="#test" type="external">
+        Test
+      </Link>
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_blank");
+    rerender(
+      <Link href="#test" target="_parent">
+        Test
+      </Link>
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_parent");
+    rerender(
+      <Link href="#test" target="_top">
+        Test
+      </Link>
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_top");
+    rerender(
+      <Link href="#test" target="_self">
+        Test
+      </Link>
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_self");
+  });
+
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => render(<Link>Test</Link>)).toThrowError(
       "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."

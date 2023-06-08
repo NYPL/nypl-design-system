@@ -1,0 +1,4 @@
+import{j as s}from"./emotion-react-jsx-runtime.browser.esm-b12afd4d.js";import{r as i}from"./index-f2bd0723.js";import{f as d,i as c,B as u}from"./chakra-ui-layout.esm-b2fa9d31.js";const a=d(i.forwardRef((e,t)=>{const{align:l,className:o,...r}=e,n={...c("HorizontalRule",{align:l}),height:"2px",width:"100%"};return s(u,{as:"hr",className:o,ref:t,__css:n,...r})}));try{a.displayName="HorizontalRule",a.__docgenInfo={description:"",displayName:"HorizontalRule",props:{className:{defaultValue:null,description:"ClassName you can add in addition to `horizontal-rule`",name:"className",required:!1,type:{name:"string"}},align:{defaultValue:null,description:`Optional alignment value to align the horizontal rule to one side or the
+other when the width is less than 100%. If omitted, the horizontal rule
+will have a default center alignment.`,name:"align",required:!1,type:{name:'"left" | "right"'}}}}}catch{}export{a as H};
+//# sourceMappingURL=HorizontalRule-da9b0069.js.map

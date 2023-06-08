@@ -1,0 +1,1 @@
+{"version":3,"file":"types-5ca2ba04.js","sources":["../../../src/helpers/types.ts"],"sourcesContent":["export const layoutTypesArray = [\"column\", \"row\"] as const;\nexport type LayoutTypes = typeof layoutTypesArray[number];\n"],"names":["layoutTypesArray"],"mappings":"AAAa,MAAAA,EAAmB,CAAC,SAAU,KAAK"}

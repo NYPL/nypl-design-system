@@ -1,0 +1,84 @@
+import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/blocks";
+
+import Icon from "../Icons/Icon";
+
+<Meta title="Components/Chakra Exports/Layout/Stack, HStack, VStack" />
+
+# Stack, HStack, VStack
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+
+Note: This needs the use of the `DSProvider` component. See the
+[Chakra UI docs](../?path=/docs/chakra-ui--docs#dsprovider) for more information.
+
+These components are directly exported from Chakra UI. The `Stack`, `HStack`,
+and `VStack` are layout component that makes it easy to stack elements together
+with spacing between them.
+
+All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
+guide on the Chakra UI site.
+
+In all the following examples, Design System `Icon` components are wrapped in
+Chakra's `Circle` component.
+
+## Stack
+
+The `Stack` component is the most flexible component because it can stack
+elements both horizontally and vertically through the `direction` prop and the
+`"row"` and `"column"` values, respectively.
+
+<Canvas>
+  <Stack direction="column" spacing="s">
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorFilled" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorOutline" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="check" size="large" />
+    </Circle>
+  </Stack>
+</Canvas>
+
+## HStack
+
+Stacks components horizontally. This is the same as the `Stack` component with
+a `direction` value of `"row"`.
+
+<Canvas>
+  <HStack spacing="s">
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorFilled" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorOutline" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="check" size="large" />
+    </Circle>
+  </HStack>
+</Canvas>
+
+## VStack
+
+Stacks components vertically. This is the same as the `Stack` component with
+a `direction` value of `"column"`.Pass in a value to the `align` prop to align
+all the elements in the stack.
+
+<Canvas>
+  <VStack align="left" spacing="s">
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorFilled" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="errorOutline" size="large" />
+    </Circle>
+    <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+      <Icon name="check" size="large" />
+    </Circle>
+  </VStack>
+</Canvas>

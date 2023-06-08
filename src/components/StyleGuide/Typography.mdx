@@ -1,0 +1,506 @@
+import { Box } from "@chakra-ui/react";
+import { Meta, Source } from "@storybook/blocks";
+
+import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
+import List from "../List/List";
+import Text from "../Text/Text";
+
+<Meta title="Style Guide/Typography" />
+
+# Typography
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#heading-component" target="_self">Heading Component</Link>}
+- {<Link href="#text-component" target="_self">Text Component</Link>}
+- {<Link href="#font-family" target="_self">Font Family</Link>}
+- {<Link href="#font-color" target="_self">Font Color</Link>}
+- {<Link href="#font-weight" target="_self">Font Weight</Link>}
+- {<Link href="#font-sizes" target="_self">Font Sizes</Link>}
+- {<Link href="#text-case" target="_self">Text Case</Link>}
+- {<Link href="#character-count" target="_self">Character Count</Link>}
+- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+
+## General Information
+
+Consuming applications should utilize the Reservoir Design System (DS) standard
+text components as much as possible. In cases where that is not possible, the
+DS exposes CSS variables to assist with formatting text elements.
+
+The sizing of all text elements in the Design System is based on `1rem` being
+equal to `16px`.
+
+## Heading Component
+
+Use the DS [Heading](../?path=/docs/components-typography-styles-heading--docs)
+component to render a standard HTML `<h>` tag. The `level` prop can be used to
+set the specific `<h>` tag that you require.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="one">Heading Level 1</Heading>
+  <Heading level="two" border="none">
+    Heading Level 2
+  </Heading>
+  <Heading level="three">Heading Level 3</Heading>
+  <Heading level="four">Heading Level 4</Heading>
+</Box>
+}
+
+### Heading Display Sizes
+
+Each heading level has a default style and size, but those styles can be overridden
+using the `size` prop. The display sizes are separate from semantic elements and
+may be used to override the default size and styling of the semantic HTML heading
+elements. For example, the `h1` element has the `Primary` style applied by default,
+but a new style can be applied through the `size` prop. Any `size` style can be
+applied to any `Heading` element.
+
+{
+
+<Heading level="one" size="primary">
+  Primary Heading
+</Heading>
+}
+
+|                 | JS Token          | CSS Token                                 | Value     |
+| --------------- | :---------------- | :---------------------------------------- | :-------- |
+| **Font Size**   | `heading.primary` | `var(--nypl-fontSizes-heading-primary)`   | `2.25rem` |
+| **Font Weight** | `heading.primary` | `var(--nypl-fontWeights-heading-primary)` | `300`     |
+| **Line Height** | --                | --                                        | `1.1`     |
+
+{
+
+<Heading level="one" size="secondary">
+  Secondary Heading
+</Heading>
+}
+
+|                 | JS Token            | CSS Token                                   | Value     |
+| --------------- | :------------------ | :------------------------------------------ | :-------- |
+| **Font Size**   | `heading.secondary` | `var(--nypl-fontSizes-heading-secondary)`   | `1.75rem` |
+| **Font Weight** | `heading.secondary` | `var(--nypl-fontWeights-heading-secondary)` | `500`     |
+| **Line Height** | --                  | --                                          | `1.25`    |
+
+{
+
+<Heading level="one" size="tertiary">
+  Tertiary Heading
+</Heading>
+}
+
+|                 | JS Token           | CSS Token                                  | Value      |
+| --------------- | :----------------- | :----------------------------------------- | :--------- |
+| **Font Size**   | `heading.tertiary` | `var(--nypl-fontSizes-heading-tertiary)`   | `1.375rem` |
+| **Font Weight** | `heading.tertiary` | `var(--nypl-fontWeights-heading-tertiary)` | `500`      |
+| **Line Height** | --                 | --                                         | `1.25`     |
+
+{
+
+<Heading level="one" size="callout">
+  Callout Heading
+</Heading>
+}
+
+|                 | JS Token          | CSS Token                                 | Value     |
+| --------------- | :---------------- | :---------------------------------------- | :-------- |
+| **Font Size**   | `heading.callout` | `var(--nypl-fontSizes-heading-callout)`   | `1.25rem` |
+| **Font Weight** | `heading.callout` | `var(--nypl-fontWeights-heading-callout)` | `500`     |
+| **Line Height** | --                | --                                        | `1.25`    |
+
+## Text Component
+
+Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
+component to render a standard HTML `<p>` tag. The Text component is generally
+used for body copy, captions and secondary captions.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text>
+    Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
+    fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
+    faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
+    vestibulum at eros.
+  </Text>
+</Box>
+}
+
+### Text Display Sizes
+
+The `size` prop can be used to render a specific style from the DS default text styles.
+
+- [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
+- [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
+
+{
+
+<Text size="default">Default</Text>}
+
+|                 | JS Token       | CSS Token                              | Value  |
+| --------------- | :------------- | :------------------------------------- | :----- |
+| **Font Size**   | `text.default` | `var(--nypl-fontSizes-text-default)`   | `1rem` |
+| **Font Weight** | `text.default` | `var(--nypl-fontWeights-text-default)` | `300`  |
+| **Line Height** | --             | --                                     | `1.5`  |
+
+{
+
+<Text size="caption">Caption</Text>}
+
+|                 | JS Token       | CSS Token                              | Value      |
+| --------------- | :------------- | :------------------------------------- | :--------- |
+| **Font Size**   | `text.caption` | `var(--nypl-fontSizes-text-caption)`   | `0.875rem` |
+| **Font Weight** | `text.caption` | `var(--nypl-fontWeights-text-caption)` | `300`      |
+| **Line Height** | --             | --                                     | `1.5`      |
+
+{
+
+<Text size="tag">Tag</Text>}
+
+|                 | JS Token   | CSS Token                          | Value     |
+| --------------- | :--------- | :--------------------------------- | :-------- |
+| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` |
+| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400`     |
+| **Line Height** | --         | --                                 | `1.5`     |
+
+{
+
+<Text size="mini">Mini</Text>}
+
+|                 | JS Token    | CSS Token                           | Value      |
+| --------------- | :---------- | :---------------------------------- | :--------- |
+| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` |
+| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400`      |
+| **Line Height** | --          | --                                  | `1.5`      |
+
+## Font Family
+
+With website accessibility in mind, font choices for the DS were made with an
+eye toward clarity and readability. Headings and body content use the
+following font family assignment:
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text>system-ui, sans-serif</Text>
+</Box>
+}
+
+The following CSS variables are available through the DS.
+
+<Source
+  code={`
+--nypl-fonts-heading: system-ui, sans-serif;
+--nypl-fonts-body: system-ui, sans-serif;
+`}
+  language="css"
+/>
+
+> **RECOMMENDATIONS**  
+> When making font selections for project based components outside the DS,
+> sans serif fonts display better on computers and mobile devices. Avoid
+> decorative or overly stylized fonts, as they are often difficult to read even
+> for users without visual impairments or reading Standard Text Default
+
+## Font Color
+
+All text within a project, unless specifically noted in mockups, should be
+black on a white background.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="three">Default Heading Color</Heading>
+  <Text>
+    This paragraph shows the default body text color. Curabitur blandit tempus
+    porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+    et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+    Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+    lacinia odio sem nec elit.
+  </Text>
+</Box>
+}
+
+In cases where specific colors must be applied to text elements, the DS
+provides CSS variables for the full NYPL color palette. Refer to the
+[Colors](../?path=/docs/style-guide-colors--docs) section of the Style Guide
+for details.
+
+## Font Weight
+
+The DS uses four font weights to render text. The default font-weight is 300.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Light / 300 (default)
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Regular / 400
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-medium)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Medium / 500
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-bold)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Bold / 700
+  </p>
+</Box>
+}
+
+The following design tokens are available through the DS.
+
+|             | JS Token  | CSS Token                         | Value |
+| ----------- | --------- | --------------------------------- | ----- |
+| **Light**   | `light`   | `var(--nypl-fontWeights-light)`   | `300` |
+| **Regular** | `regular` | `var(--nypl-fontWeights-regular)` | `400` |
+| **Medium**  | `medium`  | `var(--nypl-fontWeights-medium)`  | `500` |
+| **Bold**    | `bold`    | `var(--nypl-fontWeights-bold)`    | `700` |
+
+## Font Sizes
+
+Font sizing is based on a root font size of 16px (1rem = 16px).
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes--3)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size -3
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes--2)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size -2
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes--1)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size -1
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size 0 (default)
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-1)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size 1
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-2)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size 2
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-3)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size 3
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-4)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+    }}
+  >
+    Font size 4
+  </p>
+</Box>
+}
+
+The following font size design tokens are available through the DS.
+
+|        | JS Token | CSS Token                  | Value      |
+| ------ | -------- | -------------------------- | ---------- |
+| **-3** | `-3`     | `var(--nypl-fontSizes--3)` | `0.625rem` |
+| **-2** | `-2`     | `var(--nypl-fontSizes--2)` | `0.75rem`  |
+| **-1** | `-1`     | `var(--nypl-fontSizes--1)` | `0.875rem` |
+| **0**  | `0`      | `var(--nypl-fontSizes-0)`  | `1rem`     |
+| **1**  | `1`      | `var(--nypl-fontSizes-1)`  | `1.125rem` |
+| **2**  | `2`      | `var(--nypl-fontSizes-2)`  | `1.375rem` |
+| **3**  | `3`      | `var(--nypl-fontSizes-3)`  | `1.75rem`  |
+| **4**  | `4`      | `var(--nypl-fontSizes-4)`  | `2.25rem`  |
+
+## Text Case
+
+In general, the New York Public Library uses Title Case for titles. This means
+only using capital letters for the principal words. Articles, conjunctions, and
+prepositions do not get capital letters unless they start the title. For example:
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <List type="ul">
+    <li>Snow White and the Seven Dwarfs</li>
+    <li>The Last of the Mohicans</li>
+    <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
+    <li>The Future Teen Stars of America Live on TikTok</li>
+    <li>How Jacqueline Woodson Captures Every Side of Brooklyn</li>
+  </List>
+</Box>
+}
+
+## Character Count
+
+### Titles
+
+80 characters max, 60 characters recommended
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="three">
+    This is a Long Title to Show What 58 Characters Looks Like
+  </Heading>
+</Box>
+}
+
+### Summaries
+
+140 characters max<br />
+Note: Online Exhibitions, with their longer, legacy summaries are an exception
+to this.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text>
+    This block of text shows what 140 chacters and spaces looks like. Integer
+    posuere erat a ante venenatis dapibus posueret aliquet nullas non.
+  </Text>
+</Box>
+}
+
+### Page Intros
+
+No max character count, 200 characters recommended
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text>
+    This block of text shows what 200 chacters and spaces looks like. Integer
+    posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean eu
+    leo quam. Pellentesque ornare sem quam venenatis.
+  </Text>
+</Box>
+}
+
+## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
+
+- [Typeface](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A0)
+- [Heading Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A16)
+- [Text Styles (Part 1)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
+- [Text Styles (Part 2)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)

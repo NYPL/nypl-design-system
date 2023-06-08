@@ -1,0 +1,31 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Hooks/useCarouselStyles" />
+
+# useCarouselStyles
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `0.25.2`   |
+| Latest       | `0.25.2`   |
+
+This custom hook, inspired by this [codesandbox example](https://codesandbox.io/s/fxjeo),
+exposes functions used for carousel-like components that have sliding features.
+The two main functions are `prevSlide` and `nextSlide` used for buttons to
+navigate between slides, and a `carouselStyle` style object for the main wrapper
+element. If the carousel should programmatically slide to the first slide, use
+the `goToStart` function.
+
+## Usage
+
+For a full implementation example, view the [`Tabs` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Tabs/Tabs.tsx).
+
+<Source
+  code={`
+const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
+  slidesCount,
+  slideWidth
+);
+`}
+  language="jsx"
+/>

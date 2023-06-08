@@ -10,7 +10,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "Text",
       }
     }
@@ -28,7 +28,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "Text",
       }
     }
@@ -46,7 +46,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "This helper text <b>contains HTML in the string</b>.",
       }
     }
@@ -80,7 +80,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "Text",
       }
     }
@@ -99,7 +99,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 >
   <span
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "Text",
       }
     }

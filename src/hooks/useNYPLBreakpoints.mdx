@@ -1,0 +1,56 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Hooks/useNYPLBreakpoints" />
+
+# useNYPLBreakpoints
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `1.0.4`    |
+| Latest       | `1.0.5`    |
+
+This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally,
+the hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine
+the current breakpoint size based on NYPL's breakpoint configuration. In order
+to follow responsive design patterns, the "min-width" media query is used
+with the breakpoint configuration. The list of breakpoints can be found on
+the [Reservoir's Breakpoints](../?path=/docs/style-guide-breakpoints--docs)
+style guide.
+
+## Usage
+
+The hook returns an object with four boolean values:
+
+<Source
+  code={`
+const {
+  isLargerThanSmall,
+  isLargerThanMedium,
+  isLargerThanMobile,
+  isLargerThanLarge,
+  isLargerThanXLarge,
+} = useNYPLBreakpoints();
+`}
+  language="jsx"
+/>
+
+For the following example, we'll use the NYPL specific mobile breakpoint value.
+This breakpoint value is based on the "medium" breakpoint value of `"38em"`
+(or `"600px"`). If different components need to be conditionally rendered based
+on the current size of the viewport, we can use the `isLargerThanMobile`
+boolean value.
+
+<Source
+  code={`
+const DesktopLayout = () => ...
+const MobileLayout = () => ...
+// ...
+<Box>
+  <Text>
+    {isLargerThanMobile ? "Larger than mobile" : "Smaller than mobile"}
+  </Text>
+  {isLargerThanMobile ? <DesktopLayout /> : <MobileLayout />}
+</Box>
+`}
+  language="jsx"
+/>

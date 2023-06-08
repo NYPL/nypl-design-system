@@ -1,38 +1,16 @@
-// Load the Reservoir's stylesheet for some components.
-import "!style-loader!css-loader!sass-loader!../src/styles.scss";
+// Add the DS styles.
+import "../src/styles.scss";
 
-import { addDecorator, addParameters } from "@storybook/react";
+import { MDXProvider } from "@mdx-js/react";
 import { withTests } from "@storybook/addon-jest";
-import React from "react";
+import { DocsContainer } from "@storybook/blocks";
+import type { Preview } from "@storybook/react";
+import React, { useEffect } from "react";
 
+import { DSProvider, Link, List, Text, useColorMode } from "../src/index";
 import nyplTheme from "../src/theme";
 import results from "../.jest-test-results.json";
-
-addParameters({
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        "Welcome",
-        "Chakra UI",
-        "Development Guide",
-        "Style Guide",
-        "Accessibility Guide",
-        "Components",
-        "Hooks",
-      ],
-    },
-  },
-});
-
-// Show the Jest results in the Storybook UI.
-addDecorator(withTests({ results }));
-
-addDecorator((StoryFn) => (
-  <div style={{ margin: "10px" }}>
-    <StoryFn />
-  </div>
-));
+import { StorybookHeading } from "./storybookComponents";
 
 // Custom viewport options
 const customViewports = {
@@ -73,10 +51,46 @@ const customViewports = {
   },
 };
 
-// https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
-export const parameters = {
-  // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
-  actions: { argTypesRegex: "^on.*" },
+/**
+ * This allows Storybook document pages to use DS specific components
+ * and styles. We need to explicitly set each one, however.
+ */
+const MyDocsContainer = (props) => (
+  <MDXProvider
+    components={{
+      h1: ({ children }) => (
+        <StorybookHeading level="one">{children}</StorybookHeading>
+      ),
+      h2: ({ children }) => (
+        <StorybookHeading level="two">{children}</StorybookHeading>
+      ),
+      h3: ({ children }) => (
+        <StorybookHeading level="three">{children}</StorybookHeading>
+      ),
+      h4: ({ children }) => (
+        <StorybookHeading level="four">{children}</StorybookHeading>
+      ),
+      h5: ({ children }) => (
+        <StorybookHeading level="five">{children}</StorybookHeading>
+      ),
+      h6: ({ children }) => (
+        <StorybookHeading level="six">{children}</StorybookHeading>
+      ),
+      a: Link as any,
+      p: Text as any,
+      // TODO: Make this monospacing font
+      code: ({ children }) => <code>{children}</code>,
+      ul: List as any,
+    }}
+  >
+    <DSProvider>
+      <DocsContainer {...props} />
+    </DSProvider>
+  </MDXProvider>
+);
+
+const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
     values: [
       { name: "Light mode page background", value: "#FFFFFF" },
@@ -98,4 +112,74 @@ export const parameters = {
   controls: { expanded: true },
   // Sets custom viewport options for testing under the Canvas view
   viewport: { viewports: customViewports },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: [
+        "Welcome",
+        "Chakra UI",
+        "Development Guide",
+        "Style Guide",
+        "Accessibility Guide",
+        "Components",
+        "Hooks",
+      ],
+    },
+  },
+  docs: {
+    container: MyDocsContainer,
+  },
 };
+
+interface ColorModeProps {
+  colorMode: "light" | "dark";
+  children: JSX.Element;
+}
+/**
+ * Small component that adds a light/dark mode switch in the
+ * Storybook toolbar.
+ */
+function ColorMode({ children, colorMode }: ColorModeProps) {
+  const { setColorMode } = useColorMode();
+
+  useEffect(() => {
+    setColorMode(colorMode);
+  }, [colorMode]);
+
+  return children;
+}
+
+/**
+ * The main config object for Storybook. This wraps all components
+ * in a `DSProvider` so they render appropriately, adds Jest test results
+ * in the addon toolbar, and adds the light/dark mode switch in the
+ * top toolbar.
+ */
+const preview: Preview = {
+  decorators: [
+    withTests({ results }),
+    (Story, context) => (
+      <DSProvider>
+        <ColorMode colorMode={context.globals.colorMode}>
+          <Story />
+        </ColorMode>
+      </DSProvider>
+    ),
+  ],
+  globalTypes: {
+    colorMode: {
+      title: "Color Mode",
+      defaultValue: "light",
+      toolbar: {
+        items: [
+          { title: "Light", value: "light" },
+          { title: "Dark", value: "dark" },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  parameters,
+};
+
+export default preview;

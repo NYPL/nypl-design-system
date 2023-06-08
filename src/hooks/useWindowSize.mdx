@@ -1,0 +1,25 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Hooks/useWindowSize" />
+
+# useWindowSize
+
+| Hook Version | DS Version |
+| ------------ | ---------- |
+| Added        | `0.25.2`   |
+| Latest       | `0.25.2`   |
+
+This hook is based on [Typescript hooks](https://usehooks-typescript.com/react-hook/use-window-size).
+It returns an object with `width` and `height` properties that can be used to
+update a component's UI based on the size of the browser window.
+
+## Usage
+
+For an example implementation, view the [`Tabs` component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Tabs/Tabs.tsx).
+
+<Source
+  code={`
+const { height, width } = useWindowSize();
+`}
+  language="jsx"
+/>

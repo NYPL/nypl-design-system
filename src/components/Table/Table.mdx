@@ -1,0 +1,145 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as TableStories from "./Table.stories";
+import Link from "../Link/Link";
+
+<Meta of={TableStories} />
+
+# Table
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.9`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#title" target="_self">Title</Link>}
+- {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
+- {<Link href="#row-headers" target="_self">Row Headers</Link>}
+- {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
+- {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
+- {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
+
+## Overview
+
+<Description of={TableStories} />
+
+## Component Props
+
+<Canvas of={TableStories.WithControls} />
+
+<ArgTypes of={TableStories.WithControls} />
+
+## Accessibility
+
+Internally, the HTML for the `Table` element is structured with proper semantic
+use of the `table`, `caption`, `thead`, `tbody`, `tr`, and `td` HTML elements.
+When titles are added through the `titleText` prop, the `caption` element will
+be rendered above the `thead` element.
+
+This component should be used to render tabular data only and not used for layout
+purposes.
+
+For improved accessibility, column headers are required and the first row
+in the table will always be rendered as a `thead` with a child `tr` and
+corresponsing `th` cells. Additionally, the first cell in a `tr` row can be a `th`
+header cell. Each `th` header cell has an appropriate scope attribute set to
+either `scope="col"` or `scope="row"`. For example, every `th` cell in a `thead`
+`tr` row will have `scope="col"`. Every `th` cell in a `tbody` `tr` row will
+have `scope="row"`.
+
+Header cells are visually different from the standard table data. Use the
+`columnHeaders` prop to pass the data for the column headers. Use the
+`useRowHeaders` prop to render the first cell in every row as a header. If a
+table has two levels of headers (such as two levels of horizontal headers), break
+the data into two separate tables.
+
+Resources:
+
+- [W3C Tables Tutorial](https://www.w3.org/WAI/tutorials/tables/)
+- [MDN table: The Table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
+- [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
+- [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
+
+## Title
+
+Use the `titleText` prop to add a title to the table.
+
+<Canvas of={TableStories.Title} />
+
+## Row Dividers
+
+Use the `showRowDividers` prop to render a divider between each row.
+
+<Canvas of={TableStories.RowDividers} />
+
+## Row Headers
+
+Use the `useRowHeaders` prop to render the first cell in every row as a header.
+Notice that they turn bold.
+
+<Canvas of={TableStories.RowHeaders} />
+
+## Custom Header Colors
+
+It's possible to customize the header colors by using the `columnHeadersBackgroundColor`
+and `columnHeadersTextColor` props. Note that the colors need to have sufficient
+color contrast.
+
+<Canvas of={TableStories.CustomHeaderColors} />
+
+## JSX Elements
+
+It's possible to pass in JSX elements in the `tableData` prop.
+
+<Source
+  code={`
+export const charactersData = [
+  [
+    "Tom",
+    "Nook",
+    <Image
+      alt="Tom Nook"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "Isabelle",
+    "-",
+    <Image
+      alt="Isabelle"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "K.K.",
+    "Slider",
+    <Image
+      alt="K.K Slider"
+      size="small"
+      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+];
+`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.JSXElements} />
+
+## Responsive Mobile Layout
+
+The `Table` component is responsive. Please note that for a mobile viewport the
+standard horizontal layout of an HTML table is converted to a stacked vertical
+layout, with each "row" visually separated by a prominent horizontal rule. Despite
+the significant visual changes in the responsive layout, all component props are
+still functional.
+
+To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
+Story and change the viewport in the Storybook toolbar at the top of the page.

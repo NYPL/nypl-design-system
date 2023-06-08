@@ -57,7 +57,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -160,7 +160,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -264,7 +264,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -308,7 +308,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Tom doesn't count as a sibling :(.",
         }
       }
@@ -375,7 +375,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -419,7 +419,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Remember, Logan will judge you no matter who you pick.",
         }
       }
@@ -489,7 +489,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -595,7 +595,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -699,7 +699,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
           id="select-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -801,7 +801,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
           id="chakra-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",
@@ -904,7 +904,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
           id="props-icon"
           role="presentation"
           style={
-            Object {
+            {
               "color": "currentColor",
               "height": "1em",
               "width": "1em",

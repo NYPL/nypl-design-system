@@ -1,7 +1,8 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-export type StatusBadgeTypes = "low" | "medium" | "high";
+export const statusBadgeTypeArray = ["low", "medium", "high"] as const;
+export type StatusBadgeTypes = typeof statusBadgeTypeArray[number];
 export interface StatusBadgeProps {
   /** Additional class for the component */
   className?: string;

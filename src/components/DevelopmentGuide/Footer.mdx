@@ -1,0 +1,53 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/Footer" />
+
+# Footer
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#implementation" target="_self">Implementation</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+
+## Overview
+
+This `Footer` component renders the NYPL-branded footer elements such as
+navigational NYPL.org links, social media links, copyright, and NYPL building
+facade image. This component is expected to be rendered at the end of a webpage,
+before the closing `</body>` tag. This component lives on the NYPL `Header` app.
+
+- [NYPL Footer Preview](https://ds-header.nypl.org/footer)
+- [NYPL Header App Github repo](https://github.com/NYPL/nypl-header-app)
+
+## Implementation
+
+The `Footer` can be embedded on an NYPL app through the following code snippet:
+
+<Source
+  code={`
+<div id="nypl-footer"></div>
+<script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
+`}
+  language="html"
+/>
+
+## Accessibility
+
+The `Footer` component renders as an HTML `<footer>` element with a WAI-ARIA role
+of `role="contentinfo"`. This is the common practice for the footer landmark
+region on a page to maximize its accessibility in browsers and assistive
+technologies.
+
+Special consideration should be made regarding the placement of the `Footer`
+component in the DOM. Rendering this component, or similar HTML landmark region
+components, inside another landmark region causes accessibility issues. For
+example, rendering the `Footer` component inside an `aside` HTML element is
+an error.
+
+Resources:
+
+- [W3C WAI Page Structure Code Example](https://www.w3.org/WAI/tutorials/page-structure/example/)
+- [W3C WAI Page Regions](https://www.w3.org/WAI/tutorials/page-structure/regions/)

@@ -7,7 +7,6 @@ import {
   useMultiStyleConfig,
   useMergeRefs,
 } from "@chakra-ui/react";
-// @TODO Add "@chakra-ui/focus-lock" to package.json dependencies ?
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "./../Button/Button";

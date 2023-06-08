@@ -1,0 +1,205 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as TextInputStories from "./TextInput.stories";
+import Link from "../Link/Link";
+
+<Meta of={TextInputStories} />
+
+# TextInput
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.22.0`   |
+| Latest            | `1.5.4`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#labelling-variations" target="_self">Labelling Variations</Link>}
+- {<Link href="#browser-states" target="_self">Browser States</Link>}
+- {<Link href="#isclearable-button" target="_self">isClearable Button</Link>}
+- {<Link href="#number-type" target="_self">Number Type</Link>}
+- {<Link href="#html-in-helper-text" target="_self">HTML in Helper Text</Link>}
+- {<Link href="#textarea" target="_self">Textarea</Link>}
+
+## Overview
+
+<Description of={TextInputStories} />
+
+This component renders a text input form element. See below for configuration
+information. For optimal accessibility, the `labelText` property is a required
+prop, regardless of the label visibility. Additionally, while the `id` prop is
+optional, a unique `id` attribute is necessary for accessibility. If the prop
+is left blank, a value will be generated for you.
+
+## Component Props
+
+<Canvas of={TextInputStories.WithControls} />
+
+<ArgTypes of={TextInputStories.WithControls} />
+
+## Accessibility
+
+The `TextInput` component renders an HTML `<input>` element which is accessible
+via keyboard and screen reader. The `aria-required` and `required` attributes are
+set with the `isRequired` prop. The `aria-disabled` and `disabled` attributes are
+set with the `isDisabled` prop. The `aria-invalid` is set with the `isInvalid`
+prop.
+
+Internally, a `Label` is associated with the `<input>` element. When `showLabel`
+is set to false, the `<input>` element's `aria-label` attribute is set to the
+required `labelText` value.
+
+The `helperText` and the `invalidText` are associated with the `<input>` element
+through the `aria-describedby` attribute.
+
+When the `isClearable` prop is set to `true`, as text is added to the input
+field a close button is rendered to clear the input value. Once the close button
+is clicked, the input value will be cleared, the close button will become hidden,
+and focus will be set to the input element.
+
+When the `type` prop is set to `"textarea"`, the `<textarea>` element
+is rendered instead of the `<input>` element. This element follows all the same
+accessibility rules described above.
+
+If the `type` prop is set to `"email"`, `"tel"`, or `"url"`, the appropriate
+`autocomplete` attribute will be added. The autocomplete attribute makes inputs
+easier and more efficient to complete for all users.
+
+Resources:
+
+- [MDN input: The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [MDN textarea: The Textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
+- [MDN HTML attribute: Autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+- [Chakra UI Input](https://chakra-ui.com/docs/components/form/input)
+- [Chakra UI Textarea](https://chakra-ui.com/docs/components/form/textarea)
+
+## Labelling Variations
+
+A TextInput can be rendered with or without visible labels. When `showLabel` is
+set to `false`, an `aria-label` attribute is added to the input/textarea element
+to maintain accessibility. If the component needs to be required, the
+`showRequiredLabel` prop can be used to show or hide the "(Required)" text
+within the `label` element.
+
+<Canvas of={TextInputStories.LabellingVariations} />
+
+## Browser States
+
+<Canvas of={TextInputStories.BrowserStates} />
+
+## isClearable Button
+
+Set the `isClearable` prop to `true` to render a button that clears the input
+value. This close button will render when the input has a value and disappear
+when the input is empty, including after it is clicked.
+
+This button has visually hidden text, a "close" icon, and renders on top
+of the input field on the right side. This clear button does not render when
+the `type` prop is set to `"textarea"`.
+
+Note: This works best when the `TextInput` is used as an uncontrolled component.
+
+<Canvas of={TextInputStories.isClearableButton} />
+
+### Controlled isClearableCallback Example
+
+A `TextInput` component is controlled when the `value` and `onChange` props are
+set. For a controlled component, the `isClearableCallback` prop can be used to
+clear the input value in the consuming application. This callback is only called
+when the close button is clicked.
+
+<Source
+  code={`
+// ExampleControlled.js
+export const App = () => {
+  const [value, setValue] = React.useState("");
+  return (
+    <TextInput
+      id="isClearable-controlled-example"
+      isClearable
+      isClearableCallback={() => setValue("")}
+      labelText="What is your favorite color?"
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="i.e. blue, green, etc."
+      value={value}
+    />
+  );
+};
+`}
+  language="jsx"
+/>
+
+<Canvas of={TextInputStories.ControlledExample} />
+
+## Number Type
+
+The `TextInput` component can be configured to render a number input by setting
+`type="number"`. In this input type, the `maxLength` prop does not restrict the
+length of the number that is passed to the input. This is the expected behavior
+as the native HTML input and `maxlength` attribute behave this way.
+
+For this type, the `min` and `max` props do restrict the value of the number
+input that is passed. This can be seen by using the up and down arrows to
+increase or decrease the number value, respectively. However, if the `max` prop
+is set to "200", for example, the user can still enter a number such as "400".
+The consuming application must handle validating the entered number value.
+
+If the `min` prop value is greater than the `max` prop value, it will trigger
+the invalid state.
+
+<Canvas of={TextInputStories.NumberType} />
+
+### Alternate Number Pattern
+
+Another pattern for entering numbers in a restrictive way is to use the
+`maxLength` and `pattern` props. Together, these props can be set to define how
+many digits and what characters are allowed. For example, if a zip code is
+required, the `maxLength` prop can be set to "5" and the `pattern` prop can be
+set to `"[0-9]\*"` to allow only numbers to be entered and limit the number of
+characters to 5.
+
+Note that the `type` prop is not set to "number" in this example and that the
+consuming application must handle validating the value entered. Browsers will
+also provide their own validation for the input.
+
+<Source
+  code={`
+<TextInput
+  helperText="Enter a 5-digit zip code."
+  id="number-pattern"
+  labelText="Enter a zip code"
+  maxLength={5}
+  pattern="[0-9]*"
+  placeholder="i.e. 10018"
+/>
+`}
+  language="jsx"
+/>
+
+<Canvas of={TextInputStories.AlternateNumberPattern} />
+
+## HTML in Helper Text
+
+HTML can be passed into the `helperText` prop as a string or HTML.
+
+<Source
+  code={`
+helperText="Choose <b>wisely!</b>"
+// or
+helperText={<>Choose <b>wisely!</b></>}
+`}
+  language="jsx"
+/>
+
+<Canvas of={TextInputStories.HTMLHelperText} />
+
+## Textarea
+
+The TextInput component includes a multiline `textarea` form field. To render a
+`textarea` element, pass `"textarea"` for the `type` prop. All the variations
+described above are available for the `textarea` option.
+
+<Canvas of={TextInputStories.Textarea} />
