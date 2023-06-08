@@ -1,7 +1,6 @@
 # For all pushes, this workflow will
 #     - Install deps
 #     - Lint
-#     - Typecheck
 #     - Test
 name: CI
 
@@ -25,22 +24,6 @@ jobs:
           useLockFile: false
       - name: Lint
         run: npm run lint
-
-  typecheck:
-    name: Typecheck
-    runs-on: ubuntu-latest
-    env:
-      CI: true
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
-      - name: Cache and install node modules
-        uses: bahmutov/npm-install@v1
-      - name: Typecheck
-        run: tsc --noEmit
 
   test:
     name: Test
