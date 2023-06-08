@@ -1,0 +1,62 @@
+# This workflow will tag, release, and publish to npm.
+name: Production Release
+
+# workflow will only run when a pull request to the release branch is closed.
+on:
+  push:
+    branches: [release]
+
+jobs:
+  release_master:
+    name: Tag and Release
+    # only run if PR is merged (not just closed)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # we take the message of the commit to use for tag and release body.
+      - name: get commit message
+        run: |
+          echo commitmsg=$(git log --format=%B -n 1 ${{ github.event.after }}) >> $GITHUB_ENV
+
+      # the tag will match the package.json version (eg. v1.0.0)
+      - name: Tag
+        id: autotagger
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          strategy: package
+          tag_prefix: v
+
+      - name: Release
+        id: create_release
+        if: steps.autotagger.outputs.tagname != ''
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.autotagger.outputs.tagname }}
+          release_name: ${{ steps.autotagger.outputs.tagname }}
+          # use the body of the PR commit as the release body
+          body: "$commitmsg"
+          draft: false
+          prerelease: false
+
+  publish_to_npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          registry-url: "https://registry.npmjs.org"
+      - name: Cache and install node modules
+        uses: bahmutov/npm-install@v1
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
