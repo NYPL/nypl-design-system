@@ -28,7 +28,9 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build Storybook
-        run: npm run build-storybook:v1
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: npm run prebuild:storybook && npm run build-storybook:v1
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
