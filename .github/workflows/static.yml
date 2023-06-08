@@ -1,0 +1,41 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy to Github Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["release"]
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Cache and install node modules
+        uses: bahmutov/npm-install@v1
+      - name: Build Storybook
+        run: npm run prebuild:storybook && npm run build-storybook:v1
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: "."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
