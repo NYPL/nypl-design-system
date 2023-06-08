@@ -1,0 +1,46 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as HorizontalRuleStories from "./HorizontalRule.stories";
+import Link from "../Link/Link";
+
+<Meta of={HorizontalRuleStories} />
+
+# HorizontalRule
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.0`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+
+## Overview
+
+<Description of={HorizontalRuleStories} />
+
+The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
+`width`, and `align` props can be customized. For the `height` prop, use a whole
+number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
+value of "2px" will be used.
+
+## Component Props
+
+<Canvas of={HorizontalRuleStories.WithControls} />
+
+<ArgTypes of={HorizontalRuleStories.WithControls} />
+
+## Accessibility
+
+The `HorizontalRule` component is not just a visual thematic break between
+content or interfaces, it is also picked up by screenreaders. Internally, the
+`HorizontalRule` component uses the `<hr>` element which has a `role` of
+`"separator"`.
+
+Resources:
+
+- [MDN hr: The Thematic Break (Horizontal Rule) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
+- [Not Your Typical Horizontal Rules](https://www.sarasoueidan.com/blog/horizontal-rules/#)

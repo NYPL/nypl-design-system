@@ -1,12 +1,12 @@
 // Better style reset
-@import "~normalize.css/normalize";
+@import "normalize.css/normalize";
 // System fonts
-@import "~system-font-css/_system-font.scss";
+@import "system-font-css/_system-font.scss";
 // The `react-datepicker` styles. We'll compile and minimize it ourselves.
-@import "~react-datepicker/src/stylesheets/datepicker.scss";
+@import "react-datepicker/src/stylesheets/datepicker.scss";
 
 // Base styles
-@import "./styles/base/_01-breakpoints";
+@import "./styles/_01-breakpoints";
 
 // Ideal styles for the `Autosuggest` component implementation.
 @import "./components/Autosuggest/_Autosuggest.scss";

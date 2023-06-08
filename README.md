@@ -8,8 +8,8 @@ The Reservoir Design System (DS) is NYPL’s open-source extensible React librar
 
 Storybook documentation
 
-- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page)
-- [Development/QA - deployed to Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page)
+- [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs)
+- [Development/QA - deployed to Vercel](https://nypl-design-system.vercel.app/?path=/docs/welcome--docs)
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -98,18 +98,7 @@ For apps using parcel, prepend the string import with `npm:` such as :
 @import "npm:@nypl/design-system-react-components/dist/styles.css";
 ```
 
-4. Optionally import the `@nypl/design-system-react-components/dist/resources.scss` file in your main _scss_ file. This file contains useful SCSS mixins that can be used for global or component style rules.
-
-```scss
-@import "@nypl/design-system-react-components/dist/resources.scss";
-
-// `screenreader-only` is one example of a mixing from `resources.scss`:
-legend {
-  @include screenreader-only;
-}
-```
-
-5. Use DS components!
+4. Use DS components!
 
 Consult Storybook for the list of available components and props that they require.
 
@@ -138,20 +127,6 @@ function NewComponent(props) {
 }
 ```
 
-### NYPL DS, NYPL Header, and NYPL Footer
-
-```jsx
-<body>
-  <NYPLHeader />
-
-  <div class="app">
-    <!-- your code here -->
-  </div>
-
-  <NYPLFooter />
-</body>
-```
-
 ## Using Chakra UI Components
 
 The Chakra UI component library has been integrated into the Reservoir Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
@@ -163,13 +138,13 @@ The list of re-exported Chakra components can be found in the main [index.ts](/s
 Find more information about the Design System's internal use of Chakra to create and refactor components in the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
-- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/chakra-ui--page)
+- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/chakra-ui--docs)
 
 Chakra was integrated into the Design System in version `0.25.0`. For those looking to update to a version greater than or equal `0.25.0`, check out our [Chakra Migration Guide](/CHAKRA_MIGRATION_GUIDE.md).
 
 ## Storybook
 
-The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
+The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
 
 ### Documentation Instances
 
@@ -177,13 +152,13 @@ There are currently two main instances of the Reservoir Design System Storybook 
 
 **Production**
 
-The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
+The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
 
 As of July, 2021, the Github Pages production site gets deployed every two weeks on the same schedule as npm releases.
 
 **Development**
 
-The development Storybook documentation is deployed to [Vercel](https://nypl-design-system.vercel.app/?path=/story/welcome--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
+The development Storybook documentation is deployed to [Vercel](https://nypl-design-system.vercel.app/?path=/docs/welcome--docs). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
 **Preview Sites**
 
@@ -196,7 +171,7 @@ When actively developing components or fixing bugs, make sure that the related s
 For stand-alone document pages in Storybook, you need to:
 
 1. create the `[page-name].stories.mdx` file in `src/docs/`
-2. add the file reference to the `.storybook/main.js` file in the `stories` array
+2. add the file reference to the `.storybook/main.cjs` file in the `stories` array
 
 ### React Component Versions
 
@@ -214,7 +189,9 @@ To help consuming application developers understand which version of the DS is r
 
 ### Static Build
 
-There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/story/welcome--page). In the event that you do run the static Storybook npm script, run:
+_Make sure not to commit the directory created from the following process_.
+
+There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/welcome--docs). In the event that you do run the static Storybook npm script, run:
 
 ```sh
 $ npm run build-storybook:v1
@@ -272,9 +249,9 @@ Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branc
 
 ### Node Version
 
-We recommend using Node version 14.x since the DS has some issues with versions higher than 14.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 14.x.
+We recommend using Node version 16.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 16.x.
 
-If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `14.x`).
+If you are using `nvm`, the local `.nvmrc` file (using `16.x`) can be use to set your local Node version with the `nvm use` command. Make sure your machine has Node version 16.x installed through `nvm` already.
 
 ### Git Branch Workflow
 
@@ -317,24 +294,7 @@ The release candidate version passed QA and is ready for production! What do we 
 4. Delete the `package-lock.json` file and the `node_modules` directory.
 5. Run `npm install` to install all the dependencies and create a new `package-lock.json` file with the updated version.
 6. Push the changes to Github and create a new pull request from `development` that points to the `release` branch.
-7. Once approved and merged, a Github Action will run that will automatically deploy the static Storybook to Github Pages and publish the new version to npm.
-
-#### Release Troubleshooting
-
-There is currently a bug with node that causes Vercel preview instances to fail and not build correctly. In order to fix this, the build script has an included node flag added. This can be found in package.json:
-
-```json
-  "build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",
-```
-
-Unfortunately, while this helps the Vercel previews to build correctly, it causes the Github Action that builds the production Storybook to fail. Because of this, the `release` branch must _not_ include the `NODE_OPTIONS=--openssl-legacy-provider` flag. This means that the `release` branch must be updated to remove this flag before merging the `development` branch into it.
-
-For now, this is a manual process until the repo's node version and build system are updated.
-
-| Branch        | Script                                                                                                                                          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `development` | `"build-storybook:v1": "npm run prebuild:storybook && NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook -o ./reservoir/v1",` |
-| `release`     | `"build-storybook:v1": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v1",`                                        |
+7. Once approved and merged, a Github Action will run that will automatically deploy the static Storybook to Github Pages and publish the new version to npm. |
 
 ## Local App Development
 
@@ -481,24 +441,36 @@ After writing new tests, run `npm run test:generate-output` to create a new JSON
 
 ## CDN
 
-You can also use the Design System styles in your project through the `unpkg` CDN:
+You can also use the Design System styles in your project through the `unpkg` CDN, but not that this is not recommended for production use.
 
 ```html
 <link
   href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css"
 />
-<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.cjs.production.min.js" />
-<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.esm.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.umd.cjs" />
+<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.js" />
 ```
 
-If you need to reference a particular version you can do do by including the version number in the URL:
+If you need to reference a particular version you can do do by including the version number in the URL.
+
+For version < 1.6.0:
 
 ```html
 <link
-  href="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/styles.css"
+  href="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/styles.css"
 />
-<script src="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/design-system-react-components.cjs.production.min.js" />
-<script src="https://unpkg.com/@nypl/design-system-react-components@1.0.0/dist/design-system-react-components.esm.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/design-system-react-components.cjs.production.min.js" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.5.1/dist/design-system-react-components.esm.js" />
+```
+
+For version >= 1.6.0:
+
+```html
+<link
+  href="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/styles.css"
+/>
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/design-system-react-components.umd.cjs" />
+<script src="https://unpkg.com/@nypl/design-system-react-components@1.6.0/dist/design-system-react-components.js" />
 ```
 
 You can check out a working Codepen with unpkg [here](https://codepen.io/edwinguzman/pen/ExmXGKx).

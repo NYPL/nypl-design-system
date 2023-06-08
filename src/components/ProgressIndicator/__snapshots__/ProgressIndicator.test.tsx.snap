@@ -26,7 +26,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
         className="css-1jy0d03"
         role="progressbar"
         style={
-          Object {
+          {
             "width": "50%",
           }
         }
@@ -116,7 +116,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
         className="css-1jy0d03"
         role="progressbar"
         style={
-          Object {
+          {
             "width": "50%",
           }
         }
@@ -194,7 +194,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
         data-indeterminate=""
         role="progressbar"
         style={
-          Object {
+          {
             "width": "0%",
           }
         }
@@ -277,7 +277,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
         className="css-1jy0d03"
         role="progressbar"
         style={
-          Object {
+          {
             "width": "50%",
           }
         }
@@ -320,7 +320,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
         className="css-1jy0d03"
         role="progressbar"
         style={
-          Object {
+          {
             "width": "50%",
           }
         }

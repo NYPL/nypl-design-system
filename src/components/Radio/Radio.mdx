@@ -1,0 +1,69 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as RadioStories from "./Radio.stories";
+import Link from "../Link/Link";
+
+<Meta of={RadioStories} />
+
+# Radio
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.22.0`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#browser-states" target="_self">Browser States</Link>}
+- {<Link href="#helper-and-error-text" target="_self">Helper and Error Text</Link>}
+- {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
+
+## Overview
+
+<Description of={RadioStories} />
+
+This component renders a radio button form element. Note that all these examples
+show the `Radio` button in isolation. We recommend to always use the `Radio`
+component inside the Design System `RadioGroup` component. The `RadioGroup`
+component will handle all the states and data management.
+
+## Component Props
+
+<Canvas of={RadioStories.Controls} />
+
+<ArgTypes of={RadioStories.Controls} />
+
+## Accessibility
+
+The `Radio` component renders an `input` element with the `type="radio"` attribute.
+This HTML element is accessible by default.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+`<input>`'s `aria-label` attribute.
+
+Resources:
+
+- [W3C ARIA radiogroup and radio example](https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/radio/radio.html)
+- [W3C Radio Button Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/radio/radio-1/radio-1.html)
+- [MDN input type="radio"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+- [Deque University Radio and Radio Group](https://dequeuniversity.com/library/aria/radio-and-radio-group)
+- [Chakra UI Radio](https://chakra-ui.com/docs/components/form/radio)
+
+## Browser States
+
+<Canvas of={RadioStories.BrowserStates} />
+
+## Helper and Error Text
+
+<Canvas of={RadioStories.HelperAndErrorText} />
+
+## JSX Element Labels
+
+This is useful when you want to add dynamic content to the label or add
+a layout to the label. View the `RadioGroup` documentation for this
+usage.
+
+<Canvas of={RadioStories.LabelUsingJSXElements} />

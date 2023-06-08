@@ -1,0 +1,130 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as NotificationStories from "./Notification.stories";
+import Link from "../Link/Link";
+
+<Meta of={NotificationStories} />
+
+# Notification
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overiew" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#variants" target="_self">Variants</Link>}
+- {<Link href="#custom-icon" target="_self">Custom Icon</Link>}
+- {<Link href="#dismissible" target="_self">Dismissible</Link>}
+
+## Overview
+
+<Description of={NotificationStories} />
+
+The `Notification` component is a configurable callout that should be used to
+display important messages.
+
+In the preview below, the border around the `Notification` is not part of the
+component. It has been added to help illustrate how the `Notification` sits
+within a parent element.
+
+## Component Props
+
+<Canvas of={NotificationStories.WithControls} />
+
+<ArgTypes of={NotificationStories.WithControls} />
+
+## Accessibility
+
+The `Notification` component renders with an HTML `aside` element as its
+wrapper. This is an HTML landmark element that is similar to adding an attribute
+of `role="complementary"`. For accessibility purposes, landmark elements should
+not be rendered inside other landmark elements such as the `header` and `footer`
+landmark elements. Adding a `Notification` component inside an HTML `main`
+landmark element is acceptable.
+
+### ARIA Label
+
+Every `Notification` component must have a unique `aria-label` attribute. This
+is set through the `ariaLabel` prop. A unique `aria-label` value, along with the
+`aside` HTML landmark element, helps screen readers better navigate a page with
+multiple `Notification`s.
+
+### Icons
+
+Icons rendered in the `Notification` component are decorative by default which
+means that they are hidden to screen readers. Since the "X" close icon inside
+the dismissible button is decorative and because there is no discernible text
+inside the button, an `aria-label` attribute is added to the button.
+
+### Language Patterns
+
+When the `Notification` component is rendered, the text within the component
+should always include wording that aligns with the type of notitication that is
+being delivered. For example, if the notification is a warning or error, the
+heading or body copy within the notification should use the words `"warning"` or
+`"error"` and provide a clear description of the existing or potential isssue.
+
+### Dynamic Notifications
+
+If dynamically generated notifications are required, a container into which the
+notification will be injected should be included in the DOM. The container
+element should have `aria-live="polite"` applied. The container element should
+always be rendered in the DOM regardless of the presence of the Notification
+component. This DOM structure will allow the newly generated content to be
+recognized and announced by assistive technology.
+
+<Source
+  code={`
+<div aria-live="polite">
+  <Notification {...props} />
+</div>
+`}
+  language="tsx"
+/>
+
+### Resources
+
+- [MDN Aria: complementary role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/complementary_role)
+- [Deque Creating Accessible SVGs](https://www.deque.com/blog/creating-accessible-svgs/)
+- [CSS Tricks Accessible SVG Icons](https://css-tricks.com/accessible-svg-icons/)
+
+## Notification Heading
+
+The `Notification` component can be rendered with and without a heading.
+
+<Canvas of={NotificationStories.NotificationHeading} />
+
+## Notification Icon
+
+### Default Icon
+
+The `Notification` icon can be displayed with or without an icon. The icon can
+be hidden with the `showIcon` prop set to `false`.
+
+<Canvas of={NotificationStories.NotificationIcon} />
+
+### Custom Icon
+
+The default icon can be overridden by using the `icon` prop to pass a custom `Icon` component.
+
+<Canvas of={NotificationStories.CustomIcon} />
+
+## With HTML Content
+
+The `notificationContent` prop can accept HTML.
+
+<Canvas of={NotificationStories.HTMLContent} />
+
+## Dismissible
+
+A dismissible `Notification` component can be created by setting the
+`dismissible` prop to `true`. Once the "X" close icon on the upper right is
+clicked, the `Notification` will be removed from the DOM, therefore it only
+appears once.
+
+<Canvas of={NotificationStories.Dismissible} />

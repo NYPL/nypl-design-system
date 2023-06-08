@@ -1,0 +1,144 @@
+import { Box, Center, VStack } from "@chakra-ui/react";
+import { Meta } from "@storybook/blocks";
+
+import Card, { CardHeading, CardContent } from "../components/Card/Card";
+import Heading from "../components/Heading/Heading";
+import Icon from "../components/Icons/Icon";
+import Link from "../components/Link/Link";
+import Logo from "../components/Logo/Logo";
+import SimpleGrid from "../components/Grid/SimpleGrid";
+import Text from "../components/Text/Text";
+
+<Meta title="Welcome" />
+
+{
+
+<VStack spacing="s">
+  <Logo name="reservoirVerticalColor" size="small" />
+  <Box>
+    <Center>
+      <Heading level="one" size="tertiary">
+        The React Component Library of the New York Public Library
+      </Heading>
+    </Center>
+    <Text>
+      Reservoir is NYPL's open-source extensible React component library for
+      products and experiences, with accessibility as its core. Aiming to
+      provide design and user experience consistency, Reservoir is the
+      foundation for all digital properties in the NYPL landscape, offering
+      functional components that implement the NYPL style standards.
+    </Text>
+  </Box>
+  <SimpleGrid>
+    <Box
+      style={{
+        alignItems: "center",
+        border: "1px solid #ccc",
+        display: "flex",
+        flexDirection: "column",
+        padding: "24px",
+      }}
+    >
+      <Icon
+        name="actionCheckCircle"
+        size="xxlarge"
+        color="section.education.secondary"
+        marginBottom="s"
+      />
+      <Card isCentered>
+        <CardHeading id="main-heading1" level="three">
+          Get Started
+        </CardHeading>
+        <CardContent>
+          <Text size="caption">
+            To start using Reservoir Design System, refer to Reservoir's Github{" "}
+            <Link
+              href="https://github.com/NYPL/nypl-design-system/wiki"
+              type="external"
+            >
+              Wiki
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
+              type="external"
+            >
+              ReadMe
+            </Link>{" "}
+            to setup your project. You can also learn about our component
+            architecture and additional documentation.
+          </Text>
+        </CardContent>
+      </Card>
+    </Box>
+    <Box
+      style={{
+        alignItems: "center",
+        border: "1px solid #ccc",
+        display: "flex",
+        flexDirection: "column",
+        padding: "24px",
+      }}
+    >
+      <Icon
+        name="search"
+        size="xxlarge"
+        color="section.education.secondary"
+        marginBottom="s"
+      />
+      <Card isCentered>
+        <CardHeading id="main-heading1" level="three">
+          Find Components
+        </CardHeading>
+        <CardContent>
+          <Text size="caption">
+            For your convenience, the Reservoir Design System components have
+            been organized into logical categories based on both form and
+            function. Please refer to the <b>COMPONENTS</b> section in the
+            Storybook sidebar.
+          </Text>
+        </CardContent>
+      </Card>
+    </Box>
+    <Box
+      style={{
+        alignItems: "center",
+        border: "1px solid #ccc",
+        display: "flex",
+        flexDirection: "column",
+        padding: "24px",
+      }}
+    >
+      <Icon
+        name="fileTypeSpreadsheet"
+        size="xxlarge"
+        color="section.education.secondary"
+        marginBottom="s"
+      />
+      <Card isCentered>
+        <CardHeading id="main-heading1" level="three">
+          View the Code
+        </CardHeading>
+        <CardContent>
+          <Text size="caption">
+            The Reservoir Design System React component library is currently
+            published on{" "}
+            <Link
+              href="https://www.npmjs.com/package/@nypl/design-system-react-components"
+              type="external"
+            >
+              npm
+            </Link>
+            . If you're looking to contribute to this project, checkout the <Link
+              href="https://github.com/NYPL/nypl-design-system"
+              type="external"
+            >
+              nypl-design-system
+            </Link> repo on Github for more information.
+          </Text>
+        </CardContent>
+      </Card>
+    </Box>
+  </SimpleGrid>
+</VStack>
+}

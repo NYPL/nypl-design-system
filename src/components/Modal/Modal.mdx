@@ -1,0 +1,135 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as ModalStories from "./Modal.stories";
+import { ModalTrigger, useModal } from "./Modal";
+import Link from "../Link/Link";
+
+<Meta of={ModalStories} />
+
+# Modal
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#modaltrigger" target="_self">ModalTrigger</Link>}
+- {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
+- {<Link href="#usemodal" target="_self">useModal</Link>}
+- {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
+
+## Overview
+
+_Note: This component is going through an accessibility review and is not
+recommended for use until it is updated._
+
+## Accessibility
+
+TBD
+
+## ModalTrigger
+
+<Description of={ModalTrigger} />
+
+<Source
+  code={`
+import { ModalTrigger } from "@nypl/design-system-react-components";
+
+//...
+
+<ModalTrigger
+  buttonText="Button Text"
+  id="modal-trigger"
+  modalProps={{
+    bodyContent: "body text",
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+    },
+  }}
+/>
+`} language="jsx" />
+
+## ModalTrigger Component Props
+
+<Canvas of={ModalStories.WithControls} />
+
+<ArgTypes of={ModalStories.WithControls} />
+
+## useModal
+
+<Description of={useModal} />
+
+You can retrieve the DS `Modal` component and the `onOpen` and `onClose` function
+handlers when calling the `useModal` function. The `onOpen` function handler is
+used to open the `Modal` React component. This function can be passed to any
+number of elements that use the `onClick` attribute. The `onClose` function can
+be used on any element that uses the `onClick` attribute.
+
+**NOTE: in this case, the `buttonText` prop is not necessary since you have to
+create and render your own button.**
+
+<Source
+  code={`
+import { useModal } from "@nypl/design-system-react-components";
+// ...
+export const ModalStory = (args) => {
+  const { onClose, onOpen, Modal } = useModal();
+  const modalProps = {
+    bodyContent: (
+      <>
+        <Button id="custom-close" onClick={onClose}>
+          Go back
+        </Button>
+        <p>This is the body content.</p>
+        <Button id="custom-close2" onClick={onClose}>
+          This is a custom close button.
+        </Button>
+      </>
+    ),
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+      onClose();
+    },
+  };
+  return (
+    <>
+      <ButtonGroup>
+        <Button id="1" onClick={onOpen}>
+          Open Modal
+        </Button>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
+          I can open the modal, too
+        </Button>
+      </ButtonGroup>
+      <div onClick={onOpen}>
+        I'm just a div and shouldn't be used in production but this is just an
+        example
+      </div>
+      <Modal {...modalProps} />
+    </>
+  );
+};
+`}
+  language="jsx"
+/>
+
+## useModal Component Props
+
+<Canvas of={ModalStories.useModalStory} />
+
+## Content Window Scrolling
+
+In either `Modal` pattern, the main content inside the `Modal` component will
+scroll while the `Modal`'s header and footer still stay static. Check the
+example below with a lot of content inside the `Modal`.
+
+<Canvas of={ModalStories.ContentWindowScrolling} />

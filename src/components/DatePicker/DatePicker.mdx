@@ -1,0 +1,248 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as DatePickerStories from "./DatePicker.stories";
+import Link from "../Link/Link";
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#date-range" target="_self">Date Range</Link>}
+- {<Link href="#calendar-types" target="_self">Calendar Types</Link>}
+- {<Link href="#other-states" target="_self">Other States</Link>}
+- {<Link href="#date-inputs-and-output" target="_self">Date Inputs and Output</Link>}
+- {<Link href="#getting-date-input-values" target="_self">Getting Date Input Values</Link>}
+
+## Overview
+
+<Description of={DatePickerStories} />
+
+This is fully customizable to allow selectable full dates, only the month, or
+only they year as input. Initial date values and max and min date values can
+also be added through props.
+
+## Component Props
+
+<Canvas of={DatePickerStories.WithControls} />
+
+<ArgTypes of={DatePickerStories.WithControls} />
+
+## Accessibility
+
+The Reservoir `DatePicker` component implements the `react-datepicker` npm package.
+This package exports a component that is used internally to display the popup
+calendar, manage its data, and associate the `<label>` element with its corresponding
+`<input>` element. This component is accessible through keyboard navigation.
+
+The Reservoir `DatePicker` handles the grouping of the two `<input>` elements in
+the "date range" mode by wrapping the elements in a `<fieldset>` element with
+its own `<legend>` label for the group. Note that this is in addition to the two
+labels that each `<input>` element is associated with.
+
+When `showLabel` is set to false, the single `<input>` element's `aria-label`
+attribute is set to the required `labelText` value. In the "date range" mode,
+when `showLabel` is set to false, the `<fieldset>`'s `<legend>` will have the
+`labelText` visually hidden.
+
+Resources:
+
+- [react-datepicker Accessibility](https://github.com/Hacker0x01/react-datepicker#accessibility)
+
+## Date Range
+
+A date range can be rendered by setting the `isDateRange` prop to `true`. This
+will render two input fields with labels "From" and "To". If the component has
+an error, has required fields, or if it is disabled, then both input elements
+will share the props and styling. Note that for date range types, a `fieldset`
+is used as the parent wrapper and the `labelText` is used for the `legend`
+element text.
+
+Note: In the following example, the minimum date is "1/1/2022" and the max date
+is "7/1/22". This means only values within this range are selectable from the
+popup calendar.
+
+<Canvas of={DatePickerStories.DateRange} />
+
+## Calendar Types
+
+### Full Date Input
+
+By default, the `DatePicker` will display the input date value in the full
+format that contains the year, month, and day such as "2021-01-30". Although
+this is the default, it can be explicitly set through the `dateType` prop with
+value of `"full"`.
+
+### Month Date Input
+
+It's possible to select dates by skipping the day value and only selecting
+the month and the year when `dateType` is set to `"month"`. Note
+that all 12 months will appear in the popup calendar with their abbreviated names.
+
+<Canvas of={DatePickerStories.MonthDateInput} />
+
+### Year Date Input
+
+It's possible to select dates by only the year when `dateType` is set to
+`"year"`. Note that only 12 values will appear in the popup calendar; the four
+previous years, the current year, and the next seven years.
+
+<Canvas of={DatePickerStories.YearDateInput} />
+
+## Other States
+
+<Canvas of={DatePickerStories.OtherStates} />
+
+## Date Inputs and Output
+
+### Initial Date Values
+
+The initial date values can be set through `initialDate` for the "From" input
+field and `initialDateTo` for the "To" input field. In the following examples,
+`initialDate` is `"12/1/21"` and `initialDateTo` is `"12/10/21"`. The
+`initialDate` and `initialDateTo` values are used in the JS `Date` function so
+they needs to be in that specific format. Note that according to the NYPL
+styleguide, we display dates as "year-month-day" by default.
+
+<Canvas of={DatePickerStories.InitialDate} />
+
+### Date Format
+
+The display date format can be updated through the `dateFormat` prop. The
+default is set to `"yyyy-MM-dd"` based on the NYPL styleguide. This should be
+written in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
+
+<Canvas of={DatePickerStories.DateFormat} />
+
+### Max and Min Date Values
+
+The maximum and minimum date values can be set through the `maxDate` and
+`minDate` props, respectively. In this example, go back to January through
+February to see the dates that are available to select in 2022.
+
+<Canvas of={DatePickerStories.MaxMinDateValues} />
+
+## Getting Date Input Values
+
+### Controlled Component Using onChange prop
+
+If your application uses controlled React components and the Reservoir Design
+System (DS) DatePicker must be controlled, you can extract the data through the
+`onChange` prop function. This will be called every time the date is updated in
+either the start date input field or the end date input field. The returned
+data is an object with `startDate` and `endDate` keys and `Date` object values.
+
+<Source
+  code={`
+const onChange = (data) => {
+  // This will return an object such as:
+  // {
+  //   startDate: dateValue,
+  //   endDate: dateValue
+  // }
+  // Note that dateValue is a Date object so you need to get the date value
+  // yourself. The endDate attribute will only appear if the DS DatePicker
+  // component is a date range.
+  console.log(data);
+};
+// ...
+
+// Example of the DS DatePicker instance with the function above:
+
+<DatePicker
+  id="date-range"
+  dateType="full"
+  labelText="Select the date range you want to visit NYPL"
+  invalidText="Please select a valid date range."
+  onChange={onChange}
+  isDateRange
+/>
+`} language="jsx" />
+
+### Uncontrolled Component Using refs
+
+If your application uses uncontrolled components, you can pass React `ref` props
+to the DS DatePicker component to get values from the DOM. In this scenario, you
+need to also pass in a `nameFrom` prop so that the `ref` values knows what DOM
+element to get the value from. If you are using a date range, you need to pass
+additional `nameTo` and `refTo` props or else only the start date value will be
+obtained.
+
+The following example is using the `register` React `ref` from the
+`react-hook-form` package.
+
+<Source
+  code={`
+import { useFormContext } from "react-hook-form";
+// ...
+const { register, handleSubmit } = useFormContext();
+// ...
+const submitForm = (formData) => {
+  // This will return an object with all the DOM element values that were
+  // registered with a name attribute.
+  // Note that the returned values are strings and NOT Date objects.
+  // {
+  //   visitDateFrom: "2020-01-01"
+  //   visitDateTo: "2021-01-01"
+  // }
+  console.log(formData);
+  // ...
+};
+
+<form
+  onSubmit={handleSubmit(submitForm)}
+  method="post"
+  action="/some/api/endpoint"
+>
+  <DatePicker
+    id="date-range"
+    dateType="full"
+    labelText="Select the date range you want to visit NYPL"
+    nameFrom="visitDateFrom"
+    nameTo="visitDateTo"
+    invalidText="Please select a valid date range."
+    ref={register()}
+    refTo={register()}
+    isDateRange
+  />
+</form>
+`} language="jsx" />
+
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values.
+
+<Source
+  code={`
+const refStart = React.createRef<TextInputRefType>();
+const refEnd = React.createRef<TextInputRefType>();
+// ...
+<DatePicker
+  id="date-range"
+  dateType="full"
+  labelText="Select the date range you want to visit NYPL"
+  nameFrom="visitDateFrom"
+  nameTo="visitDateTo"
+  invalidText="Please select a valid date range."
+  ref={refStart}
+  refTo={refEnd}
+  isDateRange
+/>
+// ...
+// Get the value through:
+const onSubmit = () => {
+  // ...
+  const startDate = refStart.current.value;
+  const endDate = refEnd.current.value;
+};
+`}
+  language="jsx"
+/>

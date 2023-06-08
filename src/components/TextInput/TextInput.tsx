@@ -16,16 +16,18 @@ import { getAriaAttrs } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
+export const textInputTypesArray = [
+  "email",
+  "hidden",
+  "number",
+  "password",
+  "text",
+  "textarea",
+  "tel",
+  "url",
+] as const;
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-export type TextInputTypes =
-  | "email"
-  | "hidden"
-  | "number"
-  | "password"
-  | "text"
-  | "textarea"
-  | "tel"
-  | "url";
+export type TextInputTypes = typeof textInputTypesArray[number];
 
 // Only used internally.
 export const TextInputFormats = {
@@ -236,7 +238,7 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
-            autocomplete: hasAutocomplete ? type : null,
+            autoComplete: hasAutocomplete ? type : null,
             defaultValue,
             id,
             isDisabled,

@@ -21,7 +21,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-basic"
@@ -92,7 +92,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -196,7 +196,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
               id="searchbar-select-withSelect-icon"
               role="presentation"
               style={
-                Object {
+                {
                   "color": "currentColor",
                   "height": "1em",
                   "width": "1em",
@@ -248,7 +248,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-withSelect"
@@ -319,7 +319,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -349,7 +349,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-withoutHelperText"
@@ -442,7 +442,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-withClearButton"
@@ -513,7 +513,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -544,7 +544,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         <input
           aria-invalid={true}
           aria-label="Item Search - There is an error related to this field."
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-invalidState"
@@ -637,7 +637,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={true}
           id="searchbar-textinput-disabledState"
@@ -732,7 +732,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         <input
           aria-label="Item Search"
           aria-required={true}
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={true}
           id="searchbar-textinput-requiredState"
@@ -827,7 +827,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         <input
           aria-label="Item Search"
           aria-required={true}
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={true}
           id="searchbar-textinput-noBrandButtonType"
@@ -1129,7 +1129,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-chakra"
@@ -1200,7 +1200,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -1231,7 +1231,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       >
         <input
           aria-label="Item Search"
-          autocomplete={null}
+          autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
           id="searchbar-textinput-props"
@@ -1302,7 +1302,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
