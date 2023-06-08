@@ -3,7 +3,7 @@ import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
 import SearchBar from "./SearchBar";
-import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories";
+import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",

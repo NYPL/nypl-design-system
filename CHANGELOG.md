@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Vite Foundation Update
 
-This updates replaces TSDX with Vite for the build tool. This allows the Reservoir DS library to be easily maintained and allow individual npm packages to be updated for security patches and general bug fixes. At the same time, the build is now much faster. Specific updates and changes:
+This updates replaces TSDX with Vite for the build tool. This allows the Reservoir DS library to be easily maintained and allow individual npm packages to be updated for security patches and general bug fixes. At the same time, the local and production build process are now much faster. Specific updates and changes:
 
 - Node 16 is the recommended version to use and it is set in the `.nvmrc` file.
 - Github Actions are updated to use Node 16. The Typecheck workflow is removed since that's covered by the build script. Using Node 16 also allows the Vercel deployments to work without the the added `NODE_OPTIONS` flag in the npm build script.
@@ -20,8 +20,9 @@ This updates replaces TSDX with Vite for the build tool. This allows the Reservo
 - ESLint packages are updated.
 - Jest is updated along with its config file. `jest-environment-jsom` and `ts-jest` are used now. Snapshot test output files have _slightly_ different rendered HTML syntax.
 - The build is _still_ outputting CommonJS and ES module dist files, but the final name is slightly different. This does not affect how the DS is imported into any application.
-- Storybook is updated to v6.5.16, which is a minor update from v6.5.13.
 - Due to moving to ESM as the default for the repo, types are exported separated from components in the main `/src/index.ts` file. This doesn't affect the final build but just how components, interfaces, and types are exported.
+- Storybook is updated to 7.0.18 which is a major version.
+- All Storybook component documentation have been updated to use the Storybook 7 CSF format, along with MDX for the custom documentation pages.
 
 ### Adds
 
