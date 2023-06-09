@@ -361,7 +361,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   </div>
   <button
     aria-label="Close the notification"
-    className="chakra-button css-1xdhyk6"
+    className="chakra-button css-8bx9xp"
     id="notificationID7-notification-dismissible-button"
     onClick={[Function]}
     type="button"

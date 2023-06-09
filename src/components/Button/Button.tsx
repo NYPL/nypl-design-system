@@ -94,6 +94,7 @@ export const Button = chakra(
       return (
         <ChakraButton
           className={className}
+          gap={hasIcon ? "xxs" : null}
           id={id}
           isDisabled={isDisabled}
           ref={ref}
