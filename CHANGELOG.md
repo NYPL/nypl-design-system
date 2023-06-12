@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `"xxxsmall"` size (32px width) to the `Image` component.
+
 ## 1.6.0 (June 8, 2023)
 
 ### Vite Foundation Update

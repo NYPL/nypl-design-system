@@ -20,6 +20,7 @@ export const imageRatiosArray = [
 ] as const;
 export const imageSizesArray = [
   "default",
+  "xxxsmall",
   "xxsmall",
   "xsmall",
   "small",
