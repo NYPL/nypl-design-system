@@ -161,7 +161,7 @@ export const Sizes: Story = {
           src="https://placeimg.com/400/300/animals"
         />
       </Box>
-      <Box textAlign="center">
+      <Box textAlign="center" width="100%">
         <Heading id="Default" level="four" text="default" />
         <Image
           alt="Alt text"
