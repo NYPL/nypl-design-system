@@ -86,6 +86,13 @@ export const ColorVariations: Story = {
         />
       </Box>
       <Box>
+        <Heading level="three">Connect</Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="connect"
+        />
+      </Box>
+      <Box>
         <Heading level="three">Education</Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}

@@ -40,6 +40,8 @@ const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
 const blogsSecondary = grayMedium;
+const connectPrimary = "#737373";
+const connectSecondary = "#565656";
 const educationPrimary = "#1D62E6";
 const educationSecondary = "#2540A4";
 const researchPrimary = "#00838A";
@@ -75,6 +77,17 @@ const blogsObj = {
 const booksAndMoreObj = {
   light: brandObj.light,
   dark: brandObj.dark,
+};
+
+const connectObj = {
+  light: {
+    primary: connectPrimary,
+    secondary: connectSecondary,
+  },
+  dark: {
+    primary: hexToRGB(connectPrimary, 0.4),
+    secondary: hexToRGB(connectSecondary, 0.4),
+  },
 };
 
 const educationObj = {
@@ -206,6 +219,7 @@ const colors: Colors = {
     section: {
       blogs: blogsObj.dark,
       "books-and-more": booksAndMoreObj.dark,
+      connect: connectObj.dark,
       education: educationObj.dark,
       locations: locationsObj.dark,
       research: researchObj.dark,
@@ -275,6 +289,10 @@ const colors: Colors = {
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
     "books-and-more": booksAndMoreObj.light,
+
+    /** Books and More is used for the Catalog, Staff Picks, Recommendations,
+     * New Arrivals, and E-Book Central. */
+    connect: connectObj.light,
 
     /** Education is used for the Education section front and associated
      * sub-sections. */
