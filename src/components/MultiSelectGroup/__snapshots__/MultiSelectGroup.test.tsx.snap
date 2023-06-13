@@ -54,7 +54,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-colors-menu-button"
           onClick={[Function]}
           type="button"
@@ -166,7 +166,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-pets-menu-button"
           onClick={[Function]}
           type="button"
@@ -278,7 +278,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-tools-menu-button"
           onClick={[Function]}
           type="button"
@@ -407,7 +407,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-colors-menu-button"
           onClick={[Function]}
           type="button"
@@ -519,7 +519,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-pets-menu-button"
           onClick={[Function]}
           type="button"
@@ -631,7 +631,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onFocus={[Function]}
       >
         <button
-          className="chakra-button css-1xdhyk6"
+          className="chakra-button css-8bx9xp"
           id="ms-tools-menu-button"
           onClick={[Function]}
           type="button"
