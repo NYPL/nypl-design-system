@@ -290,11 +290,11 @@ const colors: Colors = {
      * New Arrivals, and E-Book Central. */
     "books-and-more": booksAndMoreObj.light,
 
-    /** Books and More is used for the Catalog, Staff Picks, Recommendations,
-     * New Arrivals, and E-Book Central. */
+    /** Connect is used for the Connect and Get Help section fronts. */
     connect: connectObj.light,
 
-    /** Connect is used for the Connect and Get Help section fronts. */
+    /** Education is used for the Education section front and associated
+     * sub-sections. */
     education: educationObj.light,
 
     /** Locations is used for Location Finder and all branch pages with
