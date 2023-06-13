@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `"xxxsmall"` size (32px width) to the `Image` component.
 - Adds the `"connect"` section hues to the light and dark color palettes.
 - Adds the `"connect"` color variant to the `Breadcrumbs` component.
 

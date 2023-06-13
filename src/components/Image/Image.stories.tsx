@@ -9,7 +9,6 @@ import Image, {
   imageTypesArray,
 } from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
-import Text from "../Text/Text";
 
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
@@ -107,7 +106,16 @@ export const FigureAndFigcaption: Story = {
 };
 export const Sizes: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
+      <Box textAlign="center">
+        <Heading id="ExtraExtraExtraSmall" level="four" text="xxxsmall" />
+        <Image
+          alt="Alt text"
+          caption="32px"
+          size="xxxsmall"
+          src="https://placeimg.com/400/300/animals"
+        />
+      </Box>
       <Box textAlign="center">
         <Heading id="ExtraExtraSmall" level="four" text="xxsmall" />
         <Image
@@ -153,7 +161,7 @@ export const Sizes: Story = {
           src="https://placeimg.com/400/300/animals"
         />
       </Box>
-      <Box textAlign="center">
+      <Box textAlign="center" width="100%">
         <Heading id="Default" level="four" text="default" />
         <Image
           alt="Alt text"
@@ -161,19 +169,20 @@ export const Sizes: Story = {
           src="https://placeimg.com/400/300/animals"
         />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 
 const imageBlockStyles = {
-  margin: "auto",
+  marginLeft: "auto",
+  marginRight: "auto",
   maxWidth: "360px",
   textalign: "center",
   width: "100%",
 };
 export const AspectRatios: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
       <Box style={imageBlockStyles}>
         <Heading id="fourbythree" level="four" text="fourByThree" />
         <Image
@@ -238,12 +247,12 @@ export const AspectRatios: Story = {
           src="https://placeimg.com/400/300/animals"
         />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 export const Types: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
       <Box style={imageBlockStyles}>
         <Heading id="default" level="four" text="default" />
         <Image
@@ -262,14 +271,18 @@ export const Types: Story = {
           src="https://placeimg.com/400/400/animals"
         />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 export const HTMLAttributes: Story = {
   render: () => (
-    <VStack align="start">
+    <VStack align="start" spacing="l">
       <Box>
-        <Text>Image with `onLoad` function</Text>
+        <Heading
+          id="withOnLoad"
+          level="four"
+          text="Image with `onLoad` function"
+        />
         <Image
           alt="Alt text"
           src="https://placeimg.com/400/400/animals"
@@ -284,7 +297,11 @@ export const HTMLAttributes: Story = {
         />
       </Box>
       <Box>
-        <Text>Image with `onError` function</Text>
+        <Heading
+          id="withOnLoad"
+          level="four"
+          text="Image with `onError` function"
+        />
         <Image
           alt="Broken image with bad url"
           src="https://placeimcom/400/400/animals"
