@@ -1,3 +1,14 @@
+/**
+ * DS Maintainer note:
+ * This file is a copy of the ChakraProvider component from the Chakra UI v1.8.8
+ * library. The fixes we want are available in v2.7.0 but that is not compatible
+ * with our current implementation. The workaround is to copy the entire component
+ * and add the fixes ourselves. The prop names are kept the same as the fixed
+ * 2.7.0 version to allow an easier upgrade path in the future.
+ *
+ * https://github.com/chakra-ui/chakra-ui/blob/%40chakra-ui/react%401.8.8/packages/provider/src/chakra-provider.tsx
+ */
+
 import CSSReset from "@chakra-ui/css-reset";
 import { PortalManager } from "@chakra-ui/portal";
 import {
