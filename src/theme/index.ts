@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+// import { extendTheme } from "@chakra-ui/react";
 /** Global theme styles */
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
@@ -76,7 +76,7 @@ import VideoPlayer from "./components/videoPlayer";
  *   - typography (font, font size, font weight)
  *   - spacing
  */
-const theme = extendTheme({
+const theme: any = {
   styles: { global },
   breakpoints,
   colors,
@@ -153,6 +153,6 @@ const theme = extendTheme({
     // value can be set to true.
     useSystemColorMode: false,
   },
-});
+};
 
 export default theme;

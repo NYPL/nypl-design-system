@@ -1,21 +1,28 @@
+import { extendTheme } from "@chakra-ui/react";
+import { mergeWith } from "@chakra-ui/utils";
 import React from "react";
+
 import { ChakraProvider, ChakraProviderProps } from "./internalProvider";
-import theme from "./index";
+import nyplTheme from "./index";
 
 const DSProvider = ({
   children,
   colorModeManager,
-  resetCSS = true,
   disableGlobalStyle = false,
-}: React.PropsWithChildren<ChakraProviderProps>) => (
-  <ChakraProvider
-    colorModeManager={colorModeManager}
-    theme={theme}
-    resetCSS={resetCSS}
-    disableGlobalStyle={disableGlobalStyle}
-  >
-    {children}
-  </ChakraProvider>
-);
+  resetCSS = true,
+  theme = {},
+}: React.PropsWithChildren<ChakraProviderProps>) => {
+  const newTheme = extendTheme(mergeWith(nyplTheme, theme));
+  return (
+    <ChakraProvider
+      colorModeManager={colorModeManager}
+      theme={newTheme}
+      resetCSS={resetCSS}
+      disableGlobalStyle={disableGlobalStyle}
+    >
+      {children}
+    </ChakraProvider>
+  );
+};
 
 export default DSProvider;
