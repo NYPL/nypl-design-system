@@ -161,6 +161,20 @@ export const cssVars = {
       textColor: colorContrastData.brand.secondary.textColor,
     },
   ],
+  connect: [
+    {
+      name: "section.connect.primary",
+      dataBlackColor: checkContrast(4.43),
+      dataWhiteColor: checkContrast(4.74),
+      textColor: "ui.white",
+    },
+    {
+      name: "section.connect.secondary",
+      dataBlackColor: checkContrast(2.86),
+      dataWhiteColor: checkContrast(7.34),
+      textColor: "ui.white",
+    },
+  ],
   education: [
     {
       name: "section.education.primary",
