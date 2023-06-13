@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `"xxxsmall"` size (32px width) to the `Image` component.
+
 ### Updates
 
 - Updates the `Button` component to increase the internal spacing between the button text and an icon.

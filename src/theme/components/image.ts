@@ -20,6 +20,10 @@ const imageSizes = {
   default: {
     maxWidth: "100%",
   },
+  xxxsmall: {
+    ...sideMarginsAuto,
+    maxWidth: "32px",
+  },
   xxsmall: {
     ...sideMarginsAuto,
     maxWidth: "64px",
