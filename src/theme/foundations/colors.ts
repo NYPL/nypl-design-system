@@ -294,8 +294,7 @@ const colors: Colors = {
      * New Arrivals, and E-Book Central. */
     connect: connectObj.light,
 
-    /** Education is used for the Education section front and associated
-     * sub-sections. */
+    /** Connect is used for the Connect and Get Help section fronts. */
     education: educationObj.light,
 
     /** Locations is used for Location Finder and all branch pages with
