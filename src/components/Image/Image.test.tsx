@@ -44,7 +44,7 @@ describe("Image", () => {
 
   // @TODO - test when it does come into view.
   it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
-    const src = "https://placeimg.com/500/200/animals";
+    const src = "http://placekitten.com/500/200";
     const { container } = render(<Image alt="" isLazy src={src} />);
 
     // Mock that the image is not in view through the IntersectionObserver object.

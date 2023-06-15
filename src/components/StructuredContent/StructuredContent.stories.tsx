@@ -74,7 +74,7 @@ export const Controls: Story = {
     "imageProps.credit": "Image credit",
     "imageProps.position": "left",
     "imageProps.size": "medium",
-    "imageProps.src": "https://placeimg.com/400/300/animals",
+    "imageProps.src": "http://placekitten.com/400/300",
   },
   render: (args) => (
     <StructuredContent
@@ -118,7 +118,7 @@ export const WithHTMLStringTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "https://placeimg.com/400/300/animals",
+        src: "http://placekitten.com/400/300",
       }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -164,7 +164,7 @@ export const WithHTMLElementTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "https://placeimg.com/400/300/animals",
+        src: "http://placekitten.com/400/300",
       }}
       bodyContent={
         <>
@@ -344,7 +344,7 @@ export const ExampleWithTwoComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "https://placeimg.com/400/300/animals",
+          src: "http://placekitten.com/400/300",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -408,7 +408,7 @@ export const ExampleWithThreeComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "https://placeimg.com/400/300/animals",
+          src: "http://placekitten.com/400/300",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -477,7 +477,7 @@ export const ExampleWithMixedContent: Story = {
           aspectRatio: "original",
           position: "center",
           size: "medium",
-          src: "https://placeimg.com/400/300/animals",
+          src: "http://placekitten.com/400/300",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
