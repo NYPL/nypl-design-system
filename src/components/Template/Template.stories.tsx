@@ -268,12 +268,12 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               ]}
             />
             <Hero
-              backgroundImageSrc="http://placekitten.com/g/2400/800"
+              backgroundImageSrc="//placekitten.com/g/2400/800"
               heroType="campaign"
               heading={<Heading level="one" id="1" text="Hero Campaign" />}
               imageProps={{
                 alt: "Image example",
-                src: "http://placekitten.com/800/400",
+                src: "//placekitten.com/800/400",
               }}
               subHeaderText={otherSubHeaderText}
             />
@@ -345,7 +345,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
                 alt: "Alt text",
                 aspectRatio: "square",
                 size: "small",
-                src: "http://placekitten.com/400/200",
+                src: "//placekitten.com/400/200",
               }}
               isCentered
             >

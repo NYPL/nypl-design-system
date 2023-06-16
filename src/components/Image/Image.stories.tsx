@@ -70,7 +70,7 @@ export const WithControls: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: "http://placekitten.com/400/300",
+    src: "//placekitten.com/400/300",
   },
   render: (args) => <Image {...args} />,
   parameters: {
@@ -91,7 +91,7 @@ export const FigureAndFigcaption: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: "http://placekitten.com/400/300",
+    src: "//placekitten.com/400/300",
   },
   argTypes: {
     aspectRatio: { table: { disable: true } },
@@ -113,7 +113,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="32px"
           size="xxxsmall"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -122,7 +122,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="64px"
           size="xxsmall"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -131,7 +131,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="96px"
           size="xsmall"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -140,7 +140,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="165px"
           size="small"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -149,7 +149,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="225px"
           size="medium"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -158,16 +158,12 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="360px"
           size="large"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center" width="100%">
         <Heading id="Default" level="four" text="default" />
-        <Image
-          alt="Alt text"
-          caption="100%"
-          src="http://placekitten.com/400/300"
-        />
+        <Image alt="Alt text" caption="100%" src="//placekitten.com/400/300" />
       </Box>
     </VStack>
   ),
@@ -188,7 +184,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="fourByThree"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -196,7 +192,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="oneByTwo"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -204,7 +200,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="original"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -212,7 +208,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="sixteenByNine"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -220,7 +216,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="square"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -228,7 +224,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByFour"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -236,7 +232,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByTwo"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -244,7 +240,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="twoByOne"
-          src="http://placekitten.com/400/300"
+          src="//placekitten.com/400/300"
         />
       </Box>
     </VStack>
@@ -259,7 +255,7 @@ export const Types: Story = {
           alt="Alt text"
           aspectRatio="square"
           imageType="default"
-          src="http://placekitten.com/400/400"
+          src="//placekitten.com/400/400"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -268,7 +264,7 @@ export const Types: Story = {
           alt="Alt text"
           aspectRatio="square"
           imageType="circle"
-          src="http://placekitten.com/400/400"
+          src="//placekitten.com/400/400"
         />
       </Box>
     </VStack>
@@ -285,7 +281,7 @@ export const HTMLAttributes: Story = {
         />
         <Image
           alt="Alt text"
-          src="http://placekitten.com/400/400"
+          src="//placekitten.com/400/400"
           onLoad={({ target }: any) => {
             console.log("Image 1 loaded and `onLoad` called.");
             console.log(
@@ -304,7 +300,7 @@ export const HTMLAttributes: Story = {
         />
         <Image
           alt="Broken image with bad url"
-          src="http://placekitten.com/400/400"
+          src="//placekitten.com/400/400"
           onError={() =>
             console.warn("Image 2 error! Called through `onError`.")
           }
@@ -317,16 +313,16 @@ export const HTMLAttributes: Story = {
 export const LazyLoading: Story = {
   render: () => (
     <SimpleGrid columns={1}>
-      <Image alt="Alt text" isLazy src="http://placekitten.com/540/420" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/500/400" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/460/460" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/420/490" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/200/120" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/640/340" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/460/480" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/100/200" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/400/400" />
-      <Image alt="Alt text" isLazy src="http://placekitten.com/250/360" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/540/420" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/500/400" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/460/460" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/420/490" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/200/120" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/640/340" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/460/480" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/100/200" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/400/400" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/250/360" />
     </SimpleGrid>
   ),
 };

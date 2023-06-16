@@ -117,7 +117,7 @@ export const OnImageComponents: Story = {
             caption="Square"
             aspectRatio="square"
             size="large"
-            src="http://placekitten.com/400/400"
+            src="//placekitten.com/400/400"
           />
         </Tooltip>
         <Tooltip content="fourByThree aspect ratio" shouldWrapChildren>
@@ -126,7 +126,7 @@ export const OnImageComponents: Story = {
             caption="Four by Three"
             aspectRatio="fourByThree"
             size="default"
-            src="http://placekitten.com/400/400"
+            src="//placekitten.com/400/400"
           />
         </Tooltip>
         <Tooltip content="threeByFour aspect ratio" shouldWrapChildren>
@@ -135,7 +135,7 @@ export const OnImageComponents: Story = {
             caption="Three by Four"
             aspectRatio="threeByFour"
             size="default"
-            src="http://placekitten.com/400/400"
+            src="//placekitten.com/400/400"
           />
         </Tooltip>
       </SimpleGrid>
@@ -173,7 +173,7 @@ export const UsingIconContent: Story = {
 
 export const UsingImageContent: Story = {
   render: () => (
-    <Tooltip content={<Image src="http://placekitten.com/300/300" alt="" />}>
+    <Tooltip content={<Image src="//placekitten.com/300/300" alt="" />}>
       Hover to see image
     </Tooltip>
   ),

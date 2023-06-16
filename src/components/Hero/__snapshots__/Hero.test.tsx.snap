@@ -7,7 +7,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(http://placekitten.com/1600/800)",
+      "backgroundImage": "url(//placekitten.com/1600/800)",
     }
   }
 >
@@ -57,7 +57,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -97,7 +97,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -137,7 +137,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -177,7 +177,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -217,7 +217,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -277,7 +277,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(http://placekitten.com/g/2400/800)",
+      "backgroundImage": "url(//placekitten.com/g/2400/800)",
     }
   }
 >
@@ -292,7 +292,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-1p1rhof"
+      className="css-1gt4hjv"
     >
       <div
         className="css-0"
@@ -300,7 +300,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -341,7 +341,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-1p1rhof"
+      className="css-1gt4hjv"
     >
       <div
         className="css-0"
@@ -349,7 +349,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="http://placekitten.com/800/400"
+          src="//placekitten.com/800/400"
         />
       </div>
     </div>
@@ -369,7 +369,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(http://placekitten.com/1600/800)",
+      "backgroundImage": "url(//placekitten.com/1600/800)",
     }
   }
 >
@@ -405,7 +405,7 @@ exports[`Hero Renders the UI snapshot correctly 11`] = `
   data-testid="props"
   style={
     {
-      "backgroundImage": "url(http://placekitten.com/1600/800)",
+      "backgroundImage": "url(//placekitten.com/1600/800)",
     }
   }
 >

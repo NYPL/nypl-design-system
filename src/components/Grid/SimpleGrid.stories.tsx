@@ -52,7 +52,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/220",
+          src: "//placekitten.com/400/220",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -65,7 +65,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/220",
+          src: "//placekitten.com/400/220",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -78,7 +78,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/240",
+          src: "//placekitten.com/400/240",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -91,7 +91,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/260",
+          src: "//placekitten.com/400/260",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -104,7 +104,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/320",
+          src: "//placekitten.com/400/320",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -117,7 +117,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       >
         <CardHeading level="three">Card Heading</CardHeading>
@@ -146,24 +146,24 @@ export const IconExample: Story = {
 export const ImageExample: Story = {
   render: () => (
     <SimpleGrid columns={6}>
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
-      <Image src="http://placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//placekitten.com/300/300" alt="" />
     </SimpleGrid>
   ),
 };
@@ -175,7 +175,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "http://placekitten.com/400/200",
+          src: "//placekitten.com/400/200",
         }}
         isBordered
         isCentered
@@ -194,7 +194,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "http://placekitten.com/410/210",
+          src: "//placekitten.com/410/210",
         }}
         isBordered
         isCentered
@@ -213,7 +213,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "http://placekitten.com/320/320",
+          src: "//placekitten.com/320/320",
         }}
         isBordered
         isCentered

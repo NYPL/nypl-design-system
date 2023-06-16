@@ -16,7 +16,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "http://placekitten.com/400/200",
+          src: "//placekitten.com/400/200",
         }}
       >
         <CardHeading level="three" id="heading1">
@@ -39,7 +39,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "http://placekitten.com/400/200",
+          src: "//placekitten.com/400/200",
         }}
         mainActionLink="http://nypl.org"
       >
@@ -64,7 +64,7 @@ describe("Card", () => {
       id="regularCard"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/400/200",
+        src: "//placekitten.com/400/200",
       }}
       ref={ref}
     >
@@ -85,7 +85,7 @@ describe("Card", () => {
       id="cardWithExtendedStyles"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/300/400",
+        src: "//placekitten.com/300/400",
       }}
     >
       <CardHeading id="editioncardheading1" level="two">
@@ -121,7 +121,7 @@ describe("Card", () => {
       id="cardWithNoCTAs"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/300/400",
+        src: "//placekitten.com/300/400",
       }}
     >
       <CardHeading id="editioncardheading1" level="two">
@@ -140,7 +140,7 @@ describe("Card", () => {
       id="cardWithNoContent"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/300/400",
+        src: "//placekitten.com/300/400",
       }}
     >
       <CardHeading id="editioncardheading1" level="two" url="#edition-link">
@@ -189,7 +189,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/400/200",
+        src: "//placekitten.com/400/200",
       }}
       mainActionLink="http://nypl.org"
     >
@@ -209,7 +209,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         aspectRatio: "threeByTwo",
-        component: <Image alt="" src="http://placekitten.com/400/200" />,
+        component: <Image alt="" src="//placekitten.com/400/200" />,
       }}
     >
       <CardHeading level="three" id="heading1">
@@ -223,7 +223,7 @@ describe("Card", () => {
       id="cardID"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/400/200",
+        src: "//placekitten.com/400/200",
       }}
       isAlignedRightActions
     >
@@ -248,7 +248,7 @@ describe("Card", () => {
       id="chakraProps"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/400/200",
+        src: "//placekitten.com/400/200",
       }}
       p="s"
       color="ui.error.primary"
@@ -269,7 +269,7 @@ describe("Card", () => {
       id="otherProps"
       imageProps={{
         alt: "Alt text",
-        src: "http://placekitten.com/400/200",
+        src: "//placekitten.com/400/200",
       }}
       data-testid="card-testid"
     >

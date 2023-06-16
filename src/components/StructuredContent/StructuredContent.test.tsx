@@ -91,7 +91,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -111,7 +111,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -144,7 +144,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -168,7 +168,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -211,7 +211,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -236,7 +236,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -258,7 +258,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -279,7 +279,7 @@ describe("StructuredContent", () => {
           aspectRatio: "original",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
       />
     );
@@ -305,7 +305,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
         />
       )
@@ -324,7 +324,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
         />
       )
@@ -351,7 +351,7 @@ describe("StructuredContent", () => {
             aspectRatio: "original",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
         />
       )
@@ -369,7 +369,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
         />
       )
@@ -396,7 +396,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
           bodyContent={htmlStringBodyContent}
           p="20px"
@@ -417,7 +417,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "http://placekitten.com/400/300",
+            src: "//placekitten.com/400/300",
           }}
           bodyContent={htmlStringBodyContent}
           data-testid="props"
@@ -449,7 +449,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "http://placekitten.com/400/300",
+          src: "//placekitten.com/400/300",
         }}
         ref={ref}
       />
