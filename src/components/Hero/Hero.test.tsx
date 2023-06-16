@@ -19,7 +19,7 @@ export const otherSubHeaderText =
   "Visit us today.";
 const imageProps = {
   alt: "Image example",
-  src: "https://placeimg.com/800/400/animals",
+  src: "//placekitten.com/800/400",
 };
 
 describe("Hero accessbility tests", () => {
@@ -29,7 +29,7 @@ describe("Hero accessbility tests", () => {
         heroType="primary"
         heading={<Heading level="one" id="a11y-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -61,7 +61,7 @@ describe("Hero accessbility tests", () => {
   it("passes for type Campaign", async () => {
     const { container } = render(
       <Hero
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
         heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
         imageProps={imageProps}
@@ -90,7 +90,7 @@ describe("Hero", () => {
         heroType="primary"
         heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
       />
     );
 
@@ -98,7 +98,7 @@ describe("Hero", () => {
     expect(screen.getByText("Example Subtitle")).toBeInTheDocument();
     expect(screen.getByTestId("hero")).toHaveAttribute(
       "style",
-      "background-image: url(https://placeimg.com/1600/800/arch);"
+      "background-image: url(//placekitten.com/1600/800);"
     );
   });
 
@@ -119,7 +119,7 @@ describe("Hero", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "https://placeimg.com/800/400/animals"
+      "//placekitten.com/800/400"
     );
   });
 
@@ -142,7 +142,7 @@ describe("Hero", () => {
   it("renders Campaign Hero", () => {
     render(
       <Hero
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
         heading={
           <Heading level="one" id="campaign-hero" text="Hero Campaign" />
@@ -156,12 +156,12 @@ describe("Hero", () => {
     expect(screen.getByText(/With 92 locations across/i)).toBeInTheDocument();
     expect(screen.getByTestId("hero")).toHaveAttribute(
       "style",
-      "background-image: url(https://placeimg.com/2400/800/nature/grayscale);"
+      "background-image: url(//placekitten.com/g/2400/800);"
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "https://placeimg.com/800/400/animals"
+      "//placekitten.com/800/400"
     );
   });
 
@@ -178,7 +178,7 @@ describe("Hero", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "https://placeimg.com/800/400/animals"
+      "//placekitten.com/800/400"
     );
   });
 
@@ -193,7 +193,7 @@ describe("Hero", () => {
             text="Hero with Custom Colors"
           />
         }
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         foregroundColor="#123456"
         backgroundColor="#654321"
       />
@@ -242,7 +242,7 @@ describe("Hero", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Hero
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         heroType="primary"
         imageProps={{ src: imageProps.src }}
       />
@@ -266,7 +266,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         heroType="primary"
         heading={heading}
         imageProps={imageProps}
@@ -299,7 +299,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         heroType="secondary"
         heading={heading}
         imageProps={imageProps}
@@ -361,7 +361,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         heroType="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
@@ -380,7 +380,7 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
         heading={heading}
         imageProps={imageProps}
@@ -413,7 +413,7 @@ describe("Hero", () => {
         heroType="campaign"
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        backgroundImageSrc="//placekitten.com/g/2400/800"
         locationDetails={<>Some location details.</>}
       />
     );
@@ -441,7 +441,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="fiftyFifty"
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -462,7 +462,7 @@ describe("Hero", () => {
             <Heading level="one" id="primary-hero" text="Hero Primary" />
           }
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          backgroundImageSrc="//placekitten.com/1600/800"
         />
       )
       .toJSON();
@@ -541,7 +541,7 @@ describe("Hero", () => {
     const campaign = renderer
       .create(
         <Hero
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          backgroundImageSrc="//placekitten.com/g/2400/800"
           heroType="campaign"
           heading={
             <Heading level="one" id="campaign-hero" text="Hero Campaign" />
@@ -577,7 +577,7 @@ describe("Hero", () => {
           heroType="primary"
           heading={<Heading level="one" id="chakra" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          backgroundImageSrc="//placekitten.com/1600/800"
           p="20px"
           color="ui.error.primary"
         />
@@ -589,7 +589,7 @@ describe("Hero", () => {
           heroType="primary"
           heading={<Heading level="one" id="props" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          backgroundImageSrc="//placekitten.com/1600/800"
           data-testid="props"
         />
       )
@@ -612,7 +612,7 @@ describe("Hero", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <Hero
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        backgroundImageSrc="//placekitten.com/1600/800"
         heroType="primary"
         heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
         ref={ref}

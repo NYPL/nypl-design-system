@@ -14,7 +14,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "https://placeimg.com/500/200/animals",
+            src: "//placekitten.com/500/200",
           }}
         >
           <CardHeading level="two">Card Heading</CardHeading>
@@ -27,7 +27,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "https://placeimg.com/400/220/animals",
+            src: "//placekitten.com/400/220",
           }}
         >
           <CardHeading level="three">Card Heading</CardHeading>
@@ -40,7 +40,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "https://placeimg.com/400/240/animals",
+            src: "//placekitten.com/400/240",
           }}
         >
           <CardHeading level="three">Card Heading</CardHeading>
