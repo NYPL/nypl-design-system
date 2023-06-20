@@ -22,8 +22,11 @@ import Link from "../Link/Link";
 
 <Description of={TextStories} />
 
-The `Text` component renders a basic `<p>` element. As its name indicates, the
-`size` prop controls the size of the text rendered in the component.
+The `Text` component renders a basic `<p>` element.
+
+As its name indicates, the `size` prop controls the size of the text rendered in
+the component. Using the `size` prop, the `Text` component can be used to render
+text for various content types, including various forms of subtitles.
 
 ## Component Props
 
@@ -39,3 +42,11 @@ accessible and will be read by screen readers.
 Resources:
 
 - [Chakra UI Text](https://chakra-ui.com/docs/components/typography/text)
+
+## Updated Typographic Styles
+
+New typographic styles were introdiuced in June 2023. The full array of size options include:
+
+`subtitle1`, `subtitle2`, `overline1`, `overline2`, `default`, `caption`, `tag`, `mini`
+
+<Canvas of={TextStories.SizeStyles} />

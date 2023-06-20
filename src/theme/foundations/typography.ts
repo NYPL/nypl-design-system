@@ -15,12 +15,56 @@ const fontSizeValues = {
   "2": "1.375rem",
   "3": "1.75rem",
   "4": "2.25rem",
+  desktop: {
+    display1: "4.25rem", // 68px
+    heading1: "3.375rem", // 54px
+    heading2: "2.625rem", // 42px
+    heading3: "2rem", // 32px
+    heading4: "1.625rem", // 26px
+    heading5: "1.375rem", // 22px
+    heading6: "1.25rem", // 20px
+    subtitle1: "1.125rem", // 18px
+    subtitle2: "1rem", // 16px
+    overline1: "0.75rem", // 12px
+    overline2: "0.625rem", // 10px
+    label1: "0.875rem", // 14px
+    label2: "0.75rem", // 12px
+    buttonDefault: "0.875rem", // 14px
+    buttonSmall: "0.75rem", // 12px
+    buttonLarge: "1rem", // 26px
+    body: "1rem", // 16px
+    caption: "0.875rem", // 14px
+    tag: "0.75rem", // 12px
+  },
+  mobile: {
+    display1: "3.25rem", // 52px
+    heading1: "2.625rem", // 42px
+    heading2: "2.125rem", // 34px
+    heading3: "1.75rem", // 28px
+    heading4: "1.5rem", // 24px
+    heading5: "1.25rem", // 20px
+    heading6: "1.125rem", // 18px
+    subtitle1: "1rem", // 16px
+    subtitle2: "0.875rem", // 14px
+    overline1: "0.75rem", // 12px
+    overline2: "0.625rem", // 10px
+    label1: "0.875rem", // 14px
+    label2: "0.75rem", // 12px
+    buttonDefault: "0.875rem", // 14px
+    buttonSmall: "0.75rem", // 12px
+    buttonLarge: "1rem", // 26px
+    body: "1rem", // 16px
+    caption: "0.875rem", // 14px
+    tag: "0.75rem", // 12px
+  },
 };
 
 const fontWeightValues = {
+  thin: 200,
   light: 300,
   regular: 400,
   medium: 500,
+  semibold: 600,
   bold: 700,
 };
 
@@ -41,14 +85,99 @@ const typography: Typography = {
     "2": fontSizeValues["2"],
     "3": fontSizeValues["3"],
     "4": fontSizeValues["4"],
+    // new semantic tokens
+
+    desktop: {
+      heading: {
+        display1: fontSizeValues.desktop["display1"],
+        heading1: fontSizeValues.desktop["heading1"],
+        heading2: fontSizeValues.desktop["heading2"],
+        heading3: fontSizeValues.desktop["heading3"],
+        heading4: fontSizeValues.desktop["heading4"],
+        heading5: fontSizeValues.desktop["heading5"],
+        heading6: fontSizeValues.desktop["heading6"],
+      },
+      subtitle: {
+        subtitle1: fontSizeValues.desktop["subtitle1"],
+        subtitle2: fontSizeValues.desktop["subtitle2"],
+      },
+      overline: {
+        overline1: fontSizeValues.desktop["overline1"],
+        overline2: fontSizeValues.desktop["overline2"],
+      },
+      helper: {
+        default: fontSizeValues.desktop["tag"],
+      },
+      label: {
+        label1: fontSizeValues.desktop["label1"],
+        label2: fontSizeValues.desktop["label2"],
+      },
+      breadcrumbs: {
+        default: fontSizeValues.desktop["caption"],
+      },
+      button: {
+        small: fontSizeValues.desktop["buttonSmall"],
+        default: fontSizeValues.desktop["buttonDefault"],
+        large: fontSizeValues.desktop["buttonLarge"],
+      },
+      body: fontSizeValues.desktop["body"],
+      caption: fontSizeValues.desktop["caption"],
+      tag: fontSizeValues.desktop["tag"],
+    },
+    mobile: {
+      heading: {
+        display1: fontSizeValues.mobile["display1"],
+        heading1: fontSizeValues.mobile["heading1"],
+        heading2: fontSizeValues.mobile["heading2"],
+        heading3: fontSizeValues.mobile["heading3"],
+        heading4: fontSizeValues.mobile["heading4"],
+        heading5: fontSizeValues.mobile["heading5"],
+        heading6: fontSizeValues.mobile["heading6"],
+      },
+      subtitle: {
+        subtitle1: fontSizeValues.mobile["subtitle1"],
+        subtitle2: fontSizeValues.mobile["subtitle2"],
+      },
+      overline: {
+        overline1: fontSizeValues.mobile["overline1"],
+        overline2: fontSizeValues.mobile["overline2"],
+      },
+      helper: {
+        default: fontSizeValues.mobile["tag"],
+      },
+      label: {
+        label1: fontSizeValues.mobile["label1"],
+        label2: fontSizeValues.mobile["label2"],
+      },
+      breadcrumbs: {
+        default: fontSizeValues.mobile["caption"],
+      },
+      button: {
+        small: fontSizeValues.mobile["buttonSmall"],
+        default: fontSizeValues.mobile["buttonDefault"],
+        large: fontSizeValues.mobile["buttonLarge"],
+      },
+      body: fontSizeValues.mobile["body"],
+      caption: fontSizeValues.mobile["caption"],
+      tag: fontSizeValues.mobile["tag"],
+    },
     // semantic tokens
     breadcrumbs: {
-      default: fontSizeValues["-1"],
+      default: fontSizeValues.desktop["caption"],
     },
     button: {
-      small: fontSizeValues["-2"],
-      default: fontSizeValues["-1"],
-      large: fontSizeValues["0"],
+      small: {
+        base: fontSizeValues.desktop["buttonSmall"],
+        md: fontSizeValues.mobile["buttonSmall"],
+      },
+      default: {
+        base: fontSizeValues.desktop["buttonDefault"],
+        md: fontSizeValues.mobile["buttonDefault"],
+      },
+      large: {
+        base: fontSizeValues.desktop["buttonLarge"],
+        md: fontSizeValues.mobile["buttonLarge"],
+      },
     },
     heading: {
       primary: fontSizeValues["4"],
@@ -76,6 +205,7 @@ const typography: Typography = {
     light: fontWeightValues["light"],
     regular: fontWeightValues["regular"],
     medium: fontWeightValues["medium"],
+    semibold: fontWeightValues["semibold"],
     bold: fontWeightValues["bold"],
     // semantic tokens
     breadcrumbs: {
@@ -90,6 +220,13 @@ const typography: Typography = {
       secondary: fontWeightValues["medium"],
       tertiary: fontWeightValues["medium"],
       callout: fontWeightValues["medium"],
+      display1: fontWeightValues["thin"],
+      heading1: fontWeightValues["thin"],
+      heading2: fontWeightValues["thin"],
+      heading3: fontWeightValues["light"],
+      heading4: fontWeightValues["regular"],
+      heading5: fontWeightValues["medium"],
+      heading6: fontWeightValues["medium"],
     },
     helper: {
       default: fontWeightValues["light"],
@@ -100,10 +237,19 @@ const typography: Typography = {
     },
     text: {
       default: fontWeightValues["light"],
+      body: fontWeightValues["light"],
       caption: fontWeightValues["light"],
       tag: fontWeightValues["regular"],
       mini: fontWeightValues["regular"],
+      subtitle: fontWeightValues["medium"],
+      overline: fontWeightValues["semibold"],
     },
+    default: fontWeightValues["light"],
+    body: fontWeightValues["light"],
+    caption: fontWeightValues["light"],
+    tag: fontWeightValues["regular"],
+    subtitle: fontWeightValues["medium"],
+    overline: fontWeightValues["semibold"],
   },
 };
 

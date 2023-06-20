@@ -6,14 +6,28 @@ import {
 import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const headingSizesArray = [
+  "display1",
+  "heading1",
+  "heading2",
+  "heading3",
+  "heading4",
+  "heading5",
+  "heading6",
   "primary",
   "secondary",
   "tertiary",
   "callout",
 ] as const;
 export const headingLevelsArray = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
   "one",
   "two",
   "three",
@@ -57,14 +71,20 @@ export interface HeadingProps {
 /** Map the word heading level to the number heading level. The default is 2. */
 const getMappedLevel = (level = "two") => {
   const levelMap = {
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
-    five: 5,
-    six: 6,
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    h4: "h4",
+    h5: "h5",
+    h6: "h6",
+    one: "h1",
+    two: "h2",
+    three: "h3",
+    four: "h4",
+    five: "h5",
+    six: "h6",
   };
-  return levelMap[level] || 2;
+  return levelMap[level] || "h2";
 };
 
 export const Heading = chakra(
@@ -85,7 +105,7 @@ export const Heading = chakra(
         ...rest
       } = props;
       const finalLevel = getMappedLevel(level);
-      const variant = size ? size : `h${finalLevel}`;
+      const variant = size ? size : level;
       const styles = useStyleConfig("Heading", {
         variant,
         isCapitalized,
@@ -93,9 +113,10 @@ export const Heading = chakra(
         isLowercase,
         noSpace,
       });
+      const { isLargerThanMobile } = useNYPLBreakpoints();
       // Combine native base styles with any additional styles.
       // This is used in the `Hero` and `Notification` components.
-      const asHeading: any = `h${finalLevel}`;
+      const asHeading: any = finalLevel;
 
       if (!props.children && !text) {
         throw new Error(
@@ -136,14 +157,29 @@ export const Heading = chakra(
       ) : (
         contentToRender
       );
-
+      /* The syntax for responsive styles is not working properly for fontSize
+       * in the theme object, so logic for the responsive styleshas been written here. */
+      const defaultRoot = "heading";
+      const variantRoot = variant.slice(0, -1); // get the root of the variant being set
+      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot; // 
+      const sizeIndex = parseInt(variant.at(-1)); // get last character in string ${s} variant.at(-1)
+      const responsiveStyles = !isNaN(sizeIndex)
+        ? isLargerThanMobile
+          ? {
+              fontSize: `desktop.heading.${finalRoot}${sizeIndex}`,
+            }
+          : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
+        : undefined;
       return (
         <ChakraHeading
           as={asHeading}
           className={className}
           id={id}
           ref={ref}
-          sx={styles}
+          sx={{
+            ...styles,
+            ...responsiveStyles,
+          }}
           {...rest}
         >
           {content}

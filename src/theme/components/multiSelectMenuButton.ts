@@ -26,7 +26,7 @@ const MultiSelectMenuButton = {
       borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
       borderRadius: "button.default",
       borderWidth: "1px",
-      fontSize: "button.default",
+      fontSize: "desktop.button.default",
       minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
       px: "s",
       py: "xs",

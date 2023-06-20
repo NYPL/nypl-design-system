@@ -58,16 +58,65 @@ Resources:
 - [A11y Project Accessible heading structure](https://www.a11yproject.com/posts/how-to-accessible-heading-structure/)
 - [Chakra UI Heading](https://chakra-ui.com/docs/components/typography/heading)
 
-## Default Styles
+## Updated Typographic Styles
+
+New typographic styles were introdiuced in June 2023. The new styles are the
+recommended options for the default `h` elements and the `size` overrides.
+
+## Native Heading Elements
+
+The `level` prop can be used to set a native heading element (ex. `h1`, `h2`,
+...).
+
+Based on the June 2023 updates, it is recommended to use one of the following
+values for the `level` prop:
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`
+
+The older `level` values and the associated styles are still available, but the
+values should be consdidered deprecated and they should only used to fulfill
+older design requirements.
+
+`one`, `two`, `three`, `four`, `five`, `size`
+
+### New Options
 
 <Canvas of={HeadingStories.DefaultStyles} />
 
+### Deprecated Options
+
+<Canvas of={HeadingStories.DefaultStylesDeprecated} />
+
 ## Size Styles
+
+The `size` prop can be used to override the default styles of the native heading
+elements.
+
+Based on the June 2023 updates, it is recommended to use one of the following
+values for the `size` prop:
+
+`display1`, `heading1`, `heading2`, `heading3`, `heading4`, `heading5`,
+`heading6`
+
+The older `size` values and the associated styles are still available, but the
+values should be consdidered deprecated and they should only used to fulfill
+older design requirements.
+
+`primary`, `secondary`, `tertiary`, `callout`
+
+### New Options
+
+Note: The `level` prop for the `Heading` components in this example are all set
+to `level="h1"`.
+
+<Canvas of={HeadingStories.SizeStyles} />
+
+### Deprecated Options
 
 Note: The `level` prop for the `Heading` components in this example are all set
 to `level="one"`.
 
-<Canvas of={HeadingStories.SizeStyles} />
+<Canvas of={HeadingStories.SizeStylesDeprecated} />
 
 ## Heading with Bold Text
 
