@@ -81,34 +81,6 @@ const Application = (props) => {
   language="tsx"
 />
 
-### Disabling Global Styles
-
-By default, the `DSProvider` component will add CSS reset rules and global base
-styles defined in the DS. These are intentional and necessary to style elements
-and components based on the Reservoir Design System.
-
-There are situations, however, where you may want to disable these global styles.
-For example, the NYPL `Header` app is a DS-based application that is rendered on
-top of other applications and websites. These digital products _may_ not be built
-with the DS and therefore, the global base styles of the application may conflict
-with the styles of the DS.
-
-**We recommend to not disable the CSS reset rules and to include global styles.**
-If you think your app may require disabling either or both, please reach out to
-the DS team to discuss.
-
-In order to disable the CSS reset rules, set the `resetCSS` prop to `false`. In
-order to disable the global styles, set the `disableGlobalStyles` prop to `true`.
-
-<Source
-  code={`
-<DSProvider resetCSS={false} disableGlobalStyle>
-  <YourAppComponent />
-</DSProvider>
-`}
-  language="tsx"
-/>
-
 ## Components
 
 Although Chakra is integrated into the DS repo, we are still working to compose
