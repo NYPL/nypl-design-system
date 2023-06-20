@@ -161,7 +161,7 @@ export const Heading = chakra(
        * in the theme object, so logic for the responsive styleshas been written here. */
       const defaultRoot = "heading";
       const variantRoot = variant.slice(0, -1); // get the root of the variant being set
-      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot; // 
+      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot; // set the final root used to build the style
       const sizeIndex = parseInt(variant.at(-1)); // get last character in string ${s} variant.at(-1)
       const responsiveStyles = !isNaN(sizeIndex)
         ? isLargerThanMobile
