@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
+import { VStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
@@ -37,8 +38,8 @@ export const WithControls: Story = {
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,
-    noSpace: false,
-    level: "two",
+    noSpace: true,
+    level: "h2",
     size: undefined,
     text: "Default Heading",
     url: undefined,
@@ -52,7 +53,7 @@ export const WithControls: Story = {
     jest: ["Heading.test.tsx"],
   },
   render: (args) => (
-    <>
+    <VStack align="left" spacing="l">
       <Heading {...args} />
       <Heading {...args} color="brand.primary" />
       <Heading
@@ -62,32 +63,37 @@ export const WithControls: Story = {
         px="s"
         py="xs"
       />
-    </>
+    </VStack>
   ),
 };
 
 // The following are additional Heading example Stories.
 export const DefaultStyles: Story = {
-  name: "New Defaults",
   render: () => (
-    <>
-      <Heading id="heading-h1" level="h1" text="(h1) Lorem ipsum dolor" />
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-h1"
+        level="h1"
+        noSpace
+        text="(h1) Lorem ipsum dolor"
+      />
       <Heading id="heading-h2" level="h2" text="(h2) Lorem ipsum dolor" />
       <Heading id="heading-h3" level="h3" text="(h3) Lorem ipsum dolor" />
       <Heading id="heading-h4" level="h4" text="(h4) Lorem ipsum dolor" />
       <Heading id="heading-h5" level="h5" text="(h5) Lorem ipsum dolor" />
       <Heading id="heading-h6" level="h6" text="(h6) Lorem ipsum dolor" />
-    </>
+    </VStack>
   ),
 };
 
 export const SizeStyles: Story = {
-  name: "New Sizes",
+  name: "Sizes",
   render: () => (
-    <>
+    <VStack align="left" spacing="l">
       <Heading
         id="heading-display1"
         level="h1"
+        noSpace
         size="display1"
         text="(display1) Lorem ipsum dolor"
       />
@@ -127,15 +133,20 @@ export const SizeStyles: Story = {
         size="heading6"
         text="(heading6) Lorem ipsum dolor"
       />
-    </>
+    </VStack>
   ),
 };
 
 export const DefaultStylesDeprecated: Story = {
-  name: "Deprecated Defaults",
+  name: "Deprecated Styles",
   render: () => (
-    <>
-      <Heading id="heading-one" level="one" text="(one) Lorem ipsum dolor" />
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-one"
+        level="one"
+        noSpace
+        text="(one) Lorem ipsum dolor"
+      />
       <Heading id="heading-two" level="two" text="(two) Lorem ipsum dolor" />
       <Heading
         id="heading-three"
@@ -144,18 +155,24 @@ export const DefaultStylesDeprecated: Story = {
       />
       <Heading id="heading-four" level="four" text="(four) Lorem ipsum dolor" />
       <Heading id="heading-five" level="five" text="(five) Lorem ipsum dolor" />
-      <Heading id="heading-six" level="six" text="(six) Lorem ipsum dolor" />
-    </>
+      <Heading
+        id="heading-six"
+        color="inheret"
+        level="six"
+        text="(six) Lorem ipsum dolor"
+      />
+    </VStack>
   ),
 };
 
 export const SizeStylesDeprecated: Story = {
   name: "Deprecated Sizes",
   render: () => (
-    <>
+    <VStack align="left" spacing="l">
       <Heading
         id="heading-primary"
         level="one"
+        noSpace
         size="primary"
         text="(primary) Lorem ipsum dolor"
       />
@@ -177,13 +194,13 @@ export const SizeStylesDeprecated: Story = {
         size="callout"
         text="(callout) Lorem ipsum dolor"
       />
-    </>
+    </VStack>
   ),
 };
 
 export const BoldText: Story = {
   render: () => (
-    <Heading id="headingWithBold" level="h2">
+    <Heading id="headingWithBold" level="h2" noSpace>
       <>
         Heading with a <b>Bold</b> Word
       </>
@@ -194,10 +211,11 @@ export const BoldText: Story = {
 export const Links: Story = {
   name: "Links",
   render: () => (
-    <>
+    <VStack align="left" spacing="l">
       <Heading
         id="heading-with-link-url"
         level="h2"
+        noSpace
         text="Heading with URL Props"
         url="http://apple.com"
         urlClass="special-link"
@@ -207,6 +225,6 @@ export const Links: Story = {
           Heading with a Word <a href="#hello">Link</a>
         </>
       </Heading>
-    </>
+    </VStack>
   ),
 };
