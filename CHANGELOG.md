@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the existing `text` typography styles to add `overline` and `subtitle` options.
 - Updates the `Typography` docs to include the new options added to the `heading` and `text` typography styles.
 - Updates the `Design Tokens` docs to include the new tokens added to the `heading` and `text` typography styles.
+- Updates the `Heading` component to include `overline` and `subtitle` elements.
 
 ## 1.6.0 (June 8, 2023)
 

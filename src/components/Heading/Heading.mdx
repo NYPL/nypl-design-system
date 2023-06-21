@@ -19,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#default-heading-styles" target="_self">Default Heading Styles</Link>}
 - {<Link href="#size-styles" target="_self">Size Styles</Link>}
+- {<Link href="#overline-and-subtitle" target="_self">Overline and Subtitle Elements</Link>}
 - {<Link href="#heading-with-bold-text" target="_self">Heading with Bold Text</Link>}
 - {<Link href="#heading-with-links" target="_self">Heading with Links</Link>}
 
@@ -117,6 +118,28 @@ Note: The `level` prop for the `Heading` components in this example are all set
 to `level="one"`.
 
 <Canvas of={HeadingStories.SizeStylesDeprecated} />
+
+## Overline and Subtitle
+
+The `Heading` component offers two additional text elements as part of the full
+heading lockup: overline and subtitle. When the `overline` or `subtitle` props
+are passed, the `Heading` component will handle the styling for the
+corresponding text element.
+
+Use the `overline` prop to set the text for an eyebrow text element that sits
+above the heading text.
+
+<Canvas of={HeadingStories.Overline} />
+
+Use the `subtitle` prop to set the text for a text element that sits below the
+heading text.
+
+<Canvas of={HeadingStories.Subtitle} />
+
+Or use both the `overview` and `subtitle` props in combination to render a fully
+composed heading lockup.
+
+<Canvas of={HeadingStories.OverlineAndSubtitle} />
 
 ## Heading with Bold Text
 

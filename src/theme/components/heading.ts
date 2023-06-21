@@ -48,46 +48,39 @@ export const headings = {
     fontWeight: "heading.display1",
     letterSpacing: "1px",
     lineHeight: "1.05",
-    ...margins,
     width: "auto",
   },
   heading1: {
     fontWeight: "heading.heading1",
     letterSpacing: "1px",
     lineHeight: "1.05",
-    ...margins,
     width: "auto",
   },
   heading2: {
     fontWeight: "heading.heading2",
     letterSpacing: "1px",
     lineHeight: "1.15",
-    ...margins,
     width: "auto",
   },
   heading3: {
     fontWeight: "heading.heading3",
     letterSpacing: "1px",
     lineHeight: "1.15",
-    ...margins,
     width: "auto",
   },
   heading4: {
     fontWeight: "heading.heading4",
     lineHeight: "1.2",
-    ...margins,
     width: "auto",
   },
   heading5: {
     fontWeight: "heading.heading5",
     lineHeight: "1.2",
-    ...margins,
     width: "auto",
   },
   heading6: {
     fontWeight: "heading.heading6",
     lineHeight: "1.2",
-    ...margins,
     width: "auto",
   },
 };
@@ -120,11 +113,11 @@ const variants = {
 };
 
 const Heading = {
+  parts: ["headingWrapper"],
   baseStyle: ({ isCapitalized, isUppercase, isLowercase, noSpace }) => ({
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
     a: baseLinkStyles,
-    marginBottom: noSpace ? "0" : "s",
     textTransform: isCapitalized
       ? "capitalize"
       : isUppercase
@@ -134,6 +127,10 @@ const Heading = {
       : null,
     _dark: {
       color: "dark.ui.typography.heading",
+    },
+    headingWrapper: {
+      marginBottom: noSpace ? "0" : "s",
+      ...margins,
     },
   }),
   // Available variants:

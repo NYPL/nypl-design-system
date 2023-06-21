@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
+import { VStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
@@ -39,7 +40,9 @@ export const WithControls: Story = {
     isLowercase: false,
     noSpace: false,
     level: "two",
+    overline: undefined,
     size: undefined,
+    subtitle: undefined,
     text: "Default Heading",
     url: undefined,
     urlClass: undefined,
@@ -178,6 +181,196 @@ export const SizeStylesDeprecated: Story = {
         text="(callout) Lorem ipsum dolor"
       />
     </>
+  ),
+};
+
+export const Overline: Story = {
+  render: () => (
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-display1"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="display1"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading1"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading1"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading2"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading2"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading3"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading3"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading4"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading4"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading5"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading5"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading6"
+        level="h1"
+        noSpace
+        overline="Overline"
+        size="heading6"
+        text="Lorem ipsum dolor"
+      />
+    </VStack>
+  ),
+};
+
+export const Subtitle: Story = {
+  render: () => (
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-display1"
+        level="h1"
+        noSpace
+        size="display1"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading1"
+        level="h1"
+        noSpace
+        size="heading1"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading2"
+        level="h1"
+        noSpace
+        size="heading2"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading3"
+        level="h1"
+        noSpace
+        size="heading3"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading4"
+        level="h1"
+        noSpace
+        size="heading4"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading5"
+        level="h1"
+        noSpace
+        size="heading5"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading6"
+        level="h1"
+        noSpace
+        size="heading6"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+    </VStack>
+  ),
+};
+
+export const OverlineAndSubtitle: Story = {
+  name: "Overline and Subtitle",
+  render: () => (
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-display1"
+        level="h1"
+        overline="Overline"
+        size="display1"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading1"
+        level="h1"
+        overline="Overline"
+        size="heading1"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading2"
+        level="h1"
+        overline="Overline"
+        size="heading2"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading3"
+        level="h1"
+        overline="Overline"
+        size="heading3"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading4"
+        level="h1"
+        overline="Overline"
+        size="heading4"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading5"
+        level="h1"
+        overline="Overline"
+        size="heading5"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        id="heading-heading6"
+        level="h1"
+        overline="Overline"
+        size="heading6"
+        subtitle="The subtitle text sits below the main heading text."
+        text="Lorem ipsum dolor"
+      />
+    </VStack>
   ),
 };
 
