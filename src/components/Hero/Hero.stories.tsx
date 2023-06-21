@@ -36,7 +36,7 @@ const otherSubHeaderTextLong = (
 );
 const imageProps = {
   alt: "Image example",
-  src: "https://placeimg.com/800/400/animals",
+  src: "//placekitten.com/800/400",
 };
 
 const meta: Meta<typeof Hero> = {
@@ -80,7 +80,7 @@ export const WithControls: Story = {
     (args.heroType === "primary" && (
       <Hero
         {...args}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature"
+        backgroundImageSrc="//placekitten.com/2400/800"
         heading={<Heading level="one" id="1" text="Hero Primary" />}
         heroType={args.heroType}
         subHeaderText="Example Subtitle"
@@ -108,7 +108,7 @@ export const WithControls: Story = {
     (args.heroType === "campaign" && (
       <Hero
         {...args}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature"
+        backgroundImageSrc="//placekitten.com/2400/800"
         heading={<Heading level="one" id="1" text="Hero Campaign" />}
         heroType={args.heroType}
         imageProps={args.imageProps}
@@ -121,7 +121,7 @@ export const WithControls: Story = {
         heroType={args.heroType}
         imageProps={{
           ...args.imageProps,
-          src: "https://placeimg.com/1200/400/animals",
+          src: "//placekitten.com/1200/400",
         }}
         subHeaderText={otherSubHeaderText}
       />
@@ -139,7 +139,7 @@ export const WithControls: Story = {
 export const Primary: Story = {
   render: () => (
     <Hero
-      backgroundImageSrc="https://placeimg.com/1600/800/arch"
+      backgroundImageSrc="//placekitten.com/1600/800"
       heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
       heroType="primary"
     />
@@ -197,7 +197,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          backgroundImageSrc="//placekitten.com/g/2400/800"
           heroType="campaign"
           heading={
             <Heading
@@ -216,7 +216,7 @@ export const Campaign: Story = {
           text="Campaign Hero with Long Text"
         />
         <Hero
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          backgroundImageSrc="//placekitten.com/g/2400/800"
           heroType="campaign"
           heading={
             <Heading

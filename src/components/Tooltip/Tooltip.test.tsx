@@ -39,11 +39,7 @@ describe("Tooltip accessibility", () => {
 
   it("passes axe accessibility test with Image content", async () => {
     render(
-      <Tooltip
-        content={
-          <Image src="https://placeimg.com/300/300/animals?x=1" alt="" />
-        }
-      >
+      <Tooltip content={<Image src="//placekitten.com/300/300" alt="" />}>
         {buttonLabel}
       </Tooltip>
     );
