@@ -74,7 +74,7 @@ export const WithControls: Story = {
     "imageProps.component": undefined,
     "imageProps.isAtEnd": false,
     "imageProps.size": "default",
-    "imageProps.src": "https://placeimg.com/400/300/animals",
+    "imageProps.src": "//placekitten.com/400/300",
     isAlignedRightActions: false,
     isBordered: false,
     isCentered: false,
@@ -147,7 +147,7 @@ export const ImagePositionColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
       >
         <CardHeading level="three" id="props-heading1">
@@ -163,7 +163,7 @@ export const ImagePositionColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
       >
         <CardHeading level="three" id="props-heading2">
@@ -185,7 +185,7 @@ export const ImagePositionRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -204,7 +204,7 @@ export const ImagePositionRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -230,7 +230,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           size: "xxsmall",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -251,7 +251,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           size: "xsmall",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -272,7 +272,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           size: "small",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -293,7 +293,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           size: "medium",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -314,7 +314,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           size: "large",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -334,7 +334,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
       >
@@ -360,7 +360,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           size: "xxsmall",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -380,7 +380,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           size: "xsmall",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -400,7 +400,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           size: "small",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -420,7 +420,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           size: "medium",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -441,7 +441,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           size: "large",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -462,7 +462,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -488,9 +488,7 @@ export const CustomImageComponent: Story = {
     <Card
       imageProps={{
         alt: "Alt text",
-        component: (
-          <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
-        ),
+        component: <Image src="//placekitten.com/400/400" alt="Alt text" />,
       }}
     >
       <CardHeading level="two" id="img1-heading1">
@@ -523,7 +521,7 @@ export const HeadingAsLink: Story = {
       imageProps={{
         alt: "Alt text",
         aspectRatio: "twoByOne",
-        src: "https://placeimg.com/400/200/animals",
+        src: "//placekitten.com/400/200",
       }}
     >
       <CardHeading level="three" id="link-heading1" url="http://nypl.org">
@@ -558,7 +556,7 @@ export const FullClick: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         mainActionLink="http://nypl.org"
       >
@@ -587,7 +585,7 @@ export const FullClick: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
-          src: "https://placeimg.com/410/210/animals",
+          src: "//placekitten.com/410/210",
         }}
         mainActionLink="http://nypl.org"
       >
@@ -666,7 +664,7 @@ export const CardWithRightSideCardActions: Story = {
         alt: "Alt text",
         aspectRatio: "twoByOne",
         size: "medium",
-        src: "https://placeimg.com/400/200/animals",
+        src: "//placekitten.com/400/200",
       }}
       isAlignedRightActions
       isCentered
@@ -711,7 +709,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
       >
         <CardHeading level="three" id="grid1-heading1">
@@ -726,7 +724,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/410/210/animals",
+          src: "//placekitten.com/410/210",
         }}
       >
         <CardHeading level="three" id="grid2-heading1">
@@ -741,7 +739,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/420/220/animals",
+          src: "//placekitten.com/420/220",
         }}
       >
         <CardHeading level="three" id="grid3-heading1">
@@ -756,7 +754,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/430/230/animals",
+          src: "//placekitten.com/430/230",
         }}
       >
         <CardHeading level="three" id="grid4-heading1">
@@ -771,7 +769,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/440/200/animals",
+          src: "//placekitten.com/440/200",
         }}
       >
         <CardHeading level="three" id="grid5-heading1">
@@ -786,7 +784,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/450/200/animals",
+          src: "//placekitten.com/450/200",
         }}
       >
         <CardHeading level="three" id="grid6-heading1">
@@ -808,7 +806,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/400/200/animals",
+          src: "//placekitten.com/400/200",
         }}
         isCentered
         layout="row"
@@ -826,7 +824,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/410/210/animals",
+          src: "//placekitten.com/410/210",
         }}
         isCentered
         layout="row"
@@ -844,7 +842,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "https://placeimg.com/420/220/animals",
+          src: "//placekitten.com/420/220",
         }}
         isCentered
         layout="row"

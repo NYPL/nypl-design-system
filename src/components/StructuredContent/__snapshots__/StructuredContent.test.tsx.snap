@@ -26,7 +26,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -81,7 +81,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -195,7 +195,7 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
     <img
       alt="Image alt text"
       className="css-0"
-      src="https://placeimg.com/400/300/animals"
+      src="//placekitten.com/400/300"
     />
   </div>
   <div
@@ -229,7 +229,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -306,7 +306,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -362,7 +362,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"

@@ -8,6 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.6.1 (June 22, 2023)
+
+### Adds
+
+- Adds `"xxxsmall"` size (32px width) to the `Image` component.
+- Adds the `"connect"` section hues to the light and dark color palettes.
+- Adds the `"connect"` color variant to the `Breadcrumbs` component.
+- Adds internal `ChakraProvider` component to be able to conditionally include CSS styles through the `resetCSS` and `disableGlobalStyle` props.
+- Adds a `theme` prop to the `DSProvider` to merge in an additional theme file if necessary; this is to support to the `Header` and `Footer` components in the NYPL Header App.
+
+### Updates
+
+- Updates the `Button` component to increase the internal spacing between the button text and an icon.
+- Updates placeholder images to come from placekitten, rather than placeimg, which is being deprecated.
+
 ## 1.6.0 (June 8, 2023)
 
 ### Vite Foundation Update

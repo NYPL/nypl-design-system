@@ -9,7 +9,6 @@ import Image, {
   imageTypesArray,
 } from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
-import Text from "../Text/Text";
 
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
@@ -71,7 +70,7 @@ export const WithControls: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: "https://placeimg.com/400/300/animals",
+    src: "//placekitten.com/400/300",
   },
   render: (args) => <Image {...args} />,
   parameters: {
@@ -92,7 +91,7 @@ export const FigureAndFigcaption: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: "https://placeimg.com/400/300/animals",
+    src: "//placekitten.com/400/300",
   },
   argTypes: {
     aspectRatio: { table: { disable: true } },
@@ -107,14 +106,23 @@ export const FigureAndFigcaption: Story = {
 };
 export const Sizes: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
+      <Box textAlign="center">
+        <Heading id="ExtraExtraExtraSmall" level="four" text="xxxsmall" />
+        <Image
+          alt="Alt text"
+          caption="32px"
+          size="xxxsmall"
+          src="//placekitten.com/400/300"
+        />
+      </Box>
       <Box textAlign="center">
         <Heading id="ExtraExtraSmall" level="four" text="xxsmall" />
         <Image
           alt="Alt text"
           caption="64px"
           size="xxsmall"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -123,7 +131,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="96px"
           size="xsmall"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -132,7 +140,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="165px"
           size="small"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -141,7 +149,7 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="225px"
           size="medium"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box textAlign="center">
@@ -150,36 +158,33 @@ export const Sizes: Story = {
           alt="Alt text"
           caption="360px"
           size="large"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
-      <Box textAlign="center">
+      <Box textAlign="center" width="100%">
         <Heading id="Default" level="four" text="default" />
-        <Image
-          alt="Alt text"
-          caption="100%"
-          src="https://placeimg.com/400/300/animals"
-        />
+        <Image alt="Alt text" caption="100%" src="//placekitten.com/400/300" />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 
 const imageBlockStyles = {
-  margin: "auto",
+  marginLeft: "auto",
+  marginRight: "auto",
   maxWidth: "360px",
   textalign: "center",
   width: "100%",
 };
 export const AspectRatios: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
       <Box style={imageBlockStyles}>
         <Heading id="fourbythree" level="four" text="fourByThree" />
         <Image
           alt="Alt text"
           aspectRatio="fourByThree"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -187,7 +192,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="oneByTwo"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -195,7 +200,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="original"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -203,7 +208,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="sixteenByNine"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -211,7 +216,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="square"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -219,7 +224,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByFour"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -227,7 +232,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByTwo"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -235,22 +240,22 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="twoByOne"
-          src="https://placeimg.com/400/300/animals"
+          src="//placekitten.com/400/300"
         />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 export const Types: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <VStack spacing="l">
       <Box style={imageBlockStyles}>
         <Heading id="default" level="four" text="default" />
         <Image
           alt="Alt text"
           aspectRatio="square"
           imageType="default"
-          src="https://placeimg.com/400/400/animals"
+          src="//placekitten.com/400/400"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -259,20 +264,24 @@ export const Types: Story = {
           alt="Alt text"
           aspectRatio="square"
           imageType="circle"
-          src="https://placeimg.com/400/400/animals"
+          src="//placekitten.com/400/400"
         />
       </Box>
-    </SimpleGrid>
+    </VStack>
   ),
 };
 export const HTMLAttributes: Story = {
   render: () => (
-    <VStack align="start">
+    <VStack align="start" spacing="l">
       <Box>
-        <Text>Image with `onLoad` function</Text>
+        <Heading
+          id="withOnLoad"
+          level="four"
+          text="Image with `onLoad` function"
+        />
         <Image
           alt="Alt text"
-          src="https://placeimg.com/400/400/animals"
+          src="//placekitten.com/400/400"
           onLoad={({ target }: any) => {
             console.log("Image 1 loaded and `onLoad` called.");
             console.log(
@@ -284,10 +293,14 @@ export const HTMLAttributes: Story = {
         />
       </Box>
       <Box>
-        <Text>Image with `onError` function</Text>
+        <Heading
+          id="withOnLoad"
+          level="four"
+          text="Image with `onError` function"
+        />
         <Image
           alt="Broken image with bad url"
-          src="https://placeimcom/400/400/animals"
+          src="//placekitten.com/400/400"
           onError={() =>
             console.warn("Image 2 error! Called through `onError`.")
           }
@@ -300,16 +313,16 @@ export const HTMLAttributes: Story = {
 export const LazyLoading: Story = {
   render: () => (
     <SimpleGrid columns={1}>
-      <Image alt="Alt text" isLazy src="https://placeimg.com/540/420/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/500/400/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/460/460/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/420/490/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/200/120/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/640/340/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/460/480/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/100/200/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/400/400/animals" />
-      <Image alt="Alt text" isLazy src="https://placeimg.com/250/360/animals" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/540/420" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/500/400" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/460/460" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/420/490" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/200/120" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/640/340" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/460/480" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/100/200" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/400/400" />
+      <Image alt="Alt text" isLazy src="//placekitten.com/250/360" />
     </SimpleGrid>
   ),
 };
