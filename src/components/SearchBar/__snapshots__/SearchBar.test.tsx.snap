@@ -44,7 +44,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-basic"
       type="submit"
     >
@@ -271,7 +271,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withSelect"
       type="submit"
     >
@@ -372,7 +372,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withoutHelperText"
       type="submit"
     >
@@ -465,7 +465,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withClearButton"
       type="submit"
     >
@@ -567,7 +567,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-invalidState"
       type="submit"
     >
@@ -660,7 +660,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-disabledState"
       type="submit"
@@ -755,7 +755,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-requiredState"
       type="submit"
@@ -850,7 +850,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-noBrandButtonType"
       type="submit"
@@ -919,7 +919,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withHeading"
       type="submit"
     >
@@ -986,7 +986,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withDescription"
       type="submit"
     >
@@ -1059,7 +1059,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withHeadingAndDescription"
       type="submit"
     >
@@ -1152,7 +1152,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-chakra"
       type="submit"
     >
@@ -1254,7 +1254,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-props"
       type="submit"
     >

@@ -39,6 +39,12 @@ const brand = {
     bg: "dark.brand.secondary",
   },
 };
+const connect = {
+  bg: "section.connect.secondary",
+  _dark: {
+    bg: "dark.section.connect.secondary",
+  },
+};
 const education = {
   bg: "section.education.secondary",
   _dark: {
@@ -133,6 +139,7 @@ const Breadcrumb = {
     blogs,
     booksAndMore,
     brand,
+    connect,
     education,
     locations,
     research,
