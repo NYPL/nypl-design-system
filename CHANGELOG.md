@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Button` component to increase the internal spacing between the button text and an icon.
+- Updates placeholder images to come from placekitten, rather than placeimg, which is being deprecated.
 - Updates the existing `heading` typography styles to add new default styles options for native heading elements, including `h1` thru `h6`.
 - Updates the existing `heading` typography styles to add new size options, including `display1` and `heading1` thru `heading6`.
 - Updates the existing `text` typography styles to add `overline` and `subtitle` options.
