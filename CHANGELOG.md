@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.6.1 (June 22, 2023)
+
 ### Adds
 
 - Adds `"xxxsmall"` size (32px width) to the `Image` component.
