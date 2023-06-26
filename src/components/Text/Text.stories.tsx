@@ -20,7 +20,7 @@ const meta: Meta<typeof Text> = {
     noSpace: { table: { defaultValue: { summary: false } } },
     size: {
       control: {
-        type: "radio",
+        type: "select",
       },
       options: textSizesArray,
       table: { defaultValue: { summary: "default" } },
