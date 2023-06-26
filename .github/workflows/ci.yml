@@ -1,7 +1,6 @@
 # For all pushes, this workflow will
 #     - Install deps
 #     - Lint
-#     - Typecheck
 #     - Test
 name: CI
 
@@ -15,10 +14,10 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
         with:
@@ -33,11 +32,11 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Test
-        run: npm run test
+        run: npm run test:ci

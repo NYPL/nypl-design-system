@@ -16,22 +16,25 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-basic-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-basic"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-basic"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -41,7 +44,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-basic"
       type="submit"
     >
@@ -89,7 +92,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -193,7 +196,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
               id="searchbar-select-withSelect-icon"
               role="presentation"
               style={
-                Object {
+                {
                   "color": "currentColor",
                   "height": "1em",
                   "width": "1em",
@@ -240,22 +243,25 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-withSelect-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-withSelect"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-withSelect"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -265,7 +271,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withSelect"
       type="submit"
     >
@@ -313,7 +319,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -338,22 +344,25 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-withoutHelperText-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-withoutHelperText"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-withoutHelperText"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -363,7 +372,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withoutHelperText"
       type="submit"
     >
@@ -428,22 +437,25 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-withClearButton-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-withClearButton"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-withClearButton"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -453,7 +465,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withClearButton"
       type="submit"
     >
@@ -501,7 +513,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -526,23 +538,26 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-invalidState-wrapper"
     >
-      <input
-        aria-invalid={true}
-        aria-label="Item Search - There is an error related to this field."
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-invalidState"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-invalid={true}
+          aria-label="Item Search - There is an error related to this field."
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-invalidState"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -552,7 +567,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-invalidState"
       type="submit"
     >
@@ -617,22 +632,25 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-disabledState-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="searchbar-textinput-disabledState"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="searchbar-textinput-disabledState"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -642,7 +660,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-disabledState"
       type="submit"
@@ -708,23 +726,26 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-requiredState-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        aria-required={true}
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="searchbar-textinput-requiredState"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search (Required)"
-        required={true}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          aria-required={true}
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="searchbar-textinput-requiredState"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search (Required)"
+          required={true}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -734,7 +755,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-requiredState"
       type="submit"
@@ -800,23 +821,26 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-noBrandButtonType-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        aria-required={true}
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={true}
-        id="searchbar-textinput-noBrandButtonType"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search (Required)"
-        required={true}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          aria-required={true}
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={true}
+          id="searchbar-textinput-noBrandButtonType"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search (Required)"
+          required={true}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -826,7 +850,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       disabled={true}
       id="searchbar-button-noBrandButtonType"
       type="submit"
@@ -895,7 +919,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withHeading"
       type="submit"
     >
@@ -962,7 +986,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withDescription"
       type="submit"
     >
@@ -1035,7 +1059,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
     role="search"
   >
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-withHeadingAndDescription"
       type="submit"
     >
@@ -1100,22 +1124,25 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-chakra-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-chakra"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-chakra"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1125,7 +1152,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-chakra"
       type="submit"
     >
@@ -1173,7 +1200,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }
@@ -1199,22 +1226,25 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       className="css-1u8qly9"
       id="searchbar-textinput-props-wrapper"
     >
-      <input
-        aria-label="Item Search"
-        autocomplete={null}
-        className="chakra-input css-0"
-        disabled={false}
-        id="searchbar-textinput-props"
-        name="textInputName"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Item Search "
-        required={false}
-        step={null}
-        type="text"
-        value=""
-      />
+      <div
+        className="css-79elbk"
+      >
+        <input
+          aria-label="Item Search"
+          autoComplete={null}
+          className="chakra-input css-0"
+          disabled={false}
+          id="searchbar-textinput-props"
+          name="textInputName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Item Search "
+          required={false}
+          step={null}
+          type="text"
+        />
+      </div>
       <div
         aria-atomic={true}
         aria-live="polite"
@@ -1224,7 +1254,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       />
     </div>
     <button
-      className="chakra-button css-r60hgy"
+      className="chakra-button css-5jypj4"
       id="searchbar-button-props"
       type="submit"
     >
@@ -1272,7 +1302,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   >
     <span
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Search for items in Animal Crossing New Horizons",
         }
       }

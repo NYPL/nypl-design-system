@@ -1,4 +1,3 @@
-import { extendTheme } from "@chakra-ui/react";
 /** Global theme styles */
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
@@ -24,18 +23,6 @@ import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
 import Fieldset from "./components/fieldset";
 import FilterBar from "./components/filterBar";
-import Footer from "./components/footer";
-import Header from "./components/header/header";
-import HeaderLogin from "./components/header/headerLogin";
-import HeaderLoginButton from "./components/header/headerLoginButton";
-import HeaderLowerNav from "./components/header/headerLowerNav";
-import HeaderMobileIconNav from "./components/header/headerMobileIconNav";
-import HeaderMobileNav from "./components/header/headerMobileNav";
-import HeaderMobileNavButton from "./components/header/headerMobileNavButton";
-import HeaderSearchForm from "./components/header/headerSearchForm";
-import HeaderSearchButton from "./components/header/headerSearchButton";
-import HeaderSitewideAlerts from "./components/header/headerSitewideAlerts";
-import HeaderUpperNav from "./components/header/headerUpperNav";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -88,7 +75,7 @@ import VideoPlayer from "./components/videoPlayer";
  *   - typography (font, font size, font weight)
  *   - spacing
  */
-const theme = extendTheme({
+const theme: any = {
   styles: { global },
   breakpoints,
   colors,
@@ -118,18 +105,6 @@ const theme = extendTheme({
     FeedbackBox,
     Fieldset,
     FilterBar,
-    Footer,
-    Header,
-    HeaderLogin,
-    HeaderLoginButton,
-    HeaderLowerNav,
-    HeaderMobileIconNav,
-    HeaderMobileNav,
-    HeaderMobileNavButton,
-    HeaderSearchForm,
-    HeaderSearchButton,
-    HeaderSitewideAlerts,
-    HeaderUpperNav,
     Heading,
     HelperErrorText,
     Hero,
@@ -177,6 +152,6 @@ const theme = extendTheme({
     // value can be set to true.
     useSystemColorMode: false,
   },
-});
+};
 
 export default theme;

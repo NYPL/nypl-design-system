@@ -7,7 +7,6 @@ import {
   useMultiStyleConfig,
   useMergeRefs,
 } from "@chakra-ui/react";
-// @TODO Add "@chakra-ui/focus-lock" to package.json dependencies ?
 import FocusLock from "@chakra-ui/focus-lock";
 
 import Button from "./../Button/Button";
@@ -16,7 +15,7 @@ import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem, MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import useNYPLBreakpoints from "./../../hooks/useNYPLBreakpoints";
-import { useCloseDropDown } from "./../../hooks/useCloseDropDown";
+import useCloseDropDown from "../../hooks/useCloseDropDown";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

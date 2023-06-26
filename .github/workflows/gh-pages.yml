@@ -4,9 +4,9 @@ name: Deploy to Github Pages
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
-on:
-  push:
-    branches: [release]
+# on:
+#   push:
+#     branches: [release]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,15 +19,17 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
 
       - name: Build Storybook
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: npm run prebuild:storybook && npm run build-storybook:v1
 
       - name: Deploy

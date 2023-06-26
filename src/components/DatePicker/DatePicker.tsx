@@ -23,7 +23,9 @@ interface ReactDatePickerAttrs {
   showYearPicker?: boolean;
   yearItemNumber?: number;
 }
-export type DatePickerTypes = "full" | "month" | "year";
+
+export const datePickerTypesArray = ["full", "month", "year"] as const;
+export type DatePickerTypes = typeof datePickerTypesArray[number];
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {

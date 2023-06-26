@@ -24,22 +24,24 @@ export const range = (start: number, stop: number, step = 1): number[] => {
  * @NOTE this is only used for Storybook documentation.
  */
 export const getStorybookHrefProps = (pageCount: number) => {
-  // This uses the `addon-queryparams` Storybook addon.
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
 
-  const getPageNumber = (page: number, pageCount: number) => {
+  const getPageNumber = (page: number) => {
     return page > 0 && page <= pageCount ? page : 1;
   };
   const computedCurrentPage =
-    pageParam &&
-    Number(pageParam) &&
-    getPageNumber(Number(pageParam), pageCount);
+    pageParam && Number(pageParam) && getPageNumber(Number(pageParam));
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
+  // NOTE: This is very flaky. It removes the `&page=[number]` from the URL
+  // and replaces it with the new page number. This is not ideal, but if it is
+  // not removed, the example `Pagination` won't work.
+  // Not a problem in real life apps (maybe?).
   const getPageHref = (selectedPage: number) => {
-    return `${location.href}&page=${selectedPage}`;
+    const updatedHref = location.href.replace(/&page=.*/, "");
+    return `${updatedHref}&page=${selectedPage}`;
   };
 
   return { computedCurrentPage, getPageHref };
@@ -120,6 +122,6 @@ export const contrastRatio = (hex1: string, hex2: string) => {
 
 /** This method will truncate text by centain length. Default length is 60. */
 export const truncateText = (text: string, truncateTextLength: number = 60) => {
-  const subString = text.substr(0, truncateTextLength - 1);
-  return `${subString.substr(0, subString.lastIndexOf(" "))}...`;
+  const updatedText = text.substring(0, truncateTextLength - 1);
+  return `${updatedText.substring(0, updatedText.lastIndexOf(" "))}...`;
 };

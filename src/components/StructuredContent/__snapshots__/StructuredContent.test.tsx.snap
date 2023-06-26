@@ -26,7 +26,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -47,7 +47,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -81,7 +81,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -164,7 +164,7 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -195,13 +195,13 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
     <img
       alt="Image alt text"
       className="css-0"
-      src="https://placeimg.com/400/300/animals"
+      src="//placekitten.com/400/300"
     />
   </div>
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -229,7 +229,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -250,7 +250,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -272,7 +272,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -306,7 +306,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -327,7 +327,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }
@@ -362,7 +362,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        src="https://placeimg.com/400/300/animals"
+        src="//placekitten.com/400/300"
       />
       <figcaption
         className="css-0"
@@ -383,7 +383,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   <div
     className="structuredcontent-body"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
       }
     }

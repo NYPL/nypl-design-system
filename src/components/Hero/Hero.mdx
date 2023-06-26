@@ -1,0 +1,184 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as HeroStories from "./Hero.stories";
+import Link from "../Link/Link";
+
+<Meta of={HeroStories} />
+
+# Hero
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.2.0`    |
+| Latest            | `1.5.1`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#all-variations" target="_self">All Variations</Link>}
+- {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
+
+## Overview
+
+<Description of={HeroStories} />
+
+The `Hero` component is used to display a full width banner at the top of a page.
+The `Hero` will contain a required `h1` page title and may also include optional
+descriptive text and images.
+
+There are currently five main hero types: `"primary"`, `"secondary"`,
+`"tertiary"`, `"campaign"`, and `"fiftyFifty"`. Under the `"secondary"` hero type,
+there are four additional subtypes: `"secondaryBooksAndMore"`, `"secondaryLocations"`,
+`"secondaryResearch"`, and `"secondaryWhatsOn"`.
+
+For the variations that use image "alt" and "src" attributes, the `imageProps`
+prop should be used:
+
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://placekitten.com/g/2400/800"
+  heroType="campaign"
+  heading={<Heading level="one" id="campaign-hero" text="Hero Campaign" />}
+  imageProps={{
+    alt: "Image example",
+    src: "https://placekitten.com/800/400",
+  }}
+  subHeaderText="Campaign Hero Subheader Text"
+/>
+`}
+  language="jsx"
+/>
+
+Note: the `imageProps` prop is not the same as the `backgroundImageSrc` prop used
+for some variations. For a full list of what props to use for each variant, check
+the <Link href="#all-variations" target="_self">All Variations</Link> section.
+
+## Component Props
+
+<Canvas of={HeroStories.WithControls} />
+
+<ArgTypes of={HeroStories.WithControls} />
+
+## Accessibility
+
+The `Hero` component is commonly used as a banner below the page's header and
+breadcrumbs and above the main content. This means that if the `Hero` displays
+a heading element, it should be the first on the page and an `h1` element set
+through `Heading`'s `level="one"`.
+
+## All Variations
+
+Each `Hero` variation can be rendered through the `heroType` prop.
+
+### Primary
+
+The `"primary"` hero type can be used with the `backgroundColor`, `backgroundImageSrc`,
+`foregroundColor`, `heading`, `locationDetails`, and `subHeaderText` props. The
+minimum props that should be used are `backgroundImageSrc` and `heading`.
+
+<Source
+  code={`
+backgroundImageSrc="https://placekitten.com/1600/800"
+heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.Primary} />
+
+### Secondary
+
+The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
+`subHeaderText` props.
+
+<Source
+  code={`
+heading={
+  <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+}
+imageProps={imageProps}
+subHeaderText={secondarySubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.Secondary} />
+
+### Tertiary
+
+The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundColor`,
+`heading`, and `subHeaderText` props. The minimum prop to use is the `heading`
+prop.
+
+<Source
+  code={`
+heading={
+  <Heading
+    level="one"
+    id="tertiary-hero"
+    text="Hero Tertiary with Sub-Header"
+  />
+}
+subHeaderText={otherSubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.Tertiary} />
+
+### Campaign
+
+The `"campaign"` hero type can be used with the `backgroundColor`,
+`backgroundImageSrc`, `foregroundColor`, `heading`, `imageProps`, and
+`subHeaderText` props. The minimum props to use are `backgroundImageSrc`,
+`heading`, and `imageProps`.
+
+<Source
+  code={`
+backgroundImageSrc="https://placekitten.com/g/2400/800"
+heading={
+  <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+}
+imageProps={imageProps}
+subHeaderText={otherSubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.Campaign} />
+
+### FiftyFifty
+
+The `"fiftyFifty"` hero type can be used with the `backgroundColor`,
+`foregroundColor`, `heading`, `imageProps`, and `subHeaderText` props. The
+minimum props to use are `imageProps` and `subHeaderText`.
+
+<Source
+  code={`
+imageProps={imageProps}
+subHeaderText={otherSubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.FiftyFifty} />
+
+## Color Variations for Secondary Hero
+
+The background color for the title bar in the `"secondary"` `Hero` changes based
+on the `heroType` variants for the `"secondary"` main variant. There are four
+subtypes: `"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`,
+and `"secondaryWhatsOn"`.
+
+<Source
+  code={`
+// Example \`heroType\` "secondary" variant.
+<Hero heroType="secondaryBooksAndMore" {...props} />
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.ColorVariations} />

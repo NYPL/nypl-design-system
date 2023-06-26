@@ -1,0 +1,75 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as BreadcrumbsStories from "./Breadcrumbs.stories";
+import Link from "../Link/Link";
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.3`    |
+| Latest            | `1.6.1`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#long-titles" target="_self">Long Titles</Link>}
+- {<Link href="#color-variations" target="_self">Color Variations</Link>}
+
+## Overview
+
+<Description of={BreadcrumbsStories} />
+
+<Source
+  code={`
+const breadcrumbsData = [
+  { url: "#", text: "Parent" },
+  { url: "#", text: "Child" },
+  { url: "#", text: "Grandchild" },
+];
+// ...
+<Breadcrumbs breadcrumbsData={breadcrumbsData} />
+`}
+  language="tsx"
+/>
+
+## Component Props
+
+<Canvas of={BreadcrumbsStories.WithControls} />
+
+<ArgTypes of={BreadcrumbsStories.WithControls} />
+
+### Accessibility
+
+Only one `Breadcrumbs` component should be rendered on a page. This is because
+only one HTML `<nav>` element with an `aria-label` attribute value of
+"Breadcrumbs" should be rendered on a page. The DS `Breadcrumbs` component
+renders this HTML landmark so only one component must be rendered on a page.
+
+Internally, links are organized in a `ul` list element. The current page link is
+denoted by an `aria-current` attribute value of "page".
+
+- [W3 Breadcrumbs Practice](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
+- [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
+
+## Long Titles
+
+Ideally, breadcrumb page titles should be short and concise. In cases where a
+breadcrumb page title is over 40 characters, the `Breadcrumb` component will
+truncate the title and an ellipsis will be added to the end of the truncated
+text. The full title will be shown in a `Tooltip` component when hovering over
+the truncated page title.
+
+<Canvas of={BreadcrumbsStories.LongText} />
+
+## Color Variations
+
+The `Breadcrumbs` component background color can be set to a value of the
+`breadcrumbsType` type. If the `breadcrumbsType` prop is omitted, the default
+background color is `"whatsOn"` (`ui.black`).
+
+<Canvas of={BreadcrumbsStories.ColorVariations} />

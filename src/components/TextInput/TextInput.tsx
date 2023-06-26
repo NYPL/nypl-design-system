@@ -1,29 +1,33 @@
 import {
+  Box,
   chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import { getAriaAttrs } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
+export const textInputTypesArray = [
+  "email",
+  "hidden",
+  "number",
+  "password",
+  "text",
+  "textarea",
+  "tel",
+  "url",
+] as const;
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-export type TextInputTypes =
-  | "email"
-  | "hidden"
-  | "number"
-  | "password"
-  | "text"
-  | "textarea"
-  | "tel"
-  | "url";
+export type TextInputTypes = typeof textInputTypesArray[number];
 
 // Only used internally.
 export const TextInputFormats = {
@@ -152,7 +156,7 @@ export const TextInput = chakra(
         value,
         ...rest
       } = props;
-      const [finalValue, setFinalValue] = useState<string>(value || "");
+      const [finalValue, setFinalValue] = useStateWithDependencies(value);
       const closedRef = useRef<HTMLInputElement>();
       const mergedRefs = useMergeRefs(closedRef, ref);
       // If a ref is not passed, then merging refs won't work.
@@ -210,12 +214,6 @@ export const TextInput = chakra(
       let clearButtonOutput;
       let options;
 
-      useEffect(() => {
-        if (value && value !== finalValue) {
-          setFinalValue(value);
-        }
-      }, [finalValue, value]);
-
       if (!id) {
         console.warn(
           "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
@@ -240,7 +238,7 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
-            autocomplete: hasAutocomplete ? type : null,
+            autoComplete: hasAutocomplete ? type : null,
             defaultValue,
             id,
             isDisabled,
@@ -313,8 +311,10 @@ export const TextInput = chakra(
               {labelText}
             </Label>
           )}
-          {fieldOutput}
-          {!isHidden && finalValue.length > 0 && clearButtonOutput}
+          <Box position="relative">
+            {fieldOutput}
+            {!isHidden && finalValue?.length > 0 && clearButtonOutput}
+          </Box>
         </ComponentWrapper>
       );
     }

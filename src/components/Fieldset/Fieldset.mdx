@@ -1,0 +1,49 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as FieldsetStories from "./Fieldset.stories";
+import { Link } from "../Link/Link";
+
+<Meta of={FieldsetStories} />
+
+# Fieldset
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.3`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+
+## Overview
+
+<Description of={FieldsetStories} />
+
+## Component Props
+
+<Canvas of={FieldsetStories.WithControls} />
+
+<ArgTypes of={FieldsetStories.WithControls} />
+
+## Accessibility
+
+This is a simple component but is very important to use when building web forms.
+Syntactically, the `Fieldset` component is used to group form elements. Semantically,
+the form elements that are group should have a similar theme or context. For
+example, when building out a form for a user to create an account, one `Fieldset`
+should be used to group the user's first and last names and another `Fieldset`
+to group the user's address information.
+
+The Reservoir DS implements the `Fieldset` component in the following form
+components:
+
+- `CheckboxGroup`, `DatePicker`, `RadioGroup`.
+
+Resources:
+
+- [W3C Grouping form controls with FIELDSET and LEGEND](https://www.w3.org/TR/2008/WD-WCAG20-TECHS-20080430/H82.html)
+- [GOV.UK Using the fieldset and legend elements](https://accessibility.blog.gov.uk/2016/07/22/using-the-fieldset-and-legend-elements/)
+- [MDN fieldset: The Field Set element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)

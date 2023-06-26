@@ -15,6 +15,14 @@ const blogs = {
       },
     },
   },
+  "li:last-child": {
+    ".chakra-breadcrumb__link": {
+      _hover: {
+        // Override the default hover color.
+        color: "ui.black",
+      },
+    },
+  },
   svg: {
     fill: "ui.black",
   },
@@ -29,6 +37,12 @@ const brand = {
   bg: "brand.secondary",
   _dark: {
     bg: "dark.brand.secondary",
+  },
+};
+const connect = {
+  bg: "section.connect.secondary",
+  _dark: {
+    bg: "dark.section.connect.secondary",
   },
 };
 const education = {
@@ -85,8 +99,15 @@ const Breadcrumb = {
       fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
       ".chakra-breadcrumb__link": {
         _hover: {
+          // Override the default hover color.
+          color: "ui.white",
           cursor: "default",
           textDecoration: "none",
+        },
+        _dark: {
+          _hover: {
+            color: "dark.ui.typography.heading",
+          },
         },
       },
       ".icon": {
@@ -118,6 +139,7 @@ const Breadcrumb = {
     blogs,
     booksAndMore,
     brand,
+    connect,
     education,
     locations,
     research,

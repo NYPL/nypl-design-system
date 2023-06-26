@@ -3,7 +3,7 @@ import { hexToRGB } from "../../utils/utils";
 
 /**
  * All colors can be found in Storybook:
- *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--page
+ *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--docs
  *
  * All UI Fills colors can be found in Figma:
  *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674
@@ -23,12 +23,14 @@ import { hexToRGB } from "../../utils/utils";
 // Reusable variables:
 const black = "#000";
 const white = "#fff";
-const grayDark = "#616161";
 const grayxxxxDark = "#191919";
 const grayxxxDark = "#252525";
 const grayxxDark = "#2E2E2E";
 const grayxDark = "#424242";
+const grayDark = "#616161";
+const graySemiDark = "#8D8D8D";
 const grayMedium = "#BDBDBD";
+const graySemiMedium = "#D9D9D9";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
@@ -38,6 +40,8 @@ const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
 const blogsSecondary = grayMedium;
+const connectPrimary = "#737373";
+const connectSecondary = "#565656";
 const educationPrimary = "#1D62E6";
 const educationSecondary = "#2540A4";
 const researchPrimary = "#00838A";
@@ -75,6 +79,17 @@ const booksAndMoreObj = {
   dark: brandObj.dark,
 };
 
+const connectObj = {
+  light: {
+    primary: connectPrimary,
+    secondary: connectSecondary,
+  },
+  dark: {
+    primary: hexToRGB(connectPrimary, 0.4),
+    secondary: hexToRGB(connectSecondary, 0.4),
+  },
+};
+
 const educationObj = {
   light: {
     primary: educationPrimary,
@@ -106,12 +121,12 @@ const researchLibraryObj = {
   light: {
     lpa: researchLibraryLpa,
     schomburg: researchLibrarySchomburg,
-    schwatzman: researchLibrarySchwartzman,
+    schwartzman: researchLibrarySchwartzman,
   },
   dark: {
     lpa: hexToRGB(researchLibraryLpa, 0.2),
     schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
-    schwatzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+    schwartzman: hexToRGB(researchLibrarySchwartzman, 0.2),
   },
 };
 
@@ -133,7 +148,7 @@ const colors: Colors = {
   ui: {
     black,
     white,
-    /// State and link utilities
+    // State and link utilities
     disabled: {
       primary: grayLightCool,
       secondary: grayxxLightCool,
@@ -186,7 +201,9 @@ const colors: Colors = {
       "xx-dark": grayxxDark,
       "x-dark": grayxDark,
       dark: grayDark,
+      "semi-dark": graySemiDark,
       medium: grayMedium,
+      "semi-medium": graySemiMedium,
       "light-cool": grayLightCool,
       "x-light-cool": grayxLightCool,
       "xx-light-cool": grayxxLightCool,
@@ -202,6 +219,7 @@ const colors: Colors = {
     section: {
       blogs: blogsObj.dark,
       "books-and-more": booksAndMoreObj.dark,
+      connect: connectObj.dark,
       education: educationObj.dark,
       locations: locationsObj.dark,
       research: researchObj.dark,
@@ -209,10 +227,10 @@ const colors: Colors = {
       "whats-on": whatsOnObj.dark,
     },
     ui: {
-      /// State and link utilities
+      // State and link utilities
       disabled: {
         primary: grayDark,
-        secondary: grayxxDark,
+        secondary: grayxDark,
       },
       error: {
         primary: "#E1767B",
@@ -247,8 +265,8 @@ const colors: Colors = {
         active: grayxDark,
       },
       border: {
-        default: grayxDark,
-        hover: grayMedium,
+        default: graySemiDark,
+        hover: graySemiMedium,
       },
       typography: {
         heading: grayLightCool,
@@ -272,6 +290,9 @@ const colors: Colors = {
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
     "books-and-more": booksAndMoreObj.light,
+
+    /** Connect is used for the Connect and Get Help section fronts. */
+    connect: connectObj.light,
 
     /** Education is used for the Education section front and associated
      * sub-sections. */

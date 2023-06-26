@@ -1,0 +1,68 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/Disabling Global Styles" />
+
+# Disabling Global Styles
+
+## Table of Contents
+
+- {<Link href="global-styles" target="_self">Global Styles</Link>}
+- {<Link href="#disabling-styles" target="_self">Disabling Styles</Link>}
+
+## Global Styles
+
+By default, the `DSProvider` component will add CSS reset rules and global base
+styles defined in the DS. These are intentional and necessary to style elements
+and components based on the Reservoir Design System (DS).
+
+<Source
+  code={`
+<DSProvider>
+  <div className="my-app">
+    {children}
+  </div>
+</DSProvider>
+`}
+  language="tsx"
+/>
+
+### Reset CSS
+
+The CSS reset styles are based on [Chakra's CSS reset](https://github.com/chakra-ui/chakra-ui/blob/%40chakra-ui/react%401.8.8/packages/css-reset/src/css-reset.tsx)
+rules. These rules affect native HTML elements but are general conventions that
+help normalize the appearance of elements across browsers.
+
+### Global Styles
+
+The DS global styles are based on its own [global styles](https://github.com/NYPL/nypl-design-system/blob/development/src/theme/foundations/global.ts).
+These styles are intentional and affect the native HTML `body`, `a`, `svg`, `button`,
+`select`, `input`, `textarea`, `iframe`, `p`, `ul`, and `ol`. These rules help
+keep DS components consistent across applications and websites.
+
+## Disabling Styles
+
+**We recommend to not disable the CSS reset rules and to include global styles.**
+If you think your app may require disabling either or both, please reach out to
+the DS team to discuss.
+
+There are situations where you may want to disable these global styles. For
+example, the NYPL `Header` app is a DS-based application that is rendered on top
+of other applications and websites. These digital products _may_ not be built
+with the DS and, therefore, the global base styles of the application may
+conflict with the styles of the DS.
+
+In order to disable the CSS reset rules, set the `resetCSS` prop to `false`. In
+order to disable the global styles, set the `disableGlobalStyles` prop to `true`.
+
+<Source
+  code={`
+<DSProvider resetCSS={false} disableGlobalStyle>
+  <div className="my-app">
+    {children}
+  </div>
+</DSProvider>
+`}
+  language="tsx"
+/>

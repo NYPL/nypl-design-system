@@ -1,0 +1,65 @@
+import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+
+import * as LabelStories from "./Label.stories";
+import Link from "../Link/Link";
+
+<Meta of={LabelStories} />
+
+# Label
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `1.5.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#isrequired-helper-text" target="_self">isRequired helper text</Link>}
+- {<Link href="#requiredlabeltext-to-customize-required-label" target="_self">requiredLabelText to customize required label</Link>}
+
+## Overview
+
+<Description of={LabelStories} />
+
+## Component Props
+
+<Canvas of={LabelStories.WithControls} />
+
+<ArgTypes of={LabelStories.WithControls} />
+
+## Accessibility
+
+The `Label` component is an accessible HTML `<label>` element. The JSX prop
+`htmlFor` should be set to the `id` of the input element that the label is
+associated with. This is the proper way to label inputs so that screenreaders
+can read the label, without the use of the `aria-label` attribute on the input
+element.
+
+Note: All form-related Reservoir components already implement this `Label`
+component so there is no need to use this component unless if you are building
+a new form-related input component.
+
+Resources:
+
+- [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/advanced)
+
+## isRequired helper text
+
+An optional helper string can be rendered at the end of the `Label` text through
+the `isRequired` prop. This is useful for visually labeling a field as required
+with the `"(Required)"` text next to the label's text. This is set to `false`
+by default.
+
+<Canvas of={LabelStories.RequiredState} />
+
+## requiredLabelText to customize required label
+
+The `requiredLabelText` prop accepts values for type string and is available to update the "(Required)" text.
+It is recommend to be used carefully and to only pass text that means "required", including in other languages.
+We also recommend a maximum of two words for this text.
+Note: The parenthesis will be added automatically by the component.
+
+<Canvas of={LabelStories.CustomRequiredText} />

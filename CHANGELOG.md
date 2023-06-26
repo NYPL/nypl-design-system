@@ -18,6 +18,92 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
 
+## 1.6.1 (June 22, 2023)
+
+### Adds
+
+- Adds `"xxxsmall"` size (32px width) to the `Image` component.
+- Adds the `"connect"` section hues to the light and dark color palettes.
+- Adds the `"connect"` color variant to the `Breadcrumbs` component.
+- Adds internal `ChakraProvider` component to be able to conditionally include CSS styles through the `resetCSS` and `disableGlobalStyle` props.
+- Adds a `theme` prop to the `DSProvider` to merge in an additional theme file if necessary; this is to support to the `Header` and `Footer` components in the NYPL Header App.
+
+### Updates
+
+- Updates the `Button` component to increase the internal spacing between the button text and an icon.
+- Updates placeholder images to come from placekitten, rather than placeimg, which is being deprecated.
+
+## 1.6.0 (June 8, 2023)
+
+### Vite Foundation Update
+
+This updates replaces TSDX with Vite for the build tool. This allows the Reservoir DS library to be easily maintained and allow individual npm packages to be updated for security patches and general bug fixes. At the same time, the local and production build process are now much faster. Specific updates and changes:
+
+- Node 16 is the recommended version to use and it is set in the `.nvmrc` file.
+- Github Actions are updated to use Node 16. The Typecheck workflow is removed since that's covered by the build script. Using Node 16 also allows the Vercel deployments to work without the the added `NODE_OPTIONS` flag in the npm build script.
+- Vite is used to build the library and start a development build.
+- Rollup plugins are removed in favor of Vite plugins.
+- Gulp and the `resources.scss` file are removed. Other related `.scss` files were also removed since they are not used (in the library or in consuming applications).
+- ESLint packages are updated.
+- Jest is updated along with its config file. `jest-environment-jsom` and `ts-jest` are used now. Snapshot test output files have _slightly_ different rendered HTML syntax.
+- The build is _still_ outputting CommonJS and ES module dist files, but the final name is slightly different. This does not affect how the DS is imported into any application.
+- Due to moving to ESM as the default for the repo, types are exported separated from components in the main `/src/index.ts` file. This doesn't affect the final build but just how components, interfaces, and types are exported.
+- Storybook is updated to 7.0.18 which is a major version.
+- All Storybook component documentation have been updated to use the Storybook 7 CSF format, along with MDX for the custom documentation pages.
+
+### Adds
+
+- Adds the `target` prop to the `Link` component.
+
+### Removals
+
+- Removes the `Header` and `Footer` components from the DS. These components will be moved and maintained in the [nypl-header-app](https://github.com/NYPL/nypl-header-app).
+
+## 1.5.4 (May 4, 2023)
+
+### Updates
+
+- Updates the `Select` component to use a set text color value.
+
+### Fixes
+
+- Fixes the focus rectangle around the `TextInput` clear button so it is centered on both desktop and mobile views.
+
+## 1.5.3 (April 28, 2023)
+
+### Adds
+
+- Adds `ui.gray.semi-medium` and `ui.gray.semi-dark` to the color palette.
+- Adds `Audio and Video` page to the `Accessibility Guide` section of Storybook.
+- Adds "Pinterest" and "SoundCloud" options to the `Icon` component.
+
+### Updates
+
+- Updates the `Link` component to include the rel attributes "noopener" and "noreferrer" on the "external" variant.
+- Updates the `dark.ui.border.default` design token to use `ui.gray.semi-dark` as its base.
+- Updates the `dark.ui.border.hover` design token to use `ui.gray.semi-medium` as its base.
+- Updates the `dark.ui.disabled.primary` design token to use `ui.gray.dark` as its base.
+- Updates the `dark.ui.disabled.secondary` design token to use `ui.gray.x-dark` as its base.
+- Updates the `Toggle` component to use `ui.gray.semi-dark` color for its background color.
+- Updates the `List` and `StyledList` components to use `ui.gray.semi-dark` for the bullet color in the "ul" variant.
+- Updates the `Slider` component to use `ui.bg.active` for the color of the track bar in the "disabled" state.
+- Updates the `Breadcrumbs` component so that the last breadcrumb item is now a link. If the link text is too long, it will get truncated and the DS `Tooltip` component will be used to display the full text in a tooltip when the text is hovered.
+
+### Fixes
+
+- Fixes a `border-radius` formatting issues on the hover state of the search field for the dark mode version of the `Header` component.
+- Fixes a `color` issue on the hover state of the links for the dark mode version of the `Footer` component.
+- Fixes a `border-color` issue for the dark mode version of the `FeedbackBox` component.
+- Fixes a bug in `TextInput` that prevented the external clearing of `value`.
+
+## 1.5.2 (April 6, 2023)
+
+### Updates
+
+- Updates the `aria-label` and `title` props in the `Tabs` component's button and icon elements to be more descriptive.
+- Updates `useCloseDropDown` hook to be exported for nypl-header-app.
+- Updates the `Logo` component to include "black" and "white" variants for `NYCDOE`.
+
 ## 1.5.1 (March 23, 2023)
 
 ### Updates

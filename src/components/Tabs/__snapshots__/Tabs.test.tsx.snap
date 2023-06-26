@@ -9,8 +9,8 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     className="css-l3f8vc"
   >
     <button
-      aria-label="Previous"
-      className="chakra-button css-1c0zt5w"
+      aria-label="Scroll tabs left"
+      className="chakra-button css-18qhlcl"
       id="tabs-previous-basic"
       onClick={[Function]}
       type="button"
@@ -21,7 +21,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         focusable={false}
         id="tabs-previous-icon-basic"
         role="img"
-        title="arrow icon"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -103,8 +103,8 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       </div>
     </div>
     <button
-      aria-label="Next"
-      className="chakra-button css-rvrlhv"
+      aria-label="Scroll tabs right"
+      className="chakra-button css-1djleqc"
       id="tabs-next-basic"
       onClick={[Function]}
       type="button"
@@ -115,7 +115,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         focusable={false}
         id="tabs-next-icon-basic"
         role="img"
-        title="arrow icon"
+        title="next arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -166,7 +166,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-labelledby="basic--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -179,7 +179,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-labelledby="basic--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }
@@ -201,8 +201,8 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
     className="css-l3f8vc"
   >
     <button
-      aria-label="Previous"
-      className="chakra-button css-1c0zt5w"
+      aria-label="Scroll tabs left"
+      className="chakra-button css-18qhlcl"
       id="tabs-previous-chakra"
       onClick={[Function]}
       type="button"
@@ -213,7 +213,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         focusable={false}
         id="tabs-previous-icon-chakra"
         role="img"
-        title="arrow icon"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -295,8 +295,8 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <button
-      aria-label="Next"
-      className="chakra-button css-rvrlhv"
+      aria-label="Scroll tabs right"
+      className="chakra-button css-1djleqc"
       id="tabs-next-chakra"
       onClick={[Function]}
       type="button"
@@ -307,7 +307,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         focusable={false}
         id="tabs-next-icon-chakra"
         role="img"
-        title="arrow icon"
+        title="next arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -358,7 +358,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-labelledby="chakra--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -371,7 +371,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-labelledby="chakra--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }
@@ -394,8 +394,8 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
     className="css-l3f8vc"
   >
     <button
-      aria-label="Previous"
-      className="chakra-button css-1c0zt5w"
+      aria-label="Scroll tabs left"
+      className="chakra-button css-18qhlcl"
       id="tabs-previous-props"
       onClick={[Function]}
       type="button"
@@ -406,7 +406,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         focusable={false}
         id="tabs-previous-icon-props"
         role="img"
-        title="arrow icon"
+        title="previous arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -488,8 +488,8 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       </div>
     </div>
     <button
-      aria-label="Next"
-      className="chakra-button css-rvrlhv"
+      aria-label="Scroll tabs right"
+      className="chakra-button css-1djleqc"
       id="tabs-next-props"
       onClick={[Function]}
       type="button"
@@ -500,7 +500,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         focusable={false}
         id="tabs-next-icon-props"
         role="img"
-        title="arrow icon"
+        title="next arrow"
         viewBox="0 0 24 24"
       >
         <g
@@ -551,7 +551,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-labelledby="props--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
         }
       }
@@ -564,7 +564,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-labelledby="props--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
         }
       }
