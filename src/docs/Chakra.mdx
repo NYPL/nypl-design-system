@@ -81,33 +81,6 @@ const Application = (props) => {
   language="tsx"
 />
 
-### Chakra Components in Storybook
-
-Storybook is configured to use the `DSProvider` so that components can render
-appropriately. Unfortunately, this only works within the `Story` component.
-When rendering components in documentation examples within a `Canvas` component,
-wrap the elements in the `DSProvider` component.
-
-<Source
-  code={`
-// These buttons are not a part of a "story" but still appear only
-// in the documentation.
-<Canvas>
-  <DSProvider>
-    <ButtonGroup>
-      <Button id="enabled" isDisabled={false}>
-        Enabled
-      </Button>
-      <Button id="disabled" isDisabled>
-        Disabled
-      </Button>
-    </ButtonGroup>
-  </DSProvider>
-</Canvas>
-`}
-  language="tsx"
-/>
-
 ## Components
 
 Although Chakra is integrated into the DS repo, we are still working to compose
