@@ -18,7 +18,7 @@ const meta: Meta<typeof Heading> = {
     },
     noSpace: { table: { defaultValue: { summary: false } } },
     size: {
-      control: { type: "radio" },
+      control: { type: "select" },
       options: headingSizesArray,
     },
   },
@@ -50,7 +50,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79427-131143&mode=design&t=dlIeF76UzYdct97m-4",
     },
     jest: ["Heading.test.tsx"],
   },
