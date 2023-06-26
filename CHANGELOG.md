@@ -8,8 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `isUnderlined` prop to the `Link` component.
+
 ### Updates
 
+- Updates underline styles of the `Link` component.
+- Updates the hex value for the `Link Primary` color style.
+- Updates the `Link` component so that non-button variants change color once visited.
 - Updates the existing `heading` typography styles to add new default styles options for native heading elements, including `h1` thru `h6`.
 - Updates the existing `heading` typography styles to add new size options, including `display1` and `heading1` thru `heading6`.
 - Updates the existing `text` typography styles to add `overline` and `subtitle` options.
