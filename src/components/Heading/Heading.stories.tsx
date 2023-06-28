@@ -18,7 +18,7 @@ const meta: Meta<typeof Heading> = {
     },
     noSpace: { table: { defaultValue: { summary: false } } },
     size: {
-      control: { type: "radio" },
+      control: { type: "select" },
       options: headingSizesArray,
     },
   },

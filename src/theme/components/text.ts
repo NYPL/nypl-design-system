@@ -21,24 +21,24 @@ const variants = {
   },
   overline1: {
     fontSize: "desktop.overline.overline1",
-    fontWeight: "text.overline",
+    fontWeight: "overline.overline1",
     lineHeight: 1.35,
     textTransform: "uppercase",
   },
   overline2: {
     fontSize: "desktop.overline.overline2",
-    fontWeight: "text.overline",
+    fontWeight: "overline.overline2",
     lineHeight: 1.4,
     textTransform: "uppercase",
   },
   subtitle1: {
     fontSize: "desktop.subtitle.subtitle1",
-    fontWeight: "text.subtitle",
+    fontWeight: "subtitle.subtitle1",
     lineHeight: 1.25,
   },
   subtitle2: {
     fontSize: "desktop.subtitle.subtitle2",
-    fontWeight: "text.subtitle",
+    fontWeight: "subtitle.subtitle2",
     lineHeight: 1.3,
   },
 };
@@ -67,6 +67,7 @@ const Text = {
       : null;
 
     return {
+      fontFamily: "body",
       fontStyle: fontStyle,
       fontWeight: fontWeight,
       textTransform: textTransform,

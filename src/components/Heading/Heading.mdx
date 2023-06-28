@@ -17,7 +17,8 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#default-heading-styles" target="_self">Default Heading Styles</Link>}
+- {<Link href="#updated-typographic-styles" target="_self">Updated Typographic Styles</Link>}
+- {<Link href="#native-heading-elements" target="_self">Native Heading Elements</Link>}
 - {<Link href="#size-styles" target="_self">Size Styles</Link>}
 - {<Link href="#heading-with-bold-text" target="_self">Heading with Bold Text</Link>}
 - {<Link href="#heading-with-links" target="_self">Heading with Links</Link>}
@@ -60,51 +61,71 @@ Resources:
 
 ## Updated Typographic Styles
 
-New typographic styles were introdiuced in June 2023. The new styles are the
+New typographic styles were introduced in June 2023. The new styles are the
 recommended options for the default `h` elements and the `size` overrides.
 
 ## Native Heading Elements
 
-The `level` prop can be used to set a native heading element (ex. `h1`, `h2`,
-...).
+The `level` prop can be used to set a native heading element (ex. `<h1>`,
+`<h2>`, ...).
 
-Based on the June 2023 updates, it is recommended to use one of the following
-values for the `level` prop:
+The default text styles for the native heading element levels are directly
+related to the corresponding values of the `size` prop. 
 
-`h1`, `h2`, `h3`, `h4`, `h5`, `h6`
+For example, for the __recommended__ options listed below, the `heading1` size
+is the default style for the `<h1>` element. The `heading2` size is the default
+style for the `<h2>` element. And so on.
 
-The older `level` values and the associated styles are still available, but the
-values should be consdidered deprecated and they should only used to fulfill
-older design requirements.
-
-`one`, `two`, `three`, `four`, `five`, `size`
+For the __deprecated__ options listed below, the `primary` size is the default
+style for the `<h1>` element. The `secondary` size is the default style for the
+`<h2>` element. The `tertiary` size is the default style for the `<h3>` element.
+And the `callout` size is the default style for the `<h4>` element. `<h5>` and
+`<h6>` do not have corresponding `size` styles.
 
 ### Recommended Options
+
+Based on the June 2023 updates, it is recommended to use one of the following
+values for the `level` prop.
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
 <Canvas of={HeadingStories.DefaultStyles} />
 
 ### Deprecated Options
 
+The older `level` values and the associated styles are still available, but the
+values should be considered deprecated and they should only used to fulfill
+older design requirements.
+
+`one`, `two`, `three`, `four`, `five`, `size`
+
 <Canvas of={HeadingStories.DefaultStylesDeprecated} />
+
+### Migrating from Old to New
+
+When adopting the new `level` values, there is a direct relationship between the
+deprecated values and the new values. For example, from a native element
+persepctive, `two` should be  replaced with `h2`, as they will both render the
+`<h2>` element. However, there is no direct relationship between the styles
+applied to the native elements. Make sure to utilize the `size` prop to render
+the proper size styles.
 
 ## Size Styles
 
 The `size` prop can be used to override the default styles of the native heading
 elements.
 
+### Recommended Options
+
 Based on the June 2023 updates, it is recommended to use one of the following
-values for the `size` prop:
+values for the `size` prop.
 
 `display1`, `heading1`, `heading2`, `heading3`, `heading4`, `heading5`,
 `heading6`
 
-The older `size` values and the associated styles are still available, but the
-values should be consdidered deprecated and they should only used to fulfill
-older design requirements.
-
-`primary`, `secondary`, `tertiary`, `callout`
-
-### Recommended Options
+For usage recommendations of each of the `size` options, please refer to the
+[Typography Style
+Guide](../?path=/docs/style-guide-typography--docs#size-options).
 
 Note: The `level` prop for the `Heading` components in this example are all set
 to `level="h1"`.
@@ -112,6 +133,12 @@ to `level="h1"`.
 <Canvas of={HeadingStories.SizeStyles} />
 
 ### Deprecated Options
+
+The older `size` values and the associated styles are still available, but the
+values should be consdidered deprecated and they should only used to fulfill
+older design requirements.
+
+`primary`, `secondary`, `tertiary`, `callout`
 
 Note: The `level` prop for the `Heading` components in this example are all set
 to `level="one"`.

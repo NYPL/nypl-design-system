@@ -228,6 +228,14 @@ const typography: Typography = {
       heading5: fontWeightValues["medium"],
       heading6: fontWeightValues["medium"],
     },
+    subtitle: {
+      subtitle1: fontWeightValues["medium"],
+      subtitle2: fontWeightValues["medium"],
+    },
+    overline: {
+      overline1: fontWeightValues["semibold"],
+      overline2: fontWeightValues["semibold"],
+    },
     helper: {
       default: fontWeightValues["light"],
     },
@@ -241,15 +249,11 @@ const typography: Typography = {
       caption: fontWeightValues["light"],
       tag: fontWeightValues["regular"],
       mini: fontWeightValues["regular"],
-      subtitle: fontWeightValues["medium"],
-      overline: fontWeightValues["semibold"],
     },
     default: fontWeightValues["light"],
     body: fontWeightValues["light"],
     caption: fontWeightValues["light"],
     tag: fontWeightValues["regular"],
-    subtitle: fontWeightValues["medium"],
-    overline: fontWeightValues["semibold"],
   },
 };
 

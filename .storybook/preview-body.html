@@ -52,6 +52,24 @@
     color: #2e3438;
     font-size: 14px;
   }
+  .sbdocs :where(h1:not(.sb-unstyled h1)),
+  .sbdocs :where(h2:not(.sb-unstyled h2)),
+  .sbdocs :where(h3:not(.sb-unstyled h3)),
+  .sbdocs :where(h4:not(.sb-unstyled h4)),
+  .sbdocs :where(h5:not(.sb-unstyled h5)),
+  .sbdocs :where(h6:not(.sb-unstyled h6)) {
+    color: inherit;
+  }
+  .sbdocs :where(div:not(.sb-anchor, .sb-unstyled, .sb-unstyled div)) {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .sbdocs :where(span:not(.sb-anchor, .sb-unstyled, .sb-unstyled span)) {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
   /* This targets the columns in the args table so they
   have more space to display their values. */
   table.docblock-argstable thead tr th:nth-child(3) {
