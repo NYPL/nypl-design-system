@@ -26,7 +26,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     id="id-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "helper text",
@@ -81,7 +82,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     data-isinvalid={true}
     id="id-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "invalid text",
