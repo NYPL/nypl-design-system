@@ -73,7 +73,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       data-isinvalid={false}
       id="video-player-with-text-componentWrapper-helperText"
     >
-      <span
+      <div
+        className="css-0"
         dangerouslySetInnerHTML={
           {
             "__html": "VideoPlayer helper test.",
@@ -124,7 +125,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       data-isinvalid={false}
       id="video-player-with-text-componentWrapper-helperText"
     >
-      <span
+      <div
+        className="css-0"
         dangerouslySetInnerHTML={
           {
             "__html": "VideoPlayer helper test.",

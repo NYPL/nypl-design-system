@@ -40,7 +40,8 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     data-isinvalid={false}
     id="undefined-componentWrapper-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Audio Player helper text.",

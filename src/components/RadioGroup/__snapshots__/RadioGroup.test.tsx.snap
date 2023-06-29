@@ -609,7 +609,8 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     id="helperText-helperErrorText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "helper text",

@@ -1,5 +1,5 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { forwardRef } from "react";
 
 export type AriaLiveValues = "assertive" | "off" | "polite" | undefined;
 export type HelperErrorTextType = string | JSX.Element;
@@ -49,7 +49,7 @@ export const HelperErrorText = chakra(
       },
       ref?
     ) => {
-      const styles = useStyleConfig("HelperErrorText", { isInvalid });
+      const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
       const props = {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
@@ -66,7 +66,10 @@ export const HelperErrorText = chakra(
         <Box {...props}>
           {isRenderedText ? (
             typeof text === "string" ? (
-              <span dangerouslySetInnerHTML={{ __html: text }} />
+              <Box
+                dangerouslySetInnerHTML={{ __html: text }}
+                __css={styles.innerChild}
+              />
             ) : (
               text
             )

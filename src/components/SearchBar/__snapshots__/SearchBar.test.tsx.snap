@@ -90,7 +90,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     id="basic-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Search for items in Animal Crossing New Horizons",
@@ -317,7 +318,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     id="withSelect-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Search for items in Animal Crossing New Horizons",
@@ -511,7 +513,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     id="withClearButton-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Search for items in Animal Crossing New Horizons",
@@ -1198,7 +1201,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     data-isinvalid={false}
     id="chakra-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Search for items in Animal Crossing New Horizons",
@@ -1300,7 +1304,8 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     data-isinvalid={false}
     id="props-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Search for items in Animal Crossing New Horizons",

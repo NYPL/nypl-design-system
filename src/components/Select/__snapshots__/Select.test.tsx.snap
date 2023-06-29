@@ -306,7 +306,8 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     data-isinvalid={true}
     id="select-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Tom doesn't count as a sibling :(.",
@@ -417,7 +418,8 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     id="select-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Remember, Logan will judge you no matter who you pick.",

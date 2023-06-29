@@ -191,7 +191,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     id="defaultRangeSlider-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -395,7 +396,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     data-isinvalid={true}
     id="errored-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component error text :(",
@@ -602,7 +604,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     data-isinvalid={false}
     id="required-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -806,7 +809,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     id="disabled-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -1121,7 +1125,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     id="noVisibleValues-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -1380,7 +1385,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     id="defaultSlider-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -1527,7 +1533,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     data-isinvalid={true}
     id="errored-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component error text :(",
@@ -1677,7 +1684,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     data-isinvalid={false}
     id="required-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -1825,7 +1833,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     id="disabled-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -2060,7 +2069,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     id="noVisibleValues-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -2295,7 +2305,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     data-isinvalid={false}
     id="chakra-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
@@ -2442,7 +2453,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     data-isinvalid={false}
     id="props-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Component helper text.",
