@@ -1,0 +1,71 @@
+import { Meta } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Managing Focus" />
+
+# Managing Focus
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#forcing-focus-during-content-updates" target="_self">Forcing Focus During Content Updates</Link>}
+- {<Link href="#how-to-manage-focus" target="_self">How To Manage Focus</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+Focusable elements are those that a keyboard user can navigate to. By default, this
+includes interactive elements like links, checkboxes, and text inputs (though you
+can make any element focusable; more on this later).
+
+Focus order should be logical, and should generally follow the visual order of the page.
+For most languages, the focus order starts at the top of the page and ends at the bottom,
+traveling from left to right. However, some languages are read right to left, so the
+primary language of the page may warrant a different focus order.
+
+## Forcing Focus During Content Updates
+
+There are times when a forced shift of focus is necessary to alert the user to changes and
+make it possible for them to read and interact with the changed content. Examples include:
+
+- When a dialog opens
+- When a dialog closes
+- When a form is submitted with errors
+- When a process completes and new content is loaded
+
+Dialogs should always forcefully manage focus. Focus should land within the dialog when
+it is triggered and return to the triggering control (or the most logical place) when
+the dialog is closed. Focus should be trapped within the dialog until it is dismissed.
+
+When a form is submitted and errors are added, focus should move either to the list
+of errors (if provided) or to the first field in error if using in-line validation.
+If you submit a form, and a status message is added in its place, then focus should be
+placed on the status message.
+
+If there is the ability to “load more” results, focus should move to the top of the
+newly added content.
+
+Not all instances of content updates require a focus change. For example, it is
+generally inappropriate to forcefully move focus to search results when it is
+anticipated that the user may be interacting with multiple filters in succession and
+a focus change would be disruptive to their flow.
+
+## How To Manage Focus
+
+The `tabindex` attribute (`tabIndex` in React) can be used to manipulate the tab sequence of
+elements on a page. A `tabindex` of -1 removes an element from this sequence. A `tabindex`of
+0 adds an element that is not focusable by default. A `tabindex` of 1 or greater will take
+precendence in the focus order. This is considered an anti-pattern because it confuses the
+natural focus order and therefore should be avoided.
+
+Note that the `aria-live` attribute does not manage focus. In order to programatically move
+focus to an element (as in the situations described above), set the element's `tabindex` to
+-1 and use the .focus() method. In React, a ref can be assigned to the element and then the
+`focus()` method can be called on the ref's current property.
+
+## Resources
+
+- [MDN Exploring the keyboard usability problem](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_accessibility#exploring_the_keyboard_usability_problem)
+- [MDN tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
+- [web.dev Keyboard focus](https://web.dev/learn/accessibility/focus/#:~:text=Naturally%20focusable%20HTML%20elements%20include,overrides%20the%20natural%20focus%20semantics.)
