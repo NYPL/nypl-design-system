@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the version of the `react-datepicker` npm package.
+
 ## 1.6.1 (June 22, 2023)
 
 ### Adds
