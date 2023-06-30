@@ -88,3 +88,26 @@ exports[`Heading renders the UI snapshot correctly 8`] = `
   Heading
 </h2>
 `;
+
+exports[`Heading renders the UI snapshot correctly 9`] = `
+<hgroup
+  className="css-0"
+>
+  <p
+    className="chakra-text css-e3ddnr"
+  >
+    Overline
+  </p>
+  <h1
+    className="chakra-heading css-1xdhyk6"
+    id="customDisplaySize"
+  >
+    Heading with Secondary size
+  </h1>
+  <p
+    className="chakra-text css-dqoc1s"
+  >
+    This is the subtitle
+  </p>
+</hgroup>
+`;
