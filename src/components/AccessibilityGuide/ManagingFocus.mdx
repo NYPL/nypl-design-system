@@ -60,9 +60,9 @@ precendence in the focus order. This is considered an anti-pattern because it co
 natural focus order and therefore should be avoided.
 
 Note that the `aria-live` attribute does not manage focus. In order to programatically move
-focus to an element (as in the situations described above), set the element's `tabindex` to
--1 and use the .focus() method. In React, a ref can be assigned to the element and then the
-`focus()` method can be called on the ref's current property.
+focus to an element (as in the situations described above), use the `.focus()` method on the
+element. In React, a ref can be assigned to the element and then the `.focus()` method can be
+called on the ref's current property.
 
 ## Resources
 
