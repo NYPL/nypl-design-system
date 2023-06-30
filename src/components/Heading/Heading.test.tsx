@@ -104,6 +104,28 @@ describe("Heading", () => {
     });
   });
 
+  it("uses new custom display size", () => {
+    render(<Heading id="h1" level="h2" text="Heading with heading2 size" />);
+    expect(screen.getByRole("heading", { level: 2 })).toHaveStyle({
+      "font-size": "1.5em",
+    });
+  });
+
+  it("renders overline and subtitle elements", () => {
+    render(
+      <Heading
+        id="h1"
+        level="h1"
+        overline="Overline"
+        subtitle="This is the subtitle"
+        text="Heading 1"
+      />
+    );
+    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
+    expect(screen.getByText("Overline")).toBeInTheDocument();
+    expect(screen.getByText("This is the subtitle")).toBeInTheDocument();
+  });
+
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(<Heading id="basic" level="one" text="Heading text" />)
@@ -158,6 +180,18 @@ describe("Heading", () => {
     const withOtherProps = renderer
       .create(<Heading id="props" text="Heading" data-testid="props" />)
       .toJSON();
+    const withOverlineAndSubtitle = renderer
+      .create(
+        <Heading
+          id="customDisplaySize"
+          level="one"
+          overline="Overline"
+          size="secondary"
+          subtitle="This is the subtitle"
+          text="Heading with Secondary size"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(basicWithChildText).toMatchSnapshot();
@@ -167,6 +201,7 @@ describe("Heading", () => {
     expect(withCustomLink).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withOverlineAndSubtitle).toMatchSnapshot();
   });
 
   it("passes a ref to the heading element", () => {

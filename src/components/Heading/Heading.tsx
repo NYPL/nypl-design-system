@@ -1,11 +1,13 @@
 import {
+  Box,
   chakra,
   Heading as ChakraHeading,
-  useStyleConfig,
+  useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
+import Text from "../Text/Text";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const headingSizesArray = [
@@ -42,7 +44,8 @@ export type HeadingLevels = typeof headingLevelsArray[number];
 export interface HeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** Optional ID that other components can cross reference for accessibility purposes */
+  /** Optional ID that other components can cross reference for accessibility
+   * purposes */
   id?: string;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
@@ -53,16 +56,20 @@ export interface HeadingProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional size used to override the default styles of the semantic HTM
-   * `<h>` elements */
-  size?: HeadingSizes;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
+  /** String to populate the overline element */
+  overline?: string;
+  /** Optional size used to override the default styles of the native HTML `<h>`
+   * elements */
+  size?: HeadingSizes;
+  /** String to populate the subtitle element */
+  subtitle?: string;
   /** Inner text of the `<h*>` element */
   text?: string;
   /** Optional URL that header points to; when `url` prop is passed to
-   * `Heading`, a child `<a>` element is created and the heading text becomes
-   * an active link */
+   * `Heading`, a child `<a>` element is created and the heading text becomes an
+   * active link */
   url?: string;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
@@ -100,7 +107,9 @@ export const Heading = chakra(
         isLowercase,
         level = "two",
         noSpace,
+        overline,
         size,
+        subtitle,
         text,
         url,
         urlClass,
@@ -108,7 +117,7 @@ export const Heading = chakra(
       } = props;
       const finalLevel = getMappedLevel(level);
       const variant = size ? size : level;
-      const styles = useStyleConfig("Heading", {
+      const styles = useMultiStyleConfig("Heading", {
         variant,
         isCapitalized,
         isUppercase,
@@ -172,20 +181,60 @@ export const Heading = chakra(
             }
           : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
         : undefined;
-      return (
-        <ChakraHeading
-          as={asHeading}
-          className={className}
-          id={id}
-          ref={ref}
-          sx={{
-            ...styles,
-            ...responsiveStyles,
-          }}
-          {...rest}
-        >
-          {content}
-        </ChakraHeading>
+      const overlineSize = !isNaN(sizeIndex)
+        ? sizeIndex <= 2
+          ? "overline1"
+          : "overline2"
+        : undefined;
+      const subtitleSize = !isNaN(sizeIndex)
+        ? sizeIndex <= 2
+          ? "subtitle1"
+          : "subtitle2"
+        : undefined;
+      const wrapperStyles = styles.headingWrapper;
+      const headingStyles =
+        overline || subtitle
+          ? {
+              ...styles,
+              ...responsiveStyles,
+            }
+          : {
+              ...styles,
+              ...responsiveStyles,
+              ...wrapperStyles,
+            };
+      const finalContent = (
+        <>
+          {overline && (
+            <Text mb="xxs" size={overlineSize}>
+              {overline}
+            </Text>
+          )}
+          <ChakraHeading
+            as={asHeading}
+            className={className}
+            id={id}
+            ref={ref}
+            sx={{
+              ...headingStyles,
+            }}
+            {...rest}
+          >
+            {content}
+          </ChakraHeading>
+          {subtitle && (
+            <Text mt="xs" noSpace size={subtitleSize}>
+              {subtitle}
+            </Text>
+          )}
+        </>
+      );
+      return overline || subtitle ? (
+        <Box as="hgroup" sx={{ ...wrapperStyles }} {...rest}>
+          {finalContent}
+        </Box>
+      ) : (
+        <>{finalContent}</>
       );
     }
   )
