@@ -10,14 +10,13 @@ interface TextBaseStyle {
 
 const variants = {
   default: {},
+  body1: {},
+  body2: {
+    fontSize: "desktop.body.body2",
+  },
   caption: {
     fontSize: "desktop.caption",
-  },
-  tag: {
-    fontSize: "desktop.tag",
-  },
-  mini: {
-    fontSize: "text.mini",
+    fontWeight: "caption",
   },
   overline1: {
     fontSize: "desktop.overline.overline1",
@@ -41,6 +40,15 @@ const variants = {
     fontWeight: "subtitle.subtitle2",
     lineHeight: 1.3,
   },
+  // Deprecated options
+  tag: {
+    fontSize: "text.tag",
+    fontWeight: "text.tag",
+  },
+  mini: {
+    fontSize: "text.mini",
+    fontWeight: "text.mini",
+  },
 };
 const Text = {
   baseStyle: ({
@@ -53,7 +61,7 @@ const Text = {
     variant,
   }: TextBaseStyle) => {
     const fontWeight = isBold
-      ? variant === "tag" || variant === "mini"
+      ? variant === "tag" || variant === "mini" || variant === "caption"
         ? "medium"
         : "bold"
       : null;
@@ -67,7 +75,6 @@ const Text = {
       : null;
 
     return {
-      fontFamily: "body",
       fontStyle: fontStyle,
       fontWeight: fontWeight,
       textTransform: textTransform,

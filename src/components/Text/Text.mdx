@@ -22,11 +22,8 @@ import Link from "../Link/Link";
 
 <Description of={TextStories} />
 
-The `Text` component renders a basic `<p>` element.
-
-As its name indicates, the `size` prop controls the size of the text rendered in
-the component. Using the `size` prop, the `Text` component can be used to render
-text for differing content types, including various forms of subtitles.
+The `Text` component renders a basic `<p>` element and can be used to render
+text for differing content types, including multiple subtitle variants.
 
 ## Component Props
 
@@ -45,8 +42,22 @@ Resources:
 
 ## Updated Typographic Styles
 
-New typographic styles were introduced in June 2023. The full array of size options include:
+New typographic styles were introduced in June 2023, adding `subtitle1`,
+`subtitle2`, `overline1` and `overline2`. As part of that update, the `mini`
+style has been deprecated.
 
-`subtitle1`, `subtitle2`, `overline1`, `overline2`, `default`, `caption`, `tag`, `mini`
+For usage recommendations of each of the `size` options, please refer to the
+[Typography Style
+Guide](../?path=/docs/style-guide-typography--docs#text-display-sizes).
 
-<Canvas of={TextStories.SizeStyles} />
+### Recommended Options
+
+`body1`, `body2`, `caption`, `subtitle1`, `subtitle2`, `overline1`, `overline2`
+
+<Canvas of={TextStories.RecommendedOptions} />
+
+### Deprecated Options
+
+`tag`, `mini`
+
+<Canvas of={TextStories.DeprecatedOptions} />

@@ -32,9 +32,10 @@ const fontSizeValues = {
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
-    body: "1rem", // 16px
-    caption: "0.875rem", // 14px
-    tag: "0.75rem", // 12px
+    body1: "1rem", // 16px
+    body2: "0.875rem", // 14px
+    caption: "0.75rem", // 12px
+    default: "1rem", // 16px
   },
   mobile: {
     display1: "3.25rem", // 52px
@@ -53,9 +54,10 @@ const fontSizeValues = {
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
-    body: "1rem", // 16px
-    caption: "0.875rem", // 14px
-    tag: "0.75rem", // 12px
+    body1: "1rem", // 16px
+    body2: "0.875rem", // 14px
+    caption: "0.75rem", // 12px
+    default: "1rem", // 16px
   },
 };
 
@@ -69,12 +71,10 @@ const fontWeightValues = {
 };
 
 const typography: Typography = {
-  // Values from "src/styles/02-typography/_typeface.css"
   fonts: {
     body: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
     heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
   },
-  // Values from "src/styles/02-typography/_type-scale.css"
   fontSizes: {
     // generic tokens
     "-3": fontSizeValues["-3"],
@@ -85,32 +85,11 @@ const typography: Typography = {
     "2": fontSizeValues["2"],
     "3": fontSizeValues["3"],
     "4": fontSizeValues["4"],
-    // new semantic tokens
-
+    // semantic tokens - desktop and mobile
     desktop: {
-      heading: {
-        display1: fontSizeValues.desktop["display1"],
-        heading1: fontSizeValues.desktop["heading1"],
-        heading2: fontSizeValues.desktop["heading2"],
-        heading3: fontSizeValues.desktop["heading3"],
-        heading4: fontSizeValues.desktop["heading4"],
-        heading5: fontSizeValues.desktop["heading5"],
-        heading6: fontSizeValues.desktop["heading6"],
-      },
-      subtitle: {
-        subtitle1: fontSizeValues.desktop["subtitle1"],
-        subtitle2: fontSizeValues.desktop["subtitle2"],
-      },
-      overline: {
-        overline1: fontSizeValues.desktop["overline1"],
-        overline2: fontSizeValues.desktop["overline2"],
-      },
-      helper: {
-        default: fontSizeValues.desktop["tag"],
-      },
-      label: {
-        label1: fontSizeValues.desktop["label1"],
-        label2: fontSizeValues.desktop["label2"],
+      body: {
+        body1: fontSizeValues.desktop["body1"],
+        body2: fontSizeValues.desktop["body2"],
       },
       breadcrumbs: {
         default: fontSizeValues.desktop["caption"],
@@ -120,34 +99,37 @@ const typography: Typography = {
         default: fontSizeValues.desktop["buttonDefault"],
         large: fontSizeValues.desktop["buttonLarge"],
       },
-      body: fontSizeValues.desktop["body"],
       caption: fontSizeValues.desktop["caption"],
-      tag: fontSizeValues.desktop["tag"],
-    },
-    mobile: {
+      default: fontSizeValues.desktop["default"],
       heading: {
-        display1: fontSizeValues.mobile["display1"],
-        heading1: fontSizeValues.mobile["heading1"],
-        heading2: fontSizeValues.mobile["heading2"],
-        heading3: fontSizeValues.mobile["heading3"],
-        heading4: fontSizeValues.mobile["heading4"],
-        heading5: fontSizeValues.mobile["heading5"],
-        heading6: fontSizeValues.mobile["heading6"],
-      },
-      subtitle: {
-        subtitle1: fontSizeValues.mobile["subtitle1"],
-        subtitle2: fontSizeValues.mobile["subtitle2"],
-      },
-      overline: {
-        overline1: fontSizeValues.mobile["overline1"],
-        overline2: fontSizeValues.mobile["overline2"],
+        display1: fontSizeValues.desktop["display1"],
+        heading1: fontSizeValues.desktop["heading1"],
+        heading2: fontSizeValues.desktop["heading2"],
+        heading3: fontSizeValues.desktop["heading3"],
+        heading4: fontSizeValues.desktop["heading4"],
+        heading5: fontSizeValues.desktop["heading5"],
+        heading6: fontSizeValues.desktop["heading6"],
       },
       helper: {
-        default: fontSizeValues.mobile["tag"],
+        default: fontSizeValues.desktop["tag"],
       },
       label: {
-        label1: fontSizeValues.mobile["label1"],
-        label2: fontSizeValues.mobile["label2"],
+        label1: fontSizeValues.desktop["label1"],
+        label2: fontSizeValues.desktop["label2"],
+      },
+      overline: {
+        overline1: fontSizeValues.desktop["overline1"],
+        overline2: fontSizeValues.desktop["overline2"],
+      },
+      subtitle: {
+        subtitle1: fontSizeValues.desktop["subtitle1"],
+        subtitle2: fontSizeValues.desktop["subtitle2"],
+      },
+    },
+    mobile: {
+      body: {
+        body1: fontSizeValues.mobile["body1"],
+        body2: fontSizeValues.mobile["body2"],
       },
       breadcrumbs: {
         default: fontSizeValues.mobile["caption"],
@@ -157,11 +139,34 @@ const typography: Typography = {
         default: fontSizeValues.mobile["buttonDefault"],
         large: fontSizeValues.mobile["buttonLarge"],
       },
-      body: fontSizeValues.mobile["body"],
       caption: fontSizeValues.mobile["caption"],
-      tag: fontSizeValues.mobile["tag"],
+      default: fontSizeValues.mobile["default"],
+      heading: {
+        display1: fontSizeValues.mobile["display1"],
+        heading1: fontSizeValues.mobile["heading1"],
+        heading2: fontSizeValues.mobile["heading2"],
+        heading3: fontSizeValues.mobile["heading3"],
+        heading4: fontSizeValues.mobile["heading4"],
+        heading5: fontSizeValues.mobile["heading5"],
+        heading6: fontSizeValues.mobile["heading6"],
+      },
+      helper: {
+        default: fontSizeValues.mobile["tag"],
+      },
+      label: {
+        label1: fontSizeValues.mobile["label1"],
+        label2: fontSizeValues.mobile["label2"],
+      },
+      overline: {
+        overline1: fontSizeValues.mobile["overline1"],
+        overline2: fontSizeValues.mobile["overline2"],
+      },
+      subtitle: {
+        subtitle1: fontSizeValues.mobile["subtitle1"],
+        subtitle2: fontSizeValues.mobile["subtitle2"],
+      },
     },
-    // semantic tokens
+    // deprecated semantic tokens
     breadcrumbs: {
       default: fontSizeValues.desktop["caption"],
     },
@@ -199,7 +204,6 @@ const typography: Typography = {
       mini: fontSizeValues["-3"],
     },
   },
-  // Values from "src/styles/02-typography/_type-weight.css"
   fontWeights: {
     // generic tokens
     light: fontWeightValues["light"],
@@ -208,6 +212,10 @@ const typography: Typography = {
     semibold: fontWeightValues["semibold"],
     bold: fontWeightValues["bold"],
     // semantic tokens
+    body: {
+      body1: fontWeightValues["light"],
+      body2: fontWeightValues["light"],
+    },
     breadcrumbs: {
       default: fontWeightValues["regular"],
       lastChild: fontWeightValues["bold"],
@@ -215,11 +223,9 @@ const typography: Typography = {
     button: {
       default: fontWeightValues["regular"],
     },
+    caption: fontWeightValues["regular"],
+    default: fontWeightValues["light"],
     heading: {
-      primary: fontWeightValues["light"],
-      secondary: fontWeightValues["medium"],
-      tertiary: fontWeightValues["medium"],
-      callout: fontWeightValues["medium"],
       display1: fontWeightValues["thin"],
       heading1: fontWeightValues["thin"],
       heading2: fontWeightValues["thin"],
@@ -227,14 +233,11 @@ const typography: Typography = {
       heading4: fontWeightValues["regular"],
       heading5: fontWeightValues["medium"],
       heading6: fontWeightValues["medium"],
-    },
-    subtitle: {
-      subtitle1: fontWeightValues["medium"],
-      subtitle2: fontWeightValues["medium"],
-    },
-    overline: {
-      overline1: fontWeightValues["semibold"],
-      overline2: fontWeightValues["semibold"],
+      // deprecated tokens
+      primary: fontWeightValues["light"],
+      secondary: fontWeightValues["medium"],
+      tertiary: fontWeightValues["medium"],
+      callout: fontWeightValues["medium"],
     },
     helper: {
       default: fontWeightValues["light"],
@@ -243,17 +246,20 @@ const typography: Typography = {
       default: fontWeightValues["medium"],
       secondary: fontWeightValues["regular"],
     },
+    overline: {
+      overline1: fontWeightValues["semibold"],
+      overline2: fontWeightValues["semibold"],
+    },
+    subtitle: {
+      subtitle1: fontWeightValues["medium"],
+      subtitle2: fontWeightValues["medium"],
+    },
     text: {
       default: fontWeightValues["light"],
-      body: fontWeightValues["light"],
       caption: fontWeightValues["light"],
       tag: fontWeightValues["regular"],
       mini: fontWeightValues["regular"],
     },
-    default: fontWeightValues["light"],
-    body: fontWeightValues["light"],
-    caption: fontWeightValues["light"],
-    tag: fontWeightValues["regular"],
   },
 };
 

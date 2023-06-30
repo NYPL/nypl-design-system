@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/blocks";
 
 import Heading from "../Heading/Heading";
@@ -136,6 +136,8 @@ The size options are not tied to specific native heading levels and may be used
 to override the default size and styling of any native HTML heading elements.
 For example, the `h3` element has the `heading3` style applied by default, but
 the `size` prop can be used to apply a smaller or larger font size style.
+
+- [Visual Design Library: Heading Text Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137482&mode=design&t=CwNgPKtbbLMwil5V-4)
 
 #### Display 1
 
@@ -381,6 +383,10 @@ older design requirements.
 
 ##### Heading Primary (deprecated)
 
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
 |                 | JS Token          | CSS Token                                 | Value     |
 | --------------- | :---------------- | :---------------------------------------- | :-------- |
 | **Font Size**   | `heading.primary` | `var(--nypl-fontSizes-heading-primary)`   | `2.25rem` |
@@ -403,6 +409,10 @@ older design requirements.
 }
 
 ##### Heading Secondary (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token            | CSS Token                                   | Value     |
 | --------------- | :------------------ | :------------------------------------------ | :-------- |
@@ -427,6 +437,10 @@ older design requirements.
 
 ##### Heading Tertiary (deprecated)
 
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
 |                 | JS Token           | CSS Token                                  | Value      |
 | --------------- | :----------------- | :----------------------------------------- | :--------- |
 | **Font Size**   | `heading.tertiary` | `var(--nypl-fontSizes-heading-tertiary)`   | `1.375rem` |
@@ -449,6 +463,10 @@ older design requirements.
 }
 
 ##### Heading Callout (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token          | CSS Token                                 | Value     |
 | --------------- | :---------------- | :---------------------------------------- | :-------- |
@@ -476,31 +494,31 @@ older design requirements.
 Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
 component to render a standard HTML `<p>` tag.
 
-The `Text` component is generally used for body copy, captions and secondary
-captions. However, new typographic styles were introduced in June 2023 and the
-`Text` can now be used to render subtitles and overline text.
+The `Text` component is used for body copy and captions. However, new
+typographic styles were introduced in June 2023 and the `Text` component can now
+be used to render `subtitle` and `overline` text elements.
 
-### Text Display Sizes
+### Size Options
 
 The `size` prop can be used to render a specific style from the DS default text styles.
 
-- [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
-- [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
+- [Visual Design Library: Text Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137494&mode=design&t=CwNgPKtbbLMwil5V-4)
 
-#### Body
+#### Body 1
 
 {
 
 <List type="ul">
-  <li>Standard body copy</li>
+  <li>This is the default size for body copy.</li>
+  <li>This style SHOULD be used for standard body copy.</li>
 </List>
 }
 
-|                 | JS Token       | CSS Token                              | Value         |
-| --------------- | :------------- | :------------------------------------- | :------------ |
-| **Font Size**   | `desktop.body` | `var(--nypl-fontSizes-desktop-body)`   | `1rem` (16px) |
-| **Font Weight** | `text.default` | `var(--nypl-fontWeights-text-default)` | `300` (light) |
-| **Line Height** | --             | --                                     | `1.5`         |
+|                 | JS Token             | CSS Token                                  | Value         |
+| --------------- | :------------------- | :----------------------------------------- | :------------ |
+| **Font Size**   | `desktop.body.body1` | `var(--nypl-fontSizes-desktop-body-body1)` | `1rem` (16px) |
+| **Font Weight** | `body`               | `var(--nypl-fontWeights-body)`             | `300` (light) |
+| **Line Height** | --                   | --                                         | `1.5`         |
 
 {
 
@@ -520,20 +538,22 @@ The `size` prop can be used to render a specific style from the DS default text 
 </Box>
 }
 
-#### Caption
+#### Body 2
 
 {
 
 <List type="ul">
-  <li>Captions below an elements (ex. image, video player, audio player)</li>
+  <li>
+    This style MAY be used in tables, lists, and UI areas with limited space.
+  </li>
 </List>
 }
 
-|                 | JS Token          | CSS Token                               | Value             |
-| --------------- | :---------------- | :-------------------------------------- | :---------------- |
-| **Font Size**   | `desktop.caption` | `var(--nypl-fontSizes-desktop-caption)` | `0.875rem` (14px) |
-| **Font Weight** | `text.caption`    | `var(--nypl-fontWeights-text-caption)`  | `300` (light)     |
-| **Line Height** | --                | --                                      | `1.5`             |
+|                 | JS Token             | CSS Token                               | Value             |
+| --------------- | :------------------- | :-------------------------------------- | :---------------- |
+| **Font Size**   | `desktop.body.body2` | `var(--nypl-fontSizes-desktop-caption)` | `0.875rem` (14px) |
+| **Font Weight** | `text.caption`       | `var(--nypl-fontWeights-text-caption)`  | `300` (light)     |
+| **Line Height** | --                   | --                                      | `1.5`             |
 
 {
 
@@ -544,21 +564,24 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Box width="fit-content">
-    <Image src="//placekitten.com/400/400" size="medium" />
-    <Text color="ui.black" size="caption" m="0">
-      This is a kitten caption
-    </Text>
-  </Box>
+  <Text fontFamily="body" fontSize=".875rem" m="0">
+    Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
+    fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
+    faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
+    vestibulum at eros.
+  </Text>
 </Box>
 }
 
-#### Tag
+#### Caption
 
 {
 
 <List type="ul">
-  <li>Tag label</li>
+  <li>
+    This style SHOULD be used for captions below an elements (ex. image, video
+    player, audio player), helper text, and tag labels.
+  </li>
 </List>
 }
 
@@ -577,54 +600,51 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text size="tag" mt="0">
-    Tag text
-  </Text>
-  <TagSet
-    id="tagSet-id-filter"
-    tagSetData={[
-      {
-        label: "Tag example 1",
-      },
-      {
-        label: "Tag example 2",
-      },
-      {
-        label: "Tag example 3",
-      },
-    ]}
-    type="filter"
-  />
-</Box>
-}
-
-#### Mini (deprecated)
-
-{
-
-<List type="ul">
-  <li>This style should not be used.</li>
-</List>
-}
-
-|                 | JS Token    | CSS Token                           | Value             |
-| --------------- | :---------- | :---------------------------------- | :---------------- |
-| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` (10px) |
-| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400` (regular)   |
-| **Line Height** | --          | --                                  | `1.5`             |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Text size="mini" m="0">
-    Mini text (deprecated)
-  </Text>
+  <VStack align="left" spacing="l">
+    <Box>
+      <Heading level="h4" size="heading6">
+        Image Caption
+      </Heading>
+      <Box mb="s" width="fit-content">
+        <Image
+          caption="This is a kitten"
+          size="medium"
+          src="//placekitten.com/400/400"
+        />
+      </Box>
+    </Box>
+    <Box>
+      <Heading level="h4" size="heading6">
+        Tags
+      </Heading>
+      <TagSet
+        tagSetData={[
+          {
+            label: "Red",
+          },
+          {
+            label: "Orange",
+          },
+          {
+            label: "Yellow",
+          },
+          {
+            label: "Green",
+          },
+          {
+            label: "Blue",
+          },
+          {
+            label: "Indigo",
+          },
+          {
+            label: "Violet",
+          },
+        ]}
+        type="filter"
+      />
+    </Box>
+  </VStack>
 </Box>
 }
 
@@ -789,6 +809,60 @@ The `size` prop can be used to render a specific style from the DS default text 
   <Heading size="heading5" border="0">
     Lorem ipsum dolor
   </Heading>
+</Box>
+}
+
+#### Tag (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
+|                 | JS Token   | CSS Token                          | Value            |
+| --------------- | :--------- | :--------------------------------- | :--------------- |
+| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` (12px) |
+| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400` (regular)  |
+| **Line Height** | --         | --                                 | `1.5`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text size="tag" mt="0">
+    Tag text (deprecated)
+  </Text>
+</Box>
+}
+
+#### Mini (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
+|                 | JS Token    | CSS Token                           | Value             |
+| --------------- | :---------- | :---------------------------------- | :---------------- |
+| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` (10px) |
+| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400` (regular)   |
+| **Line Height** | --          | --                                  | `1.5`             |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text size="mini" m="0">
+    Mini text (deprecated)
+  </Text>
 </Box>
 }
 
