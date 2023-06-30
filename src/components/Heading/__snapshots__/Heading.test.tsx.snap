@@ -91,7 +91,49 @@ exports[`Heading renders the UI snapshot correctly 8`] = `
 
 exports[`Heading renders the UI snapshot correctly 9`] = `
 <hgroup
+  aria-roledescription="Heading group"
   className="css-0"
+  role="group"
+>
+  <p
+    className="chakra-text css-e3ddnr"
+  >
+    Overline
+  </p>
+  <h1
+    className="chakra-heading css-1xdhyk6"
+    id="customDisplaySize"
+  >
+    Heading with Secondary size
+  </h1>
+</hgroup>
+`;
+
+exports[`Heading renders the UI snapshot correctly 10`] = `
+<hgroup
+  aria-roledescription="Heading group"
+  className="css-0"
+  role="group"
+>
+  <h1
+    className="chakra-heading css-1xdhyk6"
+    id="customDisplaySize"
+  >
+    Heading with Secondary size
+  </h1>
+  <p
+    className="chakra-text css-dqoc1s"
+  >
+    This is the subtitle
+  </p>
+</hgroup>
+`;
+
+exports[`Heading renders the UI snapshot correctly 11`] = `
+<hgroup
+  aria-roledescription="Heading group"
+  className="css-0"
+  role="group"
 >
   <p
     className="chakra-text css-e3ddnr"

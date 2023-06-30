@@ -54,6 +54,20 @@ proper order and not skipping any. For example, the following is invalid HTML:
   language="html"
 />
 
+When either the overline or subtitle elements are rendered as part of the
+heading, then the whole lockup should be wrapped in an `<hgroup>` element with
+proper `role` and `aria-roledescription` attributes applied.
+
+<Source
+  code={`
+<hgroup role="group" aria-roledescription="Heading group">
+  <h2>Heading Title</h2>
+  <p aria-roledescription="subtitle">Subtitle</p>
+</hgroup>
+`}
+  language="html"
+/>
+
 Resources:
 
 - [W3C WAI Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
@@ -128,8 +142,8 @@ For usage recommendations of each of the `size` options, please refer to the
 [Typography Style
 Guide](../?path=/docs/style-guide-typography--docs#size-options).
 
-Note: The `level` prop for the `Heading` components in this example are all set
-to `level="h1"`.
+**Note:** In the examples below, the `level` prop is set to `level="h1"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
 
 <Canvas of={HeadingStories.SizeStyles} />
 
@@ -141,8 +155,8 @@ older design requirements.
 
 `primary`, `secondary`, `tertiary`, `callout`
 
-Note: The `level` prop for the `Heading` components in this example are all set
-to `level="one"`.
+**Note:** In the examples below, the `level` prop is set to `level="one"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
 
 <Canvas of={HeadingStories.SizeStylesDeprecated} />
 
@@ -153,15 +167,24 @@ heading lockup: overline and subtitle. When the `overline` or `subtitle` props
 are passed, the `Heading` component will handle the styling for the
 corresponding text element.
 
+**Note:** In the examples below, the `level` prop is set to `level="h1"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
+
+### Overline
+
 Use the `overline` prop to set the text for an eyebrow text element that sits
-above the heading text.
+above the heading text. The overline text is styled to be all uppercase.
 
 <Canvas of={HeadingStories.Overline} />
+
+### Subtitle
 
 Use the `subtitle` prop to set the text for a text element that sits below the
 heading text.
 
 <Canvas of={HeadingStories.Subtitle} />
+
+### Full Heading Lockup
 
 Or use both the `overview` and `subtitle` props in combination to render a fully
 composed heading lockup.

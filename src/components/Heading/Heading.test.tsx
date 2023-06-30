@@ -180,6 +180,28 @@ describe("Heading", () => {
     const withOtherProps = renderer
       .create(<Heading id="props" text="Heading" data-testid="props" />)
       .toJSON();
+    const withOverline = renderer
+      .create(
+        <Heading
+          id="customDisplaySize"
+          level="one"
+          overline="Overline"
+          size="secondary"
+          text="Heading with Secondary size"
+        />
+      )
+      .toJSON();
+    const withSubtitle = renderer
+      .create(
+        <Heading
+          id="customDisplaySize"
+          level="one"
+          size="secondary"
+          subtitle="This is the subtitle"
+          text="Heading with Secondary size"
+        />
+      )
+      .toJSON();
     const withOverlineAndSubtitle = renderer
       .create(
         <Heading
@@ -201,6 +223,8 @@ describe("Heading", () => {
     expect(withCustomLink).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withOverline).toMatchSnapshot();
+    expect(withSubtitle).toMatchSnapshot();
     expect(withOverlineAndSubtitle).toMatchSnapshot();
   });
 

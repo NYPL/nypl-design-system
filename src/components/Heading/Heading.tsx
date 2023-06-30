@@ -168,12 +168,46 @@ export const Heading = chakra(
       ) : (
         contentToRender
       );
-      /* The syntax for responsive styles is not working properly for fontSize
-       * in the theme object, so logic for the responsive styleshas been written here. */
+
+      /** *********************************************************************
+       * The syntax for responsive styles is not working properly for fontSize
+       * in the theme object, so logic for the responsive styleshas been written
+       * here.
+       * *********************************************************************/
+
+      /** The default style used to map the `level` value to the corresponding
+       * `size` value. */
       const defaultRoot = "heading";
-      const variantRoot = variant.slice(0, -1); // get the root of the variant being set
-      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot; // set the final root used to build the style
-      const sizeIndex = parseInt(variant.at(-1)); // get last character in string ${s} variant.at(-1)
+
+      /** The heading size index that acts as a separator between the smaller
+       * and larger sizing styles of the overline and subtitle elements. This
+       * demarcation is purely based on design and aesthetics. */
+      const overlineSubtitleSizeDemacation = 2;
+
+      /**  Most variant values have a number at the end, so let's remove the
+       * last character from that value and see what's left. */
+      const variantRoot = variant.slice(0, -1);
+
+      /** The `level` values should map to a corresponding `size` value. If the
+       * root is "h", then reassign the root to the `defaultRoot`. This value
+       * will be used to build the style object. */
+      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
+
+      /** The new heading styles use a number with the variant style to indicate
+       * which style should be used. For examepl, heading1, heading2, and so on.
+       * If that number is set, we'll need it later. Let's grab the last
+       * character in string now, so we can use later in the code. In fact,
+       * let's gran that character and type is as an integer. */
+      const sizeIndex = parseInt(variant.at(-1));
+
+      /** The 2023 typography styles call for the Heading component to be
+       * responsive and set differing font-size values for desktop and mobile.
+       * We can tell if the new styles are being used if the size index is in
+       * fact a number. If it is a number, let's go ahead and setup the
+       * responsive styles. If it is not a number, then the deprecated styles
+       * are being used and we don't need to worry about responsive font-size
+       * styles.
+       * */
       const responsiveStyles = !isNaN(sizeIndex)
         ? isLargerThanMobile
           ? {
@@ -181,17 +215,31 @@ export const Heading = chakra(
             }
           : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
         : undefined;
+
+      /** If the overline element is rendered, we'll also need responsive styles
+       * for that. */
       const overlineSize = !isNaN(sizeIndex)
-        ? sizeIndex <= 2
+        ? sizeIndex <= overlineSubtitleSizeDemacation
           ? "overline1"
           : "overline2"
         : undefined;
+
+      /** If the subtitle element is rendered, we'll also need responsive styles
+       * for that. */
       const subtitleSize = !isNaN(sizeIndex)
-        ? sizeIndex <= 2
+        ? sizeIndex <= overlineSubtitleSizeDemacation
           ? "subtitle1"
           : "subtitle2"
         : undefined;
+
+      /** The styles that should be applied to the outer-most wrapper of the
+       * Heading component. */
       const wrapperStyles = styles.headingWrapper;
+
+      /** The styles for the actual native heading element. If the native
+       * element is going to sit by itself, without the overline or subtitle
+       * elements, then the wrapper styles can be applied directly to the native
+       * element. Otherwise, the wrapper styles will be used later. */
       const headingStyles =
         overline || subtitle
           ? {
@@ -203,6 +251,8 @@ export const Heading = chakra(
               ...responsiveStyles,
               ...wrapperStyles,
             };
+
+      /** The final text elements that will make up the rendered component. */
       const finalContent = (
         <>
           {overline && (
@@ -229,8 +279,18 @@ export const Heading = chakra(
           )}
         </>
       );
+
+      /** Return the final content. If either the overline or subtitle elements
+       * are included, then the heading lockup needs to be wrapped in am
+       * <hgroup> element for semantic and accessibility reasons. */
       return overline || subtitle ? (
-        <Box as="hgroup" sx={{ ...wrapperStyles }} {...rest}>
+        <Box
+          as="hgroup"
+          role="group"
+          aria-roledescription="Heading group"
+          sx={{ ...wrapperStyles }}
+          {...rest}
+        >
           {finalContent}
         </Box>
       ) : (
