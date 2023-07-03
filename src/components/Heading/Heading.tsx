@@ -182,7 +182,7 @@ export const Heading = chakra(
       /** The heading size index that acts as a separator between the smaller
        * and larger sizing styles of the overline and subtitle elements. This
        * demarcation is purely based on design and aesthetics. */
-      const overlineSubtitleSizeDemacation = 2;
+      const overlineSubtitleSizeDemarcation = 2;
 
       /**  Most variant values have a number at the end, so let's remove the
        * last character from that value and see what's left. */
@@ -194,10 +194,10 @@ export const Heading = chakra(
       const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
 
       /** The new heading styles use a number with the variant style to indicate
-       * which style should be used. For examepl, heading1, heading2, and so on.
+       * which style should be used. For example, heading1, heading2, and so on.
        * If that number is set, we'll need it later. Let's grab the last
        * character in string now, so we can use later in the code. In fact,
-       * let's gran that character and type is as an integer. */
+       * let's grab that character and type it as an integer. */
       const sizeIndex = parseInt(variant.at(-1));
 
       /** The 2023 typography styles call for the Heading component to be
@@ -219,7 +219,7 @@ export const Heading = chakra(
       /** If the overline element is rendered, we'll also need responsive styles
        * for that. */
       const overlineSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemacation
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
           ? "overline1"
           : "overline2"
         : undefined;
@@ -227,7 +227,7 @@ export const Heading = chakra(
       /** If the subtitle element is rendered, we'll also need responsive styles
        * for that. */
       const subtitleSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemacation
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
           ? "subtitle1"
           : "subtitle2"
         : undefined;

@@ -6,9 +6,22 @@ import renderer from "react-test-renderer";
 import Heading from "./Heading";
 
 describe("Heading Accessibility", () => {
-  it("passes axe accessibility test", async () => {
+  it("passes axe accessibility test as standalone heading element", async () => {
     const { container } = render(
       <Heading id="h1" level="one" text="Heading 1" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with hgroup element", async () => {
+    const { container } = render(
+      <Heading
+        id="h1"
+        level="one"
+        overline="Overline"
+        subtitle="Subtitle text"
+        text="Heading 1"
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });

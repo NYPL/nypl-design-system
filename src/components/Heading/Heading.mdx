@@ -55,7 +55,7 @@ proper order and not skipping any. For example, the following is invalid HTML:
 />
 
 When either the overline or subtitle elements are rendered as part of the
-heading, then the whole lockup should be wrapped in an `<hgroup>` element with
+heading, then the whole lockup will be wrapped in an `<hgroup>` element with
 proper `role` and `aria-roledescription` attributes applied.
 
 <Source
@@ -164,8 +164,14 @@ each `Heading` component and the `size` prop is used to adjust the text size.
 
 The `Heading` component offers two additional text elements as part of the full
 heading lockup: overline and subtitle. When the `overline` or `subtitle` props
-are passed, the `Heading` component will handle the styling for the
-corresponding text element.
+are passed, the `Heading` component will handle the DOM structure and styling
+for the corresponding text elements.
+
+The styling of the overline and subtitle elements include differentiating the
+font size for both elements based on the `size` prop. For `display1`,
+`heading1`, and `heading2`, the text for these elements will be one size. And
+for `heading3`, `heading4`, `heading5`, and `heading6`, the text for these
+elements will be another (smaller) size.
 
 **Note:** In the examples below, the `level` prop is set to `level="h1"` for
 each `Heading` component and the `size` prop is used to adjust the text size.
