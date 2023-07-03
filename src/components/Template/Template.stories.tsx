@@ -148,7 +148,7 @@ export const WithControls: Story = {
     renderFooterElement: true,
     renderHeaderElement: true,
     renderSkipNavigation: false,
-    sidebar: "left",
+    sidebar: "right",
   },
   argTypes: {
     aboveHeader: { control: false },

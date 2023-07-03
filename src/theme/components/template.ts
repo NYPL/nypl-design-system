@@ -38,16 +38,19 @@ const TemplateContent = {
     gridTemplateColumns: "1fr",
     paddingY: 0,
     paddingX: "s",
-    gap: "grid.l",
+    gap: "0",
+    rowGap: "0",
   },
   // With left or right sidebars, we need to set two grid columns and
   // the column for the sidebar is max 255px width.
   variants: {
     left: {
       gridTemplateColumns: { md: "255px 1fr" },
+      gap: "grid.l",
     },
     right: {
       gridTemplateColumns: { md: "1fr 255px" },
+      gap: "grid.l",
     },
   },
 };

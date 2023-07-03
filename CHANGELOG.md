@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the spacing gap between main content in the `TemplateAppContainer` component.
+
 ## 1.6.1 (June 22, 2023)
 
 ### Adds
