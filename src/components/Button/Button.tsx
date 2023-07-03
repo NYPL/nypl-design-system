@@ -1,7 +1,8 @@
 import {
+  Box,
   Button as ChakraButton,
   chakra,
-  useStyleConfig,
+  useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -37,6 +38,8 @@ interface ButtonProps {
   mouseDown?: boolean;
   /** The action to perform on the `<button>`'s onClick function. */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** Visibly hidden text that will only be read by screenreaders. */
+  screenreaderOnlyText?: string;
   /** The size of the `Button`. */
   size?: ButtonSizes;
   /** The HTML button type attribute. */
@@ -57,6 +60,7 @@ export const Button = chakra(
         isDisabled = false,
         mouseDown = false,
         onClick,
+        screenreaderOnlyText,
         size = "medium",
         type = "button",
         ...rest
@@ -65,7 +69,7 @@ export const Button = chakra(
       let childCount = 0;
       let hasIcon = false;
       let variant: string | ButtonTypes = buttonType;
-      let styles = {};
+      let styles: any = {};
 
       if (!id) {
         console.warn(
@@ -89,7 +93,7 @@ export const Button = chakra(
         variant = "iconOnly";
       }
 
-      styles = useStyleConfig("Button", { variant, buttonSize: size });
+      styles = useMultiStyleConfig("Button", { variant, buttonSize: size });
 
       return (
         <ChakraButton
@@ -103,6 +107,11 @@ export const Button = chakra(
           __css={styles}
           {...rest}
         >
+          {screenreaderOnlyText && (
+            <Box as="span" __css={styles.screenreaderOnly}>
+              {screenreaderOnlyText}
+            </Box>
+          )}
           {children}
         </ChakraButton>
       );

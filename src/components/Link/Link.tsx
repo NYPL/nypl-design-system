@@ -33,6 +33,8 @@ export interface LinkProps {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
+  /** Visibly hidden text that will only be read by screenreaders. */
+  screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
@@ -126,6 +128,7 @@ export const Link = chakra(
       href,
       id,
       onClick,
+      screenreaderOnlyText,
       target,
       type = "default",
       ...rest
@@ -175,7 +178,11 @@ export const Link = chakra(
       ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children as JSX.Element, type, id)) ||
       (type === "external" &&
-        getExternalExtraElements(children as JSX.Element, id, styles.srOnly)) ||
+        getExternalExtraElements(
+          children as JSX.Element,
+          id,
+          styles.screenreaderOnly
+        )) ||
       children;
 
     if (!href) {
@@ -190,20 +197,27 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={styles} {...rest}>
-          {React.cloneElement(
-            childrenToClone,
-            {
-              className,
-              ...linkProps,
-              ...childProps,
-              ref,
-              rel,
-              target: internalTarget,
-            },
-            [childrenToClone.props.children]
+        <>
+          {screenreaderOnlyText && (
+            <Box as="span" __css={styles.screenreaderOnly}>
+              {screenreaderOnlyText}
+            </Box>
           )}
-        </Box>
+          <Box as="span" __css={styles} {...rest}>
+            {React.cloneElement(
+              childrenToClone,
+              {
+                className,
+                ...linkProps,
+                ...childProps,
+                ref,
+                rel,
+                target: internalTarget,
+              },
+              [childrenToClone.props.children]
+            )}
+          </Box>
+        </>
       );
     } else {
       return (
@@ -217,6 +231,11 @@ export const Link = chakra(
           {...linkProps}
           __css={styles}
         >
+          {screenreaderOnlyText && (
+            <Box as="span" __css={styles.screenreaderOnly}>
+              {screenreaderOnlyText}
+            </Box>
+          )}
           {newChildren}
         </Box>
       );

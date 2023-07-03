@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `screenreaderOnlyText` prop to the `Button` and `Link` components.
+
 ## 1.6.1 (June 22, 2023)
 
 ### Adds

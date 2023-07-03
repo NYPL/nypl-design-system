@@ -114,7 +114,7 @@ const variants = {
   },
 };
 const Link = {
-  parts: ["srOnly"],
+  parts: ["screenreaderOnly"],
   baseStyle: {
     ...baseLinkStyles,
     /** This is needed for custom anchor elements or link components
@@ -126,7 +126,7 @@ const Link = {
     },
     /** The element will handle descriptive text added to aid
      * screen readers. */
-    srOnly: screenreaderOnly(),
+    screenreaderOnly: screenreaderOnly(),
   },
   variants,
 };
