@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the spacing of the text in the `HelperErrorText` component.
+- Updates the `ComponentWrapper` component to conditionally render the `HelperErrorText` component.
 
 ## 1.6.1 (June 22, 2023)
 
