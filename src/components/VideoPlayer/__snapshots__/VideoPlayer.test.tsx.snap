@@ -22,13 +22,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
         title="Vimeo video player"
       />
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="video-player-without-text-componentWrapper-helperText"
-    />
   </div>
 </div>
 `;
@@ -176,13 +169,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
         title="Vimeo video player"
       />
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="chakra-componentWrapper-helperText"
-    />
   </div>
 </div>
 `;
@@ -209,13 +195,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
         title="Vimeo video player"
       />
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="props-componentWrapper-helperText"
-    />
   </div>
 </div>
 `;

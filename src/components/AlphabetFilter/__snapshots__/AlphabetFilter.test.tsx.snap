@@ -293,13 +293,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;
@@ -625,13 +618,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;
@@ -935,13 +921,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;
@@ -1244,13 +1223,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;
@@ -1548,13 +1520,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;
@@ -1853,13 +1818,6 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
         Show All
       </button>
     </div>
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      data-isinvalid={false}
-      id="alphabet-filter-helperText"
-    />
   </div>
 </nav>
 `;

@@ -39,13 +39,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
           value="25"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="defaultRangeSlider-textInput-start-helperText"
-      />
     </div>
     <div
       className="css-0"
@@ -175,13 +168,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
           value="75"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="defaultRangeSlider-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -451,13 +437,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
           value="25"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="required-textInput-start-helperText"
-      />
     </div>
     <div
       className="css-0"
@@ -588,13 +567,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
           value="75"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="required-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -655,13 +627,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
           value="25"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="disabled-textInput-start-helperText"
-      />
     </div>
     <div
       className="css-0"
@@ -793,13 +758,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
           value="75"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="disabled-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -853,13 +811,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
           value="25"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="noLabels-textInput-start-helperText"
-      />
     </div>
     <div
       className="css-0"
@@ -989,13 +940,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
           value="75"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="noLabels-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -1369,13 +1313,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="defaultSlider-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -1668,13 +1605,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="required-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -1817,13 +1747,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="disabled-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -1957,13 +1880,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="noLabels-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -2289,13 +2205,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="chakra-textInput-end-helperText"
-      />
     </div>
   </div>
   <div
@@ -2437,13 +2346,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
           value="50"
         />
       </div>
-      <div
-        aria-atomic={true}
-        aria-live="polite"
-        className="css-1xdhyk6"
-        data-isinvalid={false}
-        id="props-textInput-end-helperText"
-      />
     </div>
   </div>
   <div

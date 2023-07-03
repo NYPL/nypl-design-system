@@ -59,13 +59,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="basic-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -113,13 +106,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="basic-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -195,13 +181,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="no-label-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -249,13 +228,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="no-label-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -331,13 +303,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                   value="1988/02/01"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="custom-format-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -385,13 +350,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                   value="1988/02/02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="custom-format-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -632,13 +590,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="disabled-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -686,13 +637,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="disabled-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -766,13 +710,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
               value="1988-01-02"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="basic-start-helperText"
-          />
         </div>
       </div>
     </div>
@@ -829,13 +766,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
               value="1988-01-02"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="no-label-start-helperText"
-          />
         </div>
       </div>
     </div>
@@ -898,13 +828,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
               value="1988/02/01"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="custom-format-start-helperText"
-          />
         </div>
       </div>
     </div>

@@ -28,13 +28,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
       step={null}
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextarea-helperText"
-  />
 </div>
 `;
 
@@ -71,13 +64,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -114,13 +100,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -153,13 +132,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -187,13 +159,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -337,13 +302,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -376,13 +334,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="myTextInput-helperText"
-  />
 </div>
 `;
 
@@ -415,13 +366,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="chakra-helperText"
-  />
 </div>
 `;
 
@@ -456,12 +400,5 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
       type="text"
     />
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="props-helperText"
-  />
 </div>
 `;
