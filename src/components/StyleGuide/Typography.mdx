@@ -680,12 +680,13 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Heading size="heading2" border="0" mb="xs">
-    Lorem ipsum dolor
-  </Heading>
-  <Text size="subtitle1" m="0">
-    Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.
-  </Text>
+  <Heading
+    border="0"
+    mb="xs"
+    size="heading2"
+    subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
+    text="Lorem ipsum dolor"
+  />
 </Box>
 }
 
@@ -721,12 +722,13 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Heading size="heading5" border="0" mb="xxs">
-    Lorem ipsum dolor
-  </Heading>
-  <Text size="subtitle2" m="0">
-    Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.
-  </Text>
+  <Heading
+    border="0"
+    mb="xs"
+    size="heading5"
+    subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
+    text="Lorem ipsum dolor"
+  />
 </Box>
 }
 
@@ -740,6 +742,7 @@ The `size` prop can be used to render a specific style from the DS default text 
     heading element.
   </li>
   <li>Text set in this style SHOULD be one or two words in length.</li>
+  <li>The overline text is styled to be all uppercase.</li>
   <li>
     This style is for DS internal use only. It is used in the DS `Heading`
     component.
@@ -762,12 +765,12 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text size="overline1" m="0">
-    Overline
-  </Text>
-  <Heading size="heading2" border="0">
-    Lorem ipsum dolor
-  </Heading>
+  <Heading
+    border="0"
+    overline="Overline"
+    size="heading2"
+    text="Lorem ipsum dolor"
+  />
 </Box>
 }
 
@@ -803,12 +806,12 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text size="overline2" m="0">
-    Overline
-  </Text>
-  <Heading size="heading5" border="0">
-    Lorem ipsum dolor
-  </Heading>
+  <Heading
+    border="0"
+    overline="Overline"
+    size="heading5"
+    text="Lorem ipsum dolor"
+  />
 </Box>
 }
 

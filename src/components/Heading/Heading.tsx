@@ -1,11 +1,13 @@
 import {
+  Box,
   chakra,
   Heading as ChakraHeading,
-  useStyleConfig,
+  useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
+import Text from "../Text/Text";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const headingSizesArray = [
@@ -42,7 +44,8 @@ export type HeadingLevels = typeof headingLevelsArray[number];
 export interface HeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** Optional ID that other components can cross reference for accessibility purposes */
+  /** Optional ID that other components can cross reference for accessibility
+   * purposes */
   id?: string;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
@@ -53,16 +56,20 @@ export interface HeadingProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional size used to override the default styles of the semantic HTM
-   * `<h>` elements */
-  size?: HeadingSizes;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
+  /** String to populate the overline element */
+  overline?: string;
+  /** Optional size used to override the default styles of the native HTML `<h>`
+   * elements */
+  size?: HeadingSizes;
+  /** String to populate the subtitle element */
+  subtitle?: string;
   /** Inner text of the `<h*>` element */
   text?: string;
   /** Optional URL that header points to; when `url` prop is passed to
-   * `Heading`, a child `<a>` element is created and the heading text becomes
-   * an active link */
+   * `Heading`, a child `<a>` element is created and the heading text becomes an
+   * active link */
   url?: string;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
@@ -100,7 +107,9 @@ export const Heading = chakra(
         isLowercase,
         level = "two",
         noSpace,
+        overline,
         size,
+        subtitle,
         text,
         url,
         urlClass,
@@ -108,7 +117,7 @@ export const Heading = chakra(
       } = props;
       const finalLevel = getMappedLevel(level);
       const variant = size ? size : level;
-      const styles = useStyleConfig("Heading", {
+      const styles = useMultiStyleConfig("Heading", {
         variant,
         isCapitalized,
         isUppercase,
@@ -159,12 +168,46 @@ export const Heading = chakra(
       ) : (
         contentToRender
       );
-      /* The syntax for responsive styles is not working properly for fontSize
-       * in the theme object, so logic for the responsive styleshas been written here. */
+
+      /** *********************************************************************
+       * The syntax for responsive styles is not working properly for fontSize
+       * in the theme object, so logic for the responsive styleshas been written
+       * here.
+       * *********************************************************************/
+
+      /** The default style used to map the `level` value to the corresponding
+       * `size` value. */
       const defaultRoot = "heading";
-      const variantRoot = variant.slice(0, -1); // get the root of the variant being set
-      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot; // set the final root used to build the style
-      const sizeIndex = parseInt(variant.at(-1)); // get last character in string ${s} variant.at(-1)
+
+      /** The heading size index that acts as a separator between the smaller
+       * and larger sizing styles of the overline and subtitle elements. This
+       * demarcation is purely based on design and aesthetics. */
+      const overlineSubtitleSizeDemarcation = 2;
+
+      /**  Most variant values have a number at the end, so let's remove the
+       * last character from that value and see what's left. */
+      const variantRoot = variant.slice(0, -1);
+
+      /** The `level` values should map to a corresponding `size` value. If the
+       * root is "h", then reassign the root to the `defaultRoot`. This value
+       * will be used to build the style object. */
+      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
+
+      /** The new heading styles use a number with the variant style to indicate
+       * which style should be used. For example, heading1, heading2, and so on.
+       * If that number is set, we'll need it later. Let's grab the last
+       * character in string now, so we can use later in the code. In fact,
+       * let's grab that character and type it as an integer. */
+      const sizeIndex = parseInt(variant.at(-1));
+
+      /** The 2023 typography styles call for the Heading component to be
+       * responsive and set differing font-size values for desktop and mobile.
+       * We can tell if the new styles are being used if the size index is in
+       * fact a number. If it is a number, let's go ahead and setup the
+       * responsive styles. If it is not a number, then the deprecated styles
+       * are being used and we don't need to worry about responsive font-size
+       * styles.
+       * */
       const responsiveStyles = !isNaN(sizeIndex)
         ? isLargerThanMobile
           ? {
@@ -172,20 +215,86 @@ export const Heading = chakra(
             }
           : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
         : undefined;
-      return (
-        <ChakraHeading
-          as={asHeading}
-          className={className}
-          id={id}
-          ref={ref}
-          sx={{
-            ...styles,
-            ...responsiveStyles,
-          }}
+
+      /** If the overline element is rendered, we'll also need responsive styles
+       * for that. */
+      const overlineSize = !isNaN(sizeIndex)
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
+          ? "overline1"
+          : "overline2"
+        : undefined;
+
+      /** If the subtitle element is rendered, we'll also need responsive styles
+       * for that. */
+      const subtitleSize = !isNaN(sizeIndex)
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
+          ? "subtitle1"
+          : "subtitle2"
+        : undefined;
+
+      /** The styles that should be applied to the outer-most wrapper of the
+       * Heading component. */
+      const wrapperStyles = styles.headingWrapper;
+
+      /** The styles for the actual native heading element. If the native
+       * element is going to sit by itself, without the overline or subtitle
+       * elements, then the wrapper styles can be applied directly to the native
+       * element. Otherwise, the wrapper styles will be used later. */
+      const headingStyles =
+        overline || subtitle
+          ? {
+              ...styles,
+              ...responsiveStyles,
+            }
+          : {
+              ...styles,
+              ...responsiveStyles,
+              ...wrapperStyles,
+            };
+
+      /** The final text elements that will make up the rendered component. */
+      const finalContent = (
+        <>
+          {overline && (
+            <Text mb="xxs" size={overlineSize}>
+              {overline}
+            </Text>
+          )}
+          <ChakraHeading
+            as={asHeading}
+            className={className}
+            id={id}
+            ref={ref}
+            sx={{
+              ...headingStyles,
+            }}
+            {...rest}
+          >
+            {content}
+          </ChakraHeading>
+          {subtitle && (
+            <Text mt="xs" noSpace size={subtitleSize}>
+              {subtitle}
+            </Text>
+          )}
+        </>
+      );
+
+      /** Return the final content. If either the overline or subtitle elements
+       * are included, then the heading lockup needs to be wrapped in am
+       * <hgroup> element for semantic and accessibility reasons. */
+      return overline || subtitle ? (
+        <Box
+          as="hgroup"
+          role="group"
+          aria-roledescription="Heading group"
+          sx={{ ...wrapperStyles }}
           {...rest}
         >
-          {content}
-        </ChakraHeading>
+          {finalContent}
+        </Box>
+      ) : (
+        <>{finalContent}</>
       );
     }
   )
