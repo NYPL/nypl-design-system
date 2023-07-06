@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks";
+import { Meta, Source } from "@storybook/blocks";
 
 import Link from "../Link/Link";
 
@@ -15,9 +15,9 @@ import Link from "../Link/Link";
 
 ## General Information
 
-Focusable elements are those that a keyboard user can navigate to. By default, this
-includes interactive elements like links, checkboxes, and text inputs (though you
-can make any element focusable; more on this later).
+Focusable elements are UI elements that a keyboard user can navigate to. By default, this
+includes interactive elements like links, checkboxes, and text inputs, etc. It's
+possible to make any element focusable; more on this later.
 
 Focus order should be logical, and should generally follow the visual order of the page.
 For most languages, the focus order starts at the top of the page and ends at the bottom,
@@ -53,16 +53,46 @@ a focus change would be disruptive to their flow.
 
 ## How To Manage Focus
 
-The `tabindex` attribute (`tabIndex` in React) can be used to manipulate the tab sequence of
+The `tabindex` HTML attribute (`tabIndex` in React) can be used to manipulate the tab sequence of
 elements on a page. A `tabindex` of -1 removes an element from this sequence. A `tabindex`of
 0 adds an element that is not focusable by default. A `tabindex` of 1 or greater will take
-precendence in the focus order. This is considered an anti-pattern because it confuses the
-natural focus order and therefore should be avoided.
+precedence in the focus order. This is considered an anti-pattern and should **not** be used
+because it confuses the natural focus order.
 
-Note that the `aria-live` attribute does not manage focus. In order to programatically move
+Note that the `aria-live` attribute does not manage focus. In order to programmatically move
 focus to an element (as in the situations described above), use the `.focus()` method on the
-element. In React, a ref can be assigned to the element and then the `.focus()` method can be
+element.
+
+<Source
+  code={`
+document.getElementByID("#element-to-focus").focus()
+`}
+  language="js"
+/>
+
+In React, a ref can be assigned to the element and then the `.focus()` method can be
 called on the ref's current property.
+
+<Source
+  code={`
+const closeDialogRef = useRef(null)
+
+useEffect(() => {
+if (isOpen) {
+closeDialogRef.current.focus()
+}
+}, [isOpen])
+
+<Dialog isOpen={isOpen}>
+  <button onClick={() => setIsOpen(false)} ref={closeDialogRef}>
+    Close Dialog
+  </button>
+</Dialog>
+`} language="jsx" />
+
+**Note**: When focus is being moved to an element that is not natively focusable, the target
+element will need to have tabindex=”-1”. This allows it to receive programmatic
+focus without also placing it in the tab sequence as tabindex=”0” would.
 
 ## Resources
 
