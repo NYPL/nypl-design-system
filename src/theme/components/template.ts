@@ -45,11 +45,9 @@ const TemplateContent = {
   variants: {
     left: {
       gridTemplateColumns: { md: "255px 1fr" },
-      gap: "grid.l",
     },
     right: {
       gridTemplateColumns: { md: "1fr 255px" },
-      gap: "grid.l",
     },
   },
 };
