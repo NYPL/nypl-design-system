@@ -198,11 +198,6 @@ export const Link = chakra(
       const childProps = childrenToClone.props;
       return (
         <>
-          {screenreaderOnlyText && (
-            <Box as="span" __css={styles.screenreaderOnly}>
-              {screenreaderOnlyText}
-            </Box>
-          )}
           <Box as="span" __css={styles} {...rest}>
             {React.cloneElement(
               childrenToClone,
@@ -217,6 +212,11 @@ export const Link = chakra(
               [childrenToClone.props.children]
             )}
           </Box>
+          {screenreaderOnlyText && (
+            <Box as="span" __css={styles.screenreaderOnly}>
+              {screenreaderOnlyText}
+            </Box>
+          )}
         </>
       );
     } else {
@@ -231,12 +231,12 @@ export const Link = chakra(
           {...linkProps}
           __css={styles}
         >
+          {newChildren}
           {screenreaderOnlyText && (
             <Box as="span" __css={styles.screenreaderOnly}>
               {screenreaderOnlyText}
             </Box>
           )}
-          {newChildren}
         </Box>
       );
     }

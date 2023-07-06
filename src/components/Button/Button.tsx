@@ -107,12 +107,12 @@ export const Button = chakra(
           __css={styles}
           {...rest}
         >
+          {children}
           {screenreaderOnlyText && (
             <Box as="span" __css={styles.screenreaderOnly}>
               {screenreaderOnlyText}
             </Box>
           )}
-          {children}
         </ChakraButton>
       );
     }
