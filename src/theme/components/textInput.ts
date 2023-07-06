@@ -88,7 +88,9 @@ const TextInput = {
       span: screenreaderOnly(),
       zIndex: "9999",
       _dark: {
-        backgroundColor: "dark.ui.typography.heading",
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
       },
     },
   }),
