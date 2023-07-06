@@ -38,8 +38,7 @@ const TemplateContent = {
     gridTemplateColumns: "1fr",
     paddingY: 0,
     paddingX: "s",
-    gap: "0",
-    rowGap: "0",
+    gap: "grid.l",
   },
   // With left or right sidebars, we need to set two grid columns and
   // the column for the sidebar is max 255px width.
@@ -61,11 +60,17 @@ const TemplateContentTopBottom = {
   },
 };
 const TemplateContentPrimary = {
+  baseStyle: {
+    gridColumn: { base: "1", md: "1 / span 2" },
+  },
   variants: {
     left: {
       gridColumn: { base: "1", md: "2" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
+    },
+    right: {
+      gridColumn: { base: "1", md: "1" },
     },
   },
 };
