@@ -94,8 +94,8 @@ const getMappedLevel = (level = "two") => {
   return levelMap[level] || "h2";
 };
 
-/** TODO: As part of Phase 2 of the typography updates, make sure to update the
- * default value for `level` to be "h2" instead of "two" */
+// TODO: As part of Phase 2 of the typography updates, make sure to update the
+// default value for `level` to be "h2" instead of "two"
 export const Heading = chakra(
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
@@ -171,8 +171,8 @@ export const Heading = chakra(
 
       /** *********************************************************************
        * The syntax for responsive styles is not working properly for fontSize
-       * in the theme object, so logic for the responsive styleshas been written
-       * here.
+       * in the theme object, so logic for the responsive styles has been
+       * written here.
        * *********************************************************************/
 
       /** The default style used to map the `level` value to the corresponding

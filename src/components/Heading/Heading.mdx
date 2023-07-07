@@ -76,31 +76,29 @@ Resources:
 
 ## Updated Typographic Styles
 
-New typographic styles were introduced in June 2023. The new styles are the
-recommended options for the default `h` elements and the `size` overrides.
+New typographic styles were introduced in June 2023 and the new styles are the
+supported options. The old typographic styles are still available, but they have
+been deprecated.
 
 ## Native Heading Elements
 
 The `level` prop can be used to set a native heading element (ex. `<h1>`,
 `<h2>`, ...).
 
-The default text styles for the native heading element levels are directly
-related to the corresponding values of the `size` prop.
+<Source
+  code={`
+<Heading level="h1" />
+`}
+  language="jsx"
+/>
 
-For example, for the **recommended** options listed below, the `heading1` size
-is the default style for the `<h1>` element. The `heading2` size is the default
+The default text styles for the native heading element levels correspond
+directly with the values of the `size` prop. For example, the `heading1` size is
+the default style for the `<h1>` element. The `heading2` size is the default
 style for the `<h2>` element. And so on.
 
-For the **deprecated** options listed below, the `primary` size is the default
-style for the `<h1>` element. The `secondary` size is the default style for the
-`<h2>` element. The `tertiary` size is the default style for the `<h3>` element.
-And the `callout` size is the default style for the `<h4>` element. `<h5>` and
-`<h6>` do not have corresponding `size` styles.
-
-### Recommended Options
-
-Based on the June 2023 updates, it is recommended to use one of the following
-values for the `level` prop.
+Based on the June 2023 updates, the following values should be used for the
+`level` prop.
 
 `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
@@ -109,31 +107,41 @@ values for the `level` prop.
 ### Deprecated Options
 
 The older `level` values and the associated styles are still available, but the
-values should be considered deprecated and they should only used to fulfill
-older design requirements.
+values have been deprecated and they should only used to fulfill older design
+requirements.
 
-`one`, `two`, `three`, `four`, `five`, `size`
+For the deprecated options, the `primary` size is the default style for the
+`<h1>` element. The `secondary` size is the default style for the `<h2>`
+element. The `tertiary` size is the default style for the `<h3>` element. And
+the `callout` size is the default style for the `<h4>` element. `<h5>` and
+`<h6>` do not have corresponding `size` styles.
+
+`one`, `two`, `three`, `four`, `five`, `six`
 
 <Canvas of={HeadingStories.DefaultStylesDeprecated} />
 
 ### Migrating from Old to New
 
 When adopting the new `level` values, there is a direct relationship between the
-deprecated values and the new values. For example, from a native element
-persepctive, `two` should be replaced with `h2`, as they will both render the
-`<h2>` element. However, there is no direct relationship between the styles
-applied to the native elements. Make sure to utilize the `size` prop to render
-the proper size styles.
+deprecated values and the new values. For example, from a DOM persepctive, `two`
+should be replaced with `h2`, as they will both render the `<h2>` element.
+Please note that migrating to the new `level` values will change the styles for
+the headings. Make sure to use the `size` prop to make adjustments as needed.
 
 ## Size Styles
 
 The `size` prop can be used to override the default styles of the native heading
 elements.
 
-### Recommended Options
+<Source
+  code={`
+<Heading size="heading1" />
+`}
+  language="jsx"
+/>
 
-Based on the June 2023 updates, it is recommended to use one of the following
-values for the `size` prop.
+Based on the June 2023 updates, the following values should be used for the
+`size` prop.
 
 `display1`, `heading1`, `heading2`, `heading3`, `heading4`, `heading5`,
 `heading6`
@@ -150,8 +158,8 @@ each `Heading` component and the `size` prop is used to adjust the text size.
 ### Deprecated Options
 
 The older `size` values and the associated styles are still available, but the
-values should be considered deprecated and they should only used to fulfill
-older design requirements.
+values have been deprecated and they should only used to fulfill older design
+requirements.
 
 `primary`, `secondary`, `tertiary`, `callout`
 
@@ -181,6 +189,16 @@ each `Heading` component and the `size` prop is used to adjust the text size.
 Use the `overline` prop to set the text for an eyebrow text element that sits
 above the heading text. The overline text is styled to be all uppercase.
 
+<Source
+  code={`
+<Heading
+  overline="Overline"
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
+
 <Canvas of={HeadingStories.Overline} />
 
 ### Subtitle
@@ -188,12 +206,33 @@ above the heading text. The overline text is styled to be all uppercase.
 Use the `subtitle` prop to set the text for a text element that sits below the
 heading text.
 
+<Source
+  code={`
+<Heading
+  subtitle="The subtitle text sits below the main heading text."
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
+
 <Canvas of={HeadingStories.Subtitle} />
 
 ### Full Heading Lockup
 
-Or use both the `overview` and `subtitle` props in combination to render a fully
+Or use both the `overline` and `subtitle` props in combination to render a fully
 composed heading lockup.
+
+<Source
+  code={`
+<Heading
+  overline="Overline"
+  subtitle="The subtitle text sits below the main heading text."
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
 
 <Canvas of={HeadingStories.OverlineAndSubtitle} />
 

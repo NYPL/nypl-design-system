@@ -43,30 +43,21 @@ the specific `<h>` tag that you require.
 ### Updated Typographic Styles
 
 New typographic styles were introduced in June 2023 and the new styles are the
-recommended options for the native `h` elements and the `size` overrides.
+supported options. The old typographic styles are still available, but they have
+been deprecated.
 
 ### Default Styles for Native Heading Elements
 
 The `level` prop can be used to set a native heading element (ex. `<h1>`,
 `<h2>`, ...).
 
-The default text styles for the native heading element levels are directly
-related to the corresponding values of the `size` prop.
-
-For example, for the **recommended** options listed below, the `heading1` size
-is the default style for the `<h1>` element. The `heading2` size is the default
+The default text styles for the native heading element levels correspond
+directly with the values of the `size` prop. For example, the `heading1` size is
+the default style for the `<h1>` element. The `heading2` size is the default
 style for the `<h2>` element. And so on.
 
-For the **deprecated** options listed below, the `primary` size is the default
-style for the `<h1>` element. The `secondary` size is the default style for the
-`<h2>` element. The `tertiary` size is the default style for the `<h3>` element.
-And the `callout` size is the default style for the `<h4>` element. `<h5>` and
-`<h6>` do not have corresponding `size` styles.
-
-#### Recommended Options
-
-Based on the June 2023 updates, it is recommended to use one of the following
-values for the `level` prop.
+Based on the June 2023 updates, the following values should be used for the
+`level` prop.
 
 `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
@@ -79,24 +70,40 @@ values for the `level` prop.
   mb="m"
   p="s"
 >
-  <Heading level="h1">Heading Level h1</Heading>
-  <Heading level="h2" border="none">
+  <Heading color="ui.typography.heading" level="h1">
+    Heading Level h1
+  </Heading>
+  <Heading color="ui.typography.heading" level="h2" border="none">
     Heading Level h2
   </Heading>
-  <Heading level="h3">Heading Level h3</Heading>
-  <Heading level="h4">Heading Level h4</Heading>
-  <Heading level="h5">Heading Level h5</Heading>
-  <Heading level="h6">Heading Level h6</Heading>
+  <Heading color="ui.typography.heading" level="h3">
+    Heading Level h3
+  </Heading>
+  <Heading color="ui.typography.heading" level="h4">
+    Heading Level h4
+  </Heading>
+  <Heading color="ui.typography.heading" level="h5">
+    Heading Level h5
+  </Heading>
+  <Heading color="ui.typography.heading" level="h6">
+    Heading Level h6
+  </Heading>
 </Box>
 }
 
 #### Deprecated Options
 
 The older `level` values and the associated styles are still available, but the
-values should be considered deprecated and they should only used to fulfill
-older design requirements.
+values have been deprecated and they should only used to fulfill older design
+requirements.
 
-`one`, `two`, `three`, `four`, `five`, `size`
+For the deprecated options, the `primary` size is the default style for the
+`<h1>` element. The `secondary` size is the default style for the `<h2>`
+element. The `tertiary` size is the default style for the `<h3>` element. And
+the `callout` size is the default style for the `<h4>` element. `<h5>` and
+`<h6>` do not have corresponding `size` styles.
+
+`one`, `two`, `three`, `four`, `five`, `six`
 
 {
 
@@ -107,25 +114,34 @@ older design requirements.
   mb="m"
   p="s"
 >
-  <Heading level="one">Heading Level one (deprecated)</Heading>
-  <Heading level="two" border="none">
+  <Heading color="ui.typography.heading" level="one">
+    Heading Level one (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="two" border="none">
     Heading Level two (deprecated)
   </Heading>
-  <Heading level="three">Heading Level three (deprecated)</Heading>
-  <Heading level="four">Heading Level four (deprecated)</Heading>
-  <Heading level="five">Heading Level five (deprecated)</Heading>
-  <Heading level="six">Heading Level six (deprecated)</Heading>
+  <Heading color="ui.typography.heading" level="three">
+    Heading Level three (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="four">
+    Heading Level four (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="five">
+    Heading Level five (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="six">
+    Heading Level six (deprecated)
+  </Heading>
 </Box>
 }
 
 #### Migrating from Old to New
 
 When adopting the new `level` values, there is a direct relationship between the
-deprecated values and the new values. For example, from a native element
-persepctive, `two` should be replaced with `h2`, as they will both render the
-`<h2>` element. However, there is no direct relationship between the styles
-applied to the native elements. Make sure to utilize the `size` prop to render
-the proper size styles.
+deprecated values and the new values. For example, from a DOM persepctive, `two`
+should be replaced with `h2`, as they will both render the `<h2>` element.
+Please note that migrating to the new `level` values will change the styles for
+the headings. Make sure to use the `size` prop to make adjustments as needed.
 
 ### Size Options
 
@@ -171,7 +187,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="display1" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="display1" m="0">
     Heading Size display1
   </Heading>
 </Box>
@@ -206,7 +222,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading1" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading1" m="0">
     Heading Size heading1
   </Heading>
 </Box>
@@ -241,7 +257,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading2" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading2" m="0">
     Heading Size heading2
   </Heading>
 </Box>
@@ -273,7 +289,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading3" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading3" m="0">
     Heading Size heading3
   </Heading>
 </Box>
@@ -305,7 +321,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading4" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading4" m="0">
     Heading Size heading4
   </Heading>
 </Box>
@@ -337,7 +353,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading5" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading5" m="0">
     Heading Size heading5
   </Heading>
 </Box>
@@ -369,7 +385,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
   mb="m"
   p="inset.default"
 >
-  <Heading level="h3" size="heading6" m="0">
+  <Heading color="ui.typography.heading" level="h3" size="heading6" m="0">
     Heading Size heading6
   </Heading>
 </Box>
@@ -402,7 +418,7 @@ older design requirements.
   mb="m"
   p="inset.default"
 >
-  <Heading level="one" size="primary" m="0">
+  <Heading color="ui.typography.heading" level="one" size="primary" m="0">
     Heading Size primary (deprecated)
   </Heading>
 </Box>
@@ -429,7 +445,7 @@ older design requirements.
   mb="m"
   p="inset.default"
 >
-  <Heading level="one" size="secondary" m="0">
+  <Heading color="ui.typography.heading" level="one" size="secondary" m="0">
     Heading Size secondary (deprecated)
   </Heading>
 </Box>
@@ -456,7 +472,7 @@ older design requirements.
   mb="m"
   p="inset.default"
 >
-  <Heading level="one" size="tertiary" m="0">
+  <Heading color="ui.typography.heading" level="one" size="tertiary" m="0">
     Heading Size tertiary (deprecated)
   </Heading>
 </Box>
@@ -483,7 +499,7 @@ older design requirements.
   mb="m"
   p="inset.default"
 >
-  <Heading level="one" size="callout" m="0">
+  <Heading color="ui.typography.heading" level="one" size="callout" m="0">
     Heading Size callout (deprecated)
   </Heading>
 </Box>
@@ -529,7 +545,7 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text fontFamily="body" fontSize="1rem" m="0">
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem" m="0">
     Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
     fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
     faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
@@ -549,11 +565,11 @@ The `size` prop can be used to render a specific style from the DS default text 
 </List>
 }
 
-|                 | JS Token             | CSS Token                               | Value             |
-| --------------- | :------------------- | :-------------------------------------- | :---------------- |
-| **Font Size**   | `desktop.body.body2` | `var(--nypl-fontSizes-desktop-caption)` | `0.875rem` (14px) |
-| **Font Weight** | `text.caption`       | `var(--nypl-fontWeights-text-caption)`  | `300` (light)     |
-| **Line Height** | --                   | --                                      | `1.5`             |
+|                 | JS Token             | CSS Token                                  | Value             |
+| --------------- | :------------------- | :----------------------------------------- | :---------------- |
+| **Font Size**   | `desktop.body.body2` | `var(--nypl-fontSizes-desktop-body-body2)` | `0.875rem` (14px) |
+| **Font Weight** | `body2`              | `var(--nypl-fontWeights-body2)`            | `300` (light)     |
+| **Line Height** | --                   | --                                         | `1.5`             |
 
 {
 
@@ -564,7 +580,7 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text fontFamily="body" fontSize=".875rem" m="0">
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".875rem" m="0">
     Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
     fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
     faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
@@ -585,11 +601,11 @@ The `size` prop can be used to render a specific style from the DS default text 
 </List>
 }
 
-|                 | JS Token   | CSS Token                          | Value            |
-| --------------- | :--------- | :--------------------------------- | :--------------- |
-| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` (12px) |
-| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400` (regular)  |
-| **Line Height** | --         | --                                 | `1.5`            |
+|                 | JS Token          | CSS Token                               | Value            |
+| --------------- | :---------------- | :-------------------------------------- | :--------------- |
+| **Font Size**   | `desktop.caption` | `var(--nypl-fontSizes-desktop-caption)` | `0.75rem` (12px) |
+| **Font Weight** | `caption`         | `var(--nypl-fontWeights-caption)`       | `400` (regular)  |
+| **Line Height** | --                | --                                      | `1.5`            |
 
 {
 
@@ -602,7 +618,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 >
   <VStack align="left" spacing="l">
     <Box>
-      <Heading level="h4" size="heading6">
+      <Heading color="ui.typography.heading" level="h4" size="heading6">
         Image Caption
       </Heading>
       <Box mb="s" width="fit-content">
@@ -614,7 +630,7 @@ The `size` prop can be used to render a specific style from the DS default text 
       </Box>
     </Box>
     <Box>
-      <Heading level="h4" size="heading6">
+      <Heading color="ui.typography.heading" level="h4" size="heading6">
         Tags
       </Heading>
       <TagSet
@@ -682,6 +698,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 >
   <Heading
     border="0"
+    color="ui.typography.heading"
     mb="xs"
     size="heading2"
     subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
@@ -724,6 +741,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 >
   <Heading
     border="0"
+    color="ui.typography.heading"
     mb="xs"
     size="heading5"
     subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
@@ -767,6 +785,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 >
   <Heading
     border="0"
+    color="ui.typography.heading"
     overline="Overline"
     size="heading2"
     text="Lorem ipsum dolor"
@@ -808,6 +827,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 >
   <Heading
     border="0"
+    color="ui.typography.heading"
     overline="Overline"
     size="heading5"
     text="Lorem ipsum dolor"
@@ -836,7 +856,7 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text size="tag" mt="0">
+  <Text color="ui.typography.body" size="tag" mt="0">
     Tag text (deprecated)
   </Text>
 </Box>
@@ -863,7 +883,7 @@ The `size` prop can be used to render a specific style from the DS default text 
   mb="m"
   p="inset.default"
 >
-  <Text size="mini" m="0">
+  <Text color="ui.typography.body" size="mini" m="0">
     Mini text (deprecated)
   </Text>
 </Box>
@@ -897,10 +917,10 @@ The following `font-family` design tokens are available through the DS.
   mb="m"
   p="s"
 >
-  <Text fontFamily="heading" fontSize="1rem" mt="0">
+  <Text color="ui.typography.body" fontFamily="heading" fontSize="1rem" mt="0">
     Heading: system-ui, sans-serif
   </Text>
-  <Text fontFamily="body" fontSize="1rem" noSpace>
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem" noSpace>
     Body: system-ui, sans-serif
   </Text>
 </Box>
@@ -916,6 +936,14 @@ tokens for headings and body text.
 | ------------- | :---------------------- | :----------------------------------------- | :-------- |
 | **Headings**  | `ui.typography.heading` | `var(--nypl-colors-ui-typography-heading)` | `#000000` |
 | **Body Text** | `ui.typography.body`    | `var(--nypl-colors-ui-typography-body)`    | `#000000` |
+
+Additionally, the DS supports dark mode and corresponding dark mode tokens have
+also been defined.
+
+|               | JS Token                     | CSS Token                                       | Value     |
+| ------------- | :--------------------------- | :---------------------------------------------- | :-------- |
+| **Headings**  | `dark.ui.typography.heading` | `var(--nypl-colors-dark-ui-typography-heading)` | `#E9E9E9` |
+| **Body Text** | `dark.ui.typography.body`    | `var(--nypl-colors-dark-ui-typography-body)`    | `#BDBDBD` |
 
 Always check that the typography and background is quantified by a contrast
 ratio. All text and background color combinations must meet [WCAG AA
@@ -939,6 +967,8 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 </List>
 }
 
+### Light Mode
+
 {
 
 <>
@@ -950,8 +980,15 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     mb="m"
     p="s"
   >
-    <Heading level="three">Default Heading Color on Page Background</Heading>
-    <Text fontFamily="body" fontSize="desktop.body" noSpace>
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Color on Page Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -967,8 +1004,15 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     mb="m"
     p="s"
   >
-    <Heading level="three">Default Heading Coloron Default Background</Heading>
-    <Text fontFamily="body" fontSize="desktop.body" noSpace>
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Default Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -984,8 +1028,15 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     mb="m"
     p="s"
   >
-    <Heading level="three">Default Heading Coloron Hover Background</Heading>
-    <Text fontFamily="body" fontSize="desktop.body" noSpace>
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Hover Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1001,8 +1052,91 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     mb="m"
     p="s"
   >
-    <Heading level="three">Default Heading Coloron Active Background</Heading>
-    <Text fontFamily="body" fontSize="desktop.body" noSpace>
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Active Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+</>
+}
+
+### Dark Mode
+
+{
+
+<>
+  <Box bg="dark.ui.bg.page" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Color on Page Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.default" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Default Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.hover" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Hover Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.active" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Active Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1208,7 +1342,7 @@ Recommendation: maximum of 15 words (approx. 75 character)
   mb="m"
   p="s"
 >
-  <Heading level="h2" border="0">
+  <Heading color="ui.typography.heading" level="h2" border="0">
     This is an Example to Show What Fourteen Words Looks Like in a Title
   </Heading>
 </Box>
@@ -1230,7 +1364,7 @@ to this.
   mb="m"
   p="s"
 >
-  <Text>
+  <Text color="ui.typography.body">
     This block of text shows what 25 words looks like. Integer posuere erat a
     ante venenatis dapibus posueret aliquet nullas non tellus egestas etiam
     malesuada.
@@ -1251,7 +1385,7 @@ Recommendation: maximum of 40 words (approx. 200 characters)
   mb="m"
   p="s"
 >
-  <Text>
+  <Text color="ui.typography.body">
     This block of text shows what 30 words looks like. Integer posuere erat a
     ante venenatis dapibus posueret aliquet nullas non. Aenean eu leo quam.
     Pellentesque ornare sem quam venenatis.

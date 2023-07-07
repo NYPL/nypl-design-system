@@ -52,21 +52,24 @@
     color: #2e3438;
     font-size: 14px;
   }
+  /* It is unclear if this style override is necessary. Until this is
+  determined, the code will be left in place and simply commented out. */
+  /* 
   .sbdocs :where(h1:not(.sb-unstyled h1)),
   .sbdocs :where(h2:not(.sb-unstyled h2)),
   .sbdocs :where(h3:not(.sb-unstyled h3)),
   .sbdocs :where(h4:not(.sb-unstyled h4)),
   .sbdocs :where(h5:not(.sb-unstyled h5)),
   .sbdocs :where(h6:not(.sb-unstyled h6)) {
-    color: inherit;
-  }
+    color: unset;
+  } 
+  */
   .sbdocs :where(div:not(.sb-anchor, .sb-unstyled, .sb-unstyled div)) {
     color: inherit;
     font-family: inherit;
     font-size: inherit;
   }
   .sbdocs :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
-    color: inherit;
     font-family: inherit;
   }
   .sbdocs :where(span:not(.sb-anchor, .sb-unstyled, .sb-unstyled span)) {
