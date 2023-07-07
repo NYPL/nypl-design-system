@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `"connect"` color variant to the `Breadcrumbs` component.
 - Adds internal `ChakraProvider` component to be able to conditionally include CSS styles through the `resetCSS` and `disableGlobalStyle` props.
 - Adds a `theme` prop to the `DSProvider` to merge in an additional theme file if necessary; this is to support to the `Header` and `Footer` components in the NYPL Header App.
+- Adds `Managing Focus` page to the `Accessibility Guide` in Storybook.
 
 ### Updates
 
