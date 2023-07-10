@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Typography` docs to include the new options added to the `heading` and `text` typography styles.
 - Updates the `Design Tokens` docs to include the new tokens added to the `heading` and `text` typography styles.
 - Updates the `Heading` component to include `overline` and `subtitle` elements.
+- Updates the spacing gap between main content in the `TemplateAppContainer` component.
 
 ## 1.6.1 (June 22, 2023)
 
