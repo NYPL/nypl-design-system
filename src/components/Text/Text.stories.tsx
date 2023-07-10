@@ -17,7 +17,7 @@ const meta: Meta<typeof Text> = {
     noSpace: { table: { defaultValue: { summary: false } } },
     size: {
       control: {
-        type: "radio",
+        type: "select",
       },
       options: textSizesArray,
       table: { defaultValue: { summary: "default" } },
@@ -53,10 +53,10 @@ export const WithControls: Story = {
   render: (args) => (
     <>
       <Text {...args}>
-        Animal Crossing[a] is a social simulation video game series developed
-        and published by Nintendo. The series was conceptualized and created by
-        Katsuya Eguchi and Hisashi Nogami. In Animal Crossing, the player
-        character is a human who lives in a village inhabited by various
+        Animal Crossing[a] is a <b>social</b> simulation video game series
+        developed and published by Nintendo. The series was conceptualized and
+        created by Katsuya Eguchi and Hisashi Nogami. In Animal Crossing, the
+        player character is a human who lives in a village inhabited by various
         anthropomorphic animals and can do various activities like fishing, bug
         catching, and fossil hunting. The series is notable for its open-ended
         gameplay and use of the video game console's internal clock and calendar
@@ -72,6 +72,29 @@ export const WithControls: Story = {
         Nintendo 3DS, Animal Crossing: Amiibo Festival for Wii U, and Animal
         Crossing: Pocket Camp for mobile devices.
       </Text>
+    </>
+  ),
+};
+
+// The following are additional Heading example Stories.
+export const RecommendedOptions: Story = {
+  render: () => (
+    <>
+      <Text size="body1">Body 1</Text>
+      <Text size="body2">Body 2</Text>
+      <Text size="caption">Caption</Text>
+      <Text size="subtitle1">Subtitle 1</Text>
+      <Text size="subtitle2">Subtitle 2</Text>
+      <Text size="overline1">Overline 1</Text>
+      <Text size="overline2">Overline 2</Text>
+    </>
+  ),
+};
+export const DeprecatedOptions: Story = {
+  render: () => (
+    <>
+      <Text size="tag">Tag text (deprecated)</Text>
+      <Text size="mini">Mini text (deprecated)</Text>
     </>
   ),
 };
