@@ -3,30 +3,30 @@
 
 <style>
   /* Custom heading styles */
-  .sbdocs h1:not(.innerZoomElementWrapper h1) {
+  .sbdocs h1.storybook-heading:not(.innerZoomElementWrapper h1) {
     font-size: 54px;
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 1.05;
     margin-bottom: 2rem;
   }
-  .sbdocs h2:not(.innerZoomElementWrapper h2) {
+  .sbdocs h2.storybook-heading:not(.innerZoomElementWrapper h2) {
     font-size: 24px;
     font-weight: 400;
   }
-  .sbdocs h3:not(.innerZoomElementWrapper h3) {
+  .sbdocs h3.storybook-heading:not(.innerZoomElementWrapper h3) {
     font-size: 20px;
     font-weight: 400;
   }
-  .sbdocs h4:not(.innerZoomElementWrapper h4) {
+  .sbdocs h4.storybook-heading:not(.innerZoomElementWrapper h4) {
     font-size: 16px;
     font-weight: 500;
   }
-  .sbdocs h5:not(.innerZoomElementWrapper h5) {
+  .sbdocs h5.storybook-heading:not(.innerZoomElementWrapper h5) {
     font-size: 14px;
     font-weight: 500;
   }
-  .sbdocs h6:not(.innerZoomElementWrapper h6) {
+  .sbdocs h6.storybook-heading:not(.innerZoomElementWrapper h6) {
     font-size: 12px;
     font-weight: 500;
   }
@@ -51,6 +51,31 @@
   .sbdocs li:not(.innerZoomElementWrapper li)::before {
     color: #2e3438;
     font-size: 14px;
+  }
+  /* It is unclear if this style override is necessary. Until this is
+  determined, the code will be left in place and simply commented out. */
+  /* 
+  .sbdocs :where(h1:not(.sb-unstyled h1)),
+  .sbdocs :where(h2:not(.sb-unstyled h2)),
+  .sbdocs :where(h3:not(.sb-unstyled h3)),
+  .sbdocs :where(h4:not(.sb-unstyled h4)),
+  .sbdocs :where(h5:not(.sb-unstyled h5)),
+  .sbdocs :where(h6:not(.sb-unstyled h6)) {
+    color: unset;
+  } 
+  */
+  .sbdocs :where(div:not(.sb-anchor, .sb-unstyled, .sb-unstyled div)) {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .sbdocs :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+    font-family: inherit;
+  }
+  .sbdocs :where(span:not(.sb-anchor, .sb-unstyled, .sb-unstyled span)) {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
   }
   /* This targets the columns in the args table so they
   have more space to display their values. */
