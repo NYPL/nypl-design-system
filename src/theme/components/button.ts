@@ -52,14 +52,14 @@ const ghostDarkStyles = {
 const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
-      fontSize: "button.small",
+      fontSize: "desktop.button.small",
       height: "fit-content",
       minHeight: "auto",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
     },
     medium: {
-      fontSize: "button.default",
+      fontSize: "desktop.button.default",
       height: isPill ? "fit-content" : undefined,
       minHeight: isPill
         ? "auto"
@@ -68,7 +68,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
       py: isPill ? "xxxs" : "button.medium.py",
     },
     large: {
-      fontSize: "button.large",
+      fontSize: "desktop.button.large",
       height: "fit-content",
       minHeight: "auto",
       px: isPill ? "l" : "button.large.px",
