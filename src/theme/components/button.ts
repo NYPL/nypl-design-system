@@ -1,4 +1,4 @@
-import { defaultElementSizes } from "./global";
+import { defaultElementSizes, screenreaderOnly } from "./global";
 
 // Style object for base or default style
 export const buttonBaseStyle = {
@@ -12,6 +12,9 @@ export const buttonBaseStyle = {
   lineHeight: "1.5",
   textDecoration: "none",
   wordWrap: "normal",
+  /** The element will handle descriptive text added to aid
+   * screen readers. */
+  screenreaderOnly: screenreaderOnly(),
   svg: {
     fill: "currentColor",
   },
@@ -234,6 +237,7 @@ export const noBrand = ({ buttonSize = "medium" }) => ({
 });
 
 const Button = {
+  parts: ["screenreaderOnly"],
   baseStyle: buttonBaseStyle,
   // Available variants:
   variants: {

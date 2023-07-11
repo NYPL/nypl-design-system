@@ -75,6 +75,7 @@ export const WithControls: Story = {
     isDisabled: false,
     mouseDown: undefined,
     onClick: undefined,
+    screenreaderOnlyText: "Screenreader only text",
     size: undefined,
     type: "button",
   },

@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `screenreaderOnlyText` prop to the `Button` and `Link` components.
+
 ### Updates
 
 - Updates the existing `heading` typography styles to add new default styles options for native heading elements, including `h1` thru `h6`.
