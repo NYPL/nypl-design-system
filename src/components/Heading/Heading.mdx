@@ -7,18 +7,20 @@ import Link from "../Link/Link";
 
 # Heading
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `1.5.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#default-heading-styles" target="_self">Default Heading Styles</Link>}
+- {<Link href="#updated-typographic-styles" target="_self">Updated Typographic Styles</Link>}
+- {<Link href="#native-heading-elements" target="_self">Native Heading Elements</Link>}
 - {<Link href="#size-styles" target="_self">Size Styles</Link>}
+- {<Link href="#overline-and-subtitle" target="_self">Overline and Subtitle Elements</Link>}
 - {<Link href="#heading-with-bold-text" target="_self">Heading with Bold Text</Link>}
 - {<Link href="#heading-with-links" target="_self">Heading with Links</Link>}
 
@@ -52,22 +54,187 @@ proper order and not skipping any. For example, the following is invalid HTML:
   language="html"
 />
 
+When either the overline or subtitle elements are rendered as part of the
+heading, then the whole lockup will be wrapped in an `<hgroup>` element with
+proper `role` and `aria-roledescription` attributes applied.
+
+<Source
+  code={`
+<hgroup role="group" aria-roledescription="Heading group">
+  <h2>Heading Title</h2>
+  <p aria-roledescription="subtitle">Subtitle</p>
+</hgroup>
+`}
+  language="html"
+/>
+
 Resources:
 
 - [W3C WAI Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
 - [A11y Project Accessible heading structure](https://www.a11yproject.com/posts/how-to-accessible-heading-structure/)
 - [Chakra UI Heading](https://chakra-ui.com/docs/components/typography/heading)
 
-## Default Styles
+## Updated Typographic Styles
+
+New typographic styles were introduced in June 2023 and the new styles are the
+supported options. The old typographic styles are still available, but they have
+been deprecated.
+
+## Native Heading Elements
+
+The `level` prop can be used to set a native heading element (ex. `<h1>`,
+`<h2>`, ...).
+
+<Source
+  code={`
+<Heading level="h1" />
+`}
+  language="jsx"
+/>
+
+The default text styles for the native heading element levels correspond
+directly with the values of the `size` prop. For example, the `heading1` size is
+the default style for the `<h1>` element. The `heading2` size is the default
+style for the `<h2>` element. And so on.
+
+Based on the June 2023 updates, the following values should be used for the
+`level` prop.
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
 <Canvas of={HeadingStories.DefaultStyles} />
 
+### Deprecated Options
+
+The older `level` values and the associated styles are still available, but the
+values have been deprecated and they should only used to fulfill older design
+requirements.
+
+For the deprecated options, the `primary` size is the default style for the
+`<h1>` element. The `secondary` size is the default style for the `<h2>`
+element. The `tertiary` size is the default style for the `<h3>` element. And
+the `callout` size is the default style for the `<h4>` element. `<h5>` and
+`<h6>` do not have corresponding `size` styles.
+
+`one`, `two`, `three`, `four`, `five`, `six`
+
+<Canvas of={HeadingStories.DefaultStylesDeprecated} />
+
+### Migrating from Old to New
+
+When adopting the new `level` values, there is a direct relationship between the
+deprecated values and the new values. For example, from a DOM persepctive, `two`
+should be replaced with `h2`, as they will both render the `<h2>` element.
+Please note that migrating to the new `level` values will change the styles for
+the headings. Make sure to use the `size` prop to make adjustments as needed.
+
 ## Size Styles
 
-Note: The `level` prop for the `Heading` components in this example are all set
-to `level="one"`.
+The `size` prop can be used to override the default styles of the native heading
+elements.
+
+<Source
+  code={`
+<Heading size="heading1" />
+`}
+  language="jsx"
+/>
+
+Based on the June 2023 updates, the following values should be used for the
+`size` prop.
+
+`display1`, `heading1`, `heading2`, `heading3`, `heading4`, `heading5`,
+`heading6`
+
+For usage recommendations of each of the `size` options, please refer to the
+[Typography Style
+Guide](../?path=/docs/style-guide-typography--docs#size-options).
+
+**Note:** In the examples below, the `level` prop is set to `level="h1"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
 
 <Canvas of={HeadingStories.SizeStyles} />
+
+### Deprecated Options
+
+The older `size` values and the associated styles are still available, but the
+values have been deprecated and they should only used to fulfill older design
+requirements.
+
+`primary`, `secondary`, `tertiary`, `callout`
+
+**Note:** In the examples below, the `level` prop is set to `level="one"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
+
+<Canvas of={HeadingStories.SizeStylesDeprecated} />
+
+## Overline and Subtitle
+
+The `Heading` component offers two additional text elements as part of the full
+heading lockup: overline and subtitle. When the `overline` or `subtitle` props
+are passed, the `Heading` component will handle the DOM structure and styling
+for the corresponding text elements.
+
+The styling of the overline and subtitle elements include differentiating the
+font size for both elements based on the `size` prop. For `display1`,
+`heading1`, and `heading2`, the text for these elements will be one size. And
+for `heading3`, `heading4`, `heading5`, and `heading6`, the text for these
+elements will be another (smaller) size.
+
+**Note:** In the examples below, the `level` prop is set to `level="h1"` for
+each `Heading` component and the `size` prop is used to adjust the text size.
+
+### Overline
+
+Use the `overline` prop to set the text for an eyebrow text element that sits
+above the heading text. The overline text is styled to be all uppercase.
+
+<Source
+  code={`
+<Heading
+  overline="Overline"
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeadingStories.Overline} />
+
+### Subtitle
+
+Use the `subtitle` prop to set the text for a text element that sits below the
+heading text.
+
+<Source
+  code={`
+<Heading
+  subtitle="The subtitle text sits below the main heading text."
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeadingStories.Subtitle} />
+
+### Full Heading Lockup
+
+Or use both the `overline` and `subtitle` props in combination to render a fully
+composed heading lockup.
+
+<Source
+  code={`
+<Heading
+  overline="Overline"
+  subtitle="The subtitle text sits below the main heading text."
+  text="Lorem ipsum dolor"
+/>
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeadingStories.OverlineAndSubtitle} />
 
 ## Heading with Bold Text
 

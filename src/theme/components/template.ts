@@ -58,11 +58,17 @@ const TemplateContentTopBottom = {
   },
 };
 const TemplateContentPrimary = {
+  baseStyle: {
+    gridColumn: { base: "1", md: "1 / span 2" },
+  },
   variants: {
     left: {
       gridColumn: { base: "1", md: "2" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
+    },
+    right: {
+      gridColumn: { base: "1", md: "1" },
     },
   },
 };
