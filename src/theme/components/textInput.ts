@@ -87,6 +87,11 @@ const TextInput = {
       // use the "text" `Button` type.
       span: screenreaderOnly(),
       zIndex: "9999",
+      _dark: {
+        svg: {
+          fill: "dark.ui.typography.heading",
+        },
+      },
     },
   }),
   variants: {

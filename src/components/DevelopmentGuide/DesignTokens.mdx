@@ -39,11 +39,12 @@ needs to be properly installed in a consuming React application.
 It is recommended that consuming apps use Javascript (rather than CSS) to apply
 styles to UI elements whenever possible.
 
-To use the DS <Link href="#reservoir-design-token-categories" target="_self">Javascript design tokens</Link>,
-the `DSProvider` wrapper component must first be imported and implemented
-properly in a consuming app. Please refer to the `DSProvider` section of the [DS
-Chakra UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how
-to do this.
+To use the DS <Link href="#reservoir-design-token-categories"
+target="_self">Javascript design tokens</Link>, the `DSProvider` wrapper
+component must first be imported and implemented properly in a consuming app.
+Please refer to the `DSProvider` section of the [DS Chakra
+UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how to
+do this.
 
 #### Design Tokens for DS and Chakra Components
 
@@ -58,8 +59,8 @@ The Javascript design tokens can be used to populate the values for style props
 added directly to the components. The shorthard nature of the Javascript tokens
 make it easy to quickly and logically add styles to a DS component.
 
-For example, if a `Heading` component needs to sit within a wrapper element
-and render its text using Reservoir's `brand primary` color and use a `light`
+For example, if a `Heading` component needs to sit within a wrapper element and
+render its text using Reservoir's `brand primary` color and use a `light`
 font weight, the following can be done:
 
 <Source
@@ -161,11 +162,11 @@ const stylesForCustomComponent = {
 
 If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
 custom properties (e.g. variables) for consumption in your stylesheets. If the
-DS is properly installed, the CSS custom properties will be available for you
-to use. Nothing more needs to be done to your app.
+DS is properly installed, the CSS custom properties will be available for you to
+use. Nothing more needs to be done to your app.
 
-To assist with CSS scope isolation, all of the CSS custom properties created
-by the DS are prefixed with "nypl." Please see the examples below.
+To assist with CSS scope isolation, all of the CSS custom properties created by
+the DS are prefixed with "nypl." Please see the examples below.
 
 <Source
   code={`
@@ -216,7 +217,8 @@ base tokens.
 
 ### Breakpoints
 
-For more information about NYPL breakpoints, see the [Breakpoints Style Guide](../?path=/docs/style-guide-breakpoints--docs) page.
+For more information about NYPL breakpoints, see the [Breakpoints Style
+Guide](../?path=/docs/style-guide-breakpoints--docs) page.
 
 | JS Token | CSS Token                | Value              |
 | :------- | :----------------------- | :----------------- |
@@ -228,11 +230,12 @@ For more information about NYPL breakpoints, see the [Breakpoints Style Guide](.
 
 ### Color
 
-The `color` design tokens can be used for any styles where a color styles be assigned:
+The `color` design tokens can be used for any styles where a color styles be
+assigned:
 
 - `color`
-- `border-color`
-- `background-color`
+- `borderColor` (js) and `border-color` (css)
+- `backgroundColor` (js) and `background-color` (css)
 - `fill`
 - `stroke`
 
@@ -241,100 +244,106 @@ For more information about NYPL colors and to view the actual hue, see the
 
 #### Root Tokens
 
-|               | JS Token          | CSS Token                           | Value   |
-| ------------- | :---------------- | :---------------------------------- | :------ |
-| **Grayscale** | ui.black          | --nypl-colors-ui-black              | #000    |
-|               | ui.white          | --nypl-colors-ui-white              | #FFF    |
-|               | ui.gray.xxxx-dark | --nypl-colors-ui-gray-xxxx-dark     | #191919 |
-|               | ui.gray.xxx-dark  | --nypl-colors-ui-gray-xxx-dark      | #252525 |
-|               | ui.gray.xx-dark   | --nypl-colors-ui-gray-xx-dark       | #2E2E2E |
-|               | ui.gray.x-dark    | --nypl-colors-ui-gray-x-dark        | #424242 |
-|               | ui.gray.dark      | --nypl-colors-ui-gray-dark          | #616161 |
-|               | ui.gray.dark      | --nypl-colors-ui-gray-medium        | #BDBDBD |
-|               | ui.gray.dark      | --nypl-colors-ui-gray-light-cool    | #E9E9E9 |
-|               | ui.gray.dark      | --nypl-colors-ui-gray-x-light-cool  | #F5F5F5 |
-|               | ui.gray.dark      | --nypl-colors-ui-gray-xx-light-cool | #FAFAFA |
+|               | JS Token              | CSS Token                           | Value   |
+| ------------- | :-------------------- | :---------------------------------- | :------ |
+| **Grayscale** | ui.black              | --nypl-colors-ui-black              | #000    |
+|               | ui.white              | --nypl-colors-ui-white              | #FFF    |
+|               | ui.gray.xxxx-dark     | --nypl-colors-ui-gray-xxxx-dark     | #191919 |
+|               | ui.gray.xxx-dark      | --nypl-colors-ui-gray-xxx-dark      | #252525 |
+|               | ui.gray.xx-dark       | --nypl-colors-ui-gray-xx-dark       | #2E2E2E |
+|               | ui.gray.x-dark        | --nypl-colors-ui-gray-x-dark        | #424242 |
+|               | ui.gray.dark          | --nypl-colors-ui-gray-dark          | #616161 |
+|               | ui.gray.semi-dark     | --nypl-colors-ui-gray-semi-dark     | #8D8D8D |
+|               | ui.gray.medium        | --nypl-colors-ui-gray-medium        | #BDBDBD |
+|               | ui.gray.semi-medium   | --nypl-colors-ui-gray-semi-medium   | #9D9D9D |
+|               | ui.gray.light-cool    | --nypl-colors-ui-gray-light-cool    | #E9E9E9 |
+|               | ui.gray.x-light-cool  | --nypl-colors-ui-gray-x-light-cool  | #F5F5F5 |
+|               | ui.gray.xx-light-cool | --nypl-colors-ui-gray-xx-light-cool | #FAFAFA |
 
 **The following root `color` tokens have both light and dark mode values.**
 
 ##### Light Mode
 
-|             | JS Token                             | CSS Token                                          | Value                  |
-| ----------- | :----------------------------------- | :------------------------------------------------- | :--------------------- |
-| **Action**  | ui.disabled.primary                  | --nypl-colors-ui-disabled-primary                  | ui.gray.light-cool     |
-|             | ui.disabled.secondary                | --nypl-colors-ui-disabled-secondary                | ui.gray.xx-light-cool  |
-|             | ui.error.primary                     | --nypl-colors-ui-error-primary                     | #97272C                |
-|             | ui.error.secondary                   | --nypl-colors-ui-error-secondary                   | #6F0106                |
-|             | ui.focus                             | --nypl-colors-ui-focus                             | #4181F1                |
-|             | ui.link.primary                      | --nypl-colors-ui-link-primary                      | #0576D3                |
-|             | ui.link.primary-05                   | --nypl-colors-ui-link-primary-05                   | rgba(5, 118, 211,0.05) |
-|             | ui.link.secondary                    | --nypl-colors-ui-link-secondary                    | #004B98                |
-|             | ui.status.primary                    | --nypl-colors-ui-status-primary                    | #F9E08E                |
-|             | ui.status.secondary                  | --nypl-colors-ui-status-secondary                  | #FBE7E1                |
-|             | ui.success.primary                   | --nypl-colors-ui-success-primary                   | #077719                |
-|             | ui.success.secondary                 | --nypl-colors-ui-success-secondary                 | #095212                |
-|             | ui.test                              | --nypl-colors-ui-test                              | #FF6347                |
-|             | ui.warning.primary                   | --nypl-colors-ui-warning-primary                   | #F0974E                |
-|             | ui.warning.secondary                 | --nypl-colors-ui-warning-secondary                 | #EC7B1F                |
-|             |                                      |                                                    |                        |
-| **Brand**   | brand.primary                        | --nypl-colors-brand-primary                        | #C60917                |
-|             | brand.secondary                      | --nypl-colors-brand-secondary                      | #760000                |
-|             |                                      |                                                    |                        |
-| **Section** | section.blogs.primary                | --nypl-colors-section-blogs-primary                | ui.gray.light-cool     |
-|             | section.blogs.secondary              | --nypl-colors-section-blogs-secondary              | ui.gray.medium         |
-|             | section.books-and-more.primary       | --nypl-colors-section-books-and-more-primary       | brand.primary          |
-|             | section.books-and-more.secondary     | --nypl-colors-section-books-and-more-secondary     | brand.secondary        |
-|             | section.education.primary            | --nypl-colors-section-education-primary            | #1D62E6                |
-|             | section.education.secondary          | --nypl-colors-section-education-secondary          | #2540A4                |
-|             | section.locations.primary            | --nypl-colors-section-locations-primary            | brand.primary          |
-|             | section.locations.secondary          | --nypl-colors-section-locations-secondary          | brand.secondary        |
-|             | section.research.primary             | --nypl-colors-section-research-primary             | #00838A                |
-|             | section.research.secondary           | --nypl-colors-section-research-secondary           | #006166                |
-|             | section.research-library-lpa         | --nypl-colors-section-research-library-lpa         | #005D53                |
-|             | section.research-library-schomburg   | --nypl-colors-section-research-library-schomburh   | #A03E31                |
-|             | section.research-library-schwartzman | --nypl-colors-section-research-library-schwartzman | brand.secondary        |
-|             | section.whats-on.primary             | --nypl-colors-section-whats-on-primary             | #242424                |
-|             | section.whats-on.secondary           | --nypl-colors-section-whats-on-secondary           | ui.black               |
+|             | JS Token                             | CSS Token                                          | Value                   |
+| ----------- | :----------------------------------- | :------------------------------------------------- | :---------------------- |
+| **Action**  | ui.disabled.primary                  | --nypl-colors-ui-disabled-primary                  | ui.gray.light-cool      |
+|             | ui.disabled.secondary                | --nypl-colors-ui-disabled-secondary                | ui.gray.xx-light-cool   |
+|             | ui.error.primary                     | --nypl-colors-ui-error-primary                     | #97272C                 |
+|             | ui.error.secondary                   | --nypl-colors-ui-error-secondary                   | #6F0106                 |
+|             | ui.focus                             | --nypl-colors-ui-focus                             | #4181F1                 |
+|             | ui.link.primary                      | --nypl-colors-ui-link-primary                      | #0576D3                 |
+|             | ui.link.primary-05                   | --nypl-colors-ui-link-primary-05                   | rgba(5, 118, 211, 0.05) |
+|             | ui.link.secondary                    | --nypl-colors-ui-link-secondary                    | #004B98                 |
+|             | ui.status.primary                    | --nypl-colors-ui-status-primary                    | #F9E08E                 |
+|             | ui.status.secondary                  | --nypl-colors-ui-status-secondary                  | #FBE7E1                 |
+|             | ui.success.primary                   | --nypl-colors-ui-success-primary                   | #077719                 |
+|             | ui.success.secondary                 | --nypl-colors-ui-success-secondary                 | #095212                 |
+|             | ui.test                              | --nypl-colors-ui-test                              | #FF6347                 |
+|             | ui.warning.primary                   | --nypl-colors-ui-warning-primary                   | #F0974E                 |
+|             | ui.warning.secondary                 | --nypl-colors-ui-warning-secondary                 | #EC7B1F                 |
+|             |                                      |                                                    |                         |
+| **Brand**   | brand.primary                        | --nypl-colors-brand-primary                        | #C60917                 |
+|             | brand.secondary                      | --nypl-colors-brand-secondary                      | #760000                 |
+|             |                                      |                                                    |                         |
+| **Section** | section.blogs.primary                | --nypl-colors-section-blogs-primary                | ui.gray.light-cool      |
+|             | section.blogs.secondary              | --nypl-colors-section-blogs-secondary              | ui.gray.medium          |
+|             | section.books-and-more.primary       | --nypl-colors-section-books-and-more-primary       | brand.primary           |
+|             | section.books-and-more.secondary     | --nypl-colors-section-books-and-more-secondary     | brand.secondary         |
+|             | section.books-and-more.secondary     | --nypl-colors-section-connect-primary              | #737373                 |
+|             | section.books-and-more.secondary     | --nypl-colors-section-connect-secondary            | #565656                 |
+|             | section.education.primary            | --nypl-colors-section-education-primary            | #1D62E6                 |
+|             | section.education.secondary          | --nypl-colors-section-education-secondary          | #2540A4                 |
+|             | section.locations.primary            | --nypl-colors-section-locations-primary            | brand.primary           |
+|             | section.locations.secondary          | --nypl-colors-section-locations-secondary          | brand.secondary         |
+|             | section.research.primary             | --nypl-colors-section-research-primary             | #00838A                 |
+|             | section.research.secondary           | --nypl-colors-section-research-secondary           | #006166                 |
+|             | section.research-library-lpa         | --nypl-colors-section-research-library-lpa         | #005D53                 |
+|             | section.research-library-schomburg   | --nypl-colors-section-research-library-schomburh   | #A03E31                 |
+|             | section.research-library-schwartzman | --nypl-colors-section-research-library-schwartzman | brand.secondary         |
+|             | section.whats-on.primary             | --nypl-colors-section-whats-on-primary             | #242424                 |
+|             | section.whats-on.secondary           | --nypl-colors-section-whats-on-secondary           | ui.black                |
 
 ##### Dark Mode
 
-|             | JS Token                                  | CSS Token                                               | Value                    |
-| ----------- | :---------------------------------------- | :------------------------------------------------------ | :----------------------- |
-| **Action**  | dark.ui.disabled.primary                  | --nypl-colors-dark-ui-disabled-primary                  | ui.gray.dark             |
-|             | dark.ui.disabled.secondary                | --nypl-colors-dark-ui-disabled-secondary                | ui.gray.x-dark           |
-|             | dark.ui.error.primary                     | --nypl-colors-dark-ui-error-primary                     | #E1767B                  |
-|             | dark.ui.error.secondary                   | --nypl-colors-dark-ui-error-secondary                   | #F08F93                  |
-|             | dark.ui.focus                             | --nypl-colors-dark-ui-focus                             | #6090E3                  |
-|             | dark.ui.link.primary                      | --nypl-colors-dark-ui-link-primary                      | #79B7EB                  |
-|             | dark.ui.link.primary-05                   | --nypl-colors-dark-ui-link-primary-05                   | rgba(121, 183, 235,0.05) |
-|             | dark.ui.link.primary-10                   | --nypl-colors-dark-ui-link-primary-10                   | rgba(121, 183, 235,0.1)  |
-|             | dark.ui.link.secondary                    | --nypl-colors-dark-ui-link-secondary                    | #95CFFF                  |
-|             | dark.ui.status.primary                    | --nypl-colors-dark-ui-status-primary                    | #B69C46                  |
-|             | dark.ui.status.secondary                  | --nypl-colors-dark-ui-status-secondary                  | #CB8E7C                  |
-|             | dark.ui.success.primary                   | --nypl-colors-dark-ui-success-primary                   | #52AA60                  |
-|             | dark.ui.success.secondary                 | --nypl-colors-dark-ui-success-secondary                 | #81C88A                  |
-|             | dark.ui.test                              | --nypl-colors-dark-ui-test                              | #592B22                  |
-|             | dark.ui.warning.primary                   | --nypl-colors-dark-ui-warning-primary                   | #DC8034                  |
-|             | dark.ui.warning.secondary                 | --nypl-colors-dark-ui-warning-secondary                 | #F1A66A                  |
-|             |                                           |                                                         |                          |
-| **Brand**   | dark.brand.primary                        | --nypl-colors-dark-brand-primary                        | gba(198, 9, 23,0.2)      |
-|             | dark.brand.secondary                      | --nypl-colors-dark-brand-secondary                      | rgba(118, 0, 0,0.2);     |
-|             |                                           |                                                         |                          |
-| **Section** | dark.section.blogs.primary                | --nypl-colors-dark-section-blogs-primary                | rgba(233, 233, 233,0.2)  |
-|             | dark.section.blogs.secondary              | --nypl-colors-dark-section-blogs-secondary              | rgba(189, 189, 189,0.2)  |
-|             | dark.section.books-and-more.primary       | --nypl-colors-dark-section-books-and-more-primary       | dark.brand.primary       |
-|             | dark.section.books-and-more.secondary     | --nypl-colors-dark-section-books-and-more-secondary     | dark.brand.secondary     |
-|             | dark.section.education.primary            | --nypl-colors-dark-section-education-primary            | rgba(29, 98, 230,0.2)    |
-|             | dark.section.education.secondary          | --nypl-colors-dark-section-education-secondary          | rgba(37, 64, 164,0.2)    |
-|             | dark.section.locations.primary            | --nypl-colors-dark-section-locations-primary            | dark.brand.primary       |
-|             | dark.section.locations.secondary          | --nypl-colors-dark-section-locations-secondary          | dark.brand.secondary     |
-|             | dark.section.research.primary             | --nypl-colors-dark-section-research-primary             | rgba(0, 131, 138,0.2)    |
-|             | dark.section.research.secondary           | --nypl-colors-dark-section-research-secondary           | rgba(0, 97, 102,0.2)     |
-|             | dark.section.research-library-lpa         | --nypl-colors-dark-section-research-library-lpa         | rgba(0, 93, 83,0.2)      |
-|             | dark.section.research-library-schomburg   | --nypl-colors-dark-section-research-library-schomburh   | rgba(160, 62, 49,0.2)    |
-|             | dark.section.research-library-schwartzman | --nypl-colors-dark-section-research-library-schwartzman | dark.brand.secondary     |
-|             | dark.section.whats-on.primary             | --nypl-colors-dark-section-whats-on-primary             | rgba(233, 233, 233,0.2)  |
-|             | dark.section.whats-on.secondary           | --nypl-colors-dark-section-whats-on-secondary           | rgba(255, 255, 255,0.05) |
+|             | JS Token                                  | CSS Token                                               | Value                     |
+| ----------- | :---------------------------------------- | :------------------------------------------------------ | :------------------------ |
+| **Action**  | dark.ui.disabled.primary                  | --nypl-colors-dark-ui-disabled-primary                  | ui.gray.dark              |
+|             | dark.ui.disabled.secondary                | --nypl-colors-dark-ui-disabled-secondary                | ui.gray.x-dark            |
+|             | dark.ui.error.primary                     | --nypl-colors-dark-ui-error-primary                     | #E1767B                   |
+|             | dark.ui.error.secondary                   | --nypl-colors-dark-ui-error-secondary                   | #F08F93                   |
+|             | dark.ui.focus                             | --nypl-colors-dark-ui-focus                             | #6090E3                   |
+|             | dark.ui.link.primary                      | --nypl-colors-dark-ui-link-primary                      | #79B7EB                   |
+|             | dark.ui.link.primary-05                   | --nypl-colors-dark-ui-link-primary-05                   | rgba(121, 183, 235, 0.05) |
+|             | dark.ui.link.primary-10                   | --nypl-colors-dark-ui-link-primary-10                   | rgba(121, 183, 235, 0.1)  |
+|             | dark.ui.link.secondary                    | --nypl-colors-dark-ui-link-secondary                    | #95CFFF                   |
+|             | dark.ui.status.primary                    | --nypl-colors-dark-ui-status-primary                    | #B69C46                   |
+|             | dark.ui.status.secondary                  | --nypl-colors-dark-ui-status-secondary                  | #CB8E7C                   |
+|             | dark.ui.success.primary                   | --nypl-colors-dark-ui-success-primary                   | #52AA60                   |
+|             | dark.ui.success.secondary                 | --nypl-colors-dark-ui-success-secondary                 | #81C88A                   |
+|             | dark.ui.test                              | --nypl-colors-dark-ui-test                              | #592B22                   |
+|             | dark.ui.warning.primary                   | --nypl-colors-dark-ui-warning-primary                   | #DC8034                   |
+|             | dark.ui.warning.secondary                 | --nypl-colors-dark-ui-warning-secondary                 | #F1A66A                   |
+|             |                                           |                                                         |                           |
+| **Brand**   | dark.brand.primary                        | --nypl-colors-dark-brand-primary                        | rgba(198, 9, 23, 0.2)     |
+|             | dark.brand.secondary                      | --nypl-colors-dark-brand-secondary                      | rgba(118, 0, 0, 0.2);     |
+|             |                                           |                                                         |                           |
+| **Section** | dark.section.blogs.primary                | --nypl-colors-dark-section-blogs-primary                | rgba(233, 233, 233, 0.2)  |
+|             | dark.section.blogs.secondary              | --nypl-colors-dark-section-blogs-secondary              | rgba(189, 189, 189, 0.2)  |
+|             | dark.section.books-and-more.primary       | --nypl-colors-dark-section-books-and-more-primary       | dark.brand.primary        |
+|             | dark.section.books-and-more.secondary     | --nypl-colors-dark-section-books-and-more-secondary     | dark.brand.secondary      |
+|             | dark.section.connect.primary              | --nypl-colors-dark-section-connect-primary              | rgba(115, 115, 115, 0.4)  |
+|             | dark.section.connect.secondary            | --nypl-colors-dark-section-connect-secondary            | rgba(86, 86, 86, 0.4)     |
+|             | dark.section.education.primary            | --nypl-colors-dark-section-education-primary            | rgba(29, 98, 230, 0.2)    |
+|             | dark.section.education.secondary          | --nypl-colors-dark-section-education-secondary          | rgba(37, 64, 164, 0.2)    |
+|             | dark.section.locations.primary            | --nypl-colors-dark-section-locations-primary            | dark.brand.primary        |
+|             | dark.section.locations.secondary          | --nypl-colors-dark-section-locations-secondary          | dark.brand.secondary      |
+|             | dark.section.research.primary             | --nypl-colors-dark-section-research-primary             | rgba(0, 131, 138, 0.2)    |
+|             | dark.section.research.secondary           | --nypl-colors-dark-section-research-secondary           | rgba(0, 97, 102, 0.2)     |
+|             | dark.section.research-library-lpa         | --nypl-colors-dark-section-research-library-lpa         | rgba(0, 93, 83, 0.2)      |
+|             | dark.section.research-library-schomburg   | --nypl-colors-dark-section-research-library-schomburh   | rgba(160, 62, 49, 0.2)    |
+|             | dark.section.research-library-schwartzman | --nypl-colors-dark-section-research-library-schwartzman | dark.brand.secondary      |
+|             | dark.section.whats-on.primary             | --nypl-colors-dark-section-whats-on-primary             | rgba(233, 233, 233, 0.2)  |
+|             | dark.section.whats-on.secondary           | --nypl-colors-dark-section-whats-on-secondary           | rgba(255, 255, 255, 0.05) |
 
 #### Color Semantic Tokens
 
@@ -376,7 +385,8 @@ The semantic `color` tokens have both light and dark mode values.
 
 ### Radii
 
-The `radii` design tokens can be used for the `border-radius` attribute.
+The `radii` design tokens can be used for the `borderRadius` (js) and
+`border-radius` (css) attribute.
 
 ### Radii Semantic Tokens
 
@@ -404,7 +414,8 @@ The `space` design tokens can be used for any styles related to space or size:
 - `right`
 - `bottom`
 
-For more information about NYPL spacing, see the [Spacing Style Guide](../?path=/docs/style-guide-spacing--docs) page.
+For more information about NYPL spacing, see the [Spacing Style
+Guide](../?path=/docs/style-guide-spacing--docs) page.
 
 #### Root Tokens
 
@@ -461,82 +472,123 @@ For more information about NYPL spacing, see the [Spacing Style Guide](../?path=
 
 The `typography` design tokens include options for the following styles:
 
-- `font-family`
-- `font-size`
-- `font-weight`
+- `fontFamily` (js) and `font-family` (css)
+- `fontSize` (js) and `font-size` (css)
+- `fontWeight` (js) and `font-weight` (css)
 
-For more information about NYPL typography, see the [Typography Style Guide](../?path=/docs/style-guide-typography--docs) page.
+For more information about NYPL typography, see the [Typography Style
+Guide](../?path=/docs/style-guide-typography--docs) page.
 
 #### Root Tokens
 
-|                 | JS Token | CSS Token                | Value                                                    |
-| --------------- | :------- | :----------------------- | :------------------------------------------------------- |
-| **Font Family** | body     | --nypl-fonts-body        | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
-|                 | heading  | --nypl-fonts-heading     | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
-|                 |          |                          |                                                          |
-| **Font Size**   | -3       | --nypl-fontSizes--3      | .625rem / 10px                                           |
-|                 | -2       | --nypl-fontSizes--2      | .75rem / 12px                                            |
-|                 | -1       | --nypl-fontSizes--1      | .825rem / 14px                                           |
-|                 | 0        | --nypl-fontSizes-0       | 1rem / 16px                                              |
-|                 | 1        | --nypl-fontSizes-1       | 1.125rem / 18px                                          |
-|                 | 2        | --nypl-fontSizes-2       | 1.375rem / 22px                                          |
-|                 | 3        | --nypl-fontSizes-3       | 1.75rem / 28px                                           |
-|                 | 4        | --nypl-fontSizes-4       | 2.25rem / 36px                                           |
-|                 |          |                          |                                                          |
-| **Font Weight** | light    | --nypl-fontWeights-light | 300                                                      |
-|                 | regular  | --nypl-fontWeights-light | 400                                                      |
-|                 | medium   | --nypl-fontWeights-light | 500                                                      |
-|                 | bold     | --nypl-fontWeights-light | 700                                                      |
+|                 | JS Token | CSS Token                   | Value                                                    |
+| --------------- | :------- | :-------------------------- | :------------------------------------------------------- |
+| **Font Family** | body     | --nypl-fonts-body           | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
+|                 | heading  | --nypl-fonts-heading        | -apple-system, BlinkMacSystemFont, system-ui, sans-serif |
+|                 |          |                             |                                                          |
+| **Font Size**   | -3       | --nypl-fontSizes--3         | .625rem / 10px                                           |
+|                 | -2       | --nypl-fontSizes--2         | .75rem / 12px                                            |
+|                 | -1       | --nypl-fontSizes--1         | .825rem / 14px                                           |
+|                 | 0        | --nypl-fontSizes-0          | 1rem / 16px                                              |
+|                 | 1        | --nypl-fontSizes-1          | 1.125rem / 18px                                          |
+|                 | 2        | --nypl-fontSizes-2          | 1.375rem / 22px                                          |
+|                 | 3        | --nypl-fontSizes-3          | 1.75rem / 28px                                           |
+|                 | 4        | --nypl-fontSizes-4          | 2.25rem / 36px                                           |
+|                 |          |                             |                                                          |
+| **Font Weight** | thin     | --nypl-fontWeights-thin     | 200                                                      |
+|                 | light    | --nypl-fontWeights-light    | 300                                                      |
+|                 | regular  | --nypl-fontWeights-regular  | 400                                                      |
+|                 | medium   | --nypl-fontWeights-medium   | 500                                                      |
+|                 | semibold | --nypl-fontWeights-semibold | 600                                                      |
+|                 | bold     | --nypl-fontWeights-bold     | 700                                                      |
 
 #### Font Size Semantic Tokens
 
-The following tokens can be used with the `font-size` style attribute.
+The following tokens can be used with the `fontSize` (js) and `font-size` (css)
+style attribute.
 
-|                 | JS Token            | CSS Token                            | Value |
-| --------------- | :------------------ | :----------------------------------- | :---- |
-| **Breadcrumbs** | breadcrumbs.default | --nypl-fontSizes-breadcrumbs-default | -1    |
-|                 |                     |                                      |       |
-| **Button**      | button.small        | --nypl-fontSizes-button-small        | -2    |
-|                 | button.default      | --nypl-fontSizes-button-default      | -1    |
-|                 | button.large        | --nypl-fontSizes-button-large        | 0     |
-|                 |                     |                                      |       |
-| **Heading**     | heading.primary     | --nypl-fontSizes-heading-primary     | 4     |
-|                 | heading.secondary   | --nypl-fontSizes-heading-secondary   | 3     |
-|                 | heading.tertiary    | --nypl-fontSizes-heading-tertiary    | 2     |
-|                 | heading.callout     | --nypl-fontSizes-heading-callout     | 1     |
-|                 |                     |                                      |       |
-| **Helper**      | helper.default      | --nypl-fontSizes-helper-default      | -2    |
-|                 |                     |                                      |       |
-| **Label**       | label.default       | --nypl-fontSizes-label-default       | -1    |
-|                 | label.secondary     | --nypl-fontSizes-label-secondary     | -2    |
-|                 |                     |                                      |       |
-| **Text**        | text.default        | --nypl-fontSizes-text-default        | 0     |
-|                 | text.caption        | --nypl-fontSizes-text-caption        | -1    |
-|                 | text.tag            | --nypl-fontSizes-text-tag            | -2    |
-|                 | text.mini           | --nypl-fontSizes-text-mini           | -3    |
+|                 | JS Token                    | CSS Token                                    | Value           | Deprecated |
+| --------------- | :-------------------------- | :------------------------------------------- | :-------------- | :--------- |
+| **Breadcrumbs** | desktop.breadcrumbs.default | --nypl-fontSizes-desktop-breadcrumbs-default | .875rem / 14px  |            |
+|                 |                             |                                              |                 |            |
+| **Button**      | desktop.button.small        | --nypl-fontSizes-desktop-button-small        | .75rem / 12px   |            |
+|                 | desktop.button.default      | --nypl-fontSizes-desktop-button-default      | .875rem / 14px  |            |
+|                 | desktop.button.large        | --nypl-fontSizes-desktop-button-large        | 1rem / 16px     |            |
+|                 |                             |                                              |                 |            |
+| **Heading**     | heading.display1            | --nypl-fontSizes-desktop-heading-display1    | 4.25rem / 68px  |            |
+|                 | heading.heading1            | --nypl-fontSizes-desktop-heading-heading1    | 3.375rem / 54px |            |
+|                 | heading.heading2            | --nypl-fontSizes-desktop-heading-heading2    | 2.625rem / 42px |            |
+|                 | heading.heading3            | --nypl-fontSizes-desktop-heading-heading3    | 2rem / 32px     |            |
+|                 | heading.heading4            | --nypl-fontSizes-desktop-heading-heading4    | 1.625rem / 26px |            |
+|                 | heading.heading5            | --nypl-fontSizes-desktop-heading-heading5    | 1.375rem / 22px |            |
+|                 | heading.heading6            | --nypl-fontSizes-desktop-heading-heading6    | 1.25rem / 20px  |            |
+|                 | heading.primary             | --nypl-fontSizes-heading-primary             | 4               | x          |
+|                 | heading.secondary           | --nypl-fontSizes-heading-secondary           | 3               | x          |
+|                 | heading.tertiary            | --nypl-fontSizes-heading-tertiary            | 2               | x          |
+|                 | heading.callout             | --nypl-fontSizes-heading-callout             | 1               | x          |
+|                 |                             |                                              |                 |            |
+| **Subtitle**    | desktop.subtitle.subtitle1  | --nypl-fontSizes-desktop-subtitle-subtitle1  | 1.125rem / 18px |            |
+|                 | desktop.subtitle.subtitle2  | --nypl-fontSizes-desktop-subtitle-subtitle2  | 1rem / 16px     |            |
+|                 |                             |                                              |                 |            |
+| **Overline**    | desktop.overline.overline1  | --nypl-fontSizes-desktop-overline-overline1  | .75rem / 12px   |            |
+|                 | desktop.overline.overline2  | --nypl-fontSizes-desktop-overline-overline2  | .625rem / 10px  |            |
+|                 |                             |                                              |                 |            |
+| **Helper**      | desktop.helper.default      | --nypl-fontSizes-desktop-helper-default      | .75rem / 12px   |            |
+|                 |                             |                                              |                 |            |
+| **Label**       | desktop.label.label1        | --nypl-fontSizes-desktop-label-label1        | .875rem / 14px  |            |
+|                 | desktop.label.label2        | --nypl-fontSizes-desktop-label-label2        | .75rem / 12px   |            |
+|                 | label.default               | --nypl-fontSizes-label-default               | -1              | x          |
+|                 | label.secondary             | --nypl-fontSizes-label-secondary             | -2              | x          |
+|                 |                             |                                              |                 |            |
+| **Text**        | desktop.default             | --nypl-fontSizes-desktop-default             | 1rem / 16px     |            |
+|                 | desktop.body.body1          | --nypl-fontSizes-desktop-body-body1          | 1rem / 16px     |            |
+|                 | desktop.body.body2          | --nypl-fontSizes-desktop-body-body2          | .875rem / 14px  |            |
+|                 | desktop.caption             | --nypl-fontSizes-desktop-caption             | .75rem / 12px   |            |
+|                 | text.default                | --nypl-fontSizes-text-default                | 0               | x          |
+|                 | text.caption                | --nypl-fontSizes-text-caption                | -1              | x          |
+|                 | text.tag                    | --nypl-fontSizes-text-tag                    | -2              | x          |
+|                 | text.mini                   | --nypl-fontSizes-text-mini                   | -3              | x          |
 
 #### Font Weight Semantic Tokens
 
-The following tokens can be used with the `font-weight` style attribute.
+The following tokens can be used with the `fontWeight` (js) and `font-weight`
+(css) style attribute.
 
-|                 | JS Token              | CSS Token                                | Value   |
-| --------------- | :-------------------- | :--------------------------------------- | :------ |
-| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular |
-|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold    |
-|                 |                       |                                          |         |
-| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular |
-|                 |                       |                                          |         |
-| **Heading**     | heading.primary       | --nypl-fontWeights-heading-primary       | light   |
-|                 | heading.secondary     | --nypl-fontWeights-heading-secondary     | medium  |
-|                 | heading.tertiary      | --nypl-fontWeights-heading-tertiary      | medium  |
-|                 | heading.callout       | --nypl-fontWeights-heading-callout       | medium  |
-|                 |                       |                                          |         |
-| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | light   |
-|                 |                       |                                          |         |
-| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium  |
-|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular |
-|                 |                       |                                          |         |
-| **Text**        | text.default          | --nypl-fontWeights-text-default          | light   |
-|                 | text.caption          | --nypl-fontWeights-text-caption          | light   |
-|                 | text.tag              | --nypl-fontWeights-text-tag              | regular |
-|                 | text.mini             | --nypl-fontWeights-text-mini             | regular |
+|                 | JS Token              | CSS Token                                | Value    | Deprecated |
+| --------------- | :-------------------- | :--------------------------------------- | :------- | :--------- |
+| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular  |            |
+|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold     |            |
+|                 |                       |                                          |          |            |
+| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular  |            |
+|                 |                       |                                          |          |            |
+| **Heading**     | heading.display1      | --nypl-fontWeights-heading-display1      | thin     |            |
+|                 | heading.heading1      | --nypl-fontWeights-heading-heading1      | thin     |            |
+|                 | heading.heading2      | --nypl-fontWeights-heading-heading2      | thin     |            |
+|                 | heading.heading3      | --nypl-fontWeights-heading-heading3      | light    |            |
+|                 | heading.heading4      | --nypl-fontWeights-heading-heading4      | regular  |            |
+|                 | heading.heading5      | --nypl-fontWeights-heading-heading5      | medium   |            |
+|                 | heading.heading6      | --nypl-fontWeights-heading-heading6      | medium   |            |
+|                 | heading.primary       | --nypl-fontWeights-heading-primary       | light    | x          |
+|                 | heading.secondary     | --nypl-fontWeights-heading-secondary     | medium   | x          |
+|                 | heading.tertiary      | --nypl-fontWeights-heading-tertiary      | medium   | x          |
+|                 | heading.callout       | --nypl-fontWeights-heading-callout       | medium   | x          |
+|                 |                       |                                          |          |            |
+| **Subtitle**    | subtitle.subtitle1    | --nypl-fontWeights-subtitle-subtitle1    | medium   |            |
+|                 | subtitle.subtitle2    | --nypl-fontWeights-subtitle-subtitle2    | medium   |            |
+|                 |                       |                                          |          |            |
+| **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |            |
+|                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |            |
+|                 |                       |                                          |          |            |
+| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | light    |            |
+|                 |                       |                                          |          |            |
+| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |            |
+|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |            |
+|                 |                       |                                          |          |            |
+| **Text**        | default               | --nypl-fontWeights-default               | light    |            |
+|                 | body.body1            | --nypl-fontWeights-body-body1            | light    |            |
+|                 | body.body2            | --nypl-fontWeights-body-body2            | light    |            |
+|                 | caption               | --nypl-fontWeights-caption               | regular  |            |
+|                 | text.default          | --nypl-fontWeights-text-default          | light    | x          |
+|                 | text.caption          | --nypl-fontWeights-text-caption          | light    | x          |
+|                 | text.tag              | --nypl-fontWeights-text-tag              | regular  | x          |
+|                 | text.mini             | --nypl-fontWeights-text-mini             | regular  | x          |

@@ -1,9 +1,11 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/blocks";
 
 import Heading from "../Heading/Heading";
+import Image from "../Image/Image";
 import Link from "../Link/Link";
 import List from "../List/List";
+import TagSet from "../TagSet/TagSet";
 import Text from "../Text/Text";
 
 <Meta title="Style Guide/Typography" />
@@ -16,18 +18,18 @@ import Text from "../Text/Text";
 - {<Link href="#heading-component" target="_self">Heading Component</Link>}
 - {<Link href="#text-component" target="_self">Text Component</Link>}
 - {<Link href="#font-family" target="_self">Font Family</Link>}
-- {<Link href="#font-color" target="_self">Font Color</Link>}
+- {<Link href="#font-color-and-accessibility" target="_self">Font Color and Accessibility</Link>}
 - {<Link href="#font-weight" target="_self">Font Weight</Link>}
-- {<Link href="#font-sizes" target="_self">Font Sizes</Link>}
 - {<Link href="#text-case" target="_self">Text Case</Link>}
+- {<Link href="#line-length-and-line-height" target="_self">Line Length and Line Height</Link>}
 - {<Link href="#character-count" target="_self">Character Count</Link>}
 - {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
 
 ## General Information
 
 Consuming applications should utilize the Reservoir Design System (DS) standard
-text components as much as possible. In cases where that is not possible, the
-DS exposes CSS variables to assist with formatting text elements.
+text components as much as possible. In cases where that is not possible, the DS
+exposes design tokens to assist with formatting text elements.
 
 The sizing of all text elements in the Design System is based on `1rem` being
 equal to `16px`.
@@ -35,8 +37,29 @@ equal to `16px`.
 ## Heading Component
 
 Use the DS [Heading](../?path=/docs/components-typography-styles-heading--docs)
-component to render a standard HTML `<h>` tag. The `level` prop can be used to
-set the specific `<h>` tag that you require.
+component to render a native HTML `<h>` tag. The `level` prop can be used to set
+the specific `<h>` tag that you require.
+
+### Updated Typographic Styles
+
+New typographic styles were introduced in June 2023 and the new styles are the
+supported options. The old typographic styles are still available, but they have
+been deprecated.
+
+### Default Styles for Native Heading Elements
+
+The `level` prop can be used to set a native heading element (ex. `<h1>`,
+`<h2>`, ...).
+
+The default text styles for the native heading element levels correspond
+directly with the values of the `size` prop. For example, the `heading1` size is
+the default style for the `<h1>` element. The `heading2` size is the default
+style for the `<h2>` element. And so on.
+
+Based on the June 2023 updates, the following values should be used for the
+`level` prop.
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
 {
 
@@ -47,30 +70,338 @@ set the specific `<h>` tag that you require.
   mb="m"
   p="s"
 >
-  <Heading level="one">Heading Level 1</Heading>
-  <Heading level="two" border="none">
-    Heading Level 2
+  <Heading color="ui.typography.heading" level="h1">
+    Heading Level h1
   </Heading>
-  <Heading level="three">Heading Level 3</Heading>
-  <Heading level="four">Heading Level 4</Heading>
+  <Heading color="ui.typography.heading" level="h2" border="none">
+    Heading Level h2
+  </Heading>
+  <Heading color="ui.typography.heading" level="h3">
+    Heading Level h3
+  </Heading>
+  <Heading color="ui.typography.heading" level="h4">
+    Heading Level h4
+  </Heading>
+  <Heading color="ui.typography.heading" level="h5">
+    Heading Level h5
+  </Heading>
+  <Heading color="ui.typography.heading" level="h6">
+    Heading Level h6
+  </Heading>
 </Box>
 }
 
-### Heading Display Sizes
+#### Deprecated Options
 
-Each heading level has a default style and size, but those styles can be overridden
-using the `size` prop. The display sizes are separate from semantic elements and
-may be used to override the default size and styling of the semantic HTML heading
-elements. For example, the `h1` element has the `Primary` style applied by default,
-but a new style can be applied through the `size` prop. Any `size` style can be
-applied to any `Heading` element.
+The older `level` values and the associated styles are still available, but the
+values have been deprecated and they should only used to fulfill older design
+requirements.
+
+For the deprecated options, the `primary` size is the default style for the
+`<h1>` element. The `secondary` size is the default style for the `<h2>`
+element. The `tertiary` size is the default style for the `<h3>` element. And
+the `callout` size is the default style for the `<h4>` element. `<h5>` and
+`<h6>` do not have corresponding `size` styles.
+
+`one`, `two`, `three`, `four`, `five`, `six`
 
 {
 
-<Heading level="one" size="primary">
-  Primary Heading
-</Heading>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading color="ui.typography.heading" level="one">
+    Heading Level one (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="two" border="none">
+    Heading Level two (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="three">
+    Heading Level three (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="four">
+    Heading Level four (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="five">
+    Heading Level five (deprecated)
+  </Heading>
+  <Heading color="ui.typography.heading" level="six">
+    Heading Level six (deprecated)
+  </Heading>
+</Box>
 }
+
+#### Migrating from Old to New
+
+When adopting the new `level` values, there is a direct relationship between the
+deprecated values and the new values. For example, from a DOM persepctive, `two`
+should be replaced with `h2`, as they will both render the `<h2>` element.
+Please note that migrating to the new `level` values will change the styles for
+the headings. Make sure to use the `size` prop to make adjustments as needed.
+
+### Size Options
+
+Each native heading level has a default style and size, but those styles can be
+overridden using the `size` prop.
+
+The size options are not tied to specific native heading levels and may be used
+to override the default size and styling of any native HTML heading elements.
+For example, the `h3` element has the `heading3` style applied by default, but
+the `size` prop can be used to apply a smaller or larger font size style.
+
+- [Visual Design Library: Heading Text Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137482&mode=design&t=CwNgPKtbbLMwil5V-4)
+
+#### Display 1
+
+{
+
+<List type="ul">
+  <li>
+    This style SHOULD be used for display headings meant to give an immediate
+    great impact.
+  </li>
+  <li>
+    This style SHOULD be used with short headlines. If headline text is more
+    than five words, consider using a smaller heading style.
+  </li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.display1` | `var(--nypl-fontSizes-desktop-heading-display1)` | `4.25rem` (68px) |
+| **Font Weight**    | `heading.display1`         | `var(--nypl-fontWeights-heading-display1)`       | `200` (thin)     |
+| **Line Height**    | --                         | --                                               | `1.05`           |
+| **Letter Spacing** | --                         | --                                               | `1px`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="display1" m="0">
+    Heading Size display1
+  </Heading>
+</Box>
+}
+
+#### Heading 1
+
+{
+
+<List type="ul">
+  <li>Page title and hero text.</li>
+  <li>
+    This style SHOULD be used with short headlines. If headline text is beyond
+    five words, consider using a smaller heading style.
+  </li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading1` | `var(--nypl-fontSizes-desktop-heading-heading1)` | `4.25rem` (54px) |
+| **Font Weight**    | `heading.heading1`         | `var(--nypl-fontWeights-heading-heading1)`       | `200` (thin)     |
+| **Line Height**    | --                         | --                                               | `1.05`           |
+| **Letter Spacing** | --                         | --                                               | `1px`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading1" m="0">
+    Heading Size heading1
+  </Heading>
+</Box>
+}
+
+#### Heading 2
+
+{
+
+<List type="ul">
+  <li>Hero text or important section titles.</li>
+  <li>
+    This style SHOULD be used with short headlines. If headline text is beyond
+    five words, consider using a smaller heading style.
+  </li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading2` | `var(--nypl-fontSizes-desktop-heading-heading2)` | `4.25rem` (42px) |
+| **Font Weight**    | `heading.heading2`         | `var(--nypl-fontWeights-heading-heading2)`       | `200` (thin)     |
+| **Line Height**    | --                         | --                                               | `1.15`           |
+| **Letter Spacing** | --                         | --                                               | `1px`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading2" m="0">
+    Heading Size heading2
+  </Heading>
+</Box>
+}
+
+#### Heading 3
+
+{
+
+<List type="ul">
+  <li>Hero text, card title or important section titles.</li>
+  <li>This style MAY be used with sentence length titles.</li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading3` | `var(--nypl-fontSizes-desktop-heading-heading3)` | `4.25rem` (32px) |
+| **Font Weight**    | `heading.heading3`         | `var(--nypl-fontWeights-heading-heading3)`       | `300` (light)    |
+| **Line Height**    | --                         | --                                               | `1.15`           |
+| **Letter Spacing** | --                         | --                                               | `1px`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading3" m="0">
+    Heading Size heading3
+  </Heading>
+</Box>
+}
+
+#### Heading 4
+
+{
+
+<List type="ul">
+  <li>Hero titles, card title or lesser section titles.</li>
+  <li>This style MAY be used with sentence length titles.</li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading4` | `var(--nypl-fontSizes-desktop-heading-heading4)` | `4.25rem` (26px) |
+| **Font Weight**    | `heading.heading4`         | `var(--nypl-fontWeights-heading-heading4)`       | `400` (regular)  |
+| **Line Height**    | --                         | --                                               | `1.2`            |
+| **Letter Spacing** | --                         | --                                               | `0`              |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading4" m="0">
+    Heading Size heading4
+  </Heading>
+</Box>
+}
+
+#### Heading 5
+
+{
+
+<List type="ul">
+  <li>Hero titles, card title or lesser section titles.</li>
+  <li>This style MAY be used with sentence length titles.</li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading5` | `var(--nypl-fontSizes-desktop-heading-heading5)` | `4.25rem` (22px) |
+| **Font Weight**    | `heading.heading5`         | `var(--nypl-fontWeights-heading-heading5)`       | `500` (medium)   |
+| **Line Height**    | --                         | --                                               | `1.2`            |
+| **Letter Spacing** | --                         | --                                               | `0`              |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading5" m="0">
+    Heading Size heading5
+  </Heading>
+</Box>
+}
+
+#### Heading 6
+
+{
+
+<List type="ul">
+  <li>Hero titles, card title or lesser section titles.</li>
+  <li>This style MAY be used with sentence length titles.</li>
+</List>
+}
+
+|                    | JS Token                   | CSS Token                                        | Value            |
+| ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
+| **Font Size**      | `desktop.heading.heading6` | `var(--nypl-fontSizes-desktop-heading-heading6)` | `4.25rem` (20px) |
+| **Font Weight**    | `heading.heading6`         | `var(--nypl-fontWeights-heading-heading6)`       | `500` (medium)   |
+| **Line Height**    | --                         | --                                               | `1.2`            |
+| **Letter Spacing** | --                         | --                                               | `0`              |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="h3" size="heading6" m="0">
+    Heading Size heading6
+  </Heading>
+</Box>
+}
+
+#### Deprecated Options
+
+The older `size` values and the associated styles are still available, but the
+values should be consdidered deprecated and they should only used to fulfill
+older design requirements.
+
+##### Heading Primary (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token          | CSS Token                                 | Value     |
 | --------------- | :---------------- | :---------------------------------------- | :-------- |
@@ -80,10 +411,24 @@ applied to any `Heading` element.
 
 {
 
-<Heading level="one" size="secondary">
-  Secondary Heading
-</Heading>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="one" size="primary" m="0">
+    Heading Size primary (deprecated)
+  </Heading>
+</Box>
 }
+
+##### Heading Secondary (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token            | CSS Token                                   | Value     |
 | --------------- | :------------------ | :------------------------------------------ | :-------- |
@@ -93,10 +438,24 @@ applied to any `Heading` element.
 
 {
 
-<Heading level="one" size="tertiary">
-  Tertiary Heading
-</Heading>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="one" size="secondary" m="0">
+    Heading Size secondary (deprecated)
+  </Heading>
+</Box>
 }
+
+##### Heading Tertiary (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token           | CSS Token                                  | Value      |
 | --------------- | :----------------- | :----------------------------------------- | :--------- |
@@ -106,22 +465,30 @@ applied to any `Heading` element.
 
 {
 
-<Heading level="one" size="callout">
-  Callout Heading
-</Heading>
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading color="ui.typography.heading" level="one" size="tertiary" m="0">
+    Heading Size tertiary (deprecated)
+  </Heading>
+</Box>
 }
+
+##### Heading Callout (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
 
 |                 | JS Token          | CSS Token                                 | Value     |
 | --------------- | :---------------- | :---------------------------------------- | :-------- |
 | **Font Size**   | `heading.callout` | `var(--nypl-fontSizes-heading-callout)`   | `1.25rem` |
 | **Font Weight** | `heading.callout` | `var(--nypl-fontWeights-heading-callout)` | `500`     |
 | **Line Height** | --                | --                                        | `1.25`    |
-
-## Text Component
-
-Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
-component to render a standard HTML `<p>` tag. The Text component is generally
-used for body copy, captions and secondary captions.
 
 {
 
@@ -130,9 +497,55 @@ used for body copy, captions and secondary captions.
   borderColor="ui.border.default"
   borderRadius="5px"
   mb="m"
-  p="s"
+  p="inset.default"
 >
-  <Text>
+  <Heading color="ui.typography.heading" level="one" size="callout" m="0">
+    Heading Size callout (deprecated)
+  </Heading>
+</Box>
+}
+
+## Text Component
+
+Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
+component to render a standard HTML `<p>` tag.
+
+The `Text` component is used for body copy and captions. However, new
+typographic styles were introduced in June 2023 and the `Text` component can now
+be used to render `subtitle` and `overline` text elements.
+
+### Size Options
+
+The `size` prop can be used to render a specific style from the DS default text styles.
+
+- [Visual Design Library: Text Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137494&mode=design&t=CwNgPKtbbLMwil5V-4)
+
+#### Body 1
+
+{
+
+<List type="ul">
+  <li>This is the default size for body copy.</li>
+  <li>This style SHOULD be used for standard body copy.</li>
+</List>
+}
+
+|                 | JS Token             | CSS Token                                  | Value         |
+| --------------- | :------------------- | :----------------------------------------- | :------------ |
+| **Font Size**   | `desktop.body.body1` | `var(--nypl-fontSizes-desktop-body-body1)` | `1rem` (16px) |
+| **Font Weight** | `body`               | `var(--nypl-fontWeights-body)`             | `300` (light) |
+| **Line Height** | --                   | --                                         | `1.5`         |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem" m="0">
     Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
     fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
     faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
@@ -141,52 +554,340 @@ used for body copy, captions and secondary captions.
 </Box>
 }
 
-### Text Display Sizes
-
-The `size` prop can be used to render a specific style from the DS default text styles.
-
-- [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
-- [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
+#### Body 2
 
 {
 
-<Text size="default">Default</Text>}
+<List type="ul">
+  <li>
+    This style MAY be used in tables, lists, and UI areas with limited space.
+  </li>
+</List>
+}
 
-|                 | JS Token       | CSS Token                              | Value  |
-| --------------- | :------------- | :------------------------------------- | :----- |
-| **Font Size**   | `text.default` | `var(--nypl-fontSizes-text-default)`   | `1rem` |
-| **Font Weight** | `text.default` | `var(--nypl-fontWeights-text-default)` | `300`  |
-| **Line Height** | --             | --                                     | `1.5`  |
-
-{
-
-<Text size="caption">Caption</Text>}
-
-|                 | JS Token       | CSS Token                              | Value      |
-| --------------- | :------------- | :------------------------------------- | :--------- |
-| **Font Size**   | `text.caption` | `var(--nypl-fontSizes-text-caption)`   | `0.875rem` |
-| **Font Weight** | `text.caption` | `var(--nypl-fontWeights-text-caption)` | `300`      |
-| **Line Height** | --             | --                                     | `1.5`      |
+|                 | JS Token             | CSS Token                                  | Value             |
+| --------------- | :------------------- | :----------------------------------------- | :---------------- |
+| **Font Size**   | `desktop.body.body2` | `var(--nypl-fontSizes-desktop-body-body2)` | `0.875rem` (14px) |
+| **Font Weight** | `body2`              | `var(--nypl-fontWeights-body2)`            | `300` (light)     |
+| **Line Height** | --                   | --                                         | `1.5`             |
 
 {
 
-<Text size="tag">Tag</Text>}
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".875rem" m="0">
+    Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
+    fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
+    faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
+    vestibulum at eros.
+  </Text>
+</Box>
+}
 
-|                 | JS Token   | CSS Token                          | Value     |
-| --------------- | :--------- | :--------------------------------- | :-------- |
-| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` |
-| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400`     |
-| **Line Height** | --         | --                                 | `1.5`     |
+#### Caption
 
 {
 
-<Text size="mini">Mini</Text>}
+<List type="ul">
+  <li>
+    This style SHOULD be used for captions below an elements (ex. image, video
+    player, audio player), helper text, and tag labels.
+  </li>
+</List>
+}
 
-|                 | JS Token    | CSS Token                           | Value      |
-| --------------- | :---------- | :---------------------------------- | :--------- |
-| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` |
-| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400`      |
-| **Line Height** | --          | --                                  | `1.5`      |
+|                 | JS Token          | CSS Token                               | Value            |
+| --------------- | :---------------- | :-------------------------------------- | :--------------- |
+| **Font Size**   | `desktop.caption` | `var(--nypl-fontSizes-desktop-caption)` | `0.75rem` (12px) |
+| **Font Weight** | `caption`         | `var(--nypl-fontWeights-caption)`       | `400` (regular)  |
+| **Line Height** | --                | --                                      | `1.5`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <VStack align="left" spacing="l">
+    <Box>
+      <Heading color="ui.typography.heading" level="h4" size="heading6">
+        Image Caption
+      </Heading>
+      <Box mb="s" width="fit-content">
+        <Image
+          caption="This is a kitten"
+          size="medium"
+          src="//placekitten.com/400/400"
+        />
+      </Box>
+    </Box>
+    <Box>
+      <Heading color="ui.typography.heading" level="h4" size="heading6">
+        Tags
+      </Heading>
+      <TagSet
+        tagSetData={[
+          {
+            label: "Red",
+          },
+          {
+            label: "Orange",
+          },
+          {
+            label: "Yellow",
+          },
+          {
+            label: "Green",
+          },
+          {
+            label: "Blue",
+          },
+          {
+            label: "Indigo",
+          },
+          {
+            label: "Violet",
+          },
+        ]}
+        type="filter"
+      />
+    </Box>
+  </VStack>
+</Box>
+}
+
+#### Subtitle 1
+
+{
+
+<List type="ul">
+  <li>
+    This style SHOULD be used with text set as a subtitle grouped with a heading
+    element.
+  </li>
+  <li>Text set in this style MAY be sentence length.</li>
+  <li>
+    This style is for DS internal use only. It is used in the DS `Heading`
+    component.
+  </li>
+</List>
+}
+
+|                 | JS Token                     | CSS Token                                          | Value             |
+| --------------- | :--------------------------- | :------------------------------------------------- | :---------------- |
+| **Font Size**   | `desktop.subtitle.subtitle1` | `var(--nypl-fontSizes-desktop-subtitle-subtitle1)` | `1.125rem` (18px) |
+| **Font Weight** | `subtitle.subtitle1`         | `var(--nypl-fontWeights-subtitle-subtitle1)`       | `500` (medium)    |
+| **Line Height** | --                           | --                                                 | `1.25`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading
+    border="0"
+    color="ui.typography.heading"
+    mb="xs"
+    size="heading2"
+    subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
+    text="Lorem ipsum dolor"
+  />
+</Box>
+}
+
+#### Subtitle 2
+
+{
+
+<List type="ul">
+  <li>
+    This style SHOULD be used with text set as a subtitle grouped with a heading
+    element.
+  </li>
+  <li>Text set in this style MAY be sentence length.</li>
+  <li>
+    This style is for DS internal use only. It is used in the DS `Heading`
+    component.
+  </li>
+</List>
+}
+
+|                 | JS Token                     | CSS Token                                          | Value          |
+| --------------- | :--------------------------- | :------------------------------------------------- | :------------- |
+| **Font Size**   | `desktop.subtitle.subtitle2` | `var(--nypl-fontSizes-desktop-subtitle-subtitle2)` | `1rem` (16px)  |
+| **Font Weight** | `subtitle.subtitle2`         | `var(--nypl-fontWeights-subtitle-subtitle2)`       | `500` (medium) |
+| **Line Height** | --                           | --                                                 | `1.3`          |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading
+    border="0"
+    color="ui.typography.heading"
+    mb="xs"
+    size="heading5"
+    subtitle="Subtitle nullam id dolor id nibh ultricies vehicula ut id elit."
+    text="Lorem ipsum dolor"
+  />
+</Box>
+}
+
+#### Overline 1
+
+{
+
+<List type="ul">
+  <li>
+    This style SHOULD be used with text set as a pre-title grouped with a
+    heading element.
+  </li>
+  <li>Text set in this style SHOULD be one or two words in length.</li>
+  <li>The overline text is styled to be all uppercase.</li>
+  <li>
+    This style is for DS internal use only. It is used in the DS `Heading`
+    component.
+  </li>
+</List>
+}
+
+|                 | JS Token                     | CSS Token                                          | Value            |
+| --------------- | :--------------------------- | :------------------------------------------------- | :--------------- |
+| **Font Size**   | `desktop.overline.overline1` | `var(--nypl-fontSizes-desktop-overline-overline1)` | `0.75rem` (12px) |
+| **Font Weight** | `overline.overline1`         | `var(--nypl-fontWeights-overline-overline1)`       | `600` (semibold) |
+| **Line Height** | --                           | --                                                 | `1.35`           |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading
+    border="0"
+    color="ui.typography.heading"
+    overline="Overline"
+    size="heading2"
+    text="Lorem ipsum dolor"
+  />
+</Box>
+}
+
+#### Overline 2
+
+{
+
+<List type="ul">
+  <li>
+    This style SHOULD be used with text set as a pre-title grouped with a
+    heading element.
+  </li>
+  <li>Text set in this style SHOULD be one or two words in length.</li>
+  <li>
+    This style is for DS internal use only. It is used in the DS `Heading`
+    component.
+  </li>
+</List>
+}
+
+|                 | JS Token                     | CSS Token                                          | Value             |
+| --------------- | :--------------------------- | :------------------------------------------------- | :---------------- |
+| **Font Size**   | `desktop.overline.overline2` | `var(--nypl-fontSizes-desktop-overline-overline1)` | `0.625rem` (10px) |
+| **Font Weight** | `overline.overline2`         | `var(--nypl-fontWeights-overline-overline1)`       | `600` (semibold)  |
+| **Line Height** | --                           | --                                                 | `1.4`             |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Heading
+    border="0"
+    color="ui.typography.heading"
+    overline="Overline"
+    size="heading5"
+    text="Lorem ipsum dolor"
+  />
+</Box>
+}
+
+#### Tag (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
+|                 | JS Token   | CSS Token                          | Value            |
+| --------------- | :--------- | :--------------------------------- | :--------------- |
+| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` (12px) |
+| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400` (regular)  |
+| **Line Height** | --         | --                                 | `1.5`            |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text color="ui.typography.body" size="tag" mt="0">
+    Tag text (deprecated)
+  </Text>
+</Box>
+}
+
+#### Mini (deprecated)
+
+<List type="ul">
+  <li>This style SHOULD NOT be used.</li>
+</List>
+
+|                 | JS Token    | CSS Token                           | Value             |
+| --------------- | :---------- | :---------------------------------- | :---------------- |
+| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` (10px) |
+| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400` (regular)   |
+| **Line Height** | --          | --                                  | `1.5`             |
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="inset.default"
+>
+  <Text color="ui.typography.body" size="mini" m="0">
+    Mini text (deprecated)
+  </Text>
+</Box>
+}
 
 ## Font Family
 
@@ -194,28 +895,12 @@ With website accessibility in mind, font choices for the DS were made with an
 eye toward clarity and readability. Headings and body content use the
 following font family assignment:
 
-{
+The following `font-family` design tokens are available through the DS.
 
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <Text>system-ui, sans-serif</Text>
-</Box>
-}
-
-The following CSS variables are available through the DS.
-
-<Source
-  code={`
---nypl-fonts-heading: system-ui, sans-serif;
---nypl-fonts-body: system-ui, sans-serif;
-`}
-  language="css"
-/>
+|             | JS Token  | CSS Token                   | Value                   |
+| ----------- | :-------- | :-------------------------- | :---------------------- |
+| **Heading** | `heading` | `var(--nypl-fonts-heading)` | `system-ui, sans-serif` |
+| **Body**    | `body`    | `var(--nypl-fonts-body)`    | `system-ui, sans-serif` |
 
 > **RECOMMENDATIONS**  
 > When making font selections for project based components outside the DS,
@@ -223,11 +908,6 @@ The following CSS variables are available through the DS.
 > decorative or overly stylized fonts, as they are often difficult to read even
 > for users without visual impairments or reading Standard Text Default
 
-## Font Color
-
-All text within a project, unless specifically noted in mockups, should be
-black on a white background.
-
 {
 
 <Box
@@ -237,15 +917,234 @@ black on a white background.
   mb="m"
   p="s"
 >
-  <Heading level="three">Default Heading Color</Heading>
-  <Text>
-    This paragraph shows the default body text color. Curabitur blandit tempus
-    porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
-    et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-    Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-    lacinia odio sem nec elit.
+  <Text color="ui.typography.body" fontFamily="heading" fontSize="1rem" mt="0">
+    Heading: system-ui, sans-serif
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem" noSpace>
+    Body: system-ui, sans-serif
   </Text>
 </Box>
+}
+
+## Font Color and Accessibility
+
+All text within a project, unless specifically noted in mockups, should use the
+applicable typography color design tokens. The DS currently denotes color design
+tokens for headings and body text.
+
+|               | JS Token                | CSS Token                                  | Value     |
+| ------------- | :---------------------- | :----------------------------------------- | :-------- |
+| **Headings**  | `ui.typography.heading` | `var(--nypl-colors-ui-typography-heading)` | `#000000` |
+| **Body Text** | `ui.typography.body`    | `var(--nypl-colors-ui-typography-body)`    | `#000000` |
+
+Additionally, the DS supports dark mode and corresponding dark mode tokens have
+also been defined.
+
+|               | JS Token                     | CSS Token                                       | Value     |
+| ------------- | :--------------------------- | :---------------------------------------------- | :-------- |
+| **Headings**  | `dark.ui.typography.heading` | `var(--nypl-colors-dark-ui-typography-heading)` | `#E9E9E9` |
+| **Body Text** | `dark.ui.typography.body`    | `var(--nypl-colors-dark-ui-typography-body)`    | `#BDBDBD` |
+
+Always check that the typography and background is quantified by a contrast
+ratio. All text and background color combinations must meet [WCAG AA
+standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+
+{
+
+<List type="ul">
+  <li>
+    Large text (18pts or larger, or 14 pts or larger if bold) should meet a
+    contrast ratio of 3:1.
+  </li>
+  <li>
+    Standard text size (smaller than 18pts, or smaller than 14pts if bold)
+    should meet a contrast ratio of 4:5:1
+  </li>
+  <li>
+    Exceptions: Logos, text that is part of the logo, graphic elements, disabled
+    control states, disabled buttons.
+  </li>
+</List>
+}
+
+### Light Mode
+
+{
+
+<>
+  <Box
+    bg="ui.bg.page"
+    border="1px"
+    borderColor="ui.border.default"
+    borderRadius="5px"
+    mb="m"
+    p="s"
+  >
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Color on Page Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box
+    bg="ui.bg.default"
+    border="1px"
+    borderColor="ui.border.default"
+    borderRadius="5px"
+    mb="m"
+    p="s"
+  >
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Default Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box
+    bg="ui.bg.hover"
+    border="1px"
+    borderColor="ui.border.default"
+    borderRadius="5px"
+    mb="m"
+    p="s"
+  >
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Hover Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box
+    bg="ui.bg.active"
+    border="1px"
+    borderColor="ui.border.default"
+    borderRadius="5px"
+    mb="m"
+    p="s"
+  >
+    <Heading color="ui.typography.heading" level="three">
+      Default Heading Coloron Active Background
+    </Heading>
+    <Text
+      color="ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+</>
+}
+
+### Dark Mode
+
+{
+
+<>
+  <Box bg="dark.ui.bg.page" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Color on Page Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.default" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Default Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.hover" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Hover Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+  <Box bg="dark.ui.bg.active" borderRadius="5px" mb="m" p="s">
+    <Heading color="dark.ui.typography.heading" level="three">
+      Default Heading Coloron Active Background
+    </Heading>
+    <Text
+      color="dark.ui.typography.body"
+      fontFamily="body"
+      fontSize="desktop.body"
+      noSpace
+    >
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </Text>
+  </Box>
+</>
 }
 
 In cases where specific colors must be applied to text elements, the DS
@@ -255,7 +1154,26 @@ for details.
 
 ## Font Weight
 
-The DS uses four font weights to render text. The default font-weight is 300.
+Font weight and style changes can be used to emphasize or de-emphasize words or
+phrases.
+
+### Heading Elements
+
+It is recommended to use the default heading styles as is and to avoid applying
+style changes to heading elements.
+
+Font weight style changes MAY be used with a heading element, but the style
+SHOULD NOT be applied to the entire heading. Rather, the font weight style
+SHOULD be applied to select words within the full heading.
+
+Italic styles SHOULD NOT be applied to heading elements.
+
+### Text Elements
+
+Font weight and italic styles MAY be used with standard text elements, but it is
+recommended to use the styles sparingly.
+
+### Font Weight Options
 
 {
 
@@ -266,6 +1184,15 @@ The DS uses four font weights to render text. The default font-weight is 300.
   mb="m"
   p="s"
 >
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-thin)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Thin / 200 (reserved for headings only)
+  </p>
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
@@ -296,6 +1223,15 @@ The DS uses four font weights to render text. The default font-weight is 300.
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-semibold)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Semibold / 600 (reserved for headings only)
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
       fontWeight: "var(--nypl-fontWeights-bold)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
@@ -307,105 +1243,14 @@ The DS uses four font weights to render text. The default font-weight is 300.
 
 The following design tokens are available through the DS.
 
-|             | JS Token  | CSS Token                         | Value |
-| ----------- | --------- | --------------------------------- | ----- |
-| **Light**   | `light`   | `var(--nypl-fontWeights-light)`   | `300` |
-| **Regular** | `regular` | `var(--nypl-fontWeights-regular)` | `400` |
-| **Medium**  | `medium`  | `var(--nypl-fontWeights-medium)`  | `500` |
-| **Bold**    | `bold`    | `var(--nypl-fontWeights-bold)`    | `700` |
-
-## Font Sizes
-
-Font sizing is based on a root font size of 16px (1rem = 16px).
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes--3)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size -3
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes--2)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size -2
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes--1)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size -1
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size 0 (default)
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-1)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size 1
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-2)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size 2
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-3)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size 3
-  </p>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-4)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-    }}
-  >
-    Font size 4
-  </p>
-</Box>
-}
-
-The following font size design tokens are available through the DS.
-
-|        | JS Token | CSS Token                  | Value      |
-| ------ | -------- | -------------------------- | ---------- |
-| **-3** | `-3`     | `var(--nypl-fontSizes--3)` | `0.625rem` |
-| **-2** | `-2`     | `var(--nypl-fontSizes--2)` | `0.75rem`  |
-| **-1** | `-1`     | `var(--nypl-fontSizes--1)` | `0.875rem` |
-| **0**  | `0`      | `var(--nypl-fontSizes-0)`  | `1rem`     |
-| **1**  | `1`      | `var(--nypl-fontSizes-1)`  | `1.125rem` |
-| **2**  | `2`      | `var(--nypl-fontSizes-2)`  | `1.375rem` |
-| **3**  | `3`      | `var(--nypl-fontSizes-3)`  | `1.75rem`  |
-| **4**  | `4`      | `var(--nypl-fontSizes-4)`  | `2.25rem`  |
+|              | JS Token   | CSS Token                          | Value |
+| ------------ | ---------- | ---------------------------------- | ----- |
+| **Thin**     | `thin`     | `var(--nypl-fontWeights-thin)`     | `200` |
+| **Light**    | `light`    | `var(--nypl-fontWeights-light)`    | `300` |
+| **Regular**  | `regular`  | `var(--nypl-fontWeights-regular)`  | `400` |
+| **Medium**   | `medium`   | `var(--nypl-fontWeights-medium)`   | `500` |
+| **Semibold** | `semibold` | `var(--nypl-fontWeights-semibold)` | `600` |
+| **Bold**     | `bold`     | `var(--nypl-fontWeights-bold)`     | `700` |
 
 ## Text Case
 
@@ -432,11 +1277,61 @@ prepositions do not get capital letters unless they start the title. For example
 </Box>
 }
 
+## Line Length and Line Height
+
+Wide lines of text are difficult to read and are proven to make it harder for
+people to focus, while short lines of text force the eye to travel back too
+often, breaking a reader's rhythm.
+
+For body text in desktop and tablet viewports, the recommended line length is
+between 60 and 75 characters. In a mobile viewport, the recommendation line
+length is between 30 to 40 characters.
+
+The testing to determine the ideal line length is generally performed using
+character count as the metric, but this is not the best approach when we are
+actually building websites. Rather, it is easier to look at the width of a text
+region as we are aiming for ideal sizing and spacing.
+
+NOTE: Yes, the content area in Storybook is wider than the NYPL recommendations.
+The Storybook content area is used to display anything from a single atomic
+component to a full page layout, so it is sized to accommodate the greatest
+common factor.
+
+**Recommendations for Desktop**
+
+For desktop and tablet, when the font size is set to 16px (the default here at
+NYPL), the recommended width of text regions is 640px to 720px.
+
+**Recommendations for Mobile**
+
+For mobile, using the default 16px font size, the recommended width of text
+regions is 300px to 380px.
+
+**Line Height**
+
+The line height values used in the NYPL typography styles are controlled by the
+Reservoir Design System, so NYPL designers will not need to consider this during
+the design process. However, all NYPL designers should understand the reasoning
+behind the choices that were made for the NYPL typography styles.
+
+Line height (the vertical space between lines of text, also known as “leading”
+or "line spacing") is also important for legibility. Much like line length and
+font size, line height also affects how people read. If it's too tight, the
+lines of text become hard to scan. Too loose and the lines of text appear to be
+unrelated to each other, which is confusing for readers.
+
+The perfect line height depends on the design and size of the font itself, so
+there is no magic number that works for all text. That being said, a line height
+of 1.5 times the font size is always a good rule of thumb for body text.
+
 ## Character Count
+
+Content creators should be mindful of the character count in the following text
+elements.
 
 ### Titles
 
-80 characters max, 60 characters recommended
+Recommendation: maximum of 15 words (approx. 75 character)
 
 {
 
@@ -447,15 +1342,16 @@ prepositions do not get capital letters unless they start the title. For example
   mb="m"
   p="s"
 >
-  <Heading level="three">
-    This is a Long Title to Show What 58 Characters Looks Like
+  <Heading color="ui.typography.heading" level="h2" border="0">
+    This is an Example to Show What Fourteen Words Looks Like in a Title
   </Heading>
 </Box>
 }
 
 ### Summaries
 
-140 characters max<br />
+Recommendation: maximum of 25 words (approx. 125 characters)
+
 Note: Online Exhibitions, with their longer, legacy summaries are an exception
 to this.
 
@@ -468,16 +1364,17 @@ to this.
   mb="m"
   p="s"
 >
-  <Text>
-    This block of text shows what 140 chacters and spaces looks like. Integer
-    posuere erat a ante venenatis dapibus posueret aliquet nullas non.
+  <Text color="ui.typography.body">
+    This block of text shows what 25 words looks like. Integer posuere erat a
+    ante venenatis dapibus posueret aliquet nullas non tellus egestas etiam
+    malesuada.
   </Text>
 </Box>
 }
 
 ### Page Intros
 
-No max character count, 200 characters recommended
+Recommendation: maximum of 40 words (approx. 200 characters)
 
 {
 
@@ -488,10 +1385,10 @@ No max character count, 200 characters recommended
   mb="m"
   p="s"
 >
-  <Text>
-    This block of text shows what 200 chacters and spaces looks like. Integer
-    posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean eu
-    leo quam. Pellentesque ornare sem quam venenatis.
+  <Text color="ui.typography.body">
+    This block of text shows what 30 words looks like. Integer posuere erat a
+    ante venenatis dapibus posueret aliquet nullas non. Aenean eu leo quam.
+    Pellentesque ornare sem quam venenatis.
   </Text>
 </Box>
 }
@@ -500,7 +1397,7 @@ No max character count, 200 characters recommended
 
 For additional spacing information, please refer to the Figma Main file.
 
-- [Typeface](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A0)
-- [Heading Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A16)
-- [Text Styles (Part 1)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
-- [Text Styles (Part 2)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
+- [Type Scale](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137478&t=tUwb0hhJ8FmxheNC-4)
+- [Colors and Contrast](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138241&t=tUwb0hhJ8FmxheNC-4)
+- [Heading Formatting](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79427-131143&t=tUwb0hhJ8FmxheNC-4)
+- [Text Formatting](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137950&t=tUwb0hhJ8FmxheNC-4)

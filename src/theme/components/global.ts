@@ -102,7 +102,7 @@ const defaultElementSizes = {
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   display: "inline-block",
-  fontSize: "label.default",
+  fontSize: "desktop.label.label1",
   fontWeight: "label.default",
   marginBottom: "xs",
   width: "100%",
