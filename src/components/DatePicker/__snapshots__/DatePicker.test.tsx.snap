@@ -24,8 +24,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="basic-start-wrapper"
@@ -71,8 +76,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="basic-end-wrapper"
@@ -146,8 +156,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="no-label-start-wrapper"
@@ -193,8 +208,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="no-label-end-wrapper"
@@ -268,8 +288,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="custom-format-start-wrapper"
@@ -315,8 +340,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="custom-format-end-wrapper"
@@ -390,8 +420,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="invalid-start-wrapper"
@@ -454,8 +489,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="invalid-end-wrapper"
@@ -555,8 +595,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="disabled-start-wrapper"
@@ -602,8 +647,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
           className="react-datepicker-wrapper"
         >
           <div
-            className="react-datepicker__input-container"
+            className="react-datepicker__input-container "
           >
+            <span
+              aria-live="polite"
+              className="react-datepicker__aria-live"
+              role="alert"
+            />
             <div
               className=" css-1u8qly9"
               id="disabled-end-wrapper"
@@ -675,8 +725,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="basic-start-wrapper"
@@ -737,8 +792,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="no-label-start-wrapper"
@@ -793,8 +853,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="custom-format-start-wrapper"
@@ -855,8 +920,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="invalid-start-wrapper"
@@ -934,8 +1004,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="disabled-start-wrapper"
@@ -1012,8 +1087,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="chakra-start-wrapper"
@@ -1091,8 +1171,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
       className="react-datepicker-wrapper"
     >
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker__input-container "
       >
+        <span
+          aria-live="polite"
+          className="react-datepicker__aria-live"
+          role="alert"
+        />
         <div
           className=" css-1u8qly9"
           id="props-start-wrapper"
