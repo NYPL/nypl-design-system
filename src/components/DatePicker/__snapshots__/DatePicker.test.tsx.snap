@@ -59,13 +59,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="basic-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -113,13 +106,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="basic-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -195,13 +181,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="no-label-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -249,13 +228,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="no-label-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -331,13 +303,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                   value="1988/02/01"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="custom-format-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -385,13 +350,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                   value="1988/02/02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="custom-format-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -475,7 +433,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 data-isinvalid={true}
                 id="invalid-start-helperText"
               >
-                <span
+                <div
+                  className="css-0"
                   dangerouslySetInnerHTML={
                     {
                       "__html": "Please select a valid date.",
@@ -538,7 +497,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 data-isinvalid={true}
                 id="invalid-end-helperText"
               >
-                <span
+                <div
+                  className="css-0"
                   dangerouslySetInnerHTML={
                     {
                       "__html": "Please select a valid date.",
@@ -558,7 +518,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       data-isinvalid={false}
       id="invalid-helper-text"
     >
-      <span
+      <div
+        className="css-0"
         dangerouslySetInnerHTML={
           {
             "__html": "Note that the Library may be closed on Sundays.",
@@ -629,13 +590,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                   value="1988-01-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="disabled-start-helperText"
-              />
             </div>
           </div>
         </div>
@@ -683,13 +637,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                   value="1988-02-02"
                 />
               </div>
-              <div
-                aria-atomic={true}
-                aria-live="polite"
-                className="css-1xdhyk6"
-                data-isinvalid={false}
-                id="disabled-end-helperText"
-              />
             </div>
           </div>
         </div>
@@ -702,7 +649,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       data-isinvalid={false}
       id="disabled-helper-text"
     >
-      <span
+      <div
+        className="css-0"
         dangerouslySetInnerHTML={
           {
             "__html": "Note that the Library may be closed on Sundays.",
@@ -762,13 +710,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
               value="1988-01-02"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="basic-start-helperText"
-          />
         </div>
       </div>
     </div>
@@ -825,13 +766,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
               value="1988-01-02"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="no-label-start-helperText"
-          />
         </div>
       </div>
     </div>
@@ -894,13 +828,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
               value="1988/02/01"
             />
           </div>
-          <div
-            aria-atomic={true}
-            aria-live="polite"
-            className="css-1xdhyk6"
-            data-isinvalid={false}
-            id="custom-format-start-helperText"
-          />
         </div>
       </div>
     </div>
@@ -971,7 +898,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             data-isinvalid={true}
             id="invalid-start-helperText"
           >
-            <span
+            <div
+              className="css-0"
               dangerouslySetInnerHTML={
                 {
                   "__html": "Please select a valid date.",
@@ -1048,7 +976,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             data-isinvalid={false}
             id="disabled-start-helperText"
           >
-            <span
+            <div
+              className="css-0"
               dangerouslySetInnerHTML={
                 {
                   "__html": "Note that the Library may be closed on Sundays.",
@@ -1125,7 +1054,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             data-isinvalid={false}
             id="chakra-start-helperText"
           >
-            <span
+            <div
+              className="css-0"
               dangerouslySetInnerHTML={
                 {
                   "__html": "Note that the Library may be closed on Sundays.",
@@ -1203,7 +1133,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             data-isinvalid={false}
             id="props-start-helperText"
           >
-            <span
+            <div
+              className="css-0"
               dangerouslySetInnerHTML={
                 {
                   "__html": "Note that the Library may be closed on Sundays.",

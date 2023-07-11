@@ -5,15 +5,7 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
   id="undefined-componentWrapper-wrapper"
->
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="undefined-componentWrapper-helperText"
-  />
-</div>
+/>
 `;
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
@@ -40,7 +32,8 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     data-isinvalid={false}
     id="undefined-componentWrapper-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "Audio Player helper text.",
@@ -65,13 +58,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
       }
     }
   />
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="undefined-componentWrapper-helperText"
-  />
 </div>
 `;
 
@@ -80,15 +66,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
   id="undefined-componentWrapper-wrapper"
->
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="undefined-componentWrapper-helperText"
-  />
-</div>
+/>
 `;
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
@@ -104,13 +82,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
         "__html": "<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>",
       }
     }
-  />
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="undefined-componentWrapper-helperText"
   />
 </div>
 `;
