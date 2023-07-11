@@ -16,6 +16,15 @@ describe("Link Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test for screenreader only text", async () => {
+    const { container } = render(
+      <Link href="#test" screenreaderOnlyText="hidden text">
+        Test
+      </Link>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test for href prop", async () => {
     const { container } = render(<Link href="#test">Test</Link>);
     expect(await axe(container)).toHaveNoViolations();

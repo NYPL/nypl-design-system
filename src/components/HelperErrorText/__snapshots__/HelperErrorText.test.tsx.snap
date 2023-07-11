@@ -8,7 +8,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
   data-isinvalid={false}
   id="basic"
 >
-  <span
+  <div
+    className="css-0"
     dangerouslySetInnerHTML={
       {
         "__html": "Text",
@@ -26,7 +27,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   data-isinvalid={true}
   id="invalid"
 >
-  <span
+  <div
+    className="css-0"
     dangerouslySetInnerHTML={
       {
         "__html": "Text",
@@ -44,7 +46,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   data-isinvalid={true}
   id="invalid"
 >
-  <span
+  <div
+    className="css-0"
     dangerouslySetInnerHTML={
       {
         "__html": "This helper text <b>contains HTML in the string</b>.",
@@ -78,7 +81,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
   data-isinvalid={false}
   id="chakra"
 >
-  <span
+  <div
+    className="css-0"
     dangerouslySetInnerHTML={
       {
         "__html": "Text",
@@ -97,7 +101,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
   data-testid="props"
   id="props"
 >
-  <span
+  <div
+    className="css-0"
     dangerouslySetInnerHTML={
       {
         "__html": "Text",

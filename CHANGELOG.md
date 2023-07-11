@@ -8,8 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `screenreaderOnlyText` prop to the `Button` and `Link` components.
+
 ### Updates
 
+- Updates the existing `heading` typography styles to add new default styles options for native heading elements, including `h1` thru `h6`.
+- Updates the existing `heading` typography styles to add new size options, including `display1` and `heading1` thru `heading6`.
+- Updates the existing `text` typography styles to add `overline` and `subtitle` options.
+- Updates the `Typography` docs to include the new options added to the `heading` and `text` typography styles.
+- Updates the `Design Tokens` docs to include the new tokens added to the `heading` and `text` typography styles.
+- Updates the `Heading` component to include `overline` and `subtitle` elements.
+- Updates the spacing gap between main content in the `TemplateAppContainer` component.
+- Updates the background color of the "clear" button in Dark Mode for the `TextInput` component. This also affects the `SearchBar` component when a clear button is present in the `TextInput` component.
+- Updates the spacing of the text in the `HelperErrorText` component.
+- Updates the `ComponentWrapper` component to conditionally render the `HelperErrorText` component.
+- Updates the version of the `react-datepicker` npm package.
 - Updates the right-to-left visual display for the `Accordion` component.
 
 ## 1.6.1 (June 22, 2023)
@@ -21,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `"connect"` color variant to the `Breadcrumbs` component.
 - Adds internal `ChakraProvider` component to be able to conditionally include CSS styles through the `resetCSS` and `disableGlobalStyle` props.
 - Adds a `theme` prop to the `DSProvider` to merge in an additional theme file if necessary; this is to support to the `Header` and `Footer` components in the NYPL Header App.
+- Adds `Managing Focus` page to the `Accessibility Guide` in Storybook.
 
 ### Updates
 

@@ -26,7 +26,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     id="id-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "helper text",
@@ -45,13 +46,6 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
   <div>
     children elements
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="id-helperText"
-  />
 </div>
 `;
 
@@ -81,7 +75,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     data-isinvalid={true}
     id="id-helperText"
   >
-    <span
+    <div
+      className="css-0"
       dangerouslySetInnerHTML={
         {
           "__html": "invalid text",
@@ -100,13 +95,6 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
   <div>
     children elements
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="chakra-helperText"
-  />
 </div>
 `;
 
@@ -119,12 +107,5 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
   <div>
     children elements
   </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="css-1xdhyk6"
-    data-isinvalid={false}
-    id="props-helperText"
-  />
 </div>
 `;
