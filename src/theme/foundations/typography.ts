@@ -111,7 +111,7 @@ const typography: Typography = {
         heading6: fontSizeValues.desktop["heading6"],
       },
       helper: {
-        default: fontSizeValues.desktop["tag"],
+        default: fontSizeValues.desktop["caption"],
       },
       label: {
         label1: fontSizeValues.desktop["label1"],
@@ -151,7 +151,7 @@ const typography: Typography = {
         heading6: fontSizeValues.mobile["heading6"],
       },
       helper: {
-        default: fontSizeValues.mobile["tag"],
+        default: fontSizeValues.mobile["caption"],
       },
       label: {
         label1: fontSizeValues.mobile["label1"],
