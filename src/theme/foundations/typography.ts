@@ -92,7 +92,7 @@ const typography: Typography = {
         body2: fontSizeValues.desktop["body2"],
       },
       breadcrumbs: {
-        default: fontSizeValues.desktop["caption"],
+        default: fontSizeValues.desktop["body2"],
       },
       button: {
         small: fontSizeValues.desktop["buttonSmall"],
@@ -132,7 +132,7 @@ const typography: Typography = {
         body2: fontSizeValues.mobile["body2"],
       },
       breadcrumbs: {
-        default: fontSizeValues.mobile["caption"],
+        default: fontSizeValues.mobile["body2"],
       },
       button: {
         small: fontSizeValues.mobile["buttonSmall"],
