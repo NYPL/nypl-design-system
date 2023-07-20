@@ -13,7 +13,7 @@ import * as LinkStories from "./Link.stories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.6.0`    |
+| Latest            | `1.7.0`    |
 
 ## Table of Contents
 
@@ -46,6 +46,11 @@ Additionally it renders with the `rel` attribute containing
 the relation names "nofollow", "noopener" and "noreferrer".
 
 <Canvas of={LinkStories.Accessibility} />
+
+The `Link` component also has a `screenreaderOnlyText` prop that can be used to
+add additional text to the link that is only visible to screen readers. This can
+be used to provide additional context to the link when the text is short, such
+as visible "Read more..." text.
 
 Resources:
 

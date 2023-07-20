@@ -1,4 +1,4 @@
-import { defaultElementSizes } from "./global";
+import { defaultElementSizes, screenreaderOnly } from "./global";
 
 // Style object for base or default style
 export const buttonBaseStyle = {
@@ -12,6 +12,9 @@ export const buttonBaseStyle = {
   lineHeight: "1.5",
   textDecoration: "none",
   wordWrap: "normal",
+  /** The element will handle descriptive text added to aid
+   * screen readers. */
+  screenreaderOnly: screenreaderOnly(),
   svg: {
     fill: "currentColor",
   },
@@ -52,14 +55,14 @@ const ghostDarkStyles = {
 const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
-      fontSize: "button.small",
+      fontSize: "desktop.button.small",
       height: "fit-content",
       minHeight: "auto",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
     },
     medium: {
-      fontSize: "button.default",
+      fontSize: "desktop.button.default",
       height: isPill ? "fit-content" : undefined,
       minHeight: isPill
         ? "auto"
@@ -68,7 +71,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
       py: isPill ? "xxxs" : "button.medium.py",
     },
     large: {
-      fontSize: "button.large",
+      fontSize: "desktop.button.large",
       height: "fit-content",
       minHeight: "auto",
       px: isPill ? "l" : "button.large.px",
@@ -234,6 +237,7 @@ export const noBrand = ({ buttonSize = "medium" }) => ({
 });
 
 const Button = {
+  parts: ["screenreaderOnly"],
   baseStyle: buttonBaseStyle,
   // Available variants:
   variants: {

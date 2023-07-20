@@ -17,6 +17,7 @@ export const StorybookHeading = ({ level, children }) => {
   const link = `#${anchor}`;
   return (
     <Heading
+      className="storybook-heading"
       id={anchor}
       level={level}
       sx={{

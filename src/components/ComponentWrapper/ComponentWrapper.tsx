@@ -69,13 +69,15 @@ export const ComponentWrapper = chakra(
           {headingText && <Heading id={`${id}-heading`} text={headingText} />}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            isRenderedText={showHelperInvalidText}
-            text={footnote}
-            __css={{ ...styles.helperErrorText, ...helperTextStyles }}
-          />
+          {footnote && (
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              isRenderedText={showHelperInvalidText}
+              text={footnote}
+              __css={{ ...styles.helperErrorText, ...helperTextStyles }}
+            />
+          )}
         </Box>
       );
     }

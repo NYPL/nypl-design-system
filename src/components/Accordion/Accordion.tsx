@@ -144,8 +144,8 @@ const getElementsFromData = (
                   },
                   bg: "dark.ui.bg.default",
                   color: "dark.ui.typography.heading",
-                  borderLeft: "4px solid",
-                  borderLeftColor:
+                  borderStart: "4px solid",
+                  borderStartColor:
                     !content.accordionType ||
                     content.accordionType === "default"
                       ? "dark.ui.border.hover"
@@ -156,7 +156,7 @@ const getElementsFromData = (
                   as="span"
                   flex="1"
                   fontSize={multipleFontSize}
-                  textAlign="left"
+                  textAlign="start"
                 >
                   {content.label}
                 </Box>
