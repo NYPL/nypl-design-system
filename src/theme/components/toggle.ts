@@ -84,7 +84,7 @@ const Switch = {
         },
       },
       label: {
-        fontSize: "label.default",
+        fontSize: "desktop.label.label1",
         marginStart: "xs",
         marginTop: size === "lg" ? "xxxs" : null,
         _disabled: {

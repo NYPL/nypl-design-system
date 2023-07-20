@@ -146,7 +146,7 @@ const sizes = {
       borderRadius: "checkbox",
     },
     // Controls the font-size of the label only.
-    label: { fontSize: "label.default" },
+    label: { fontSize: "desktop.label.label1" },
   },
 };
 
