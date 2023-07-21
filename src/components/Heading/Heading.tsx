@@ -256,7 +256,12 @@ export const Heading = chakra(
       const finalContent = (
         <>
           {overline && (
-            <Text mb="xxs" size={overlineSize}>
+            <Text
+              aria-roledescription="subtitle"
+              mb="xxs"
+              role="paragraph"
+              size={overlineSize}
+            >
               {overline}
             </Text>
           )}
@@ -273,7 +278,13 @@ export const Heading = chakra(
             {content}
           </ChakraHeading>
           {subtitle && (
-            <Text mt="xs" noSpace size={subtitleSize}>
+            <Text
+              aria-roledescription="subtitle"
+              mt="xs"
+              noSpace
+              role="paragraph"
+              size={subtitleSize}
+            >
               {subtitle}
             </Text>
           )}
