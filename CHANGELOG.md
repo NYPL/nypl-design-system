@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the docs for the `Text` component and the `Typography Style Guide` to include more information about the `Typography 2023` updates.
+
 ## 1.7.0 (July 20, 2023)
 
 ### Adds
