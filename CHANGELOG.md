@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the "TikTok" option to the `Icon` component.
+
 ## 1.7.0 (July 20, 2023)
 
 ### Adds
