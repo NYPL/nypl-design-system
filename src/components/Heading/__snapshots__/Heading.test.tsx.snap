@@ -96,7 +96,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
   role="group"
 >
   <p
-    aria-roledescription="subtitle"
+    aria-roledescription="Overline"
     className="chakra-text css-e3ddnr"
     role="paragraph"
   >
@@ -124,7 +124,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
     Heading with Secondary size
   </h1>
   <p
-    aria-roledescription="subtitle"
+    aria-roledescription="Subtitle"
     className="chakra-text css-dqoc1s"
     role="paragraph"
   >
@@ -140,7 +140,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
   role="group"
 >
   <p
-    aria-roledescription="subtitle"
+    aria-roledescription="Overline"
     className="chakra-text css-e3ddnr"
     role="paragraph"
   >
@@ -153,7 +153,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
     Heading with Secondary size
   </h1>
   <p
-    aria-roledescription="subtitle"
+    aria-roledescription="Subtitle"
     className="chakra-text css-dqoc1s"
     role="paragraph"
   >
