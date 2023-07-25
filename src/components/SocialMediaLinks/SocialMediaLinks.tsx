@@ -56,7 +56,10 @@ const tooltipWrapperOrText = (
   const updatedText =
     textLength <= socialMediaLinkTextLength
       ? socialMediaLinksData.text
-      : truncateText(socialMediaLinksData.text as string, socialMediaLinkTextLength);
+      : truncateText(
+          socialMediaLinksData.text as string,
+          socialMediaLinkTextLength
+        );
   const linkWrapper = (
     <SocialMediaLinkLink
       href={socialMediaLinksData.url}
@@ -143,7 +146,9 @@ export const SocialMediaLinks = chakra(
       );
     }
 
-    const styles = useStyleConfig("SocialMediaLinks", { variant: socialMediaLinksType });
+    const styles = useStyleConfig("SocialMediaLinks", {
+      variant: socialMediaLinksType,
+    });
     const socialMediaLinkItems = getElementsFromData(socialMediaLinksData, id);
 
     return (
