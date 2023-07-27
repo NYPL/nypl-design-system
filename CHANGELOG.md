@@ -10,6 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the "TikTok" option to the `Icon` component.
+
+## 1.7.0 (July 20, 2023)
+
+### Adds
+
 - Adds the `screenreaderOnlyText` prop to the `Button` and `Link` components.
 
 ### Updates
@@ -17,6 +23,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the existing `heading` typography styles to add new default styles options for native heading elements, including `h1` thru `h6`.
 - Updates the existing `heading` typography styles to add new size options, including `display1` and `heading1` thru `heading6`.
 - Updates the existing `text` typography styles to add `overline` and `subtitle` options.
+- Updates the `Heading` component to include the new `heading` typography styles.
+- Updates the `Text` component to include the new `text` typography styles.
 - Updates the `Typography` docs to include the new options added to the `heading` and `text` typography styles.
 - Updates the `Design Tokens` docs to include the new tokens added to the `heading` and `text` typography styles.
 - Updates the `Heading` component to include `overline` and `subtitle` elements.
