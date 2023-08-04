@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the "TikTok" option to the `Icon` component.
+- Adds the `backdropBackgroundColor` prop to the `Hero` component for the `"campaign"` variant.
 
 ## 1.7.0 (July 20, 2023)
 

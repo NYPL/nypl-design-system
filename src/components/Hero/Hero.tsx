@@ -143,6 +143,12 @@ export const Hero = chakra(
             "but the `'fiftyFifty'` `heroType` variant hero will not use it."
         );
       }
+      if (heroType !== "campaign" && backdropBackgroundColor) {
+        console.warn(
+          "NYPL Reservoir Hero: The `backdropBackgroundColor` prop has been passed, " +
+            "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+        );
+      }
 
       if (heroType === "primary") {
         backgroundImageStyle = backgroundImageSrc

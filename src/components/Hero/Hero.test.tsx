@@ -424,6 +424,23 @@ describe("Hero", () => {
     );
   });
 
+  it("logs a warning if `backdropBackgroundColor` prop is passed but the variant is not 'campaign'", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        backdropBackgroundColor="brand.primary"
+        heroType="fiftyFifty"
+        imageProps={imageProps}
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `backdropBackgroundColor` prop has been passed, " +
+        "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+    );
+  });
+
   it("renders FiftyFifty Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const { rerender } = render(
