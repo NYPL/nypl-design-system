@@ -26,6 +26,12 @@ export const heroSecondaryTypes = [
 export interface HeroImageProps
   extends Pick<ComponentImageProps, "alt" | "src"> {}
 export interface HeroProps {
+  /**
+   * Optional background color for the backdrop only in the `campaign` variant.
+   * When both `backdropBackgroundColor` and `backgroundImageSrc` are passed,
+   * the `backgroundImageSrc` will take precedence.
+   */
+  backdropBackgroundColor?: string;
   /** Optional hex color value used to override the default background
    * color for a given `Hero` variation.
    * Note: not all `Hero` variations utilize this prop. */
@@ -62,6 +68,7 @@ export const Hero = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<HeroProps>>(
     (props, ref?) => {
       const {
+        backdropBackgroundColor,
         backgroundColor,
         backgroundImageSrc,
         foregroundColor,
@@ -73,7 +80,7 @@ export const Hero = chakra(
         },
         locationDetails,
         subHeaderText,
-        ...rest
+        // ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", { variant: heroType });
       const headingStyles = styles.heading;
@@ -120,11 +127,14 @@ export const Hero = chakra(
             "will not use any of the image props."
         );
       }
-      if (heroType === "campaign" && (!backgroundImageSrc || !imageProps.src)) {
+      if (
+        heroType === "campaign" &&
+        (!backdropBackgroundColor || !backgroundImageSrc || !imageProps.src)
+      ) {
         console.warn(
-          "NYPL Reservoir Hero: It is recommended to use both the " +
-            "`backgroundImageSrc` and `imageProps.src` props for the " +
-            "`'campaign'` `heroType` variant."
+          "NYPL Reservoir Hero: It is recommended to use either the " +
+            "`backdropBackgroundColor`, `backgroundImageSrc`, or " +
+            "`imageProps.src` prop for the `'campaign'` `heroType` variant."
         );
       }
       if (heroType === "fiftyFifty" && backgroundImageSrc) {
@@ -141,6 +151,8 @@ export const Hero = chakra(
       } else if (heroType === "campaign") {
         backgroundImageStyle = backgroundImageSrc
           ? { backgroundImage: `url(${backgroundImageSrc})` }
+          : backdropBackgroundColor
+          ? { bgColor: backdropBackgroundColor }
           : { backgroundColor };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
         backgroundImageStyle = { backgroundColor };
@@ -151,11 +163,15 @@ export const Hero = chakra(
           color: foregroundColor,
           backgroundColor,
         };
-      } else if (foregroundColor || backgroundColor) {
+      } else if (
+        foregroundColor ||
+        backgroundColor ||
+        backdropBackgroundColor
+      ) {
         console.warn(
-          "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
-            "props have been passed, but the `'secondary'` `heroType` " +
-            "variant will not use them."
+          "NYPL Reservoir Hero: The `foregroundColor`, `backgroundColor`, or " +
+            "`backdropBackgroundColor` props have been passed, but the " +
+            "`'secondary'` `heroType` variant will not use them."
         );
       }
 
@@ -203,10 +219,9 @@ export const Hero = chakra(
         <Box
           data-testid="hero"
           data-responsive-background-image
-          style={backgroundImageStyle}
+          style={backgroundImageSrc ? backgroundImageStyle : undefined}
           ref={ref}
-          __css={styles}
-          {...rest}
+          __css={{ ...styles, ...backgroundImageStyle }}
         >
           <Box
             data-testid="hero-content"
