@@ -46,6 +46,7 @@ import { ReactComponent as socialFacebook } from "../../../icons/svg/social-face
 import { ReactComponent as socialInstagram } from "../../../icons/svg/social-instagram.svg";
 import { ReactComponent as socialPinterest } from "../../../icons/svg/social-pinterest.svg";
 import { ReactComponent as socialSoundCloud } from "../../../icons/svg/social-soundcloud.svg";
+import { ReactComponent as socialTikTok } from "../../../icons/svg/social-tiktok.svg";
 import { ReactComponent as socialTumblr } from "../../../icons/svg/social-tumblr.svg";
 import { ReactComponent as socialTwitter } from "../../../icons/svg/social-twitter.svg";
 import { ReactComponent as socialYoutube } from "../../../icons/svg/social-youtube.svg";
@@ -103,6 +104,7 @@ export default {
   socialInstagram,
   socialPinterest,
   socialSoundCloud,
+  socialTikTok,
   socialTumblr,
   socialTwitter,
   socialYoutube,
