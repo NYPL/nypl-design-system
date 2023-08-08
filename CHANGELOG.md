@@ -10,7 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the "TikTok" option to the `Icon` component.
+- Adds the `"tiktok"` option to the `Icon` component.
+- Adds the `role` prop to the `Text` component.
+
+### Updates
+
+- Updates the ARIA attributes for the `overline` and `subtitle` elements in the `Heading` component.
 
 ## 1.7.0 (July 20, 2023)
 
