@@ -19,11 +19,12 @@ import Text from "../Text/Text";
 - {<Link href="#text-component" target="_self">Text Component</Link>}
 - {<Link href="#font-family" target="_self">Font Family</Link>}
 - {<Link href="#font-color-and-accessibility" target="_self">Font Color and Accessibility</Link>}
-- {<Link href="#font-weight" target="_self">Font Weight</Link>}
+- {<Link href="#font-weight-and-style" target="_self">Font Weight and Style</Link>}
 - {<Link href="#text-case" target="_self">Text Case</Link>}
 - {<Link href="#line-length-and-line-height" target="_self">Line Length and Line Height</Link>}
 - {<Link href="#character-count" target="_self">Character Count</Link>}
 - {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+- {<Link href="#format-of-text-links-disclaimer" target="_self">Format of Text Links Disclaimer</Link>}
 
 ## General Information
 
@@ -115,22 +116,22 @@ the `callout` size is the default style for the `<h4>` element. `<h5>` and
   p="s"
 >
   <Heading color="ui.typography.heading" level="one">
-    Heading Level one (deprecated)
+    Heading Level one (DEPRECATED)
   </Heading>
   <Heading color="ui.typography.heading" level="two" border="none">
-    Heading Level two (deprecated)
+    Heading Level two (DEPRECATED)
   </Heading>
   <Heading color="ui.typography.heading" level="three">
-    Heading Level three (deprecated)
+    Heading Level three (DEPRECATED)
   </Heading>
   <Heading color="ui.typography.heading" level="four">
-    Heading Level four (deprecated)
+    Heading Level four (DEPRECATED)
   </Heading>
   <Heading color="ui.typography.heading" level="five">
-    Heading Level five (deprecated)
+    Heading Level five (DEPRECATED)
   </Heading>
   <Heading color="ui.typography.heading" level="six">
-    Heading Level six (deprecated)
+    Heading Level six (DEPRECATED)
   </Heading>
 </Box>
 }
@@ -397,7 +398,7 @@ The older `size` values and the associated styles are still available, but the
 values should be consdidered deprecated and they should only used to fulfill
 older design requirements.
 
-##### Heading Primary (deprecated)
+##### Heading Primary (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -419,12 +420,12 @@ older design requirements.
   p="inset.default"
 >
   <Heading color="ui.typography.heading" level="one" size="primary" m="0">
-    Heading Size primary (deprecated)
+    Heading Size primary (DEPRECATED)
   </Heading>
 </Box>
 }
 
-##### Heading Secondary (deprecated)
+##### Heading Secondary (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -446,12 +447,12 @@ older design requirements.
   p="inset.default"
 >
   <Heading color="ui.typography.heading" level="one" size="secondary" m="0">
-    Heading Size secondary (deprecated)
+    Heading Size secondary (DEPRECATED)
   </Heading>
 </Box>
 }
 
-##### Heading Tertiary (deprecated)
+##### Heading Tertiary (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -473,12 +474,12 @@ older design requirements.
   p="inset.default"
 >
   <Heading color="ui.typography.heading" level="one" size="tertiary" m="0">
-    Heading Size tertiary (deprecated)
+    Heading Size tertiary (DEPRECATED)
   </Heading>
 </Box>
 }
 
-##### Heading Callout (deprecated)
+##### Heading Callout (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -500,7 +501,7 @@ older design requirements.
   p="inset.default"
 >
   <Heading color="ui.typography.heading" level="one" size="callout" m="0">
-    Heading Size callout (deprecated)
+    Heading Size callout (DEPRECATED)
   </Heading>
 </Box>
 }
@@ -513,6 +514,67 @@ component to render a standard HTML `<p>` tag.
 The `Text` component is used for body copy and captions. However, new
 typographic styles were introduced in June 2023 and the `Text` component can now
 be used to render `subtitle` and `overline` text elements.
+
+### Updated Typographic Styles
+
+New typographic styles were introduced in June 2023, adding `subtitle1`,
+`subtitle2`, `overline1` and `overline2`. As part of that update, the `tag` and
+`mini` styles have been deprecated.
+
+#### Recommedned Options
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem">
+    Body 1
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".875rem">
+    Body 2
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".75rem">
+    Caption
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" size="subtitle1">
+    Subtitle 1
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" size="subtitle2">
+    Subtitle 2
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" size="overline1">
+    Overline 1
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" size="overline2">
+    Overline 2
+  </Text>
+</Box>
+}
+
+#### Deprecated Options
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".75rem">
+    Tag (DEPRECATED)
+  </Text>
+  <Text color="ui.typography.body" fontFamily="body" fontSize=".625rem">
+    Mini (DEPRECATED)
+  </Text>
+</Box>
+}
 
 ### Size Options
 
@@ -835,7 +897,9 @@ The `size` prop can be used to render a specific style from the DS default text 
 </Box>
 }
 
-#### Tag (deprecated)
+#### Deprecated Options
+
+##### Tag (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -857,12 +921,12 @@ The `size` prop can be used to render a specific style from the DS default text 
   p="inset.default"
 >
   <Text color="ui.typography.body" size="tag" mt="0">
-    Tag text (deprecated)
+    Tag text (DEPRECATED)
   </Text>
 </Box>
 }
 
-#### Mini (deprecated)
+##### Mini (DEPRECATED)
 
 <List type="ul">
   <li>This style SHOULD NOT be used.</li>
@@ -884,7 +948,7 @@ The `size` prop can be used to render a specific style from the DS default text 
   p="inset.default"
 >
   <Text color="ui.typography.body" size="mini" m="0">
-    Mini text (deprecated)
+    Mini text (DEPRECATED)
   </Text>
 </Box>
 }
@@ -1005,7 +1069,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     p="s"
   >
     <Heading color="ui.typography.heading" level="three">
-      Default Heading Coloron Default Background
+      Default Heading Color on Default Background
     </Heading>
     <Text
       color="ui.typography.body"
@@ -1029,7 +1093,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     p="s"
   >
     <Heading color="ui.typography.heading" level="three">
-      Default Heading Coloron Hover Background
+      Default Heading Color on Hover Background
     </Heading>
     <Text
       color="ui.typography.body"
@@ -1053,7 +1117,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     p="s"
   >
     <Heading color="ui.typography.heading" level="three">
-      Default Heading Coloron Active Background
+      Default Heading Color on Active Background
     </Heading>
     <Text
       color="ui.typography.body"
@@ -1095,7 +1159,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
   </Box>
   <Box bg="dark.ui.bg.default" borderRadius="5px" mb="m" p="s">
     <Heading color="dark.ui.typography.heading" level="three">
-      Default Heading Coloron Default Background
+      Default Heading Color on Default Background
     </Heading>
     <Text
       color="dark.ui.typography.body"
@@ -1112,7 +1176,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
   </Box>
   <Box bg="dark.ui.bg.hover" borderRadius="5px" mb="m" p="s">
     <Heading color="dark.ui.typography.heading" level="three">
-      Default Heading Coloron Hover Background
+      Default Heading Color on Hover Background
     </Heading>
     <Text
       color="dark.ui.typography.body"
@@ -1129,7 +1193,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
   </Box>
   <Box bg="dark.ui.bg.active" borderRadius="5px" mb="m" p="s">
     <Heading color="dark.ui.typography.heading" level="three">
-      Default Heading Coloron Active Background
+      Default Heading Color on Active Background
     </Heading>
     <Text
       color="dark.ui.typography.body"
@@ -1152,7 +1216,7 @@ provides CSS variables for the full NYPL color palette. Refer to the
 [Colors](../?path=/docs/style-guide-colors--docs) section of the Style Guide
 for details.
 
-## Font Weight
+## Font Weight and Style
 
 Font weight and style changes can be used to emphasize or de-emphasize words or
 phrases.
@@ -1251,6 +1315,298 @@ The following design tokens are available through the DS.
 | **Medium**   | `medium`   | `var(--nypl-fontWeights-medium)`   | `500` |
 | **Semibold** | `semibold` | `var(--nypl-fontWeights-semibold)` | `600` |
 | **Bold**     | `bold`     | `var(--nypl-fontWeights-bold)`     | `700` |
+
+### Thin
+
+Reserved for use only in the Heading component.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    Lorem Ipsum
+  </Heading>
+</Box>
+}
+
+### Light
+
+The default font weight for the Reservoir Design System typography.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="light">
+        Ipsum
+      </Box>
+    </>
+  </Heading>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </p>
+</Box>
+}
+
+### Regular
+
+Used as default weight for text sizes smaller than 14px (Tag and Button Small).
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="regular">
+        Ipsum
+      </Box>
+    </>
+  </Heading>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac{" "}
+    <Box as="span" fontWeight="regular">
+      consectetur
+    </Box>{" "}
+    ac, vestibulum at eros.
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </p>
+</Box>
+}
+
+### Medium
+
+Apply to selective words or parts of a sentence to convey importance instead of
+using a heavier weight.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="medium">
+        Ipsum
+      </Box>
+    </>
+  </Heading>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac{" "}
+    <Box as="span" fontWeight="medium">
+      consectetur
+    </Box>{" "}
+    ac, vestibulum at eros.
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-medium)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </p>
+</Box>
+}
+
+### Semibold
+
+Reserved for use only in the Heading component.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="semibold">
+        Ipsum
+      </Box>
+    </>
+  </Heading>
+</Box>
+}
+
+### Bold
+
+Add hierarchy to selective words to call attention to.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="bold">
+        Ipsum
+      </Box>
+    </>
+  </Heading>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac{" "}
+    <Box as="span" fontWeight="bold">
+      consectetur
+    </Box>{" "}
+    ac, vestibulum at eros.
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-bold)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </p>
+</Box>
+}
+
+### Italic
+
+Add hierarchy to selective words to call attention to.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac{" "}
+    <Box as="span" fontStyle="italic">
+      consectetur
+    </Box>{" "}
+    ac, vestibulum at eros.
+  </p>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontStyle: "italic",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </p>
+</Box>
+}
+
+### Underline
+
+Only used for text links. Never used on plain text. See the Text Links section
+of this file for link styles.
+
+{
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <Heading level="h2" border="0">
+    <>
+      Lorem{" "}
+      <Link fontFamily="heading" href="/">
+        Ipsum
+      </Link>
+    </>
+  </Heading>
+  <p
+    style={{
+      fontSize: "var(--nypl-fontSizes-0)",
+      fontWeight: "var(--nypl-fontWeights-light)",
+      fontFamily: "var(--nypl-fonts-body)",
+    }}
+  >
+    Morbi leo risus, porta ac{" "}
+    <Link fontFamily="body" href="https://nypl.org" type="external">
+      consectetur
+    </Link>{" "}
+    ac, vestibulum at eros.
+  </p>
+</Box>
+}
 
 ## Text Case
 
@@ -1395,9 +1751,32 @@ Recommendation: maximum of 40 words (approx. 200 characters)
 
 ## Figma Reference
 
-For additional spacing information, please refer to the Figma Main file.
+For additional spacing information, please refer to the Reservoir Visual Design
+Library (i.e. the Figma Main file).
 
 - [Type Scale](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137478&t=tUwb0hhJ8FmxheNC-4)
 - [Colors and Contrast](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138241&t=tUwb0hhJ8FmxheNC-4)
 - [Heading Formatting](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79427-131143&t=tUwb0hhJ8FmxheNC-4)
 - [Text Formatting](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137950&t=tUwb0hhJ8FmxheNC-4)
+
+## Format of Text Links Disclaimer
+
+Due to limitations with the Figma application, there is a discrepancy between
+how link underline styles can be set using CSS and how link underline styles can
+be set within the Figma application. The differences are related to the
+following CSS attributes used to control the styles for the link underline.
+
+- `text-decoration-style`
+- `text-decoration-thickness`
+- `text-underline-offset`
+
+To represent text links in Figma, UI designers will rely on the standard text
+underline style (as shown in the examples below). Designers will not be
+expected to try to replicate what is possible in a browser with CSS as it can be
+a tedious and time-consuming process. Developers should be aware of and expect
+this difference and know that link styles will be rendered correctly in the
+browser when the Reservoir Link component is used for front-end development.
+
+For visual examples, please refer to the [Typography section of the Reservoir
+Visual Design
+Library](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138172&mode=design&t=lJxbasS2VONTWt6B-4).
