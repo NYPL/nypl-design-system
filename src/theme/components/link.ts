@@ -174,7 +174,7 @@ const variants = {
   },
 };
 const Link = {
-  parts: ["srOnly"],
+  parts: ["screenreaderOnly"],
   baseStyle: ({ isUnderlined = true }) => ({
     ...baseLinkStyles,
     textDecoration: isUnderlined ? "underline" : "none",
@@ -187,7 +187,7 @@ const Link = {
     },
     /** The element will handle descriptive text added to aid
      * screen readers. */
-    srOnly: screenreaderOnly(),
+    screenreaderOnly: screenreaderOnly(),
   }),
   variants,
 };

@@ -1,7 +1,18 @@
 import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-export const textSizesArray = ["default", "caption", "tag", "mini"] as const;
+export const textSizesArray = [
+  "default",
+  "body1",
+  "body2",
+  "caption",
+  "tag",
+  "mini",
+  "overline1",
+  "overline2",
+  "subtitle1",
+  "subtitle2",
+] as const;
 export type TextSizes = typeof textSizesArray[number];
 
 export interface TextProps {
@@ -19,6 +30,8 @@ export interface TextProps {
   isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
+  /** Optional prop used to explicitly set the ARIA role */
+  role?: string;
   /** Optional prop to control the text styling */
   size?: TextSizes;
 }
@@ -35,6 +48,7 @@ export const Text = chakra(
         isUppercase,
         isLowercase,
         noSpace,
+        role,
         size = "default",
         ...rest
       } = props;
@@ -55,6 +69,34 @@ export const Text = chakra(
         );
       }
 
+      // Warnings about the `isBold` prop
+      if (isBold && size === "caption") {
+        console.warn(
+          "NYPL Reservoir Text: The `isBold` prop does not work with caption text."
+        );
+      }
+      if (isBold && (size === "overline1" || size === "overline2")) {
+        console.warn(
+          "NYPL Reservoir Text: The `isBold` prop does not work with overline text."
+        );
+      }
+      if (isBold && (size === "subtitle1" || size === "subtitle2")) {
+        console.warn(
+          "NYPL Reservoir Text: The `isBold` prop does not work with subtitle text."
+        );
+      }
+      if (isBold && size === "tag") {
+        console.warn(
+          "NYPL Reservoir Text: The `isBold` prop does not work with tag text."
+        );
+      }
+      if (isBold && size === "mini") {
+        console.warn(
+          "NYPL Reservoir Text: The `isBold` prop does not work with min text."
+        );
+      }
+
+      // Warnings about combining text case props
       let textCase = 0;
       if (isCapitalized) {
         textCase++;
@@ -74,7 +116,13 @@ export const Text = chakra(
       }
 
       return (
-        <ChakraText className={className} ref={ref} sx={styles} {...rest}>
+        <ChakraText
+          className={className}
+          ref={ref}
+          role={role}
+          sx={styles}
+          {...rest}
+        >
           {children}
         </ChakraText>
       );

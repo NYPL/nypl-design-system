@@ -839,7 +839,7 @@ describe("DatePicker", () => {
       userEvent.click(input);
       // The popup displays. We are currently on 08/15/2021.
       expect(
-        screen.getByText(monthArray["7"], { exact: false })
+        screen.getAllByText(monthArray["7"], { exact: false })[0]
       ).toBeInTheDocument();
       userEvent.click(screen.getByLabelText("Next Month"));
       userEvent.click(screen.getByLabelText("Next Month"));

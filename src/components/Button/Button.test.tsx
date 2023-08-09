@@ -22,6 +22,16 @@ describe("Button Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for hidden text", async () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Button id="button" onClick={onClick} screenreaderOnlyText="hidden text">
+        Submit
+      </Button>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Button", () => {

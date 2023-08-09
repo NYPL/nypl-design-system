@@ -127,7 +127,7 @@ const sizes = {
     control: {
       ...checkboxRadioControlSize,
     },
-    label: { fontSize: "label.default" },
+    label: { fontSize: "desktop.label.label1" },
   },
 };
 
