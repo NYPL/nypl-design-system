@@ -12,6 +12,7 @@ const meta: Meta<typeof Link> = {
   decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
+    isUnderlined: { table: { defaultValue: { summary: "true" } } },
     key: { table: { disable: true } },
     ref: { table: { disable: true } },
     target: { control: false },

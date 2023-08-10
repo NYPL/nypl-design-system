@@ -175,9 +175,9 @@ const variants = {
 };
 const Link = {
   parts: ["screenreaderOnly"],
-  baseStyle: ({ isUnderlined = true }) => ({
+  baseStyle: ({ finalIsUnderlined = true }) => ({
     ...baseLinkStyles,
-    textDecoration: isUnderlined ? "underline" : "none",
+    textDecoration: finalIsUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
      * that are passed as children to the `Link` component. */
     a: {

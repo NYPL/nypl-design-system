@@ -153,11 +153,43 @@ exports[`Link renders the UI snapshot correctly 5`] = `
 <a
   className="css-1xdhyk6"
   href="#passed-in-link"
-  id="button-link"
+  id="standalone-link"
   rel={null}
   target={null}
 >
-  Button Primary
+  Standalone
+  <svg
+    aria-hidden={true}
+    className="chakra-icon more-link css-1grhd2q"
+    focusable={false}
+    id="standalone-link-icon"
+    role="img"
+    title="Navigation link"
+    viewBox="0 0 24 24"
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        fill="none"
+        r="11.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+  </svg>
 </a>
 `;
 
@@ -169,7 +201,7 @@ exports[`Link renders the UI snapshot correctly 6`] = `
   rel={null}
   target={null}
 >
-  Button Secondary
+  Button Primary
 </a>
 `;
 
@@ -181,7 +213,7 @@ exports[`Link renders the UI snapshot correctly 7`] = `
   rel={null}
   target={null}
 >
-  Button Pill
+  Button Secondary
 </a>
 `;
 
@@ -193,7 +225,7 @@ exports[`Link renders the UI snapshot correctly 8`] = `
   rel={null}
   target={null}
 >
-  Button Callout
+  Button Pill
 </a>
 `;
 
@@ -205,7 +237,7 @@ exports[`Link renders the UI snapshot correctly 9`] = `
   rel={null}
   target={null}
 >
-  Button No Brand
+  Button Callout
 </a>
 `;
 
@@ -217,11 +249,23 @@ exports[`Link renders the UI snapshot correctly 10`] = `
   rel={null}
   target={null}
 >
-  Button Disabled
+  Button No Brand
 </a>
 `;
 
 exports[`Link renders the UI snapshot correctly 11`] = `
+<a
+  className="css-1xdhyk6"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button Disabled
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 12`] = `
 <a
   className="css-1xdhyk6"
   href="#passed-in-link"
@@ -265,7 +309,7 @@ exports[`Link renders the UI snapshot correctly 11`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 12`] = `
+exports[`Link renders the UI snapshot correctly 13`] = `
 <span
   className="css-0"
 >
@@ -281,7 +325,7 @@ exports[`Link renders the UI snapshot correctly 12`] = `
 </span>
 `;
 
-exports[`Link renders the UI snapshot correctly 13`] = `
+exports[`Link renders the UI snapshot correctly 14`] = `
 <span
   className="css-0"
 >
@@ -325,7 +369,7 @@ exports[`Link renders the UI snapshot correctly 13`] = `
 </span>
 `;
 
-exports[`Link renders the UI snapshot correctly 14`] = `
+exports[`Link renders the UI snapshot correctly 15`] = `
 <a
   className="css-kle7zy"
   href="#passed-in-link"
@@ -337,7 +381,7 @@ exports[`Link renders the UI snapshot correctly 14`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 15`] = `
+exports[`Link renders the UI snapshot correctly 16`] = `
 <a
   className="css-1xdhyk6"
   data-testid="props"
@@ -350,7 +394,7 @@ exports[`Link renders the UI snapshot correctly 15`] = `
 </a>
 `;
 
-exports[`Link renders the UI snapshot correctly 16`] = `
+exports[`Link renders the UI snapshot correctly 17`] = `
 <span
   className="css-0"
   data-testid="props"

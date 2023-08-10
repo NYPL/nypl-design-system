@@ -10,10 +10,10 @@ import * as LinkStories from "./Link.stories";
 
 # Link
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `1.7.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -36,9 +36,10 @@ import * as LinkStories from "./Link.stories";
 
 ## Accessibility
 
-The `Link` component should be used for navigation. If an `onClick` user
-interface action is required, a `Button` component should be used instead. The
-`Link` component renders an `<a>` element with the `href` attribute.
+The `Link` component renders an `<a>` element with the `href` attribute, so the
+`Link` component should be used for navigation. If an `onClick` user interface
+action is required, a `Button` component should be used instead. In simple
+terms, a link goes somewhere and a button does something.
 
 The `"external"` variant of the `Link` component includes `"screen reader only"`
 descriptive text to clarify that the link will open in a new tab/window.
@@ -51,6 +52,9 @@ The `Link` component also has a `screenreaderOnlyText` prop that can be used to
 add additional text to the link that is only visible to screen readers. This can
 be used to provide additional context to the link when the text is short, such
 as visible "Read more..." text.
+
+For details about NYPL link patterns, refer to the [Links Accessibility
+Guide](/?path=/docs/accessibility-guide-links--docs).
 
 Resources:
 

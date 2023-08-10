@@ -50,7 +50,74 @@ format are generally considered to be fine without an underline.
 
 ## NYPL Patterns
 
-TBD
+Text links can be presented in three general scenarios: in a heading, mixed
+within a block of plain text or as an isolated navigation element. In all
+instances, the aim is to reduce the visual impact of the link underline while
+still meeting accessibility requirements and best practices.
+
+In cases where an underline for a text link is necessary, the 1px width and
+dotted underline styles will allow text links to be visually highlighted without
+being overly intrusive. This, in turn, will help text- and link-heavy pages to
+be less overwhelming and cluttered.
+
+### Headings
+
+When a link is applied to a full heading, the link text SHOULD be rendered using
+the `link primary` color and the default state of the link text SHOULD NOT be
+underlined. The link text hover state SHOULD be rendered using the `link secondary` color and MUST be underlined. Applying a link to a full heading is
+the recommended pattern.
+
+When a link is applied to a subset of words within a heading, the link text MUST
+be rendered using the `link primary` color and the default state of the link
+text MUST be underlined. The link text hover state SHOULD be rendered using the
+`link secondary` color and MUST be underlined. While this is acceptable,
+applying a link to a potion of a heading is not the recommended pattern.
+
+### Mixed Text
+
+When a body text link sits within a block of plain (unlinked) text &mdash; a
+paragraph, a single setence, or even just a few words &mdash; the link text
+SHOULD be rendered using the `link primary` color and the default state of the
+link text MUST be underlined. The link text hover state SHOULD be rendered using
+the `link secondary` color and MUST be underlined.
+
+### Standalone Links
+
+When a body text link sits by itself within the page content area &mdash; a Read
+More link at the end of a short description, a View In Catelog link on a book
+detail page &mdash; the link text SHOULD be rendered using the `link primary`
+color, the default state of the link text SHOULD NOT be underlined, and the link
+text SHOULD be displayed with a "forward" directional arrow rendered using the
+`link primary` color. The link text hover state SHOULD be rendered using
+the `link secondary` color and MUST be underlined.
+
+### Tips for Writing Standalone Link Text
+
+Avoid using a URL as your text link - URLs, especially long ones, may cause
+reading difficulty for both humans and screen readers.
+
+Keep link text as short as possible - Instead of "you can contact us,"" use "contact
+us.""
+
+Link at least one full word (two is better) - Avoid using a single letter or
+a symbol for a link as it lacks context and is difficult to click on.
+
+### Acceptable Style Deviations
+
+There are times when deviations from the standard link styles are allowed.
+
+Links in main navigation areas or in a common list format can be presented
+without an underline or some other link indicator (ex. text with icon). It is
+also acceptable to use a color other than the standard link color, but it is
+generally recommended to use black or white.
+
+Links on colored backgrounds will almost always run into problems with color
+contrast. In those cases, the link color should be set to either black or
+white, depending on the background color.
+
+In situations when the link color is not used and the link color is changed to
+white or black, an underline must be applied whenever a link it mixed with plain
+text. This mirrors the patterns of the standard link styles.
 
 ## Resources
 

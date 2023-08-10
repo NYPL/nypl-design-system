@@ -202,6 +202,13 @@ describe("Link", () => {
         </Link>
       )
       .toJSON();
+    const typeStandalone = renderer
+      .create(
+        <Link href="#passed-in-link" id="standalone-link" type="standalone">
+          Standalone
+        </Link>
+      )
+      .toJSON();
     const typeButtonPrimary = renderer
       .create(
         <Link href="#passed-in-link" id="button-link" type="button">
@@ -306,6 +313,7 @@ describe("Link", () => {
     expect(typeForwards).toMatchSnapshot();
     expect(typeBackwards).toMatchSnapshot();
     expect(typeExternal).toMatchSnapshot();
+    expect(typeStandalone).toMatchSnapshot();
     expect(typeButtonPrimary).toMatchSnapshot();
     expect(typeButtonSecondary).toMatchSnapshot();
     expect(typeButtonPill).toMatchSnapshot();

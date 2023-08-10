@@ -18,6 +18,7 @@ export const linkTypesArray = [
   "default",
   "external",
   "forwards",
+  "standalone",
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
@@ -30,7 +31,9 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
-  /** If true, link text will always be underlined; if false, only in hover state. `true` by default. */
+  /** Used to explicitly set the underline style for a text link. If true, link
+   * text will always be underlined; if false, link text will only show
+   * underline in hover state. */
   isUnderlined?: boolean;
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
@@ -39,7 +42,8 @@ export interface LinkProps {
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
-  /** Controls the link visuals: action, button, backwards, forwards, or default. */
+  /** Controls the link visuals: action, button, backwards, forwards,
+   * standalone, or default. */
   type?: LinkTypes;
 }
 
@@ -118,6 +122,30 @@ function getExternalExtraElements(
   );
 }
 
+function getStandaloneIcon(children: JSX.Element, linkId: string) {
+  const iconId = `${linkId}-icon`;
+  const extraElements = (
+    <>
+      <Icon
+        align={"right"}
+        className="more-link"
+        iconRotation="rotate270"
+        id={iconId}
+        name="arrow"
+        size="xsmall"
+        title="Navigation link"
+      />
+    </>
+  );
+
+  return (
+    <>
+      {children}
+      {extraElements}
+    </>
+  );
+}
+
 /**
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
@@ -129,13 +157,21 @@ export const Link = chakra(
       className,
       href,
       id,
-      isUnderlined = true,
+      isUnderlined,
       onClick,
       screenreaderOnlyText,
       target,
       type = "default",
       ...rest
     } = props;
+
+    // Set initial underline style for certain variants
+    const finalIsUnderlined =
+      type === "backwards" || type === "forwards" || type === "standalone"
+        ? isUnderlined
+          ? true
+          : false
+        : true;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
@@ -155,9 +191,10 @@ export const Link = chakra(
 
     if (
       type === "action" ||
-      type === "forwards" ||
       type === "backwards" ||
-      type === "external"
+      type === "external" ||
+      type === "forwards" ||
+      type === "standalone"
     ) {
       variant = "moreLink";
     } else if (type.includes("button")) {
@@ -170,7 +207,7 @@ export const Link = chakra(
       // }
       variant = type;
     }
-    const styles = useMultiStyleConfig("Link", { variant, isUnderlined });
+    const styles = useMultiStyleConfig("Link", { variant, finalIsUnderlined });
     const rel = type === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       type === "external" ? "_blank" : target ? target : null;
@@ -186,6 +223,8 @@ export const Link = chakra(
           id,
           styles.screenreaderOnly
         )) ||
+      (type === "standalone" &&
+        getStandaloneIcon(children as JSX.Element, id)) ||
       children;
 
     if (!href) {

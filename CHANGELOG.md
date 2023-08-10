@@ -13,6 +13,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `"tiktok"` option to the `Icon` component.
 - Adds the `role` prop to the `Text` component.
 - Adds the `isUnderlined` prop to the `Link` component.
+- Adds the `"standalone"` variant to the `Link` component.
+- Adds `NYPL Patterns` to the `Links Accessibility Guide`.
 
 ### Updates
 
