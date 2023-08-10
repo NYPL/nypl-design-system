@@ -136,12 +136,18 @@ The `"campaign"` hero type can be used with the `backdropBackgroundColor`,
 `imageProps`, and `subHeaderText` props. The minimum props to use are
 `backgroundImageSrc`, `heading`, and `imageProps`.
 
-This variant has the special use case of having a background and foreground. The
-"backdrop" is what we call the background and that can be set through either the
-`backdropBackgroundColor` or `backgroundImageSrc` props. When both are set, the
-`backgroundImageSrc` will take precedence.
+This variant has the special use case of having a background and foreground. We
+do understand that the naming can be confusing, but it helps to think of this
+variant having two layers. The bottom is the backdrop and the top is the
+foreground.
 
-To modify the foreground, the `background` and `imageProps` props should be used.
+The "backdrop" is what we call the background and that can be set through either
+the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
+the `backgroundImageSrc` will take precedence.
+
+To modify the foreground, the `backgroundColor`, `foregroundColor`, `imageProps`
+props should be used.
+
 View the last example in this section to see an example of the backdrop and
 foreground settings in action.
 

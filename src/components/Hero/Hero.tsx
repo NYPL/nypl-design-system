@@ -80,7 +80,6 @@ export const Hero = chakra(
         },
         locationDetails,
         subHeaderText,
-        // ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", { variant: heroType });
       const headingStyles = styles.heading;

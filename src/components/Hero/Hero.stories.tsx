@@ -255,7 +255,8 @@ export const Campaign: Story = {
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="#A03E31"
+          backgroundColor="#DC8034"
+          foregroundColor="black"
           heroType="campaign"
           heading={
             <Heading
