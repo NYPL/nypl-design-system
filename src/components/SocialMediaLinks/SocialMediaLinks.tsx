@@ -1,129 +1,129 @@
 import {
-  Breadcrumb as ChakraSocialMediaLink,
-  BreadcrumbItem as SocialMediaLinkItem,
-  BreadcrumbLink as SocialMediaLinkLink,
-  chakra,
-  useStyleConfig,
+    chakra,
+ //   useStyleConfig,
 } from "@chakra-ui/react";
+import List from "../List/List";
+import Link from '../Link/Link';
+import Icon from "../Icons/Icon";
 import React, { forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
-import Tooltip from "../Tooltip/Tooltip";
-import { truncateText } from "../../utils/utils";
-
 export const socialMediaLinkTypeArray = [
-  "blogs",
-  "booksAndMore",
-  "brand",
-  "connect",
-  "education",
-  "locations",
-  "research",
-  "whatsOn",
+    "blogs",
+    "facebook",
+    "instagram",
+    "pinterest",
+    "soundcloud",
+    "tiktok",
+    "tumbler",
+    "twitter",
+    "youtube",
 ] as const;
-export type SocialMediaLinksTypes = typeof socialMediaLinkTypeArray[number];
-export interface SocialMediaLinksDataProps {
-  url: string;
-  text: string | React.ReactNode;
+export type SocialMediaLinkType = typeof socialMediaLinkTypeArray[number];
+
+export const colorTypeArray = [
+    "link",
+    "textDefault",
+    "textInverse",
+] as const;
+export type ColorType = typeof colorTypeArray[number];
+
+export const borderTypeArray = [
+    "none",
+    "circular",
+    "straight",
+] as const;
+export type BorderType = typeof borderTypeArray[number];
+
+export const layoutTypeArray = [
+    "column",
+    "row",
+] as const;
+export type LayoutType = typeof layoutTypeArray[number];
+
+export const sizeTypeArray = [
+    "small",
+    "medium",
+    "large",
+] as const;
+export type SizeType = typeof sizeTypeArray[number];
+
+export interface SocialMediaLinkDataProps {
+    /** Required. Must be one of socialMediaLinkTypeArray */
+    type: SocialMediaLinkType;
+    /** Optional override for default social media url */
+    url?: string;
 }
 
-export interface SocialMediaLinkProps {
-  /** SocialMediaLink links as an array */
-  socialMediaLinksData: SocialMediaLinksDataProps[];
-  /** Used to control how the `Hero` component will be rendered. */
-  socialMediaLinksType?: SocialMediaLinksTypes;
-  /** className you can add in addition to 'input' */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+export interface SocialMediaLinksProps {
+    /** Optional color */
+    color?: ColorType;
+    /** Optional layout */
+    layout?: LayoutType;
+    /** Optional array of link types and urls */
+    linksData?: SocialMediaLinkDataProps[];
+    /** Optional true/false to display names of platform along with icon */
+    showLabels?: boolean;
+    /** Optional size: small, medium, large */
+    size?: SizeType;
+    /** Optional border: straight, circular or none */
+    borders?: BorderType;
+    /** Optional className you can add in addition to `social-media-links`. */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
 }
 
-const socialMediaLinkTextLength = 40;
+const socialMediaMapData = [
+    {
+        type: 'facebook',
+        iconName: 'socialFacebook',
+        platformName: 'Facebook',
+        url: 'facebook.com'
+    },
+    {
+        type: 'twitter',
+        iconName: 'socialTwitter',
+        platformName: 'Twitter',
+        url: 'twitter.com'
+    },
+    {
+        type: 'instagram',
+        iconName: 'socialInstagram',
+        platformName: 'Instagram',
+        url: 'instagram.com'
+    },
+];
 
-/**
- * Truncate socialMediaLink text if it is more than 40 characters in length and
- * then add ellipsis at the end.
- */
-const tooltipWrapperOrText = (
-  socialMediaLinksData: SocialMediaLinksDataProps,
-  socialMediaLinksID,
-  renderIcon = false,
-  isCurrentPage = false
-) => {
-  const textLength = (socialMediaLinksData.text as string).length;
-  const renderTooltip = textLength >= socialMediaLinkTextLength;
-  // If the text is more than 40 characters in length, truncate it.
-  const updatedText =
-    textLength <= socialMediaLinkTextLength
-      ? socialMediaLinksData.text
-      : truncateText(
-          socialMediaLinksData.text as string,
-          socialMediaLinkTextLength
-        );
-  const linkWrapper = (
-    <SocialMediaLinkLink
-      href={socialMediaLinksData.url}
-      aria-current={isCurrentPage ? "page" : undefined}
-    >
-      {renderIcon && (
-        <Icon
-          name="arrow"
-          size="small"
-          iconRotation="rotate90"
-          id={`${socialMediaLinksID}__backarrow`}
-          className="socialMediaLinks-icon"
-          type="breadcrumbs"
-        />
-      )}
-      <span className="socialMediaLink-label">{updatedText}</span>
-    </SocialMediaLinkLink>
-  );
-  // If the text is more than 40 characters in length, we need a ToolTip
-  // component wrapped *directly* around the anchor element for
-  // accessibility purposes.
-  const socialMediaLinkLink = renderTooltip ? (
-    <Tooltip
-      content={socialMediaLinksData.text}
-      id={`socialMediaLink-${socialMediaLinksID}-tooltip`}
-    >
-      {linkWrapper}
-    </Tooltip>
-  ) : (
-    <>{linkWrapper}</>
-  );
+function getLinksData(platforms) {
+    let allData = [];
+    platforms.forEach((myPlatform) => {
+        let thisPlatformName = (typeof myPlatform === 'string') ? myPlatform : myPlatform.type;
+        if (!socialMediaLinkTypeArray.includes(thisPlatformName)) {
+            throw new Error(
+                "NYPL Reservoir SocialMediaLinks: " + thisPlatformName + " is either not a supported platform or is misspelled.\n" +
+                "Supported platforms include: " + socialMediaLinkTypeArray.join(", ")
+            );
+        }
+        let thisPlatformArray = socialMediaMapData.filter( socialMediaSlice =>
+            socialMediaSlice.type === thisPlatformName);
 
-  return socialMediaLinkLink;
-};
+        // filter function returns an array of objects, so let's just get the objects out of the array.
+        let thisPlatformData = thisPlatformArray[0];
 
-const getElementsFromData = (
-  data: SocialMediaLinksDataProps[],
-  socialMediaLinksID?: string
-) => {
-  if (!data?.length) {
-    return null;
-  }
+        // If a url value exists in myPlatform (i.e. not undefined), use it instead of the official url.
+        let newUrl =  (typeof myPlatform.url !== "undefined") ? myPlatform.url : thisPlatformData.url;
 
-  const socialMediaLinksItems = data.map((socialMediaLinksData, index) => {
-    // The icon renders only on mobile and it should be
-    // part of the second to last element in the nav.
-    const renderIcon = index === data.length - 2;
-    // The current page is the last item in the socialMediaLinks
-    // and needs an additional aria attribute.
-    const isCurrentPage = index === data.length - 1;
-    return (
-      <SocialMediaLinkItem key={index}>
-        {tooltipWrapperOrText(
-          socialMediaLinksData,
-          socialMediaLinksID,
-          renderIcon,
-          isCurrentPage
-        )}
-      </SocialMediaLinkItem>
-    );
-  });
+        let thisObj = {
+            type: thisPlatformData.type,
+            iconName: thisPlatformData.iconName,
+            platformName: thisPlatformData.platformName,
+            url: newUrl
+        };
+        allData.push(thisObj);
+    }) // end foreach
 
-  return socialMediaLinksItems;
-};
+    return allData;
+}
 
 /**
  * The `SocialMediaLinks` component is a navigation element that provides a
@@ -131,39 +131,39 @@ const getElementsFromData = (
  * navigate to any page available in the socialMediaLink hierarchy.
  */
 export const SocialMediaLinks = chakra(
-  forwardRef<HTMLDivElement, SocialMediaLinkProps>((props, ref?) => {
-    const {
-      socialMediaLinksData,
-      socialMediaLinksType = "whatsOn",
-      className,
-      id,
-      ...rest
-    } = props;
+    forwardRef<HTMLDivElement, SocialMediaLinksProps>((props) => {
+        const {
+//            borders = "none",
+//            color = "textDefault",
+//            className,
+//            id,
+            linksData,
+            layout = "row",
+//            showLabels = false,
+//            size = "small",
+//            ...rest
+        } = props;
 
-    if (!socialMediaLinksData || socialMediaLinksData.length === 0) {
-      throw new Error(
-        "NYPL Reservoir SocialMediaLinks: No data was passed to the `socialMediaLinksData` prop."
-      );
-    }
 
-    const styles = useStyleConfig("SocialMediaLinks", {
-      variant: socialMediaLinksType,
-    });
-    const socialMediaLinkItems = getElementsFromData(socialMediaLinksData, id);
+        // If the linksData prop has data, set the map data to only include the passed values, else set it to
+        // include every platform.
+        const socialMediaDataArray  = (linksData) ? getLinksData(linksData) : socialMediaMapData;
 
-    return (
-      <ChakraSocialMediaLink
-        aria-label="SocialMediaLink"
-        className={className}
-        id={id}
-        ref={ref}
-        __css={styles}
-        {...rest}
-      >
-        {socialMediaLinkItems}
-      </ChakraSocialMediaLink>
-    );
-  })
+        const socialMediaLinkList= socialMediaDataArray.map(platformData => (
+                <Link href={platformData.url} rel="nofollow noopener noreferrer" key={platformData.type}>
+                    <Icon name={platformData.iconName} align="left" size="small"/>
+                    {platformData.platformName}
+                </Link>
+            )
+        )
+
+        // If the layout prop is set to "row", we want the List inline prop value to be true.
+        const inlineVal = (layout === "row") ? true : false;
+
+        return (
+            <List type='ul' listItems={socialMediaLinkList} inline={inlineVal} noStyling={true} />
+        );
+    })
 );
 
 export default SocialMediaLinks;
