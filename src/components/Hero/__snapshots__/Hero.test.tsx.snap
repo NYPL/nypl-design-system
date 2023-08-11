@@ -2,7 +2,7 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1ar4wny"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
@@ -38,10 +38,9 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={{}}
 >
   <div
     className="css-0"
@@ -78,10 +77,9 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
 
 exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={{}}
 >
   <div
     className="css-0"
@@ -118,10 +116,9 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
 
 exports[`Hero Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={{}}
 >
   <div
     className="css-0"
@@ -158,10 +155,9 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
 
 exports[`Hero Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={{}}
 >
   <div
     className="css-0"
@@ -198,10 +194,9 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
 
 exports[`Hero Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={{}}
 >
   <div
     className="css-0"
@@ -238,14 +233,9 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundColor": undefined,
-    }
-  }
 >
   <div
     className="css-0"
@@ -272,7 +262,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1xdzljk"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
@@ -321,14 +311,9 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundColor": undefined,
-    }
-  }
 >
   <div
     className="css-0"
@@ -364,7 +349,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-16h1ce8"
+  className="css-1ar4wny"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
@@ -400,9 +385,9 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1ar4wny"
   data-responsive-background-image={true}
-  data-testid="props"
+  data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",

@@ -322,9 +322,9 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
-        "props have been passed, but the `'secondary'` `heroType` " +
-        "variant will not use them."
+      "NYPL Reservoir Hero: The `foregroundColor`, `backgroundColor`, or " +
+        "`backdropBackgroundColor` props have been passed, but the " +
+        "`'secondary'` `heroType` variant will not use them."
     );
   });
 
@@ -403,9 +403,9 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageProps.src` props for the `'campaign'` " +
-        "`heroType` variant."
+      "NYPL Reservoir Hero: It is recommended to use either the " +
+        "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
+        "prop for the `'campaign'` `heroType` variant."
     );
 
     rerender(
@@ -418,9 +418,26 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageProps.src` props for the `'campaign'` " +
-        "`heroType` variant."
+      "NYPL Reservoir Hero: It is recommended to use either the " +
+        "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
+        "prop for the `'campaign'` `heroType` variant."
+    );
+  });
+
+  it("logs a warning if `backdropBackgroundColor` prop is passed but the variant is not 'campaign'", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        backdropBackgroundColor="brand.primary"
+        heroType="fiftyFifty"
+        imageProps={imageProps}
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `backdropBackgroundColor` prop has been passed, " +
+        "but the `'campaign'` `heroType` variant was not set. It will be ignored."
     );
   });
 

@@ -10,8 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `"tiktok"` option to the `Icon` component.
+- Adds the `"TikTok"` option to the `Icon` component.
 - Adds the `role` prop to the `Text` component.
+- Adds the `backdropBackgroundColor` prop to the `Hero` component for the `"campaign"` `heroType` variant.
 
 ### Updates
 
