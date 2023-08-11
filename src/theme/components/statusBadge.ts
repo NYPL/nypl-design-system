@@ -1,7 +1,7 @@
 const StatusBadge = {
   baseStyle: {
     borderRadius: "base",
-    color: "ui.black",
+    color: "ui.typography.heading",
     display: "block",
     fontSize: "-1", // slightly smaller than the default size
     fontStyle: "italic",

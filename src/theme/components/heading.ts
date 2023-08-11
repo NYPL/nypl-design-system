@@ -122,6 +122,7 @@ const Heading = {
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
     a: baseLinkStyles,
+    color: "ui.typography.heading",
     textTransform: isCapitalized
       ? "capitalize"
       : isUppercase

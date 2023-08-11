@@ -9,6 +9,7 @@ const MultiSelectMenuButton = {
   ],
   baseStyle: ({ hasSelectedItems = false, isOpen = false }) => ({
     buttonLabel: {
+      color: isOpen ? "ui.typography.heading" : "ui.typography.body",
       justifyContent: "flex-start",
       overflow: "hidden",
       marginLeft: hasSelectedItems ? "50px" : "0",
@@ -17,6 +18,9 @@ const MultiSelectMenuButton = {
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
       transition: "margin 150ms ease-out",
+      _dark: {
+        color: isOpen ? "dark.ui.typography.heading" : "dark.ui.typography.body",
+      }
     },
     menuButton: {
       alignItems: "center",

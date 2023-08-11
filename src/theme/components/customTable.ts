@@ -80,7 +80,7 @@ export const baseCellStyles = (
       bg: columnHeadersBackgroundColor
         ? columnHeadersBackgroundColor
         : undefined,
-      color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
+      color: columnHeadersTextColor ? columnHeadersTextColor : "ui.typography.heading",
       fontWeight: "medium",
       paddingStart:
         columnHeadersBackgroundColor || showRowDividers || useRowHeaders
@@ -106,7 +106,7 @@ export const baseTHStyles = (
     showRowDividers,
     useRowHeaders
   ),
-  color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
+  color: columnHeadersTextColor ? columnHeadersTextColor : "ui.typography.heading",
   fontWeight: "medium",
   textTransform: "capitalize",
   _first: {
@@ -156,15 +156,15 @@ export const baseStyle = ({
 }: BaseStyleProps) => ({
   // Headers `th` can be rendered as the first cell in every row through the
   // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
-  // with a custom color, the row header `th` in the `tbody` should always
-  // have text color black for light color mode and `dark.ui.typography.heading`
-  // for dark color mode.
+  // with a custom color, the row header `th` in the `tbody` should always have
+  // text color `ui.typography.heading` for light color mode and
+  // `dark.ui.typography.heading` for dark color mode.
   tbody: {
     th: {
       backgroundColor: useRowHeaders
         ? { base: "ui.gray.x-light-cool", md: "unset" }
         : undefined,
-      color: "ui.black",
+      color: "ui.typography.heading",
       verticalAlign: "top",
       _dark: {
         backgroundColor: useRowHeaders
@@ -199,7 +199,7 @@ export const baseStyle = ({
   ),
   caption: {
     captionSide: "top",
-    color: "ui.black",
+    color: "ui.typography.body",
     fontSize: "heading.secondary",
     fontWeight: "heading.secondary",
     marginBottom: "s",

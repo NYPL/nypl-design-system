@@ -37,6 +37,10 @@ const FeedbackBox = {
     drawerContent: {
       marginStart: "auto",
       width: { base: "100%", md: "375px" },
+      aside: {
+        color: "ui.typography.heading",
+        _dark: { color: "dark.ui.typography.heading" },
+      },
     },
     drawerHeader: {
       alignItems: "baseline",
@@ -44,6 +48,7 @@ const FeedbackBox = {
       borderBottomWidth: "1px",
       borderLeftWidth: { base: undefined, md: "1px" },
       borderTopWidth: "1px",
+      color: "ui.typography.heading",
       display: "flex",
       fontSize: "text.default",
       px: "m",
@@ -55,6 +60,7 @@ const FeedbackBox = {
       _dark: {
         background: "dark.ui.bg.hover",
         borderColor: "dark.ui.border.default",
+        color: "dark.ui.typography.heading",
       },
     },
     openButton: {

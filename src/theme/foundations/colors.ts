@@ -187,11 +187,11 @@ const colors: Colors = {
       hover: grayDark,
     },
     typography: {
-      heading: black,
-      body: black,
+      heading: grayxxxxDark,
+      body: grayxxDark,
       inverse: {
-        heading: white,
-        body: white,
+        heading: grayLightCool,
+        body: grayMedium,
       },
     },
     // Grayscale
@@ -272,8 +272,8 @@ const colors: Colors = {
         heading: grayLightCool,
         body: grayMedium,
         inverse: {
-          heading: grayxxxDark,
-          body: grayxxxDark,
+          heading: grayxxxxDark,
+          body: grayxxDark,
         },
       },
     },

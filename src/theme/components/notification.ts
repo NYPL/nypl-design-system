@@ -57,7 +57,7 @@ const Notification = {
         border: "none",
         bgColor: "inherit",
         alignItems: "center",
-        color: "ui.black",
+        color: "ui.typography.heading",
         display: "flex",
         h: "32px",
         w: "32px",
@@ -69,7 +69,7 @@ const Notification = {
           marginTop: "0",
         },
         _dark: {
-          color: "dark.ui.typography.body",
+          color: "dark.ui.typography.heading",
         },
         _hover: {
           bg: "inherit",
@@ -133,7 +133,7 @@ const NotificationHeading = {
     isCentered,
     notificationType,
   }: NotificationHeadingBaseStyle) => {
-    let color = "ui.black";
+    let color = "ui.typography.heading";
     if (notificationType === "announcement") {
       color = "section.research.secondary";
     } else if (notificationType === "warning") {

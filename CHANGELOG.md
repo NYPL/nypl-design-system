@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates underline styles of the `Link` component.
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
+- Updates all components that render text to use the `Typoe2023` color scheme.
 
 ## 1.7.0 (July 20, 2023)
 

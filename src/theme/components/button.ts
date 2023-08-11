@@ -164,7 +164,7 @@ export const pill = ({ buttonSize = "medium" }) => ({
   border: "1px solid",
   borderColor: "ui.border.default",
   borderRadius: "button.pill",
-  color: "inherit",
+  color: "ui.typography.heading",
   ...generalSizeValues(buttonSize, true),
   _hover: {
     bg: "ui.gray.xx-light-cool",

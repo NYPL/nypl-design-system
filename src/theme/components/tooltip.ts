@@ -7,7 +7,7 @@ const Tooltip = {
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
     boxShadow: "none",
-    color: "ui.white",
+    color: "ui.typography.inverse.body",
     fontSize: "text.tag",
     marginBottom: "xxs",
     maxWidth: "240px",
@@ -15,6 +15,7 @@ const Tooltip = {
     py: "xs",
     _dark: {
       [$bg.variable]: "colors.ui.gray.x-dark",
+      color: "dark.ui.typography.heading",
     },
   },
 };

@@ -10,7 +10,7 @@ const global = {
   body: {
     boxSizing: "border-box",
     bg: "ui.white",
-    color: "ui.black",
+    color: "ui.typography.body",
     fontFamily: "body",
     fontSize: "text.default",
     fontWeight: "text.default",

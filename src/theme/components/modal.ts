@@ -15,6 +15,8 @@ const Modal = {
       },
     },
     header: {
+      color: "ui.typography.heading",
+      fontWeight: "medium",
       _dark: {
         color: "dark.ui.typography.heading",
       },

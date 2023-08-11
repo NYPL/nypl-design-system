@@ -72,6 +72,7 @@ export const baseDescriptionStyles = {
   dt: {
     borderTop: "1px solid",
     borderColor: "ui.border.default",
+    color: "ui.typography.heading",
     fontWeight: "label.default",
     paddingBottom: { base: "0", md: "s" },
     paddingTop: "s",
