@@ -19,8 +19,10 @@ const MultiSelectMenuButton = {
       whiteSpace: "nowrap",
       transition: "margin 150ms ease-out",
       _dark: {
-        color: isOpen ? "dark.ui.typography.heading" : "dark.ui.typography.body",
-      }
+        color: isOpen
+          ? "dark.ui.typography.heading"
+          : "dark.ui.typography.body",
+      },
     },
     menuButton: {
       alignItems: "center",

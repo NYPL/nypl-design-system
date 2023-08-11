@@ -80,7 +80,9 @@ export const baseCellStyles = (
       bg: columnHeadersBackgroundColor
         ? columnHeadersBackgroundColor
         : undefined,
-      color: columnHeadersTextColor ? columnHeadersTextColor : "ui.typography.heading",
+      color: columnHeadersTextColor
+        ? columnHeadersTextColor
+        : "ui.typography.heading",
       fontWeight: "medium",
       paddingStart:
         columnHeadersBackgroundColor || showRowDividers || useRowHeaders
@@ -106,7 +108,9 @@ export const baseTHStyles = (
     showRowDividers,
     useRowHeaders
   ),
-  color: columnHeadersTextColor ? columnHeadersTextColor : "ui.typography.heading",
+  color: columnHeadersTextColor
+    ? columnHeadersTextColor
+    : "ui.typography.heading",
   fontWeight: "medium",
   textTransform: "capitalize",
   _first: {

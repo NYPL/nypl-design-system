@@ -130,7 +130,7 @@ export const Pagination = chakra(
       // The current page link has different styles.
       const currentStyles = isSelectedPage
         ? {
-          color: "ui.typography.body",
+            color: "ui.typography.body",
             pointerEvent: "none",
             _dark: {
               color: "dark.ui.typography.body",
