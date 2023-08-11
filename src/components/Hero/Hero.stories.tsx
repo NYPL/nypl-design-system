@@ -44,6 +44,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   decorators: [withDesign],
   argTypes: {
+    backdropBackgroundColor: { control: false },
     backgroundColor: { control: false },
     foregroundColor: { control: false },
     heading: { control: false },
@@ -67,6 +68,7 @@ type Story = StoryObj<typeof Hero>;
  */
 export const WithControls: Story = {
   args: {
+    backdropBackgroundColor: undefined,
     backgroundColor: undefined,
     backgroundImageSrc: undefined,
     foregroundColor: undefined,
