@@ -107,6 +107,10 @@ const variants = {
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _hover: {
+      backgroundColor: "ui.link.secondary",
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
