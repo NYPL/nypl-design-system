@@ -36,7 +36,6 @@ describe("Link", () => {
     const utils = render(
       <Link href="#passed-in-link" type="action">
         <Icon
-          className="more-link"
           name="download"
           align="left"
           iconRotation="rotate0"
@@ -45,7 +44,7 @@ describe("Link", () => {
       </Link>
     );
     expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
   });
 
   it("Can pass a link with <a> tag", () => {
@@ -62,7 +61,6 @@ describe("Link", () => {
       <Link type="action">
         <a href="#test2">
           <Icon
-            className="more-link"
             name="download"
             align="left"
             iconRotation="rotate0"
@@ -72,31 +70,47 @@ describe("Link", () => {
       </Link>
     );
     expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
   });
 
   it("Generated back link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="backwards">
-        content
+        link text
       </Link>
     );
-    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
-    expect(
-      utils.container.querySelector(".more-link")?.getAttribute("class")
-    ).toContain("chakra-icon more-link");
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
+    expect(utils.container.querySelector("#link-link-text-direction-icon")).toBeInTheDocument();
   });
 
   it("Generated forwards link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="forwards">
-        content
+        link text
       </Link>
     );
-    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
-    expect(
-      utils.container.querySelector(".more-link")?.getAttribute("class")
-    ).toContain("chakra-icon more-link");
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
+    expect(utils.container.querySelector("#link-link-text-direction-icon")).toBeInTheDocument();
+  });
+  
+  it("Generated external link has icon", () => {
+    const utils = render(
+      <Link href="https://nypl.org" type="external">
+        link text
+      </Link>
+    );
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
+    expect(utils.container.querySelector("#link-link-text-external-icon")).toBeInTheDocument();
+  });
+  
+  it("Generated standalone link has icon", () => {
+    const utils = render(
+      <Link href="#passed-in-link" type="standalone">
+        link text
+      </Link>
+    );
+    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
+    expect(utils.container.querySelector("#link-link-text-standalone-icon")).toBeInTheDocument();
   });
 
   it("Can pass in text as child and url as props", () => {
@@ -256,7 +270,6 @@ describe("Link", () => {
         <Link href="#passed-in-link" id="icon-link" type="action">
           <Icon
             align="left"
-            className="more-link"
             iconRotation="rotate0"
             id="link-icon"
             name="download"

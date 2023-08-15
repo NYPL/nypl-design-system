@@ -23,9 +23,9 @@ exports[`Link renders the UI snapshot correctly 2`] = `
   Forwards
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
-    id="forwards-link-icon"
+    id="forwards-link-direction-icon"
     role="img"
     title="arrow icon"
     viewBox="0 0 24 24"
@@ -66,9 +66,9 @@ exports[`Link renders the UI snapshot correctly 3`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
-    id="backwards-link-icon"
+    id="backwards-link-direction-icon"
     role="img"
     title="arrow icon"
     viewBox="0 0 24 24"
@@ -116,9 +116,9 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   </span>
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
-    id="external-link-icon"
+    id="external-link-external-icon"
     role="img"
     title="External link"
     viewBox="0 0 24 24"
@@ -160,11 +160,11 @@ exports[`Link renders the UI snapshot correctly 5`] = `
   Standalone
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
-    id="standalone-link-icon"
+    id="standalone-link-standalone-icon"
     role="img"
-    title="Navigation link"
+    title="Navigation arrow"
     viewBox="0 0 24 24"
   >
     <g
@@ -275,7 +275,7 @@ exports[`Link renders the UI snapshot correctly 12`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-1grhd2q"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
     id="link-icon"
     role="img"

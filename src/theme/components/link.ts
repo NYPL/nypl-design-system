@@ -107,6 +107,9 @@ const variants = {
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _hover: {
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
@@ -127,6 +130,9 @@ const variants = {
   buttonPill: {
     ...baseButtonLinkStyles,
     ...pill({}),
+    _hover: {
+      color: "ui.black",
+    },
     _visited: {
       color: "ui.black",
       _dark: {
@@ -137,6 +143,9 @@ const variants = {
   buttonCallout: {
     ...baseButtonLinkStyles,
     ...callout({}),
+    _hover: {
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
@@ -147,6 +156,9 @@ const variants = {
   buttonNoBrand: {
     ...baseButtonLinkStyles,
     ...noBrand({}),
+    _hover: {
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {

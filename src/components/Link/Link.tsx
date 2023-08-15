@@ -2,6 +2,7 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
+import { sanitizeStringForAttribute } from "../../utils/utils";
 
 export const linkTypesArray = [
   "action",
@@ -70,12 +71,11 @@ function getWithDirectionIcon(
     iconAlign = "right";
   }
 
-  const iconId = `${linkId}-icon`;
+  const iconId = `${linkId}-direction-icon`;
 
   icon = (
     <Icon
       align={iconAlign}
-      className="more-link"
       iconRotation={iconRotation}
       id={iconId}
       name="arrow"
@@ -97,7 +97,7 @@ function getExternalExtraElements(
   linkId: string,
   styles: object
 ) {
-  const iconId = `${linkId}-icon`;
+  const iconId = `${linkId}-external-icon`;
   const extraElements = (
     <>
       <Box as="span" __css={styles}>
@@ -105,7 +105,6 @@ function getExternalExtraElements(
       </Box>
       <Icon
         align={"right"}
-        className="more-link"
         id={iconId}
         name="actionLaunch"
         size="medium"
@@ -123,19 +122,16 @@ function getExternalExtraElements(
 }
 
 function getStandaloneIcon(children: JSX.Element, linkId: string) {
-  const iconId = `${linkId}-icon`;
+  const iconId = `${linkId}-standalone-icon`;
   const extraElements = (
-    <>
-      <Icon
-        align={"right"}
-        className="more-link"
-        iconRotation="rotate270"
-        id={iconId}
-        name="arrow"
-        size="xsmall"
-        title="Navigation link"
-      />
-    </>
+    <Icon
+      align={"right"}
+      iconRotation="rotate270"
+      id={iconId}
+      name="arrow"
+      size="xsmall"
+      title="Navigation arrow"
+    />
   );
 
   return (
@@ -211,20 +207,24 @@ export const Link = chakra(
     const rel = type === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       type === "external" ? "_blank" : target ? target : null;
-    // Render with specific direction arrows if the type is
-    // "forwards" or "backwards". Or render with the launch icon
-    // if the type is "external". Otherwise, do not add an icon.
+    const sanitizedId = id
+      ? id
+      : sanitizeStringForAttribute(`link-${children as string}`);
+    // Render with specific direction arrows if the type is "forwards" or
+    // "backwards". Or render with the launch icon if the type is "external". Or
+    // render with a smaller right-arrow if the type is "standalone." Otherwise,
+    // do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+        getWithDirectionIcon(children as JSX.Element, type, sanitizedId)) ||
       (type === "external" &&
         getExternalExtraElements(
           children as JSX.Element,
-          id,
+          sanitizedId,
           styles.screenreaderOnly
         )) ||
       (type === "standalone" &&
-        getStandaloneIcon(children as JSX.Element, id)) ||
+        getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;
 
     if (!href) {
