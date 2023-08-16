@@ -35,11 +35,7 @@ describe("Link", () => {
   it("Can pass in an icon and text as children and url as prop", () => {
     const utils = render(
       <Link href="#passed-in-link" type="action">
-        <Icon
-          name="download"
-          align="left"
-          iconRotation="rotate0"
-        />
+        <Icon name="download" align="left" iconRotation="rotate0" />
         Download
       </Link>
     );
@@ -60,11 +56,7 @@ describe("Link", () => {
     const utils = render(
       <Link type="action">
         <a href="#test2">
-          <Icon
-            name="download"
-            align="left"
-            iconRotation="rotate0"
-          />
+          <Icon name="download" align="left" iconRotation="rotate0" />
           Test
         </a>
       </Link>
@@ -80,7 +72,9 @@ describe("Link", () => {
       </Link>
     );
     expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
-    expect(utils.container.querySelector("#link-link-text-direction-icon")).toBeInTheDocument();
+    expect(
+      utils.container.querySelector("#link-link-text-direction-icon")
+    ).toBeInTheDocument();
   });
 
   it("Generated forwards link has icon", () => {
@@ -90,9 +84,11 @@ describe("Link", () => {
       </Link>
     );
     expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
-    expect(utils.container.querySelector("#link-link-text-direction-icon")).toBeInTheDocument();
+    expect(
+      utils.container.querySelector("#link-link-text-direction-icon")
+    ).toBeInTheDocument();
   });
-  
+
   it("Generated external link has icon", () => {
     const utils = render(
       <Link href="https://nypl.org" type="external">
@@ -100,9 +96,11 @@ describe("Link", () => {
       </Link>
     );
     expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
-    expect(utils.container.querySelector("#link-link-text-external-icon")).toBeInTheDocument();
+    expect(
+      utils.container.querySelector("#link-link-text-external-icon")
+    ).toBeInTheDocument();
   });
-  
+
   it("Generated standalone link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="standalone">
@@ -110,7 +108,9 @@ describe("Link", () => {
       </Link>
     );
     expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
-    expect(utils.container.querySelector("#link-link-text-standalone-icon")).toBeInTheDocument();
+    expect(
+      utils.container.querySelector("#link-link-text-standalone-icon")
+    ).toBeInTheDocument();
   });
 
   it("Can pass in text as child and url as props", () => {
