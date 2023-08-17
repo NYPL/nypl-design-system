@@ -30,6 +30,8 @@ export interface TextProps {
   isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
+  /** Optional prop used to explicitly set the ARIA role */
+  role?: string;
   /** Optional prop to control the text styling */
   size?: TextSizes;
 }
@@ -46,6 +48,7 @@ export const Text = chakra(
         isUppercase,
         isLowercase,
         noSpace,
+        role,
         size = "default",
         ...rest
       } = props;
@@ -113,7 +116,13 @@ export const Text = chakra(
       }
 
       return (
-        <ChakraText className={className} ref={ref} sx={styles} {...rest}>
+        <ChakraText
+          className={className}
+          ref={ref}
+          role={role}
+          sx={styles}
+          {...rest}
+        >
           {children}
         </ChakraText>
       );
