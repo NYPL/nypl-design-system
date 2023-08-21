@@ -31,15 +31,15 @@ export const socialMediaDataMap = [
   },
   {
     type: "tiktok",
-    iconName: "socialTicTok",
+    iconName: "socialTikTok",
     labelText: "TikTok",
     url: "tiktok.com/nypl",
   },
   {
-    type: "tumbler",
-    iconName: "socialTumbler",
-    labelText: "Tumbler",
-    url: "tumbler.com/nypl",
+    type: "tumblr",
+    iconName: "socialTumblr",
+    labelText: "Tumblr",
+    url: "tumblr.com/nypl",
   },
   {
     type: "twitter",
