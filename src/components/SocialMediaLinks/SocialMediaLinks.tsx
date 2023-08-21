@@ -7,6 +7,7 @@ import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
+import { socialMediaDataMap } from "./SocialMediaDataMap";
 import React, { forwardRef } from "react";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
@@ -20,7 +21,6 @@ export type SizeType = typeof sizeTypeArray[number];
 
 export const socialMediaLinkTypeArray = [
   "blogs",
-  "error",
   "facebook",
   "instagram",
   "pinterest",
@@ -60,26 +60,7 @@ export interface SocialMediaLinksProps {
   size?: SizeType;
 }
 
-const socialMediaMapData = [
-  {
-    type: "facebook",
-    iconName: "socialFacebook",
-    labelText: "Facebook",
-    url: "facebook.com/nypl",
-  },
-  {
-    type: "twitter",
-    iconName: "socialTwitter",
-    labelText: "Twitter",
-    url: "twitter.com/nypl",
-  },
-  {
-    type: "instagram",
-    iconName: "socialInstagram",
-    labelText: "Instagram",
-    url: "instagram.com/nypl",
-  },
-];
+
 
 /* Accepts an array containing one or more data objects, each representing a social media platform and optional overrides for the label and/or URL.
  *
@@ -101,7 +82,7 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
     }
 
     // Get the dataset for this platform.
-    let thisPlatformArray = socialMediaMapData.filter(
+    let thisPlatformArray = socialMediaDataMap.filter(
       (socialMediaSlice) => socialMediaSlice.type === myPlatform.type
     );
 
@@ -166,7 +147,7 @@ export const SocialMediaLinks = chakra(
     // If linksData has values, use them, else use the entire list of platforms.
     const socialMediaDataArray = linksData
       ? getLinksData(linksData)
-      : socialMediaMapData;
+      : socialMediaDataMap;
 
     // Loop through the platform data array and build an array of links.
     const thisLinksData = [];
