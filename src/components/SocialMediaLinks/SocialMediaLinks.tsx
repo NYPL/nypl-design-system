@@ -60,8 +60,6 @@ export interface SocialMediaLinksProps {
   size?: SizeType;
 }
 
-
-
 /* Accepts an array containing one or more data objects, each representing a social media platform and optional overrides for the label and/or URL.
  *
  *  @returns an array of data objects for each requested platform type that includes type, iconName, labelText and url where the latter two may include values supplied to override the defaults.
