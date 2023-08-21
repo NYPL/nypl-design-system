@@ -101,11 +101,12 @@ export const WithControls: Story = {
       layout={args.layout}
       mainActionLink={args.mainActionLink}
     >
-      <CardHeading level="two" id="main-heading1">
+      <CardHeading
+        level="h3"
+        id="main-heading1"
+        subtitle="Sollicitudin Lorem Tortor Purus Ornare"
+      >
         Optional Header
-      </CardHeading>
-      <CardHeading level="three" id="main-heading2">
-        Sollicitudin Lorem Tortor Purus Ornare
       </CardHeading>
       <CardContent>
         Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -150,7 +151,7 @@ export const ImagePositionColumnCards: Story = {
           src: "//placekitten.com/400/200",
         }}
       >
-        <CardHeading level="three" id="props-heading1">
+        <CardHeading level="h3" id="props-heading1" size="heading4">
           Image on Top (default)
         </CardHeading>
         <CardContent>
@@ -166,7 +167,7 @@ export const ImagePositionColumnCards: Story = {
           src: "//placekitten.com/400/200",
         }}
       >
-        <CardHeading level="three" id="props-heading2">
+        <CardHeading level="h3" id="props-heading2" size="heading4">
           Image on Bottom
         </CardHeading>
         <CardContent>
@@ -190,7 +191,7 @@ export const ImagePositionRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="row-heading1">
+        <CardHeading level="h3" id="row-heading1" size="heading6">
           Image on Left (default)
         </CardHeading>
         <CardContent>
@@ -209,7 +210,7 @@ export const ImagePositionRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="row-heading2">
+        <CardHeading level="h3" id="row-heading2" size="heading6">
           Image on Right
         </CardHeading>
         <CardContent>
@@ -234,11 +235,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column-heading1">
+        <CardHeading
+          level="h3"
+          id="column1-heading"
+          size="heading6"
+          subtitle="Max-Width: 64px"
+        >
           Extra Extra Small Image
-        </CardHeading>
-        <CardHeading level="four" id="column-heading2">
-          Max-Width: 64px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -255,11 +258,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column-heading1">
+        <CardHeading
+          level="h3"
+          id="column2-heading"
+          size="heading6"
+          subtitle="Max-Width: 96px"
+        >
           Extra Small Image
-        </CardHeading>
-        <CardHeading level="four" id="column-heading2">
-          Max-Width: 96px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -276,11 +281,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column-heading1">
+        <CardHeading
+          level="h3"
+          id="column3-heading"
+          size="heading6"
+          subtitle="Max-Width: 165px"
+        >
           Small Image
-        </CardHeading>
-        <CardHeading level="four" id="column-heading2">
-          Max-Width: 165px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -297,11 +304,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column2-heading1">
+        <CardHeading
+          level="h3"
+          id="column4-heading"
+          size="heading6"
+          subtitle="Max-Width: 225px"
+        >
           Medium Image
-        </CardHeading>
-        <CardHeading level="four" id="column2-heading2">
-          Max-Width: 225px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -318,11 +327,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column3-heading1">
+        <CardHeading
+          level="h3"
+          id="column5-heading"
+          size="heading6"
+          subtitle="Max-Width: 360px"
+        >
           Large Image
-        </CardHeading>
-        <CardHeading level="four" id="column3-heading2">
-          Max-Width: 360px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -338,11 +349,13 @@ export const ImageSizeColumnCards: Story = {
         }}
         isCentered
       >
-        <CardHeading level="three" id="column-4heading1">
+        <CardHeading
+          level="h3"
+          id="column6-heading"
+          size="heading6"
+          subtitle="Width: 100%"
+        >
           Default Image
-        </CardHeading>
-        <CardHeading level="four" id="column-4heading2">
-          Width: 100%
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -365,11 +378,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row2-heading1">
+        <CardHeading
+          level="h3"
+          id="row1-heading"
+          size="heading6"
+          subtitle="Max-Width: 64px"
+        >
           Extra Extra Small Image
-        </CardHeading>
-        <CardHeading level="four" id="row2-heading2">
-          Max-Width: 64px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -385,11 +400,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row2-heading1">
+        <CardHeading
+          level="h3"
+          id="row2-heading"
+          size="heading6"
+          subtitle="Max-Width: 96px"
+        >
           Extra Small Image
-        </CardHeading>
-        <CardHeading level="four" id="row2-heading2">
-          Max-Width: 96px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -405,11 +422,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row2-heading1">
+        <CardHeading
+          level="h3"
+          id="row3-heading"
+          size="heading6"
+          subtitle="Max-Width: 165px"
+        >
           Small Image
-        </CardHeading>
-        <CardHeading level="four" id="row2-heading2">
-          Max-Width: 165px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -425,11 +444,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row3-heading2">
+        <CardHeading
+          level="h3"
+          id="row4-heading"
+          size="heading6"
+          subtitle="Max-Width: 225px"
+        >
           Medium Image
-        </CardHeading>
-        <CardHeading level="four" id="row3-heading2">
-          Max-Width: 225px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -446,11 +467,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row4-heading1">
+        <CardHeading
+          level="h3"
+          id="row5-heading"
+          size="heading6"
+          subtitle="Max-Width: 360px"
+        >
           Large Image
-        </CardHeading>
-        <CardHeading level="four" id="row4-heading2">
-          Max-Width: 360px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -467,11 +490,13 @@ export const ImageSizeRowCards: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="three" id="row5-heading2">
+        <CardHeading
+          level="h3"
+          id="row6-heading"
+          size="heading6"
+          subtitle="Max-Width: 225px"
+        >
           Default Image
-        </CardHeading>
-        <CardHeading level="four" id="row5-heading2">
-          Max-Width: 225px
         </CardHeading>
         <CardContent>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -491,11 +516,13 @@ export const CustomImageComponent: Story = {
         component: <Image src="//placekitten.com/400/400" alt="Alt text" />,
       }}
     >
-      <CardHeading level="two" id="img1-heading1">
+      <CardHeading
+        level="h3"
+        id="img1-heading1"
+        size="heading5"
+        subtitle="Subtitle on the card"
+      >
         Card Component with Custom Image Component
-      </CardHeading>
-      <CardHeading level="three" id="img2-heading2">
-        Secondary Heading
       </CardHeading>
       <CardContent>
         Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
@@ -524,13 +551,18 @@ export const HeadingAsLink: Story = {
         src: "//placekitten.com/400/200",
       }}
     >
-      <CardHeading level="three" id="link-heading1" url="http://nypl.org">
+      <CardHeading
+        level="h3"
+        id="link-heading1"
+        size="heading5"
+        subtitle={
+          <>
+            Go to NYPL <Link href="http://nypl.org">home page</Link>.
+          </>
+        }
+        url="http://nypl.org"
+      >
         Go to NYPL home page.
-      </CardHeading>
-      <CardHeading level="four" id="link-heading2">
-        <>
-          Go to NYPL <Link href="http://nypl.org">home page</Link>.
-        </>
       </CardHeading>
       <CardContent>
         This entire `Card` component is clickable, but the links below are still
@@ -560,11 +592,13 @@ export const FullClick: Story = {
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level="three" id="fullclick1-heading1">
+        <CardHeading
+          level="h3"
+          id="fullclick1-heading1"
+          size="heading5"
+          subtitle="Some other subtitle."
+        >
           Go to NYPL home page.
-        </CardHeading>
-        <CardHeading level="four" id="fullclick1-heading2">
-          Some other heading.
         </CardHeading>
         <CardContent>
           This entire `Card` component is clickable, but the links below are
@@ -572,11 +606,11 @@ export const FullClick: Story = {
           clicking with a mouse.
         </CardContent>
         <CardActions>
-          <Link href="#" type="button">
-            Button
+          <Link href="#" type="buttonPrimary">
+            Link Button
           </Link>
-          <Link href="#" type="forwards">
-            Other link
+          <Link href="#" type="buttonSecondary">
+            Other Link
           </Link>
         </CardActions>
       </Card>
@@ -589,7 +623,7 @@ export const FullClick: Story = {
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level="three" id="fullclick2-heading1">
+        <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
           Go to NYPL home page.
         </CardHeading>
         <CardContent>
@@ -608,7 +642,9 @@ export const CardFullClickTurbineExample: Story = {
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/lunar-new-year#above-header-notification"
       >
-        <CardHeading level="four">Lunar New Year Blog</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Lunar New Year Blog
+        </CardHeading>
         <CardContent>
           A basic blog post, including text chracters outside a standard Western
           font-set.
@@ -618,28 +654,36 @@ export const CardFullClickTurbineExample: Story = {
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/blog/doc-chat-forty-two#above-header-notification"
       >
-        <CardHeading level="four">Doc Chat Forty-Two Blog</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Doc Chat Forty-Two Blog
+        </CardHeading>
         <CardContent>A blog post with an array of components.</CardContent>
       </Card>
       <Card
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/homepage#above-header-notification"
       >
-        <CardHeading level="four">Homepage</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Homepage
+        </CardHeading>
         <CardContent>A layout to mimic a basic homepage structure.</CardContent>
       </Card>
       <Card
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/library-registry#above-header-notification"
       >
-        <CardHeading level="four">Library Registry Interface</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Library Registry Interface
+        </CardHeading>
         <CardContent>A POC for the Library Registry admin tools.</CardContent>
       </Card>
       <Card
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/search-and-filter#above-header-notification"
       >
-        <CardHeading level="four">Search and Filter</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Search and Filter
+        </CardHeading>
         <CardContent>
           A functional form to showcase search filtering and content cards.
         </CardContent>
@@ -648,7 +692,9 @@ export const CardFullClickTurbineExample: Story = {
         isBordered
         mainActionLink="https://nypl-ds-test-app.vercel.app/fullPages/sign-up#above-header-notification"
       >
-        <CardHeading level="four">Sign-Up</CardHeading>
+        <CardHeading level="h3" overline="Example" size="heading6">
+          Sign-Up
+        </CardHeading>
         <CardContent>
           A functional form to utilize multiple form input components.
         </CardContent>
@@ -662,7 +708,7 @@ export const CardWithRightSideCardActions: Story = {
     <Card
       imageProps={{
         alt: "Alt text",
-        aspectRatio: "twoByOne",
+        aspectRatio: "square",
         size: "medium",
         src: "//placekitten.com/400/200",
       }}
@@ -670,11 +716,13 @@ export const CardWithRightSideCardActions: Story = {
       isCentered
       layout="row"
     >
-      <CardHeading level="two" id="main-heading1">
+      <CardHeading
+        level="h3"
+        id="main-heading1"
+        size="heading4"
+        subtitle="Sollicitudin Lorem Tortor Purus Ornare"
+      >
         Optional Header
-      </CardHeading>
-      <CardHeading level="three" id="main-heading2">
-        Sollicitudin Lorem Tortor Purus Ornare
       </CardHeading>
       <CardContent>
         Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -712,7 +760,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/400/200",
         }}
       >
-        <CardHeading level="three" id="grid1-heading1">
+        <CardHeading
+          level="h3"
+          id="grid1-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -727,7 +781,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/410/210",
         }}
       >
-        <CardHeading level="three" id="grid2-heading1">
+        <CardHeading
+          level="h3"
+          id="grid2-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -742,7 +802,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/420/220",
         }}
       >
-        <CardHeading level="three" id="grid3-heading1">
+        <CardHeading
+          level="h3"
+          id="grid3-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -757,7 +823,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/430/230",
         }}
       >
-        <CardHeading level="three" id="grid4-heading1">
+        <CardHeading
+          level="h3"
+          id="grid4-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -772,7 +844,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/440/200",
         }}
       >
-        <CardHeading level="three" id="grid5-heading1">
+        <CardHeading
+          level="h3"
+          id="grid5-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -787,7 +865,13 @@ export const GridExample: Story = {
           src: "//placekitten.com/450/200",
         }}
       >
-        <CardHeading level="three" id="grid6-heading1">
+        <CardHeading
+          level="h3"
+          id="grid6-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -811,7 +895,13 @@ export const StackExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="stack1-heading1">
+        <CardHeading
+          level="h3"
+          id="stack1-heading1"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -829,7 +919,13 @@ export const StackExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="stack2-heading2">
+        <CardHeading
+          level="h3"
+          id="stack2-heading2"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -847,7 +943,13 @@ export const StackExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="stack3-heading3">
+        <CardHeading
+          level="h3"
+          id="stack3-heading3"
+          noSpace
+          overline="Cats"
+          size="heading5"
+        >
           Card Heading
         </CardHeading>
         <CardContent>
@@ -865,7 +967,13 @@ export const WithoutImages: Story = {
     <>
       <SimpleGrid columns={3}>
         <Card isBordered>
-          <CardHeading level="three" id="no-img1-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img1-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>
@@ -875,7 +983,13 @@ export const WithoutImages: Story = {
           </CardContent>
         </Card>
         <Card isBordered>
-          <CardHeading level="three" id="no-img2-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img2-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>
@@ -885,7 +999,13 @@ export const WithoutImages: Story = {
           </CardContent>
         </Card>
         <Card isBordered>
-          <CardHeading level="three" id="no-img3-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img3-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>
@@ -898,7 +1018,13 @@ export const WithoutImages: Story = {
       <br />
       <SimpleGrid columns={1}>
         <Card layout="row" isBordered>
-          <CardHeading level="three" id="no-img4-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img4-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>
@@ -911,7 +1037,13 @@ export const WithoutImages: Story = {
           </CardContent>
         </Card>
         <Card layout="row" isBordered>
-          <CardHeading level="three" id="no-img5-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img5-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>
@@ -924,7 +1056,13 @@ export const WithoutImages: Story = {
           </CardContent>
         </Card>
         <Card layout="row" isBordered>
-          <CardHeading level="three" id="no-img6-heading1">
+          <CardHeading
+            level="h3"
+            id="no-img6-heading1"
+            overline="Cards"
+            size="heading4"
+            subtitle="Donec id elit non mi porta gravida at eget metus."
+          >
             Card Heading
           </CardHeading>
           <CardContent>

@@ -23,6 +23,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates underline styles of the `Link` component.
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
+- Updates the `Link` component to explicitly assign the text color for the `"buttonPrimary"` variant `hover` state.
+- Updates the components in the `Basic Content` category to implement the `Typo2023` styles.
 
 ## 1.7.0 (July 20, 2023)
 

@@ -2,6 +2,8 @@ import { Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -19,12 +21,17 @@ const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
 const otherSubHeaderTextLong = (
   <>
-    <Heading level="two" noSpace>
+    <Heading
+      level="h2"
+      size="heading3"
+      subtitle="Lorem Parturient Bibendum Aenean Cras"
+    >
       Subheading
     </Heading>
-    <Text size="caption">Lorem Parturient Bibendum Aenean Cras</Text>
-    <Heading level="three">Subheading</Heading>
-    <Text noSpace>
+    <Heading level="h3" noSpace size="heading6">
+      Subheading
+    </Heading>
+    <Text>
       Donec ullamcorper nulla non metus auctor fringilla. Cras mattis
       consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
       augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -32,6 +39,12 @@ const otherSubHeaderTextLong = (
       felis euismod semper. Donec sed odio dui. Nullam quis risus eget urna
       mollis ornare vel eu leo.
     </Text>
+    <ButtonGroup>
+      <Button id="other-button-example-1">Button</Button>
+      <Button id="other-button-example-2" buttonType="secondary">
+        Button
+      </Button>
+    </ButtonGroup>
   </>
 );
 const imageProps = {
@@ -81,16 +94,25 @@ export const WithControls: Story = {
       <Hero
         {...args}
         backgroundImageSrc="//placekitten.com/2400/800"
-        heading={<Heading level="one" id="1" text="Hero Primary" />}
+        heading={
+          <Heading
+            level="h1"
+            id="1"
+            subtitle="Example Subtitle"
+            text="Hero Primary"
+          />
+        }
         heroType={args.heroType}
-        subHeaderText="Example Subtitle"
+        subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
       />
     )) ||
     (heroSecondaryTypes.includes(args.heroType) && (
       <div className="nypl--books-and-more">
         <Hero
           {...args}
-          heading={<Heading level="one" id="1" text="Hero Secondary" />}
+          heading={
+            <Heading level="h1" id="1" size="heading2" text="Hero Secondary" />
+          }
           heroType={args.heroType}
           imageProps={args.imageProps}
           subHeaderText={secondarySubHeaderText}
@@ -100,7 +122,9 @@ export const WithControls: Story = {
     (args.heroType === "tertiary" && (
       <Hero
         {...args}
-        heading={<Heading level="one" id="1" text="Hero Tertiary" />}
+        heading={
+          <Heading level="h1" id="1" size="heading2" text="Hero Tertiary" />
+        }
         heroType={args.heroType}
         subHeaderText={otherSubHeaderText}
       />
@@ -109,7 +133,7 @@ export const WithControls: Story = {
       <Hero
         {...args}
         backgroundImageSrc="//placekitten.com/2400/800"
-        heading={<Heading level="one" id="1" text="Hero Campaign" />}
+        heading={<Heading level="h1" id="1" text="Hero Campaign" />}
         heroType={args.heroType}
         imageProps={args.imageProps}
         subHeaderText={otherSubHeaderText}
@@ -140,7 +164,16 @@ export const Primary: Story = {
   render: () => (
     <Hero
       backgroundImageSrc="//placekitten.com/1600/800"
-      heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+      heading={
+        <Heading
+          id="primary-hero"
+          level="h1"
+          noSpace
+          overline="Hero Example"
+          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+          text="Hero Primary"
+        />
+      }
       heroType="primary"
     />
   ),
@@ -150,7 +183,12 @@ export const Secondary: Story = {
   render: () => (
     <Hero
       heading={
-        <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+        <Heading
+          level="h1"
+          id="secondary-hero"
+          size="heading2"
+          text="Hero Secondary"
+        />
       }
       heroType="secondary"
       imageProps={imageProps}
@@ -165,8 +203,23 @@ export const Tertiary: Story = {
       <Hero
         heading={
           <Heading
-            level="one"
+            level="h1"
             id="tertiary-hero-subheading"
+            size="heading2"
+            subtitle="This is the subtitle"
+            text="Hero Tertiary with Subtitle & Sub-Heading"
+          />
+        }
+        heroType="tertiary"
+        subHeaderText={otherSubHeaderText}
+      />
+      <br />
+      <Hero
+        heading={
+          <Heading
+            level="h1"
+            id="tertiary-hero-subheading"
+            size="heading2"
             text="Hero Tertiary with Sub-Heading"
           />
         }
@@ -177,9 +230,10 @@ export const Tertiary: Story = {
       <Hero
         heading={
           <Heading
-            level="one"
+            level="h1"
             id="tertiary-hero"
-            text="Hero Tertiary without Sub-Heading text"
+            size="heading2"
+            text="Hero Tertiary without Additional Elements"
           />
         }
         heroType="tertiary"
@@ -201,7 +255,7 @@ export const Campaign: Story = {
           heroType="campaign"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="campaign-hero-default-heading"
               text="Hero Campaign"
             />
@@ -220,8 +274,10 @@ export const Campaign: Story = {
           heroType="campaign"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="campaign-hero-long-text-heading"
+              overline="Example"
+              subtitle="Donec id elit non mi porta gravida at eget metus."
               text="Hero Campaign"
             />
           }
@@ -268,7 +324,12 @@ export const ColorVariations: Story = {
       <Heading id="main-secondary-heading" text="secondary" />
       <Hero
         heading={
-          <Heading level="one" id="main-secondary-hero" text="Secondary" />
+          <Heading
+            level="h1"
+            size="heading2"
+            id="main-secondary-hero"
+            text="Secondary"
+          />
         }
         heroType="secondary"
         imageProps={imageProps}
@@ -276,28 +337,56 @@ export const ColorVariations: Story = {
       />
       <Heading id="books-heading" text="secondaryBooksAndMore" />
       <Hero
-        heading={<Heading level="one" id="books-hero" text="Books and More" />}
+        heading={
+          <Heading
+            level="h1"
+            size="heading2"
+            id="books-hero"
+            text="Books and More"
+          />
+        }
         heroType="secondaryBooksAndMore"
         imageProps={imageProps}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading id="location-heading" text="secondaryLocations" />
       <Hero
-        heading={<Heading level="one" id="locations-hero" text="Locations" />}
+        heading={
+          <Heading
+            level="h1"
+            size="heading2"
+            id="locations-hero"
+            text="Locations"
+          />
+        }
         heroType="secondaryLocations"
         imageProps={imageProps}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading id="research-heading" text="secondaryResearch" />
       <Hero
-        heading={<Heading level="one" id="research-hero" text="Research" />}
+        heading={
+          <Heading
+            level="h1"
+            size="heading2"
+            id="research-hero"
+            text="Research"
+          />
+        }
         heroType="secondaryResearch"
         imageProps={imageProps}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading id="whats-on-heading" text="secondaryWhatsOn" />
       <Hero
-        heading={<Heading level="one" id="whats-on-hero" text="What's On" />}
+        heading={
+          <Heading
+            level="h1"
+            size="heading2"
+            id="whats-on-hero"
+            text="What's On"
+          />
+        }
         heroType="secondaryWhatsOn"
         imageProps={imageProps}
         subHeaderText={secondarySubHeaderText}
