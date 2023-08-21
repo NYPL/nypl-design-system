@@ -1,38 +1,38 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SocialMediaLinks, {
-    borderTypeArray,
-    colorTypeArray,
-    sizeTypeArray,
+  borderTypeArray,
+  colorTypeArray,
+  sizeTypeArray,
 } from "./SocialMediaLinks";
 import { withDesign } from "storybook-addon-designs";
-import {layoutTypesArray} from "../../helpers/types";
+import { layoutTypesArray } from "../../helpers/types";
 
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
   component: SocialMediaLinks,
   decorators: [withDesign],
   argTypes: {
-      borders: {
-          control: { type: "radio" },
-          options: borderTypeArray,
-          table: { defaultValue: { summary: "none" } },
-      },
-      color: {
-          control: { type: "radio" },
-          options: colorTypeArray,
-          table: { defaultValue: { summary: "textDefault" } },
-      },
-      layout: {
-          control: { type: "radio" },
-          options: layoutTypesArray,
-          table: { defaultValue: { summary: "row" } },
-      },
-      showLabels: { table: { defaultValue: { summary: false } } },
-      size: {
-          control: { type: "radio" },
-          options: sizeTypeArray,
-          table: { defaultValue: { summary: "small" } },
-      },
+    borders: {
+      control: { type: "radio" },
+      options: borderTypeArray,
+      table: { defaultValue: { summary: "none" } },
+    },
+    color: {
+      control: { type: "radio" },
+      options: colorTypeArray,
+      table: { defaultValue: { summary: "textDefault" } },
+    },
+    layout: {
+      control: { type: "radio" },
+      options: layoutTypesArray,
+      table: { defaultValue: { summary: "row" } },
+    },
+    showLabels: { table: { defaultValue: { summary: false } } },
+    size: {
+      control: { type: "radio" },
+      options: sizeTypeArray,
+      table: { defaultValue: { summary: "small" } },
+    },
   },
 };
 
@@ -49,29 +49,30 @@ export const Primary: Story = {
 };
 
 export const WithTypes: Story = {
-    render: () => (
-        <SocialMediaLinks
-            linksData={[
-                { type: "facebook" },
-                { type: "instagram" },
-            ]}
-        />
-    ),
+  render: () => (
+    <SocialMediaLinks
+      linksData={[{ type: "facebook" }, { type: "instagram" }]}
+    />
+  ),
 };
 
 export const WithOverrides: Story = {
-    render: () => (
-        <SocialMediaLinks
-            showLabels={true}
-            linksData={[
-                { type: "facebook" },
-                { type: "twitter", url: "twitter.com/elsewhere", labelText: "Alt Twitter" },
-                { type: "instagram" },
-            ]}
-            size={"medium"}
-            color={"link"}
-            borders={"straight"}
-            layout={"row"}
-        />
-    ),
+  render: () => (
+    <SocialMediaLinks
+      showLabels={true}
+      linksData={[
+        { type: "facebook" },
+        {
+          type: "twitter",
+          url: "twitter.com/elsewhere",
+          labelText: "Alt Twitter",
+        },
+        { type: "instagram" },
+      ]}
+      size={"medium"}
+      color={"link"}
+      borders={"straight"}
+      layout={"row"}
+    />
+  ),
 };

@@ -1,14 +1,13 @@
 import {
   chakra,
   useMultiStyleConfig,
-// useColorModeValue,
+  // useColorModeValue,
 } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
-import Icon, {IconSizes} from "../Icons/Icon";
-import {LayoutTypes} from "../../helpers/types"
-import React, {forwardRef} from "react";
-
+import Icon, { IconSizes } from "../Icons/Icon";
+import { LayoutTypes } from "../../helpers/types";
+import React, { forwardRef } from "react";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
 export type BorderType = typeof borderTypeArray[number];
@@ -83,8 +82,8 @@ const socialMediaMapData = [
 ];
 
 /* Accepts an array containing one or more data objects, each representing a social media platform and optional overrides for the label and/or URL.
-*
-*  @returns an array of data objects for each requested platform type that includes type, iconName, labelText and url where the latter two may include values supplied to override the defaults.
+ *
+ *  @returns an array of data objects for each requested platform type that includes type, iconName, labelText and url where the latter two may include values supplied to override the defaults.
  */
 function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   let allData = [];
@@ -110,7 +109,7 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
     let thisPlatformData = thisPlatformArray[0];
 
     // If a url value exists in myPlatform use it, else use the default.
-    let newUrl =  myPlatform.url ?? thisPlatformData.url;
+    let newUrl = myPlatform.url ?? thisPlatformData.url;
 
     // If a labelText value exists in myPlatform use it, else use the default.
     let newLabelText = myPlatform.labelText ?? thisPlatformData.labelText;
@@ -145,19 +144,29 @@ export const SocialMediaLinks = chakra(
     } = props;
 
     // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
-      const styles = useMultiStyleConfig("SocialMediaLinks", {variant: borders, size: size, color: color, layout: layout});
+    const styles = useMultiStyleConfig("SocialMediaLinks", {
+      variant: borders,
+      size: size,
+      color: color,
+      layout: layout,
+    });
 
-
-      if (showLabels && borders === 'circular') {
-        console.error(
-            "NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels are disallowed when also using borders='circular'."
-        );
-        return <p><Icon name={"alertWarningFilled"} size={"xlarge"} color={"red"}/>Error: See Console Log</p>;
-      }
+    if (showLabels && borders === "circular") {
+      console.error(
+        "NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels are disallowed when also using borders='circular'."
+      );
+      return (
+        <p>
+          <Icon name={"alertWarningFilled"} size={"xlarge"} color={"red"} />
+          Error: See Console Log
+        </p>
+      );
+    }
 
     // If linksData has values, use them, else use the entire list of platforms.
-    const socialMediaDataArray = linksData ? getLinksData(linksData) : socialMediaMapData;
-
+    const socialMediaDataArray = linksData
+      ? getLinksData(linksData)
+      : socialMediaMapData;
 
     // Loop through the platform data array and build an array of links.
     const thisLinksData = [];
@@ -169,18 +178,21 @@ export const SocialMediaLinks = chakra(
         case "medium":
           iconSize = "large";
           break;
-         case "large":
+        case "large":
           iconSize = "xlarge";
       }
 
-        const linkData = <Link
-            href={myPlatform.url}
-            key={myPlatform.type}
-            screenreaderOnlyText={!showLabels ? myPlatform.labelText : ""}
-            rel="nofollow noopener noreferrer">
-          <Icon name={myPlatform.iconName} size={iconSize}/>
+      const linkData = (
+        <Link
+          href={myPlatform.url}
+          key={myPlatform.type}
+          screenreaderOnlyText={!showLabels ? myPlatform.labelText : ""}
+          rel="nofollow noopener noreferrer"
+        >
+          <Icon name={myPlatform.iconName} size={iconSize} />
           {showLabels ? <span>{myPlatform.labelText}</span> : ""}
-        </Link>;
+        </Link>
+      );
 
       thisLinksData.push(linkData);
     }); // end socialMediaDataArray foreach
@@ -198,7 +210,7 @@ export const SocialMediaLinks = chakra(
       />
     );
   }),
-{ shouldForwardProp: () => true }
+  { shouldForwardProp: () => true }
 );
 
 export default SocialMediaLinks;

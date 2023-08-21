@@ -1,6 +1,6 @@
 // maybe set the border to always be on, but invisible if prop is set to "none"?
 
-import { StyleFunctionProps } from "@chakra-ui/theme-tools"
+import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 function getRadius(size) {
   let radiusSize = "18px";
@@ -12,12 +12,15 @@ function getRadius(size) {
       radiusSize = "32px";
   }
   return {
-      radiusSize,
+    radiusSize,
   };
 }
 
 function getColor(color) {
-  let ltColor = "ui.typography.heading", dkColor = "dark.ui.typography.heading", ltBgColor, dkBgColor;
+  let ltColor = "ui.typography.heading",
+    dkColor = "dark.ui.typography.heading",
+    ltBgColor,
+    dkBgColor;
 
   switch (color) {
     case "link":
@@ -28,7 +31,7 @@ function getColor(color) {
       ltColor = "ui.typography.inverse.heading";
       dkColor = "dark.ui.typography.inverse.heading";
       ltBgColor = "ui.typography.heading";
-      dkBgColor = "dark.ui.typography.heading"
+      dkBgColor = "dark.ui.typography.heading";
   }
 
   return {
@@ -41,7 +44,7 @@ function getColor(color) {
 
 const SocialMediaLinks = {
   // The parts of the component
-  parts: ['li', 'a', 'svg','span'],
+  parts: ["li", "a", "svg", "span"],
   // The base styles for each part
   baseStyle: {
     // ul styles are not specifically identified as ul:
@@ -74,7 +77,7 @@ const SocialMediaLinks = {
       },
     },
   },
- // The variants are bordered
+  // The variants are bordered
   variants: {
     // Each variant is a function that returns stuff
     straight(props: StyleFunctionProps) {
@@ -155,7 +158,7 @@ const SocialMediaLinks = {
             fill: theseColors.dkColor,
           },
         },
-      }
+      };
     },
   },
   // The default `size` or `variant` values
