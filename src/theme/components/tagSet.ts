@@ -10,7 +10,7 @@ const TagSetFilter = {
     border: "1px solid",
     borderColor: "ui.border.default",
     borderRadius: "pill",
-    color: "ui.black",
+    color: "ui.typography.body",
     cursor: isDismissible ? "pointer" : "auto",
     height: { base: "32px", md: "22px" },
     minHeight: "22px",
@@ -41,7 +41,7 @@ const TagSetFilter = {
       },
     },
     clearAll: {
-      color: "ui.black",
+      color: "ui.typography.body",
       height: { base: "32px", md: "22px" },
       fontSize: "text.tag",
       minHeight: "22px",

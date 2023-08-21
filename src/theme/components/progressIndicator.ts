@@ -17,7 +17,7 @@ const ProgressIndicator = {
   ],
   baseStyle: ({ darkMode, size }: ProgressIndicatorBaseStyle) => {
     return {
-      color: darkMode ? "ui.white" : "ui.black",
+      color: darkMode ? "dark.ui.typography.heading" : "ui.typography.heading",
       _dark: {
         color: "dark.ui.typography.heading",
       },
