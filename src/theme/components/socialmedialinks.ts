@@ -58,12 +58,10 @@ const SocialMediaLinks = {
     a: {
       display: "flex",
       alignItems: "center",
-      gap: "8px",
+      gap: "xs",
       alignSelf: "stretch",
       fontStyle: "normal",
-      fontSize: "14px",
-      fontWeight: "274",
-      lineHeight: "150%",
+      fontSize: "desktop.body.body2",
       textDecoration: "none",
       color: "ui.typography.heading",
       _dark: {

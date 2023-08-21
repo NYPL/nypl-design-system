@@ -44,22 +44,13 @@ type Story = StoryObj<typeof SocialMediaLinks>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
-  render: () => <SocialMediaLinks />,
-};
-
-export const WithTypes: Story = {
-  render: () => (
-    <SocialMediaLinks
-      linksData={[{ type: "facebook" }, { type: "instagram" }]}
-    />
-  ),
+export const WithControls: Story = {
+  render: (args) => <SocialMediaLinks {...args} />,
 };
 
 export const WithOverrides: Story = {
-  render: () => (
+  render: (args) => (
     <SocialMediaLinks
-      showLabels={true}
       linksData={[
         { type: "facebook" },
         {
@@ -69,10 +60,7 @@ export const WithOverrides: Story = {
         },
         { type: "instagram" },
       ]}
-      size={"medium"}
-      color={"link"}
-      borders={"straight"}
-      layout={"row"}
+      {...args}
     />
   ),
 };

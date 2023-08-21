@@ -60,9 +60,11 @@ export interface SocialMediaLinksProps {
   size?: SizeType;
 }
 
-/* Accepts an array containing one or more data objects, each representing a social media platform and optional overrides for the label and/or URL.
+/* Accepts an array containing one or more data objects, each representing a social media platform and optional
+ * overrides for the label and/or URL.
  *
- *  @returns an array of data objects for each requested platform type that includes type, iconName, labelText and url where the latter two may include values supplied to override the defaults.
+ * @returns an array of data objects for each requested platform type that includes type, iconName, labelText and
+ * url. The labelText and url props will include any values supplied to override the defaults.
  */
 function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   let allData = [];
@@ -109,7 +111,8 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
 export const SocialMediaLinks = chakra(
-  forwardRef<HTMLDivElement, SocialMediaLinksProps>((props) => {
+  forwardRef<HTMLDivElement, SocialMediaLinksProps>((props, ref?) => {
+    console.log(ref);
     const {
       borders = "none",
       color = "textDefault",
@@ -125,19 +128,20 @@ export const SocialMediaLinks = chakra(
     // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
     const styles = useMultiStyleConfig("SocialMediaLinks", {
       variant: borders,
-      size: size,
-      color: color,
-      layout: layout,
+      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
+      color,
+      layout,
     });
 
     if (showLabels && borders === "circular") {
+      const errorMessage = "NYPL Reservoir SocialMediaLinks: Labels cannot be displayed with circular borders."
       console.error(
-        "NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels are disallowed when also using borders='circular'."
+        errorMessage
       );
       return (
         <p>
           <Icon name={"alertWarningFilled"} size={"xlarge"} color={"red"} />
-          Error: See Console Log
+          <span> {errorMessage}</span>
         </p>
       );
     }
@@ -149,7 +153,7 @@ export const SocialMediaLinks = chakra(
 
     // Loop through the platform data array and build an array of links.
     const thisLinksData = [];
-    socialMediaDataArray.forEach((myPlatform) => {
+    socialMediaDataArray.forEach((modifiedPlatform) => {
       // The size prop for the Icon component does not exactly match the convention for SocialMediaLinks size prop.
       // So let's set the correct Icon size.
       let iconSize: IconSizes = "medium";
@@ -159,17 +163,18 @@ export const SocialMediaLinks = chakra(
           break;
         case "large":
           iconSize = "xlarge";
+          break;
       }
 
       const linkData = (
         <Link
-          href={myPlatform.url}
-          key={myPlatform.type}
-          screenreaderOnlyText={!showLabels ? myPlatform.labelText : ""}
+          href={modifiedPlatform.url}
+          key={modifiedPlatform.type}
+          screenreaderOnlyText={!showLabels ? modifiedPlatform.labelText : ""}
           rel="nofollow noopener noreferrer"
         >
-          <Icon name={myPlatform.iconName} size={iconSize} />
-          {showLabels ? <span>{myPlatform.labelText}</span> : ""}
+          <Icon name={modifiedPlatform.iconName} size={iconSize} />
+          {showLabels ? <span>{modifiedPlatform.labelText}</span> : null}
         </Link>
       );
 

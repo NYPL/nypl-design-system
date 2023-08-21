@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import Socialmedialinks from "./SocialMediaLinks";
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
 
@@ -9,16 +10,13 @@ import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
 <Description of={SocialMediaLinksStories} />
 
-<Canvas of={SocialMediaLinksStories.Primary} />
+## No Props / Default
 
-## No Type Props
+<Canvas of={SocialMediaLinksStories.WithControls} />
+<ArgTypes of={SocialMediaLinksStories.WithControls} />
 
 
-
-## Includes specific types
-
-<Canvas of={SocialMediaLinksStories.WithTypes} />
-
-## Includes overrides for url and labelText props and requires labels
+## With Override Props
 
 <Canvas of={SocialMediaLinksStories.WithOverrides} />
+
