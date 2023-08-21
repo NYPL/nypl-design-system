@@ -1,150 +1,179 @@
-// Variant styling
-const blogs = {
-  bg: "section.blogs.secondary",
-  color: "ui.black",
-  _dark: {
-    bg: "dark.section.blogs.secondary",
-  },
-  a: {
-    _hover: {
-      color: "ui.gray.xx-dark",
+// maybe set the border to always be on, but invisible if prop is set to "none"?
+
+import { StyleFunctionProps } from "@chakra-ui/theme-tools"
+
+function getRadius(size) {
+  let radiusSize = "18px";
+  switch (size) {
+    case "medium":
+      radiusSize = "24px";
+      break;
+    case "large":
+      radiusSize = "32px";
+  }
+  return {
+      radiusSize,
+  };
+}
+
+function getColor(color) {
+  let ltColor = "ui.typography.heading", dkColor = "dark.ui.typography.heading", ltBgColor, dkBgColor;
+
+  switch (color) {
+    case "link":
+      ltColor = "ui.link.primary";
+      dkColor = "dark.ui.link.primary";
+      break;
+    case "textInverse":
+      ltColor = "ui.typography.inverse.heading";
+      dkColor = "dark.ui.typography.inverse.heading";
+      ltBgColor = "ui.typography.heading";
+      dkBgColor = "dark.ui.typography.heading"
+  }
+
+  return {
+    ltColor,
+    dkColor,
+    ltBgColor,
+    dkBgColor,
+  };
+}
+
+const SocialMediaLinks = {
+  // The parts of the component
+  parts: ['li', 'a', 'svg','span'],
+  // The base styles for each part
+  baseStyle: {
+    // ul styles are not specifically identified as ul:
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: "8px",
+    li: {
+      padding: "8px",
     },
-    _dark: {
-      _hover: {
+    a: {
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      alignSelf: "stretch",
+      fontStyle: "normal",
+      fontSize: "14px",
+      fontWeight: "274",
+      lineHeight: "150%",
+      textDecoration: "none",
+      color: "ui.typography.heading",
+      _dark: {
         color: "dark.ui.typography.heading",
       },
     },
-  },
-  "li:last-child": {
-    ".chakra-breadcrumb__link": {
-      _hover: {
-        // Override the default hover color.
-        color: "ui.black",
+    svg: {
+      fill: "ui.typography.heading",
+      _dark: {
+        fill: "dark.ui.typography.heading",
       },
     },
   },
-  svg: {
-    fill: "ui.black",
-  },
-};
-const booksAndMore = {
-  bg: "section.books-and-more.secondary",
-  _dark: {
-    bg: "dark.section.books-and-more.secondary",
-  },
-};
-const brand = {
-  bg: "brand.secondary",
-  _dark: {
-    bg: "dark.brand.secondary",
-  },
-};
-const connect = {
-  bg: "section.connect.secondary",
-  _dark: {
-    bg: "dark.section.connect.secondary",
-  },
-};
-const education = {
-  bg: "section.education.secondary",
-  _dark: {
-    bg: "dark.section.education.secondary",
-  },
-};
-const locations = {
-  bg: "section.locations.primary",
-  _dark: {
-    bg: "dark.section.locations.primary",
-  },
-};
-const research = {
-  bg: "section.research.secondary",
-  _dark: {
-    bg: "dark.section.research.secondary",
-  },
-};
-const whatsOn = {
-  bg: "section.whats-on.secondary",
-  _dark: {
-    bg: "dark.section.whats-on.secondary",
-  },
-};
-
-const Breadcrumb = {
-  baseStyle: {
-    bg: "ui.black",
-    color: "ui.white",
-    fontSize: "desktop.breadcrumbs.default",
-    fontWeight: "breadcrumbs.default",
-    paddingBottom: "xs",
-    paddingTop: "xs",
-    _dark: {
-      bg: "dark.ui.bg.hover",
-      color: "dark.ui.typography.heading",
-    },
-    ol: {
-      alignItems: { base: "center", md: "unset" },
-      display: { base: "flex", md: "block" },
-      margin: "auto",
-      maxWidth: "1280px",
-      paddingStart: "s",
-      paddingEnd: "s",
-    },
-    a: {
-      _hover: {
-        color: "ui.gray.light-cool",
-      },
-    },
-    "li:last-child": {
-      fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
-      ".chakra-breadcrumb__link": {
-        _hover: {
-          // Override the default hover color.
-          color: "ui.white",
-          cursor: "default",
-          textDecoration: "none",
-        },
-        _dark: {
-          _hover: {
-            color: "dark.ui.typography.heading",
+ // The variants are bordered
+  variants: {
+    // Each variant is a function that returns stuff
+    straight(props: StyleFunctionProps) {
+      const { color, layout } = props;
+      let theseColors = getColor(color);
+      return {
+        flexDirection: layout,
+        li: {
+          borderRadius: "2px",
+          borderWidth: "2px",
+          borderStyle: "solid",
+          borderColor: theseColors.ltColor,
+          _dark: {
+            borderColor: theseColors.dkColor,
           },
         },
-      },
-      ".icon": {
-        display: "none",
-      },
+        a: {
+          color: theseColors.ltColor,
+          _dark: {
+            borderColor: theseColors.dkColor,
+          },
+        },
+        svg: {
+          fill: theseColors.ltColor,
+          _dark: {
+            borderColor: theseColors.dkColor,
+          },
+        },
+      };
     },
-    "li:not(:last-child)": {
-      display: { base: "none", md: "inline-block" },
-      a: {
-        marginEnd: { base: "xs", md: "0" },
-      },
-      ".icon": {
-        display: { base: "inline", md: "none" },
-      },
-      "span:not(.breadcrumb-label)": {
-        marginInlineEnd: "xxs",
-        marginInlineStart: "xxs",
-      },
+    circular(props: StyleFunctionProps) {
+      const { color, size, layout } = props;
+      let theseColors = getColor(color);
+      return {
+        flexDirection: layout,
+        bg: theseColors.ltBgColor,
+        _dark: {
+          bg: theseColors.dkBgColor,
+        },
+        li: {
+          borderRadius: getRadius(size).radiusSize,
+          borderColor: theseColors.ltColor,
+          borderWidth: "1px",
+          borderStyle: "solid",
+          _dark: {
+            borderColor: theseColors.dkColor,
+          },
+        },
+        a: {
+          color: theseColors.ltColor,
+          _dark: {
+            color: theseColors.dkColor,
+          },
+        },
+        svg: {
+          fill: theseColors.ltColor,
+          _dark: {
+            fill: theseColors.dkColor,
+          },
+        },
+      };
     },
-    "li:nth-last-of-type(2)": {
-      display: "inline-block",
-      span: {
-        display: { base: "none", md: "inline" },
-      },
+    // Variant 3
+    none(props: StyleFunctionProps) {
+      const { color, layout } = props;
+      let theseColors = getColor(color);
+      return {
+        flexDirection: layout,
+        a: {
+          color: theseColors.ltColor,
+          _dark: {
+            color: theseColors.dkColor,
+          },
+        },
+        svg: {
+          fill: theseColors.ltColor,
+          _dark: {
+            fill: theseColors.dkColor,
+          },
+        },
+      }
     },
   },
-  // Available variants:
-  variants: {
-    blogs,
-    booksAndMore,
-    brand,
-    connect,
-    education,
-    locations,
-    research,
-    whatsOn,
+  // The default `size` or `variant` values
+  defaultProps: {
+    variant: "none",
   },
 };
 
-export default Breadcrumb;
+export default SocialMediaLinks;
+
+// circular: {
+//   li: {
+//
+//     border: "1px solid var(--ui-typography-heading, #191919)",
+//   }
+// },
+// straight: {
+//   li: {
+//     borderRadius: "2px",
+//         border: "1px solid var(--ui-typography-heading, #191919)",}
+// },

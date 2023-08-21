@@ -1,25 +1,24 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
-import Link from "../Link/Link";
+
 
 <Meta of={SocialMediaLinksStories} />
 
-This is a proof of concept that passing social media platform names and urls will generate links and icons. Styling
-is not included in this proof.
+## Overview
 
-## No Type Props
+<Description of={SocialMediaLinksStories} />
 
 <Canvas of={SocialMediaLinksStories.Primary} />
 
-## Type Props as Strings
+## No Type Props
+
+
+
+## Includes specific types
 
 <Canvas of={SocialMediaLinksStories.WithTypes} />
 
-## Structured Type Props with URL Override
+## Includes overrides for url and labelText props and requires labels
 
-<Canvas of={SocialMediaLinksStories.WithUrls} />
-
-## Mix of Structured and String Props with URL Override
-
-<Canvas of={SocialMediaLinksStories.WithMix} />
+<Canvas of={SocialMediaLinksStories.WithOverrides} />
