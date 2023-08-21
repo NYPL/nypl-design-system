@@ -107,6 +107,10 @@ const variants = {
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _hover: {
+      backgroundColor: "ui.link.secondary",
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
@@ -127,6 +131,9 @@ const variants = {
   buttonPill: {
     ...baseButtonLinkStyles,
     ...pill({}),
+    _hover: {
+      color: "ui.black",
+    },
     _visited: {
       color: "ui.black",
       _dark: {
@@ -137,6 +144,9 @@ const variants = {
   buttonCallout: {
     ...baseButtonLinkStyles,
     ...callout({}),
+    _hover: {
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
@@ -147,6 +157,9 @@ const variants = {
   buttonNoBrand: {
     ...baseButtonLinkStyles,
     ...noBrand({}),
+    _hover: {
+      color: "ui.white",
+    },
     _visited: {
       color: "ui.white",
       _dark: {
@@ -175,9 +188,9 @@ const variants = {
 };
 const Link = {
   parts: ["screenreaderOnly"],
-  baseStyle: ({ isUnderlined = true }) => ({
+  baseStyle: ({ finalIsUnderlined = true }) => ({
     ...baseLinkStyles,
-    textDecoration: isUnderlined ? "underline" : "none",
+    textDecoration: finalIsUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
      * that are passed as children to the `Link` component. */
     a: {

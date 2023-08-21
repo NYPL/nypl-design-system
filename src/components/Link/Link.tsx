@@ -2,6 +2,7 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
+import { sanitizeStringForAttribute } from "../../utils/utils";
 
 export const linkTypesArray = [
   "action",
@@ -18,6 +19,7 @@ export const linkTypesArray = [
   "default",
   "external",
   "forwards",
+  "standalone",
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
@@ -30,7 +32,9 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
-  /** If true, link text will always be underlined; if false, only in hover state. `true` by default. */
+  /** Used to explicitly set the underline style for a text link. If true, link
+   * text will always be underlined; if false, link text will only show
+   * underline in hover state. */
   isUnderlined?: boolean;
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
@@ -39,7 +43,8 @@ export interface LinkProps {
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
-  /** Controls the link visuals: action, button, backwards, forwards, or default. */
+  /** Controls the link visuals: action, button, backwards, forwards,
+   * standalone, or default. */
   type?: LinkTypes;
 }
 
@@ -66,12 +71,11 @@ function getWithDirectionIcon(
     iconAlign = "right";
   }
 
-  const iconId = `${linkId}-icon`;
+  const iconId = `${linkId}-direction-icon`;
 
   icon = (
     <Icon
       align={iconAlign}
-      className="more-link"
       iconRotation={iconRotation}
       id={iconId}
       name="arrow"
@@ -93,7 +97,7 @@ function getExternalExtraElements(
   linkId: string,
   styles: object
 ) {
-  const iconId = `${linkId}-icon`;
+  const iconId = `${linkId}-external-icon`;
   const extraElements = (
     <>
       <Box as="span" __css={styles}>
@@ -101,13 +105,33 @@ function getExternalExtraElements(
       </Box>
       <Icon
         align={"right"}
-        className="more-link"
         id={iconId}
         name="actionLaunch"
         size="medium"
         title="External link"
       />
     </>
+  );
+
+  return (
+    <>
+      {children}
+      {extraElements}
+    </>
+  );
+}
+
+function getStandaloneIcon(children: JSX.Element, linkId: string) {
+  const iconId = `${linkId}-standalone-icon`;
+  const extraElements = (
+    <Icon
+      align={"right"}
+      iconRotation="rotate270"
+      id={iconId}
+      name="arrow"
+      size="xsmall"
+      title="Navigation arrow"
+    />
   );
 
   return (
@@ -129,13 +153,21 @@ export const Link = chakra(
       className,
       href,
       id,
-      isUnderlined = true,
+      isUnderlined,
       onClick,
       screenreaderOnlyText,
       target,
       type = "default",
       ...rest
     } = props;
+
+    // Set initial underline style for certain variants
+    const finalIsUnderlined =
+      type === "backwards" || type === "forwards" || type === "standalone"
+        ? isUnderlined
+          ? true
+          : false
+        : true;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
@@ -155,9 +187,10 @@ export const Link = chakra(
 
     if (
       type === "action" ||
-      type === "forwards" ||
       type === "backwards" ||
-      type === "external"
+      type === "external" ||
+      type === "forwards" ||
+      type === "standalone"
     ) {
       variant = "moreLink";
     } else if (type.includes("button")) {
@@ -170,22 +203,28 @@ export const Link = chakra(
       // }
       variant = type;
     }
-    const styles = useMultiStyleConfig("Link", { variant, isUnderlined });
+    const styles = useMultiStyleConfig("Link", { variant, finalIsUnderlined });
     const rel = type === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       type === "external" ? "_blank" : target ? target : null;
-    // Render with specific direction arrows if the type is
-    // "forwards" or "backwards". Or render with the launch icon
-    // if the type is "external". Otherwise, do not add an icon.
+    const sanitizedId = id
+      ? id
+      : sanitizeStringForAttribute(`link-${children as string}`);
+    // Render with specific direction arrows if the type is "forwards" or
+    // "backwards". Or render with the launch icon if the type is "external". Or
+    // render with a smaller right-arrow if the type is "standalone." Otherwise,
+    // do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+        getWithDirectionIcon(children as JSX.Element, type, sanitizedId)) ||
       (type === "external" &&
         getExternalExtraElements(
           children as JSX.Element,
-          id,
+          sanitizedId,
           styles.screenreaderOnly
         )) ||
+      (type === "standalone" &&
+        getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;
 
     if (!href) {
