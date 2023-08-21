@@ -8,9 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 1.7.1 (August 17, 2023)
+
 ### Adds
 
-- Adds the "TikTok" option to the `Icon` component.
+- Adds the `"TikTok"` option to the `Icon` component.
+- Adds the `role` prop to the `Text` component.
+- Adds the `backdropBackgroundColor` prop to the `Hero` component for the `"campaign"` `heroType` variant.
+
+### Updates
+
+- Updates the ARIA attributes for the `overline` and `subtitle` elements in the `Heading` component.
+- Updates the docs for the `Text` component and the `Typography Style Guide` to include more information about the `Typography 2023` updates.
 
 ## 1.7.0 (July 20, 2023)
 
