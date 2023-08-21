@@ -12,6 +12,7 @@ const meta: Meta<typeof Link> = {
   decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
+    isUnderlined: { table: { defaultValue: { summary: "true" } } },
     key: { table: { disable: true } },
     ref: { table: { disable: true } },
     target: { control: false },
@@ -55,6 +56,51 @@ export const Accessibility: Story = {
     <Link type="external" href="https://nypl.org">
       NYPL Website
     </Link>
+  ),
+};
+export const AllLinkTypes: Story = {
+  render: () => (
+    <VStack spacing="l" align="flex-start">
+      <Link type="default" href="#passed-in-link">
+        Default
+      </Link>
+      <Link type="action" href="#passed-in-link">
+        Action
+      </Link>
+      <Link type="external" href="#passed-in-link">
+        External
+      </Link>
+      <Link type="standalone" href="#passed-in-link">
+        Standalone
+      </Link>
+      <Link type="backwards" href="#passed-in-link">
+        Backwards
+      </Link>
+      <Link type="forwards" href="#passed-in-link">
+        Forwards
+      </Link>
+      <Link type="buttonPrimary" href="#passed-in-link">
+        Button Primary
+      </Link>
+      <Link type="buttonSecondary" href="#passed-in-link">
+        Button Secondary
+      </Link>
+      <Link type="buttonPill" href="#passed-in-link">
+        Button Pill
+      </Link>
+      <Link type="buttonCallout" href="#passed-in-link">
+        Button Callout
+      </Link>
+      <Link type="buttonNoBrand" href="#passed-in-link">
+        Button No Brand
+      </Link>
+      <Link type="buttonDisabled" href="#passed-in-link">
+        Button Disabled
+      </Link>
+      <Link type="button" href="#passed-in-link" width="auto">
+        Button (deprecated)
+      </Link>
+    </VStack>
   ),
 };
 export const LinksWithIcons: Story = {

@@ -20,6 +20,7 @@ import * as LinkStories from "./Link.stories";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#all-link-types" target="_self">All Link Types</Link>}
 - {<Link href="#links-with-icons" target="_self">Links With Icons</Link>}
 - {<Link href="#anchor-element-rendering" target="_self">Anchor Element Rendering</Link>}
 - {<Link href="#link-with-routers" target="_self">Link with Routers</Link>}
@@ -36,9 +37,17 @@ import * as LinkStories from "./Link.stories";
 
 ## Accessibility
 
-The `Link` component should be used for navigation. If an `onClick` user
-interface action is required, a `Button` component should be used instead. The
-`Link` component renders an `<a>` element with the `href` attribute.
+The `Link` component renders an `<a>` element with the `href` attribute, so the
+`Link` component should be used for navigation. If an `onClick` action is
+required, a `Button` component should be used instead. In simple terms, a link
+goes somewhere and a button does something.
+
+Despite these best practices and recommendations, it is possible to pass an
+`onClick` prop to the `Link` component because there are some very specific use
+cases within NYPL web apps that require this. Additionally, the `onclick`
+attribute (intentially all lowercase) is a native HTML pattern that is allowed.
+Having said that, **you are highly urged to not use the `onClick` prop unless
+you know what you are doing**.
 
 The `"external"` variant of the `Link` component includes `"screen reader only"`
 descriptive text to clarify that the link will open in a new tab/window.
@@ -52,12 +61,44 @@ add additional text to the link that is only visible to screen readers. This can
 be used to provide additional context to the link when the text is short, such
 as visible "Read more..." text.
 
+For details about NYPL link patterns, refer to the [Links Accessibility
+Guide](/?path=/docs/accessibility-guide-links--docs).
+
 Resources:
 
 - [W3C WAI Link Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/link/link.html)
 - [Yale Usability & Web Accessibility Links](https://usability.yale.edu/web-accessibility/articles/links)
 - [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
 - [IANA: Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+
+## All Link Types
+
+The `Link` component offers multiple variants for differing UX situations.
+
+Use the `default` and `action` variants for text links that sit within a block
+of plain (unlinked) text — a paragraph, a single sentence, or even just a few
+words — and point to other pages within the current website.
+
+Use the `external` variant for text links that sit within a block of plain
+(unlinked) text and point to something outside the current website. This variant
+will open a new browser tab by default.
+
+Use the `standalone` variant for text links that sit alone within the page
+content area. For example, a Read More link at the end of a short description or
+a View In Catalog link on a book detail page. The `backawards` and `forwards`
+variants should be used for specific situations when navigating through a series
+or related pages.
+
+Use the button variants when a link needs to be highlighted or emphasized within
+a CTA element. For example, a link to a book detail page from cards within a
+search results set. Please note that the actual `button` variant has been
+deprecated.
+
+IMPORTANT: Links that look like buttons should still act like links and not act
+like buttons. Refer to the <Link href="#accessibility"
+target="_self">Accessibility</Link> section above for clarification. 
+
+<Canvas of={LinkStories.AllLinkTypes} />
 
 ## Links With Icons
 
