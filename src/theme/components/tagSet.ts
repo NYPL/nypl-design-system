@@ -18,7 +18,7 @@ const TagSetFilter = {
     py: "xxxs",
     paddingLeft: "s",
     paddingRight: isDismissible ? { base: "8px", md: "6px" } : "s",
-    fontSize: "text.tag",
+    fontSize: "desktop.caption",
     "> span": {
       display: "inline-block",
       overflow: "hidden",
@@ -43,7 +43,7 @@ const TagSetFilter = {
     clearAll: {
       color: "ui.typography.body",
       height: { base: "32px", md: "22px" },
-      fontSize: "text.tag",
+      fontSize: "desktop.caption",
       minHeight: "22px",
       _dark: {
         color: "dark.ui.typography.heading",
@@ -63,7 +63,7 @@ const TagSetExplore = {
     borderRadius: "pill",
     color: "ui.link.primary",
     cursor: "pointer",
-    fontSize: "text.tag",
+    fontSize: "desktop.caption",
     height: { base: "32px", md: "22px" },
     minHeight: "22px",
     maxWidth: "200px",

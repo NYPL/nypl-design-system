@@ -68,7 +68,7 @@ const MultiSelectMenuButton = {
       borderColor: isOpen ? "ui.border.hover" : "ui.border.default",
       display: "flex",
       flexShrink: 0,
-      fontSize: "text.tag",
+      fontSize: "desktop.caption",
       justifyContent: "flex-end",
       left: "15px",
       marginRight: "xs",

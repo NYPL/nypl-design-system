@@ -50,7 +50,7 @@ const FeedbackBox = {
       borderTopWidth: "1px",
       color: "ui.typography.heading",
       display: "flex",
-      fontSize: "text.default",
+      fontSize: "desktop.body.body1",
       px: "m",
       paddingTop: "s",
       paddingBottom: "s",
