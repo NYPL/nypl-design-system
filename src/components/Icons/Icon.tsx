@@ -11,7 +11,7 @@ import {
   iconAlignArray,
   iconColorsArray,
   iconNamesArray,
-  iconRotationTypesArray,
+  iconRotationsArray,
   iconSizesArray,
   iconTypesArray,
 } from "./iconVariables";
@@ -19,7 +19,7 @@ import {
 export type IconAlign = typeof iconAlignArray[number];
 export type IconColors = typeof iconColorsArray[number];
 export type IconNames = typeof iconNamesArray[number];
-export type IconRotationTypes = typeof iconRotationTypesArray[number];
+export type IconRotations = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
 export type IconTypes = typeof iconTypesArray[number];
 
@@ -34,7 +34,7 @@ export interface IconProps {
    * by default. */
   decorative?: boolean;
   /** Rotates the icon clockwise in increments of 90deg */
-  iconRotation?: IconRotationTypes;
+  iconRotation?: IconRotations;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** The name of the icon you want to use. */
