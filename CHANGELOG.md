@@ -8,7 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-- Updates name `IconRotationTypes` to `IconRotations` to follow naming convention.
+### Updates
+
+- Updates `List` styling so the bottom border on description lists matches other borders.
+- Updates name `IconRotationTypes` to `IconRotations` to follow naming convention. `IconRotationTypes` is now deprecated.
 
 ## 1.7.1 (August 17, 2023)
 
