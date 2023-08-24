@@ -25,12 +25,83 @@ import Link from "../Link/Link";
 
 ## Overview
 
-_Note: This component is going through an accessibility review and is not
-recommended for use until it is updated._
+The `Modal` component is used to focus a user's attention on a piece of information or a specific task via a window
+that overlays the page content. When a modal is activated, user interactions with the page are blocked until a task is
+completed or canceled.
+
+## NYPL Patterns
+
+The `Modal` component should only be used when a user action that has destructive, or irreversible consequences needs
+to be confirmed. Use modal dialogs for important warnings, as a way to prevent or correct critical errors (e.g.
+confirm a cancellation). For example, if a user is canceling a reservation or appointment, a modal can be used to
+confirm that the user intended to cancel the item. With this pattern, modals should always present a cancel button to
+exit out of the modal and a button that will execute the selected action.
+
+When a modal is first activated, it can be very jarring for users, especially users with cognitive disabilities.
+Because of this, the `Modal` component should only be used when a user's direct action activates the modal.
+A modal should never appear out of no where without a user's explicit action to activate the modal.
+For example, a modal should not open on its own three seconds after a page loads. Conversely, a modal may be activated
+when a user clicks a "Delete item" button.
+
+Modal should not be used to display media like image and videos.
+
+## Best Practices
+
+### Modal titles
+
+Modals must have a title and the title should communicate the general idea of the modal intention, such as the outcome
+of an action.  Titles should use the same or similar phrasing as the call-to-action that was used to activate the modal.
+
+### Modal descriptions
+
+Modal descriptions should include any additional information or context that a user needs to know in order to make one
+of the decisions offered by the action buttons. Descriptions should be written in complete sentences.
+
+### Action button labels
+
+Action button labels should be specific and actionable and should ultimately describe the next steps for a user.
+When possible, the main action button label should use the same language as the action mentioned in the modal title.
+If someone were to only read the word or phrase on the button, they should be able to get the general idea of the
+modal’s underlying message. For example, if a modal's title is “Delete item,” use "Delete" instead of "Yes" for the
+main action button label.
+
+### Asking questions
+
+Avoid asking a question in a modal title. Questions such as “Are you sure you want to quit?” or “Do you want to cancel?”
+are redundant and can undermine a user's confidence in a decision they've already made when taking the previous action
+that activated the modal.  Asking a question also leads to a yes/no set of actions, which can become confusing. Instead,
+re-frame the wording of the modal title to focus on the outcome or effect.
+
+It’s OK to ask a question in a modal description to confirm if a user wants to go ahead with an action.
+However, even when a question is used in a modal description, distinct button action labels should be used to show that
+a user has control over what happens next.
+
+## Example text
+
+Modal title: Confirm reservation cancellation
+
+Modal description: Your upcoming reservation will be cancelled.
+
+Action buttons: [Cancel] [Confirm]
 
 ## Accessibility
 
-TBD
+When a modal is activated, focus should be set to a significant element that gives context to the modal intention.
+When a modal closes, focus should return to an element relevant to the action that was selected in the modal.
+For example, if a modal was closed by clicking a cancel button, focus should be placed on the element that was
+originally clicked to activate the modal. Similarly, if a modal was closed by clicking a button that will add a new
+element to the page, focus should be placed on the new element that was added to the page.
+
+Keyboard focus should also be constrained to remain within the dialog while it is open. Pressing TAB should advance
+focus to the next interactive element in the dialog. If pressing tab while focused on the last element, then focus
+should wrap to the first interactive element within the dialog. Similarly when tabbing backward with SHIFT+TAB then
+focus should proceed backward until hitting the first interactive element and then wrap to the last interactive element.
+
+In addition to having a cancel button, users should be able to exit a modal by pressing the ESC key.
+
+### Resources
+
+https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
 
 ## ModalTrigger
 
