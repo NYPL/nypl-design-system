@@ -20,6 +20,8 @@ export type IconAlign = typeof iconAlignArray[number];
 export type IconColors = typeof iconColorsArray[number];
 export type IconNames = typeof iconNamesArray[number];
 export type IconRotations = typeof iconRotationsArray[number];
+// `IconRotationTypes` is deprecated; `IconRotations` should be used instead
+export type IconRotationTypes = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
 export type IconTypes = typeof iconTypesArray[number];
 
