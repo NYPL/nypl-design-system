@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `List` styling so the bottom border on description lists matches other borders. 
+
 ## 1.7.1 (August 17, 2023)
 
 ### Adds
