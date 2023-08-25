@@ -76,7 +76,7 @@ const CustomSlider = {
         bgColor: baseColor,
       },
       track: {
-        bgColor: "ui.gray.light-cool",
+        bgColor: "ui.bg.hover",
         _disabled: {
           bgColor: "ui.disabled.primary",
         },
