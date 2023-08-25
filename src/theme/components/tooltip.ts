@@ -8,7 +8,7 @@ const Tooltip = {
     borderRadius: "4px",
     boxShadow: "none",
     color: "ui.typography.inverse.body",
-    fontSize: "text.tag",
+    fontSize: "desktop.caption",
     marginBottom: "xxs",
     maxWidth: "240px",
     px: "s",

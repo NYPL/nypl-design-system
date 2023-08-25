@@ -63,7 +63,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
           <button
             aria-controls="basic--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -76,7 +76,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
           <button
             aria-controls="basic--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -89,7 +89,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
           <button
             aria-controls="basic--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -255,7 +255,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
           <button
             aria-controls="chakra--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -268,7 +268,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
           <button
             aria-controls="chakra--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -281,7 +281,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
           <button
             aria-controls="chakra--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -448,7 +448,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
           <button
             aria-controls="props--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -461,7 +461,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
           <button
             aria-controls="props--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
@@ -474,7 +474,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
           <button
             aria-controls="props--tabpanel--1"
             aria-selected={false}
-            className="chakra-tabs__tab css-abpfcx"
+            className="chakra-tabs__tab css-p5yrdq"
             id="props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
