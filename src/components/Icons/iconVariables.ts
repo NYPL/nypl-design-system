@@ -100,7 +100,7 @@ export const iconNamesArray = [
   "utilityHamburger",
   "utilitySearch",
 ] as const;
-export const iconRotationTypesArray = [
+export const iconRotationsArray = [
   "rotate0",
   "rotate90",
   "rotate180",
