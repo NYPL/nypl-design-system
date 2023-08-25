@@ -32,14 +32,32 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -87,14 +105,32 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -235,14 +271,32 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -312,14 +366,32 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -368,14 +440,32 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
