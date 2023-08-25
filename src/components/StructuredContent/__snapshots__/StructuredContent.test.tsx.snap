@@ -6,7 +6,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   id="withHTMLStringContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHTMLStringContent-heading"
   >
     Heading text
@@ -61,7 +61,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
   id="withHTMLDOMContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHTMLDOMContent-heading"
   >
     Heading text
@@ -150,7 +150,7 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
   id="withoutAnImage"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withoutAnImage-heading"
   >
     Heading text
@@ -178,7 +178,7 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   id="withImageWithoutCaptionOrCredit"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
@@ -264,7 +264,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
   id="withoutCalloutText"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withoutCalloutText-heading"
   >
     Heading text
@@ -286,7 +286,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   id="withChakraProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withChakraProps-heading"
   >
     Heading text
@@ -342,7 +342,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   id="withOtherProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withOtherProps-heading"
   >
     Heading text

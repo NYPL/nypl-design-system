@@ -213,6 +213,7 @@ const typography: Typography = {
     bold: fontWeightValues["bold"],
     // semantic tokens
     body: {
+      default: fontWeightValues["light"],
       body1: fontWeightValues["light"],
       body2: fontWeightValues["light"],
     },
