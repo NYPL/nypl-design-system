@@ -8,9 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"actionIdentity"`, `"actionIdentityFilled"`, `"actionSearch"`, `"mapsPlace"`, `"socialSpotify"`, and `"socialVimeo"` options to the `Icon` component.
+
 ### Updates
 
-- Updates `List` styling so the bottom border on description lists matches other borders. 
+- Updates `List` styling so the bottom border on description lists matches other borders.
 
 ## 1.7.1 (August 17, 2023)
 
