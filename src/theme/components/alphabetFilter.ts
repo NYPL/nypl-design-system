@@ -8,13 +8,17 @@ const AlphabetFilter = {
       padding: "1px 4px",
       margin: "2px 1px",
       fontWeight: "bold",
-      fontSize: "heading.callout",
+      fontSize: {
+        base: "mobile.subtitle.subtitle1",
+        md: "desktop.subtitle.subtitle1",
+      },
       lineHeight: "1",
       _last: {
-        padding: "0 16px",
+        fontSize: "desktop.button.default",
         fontWeight: "normal",
+        px: { base: "s", md: "xs" },
+        py: { base: null, md: "xxs" },
         whiteSpace: "nowrap",
-        fontSize: { base: null, md: "text.caption" },
       },
       _disabled: {
         color: "ui.gray.medium",
