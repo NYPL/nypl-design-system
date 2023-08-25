@@ -72,7 +72,7 @@ exports[`Heading renders the UI snapshot correctly 6`] = `
 
 exports[`Heading renders the UI snapshot correctly 7`] = `
 <h2
-  className="chakra-heading css-10g9ftz"
+  className="chakra-heading css-1whog1v"
   id="chakra"
 >
   Heading
@@ -81,7 +81,7 @@ exports[`Heading renders the UI snapshot correctly 7`] = `
 
 exports[`Heading renders the UI snapshot correctly 8`] = `
 <h2
-  className="chakra-heading css-1xdhyk6"
+  className="chakra-heading css-878tmy"
   data-testid="props"
   id="props"
 >
