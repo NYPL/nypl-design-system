@@ -6,9 +6,12 @@ import { ReactComponent as actionCheckCircleFilled } from "../../../icons/svg/ac
 import { ReactComponent as actionExit } from "../../../icons/svg/action-exit.svg";
 import { ReactComponent as actionHelpDefault } from "../../../icons/svg/action-help-default.svg";
 import { ReactComponent as actionHelpOutline } from "../../../icons/svg/action-help-outline.svg";
+import { ReactComponent as actionIdentity } from "../../../icons/svg/action-identity.svg";
+import { ReactComponent as actionIdentityFilled } from "../../../icons/svg/action-identity-filled.svg";
 import { ReactComponent as actionLaunch } from "../../../icons/svg/action-launch.svg";
 import { ReactComponent as actionPower } from "../../../icons/svg/action-power.svg";
 import { ReactComponent as actionRegistration } from "../../../icons/svg/action-registration.svg";
+import { ReactComponent as actionSearch } from "../../../icons/svg/action-search.svg";
 import { ReactComponent as actionSettings } from "../../../icons/svg/action-settings.svg";
 import { ReactComponent as alertNotificationImportant } from "../../../icons/svg/alert-notification-important.svg";
 import { ReactComponent as alertWarningFilled } from "../../../icons/svg/alert-warning-filled.svg";
@@ -39,6 +42,7 @@ import { ReactComponent as legacySocialInstagram } from "../../../icons/svg/lega
 import { ReactComponent as legacySocialTwitter } from "../../../icons/svg/legacy-social-twitter.svg";
 import { ReactComponent as legacySocialYoutube } from "../../../icons/svg/legacy-social-youtube.svg";
 import { ReactComponent as locator } from "../../../icons/svg/locator.svg";
+import { ReactComponent as mapsPlace } from "../../../icons/svg/maps-place.svg";
 import { ReactComponent as minus } from "../../../icons/svg/minus.svg";
 import { ReactComponent as plus } from "../../../icons/svg/plus.svg";
 import { ReactComponent as search } from "../../../icons/svg/search.svg";
@@ -46,9 +50,11 @@ import { ReactComponent as socialFacebook } from "../../../icons/svg/social-face
 import { ReactComponent as socialInstagram } from "../../../icons/svg/social-instagram.svg";
 import { ReactComponent as socialPinterest } from "../../../icons/svg/social-pinterest.svg";
 import { ReactComponent as socialSoundCloud } from "../../../icons/svg/social-soundcloud.svg";
+import { ReactComponent as socialSpotify } from "../../../icons/svg/social-spotify.svg";
 import { ReactComponent as socialTikTok } from "../../../icons/svg/social-tiktok.svg";
 import { ReactComponent as socialTumblr } from "../../../icons/svg/social-tumblr.svg";
 import { ReactComponent as socialTwitter } from "../../../icons/svg/social-twitter.svg";
+import { ReactComponent as socialVimeo } from "../../../icons/svg/social-vimeo.svg";
 import { ReactComponent as socialYoutube } from "../../../icons/svg/social-youtube.svg";
 import { ReactComponent as speakerNotes } from "../../../icons/svg/speaker-notes.svg";
 import { ReactComponent as utilityAccountFilled } from "../../../icons/svg/utility-account-filled.svg";
@@ -64,9 +70,12 @@ export default {
   actionExit,
   actionHelpDefault,
   actionHelpOutline,
+  actionIdentity,
+  actionIdentityFilled,
   actionLaunch,
   actionPower,
   actionRegistration,
+  actionSearch,
   actionSettings,
   alertNotificationImportant,
   alertWarningFilled,
@@ -97,6 +106,7 @@ export default {
   legacySocialTwitter,
   legacySocialYoutube,
   locator,
+  mapsPlace,
   minus,
   plus,
   search,
@@ -104,9 +114,11 @@ export default {
   socialInstagram,
   socialPinterest,
   socialSoundCloud,
+  socialSpotify,
   socialTikTok,
   socialTumblr,
   socialTwitter,
+  socialVimeo,
   socialYoutube,
   speakerNotes,
   utilityAccountFilled,
