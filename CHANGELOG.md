@@ -10,7 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates `List` styling so the bottom border on description lists matches other borders. 
+- Updates `List` styling so the bottom border on description lists matches other borders.
+- Updates type `IconRotationTypes` to `IconRotations`.`IconRotationTypes` will still work for now, but is deprecated and will be removed in a later version.
 
 ## 1.7.1 (August 17, 2023)
 

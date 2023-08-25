@@ -64,7 +64,7 @@ export type {
   IconAlign,
   IconColors,
   IconNames,
-  IconRotationTypes,
+  IconRotations,
   IconSizes,
   IconTypes,
 } from "./components/Icons/Icon";
