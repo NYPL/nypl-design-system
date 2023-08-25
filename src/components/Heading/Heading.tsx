@@ -105,7 +105,7 @@ export const Heading = chakra(
         isCapitalized,
         isUppercase,
         isLowercase,
-        level = "two",
+        level = "h2",
         noSpace,
         overline,
         size,
