@@ -102,7 +102,6 @@ const CustomImage = {
     },
     figcaption: {
       fontStyle: "italic",
-      fontSize: "text.tag",
     },
     img: {
       display: "block",
@@ -115,9 +114,6 @@ const CustomImage = {
       _dark: {
         backgroundColor: "dark.ui.bg.default",
       },
-    },
-    captionWrappers: {
-      marginTop: "xxs",
     },
   }),
 };
