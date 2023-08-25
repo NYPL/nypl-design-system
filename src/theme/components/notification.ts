@@ -36,7 +36,7 @@ const Notification = {
       bg,
       borderRadius: noMargin ? "0" : "4px",
       display: "flex",
-      fontSize: "text.caption", // slightly smaller than the default size
+      fontSize: "desktop.body.body2", // slightly smaller than the default size
       m: noMargin ? "0" : "s",
       position: "relative",
       p: "inset.default",
@@ -177,6 +177,7 @@ const NotificationHeading = {
       svg: {
         mx: isCentered ? "auto" : "",
         mb: isCentered ? "xxs" : "0",
+        mt: isCentered ? undefined : "xxxs",
       },
     };
   },
