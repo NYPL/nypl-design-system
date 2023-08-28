@@ -111,8 +111,7 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
 export const SocialMediaLinks = chakra(
-  forwardRef<HTMLDivElement, SocialMediaLinksProps>((props, ref?) => {
-    console.log(ref);
+  forwardRef<HTMLDivElement, SocialMediaLinksProps>((props) => {
     const {
       borders = "none",
       color = "textDefault",
@@ -134,16 +133,7 @@ export const SocialMediaLinks = chakra(
     });
 
     if (showLabels && borders === "circular") {
-      const errorMessage = "NYPL Reservoir SocialMediaLinks: Labels cannot be displayed with circular borders."
-      console.error(
-        errorMessage
-      );
-      return (
-        <p>
-          <Icon name={"alertWarningFilled"} size={"xlarge"} color={"red"} />
-          <span> {errorMessage}</span>
-        </p>
-      );
+      console.error("NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels can not be shown with a circular border.");
     }
 
     // If linksData has values, use them, else use the entire list of platforms.

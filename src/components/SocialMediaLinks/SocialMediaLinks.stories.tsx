@@ -46,21 +46,29 @@ type Story = StoryObj<typeof SocialMediaLinks>;
  */
 export const WithControls: Story = {
   render: (args) => <SocialMediaLinks {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=77103-126004&t=Yx1GyAfBJyhuGIGs-4",
+    },
+    jest: ["SocialMediaLinks.test.tsx"],
+  },
 };
 
 export const WithOverrides: Story = {
   render: (args) => (
-    <SocialMediaLinks
-      linksData={[
-        { type: "facebook" },
-        {
-          type: "twitter",
-          url: "twitter.com/elsewhere",
-          labelText: "Alt Twitter",
-        },
-        { type: "instagram" },
-      ]}
-      {...args}
-    />
+      <SocialMediaLinks
+          showLabels={true}
+          linksData={[
+            { type: "facebook" },
+            {
+              type: "twitter",
+              url: "twitter.com/elsewhere",
+              labelText: "Alt Twitter",
+            },
+            { type: "instagram" },
+          ]}
+          {...args}
+      />
   ),
 };

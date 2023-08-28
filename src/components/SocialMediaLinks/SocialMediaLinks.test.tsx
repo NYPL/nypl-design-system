@@ -3,173 +3,230 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import SocialMediaLinks from "./Breadcrumbs";
+import SocialMediaLinks from "./SocialMediaLinks";
 
-const breadcrumbsData = [
-  { url: "#string1", text: "string1" },
-  { url: "#string2", text: "string2" },
-  { url: "#string3", text: "string3" },
-];
-const breadcrumbsDataLongText = [
-  { url: "#string1", text: "Parent with a Long Name" },
-  {
-    url: "#string2",
-    text: "Grandchild with an Exceptionally Long Name. Long titles shorten to 40 characters, an ellipsis will be added, and that the Tooltip is used to see the entire text characters",
-  },
-  {
-    url: "#string3",
-    text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component",
-  },
-];
+// @todo If I try and use this as a linkData prop in any of the SocialMediaLinks components being rendered below, I get a type error.
+// I have no idea why, so I am just going to use the array directly each time.
+// const smlData = [
+//   { labelText: "Alt Twitter", type: "twitter", url: "twitter.com/elsewhere", },
+//   { labelText: "NYPL Facebook", type: "facebook", url: 'facebook.com/nypl', },
+// ];
 
-describe("Breadcrumbs Accessibility", () => {
-  const breadcrumbsData = [
-    { url: "#string1", text: "string1" },
-    { url: "#string2", text: "string2" },
-  ];
+describe("SocialMediaLinks Accessibility", () => {
+  describe("Labels", () => {
+    it("passes axe accessibility test without visible labels", async () => {
+      const { container } = render(
+          <SocialMediaLinks />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
+    it("passes axe accessibility test with labels set to true", async () => {
+      const { container } = render(
+          <SocialMediaLinks
+              showLabels={true}
+          />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
 
-  it("passes axe accessibility test", async () => {
-    const { container } = render(
-      <SocialMediaLinks breadcrumbsData={breadcrumbsData} />
-    );
-    expect(await axe(container)).toHaveNoViolations();
+  });
+  describe("Colors", () => {
+    it("passes axe accessibility test with link color & labels", async () => {
+      const { container } = render(
+          <SocialMediaLinks
+              showLabels={true}
+              color={"link"}
+          />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
+    it("passes axe accessibility test with textInverse color & labels", async () => {
+      const { container } = render(
+          <SocialMediaLinks
+              showLabels={true}
+              color={"link"}
+          />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
+  });
+  describe("Borders", () => {
+    it("passes axe accessibility test with straight borders & labels", async () => {
+      const { container } = render(
+          <SocialMediaLinks
+              showLabels={true}
+              border={"straight"}
+          />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
+    it("passes axe accessibility test with circular borders", async () => {
+      const { container } = render(
+          <SocialMediaLinks
+              border={"circular"}
+          />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
   });
 
-  // This fails because there MUST only be one "breadcrumb" landmark item
-  // on a page. This specifically means there should be one `<nav>` element
-  // with `aria-label="Breadcrumb"`.
-  // https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
-  it("does not pass axe accessibility test", async () => {
-    const { container } = render(
-      <>
-        <SocialMediaLinks breadcrumbsData={breadcrumbsData} />
-        <SocialMediaLinks breadcrumbsData={breadcrumbsData} />
-      </>
-    );
-    expect(await axe(container)).not.toHaveNoViolations();
+});
+
+describe("SocialMediaLinks", () => {
+  it("Renders selected tags", () => {
+    render(    <SocialMediaLinks
+        layout={"column"}
+        linksData={[
+          { labelText: "Alt Twitter", type: "twitter", url: "twitter.com/elsewhere", },
+          { labelText: "NYPL Facebook", type: "facebook", url: 'facebook.com/nypl', },
+        ]}
+    />);
+
+    // @todo In general, how can you be sure that the thing that matches the role is not a false positive?
+    // @todo There could be two links, for example, to other things. How do you target these queries?
+
+    // @todo Do we need to test if the icons are in a row or column?
+
+    // There should be two links. @todo Do we need to test if they are the correct URL?
+    expect(screen.getAllByRole('link')).toHaveLength(2)
+    // The label text we desire should be in the document. @todo Do we need to test if it is visible when it should be? Should we test that both labels ore there?
+    expect(screen.getByText('Alt Twitter')).toBeInTheDocument();
+    // There should be at least one icon. @todo Do we need to test if it is the correct icon? Or that there are two correct icons?
+    expect(screen.getByTitle('socialFacebook icon')).toBeInTheDocument();
   });
 });
 
-describe("Breadcrumbs", () => {
-  it("Renders a tag with custom text", () => {
-    render(<SocialMediaLinks breadcrumbsData={breadcrumbsData} />);
-
-    // The last breadcrumb (the active page) is also a link.
-    expect(screen.getAllByRole("link")).toHaveLength(3);
-    expect(screen.getAllByRole("link")[0]).toHaveTextContent("string1");
-    expect(screen.getAllByRole("link")[1]).toHaveTextContent("string2");
-    expect(screen.getAllByRole("link")[2]).toHaveTextContent("string3");
-  });
-
-  it("Renders icon on mobile", () => {
-    const { container } = render(
-      <SocialMediaLinks breadcrumbsData={breadcrumbsData} />
-    );
-    expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
-  });
-
-  it("Throws error when nothing is passed into Breadcrumb", () => {
-    expect(() => render(<SocialMediaLinks breadcrumbsData={[]} />)).toThrowError(
-      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
-    );
-  });
-
-  it("Truncates breadcrumbs text if it is longer than 40 characters", () => {
-    render(<SocialMediaLinks breadcrumbsData={breadcrumbsDataLongText} />);
-
-    expect(screen.getAllByRole("link")[0]).toHaveTextContent(
-      "Parent with a Long Name"
-    );
-    // Truncate breadcrumb text if beyond 40 characters then add ellipsis at the end.
-    expect(screen.getAllByRole("link")[1]).toHaveTextContent(
-      "Grandchild with an Exceptionally Long..."
-    );
-    expect(screen.getAllByRole("link")[2]).toHaveTextContent(
-      /Great-Grandchild with the Longest Name.../
-    );
-  });
-
-  it("passes a ref to the nav wrapper element", () => {
-    // It's okay to use this type even though the rendered element is
-    // a `nav` since Chakra internally generates the necessary DOM.
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(
-      <SocialMediaLinks breadcrumbsData={breadcrumbsData} ref={ref} />
-    );
-
-    expect(container.querySelector("nav")).toBe(ref.current);
-  });
-});
-
-describe("Breadcrumbs Snapshot", () => {
+describe("SocialMediaLinks Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
-    const breadcrumbsSnapshot = renderer
+    const socialMediaLinksSnapshot = renderer
       .create(
-        <SocialMediaLinks id="breadcrumbs-test" breadcrumbsData={breadcrumbsData} />
+        <SocialMediaLinks id="socialmedialinks-test" />
       )
       .toJSON();
-    const breadcrumbsVariantColor = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="booksAndMore"
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
-    const breadcrumbsBlogsVariant = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
-    const breadcrumbsLocationsVariant = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
-    const breadcrumbsEducationVariant = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="education"
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
-    const withChakraProps = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          id="breadcrumbs-test"
-          p="s"
-          color="ui.error.primary"
-        />
-      )
-      .toJSON();
-    const withOtherProps = renderer
-      .create(
-        <SocialMediaLinks
-          breadcrumbsData={breadcrumbsData}
-          id="breadcrumbs-test"
-          data-testid="testid"
-        />
-      )
-      .toJSON();
+    const socialMediaLinksVariantLinksColor = renderer
+  .create(
+        <SocialMediaLinks id="socialmedialinks-test" color={"link"}/>
+    )
+        .toJSON();
+    const socialMediaLinksVariantLinksColorWithLabels = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"link"}
+                              showLabels={true}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantLinksColorStraightBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"link"}
+                              borders={"straight"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantLinksColorCircularBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"link"}
+                              borders={"circular"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantLinksColorWithLabelsStraightBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"link"}
+                              showLabels={true}
+                              borders={"straight"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantTextInverseColor = renderer
+  .create(
+        <SocialMediaLinks id="socialmedialinks-test" color={"textInverse"}/>
+    )
+        .toJSON();
+    const socialMediaLinksVariantTextInverseColorWithLabels = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"textInverse"}
+                              showLabels={true}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantTextInverseColorStraightBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"textInverse"}
+                              borders={"straight"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantTextInverseColorCircularBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"textInverse"}
+                              borders={"circular"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantTextInverseColorWithLabelsStraightBorders = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              color={"textInverse"}
+                              showLabels={true}
+                              borders={"straight"}
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantWithLabels = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test" showLabels={true}/>
+        )
+        .toJSON();
+    const socialMediaLinksVariantStraightBorder = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test" borders={"straight"}/>
+        )
+        .toJSON();
+    const socialMediaLinksVariantWithLabelsStraightBorder = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test"
+                              borders={"circular"}
+                              showLabels={true}
 
-    expect(breadcrumbsSnapshot).toMatchSnapshot();
-    expect(breadcrumbsVariantColor).toMatchSnapshot();
-    expect(breadcrumbsBlogsVariant).toMatchSnapshot();
-    expect(breadcrumbsLocationsVariant).toMatchSnapshot();
-    expect(breadcrumbsEducationVariant).toMatchSnapshot();
-    expect(withChakraProps).toMatchSnapshot();
-    expect(withOtherProps).toMatchSnapshot();
+            />
+        )
+        .toJSON();
+    const socialMediaLinksVariantCircularBorder = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test" borders={"circular"}/>
+        )
+        .toJSON();
+    const socialMediaLinksVariantLinksDataOverride = renderer
+        .create(
+            <SocialMediaLinks id="socialmedialinks-test" linksData={[
+              { labelText: "Alt Twitter", type: "twitter", url: "twitter.com/elsewhere", },
+              { labelText: "NYPL Facebook", type: "facebook", url: 'facebook.com/nypl', },
+            ]} />
+        )
+        .toJSON();
+
+    expect(socialMediaLinksSnapshot).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksColor).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksColorWithLabels).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksColorStraightBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksColorCircularBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksColorWithLabelsStraightBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantTextInverseColor).toMatchSnapshot();
+    expect(socialMediaLinksVariantTextInverseColorWithLabels).toMatchSnapshot();
+    expect(socialMediaLinksVariantTextInverseColorStraightBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantTextInverseColorCircularBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantTextInverseColorWithLabelsStraightBorders).toMatchSnapshot();
+    expect(socialMediaLinksVariantWithLabels).toMatchSnapshot();
+    expect(socialMediaLinksVariantStraightBorder).toMatchSnapshot();
+    expect(socialMediaLinksVariantWithLabelsStraightBorder).toMatchSnapshot();
+    expect(socialMediaLinksVariantCircularBorder).toMatchSnapshot();
+    expect(socialMediaLinksVariantLinksDataOverride).toMatchSnapshot();
   });
 });

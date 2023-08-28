@@ -51,9 +51,9 @@ const SocialMediaLinks = {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
-    gap: "8px",
+    gap: "xs",
     li: {
-      padding: "8px",
+      padding: "xs",
     },
     a: {
       display: "flex",
@@ -84,8 +84,8 @@ const SocialMediaLinks = {
       return {
         flexDirection: layout,
         li: {
-          borderRadius: "2px",
-          borderWidth: "2px",
+          borderRadius: "button.default",
+          borderWidth: "button.default",
           borderStyle: "solid",
           borderColor: theseColors.ltColor,
           _dark: {
@@ -166,15 +166,3 @@ const SocialMediaLinks = {
 };
 
 export default SocialMediaLinks;
-
-// circular: {
-//   li: {
-//
-//     border: "1px solid var(--ui-typography-heading, #191919)",
-//   }
-// },
-// straight: {
-//   li: {
-//     borderRadius: "2px",
-//         border: "1px solid var(--ui-typography-heading, #191919)",}
-// },
