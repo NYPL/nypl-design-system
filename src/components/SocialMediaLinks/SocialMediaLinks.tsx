@@ -133,7 +133,9 @@ export const SocialMediaLinks = chakra(
     });
 
     if (showLabels && borders === "circular") {
-      console.error("NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels can not be shown with a circular border.");
+      console.error(
+        "NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels can not be shown with a circular border."
+      );
     }
 
     // If linksData has values, use them, else use the entire list of platforms.

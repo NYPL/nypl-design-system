@@ -57,18 +57,18 @@ export const WithControls: Story = {
 
 export const WithOverrides: Story = {
   render: (args) => (
-      <SocialMediaLinks
-          showLabels={true}
-          linksData={[
-            { type: "facebook" },
-            {
-              type: "twitter",
-              url: "twitter.com/elsewhere",
-              labelText: "Alt Twitter",
-            },
-            { type: "instagram" },
-          ]}
-          {...args}
-      />
+    <SocialMediaLinks
+      showLabels={true}
+      linksData={[
+        { type: "facebook" },
+        {
+          type: "twitter",
+          url: "twitter.com/elsewhere",
+          labelText: "Alt Twitter",
+        },
+        { type: "instagram" },
+      ]}
+      {...args}
+    />
   ),
 };
