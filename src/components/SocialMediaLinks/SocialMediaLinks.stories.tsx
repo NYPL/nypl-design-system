@@ -47,16 +47,16 @@ type Story = StoryObj<typeof SocialMediaLinks>;
  * to learn how to use render functions.
  */
 export const WithControls: Story = {
-    args: {
-        borders: "none",
-        color: "textDefault",
-        className: undefined,
-        id: undefined,
-        linksData: undefined,
-        layout: "row",
-        showLabels: false,
-        size: "medium",
-    },
+  args: {
+    borders: "none",
+    color: "textDefault",
+    className: undefined,
+    id: undefined,
+    linksData: undefined,
+    layout: "row",
+    showLabels: false,
+    size: "medium",
+  },
   parameters: {
     design: {
       type: "figma",
@@ -67,22 +67,23 @@ export const WithControls: Story = {
 };
 
 export const WithOverrides: Story = {
-    args: {
-        borders: "none",
-        color: "textDefault",
-        className: undefined,
-        id: undefined,
-        layout: "row",
-        linksData: [
-            {type: "facebook"},
-            {
-                type: "twitter",
-                url: "twitter.com/elsewhere",
-                labelText: "Alt Twitter",
-            },
-            {
-                type: "instagram",
-            }],
-        showLabels: true,
-    },
+  args: {
+    borders: "none",
+    color: "textDefault",
+    className: undefined,
+    id: undefined,
+    layout: "row",
+    linksData: [
+      { type: "facebook" },
+      {
+        type: "twitter",
+        url: "twitter.com/elsewhere",
+        labelText: "Alt Twitter",
+      },
+      {
+        type: "instagram",
+      },
+    ],
+    showLabels: true,
+  },
 };

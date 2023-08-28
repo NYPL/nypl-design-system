@@ -73,7 +73,6 @@ export interface SocialMediaLinksProps {
 function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   let allData = [];
   platforms.forEach((myPlatform) => {
-
     // Get the dataset for this platform.
     let thisPlatformArray = socialMediaDataMap.filter(
       (socialMediaSlice) => socialMediaSlice.type === myPlatform.type

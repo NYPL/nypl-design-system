@@ -49,9 +49,7 @@ describe("SocialMediaLinks Accessibility", () => {
 
 describe("SocialMediaLinks", () => {
   it("Renders default", () => {
-    render(
-      <SocialMediaLinks />
-    );
+    render(<SocialMediaLinks />);
 
     const links = screen.getAllByRole("link");
 
@@ -72,9 +70,7 @@ describe("SocialMediaLinks", () => {
 
     // There should be a ([variable]) icon.
     // @todo ibid.
-
   });
-
 
   it("Renders selected tags", () => {
     render(
@@ -122,12 +118,7 @@ describe("SocialMediaLinks", () => {
   it("logs an error if border='circular' and showLabels=true", () => {
     const error = jest.spyOn(console, "error");
     screen.debug();
-    render(
-      <SocialMediaLinks
-        borders={'circular'}
-        showLabels={true}
-        />
-    );
+    render(<SocialMediaLinks borders={"circular"} showLabels={true} />);
     expect(error).toHaveBeenCalledWith(
       "NYPL Reservoir SocialMediaLinks: 'showLabels' is set to true, but labels can not be shown with a circular border."
     );
@@ -282,10 +273,16 @@ describe("SocialMediaLinks Snapshot", () => {
 
   it("Renders the UI snapshot correctly when the layout is in a column.", () => {
     const socialMediaLinksSnapshot = renderer
-      .create(<SocialMediaLinks id="socialmedialinks-test" layout={"column"}/>)
+      .create(<SocialMediaLinks id="socialmedialinks-test" layout={"column"} />)
       .toJSON();
     const socialMediaLinksVariantLinksColor = renderer
-      .create(<SocialMediaLinks id="socialmedialinks-test" color={"link"} layout={"column"}/>)
+      .create(
+        <SocialMediaLinks
+          id="socialmedialinks-test"
+          color={"link"}
+          layout={"column"}
+        />
+      )
       .toJSON();
     const socialMediaLinksVariantLinksColorWithLabels = renderer
       .create(
@@ -330,7 +327,11 @@ describe("SocialMediaLinks Snapshot", () => {
       .toJSON();
     const socialMediaLinksVariantTextInverseColor = renderer
       .create(
-        <SocialMediaLinks id="socialmedialinks-test" color={"textInverse"} layout={"column"}/>
+        <SocialMediaLinks
+          id="socialmedialinks-test"
+          color={"textInverse"}
+          layout={"column"}
+        />
       )
       .toJSON();
     const socialMediaLinksVariantTextInverseColorWithLabels = renderer
@@ -376,11 +377,21 @@ describe("SocialMediaLinks Snapshot", () => {
         )
         .toJSON();
     const socialMediaLinksVariantWithLabels = renderer
-      .create(<SocialMediaLinks id="socialmedialinks-test" showLabels={true} layout={"column"}/>)
+      .create(
+        <SocialMediaLinks
+          id="socialmedialinks-test"
+          showLabels={true}
+          layout={"column"}
+        />
+      )
       .toJSON();
     const socialMediaLinksVariantStraightBorder = renderer
       .create(
-        <SocialMediaLinks id="socialmedialinks-test" borders={"straight"} layout={"column"}/>
+        <SocialMediaLinks
+          id="socialmedialinks-test"
+          borders={"straight"}
+          layout={"column"}
+        />
       )
       .toJSON();
     const socialMediaLinksVariantWithLabelsStraightBorder = renderer
@@ -405,7 +416,11 @@ describe("SocialMediaLinks Snapshot", () => {
       .toJSON();
     const socialMediaLinksVariantCircularBorder = renderer
       .create(
-        <SocialMediaLinks id="socialmedialinks-test" borders={"circular"} layout={"column"}/>
+        <SocialMediaLinks
+          id="socialmedialinks-test"
+          borders={"circular"}
+          layout={"column"}
+        />
       )
       .toJSON();
 
@@ -433,7 +448,6 @@ describe("SocialMediaLinks Snapshot", () => {
     expect(socialMediaLinksVariantWithLabelsStraightBorder).toMatchSnapshot();
     expect(socialMediaLinksVariantWithLabelsCircularBorder).toMatchSnapshot();
     expect(socialMediaLinksVariantCircularBorder).toMatchSnapshot();
-
   });
 
   it("Renders the UI snapshot correctly when linksData has a value.", () => {
