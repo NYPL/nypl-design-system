@@ -7,7 +7,7 @@ import {
   iconAlignArray,
   iconColorsArray,
   iconNamesArray,
-  iconRotationTypesArray,
+  iconRotationsArray,
   iconSizesArray,
 } from "./iconVariables";
 
@@ -30,7 +30,7 @@ const meta: Meta<typeof Icon> = {
     },
     iconRotation: {
       control: { type: "radio" },
-      options: iconRotationTypesArray,
+      options: iconRotationsArray,
       table: { defaultValue: { summary: "rotate0" } },
     },
     id: { control: false },
@@ -134,12 +134,7 @@ const colors = [];
 const sizes = [];
 const iconColorsValues = iconColorsArray;
 const iconNamesValues = iconNamesArray;
-const iconRotationTypesValues = [
-  "rotate0",
-  "rotate90",
-  "rotate180",
-  "rotate270",
-];
+const iconRotationsValues = ["rotate0", "rotate90", "rotate180", "rotate270"];
 const iconSizesValues = [
   { size: "default", display: "default (100%)" },
   { size: "small", display: "small (14px)" },
@@ -157,11 +152,11 @@ for (const icon in iconNamesValues) {
     })
   );
 }
-for (const iconRotation in iconRotationTypesValues) {
+for (const iconRotation in iconRotationsValues) {
   rotations.push(
     iconRow("arrow", {
-      displayValue: iconRotationTypesValues[iconRotation],
-      iconRotation: iconRotationTypesValues[iconRotation],
+      displayValue: iconRotationsValues[iconRotation],
+      iconRotation: iconRotationsValues[iconRotation],
       size: "xxlarge",
     })
   );
