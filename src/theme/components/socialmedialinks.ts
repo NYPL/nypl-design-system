@@ -85,7 +85,7 @@ const SocialMediaLinks = {
         flexDirection: layout,
         li: {
           borderRadius: "button.default",
-          borderWidth: "button.default",
+          borderWidth: "2px",
           borderStyle: "solid",
           borderColor: theseColors.ltColor,
           _dark: {

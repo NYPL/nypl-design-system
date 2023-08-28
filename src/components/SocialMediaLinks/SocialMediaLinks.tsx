@@ -19,6 +19,9 @@ export type ColorType = typeof colorTypeArray[number];
 export const sizeTypeArray = ["small", "medium", "large"] as const;
 export type SizeType = typeof sizeTypeArray[number];
 
+// @todo The below export fails TS, for reasons I do not yet understand. But it would be useful so that we don't
+//   need to update in two places if any names are changed / added / subtracted.
+//   export const socialMediaLinkTypeArray  = socialMediaDataMap.map(({ type }) => type) as const;
 export const socialMediaLinkTypeArray = [
   "blogs",
   "facebook",
@@ -42,7 +45,7 @@ export interface SocialMediaLinkDataProps {
 }
 
 export interface SocialMediaLinksProps {
-  /** Optional border: straight, circular or none */
+  /** Optional border: straight, circular or none. */
   borders?: BorderType;
   /** Optional className you can add in addition to `social-media-links`. */
   className?: string;
@@ -54,7 +57,8 @@ export interface SocialMediaLinksProps {
   layout?: LayoutTypes;
   /** Optional array of social media platform types, urls, and label texts */
   linksData?: SocialMediaLinkDataProps[];
-  /** Optional true/false to display names of platform along with icon */
+  /** Optional true/false to display names of platform along with icon
+   *  NOTE: Labels will NOT be shown with a circular border */
   showLabels?: boolean;
   /** Optional size: medium, large, xlarge */
   size?: SizeType;
@@ -69,17 +73,6 @@ export interface SocialMediaLinksProps {
 function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   let allData = [];
   platforms.forEach((myPlatform) => {
-    // Test if the type is allowed
-    if (!socialMediaLinkTypeArray.includes(myPlatform.type)) {
-      console.error(
-        "NYPL Reservoir SocialMediaLinks: " +
-          myPlatform.type +
-          " is either not a supported platform or is misspelled.\n" +
-          "Supported platforms include: " +
-          socialMediaLinkTypeArray.join(", ")
-      );
-      return;
-    }
 
     // Get the dataset for this platform.
     let thisPlatformArray = socialMediaDataMap.filter(
@@ -132,9 +125,11 @@ export const SocialMediaLinks = chakra(
       layout,
     });
 
-    if (showLabels && borders === "circular") {
+    let labelsOn = showLabels;
+    if (labelsOn && borders === "circular") {
+      labelsOn = false;
       console.error(
-        "NYPL Reservoir SocialMediaLinks: `showLabels` is set to true, but labels can not be shown with a circular border."
+        "NYPL Reservoir SocialMediaLinks: 'showLabels' is set to true, but labels can not be shown with a circular border."
       );
     }
 
@@ -166,7 +161,7 @@ export const SocialMediaLinks = chakra(
           rel="nofollow noopener noreferrer"
         >
           <Icon name={modifiedPlatform.iconName} size={iconSize} />
-          {showLabels ? <span>{modifiedPlatform.labelText}</span> : null}
+          {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
         </Link>
       );
 

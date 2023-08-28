@@ -17,11 +17,13 @@ const meta: Meta<typeof SocialMediaLinks> = {
       options: borderTypeArray,
       table: { defaultValue: { summary: "none" } },
     },
+    className: { control: false },
     color: {
       control: { type: "radio" },
       options: colorTypeArray,
       table: { defaultValue: { summary: "textDefault" } },
     },
+    id: { control: false },
     layout: {
       control: { type: "radio" },
       options: layoutTypesArray,
@@ -45,7 +47,16 @@ type Story = StoryObj<typeof SocialMediaLinks>;
  * to learn how to use render functions.
  */
 export const WithControls: Story = {
-  render: (args) => <SocialMediaLinks {...args} />,
+    args: {
+        borders: "none",
+        color: "textDefault",
+        className: undefined,
+        id: undefined,
+        linksData: undefined,
+        layout: "row",
+        showLabels: false,
+        size: "medium",
+    },
   parameters: {
     design: {
       type: "figma",
@@ -56,19 +67,22 @@ export const WithControls: Story = {
 };
 
 export const WithOverrides: Story = {
-  render: (args) => (
-    <SocialMediaLinks
-      showLabels={true}
-      linksData={[
-        { type: "facebook" },
-        {
-          type: "twitter",
-          url: "twitter.com/elsewhere",
-          labelText: "Alt Twitter",
-        },
-        { type: "instagram" },
-      ]}
-      {...args}
-    />
-  ),
+    args: {
+        borders: "none",
+        color: "textDefault",
+        className: undefined,
+        id: undefined,
+        layout: "row",
+        linksData: [
+            {type: "facebook"},
+            {
+                type: "twitter",
+                url: "twitter.com/elsewhere",
+                labelText: "Alt Twitter",
+            },
+            {
+                type: "instagram",
+            }],
+        showLabels: true,
+    },
 };

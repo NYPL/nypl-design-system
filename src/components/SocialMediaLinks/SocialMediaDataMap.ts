@@ -1,9 +1,9 @@
 export const socialMediaDataMap = [
   {
-    type: "blogs",
-    iconName: "fileTypeDoc",
-    labelText: "NYPL Blogs",
-    url: "/blogs",
+    type: "blog",
+    iconName: "fileTypeGenericDoc",
+    labelText: "NYPL Blog",
+    url: "/blog",
   },
   {
     type: "facebook",
@@ -33,13 +33,13 @@ export const socialMediaDataMap = [
     type: "tiktok",
     iconName: "socialTikTok",
     labelText: "TikTok",
-    url: "tiktok.com/nypl",
+    url: "tiktok.com/@nypl",
   },
   {
     type: "tumblr",
     iconName: "socialTumblr",
     labelText: "Tumblr",
-    url: "tumblr.com/nypl",
+    url: "nypl.tumblr.com",
   },
   {
     type: "twitter",
@@ -51,6 +51,6 @@ export const socialMediaDataMap = [
     type: "youtube",
     iconName: "socialYoutube",
     labelText: "Youtube",
-    url: "youtube.com/nypl",
+    url: "youtube.com/newyorkpubliclibrary",
   },
 ];
