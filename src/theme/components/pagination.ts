@@ -9,7 +9,7 @@ const Pagination = {
       textDecoration: "none",
       _hover: {
         textDecoration: "none",
-      }
+      },
     },
     ul: {
       marginBottom: "0",
