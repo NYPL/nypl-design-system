@@ -15,6 +15,7 @@ export const headings = {
     lineHeight: "1.1",
     ...margins,
     width: "auto",
+    a: { textUnderlineOffset: "4px" },
   },
   two: {
     fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
@@ -22,6 +23,7 @@ export const headings = {
     lineHeight: "1.25",
     ...margins,
     width: "auto",
+    a: { textUnderlineOffset: "3px" },
   },
   three: {
     fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
@@ -49,29 +51,34 @@ export const headings = {
     letterSpacing: "1px",
     lineHeight: "1.05",
     width: "auto",
+    a: { textUnderlineOffset: "7px" },
   },
   heading1: {
     fontWeight: "heading.heading1",
     letterSpacing: "1px",
     lineHeight: "1.05",
     width: "auto",
+    a: { textUnderlineOffset: "6px" },
   },
   heading2: {
     fontWeight: "heading.heading2",
     letterSpacing: "1px",
     lineHeight: "1.15",
     width: "auto",
+    a: { textUnderlineOffset: "5px" },
   },
   heading3: {
     fontWeight: "heading.heading3",
     letterSpacing: "1px",
     lineHeight: "1.15",
     width: "auto",
+    a: { textUnderlineOffset: "4px" },
   },
   heading4: {
     fontWeight: "heading.heading4",
     lineHeight: "1.2",
     width: "auto",
+    a: { textUnderlineOffset: "3px" },
   },
   heading5: {
     fontWeight: "heading.heading5",
@@ -118,10 +125,13 @@ const variants = {
 
 const Heading = {
   parts: ["headingWrapper"],
-  baseStyle: ({ isCapitalized, isUppercase, isLowercase, noSpace }) => ({
+  baseStyle: ({ isCapitalized, isUppercase, isLowercase, noSpace, url }) => ({
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
-    a: baseLinkStyles,
+    a: {
+      ...baseLinkStyles,
+      textDecoration: url ? "none" : "underline",
+    },
     color: "ui.typography.heading",
     textTransform: isCapitalized
       ? "capitalize"
@@ -139,13 +149,13 @@ const Heading = {
     },
   }),
   // Available variants:
-  // one, two, three, four, five, six
-  // primary, secondary, tertiary, callout
   // h1, h2, h3, h4, h5, h6
-  // heading1, heading2, heading3, heading4, heading5, heading6
+  // display1, heading1, heading2, heading3, heading4, heading5, heading6
+  // DEPRECATED: one, two, three, four, five, six
+  // DEPRECATED: primary, secondary, tertiary, callout
   variants,
   defaultProps: {
-    variant: "secondary",
+    variant: "h2",
   },
 };
 

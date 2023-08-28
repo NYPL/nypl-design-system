@@ -7,6 +7,9 @@ const Pagination = {
     link: {
       lineHeight: "1.15",
       textDecoration: "none",
+      _hover: {
+        textDecoration: "none",
+      }
     },
     ul: {
       marginBottom: "0",
