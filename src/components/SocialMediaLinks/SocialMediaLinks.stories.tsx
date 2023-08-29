@@ -102,5 +102,4 @@ export const WithControls: Story = {
     },
     jest: ["SocialMediaLinks.test.tsx"],
   },
-
 };
