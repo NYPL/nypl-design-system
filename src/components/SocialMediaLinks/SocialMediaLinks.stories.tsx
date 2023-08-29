@@ -11,6 +11,65 @@ const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
   component: SocialMediaLinks,
   decorators: [withDesign],
+};
+
+export default meta;
+type Story = StoryObj<typeof SocialMediaLinks>;
+
+/*
+ *👇 Render functions are a framework specific feature to allow you control on how the component renders.
+ * See https://storybook.js.org/docs/react/api/csf
+ * to learn how to use render functions.
+ */
+export const Default: Story = {
+  argTypes: {
+    borders: {
+      table: { disable: true },
+    },
+    className: { table: { disable: true } },
+    color: {
+      table: { disable: true },
+    },
+    id: { table: { disable: true } },
+    layout: {
+      table: { disable: true },
+    },
+    linksData: { table: { disable: true } },
+    showLabels: { table: { disable: true } },
+    size: {
+      table: { disable: true },
+    },
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=77103-126004&t=Yx1GyAfBJyhuGIGs-4",
+    },
+    jest: ["SocialMediaLinks.test.tsx"],
+  },
+};
+
+export const WithControls: Story = {
+  args: {
+    borders: "none",
+    color: "textDefault",
+    className: undefined,
+    id: undefined,
+    layout: "row",
+    linksData: [
+      { type: "facebook" },
+      {
+        type: "twitter",
+        url: "twitter.com/elsewhere",
+        labelText: "Alt Twitter",
+      },
+      {
+        type: "instagram",
+      },
+    ],
+    showLabels: true,
+    size: "small",
+  },
   argTypes: {
     borders: {
       control: { type: "radio" },
@@ -36,27 +95,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
       table: { defaultValue: { summary: "small" } },
     },
   },
-};
-
-export default meta;
-type Story = StoryObj<typeof SocialMediaLinks>;
-
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const WithControls: Story = {
-  args: {
-    borders: "none",
-    color: "textDefault",
-    className: undefined,
-    id: undefined,
-    linksData: undefined,
-    layout: "row",
-    showLabels: false,
-    size: "medium",
-  },
   parameters: {
     design: {
       type: "figma",
@@ -64,26 +102,5 @@ export const WithControls: Story = {
     },
     jest: ["SocialMediaLinks.test.tsx"],
   },
-};
 
-export const WithOverrides: Story = {
-  args: {
-    borders: "none",
-    color: "textDefault",
-    className: undefined,
-    id: undefined,
-    layout: "row",
-    linksData: [
-      { type: "facebook" },
-      {
-        type: "twitter",
-        url: "twitter.com/elsewhere",
-        labelText: "Alt Twitter",
-      },
-      {
-        type: "instagram",
-      },
-    ],
-    showLabels: true,
-  },
 };

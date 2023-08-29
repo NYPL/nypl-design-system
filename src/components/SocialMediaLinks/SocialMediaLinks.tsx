@@ -103,6 +103,9 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
 export const SocialMediaLinks = chakra(
+  // @todo This throws a JS error b/c it expects a ref parameter. But if I add it, I get a TS error
+  //   because I don't know what to do with the ref, and it says, "unused." The List component doesn't like
+  //   receiving the ref prop and throws a different TS error.
   forwardRef<HTMLDivElement, SocialMediaLinksProps>((props) => {
     const {
       borders = "none",

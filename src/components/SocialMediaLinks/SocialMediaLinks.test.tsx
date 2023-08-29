@@ -3,7 +3,6 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 import SocialMediaLinks from "./SocialMediaLinks";
-import { socialMediaDataMap } from "./SocialMediaDataMap";
 
 // If you want to see what's happening.
 // screen.debug();
@@ -53,26 +52,28 @@ describe("SocialMediaLinks", () => {
 
     const links = screen.getAllByRole("link");
 
-    // All the links should be there.
-    // @todo I dunno. Isn't this kinda cheating? It will always be true, so why bother?
-    //   But I am trying to avoid changing the test if/when the socialMediaDataMap gets updated.
-    expect(links).toHaveLength(socialMediaDataMap.length);
+    // All the types in SocialMediaDataMap.ts should be there.
+    expect(links).toHaveLength(9);
 
-    // The links should be what we assigned, above.
-    // @todo Again, I could do this most easily by looping through the links array and mapping
-    //   each type to the socialMediaDataMap to ensure there is a match. But what is the point?
-    //   It will never fail since the data sets are both from the same source.
-    //   Are we doing this just to demonstrate that the component is rendered at all?
-    //   Don't the other accessibility tests and snapshots do that?
+    // Spot tests.
 
-    // The label text we desire should be in the document.
-    // @todo. See above.
+    // Links.
+    expect(links[1]).toHaveAttribute("href", "facebook.com/nypl");
+    expect(links[4]).toHaveAttribute("href", "soundcloud.com/nypl");
+    expect(links[6]).toHaveAttribute("href", "nypl.tumblr.com");
 
-    // There should be a ([variable]) icon.
-    // @todo ibid.
+    // Labels.
+    expect(screen.getByText("NYPL Blog")).toBeInTheDocument();
+    expect(screen.getByText("Pinterest")).toBeInTheDocument();
+    expect(screen.getByText("TikTok")).toBeInTheDocument();
+
+    // Icons.
+    expect(screen.getByTitle("socialInstagram icon")).toBeInTheDocument();
+    expect(screen.getByTitle("socialTwitter icon")).toBeInTheDocument();
+    expect(screen.getByTitle("socialYoutube icon")).toBeInTheDocument();
   });
 
-  it("Renders selected tags", () => {
+  it("Renders selected types", () => {
     render(
       <SocialMediaLinks
         layout={"column"}
@@ -100,7 +101,7 @@ describe("SocialMediaLinks", () => {
     // There should be two links.
     expect(links).toHaveLength(2);
 
-    // The links should be what we assigned, above.
+    // The links should be what we assigned and in the same order.
     expect(links[0]).toHaveAttribute("href", "twitter.com/elsewhere");
     expect(links[1]).toHaveAttribute("href", "facebook.com/nypl");
 
@@ -108,16 +109,13 @@ describe("SocialMediaLinks", () => {
     expect(screen.getByText("Alt Twitter")).toBeInTheDocument();
     expect(screen.getByText("NYPL Facebook")).toBeInTheDocument();
 
-    // There should be a (Facebook) icon.
+    // The icons should appear.
     expect(screen.getByTitle("socialFacebook icon")).toBeInTheDocument();
-
-    // There should be a (Twitter) icon.
     expect(screen.getByTitle("socialTwitter icon")).toBeInTheDocument();
   });
 
   it("logs an error if border='circular' and showLabels=true", () => {
     const error = jest.spyOn(console, "error");
-    screen.debug();
     render(<SocialMediaLinks borders={"circular"} showLabels={true} />);
     expect(error).toHaveBeenCalledWith(
       "NYPL Reservoir SocialMediaLinks: 'showLabels' is set to true, but labels can not be shown with a circular border."

@@ -83,6 +83,10 @@ const SocialMediaLinks = {
       let theseColors = getColor(color);
       return {
         flexDirection: layout,
+        bg: theseColors.ltBgColor,
+        _dark: {
+          bg: theseColors.dkBgColor,
+        },
         li: {
           borderRadius: "button.default",
           borderWidth: "2px",
