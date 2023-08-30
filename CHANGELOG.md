@@ -8,18 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Adds
+### Adds (Typography Feature Branch)
 
-- Adds the `"tiktok"` option to the `Icon` component.
-- Adds the `role` prop to the `Text` component.
 - Adds the `isUnderlined` prop to the `Link` component.
 - Adds the `"standalone"` variant to the `Link` component.
 - Adds `NYPL Patterns` to the `Links Accessibility Guide`.
 
-### Updates
+### Updates (Typography Feature Branch)
 
-- Updates the ARIA attributes for the `overline` and `subtitle` elements in the `Heading` component.
-- Updates the docs for the `Text` component and the `Typography Style Guide` to include more information about the `Typography 2023` updates.
 - Updates underline styles of the `Link` component.
 - Updates the hex value for the `Link Primary` color style.
 - Updates the `Link` component so that non-button variants change color once visited.
@@ -28,6 +24,29 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the base styles to use the `Typo2023` styles.
 - Updates all components to implement the `Typo2023` styles.
 - Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
+
+### Adds
+
+- Adds the `"actionIdentity"`, `"actionIdentityFilled"`, `"actionSearch"`, `"mapsPlace"`, `"socialSpotify"`, and `"socialVimeo"` options to the `Icon` component.
+
+### Updates
+
+- Updates `List` styling so the bottom border on description lists matches other borders.
+- Updates type `IconRotationTypes` to `IconRotations`.`IconRotationTypes` will still work for now, but is deprecated and will be removed in a later version.
+- Updates `Modal` component documentation.
+
+## 1.7.1 (August 17, 2023)
+
+### Adds
+
+- Adds the `"TikTok"` option to the `Icon` component.
+- Adds the `role` prop to the `Text` component.
+- Adds the `backdropBackgroundColor` prop to the `Hero` component for the `"campaign"` `heroType` variant.
+
+### Updates
+
+- Updates the ARIA attributes for the `overline` and `subtitle` elements in the `Heading` component.
+- Updates the docs for the `Text` component and the `Typography Style Guide` to include more information about the `Typography 2023` updates.
 
 ## 1.7.0 (July 20, 2023)
 

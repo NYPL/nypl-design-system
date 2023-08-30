@@ -57,6 +57,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   decorators: [withDesign],
   argTypes: {
+    backdropBackgroundColor: { control: false },
     backgroundColor: { control: false },
     foregroundColor: { control: false },
     heading: { control: false },
@@ -80,6 +81,7 @@ type Story = StoryObj<typeof Hero>;
  */
 export const WithControls: Story = {
   args: {
+    backdropBackgroundColor: undefined,
     backgroundColor: undefined,
     backgroundImageSrc: undefined,
     foregroundColor: undefined,
@@ -278,6 +280,46 @@ export const Campaign: Story = {
               id="campaign-hero-long-text-heading"
               overline="Example"
               subtitle="Donec id elit non mi porta gravida at eget metus."
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          text="Campaign Hero with backdrop background color"
+        />
+        <Hero
+          backdropBackgroundColor="section.research.primary"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="one"
+              id="campaign-hero-long-text-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          text="Campaign Hero with separate backdrop and foreground background color"
+        />
+        <Hero
+          backdropBackgroundColor="section.education.primary"
+          backgroundColor="#DC8034"
+          foregroundColor="black"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="one"
+              id="campaign-hero-long-text-heading"
               text="Hero Campaign"
             />
           }
