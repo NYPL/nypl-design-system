@@ -36,6 +36,7 @@ export const WithControls: Story = {
     className: "custom-class",
     href: "https://nypl.org",
     id: "nypl-link",
+    isUnderlined: true,
     screenreaderOnlyText: "Screenreader only text",
     target: undefined,
     type: "action",

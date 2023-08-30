@@ -113,7 +113,7 @@ export const StructuredContent = chakra(
         <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
           {headingText && <Heading id={`${id}-heading`}>{headingText}</Heading>}
           {calloutText && (
-            <Heading id={`${id}-callout`} level="three" size="callout">
+            <Heading id={`${id}-callout`} level="h3" size="heading5">
               {calloutText}
             </Heading>
           )}
