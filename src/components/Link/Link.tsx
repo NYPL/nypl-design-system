@@ -153,7 +153,7 @@ export const Link = chakra(
       className,
       href,
       id,
-      isUnderlined,
+      isUnderlined = true,
       onClick,
       screenreaderOnlyText,
       target,
@@ -164,10 +164,10 @@ export const Link = chakra(
     // Set initial underline style for certain variants
     const finalIsUnderlined =
       type === "backwards" || type === "forwards" || type === "standalone"
-        ? isUnderlined
-          ? true
-          : false
-        : true;
+        ? false
+        : isUnderlined
+        ? true
+        : false;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.

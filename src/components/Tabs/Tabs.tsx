@@ -75,7 +75,10 @@ const getElementsFromData = (
     // For URL hash enabled tabs, we need to add a custom `onClick` to handle the URL hash.
     const tempTab = (
       <Tab
-        fontSize={["0", null, "1"]}
+        fontSize={{
+          base: "mobile.subtitle.subtitle1",
+          md: "desktop.subtitle.subtitle1",
+        }}
         key={index}
         onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}
       >
