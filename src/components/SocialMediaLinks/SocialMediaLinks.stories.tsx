@@ -236,10 +236,14 @@ export const LabelVariations: Story = {
 
 export const noLinksData: Story = {
   render: () => (
-      <Box>
-        <Heading id="heading-nodata" level="three" text="No linksData Prop (Default)" />
-        <SocialMediaLinks />
-        <Source code="<SocialMediaLinks />" />
-      </Box>
+    <Box>
+      <Heading
+        id="heading-nodata"
+        level="three"
+        text="No linksData Prop (Default)"
+      />
+      <SocialMediaLinks />
+      <Source code="<SocialMediaLinks />" />
+    </Box>
   ),
 };
