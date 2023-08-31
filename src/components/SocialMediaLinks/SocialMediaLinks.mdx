@@ -1,10 +1,17 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-
-import Socialmedialinks from "./SocialMediaLinks";
+import { GetTableData } from "./SocialMediaLinks";
+import List from "../List/List";
+import Link from "../Link/Link";
+import Table from "../Table/Table"
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
-
 <Meta of={SocialMediaLinksStories} />
+
+## SocialMediaLinks
+| Component Version | DS Version |
+|-------------------|------------|
+| Added             | `0.xx.x`   |
+| Latest            | `0.xx.x`   |
 
 ## Overview
 
@@ -12,9 +19,47 @@ import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
 ## Default / No Props
 
+If you pass no props to the component it returns all allowed social media types in alphabetical order (see list below.)
+Visual presentation follows all the defaults: small size, no labels, no borders, textDefault color.
+
 <Canvas of={SocialMediaLinksStories.Default} />
 
-## With Override Props / Controls
+## With linksData Prop
 
 <Canvas of={SocialMediaLinksStories.WithControls} />
+
+Passing an array of social media objects to the `linksData` prop allows you to control which social media types are
+displayed, the order they appear, the specific URL used in the link, and the text used for the label of each.
+Of these, only the `type` value is required. All others are optional and will display a default value if left undeclared.
+Labels are exposed in this example to demonstrate that the text is changed for the middle icon.
+
 <ArgTypes of={SocialMediaLinksStories.WithControls} />
+
+### Available Social Media Types
+
+<Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name'  ]}  tableData={GetTableData()} />
+
+## Variations
+
+The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combine cirular borders with labels.
+
+<Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={'none'}/>
+
+<Canvas of={SocialMediaLinksStories.SizeVariations} sourceState={'none'}/>
+
+<Canvas of={SocialMediaLinksStories.ColorVariations} sourceState={'none'}/>
+
+<Canvas of={SocialMediaLinksStories.BorderVariations} sourceState={'none'}/>
+
+<Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={'none'}/>
+
+## Accessibility
+
+Internally, links are organized in a `ul` list element using the
+[List](/?path=/docs/components-typography-styles-list--docs),
+[Link](/?path=/docs/components-navigation-link--docs), and
+[Icon](/?path=/docs/components-media-icons-icon--docs) components.
+
+If the `showLabels` prop is set to `false` the labels are still visible to screen reader software.
+
+

@@ -3,13 +3,14 @@
 import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 function getRadius(size) {
-  let radiusSize = "18px";
+  let radiusSize = "119.125rem"; // 18px @todo Seems to be non standard. Should it be 16px / 1rem / 's'?
   switch (size) {
     case "medium":
-      radiusSize = "24px";
+      radiusSize = "m"; // 24px
       break;
     case "large":
-      radiusSize = "32px";
+      radiusSize = "l"; // 32px
+      break;
   }
   return {
     radiusSize,
@@ -47,13 +48,17 @@ const SocialMediaLinks = {
   parts: ["li", "a", "svg", "span"],
   // The base styles for each part
   baseStyle: {
-    // ul styles are not specifically identified as ul:
+    // ul styles should not specifically identified as ul:
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
-    gap: "xs",
+    gap: "s",
     li: {
-      padding: "xs",
+      marginInlineEnd: "0",
+      marginTop: "0",
+      _notFirst: {
+        marginTop: "0",
+      },
     },
     a: {
       display: "flex",
@@ -76,6 +81,8 @@ const SocialMediaLinks = {
     },
   },
   // The variants are bordered
+  // @todo The borders add 2px to total width of each <li />, e.g. small w/ borders = 36px. But the figma has it at 34px.
+  //   Are the borders supposed to be inside the <li />? Or can we live with the extra 2px?
   variants: {
     // Each variant is a function that returns stuff
     straight(props: StyleFunctionProps) {
@@ -88,8 +95,9 @@ const SocialMediaLinks = {
           bg: theseColors.dkBgColor,
         },
         li: {
+          padding: "xs",
           borderRadius: "button.default",
-          borderWidth: "2px",
+          borderWidth: "0.0625rem", // 1px. @todo Should it be 2px / xxxs?
           borderStyle: "solid",
           borderColor: theseColors.ltColor,
           _dark: {
@@ -120,9 +128,10 @@ const SocialMediaLinks = {
           bg: theseColors.dkBgColor,
         },
         li: {
+          padding: "xs",
           borderRadius: getRadius(size).radiusSize,
           borderColor: theseColors.ltColor,
-          borderWidth: "1px",
+          borderWidth: "0.0625rem",
           borderStyle: "solid",
           _dark: {
             borderColor: theseColors.dkColor,
@@ -148,6 +157,10 @@ const SocialMediaLinks = {
       let theseColors = getColor(color);
       return {
         flexDirection: layout,
+        bg: theseColors.ltBgColor,
+        _dark: {
+          bg: theseColors.dkBgColor,
+        },
         a: {
           color: theseColors.ltColor,
           _dark: {

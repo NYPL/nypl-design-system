@@ -47,7 +47,7 @@ export interface SocialMediaLinkDataProps {
 export interface SocialMediaLinksProps {
   /** Optional border: straight, circular or none. */
   borders?: BorderType;
-  /** Optional className you can add in addition to `social-media-links`. */
+  /** Optional className you can add in addition to "social-media-links." */
   className?: string;
   /** Optional color */
   color?: ColorType;
@@ -99,6 +99,20 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   return allData;
 }
 
+/* Helper function for .mdx <Table... /> component.
+ * It is located in SocialMediaLinks.tsx because I cannot figure out how to create a function in the .mdx file
+ *
+ * @returns the SocialMediaDataMap values as an array of arrays
+*/
+export function GetTableData() {
+  let tableData = [];
+  socialMediaDataMap.forEach( (smPlatform) => {
+    let row = [smPlatform.type, smPlatform.labelText, smPlatform.url, smPlatform.iconName]
+    tableData.push(row);
+  })
+  return tableData;
+}
+
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
@@ -115,7 +129,7 @@ export const SocialMediaLinks = chakra(
       linksData,
       layout = "row",
       showLabels = false,
-      size = "medium",
+      size = "small",
       ...rest
     } = props;
 
