@@ -103,13 +103,18 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
  * It is located in SocialMediaLinks.tsx because I cannot figure out how to create a function in the .mdx file
  *
  * @returns the SocialMediaDataMap values as an array of arrays
-*/
+ */
 export function GetTableData() {
   let tableData = [];
-  socialMediaDataMap.forEach( (smPlatform) => {
-    let row = [smPlatform.type, smPlatform.labelText, smPlatform.url, smPlatform.iconName]
+  socialMediaDataMap.forEach((smPlatform) => {
+    let row = [
+      smPlatform.type,
+      smPlatform.labelText,
+      smPlatform.url,
+      smPlatform.iconName,
+    ];
     tableData.push(row);
-  })
+  });
   return tableData;
 }
 
