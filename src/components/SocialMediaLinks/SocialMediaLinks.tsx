@@ -197,6 +197,7 @@ export const SocialMediaLinks = chakra(
         noStyling={true}
         className={className}
         id={id}
+        // ref={ref}
         __css={styles}
         {...rest}
       />

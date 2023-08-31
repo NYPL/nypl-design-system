@@ -46,13 +46,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
 export default meta;
 type Story = StoryObj<typeof SocialMediaLinks>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-// @todo Instead of setting all controls to null, perhaps I should just have no controls and suppress the warning
-//   about not being configured for controls.
 export const Default: Story = {};
 
 export const WithControls: Story = {
@@ -134,7 +127,7 @@ export const WithControls: Story = {
 export const LayoutVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-layout" level="two" text="Layout Variations" />
+      <Heading id="heading-layout" level="three" text="Layout Variations" />
       <Box>
         <Heading id="heading-row-layout" level="four" text="Row (Default)" />
         <SocialMediaLinks layout={"row"} />
@@ -152,7 +145,7 @@ export const LayoutVariations: Story = {
 export const SizeVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-size" level="two" text="Size Variations" />
+      <Heading id="heading-size" level="three" text="Size Variations" />
       <Box>
         <Heading id="heading-small-size" level="four" text="Small (Default)" />
         <SocialMediaLinks size={"small"} />
@@ -175,7 +168,7 @@ export const SizeVariations: Story = {
 export const ColorVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-color" level="two" text="Color Variations" />
+      <Heading id="heading-color" level="three" text="Color Variations" />
       <Box>
         <Heading
           id="heading-textdefault-color"
@@ -202,7 +195,7 @@ export const ColorVariations: Story = {
 export const BorderVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-border" level="two" text="Border Variations" />
+      <Heading id="heading-border" level="three" text="Border Variations" />
       <Box>
         <Heading id="heading-border-none" level="four" text="None (Default)" />
         <SocialMediaLinks borders={"none"} />
@@ -226,7 +219,7 @@ export const BorderVariations: Story = {
 export const LabelVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-labels" level="two" text="Label Variations" />
+      <Heading id="heading-labels" level="three" text="Label Variations" />
       <Box>
         <Heading id="heading-nolabels" level="four" text="False (Default)" />
         <SocialMediaLinks showLabels={false} />
@@ -238,5 +231,15 @@ export const LabelVariations: Story = {
         <Source code="<SocialMediaLinks showLabels={true} />" />
       </Box>
     </VStack>
+  ),
+};
+
+export const noLinksData: Story = {
+  render: () => (
+      <Box>
+        <Heading id="heading-nodata" level="three" text="No linksData Prop (Default)" />
+        <SocialMediaLinks />
+        <Source code="<SocialMediaLinks />" />
+      </Box>
   ),
 };

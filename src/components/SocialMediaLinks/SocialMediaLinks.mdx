@@ -1,45 +1,51 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import { GetTableData } from "./SocialMediaLinks";
-import List from "../List/List";
-import Link from "../Link/Link";
 import Table from "../Table/Table"
+import Link from "../Link/Link"
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
 <Meta of={SocialMediaLinksStories} />
 
-## SocialMediaLinks
+# SocialMediaLinks
 | Component Version | DS Version |
 |-------------------|------------|
-| Added             | `0.xx.x`   |
-| Latest            | `0.xx.x`   |
+| Added             |  `1.7.2`   |
+| Latest            |  `1.7.2`   |
+
+- [Overview](#overview)
+- [With Controls](#with-controls)
+  - [Available Social Media Types & Their Default Values](#available-social-media-types--their-default-values)
+- [Variations](#variations)
+  - [Layout Variations](#heading-layout)
+  - [Size Variations](#heading-size)
+  - [Color Variations](#heading-color)
+  - [Border Variations](#heading-border)
+  - [Label Variations](#heading-label)
+- [Accessibility](#accessibility)
+- [No linksData Prop (Default)](#no-linksdata-prop-default)
 
 ## Overview
 
 <Description of={SocialMediaLinksStories} />
 
-## Default / No linksData Prop
-
-If you pass no linksData prop to the component it returns all allowed social media types in
-alphabetical order (see list below.)
-In this example no props are passed at all, so the visual presentation follows all the defaults:
-row layout, small size, no labels, no borders, textDefault color.
-
-<Canvas of={SocialMediaLinksStories.Default} />
-
-## With linksData Prop
+## With Controls
 
 <Canvas of={SocialMediaLinksStories.WithControls} />
 
 Passing an array of social media objects to the `linksData` prop allows you to control which social media types are
 displayed, the order they appear, the specific URL used in the link, and the text used for the label of each.
 Of these, only the `type` value is required. All others are optional and will display a default value if left undeclared.
-Labels are exposed in this example to demonstrate that the text is changed for the middle icon.
-
+Labels are exposed in this example to demonstrate that the text is changed for the middle icon. You may also pass
+_no_ `linksData` prop and the component will return all available social media links with their default values. See [an
+example](#heading-nodata) at the bottom of this document.
+{/* @todo For some reason the color description is not showing */}
 <ArgTypes of={SocialMediaLinksStories.WithControls} />
 
-### Available Social Media Types
-
-<Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name'  ]}  tableData={GetTableData()} />
+### Available Social Media Types & Their Default Values
+{/* @todo For some reason the sourceState prop is being ignored and showing the "Show Code" button */}
+<Canvas sourceState={'none'}>
+  <Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name'  ]}  tableData={GetTableData()} showRowDividers={true} />
+</Canvas>
 
 ## Variations
 
@@ -55,6 +61,8 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 
 <Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={'none'}/>
 
+<Canvas of={SocialMediaLinksStories.noLinksData} sourceState={'none'}/>
+
 ## Accessibility
 
 Internally, links are organized in a `ul` list element using the
@@ -63,5 +71,7 @@ Internally, links are organized in a `ul` list element using the
 [Icon](/?path=/docs/components-media-icons-icon--docs) components.
 
 If the `showLabels` prop is set to `false` the labels are still visible to screen reader software.
+
+
 
 
