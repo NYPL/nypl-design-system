@@ -64,6 +64,7 @@ export type {
   IconAlign,
   IconColors,
   IconNames,
+  IconRotationTypes,
   IconRotations,
   IconSizes,
   IconTypes,
