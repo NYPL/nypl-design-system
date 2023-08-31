@@ -46,7 +46,7 @@ export const baseUnorderedStyles = (noStyling = false) => ({
 });
 export const baseSectionDescriptionStyles = {
   borderBottom: "1px solid",
-  borderColor: "ui.gray.light-cool",
+  borderColor: "ui.border.default",
   paddingStart: "0",
   h2: {
     borderTop: "3px solid",
