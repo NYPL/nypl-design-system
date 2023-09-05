@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### updates
+
+- Updates the `Logo` component to include variants for `NYC Public Schools`.
+
 ## 1.7.2 (August 31 , 2023)
 
 ### Adds
