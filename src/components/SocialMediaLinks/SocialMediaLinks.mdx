@@ -63,6 +63,12 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 
 <Canvas of={SocialMediaLinksStories.noLinksData} sourceState={'none'}/>
 
+## Responsive Design
+
+- Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
+- The minimum clickable area for a link on a mobile device is 44px. This requirement causes the spacing between
+  small and medium icons to be greater than when in a column layout in a desktop viewport.
+
 ## Accessibility
 
 Internally, links are organized in a `ul` list element using the

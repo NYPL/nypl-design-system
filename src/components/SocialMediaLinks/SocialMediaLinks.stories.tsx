@@ -10,6 +10,11 @@ import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import { Source } from "@storybook/blocks";
 
+
+console.log(global.innerWidth);
+console.log(global.visualViewport.width);
+
+
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
   component: SocialMediaLinks,
@@ -46,8 +51,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
 export default meta;
 type Story = StoryObj<typeof SocialMediaLinks>;
 
-export const Default: Story = {};
-
 export const WithControls: Story = {
   args: {
     borders: "none",
@@ -67,7 +70,7 @@ export const WithControls: Story = {
       },
     ],
     showLabels: true,
-    size: "small",
+    size: "small", // @todo This should be changed to "large" if the storybook viewport is = 'md' or 'sm'.
   },
   argTypes: {
     borders: {
@@ -115,12 +118,17 @@ export const WithControls: Story = {
     },
     size: {
       control: { type: "radio" },
-      options: sizeTypeArray,
+      options: sizeTypeArray, // @todo Maybe this should be changed if the storybook viewport setting is 'md' or 'sm'?
       table: {
         disable: false,
         defaultValue: { summary: "small" },
       },
     },
+  },
+  parameters: {
+    viewports: {
+
+    }
   },
 };
 
@@ -242,6 +250,10 @@ export const noLinksData: Story = {
         level="three"
         text="No linksData Prop (Default)"
       />
+      {/* @todo This should work, after importing, but it throws an error. Something about the styling?
+        *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
+        */}
+      <p>If no <code>linksData</code> prop is supplied, the component returns all available social media types and their default values.</p>
       <SocialMediaLinks />
       <Source code="<SocialMediaLinks />" />
     </Box>

@@ -2,6 +2,7 @@
 
 import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
+
 function getRadius(size) {
   let radiusSize = "119.125rem"; // 18px @todo Seems to be non standard. Should it be 16px / 1rem / 's'?
   switch (size) {
@@ -50,21 +51,26 @@ const SocialMediaLinks = {
   baseStyle: {
     // ul styles should not specifically identified as ul:
     display: "flex",
-    flexDirection: "row",
+    flexDirection: { base: "column", md: "row" }, // @todo Storybook doesn't seem to dynamically update this when you change the viewport control.
     alignItems: "flex-start",
     gap: "s",
+    width: { base: "100%", width: "unset"},
     li: {
+      boxSizing: "border-box",
       marginInlineEnd: "0",
       marginTop: "0",
+      width: { base: "100%", md: "unset"},
       _notFirst: {
         marginTop: "0",
       },
     },
     a: {
       display: "flex",
-      alignItems: "center",
-      gap: "xs",
-      alignSelf: "stretch",
+      justifyContent: "center",
+      alignContent: "center",
+      flexWrap: "wrap",
+      minWidth: {base: "44px", md: "unset"},
+      minHeight: {base: "44px", md: "unset"},
       fontStyle: "normal",
       fontSize: "desktop.body.body2",
       textDecoration: "none",
@@ -72,6 +78,15 @@ const SocialMediaLinks = {
       _dark: {
         color: "dark.ui.typography.heading",
       },
+    },
+    div: {
+      display: "flex",
+      alignItems: "center",
+      gap: "xs",
+      alignSelf: "stretch",
+      justifyContent: "center",
+      width: "fit-content",
+      height: "fit-content",
     },
     svg: {
       fill: "ui.typography.heading",
@@ -95,17 +110,19 @@ const SocialMediaLinks = {
           bg: theseColors.dkBgColor,
         },
         li: {
+        },
+        a: {
+          color: theseColors.ltColor,
+          _dark: {
+            borderColor: theseColors.dkColor,
+          },
+        },
+        div: {
           padding: "xs",
           borderRadius: "button.default",
           borderWidth: "0.0625rem", // 1px. @todo Should it be 2px / xxxs?
           borderStyle: "solid",
           borderColor: theseColors.ltColor,
-          _dark: {
-            borderColor: theseColors.dkColor,
-          },
-        },
-        a: {
-          color: theseColors.ltColor,
           _dark: {
             borderColor: theseColors.dkColor,
           },
@@ -128,6 +145,14 @@ const SocialMediaLinks = {
           bg: theseColors.dkBgColor,
         },
         li: {
+        },
+        a: {
+          color: theseColors.ltColor,
+          _dark: {
+            color: theseColors.dkColor,
+          },
+        },
+        div: {
           padding: "xs",
           borderRadius: getRadius(size).radiusSize,
           borderColor: theseColors.ltColor,
@@ -135,12 +160,6 @@ const SocialMediaLinks = {
           borderStyle: "solid",
           _dark: {
             borderColor: theseColors.dkColor,
-          },
-        },
-        a: {
-          color: theseColors.ltColor,
-          _dark: {
-            color: theseColors.dkColor,
           },
         },
         svg: {

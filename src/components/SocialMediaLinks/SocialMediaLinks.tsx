@@ -10,6 +10,13 @@ import { LayoutTypes } from "../../helpers/types";
 import { socialMediaDataMap } from "./SocialMediaDataMap";
 import React, { forwardRef } from "react";
 
+//
+// import { useBreakpoint } from '@chakra-ui/react'
+//
+// function GetBreakpoint(breakpoint) {return useBreakpoint(breakpoint)}
+//
+// console.log(GetBreakpoint('sm'));
+
 export const borderTypeArray = ["none", "circular", "straight"] as const;
 export type BorderType = typeof borderTypeArray[number];
 
@@ -53,7 +60,7 @@ export interface SocialMediaLinksProps {
   color?: ColorType;
   /** ID that other components can cross-reference for accessibility purposes */
   id?: string;
-  /** Optional layout */
+  /** Optional desktop layout. Smaller viewports are always in a column. */
   layout?: LayoutTypes;
   /** Optional array of social media platform types, urls, and label texts */
   linksData?: SocialMediaLinkDataProps[];
@@ -138,12 +145,16 @@ export const SocialMediaLinks = chakra(
       ...rest
     } = props;
 
+    // If the viewport is equal to or less than 600px we must use large icons to meet the minimum clickable space.
+    // @todo this doesn't work in an iframe, as in Storybook, for example.
+    const responsiveLayout = (window.innerWidth <= 600) ? "column" : layout;
+
     // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
     const styles = useMultiStyleConfig("SocialMediaLinks", {
       variant: borders,
-      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
-      color,
-      layout,
+      size,
+      color, // Shortcut: if the key and variable names are the same, you can just pass the variable.
+      layout: responsiveLayout,
     });
 
     let labelsOn = showLabels;
@@ -175,15 +186,19 @@ export const SocialMediaLinks = chakra(
       }
 
       const linkData = (
+
         <Link
           href={modifiedPlatform.url}
           key={modifiedPlatform.type}
-          screenreaderOnlyText={!showLabels ? modifiedPlatform.labelText : ""}
+          screenreaderOnlyText={!labelsOn ? modifiedPlatform.labelText : null} // If labels are on, this is redundant, so turn it off
           rel="nofollow noopener noreferrer"
         >
-          <Icon name={modifiedPlatform.iconName} size={iconSize} />
-          {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
+          <div className={"platLink"}>
+            <Icon name={modifiedPlatform.iconName} size={iconSize} />
+            {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
+          </div>
         </Link>
+
       );
 
       thisLinksData.push(linkData);
