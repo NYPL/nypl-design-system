@@ -147,7 +147,7 @@ export const SocialMediaLinks = chakra(
 
     // If the viewport is equal to or less than 600px we must use large icons to meet the minimum clickable space.
     // @todo this doesn't work in an iframe, as in Storybook, for example.
-    const responsiveLayout = (window.innerWidth <= 600) ? "column" : layout;
+    const responsiveLayout = window.innerWidth <= 600 ? "column" : layout;
 
     // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
     const styles = useMultiStyleConfig("SocialMediaLinks", {
@@ -186,7 +186,6 @@ export const SocialMediaLinks = chakra(
       }
 
       const linkData = (
-
         <Link
           href={modifiedPlatform.url}
           key={modifiedPlatform.type}
@@ -198,7 +197,6 @@ export const SocialMediaLinks = chakra(
             {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
           </div>
         </Link>
-
       );
 
       thisLinksData.push(linkData);

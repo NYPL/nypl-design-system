@@ -2,7 +2,6 @@
 
 import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
-
 function getRadius(size) {
   let radiusSize = "119.125rem"; // 18px @todo Seems to be non standard. Should it be 16px / 1rem / 's'?
   switch (size) {
@@ -54,12 +53,12 @@ const SocialMediaLinks = {
     flexDirection: { base: "column", md: "row" }, // @todo Storybook doesn't seem to dynamically update this when you change the viewport control.
     alignItems: "flex-start",
     gap: "s",
-    width: { base: "100%", width: "unset"},
+    width: { base: "100%", width: "unset" },
     li: {
       boxSizing: "border-box",
       marginInlineEnd: "0",
       marginTop: "0",
-      width: { base: "100%", md: "unset"},
+      width: { base: "100%", md: "unset" },
       _notFirst: {
         marginTop: "0",
       },
@@ -69,8 +68,8 @@ const SocialMediaLinks = {
       justifyContent: "center",
       alignContent: "center",
       flexWrap: "wrap",
-      minWidth: {base: "44px", md: "unset"},
-      minHeight: {base: "44px", md: "unset"},
+      minWidth: { base: "44px", md: "unset" },
+      minHeight: { base: "44px", md: "unset" },
       fontStyle: "normal",
       fontSize: "desktop.body.body2",
       textDecoration: "none",
@@ -109,8 +108,7 @@ const SocialMediaLinks = {
         _dark: {
           bg: theseColors.dkBgColor,
         },
-        li: {
-        },
+        li: {},
         a: {
           color: theseColors.ltColor,
           _dark: {
@@ -144,8 +142,7 @@ const SocialMediaLinks = {
         _dark: {
           bg: theseColors.dkBgColor,
         },
-        li: {
-        },
+        li: {},
         a: {
           color: theseColors.ltColor,
           _dark: {

@@ -10,10 +10,8 @@ import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import { Source } from "@storybook/blocks";
 
-
 console.log(global.innerWidth);
 console.log(global.visualViewport.width);
-
 
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
@@ -126,9 +124,7 @@ export const WithControls: Story = {
     },
   },
   parameters: {
-    viewports: {
-
-    }
+    viewports: {},
   },
 };
 
@@ -251,9 +247,12 @@ export const noLinksData: Story = {
         text="No linksData Prop (Default)"
       />
       {/* @todo This should work, after importing, but it throws an error. Something about the styling?
-        *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
-        */}
-      <p>If no <code>linksData</code> prop is supplied, the component returns all available social media types and their default values.</p>
+       *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
+       */}
+      <p>
+        If no <code>linksData</code> prop is supplied, the component returns all
+        available social media types and their default values.
+      </p>
       <SocialMediaLinks />
       <Source code="<SocialMediaLinks />" />
     </Box>
