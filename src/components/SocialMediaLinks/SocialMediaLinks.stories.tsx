@@ -134,7 +134,6 @@ export const WithControls: Story = {
 export const LayoutVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-layout" level="three" text="Layout Variations" />
       <Box>
         <Heading id="heading-row-layout" level="four" text="Row (Default)" />
         <SocialMediaLinks layout={"row"} />
@@ -152,7 +151,6 @@ export const LayoutVariations: Story = {
 export const SizeVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-size" level="three" text="Size Variations" />
       <Box>
         <Heading id="heading-small-size" level="four" text="Small (Default)" />
         <SocialMediaLinks size={"small"} />
@@ -175,7 +173,6 @@ export const SizeVariations: Story = {
 export const ColorVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-color" level="three" text="Color Variations" />
       <Box>
         <Heading
           id="heading-textdefault-color"
@@ -207,7 +204,6 @@ export const ColorVariations: Story = {
 export const BorderVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-border" level="three" text="Border Variations" />
       <Box>
         <Heading id="heading-border-none" level="four" text="None (Default)" />
         <SocialMediaLinks borders={"none"} />
@@ -231,7 +227,6 @@ export const BorderVariations: Story = {
 export const LabelVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Heading id="heading-labels" level="three" text="Label Variations" />
       <Box>
         <Heading id="heading-nolabels" level="four" text="False (Default)" />
         <SocialMediaLinks showLabels={false} />
@@ -249,13 +244,10 @@ export const LabelVariations: Story = {
 export const noLinksData: Story = {
   render: () => (
     <Box>
-      <Heading
-        id="heading-nodata"
-        level="three"
-        text="Without linksData Prop (Default)"
-      />
       {/* @todo This should work, with import Markdown , but it throws an error. It doesn't like something about the styling.
-       *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
+       *  <Markdown>If the `linksData` prop is not supplied or otherwise "falsy,"
+        the component returns all available social media types and their default
+        values.</Markdown>
        */}
       <p>
         If the <code>linksData</code> prop is not supplied or otherwise "falsy,"

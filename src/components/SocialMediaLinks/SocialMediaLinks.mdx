@@ -24,12 +24,12 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
   - {<Link href="#Resources" target="_self">Resources</Link>}
 - {<Link href="#variations" target="_self">Variations</Link>}
-  - {<Link href="#heading-layout" target="_self">Layout Variations</Link>}
-  - {<Link href="#heading-size" target="_self">Size Variations</Link>}
-  - {<Link href="#heading-color" target="_self">Color Variations</Link>}
-  - {<Link href="#heading-border" target="_self">Border Variations</Link>}
-  - {<Link href="#heading-labels" target="_self">Label Variations</Link>}
-  - {<Link href="#heading-nodata" target="_self">Without linksData Prop (Default)</Link>}
+  - {<Link href="#layout-variations" target="_self">Layout Variations</Link>}
+  - {<Link href="#size-variations" target="_self">Size Variations</Link>}
+  - {<Link href="#color-variations" target="_self">Color Variations</Link>}
+  - {<Link href="#border-variations" target="_self">Border Variations</Link>}
+  - {<Link href="#label-variations" target="_self">Label Variations</Link>}
+  - {<Link href="#without-linksdata-prop-default" target="_self">Without linksData Prop (Default)</Link>}
 - {<Link href="#responsive-design" target="_self">Responsive Design</Link>}
 </details>
 <br />
@@ -101,15 +101,30 @@ If the `showLabels` prop is set to `false` the labels are still visible to scree
 
 The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combine circular borders with labels.
 
+### Layout Variations
+
+NOTE: Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
+This layout prop is therefore effectively limited to desktop views.
+
 <Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={'none'}/>
+
+### Size Variations
 
 <Canvas of={SocialMediaLinksStories.SizeVariations} sourceState={'none'}/>
 
+### Color Variations
+
 <Canvas of={SocialMediaLinksStories.ColorVariations} sourceState={'none'}/>
+
+### Border Variations
 
 <Canvas of={SocialMediaLinksStories.BorderVariations} sourceState={'none'}/>
 
+### Label Variations
+
 <Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={'none'}/>
+
+### Without linksData Prop (Default)
 
 <Canvas of={SocialMediaLinksStories.noLinksData} sourceState={'none'}/>
 
