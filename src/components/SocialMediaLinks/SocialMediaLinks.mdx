@@ -1,28 +1,38 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { GetTableData } from "./SocialMediaLinks";
+import {ArgTypes, Canvas, Description, Meta, Source} from "@storybook/blocks";
+import { GetTableData } from "./SocialMediaLinksUtils";
 import Table from "../Table/Table"
-import Link from "../Link/Link"
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
+import Link from "../Link/Link";
 
 <Meta of={SocialMediaLinksStories} />
 
 # SocialMediaLinks
-| Component Version | DS Version |
-|-------------------|------------|
-| Added             |  `1.7.2`   |
-| Latest            |  `1.7.2`   |
 
-- [Overview](#overview)
-- [With Controls](#with-controls)
-  - [Available Social Media Types & Their Default Values](#available-social-media-types--their-default-values)
-- [Variations](#variations)
-  - [Layout Variations](#heading-layout)
-  - [Size Variations](#heading-size)
-  - [Color Variations](#heading-color)
-  - [Border Variations](#heading-border)
-  - [Label Variations](#heading-label)
-- [Accessibility](#accessibility)
-- [No linksData Prop (Default)](#no-linksdata-prop-default)
+| Component Version | DS Version     |
+|-------------------|----------------|
+| Added             |  `Prerelease`  |
+| Latest            |  `Prerelease`  |
+
+## Table of Contents
+
+[//]: # ( @todo This TOC is pretty long. I don't see a DS component that allows you to create a collapsible list. Might be nice to have.)
+<details>
+    <summary>Click to Open</summary>
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#with-controls" target="_self">With Controls</Link>}
+  - {<Link href="#available-social-media-types--their-default-values" target="_self">Available Social Media Types & Their Default Values</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+  - {<Link href="#Resources" target="_self">Resources</Link>}
+- {<Link href="#variations" target="_self">Variations</Link>}
+  - {<Link href="#heading-layout" target="_self">Layout Variations</Link>}
+  - {<Link href="#heading-size" target="_self">Size Variations</Link>}
+  - {<Link href="#heading-color" target="_self">Color Variations</Link>}
+  - {<Link href="#heading-border" target="_self">Border Variations</Link>}
+  - {<Link href="#heading-labels" target="_self">Label Variations</Link>}
+  - {<Link href="#heading-nodata" target="_self">Without linksData Prop (Default)</Link>}
+- {<Link href="#responsive-design" target="_self">Responsive Design</Link>}
+</details>
+<br />
 
 ## Overview
 
@@ -34,22 +44,62 @@ import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 
 Passing an array of social media objects to the `linksData` prop allows you to control which social media types are
 displayed, the order they appear, the specific URL used in the link, and the text used for the label of each.
-Of these, only the `type` value is required. All others are optional and will display a default value if left undeclared.
-Labels are exposed in this example to demonstrate that the text is changed for the middle icon. You may also pass
+Of these, only the `type` value is required. The other two props, `labelText` and `url` are optional and will display
+a default value if left undeclared. Order is determined by the order of the array. You may also pass
 _no_ `linksData` prop and the component will return all available social media links with their default values. See [an
 example](#heading-nodata) at the bottom of this document.
-{/* @todo For some reason the color description is not showing */}
+
+Labels are exposed in this example to demonstrate that the text is changed for the middle icon. Click "Show Code," above,
+to view the sample `linksData` code.
+
 <ArgTypes of={SocialMediaLinksStories.WithControls} />
 
 ### Available Social Media Types & Their Default Values
+
+The `linksData` prop accepts an array of objects. Each object may be composed of three values: `type`, `labelText`,
+and `url`. Of these, only `type` is required, determining which of the allowed social media icons will be displayed.
+Each type has a default value for its label text and url. See table below for allowed types and default values.
+If values are set for `labelText` and/or `url` in the `linksData` array, those values will override the defaults.
+For example:
+
+<Source
+    code={`
+const myLinksData = [
+  { type: "twitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
+  { type: "instagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
+  { type: "facebook", labelText: "NYPL Educators", url: "https://www.facebook.com/NYPLEducators"},
+];
+// ...
+<SocialMediaLinks linksData=myLinksData />
+`}
+    language="tsx"
+/>
+
 {/* @todo For some reason the sourceState prop is being ignored and showing the "Show Code" button */}
 <Canvas sourceState={'none'}>
-  <Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name'  ]}  tableData={GetTableData()} showRowDividers={true} />
+  <Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name*'  ]}  tableData={GetTableData()} showRowDividers={true} />
 </Canvas>
+
+\* `Icon Name` is not a prop. It is returned automatically by the component. Its value is shown here for transparency.
+
+## Accessibility
+
+Internally, links are organized in a `ul` list element using the
+[List](/?path=/docs/components-typography-styles-list--docs),
+[Link](/?path=/docs/components-navigation-link--docs), and
+[Icon](/?path=/docs/components-media-icons-icon--docs) components.
+
+If the `showLabels` prop is set to `false` the labels are still visible to screen reader software.
+
+### Resources
+
+- [Deque University Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
+- [W3C SVG icons](https://design-system.w3.org/styles/svg-icons.html)
+- [Accessible SVG icons](https://css-tricks.com/accessible-svg-icons/)
 
 ## Variations
 
-The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combine cirular borders with labels.
+The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combine circular borders with labels.
 
 <Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={'none'}/>
 
@@ -68,16 +118,3 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 - Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
 - The minimum clickable area for a link on a mobile device is 44px. This requirement causes the spacing between
   small and medium icons to be greater than when in a column layout in a desktop viewport.
-
-## Accessibility
-
-Internally, links are organized in a `ul` list element using the
-[List](/?path=/docs/components-typography-styles-list--docs),
-[Link](/?path=/docs/components-navigation-link--docs), and
-[Icon](/?path=/docs/components-media-icons-icon--docs) components.
-
-If the `showLabels` prop is set to `false` the labels are still visible to screen reader software.
-
-
-
-

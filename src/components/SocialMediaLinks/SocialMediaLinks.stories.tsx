@@ -10,9 +10,6 @@ import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import { Source } from "@storybook/blocks";
 
-console.log(global.innerWidth);
-console.log(global.visualViewport.width);
-
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
   component: SocialMediaLinks,
@@ -68,7 +65,7 @@ export const WithControls: Story = {
       },
     ],
     showLabels: true,
-    size: "small", // @todo This should be changed to "large" if the storybook viewport is = 'md' or 'sm'.
+    size: "small",
   },
   argTypes: {
     borders: {
@@ -86,7 +83,9 @@ export const WithControls: Story = {
       },
     },
     color: {
+      description: "Any of three optional values that will change the color of the svg and label text (if any).",
       control: { type: "radio" },
+      // @todo the table will not display these options.
       options: colorTypeArray,
       table: {
         disable: false,
@@ -116,7 +115,7 @@ export const WithControls: Story = {
     },
     size: {
       control: { type: "radio" },
-      options: sizeTypeArray, // @todo Maybe this should be changed if the storybook viewport setting is 'md' or 'sm'?
+      options: sizeTypeArray,
       table: {
         disable: false,
         defaultValue: { summary: "small" },
@@ -124,7 +123,10 @@ export const WithControls: Story = {
     },
   },
   parameters: {
-    viewports: {},
+    // This is gray b/c textInverse would be invisible otherwise.
+    // It is possible to make the background change based on controls. But this requires changes to preview.tsx
+    // See https://www.bekk.christmas/post/2021/3/storybook-background-change-on-prop-change
+   backgrounds: { default: 'Light mode active background' },
   },
 };
 
@@ -187,8 +189,8 @@ export const ColorVariations: Story = {
         <SocialMediaLinks color={"link"} />
         <Source code="<SocialMediaLinks color={'link'} />" />
       </Box>
-      <Box>
-        <Heading id="heading-textinverse-color" level="four" text="Inverse" />
+      <Box bgColor={"#BDBDBD"}>
+        <Heading id="heading-textinverse-color" level="four" color={"ui.typography.inverse.heading"}  text="textInverse" />
         <SocialMediaLinks color={"textInverse"} />
         <Source code="<SocialMediaLinks color={'textInverse'} />" />
       </Box>
@@ -244,13 +246,13 @@ export const noLinksData: Story = {
       <Heading
         id="heading-nodata"
         level="three"
-        text="No linksData Prop (Default)"
+        text="Without linksData Prop (Default)"
       />
-      {/* @todo This should work, after importing, but it throws an error. Something about the styling?
+      {/* @todo This should work, with import Markdown , but it throws an error. It doesn't like something about the styling.
        *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
        */}
       <p>
-        If no <code>linksData</code> prop is supplied, the component returns all
+        If the <code>linksData</code> prop is not supplied or otherwise "falsy," the component returns all
         available social media types and their default values.
       </p>
       <SocialMediaLinks />

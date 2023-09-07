@@ -3,54 +3,72 @@ export const socialMediaDataMap = [
     type: "blog",
     iconName: "fileTypeGenericDoc",
     labelText: "NYPL Blog",
-    url: "/blog",
+    url: "https://nypl.org/blog",
   },
   {
     type: "facebook",
     iconName: "socialFacebook",
     labelText: "Facebook",
-    url: "facebook.com/nypl",
+    url: "https://facebook.com/nypl",
   },
   {
     type: "instagram",
     iconName: "socialInstagram",
     labelText: "Instagram",
-    url: "instagram.com/nypl",
+    url: "https://instagram.com/nypl",
   },
   {
     type: "pinterest",
     iconName: "socialPinterest",
     labelText: "Pinterest",
-    url: "pinterest.com/nypl",
+    url: "https://pinterest.com/nypl",
   },
   {
     type: "soundcloud",
     iconName: "socialSoundCloud",
     labelText: "SoundCloud",
-    url: "soundcloud.com/nypl",
+    url: "https://soundcloud.com/nypl",
   },
   {
     type: "tiktok",
     iconName: "socialTikTok",
     labelText: "TikTok",
-    url: "tiktok.com/@nypl",
+    url: "https://tiktok.com/@nypl",
   },
   {
     type: "tumblr",
     iconName: "socialTumblr",
     labelText: "Tumblr",
-    url: "nypl.tumblr.com",
+    url: "https://nypl.tumblr.com",
   },
   {
     type: "twitter",
     iconName: "socialTwitter",
     labelText: "Twitter",
-    url: "twitter.com/nypl",
+    url: "https://twitter.com/nypl",
   },
   {
     type: "youtube",
     iconName: "socialYoutube",
     labelText: "Youtube",
-    url: "youtube.com/newyorkpubliclibrary",
+    url: "https://youtube.com/newyorkpubliclibrary",
   },
 ];
+
+/* Helper function for .mdx <Table... /> component.
+ *
+ * @returns the SocialMediaDataMap values as an array of arrays
+ */
+export function GetTableData() {
+  let tableData = [];
+  socialMediaDataMap.forEach((smPlatform) => {
+    let row = [
+      smPlatform.type,
+      smPlatform.labelText,
+      smPlatform.url,
+      smPlatform.iconName,
+    ];
+    tableData.push(row);
+  });
+  return tableData;
+}

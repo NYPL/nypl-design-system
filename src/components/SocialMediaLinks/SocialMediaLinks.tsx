@@ -1,21 +1,13 @@
 import {
   chakra,
-  useMultiStyleConfig,
-  // useColorModeValue,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
-import { socialMediaDataMap } from "./SocialMediaDataMap";
+import { socialMediaDataMap } from "./SocialMediaLinksUtils";
 import React, { forwardRef } from "react";
-
-//
-// import { useBreakpoint } from '@chakra-ui/react'
-//
-// function GetBreakpoint(breakpoint) {return useBreakpoint(breakpoint)}
-//
-// console.log(GetBreakpoint('sm'));
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
 export type BorderType = typeof borderTypeArray[number];
@@ -26,22 +18,13 @@ export type ColorType = typeof colorTypeArray[number];
 export const sizeTypeArray = ["small", "medium", "large"] as const;
 export type SizeType = typeof sizeTypeArray[number];
 
-// @todo The below export fails TS, for reasons I do not yet understand. But it would be useful so that we don't
-//   need to update in two places if any names are changed / added / subtracted.
-//   export const socialMediaLinkTypeArray  = socialMediaDataMap.map(({ type }) => type) as const;
-export const socialMediaLinkTypeArray = [
-  "blogs",
-  "facebook",
-  "instagram",
-  "pinterest",
-  "soundcloud",
-  "tiktok",
-  "tumbler",
-  "twitter",
-  "youtube",
-] as const;
+// This list of allowed types is defined in the SocialMediaDataMap found in SocialMediaLinksUtils.ts and extracted here.
+export const socialMediaLinkTypeArray  = socialMediaDataMap.map(({ type }) => type);
 export type SocialMediaLinkType = typeof socialMediaLinkTypeArray[number];
 
+// @todo If SocialMediaLinkDataType equals this, and we only actually use
+//   SocialMediaLinkDataType, why are we bothering with this? Why don't we change "interface" to "type"
+//   and eliminate SocialMediaLinkDataType?
 export interface SocialMediaLinkDataProps {
   /** Optional override for default platform name */
   labelText?: string;
@@ -51,23 +34,25 @@ export interface SocialMediaLinkDataProps {
   url?: string;
 }
 
+export type SocialMediaLinkDataType = SocialMediaLinkDataProps; // @todo Is this needed? See above.
+
 export interface SocialMediaLinksProps {
   /** Optional border: straight, circular or none. */
   borders?: BorderType;
   /** Optional className you can add in addition to "social-media-links." */
   className?: string;
-  /** Optional color */
+  /** Any of three optional values that will change the color of the svg and label text (if any). */
   color?: ColorType;
-  /** ID that other components can cross-reference for accessibility purposes */
+  /** ID that other components can cross-reference for accessibility purposes. */
   id?: string;
   /** Optional desktop layout. Smaller viewports are always in a column. */
   layout?: LayoutTypes;
-  /** Optional array of social media platform types, urls, and label texts */
-  linksData?: SocialMediaLinkDataProps[];
-  /** Optional true/false to display names of platform along with icon
+  /** Optional array of social media platform types, urls, and label texts. */
+  linksData?: SocialMediaLinkDataType[];
+  /** Optional true/false to display names of platforms along with icons.
    *  NOTE: Labels will NOT be shown with a circular border */
   showLabels?: boolean;
-  /** Optional size: medium, large, xlarge */
+  /** Optional size: small, medium, or large. */
   size?: SizeType;
 }
 
@@ -77,7 +62,7 @@ export interface SocialMediaLinksProps {
  * @returns an array of data objects for each requested platform type that includes type, iconName, labelText and
  * url. The labelText and url props will include any values supplied to override the defaults.
  */
-function getLinksData(platforms: SocialMediaLinkDataProps[]) {
+function getLinksData(platforms: SocialMediaLinkDataType[]) {
   let allData = [];
   platforms.forEach((myPlatform) => {
     // Get the dataset for this platform.
@@ -101,38 +86,16 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
       url: newUrl,
     };
     allData.push(thisObj);
-  }); // end foreach
+  }); // end forEach
 
   return allData;
-}
-
-/* Helper function for .mdx <Table... /> component.
- * It is located in SocialMediaLinks.tsx because I cannot figure out how to create a function in the .mdx file
- *
- * @returns the SocialMediaDataMap values as an array of arrays
- */
-export function GetTableData() {
-  let tableData = [];
-  socialMediaDataMap.forEach((smPlatform) => {
-    let row = [
-      smPlatform.type,
-      smPlatform.labelText,
-      smPlatform.url,
-      smPlatform.iconName,
-    ];
-    tableData.push(row);
-  });
-  return tableData;
 }
 
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
 export const SocialMediaLinks = chakra(
-  // @todo This throws a JS error b/c it expects a ref parameter. But if I add it, I get a TS error
-  //   because I don't know what to do with the ref, and it says, "unused." The List component doesn't like
-  //   receiving the ref prop and throws a different TS error.
-  forwardRef<HTMLDivElement, SocialMediaLinksProps>((props) => {
+  forwardRef<HTMLDivElement & HTMLUListElement & HTMLOListElement, SocialMediaLinksProps>((props, ref?) => {
     const {
       borders = "none",
       color = "textDefault",
@@ -145,16 +108,12 @@ export const SocialMediaLinks = chakra(
       ...rest
     } = props;
 
-    // If the viewport is equal to or less than 600px we must use large icons to meet the minimum clickable space.
-    // @todo this doesn't work in an iframe, as in Storybook, for example.
-    const responsiveLayout = window.innerWidth <= 600 ? "column" : layout;
-
     // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
-    const styles = useMultiStyleConfig("SocialMediaLinks", {
+    const styles = useStyleConfig("SocialMediaLinks", {
       variant: borders,
-      size,
-      color, // Shortcut: if the key and variable names are the same, you can just pass the variable.
-      layout: responsiveLayout,
+      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
+      color,
+      layout,
     });
 
     let labelsOn = showLabels;
@@ -210,8 +169,8 @@ export const SocialMediaLinks = chakra(
         noStyling={true}
         className={className}
         id={id}
-        // ref={ref}
         __css={styles}
+        ref={ref}
         {...rest}
       />
     );
