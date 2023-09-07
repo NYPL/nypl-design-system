@@ -58,9 +58,9 @@ describe("SocialMediaLinks", () => {
     // Spot tests.
 
     // Links.
-    expect(links[1]).toHaveAttribute("href", "facebook.com/nypl");
-    expect(links[4]).toHaveAttribute("href", "soundcloud.com/nypl");
-    expect(links[6]).toHaveAttribute("href", "nypl.tumblr.com");
+    expect(links[1]).toHaveAttribute("href", "https://facebook.com/nypl");
+    expect(links[4]).toHaveAttribute("href", "https://soundcloud.com/nypl");
+    expect(links[6]).toHaveAttribute("href", "https://nypl.tumblr.com");
 
     // Labels.
     expect(screen.getByText("NYPL Blog")).toBeInTheDocument();
@@ -81,20 +81,16 @@ describe("SocialMediaLinks", () => {
           {
             labelText: "Alt Twitter",
             type: "twitter",
-            url: "twitter.com/elsewhere",
+            url: "https://twitter.com/elsewhere",
           },
           {
             labelText: "NYPL Facebook",
             type: "facebook",
-            url: "facebook.com/nypl",
+            url: "https://facebook.com/nypl",
           },
         ]}
       />
     );
-
-    // @todo Do we need to test if the icons are in a row or column?
-    // @todo Or if the colors are correct?
-    // @todo Or if the borders are correct?
 
     const links = screen.getAllByRole("link");
 
@@ -102,8 +98,8 @@ describe("SocialMediaLinks", () => {
     expect(links).toHaveLength(2);
 
     // The links should be what we assigned and in the same order.
-    expect(links[0]).toHaveAttribute("href", "twitter.com/elsewhere");
-    expect(links[1]).toHaveAttribute("href", "facebook.com/nypl");
+    expect(links[0]).toHaveAttribute("href", "https://twitter.com/elsewhere");
+    expect(links[1]).toHaveAttribute("href", "https://facebook.com/nypl");
 
     // The label text we desire should be in the document.
     expect(screen.getByText("Alt Twitter")).toBeInTheDocument();
@@ -457,12 +453,12 @@ describe("SocialMediaLinks Snapshot", () => {
             {
               labelText: "Alt Twitter",
               type: "twitter",
-              url: "twitter.com/elsewhere",
+              url: "https://twitter.com/elsewhere",
             },
             {
               labelText: "NYPL Facebook",
               type: "facebook",
-              url: "facebook.com/nypl",
+              url: "https://facebook.com/nypl",
             },
           ]}
         />
