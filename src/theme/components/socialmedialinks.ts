@@ -18,7 +18,8 @@ function getPadding(size) {
 }
 
 function getColor(color) {
-  let ltColor = "ui.typography.heading", dkColor = "dark.ui.typography.heading"
+  let ltColor = "ui.typography.heading",
+    dkColor = "dark.ui.typography.heading";
 
   switch (color) {
     case "link":

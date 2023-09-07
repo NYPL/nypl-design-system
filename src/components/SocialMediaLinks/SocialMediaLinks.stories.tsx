@@ -83,7 +83,8 @@ export const WithControls: Story = {
       },
     },
     color: {
-      description: "Any of three optional values that will change the color of the svg and label text (if any).",
+      description:
+        "Any of three optional values that will change the color of the svg and label text (if any).",
       control: { type: "radio" },
       // @todo the table will not display these options.
       options: colorTypeArray,
@@ -124,9 +125,9 @@ export const WithControls: Story = {
   },
   parameters: {
     // This is gray b/c textInverse would be invisible otherwise.
-    // It is possible to make the background change based on controls. But this requires changes to preview.tsx
-    // See https://www.bekk.christmas/post/2021/3/storybook-background-change-on-prop-change
-   backgrounds: { default: 'Light mode active background' },
+    // @todo It is possible to make the background change based on controls. But this requires changes to preview.tsx
+    //   See https://www.bekk.christmas/post/2021/3/storybook-background-change-on-prop-change
+    backgrounds: { default: "Light mode active background" },
   },
 };
 
@@ -190,7 +191,12 @@ export const ColorVariations: Story = {
         <Source code="<SocialMediaLinks color={'link'} />" />
       </Box>
       <Box bgColor={"#BDBDBD"}>
-        <Heading id="heading-textinverse-color" level="four" color={"ui.typography.inverse.heading"}  text="textInverse" />
+        <Heading
+          id="heading-textinverse-color"
+          level="four"
+          color={"ui.typography.inverse.heading"}
+          text="textInverse"
+        />
         <SocialMediaLinks color={"textInverse"} />
         <Source code="<SocialMediaLinks color={'textInverse'} />" />
       </Box>
@@ -252,8 +258,9 @@ export const noLinksData: Story = {
        *   <Markdown>If no `linksData` prop is supplied, the component returns all available social media types and their default values.</Markdown>
        */}
       <p>
-        If the <code>linksData</code> prop is not supplied or otherwise "falsy," the component returns all
-        available social media types and their default values.
+        If the <code>linksData</code> prop is not supplied or otherwise "falsy,"
+        the component returns all available social media types and their default
+        values.
       </p>
       <SocialMediaLinks />
       <Source code="<SocialMediaLinks />" />

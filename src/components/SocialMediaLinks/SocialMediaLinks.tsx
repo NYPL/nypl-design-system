@@ -1,7 +1,4 @@
-import {
-  chakra,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { chakra, useStyleConfig } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
@@ -19,7 +16,9 @@ export const sizeTypeArray = ["small", "medium", "large"] as const;
 export type SizeType = typeof sizeTypeArray[number];
 
 // This list of allowed types is defined in the SocialMediaDataMap found in SocialMediaLinksUtils.ts and extracted here.
-export const socialMediaLinkTypeArray  = socialMediaDataMap.map(({ type }) => type);
+export const socialMediaLinkTypeArray = socialMediaDataMap.map(
+  ({ type }) => type
+);
 export type SocialMediaLinkType = typeof socialMediaLinkTypeArray[number];
 
 // @todo If SocialMediaLinkDataType equals this, and we only actually use
@@ -95,7 +94,10 @@ function getLinksData(platforms: SocialMediaLinkDataType[]) {
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
 export const SocialMediaLinks = chakra(
-  forwardRef<HTMLDivElement & HTMLUListElement & HTMLOListElement, SocialMediaLinksProps>((props, ref?) => {
+  forwardRef<
+    HTMLDivElement & HTMLUListElement & HTMLOListElement,
+    SocialMediaLinksProps
+  >((props, ref?) => {
     const {
       borders = "none",
       color = "textDefault",
