@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Logo` component to include variants for `NYC Public Schools`.
+- Updates the `Icon` component to include varisnts for `"sunFull"` and `"moonCrescent"`.
+
 ## 1.7.2 (August 31 , 2023)
 
 ### Adds
