@@ -35,6 +35,7 @@ import Logo from "./components/logo";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectMenuButton from "./components/multiSelectMenuButton";
+import NewsletterSignup from "./components/newsletterSignup";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -118,6 +119,7 @@ const theme: any = {
     MultiSelect,
     MultiSelectMenuButton,
     ...NotificationStyles,
+    NewsletterSignup,
     Pagination,
     ProgressIndicator,
     Radio,

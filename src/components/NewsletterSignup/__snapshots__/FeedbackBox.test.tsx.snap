@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsletterSignup renders the UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+  id="feedbackbox"
+>
+  <button
+    className="chakra-button css-1xdhyk6"
+    id="open"
+    onClick={[Function]}
+    type="button"
+  >
+    Help and Feeback
+  </button>
+</div>
+`;
