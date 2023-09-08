@@ -1,11 +1,6 @@
 import {
   Box,
   chakra,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
   useColorModeValue,
   useDisclosure,
   useMultiStyleConfig,
@@ -123,8 +118,6 @@ export const NewsletterSignup = chakra(
       const { isLargerThanMobile } = useNYPLBreakpoints();
       // Chakra's hook to control Drawer's actions.
       const disclosure = useDisclosure();
-      const finalIsOpen = isOpen ? isOpen : disclosure.isOpen;
-      const finalOnOpen = onOpen ? onOpen : disclosure.onOpen;
       const finalOnClose = onClose ? onClose : disclosure.onClose;
       const focusRef = useRef<HTMLDivElement>();
       const styles = useMultiStyleConfig("NewsletterSignup", {});
@@ -259,241 +252,209 @@ export const NewsletterSignup = chakra(
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
-          <Button id="open" onClick={finalOnOpen} sx={styles.openButton}>
-            {title}
-          </Button>
-
-          <Drawer
-            blockScrollOnMount={false}
-            isOpen={finalIsOpen}
-            onClose={finalOnClose}
-            placement="bottom"
+          <Form
+            gap="grid.s"
+            id="feedback-form"
+            onSubmit={internalOnSubmit}
+            sx={{
+              ".feedback-body": {
+                alignItems: "flex-start",
+                minHeight: finalDrawerMinHeight,
+                gridTemplateRows: initTemplateRows,
+              },
+              ".feedback-body.response": {
+                alignItems: "center",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              },
+            }}
           >
-            {/* Adds the opaque background. */}
-            <DrawerOverlay />
+            {/* Initial form Screen */}
+            {isFormView && (
+              <>
+                <VStack className="feedback-body" spacing="s">
+                  {(notificationElement || descriptionElement) && (
+                    <>
+                      {notificationElement}
+                      {descriptionElement}
+                    </>
+                  )}
+                  {showCategoryField && (
+                    <FormField>
+                      <RadioGroup
+                        defaultValue={state.category}
+                        id={`${id}-category`}
+                        isDisabled={isSubmitted}
+                        labelText="What is your feedback about?"
+                        layout={isLargerThanMobile ? "row" : "column"}
+                        name={`${id}-category`}
+                        onChange={(selected) => setCategory(selected)}
+                      >
+                        <Radio
+                          id="comment"
+                          labelText="Comment"
+                          value="comment"
+                        />
+                        <Radio
+                          id="correction"
+                          labelText="Correction"
+                          value="correction"
+                        />
+                        <Radio id="bug" labelText="Bug" value="bug" />
+                      </RadioGroup>
+                    </FormField>
+                  )}
+                  <FormField width="100%">
+                    <TextInput
+                      helperText={`${
+                        maxCommentCharacters - state.comment.length
+                      } characters remaining`}
+                      id={`${id}-comment`}
+                      invalidText="Please fill out this field."
+                      isDisabled={isSubmitted}
+                      isInvalid={isInvalidComment}
+                      isRequired
+                      labelText="Comment"
+                      maxLength={maxCommentCharacters}
+                      name={`${id}-comment`}
+                      onChange={(e) => setComment(e.target.value)}
+                      placeholder="Enter your question or feedback here"
+                      type="textarea"
+                      defaultValue={state.comment}
+                    />
+                  </FormField>
+                  {showEmailField && (
+                    <FormField width="100%">
+                      <TextInput
+                        id={`${id}-email`}
+                        invalidText="Please enter a valid email address."
+                        isDisabled={isSubmitted}
+                        isInvalid={isInvalidEmail}
+                        labelText="Email"
+                        name={`${id}-email`}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email address here"
+                        type="email"
+                        value={state.email}
+                      />
+                    </FormField>
+                  )}
+                </VStack>
+                {privacyPolicyField}
+                <FormField>
+                  <ButtonGroup buttonWidth="full" id="submit-cancel">
+                    <Button
+                      buttonType="secondary"
+                      id="cancel"
+                      isDisabled={isSubmitted}
+                      key="cancel"
+                      onClick={closeAndResetForm}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      id="submit"
+                      isDisabled={isSubmitted}
+                      key="submit"
+                      type="submit"
+                    >
+                      Submit
+                    </Button>
+                  </ButtonGroup>
+                </FormField>
+              </>
+            )}
 
-            <DrawerContent sx={styles.drawerContent}>
-              <Button
-                buttonType="text"
-                id="close-btn"
-                onClick={finalOnClose}
-                sx={styles.closeButton}
-              >
-                <Icon color="ui.black" name="minus" size="medium" />
-                <span>Close {title}</span>
-              </Button>
-              <DrawerHeader sx={styles.drawerHeader}>
-                <Text data-testid="title">{title}</Text>
-              </DrawerHeader>
-
-              <DrawerBody sx={styles.drawerBody}>
-                <Form
-                  gap="grid.s"
-                  id="feedback-form"
-                  onSubmit={internalOnSubmit}
-                  sx={{
-                    ".feedback-body": {
-                      alignItems: "flex-start",
-                      minHeight: finalDrawerMinHeight,
-                      gridTemplateRows: initTemplateRows,
-                    },
-                    ".feedback-body.response": {
-                      alignItems: "center",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                    },
-                  }}
+            {/* Confirmation Screen */}
+            {isConfirmationView && (
+              <>
+                <Box
+                  className="feedback-body response"
+                  key="confirmationWrapper"
+                  margin="auto"
+                  tabIndex={0}
+                  textAlign="center"
+                  ref={focusRef}
                 >
-                  {/* Initial form Screen */}
-                  {isFormView && (
-                    <>
-                      <VStack className="feedback-body" spacing="s">
-                        {(notificationElement || descriptionElement) && (
-                          <>
-                            {notificationElement}
-                            {descriptionElement}
-                          </>
-                        )}
-                        {showCategoryField && (
-                          <FormField>
-                            <RadioGroup
-                              defaultValue={state.category}
-                              id={`${id}-category`}
-                              isDisabled={isSubmitted}
-                              labelText="What is your feedback about?"
-                              layout={isLargerThanMobile ? "row" : "column"}
-                              name={`${id}-category`}
-                              onChange={(selected) => setCategory(selected)}
-                            >
-                              <Radio
-                                id="comment"
-                                labelText="Comment"
-                                value="comment"
-                              />
-                              <Radio
-                                id="correction"
-                                labelText="Correction"
-                                value="correction"
-                              />
-                              <Radio id="bug" labelText="Bug" value="bug" />
-                            </RadioGroup>
-                          </FormField>
-                        )}
-                        <FormField width="100%">
-                          <TextInput
-                            helperText={`${
-                              maxCommentCharacters - state.comment.length
-                            } characters remaining`}
-                            id={`${id}-comment`}
-                            invalidText="Please fill out this field."
-                            isDisabled={isSubmitted}
-                            isInvalid={isInvalidComment}
-                            isRequired
-                            labelText="Comment"
-                            maxLength={maxCommentCharacters}
-                            name={`${id}-comment`}
-                            onChange={(e) => setComment(e.target.value)}
-                            placeholder="Enter your question or feedback here"
-                            type="textarea"
-                            defaultValue={state.comment}
-                          />
-                        </FormField>
-                        {showEmailField && (
-                          <FormField width="100%">
-                            <TextInput
-                              id={`${id}-email`}
-                              invalidText="Please enter a valid email address."
-                              isDisabled={isSubmitted}
-                              isInvalid={isInvalidEmail}
-                              labelText="Email"
-                              name={`${id}-email`}
-                              onChange={(e) => setEmail(e.target.value)}
-                              placeholder="Enter your email address here"
-                              type="email"
-                              value={state.email}
-                            />
-                          </FormField>
-                        )}
-                      </VStack>
-                      {privacyPolicyField}
-                      <FormField>
-                        <ButtonGroup buttonWidth="full" id="submit-cancel">
-                          <Button
-                            buttonType="secondary"
-                            id="cancel"
-                            isDisabled={isSubmitted}
-                            key="cancel"
-                            onClick={closeAndResetForm}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            id="submit"
-                            isDisabled={isSubmitted}
-                            key="submit"
-                            type="submit"
-                          >
-                            Submit
-                          </Button>
-                        </ButtonGroup>
-                      </FormField>
-                    </>
+                  <Icon
+                    color={iconColor}
+                    name="actionCheckCircleFilled"
+                    size="large"
+                  />
+                  <Text fontWeight="medium">
+                    Thank you for submitting your feedback.
+                  </Text>
+                  {showEmailField && (
+                    <Text>
+                      If you provided an email address and require a response,
+                      our service staff will reach out to you via email.
+                    </Text>
                   )}
+                  {confirmationText ? (
+                    <Text>{confirmationText}</Text>
+                  ) : undefined}
+                </Box>
+                {privacyPolicyField}
+                <FormField>
+                  <ButtonGroup buttonWidth="full" id="submit-cancel">
+                    <Button
+                      id="return-browsing"
+                      buttonType="secondary"
+                      onClick={closeAndResetForm}
+                    >
+                      Return to Browsing
+                    </Button>
+                  </ButtonGroup>
+                </FormField>
+              </>
+            )}
 
-                  {/* Confirmation Screen */}
-                  {isConfirmationView && (
-                    <>
-                      <Box
-                        className="feedback-body response"
-                        key="confirmationWrapper"
-                        margin="auto"
-                        tabIndex={0}
-                        textAlign="center"
-                        ref={focusRef}
-                      >
-                        <Icon
-                          color={iconColor}
-                          name="actionCheckCircleFilled"
-                          size="large"
-                        />
-                        <Text fontWeight="medium">
-                          Thank you for submitting your feedback.
-                        </Text>
-                        {showEmailField && (
-                          <Text>
-                            If you provided an email address and require a
-                            response, our service staff will reach out to you
-                            via email.
-                          </Text>
-                        )}
-                        {confirmationText ? (
-                          <Text>{confirmationText}</Text>
-                        ) : undefined}
-                      </Box>
-                      {privacyPolicyField}
-                      <FormField>
-                        <ButtonGroup buttonWidth="full" id="submit-cancel">
-                          <Button
-                            id="return-browsing"
-                            buttonType="secondary"
-                            onClick={closeAndResetForm}
-                          >
-                            Return to Browsing
-                          </Button>
-                        </ButtonGroup>
-                      </FormField>
-                    </>
-                  )}
-
-                  {/* Error Screen */}
-                  {isErrorView && (
-                    <>
-                      <Box
-                        className="feedback-body response"
-                        color="ui.error.primary"
-                        key="errorWrapper"
-                        margin="auto"
-                        tabIndex={0}
-                        textAlign="center"
-                        ref={focusRef}
-                      >
-                        <Icon
-                          color="ui.error.primary"
-                          name="errorFilled"
-                          size="large"
-                        />
-                        <Text fontWeight="medium">
-                          Oops! Something went wrong. An error occured while
-                          processing your feedback.
-                        </Text>
-                      </Box>
-                      {privacyPolicyField}
-                      <FormField>
-                        <ButtonGroup buttonWidth="full" id="submit-cancel">
-                          <Button
-                            id="return-browsing2"
-                            key="return-browsing2"
-                            buttonType="secondary"
-                            onClick={closeAndResetForm}
-                          >
-                            Return to Browsing
-                          </Button>
-                          <Button
-                            id="try-again"
-                            key="try-again"
-                            onClick={() => setViewType("form")}
-                          >
-                            Try Again
-                          </Button>
-                        </ButtonGroup>
-                      </FormField>
-                    </>
-                  )}
-                </Form>
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
+            {/* Error Screen */}
+            {isErrorView && (
+              <>
+                <Box
+                  className="feedback-body response"
+                  color="ui.error.primary"
+                  key="errorWrapper"
+                  margin="auto"
+                  tabIndex={0}
+                  textAlign="center"
+                  ref={focusRef}
+                >
+                  <Icon
+                    color="ui.error.primary"
+                    name="errorFilled"
+                    size="large"
+                  />
+                  <Text fontWeight="medium">
+                    Oops! Something went wrong. An error occured while
+                    processing your feedback.
+                  </Text>
+                </Box>
+                {privacyPolicyField}
+                <FormField>
+                  <ButtonGroup buttonWidth="full" id="submit-cancel">
+                    <Button
+                      id="return-browsing2"
+                      key="return-browsing2"
+                      buttonType="secondary"
+                      onClick={closeAndResetForm}
+                    >
+                      Return to Browsing
+                    </Button>
+                    <Button
+                      id="try-again"
+                      key="try-again"
+                      onClick={() => setViewType("form")}
+                    >
+                      Try Again
+                    </Button>
+                  </ButtonGroup>
+                </FormField>
+              </>
+            )}
+          </Form>
         </Box>
       );
     }
