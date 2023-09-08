@@ -41,14 +41,12 @@ function getColor(color) {
 const SocialMediaLinks = {
   // The base styles for each part
   baseStyle: {
-    // ul styles should not specifically identified as ul:
+    // ul styles should not specifically be identified as ul:
     display: "flex",
-    flexDirection: { base: "column", md: "row" }, // @todo Storybook doesn't seem to dynamically update this when you change the viewport control.
     alignItems: "flex-start",
-    gap: "s",
+    gap: "s", // 1rem / 16px
     width: { base: "100%", width: "unset" },
     li: {
-      boxSizing: "border-box",
       marginInlineEnd: "0",
       marginTop: "0",
       width: { base: "100%", md: "unset" },
@@ -78,9 +76,10 @@ const SocialMediaLinks = {
       },
     },
     div: {
+      //      boxSizing: "border-box", @todo Only works if w & h are absolute values. Width cannot be known w/ labels.
       display: "flex",
       alignItems: "center",
-      gap: "xs",
+      gap: "xs", // .5rem / 8px
       alignSelf: "stretch",
       justifyContent: "center",
       width: "fit-content",
@@ -102,8 +101,8 @@ const SocialMediaLinks = {
       const { color, layout } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: layout,
-        gap: "xs",
+        flexDirection: { base: "column", md: layout },
+        gap: "xs", // Distance btwn icons reduces w/ borders to .5rem / 8px
         a: {
           color: theseColors.ltColor,
           _hover: {
@@ -118,7 +117,7 @@ const SocialMediaLinks = {
           },
         },
         div: {
-          padding: "xs",
+          padding: "xs", // @todo .4375rem AKA 7px will accommodate 1px border and keep overall size consistent w/ figma
           borderRadius: "button.default",
           borderWidth: "1px",
           borderStyle: "solid",
@@ -140,7 +139,7 @@ const SocialMediaLinks = {
       const { color, size, layout } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: layout,
+        flexDirection: { base: "column", md: layout },
         gap: "xs",
         a: {
           color: theseColors.ltColor,
@@ -177,7 +176,7 @@ const SocialMediaLinks = {
       const { color, layout } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: layout,
+        flexDirection: { base: "column", md: layout },
         a: {
           color: theseColors.ltColor,
           _hover: {
