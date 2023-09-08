@@ -230,7 +230,7 @@ const formRow = (gapValue) => {
   const labelText = `Size: ${gapValue}`;
   return (
     <li key={gapValue}>
-      <Heading level="three">{labelText}</Heading>
+      <Heading level="h3" size="heading6">{labelText}</Heading>
       <Form gap={gapValue} id={`form-spacing-${gapValue}`}>
         <FormRow>
           <FormField>

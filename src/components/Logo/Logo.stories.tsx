@@ -91,7 +91,7 @@ const logoRow = (logo, opts: any = {}) => {
 
   return (
     <div style={styles} key={key}>
-      <Heading level="four">{displayValue}</Heading>
+      <Heading level="h4" size="heading6">{displayValue}</Heading>
       <Logo name={logo} size={size} />
     </div>
   );

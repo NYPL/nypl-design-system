@@ -22,7 +22,7 @@ const accordionData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1">
+        <CardHeading level="h4" id="heading1">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -40,7 +40,7 @@ const accordionLongTextData: AccordionDataProps[] = [
     label: "Tom Nook",
     panel: (
       <Card>
-        <CardHeading level="four" id="heading1">
+        <CardHeading level="h4" id="heading1">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -85,7 +85,7 @@ const faqContentData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1-isabelle">
+        <CardHeading level="h4" id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -110,7 +110,7 @@ const faqContentData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1-kkslider">
+        <CardHeading level="h4" id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>
@@ -217,9 +217,13 @@ const getAccordionData = (key): AccordionDataProps[] => [
 export const IsAlwaysRendered: Story = {
   render: () => (
     <VStack align="stretch" spacing="s">
-      <Heading level="three">Accordion panel is removed when closed</Heading>
+      <Heading level="h3" size="heading5">
+        Accordion panel is removed when closed
+      </Heading>
       <Accordion accordionData={getAccordionData(0)} />
-      <Heading level="three">Accordion panel is always rendered</Heading>
+      <Heading level="h3" size="heading5">
+        Accordion panel is always rendered
+      </Heading>
       <Accordion accordionData={getAccordionData(1)} isAlwaysRendered />
     </VStack>
   ),

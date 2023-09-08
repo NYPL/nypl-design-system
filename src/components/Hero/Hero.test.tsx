@@ -27,7 +27,7 @@ describe("Hero accessbility tests", () => {
     const { container } = render(
       <Hero
         heroType="primary"
-        heading={<Heading level="one" id="a11y-hero" text="Hero Primary" />}
+        heading={<Heading level="h1" id="a11y-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
         backgroundImageSrc="//placekitten.com/1600/800"
       />
@@ -39,7 +39,7 @@ describe("Hero accessbility tests", () => {
     const { container } = render(
       <Hero
         heroType="secondary"
-        heading={<Heading level="one" id="a11y-hero" text="Hero Secondary" />}
+        heading={<Heading level="h1" id="a11y-hero" text="Hero Secondary" />}
         imageProps={imageProps}
         subHeaderText={subHeaderText}
       />
@@ -51,7 +51,7 @@ describe("Hero accessbility tests", () => {
     const { container } = render(
       <Hero
         heroType="tertiary"
-        heading={<Heading level="one" id="a11y-hero" text="Hero Tertiary" />}
+        heading={<Heading level="h1" id="a11y-hero" text="Hero Tertiary" />}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -63,7 +63,7 @@ describe("Hero accessbility tests", () => {
       <Hero
         backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
-        heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
+        heading={<Heading level="h1" id="a11y-hero" text="Hero Campaign" />}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
@@ -88,7 +88,7 @@ describe("Hero", () => {
     render(
       <Hero
         heroType="primary"
-        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+        heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
         backgroundImageSrc="//placekitten.com/1600/800"
       />
@@ -107,7 +107,7 @@ describe("Hero", () => {
       <Hero
         heroType="secondary"
         heading={
-          <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+          <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
         }
         imageProps={imageProps}
         subHeaderText={subHeaderText}
@@ -128,7 +128,7 @@ describe("Hero", () => {
       <Hero
         heroType="tertiary"
         heading={
-          <Heading level="one" id="tertiary-hero" text="Hero Tertiary" />
+          <Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />
         }
         subHeaderText={otherSubHeaderText}
       />
@@ -145,7 +145,7 @@ describe("Hero", () => {
         backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
         heading={
-          <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+          <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
         }
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -188,7 +188,7 @@ describe("Hero", () => {
         heroType="primary"
         heading={
           <Heading
-            level="one"
+            level="h1"
             id="custom-colors-hero"
             text="Hero with Custom Colors"
           />
@@ -225,7 +225,7 @@ describe("Hero", () => {
         foregroundColor="#123456"
         heroType="secondary"
         heading={
-          <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+          <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
         }
         imageProps={imageProps}
         subHeaderText={subHeaderText}
@@ -256,7 +256,7 @@ describe("Hero", () => {
   it("renders Primary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
+      <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(<Hero heroType="primary" heading={heading} />);
     expect(warn).toHaveBeenCalledWith(
@@ -281,7 +281,7 @@ describe("Hero", () => {
   it("renders Secondary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
+      <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
@@ -331,7 +331,7 @@ describe("Hero", () => {
   it("renders Tertiary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
+      <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
@@ -376,7 +376,7 @@ describe("Hero", () => {
   it("renders Campaign Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
+      <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
@@ -476,7 +476,7 @@ describe("Hero", () => {
         <Hero
           heroType="primary"
           heading={
-            <Heading level="one" id="primary-hero" text="Hero Primary" />
+            <Heading level="h1" id="primary-hero" text="Hero Primary" />
           }
           subHeaderText="Example Subtitle"
           backgroundImageSrc="//placekitten.com/1600/800"
@@ -488,7 +488,7 @@ describe("Hero", () => {
         <Hero
           heroType="secondary"
           heading={
-            <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+            <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
           }
           imageProps={imageProps}
           subHeaderText={subHeaderText}
@@ -501,7 +501,7 @@ describe("Hero", () => {
           heroType="secondaryBooksAndMore"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="secondary-hero"
               text="Hero Secondary Books and More"
             />
@@ -517,7 +517,7 @@ describe("Hero", () => {
           heroType="secondaryLocations"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="secondary-hero"
               text="Hero Secondary Locations"
             />
@@ -532,7 +532,7 @@ describe("Hero", () => {
         <Hero
           heroType="secondaryResearch"
           heading={
-            <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+            <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
           }
           imageProps={imageProps}
           subHeaderText={subHeaderText}
@@ -545,7 +545,7 @@ describe("Hero", () => {
           heroType="secondaryWhatsOn"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="secondary-hero"
               text="Hero Secondary What's On"
             />
@@ -561,7 +561,7 @@ describe("Hero", () => {
           backgroundImageSrc="//placekitten.com/g/2400/800"
           heroType="campaign"
           heading={
-            <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+            <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
@@ -573,7 +573,7 @@ describe("Hero", () => {
         <Hero
           heroType="tertiary"
           heading={
-            <Heading level="one" id="tertiary-hero" text="Hero Tertiary" />
+            <Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />
           }
           subHeaderText={otherSubHeaderText}
         />
@@ -592,7 +592,7 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType="primary"
-          heading={<Heading level="one" id="chakra" text="Hero Primary" />}
+          heading={<Heading level="h1" id="chakra" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="//placekitten.com/1600/800"
           p="20px"
@@ -604,7 +604,7 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType="primary"
-          heading={<Heading level="one" id="props" text="Hero Primary" />}
+          heading={<Heading level="h1" id="props" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="//placekitten.com/1600/800"
           data-testid="props"
@@ -631,7 +631,7 @@ describe("Hero", () => {
       <Hero
         backgroundImageSrc="//placekitten.com/1600/800"
         heroType="primary"
-        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+        heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         ref={ref}
         subHeaderText="Example Subtitle"
       />

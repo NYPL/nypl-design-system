@@ -77,19 +77,27 @@ export const FontSize: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Caption</Heading>
+        <Heading level="h3" size="heading6">
+          Caption
+        </Heading>
         <StyledList textSize="caption" listItems={listItems} />
       </Box>
       <Box>
-        <Heading level="three">Default</Heading>
+        <Heading level="h3" size="heading6">
+          Default
+        </Heading>
         <StyledList textSize="default" listItems={listItems} />
       </Box>
       <Box>
-        <Heading level="three">Mini</Heading>
+        <Heading level="h3" size="heading6">
+          Mini
+        </Heading>
         <StyledList textSize="mini" listItems={listItems} />
       </Box>
       <Box>
-        <Heading level="three">Tag</Heading>
+        <Heading level="h3" size="heading6">
+          Tag
+        </Heading>
         <StyledList textSize="tag" listItems={listItems} />
       </Box>
     </VStack>

@@ -108,7 +108,7 @@ export const Sizes: Story = {
   render: () => (
     <VStack spacing="l">
       <Box textAlign="center">
-        <Heading id="ExtraExtraExtraSmall" level="four" text="xxxsmall" />
+        <Heading id="ExtraExtraExtraSmall" level="h4" size="heading6" text="xxxsmall" />
         <Image
           alt="Alt text"
           caption="32px"
@@ -117,7 +117,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="ExtraExtraSmall" level="four" text="xxsmall" />
+        <Heading id="ExtraExtraSmall" level="h4" size="heading6" text="xxsmall" />
         <Image
           alt="Alt text"
           caption="64px"
@@ -126,7 +126,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="ExtraSmall" level="four" text="xsmall" />
+        <Heading id="ExtraSmall" level="h4" size="heading6" text="xsmall" />
         <Image
           alt="Alt text"
           caption="96px"
@@ -135,7 +135,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="Small" level="four" text="small" />
+        <Heading id="Small" level="h4" size="heading6" text="small" />
         <Image
           alt="Alt text"
           caption="165px"
@@ -144,7 +144,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="Medium" level="four" text="medium" />
+        <Heading id="Medium" level="h4" size="heading6" text="medium" />
         <Image
           alt="Alt text"
           caption="225px"
@@ -153,7 +153,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="Large" level="four" text="large" />
+        <Heading id="Large" level="h4" size="heading6" text="large" />
         <Image
           alt="Alt text"
           caption="360px"
@@ -162,7 +162,7 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center" width="100%">
-        <Heading id="Default" level="four" text="default" />
+        <Heading id="Default" level="h4" size="heading6" text="default" />
         <Image alt="Alt text" caption="100%" src="//placekitten.com/400/300" />
       </Box>
     </VStack>
@@ -180,7 +180,7 @@ export const AspectRatios: Story = {
   render: () => (
     <VStack spacing="l">
       <Box style={imageBlockStyles}>
-        <Heading id="fourbythree" level="four" text="fourByThree" />
+        <Heading id="fourbythree" level="h4" size="heading6" text="fourByThree" />
         <Image
           alt="Alt text"
           aspectRatio="fourByThree"
@@ -188,7 +188,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="onebytwo" level="four" text="oneByTwo" />
+        <Heading id="onebytwo" level="h4" size="heading6" text="oneByTwo" />
         <Image
           alt="Alt text"
           aspectRatio="oneByTwo"
@@ -196,7 +196,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="original" level="four" text="original" />
+        <Heading id="original" level="h4" size="heading6" text="original" />
         <Image
           alt="Alt text"
           aspectRatio="original"
@@ -204,7 +204,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="sixteenbynine" level="four" text="sixteenByNine" />
+        <Heading id="sixteenbynine" level="h4" size="heading6" text="sixteenByNine" />
         <Image
           alt="Alt text"
           aspectRatio="sixteenByNine"
@@ -212,7 +212,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="square" level="four" text="square" />
+        <Heading id="square" level="h4" size="heading6" text="square" />
         <Image
           alt="Alt text"
           aspectRatio="square"
@@ -220,7 +220,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="threebyfour" level="four" text="threeByFour" />
+        <Heading id="threebyfour" level="h4" size="heading6" text="threeByFour" />
         <Image
           alt="Alt text"
           aspectRatio="threeByFour"
@@ -228,7 +228,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="threebytwo" level="four" text="threeByTwo" />
+        <Heading id="threebytwo" level="h4" size="heading6" text="threeByTwo" />
         <Image
           alt="Alt text"
           aspectRatio="threeByTwo"
@@ -236,7 +236,7 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="twobyone" level="four" text="twoByOne" />
+        <Heading id="twobyone" level="h4" size="heading6" text="twoByOne" />
         <Image
           alt="Alt text"
           aspectRatio="twoByOne"
@@ -250,7 +250,7 @@ export const Types: Story = {
   render: () => (
     <VStack spacing="l">
       <Box style={imageBlockStyles}>
-        <Heading id="default" level="four" text="default" />
+        <Heading id="default" level="h4" size="heading6" text="default" />
         <Image
           alt="Alt text"
           aspectRatio="square"
@@ -259,7 +259,7 @@ export const Types: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="circle" level="four" text="circle" />
+        <Heading id="circle" level="h4" size="heading6" text="circle" />
         <Image
           alt="Alt text"
           aspectRatio="square"
@@ -276,7 +276,7 @@ export const HTMLAttributes: Story = {
       <Box>
         <Heading
           id="withOnLoad"
-          level="four"
+          level="h4" size="heading6"
           text="Image with `onLoad` function"
         />
         <Image
@@ -295,7 +295,7 @@ export const HTMLAttributes: Story = {
       <Box>
         <Heading
           id="withOnLoad"
-          level="four"
+          level="h4" size="heading6"
           text="Image with `onError` function"
         />
         <Image

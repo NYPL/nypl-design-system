@@ -41,7 +41,7 @@ prop should be used:
 <Hero
   backgroundImageSrc="https://placekitten.com/g/2400/800"
   heroType="campaign"
-  heading={<Heading level="one" id="campaign-hero" text="Hero Campaign" />}
+  heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
     src: "https://placekitten.com/800/400",
@@ -67,7 +67,7 @@ the <Link href="#all-variations" target="_self">All Variations</Link> section.
 The `Hero` component is commonly used as a banner below the page's header and
 breadcrumbs and above the main content. This means that if the `Hero` displays
 a heading element, it should be the first on the page and an `h1` element set
-through `Heading`'s `level="one"`.
+through `Heading`'s `level="h1"`.
 
 ## All Variations
 
@@ -82,7 +82,7 @@ minimum props that should be used are `backgroundImageSrc` and `heading`.
 <Source
   code={`
 backgroundImageSrc="https://placekitten.com/1600/800"
-heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
 `}
   language="jsx"
 />
@@ -97,7 +97,7 @@ The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
 <Source
   code={`
 heading={
-  <Heading level="one" id="secondary-hero" text="Hero Secondary" />
+  <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
 }
 imageProps={imageProps}
 subHeaderText={secondarySubHeaderText}
@@ -117,7 +117,7 @@ prop.
   code={`
 heading={
   <Heading
-    level="one"
+    level="h1"
     id="tertiary-hero"
     text="Hero Tertiary with Sub-Header"
   />
@@ -155,7 +155,7 @@ foreground settings in action.
   code={`
 backgroundImageSrc="https://placekitten.com/g/2400/800"
 heading={
-  <Heading level="one" id="campaign-hero" text="Hero Campaign" />
+  <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
 }
 imageProps={imageProps}
 subHeaderText={otherSubHeaderText}

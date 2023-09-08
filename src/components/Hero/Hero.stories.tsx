@@ -297,7 +297,7 @@ export const Campaign: Story = {
           heroType="campaign"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
             />
@@ -318,7 +318,7 @@ export const Campaign: Story = {
           heroType="campaign"
           heading={
             <Heading
-              level="one"
+              level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
             />
