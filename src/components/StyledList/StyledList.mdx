@@ -44,11 +44,20 @@ Resources:
 
 ## Font Size
 
-The font size can be changed through the `textSize` prop. The values are the same
-as the `size` prop in the `Text` component. This includes `"caption"`, `"default"`,
-`"mini"`, and `"tag"`.
+The font size can be changed through the `textSize` prop. The values are a
+limited selection from the `size` prop in the `Text` component:
 
-<Canvas of={StyledListStories.FontSize} />
+`"default"`, `"body1"`, `"body2"`, `"caption"`.
+
+<Canvas of={StyledListStories.FontSizes} />
+
+### Deprecated Options
+
+The following values are still available, but they have been deprecated:
+
+`"tag"`, `"mini"`.
+
+<Canvas of={StyledListStories.DeprecatedFontSizes} />
 
 ## StyledList Children
 
