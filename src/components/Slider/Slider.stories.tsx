@@ -152,7 +152,8 @@ export const SingleSliderStates: Story = {
       <Box>
         <Heading
           id="heading-single-default"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Default State"
         />
         <Slider
@@ -166,7 +167,8 @@ export const SingleSliderStates: Story = {
       <Box>
         <Heading
           id="heading-single-errored"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Errored State"
         />
         <Slider
@@ -194,7 +196,8 @@ export const SingleSliderStates: Story = {
       <Box>
         <Heading
           id="heading-single-required"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Required State"
         />
         <Slider
@@ -209,7 +212,8 @@ export const SingleSliderStates: Story = {
       <Box>
         <Heading
           id="heading-single-disabled"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Disabled State"
         />
         <Slider
@@ -229,7 +233,12 @@ export const RangeSliderStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <div>
-        <Heading id="heading-range-default" level="h4" size="heading5" text="Default State" />
+        <Heading
+          id="heading-range-default"
+          level="h4"
+          size="heading5"
+          text="Default State"
+        />
         <Slider
           defaultValue={[25, 75]}
           helperText="Component helper text."
@@ -240,7 +249,12 @@ export const RangeSliderStates: Story = {
         />
       </div>
       <div>
-        <Heading id="heading-range-errored" level="h4" size="heading5" text="Errored State" />
+        <Heading
+          id="heading-range-errored"
+          level="h4"
+          size="heading5"
+          text="Errored State"
+        />
         <SimpleGrid columns={1} gap="grid.l">
           <Slider
             defaultValue={[25, 75]}
@@ -274,7 +288,8 @@ export const RangeSliderStates: Story = {
       <div>
         <Heading
           id="heading-range-required"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Required State"
         />
         <Slider
@@ -290,7 +305,8 @@ export const RangeSliderStates: Story = {
       <div>
         <Heading
           id="heading-range-disabled"
-          level="h4" size="heading5"
+          level="h4"
+          size="heading5"
           text="Disabled State"
         />
         <Slider
@@ -312,7 +328,8 @@ export const SingleSliderVariants: Story = {
     <>
       <Heading
         id="heading-single-labels"
-        level="h4" size="heading5"
+        level="h4"
+        size="heading5"
         text="With and Without Component Labels"
       />
       <SimpleGrid columns={1} gap="grid.xl">
@@ -369,7 +386,8 @@ export const SingleSliderVariantsHiddenLabels: Story = {
     <>
       <Heading
         id="heading-single-labels-inputs"
-        level="h4" size="heading5"
+        level="h4"
+        size="heading5"
         text="With and Without Internal Inputs and Labels"
       />
       <SimpleGrid columns={1} gap="grid.xl">

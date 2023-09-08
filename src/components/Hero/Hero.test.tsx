@@ -127,9 +127,7 @@ describe("Hero", () => {
     render(
       <Hero
         heroType="tertiary"
-        heading={
-          <Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />
-        }
+        heading={<Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -144,9 +142,7 @@ describe("Hero", () => {
       <Hero
         backgroundImageSrc="//placekitten.com/g/2400/800"
         heroType="campaign"
-        heading={
-          <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
-        }
+        heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
@@ -475,9 +471,7 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType="primary"
-          heading={
-            <Heading level="h1" id="primary-hero" text="Hero Primary" />
-          }
+          heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="//placekitten.com/1600/800"
         />

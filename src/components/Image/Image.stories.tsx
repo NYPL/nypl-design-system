@@ -108,7 +108,12 @@ export const Sizes: Story = {
   render: () => (
     <VStack spacing="l">
       <Box textAlign="center">
-        <Heading id="ExtraExtraExtraSmall" level="h4" size="heading6" text="xxxsmall" />
+        <Heading
+          id="ExtraExtraExtraSmall"
+          level="h4"
+          size="heading6"
+          text="xxxsmall"
+        />
         <Image
           alt="Alt text"
           caption="32px"
@@ -117,7 +122,12 @@ export const Sizes: Story = {
         />
       </Box>
       <Box textAlign="center">
-        <Heading id="ExtraExtraSmall" level="h4" size="heading6" text="xxsmall" />
+        <Heading
+          id="ExtraExtraSmall"
+          level="h4"
+          size="heading6"
+          text="xxsmall"
+        />
         <Image
           alt="Alt text"
           caption="64px"
@@ -180,7 +190,12 @@ export const AspectRatios: Story = {
   render: () => (
     <VStack spacing="l">
       <Box style={imageBlockStyles}>
-        <Heading id="fourbythree" level="h4" size="heading6" text="fourByThree" />
+        <Heading
+          id="fourbythree"
+          level="h4"
+          size="heading6"
+          text="fourByThree"
+        />
         <Image
           alt="Alt text"
           aspectRatio="fourByThree"
@@ -204,7 +219,12 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="sixteenbynine" level="h4" size="heading6" text="sixteenByNine" />
+        <Heading
+          id="sixteenbynine"
+          level="h4"
+          size="heading6"
+          text="sixteenByNine"
+        />
         <Image
           alt="Alt text"
           aspectRatio="sixteenByNine"
@@ -220,7 +240,12 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
-        <Heading id="threebyfour" level="h4" size="heading6" text="threeByFour" />
+        <Heading
+          id="threebyfour"
+          level="h4"
+          size="heading6"
+          text="threeByFour"
+        />
         <Image
           alt="Alt text"
           aspectRatio="threeByFour"
@@ -276,7 +301,8 @@ export const HTMLAttributes: Story = {
       <Box>
         <Heading
           id="withOnLoad"
-          level="h4" size="heading6"
+          level="h4"
+          size="heading6"
           text="Image with `onLoad` function"
         />
         <Image
@@ -295,7 +321,8 @@ export const HTMLAttributes: Story = {
       <Box>
         <Heading
           id="withOnLoad"
-          level="h4" size="heading6"
+          level="h4"
+          size="heading6"
           text="Image with `onError` function"
         />
         <Image
