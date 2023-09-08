@@ -38,7 +38,7 @@ const variants = {
   subtitle2: {
     fontSize: "desktop.subtitle.subtitle2",
     fontWeight: "subtitle.subtitle2",
-    lineHeight: 1.40,
+    lineHeight: 1.4,
   },
   // Deprecated options
   tag: {
