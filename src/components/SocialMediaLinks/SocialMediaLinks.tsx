@@ -21,9 +21,6 @@ export const socialMediaLinkTypeArray = socialMediaDataMap.map(
 );
 export type SocialMediaLinkType = typeof socialMediaLinkTypeArray[number];
 
-// @todo If SocialMediaLinkDataType equals this, and we only actually use
-//   SocialMediaLinkDataType, why are we bothering with this? Why don't we change "interface" to "type"
-//   and eliminate SocialMediaLinkDataType?
 export interface SocialMediaLinkDataProps {
   /** Optional override for default platform name */
   labelText?: string;
@@ -32,8 +29,6 @@ export interface SocialMediaLinkDataProps {
   /** Optional override for default social media url */
   url?: string;
 }
-
-export type SocialMediaLinkDataType = SocialMediaLinkDataProps; // @todo Is this needed? See above.
 
 export interface SocialMediaLinksProps {
   /** Optional border: straight, circular or none. */
@@ -47,7 +42,7 @@ export interface SocialMediaLinksProps {
   /** Optional desktop layout. Smaller viewports are always in a column. */
   layout?: LayoutTypes;
   /** Optional array of social media platform types, urls, and label texts. */
-  linksData?: SocialMediaLinkDataType[];
+  linksData?: SocialMediaLinkDataProps[];
   /** Optional true/false to display names of platforms along with icons.
    *  NOTE: Labels will NOT be shown with a circular border */
   showLabels?: boolean;
@@ -61,7 +56,7 @@ export interface SocialMediaLinksProps {
  * @returns an array of data objects for each requested platform type that includes type, iconName, labelText and
  * url. The labelText and url props will include any values supplied to override the defaults.
  */
-function getLinksData(platforms: SocialMediaLinkDataType[]) {
+function getLinksData(platforms: SocialMediaLinkDataProps[]) {
   let allData = [];
   platforms.forEach((myPlatform) => {
     // Get the dataset for this platform.
@@ -152,6 +147,7 @@ export const SocialMediaLinks = chakra(
           key={modifiedPlatform.type}
           screenreaderOnlyText={!labelsOn ? modifiedPlatform.labelText : null} // If labels are on, this is redundant, so turn it off
           rel="nofollow noopener noreferrer"
+          target="_blank"
         >
           <div className={"platLink"}>
             <Icon name={modifiedPlatform.iconName} size={iconSize} />

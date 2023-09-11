@@ -8,6 +8,7 @@ import { withDesign } from "storybook-addon-designs";
 import { layoutTypesArray } from "../../helpers/types";
 import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 import { Source } from "@storybook/blocks";
 
 const meta: Meta<typeof SocialMediaLinks> = {
@@ -123,12 +124,26 @@ export const WithControls: Story = {
       },
     },
   },
-  parameters: {
-    // This is gray b/c textInverse would be invisible otherwise.
-    // @todo It is possible to make the background change based on controls. But this requires changes to preview.tsx
-    //   See https://www.bekk.christmas/post/2021/3/storybook-background-change-on-prop-change
-    backgrounds: { default: "Light mode active background" },
-  },
+  render: (args) => (
+    <div
+      style={
+        args.color === "textInverse"
+          ? {
+              backgroundColor: "var(--nypl-colors-dark-ui-typography-body)",
+              display: "inline-block",
+              padding: "var(--nypl-space-xs)",
+            }
+          : { display: "inline-block", padding: "var(--nypl-space-xs)" }
+      }
+    >
+      <SocialMediaLinks {...args} />
+      <p>&nbsp;</p>
+      <Text size={"caption"}>
+        NOTE: background color for textInverse is added for readability in
+        Reservoir. It is not part of the functionality.
+      </Text>
+    </div>
+  ),
 };
 
 export const LayoutVariations: Story = {
@@ -170,8 +185,14 @@ export const SizeVariations: Story = {
   ),
 };
 
-export const ColorVariations: Story = {
-  render: () => (
+// Making a component just for practice
+const ColorVariationsStory = () => {
+  /*
+  // Now I could put logic in here like below, which I could not do w/o
+  // this being a component.
+  const bg = useColorModeValue("ui.white", "ui.black");
+*/
+  return (
     <VStack align="stretch" spacing="l">
       <Box>
         <Heading
@@ -187,18 +208,29 @@ export const ColorVariations: Story = {
         <SocialMediaLinks color={"link"} />
         <Source code="<SocialMediaLinks color={'link'} />" />
       </Box>
-      <Box bgColor={"#BDBDBD"}>
+      <Box
+        bgColor={"dark.ui.typography.body"}
+        sx={{ padding: "var(--nypl-space-s)" }}
+      >
         <Heading
           id="heading-textinverse-color"
           level="four"
-          color={"ui.typography.inverse.heading"}
           text="textInverse"
         />
         <SocialMediaLinks color={"textInverse"} />
+        <p>&nbsp;</p>
+        <Text size={"caption"}>
+          NOTE: background color for textInverse is added for readability in
+          Reservoir. It is not part of the functionality.
+        </Text>
         <Source code="<SocialMediaLinks color={'textInverse'} />" />
       </Box>
     </VStack>
-  ),
+  );
+};
+// Gotta export the component we made above
+export const ColorVariations: Story = {
+  render: () => <ColorVariationsStory />,
 };
 
 export const BorderVariations: Story = {

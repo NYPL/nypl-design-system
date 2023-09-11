@@ -45,7 +45,8 @@ const SocialMediaLinks = {
     display: "flex",
     alignItems: "flex-start",
     gap: "s", // 1rem / 16px
-    width: { base: "100%", width: "unset" },
+    width: { base: "100%", md: "unset" },
+    marginBottom: "unset",
     li: {
       marginInlineEnd: "0",
       marginTop: "0",
@@ -76,7 +77,6 @@ const SocialMediaLinks = {
       },
     },
     div: {
-      //      boxSizing: "border-box", @todo Only works if w & h are absolute values. Width cannot be known w/ labels.
       display: "flex",
       alignItems: "center",
       gap: "xs", // .5rem / 8px
@@ -92,9 +92,7 @@ const SocialMediaLinks = {
       },
     },
   },
-  // The variants are bordered
-  // @todo The borders add 2px to total width of each <li />, e.g. small w/ borders = 36px. But the figma has it at 34px.
-  //   Are the borders supposed to be inside the <li />? Or can we live with the extra 2px?
+  // The variants are based on border values
   variants: {
     // Each variant is a function that returns an object with styles for that variant.
     straight(props: StyleFunctionProps) {
@@ -102,7 +100,7 @@ const SocialMediaLinks = {
       let theseColors = getColor(color);
       return {
         flexDirection: { base: "column", md: layout },
-        gap: "xs", // Distance btwn icons reduces w/ borders to .5rem / 8px
+        gap: "xs", // Borders require the gap to reduce from 1rem to .5rem / 8px.
         a: {
           color: theseColors.ltColor,
           _hover: {
@@ -117,7 +115,7 @@ const SocialMediaLinks = {
           },
         },
         div: {
-          padding: "xs", // @todo .4375rem AKA 7px will accommodate 1px border and keep overall size consistent w/ figma
+          padding: "xs",
           borderRadius: "button.default",
           borderWidth: "1px",
           borderStyle: "solid",
