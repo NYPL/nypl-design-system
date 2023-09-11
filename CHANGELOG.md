@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## Prerelease
+## Typography Prerelease
 
 ### Adds (Typography Feature Branch)
 
@@ -24,6 +24,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the base styles to use the `Typo2023` styles.
 - Updates all components to implement the `Typo2023` styles.
 - Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
+
+## Prerelease
+
+### Updates
+
+- Updates the `Logo` component to include variants for `NYC Public Schools`.
+- Updates the `Icon` component to include varisnts for `"sunFull"` and `"moonCrescent"`.
+
+## 1.7.2 (August 31 , 2023)
 
 ### Adds
 

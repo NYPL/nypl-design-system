@@ -44,6 +44,7 @@ import { ReactComponent as legacySocialYoutube } from "../../../icons/svg/legacy
 import { ReactComponent as locator } from "../../../icons/svg/locator.svg";
 import { ReactComponent as mapsPlace } from "../../../icons/svg/maps-place.svg";
 import { ReactComponent as minus } from "../../../icons/svg/minus.svg";
+import { ReactComponent as moonCrescent } from "../../../icons/svg/moon-crescent.svg";
 import { ReactComponent as plus } from "../../../icons/svg/plus.svg";
 import { ReactComponent as search } from "../../../icons/svg/search.svg";
 import { ReactComponent as socialFacebook } from "../../../icons/svg/social-facebook.svg";
@@ -57,6 +58,7 @@ import { ReactComponent as socialTwitter } from "../../../icons/svg/social-twitt
 import { ReactComponent as socialVimeo } from "../../../icons/svg/social-vimeo.svg";
 import { ReactComponent as socialYoutube } from "../../../icons/svg/social-youtube.svg";
 import { ReactComponent as speakerNotes } from "../../../icons/svg/speaker-notes.svg";
+import { ReactComponent as sunFull } from "../../../icons/svg/sun-full.svg";
 import { ReactComponent as utilityAccountFilled } from "../../../icons/svg/utility-account-filled.svg";
 import { ReactComponent as utilityAccountUnfilled } from "../../../icons/svg/utility-account-unfilled.svg";
 import { ReactComponent as utilityHamburger } from "../../../icons/svg/utility-hamburger.svg";
@@ -108,6 +110,7 @@ export default {
   locator,
   mapsPlace,
   minus,
+  moonCrescent,
   plus,
   search,
   socialFacebook,
@@ -121,6 +124,7 @@ export default {
   socialVimeo,
   socialYoutube,
   speakerNotes,
+  sunFull,
   utilityAccountFilled,
   utilityAccountUnfilled,
   utilityHamburger,
