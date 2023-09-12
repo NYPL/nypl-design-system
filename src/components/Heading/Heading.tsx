@@ -105,7 +105,7 @@ export const Heading = chakra(
         isCapitalized,
         isUppercase,
         isLowercase,
-        level = "two",
+        level = "h2",
         noSpace,
         overline,
         size,
@@ -123,6 +123,7 @@ export const Heading = chakra(
         isUppercase,
         isLowercase,
         noSpace,
+        url,
       });
       const { isLargerThanMobile } = useNYPLBreakpoints();
       // Combine native base styles with any additional styles.

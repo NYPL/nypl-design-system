@@ -1229,7 +1229,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
         <Box width="80%">
           <Heading
             noSpace
-            size="tertiary"
+            size="heading5"
             border="none"
             color={textColor}
             pb="0"

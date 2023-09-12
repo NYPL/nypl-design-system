@@ -129,7 +129,9 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Invalid</Heading>
+        <Heading level="h3" size="heading6">
+          Invalid
+        </Heading>
         <TextInput
           helperText="Choose wisely!"
           id="errored"
@@ -140,7 +142,9 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <TextInput
           helperText="Choose wisely!"
           id="disabled"

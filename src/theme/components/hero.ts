@@ -40,7 +40,7 @@ const secondaryBase = {
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
   marginBottom: "0",
-  color: "ui.white",
+  color: "ui.typography.inverse.heading",
   flex: "1 1 100%",
   marginTop: "0",
   paddingBottom: "xxs",
@@ -71,11 +71,13 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     ...secondaryBase,
     heading: {
       ...secondaryHeadingBase,
+      color: bgColor ? "ui.white" : "ui.typography.inverse.heading",
       _before: {
         ...secondaryHeadingBase["_before"],
         bg: finalBgColor.light,
       },
       _dark: {
+        color: "dark.ui.typography.heading",
         _before: {
           bg: finalBgColor.dark,
         },
@@ -97,7 +99,7 @@ const primary = {
   minHeight: "350px",
   content: {
     bg: "ui.black",
-    color: "ui.white",
+    color: "ui.typography.inverse.body",
     flex: {
       base: "0 0 100%",
       md: "0 0 60%",
@@ -111,16 +113,17 @@ const primary = {
       color: "inherit",
       display: "inline-block",
     },
-    heading: {
-      marginBottom: "0",
-    },
     bodyText: {
       marginBottom: "0",
     },
+    // h1: { color: "ui.typography.inverse.heading" },
     _dark: {
       bgColor: "dark.ui.bg.default",
       color: "dark.ui.typography.body",
     },
+  },
+  heading: {
+    color: "dark.ui.typography.heading",
   },
 };
 const secondary = getSecondaryVariantStyles();
@@ -136,7 +139,7 @@ const tertiary = {
   bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
-    color: "ui.white",
+    color: "ui.typography.inverse.body",
     display: "flex",
     flexFlow: "column nowrap",
     px: "inset.default",
@@ -146,10 +149,11 @@ const tertiary = {
       marginTop: { base: "xxs", xl: "xs" },
     },
     _dark: {
-      color: "dark.ui.typography.body",
+      p: { color: "dark.ui.typography.body" },
     },
   },
   heading: {
+    color: "ui.typography.inverse.heading",
     marginBottom: "0",
     _lastChild: {
       marginBottom: "0",
@@ -179,7 +183,7 @@ const campaign = {
   content: {
     alignItems: "stretch",
     bg: "ui.black",
-    color: "ui.white",
+    color: "ui.typography.inverse.body",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -194,6 +198,9 @@ const campaign = {
       bg: "dark.ui.bg.default",
       color: "dark.ui.typography.body",
     },
+  },
+  heading: {
+    color: "dark.ui.typography.heading",
   },
   a: {
     color: "inherit",

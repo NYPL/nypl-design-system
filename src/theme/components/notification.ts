@@ -36,7 +36,7 @@ const Notification = {
       bg,
       borderRadius: noMargin ? "0" : "4px",
       display: "flex",
-      fontSize: "text.caption", // slightly smaller than the default size
+      fontSize: "desktop.body.body2", // slightly smaller than the default size
       m: noMargin ? "0" : "s",
       position: "relative",
       p: "inset.default",
@@ -57,7 +57,7 @@ const Notification = {
         border: "none",
         bgColor: "inherit",
         alignItems: "center",
-        color: "ui.black",
+        color: "ui.typography.heading",
         display: "flex",
         h: "32px",
         w: "32px",
@@ -69,7 +69,7 @@ const Notification = {
           marginTop: "0",
         },
         _dark: {
-          color: "dark.ui.typography.body",
+          color: "dark.ui.typography.heading",
         },
         _hover: {
           bg: "inherit",
@@ -133,7 +133,7 @@ const NotificationHeading = {
     isCentered,
     notificationType,
   }: NotificationHeadingBaseStyle) => {
-    let color = "ui.black";
+    let color = "ui.typography.heading";
     if (notificationType === "announcement") {
       color = "section.research.secondary";
     } else if (notificationType === "warning") {
@@ -177,6 +177,7 @@ const NotificationHeading = {
       svg: {
         mx: isCentered ? "auto" : "",
         mb: isCentered ? "xxs" : "0",
+        mt: isCentered ? undefined : "xxxs",
       },
     };
   },
