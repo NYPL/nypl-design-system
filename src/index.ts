@@ -111,6 +111,7 @@ export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonL
 export type { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
+export { default as SocialMediaLinks } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type { StatusBadgeTypes } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";

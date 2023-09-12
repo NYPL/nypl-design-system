@@ -125,20 +125,21 @@ export const WithControls: Story = {
     },
   },
   render: (args) => (
-    <div
-      style={
-        args.color === "textInverse"
-          ? {
-              backgroundColor: "var(--nypl-colors-dark-ui-typography-body)",
-              display: "inline-block",
-              padding: "var(--nypl-space-xs)",
-            }
-          : { display: "inline-block", padding: "var(--nypl-space-xs)" }
-      }
-    >
-      <SocialMediaLinks {...args} />
-      <p>&nbsp;</p>
-      <Text size={"caption"}>
+    <div>
+      <div
+        style={
+          args.color === "textInverse"
+            ? {
+                backgroundColor: "var(--nypl-colors-dark-ui-bg-page)",
+                display: "inline-block",
+                padding: "var(--nypl-space-s)",
+              }
+            : { display: "inline-block", padding: "var(--nypl-space-xs)" }
+        }
+      >
+        <SocialMediaLinks {...args} />
+      </div>
+      <Text size="caption" mt="s">
         NOTE: background color for textInverse is added for readability in
         Reservoir. It is not part of the functionality.
       </Text>
@@ -150,14 +151,24 @@ export const LayoutVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading id="heading-row-layout" level="four" text="Row (Default)" />
-        <SocialMediaLinks layout={"row"} />
-        <Source code="<SocialMediaLinks layout={'row'} />" />
+        <Heading
+          id="heading-row-layout"
+          level="h4"
+          size="heading6"
+          text="Row (Default)"
+        />
+        <SocialMediaLinks layout="row" />
+        <Source code={'<SocialMediaLinks layout="row" />'} />
       </Box>
       <Box>
-        <Heading id="heading-column-layout" level="four" text="Column" />
-        <SocialMediaLinks layout={"column"} />
-        <Source code="<SocialMediaLinks layout={'column'} />" />
+        <Heading
+          id="heading-column-layout"
+          level="h4"
+          size="heading6"
+          text="Column"
+        />
+        <SocialMediaLinks layout="column" />
+        <Source code={'<SocialMediaLinks layout="column" />'} />
       </Box>
     </VStack>
   ),
@@ -167,19 +178,34 @@ export const SizeVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading id="heading-small-size" level="four" text="Small (Default)" />
-        <SocialMediaLinks size={"small"} />
-        <Source code="<SocialMediaLinks size={'small'} />" />
+        <Heading
+          id="heading-small-size"
+          level="h4"
+          size="heading6"
+          text="Small (Default)"
+        />
+        <SocialMediaLinks size="small" />
+        <Source code={'<SocialMediaLinks size="small" />'} />
       </Box>
       <Box>
-        <Heading id="heading-medium-size" level="four" text="Medium" />
-        <SocialMediaLinks size={"medium"} />
-        <Source code="<SocialMediaLinks size={'medium'} />" />
+        <Heading
+          id="heading-medium-size"
+          level="h4"
+          size="heading6"
+          text="Medium"
+        />
+        <SocialMediaLinks size="medium" />
+        <Source code={'<SocialMediaLinks size="medium" />'} />
       </Box>
       <Box>
-        <Heading id="heading-large-size" level="four" text="Large" />
-        <SocialMediaLinks size={"large"} />
-        <Source code="<SocialMediaLinks size={'large'} />" />
+        <Heading
+          id="heading-large-size"
+          level="h4"
+          size="heading6"
+          text="Large"
+        />
+        <SocialMediaLinks size="large" />
+        <Source code={'<SocialMediaLinks size="large" />'} />
       </Box>
     </VStack>
   ),
@@ -197,33 +223,38 @@ const ColorVariationsStory = () => {
       <Box>
         <Heading
           id="heading-textdefault-color"
-          level="four"
+          level="h4"
+          size="heading6"
           text="Site Default"
         />
-        <SocialMediaLinks color={"textDefault"} />
-        <Source code="<SocialMediaLinks color={'textDefault'} />" />
+        <SocialMediaLinks color="textDefault" />
+        <Source code={'<SocialMediaLinks color="textDefault" />'} />
       </Box>
       <Box>
-        <Heading id="heading-links-color" level="four" text="Link" />
-        <SocialMediaLinks color={"link"} />
-        <Source code="<SocialMediaLinks color={'link'} />" />
+        <Heading
+          id="heading-links-color"
+          level="h4"
+          size="heading6"
+          text="Link"
+        />
+        <SocialMediaLinks color="link" />
+        <Source code={'<SocialMediaLinks color="link" />'} />
       </Box>
-      <Box
-        bgColor={"dark.ui.typography.body"}
-        sx={{ padding: "var(--nypl-space-s)" }}
-      >
+      <Box>
         <Heading
           id="heading-textinverse-color"
-          level="four"
+          level="h4"
+          size="heading6"
           text="textInverse"
         />
-        <SocialMediaLinks color={"textInverse"} />
-        <p>&nbsp;</p>
-        <Text size={"caption"}>
+        <Box bgColor="dark.ui.bg.page" p="s">
+          <SocialMediaLinks color="textInverse" />
+        </Box>
+        <Text size="caption" mt="s">
           NOTE: background color for textInverse is added for readability in
           Reservoir. It is not part of the functionality.
         </Text>
-        <Source code="<SocialMediaLinks color={'textInverse'} />" />
+        <Source code={'<SocialMediaLinks color="textInverse" />'} />
       </Box>
     </VStack>
   );
@@ -237,20 +268,37 @@ export const BorderVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading id="heading-border-none" level="four" text="None (Default)" />
-        <SocialMediaLinks borders={"none"} />
-        <Source code="<SocialMediaLinks borders={'none'} />" />
+        <Heading
+          id="heading-border-none"
+          level="h4"
+          size="heading6"
+          text="None (Default)"
+        />
+        <SocialMediaLinks borders="none" />
+        <Source code={'<SocialMediaLinks borders="none" />'} />
       </Box>
       <Box>
-        <Heading id="heading-border-straight" level="four" text="Straight" />
-        <SocialMediaLinks borders={"straight"} />
-        <Source code="<SocialMediaLinks borders={'straight'} />" />
+        <Heading
+          id="heading-border-straight"
+          level="h4"
+          size="heading6"
+          text="Straight"
+        />
+        <SocialMediaLinks borders="straight" />
+        <Source code={'<SocialMediaLinks borders="straight" />'} />
       </Box>
       <Box>
-        <Heading id="heading-border-circular" level="four" text="Circular" />
-        <p>NOTE: labels are disallowed with circular borders.</p>
-        <SocialMediaLinks borders={"circular"} />
-        <Source code="<SocialMediaLinks borders={'circular'} />" />
+        <Heading
+          id="heading-border-circular"
+          level="h4"
+          size="heading6"
+          text="Circular"
+        />
+        <SocialMediaLinks borders="circular" />
+        <Text size={"caption"} mt="s">
+          NOTE: labels are disallowed with circular borders.
+        </Text>
+        <Source code={'<SocialMediaLinks borders="circular" />'} />
       </Box>
     </VStack>
   ),
@@ -260,12 +308,17 @@ export const LabelVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading id="heading-nolabels" level="four" text="False (Default)" />
+        <Heading
+          id="heading-nolabels"
+          level="h4"
+          size="heading6"
+          text="False (Default)"
+        />
         <SocialMediaLinks showLabels={false} />
         <Source code="<SocialMediaLinks showLabels={false} />" />
       </Box>
       <Box>
-        <Heading id="heading-labels" level="four" text="True" />
+        <Heading id="heading-labels" level="h4" size="heading6" text="True" />
         <SocialMediaLinks showLabels={true} />
         <Source code="<SocialMediaLinks showLabels={true} />" />
       </Box>

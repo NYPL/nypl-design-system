@@ -69,9 +69,15 @@ const SocialMediaLinks = {
       _hover: {
         color: "ui.typography.heading",
       },
+      _visited: {
+        color: "ui.typography.heading",
+      },
       _dark: {
         color: "dark.ui.typography.heading",
         _hover: {
+          color: "dark.ui.typography.heading",
+        },
+        _visited: {
           color: "dark.ui.typography.heading",
         },
       },
@@ -106,10 +112,16 @@ const SocialMediaLinks = {
           _hover: {
             color: theseColors.ltColor,
           },
+          _visited: {
+            color: theseColors.ltColor,
+          },
           _dark: {
             borderColor: theseColors.dkColor,
             color: theseColors.dkColor,
             _hover: {
+              color: theseColors.dkColor,
+            },
+            _visited: {
               color: theseColors.dkColor,
             },
           },
@@ -144,9 +156,15 @@ const SocialMediaLinks = {
           _hover: {
             color: theseColors.ltColor,
           },
+          _visited: {
+            color: theseColors.ltColor,
+          },
           _dark: {
             color: theseColors.dkColor,
             _hover: {
+              color: theseColors.dkColor,
+            },
+            _visited: {
               color: theseColors.dkColor,
             },
           },
@@ -180,9 +198,15 @@ const SocialMediaLinks = {
           _hover: {
             color: theseColors.ltColor,
           },
+          _visited: {
+            color: theseColors.ltColor,
+          },
           _dark: {
             color: theseColors.dkColor,
             _hover: {
+              color: theseColors.dkColor,
+            },
+            _visited: {
               color: theseColors.dkColor,
             },
           },

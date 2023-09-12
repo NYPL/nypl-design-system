@@ -1,6 +1,6 @@
-import {ArgTypes, Canvas, Description, Meta, Source} from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import { GetTableData } from "./SocialMediaLinksUtils";
-import Table from "../Table/Table"
+import Table from "../Table/Table";
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 import Link from "../Link/Link";
 
@@ -8,15 +8,16 @@ import Link from "../Link/Link";
 
 # SocialMediaLinks
 
-| Component Version | DS Version     |
-|-------------------|----------------|
-| Added             |  `Prerelease`  |
-| Latest            |  `Prerelease`  |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `Prerelease` |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#with-controls" target="_self">With Controls</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#variations" target="_self">Variations</Link>}
 - {<Link href="#responsive-design" target="_self">Responsive Design</Link>}
 
@@ -49,7 +50,7 @@ If values are set for `labelText` and/or `url` in the `linksData` array, those v
 For example:
 
 <Source
-    code={`
+  code={`
 const myLinksData = [
   { type: "twitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
   { type: "instagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
@@ -58,12 +59,17 @@ const myLinksData = [
 // ...
 <SocialMediaLinks linksData=myLinksData />
 `}
-    language="tsx"
+  language="tsx"
 />
 
-{/* @todo For some reason the sourceState prop is being ignored and showing the "Show Code" button */}
-<Canvas sourceState={'none'}>
-  <Table columnHeaders={[ 'Type', 'Label Text', 'URL', 'Icon Name*'  ]}  tableData={GetTableData()} showRowDividers={true} />
+{/_ @todo For some reason the sourceState prop is being ignored and showing the "Show Code" button _/}
+
+<Canvas sourceState={"none"}>
+  <Table
+    columnHeaders={["Type", "Label Text", "URL", "Icon Name*"]}
+    tableData={GetTableData()}
+    showRowDividers={true}
+  />
 </Canvas>
 
 \* `Icon Name` is not a prop. It is returned automatically by the component. Its value is shown here for transparency.
@@ -92,27 +98,27 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 NOTE: Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
 This layout prop is therefore effectively limited to desktop views.
 
-<Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={"none"} />
 
 ### Size Variations
 
-<Canvas of={SocialMediaLinksStories.SizeVariations} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.SizeVariations} sourceState={"none"} />
 
 ### Color Variations
 
-<Canvas of={SocialMediaLinksStories.ColorVariations} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.ColorVariations} sourceState={"none"} />
 
 ### Border Variations
 
-<Canvas of={SocialMediaLinksStories.BorderVariations} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.BorderVariations} sourceState={"none"} />
 
 ### Label Variations
 
-<Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={"none"} />
 
 ### Without linksData Prop (Default)
 
-<Canvas of={SocialMediaLinksStories.noLinksData} sourceState={'none'}/>
+<Canvas of={SocialMediaLinksStories.noLinksData} sourceState={"none"} />
 
 ## Responsive Design
 
