@@ -39,6 +39,7 @@ export interface LinkProps {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
+  rel?: string;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
