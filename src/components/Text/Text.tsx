@@ -92,7 +92,7 @@ export const Text = chakra(
       }
       if (isBold && size === "mini") {
         console.warn(
-          "NYPL Reservoir Text: The `isBold` prop does not work with min text."
+          "NYPL Reservoir Text: The `isBold` prop does not work with mini text."
         );
       }
 
