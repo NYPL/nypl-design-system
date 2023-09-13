@@ -62,9 +62,7 @@ const myLinksData = [
   language="tsx"
 />
 
-{/_ @todo For some reason the sourceState prop is being ignored and showing the "Show Code" button _/}
-
-<Canvas sourceState={"none"}>
+<Canvas withSource="none">
   <Table
     columnHeaders={["Type", "Label Text", "URL", "Icon Name*"]}
     tableData={GetTableData()}
