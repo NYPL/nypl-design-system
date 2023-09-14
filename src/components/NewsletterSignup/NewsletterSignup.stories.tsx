@@ -6,6 +6,7 @@ import NewsletterSignup, {
   newsletterSignupViewTypeArray,
 } from "./NewsletterSignup";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+import { sectionTypeArray } from "../../helpers/types";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
@@ -18,15 +19,13 @@ const meta: Meta<typeof NewsletterSignup> = {
     className: { control: false },
     hiddenFields: { control: false },
     id: { control: false },
-    isInvalidComment: { table: { defaultValue: { summary: false } } },
     isInvalidEmail: { table: { defaultValue: { summary: false } } },
-    isOpen: { table: { disable: true } },
-    notificationText: { control: false },
-    onClose: { table: { disable: true } },
-    onOpen: { table: { disable: true } },
+    newsletterSignupType: {
+      control: { type: "select" },
+      options: sectionTypeArray,
+      table: { defaultValue: { summary: "whatsOn" } },
+    },
     onSubmit: { control: false },
-    showCategoryField: { table: { defaultValue: { summary: false } } },
-    showEmailField: { table: { defaultValue: { summary: true } } },
     view: {
       control: { type: "select" },
       options: newsletterSignupViewTypeArray,
@@ -59,11 +58,6 @@ const NewsletterSignupWithControls = (args) => {
     <NewsletterSignup
       {...args}
       hiddenFields={hiddenFields}
-      notificationText={
-        <span>
-          <b>Call Number:</b> JFE 95-8555
-        </span>
-      }
       onSubmit={onSubmit}
       view={internalView}
     />
@@ -78,19 +72,13 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     confirmationText: "",
-    descriptionText: "Please share your question or feedback.",
+    descriptionText: undefined,
     hiddenFields: undefined,
     id: "newsletterSignup-id",
-    isInvalidComment: false,
     isInvalidEmail: false,
-    isOpen: undefined,
-    notificationText: undefined,
-    onClose: undefined,
-    onOpen: undefined,
+    newsletterSignupType: "whatsOn",
     onSubmit: undefined,
-    showCategoryField: false,
-    showEmailField: false,
-    title: "Help and Feedback",
+    title: undefined,
     view: "form",
   },
   parameters: {

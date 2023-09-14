@@ -1,29 +1,29 @@
 import {
   Box,
   chakra,
+  Stack,
   useColorModeValue,
-  useDisclosure,
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Form, { FormField } from "../Form/Form";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
-import Notification from "../Notification/Notification";
-import Radio from "../Radio/Radio";
-import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
+import Heading from "../Heading/Heading";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useNewsletterSignupReducer from "./useNewsletterSignupReducer";
+import { getSectionColors } from "../../helpers/getSectionColors";
+import { SectionTypes } from "../../helpers/types";
 
 export const newsletterSignupViewTypeArray = [
   "form",
+  "loading",
   "confirmation",
   "error",
 ] as const;
@@ -39,34 +39,22 @@ interface NewsletterSignupProps {
   /** Used to add description text above the form input fields in
    * the initial/form view. */
   descriptionText?: string | JSX.Element;
+  /** Optional Used to populate a Text component rendered below the Email field. */
+  formHelper?: string;
   /** A data object containing key/value pairs that will be added to the form
    * field submitted data. */
   hiddenFields?: any;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Toggles the invalid state for the comment field. */
-  isInvalidComment?: boolean;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Only used for internal purposes. */
-  isOpen?: boolean;
-  /** Used to add a notification above the description in the
-   * initial/form view.*/
-  notificationText?: string | JSX.Element;
-  /** Only used for internal purposes. */
-  onClose?: any;
-  /** Only used for internal purposes. */
-  onOpen?: any;
+  /* Optional value to determine the section color highlight */
+  newsletterSignupType?: SectionTypes;
   /** Callback function that will be invoked when the form is submitted.
    * The returned data object contains key/value pairs including the
    * values from the `hiddenFields` prop.
    */
   onSubmit: (values: { [key: string]: string }) => any;
-  /** Toggles the category radio group field. */
-  showCategoryField?: boolean;
-  /** Toggles the email input field. When set to `true`, an additional
-   * confirmation message will be rendered. */
-  showEmailField?: boolean;
   /** Used to populate the label on the open button and the `Drawer`'s
    * header title. */
   title: string;
@@ -75,33 +63,26 @@ interface NewsletterSignupProps {
 }
 
 /**
- * The `NewsletterSignup` component renders a fixed-positioned button on the bottom
- * right corner of a page that opens a Chakra `Drawer` popup component. Inside
- * of the popup, a form is rendered with fields that allows users to provide
- * feedback. The `NewsletterSignup` component does *not* call any API with the
- * submitted data; that feature is the responsibility of the consuming
- * application.
+ * The NewsletterSignup component provides a way for patrons to register for an
+ * email-based newsletter distribution list.
+ *
+ * The component can show four different views, depending on the state of the
+ * email submission: form, loading, confirmation, and error.
  */
 export const NewsletterSignup = chakra(
   forwardRef<any, NewsletterSignupProps>(
     (
       {
         className,
-        confirmationText,
-        descriptionText,
+        confirmationText = "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.",
+        descriptionText = "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
         hiddenFields,
-        id = "feedbackbox",
-        isInvalidComment = false,
+        id,
         isInvalidEmail = false,
-        notificationText,
+        newsletterSignupType = "whatsOn",
         onSubmit,
-        showCategoryField = false,
-        showEmailField = false,
-        title,
+        title = "Sign Up for Our Newsletter!",
         view = "form",
-        isOpen,
-        onOpen,
-        onClose,
         ...rest
       },
       ref?
@@ -112,34 +93,26 @@ export const NewsletterSignup = chakra(
       const [viewType, setViewType] = useStateWithDependencies(view);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       // Helps keep track of form field state values.
-      const { state, setCategory, setComment, setEmail, clearValues } =
-        useNewsletterSignupReducer();
+      const { state, setEmail, clearValues } = useNewsletterSignupReducer();
       // Hook into NYPL breakpoint
       const { isLargerThanMobile } = useNYPLBreakpoints();
-      // Chakra's hook to control Drawer's actions.
-      const disclosure = useDisclosure();
-      const finalOnClose = onClose ? onClose : disclosure.onClose;
+
       const focusRef = useRef<HTMLDivElement>();
       const styles = useMultiStyleConfig("NewsletterSignup", {});
       const isFormView = viewType === "form";
       const isConfirmationView = viewType === "confirmation";
       const isErrorView = viewType === "error";
       const confirmationTimeout = 3000;
-      const maxCommentCharacters = 500;
-      const initMinHeight = 165;
+
       const initTemplateRows = "auto 1fr";
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
-      const minHeightWithCategory = 235;
-      const minHeightWithEmail = 275;
-      const minHeightWithCategoryAndEmail = 345;
-      const notificationHeightAdjustment = 37;
-      const descriptionHeightAdjustment = 24;
-      let drawerMinHeight = initMinHeight;
-      const closeAndResetForm = () => {
-        finalOnClose();
-        setViewType("form");
-        clearValues();
-      };
+
+      console.log(getSectionColors(newsletterSignupType));
+      // Unused since cancel button removed. Maybe useful later?
+      // const closeAndResetForm = () => {
+      //   setViewType("form");
+      //   clearValues();
+      // };
       const internalOnSubmit = (e) => {
         e.preventDefault();
         let submittedValues = { ...state };
@@ -149,41 +122,21 @@ export const NewsletterSignup = chakra(
         onSubmit && onSubmit(submittedValues);
         setIsSubmitted(true);
       };
-      const notificationElement =
-        isFormView && notificationText ? (
-          <Notification
-            isCentered
-            noMargin
-            notificationContent={notificationText}
-            showIcon={false}
-            p="0"
-            sx={{
-              // The padding of the Notification is smaller than
-              // the initial one.
-              "> div": {
-                py: "xs",
-              },
-            }}
-            width="100%"
-          />
-        ) : undefined;
+
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text fontWeight="medium" noSpace>
-            {descriptionText}
-          </Text>
+          <Text size="body2">{descriptionText}</Text>
         ) : undefined;
-      const privacyPolicyField = (
-        <FormField>
-          <Link
-            href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-            type="external"
-            fontSize="text.tag"
-            width="fit-content"
-          >
-            Privacy Policy
-          </Link>
-        </FormField>
+
+      const privacyPolicy = (
+        <Link
+          href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+          type="external"
+          fontSize="text.tag"
+          width="fit-content"
+        >
+          Privacy Policy
+        </Link>
       );
 
       // When the submit button is clicked, set a timeout before displaying
@@ -230,108 +183,52 @@ export const NewsletterSignup = chakra(
         }
         return () => clearTimeout(timer);
       }, [focusRef, viewType]);
-      if (showCategoryField) {
-        drawerMinHeight = minHeightWithCategory;
-      }
-      if (showEmailField) {
-        drawerMinHeight = minHeightWithEmail;
-      }
-      if (showCategoryField && showEmailField) {
-        drawerMinHeight = minHeightWithCategoryAndEmail;
-      }
-      if (notificationText) {
-        drawerMinHeight += notificationHeightAdjustment;
-      }
-      if (descriptionText) {
-        drawerMinHeight += descriptionHeightAdjustment;
-      }
-      if (notificationText && descriptionText) {
-        drawerMinHeight += 16;
-      }
-      let finalDrawerMinHeight = drawerMinHeight + "px";
 
       return (
-        <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
-          <Form
-            gap="grid.s"
-            id="feedback-form"
-            onSubmit={internalOnSubmit}
-            sx={{
-              ".feedback-body": {
-                alignItems: "flex-start",
-                minHeight: finalDrawerMinHeight,
-                gridTemplateRows: initTemplateRows,
-              },
-              ".feedback-body.response": {
-                alignItems: "center",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              },
-            }}
-          >
-            {/* Initial form Screen */}
-            {isFormView && (
-              <>
-                <VStack className="feedback-body" spacing="s">
-                  {(notificationElement || descriptionElement) && (
-                    <>
-                      {notificationElement}
-                      {descriptionElement}
-                    </>
-                  )}
-                  {showCategoryField && (
-                    <FormField>
-                      <RadioGroup
-                        defaultValue={state.category}
-                        id={`${id}-category`}
-                        isDisabled={isSubmitted}
-                        labelText="What is your feedback about?"
-                        layout={isLargerThanMobile ? "row" : "column"}
-                        name={`${id}-category`}
-                        onChange={(selected) => setCategory(selected)}
-                      >
-                        <Radio
-                          id="comment"
-                          labelText="Comment"
-                          value="comment"
-                        />
-                        <Radio
-                          id="correction"
-                          labelText="Correction"
-                          value="correction"
-                        />
-                        <Radio id="bug" labelText="Bug" value="bug" />
-                      </RadioGroup>
-                    </FormField>
-                  )}
-                  <FormField width="100%">
-                    <TextInput
-                      helperText={`${
-                        maxCommentCharacters - state.comment.length
-                      } characters remaining`}
-                      id={`${id}-comment`}
-                      invalidText="Please fill out this field."
-                      isDisabled={isSubmitted}
-                      isInvalid={isInvalidComment}
-                      isRequired
-                      labelText="Comment"
-                      maxLength={maxCommentCharacters}
-                      name={`${id}-comment`}
-                      onChange={(e) => setComment(e.target.value)}
-                      placeholder="Enter your question or feedback here"
-                      type="textarea"
-                      defaultValue={state.comment}
-                    />
-                  </FormField>
-                  {showEmailField && (
+        <Stack
+          direction={isLargerThanMobile ? "row" : "column"}
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
+          <Box bg={getSectionColors(newsletterSignupType, "primary")}>
+            <p>Colorbox</p>
+          </Box>
+          <VStack>
+            <Heading level={"h3"} text={title} />
+            {descriptionElement && <>{descriptionElement}</>}
+            {privacyPolicy}
+          </VStack>
+          <VStack>
+            <Form
+              gap="grid.s"
+              id="feedback-form"
+              onSubmit={internalOnSubmit}
+              sx={{
+                ".feedback-body": {
+                  alignItems: "flex-start",
+                  gridTemplateRows: initTemplateRows,
+                },
+                ".feedback-body.response": {
+                  alignItems: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                },
+              }}
+            >
+              {/* Initial form Screen */}
+              {isFormView && (
+                <>
+                  <VStack className="feedback-body" spacing="s">
+                    {/*Email Field*/}
                     <FormField width="100%">
                       <TextInput
                         id={`${id}-email`}
                         invalidText="Please enter a valid email address."
                         isDisabled={isSubmitted}
                         isInvalid={isInvalidEmail}
-                        labelText="Email"
+                        labelText="Email Address"
                         name={`${id}-email`}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email address here"
@@ -339,110 +236,69 @@ export const NewsletterSignup = chakra(
                         value={state.email}
                       />
                     </FormField>
-                  )}
-                </VStack>
-                {privacyPolicyField}
-                <FormField>
-                  <ButtonGroup buttonWidth="full" id="submit-cancel">
-                    <Button
-                      buttonType="secondary"
-                      id="cancel"
-                      isDisabled={isSubmitted}
-                      key="cancel"
-                      onClick={closeAndResetForm}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      id="submit"
-                      isDisabled={isSubmitted}
-                      key="submit"
-                      type="submit"
-                    >
-                      Submit
-                    </Button>
-                  </ButtonGroup>
-                </FormField>
-              </>
-            )}
+                    <FormField>
+                      <Button
+                        id="submit"
+                        isDisabled={isSubmitted}
+                        key="submit"
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
+                    </FormField>
+                  </VStack>
+                </>
+              )}
 
-            {/* Confirmation Screen */}
-            {isConfirmationView && (
-              <>
-                <Box
-                  className="feedback-body response"
-                  key="confirmationWrapper"
-                  margin="auto"
-                  tabIndex={0}
-                  textAlign="center"
-                  ref={focusRef}
-                >
-                  <Icon
-                    color={iconColor}
-                    name="actionCheckCircleFilled"
-                    size="large"
-                  />
-                  <Text fontWeight="medium">
-                    Thank you for submitting your feedback.
-                  </Text>
-                  {showEmailField && (
-                    <Text>
-                      If you provided an email address and require a response,
-                      our service staff will reach out to you via email.
+              {/* Confirmation Screen */}
+              {isConfirmationView && (
+                <>
+                  <Box
+                    className="feedback-body response"
+                    key="confirmationWrapper"
+                    margin="auto"
+                    tabIndex={0}
+                    textAlign="center"
+                    ref={focusRef}
+                  >
+                    <Icon
+                      color={iconColor}
+                      name="actionCheckCircleFilled"
+                      size="large"
+                    />
+                    <Text fontWeight="medium">
+                      Thank you for submitting your feedback.
                     </Text>
-                  )}
-                  {confirmationText ? (
-                    <Text>{confirmationText}</Text>
-                  ) : undefined}
-                </Box>
-                {privacyPolicyField}
-                <FormField>
-                  <ButtonGroup buttonWidth="full" id="submit-cancel">
-                    <Button
-                      id="return-browsing"
-                      buttonType="secondary"
-                      onClick={closeAndResetForm}
-                    >
-                      Return to Browsing
-                    </Button>
-                  </ButtonGroup>
-                </FormField>
-              </>
-            )}
+                    {confirmationText ? (
+                      <Text>{confirmationText}</Text>
+                    ) : undefined}
+                  </Box>
+                </>
+              )}
 
-            {/* Error Screen */}
-            {isErrorView && (
-              <>
-                <Box
-                  className="feedback-body response"
-                  color="ui.error.primary"
-                  key="errorWrapper"
-                  margin="auto"
-                  tabIndex={0}
-                  textAlign="center"
-                  ref={focusRef}
-                >
-                  <Icon
+              {/* Error Screen */}
+              {isErrorView && (
+                <>
+                  <Box
+                    className="feedback-body response"
                     color="ui.error.primary"
-                    name="errorFilled"
-                    size="large"
-                  />
-                  <Text fontWeight="medium">
-                    Oops! Something went wrong. An error occured while
-                    processing your feedback.
-                  </Text>
-                </Box>
-                {privacyPolicyField}
-                <FormField>
-                  <ButtonGroup buttonWidth="full" id="submit-cancel">
-                    <Button
-                      id="return-browsing2"
-                      key="return-browsing2"
-                      buttonType="secondary"
-                      onClick={closeAndResetForm}
-                    >
-                      Return to Browsing
-                    </Button>
+                    key="errorWrapper"
+                    margin="auto"
+                    tabIndex={0}
+                    textAlign="center"
+                    ref={focusRef}
+                  >
+                    <Icon
+                      color="ui.error.primary"
+                      name="errorFilled"
+                      size="large"
+                    />
+                    <Text fontWeight="medium">
+                      Oops! Something went wrong. An error occured while
+                      processing your feedback.
+                    </Text>
+                  </Box>
+                  <FormField>
                     <Button
                       id="try-again"
                       key="try-again"
@@ -450,34 +306,141 @@ export const NewsletterSignup = chakra(
                     >
                       Try Again
                     </Button>
-                  </ButtonGroup>
-                </FormField>
-              </>
-            )}
-          </Form>
-        </Box>
+                  </FormField>
+                </>
+              )}
+            </Form>
+          </VStack>
+        </Stack>
+        // <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
+        //   <Form
+        //     gap="grid.s"
+        //     id="feedback-form"
+        //     onSubmit={internalOnSubmit}
+        //     sx={{
+        //       ".feedback-body": {
+        //         alignItems: "flex-start",
+        //         minHeight: finalDrawerMinHeight,
+        //         gridTemplateRows: initTemplateRows,
+        //       },
+        //       ".feedback-body.response": {
+        //         alignItems: "center",
+        //         display: "flex",
+        //         flexDirection: "column",
+        //         justifyContent: "center",
+        //       },
+        //     }}
+        //   >
+        //     {/* Initial form Screen */}
+        //     {isFormView && (
+        //       <>
+        //         <VStack className="feedback-body" spacing="s">
+        //           <Heading level={"h3"} text={title} />
+        //           {descriptionElement && <>{descriptionElement}</>}
+        //           {privacyPolicyField}
+        //           {/*Email Field*/}
+        //           <FormField width="100%">
+        //             <TextInput
+        //               id={`${id}-email`}
+        //               invalidText="Please enter a valid email address."
+        //               isDisabled={isSubmitted}
+        //               isInvalid={isInvalidEmail}
+        //               labelText="Email Address"
+        //               name={`${id}-email`}
+        //               onChange={(e) => setEmail(e.target.value)}
+        //               placeholder="Enter your email address here"
+        //               type="email"
+        //               value={state.email}
+        //             />
+        //           </FormField>
+        //           <FormField>
+        //             <Button
+        //               id="submit"
+        //               isDisabled={isSubmitted}
+        //               key="submit"
+        //               type="submit"
+        //             >
+        //               Submit
+        //             </Button>
+        //           </FormField>
+        //         </VStack>
+        //       </>
+        //     )}
+        //
+        //     {/* Confirmation Screen */}
+        //     {isConfirmationView && (
+        //       <>
+        //         <Box
+        //           className="feedback-body response"
+        //           key="confirmationWrapper"
+        //           margin="auto"
+        //           tabIndex={0}
+        //           textAlign="center"
+        //           ref={focusRef}
+        //         >
+        //           <Icon
+        //             color={iconColor}
+        //             name="actionCheckCircleFilled"
+        //             size="large"
+        //           />
+        //           <Text fontWeight="medium">
+        //             Thank you for submitting your feedback.
+        //           </Text>
+        //           {confirmationText ? (
+        //             <Text>{confirmationText}</Text>
+        //           ) : undefined}
+        //         </Box>
+        //         {privacyPolicyField}
+        //       </>
+        //     )}
+        //
+        //     {/* Error Screen */}
+        //     {isErrorView && (
+        //       <>
+        //         <Box
+        //           className="feedback-body response"
+        //           color="ui.error.primary"
+        //           key="errorWrapper"
+        //           margin="auto"
+        //           tabIndex={0}
+        //           textAlign="center"
+        //           ref={focusRef}
+        //         >
+        //           <Icon
+        //             color="ui.error.primary"
+        //             name="errorFilled"
+        //             size="large"
+        //           />
+        //           <Text fontWeight="medium">
+        //             Oops! Something went wrong. An error occured while
+        //             processing your feedback.
+        //           </Text>
+        //         </Box>
+        //         {privacyPolicyField}
+        //         <FormField>
+        //           <Button
+        //             id="try-again"
+        //             key="try-again"
+        //             onClick={() => setViewType("form")}
+        //           >
+        //             Try Again
+        //           </Button>
+        //         </FormField>
+        //       </>
+        //     )}
+        //   </Form>
+        // </Box>
       );
     }
   )
 );
 
 export function useNewsletterSignup() {
-  const { isOpen, onClose, onOpen } = useDisclosure();
   const InternalNewsletterSignup = chakra((props) => {
-    return (
-      <NewsletterSignup
-        isOpen={isOpen}
-        onClose={onClose}
-        onOpen={onOpen}
-        {...props}
-      />
-    );
+    return <NewsletterSignup {...props} />;
   });
 
   return {
-    isOpen,
-    onClose,
-    onOpen,
     NewsletterSignup: InternalNewsletterSignup,
   };
 }
