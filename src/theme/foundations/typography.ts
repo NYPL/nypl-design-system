@@ -168,7 +168,9 @@ const typography: Typography = {
     },
     // deprecated semantic tokens
     breadcrumbs: {
-      default: fontSizeValues.desktop["caption"],
+      // The deprecated value is "caption" but we should use body2 instead
+      // for backwards compatibility
+      default: fontSizeValues.desktop["body2"],
     },
     button: {
       small: {
