@@ -189,7 +189,9 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
  * for a date range we render a "fieldset".
  * @note This is only used internally for this file.
  */
-const DatePickerWrapper: React.FC<DatePickerWrapperProps> = chakra(
+const DatePickerWrapper: React.FC<
+  DatePickerWrapperProps & React.PropsWithChildren
+> = chakra(
   ({
     children,
     className,
@@ -227,7 +229,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = chakra(
  * layout for the two side-by-side date input fields.
  * @note This is only used internally for this file.
  */
-const DateRangeRow: React.FC<DateRangeRowProps> = ({
+const DateRangeRow: React.FC<DateRangeRowProps & React.PropsWithChildren> = ({
   id,
   isDateRange,
   children,

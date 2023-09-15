@@ -178,9 +178,11 @@ export const Table = chakra(
           sx={styles}
           {...rest}
         >
-          {tableCaption}
-          {columnHeadersElems}
-          {tableBodyElems()}
+          <>
+            {tableCaption}
+            {columnHeadersElems}
+            {tableBodyElems()}
+          </>
         </ChakraTable>
       );
     }

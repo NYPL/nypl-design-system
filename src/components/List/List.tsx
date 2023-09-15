@@ -90,7 +90,7 @@ export const List = chakra(
         return null;
       }
       if (listType === "ol" || listType === "ul") {
-        return listItems.map((item, i) => <li key={i}>{item}</li>);
+        return listItems.map((item: any, i) => <li key={i}>{item}</li>);
       } else if (listType === "dl") {
         return (listItems as DescriptionProps[]).map((item, i) => [
           <dt key={`${i}-term`}>{item.term}</dt>,
