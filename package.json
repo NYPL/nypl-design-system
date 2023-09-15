@@ -21,7 +21,7 @@
     "./dist/styles.css": "./dist/styles.css"
   },
   "engines": {
-    "node": ">=14 <=16"
+    "node": ">=16"
   },
   "author": "NYPL",
   "license": "Apache-2.0",
