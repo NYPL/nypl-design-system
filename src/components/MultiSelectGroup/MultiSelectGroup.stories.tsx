@@ -369,5 +369,5 @@ export const Controls: Story = {
 
 // The following are additional MultiSelectGroup example Stories.
 export const LayoutPatterns: Story = {
-  render: (args) => <MultiSelectGroupLayoutStory {...args} />,
+  render: () => <MultiSelectGroupLayoutStory />,
 };
