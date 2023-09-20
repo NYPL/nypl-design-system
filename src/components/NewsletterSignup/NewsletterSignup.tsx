@@ -3,7 +3,7 @@ import {
   chakra,
   Stack,
   useColorModeValue,
-  useMultiStyleConfig,
+  useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
 import React, { forwardRef, useEffect, useRef, useState } from "react";
@@ -23,7 +23,6 @@ import { SectionTypes } from "../../helpers/types";
 
 export const newsletterSignupViewTypeArray = [
   "form",
-  "loading",
   "confirmation",
   "error",
 ] as const;
@@ -39,12 +38,12 @@ interface NewsletterSignupProps {
   /** Used to add description text above the form input fields in
    * the initial/form view. */
   descriptionText?: string | JSX.Element;
-  /** Optional Used to populate a Text component rendered below the Email field. */
+  /** Optional: Used to populate the Text component rendered below the input field. */
   formHelper?: string;
   /** A data object containing key/value pairs that will be added to the form
    * field submitted data. */
   hiddenFields?: any;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** ID that other components can cross-reference for accessibility purposes */
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
@@ -55,8 +54,7 @@ interface NewsletterSignupProps {
    * values from the `hiddenFields` prop.
    */
   onSubmit: (values: { [key: string]: string }) => any;
-  /** Used to populate the label on the open button and the `Drawer`'s
-   * header title. */
+  /* Used to populate the <h3> header title. */
   title: string;
   /** Used to specify what screen should be displayed. */
   view?: NewsletterSignupViewType;
@@ -98,16 +96,15 @@ export const NewsletterSignup = chakra(
       const { isLargerThanMobile } = useNYPLBreakpoints();
 
       const focusRef = useRef<HTMLDivElement>();
-      const styles = useMultiStyleConfig("NewsletterSignup", {});
+      const styles = useStyleConfig("NewsletterSignup", {});
       const isFormView = viewType === "form";
       const isConfirmationView = viewType === "confirmation";
       const isErrorView = viewType === "error";
       const confirmationTimeout = 3000;
-
-      const initTemplateRows = "auto 1fr";
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
-      console.log(getSectionColors(newsletterSignupType));
+      let buttonClicked = false;
+
       // Unused since cancel button removed. Maybe useful later?
       // const closeAndResetForm = () => {
       //   setViewType("form");
@@ -120,20 +117,14 @@ export const NewsletterSignup = chakra(
           submittedValues = { ...submittedValues, ...hiddenFields };
         }
         onSubmit && onSubmit(submittedValues);
-        setIsSubmitted(true);
+        buttonClicked = true;
       };
-
-      const descriptionElement =
-        isFormView && descriptionText ? (
-          <Text size="body2">{descriptionText}</Text>
-        ) : undefined;
 
       const privacyPolicy = (
         <Link
           href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-          type="external"
-          fontSize="text.tag"
-          width="fit-content"
+          type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
+          id={"privacy"}
         >
           Privacy Policy
         </Link>
@@ -144,8 +135,10 @@ export const NewsletterSignup = chakra(
       // confirmation view after three (3) seconds, but the consuming app
       // can set the error view if there are any issues.
       useEffect(() => {
+        console.log(buttonClicked);
+        // START Move this chunk directly into onSubmit function and forget this whole useEffect thing.
         let timer;
-        if (isSubmitted) {
+        if (buttonClicked) {
           // If the consuming app does not provide any updates based
           // on its API response, go to confirmation screen.
           timer = setTimeout(() => {
@@ -168,8 +161,18 @@ export const NewsletterSignup = chakra(
           }
         }
 
-        return () => clearTimeout(timer);
-      }, [clearValues, isErrorView, isSubmitted, setViewType, view, viewType]);
+        return () => clearTimeout(timer); // END
+      }, [
+        clearValues,
+        isErrorView,
+        isSubmitted,
+        setViewType,
+        view,
+        viewType,
+        buttonClicked,
+      ]);
+
+      // Do we need to focus on the [whatever]?
 
       // Delay focusing on the confirmation or error message
       // because it's an element that dynamically gets rendered,
@@ -188,129 +191,106 @@ export const NewsletterSignup = chakra(
         <Stack
           direction={isLargerThanMobile ? "row" : "column"}
           ref={ref}
-          sx={styles}
+          __css={styles}
           {...rest}
         >
-          <Box bg={getSectionColors(newsletterSignupType, "primary")}>
-            <p>Colorbox</p>
-          </Box>
-          <VStack>
-            <Heading level={"h3"} text={title} />
-            {descriptionElement && <>{descriptionElement}</>}
-            {privacyPolicy}
-          </VStack>
-          <VStack>
-            <Form
-              gap="grid.s"
-              id="feedback-form"
-              onSubmit={internalOnSubmit}
-              sx={{
-                ".feedback-body": {
-                  alignItems: "flex-start",
-                  gridTemplateRows: initTemplateRows,
-                },
-                ".feedback-body.response": {
-                  alignItems: "center",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                },
-              }}
+          {/* Open info div */}
+          <Stack direction={isLargerThanMobile ? "row" : "column"} id={"info"}>
+            <Box
+              bg={getSectionColors(newsletterSignupType, "primary")}
+              id={"color-box"}
+              width={isLargerThanMobile ? ".75rem" : null} // @todo Not sure how to adapt this into the theme.ts and have it work the same.
+              height={isLargerThanMobile ? null : ".75rem"} // @todo ibid.
             >
-              {/* Initial form Screen */}
-              {isFormView && (
-                <>
-                  <VStack className="feedback-body" spacing="s">
-                    {/*Email Field*/}
-                    <FormField width="100%">
-                      <TextInput
-                        id={`${id}-email`}
-                        invalidText="Please enter a valid email address."
-                        isDisabled={isSubmitted}
-                        isInvalid={isInvalidEmail}
-                        labelText="Email Address"
-                        name={`${id}-email`}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email address here"
-                        type="email"
-                        value={state.email}
-                      />
-                    </FormField>
-                    <FormField>
-                      <Button
-                        id="submit"
-                        isDisabled={isSubmitted}
-                        key="submit"
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </FormField>
-                  </VStack>
-                </>
-              )}
-
-              {/* Confirmation Screen */}
-              {isConfirmationView && (
-                <>
-                  <Box
-                    className="feedback-body response"
-                    key="confirmationWrapper"
-                    margin="auto"
-                    tabIndex={0}
-                    textAlign="center"
-                    ref={focusRef}
-                  >
-                    <Icon
-                      color={iconColor}
-                      name="actionCheckCircleFilled"
-                      size="large"
+              &nbsp;
+            </Box>
+            <VStack id={"pitch"}>
+              <Heading level={"h3"} text={title} />
+              <Text>{descriptionText}</Text>
+              {privacyPolicy}
+            </VStack>
+          </Stack>
+          {/* Close info div */}
+          {/* Begin action div */}
+          <VStack id={"action"}>
+            {/* Initial form Screen */}
+            {isFormView && (
+              <>
+                <Form id="newsletter-form" onSubmit={internalOnSubmit}>
+                  <FormField id={"formfield-input"}>
+                    <TextInput
+                      id={`${id}-email`}
+                      invalidText="Please enter a valid email address."
+                      isInvalid={isInvalidEmail}
+                      labelText="Email Address"
+                      name={`${id}-email`}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address here"
+                      type="email"
+                      value={state.email}
                     />
-                    <Text fontWeight="medium">
-                      Thank you for submitting your feedback.
-                    </Text>
-                    {confirmationText ? (
-                      <Text>{confirmationText}</Text>
-                    ) : undefined}
-                  </Box>
-                </>
-              )}
-
-              {/* Error Screen */}
-              {isErrorView && (
-                <>
-                  <Box
-                    className="feedback-body response"
-                    color="ui.error.primary"
-                    key="errorWrapper"
-                    margin="auto"
-                    tabIndex={0}
-                    textAlign="center"
-                    ref={focusRef}
-                  >
-                    <Icon
-                      color="ui.error.primary"
-                      name="errorFilled"
-                      size="large"
-                    />
-                    <Text fontWeight="medium">
-                      Oops! Something went wrong. An error occured while
-                      processing your feedback.
-                    </Text>
-                  </Box>
+                  </FormField>
                   <FormField>
                     <Button
-                      id="try-again"
-                      key="try-again"
-                      onClick={() => setViewType("form")}
+                      id="submit"
+                      isDisabled={buttonClicked}
+                      key="submit"
+                      type="submit"
                     >
-                      Try Again
+                      Submit
                     </Button>
                   </FormField>
-                </>
-              )}
-            </Form>
+                </Form>
+              </>
+            )}
+
+            {/* Confirmation Screen */}
+            {isConfirmationView && (
+              <>
+                <Box
+                  className="feedback-body response"
+                  key="confirmationWrapper"
+                  margin="auto"
+                  tabIndex={0}
+                  textAlign="center"
+                  ref={focusRef}
+                >
+                  <Icon
+                    color={iconColor}
+                    name="actionCheckCircleFilled"
+                    size="large"
+                  />
+                  <Text fontWeight="medium">
+                    Thank you for submitting your feedback.
+                  </Text>
+                  {confirmationText ? (
+                    <Text>{confirmationText}</Text>
+                  ) : undefined}
+                </Box>
+              </>
+            )}
+            {/* Error Screen */}
+            {isErrorView && (
+              <>
+                <Box
+                  color="ui.error.primary"
+                  key="errorWrapper"
+                  margin="auto"
+                  tabIndex={0}
+                  textAlign="center"
+                  ref={focusRef}
+                >
+                  <Icon
+                    color="ui.error.primary"
+                    name="errorFilled"
+                    size="large"
+                  />
+                  <Text fontWeight="medium">Oops! Something went wrong.</Text>
+                </Box>
+              </>
+            )}
           </VStack>
+          {/* End action div */}
         </Stack>
         // <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
         //   <Form
@@ -412,7 +392,7 @@ export const NewsletterSignup = chakra(
         //             size="large"
         //           />
         //           <Text fontWeight="medium">
-        //             Oops! Something went wrong. An error occured while
+        //             Oops! Something went wrong. An error occurred while
         //             processing your feedback.
         //           </Text>
         //         </Box>
