@@ -46,10 +46,20 @@ const NewsletterSignupWithControls = (args) => {
       case "error@nypl.org":
         setView("error");
         break;
+      case "confirmation@nypl.org":
+        setView("confirmation");
+        break;
     }
     console.log("Submitted values:", values, isInvalidEmail, view);
   };
-  return <NewsletterSignup {...args} onSubmit={onSubmit} />;
+  return (
+    <NewsletterSignup
+      {...args}
+      onSubmit={onSubmit}
+      view={view}
+      isInvalidEmail={isInvalidEmail}
+    />
+  );
 };
 
 // Example hidden field values.

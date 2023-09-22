@@ -6,7 +6,7 @@ import {
   useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
@@ -19,6 +19,7 @@ import Heading from "../Heading/Heading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 export const newsletterSignupViewTypeArray = [
   "form",
@@ -87,70 +88,26 @@ export const NewsletterSignup = chakra(
       // We want to keep internal state for the view but also
       // update if the consuming app updates it, based on API
       // success and failure responses.
-      // const [viewType, setViewType] = useStateWithDependencies(view);
-      // const [badEmail, setBadEmail] = useStateWithDependencies(isInvalidEmail);
+      const [viewType, setViewType] = useStateWithDependencies(view);
+      const [badEmail, setBadEmail] = useStateWithDependencies(isInvalidEmail);
       const [buttonClicked, setButtonClicked] = useState(false);
       const [email, setEmail] = useState("");
 
       // Hook into NYPL breakpoint
       const { isLargerThanMobile } = useNYPLBreakpoints();
-      console.log("view: ", view);
-      console.log("signup type: ", newsletterSignupType);
       const focusRef = useRef<HTMLDivElement>(); // @todo Is this needed? It is a holdover from FeedbackBox
       const styles = useStyleConfig("NewsletterSignup", {});
-      // This makes it slightly simpler to test for which
-      const formView = view === "form";
-      const confirmationView = view === "confirmation";
-      const errorView = view === "error";
-
+      // The viewType may change as a result of something happening in the internalOnSubmit function.
+      const formView = viewType === "form";
+      const confirmationView = viewType === "confirmation";
+      const errorView = viewType === "error";
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
-      // let buttonClicked = false;
-
-      // Unused since cancel button removed. Maybe useful later?
-      // const closeAndResetForm = () => {
-      //   setViewType("form");
-      //   clearValues();
-      // };
-
-      // Where is this "e" coming from? Is it just magically passed?
       const internalOnSubmit = (e) => {
         e.preventDefault();
         setButtonClicked(true);
         const submittedValues = { email, ...hiddenFields };
         onSubmit(submittedValues); // onSubmit comes from the consuming app
-
-        // If the consuming app does send either a new view or an isInvalidEmail, wait three seconds for either of
-        // those values, then just give the confirmation screen.
-        // @todo This currently does not work.
-        if (view === "form" && !isInvalidEmail) {
-          // Wait three seconds. If no return from the onSubmit function, assume the best and show the confirmation screen.
-          let timer = setTimeout(() => {
-            view = "confirmation";
-          }, 3000);
-          // console.log(
-          //   "viewType:",
-          //   viewType,
-          //   "view",
-          //   view,
-          //   "badEmail:",
-          //   badEmail,
-          //   "isInvalidEmail:",
-          //   isInvalidEmail
-          // );
-          // If the consuming app provides an update sooner than three seconds, cancel the timer.
-
-          // @todo Maybe this is the key?
-          // if (view !== viewType || isInvalidEmail !== badEmail) {
-          //   setViewType(view); // Note: in the case of isInvalidEmail, this will still be a form
-          //   setBadEmail(isInvalidEmail);
-          //   setButtonClicked(false); // Only relevant if email address is bad.
-          //   console.log("Kill timer", Date.now(), timer);
-          //   clearTimeout(timer);
-          // }
-          console.log("Dead timer", Date.now(), timer);
-          return "";
-        }
       }; // Close internalOnSubmit
 
       const privacyPolicy = (
@@ -162,6 +119,44 @@ export const NewsletterSignup = chakra(
           Privacy Policy
         </Link>
       );
+
+      // When the submit button is clicked, set a timeout before displaying
+      // the confirmation or error screen. This automatically goes to the
+      // confirmation view after three (3) seconds, but the consuming app
+      // can set the error view if there are any issues.
+      // @todo Is useEffect bad? I read that is not good. But I can't put any of this logic in the internalOnSubmit function
+      //   because it won't work and I am not knowledgeable enough to figure out an alternate solution. So this is adapted from FeebackBox.
+      useEffect(() => {
+        console.log("useEffect");
+        let timer;
+        if (buttonClicked) {
+          // If the consuming app does not provide any updates based
+          // on its API response, go to confirmation screen.
+          timer = setTimeout(() => {
+            setViewType("confirmation");
+          }, 3000);
+          // If the consuming app does pass the API response to the
+          // component, then cancel the timeout above and display the
+          // appropriate screen.
+          if (view !== viewType || isInvalidEmail !== badEmail) {
+            setBadEmail(false); // @todo It won't let you resubmit.
+            setButtonClicked(false);
+            setViewType(view);
+            clearTimeout(timer);
+          }
+        }
+
+        return () => clearTimeout(timer);
+      }, [
+        buttonClicked,
+        badEmail,
+        errorView,
+        isInvalidEmail,
+        setBadEmail,
+        setViewType,
+        view,
+        viewType,
+      ]);
 
       return (
         <Stack
@@ -190,7 +185,6 @@ export const NewsletterSignup = chakra(
           {/* Begin action div */}
           <VStack id={"action"}>
             {/* Initial form Screen */}
-            {console.log("formView?", formView)}
             {formView && (
               <>
                 <Form id="newsletter-form" onSubmit={internalOnSubmit}>
