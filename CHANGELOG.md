@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Fixes
 
-- Fixes `Datepicker` so that focus remains on input after value is changed
+- Fixes `DatePicker` so that focus remains on input after value is changed
 
 ## 1.7.3 (September 13, 2023)
 
