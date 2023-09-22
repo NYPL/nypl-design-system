@@ -6,7 +6,7 @@ import {
   useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
@@ -15,9 +15,8 @@ import Link from "../Link/Link";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
-import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+//import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
-import useNewsletterSignupReducer from "./useNewsletterSignupReducer";
 import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
 
@@ -36,7 +35,7 @@ interface NewsletterSignupProps {
    * the confirmation view. */
   confirmationText?: string | JSX.Element;
   /** Used to add description text above the form input fields in
-   * the initial/form view. */
+   * the initial/form view. Accepts a string or a JSX */
   descriptionText?: string | JSX.Element;
   /** Optional: Used to populate the Text component rendered below the input field. */
   formHelper?: string;
@@ -49,14 +48,14 @@ interface NewsletterSignupProps {
   isInvalidEmail?: boolean;
   /* Optional value to determine the section color highlight */
   newsletterSignupType?: SectionTypes;
-  /** Callback function that will be invoked when the form is submitted.
-   * The returned data object contains key/value pairs including the
-   * values from the `hiddenFields` prop.
+  /** A callback handler function that will be called when the form is submitted.
+   * The function provided must expect an object of key:value pairs. This object will
+   * include {email}, being the user's input, plus any objects passed via the hiddenValues prop.
    */
   onSubmit: (values: { [key: string]: string }) => any;
-  /* Used to populate the <h3> header title. */
+  /** Used to populate the <h3> header title. */
   title: string;
-  /** Used to specify what screen should be displayed. */
+  /** Used to specify what is displayed in the component content area. */
   view?: NewsletterSignupViewType;
 }
 
@@ -88,37 +87,71 @@ export const NewsletterSignup = chakra(
       // We want to keep internal state for the view but also
       // update if the consuming app updates it, based on API
       // success and failure responses.
-      const [viewType, setViewType] = useStateWithDependencies(view);
-      const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-      // Helps keep track of form field state values.
-      const { state, setEmail, clearValues } = useNewsletterSignupReducer();
+      // const [viewType, setViewType] = useStateWithDependencies(view);
+      // const [badEmail, setBadEmail] = useStateWithDependencies(isInvalidEmail);
+      const [buttonClicked, setButtonClicked] = useState(false);
+      const [email, setEmail] = useState("");
+
       // Hook into NYPL breakpoint
       const { isLargerThanMobile } = useNYPLBreakpoints();
-
-      const focusRef = useRef<HTMLDivElement>();
+      console.log("view: ", view);
+      console.log("signup type: ", newsletterSignupType);
+      const focusRef = useRef<HTMLDivElement>(); // @todo Is this needed? It is a holdover from FeedbackBox
       const styles = useStyleConfig("NewsletterSignup", {});
-      const isFormView = viewType === "form";
-      const isConfirmationView = viewType === "confirmation";
-      const isErrorView = viewType === "error";
-      const confirmationTimeout = 3000;
+      // This makes it slightly simpler to test for which
+      const formView = view === "form";
+      const confirmationView = view === "confirmation";
+      const errorView = view === "error";
+
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
-      let buttonClicked = false;
+      // let buttonClicked = false;
 
       // Unused since cancel button removed. Maybe useful later?
       // const closeAndResetForm = () => {
       //   setViewType("form");
       //   clearValues();
       // };
+
+      // Where is this "e" coming from? Is it just magically passed?
       const internalOnSubmit = (e) => {
         e.preventDefault();
-        let submittedValues = { ...state };
-        if (hiddenFields) {
-          submittedValues = { ...submittedValues, ...hiddenFields };
+        setButtonClicked(true);
+        const submittedValues = { email, ...hiddenFields };
+        onSubmit(submittedValues); // onSubmit comes from the consuming app
+
+        // If the consuming app does send either a new view or an isInvalidEmail, wait three seconds for either of
+        // those values, then just give the confirmation screen.
+        // @todo This currently does not work.
+        if (view === "form" && !isInvalidEmail) {
+          // Wait three seconds. If no return from the onSubmit function, assume the best and show the confirmation screen.
+          let timer = setTimeout(() => {
+            view = "confirmation";
+          }, 3000);
+          // console.log(
+          //   "viewType:",
+          //   viewType,
+          //   "view",
+          //   view,
+          //   "badEmail:",
+          //   badEmail,
+          //   "isInvalidEmail:",
+          //   isInvalidEmail
+          // );
+          // If the consuming app provides an update sooner than three seconds, cancel the timer.
+
+          // @todo Maybe this is the key?
+          // if (view !== viewType || isInvalidEmail !== badEmail) {
+          //   setViewType(view); // Note: in the case of isInvalidEmail, this will still be a form
+          //   setBadEmail(isInvalidEmail);
+          //   setButtonClicked(false); // Only relevant if email address is bad.
+          //   console.log("Kill timer", Date.now(), timer);
+          //   clearTimeout(timer);
+          // }
+          console.log("Dead timer", Date.now(), timer);
+          return "";
         }
-        onSubmit && onSubmit(submittedValues);
-        buttonClicked = true;
-      };
+      }; // Close internalOnSubmit
 
       const privacyPolicy = (
         <Link
@@ -129,63 +162,6 @@ export const NewsletterSignup = chakra(
           Privacy Policy
         </Link>
       );
-
-      // When the submit button is clicked, set a timeout before displaying
-      // the confirmation or error screen. This automatically goes to the
-      // confirmation view after three (3) seconds, but the consuming app
-      // can set the error view if there are any issues.
-      useEffect(() => {
-        console.log(buttonClicked);
-        // START Move this chunk directly into onSubmit function and forget this whole useEffect thing.
-        let timer;
-        if (buttonClicked) {
-          // If the consuming app does not provide any updates based
-          // on its API response, go to confirmation screen.
-          timer = setTimeout(() => {
-            setIsSubmitted(false);
-            if (isErrorView) {
-              setViewType("error");
-            } else {
-              setViewType("confirmation");
-            }
-            clearValues();
-          }, confirmationTimeout);
-
-          // If the consuming app does pass the API response to the
-          // component, then cancel the timeout above and display the
-          // appropriate screen.
-          if (view !== viewType) {
-            setIsSubmitted(false);
-            setViewType(view);
-            clearTimeout(timer);
-          }
-        }
-
-        return () => clearTimeout(timer); // END
-      }, [
-        clearValues,
-        isErrorView,
-        isSubmitted,
-        setViewType,
-        view,
-        viewType,
-        buttonClicked,
-      ]);
-
-      // Do we need to focus on the [whatever]?
-
-      // Delay focusing on the confirmation or error message
-      // because it's an element that dynamically gets rendered,
-      // so it is not always available in the DOM.
-      useEffect(() => {
-        let timer;
-        if (viewType === "error" || viewType === "confirmation") {
-          timer = setTimeout(() => {
-            focusRef?.current?.focus();
-          }, 250);
-        }
-        return () => clearTimeout(timer);
-      }, [focusRef, viewType]);
 
       return (
         <Stack
@@ -214,9 +190,11 @@ export const NewsletterSignup = chakra(
           {/* Begin action div */}
           <VStack id={"action"}>
             {/* Initial form Screen */}
-            {isFormView && (
+            {console.log("formView?", formView)}
+            {formView && (
               <>
                 <Form id="newsletter-form" onSubmit={internalOnSubmit}>
+                  {/**/}
                   <FormField id={"formfield-input"}>
                     <TextInput
                       id={`${id}-email`}
@@ -224,10 +202,10 @@ export const NewsletterSignup = chakra(
                       isInvalid={isInvalidEmail}
                       labelText="Email Address"
                       name={`${id}-email`}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value)} // e.target.value is what the user has input. So when they hit "submit" it will be stored in whatever variable we wish in the setEmail function.
                       placeholder="Enter your email address here"
                       type="email"
-                      value={state.email}
+                      value={email}
                     />
                   </FormField>
                   <FormField>
@@ -245,7 +223,7 @@ export const NewsletterSignup = chakra(
             )}
 
             {/* Confirmation Screen */}
-            {isConfirmationView && (
+            {confirmationView && (
               <>
                 <Box
                   className="feedback-body response"
@@ -260,17 +238,12 @@ export const NewsletterSignup = chakra(
                     name="actionCheckCircleFilled"
                     size="large"
                   />
-                  <Text fontWeight="medium">
-                    Thank you for submitting your feedback.
-                  </Text>
-                  {confirmationText ? (
-                    <Text>{confirmationText}</Text>
-                  ) : undefined}
+                  <Text fontWeight="medium">{confirmationText}</Text>
                 </Box>
               </>
             )}
             {/* Error Screen */}
-            {isErrorView && (
+            {errorView && (
               <>
                 <Box
                   color="ui.error.primary"
@@ -292,124 +265,6 @@ export const NewsletterSignup = chakra(
           </VStack>
           {/* End action div */}
         </Stack>
-        // <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
-        //   <Form
-        //     gap="grid.s"
-        //     id="feedback-form"
-        //     onSubmit={internalOnSubmit}
-        //     sx={{
-        //       ".feedback-body": {
-        //         alignItems: "flex-start",
-        //         minHeight: finalDrawerMinHeight,
-        //         gridTemplateRows: initTemplateRows,
-        //       },
-        //       ".feedback-body.response": {
-        //         alignItems: "center",
-        //         display: "flex",
-        //         flexDirection: "column",
-        //         justifyContent: "center",
-        //       },
-        //     }}
-        //   >
-        //     {/* Initial form Screen */}
-        //     {isFormView && (
-        //       <>
-        //         <VStack className="feedback-body" spacing="s">
-        //           <Heading level={"h3"} text={title} />
-        //           {descriptionElement && <>{descriptionElement}</>}
-        //           {privacyPolicyField}
-        //           {/*Email Field*/}
-        //           <FormField width="100%">
-        //             <TextInput
-        //               id={`${id}-email`}
-        //               invalidText="Please enter a valid email address."
-        //               isDisabled={isSubmitted}
-        //               isInvalid={isInvalidEmail}
-        //               labelText="Email Address"
-        //               name={`${id}-email`}
-        //               onChange={(e) => setEmail(e.target.value)}
-        //               placeholder="Enter your email address here"
-        //               type="email"
-        //               value={state.email}
-        //             />
-        //           </FormField>
-        //           <FormField>
-        //             <Button
-        //               id="submit"
-        //               isDisabled={isSubmitted}
-        //               key="submit"
-        //               type="submit"
-        //             >
-        //               Submit
-        //             </Button>
-        //           </FormField>
-        //         </VStack>
-        //       </>
-        //     )}
-        //
-        //     {/* Confirmation Screen */}
-        //     {isConfirmationView && (
-        //       <>
-        //         <Box
-        //           className="feedback-body response"
-        //           key="confirmationWrapper"
-        //           margin="auto"
-        //           tabIndex={0}
-        //           textAlign="center"
-        //           ref={focusRef}
-        //         >
-        //           <Icon
-        //             color={iconColor}
-        //             name="actionCheckCircleFilled"
-        //             size="large"
-        //           />
-        //           <Text fontWeight="medium">
-        //             Thank you for submitting your feedback.
-        //           </Text>
-        //           {confirmationText ? (
-        //             <Text>{confirmationText}</Text>
-        //           ) : undefined}
-        //         </Box>
-        //         {privacyPolicyField}
-        //       </>
-        //     )}
-        //
-        //     {/* Error Screen */}
-        //     {isErrorView && (
-        //       <>
-        //         <Box
-        //           className="feedback-body response"
-        //           color="ui.error.primary"
-        //           key="errorWrapper"
-        //           margin="auto"
-        //           tabIndex={0}
-        //           textAlign="center"
-        //           ref={focusRef}
-        //         >
-        //           <Icon
-        //             color="ui.error.primary"
-        //             name="errorFilled"
-        //             size="large"
-        //           />
-        //           <Text fontWeight="medium">
-        //             Oops! Something went wrong. An error occurred while
-        //             processing your feedback.
-        //           </Text>
-        //         </Box>
-        //         {privacyPolicyField}
-        //         <FormField>
-        //           <Button
-        //             id="try-again"
-        //             key="try-again"
-        //             onClick={() => setViewType("form")}
-        //           >
-        //             Try Again
-        //           </Button>
-        //         </FormField>
-        //       </>
-        //     )}
-        //   </Form>
-        // </Box>
       );
     }
   )
