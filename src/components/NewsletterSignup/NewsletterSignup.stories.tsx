@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
-
-import NewsletterSignup, {
-  newsletterSignupViewTypeArray,
-} from "./NewsletterSignup";
-import { sectionTypeArray } from "../../helpers/types";
+import useStateWithDependencies from "../../hooks/useStateWithDependencies";
+import NewsletterSignup from "./NewsletterSignup";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
@@ -16,18 +12,47 @@ const meta: Meta<typeof NewsletterSignup> = {
   },
   argTypes: {
     className: { control: false },
-    hiddenFields: { control: false },
     id: { control: false },
-    isInvalidEmail: { table: { defaultValue: { summary: false } } },
+    confirmationText: {
+      control: "text",
+      table: {
+        defaultValue: {
+          summary:
+            "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.",
+        },
+      },
+    },
+    descriptionText: {
+      control: "text",
+      table: {
+        defaultValue: {
+          summary:
+            "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
+        },
+      },
+    },
+    formHelperText: {
+      control: "text",
+    },
     newsletterSignupType: {
-      control: { type: "select" },
-      options: sectionTypeArray,
-      table: { defaultValue: { summary: "whatsOn" } },
+      control: "select",
+      table: {
+        defaultValue: {
+          summary: "whatsOn",
+        },
+      },
     },
     view: {
-      control: { type: "select" },
-      options: newsletterSignupViewTypeArray,
-      table: { defaultValue: { summary: "form" } },
+      control: "select",
+      table: {
+        defaultValue: {
+          summary: "form",
+        },
+      },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "Sign Up for Our Newsletter!" } },
     },
   },
 };
@@ -36,8 +61,13 @@ export default meta;
 type Story = StoryObj<typeof NewsletterSignup>;
 
 const NewsletterSignupWithControls = (args) => {
-  const [view, setView] = useState("form");
-  const [isInvalidEmail, setIsInvalidEmail] = useState(false);
+  const [view, setView] = useStateWithDependencies(args.view);
+  const [isInvalidEmail, setIsInvalidEmail] = useStateWithDependencies(
+    args.isInvalidEmail
+  );
+  const [confirmationText, setConfirmationText] = useStateWithDependencies(
+    args.confirmationText
+  );
   const onSubmit = (values?: { [key: string]: string }) => {
     switch (values.email) {
       case "":
@@ -48,16 +78,20 @@ const NewsletterSignupWithControls = (args) => {
         break;
       case "confirmation@nypl.org":
         setView("confirmation");
+        setConfirmationText(
+          "This is going to change your life. Check out those values in the console!"
+        );
         break;
     }
-    console.log("Submitted values:", values, isInvalidEmail, view);
+    console.log("Submitted values:", values, isInvalidEmail);
   };
   return (
     <NewsletterSignup
-      {...args}
+      {...args} // @todo So, the below values are also contained in this ...args array, but the ones below get to "win." I dunno why.
       onSubmit={onSubmit}
       view={view}
       isInvalidEmail={isInvalidEmail}
+      confirmationText={confirmationText}
     />
   );
 };
@@ -76,14 +110,15 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     confirmationText:
-      "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.",
-    descriptionText: undefined,
+      "Fantastic! You're all set. Check the console for the data you submitted.",
+    descriptionText: "This is it.",
+    formHelperText: "You can do this.",
     hiddenFields: { hiddenFields },
-    id: "newsletterSignup-id",
+    id: undefined,
     isInvalidEmail: false,
     newsletterSignupType: "whatsOn",
     onSubmit: undefined,
-    title: undefined,
+    title: "The Newsletter Everyone Is Talking About",
     view: "form",
   },
   parameters: {

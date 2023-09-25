@@ -6,6 +6,7 @@ const NewsLetterSignup = {
     width: "100%",
     "div#info": {
       alignItems: "flex-start",
+      alignSelf: "stretch",
       flex: "1 1 0",
       bg: "ui.bg.default",
     },
@@ -15,9 +16,9 @@ const NewsLetterSignup = {
     "div#pitch": {
       width: { base: "100%", md: "50%" }, // It's a two-column layout >md
       padding: {
-        base: "s l l l",
+        base: "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-l) var(--nypl-space-l)", // @todo For some reason using "padding:" with more than one shorthand value, e.g. l, sm, xxl, doesn't work.
         md: "l",
-        lg: "l xxl l xl",
+        lg: "var(--nypl-space-l) var(--nypl-space-xxl) var(--nypl-space-l) var(--nypl-space-xl)",
       }, // md
       alignItems: "flex-start",
       gap: "xs",
@@ -35,7 +36,7 @@ const NewsLetterSignup = {
       fontWeight: "caption",
     },
     "div#action": {
-      padding: { base: "l", lg: "l xxl" },
+      padding: { base: "l", lg: "var(--nypl-space-l) var(--nypl-space-xxl)" },
       width: { base: "100%", md: "50%" }, // It's a two-column layout >md
     },
     form: {
@@ -47,7 +48,7 @@ const NewsLetterSignup = {
     },
     input: {
       display: "flex",
-      padding: "xs s",
+      padding: "var(--nypl-space-xs) var(--nypl-space-s)",
       flexDirection: "column",
       alignItems: "flex-start",
       gap: "10px",
