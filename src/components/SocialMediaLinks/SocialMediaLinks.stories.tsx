@@ -58,7 +58,7 @@ export const WithControls: Story = {
       { type: "facebook" },
       {
         type: "twitter",
-        url: "twitter.com/elsewhere",
+        url: "https://twitter.com/NYPLBookmobile",
         labelText: "Alt Twitter",
       },
       {
