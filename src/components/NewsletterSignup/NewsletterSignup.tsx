@@ -6,7 +6,7 @@ import {
   useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
@@ -18,15 +18,6 @@ import Heading from "../Heading/Heading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
-
-export const newsletterSignupViewTypeArray = [
-  "form",
-  "confirmation",
-  "error",
-] as const;
-
-export type NewsletterSignupViewType =
-  typeof newsletterSignupViewTypeArray[number];
 
 interface NewsletterSignupProps {
   /** Additional class name to add. */
@@ -48,15 +39,16 @@ interface NewsletterSignupProps {
   isInvalidEmail?: boolean;
   /* Optional value to determine the section color highlight */
   newsletterSignupType?: SectionTypes;
-  /** A callback handler function that will be called when the form is submitted.
-   * The function provided must expect an object of key:value pairs. This object will
-   * include {email}, being the user's input, plus any objects passed via the hiddenValues prop.
-   */
-  onSubmit: (values: { [key: string]: string }) => any;
+  /** A submit handler function that will be called when the form is submitted. */
+  onSubmit: (event: React.FormEvent<any>) => void;
+  /** A on change handler function for the text input. */
+  onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The value of the email text input field. */
+  valueEmail: string;
   /** Used to populate the `<h3>` header title. */
   title: string;
   /** Used to specify what is displayed in the component content area. */
-  view?: NewsletterSignupViewType;
+  view?: "form" | "submitting" | "confirmation" | "error";
 }
 
 /**
@@ -78,6 +70,8 @@ export const NewsletterSignup = chakra(
         id,
         isInvalidEmail = false,
         newsletterSignupType = "whatsOn",
+        onChangeEmail,
+        valueEmail,
         onSubmit,
         title = "Sign Up for Our Newsletter!",
         view = "form",
@@ -85,36 +79,18 @@ export const NewsletterSignup = chakra(
       },
       ref?
     ) => {
-      const viewType = view;
-      const [buttonClicked, setButtonClicked] = useState(false);
-      const [email, setEmail] = useState("");
-
-      // Hook into NYPL breakpoint
       const { isLargerThanMobile } = useNYPLBreakpoints();
-      const focusRef = useRef<HTMLDivElement>(); // @todo Is this needed? It is a holdover from FeedbackBox
       const styles = useStyleConfig("NewsletterSignup", {});
-      // The viewType may change as a result of something happening in the internalOnSubmit function.
-      const formView = viewType === "form";
-      const confirmationView = viewType === "confirmation";
-      const errorView = viewType === "error";
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
-      const internalOnSubmit = (e) => {
-        e.preventDefault();
-        setButtonClicked(true);
-        const submittedValues = { email, ...hiddenFields };
-        onSubmit(submittedValues); // onSubmit comes from the consuming app
-      }; // Close internalOnSubmit
+      const displayForm = view === "form" || view === "submitting";
 
-      const privacyPolicy = (
-        <Link
-          href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-          type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
-          id={"privacy"}
-        >
-          Privacy Policy
-        </Link>
-      );
+      // Manage focus to ensure accessibility when cofirmation or error message is rendered.
+      const focusRef = React.useRef<HTMLDivElement>(null);
+      // When view changes, set focus to the confirmation or error content.
+      React.useEffect(() => {
+        focusRef.current?.focus();
+      }, [view]);
 
       return (
         <Stack
@@ -123,7 +99,6 @@ export const NewsletterSignup = chakra(
           __css={styles}
           {...rest}
         >
-          {/* Open info div */}
           <Stack direction={isLargerThanMobile ? "row" : "column"} id={"info"}>
             <Box
               bg={getSectionColors(newsletterSignupType, "primary")}
@@ -136,88 +111,81 @@ export const NewsletterSignup = chakra(
             <VStack id={"pitch"}>
               <Heading level={"h3"} text={title} />
               <Text>{descriptionText}</Text>
-              {privacyPolicy}
+              <Link
+                // @TODO I would make this a prop.
+                href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+                type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
+                id={"privacy"}
+              >
+                Privacy Policy
+              </Link>
             </VStack>
           </Stack>
-          {/* Close info div */}
-          {/* Begin action div */}
           <VStack id={"action"}>
-            {/* Initial form Screen */}
-            {formView && (
-              <>
-                <Form id="newsletter-form" onSubmit={internalOnSubmit}>
-                  <FormField key={"formfield-input"}>
-                    <TextInput
-                      id={"email-input"}
-                      isRequired
-                      invalidText="Please enter a valid email address." // @todo This could be set to helperText value when `if (isInvalid === true)`, allowing devs to set text displayed when bad email.
-                      isInvalid={isInvalidEmail}
-                      labelText="Email Address"
-                      helperText={formHelperText}
-                      name={"email"}
-                      onChange={(e) => setEmail(e.target.value)} // e.target.value is what the user has input. So when they hit "submit" it will be stored in whatever variable we wish in the setEmail function.
-                      placeholder="Enter your email address here"
-                      type="email"
-                      value={email}
-                    />
-                  </FormField>
-                  <FormField key={"formfield-button"}>
-                    <Button
-                      id="submit"
-                      isDisabled={buttonClicked}
-                      key="submit"
-                      type="submit"
-                    >
-                      Submit
-                    </Button>
-                  </FormField>
-                </Form>
-              </>
-            )}
-
-            {/* Confirmation Screen */}
-            {confirmationView && (
-              <>
-                <Box
-                  className="feedback-body response"
-                  key="confirmationWrapper"
-                  margin="auto"
-                  tabIndex={0}
-                  textAlign="center"
-                  ref={focusRef}
-                >
-                  <Icon
-                    color={iconColor}
-                    name="actionCheckCircleFilled"
-                    size="large"
+            {displayForm && (
+              <Form id="newsletter-form" onSubmit={onSubmit}>
+                <FormField key={"formfield-input"}>
+                  <TextInput
+                    id={"email-input"}
+                    isRequired
+                    invalidText="Please enter a valid email address." // @todo This could be set to helperText value when `if (isInvalid === true)`, allowing devs to set text displayed when bad email.
+                    isInvalid={isInvalidEmail}
+                    labelText="Email Address"
+                    helperText={formHelperText}
+                    name={"email"}
+                    onChange={onChangeEmail}
+                    placeholder="Enter your email address here"
+                    type="email"
+                    value={valueEmail}
                   />
-                  <Text fontWeight="medium">{confirmationText}</Text>
-                </Box>
-              </>
+                </FormField>
+                <FormField key={"formfield-button"}>
+                  <Button
+                    id="submit"
+                    isDisabled={view === "submitting"}
+                    key="submit"
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </FormField>
+              </Form>
             )}
-
-            {/* Error Screen */}
-            {errorView && (
-              <>
-                <Box
+            {view === "confirmation" && (
+              <Box
+                className="feedback-body response"
+                key="confirmationWrapper"
+                margin="auto"
+                textAlign="center"
+                ref={focusRef}
+                tabIndex={-1}
+              >
+                <Icon
+                  color={iconColor}
+                  name="actionCheckCircleFilled"
+                  size="large"
+                />
+                <Text fontWeight="medium">{confirmationText}</Text>
+              </Box>
+            )}
+            {view === "error" && (
+              <Box
+                color="ui.error.primary"
+                key="errorWrapper"
+                margin="auto"
+                textAlign="center"
+                ref={focusRef}
+                tabIndex={-1}
+              >
+                <Icon
                   color="ui.error.primary"
-                  key="errorWrapper"
-                  margin="auto"
-                  tabIndex={0}
-                  textAlign="center"
-                  ref={focusRef}
-                >
-                  <Icon
-                    color="ui.error.primary"
-                    name="errorFilled"
-                    size="large"
-                  />
-                  <Text fontWeight="medium">Oops! Something went wrong.</Text>
-                </Box>
-              </>
+                  name="errorFilled"
+                  size="large"
+                />
+                <Text fontWeight="medium">Oops! Something went wrong.</Text>
+              </Box>
             )}
           </VStack>
-          {/* End action div */}
         </Stack>
       );
     }

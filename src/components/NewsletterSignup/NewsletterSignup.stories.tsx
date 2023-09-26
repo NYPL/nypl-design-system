@@ -62,45 +62,25 @@ type Story = StoryObj<typeof NewsletterSignup>;
 
 const NewsletterSignupWithControls = (args) => {
   const [view, setView] = useStateWithDependencies(args.view);
-  const [isInvalidEmail, setIsInvalidEmail] = useStateWithDependencies(
-    args.isInvalidEmail
-  );
-  const [confirmationText, setConfirmationText] = useStateWithDependencies(
-    args.confirmationText
-  );
-  const onSubmit = (values?: { [key: string]: string }) => {
-    let timer = setTimeout(() => {
+
+  function handleSubmit(event: React.FormEvent<any>): void {
+    event.preventDefault();
+
+    setView("submitting");
+
+    // Add short delay to better show the state changes.
+    setTimeout(() => {
       setView("confirmation");
-      setConfirmationText(
-        "This is going to change your life. Check out those values in the console!"
-      );
-    }, 3000);
-    switch (values.email) {
-      case "":
-        setIsInvalidEmail(true);
-        clearTimeout(timer);
-        break;
-      case "error@nypl.org":
-        setView("error");
-        clearTimeout(timer);
-        break;
-    }
-    console.log(
-      "Submitted values:",
-      values,
-      "isInvalidEmail: ",
-      isInvalidEmail,
-      "View: ",
-      view
-    );
-  };
+    }, 4000);
+  }
+
   return (
     <NewsletterSignup
       {...args} // @todo All the same values below are already contained in this ...args array. But the ones below get to "win." I dunno why. Cuz they come after?
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       view={view}
-      isInvalidEmail={isInvalidEmail}
-      confirmationText={confirmationText}
+      // isInvalidEmail={isInvalidEmail}
+      // confirmationText={confirmationText}
     />
   );
 };
@@ -120,14 +100,15 @@ export const WithControls: Story = {
     className: undefined,
     confirmationText:
       "Fantastic! You're all set. Check the console for the data you submitted.",
-    descriptionText: "This is it.",
+    descriptionText:
+      "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
     formHelperText: "You can do this.",
     hiddenFields: { hiddenFields },
     id: undefined,
     isInvalidEmail: false,
     newsletterSignupType: "whatsOn",
     onSubmit: undefined,
-    title: "The Newsletter Everyone Is Talking About",
+    title: "Sign Up for Our Newsletter",
     view: "form",
   },
   parameters: {
