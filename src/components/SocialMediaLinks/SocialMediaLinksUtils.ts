@@ -50,7 +50,7 @@ export const socialMediaDataMap = [
   {
     type: "youtube",
     iconName: "socialYoutube",
-    labelText: "Youtube",
+    labelText: "YouTube",
     url: "https://youtube.com/newyorkpubliclibrary",
   },
 ];

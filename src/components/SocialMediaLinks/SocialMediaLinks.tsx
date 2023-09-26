@@ -150,7 +150,11 @@ export const SocialMediaLinks = chakra(
           target="_blank"
         >
           <div className={"platLink"}>
-            <Icon name={modifiedPlatform.iconName} size={iconSize} />
+            <Icon
+              name={modifiedPlatform.iconName}
+              size={iconSize}
+              title={modifiedPlatform.labelText}
+            />
             {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
           </div>
         </Link>

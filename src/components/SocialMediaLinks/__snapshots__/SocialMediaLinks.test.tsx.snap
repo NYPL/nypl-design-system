@@ -20,7 +20,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when linksD
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Alt Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -69,7 +69,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when linksD
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="NYPL Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -126,7 +126,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -175,7 +175,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -224,7 +224,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -273,7 +273,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -322,7 +322,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -371,7 +371,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -420,7 +420,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -469,7 +469,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -518,7 +518,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -548,7 +548,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -575,7 +575,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -624,7 +624,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -673,7 +673,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -722,7 +722,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -771,7 +771,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -820,7 +820,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -869,7 +869,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -918,7 +918,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -967,7 +967,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -997,7 +997,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -1024,7 +1024,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -1071,7 +1071,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -1118,7 +1118,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -1165,7 +1165,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -1212,7 +1212,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -1259,7 +1259,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -1306,7 +1306,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -1353,7 +1353,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -1400,7 +1400,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -1427,7 +1427,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -1455,7 +1455,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -1504,7 +1504,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -1553,7 +1553,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -1602,7 +1602,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -1651,7 +1651,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -1700,7 +1700,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -1749,7 +1749,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -1798,7 +1798,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -1847,7 +1847,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -1877,7 +1877,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -1904,7 +1904,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -1953,7 +1953,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -2002,7 +2002,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -2051,7 +2051,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -2100,7 +2100,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -2149,7 +2149,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -2198,7 +2198,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -2247,7 +2247,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -2296,7 +2296,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -2326,7 +2326,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -2353,7 +2353,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -2400,7 +2400,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -2447,7 +2447,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -2494,7 +2494,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -2541,7 +2541,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -2588,7 +2588,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -2635,7 +2635,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -2682,7 +2682,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -2729,7 +2729,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -2756,7 +2756,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -2784,7 +2784,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -2833,7 +2833,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -2882,7 +2882,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -2931,7 +2931,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -2980,7 +2980,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -3029,7 +3029,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -3078,7 +3078,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -3127,7 +3127,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -3176,7 +3176,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -3206,7 +3206,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -3233,7 +3233,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -3280,7 +3280,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -3327,7 +3327,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -3374,7 +3374,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -3421,7 +3421,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -3468,7 +3468,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -3515,7 +3515,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -3562,7 +3562,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -3609,7 +3609,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -3636,7 +3636,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -3664,7 +3664,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -3713,7 +3713,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -3762,7 +3762,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -3811,7 +3811,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -3860,7 +3860,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -3909,7 +3909,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -3958,7 +3958,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -4007,7 +4007,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -4056,7 +4056,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -4086,7 +4086,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -4113,7 +4113,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -4162,7 +4162,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -4211,7 +4211,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -4260,7 +4260,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -4309,7 +4309,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -4358,7 +4358,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -4407,7 +4407,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -4456,7 +4456,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -4505,7 +4505,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -4535,7 +4535,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -4562,7 +4562,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -4609,7 +4609,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -4656,7 +4656,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -4703,7 +4703,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -4750,7 +4750,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -4797,7 +4797,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -4844,7 +4844,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -4891,7 +4891,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -4938,7 +4938,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -4965,7 +4965,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -4993,7 +4993,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -5040,7 +5040,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -5087,7 +5087,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -5134,7 +5134,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -5181,7 +5181,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -5228,7 +5228,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -5275,7 +5275,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -5322,7 +5322,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -5369,7 +5369,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -5396,7 +5396,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -5424,7 +5424,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -5473,7 +5473,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -5522,7 +5522,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -5571,7 +5571,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -5620,7 +5620,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -5669,7 +5669,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -5718,7 +5718,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -5767,7 +5767,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -5816,7 +5816,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -5846,7 +5846,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -5873,7 +5873,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -5920,7 +5920,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -5967,7 +5967,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -6014,7 +6014,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -6061,7 +6061,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -6108,7 +6108,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -6155,7 +6155,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -6202,7 +6202,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -6249,7 +6249,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -6276,7 +6276,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -6304,7 +6304,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -6353,7 +6353,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -6402,7 +6402,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -6451,7 +6451,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -6500,7 +6500,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -6549,7 +6549,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -6598,7 +6598,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -6647,7 +6647,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -6696,7 +6696,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -6726,7 +6726,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -6753,7 +6753,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -6802,7 +6802,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -6851,7 +6851,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -6900,7 +6900,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -6949,7 +6949,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -6998,7 +6998,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -7047,7 +7047,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -7096,7 +7096,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -7145,7 +7145,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -7175,7 +7175,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -7202,7 +7202,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -7251,7 +7251,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -7300,7 +7300,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -7349,7 +7349,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -7398,7 +7398,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -7447,7 +7447,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -7496,7 +7496,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -7545,7 +7545,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -7594,7 +7594,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -7624,7 +7624,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -7651,7 +7651,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -7700,7 +7700,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -7749,7 +7749,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -7798,7 +7798,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -7847,7 +7847,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -7896,7 +7896,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -7945,7 +7945,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -7994,7 +7994,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -8043,7 +8043,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -8073,7 +8073,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -8100,7 +8100,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -8147,7 +8147,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -8194,7 +8194,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -8241,7 +8241,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -8288,7 +8288,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -8335,7 +8335,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -8382,7 +8382,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -8429,7 +8429,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -8476,7 +8476,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -8503,7 +8503,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -8531,7 +8531,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -8580,7 +8580,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -8629,7 +8629,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -8678,7 +8678,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -8727,7 +8727,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -8776,7 +8776,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -8825,7 +8825,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -8874,7 +8874,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -8923,7 +8923,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -8953,7 +8953,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -8980,7 +8980,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -9029,7 +9029,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -9078,7 +9078,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -9127,7 +9127,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -9176,7 +9176,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -9225,7 +9225,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -9274,7 +9274,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -9323,7 +9323,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -9372,7 +9372,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -9402,7 +9402,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -9429,7 +9429,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -9476,7 +9476,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -9523,7 +9523,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -9570,7 +9570,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -9617,7 +9617,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -9664,7 +9664,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -9711,7 +9711,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -9758,7 +9758,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -9805,7 +9805,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -9832,7 +9832,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -9860,7 +9860,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -9909,7 +9909,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -9958,7 +9958,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -10007,7 +10007,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -10056,7 +10056,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -10105,7 +10105,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -10154,7 +10154,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -10203,7 +10203,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -10252,7 +10252,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -10282,7 +10282,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -10309,7 +10309,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -10356,7 +10356,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -10403,7 +10403,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -10450,7 +10450,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -10497,7 +10497,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -10544,7 +10544,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -10591,7 +10591,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -10638,7 +10638,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -10685,7 +10685,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -10712,7 +10712,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -10740,7 +10740,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -10789,7 +10789,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -10838,7 +10838,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -10887,7 +10887,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -10936,7 +10936,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -10985,7 +10985,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -11034,7 +11034,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -11083,7 +11083,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -11132,7 +11132,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -11162,7 +11162,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -11189,7 +11189,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -11238,7 +11238,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -11287,7 +11287,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -11336,7 +11336,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -11385,7 +11385,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -11434,7 +11434,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -11483,7 +11483,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -11532,7 +11532,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -11581,7 +11581,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -11611,7 +11611,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -11638,7 +11638,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -11685,7 +11685,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -11732,7 +11732,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -11779,7 +11779,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -11826,7 +11826,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -11873,7 +11873,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -11920,7 +11920,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -11967,7 +11967,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -12014,7 +12014,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -12041,7 +12041,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -12069,7 +12069,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -12116,7 +12116,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -12163,7 +12163,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -12210,7 +12210,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -12257,7 +12257,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -12304,7 +12304,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -12351,7 +12351,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -12398,7 +12398,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -12445,7 +12445,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -12472,7 +12472,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -12500,7 +12500,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -12549,7 +12549,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -12598,7 +12598,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -12647,7 +12647,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -12696,7 +12696,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -12745,7 +12745,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -12794,7 +12794,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -12843,7 +12843,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -12892,7 +12892,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -12922,7 +12922,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -12949,7 +12949,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -12996,7 +12996,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -13043,7 +13043,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -13090,7 +13090,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -13137,7 +13137,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -13184,7 +13184,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -13231,7 +13231,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -13278,7 +13278,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -13325,7 +13325,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -13352,7 +13352,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           </g>
         </svg>
         <span>
-          Youtube
+          YouTube
         </span>
       </div>
     </a>
@@ -13380,7 +13380,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -13429,7 +13429,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -13478,7 +13478,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -13527,7 +13527,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -13576,7 +13576,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -13625,7 +13625,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -13674,7 +13674,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -13723,7 +13723,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -13772,7 +13772,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -13802,7 +13802,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>
@@ -13829,7 +13829,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="fileTypeGenericDoc icon"
+          title="NYPL Blog"
           viewBox="0 0 24 24"
         >
           <g
@@ -13878,7 +13878,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialFacebook icon"
+          title="Facebook"
           viewBox="0 0 24 24"
         >
           <g
@@ -13927,7 +13927,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialInstagram icon"
+          title="Instagram"
           viewBox="0 0 24 24"
         >
           <g
@@ -13976,7 +13976,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialPinterest icon"
+          title="Pinterest"
           viewBox="0 0 24 24"
         >
           <g
@@ -14025,7 +14025,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialSoundCloud icon"
+          title="SoundCloud"
           viewBox="0 0 24 24"
         >
           <g
@@ -14074,7 +14074,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTikTok icon"
+          title="TikTok"
           viewBox="0 0 24 24"
         >
           <g
@@ -14123,7 +14123,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTumblr icon"
+          title="Tumblr"
           viewBox="0 0 24 24"
         >
           <g
@@ -14172,7 +14172,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialTwitter icon"
+          title="Twitter"
           viewBox="0 0 24 24"
         >
           <g
@@ -14221,7 +14221,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
           className="chakra-icon css-1grhd2q"
           focusable={false}
           role="img"
-          title="socialYoutube icon"
+          title="YouTube"
           viewBox="0 0 24 24"
         >
           <g
@@ -14251,7 +14251,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       <span
         className="css-0"
       >
-        Youtube
+        YouTube
       </span>
     </a>
   </li>

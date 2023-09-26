@@ -354,6 +354,30 @@ export const cssVars = {
       textColor: "ui.white",
     },
     {
+      name: "ui.link.tertiary",
+      dataBlackColor: checkContrast(1.91),
+      dataWhiteColor: checkContrast(11.01),
+      dataBgPageColor: checkContrast(11.01),
+      dataBgDefaultColor: checkContrast(10.1),
+      textColor: "ui.white",
+    },
+    {
+      name: "ui.link.primary-05",
+      dataBlackColor: ["?", "?", "?"],
+      dataWhiteColor: ["?", "?", "?"],
+      dataBgPageColor: ["?", "?", "?"],
+      dataBgDefaultColor: ["?", "?", "?"],
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.link.primary-10",
+      dataBlackColor: ["?", "?", "?"],
+      dataWhiteColor: ["?", "?", "?"],
+      dataBgPageColor: ["?", "?", "?"],
+      dataBgDefaultColor: ["?", "?", "?"],
+      textColor: "ui.black",
+    },
+    {
       name: "ui.status.primary",
       dataBlackColor: checkContrast(16.08),
       dataWhiteColor: checkContrast(1.31),
@@ -394,7 +418,7 @@ export const cssVars = {
       textColor: "ui.black",
     },
     {
-      colorSource: "ui.black",
+      colorSource: "ui.gray.xxxx-dark",
       name: "ui.typography.heading",
       dataBlackColor: colorContrastData.ui.black.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
@@ -405,7 +429,7 @@ export const cssVars = {
       textColor: colorContrastData.ui.black.textColor,
     },
     {
-      colorSource: "ui.black",
+      colorSource: "ui.gray.xx-dark",
       name: "ui.typography.body",
       dataBlackColor: colorContrastData.ui.black.dataBlackColor,
       dataWhiteColor: colorContrastData.ui.black.dataWhiteColor,
@@ -662,6 +686,30 @@ export const cssVars = {
       dataDarkBgPageColor: checkContrast("10.59"),
       dataDarkBgDefaultColor: checkContrast("9.23"),
       textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.tertiary",
+      dataBlackColor: checkContrast("7.30"),
+      dataWhiteColor: checkContrast("2.88"),
+      dataDarkBgPageColor: checkContrast("6.11"),
+      dataDarkBgDefaultColor: checkContrast("5.33"),
+      textColor: "ui.black",
+    },
+    {
+      name: "dark.ui.link.primary-05",
+      dataBlackColor: ["?", "?", "?"],
+      dataWhiteColor: ["?", "?", "?"],
+      dataDarkBgPageColor: ["?", "?", "?"],
+      dataDarkBgDefaultColor: ["?", "?", "?"],
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.link.primary-10",
+      dataBlackColor: ["?", "?", "?"],
+      dataWhiteColor: ["?", "?", "?"],
+      dataDarkBgPageColor: ["?", "?", "?"],
+      dataDarkBgDefaultColor: ["?", "?", "?"],
+      textColor: "ui.white",
     },
     {
       name: "dark.ui.status.primary",
@@ -1014,7 +1062,12 @@ export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
     tbody: {
       td: {
         ...cellStyles,
-        borderBottom: "1px solid !important",
+        borderBottom: `1px solid ${cellStyles.borderColor}`,
+        color: textColor === "ui.white" ? `#FFF !important` : `#000 !important`, // This is a hack to override other color assignments
+        span: {
+          color:
+            textColor === "ui.white" ? `#FFF !important` : `#000 !important`, // This is a hack to override other color assignments
+        },
       },
       th: {
         borderBottom: `1px solid ${cellStyles.borderColor}`,

@@ -162,6 +162,7 @@ const colors: Colors = {
     link: {
       primary: linkPrimary,
       "primary-05": hexToRGB(linkPrimary, 0.05),
+      "primary-10": hexToRGB(linkPrimary, 0.10),
       secondary: linkSecondary,
       tertiary: linkTertiary,
     },

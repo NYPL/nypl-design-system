@@ -68,9 +68,9 @@ describe("SocialMediaLinks", () => {
     expect(screen.getByText("TikTok")).toBeInTheDocument();
 
     // Icons.
-    expect(screen.getByTitle("socialInstagram icon")).toBeInTheDocument();
-    expect(screen.getByTitle("socialTwitter icon")).toBeInTheDocument();
-    expect(screen.getByTitle("socialYoutube icon")).toBeInTheDocument();
+    expect(screen.getByTitle("Instagram")).toBeInTheDocument();
+    expect(screen.getByTitle("Twitter")).toBeInTheDocument();
+    expect(screen.getByTitle("YouTube")).toBeInTheDocument();
   });
 
   it("Renders selected types", () => {
@@ -106,8 +106,8 @@ describe("SocialMediaLinks", () => {
     expect(screen.getByText("NYPL Facebook")).toBeInTheDocument();
 
     // The icons should appear.
-    expect(screen.getByTitle("socialFacebook icon")).toBeInTheDocument();
-    expect(screen.getByTitle("socialTwitter icon")).toBeInTheDocument();
+    expect(screen.getByTitle("NYPL Facebook")).toBeInTheDocument();
+    expect(screen.getByTitle("Alt Twitter")).toBeInTheDocument();
   });
 
   it("logs an error if border='circular' and showLabels=true", () => {
