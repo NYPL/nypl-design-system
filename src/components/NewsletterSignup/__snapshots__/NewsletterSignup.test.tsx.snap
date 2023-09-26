@@ -1,0 +1,2783 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders blogs color band with section.blogs.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1ctihmm"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders booksAndMore color band with section.books-and-more.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1nllm19"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders brand color band with brand.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1gzjzh6"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders connect color band with section.connect.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-bi3p3c"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders education color band with section.education.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1b1m9jb"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders locations color band with section.locations.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1wckl1g"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders research color band with section.research.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-39mu5e"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibraryLpa color band with section.research-library.lpa 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-12mh8pb"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibrarySchomburg color band with section.research-library.schomburg 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1k5uyg5"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibrarySchwarzman color band with section.research-library.schwartzman 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-1jnaf6k"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders whatsOn color band with section.whats-on.primary 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-invalid={true}
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={true}
+              id="email-input-helperText"
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "Please enter a valid email address.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmationText snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <div
+      className="feedback-body response css-edqvy"
+      tabIndex={0}
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        role="img"
+        title="actionCheckCircleFilled icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <p
+        className="chakra-text css-z2t3gu"
+      >
+        You did great!
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the default confirmation UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <div
+      className="feedback-body response css-edqvy"
+      tabIndex={0}
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        role="img"
+        title="actionCheckCircleFilled icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <p
+        className="chakra-text css-z2t3gu"
+      >
+        Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the error UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <div
+      className="css-izh28l"
+      tabIndex={0}
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-cr4d1u"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <p
+        className="chakra-text css-z2t3gu"
+      >
+        Oops! Something went wrong.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the form UI with description snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Why not?
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-n21gh5"
+    id="info"
+  >
+    <div
+      className="css-13lr0hl"
+      id="color-box"
+    >
+       
+    </div>
+    <div
+      className="chakra-stack css-owjkmg"
+      id="pitch"
+    >
+      <h3
+        className="chakra-heading css-1878n22"
+      >
+        Testing
+      </h3>
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+      </p>
+      <a
+        className="css-1xdhyk6"
+        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+        id="privacy"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Privacy Policy
+        <span
+          className="css-0"
+        >
+          This link opens in a new window
+        </span>
+        <svg
+          aria-hidden={true}
+          className="chakra-icon more-link css-1grhd2q"
+          focusable={false}
+          id="privacy-icon"
+          role="img"
+          title="External link"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="chakra-stack css-owjkmg"
+    id="action"
+  >
+    <form
+      aria-label="form"
+      className="css-1xdhyk6"
+      id="newsletter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="css-fadkce"
+        id="newsletter-form-parent"
+      >
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child0"
+        >
+          <div
+            className="css-1u8qly9"
+            id="email-input-wrapper"
+          >
+            <label
+              className="css-1xdhyk6"
+              htmlFor="email-input"
+              id="email-input-label"
+            >
+              Email Address
+              <span>
+                 (Required)
+              </span>
+            </label>
+            <div
+              className="css-79elbk"
+            >
+              <input
+                aria-describedby="email-input-helperText"
+                aria-required={true}
+                autoComplete="email"
+                className="chakra-input css-0"
+                disabled={false}
+                id="email-input"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Enter your email address here"
+                required={true}
+                step={null}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              Ex: 
+              jdoe@domain.com
+              <br />
+              You need help.
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-l5w1vc"
+          id="newsletter-form-child1"
+        >
+          <button
+            className="chakra-button css-1xdhyk6"
+            id="submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
