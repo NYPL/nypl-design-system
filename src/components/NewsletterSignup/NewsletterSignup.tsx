@@ -6,7 +6,7 @@ import {
   useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
@@ -15,17 +15,16 @@ import Link from "../Link/Link";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
-//import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
-import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 export const newsletterSignupViewTypeArray = [
   "form",
   "confirmation",
   "error",
 ] as const;
+
 export type NewsletterSignupViewType =
   typeof newsletterSignupViewTypeArray[number];
 
@@ -86,11 +85,7 @@ export const NewsletterSignup = chakra(
       },
       ref?
     ) => {
-      // We want to keep internal state for the view but also
-      // update if the consuming app updates it, based on API
-      // success and failure responses.
-      const [viewType, setViewType] = useStateWithDependencies(view);
-      const [badEmail, setBadEmail] = useStateWithDependencies(isInvalidEmail);
+      const viewType = view;
       const [buttonClicked, setButtonClicked] = useState(false);
       const [email, setEmail] = useState("");
 
@@ -120,44 +115,6 @@ export const NewsletterSignup = chakra(
           Privacy Policy
         </Link>
       );
-
-      // When the submit button is clicked, set a timeout before displaying
-      // the confirmation or error screen. This automatically goes to the
-      // confirmation view after three (3) seconds, but the consuming app
-      // can set the error view if there are any issues.
-      // @todo Is useEffect bad? I read that is not good. But I can't put any of this logic in the internalOnSubmit function
-      //   because it won't work and I am not knowledgeable enough to figure out an alternate solution. So this is adapted from FeebackBox.
-      useEffect(() => {
-        let timer;
-        if (buttonClicked) {
-          // If the consuming app does not provide any updates based
-          // on its API response, go to confirmation screen.
-          timer = setTimeout(() => {
-            setButtonClicked(false);
-            setViewType("confirmation");
-          }, 3000);
-          // If the consuming app does pass the API response to the
-          // component, then cancel the timeout above and display the
-          // appropriate screen.
-          if (view !== viewType || isInvalidEmail !== badEmail) {
-            setBadEmail(false); // @todo It won't let you resubmit.
-            setButtonClicked(false);
-            setViewType(view);
-            clearTimeout(timer);
-          }
-        }
-
-        return () => clearTimeout(timer);
-      }, [
-        buttonClicked,
-        badEmail,
-        errorView,
-        isInvalidEmail,
-        setBadEmail,
-        setViewType,
-        view,
-        viewType,
-      ]);
 
       return (
         <Stack
@@ -189,21 +146,22 @@ export const NewsletterSignup = chakra(
             {formView && (
               <>
                 <Form id="newsletter-form" onSubmit={internalOnSubmit}>
-                  <FormField id={"formfield-input"}>
+                  <FormField key={"formfield-input"}>
                     <TextInput
-                      id={`${id}-email`}
+                      id={"email-input"}
+                      isRequired
                       invalidText="Please enter a valid email address." // @todo This could be set to helperText value when `if (isInvalid === true)`, allowing devs to set text displayed when bad email.
                       isInvalid={isInvalidEmail}
                       labelText="Email Address"
                       helperText={formHelperText}
-                      name={`${id}-email`}
+                      name={"email"}
                       onChange={(e) => setEmail(e.target.value)} // e.target.value is what the user has input. So when they hit "submit" it will be stored in whatever variable we wish in the setEmail function.
                       placeholder="Enter your email address here"
                       type="email"
                       value={email}
                     />
                   </FormField>
-                  <FormField>
+                  <FormField key={"formfield-button"}>
                     <Button
                       id="submit"
                       isDisabled={buttonClicked}
@@ -237,6 +195,7 @@ export const NewsletterSignup = chakra(
                 </Box>
               </>
             )}
+
             {/* Error Screen */}
             {errorView && (
               <>

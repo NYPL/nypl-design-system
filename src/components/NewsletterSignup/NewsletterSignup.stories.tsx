@@ -69,25 +69,34 @@ const NewsletterSignupWithControls = (args) => {
     args.confirmationText
   );
   const onSubmit = (values?: { [key: string]: string }) => {
+    let timer = setTimeout(() => {
+      setView("confirmation");
+      setConfirmationText(
+        "This is going to change your life. Check out those values in the console!"
+      );
+    }, 3000);
     switch (values.email) {
       case "":
         setIsInvalidEmail(true);
+        clearTimeout(timer);
         break;
       case "error@nypl.org":
         setView("error");
-        break;
-      case "confirmation@nypl.org":
-        setView("confirmation");
-        setConfirmationText(
-          "This is going to change your life. Check out those values in the console!"
-        );
+        clearTimeout(timer);
         break;
     }
-    console.log("Submitted values:", values, isInvalidEmail);
+    console.log(
+      "Submitted values:",
+      values,
+      "isInvalidEmail: ",
+      isInvalidEmail,
+      "View: ",
+      view
+    );
   };
   return (
     <NewsletterSignup
-      {...args} // @todo So, the below values are also contained in this ...args array, but the ones below get to "win." I dunno why.
+      {...args} // @todo All the same values below are already contained in this ...args array. But the ones below get to "win." I dunno why. Cuz they come after?
       onSubmit={onSubmit}
       view={view}
       isInvalidEmail={isInvalidEmail}
