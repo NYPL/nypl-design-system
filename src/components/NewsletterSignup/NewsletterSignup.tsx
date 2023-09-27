@@ -83,11 +83,11 @@ export const NewsletterSignup = chakra(
       const styles = useStyleConfig("NewsletterSignup", {});
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
-      const displayForm = view === "form" || view === "submitting";
+      const isFormView = view === "form" || view === "submitting";
 
-      // Manage focus to ensure accessibility when cofirmation or error message is rendered.
+      // Manage focus to ensure accessibility when confirmation or error message is rendered.
       const focusRef = React.useRef<HTMLDivElement>(null);
-      // When view changes, set focus to the confirmation or error content.
+      // When view prop changes, set focus to the confirmation or error content element.
       React.useEffect(() => {
         focusRef.current?.focus();
       }, [view]);
@@ -122,7 +122,7 @@ export const NewsletterSignup = chakra(
             </VStack>
           </Stack>
           <VStack id={"action"}>
-            {displayForm && (
+            {isFormView && (
               <Form id="newsletter-form" onSubmit={onSubmit}>
                 <FormField key={"formfield-input"}>
                   <TextInput
