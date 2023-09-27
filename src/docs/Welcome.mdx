@@ -16,17 +16,35 @@ import Text from "../components/Text/Text";
 <VStack spacing="s">
   <Logo name="reservoirVerticalColor" size="small" />
   <Box>
-    <Center>
-      <Heading level="one" size="tertiary">
-        The React Component Library of the New York Public Library
-      </Heading>
-    </Center>
-    <Text>
+    <Heading level="h1" size="heading4" textAlign="center">
+      <>
+        v1.7.3
+        <br />
+        The React Component Library
+        <br />
+        of the New York Public Library
+      </>
+    </Heading>
+    <Text width="48rem">
       Reservoir is NYPL's open-source extensible React component library for
       products and experiences, with accessibility as its core. Aiming to
       provide design and user experience consistency, Reservoir is the
       foundation for all digital properties in the NYPL landscape, offering
       functional components that implement the NYPL style standards.
+    </Text>
+    <Heading level="h2" size="heading6" border="0">
+      Reservoir v1.7.3
+    </Heading>
+    <Text width="48rem">
+      Reservoir v1.7.3 is the last version in the v1 series. This documentation
+      applies to v1.7.3 and all previous versions.
+    </Text>
+    <Heading level="h2" size="heading6" border="0">
+      Reservoir v2.0
+    </Heading>
+    <Text width="48rem">
+      Reservoir v2 is the latest version of the React Component Library of
+      the New York Public Library.
     </Text>
   </Box>
   <SimpleGrid>
@@ -50,7 +68,7 @@ import Text from "../components/Text/Text";
           Get Started
         </CardHeading>
         <CardContent>
-          <Text size="caption">
+          <Text size="body2">
             To start using Reservoir Design System, refer to Reservoir's Github{" "}
             <Link
               href="https://github.com/NYPL/nypl-design-system/wiki"
@@ -91,7 +109,7 @@ import Text from "../components/Text/Text";
           Find Components
         </CardHeading>
         <CardContent>
-          <Text size="caption">
+          <Text size="body2">
             For your convenience, the Reservoir Design System components have
             been organized into logical categories based on both form and
             function. Please refer to the <b>COMPONENTS</b> section in the
@@ -120,7 +138,7 @@ import Text from "../components/Text/Text";
           View the Code
         </CardHeading>
         <CardContent>
-          <Text size="caption">
+          <Text size="body2">
             The Reservoir Design System React component library is currently
             published on{" "}
             <Link
