@@ -51,7 +51,9 @@ export {
 } from "./components/FeedbackBox/FeedbackBox";
 export type { FeedbackBoxViewType } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
-export { default as FilterBar } from "./components/FilterBar/FilterBar";
+// The code associated with the FilterBar component will not be exported until
+// the refactor of the v2 version of the FilterBar component has been completed.
+// export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export type { HeadingSizes, HeadingLevels } from "./components/Heading/Heading";
@@ -84,14 +86,17 @@ export type { DescriptionProps, ListTypes } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
-export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
-export type {
-  MultiSelectProps,
-  MultiSelectItem,
-  SelectedItems,
-} from "./components/MultiSelect/MultiSelect";
-export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
-export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
+// The code associated with the MultiSelect component will not be exported until
+// the refactor of the v2 version of the MultiSelect component has been
+// completed.
+// export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
+// export type {
+//   MultiSelectProps,
+//   MultiSelectItem,
+//   SelectedItems,
+// } from "./components/MultiSelect/MultiSelect";
+// export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
+// export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 export { default as Notification } from "./components/Notification/Notification";
 export type { NotificationTypes } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
@@ -149,9 +154,12 @@ export type {
 export { default as Toggle } from "./components/Toggle/Toggle";
 export type { ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
-export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
-export { default as useFilterBar } from "./hooks/useFilterBar";
-export { default as useMultiSelect } from "./hooks/useMultiSelect";
+// The useCloseDropDown, useFilterBar and useMultiSelect hooks will not be
+// exported until the refactor of the v2 versions of the MultiSelect and
+// FilterBar components has been completed.
+// export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
+// export { default as useFilterBar } from "./hooks/useFilterBar";
+// export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";
