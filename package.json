@@ -38,7 +38,7 @@
     "lint": "eslint src --ext=ts,tsx --cache",
     "prepare": "npm run build && husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook:v1": "storybook build -c .storybook -o ./reservoir/v1",
+    "build-storybook:v2": "storybook build -c .storybook -o ./reservoir/v2",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build"
   },
