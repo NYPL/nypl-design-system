@@ -3,12 +3,12 @@ const containerStyles = {
   width: "100%",
   _dark: {
     bg: "dark.ui.bg.default",
-    color: "dark.ui.typography.heading",
     borderColor: "dark.ui.border.default",
   },
 };
 const buttonStyles = {
   borderWidth: "1px",
+  color: "ui.typography.heading",
   fontWeight: "medium",
   _dark: {
     bg: "dark.ui.bg.default",

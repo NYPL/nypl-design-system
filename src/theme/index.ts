@@ -48,6 +48,7 @@ import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import StyledList from "./components/styledList";
+import SocialMediaLinks from "./components/socialmedialinks";
 import Tabs from "./components/tabs";
 import CustomTable from "./components/customTable";
 import TagSetStyles from "./components/tagSet";
@@ -133,6 +134,7 @@ const theme: any = {
     StatusBadge,
     StructuredContent,
     StyledList,
+    SocialMediaLinks,
     Tabs,
     CustomTable,
     ...TagSetStyles,

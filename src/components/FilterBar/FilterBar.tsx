@@ -170,7 +170,7 @@ export const FilterBar = chakra(
           {isLargerThanMedium ? (
             <>
               {headingText && (
-                <Heading text={headingText} level="two" size="tertiary" />
+                <Heading text={headingText} level="h2" size="heading4" />
               )}
               <Stack
                 alignItems={layout === "row" ? "flex-end" : null}

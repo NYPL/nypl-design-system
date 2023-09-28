@@ -11,13 +11,24 @@ import { screenreaderOnly } from "./globalMixins";
 export const baseLinkStyles = {
   color: "ui.link.primary",
   textDecoration: "underline",
+  textDecorationStyle: "dotted",
+  textDecorationThickness: "1px",
+  textUnderlineOffset: "2px",
   _dark: {
     color: "dark.ui.link.primary",
   },
   _hover: {
     color: "ui.link.secondary",
+    textDecorationStyle: "dotted",
+    textDecorationThickness: "1px",
     _dark: {
       color: "dark.ui.link.secondary",
+    },
+  },
+  _visited: {
+    color: "ui.link.tertiary",
+    _dark: {
+      color: "dark.ui.link.tertiary",
     },
   },
 };
@@ -41,6 +52,20 @@ const variants = {
       width: "s",
       textDecoration: "none",
       fill: "currentColor",
+    },
+    _hover: {
+      color: "ui.link.secondary",
+      textDecoration: "underline",
+    },
+    _visited: {
+      svg: {
+        fill: "ui.link.tertiary",
+      },
+      _dark: {
+        svg: {
+          fill: "dark.ui.link.tertiary",
+        },
+      },
     },
   },
   // The "button" variant is deprecated.
@@ -70,32 +95,77 @@ const variants = {
         bg: "dark.ui.link.secondary",
       },
     },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        _visited: {
+          color: "ui.gray.xxx-dark",
+        },
+      },
+    },
   },
   buttonPrimary: {
     ...baseButtonLinkStyles,
     ...primary({}),
+    _hover: {
+      backgroundColor: "ui.link.secondary",
+      color: "ui.white",
+    },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.gray.xxx-dark",
+      },
+    },
   },
   buttonSecondary: {
     ...baseButtonLinkStyles,
     ...secondary({}),
     _visited: {
       color: "ui.link.primary",
+      _dark: {
+        color: "dark.ui.link.primary",
+      },
     },
   },
   buttonPill: {
     ...baseButtonLinkStyles,
     ...pill({}),
+    _hover: {
+      color: "ui.black",
+    },
     _visited: {
       color: "ui.black",
+      _dark: {
+        color: "ui.white",
+      },
     },
   },
   buttonCallout: {
     ...baseButtonLinkStyles,
     ...callout({}),
+    _hover: {
+      color: "ui.white",
+    },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonNoBrand: {
     ...baseButtonLinkStyles,
     ...noBrand({}),
+    _hover: {
+      color: "ui.white",
+    },
+    _visited: {
+      color: "ui.white",
+      _dark: {
+        color: "ui.white",
+      },
+    },
   },
   buttonDisabled: {
     ...baseButtonLinkStyles,
@@ -106,6 +176,9 @@ const variants = {
     pointerEvents: "none",
     _visited: {
       color: "ui.gray.dark",
+      _dark: {
+        color: "dark.ui.disabled.primary",
+      },
     },
     _dark: {
       bg: "dark.ui.disabled.secondary",
@@ -115,8 +188,9 @@ const variants = {
 };
 const Link = {
   parts: ["screenreaderOnly"],
-  baseStyle: {
+  baseStyle: ({ finalIsUnderlined = true }) => ({
     ...baseLinkStyles,
+    textDecoration: finalIsUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
      * that are passed as children to the `Link` component. */
     a: {
@@ -127,7 +201,7 @@ const Link = {
     /** The element will handle descriptive text added to aid
      * screen readers. */
     screenreaderOnly: screenreaderOnly(),
-  },
+  }),
   variants,
 };
 

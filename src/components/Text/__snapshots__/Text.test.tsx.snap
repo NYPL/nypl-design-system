@@ -34,13 +34,45 @@ exports[`Text renders the UI snapshot correctly 4`] = `
 
 exports[`Text renders the UI snapshot correctly 5`] = `
 <p
-  className="chakra-text css-kle7zy"
+  className="chakra-text css-1xdhyk6"
 >
   Animal Crossing is all that!
 </p>
 `;
 
 exports[`Text renders the UI snapshot correctly 6`] = `
+<p
+  className="chakra-text css-1xdhyk6"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 7`] = `
+<p
+  className="chakra-text css-1xdhyk6"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 8`] = `
+<p
+  className="chakra-text css-1xdhyk6"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 9`] = `
+<p
+  className="chakra-text css-kle7zy"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 10`] = `
 <p
   className="chakra-text css-1xdhyk6"
   data-testid="props"

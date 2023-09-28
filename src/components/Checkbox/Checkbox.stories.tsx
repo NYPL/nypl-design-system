@@ -69,14 +69,18 @@ export const AdditionalStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">Focused</Heading>
+        <Heading level="h3" size="heading6">
+          Focused
+        </Heading>
         <Checkbox
           id="focused"
           labelText="Click or tab to the Checkbox to see its focus state"
         />
       </Box>
       <Box>
-        <Heading level="three">Errored</Heading>
+        <Heading level="h3" size="heading6">
+          Errored
+        </Heading>
         <HStack spacing="l">
           <Checkbox id="invalid" isInvalid labelText="I am in an error state" />
           <Checkbox
@@ -88,7 +92,9 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <HStack spacing="l">
           <Checkbox id="disabled" isDisabled labelText="I am disabled" />
           <Checkbox
@@ -100,7 +106,9 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="three">With Helper Text</Heading>
+        <Heading level="h3" size="heading6">
+          With Helper Text
+        </Heading>
         <Checkbox
           id="helpertext"
           name="testHelperText"
@@ -109,7 +117,9 @@ export const AdditionalStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="three">With Errored Text</Heading>
+        <Heading level="h3" size="heading6">
+          With Errored Text
+        </Heading>
         <Checkbox
           id="invalid-text"
           invalidText="I am the error text for this Checkbox"

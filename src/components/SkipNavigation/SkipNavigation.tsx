@@ -37,10 +37,15 @@ export const SkipNavigation = chakra(
         >
           <List inline noStyling type="ul">
             <li>
-              <Link href={target}>Skip to Main Content</Link>
+              <Link href={target} isUnderlined={false}>
+                Skip to Main Content
+              </Link>
             </li>
             <li>
-              <Link href="https://www.nypl.org/accessibility">
+              <Link
+                href="https://www.nypl.org/accessibility"
+                isUnderlined={false}
+              >
                 Click to learn about accessibility at the Library
               </Link>
             </li>
