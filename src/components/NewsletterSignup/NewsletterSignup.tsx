@@ -20,36 +20,38 @@ import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
 
 interface NewsletterSignupProps {
-  /** Additional class name to add. */
+  /** Optional: Additional class name to add. */
   className?: string;
-  /** Used to add additional information to the default confirmation message in
-   * the confirmation view. */
+  /** Optional: Used to override the default confirmation message in the confirmation view. Accepts a string or
+   *  an element. */
   confirmationText?: string | JSX.Element;
-  /** Used to add description text above the form input fields in
-   * the initial/form view. Accepts a string or a JSX */
+  /** Optional: Appears below the title to provide details about the newsletter. Accepts a string or an element. */
   descriptionText?: string | JSX.Element;
-  /** Optional: Used to populate the Text component rendered below the input field. */
+  /** Optional: Appears below the input field's example text to provide any additional instructions. Accepts a string or
+   *  an element. */
   formHelperText?: string | JSX.Element;
-  /** A data object containing key/value pairs that will be added to the form
-   * field submitted data. */
-  hiddenFields?: any;
-  /** ID that other components can cross-reference for accessibility purposes */
+  /** Optional: ID that other components can cross-reference for accessibility purposes */
   id?: string;
-  /** Toggles the invalid state for the email field. */
+  /** Optional: Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /* Optional value to determine the section color highlight */
+  /** Optional: Value to determine the section color highlight */
   newsletterSignupType?: SectionTypes;
-  /** A submit handler function that will be called when the form is submitted. */
+  /** Required: a handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
-  /** A on change handler function for the text input. */
-  onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** The value of the email text input field. */
+  /** Required: a handler function that will be called when the text input changes. */
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Optional: Used to populate the `<h3>` header title. */
+  title?: string;
+  /** Required: the value of the email text input field. */
   valueEmail: string;
-  /** Used to populate the `<h3>` header title. */
-  title: string;
-  /** Used to specify what is displayed in the component content area. */
+  /** Optional: Used to specify what is displayed in the component form/feedback area. */
   view?: "form" | "submitting" | "confirmation" | "error";
 }
+
+const defaultConfirmationText =
+  "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.";
+const defaultDescriptionText =
+  "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.";
 
 /**
  * The NewsletterSignup component provides a way for patrons to register for an
@@ -63,15 +65,14 @@ export const NewsletterSignup = chakra(
     (
       {
         className,
-        confirmationText = "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.",
-        descriptionText = "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
+        confirmationText = defaultConfirmationText,
+        descriptionText = defaultDescriptionText,
         formHelperText,
-        hiddenFields,
         id,
         isInvalidEmail = false,
         newsletterSignupType = "whatsOn",
-        onChangeEmail,
-        valueEmail,
+        onChange,
+        valueEmail = "",
         onSubmit,
         title = "Sign Up for Our Newsletter!",
         view = "form",
@@ -112,7 +113,7 @@ export const NewsletterSignup = chakra(
               <Heading level={"h3"} text={title} />
               <Text>{descriptionText}</Text>
               <Link
-                // @TODO I would make this a prop.
+                // @TODO I would make this a prop -- WL.
                 href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
                 type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
                 id={"privacy"}
@@ -128,12 +129,12 @@ export const NewsletterSignup = chakra(
                   <TextInput
                     id={"email-input"}
                     isRequired
-                    invalidText="Please enter a valid email address." // @todo This could be set to helperText value when `if (isInvalid === true)`, allowing devs to set text displayed when bad email.
+                    invalidText="Please enter a valid email address." // This text is boilerplate and not meant to be customized.
                     isInvalid={isInvalidEmail}
                     labelText="Email Address"
                     helperText={formHelperText}
                     name={"email"}
-                    onChange={onChangeEmail}
+                    onChange={onChange}
                     placeholder="Enter your email address here"
                     type="email"
                     value={valueEmail}
@@ -143,7 +144,6 @@ export const NewsletterSignup = chakra(
                   <Button
                     id="submit"
                     isDisabled={view === "submitting"}
-                    key="submit"
                     type="submit"
                   >
                     Submit
@@ -154,7 +154,6 @@ export const NewsletterSignup = chakra(
             {view === "confirmation" && (
               <Box
                 className="feedback-body response"
-                key="confirmationWrapper"
                 margin="auto"
                 textAlign="center"
                 ref={focusRef}
@@ -171,7 +170,6 @@ export const NewsletterSignup = chakra(
             {view === "error" && (
               <Box
                 color="ui.error.primary"
-                key="errorWrapper"
                 margin="auto"
                 textAlign="center"
                 ref={focusRef}

@@ -12,13 +12,13 @@ const meta: Meta<typeof NewsletterSignup> = {
   },
   argTypes: {
     className: { control: false },
-    id: { control: false },
     confirmationText: {
       control: "text",
       table: {
         defaultValue: {
           summary:
-            "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.",
+            "Thank you! You have successfully subscribed to our email updates! You can update your email subscription " +
+            "preferences at any time using the links at the bottom of the email.",
         },
       },
     },
@@ -27,13 +27,15 @@ const meta: Meta<typeof NewsletterSignup> = {
       table: {
         defaultValue: {
           summary:
-            "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
+            "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
+            "exhibitions, and collections.",
         },
       },
     },
     formHelperText: {
       control: "text",
     },
+    id: { control: false },
     newsletterSignupType: {
       control: "select",
       table: {
@@ -42,6 +44,13 @@ const meta: Meta<typeof NewsletterSignup> = {
         },
       },
     },
+    onChange: { control: false },
+    onSubmit: { control: false },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "Sign Up for Our Newsletter!" } },
+    },
+    valueEmail: { control: false },
     view: {
       control: "select",
       table: {
@@ -49,10 +58,6 @@ const meta: Meta<typeof NewsletterSignup> = {
           summary: "form",
         },
       },
-    },
-    title: {
-      control: "text",
-      table: { defaultValue: { summary: "Sign Up for Our Newsletter!" } },
     },
   },
 };
@@ -62,34 +67,51 @@ type Story = StoryObj<typeof NewsletterSignup>;
 
 const NewsletterSignupWithControls = (args) => {
   const [view, setView] = useStateWithDependencies(args.view);
+  const [isInvalidEmail, setIsInvalidEmail] = useStateWithDependencies(
+    args.isInvalidEmail
+  );
 
-  function handleSubmit(event: React.FormEvent<any>): void {
+  function handleSubmit(event): void {
     event.preventDefault();
-
     setView("submitting");
-
-    // Add short delay to better show the state changes.
-    setTimeout(() => {
-      setView("confirmation");
-    }, 4000);
+    const userEmail = event.target.email.value;
+    switch (userEmail) {
+      case "error@nypl.org":
+        setView("error");
+        break;
+      case "bad@nypl.org":
+        setView("form");
+        setIsInvalidEmail(true);
+        break;
+      default:
+        // Add short delay to demonstrate the "submitted" state.
+        setTimeout(() => {
+          setView("confirmation");
+        }, 3000);
+    }
+    console.log("Submitted email: ", userEmail);
   }
 
   return (
     <NewsletterSignup
-      {...args} // @todo All the same values below are already contained in this ...args array. But the ones below get to "win." I dunno why. Cuz they come after?
+      {...args}
       onSubmit={handleSubmit}
       view={view}
-      // isInvalidEmail={isInvalidEmail}
-      // confirmationText={confirmationText}
+      isInvalidEmail={isInvalidEmail}
     />
   );
 };
 
-// Example hidden field values.
-const hiddenFields = {
-  "hidden-field-1": "hidden-field-value-1",
-  "hidden-field-2": "hidden-field-value-2",
-};
+// Example values.
+const title = "The Life-changing Newsletter";
+const descriptionText =
+  "This bespoke newsletter contains only those things that are critical for YOU to know, but that you either forgot, " +
+  "or had not been informed about. IMPORTANT: if you use error@nypl.org as the address, you will get the error screen. " +
+  "If you use bad@nypl.org you will get the invalid email screen.";
+const confirmationText =
+  "Fantastic! You're all set. Check the console for the data you submitted.";
+const formHelperText =
+  "Now, just put your email in that space up there and push that blue button.";
 
 /**
  * Main Story for the NewsletterSignup component. This must contains the `args`
@@ -98,17 +120,16 @@ const hiddenFields = {
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationText:
-      "Fantastic! You're all set. Check the console for the data you submitted.",
-    descriptionText:
-      "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.",
-    formHelperText: "You can do this.",
-    hiddenFields: { hiddenFields },
+    confirmationText, // Shorthand. Value defined above.
+    descriptionText,
+    emailValue: "",
+    formHelperText,
     id: undefined,
     isInvalidEmail: false,
     newsletterSignupType: "whatsOn",
+    onChange: undefined,
     onSubmit: undefined,
-    title: "Sign Up for Our Newsletter",
+    title,
     view: "form",
   },
   parameters: {

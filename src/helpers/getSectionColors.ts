@@ -3,7 +3,8 @@
  * Requires a section type as defined by sectionDataMap. Accepts an optional color
  * preference ("primary" or "secondary").
  *
- * @returns A string if one color is requested or an object containing both (default).
+ * @returns An object containing both primary and secondary colors (default) or a string of the value requested
+ * in the optional color preference.
  */
 import { sectionDataMap, SectionTypes } from "./types";
 
