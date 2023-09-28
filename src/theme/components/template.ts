@@ -5,7 +5,7 @@
 const Template = {
   baseStyle: {
     boxSizing: "border-box",
-    color: "ui.black",
+    color: "ui.typography.body",
     display: "grid",
     gridTemplateColumns: `
       1fr

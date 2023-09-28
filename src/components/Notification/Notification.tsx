@@ -81,8 +81,9 @@ export const NotificationHeading = chakra(
         {children && (
           <Heading
             id={`${id}-heading`}
-            level="four"
+            level="h4"
             noSpace
+            size="heading6"
             __css={styles.heading}
           >
             {children}

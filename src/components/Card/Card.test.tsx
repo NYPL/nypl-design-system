@@ -19,7 +19,7 @@ describe("Card Accessibility", () => {
           src: "//placekitten.com/400/200",
         }}
       >
-        <CardHeading level="three" id="heading1">
+        <CardHeading level="h3" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
@@ -43,7 +43,7 @@ describe("Card Accessibility", () => {
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level="three" id="heading1">
+        <CardHeading level="h3" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
@@ -68,7 +68,7 @@ describe("Card", () => {
       }}
       ref={ref}
     >
-      <CardHeading level="three" id="heading1">
+      <CardHeading level="h3" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -88,7 +88,7 @@ describe("Card", () => {
         src: "//placekitten.com/300/400",
       }}
     >
-      <CardHeading id="editioncardheading1" level="two">
+      <CardHeading id="editioncardheading1" level="h2">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -124,7 +124,7 @@ describe("Card", () => {
         src: "//placekitten.com/300/400",
       }}
     >
-      <CardHeading id="editioncardheading1" level="two">
+      <CardHeading id="editioncardheading1" level="h2">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -143,7 +143,7 @@ describe("Card", () => {
         src: "//placekitten.com/300/400",
       }}
     >
-      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
+      <CardHeading id="editioncardheading1" level="h2" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardActions>
@@ -164,7 +164,7 @@ describe("Card", () => {
   );
   const cardWithNoImage = (
     <Card id="cardWithNoImage" className="edition-card">
-      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
+      <CardHeading id="editioncardheading1" level="h2" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -193,7 +193,7 @@ describe("Card", () => {
       }}
       mainActionLink="http://nypl.org"
     >
-      <CardHeading level="three" id="heading1">
+      <CardHeading level="h3" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -212,7 +212,7 @@ describe("Card", () => {
         component: <Image alt="" src="//placekitten.com/400/200" />,
       }}
     >
-      <CardHeading level="three" id="heading1">
+      <CardHeading level="h3" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -227,7 +227,7 @@ describe("Card", () => {
       }}
       isAlignedRightActions
     >
-      <CardHeading level="three" id="heading1">
+      <CardHeading level="h3" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -253,7 +253,7 @@ describe("Card", () => {
       p="s"
       color="ui.error.primary"
     >
-      <CardHeading level="three" id="heading1" color="ui.error.secondary">
+      <CardHeading level="h3" id="heading1" color="ui.error.secondary">
         The Card Heading
       </CardHeading>
       <CardContent p="20px">middle column content</CardContent>
@@ -273,7 +273,7 @@ describe("Card", () => {
       }}
       data-testid="card-testid"
     >
-      <CardHeading level="three" id="heading1" color="ui.error.secondary">
+      <CardHeading level="h3" id="heading1" color="ui.error.secondary">
         The Card Heading
       </CardHeading>
       <CardContent data-testid="cardcontent-testid">

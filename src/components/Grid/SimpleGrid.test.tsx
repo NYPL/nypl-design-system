@@ -17,7 +17,7 @@ describe("Grid Accessibility", () => {
             src: "//placekitten.com/500/200",
           }}
         >
-          <CardHeading level="two">Card Heading</CardHeading>
+          <CardHeading level="h2">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -30,7 +30,7 @@ describe("Grid Accessibility", () => {
             src: "//placekitten.com/400/220",
           }}
         >
-          <CardHeading level="three">Card Heading</CardHeading>
+          <CardHeading level="h3">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -43,7 +43,7 @@ describe("Grid Accessibility", () => {
             src: "//placekitten.com/400/240",
           }}
         >
-          <CardHeading level="three">Card Heading</CardHeading>
+          <CardHeading level="h3">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.

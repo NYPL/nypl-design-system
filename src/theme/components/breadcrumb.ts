@@ -93,6 +93,7 @@ const Breadcrumb = {
     a: {
       _hover: {
         color: "ui.gray.light-cool",
+        textDecoration: "none",
       },
     },
     "li:last-child": {

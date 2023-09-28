@@ -40,7 +40,7 @@ Component usage in a consuming application that uses Typescript:
 // No errors:
 <Heading
   id="h1"
-  level="one"
+  level="h1"
   text="Heading with secondary size"
   size="secondary"
 />
@@ -48,7 +48,7 @@ Component usage in a consuming application that uses Typescript:
 // This will throw an error. "superLargeSize" is not a value declared in the `HeadingSizes` type set.
 <Heading
   id="h1"
-  level="one"
+  level="h1"
   text="Heading with bad size value"
   displaySize="superLargeSize"
 />

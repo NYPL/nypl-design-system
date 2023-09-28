@@ -128,7 +128,9 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">Errored</Heading>
+        <Heading level="h3" size="heading6">
+          Errored
+        </Heading>
         <RadioGroup
           defaultValue="4"
           id="errored"
@@ -144,7 +146,9 @@ export const BrowserStates: Story = {
         </RadioGroup>
       </Box>
       <Box>
-        <Heading level="three">Required</Heading>
+        <Heading level="h3" size="heading6">
+          Required
+        </Heading>
         <RadioGroup
           helperText="The reason for being required."
           id="required"
@@ -159,7 +163,9 @@ export const BrowserStates: Story = {
         </RadioGroup>
       </Box>
       <Box>
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <RadioGroup
           helperText="The reason for being disabled."
           id="disabled"

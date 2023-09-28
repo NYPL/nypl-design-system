@@ -1,6 +1,14 @@
 import { Meta, Source } from "@storybook/blocks";
 
-<Meta title="Hooks/useMultiSelect" />
+{
+// The documentation for the useMultiSelect hook will be removed until the
+// refactor of the v2 version of the MultiSelect and FilterBar components has
+// been completed. To add the link for the useMultiSelect hook back to the
+// side bar, update the <Meta> element below.
+// <Meta title="Hooks/useMultiSelect" />
+}
+
+<Meta />
 
 # useMultiSelect
 
