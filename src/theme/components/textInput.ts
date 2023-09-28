@@ -8,14 +8,14 @@ import {
 const input = {
   bgColor: "ui.white",
   border: "1px solid",
-  borderColor: "ui.gray.medium",
+  borderColor: "ui.border.default",
   borderRadius: "sm",
-  fontSize: "text.caption",
+  fontSize: "desktop.body.body2",
   minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   py: "inset.narrow",
   px: "inset.default",
   _hover: {
-    borderColor: "ui.gray.dark",
+    borderColor: "ui.border.hover",
   },
   _disabled: {
     ...selectTextInputDisabledStyles,

@@ -2,12 +2,10 @@ const tablist = {
   borderColor: "ui.black",
 };
 const tab = {
-  paddingInlineStart: "s",
-  paddingStart: "s",
   background: "transparent",
   border: "0",
   borderBottom: "1px solid",
-  borderColor: "red",
+  color: "ui.typography.heading",
   height: { base: "44px" },
   marginEnd: {
     base: "0",
@@ -18,6 +16,8 @@ const tab = {
     md: "l",
     lg: "xl",
   },
+  paddingInlineStart: "s",
+  paddingStart: "s",
   whiteSpace: "nowrap",
   _hover: {
     bg: "ui.gray.x-light-cool",

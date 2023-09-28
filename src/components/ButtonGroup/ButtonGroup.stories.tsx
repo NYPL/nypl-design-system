@@ -60,7 +60,9 @@ export const Width: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">default fit-content</Heading>
+        <Heading level="h3" size="heading6">
+          default fit-content
+        </Heading>
         <ButtonGroup>
           <Button buttonType="secondary" id="width-fit-1">
             Button
@@ -69,7 +71,9 @@ export const Width: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="three">full width</Heading>
+        <Heading level="h3" size="heading6">
+          full width
+        </Heading>
         <ButtonGroup buttonWidth="full">
           <Button buttonType="secondary" id="width-full-1">
             Button
@@ -85,7 +89,9 @@ export const Layout: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">default row</Heading>
+        <Heading level="h3" size="heading6">
+          default row
+        </Heading>
         <ButtonGroup>
           <Button buttonType="secondary" id="row-1">
             Button
@@ -94,7 +100,9 @@ export const Layout: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="three">column</Heading>
+        <Heading level="h3" size="heading6">
+          column
+        </Heading>
         <ButtonGroup layout="column">
           <Button buttonType="secondary" id="column-1">
             Button
@@ -103,7 +111,9 @@ export const Layout: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="three">column layout with full-width</Heading>
+        <Heading level="h3" size="heading6">
+          column layout with full-width
+        </Heading>
         <ButtonGroup buttonWidth="full" layout="column">
           <Button buttonType="secondary" id="column-full-1">
             Button
@@ -119,7 +129,9 @@ export const Disabled: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">ButtonGroup isDisabled</Heading>
+        <Heading level="h3" size="heading6">
+          ButtonGroup isDisabled
+        </Heading>
         <ButtonGroup isDisabled>
           <Button buttonType="secondary" id="group-disabled-1">
             Button disabled
@@ -130,7 +142,9 @@ export const Disabled: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="three">Individual Button isDisabled</Heading>
+        <Heading level="h3" size="heading6">
+          Individual Button isDisabled
+        </Heading>
         <ButtonGroup>
           <Button buttonType="secondary" id="individual-disabled-1">
             Button not disabled

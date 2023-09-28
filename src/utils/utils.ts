@@ -125,3 +125,9 @@ export const truncateText = (text: string, truncateTextLength: number = 60) => {
   const updatedText = text.substring(0, truncateTextLength - 1);
   return `${updatedText.substring(0, updatedText.lastIndexOf(" "))}...`;
 };
+
+/** Prepare a string for use in an ID or class attribute */
+export const sanitizeStringForAttribute = (str: string) => {
+  const sanitizedStr = str.replace(/[^a-z0-9]/gi, "-").toLowerCase();
+  return sanitizedStr;
+};

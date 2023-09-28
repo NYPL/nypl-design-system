@@ -22,7 +22,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
     }
   >
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="primary-hero"
     >
       Hero Primary
@@ -61,7 +61,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="secondary-hero"
     >
       Hero Secondary
@@ -100,7 +100,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="secondary-hero"
     >
       Hero Secondary Books and More
@@ -139,7 +139,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="secondary-hero"
     >
       Hero Secondary Locations
@@ -178,7 +178,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="secondary-hero"
     >
       Hero Secondary
@@ -217,7 +217,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="secondary-hero"
     >
       Hero Secondary What's On
@@ -248,7 +248,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
     }
   >
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="tertiary-hero"
     >
       Hero Tertiary
@@ -298,7 +298,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
       className="css-0"
     >
       <h1
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-eyyo6e"
         id="campaign-hero"
       >
         Hero Campaign
@@ -369,7 +369,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
     }
   >
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="chakra"
     >
       Hero Primary
@@ -405,7 +405,7 @@ exports[`Hero Renders the UI snapshot correctly 11`] = `
     }
   >
     <h1
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-eyyo6e"
       id="props"
     >
       Hero Primary

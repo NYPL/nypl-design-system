@@ -69,7 +69,11 @@ const items = [
 ];
 
 const meta: Meta<typeof MultiSelect> = {
-  title: "Components/Form Elements/MultiSelect",
+  // The documentation for the MultiSelect component will be removed until the
+  // refactor of the v2 version of the MultiSelect component has been completed.
+  // To add the link for the MultiSelect component back to the side bar,
+  // uncomment the `title` attribute below.
+  // title: "Components/Form Elements/MultiSelect",
   component: MultiSelect,
   decorators: [withDesign],
   argTypes: {

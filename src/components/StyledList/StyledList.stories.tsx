@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import StyledList from "./StyledList";
+import StyledList, { textSizesArray } from "./StyledList";
 
 const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
@@ -15,7 +15,10 @@ const meta: Meta<typeof StyledList> = {
     id: { control: false },
     listItems: { control: false },
     style: { control: false },
-    textSize: { table: { defaultValue: { summary: "default" } } },
+    textSize: {
+      options: textSizesArray,
+      table: { defaultValue: { summary: "default" } },
+    },
   },
 };
 
@@ -73,24 +76,44 @@ export const WithControls: Story = {
 };
 
 // The following are additional StyledList example Stories.
-export const FontSize: Story = {
+export const FontSizes: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Caption</Heading>
+        <Heading level="h3" size="heading6">
+          Default / Body 1
+        </Heading>
+        <StyledList textSize="body1" listItems={listItems} />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Body 2
+        </Heading>
+        <StyledList textSize="body2" listItems={listItems} />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Caption
+        </Heading>
         <StyledList textSize="caption" listItems={listItems} />
       </Box>
+    </VStack>
+  ),
+};
+export const DeprecatedFontSizes: Story = {
+  render: () => (
+    <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Default</Heading>
-        <StyledList textSize="default" listItems={listItems} />
-      </Box>
-      <Box>
-        <Heading level="three">Mini</Heading>
-        <StyledList textSize="mini" listItems={listItems} />
-      </Box>
-      <Box>
-        <Heading level="three">Tag</Heading>
+        <Heading level="h3" size="heading6">
+          Tag
+        </Heading>
         <StyledList textSize="tag" listItems={listItems} />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Mini
+        </Heading>
+        <StyledList textSize="mini" listItems={listItems} />
       </Box>
     </VStack>
   ),

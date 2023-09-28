@@ -6,13 +6,13 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   id="withHTMLStringContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHTMLStringContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withHTMLStringContent-callout"
   >
     This is the callout text
@@ -32,14 +32,32 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -61,13 +79,13 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
   id="withHTMLDOMContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHTMLDOMContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withHTMLDOMContent-callout"
   >
     This is the callout text
@@ -87,14 +105,32 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -150,13 +186,13 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
   id="withoutAnImage"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withoutAnImage-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withoutAnImage-callout"
   >
     This is the callout text
@@ -178,13 +214,13 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   id="withImageWithoutCaptionOrCredit"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withImageWithoutCaptionOrCredit-callout"
   >
     This is the callout text
@@ -215,7 +251,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
   id="withoutHeading"
 >
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withoutHeading-callout"
   >
     This is the callout text
@@ -235,14 +271,32 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -264,7 +318,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
   id="withoutCalloutText"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withoutCalloutText-heading"
   >
     Heading text
@@ -286,13 +340,13 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   id="withChakraProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withChakraProps-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withChakraProps-callout"
   >
     This is the callout text
@@ -312,14 +366,32 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>
@@ -342,13 +414,13 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   id="withOtherProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withOtherProps-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-q4o6sf"
     id="withOtherProps-callout"
   >
     This is the callout text
@@ -368,14 +440,32 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         className="css-0"
       >
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image caption
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image caption",
+              }
+            }
+          />
         </div>
         <div
-          className="css-0"
+          aria-atomic={false}
+          className="css-1xdhyk6"
+          data-isinvalid={false}
         >
-          Image credit
+          <div
+            className="css-0"
+            dangerouslySetInnerHTML={
+              {
+                "__html": "Image credit",
+              }
+            }
+          />
         </div>
       </figcaption>
     </figure>

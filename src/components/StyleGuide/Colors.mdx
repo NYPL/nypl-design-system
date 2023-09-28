@@ -41,6 +41,11 @@ Resources:
 
 - [W3C WCAG 2.1 Contrast Minimum](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 
+NOTE: There are a handful of colors that are semi-transpararent. Colors that use
+transparency are tough to talk about when it comes to color combinations and
+color contrast. That being the case, we have used question marks for the
+contrast values and WCAG status.
+
 ## Brand Colors
 
 These colors are connected to the NYPL brand and are not intended to be generic.
@@ -108,9 +113,7 @@ used to add visual context for a user's location on an NYPL website.
   p="s"
 >
   <Heading>Connect</Heading>
-  <p>
-    Connect is used for the Connect and Get Help section fronts.
-  </p>
+  <p>Connect is used for the Connect and Get Help section fronts.</p>
   <SimpleGrid columns={1} gap="s">
     {getColorCards("connect")}
   </SimpleGrid>
@@ -230,13 +233,13 @@ and coding.
   <SimpleGrid columns={1} gap="s">
     {getColorCards("grayscaleRoot")}
   </SimpleGrid>
-  <Heading level="four" marginTop="l">
+  <Heading level="h4" size="heading6" marginTop="l">
     Cool (standard options)
   </Heading>
   <SimpleGrid columns={1} gap="s">
     {getColorCards("grayscaleCool")}
   </SimpleGrid>
-  <Heading level="four" marginTop="l">
+  <Heading level="h4" size="heading6" marginTop="l">
     Warm
   </Heading>
   <Text>The warm grays are alternate options to the cool grays.</Text>

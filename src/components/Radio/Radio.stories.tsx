@@ -73,18 +73,24 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">Checked</Heading>
+        <Heading level="h3" size="heading6">
+          Checked
+        </Heading>
         <Radio labelText="I am checked" id="checked" isChecked value="1" />
       </Box>
       <Box>
-        <Heading level="three">Focused</Heading>
+        <Heading level="h3" size="heading6">
+          Focused
+        </Heading>
         <Radio
           id="focused"
           labelText="Click or tab to the Radio to see its focus state"
         />
       </Box>
       <Box>
-        <Heading level="three">Errored</Heading>
+        <Heading level="h3" size="heading6">
+          Errored
+        </Heading>
         <HStack>
           <Radio id="invalid" isInvalid labelText="I am in an error state" />
           <Radio
@@ -96,7 +102,9 @@ export const BrowserStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <HStack>
           <Radio id="disabled" isDisabled labelText="I am disabled" />
           <Radio
@@ -115,7 +123,9 @@ export const HelperAndErrorText: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="three">Helper Text</Heading>
+        <Heading level="h3" size="heading6">
+          Helper Text
+        </Heading>
         <Radio
           helperText="I am the helper text for this Radio"
           id="help-text"
@@ -124,7 +134,9 @@ export const HelperAndErrorText: Story = {
         />
       </Box>
       <Box>
-        <Heading level="three">Error Text</Heading>
+        <Heading level="h3" size="heading6">
+          Error Text
+        </Heading>
         <Radio
           id="invalid-text"
           invalidText="I am the error text for this Radio"
