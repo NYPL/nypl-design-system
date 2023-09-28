@@ -6,16 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## Typography Prerelease
+## Prerelease
 
-### Adds (Typography Feature Branch)
+### Adds
 
 - Adds the `isUnderlined` prop to the `Link` component.
 - Adds the `"standalone"` variant to the `Link` component.
 - Adds `NYPL Patterns` to the `Links Accessibility Guide`.
 - Adds the `SocialMediaLinks` component.
 
-### Updates (Typography Feature Branch)
+### Updates
 
 - Updates underline styles of the `Link` component.
 - Updates the hex value for the `Link Primary` color style.
@@ -26,7 +26,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates all components to implement the `Typo2023` styles.
 - Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
 
-## Prerelease
+### Remvoes
+
+- Revmoves the `FilterBar` and `MultiSelect` components.
+- Removes the `useFilterBar` and `useMultiSelect` hooks.
 
 ## 1.7.3 (September 13, 2023)
 

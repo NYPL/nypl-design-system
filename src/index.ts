@@ -154,10 +154,10 @@ export type {
 export { default as Toggle } from "./components/Toggle/Toggle";
 export type { ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
-// The useCloseDropDown, useFilterBar and useMultiSelect hooks will not be
-// exported until the refactor of the v2 versions of the MultiSelect and
-// FilterBar components has been completed.
-// export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
+export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
+// The useFilterBar and useMultiSelect hooks will not be exported until the
+// refactor of the v2 versions of the MultiSelect and FilterBar components has
+// been completed.
 // export { default as useFilterBar } from "./hooks/useFilterBar";
 // export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
