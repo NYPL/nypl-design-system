@@ -43,9 +43,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -203,9 +203,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -363,9 +363,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -523,9 +523,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -683,9 +683,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -843,9 +843,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1003,9 +1003,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1163,9 +1163,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1323,9 +1323,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1483,9 +1483,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1643,9 +1643,9 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1803,9 +1803,9 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -1969,9 +1969,9 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2094,9 +2094,9 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2219,9 +2219,9 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2379,9 +2379,9 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2504,9 +2504,9 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2664,9 +2664,9 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
@@ -2825,9 +2825,9 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon more-link css-1grhd2q"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
-          id="privacy-icon"
+          id="privacy-external-icon"
           role="img"
           title="External link"
           viewBox="0 0 24 24"
