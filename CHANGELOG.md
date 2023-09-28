@@ -13,7 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 - This update introduces a number of visual breaking changes related to typography styles.
-- Revmoves the `FilterBar` and `MultiSelect` components.
+- Removes the `FilterBar` and `MultiSelect` components.
 - Removes the `useFilterBar` and `useMultiSelect` hooks.
 
 ### Adds
