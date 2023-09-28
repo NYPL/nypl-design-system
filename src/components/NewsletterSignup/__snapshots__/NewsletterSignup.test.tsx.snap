@@ -2456,6 +2456,7 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
       >
         Oops! Something went wrong.
       </p>
+       
     </div>
   </div>
 </div>
