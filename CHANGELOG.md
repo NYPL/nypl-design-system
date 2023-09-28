@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.0.0 (September 28, 2023)
+
+### Breaking Changes
+
+- This update introduces a number of visual breaking changes related to typography styles.
+- Revmoves the `FilterBar` and `MultiSelect` components.
+- Removes the `useFilterBar` and `useMultiSelect` hooks.
+
 ### Adds
 
 - Adds the `isUnderlined` prop to the `Link` component.
@@ -25,11 +33,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the base styles to use the `Typo2023` styles.
 - Updates all components to implement the `Typo2023` styles.
 - Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
-
-### Remvoes
-
-- Revmoves the `FilterBar` and `MultiSelect` components.
-- Removes the `useFilterBar` and `useMultiSelect` hooks.
 
 ## 1.7.3 (September 13, 2023)
 
