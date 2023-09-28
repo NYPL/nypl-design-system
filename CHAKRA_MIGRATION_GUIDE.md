@@ -2,10 +2,12 @@
 
 The first Reservoir Design System (DS) version that includes the Chakra UI library is version `0.25.0`. This guide is meant for those who are using a version less than `0.25.0` and want to migrate to a version greater than or equal to `0.25.0`. If you're importing the latest DS version, this guide will also help!
 
+If you are using a DS version greater than 1.0, this guide does not apply.
+
 If you would rather read documentation on the Design System's internal use of Chakra, check the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
-- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/chakra-ui--docs)
+- [Storybook page](https://nypl.github.io/nypl-design-system/reservoir/v2/?path=/docs/chakra-ui--docs)
 
 | Table of Contents |                                                       |
 | ----------------- | ----------------------------------------------------- |
