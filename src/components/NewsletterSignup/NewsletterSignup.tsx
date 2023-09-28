@@ -36,29 +36,28 @@ interface NewsletterSignupProps {
   isInvalidEmail?: boolean;
   /** Optional: Value to determine the section color highlight */
   newsletterSignupType?: SectionTypes;
-  /** Required: a handler function that will be called when the form is submitted. */
+  /** Required: A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
-  /** Required: a handler function that will be called when the text input changes. */
+  /** Required: A handler function that will be called when the text input changes. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Optional: Used to populate the `<h3>` header title. */
   title?: string;
-  /** Required: the value of the email text input field. */
+  /** Required: The value of the email text input field. */
   valueEmail: string;
   /** Optional: Used to specify what is displayed in the component form/feedback area. */
   view?: "form" | "submitting" | "confirmation" | "error";
 }
 
 const defaultConfirmationText =
-  "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.";
+  "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences " +
+  "at any time using the links at the bottom of the email.";
 const defaultDescriptionText =
-  "Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.";
+  "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
+  "exhibitions, and collections.";
 
 /**
  * The NewsletterSignup component provides a way for patrons to register for an
  * email-based newsletter distribution list.
- *
- * The component can show four different views, depending on the state of the
- * email submission: form, loading, confirmation, and error.
  */
 export const NewsletterSignup = chakra(
   forwardRef<any, NewsletterSignupProps>(
@@ -180,7 +179,8 @@ export const NewsletterSignup = chakra(
                   name="errorFilled"
                   size="large"
                 />
-                <Text fontWeight="medium">Oops! Something went wrong.</Text>
+                <Text fontWeight="medium">Oops! Something went wrong.</Text>{" "}
+                {/* This text is boilerplate and not meant to be customized. */}
               </Box>
             )}
           </VStack>

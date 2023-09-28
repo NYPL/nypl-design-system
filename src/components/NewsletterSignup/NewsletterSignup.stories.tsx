@@ -90,6 +90,9 @@ const NewsletterSignupWithControls = (args) => {
         }, 3000);
     }
     console.log("Submitted email: ", userEmail);
+    setTimeout(() => {
+      setView("form");
+    }, 10000);
   }
 
   return (
@@ -107,7 +110,7 @@ const title = "The Life-changing Newsletter";
 const descriptionText =
   "This bespoke newsletter contains only those things that are critical for YOU to know, but that you either forgot, " +
   "or had not been informed about. IMPORTANT: if you use error@nypl.org as the address, you will get the error screen. " +
-  "If you use bad@nypl.org you will get the invalid email screen.";
+  "If you use bad@nypl.org you will get the invalid email screen. The form resets a few seconds after confirmation or error.";
 const confirmationText =
   "Fantastic! You're all set. Check the console for the data you submitted.";
 const formHelperText =
@@ -120,9 +123,8 @@ const formHelperText =
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationText, // Shorthand. Value defined above.
+    confirmationText, // Shorthand. Value defined above in like-named constant.
     descriptionText,
-    emailValue: "",
     formHelperText,
     id: undefined,
     isInvalidEmail: false,
@@ -130,6 +132,7 @@ export const WithControls: Story = {
     onChange: undefined,
     onSubmit: undefined,
     title,
+    valueEmail: "",
     view: "form",
   },
   parameters: {
