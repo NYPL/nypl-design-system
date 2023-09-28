@@ -361,6 +361,9 @@ export const cssVars = {
       dataBgDefaultColor: checkContrast(10.1),
       textColor: "ui.white",
     },
+    // Colors that use transparency are tough to talk about when it comes to
+    // color combinations and color contrast. For now, we will just use question
+    // marks for the contrast values and WCAG status.
     {
       name: "ui.link.primary-05",
       dataBlackColor: ["?", "?", "?"],
@@ -369,6 +372,9 @@ export const cssVars = {
       dataBgDefaultColor: ["?", "?", "?"],
       textColor: "ui.black",
     },
+    // Colors that use transparency are tough to talk about when it comes to
+    // color combinations and color contrast. For now, we will just use question
+    // marks for the contrast values and WCAG status.
     {
       name: "ui.link.primary-10",
       dataBlackColor: ["?", "?", "?"],
@@ -695,6 +701,9 @@ export const cssVars = {
       dataDarkBgDefaultColor: checkContrast("5.33"),
       textColor: "ui.black",
     },
+    // Colors that use transparency are tough to talk about when it comes to
+    // color combinations and color contrast. For now, we will just use question
+    // marks for the contrast values and WCAG status.
     {
       name: "dark.ui.link.primary-05",
       dataBlackColor: ["?", "?", "?"],
@@ -703,6 +712,9 @@ export const cssVars = {
       dataDarkBgDefaultColor: ["?", "?", "?"],
       textColor: "ui.white",
     },
+    // Colors that use transparency are tough to talk about when it comes to
+    // color combinations and color contrast. For now, we will just use question
+    // marks for the contrast values and WCAG status.
     {
       name: "dark.ui.link.primary-10",
       dataBlackColor: ["?", "?", "?"],
