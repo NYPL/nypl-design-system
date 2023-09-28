@@ -8,6 +8,29 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `isUnderlined` prop to the `Link` component.
+- Adds the `"standalone"` variant to the `Link` component.
+- Adds `NYPL Patterns` to the `Links Accessibility Guide`.
+- Adds the `SocialMediaLinks` component.
+
+### Updates
+
+- Updates underline styles of the `Link` component.
+- Updates the hex value for the `Link Primary` color style.
+- Updates the `Link` component so that non-button variants change color once visited.
+- Updates the `Link` component to explicitly assign the text color for the `"buttonPrimary"` variant `hover` state.
+- Updates all components that render text to use the `Typo2023` color scheme.
+- Updates the base styles to use the `Typo2023` styles.
+- Updates all components to implement the `Typo2023` styles.
+- Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
+
+### Remvoes
+
+- Revmoves the `FilterBar` and `MultiSelect` components.
+- Removes the `useFilterBar` and `useMultiSelect` hooks.
+
 ## 1.7.3 (September 13, 2023)
 
 ### Updates

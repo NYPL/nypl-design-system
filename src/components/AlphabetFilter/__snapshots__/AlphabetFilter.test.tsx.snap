@@ -632,7 +632,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
     id="alphabet-filter-wrapper"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-878tmy"
       id="alphabet-filter-heading"
     >
       Heading

@@ -80,7 +80,8 @@ const getElementsFromData = (
       };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
-  const multipleFontSize = data?.length > 1 ? "text.default" : "text.caption";
+  const multipleFontSize =
+    data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
   const multiplePadding = data?.length > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {

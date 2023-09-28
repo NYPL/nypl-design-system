@@ -21,24 +21,24 @@ const variants = {
   overline1: {
     fontSize: "desktop.overline.overline1",
     fontWeight: "overline.overline1",
-    lineHeight: 1.35,
+    lineHeight: 1,
     textTransform: "uppercase",
   },
   overline2: {
     fontSize: "desktop.overline.overline2",
     fontWeight: "overline.overline2",
-    lineHeight: 1.4,
+    lineHeight: 1,
     textTransform: "uppercase",
   },
   subtitle1: {
     fontSize: "desktop.subtitle.subtitle1",
     fontWeight: "subtitle.subtitle1",
-    lineHeight: 1.25,
+    lineHeight: 1.35,
   },
   subtitle2: {
     fontSize: "desktop.subtitle.subtitle2",
     fontWeight: "subtitle.subtitle2",
-    lineHeight: 1.3,
+    lineHeight: 1.4,
   },
   // Deprecated options
   tag: {

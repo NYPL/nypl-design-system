@@ -173,9 +173,13 @@ export const FeedbackBox = chakra(
             width="100%"
           />
         ) : undefined;
+      const descriptionColor = useColorModeValue(
+        "ui.typography.heading",
+        "dark.ui.typography.heading"
+      );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text fontWeight="medium" noSpace>
+          <Text color={descriptionColor} fontWeight="medium" noSpace>
             {descriptionText}
           </Text>
         ) : undefined;

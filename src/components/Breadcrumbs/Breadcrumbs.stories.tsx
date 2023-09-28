@@ -72,49 +72,63 @@ export const ColorVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Blogs</Heading>
+        <Heading level="h3" size="heading6">
+          Blogs
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="blogs"
         />
       </Box>
       <Box>
-        <Heading level="three">Books and More</Heading>
+        <Heading level="h3" size="heading6">
+          Books and More
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="booksAndMore"
         />
       </Box>
       <Box>
-        <Heading level="three">Connect</Heading>
+        <Heading level="h3" size="heading6">
+          Connect
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="connect"
         />
       </Box>
       <Box>
-        <Heading level="three">Education</Heading>
+        <Heading level="h3" size="heading6">
+          Education
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="education"
         />
       </Box>
       <Box>
-        <Heading level="three">Locations</Heading>
+        <Heading level="h3" size="heading6">
+          Locations
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="locations"
         />
       </Box>
       <Box>
-        <Heading level="three">Research</Heading>
+        <Heading level="h3" size="heading6">
+          Research
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="research"
         />
       </Box>
       <Box>
-        <Heading level="three">What's On</Heading>
+        <Heading level="h3" size="heading6">
+          What's On
+        </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="whatsOn"

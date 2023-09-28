@@ -212,7 +212,7 @@ describe("Accordion", () => {
             isCentered
             layout="row"
           >
-            <CardHeading id="heading1" level="four">
+            <CardHeading id="heading1" level="h4">
               Gerry Kellman
             </CardHeading>
             <CardContent>
