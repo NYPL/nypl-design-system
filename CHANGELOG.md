@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Updates
+
+- Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
+
 ## 2.0.1 (September 28, 2023)
 
 _NOTE_: Version number `2.0.0` was previously released in 2019 and is marked as deprecated in npm. The first stable relase for Reservoir v2 is `2.0.1`.
