@@ -7,12 +7,15 @@ import Text from "../Text/Text";
 import FeaturedContent from "./FeaturedContent";
 
 const meta: Meta<typeof FeaturedContent> = {
-  title: "Components/Page Layout/FeaturedContent",
+  title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
   decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
+    fullLayout: {
+      table: { defaultValue: { summary: false } },
+    },
     imageProps: { disable: false },
     "imageProps.alt": {
       control: { type: "text" },
@@ -36,7 +39,7 @@ export default meta;
 type Story = StoryObj<typeof FeaturedContent>;
 
 /**
- * Main Story for the FeaturedContent component. This must contains the `args`
+ * Main Story for the FeaturedContent component. This must contain the `args`
  * and `parameters` properties in this object.
  */
 
@@ -44,6 +47,7 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     id: "FeaturedContent-id",
+    fullLayout: false,
     //textContent: (
     // <div>
     //   <Button id="test" />
@@ -70,12 +74,13 @@ export const WithControls: Story = {
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
     "imageProps.width": "default",
-    "imageProps.src": "//placekitten.com/320/320",
+    "imageProps.src": "//placekitten.com/600/600",
   },
   render: (args) => (
     <FeaturedContent
       className={args.className}
       id={args.id}
+      fullLayout={args.fullLayout}
       textContent={
         <div>
           <br />
@@ -84,9 +89,9 @@ export const WithControls: Story = {
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam
           </p>
           <Button id="test"> Discover more </Button>
         </div>

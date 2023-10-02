@@ -1,14 +1,6 @@
-import {
-  Box,
-  chakra,
-  useMultiStyleConfig,
-  SimpleGrid,
-  GridItem,
-  useStyleConfig,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import Image, { ImageProps } from "../Image/Image";
+import { ImageProps } from "../Image/Image";
 
 export type featuredContentWidthType =
   | "oneQuarter"
@@ -35,6 +27,9 @@ export interface FeaturedContentProps {
   id: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */
   textContent: string | JSX.Element;
+  /** Whether component will fill the full width of the browser window, instead of just its parent element.
+   * False by default. */
+  fullLayout: boolean;
   /** Data object that contains the props related to the image element: alt, position, src, width.  */
   imageProps: FeaturedContentImageProps;
 }
@@ -55,21 +50,20 @@ export const FeaturedContent = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
     (props) => {
       const {
-        className,
         id,
         textContent,
+        fullLayout,
         imageProps = {
           alt: "",
           position: "end",
           width: "oneHalf",
           src: "",
         },
-        ...rest
       } = props;
-      const imageAtEnd = imageProps.position == "end";
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
+        fullLayout: fullLayout,
       });
       return (
         <Box data-testid={id} __css={styles.wrapper}>
@@ -81,7 +75,9 @@ export const FeaturedContent = chakra(
               src={imageProps.src ? imageProps.src : undefined}
             />
           </Box>
-          <Box __css={styles.text}>{textContent}</Box>
+          <Box id="text" __css={styles.text}>
+            {textContent}
+          </Box>
         </Box>
       );
     }

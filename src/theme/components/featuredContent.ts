@@ -1,19 +1,36 @@
 interface FeaturedContentBaseStyleProps {
   imagePosition: string;
   imageWidth: string;
+  fullLayout: boolean;
 }
-import { screenreaderOnly } from "./globalMixins";
 
 const FeaturedContent = {
-  baseStyle: ({ imagePosition, imageWidth }: FeaturedContentBaseStyleProps) => {
-    const imageAtEnd = imagePosition == "end";
-    //Emma note: this canNOT be the best way to implement this logic
-    var txtwidth = "50%";
-    if (imageWidth == "oneThird") {
-      txtwidth = "66%";
+  baseStyle: ({
+    imagePosition,
+    imageWidth,
+    fullLayout,
+  }: FeaturedContentBaseStyleProps) => {
+    const imageAtEnd = imagePosition === "end";
+    var wrapperWidth = "50%";
+    if (imageWidth === "oneQuarter") {
+      wrapperWidth = "25%";
+    } else if (imageWidth === "oneThird") {
+      wrapperWidth = "33%";
+    } else if (imageWidth === "twoThirds") {
+      wrapperWidth = "66%";
+    } else if (imageWidth === "threeQuarters") {
+      wrapperWidth = "75%";
     }
+    var full = fullLayout === true;
     return {
       wrapper: {
+        width: full ? "100vw" : "100%",
+        left: full ? "50%" : "auto",
+        right: full ? "50%" : "auto",
+        paddingX: full ? "10%" : "auto",
+        position: full ? "relative" : "auto",
+        marginLeft: full ? "-50vw" : "auto",
+        marginRight: full ? "-50vw" : "auto",
         bgColor: "ui.gray.x-light-cool",
         _dark: {
           bgColor: "dark.ui.bg.default",
@@ -32,12 +49,12 @@ const FeaturedContent = {
       },
       imgWrapper: {
         display: "flex",
-        position: "relative",
-        maxHeight: "100%",
+        height: { sm: "320px", md: "auto" },
+        width: { sm: "100%", md: wrapperWidth },
       },
       img: {
         width: "100%",
-        maxHeight: "100%",
+        height: "100%",
       },
     };
   },
