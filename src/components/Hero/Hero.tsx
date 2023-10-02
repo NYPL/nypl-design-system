@@ -160,13 +160,13 @@ export const Hero = chakra(
           ? { bgColor: backdropBackgroundColor }
           : { backgroundColor };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
-        backgroundImageStyle = { backgroundColor };
+        backgroundImageStyle = { bgColor: backgroundColor };
       }
 
       if (!heroSecondaryTypes.includes(heroType)) {
         contentBoxStyling = {
-          color: foregroundColor,
-          backgroundColor,
+          ...(backgroundColor && { bgColor: backgroundColor }),
+          ...(foregroundColor && { color: foregroundColor }),
         };
       } else if (
         foregroundColor ||
@@ -230,8 +230,7 @@ export const Hero = chakra(
         >
           <Box
             data-testid="hero-content"
-            style={contentBoxStyling}
-            __css={styles.content}
+            __css={{ ...styles.content, ...contentBoxStyling }}
           >
             {childrenToRender}
           </Box>

@@ -8,9 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## Updates
+### Updates
 
 - Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
+
+### Fixes
+
+- Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.
 
 ## 2.0.1 (September 28, 2023)
 
