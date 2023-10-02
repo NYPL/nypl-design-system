@@ -24,7 +24,7 @@ export interface FeaturedContentProps {
   /** Optional CSS class name to add. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
+  id?: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */
   textContent: string | JSX.Element;
   /** Whether component will fill the full width of the browser window, instead of just its parent element.
@@ -50,7 +50,6 @@ export const FeaturedContent = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
     (props) => {
       const {
-        id,
         textContent,
         fullLayout,
         imageProps = {
@@ -66,7 +65,7 @@ export const FeaturedContent = chakra(
         fullLayout: fullLayout,
       });
       return (
-        <Box data-testid={id} __css={styles.wrapper}>
+        <Box __css={styles.wrapper}>
           <Box __css={{ ...styles.imgWrapper }}>
             <FeaturedContentImage
               alt={imageProps.alt}

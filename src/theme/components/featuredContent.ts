@@ -11,7 +11,7 @@ const FeaturedContent = {
     fullLayout,
   }: FeaturedContentBaseStyleProps) => {
     const imageAtEnd = imagePosition === "end";
-    var wrapperWidth = "50%";
+    let wrapperWidth = "50%";
     if (imageWidth === "oneQuarter") {
       wrapperWidth = "25%";
     } else if (imageWidth === "oneThird") {
@@ -21,7 +21,7 @@ const FeaturedContent = {
     } else if (imageWidth === "threeQuarters") {
       wrapperWidth = "75%";
     }
-    var full = fullLayout === true;
+    let full = fullLayout === true;
     return {
       wrapper: {
         width: full ? "100vw" : "100%",
@@ -44,7 +44,8 @@ const FeaturedContent = {
       text: {
         display: "flex",
         alignSelf: "start",
-        padding: "20px",
+        paddingX: "20px",
+        marginY: "auto",
         flex: 1,
       },
       imgWrapper: {
