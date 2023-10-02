@@ -160,12 +160,12 @@ export const Hero = chakra(
           ? { bgColor: backdropBackgroundColor }
           : { backgroundColor };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
-        backgroundImageStyle = { bgColor: backgroundColor };
+        backgroundImageStyle = backgroundColor ? { bg: backgroundColor } : {};
       }
 
       if (!heroSecondaryTypes.includes(heroType)) {
         contentBoxStyling = {
-          ...(backgroundColor && { bgColor: backgroundColor }),
+          ...(backgroundColor && { backgroundColor }),
           ...(foregroundColor && { color: foregroundColor }),
         };
       } else if (
