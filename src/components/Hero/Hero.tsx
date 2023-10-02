@@ -165,8 +165,8 @@ export const Hero = chakra(
 
       if (!heroSecondaryTypes.includes(heroType)) {
         contentBoxStyling = {
-          ...(backgroundColor && { backgroundColor }),
           ...(foregroundColor && { color: foregroundColor }),
+          ...(backgroundColor && { backgroundColor }),
         };
       } else if (
         foregroundColor ||
@@ -230,6 +230,7 @@ export const Hero = chakra(
         >
           <Box
             data-testid="hero-content"
+            style={contentBoxStyling}
             __css={{ ...styles.content, ...contentBoxStyling }}
           >
             {childrenToRender}
