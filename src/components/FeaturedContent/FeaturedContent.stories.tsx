@@ -1,6 +1,8 @@
-import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 
 import FeaturedContent from "./FeaturedContent";
 
@@ -42,24 +44,53 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     id: "FeaturedContent-id",
-    textContent: (
-      <div>
-        <h1>Lorem ipsum dolor sit amet </h1>
-        <p>
-          tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
-        </p>
-      </div>
-    ),
+    //textContent: (
+    // <div>
+    //   <Button id="test" />
+    //   <p>
+    //     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    //     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    //     minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
+    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    //     pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+    //     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    //     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
+    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    //     pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+    //     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    //     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
+    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    //     pariatur.
+    //   </p>
+    // </div>
+    //),
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
     "imageProps.width": "default",
-    "imageProps.src": "//placekitten.com/200/200",
+    "imageProps.src": "//placekitten.com/320/320",
   },
   render: (args) => (
     <FeaturedContent
       className={args.className}
       id={args.id}
-      textContent={args.textContent}
+      textContent={
+        <div>
+          <br />
+          <Text size="overline1"> Featured </Text>
+          <Heading level="h1"> Spotlight on the Public Domain </Heading>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          </p>
+          <Button id="test"> Discover more </Button>
+        </div>
+      }
       imageProps={{
         alt: args["imageProps.alt"],
         width: args["imageProps.width"],

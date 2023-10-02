@@ -2,50 +2,42 @@ interface FeaturedContentBaseStyleProps {
   imagePosition: string;
   imageWidth: string;
 }
+import { screenreaderOnly } from "./globalMixins";
 
 const FeaturedContent = {
-  baseStyle: ({ imageWidth, imagePosition }: FeaturedContentBaseStyleProps) => {
-    const styles: { maxWidth?: string } = {};
-    const wrapperStyles = {
-      float: [
-        "none",
-        "none",
-        imagePosition !== "center" ? imagePosition : undefined,
-      ],
-      marginStart: ["auto", "auto", imagePosition === "start" ? "0" : "l"],
-      marginEnd: ["auto", "auto", imagePosition === "start" ? "m" : "0"],
-      width: imagePosition !== "center" ? "100%" : undefined, //ugh
-      ...styles,
-    };
-    if (imagePosition === "center") {
-      styles.maxWidth = "100%";
+  baseStyle: ({ imagePosition, imageWidth }: FeaturedContentBaseStyleProps) => {
+    const imageAtEnd = imagePosition == "end";
+    //Emma note: this canNOT be the best way to implement this logic
+    var txtwidth = "50%";
+    if (imageWidth == "oneThird") {
+      txtwidth = "66%";
     }
     return {
-      image: {
-        // To handle the case when the image does not have a container,
-        // e.g. when there is no image caption or credit.
-        float: [
-          "none",
-          "none",
-          imagePosition !== "center" ? imagePosition : undefined,
-        ],
-        marginStart: [
-          "auto",
-          "auto",
-          imagePosition === "right" && imageAspectRatio === "original"
-            ? "m"
-            : undefined,
-        ],
-        marginEnd: [
-          "auto",
-          "auto",
-          imagePosition === "left" && imageAspectRatio === "original"
-            ? "m"
-            : undefined,
-        ],
-        marginBottom:
-          !hasFigureImage || imageAspectRatio === "original" ? "m" : null,
-        ...styles,
+      wrapper: {
+        bgColor: "ui.gray.x-light-cool",
+        _dark: {
+          bgColor: "dark.ui.bg.default",
+        },
+        minHeight: "320px",
+        display: "flex",
+        flexDirection: imageAtEnd
+          ? { sm: "column-reverse", md: "row-reverse" }
+          : { sm: "column", md: "row" },
+      },
+      text: {
+        display: "flex",
+        alignSelf: "start",
+        padding: "20px",
+        flex: 1,
+      },
+      imgWrapper: {
+        display: "flex",
+        position: "relative",
+        maxHeight: "100%",
+      },
+      img: {
+        width: "100%",
+        maxHeight: "100%",
       },
     };
   },

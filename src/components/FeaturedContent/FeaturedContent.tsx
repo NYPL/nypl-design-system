@@ -2,8 +2,10 @@ import {
   Box,
   chakra,
   useMultiStyleConfig,
-  Text,
+  SimpleGrid,
+  GridItem,
   useStyleConfig,
+  Flex,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import Image, { ImageProps } from "../Image/Image";
@@ -19,7 +21,7 @@ export const featuredContentPositionArray = ["start", "end"] as const;
 export type featuredContentPositionType =
   typeof featuredContentPositionArray[number];
 
-interface FeaturedContentImageProps extends Pick<ImageProps, "alt" | "src"> {
+interface FeaturedContentImageProps extends ImageProps {
   /** String value that specifies the width of the image rendered within the component. */
   width?: featuredContentWidthType;
   /** String value that specifies the position of the image rendered within the component. */
@@ -45,8 +47,8 @@ export interface FeaturedContentProps {
 function FeaturedContentImage(
   props: React.ComponentProps<"img"> & FeaturedContentImageProps
 ) {
-  const { alt, width, position, src } = props;
-  return <Image alt={alt} width={width} src={src} />;
+  const { alt, src } = props;
+  return <img alt={alt} src={src} style={{ width: "100%" }} />;
 }
 
 export const FeaturedContent = chakra(
@@ -64,21 +66,22 @@ export const FeaturedContent = chakra(
         },
         ...rest
       } = props;
-
+      const imageAtEnd = imageProps.position == "end";
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
       });
-
       return (
-        <Box id={id} className={className} __css={styles} {...rest}>
-          {textContent}
-          <FeaturedContentImage
-            alt={imageProps.alt}
-            position={imageProps.position}
-            width={imageProps.width}
-            src={imageProps.src ? imageProps.src : undefined}
-          />
+        <Box data-testid={id} __css={styles.wrapper}>
+          <Box __css={{ ...styles.imgWrapper }}>
+            <FeaturedContentImage
+              alt={imageProps.alt}
+              position={imageProps.position}
+              width={imageProps.width}
+              src={imageProps.src ? imageProps.src : undefined}
+            />
+          </Box>
+          <Box __css={styles.text}>{textContent}</Box>
         </Box>
       );
     }
