@@ -2,12 +2,14 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import { ImageProps } from "../Image/Image";
 
-export type featuredContentWidthType =
-  | "oneQuarter"
-  | "oneThird"
-  | "oneHalf"
-  | "twoThirds"
-  | "threeQuarters";
+export const featuredContentWidthArray = [
+  "oneQuarter",
+  "oneThird",
+  "oneHalf",
+  "twoThirds",
+  "threeQuarters",
+];
+export type featuredContentWidthType = typeof featuredContentWidthArray[number];
 
 export const featuredContentPositionArray = ["start", "end"] as const;
 export type featuredContentPositionType =
@@ -29,7 +31,7 @@ export interface FeaturedContentProps {
   textContent: string | JSX.Element;
   /** Whether component will fill the full width of the browser window, instead of just its parent element.
    * False by default. */
-  fullLayout: boolean;
+  isFullWidth: boolean;
   /** Data object that contains the props related to the image element: alt, position, src, width.  */
   imageProps: FeaturedContentImageProps;
 }
@@ -43,7 +45,7 @@ function FeaturedContentImage(
   props: React.ComponentProps<"img"> & FeaturedContentImageProps
 ) {
   const { alt, src } = props;
-  return <img alt={alt} src={src} style={{ width: "100%" }} />;
+  return <img alt={alt} src={src} style={{ display: "none" }} />;
 }
 
 export const FeaturedContent = chakra(
@@ -51,7 +53,7 @@ export const FeaturedContent = chakra(
     (props) => {
       const {
         textContent,
-        fullLayout,
+        isFullWidth,
         imageProps = {
           alt: "",
           position: "end",
@@ -62,11 +64,16 @@ export const FeaturedContent = chakra(
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
-        fullLayout: fullLayout,
+        isFullWidth: isFullWidth,
       });
       return (
         <Box __css={styles.wrapper}>
-          <Box __css={{ ...styles.imgWrapper }}>
+          <Box
+            __css={{
+              ...styles.imgWrapper,
+              backgroundImage: `url(${imageProps.src})`,
+            }}
+          >
             <FeaturedContentImage
               alt={imageProps.alt}
               position={imageProps.position}
@@ -74,9 +81,7 @@ export const FeaturedContent = chakra(
               src={imageProps.src ? imageProps.src : undefined}
             />
           </Box>
-          <Box id="text" __css={styles.text}>
-            {textContent}
-          </Box>
+          <Box __css={styles.text}>{textContent}</Box>
         </Box>
       );
     }

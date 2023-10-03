@@ -19,7 +19,6 @@ exports[`Renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    id="text"
   >
     <div>
       <br />
@@ -67,7 +66,6 @@ exports[`Renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    id="text"
   >
     <div>
       <br />

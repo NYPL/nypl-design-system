@@ -1,14 +1,16 @@
+import { wrapperStyles } from "./global";
+
 interface FeaturedContentBaseStyleProps {
   imagePosition: string;
   imageWidth: string;
-  fullLayout: boolean;
+  isFullWidth: boolean;
 }
 
 const FeaturedContent = {
   baseStyle: ({
     imagePosition,
     imageWidth,
-    fullLayout,
+    isFullWidth,
   }: FeaturedContentBaseStyleProps) => {
     const imageAtEnd = imagePosition === "end";
     let wrapperWidth = "50%";
@@ -21,9 +23,10 @@ const FeaturedContent = {
     } else if (imageWidth === "threeQuarters") {
       wrapperWidth = "75%";
     }
-    let full = fullLayout === true;
+    let full = isFullWidth === false;
     return {
       wrapper: {
+        ...wrapperStyles,
         width: full ? "100vw" : "100%",
         left: full ? "50%" : "auto",
         right: full ? "50%" : "auto",
@@ -37,25 +40,23 @@ const FeaturedContent = {
         },
         minHeight: "320px",
         display: "flex",
+        alignItems: "stretch",
         flexDirection: imageAtEnd
           ? { sm: "column-reverse", md: "row-reverse" }
           : { sm: "column", md: "row" },
       },
       text: {
         display: "flex",
-        alignSelf: "start",
-        paddingX: "20px",
-        marginY: "auto",
+        padding: "20px",
         flex: 1,
       },
       imgWrapper: {
-        display: "flex",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         height: { sm: "320px", md: "auto" },
         width: { sm: "100%", md: wrapperWidth },
-      },
-      img: {
-        width: "100%",
-        height: "100%",
+        padding: 0,
+        margin: 0,
       },
     };
   },

@@ -7,7 +7,6 @@ import FeaturedContent from "./FeaturedContent";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
-
 export const textContent = (
   <>
     <div>
@@ -32,7 +31,7 @@ describe("FeaturedContent accessibility tests", () => {
   it("passes for default layout", async () => {
     const { container } = render(
       <FeaturedContent
-        fullLayout={false}
+        isFullWidth={false}
         imageProps={imageProps}
         textContent={textContent}
       />
@@ -42,7 +41,7 @@ describe("FeaturedContent accessibility tests", () => {
   it("passes for full layout", async () => {
     const { container } = render(
       <FeaturedContent
-        fullLayout={true}
+        isFullWidth={true}
         imageProps={imageProps}
         textContent={textContent}
       />
@@ -52,11 +51,11 @@ describe("FeaturedContent accessibility tests", () => {
 });
 
 describe("FeaturedContent", () => {
-  it("renders Featured Content", () => {
+  it("renders the given image and text block", () => {
     render(
       <FeaturedContent
         id="featuredcontent"
-        fullLayout={true}
+        isFullWidth={true}
         imageProps={imageProps}
         textContent={textContent}
       />
@@ -77,7 +76,7 @@ it("Renders the UI snapshot correctly", () => {
   const defaultLayout = renderer
     .create(
       <FeaturedContent
-        fullLayout={false}
+        isFullWidth={false}
         imageProps={imageProps}
         textContent={textContent}
       />
@@ -86,7 +85,7 @@ it("Renders the UI snapshot correctly", () => {
   const fullLayout = renderer
     .create(
       <FeaturedContent
-        fullLayout={true}
+        isFullWidth={true}
         imageProps={imageProps}
         textContent={textContent}
       />

@@ -4,7 +4,10 @@ import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 
-import FeaturedContent from "./FeaturedContent";
+import FeaturedContent, {
+  featuredContentWidthArray,
+  featuredContentPositionArray,
+} from "./FeaturedContent";
 
 const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
@@ -13,7 +16,7 @@ const meta: Meta<typeof FeaturedContent> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
-    fullLayout: {
+    isFullWidth: {
       table: { defaultValue: { summary: false } },
     },
     imageProps: { disable: false },
@@ -22,11 +25,13 @@ const meta: Meta<typeof FeaturedContent> = {
       table: { defaultValue: { summary: "" } },
     },
     "imageProps.width": {
-      control: { type: "text" },
+      control: { type: "select" },
+      options: featuredContentWidthArray,
       table: { defaultValue: { summary: "oneHalf" } },
     },
     "imageProps.position": {
-      control: { type: "text" },
+      control: { type: "select" },
+      options: featuredContentPositionArray,
       table: { defaultValue: { summary: "end" } },
     },
     "imageProps.src": {
@@ -47,7 +52,7 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     id: "FeaturedContent-id",
-    fullLayout: false,
+    isFullWidth: false,
     //textContent: (
     // <div>
     //   <Button id="test" />
@@ -80,18 +85,22 @@ export const WithControls: Story = {
     <FeaturedContent
       className={args.className}
       id={args.id}
-      fullLayout={args.fullLayout}
+      isFullWidth={args.fullLayout}
       textContent={
-        <div>
+        <div id="text">
           <br />
           <Text size="overline1"> Featured </Text>
-          <Heading level="h1"> Spotlight on the Public Domain </Heading>
+          <Heading level="h2"> Spotlight on the Public Domain </Heading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam
+            The New York Public Library recently enhanced access to all public
+            domain items in Digital Collections so that everyone has the freedom
+            to enjoy and reuse these materials in almost limitless ways. The New
+            York Public Library recently enhanced access to all public domain
+            items in Digital Collections so that everyone has the freedom to
+            enjoy and reuse these materials in almost limitless ways. The New
+            York Public Library recently enhanced access to all public domain
+            items in Digital Collections so that everyone has the freedom to
+            enjoy and reuse these materials in almost limitless ways.
           </p>
           <Button id="test"> Discover more </Button>
         </div>
