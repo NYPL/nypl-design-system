@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef, ImgHTMLAttributes } from "react";
 import { useInView } from "react-intersection-observer";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export const imageRatiosArray = [
   "fourByThree",
@@ -212,8 +213,20 @@ export const Image = chakra(
           >
             {finalImage}
             <Box as="figcaption" __css={styles.figcaption}>
-              {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
-              {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
+              {caption && (
+                <HelperErrorText
+                  ariaLive="off"
+                  ariaAtomic={false}
+                  text={caption}
+                />
+              )}
+              {credit && (
+                <HelperErrorText
+                  ariaLive="off"
+                  ariaAtomic={false}
+                  text={credit}
+                />
+              )}
             </Box>
           </Box>
         ) : (

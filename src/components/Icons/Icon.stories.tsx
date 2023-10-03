@@ -116,7 +116,9 @@ const iconRow = (iconName, opts: any = {}) => {
       key={key}
       style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
     >
-      <Heading level="four">{displayValue}</Heading>
+      <Heading level="h4" size="heading6">
+        {displayValue}
+      </Heading>
       <span style={styles}>
         <Icon
           name={iconName}

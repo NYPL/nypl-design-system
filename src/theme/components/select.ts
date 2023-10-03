@@ -11,15 +11,15 @@ interface SelectBaseStyle {
 const select = {
   backgroundColor: "ui.white",
   borderRadius: "sm",
-  borderColor: "ui.gray.medium",
-  fontSize: "text.caption",
+  borderColor: "ui.border.default",
+  fontSize: "desktop.body.body2",
   minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   paddingTop: "inset.narrow",
   paddingEnd: "inset.extrawide",
   paddingBottom: "inset.narrow",
   paddingStart: "inset.default",
   _hover: {
-    borderColor: "ui.gray.dark",
+    borderColor: "ui.border.hover",
   },
   _active: selectTextInputFocusStyles,
   _disabled: {
@@ -60,7 +60,7 @@ const Select = {
     return {
       inline: {
         display: { md: "flex" },
-        gap: { md: "var(--nypl-space-xs)" },
+        gap: { md: "xs" },
         alignItems: { md: "flex-end" },
       },
       select: {

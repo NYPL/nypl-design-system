@@ -7,14 +7,15 @@ const Tooltip = {
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
     boxShadow: "none",
-    color: "ui.white",
-    fontSize: "text.tag",
+    color: "ui.typography.inverse.body",
+    fontSize: "desktop.caption",
     marginBottom: "xxs",
     maxWidth: "240px",
     px: "s",
     py: "xs",
     _dark: {
       [$bg.variable]: "colors.ui.gray.x-dark",
+      color: "dark.ui.typography.heading",
     },
   },
 };

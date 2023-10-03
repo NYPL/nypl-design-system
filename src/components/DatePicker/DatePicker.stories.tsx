@@ -145,7 +145,9 @@ export const YearDateInput: Story = {
 export const OtherStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="s">
-      <Heading level="three">Errored State</Heading>
+      <Heading level="h3" size="heading6">
+        Errored State
+      </Heading>
       <DatePicker
         id="invalid-date"
         dateType="full"
@@ -155,7 +157,9 @@ export const OtherStates: Story = {
         isInvalid
         isDateRange
       />
-      <Heading level="three">Disabled State</Heading>
+      <Heading level="h3" size="heading6">
+        Disabled State
+      </Heading>
       <DatePicker
         id="disabled-date"
         dateType="full"
@@ -163,7 +167,9 @@ export const OtherStates: Story = {
         isDateRange
         isDisabled
       />
-      <Heading level="three">Required State</Heading>
+      <Heading level="h3" size="heading6">
+        Required State
+      </Heading>
       <p>
         The "Required" text in the legend in the date range, or the label in a
         normaldate input, can be hidden when `showRequiredLabel` is set to

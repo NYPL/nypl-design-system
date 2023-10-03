@@ -2,7 +2,16 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import { checkListChildrenError } from "../List/List";
-import { TextSizes } from "../Text/Text";
+
+export const textSizesArray = [
+  "default",
+  "body1",
+  "body2",
+  "caption",
+  "tag",
+  "mini",
+] as const;
+export type TextSizes = typeof textSizesArray[number];
 
 export interface StyledListProps {
   /** Any child node passed to the component. */

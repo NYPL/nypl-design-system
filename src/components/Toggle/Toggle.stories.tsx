@@ -62,12 +62,16 @@ export const Sizes: Story = {
   render: () => (
     <SimpleGrid columns={2}>
       <VStack align="left" spacing="s">
-        <Heading level="three">Default</Heading>
+        <Heading level="h3" size="heading6">
+          Default
+        </Heading>
         <Toggle defaultChecked={true} id="default-checked" labelText="On" />
         <Toggle id="default" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
-        <Heading level="three">Small</Heading>
+        <Heading level="h3" size="heading6">
+          Small
+        </Heading>
         <Toggle
           defaultChecked={true}
           id="small-checked"
@@ -96,12 +100,16 @@ export const BrowserStates: Story = {
   render: () => (
     <SimpleGrid columns={3}>
       <VStack align="left" spacing="s">
-        <Heading level="three">Default</Heading>
+        <Heading level="h3" size="heading6">
+          Default
+        </Heading>
         <Toggle defaultChecked={true} id="checked-default2" labelText="On" />
         <Toggle id="default2" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <Toggle
           defaultChecked={true}
           id="disabled-checked"
@@ -111,7 +119,9 @@ export const BrowserStates: Story = {
         <Toggle id="disabled2" isDisabled={true} labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
-        <Heading level="three">Error</Heading>
+        <Heading level="h3" size="heading6">
+          Error
+        </Heading>
         <Toggle
           defaultChecked={true}
           id="error-default"
@@ -128,7 +138,9 @@ export const Layouts: Story = {
   render: () => (
     <SimpleGrid columns={2}>
       <VStack align="left" spacing="s">
-        <Heading level="three">Grouped</Heading>
+        <Heading level="h3" size="heading6">
+          Grouped
+        </Heading>
         <Toggle defaultChecked={true} id="layout1" labelText="On" />
         <Toggle defaultChecked={true} id="layout2" labelText="On" />
         <Toggle defaultChecked={true} id="layout3" labelText="On" />
@@ -136,7 +148,9 @@ export const Layouts: Story = {
         <Toggle defaultChecked={true} id="layout5" labelText="On" />
       </VStack>
       <VStack align="left" spacing="s">
-        <Heading level="three">With Helper Text</Heading>
+        <Heading level="h3" size="heading6">
+          With Helper Text
+        </Heading>
         <Toggle
           defaultChecked={true}
           helperText="Component Helper Text"
