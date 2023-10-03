@@ -44,9 +44,15 @@ color and background color is 4.5:1. If text size is 200%, the button scales
 with text so there is no overlap. Internally, a `Label` is associated with the
 `<input>` element.
 
-When `showLabel` is set to false, the `labelText` value will be set to the
-main `<div>`'s `aria-label` attribute. This is the same `<div>` that contains the
-`aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
+The `labelText` value is used to populate a global visual label for component.
+The value is also used to generate appropriate `aria-label` values for the
+component's text input and slider thumb. When `showLabel` is set to false, the
+visual label will be removed from the UI, but the value will still be used to
+generate the aria-label values for the previously mentioned internal
+elements.
+
+In addition to the `aria-label` attribute, the slider thumb will also contains
+the `aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
 attributes.
 
 Resources:
@@ -65,8 +71,11 @@ which shows the current value. This `input` element also has its own
 `aria-label`. When the input box is hidden, the `for` attribute in the `label`
 element is removed.
 
-Note that Chakra handles its single slider thumb aria attributes: `aria-valuemin`,
-`aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
+Note that Chakra will automatically generate the values for the following aria
+attributes on the single slider thumb: `aria-valuemin`, `aria-valuemax`,
+`aria-valuenow`, and `aria-orientation`. However, Chakra does not generate the
+value for the `aria-label` attribute on the single slider thumb. The value for
+the `aria-label` attribute is dependent on the `labelText` value.
 
 ## RangeSlider
 
@@ -75,20 +84,28 @@ components double as displays for the slider's current minimum and maximum
 value. For this type of component, the `value` prop must be an array of two
 numbers. This signifies the starting and ending values of the range slider.
 
+Similar to the single slider configuration, each of the two sliders in the range
+slider configuration will contain the `aria-label`, `aria-valuemin`,
+`aria-valuemax`, `aria-orientation`, and `aria-valuenow` attributes.
+
 <Canvas of={SliderStories.RangeSliderWithControls} />
 
 ### RangeSlider Accessibility Implementation
 
 Chakra's `RangeSlider` component is accessible and, as recommended, we pass in
-two `aria-label`s to their `RangeSlider` component. The syntax is different than
-the expected standard string; the `RangeSlider` expect `aria-label` to be an array
-of two strings. On top of this, the DS `Slider`'s `<label>` element, when in the
-`isRangeSlider` state, points to the _first_ `<input>` element which shows the
-current _start_ value. These two `input` elements also have their own `aria-label`s.
-When the input boxes are hidden, the `for` attribute in the `label` element is removed.
+two `aria-label` values to their `RangeSlider` component. The syntax is
+different than the expected standard string; the `RangeSlider` expects
+`aria-label` to be an array of two strings. On top of this, the DS `Slider`'s
+`<label>` element, when in the `isRangeSlider` state, points to the _first_
+`<input>` element which shows the current _start_ value. These two `input`
+elements also have their own `aria-label`s. When the input boxes are hidden, the
+`for` attribute in the `label` element is removed.
 
-Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
-`aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
+Note that Chakra will automatically generate the values for the following aria
+attributes on the two slider thumbs: `aria-valuemin`, `aria-valuemax`,
+`aria-valuenow`, and `aria-orientation`. However, Chakra will not generate the
+values for the `aria-label` attributes on the two slider thumbs. The values for
+the `aria-label` attributes are dependent on the `labelText` value.
 
 ## Examples
 
