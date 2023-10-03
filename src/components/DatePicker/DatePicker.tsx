@@ -156,6 +156,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
     // The `react-datepicker` passes `disabled=false` to its custom
     // input element. We don't need it, so remove it.
     delete (rest as any).disabled;
+    delete (rest as any)["aria-describedby"];
 
     return (
       <TextInput
