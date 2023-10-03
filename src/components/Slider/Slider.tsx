@@ -276,17 +276,15 @@ export const Slider = chakra(
       const getSliderType = () => {
         return isRangeSlider ? (
           <ChakraRangeSlider
-            // Both slider thumbs need values and should be in an array.
+            /**
+             * ChakraRangeSlider expects an array and applies the values to the
+             * `aria-label` attributes on the two slider thumbs respectively.
+             */
             aria-label={
-              showLabel
-                ? [
-                    `${labelText} - slider handle for start value`,
-                    `${labelText} - slider handle for end value`,
-                  ]
-                : [
-                    `${labelText} - slider handle for start value`,
-                    `${labelText} - slider handle for end value`,
-                  ]
+              [
+                `${labelText} - slider handle for start value`,
+                `${labelText} - slider handle for end value`,
+              ] as string[]
             }
             value={currentValue as number[]}
             // Make the thumbs larger.
@@ -301,6 +299,10 @@ export const Slider = chakra(
           </ChakraRangeSlider>
         ) : (
           <ChakraSlider
+            /**
+             * ChakraSlider uses this value to apply the `aria-label` attribute
+             * to the slider thumb.
+             */
             aria-label={`${labelText} - slider handle`}
             value={currentValue as number}
             // Make the thumb larger.
