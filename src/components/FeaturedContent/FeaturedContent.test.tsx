@@ -28,7 +28,7 @@ const imageProps = {
   src: "//placekitten.com/800/400",
 };
 
-describe("FeaturedContent accessbility tests", () => {
+describe("FeaturedContent accessibility tests", () => {
   it("passes for default layout", async () => {
     const { container } = render(
       <FeaturedContent

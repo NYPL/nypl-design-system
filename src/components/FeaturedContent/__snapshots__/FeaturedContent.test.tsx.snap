@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Image example"
+      src="//placekitten.com/800/400"
+      style={
+        {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="css-0"
+    id="text"
+  >
+    <div>
+      <br />
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+         Featured 
+      </p>
+      <h1
+        className="chakra-heading css-eyyo6e"
+      >
+         Spotlight on the Public Domain 
+      </h1>
+      <p>
+        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
+      </p>
+      <button
+        className="chakra-button css-1xdhyk6"
+        id="test"
+        type="button"
+      >
+         Discover more 
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Image example"
+      src="//placekitten.com/800/400"
+      style={
+        {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="css-0"
+    id="text"
+  >
+    <div>
+      <br />
+      <p
+        className="chakra-text css-1xdhyk6"
+      >
+         Featured 
+      </p>
+      <h1
+        className="chakra-heading css-eyyo6e"
+      >
+         Spotlight on the Public Domain 
+      </h1>
+      <p>
+        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
+      </p>
+      <button
+        className="chakra-button css-1xdhyk6"
+        id="test"
+        type="button"
+      >
+         Discover more 
+      </button>
+    </div>
+  </div>
+</div>
+`;
