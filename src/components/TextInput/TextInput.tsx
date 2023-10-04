@@ -44,7 +44,7 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
-  /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's aria-describedby value.
+  /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
    * If more than one, separate each with a space */
   additionalHelperTextIds?: string;
   /** A class name for the TextInput parent div. */
@@ -129,6 +129,7 @@ export const TextInput = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
+        additionalHelperTextIds,
         className,
         defaultValue,
         helperText,
@@ -155,7 +156,6 @@ export const TextInput = chakra(
         requiredLabelText,
         step = 1,
         textInputType = "default",
-        additionalHelperTextIds,
         type = "text",
         value,
         ...rest
