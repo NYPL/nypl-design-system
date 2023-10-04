@@ -15,12 +15,19 @@ const NewsLetterSignup = {
       base: getSectionColors(newsletterSignupType, "primary"),
       md: "ui.border.default",
     },
+    _dark: {
+      borderColor: "dark.ui.border.default",
+      borderTopColor: { md: "dark.ui.border.default" },
+    },
     maxWidth: "1280px",
     width: "100%",
     "div#pitch": {
       // It's a two-column layout >md
       width: { base: "100%", md: "50%" },
       bg: "ui.bg.default",
+      _dark: {
+        bg: "dark.ui.bg.default",
+      },
       padding: {
         base: "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-l) var(--nypl-space-l)", // @todo For some reason using "padding:" with more than one shorthand value, e.g. l, sm, xxl, doesn't work.
         md: "l",
@@ -51,8 +58,8 @@ const NewsLetterSignup = {
     },
     "#newsletter-form-parent": {
       // The button is 78px wide and must sit to the right of the input field >lg.
-      gridTemplateColumns: { base: null, lg: "1fr 78px" },
-      gap: { base: "s", lg: "xs" },
+      gridTemplateColumns: { base: null, xl: "1fr 78px" },
+      gap: { base: "s", xl: "xs" },
     },
     input: {
       display: "flex",
@@ -70,7 +77,7 @@ const NewsLetterSignup = {
     },
     button: {
       // The button must align w/ the input field, but using {align-items: center} doesn't quite work due to the input field not being the literal v-center.
-      marginTop: { base: null, lg: "31px" },
+      marginTop: { base: null, xl: "31px" },
     },
   }),
 };
