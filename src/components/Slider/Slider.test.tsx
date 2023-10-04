@@ -131,7 +131,7 @@ describe("Slider", () => {
       expect(slider).toHaveAttribute("aria-valuemin", "0");
       expect(slider).toHaveAttribute("aria-valuemax", "100");
       expect(slider).toHaveAttribute("aria-valuenow", "50");
-      expect(slider).toHaveAttribute("aria-labelledBy", "sliderId-label");
+      expect(slider).toHaveAttribute("aria-label", "Label - slider handle");
     });
 
     it("renders the '(Required)' text in the label or hides it", () => {
@@ -174,7 +174,10 @@ describe("Slider", () => {
       );
 
       expect(screen.queryByText(/Label/i)).not.toBeInTheDocument();
-      expect(screen.getByRole("slider")).toHaveAttribute("aria-label", "Label");
+      expect(screen.getByRole("slider")).toHaveAttribute(
+        "aria-label",
+        "Label - slider handle"
+      );
     });
 
     it("hides the min/max static values", () => {
@@ -634,12 +637,18 @@ describe("Slider", () => {
       // This is set so the starting thumb can't go past the current end value.
       expect(slider[0]).toHaveAttribute("aria-valuemax", "75");
       expect(slider[0]).toHaveAttribute("aria-valuenow", "25");
-      expect(slider[0]).toHaveAttribute("aria-labelledBy", "sliderId-label");
+      expect(slider[0]).toHaveAttribute(
+        "aria-label",
+        "Label - slider handle for start value"
+      );
       // This is set so the ending thumb can't go below the current start value.
       expect(slider[1]).toHaveAttribute("aria-valuemin", "25");
       expect(slider[1]).toHaveAttribute("aria-valuemax", "100");
       expect(slider[1]).toHaveAttribute("aria-valuenow", "75");
-      expect(slider[1]).toHaveAttribute("aria-labelledBy", "sliderId-label");
+      expect(slider[1]).toHaveAttribute(
+        "aria-label",
+        "Label - slider handle for end value"
+      );
     });
 
     it("hides the label but adds it as an aria-label attribute", () => {
@@ -658,11 +667,11 @@ describe("Slider", () => {
       expect(screen.queryByText(/Label/i)).not.toBeInTheDocument();
       expect(screen.getAllByRole("slider")[0]).toHaveAttribute(
         "aria-label",
-        "Custom Label - start value"
+        "Custom Label - slider handle for start value"
       );
       expect(screen.getAllByRole("slider")[1]).toHaveAttribute(
         "aria-label",
-        "Custom Label - end value"
+        "Custom Label - slider handle for end value"
       );
     });
 

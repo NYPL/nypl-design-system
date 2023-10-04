@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
+- Updates the `Slider` component to use appropriate `aria-label` values for the slider thumbs and text input fields.
 
 ### Fixes
 
