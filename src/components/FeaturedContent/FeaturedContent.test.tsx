@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import * as React from "react";
 import renderer from "react-test-renderer";
 
 import FeaturedContent from "./FeaturedContent";

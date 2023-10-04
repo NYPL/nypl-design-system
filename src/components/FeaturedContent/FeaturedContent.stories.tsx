@@ -85,7 +85,7 @@ export const WithControls: Story = {
     <FeaturedContent
       className={args.className}
       id={args.id}
-      isFullWidth={args.fullLayout}
+      isFullWidth={args.isFullWidth}
       textContent={
         <div id="text">
           <br />

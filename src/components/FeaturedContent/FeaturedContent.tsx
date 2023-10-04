@@ -66,6 +66,27 @@ export const FeaturedContent = chakra(
         imageWidth: imageProps.width,
         isFullWidth: isFullWidth,
       });
+      if (!imageProps) {
+        console.warn(
+          `NYPL Reservoir FeaturedContent: The 'imageProps' prop is required.`
+        );
+      }
+      if (!imageProps.src) {
+        console.warn(
+          `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
+        );
+      }
+      if (!imageProps.alt) {
+        console.warn(
+          `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
+        );
+      }
+      if (!textContent) {
+        console.warn(
+          `NYPL Reservoir FeaturedContent: The 'textContent' prop is required.`
+        );
+      }
+
       return (
         <Box __css={styles.wrapper}>
           <Box
@@ -76,8 +97,6 @@ export const FeaturedContent = chakra(
           >
             <FeaturedContentImage
               alt={imageProps.alt}
-              position={imageProps.position}
-              width={imageProps.width}
               src={imageProps.src ? imageProps.src : undefined}
             />
           </Box>

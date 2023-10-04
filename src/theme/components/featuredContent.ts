@@ -12,7 +12,8 @@ const FeaturedContent = {
     imageWidth,
     isFullWidth,
   }: FeaturedContentBaseStyleProps) => {
-    const imageAtEnd = imagePosition === "end";
+    let imageAtEnd = imagePosition === "end";
+    let full = isFullWidth === true;
     let wrapperWidth = "50%";
     if (imageWidth === "oneQuarter") {
       wrapperWidth = "25%";
@@ -23,9 +24,12 @@ const FeaturedContent = {
     } else if (imageWidth === "threeQuarters") {
       wrapperWidth = "75%";
     }
-    let full = isFullWidth === false;
     return {
       wrapper: {
+        bgColor: "ui.gray.x-light-cool",
+        _dark: {
+          bgColor: "dark.ui.bg.default",
+        },
         ...wrapperStyles,
         width: full ? "100vw" : "100%",
         left: full ? "50%" : "auto",
@@ -34,10 +38,6 @@ const FeaturedContent = {
         position: full ? "relative" : "auto",
         marginLeft: full ? "-50vw" : "auto",
         marginRight: full ? "-50vw" : "auto",
-        bgColor: "ui.gray.x-light-cool",
-        _dark: {
-          bgColor: "dark.ui.bg.default",
-        },
         minHeight: "320px",
         display: "flex",
         alignItems: "stretch",
@@ -55,8 +55,6 @@ const FeaturedContent = {
         backgroundSize: "cover",
         height: { sm: "320px", md: "auto" },
         width: { sm: "100%", md: wrapperWidth },
-        padding: 0,
-        margin: 0,
       },
     };
   },
