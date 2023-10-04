@@ -21,7 +21,7 @@ export const textContent = (
     </div>
   </>
 );
-const imageProps = {
+const defaultImageProps = {
   alt: "Image example",
   src: "//placekitten.com/800/400",
 };
@@ -31,7 +31,7 @@ describe("FeaturedContent accessibility tests", () => {
     const { container } = render(
       <FeaturedContent
         isFullWidth={false}
-        imageProps={imageProps}
+        imageProps={defaultImageProps}
         textContent={textContent}
       />
     );
@@ -41,7 +41,7 @@ describe("FeaturedContent accessibility tests", () => {
     const { container } = render(
       <FeaturedContent
         isFullWidth={true}
-        imageProps={imageProps}
+        imageProps={defaultImageProps}
         textContent={textContent}
       />
     );
@@ -55,7 +55,7 @@ describe("FeaturedContent", () => {
       <FeaturedContent
         id="featuredcontent"
         isFullWidth={true}
-        imageProps={imageProps}
+        imageProps={defaultImageProps}
         textContent={textContent}
       />
     );
@@ -69,6 +69,74 @@ describe("FeaturedContent", () => {
       "//placekitten.com/800/400"
     );
   });
+
+  it("logs a warning if `imageProps` prop is not present", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <FeaturedContent
+        id="featuredcontent"
+        isFullWidth={false}
+        textContent={textContent}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      `NYPL Reservoir FeaturedContent: The 'imageProps' prop is required.`
+    );
+  });
+
+  it("logs a warning if `textContent` prop is not present", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <FeaturedContent
+        id="featuredcontent"
+        isFullWidth={false}
+        imageProps={defaultImageProps}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      `NYPL Reservoir FeaturedContent: The 'textContent' prop is required.`
+    );
+  });
+
+  it("logs a warning if `imageProps.src` is empty", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <FeaturedContent
+        id="featuredcontent"
+        isFullWidth={true}
+        imageProps={{
+          alt: "Image example",
+          src: "",
+        }}
+        textContent={textContent}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
+    );
+  });
+});
+
+it("logs a warning if `imageProps.alt` is empty", () => {
+  const warn = jest.spyOn(console, "warn");
+  render(
+    <FeaturedContent
+      id="featuredcontent"
+      isFullWidth={true}
+      imageProps={{
+        alt: "",
+        src: "//placekitten.com/800/400",
+      }}
+      textContent={textContent}
+    />
+  );
+  expect(warn).toHaveBeenCalledWith(
+    `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
+  );
 });
 
 it("Renders the UI snapshot correctly", () => {
@@ -76,7 +144,7 @@ it("Renders the UI snapshot correctly", () => {
     .create(
       <FeaturedContent
         isFullWidth={false}
-        imageProps={imageProps}
+        imageProps={defaultImageProps}
         textContent={textContent}
       />
     )
@@ -85,11 +153,69 @@ it("Renders the UI snapshot correctly", () => {
     .create(
       <FeaturedContent
         isFullWidth={true}
-        imageProps={imageProps}
+        imageProps={defaultImageProps}
+        textContent={textContent}
+      />
+    )
+    .toJSON();
+
+  const oneQuarterImageWidth = renderer
+    .create(
+      <FeaturedContent
+        isFullWidth={false}
+        imageProps={{
+          alt: "Image example",
+          src: "//placekitten.com/800/400",
+          width: "oneQuarter",
+        }}
+        textContent={textContent}
+      />
+    )
+    .toJSON();
+  const oneThirdImageWidth = renderer
+    .create(
+      <FeaturedContent
+        isFullWidth={false}
+        imageProps={{
+          alt: "Image example",
+          src: "//placekitten.com/800/400",
+          width: "oneThird",
+        }}
+        textContent={textContent}
+      />
+    )
+    .toJSON();
+
+  const twoThirdsImageWidth = renderer
+    .create(
+      <FeaturedContent
+        isFullWidth={false}
+        imageProps={{
+          alt: "Image example",
+          src: "//placekitten.com/800/400",
+          width: "twoThirds",
+        }}
+        textContent={textContent}
+      />
+    )
+    .toJSON();
+  const threeQuartersImageWidth = renderer
+    .create(
+      <FeaturedContent
+        isFullWidth={false}
+        imageProps={{
+          alt: "Image example",
+          src: "//placekitten.com/800/400",
+          width: "threeQuarters",
+        }}
         textContent={textContent}
       />
     )
     .toJSON();
   expect(defaultLayout).toMatchSnapshot();
   expect(fullLayout).toMatchSnapshot();
+  expect(oneQuarterImageWidth).toMatchSnapshot();
+  expect(oneThirdImageWidth).toMatchSnapshot();
+  expect(twoThirdsImageWidth).toMatchSnapshot();
+  expect(threeQuartersImageWidth).toMatchSnapshot();
 });
