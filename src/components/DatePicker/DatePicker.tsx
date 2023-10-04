@@ -156,7 +156,6 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
     // The `react-datepicker` passes `disabled=false` to its custom
     // input element. We don't need it, so remove it.
     delete (rest as any).disabled;
-    delete (rest as any)["aria-describedby"];
 
     return (
       <TextInput
@@ -373,6 +372,7 @@ export const DatePicker = chakra(
         ...baseCustomTextInputAttrs,
         helperText: helperTextTo,
       };
+
       // These props are used to follow the pattern recommended by
       // the react-datepicker plugin.
       startDatePickerAttrs = {
@@ -395,6 +395,12 @@ export const DatePicker = chakra(
             <CustomTextInput
               dsRef={refTo}
               labelText="To"
+              // `secondaryHelperTextId` is passed when both `helperTextTo`
+              // and `helperText` are displayed. It tells `TextInput` to associate
+              // with both helper texts using `aria-describedby`.
+              {...(helperTextTo && helperText
+                ? { secondaryHelperTextId: `${id}-helper-text` }
+                : {})}
               {...endCustomTextInputAttrs}
             />
           }
@@ -412,6 +418,12 @@ export const DatePicker = chakra(
           <CustomTextInput
             dsRef={ref}
             labelText={startLabelText}
+            // `secondaryHelperTextId` is passed when both `helperTextFrom`
+            // and `helperText` are displayed and tells `TextInput` to associate
+            // with both helper texts using `aria-describedby`.
+            {...(isDateRange && helperTextFrom && helperText
+              ? { secondaryHelperTextId: `${id}-helper-text` }
+              : {})}
             {...baseCustomTextInputAttrs}
           />
         }

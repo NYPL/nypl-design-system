@@ -8,6 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Updates `TextInput` so it no longer incorrectly overwrites the `aria-describedby` value to undefined when part of the `DatePicker` component.
+- Updates `DatePicker` to pass a `secondaryHelperTextId` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
+
 ## 1.7.3 (September 13, 2023)
 
 ### Updates

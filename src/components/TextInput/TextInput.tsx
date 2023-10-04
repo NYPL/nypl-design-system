@@ -105,6 +105,8 @@ export interface InputProps {
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   textInputType?: TextInputVariants;
+  /** FOR INTERNAL DS USE ONLY: additional helper text id to be added to the input's aria-describedby value. */
+  secondaryHelperTextId?: string;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
@@ -152,6 +154,7 @@ export const TextInput = chakra(
         requiredLabelText,
         step = 1,
         textInputType = "default",
+        secondaryHelperTextId,
         type = "text",
         value,
         ...rest
@@ -200,6 +203,7 @@ export const TextInput = chakra(
         id,
         labelText,
         name: "TextInput",
+        secondaryHelperTextId,
         showLabel,
       });
 
@@ -256,8 +260,8 @@ export const TextInput = chakra(
             ref: finalRef,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
-            ...ariaAttributes,
             ...rest,
+            ...ariaAttributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
       // also needs `type` and `value` to render correctly.

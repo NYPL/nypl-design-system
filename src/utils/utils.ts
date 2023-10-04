@@ -52,6 +52,7 @@ interface GetAriaAttrsProps {
   id: string;
   labelText: HelperErrorTextType;
   name: string;
+  secondaryHelperTextId?: string;
   showLabel: boolean;
 }
 /**
@@ -63,6 +64,7 @@ export const getAriaAttrs = ({
   id,
   labelText,
   name,
+  secondaryHelperTextId,
   showLabel,
 }: GetAriaAttrsProps): AriaAttributes => {
   let ariaAttributes: AriaAttributes = {};
@@ -78,9 +80,10 @@ export const getAriaAttrs = ({
         ? `${labelText} - ${footnote}`
         : (labelText as string);
   } else if (footnote) {
-    ariaAttributes["aria-describedby"] = `${id}-helperText`;
+    ariaAttributes["aria-describedby"] = `${
+      secondaryHelperTextId ? secondaryHelperTextId + " " : ""
+    }${id}-helperText`;
   }
-
   return ariaAttributes;
 };
 
