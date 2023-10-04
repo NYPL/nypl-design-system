@@ -6,7 +6,7 @@ import { Heading } from "../src/index";
 const App = () => {
   return (
     <div>
-      <Heading level="one">NYPL</Heading>
+      <Heading level="h1">NYPL</Heading>
     </div>
   );
 };

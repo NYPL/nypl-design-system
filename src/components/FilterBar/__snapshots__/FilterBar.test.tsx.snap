@@ -22,7 +22,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
   id="filter-bar-filterBarWithClearAllButton"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-ejul5c"
   >
     FilterBar
   </h2>
@@ -67,7 +67,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
   id="filter-bar-filterBarWithButtons"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-ejul5c"
   >
     FilterBar
   </h2>

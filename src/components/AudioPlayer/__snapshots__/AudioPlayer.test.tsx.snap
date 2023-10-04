@@ -15,7 +15,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   id="undefined-componentWrapper-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="undefined-componentWrapper-heading"
   >
     Audio Player Heading
