@@ -395,11 +395,11 @@ export const DatePicker = chakra(
             <CustomTextInput
               dsRef={refTo}
               labelText="To"
-              // `secondaryHelperTextId` is passed when both `helperTextTo`
+              // `additionalHelperTextIds` is passed when both `helperTextTo`
               // and `helperText` are displayed. It tells `TextInput` to associate
               // with both helper texts using `aria-describedby`.
               {...(helperTextTo && helperText
-                ? { secondaryHelperTextId: `${id}-helper-text` }
+                ? { additionalHelperTextIds: `${id}-helper-text` }
                 : {})}
               {...endCustomTextInputAttrs}
             />
@@ -418,11 +418,11 @@ export const DatePicker = chakra(
           <CustomTextInput
             dsRef={ref}
             labelText={startLabelText}
-            // `secondaryHelperTextId` is passed when both `helperTextFrom`
+            // `additionalHelperTextIds` is passed when both `helperTextFrom`
             // and `helperText` are displayed and tells `TextInput` to associate
             // with both helper texts using `aria-describedby`.
             {...(isDateRange && helperTextFrom && helperText
-              ? { secondaryHelperTextId: `${id}-helper-text` }
+              ? { additionalHelperTextIds: `${id}-helper-text` }
               : {})}
             {...baseCustomTextInputAttrs}
           />

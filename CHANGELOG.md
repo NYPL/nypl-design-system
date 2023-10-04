@@ -13,7 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
 - Updates the `Slider` component to use appropriate `aria-label` values for the slider thumbs and text input fields.
 - Updates `TextInput` so it no longer incorrectly overwrites the `aria-describedby` value to undefined when part of the `DatePicker` component.
-- Updates `DatePicker` to pass a `secondaryHelperTextId` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
+- Updates `DatePicker` to pass a `additionalHelperTextIds` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
 
 ## 2.0.1 (September 28, 2023)
 

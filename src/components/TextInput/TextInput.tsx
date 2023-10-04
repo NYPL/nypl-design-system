@@ -44,6 +44,9 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
+  /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's aria-describedby value.
+   * If more than one, separate each with a space */
+  additionalHelperTextIds?: string;
   /** A class name for the TextInput parent div. */
   className?: string;
   /** The starting value of the input field. */
@@ -105,8 +108,6 @@ export interface InputProps {
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   textInputType?: TextInputVariants;
-  /** FOR INTERNAL DS USE ONLY: additional helper text id to be added to the input's aria-describedby value. */
-  secondaryHelperTextId?: string;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
@@ -154,7 +155,7 @@ export const TextInput = chakra(
         requiredLabelText,
         step = 1,
         textInputType = "default",
-        secondaryHelperTextId,
+        additionalHelperTextIds,
         type = "text",
         value,
         ...rest
@@ -203,7 +204,7 @@ export const TextInput = chakra(
         id,
         labelText,
         name: "TextInput",
-        secondaryHelperTextId,
+        additionalHelperTextIds,
         showLabel,
       });
 
