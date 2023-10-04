@@ -8,14 +8,21 @@
  */
 import { sectionDataMap, SectionTypes } from "./types";
 
+type ColorSection = {
+  primary: string;
+  secondary: string | null;
+};
+
+type ColorVal = string;
+
 export function getSectionColors(
   type: SectionTypes,
   colorVal?: "primary" | "secondary"
-) {
-  let colorName = sectionDataMap.filter((section) => section.type === type)[0]
-    .colorVals;
+): ColorSection | ColorVal {
+  let colorValOrSection = sectionDataMap[type];
+
   if (colorVal) {
-    colorName = colorName[colorVal];
+    colorValOrSection = colorValOrSection[colorVal];
   }
-  return colorName;
+  return colorValOrSection;
 }

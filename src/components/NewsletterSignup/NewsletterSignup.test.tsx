@@ -10,9 +10,9 @@ import { sectionDataMap } from "../../helpers/types";
 // screen.debug();
 
 describe("NewsletterSignup Accessibility", () => {
-  const onSubmit = jest.fn(),
-    onChange = jest.fn(),
-    valueEmail = "";
+  const onSubmit = jest.fn();
+  const onChange = jest.fn();
+  const valueEmail = "";
   it("Form state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
@@ -102,9 +102,9 @@ describe("NewsletterSignup Unit Tests", () => {
    *    way to test that the component does what it should when the button is clicked.
    */
 
-  const onSubmit = jest.fn(),
-    onChange = jest.fn(),
-    valueEmail = "";
+  const onSubmit = jest.fn();
+  const onChange = jest.fn();
+  const valueEmail = "";
   it("Renders the Minimum Required Elements for the Form", () => {
     render(
       <NewsletterSignup
@@ -189,9 +189,9 @@ describe("NewsletterSignup Unit Tests", () => {
 }); // Close unit tests.
 
 describe("NewsletterSignup Snapshots", () => {
-  const onSubmit = jest.fn(),
-    onChange = jest.fn(),
-    valueEmail = "";
+  const onSubmit = jest.fn();
+  const onChange = jest.fn();
+  const valueEmail = "";
   it("Renders the default form UI snapshot correctly", () => {
     const view = renderer
       .create(
@@ -307,12 +307,12 @@ describe("NewsletterSignup Snapshots", () => {
   describe("Renders each color for each newsletterSignupType correctly", () => {
     // The newsletterSignupType values are determined by the types contained in the sectionDataMap.
     // So it is safe to use the map directly.
-    sectionDataMap.map((section) => {
+    Object.keys(sectionDataMap).map((section) => {
       it(
         "Renders " +
-          section.type +
+          section +
           " color band with " +
-          section.colorVals.primary,
+          sectionDataMap[section].primary,
         () => {
           const view = renderer
             .create(
@@ -320,7 +320,7 @@ describe("NewsletterSignup Snapshots", () => {
                 onSubmit={onSubmit}
                 onChange={onChange}
                 valueEmail={valueEmail}
-                newsletterSignupType={section.type}
+                newsletterSignupType={section}
               />
             )
             .toJSON();

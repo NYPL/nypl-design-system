@@ -22,7 +22,6 @@ import Link from "../Link/Link";
 
 <Description of={NewsletterSignupStories} />
 
-
 **Note**: The `NewsletterSignup` example
 below alternately renders the "confirmation" and "error" screens on each form
 submission. This is just to demonstrate the different states of the component.
@@ -33,53 +32,6 @@ In practice, the consuming app is responsible for handling the form submission.
 <Canvas of={NewsletterSignupStories.WithControls} />
 
 <ArgTypes of={NewsletterSignupStories.WithControls} />
-
-<Source
-code='        const sampleOnSubmitValue = async (e: any) => {
-          e.preventDefault();
-
-            //Create dynamic Google Analytics values
-            const gaEventCategory = "Email Subscription Forms";
-            //    const gaEventActionName = `Subscribe - ${asPath}`; // example: Subscribe - /research
-            const gaEventActionName = `Subscribe - Testing`; // example: Subscribe - /research
-            const gaEventLabel = `Success ${salesforceSourceCode}`; // example: Success research
-
-            setIsSubmitting(true);
-
-            const endpoint = "/api/salesforce";
-
-              // Form the request for sending data to the server.
-              const options = {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  email: e.target.email.value,
-                  listID: salesforceListId,
-                  sourceCode: salesforceSourceCode,
-                }),
-
-
-              // Send the form and await response.
-              try {
-                const response = await fetch(endpoint, options);
-                const result = await response.json();
-
-                window.gtag("event", gaEventActionName, {
-                  eventCategory: gaEventCategory,
-                  eventLabel: gaEventLabel,
-                });
-
-                setStatus(result.statusCode);
-                setIsSubmitted(true);
-              } catch (error) {
-                setStatus("ERROR");
-                setIsSubmitted(true);
-              }
-              setIsSubmitting(false);
-            }
-          };' />
 
 ## Accessibility
 
@@ -124,3 +76,49 @@ Resources:
 - [DS Radio Accessibility](../?path=/docs/components-form-elements-radio--docs#accessibility)
 - [DS RadioGroup Accessibility](../?path=/docs/components-form-elements-radiogroup--docs#accessibility)
 
+## Form Submission Data
+
+Submitted form data can be retrieved when the `NewsletterSignup` component is
+submitted through the required `onSubmit` prop. This prop expects a function and
+it will be called when the form is submitted. Similar to other DS form-components
+that have function props, the data from the component will be returned in the
+function's argument. In this case, it will be a single object.
+
+The submitted form data will be passed as an object that the parent component
+can use. The returned object will always conatain the "email" field.
+
+Below is an example callback function named `onSubmit` that is passed to the
+`NewsletterSignup` component's `onSubmit` prop and how the view is controlled
+in the data submission process. The form data will be returned through
+the function's argument as an object, called `values` in the example below.
+
+<Source 
+  code={`
+const [view, setView] = React.useState("form");
+const onSubmit = async (values) => {
+  e.preventDefault();
+  setView("submitting");
+  const endpoint = "...";
+  //Form the request for sending data to the server.
+  const options = {
+    method: "POST",
+    headers: {Content-Type: "application/json"},
+    body: JSON.stringify(values),
+  };
+  //Send the form and await response.
+  try {
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+    setView("confirmation");
+  } catch (error) {
+    setView("error");
+  }
+};
+
+//....
+
+<NewsletterSignup onChange={onChange} onSubmit={onSubmit} view={view} />
+
+`}
+language="jsx"
+/>

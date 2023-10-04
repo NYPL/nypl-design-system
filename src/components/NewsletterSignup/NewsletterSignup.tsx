@@ -16,7 +16,6 @@ import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
-import { getSectionColors } from "../../helpers/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
 
 interface NewsletterSignupProps {
@@ -42,8 +41,8 @@ interface NewsletterSignupProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Optional: Used to populate the `<h3>` header title. */
   title?: string;
-  /** Required: The value of the email text input field. */
-  valueEmail: string;
+  /** Optional: The value of the email text input field. */
+  valueEmail?: string;
   /** Optional: Used to specify what is displayed in the component form/feedback area. */
   view?: "form" | "submitting" | "confirmation" | "error";
 }
@@ -60,7 +59,7 @@ const defaultDescriptionText =
  * email-based newsletter distribution list.
  */
 export const NewsletterSignup = chakra(
-  forwardRef<any, NewsletterSignupProps>(
+  forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {
         className,
@@ -71,7 +70,7 @@ export const NewsletterSignup = chakra(
         isInvalidEmail = false,
         newsletterSignupType = "whatsOn",
         onChange,
-        valueEmail = "",
+        valueEmail,
         onSubmit,
         title = "Sign Up for Our Newsletter!",
         view = "form",
@@ -80,7 +79,9 @@ export const NewsletterSignup = chakra(
       ref?
     ) => {
       const { isLargerThanMobile } = useNYPLBreakpoints();
-      const styles = useStyleConfig("NewsletterSignup", {});
+      const styles = useStyleConfig("NewsletterSignup", {
+        newsletterSignupType,
+      });
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
 
       const isFormView = view === "form" || view === "submitting";
@@ -99,47 +100,39 @@ export const NewsletterSignup = chakra(
           __css={styles}
           {...rest}
         >
-          <Stack direction={isLargerThanMobile ? "row" : "column"} id={"info"}>
-            <Box
-              bg={getSectionColors(newsletterSignupType, "primary")}
-              id={"color-box"}
-              width={isLargerThanMobile ? ".75rem" : null} // @todo Not sure how to adapt this into the theme.ts and have it work the same.
-              height={isLargerThanMobile ? null : ".75rem"} // @todo ibid.
+          <VStack id="pitch">
+            <Heading level="h3" text={title} />
+            <Text>{descriptionText}</Text>
+            <Link
+              // @TODO I would make this a prop -- WL.
+              href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+              type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
+              id="privacy"
             >
-              &nbsp;
-            </Box>
-            <VStack id={"pitch"}>
-              <Heading level={"h3"} text={title} />
-              <Text>{descriptionText}</Text>
-              <Link
-                // @TODO I would make this a prop -- WL.
-                href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-                type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
-                id={"privacy"}
-              >
-                Privacy Policy
-              </Link>
-            </VStack>
-          </Stack>
-          <VStack id={"action"}>
+              Privacy Policy
+            </Link>
+          </VStack>
+          <VStack id="action">
             {isFormView && (
               <Form id="newsletter-form" onSubmit={onSubmit}>
-                <FormField key={"formfield-input"}>
+                <FormField key="formfield-input">
                   <TextInput
-                    id={"email-input"}
+                    id="email-input"
+                    isDisabled={view === "submitting"}
                     isRequired
-                    invalidText="Please enter a valid email address." // This text is boilerplate and not meant to be customized.
+                    // This text is boilerplate and not meant to be customized.
+                    invalidText="Please enter a valid email address."
                     isInvalid={isInvalidEmail}
                     labelText="Email Address"
                     helperText={formHelperText}
-                    name={"email"}
+                    name="email"
                     onChange={onChange}
                     placeholder="Enter your email address here"
                     type="email"
                     value={valueEmail}
                   />
                 </FormField>
-                <FormField key={"formfield-button"}>
+                <FormField key="formfield-button">
                   <Button
                     id="submit"
                     isDisabled={view === "submitting"}
@@ -172,15 +165,15 @@ export const NewsletterSignup = chakra(
                 margin="auto"
                 textAlign="center"
                 ref={focusRef}
-                tabIndex={-1}
+                tabIndex={0}
               >
                 <Icon
                   color="ui.error.primary"
                   name="errorFilled"
                   size="large"
                 />
-                <Text fontWeight="medium">Oops! Something went wrong.</Text>{" "}
                 {/* This text is boilerplate and not meant to be customized. */}
+                <Text fontWeight="medium">Oops! Something went wrong.</Text>
               </Box>
             )}
           </VStack>

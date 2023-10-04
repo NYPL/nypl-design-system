@@ -5,76 +5,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1ctihmm"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -165,76 +154,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1nllm19"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -325,76 +303,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1gzjzh6"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -485,76 +452,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-bi3p3c"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -645,76 +601,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1b1m9jb"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -805,76 +750,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1wckl1g"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -965,76 +899,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-39mu5e"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1125,76 +1048,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-12mh8pb"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1285,76 +1197,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1k5uyg5"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1445,76 +1346,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-1jnaf6k"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1605,76 +1495,65 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1765,76 +1644,65 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -1931,76 +1799,65 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2056,76 +1913,65 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2181,76 +2027,65 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2341,76 +2176,65 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2418,7 +2242,7 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
   >
     <div
       className="css-izh28l"
-      tabIndex={-1}
+      tabIndex={0}
     >
       <svg
         aria-hidden={true}
@@ -2456,7 +2280,6 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
       >
         Oops! Something went wrong.
       </p>
-       
     </div>
   </div>
 </div>
@@ -2467,76 +2290,65 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Why not?
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Why not?
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2627,76 +2439,65 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2788,76 +2589,65 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-n21gh5"
-    id="info"
+    className="chakra-stack css-owjkmg"
+    id="pitch"
   >
-    <div
-      className="css-13lr0hl"
-      id="color-box"
+    <h3
+      className="chakra-heading css-1878n22"
     >
-       
-    </div>
-    <div
-      className="chakra-stack css-owjkmg"
-      id="pitch"
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1xdhyk6"
     >
-      <h3
-        className="chakra-heading css-1878n22"
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1xdhyk6"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      id="privacy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
       >
-        Sign Up for Our Newsletter!
-      </h3>
-      <p
-        className="chakra-text css-1xdhyk6"
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="privacy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
       >
-        Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-      </p>
-      <a
-        className="css-1xdhyk6"
-        href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-        id="privacy"
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-      >
-        Privacy Policy
-        <span
-          className="css-0"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
         >
-          This link opens in a new window
-        </span>
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="privacy-external-icon"
-          role="img"
-          title="External link"
-          viewBox="0 0 24 24"
-        >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-      </a>
-    </div>
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
   </div>
   <div
     className="chakra-stack css-owjkmg"
@@ -2899,7 +2689,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-0"
-                disabled={false}
+                disabled={true}
                 id="email-input"
                 name="email"
                 onBlur={[Function]}
