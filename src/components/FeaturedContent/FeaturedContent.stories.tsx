@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
-import Text from "../Text/Text";
 
 import FeaturedContent, {
   featuredContentWidthArray,
@@ -87,20 +86,14 @@ export const WithControls: Story = {
       id={args.id}
       isFullWidth={args.isFullWidth}
       textContent={
-        <div id="text">
-          <br />
-          <Text size="overline1"> Featured </Text>
-          <Heading level="h2"> Spotlight on the Public Domain </Heading>
+        <div>
+          <Heading level="h1" overline="Featured">
+            Spotlight on the Public Domain
+          </Heading>
           <p>
             The New York Public Library recently enhanced access to all public
             domain items in Digital Collections so that everyone has the freedom
-            to enjoy and reuse these materials in almost limitless ways. The New
-            York Public Library recently enhanced access to all public domain
-            items in Digital Collections so that everyone has the freedom to
-            enjoy and reuse these materials in almost limitless ways. The New
-            York Public Library recently enhanced access to all public domain
-            items in Digital Collections so that everyone has the freedom to
-            enjoy and reuse these materials in almost limitless ways.
+            to enjoy and reuse these materials in almost limitless ways.
           </p>
           <Button id="test"> Discover more </Button>
         </div>

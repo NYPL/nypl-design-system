@@ -64,7 +64,7 @@ export const FeaturedContent = chakra(
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
-        isFullWidth: isFullWidth,
+        isFullWidth,
       });
 
       if (!imageProps) {
@@ -76,7 +76,8 @@ export const FeaturedContent = chakra(
           console.warn(
             `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
           );
-        } else if (!imageProps.alt) {
+        }
+        if (!imageProps.alt) {
           console.warn(
             `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
           );
@@ -90,8 +91,9 @@ export const FeaturedContent = chakra(
       }
 
       return (
-        <Box __css={styles.wrapper}>
+        <Box data-testid="featuredcontent" __css={styles.wrapper}>
           <Box
+            data-testid="bg-image"
             __css={{
               ...styles.imgWrapper,
               backgroundImage: `url(${imageProps.src})`,
