@@ -38,12 +38,10 @@ export interface FeaturedContentProps {
 
 /**
  * The FeaturedContentImage component is used internally in the `FeaturedContent` component. It
- * renders an `Image` component but with overriding styles specific to the
+ * renders an 'img' element but with overriding styles specific to the
  * `FeaturedContent` component.
  */
-function FeaturedContentImage(
-  props: React.ComponentProps<"img"> & FeaturedContentImageProps
-) {
+function FeaturedContentImage(props: FeaturedContentImageProps) {
   const { alt, src } = props;
   return <img alt={alt} src={src} style={{ display: "none" }} />;
 }
