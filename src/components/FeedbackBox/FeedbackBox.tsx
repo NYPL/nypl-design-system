@@ -189,6 +189,7 @@ export const FeedbackBox = chakra(
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
             type="external"
             fontSize="text.tag"
+            isUnderlined={false}
             width="fit-content"
           >
             Privacy Policy
