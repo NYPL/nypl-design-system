@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-//import userEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -97,9 +97,7 @@ describe("NewsletterSignup Accessibility", () => {
 describe("NewsletterSignup Unit Tests", () => {
   /** Notes
    *
-   * 1. The newsletterSignupType tests are covered in the snapshot tests below.
-   * 2. Because the functionality of the submit click is handled entirely by the consuming app, there seems to be no
-   *    way to test that the component does what it should when the button is clicked.
+   * The newsletterSignupType tests are covered in the snapshot tests below.
    */
 
   const onSubmit = jest.fn();
@@ -134,6 +132,44 @@ describe("NewsletterSignup Unit Tests", () => {
     render(testNewsletterSignup);
     expect(screen.getByText(/Do not send cash./i)).toBeInTheDocument();
     expect(screen.getByText(/Just trying to help/i)).toBeInTheDocument();
+  });
+
+  it("calls the onChange on user type event", () => {
+    render(<NewsletterSignup onSubmit={onSubmit} onChange={onChange} />);
+
+    expect(onChange).toHaveBeenCalledTimes(0);
+    userEvent.type(screen.getByRole("textbox"), "t");
+    expect(onChange).toHaveBeenCalledTimes(1);
+    userEvent.type(screen.getByRole("textbox"), "est");
+    expect(onChange).toHaveBeenCalledTimes(4);
+    expect(screen.getByRole("form")).toHaveFormValues({ email: "test" });
+  });
+
+  it("calls the onSubmit on click submit button", async () => {
+    let componentView: "form" | "confirmation" = "form";
+    const onSubmit = jest.fn(() => {
+      componentView = "confirmation";
+    });
+    const { rerender } = render(
+      <NewsletterSignup
+        onSubmit={onSubmit}
+        onChange={onChange}
+        view={componentView}
+      />
+    );
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    userEvent.type(screen.getByRole("textbox"), "test@email.com");
+    userEvent.click(screen.getByRole("button", { name: "Submit" }));
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    rerender(
+      <NewsletterSignup
+        onSubmit={onSubmit}
+        onChange={onChange}
+        view={componentView}
+      />
+    );
+    expect(screen.getByText("Thank you for signing up!")).toBeInTheDocument();
   });
 
   describe("Renders the Feedback Views", () => {
