@@ -111,7 +111,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -260,7 +260,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -409,7 +409,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -558,7 +558,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -707,7 +707,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -856,7 +856,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1005,7 +1005,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1154,7 +1154,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1303,7 +1303,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1452,7 +1452,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1601,7 +1601,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1751,7 +1751,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -1864,44 +1864,53 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
     id="action"
   >
     <div
-      className="feedback-body response css-edqvy"
-      tabIndex={-1}
+      className="feedback-body response css-42igfv"
+      tabIndex={0}
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        role="img"
-        title="actionCheckCircleFilled icon"
-        viewBox="0 0 24 24"
+      <div
+        className="css-116fi6s"
       >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          role="img"
+          title="actionCheckCircleFilled icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        <p
+          className="chakra-text css-1g7wtor"
+        >
+          Thank you for signing up!
+        </p>
+      </div>
       <p
-        className="chakra-text css-z2t3gu"
+        className="chakra-text css-1xdhyk6"
       >
-        You did great!
+        You can update your email subscription preferences at any time using the links at the bottom of the email.
       </p>
     </div>
   </div>
@@ -1978,44 +1987,53 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     id="action"
   >
     <div
-      className="feedback-body response css-edqvy"
-      tabIndex={-1}
+      className="feedback-body response css-42igfv"
+      tabIndex={0}
     >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        role="img"
-        title="actionCheckCircleFilled icon"
-        viewBox="0 0 24 24"
+      <div
+        className="css-116fi6s"
       >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1grhd2q"
+          focusable={false}
+          role="img"
+          title="actionCheckCircleFilled icon"
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        <p
+          className="chakra-text css-1g7wtor"
+        >
+          Thank you for signing up!
+        </p>
+      </div>
       <p
-        className="chakra-text css-z2t3gu"
+        className="chakra-text css-1xdhyk6"
       >
-        Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences at any time using the links at the bottom of the email.
+        You can update your email subscription preferences at any time using the links at the bottom of the email.
       </p>
     </div>
   </div>
@@ -2133,7 +2151,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -2241,7 +2259,7 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
     id="action"
   >
     <div
-      className="css-izh28l"
+      className="css-16zjcfy"
       tabIndex={0}
     >
       <svg
@@ -2276,7 +2294,7 @@ exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1
         </g>
       </svg>
       <p
-        className="chakra-text css-z2t3gu"
+        className="chakra-text css-1g7wtor"
       >
         Oops! Something went wrong.
       </p>
@@ -2396,7 +2414,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -2545,7 +2563,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"
@@ -2695,7 +2713,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Enter your email address here"
+                placeholder="Enter your email address"
                 required={true}
                 step={null}
                 type="email"

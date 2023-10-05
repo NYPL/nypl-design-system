@@ -16,13 +16,15 @@ describe("NewsletterSignup Accessibility", () => {
   it("Form state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
-        className={"my-class"}
-        id={"my-id"}
+        className="my-class"
+        id="my-id"
         title="Testing"
-        formHelperText={"Form helper"}
+        formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -31,14 +33,16 @@ describe("NewsletterSignup Accessibility", () => {
   it("Submitting state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
-        className={"my-class"}
-        id={"my-id"}
+        className="my-class"
+        id="my-id"
         title="Testing"
-        formHelperText={"Form helper"}
+        formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
-        view={"submitting"}
+        view="submitting"
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -47,14 +51,16 @@ describe("NewsletterSignup Accessibility", () => {
   it("Error state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
-        className={"my-class"}
-        id={"my-id"}
+        className="my-class"
+        id="my-id"
         title="Testing"
-        formHelperText={"Form helper."}
+        formHelperText="Form helper."
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
-        view={"error"}
+        view="error"
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -63,14 +69,16 @@ describe("NewsletterSignup Accessibility", () => {
   it("Confirmation state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
-        className={"my-class"}
-        id={"my-id"}
+        className="my-class"
+        id="my-id"
         title="Testing"
-        formHelperText={"Form helper"}
+        formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
-        view={"confirmation"}
+        view="confirmation"
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -79,15 +87,17 @@ describe("NewsletterSignup Accessibility", () => {
   it("Bad email state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
-        className={"my-class"}
-        id={"my-id"}
+        className="my-class"
+        id="my-id"
         title="Testing"
-        formHelperText={"Form helper"}
+        formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
-        view={"form"}
+        view="form"
         isInvalidEmail={true}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -109,7 +119,8 @@ describe("NewsletterSignup Unit Tests", () => {
         title="Testing"
         onSubmit={onSubmit}
         onChange={onChange}
-        valueEmail={valueEmail}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(screen.getByRole("form")).toBeInTheDocument();
@@ -123,10 +134,12 @@ describe("NewsletterSignup Unit Tests", () => {
     const testNewsletterSignup = (
       <NewsletterSignup
         descriptionText="Do not send cash."
-        formHelperText={"Just trying to help"}
+        formHelperText="Just trying to help"
         onSubmit={onSubmit}
         onChange={onChange}
         valueEmail={valueEmail}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     render(testNewsletterSignup);
@@ -135,7 +148,14 @@ describe("NewsletterSignup Unit Tests", () => {
   });
 
   it("calls the onChange on user type event", () => {
-    render(<NewsletterSignup onSubmit={onSubmit} onChange={onChange} />);
+    render(
+      <NewsletterSignup
+        onSubmit={onSubmit}
+        onChange={onChange}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+      />
+    );
 
     expect(onChange).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByRole("textbox"), "t");
@@ -155,7 +175,8 @@ describe("NewsletterSignup Unit Tests", () => {
         onSubmit={onSubmit}
         onChange={onChange}
         view={componentView}
-        confirmationText="Thank you for signing up!"
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
 
@@ -168,7 +189,8 @@ describe("NewsletterSignup Unit Tests", () => {
         onSubmit={onSubmit}
         onChange={onChange}
         view={componentView}
-        confirmationText="Thank you for signing up!"
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
       />
     );
     expect(screen.getByText("Thank you for signing up!")).toBeInTheDocument();
@@ -178,10 +200,12 @@ describe("NewsletterSignup Unit Tests", () => {
     it("Renders the error view", () => {
       render(
         <NewsletterSignup
-          view={"error"}
+          view="error"
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       );
       expect(
@@ -193,14 +217,17 @@ describe("NewsletterSignup Unit Tests", () => {
     it("Renders the confirmation view", () => {
       render(
         <NewsletterSignup
-          view={"confirmation"}
+          view="confirmation"
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          confirmationText={"Fantastic!"}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       );
-      expect(screen.getByText(/Fantastic/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Thank you for signing up!/i)
+      ).toBeInTheDocument();
       expect(
         screen.getByTitle("actionCheckCircleFilled icon")
       ).toBeInTheDocument();
@@ -209,11 +236,13 @@ describe("NewsletterSignup Unit Tests", () => {
     it("Renders the bad email view", () => {
       render(
         <NewsletterSignup
-          view={"form"}
+          view="form"
           isInvalidEmail={true}
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       );
       expect(
@@ -237,6 +266,8 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -250,7 +281,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          formHelperText={"You need help."}
+          formHelperText="You need help."
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -264,7 +297,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          descriptionText={"Why not?"}
+          descriptionText="Why not?"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -279,6 +314,8 @@ describe("NewsletterSignup Snapshots", () => {
           onChange={onChange}
           valueEmail={valueEmail}
           isInvalidEmail={true}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -292,7 +329,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          view={"submitting"}
+          view="submitting"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -306,7 +345,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          view={"error"}
+          view="error"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -320,7 +361,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          view={"confirmation"}
+          view="confirmation"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -334,8 +377,9 @@ describe("NewsletterSignup Snapshots", () => {
           onSubmit={onSubmit}
           onChange={onChange}
           valueEmail={valueEmail}
-          view={"confirmation"}
-          confirmationText={"You did great!"}
+          view="confirmation"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       )
       .toJSON();
@@ -359,6 +403,8 @@ describe("NewsletterSignup Snapshots", () => {
                 onChange={onChange}
                 valueEmail={valueEmail}
                 newsletterSignupType={section}
+                confirmationHeading="Thank you for signing up!"
+                confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
               />
             )
             .toJSON();

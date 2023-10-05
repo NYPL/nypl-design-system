@@ -21,9 +21,10 @@ import { SectionTypes } from "../../helpers/types";
 interface NewsletterSignupProps {
   /** Optional: Additional class name to add. */
   className?: string;
-  /** Optional: Used to override the default confirmation message in the confirmation view. Accepts a string or
-   *  an element. */
-  confirmationText?: string | JSX.Element;
+  /** Required: Text displayed next to the confirmation icon after a successful email submission */
+  confirmationHeading: string;
+  /** Required: Detail text for the confirmation view */
+  confirmationText: string;
   /** Optional: Appears below the title to provide details about the newsletter. Accepts a string or an element. */
   descriptionText?: string | JSX.Element;
   /** Optional: Appears below the input field's example text to provide any additional instructions. Accepts a string or
@@ -47,9 +48,6 @@ interface NewsletterSignupProps {
   view?: "form" | "submitting" | "confirmation" | "error";
 }
 
-const defaultConfirmationText =
-  "Thank you! You have successfully subscribed to our email updates! You can update your email subscription preferences " +
-  "at any time using the links at the bottom of the email.";
 const defaultDescriptionText =
   "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
   "exhibitions, and collections.";
@@ -63,7 +61,8 @@ export const NewsletterSignup = chakra(
     (
       {
         className,
-        confirmationText = defaultConfirmationText,
+        confirmationHeading,
+        confirmationText,
         descriptionText = defaultDescriptionText,
         formHelperText,
         id,
@@ -106,7 +105,8 @@ export const NewsletterSignup = chakra(
             <Link
               // @TODO I would make this a prop -- WL.
               href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-              type="external" // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
+              // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
+              type="external"
               id="privacy"
             >
               Privacy Policy
@@ -120,14 +120,13 @@ export const NewsletterSignup = chakra(
                     id="email-input"
                     isDisabled={view === "submitting"}
                     isRequired
-                    // This text is boilerplate and not meant to be customized.
                     invalidText="Please enter a valid email address."
                     isInvalid={isInvalidEmail}
                     labelText="Email Address"
                     helperText={formHelperText}
                     name="email"
                     onChange={onChange}
-                    placeholder="Enter your email address here"
+                    placeholder="Enter your email address"
                     type="email"
                     value={valueEmail}
                   />
@@ -147,25 +146,39 @@ export const NewsletterSignup = chakra(
               <Box
                 className="feedback-body response"
                 margin="auto"
-                textAlign="center"
                 ref={focusRef}
-                tabIndex={-1}
+                tabIndex={0}
               >
-                <Icon
-                  color={iconColor}
-                  name="actionCheckCircleFilled"
-                  size="large"
-                />
-                <Text fontWeight="medium">{confirmationText}</Text>
+                <Box
+                  display="flex"
+                  marginBottom="xs"
+                  alignItems={{ md: "center" }}
+                >
+                  <Icon
+                    color={iconColor}
+                    name="actionCheckCircleFilled"
+                    size="large"
+                  />
+                  <Text
+                    fontSize="xl"
+                    marginStart="xs"
+                    marginBottom="unset"
+                    fontWeight="medium"
+                  >
+                    {confirmationHeading}
+                  </Text>
+                </Box>
+                <Text>{confirmationText}</Text>
               </Box>
             )}
             {view === "error" && (
               <Box
+                display="flex"
                 color="ui.error.primary"
-                margin="auto"
-                textAlign="center"
                 ref={focusRef}
                 tabIndex={0}
+                alignItems={{ md: "center" }}
+                width="full"
               >
                 <Icon
                   color="ui.error.primary"
@@ -173,7 +186,14 @@ export const NewsletterSignup = chakra(
                   size="large"
                 />
                 {/* This text is boilerplate and not meant to be customized. */}
-                <Text fontWeight="medium">Oops! Something went wrong.</Text>
+                <Text
+                  fontSize="xl"
+                  marginStart="xs"
+                  marginBottom="unset"
+                  fontWeight="medium"
+                >
+                  Oops! Something went wrong.
+                </Text>
               </Box>
             )}
           </VStack>

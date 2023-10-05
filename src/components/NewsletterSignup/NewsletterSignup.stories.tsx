@@ -14,14 +14,11 @@ const meta: Meta<typeof NewsletterSignup> = {
   },
   argTypes: {
     className: { control: false },
+    confirmationHeading: {
+      control: "text",
+    },
     confirmationText: {
       control: "text",
-      table: {
-        defaultValue: {
-          summary:
-            "You can update your email subscription preferences at any time using the links at the bottom of the email.",
-        },
-      },
     },
     descriptionText: {
       control: "text",
@@ -75,17 +72,19 @@ type Story = StoryObj<typeof NewsletterSignup>;
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationText: undefined,
+    confirmationHeading: "Thank you for signing up!",
+    confirmationText:
+      "You can update your email subscription preferences at any time using the links at the bottom of the email.",
     descriptionText: undefined,
     formHelperText: undefined,
     id: undefined,
     isInvalidEmail: false,
-    newsletterSignupType: "whatsOn",
+    newsletterSignupType: undefined,
     onChange: undefined,
     onSubmit: undefined,
     title: undefined,
     valueEmail: undefined,
-    view: "form",
+    view: undefined,
   },
   parameters: {
     design: {
@@ -110,6 +109,8 @@ export const BrowserStates: Story = {
           view="form"
           onChange={() => {}}
           onSubmit={() => {}}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       </Box>
       <Box>
@@ -121,6 +122,8 @@ export const BrowserStates: Story = {
           view="submitting"
           onChange={() => {}}
           onSubmit={() => {}}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
         />
       </Box>
     </VStack>
