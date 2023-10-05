@@ -18,6 +18,9 @@ const NewsLetterSignup = {
     _dark: {
       borderColor: "dark.ui.border.default",
       borderTopColor: { md: "dark.ui.border.default" },
+      borderLeftColor: {
+        md: getSectionColors(newsletterSignupType, "primary"),
+      },
     },
     maxWidth: "1280px",
     width: "100%",

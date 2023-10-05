@@ -155,6 +155,7 @@ describe("NewsletterSignup Unit Tests", () => {
         onSubmit={onSubmit}
         onChange={onChange}
         view={componentView}
+        confirmationText="Thank you for signing up!"
       />
     );
 
@@ -167,6 +168,7 @@ describe("NewsletterSignup Unit Tests", () => {
         onSubmit={onSubmit}
         onChange={onChange}
         view={componentView}
+        confirmationText="Thank you for signing up!"
       />
     );
     expect(screen.getByText("Thank you for signing up!")).toBeInTheDocument();
