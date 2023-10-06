@@ -36,45 +36,20 @@ In practice, the consuming app is responsible for handling the form submission.
 ## Accessibility
 
 The `NewsletterSignup` component is a complex component built from various Reservoir
-DS and Chakra components. The two main components are the DS `Button` component
-used to open Chakra's `Drawer` component.
+DS and Chakra components.
 
-When the primary button is clicked, the dialog opens and focus is set to the
-first focusable element which is the "close" button that contains minus icon in
-the header of the dialog. While opened, focus is trapped within the dialog until
-it is closed either by clicking on the "close" or "Cancel" buttons, pressing the
-"Escape" key, or by clicking outside of the dialog. When the `NewsletterSignup`
-component is closed, focus is set back to the primary button that opened the
-dialog.
-
-The markup of the `NewsletterSignup` structurally matches the modal dialog pattern
-that is implemented by Chakra's `Modal` and `Drawer` components. The container
-has `role=”dialog”`, `aria-modal=”true”`, `tabindex={0}`, `aria-labelledby` that
-references the title within the dialog, and `aria-describedby` that references a
-descriptive piece of text within the dialog.
-
-Within the `NewsletterSignup` component, the radio input field is created from the DS
-`RadioGroup` and `Radio` components, and input fields are created from the DS
-`TextInput` component. Each of these components has their own accessibility
-features documented in their respective Storybook pages.
+Within the `NewsletterSignup` component, the DS `form` component wraps around two DS `FormField` components.
+Those`FormField` components hold a DS `TextInput` component of `type="email"` and a DS `Button` component of `type="submit"` respectively.
+Each of these components has their own accessibility features documented in their respective Storybook pages.
 
 When the form is submitted, focus is set to the confirmation message or the
 error message if an error occurs.
 
-Whereas the `NewsletterSignup`'s primary button element is placed within the DOM
-structure where it is rendered, the dialog DOM structure is appended to the end
-of the DOM tree and it is done by Chakra.
-
 Resources:
 
-- [MDN ARIA: dialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
-- [W3C ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
-- [Chakra Modal Accessibility](https://v1.chakra-ui.com/docs/components/overlay/modal#accessibility)
-- [Chakra Drawer Accessibility](https://v1.chakra-ui.com/docs/components/overlay/drawer#accessibility)
+- [DS Form Accessibility](../?path=/docs/components-form-elements-form--docs#accessibility)
 - [DS Button Accessibility](../?path=/docs/components-form-elements-button--docs#accessibility)
 - [DS TextInput Accessibility](../?path=/docs/components-form-elements-textinput--docs#accessibility)
-- [DS Radio Accessibility](../?path=/docs/components-form-elements-radio--docs#accessibility)
-- [DS RadioGroup Accessibility](../?path=/docs/components-form-elements-radiogroup--docs#accessibility)
 
 ## Form Submission Data
 
@@ -85,7 +60,7 @@ that have function props, the data from the component will be returned in the
 function's argument. In this case, it will be a single object.
 
 The submitted form data will be passed as an object that the parent component
-can use. The returned object will always conatain the "email" field.
+can use. The returned object will always contain the "email" field.
 
 Below is an example callback function named `onSubmit` that is passed to the
 `NewsletterSignup` component's `onSubmit` prop and how the view is controlled
@@ -122,3 +97,7 @@ const onSubmit = async (values) => {
 `}
 language="jsx"
 />
+
+## Component States
+
+<Canvas of={NewsletterSignupStories.ComponentStates} />

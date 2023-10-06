@@ -19,32 +19,34 @@ import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { SectionTypes } from "../../helpers/types";
 
 interface NewsletterSignupProps {
-  /** Optional: Additional class name to add. */
+  /** Additional class name to add. */
   className?: string;
-  /** Required: Text displayed next to the confirmation icon after a successful email submission */
+  /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
-  /** Required: Detail text for the confirmation view */
+  /** Detail text for the confirmation view */
   confirmationText: string;
-  /** Optional: Appears below the title to provide details about the newsletter. Accepts a string or an element. */
+  /** Appears below the title to provide details about the newsletter. Accepts a string or an element. */
   descriptionText?: string | JSX.Element;
-  /** Optional: Appears below the input field's example text to provide any additional instructions. Accepts a string or
+  /** Appears below the input field's example text to provide any additional instructions. Accepts a string or
    *  an element. */
   formHelperText?: string | JSX.Element;
-  /** Optional: ID that other components can cross-reference for accessibility purposes */
+  /** ID that other components can cross-reference for accessibility purposes */
   id?: string;
-  /** Optional: Toggles the invalid state for the email field. */
+  /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Optional: Value to determine the section color highlight */
+  /** Value to determine the section color highlight */
   newsletterSignupType?: SectionTypes;
-  /** Required: A handler function that will be called when the form is submitted. */
+  /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
-  /** Required: A handler function that will be called when the text input changes. */
+  /** A handler function that will be called when the text input changes. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Optional: Used to populate the `<h3>` header title. */
+  /** Link to the relevant privacy policy page. */
+  privacyPolicyLink?: string;
+  /** Used to populate the `<h3>` header title. */
   title?: string;
-  /** Optional: The value of the email text input field. */
+  /** The value of the email text input field. */
   valueEmail?: string;
-  /** Optional: Used to specify what is displayed in the component form/feedback area. */
+  /** Used to specify what is displayed in the component form/feedback area. */
   view?: "form" | "submitting" | "confirmation" | "error";
 }
 
@@ -69,8 +71,9 @@ export const NewsletterSignup = chakra(
         isInvalidEmail = false,
         newsletterSignupType = "whatsOn",
         onChange,
-        valueEmail,
         onSubmit,
+        privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
+        valueEmail,
         title = "Sign Up for Our Newsletter!",
         view = "form",
         ...rest
@@ -102,13 +105,7 @@ export const NewsletterSignup = chakra(
           <VStack id="pitch">
             <Heading level="h3" text={title} />
             <Text>{descriptionText}</Text>
-            <Link
-              // @TODO I would make this a prop -- WL.
-              href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-              // @todo The external link icon is slightly smaller in the Figma than the default served up by the Link component. I am unsure if/how to manipulate it.
-              type="external"
-              id="privacy"
-            >
+            <Link href={privacyPolicyLink} type="external" id="privacy">
               Privacy Policy
             </Link>
           </VStack>

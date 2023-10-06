@@ -82,7 +82,7 @@ export const WithControls: Story = {
     newsletterSignupType: undefined,
     onChange: undefined,
     onSubmit: undefined,
-    title: undefined,
+    title: "Sign Up for Our Newsletter!",
     valueEmail: undefined,
     view: undefined,
   },
@@ -96,7 +96,7 @@ export const WithControls: Story = {
   render: (args) => <NewsletterSignup {...args} />,
 };
 
-export const BrowserStates: Story = {
+export const ComponentStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
@@ -104,7 +104,7 @@ export const BrowserStates: Story = {
           Invalid Email
         </Heading>
         <NewsletterSignup
-          id="invalidEmail"
+          id="invalid-email"
           isInvalidEmail
           view="form"
           onChange={() => {}}
@@ -115,11 +115,37 @@ export const BrowserStates: Story = {
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Disabled / Submitting View
+          Submitting View / Disabled
         </Heading>
         <NewsletterSignup
-          id="invalidEmail"
+          id="submitting-view"
           view="submitting"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Confirmation View
+        </Heading>
+        <NewsletterSignup
+          id="confirmation-view"
+          view="confirmation"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Error View
+        </Heading>
+        <NewsletterSignup
+          id="error-view"
+          view="error"
           onChange={() => {}}
           onSubmit={() => {}}
           confirmationHeading="Thank you for signing up!"
