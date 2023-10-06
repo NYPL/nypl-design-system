@@ -2,6 +2,7 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SliderStories from "./Slider.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={SliderStories} />
 
@@ -21,6 +22,7 @@ import Link from "../Link/Link";
 - {<Link href="#examples" target="_self">Examples</Link>}
 - {<Link href="#get-input-values" target="_self">Get Input Values</Link>}
 - {<Link href="#programmatically-update" target="_self">Programmatically Update</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -330,3 +332,26 @@ function RangeSliderValuesUpdateExample() {
 />
 
 <Canvas of={SliderStories.ProgrammaticallyUpdate} />
+
+## Changelog
+
+export const changelogData = [
+  {
+    date: "???",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: "Functionality",
+    notes: [
+      "Updated to use appropriate aria-label values for the slider thumbs and text input fields.",
+    ],
+  },
+  {
+    date: "2023-9-28",
+    version: "2.0.0",
+    type: "Update",
+    affects: "Styles",
+    notes: ["Applied Typo2023 styles, including font size and font color."],
+  },
+];
+
+<ComponentChangelogTable changelogData={changelogData} />

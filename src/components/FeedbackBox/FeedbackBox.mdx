@@ -2,6 +2,7 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as FeedbackBoxStories from "./FeedbackBox.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={FeedbackBoxStories} />
 
@@ -22,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#feedbackbox-screens" target="_self">FeedbackBox Screens</Link>}
 - {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
 - {<Link href="#programmatically-open" target="_self">Programmatically Open</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -383,3 +385,28 @@ const MyComponent = () => {
 }; `}
   language="jsx"
 />
+
+## Changelog
+
+export const changelogData = [
+  {
+    date: "???",
+    version: "Prerelease",
+    type: "Update",
+    affects: "Accessibility, Styles",
+    notes: [
+      "Remove the underline on the component's `Privacy Policy` link.",
+    ],
+  },
+  {
+    date: "2023-9-28",
+    version: "2.0.0",
+    type: "Update",
+    affects: "Styles",
+    notes: [
+      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
+    ],
+  },
+];
+
+<ComponentChangelogTable changelogData={changelogData} />

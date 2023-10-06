@@ -2,6 +2,7 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as HeroStories from "./Hero.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={HeroStories} />
 
@@ -19,6 +20,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#all-variations" target="_self">All Variations</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -197,3 +199,28 @@ and `"secondaryWhatsOn"`.
 />
 
 <Canvas of={HeroStories.ColorVariations} />
+
+## Changelog
+
+export const changelogData = [
+  {
+    date: "???",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: "Functionality",
+    notes: [
+      "Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
+    ],
+  },
+  {
+    date: "2023-9-28",
+    version: "2.0.0",
+    type: "Update",
+    affects: "Styles",
+    notes: [
+      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
+    ],
+  },
+];
+
+<ComponentChangelogTable changelogData={changelogData} />
