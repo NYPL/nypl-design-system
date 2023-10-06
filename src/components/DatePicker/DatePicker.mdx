@@ -42,7 +42,12 @@ also be added through props.
 The Reservoir `DatePicker` component implements the `react-datepicker` npm package.
 This package exports a component that is used internally to display the popup
 calendar, manage its data, and associate the `<label>` element with its corresponding
-`<input>` element. This component is accessible through keyboard navigation.
+`<input>` element.
+
+This component is accessible through keyboard navigation. When keyboard users tab to
+the input, the calendar automatically opens. Tabbing again moves focus into the
+calendar. Dates can be navigated to using the arrow keys. The enter key selects the
+date in focus and closes the calendar. Focus then returns to the input.
 
 The Reservoir `DatePicker` handles the grouping of the two `<input>` elements in
 the "date range" mode by wrapping the elements in a `<fieldset>` element with
@@ -62,6 +67,7 @@ when `showLabel` is set to false, the `<fieldset>`'s `<legend>` will have the
 Resources:
 
 - [react-datepicker Accessibility](https://github.com/Hacker0x01/react-datepicker#accessibility)
+- [Apex 4x Technical Style Guide: Aria Date Picker](https://whatsock.com/Templates/Datepickers/Basic,%20Auto%20Open/index.htm)
 
 ## Date Range
 
