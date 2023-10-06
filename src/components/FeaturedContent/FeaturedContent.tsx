@@ -1,6 +1,6 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import { ImageProps } from "../Image/Image";
+import Image, { ImageProps } from "../Image/Image";
 
 export const featuredContentWidthArray = [
   "oneQuarter",
@@ -43,7 +43,7 @@ export interface FeaturedContentProps {
  */
 function FeaturedContentImage(props: FeaturedContentImageProps) {
   const { alt, src } = props;
-  return <img alt={alt} src={src} style={{ display: "none" }} />;
+  return <Image alt={alt} src={src} style={{ display: "none" }} />;
 }
 
 export const FeaturedContent = chakra(

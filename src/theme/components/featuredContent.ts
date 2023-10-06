@@ -1,4 +1,5 @@
 import { wrapperStyles } from "./global";
+import { screenreaderOnly } from "./globalMixins";
 
 interface FeaturedContentBaseStyleProps {
   imagePosition: string;
@@ -56,6 +57,7 @@ const FeaturedContent = {
         height: { sm: "320px", md: "auto" },
         width: { sm: "100%", md: wrapperWidth },
       },
+      img: screenreaderOnly(),
     };
   },
 };

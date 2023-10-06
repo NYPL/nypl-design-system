@@ -3,35 +3,50 @@
 exports[`Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
-    className="css-0"
+    className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "width": "100%",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>
@@ -50,35 +65,50 @@ exports[`Renders the UI snapshot correctly 1`] = `
 exports[`Renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
-    className="css-0"
+    className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "width": "100%",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>
@@ -97,35 +127,50 @@ exports[`Renders the UI snapshot correctly 2`] = `
 exports[`Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
     className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "display": "none",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>
@@ -144,35 +189,50 @@ exports[`Renders the UI snapshot correctly 3`] = `
 exports[`Renders the UI snapshot correctly 4`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
     className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "display": "none",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>
@@ -191,35 +251,50 @@ exports[`Renders the UI snapshot correctly 4`] = `
 exports[`Renders the UI snapshot correctly 5`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
     className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "display": "none",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>
@@ -238,35 +313,50 @@ exports[`Renders the UI snapshot correctly 5`] = `
 exports[`Renders the UI snapshot correctly 6`] = `
 <div
   className="css-0"
+  data-testid="featuredcontent"
 >
   <div
     className="css-1gt4hjv"
+    data-testid="bg-image"
   >
-    <img
-      alt="Image example"
-      src="//placekitten.com/800/400"
-      style={
-        {
-          "display": "none",
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Image example"
+        className="css-0"
+        src="//placekitten.com/800/400"
+        style={
+          {
+            "display": "none",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
   <div
     className="css-0"
   >
     <div>
       <br />
-      <p
-        className="chakra-text css-1xdhyk6"
+      <hgroup
+        aria-roledescription="Heading group"
+        className="css-0"
+        role="group"
       >
-         Featured 
-      </p>
-      <h1
-        className="chakra-heading css-eyyo6e"
-      >
-         Spotlight on the Public Domain 
-      </h1>
+        <p
+          aria-roledescription="Overline"
+          className="chakra-text css-rwceap"
+          role="paragraph"
+        >
+          Featured
+        </p>
+        <h1
+          className="chakra-heading css-eyyo6e"
+        >
+          Spotlight on the Public Domain
+        </h1>
+      </hgroup>
       <p>
         The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
       </p>

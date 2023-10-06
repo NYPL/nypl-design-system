@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
+import SimpleGrid from "../Grid/SimpleGrid";
 
 import FeaturedContent, {
   featuredContentWidthArray,
@@ -113,4 +114,262 @@ export const WithControls: Story = {
     },
     jest: ["FeaturedContent.test.tsx"],
   },
+};
+
+// The following are additional example Stories.
+
+export const LayoutVariations: Story = {
+  render: () => (
+    <SimpleGrid columns={1}>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              Default Width
+            </Heading>
+            <p>
+              The New York Public Library recently enhanced access to all public
+              domain items in Digital Collections so that everyone has the
+              freedom to enjoy and reuse these materials in almost limitless
+              ways.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "default",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={true}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              Full Width
+            </Heading>
+            <p>
+              The New York Public Library recently enhanced access to all public
+              domain items in Digital Collections so that everyone has the
+              freedom to enjoy and reuse these materials in almost limitless
+              ways.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "default",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+    </SimpleGrid>
+  ),
+};
+
+export const ImagePositionVariations: Story = {
+  render: () => (
+    <SimpleGrid columns={1}>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              Image Start Position
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "default",
+          position: "start",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              Image End Position
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "default",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+    </SimpleGrid>
+  ),
+};
+
+export const imageWidthVariations: Story = {
+  render: () => (
+    <SimpleGrid columns={1}>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              oneQuarter Image Width
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "oneQuarter",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              oneThird Image Width
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "oneThird",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              oneHalf Image Width (Default)
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "oneHalf",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              twoThirds Image Width
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "twoThirds",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h1" overline="Featured">
+              three Quarters Image Width
+            </Heading>
+            <p>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </p>
+            <Button id="test"> Discover more </Button>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "threeQuarters",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+    </SimpleGrid>
+  ),
+};
+
+export const textContentVariations: Story = {
+  render: () => (
+    <SimpleGrid columns={1}>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <p>
+              This text should have a header. Vestibulum id ligula porta felis
+              euismod semper. Nulla vitae elit libero, a pharetra augue.
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+              semper. Nulla vitae elit libero, a pharetra augue.
+            </p>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "threeQuarters",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+      <FeaturedContent
+        isFullWidth={false}
+        textContent={
+          <div>
+            <Heading level="h2">Not recommended</Heading>
+            <p>This text is not tall enough for this component.</p>
+          </div>
+        }
+        imageProps={{
+          alt: "Alt text",
+          width: "oneHalf",
+          position: "end",
+          src: "//placekitten.com/600/600",
+        }}
+      ></FeaturedContent>
+    </SimpleGrid>
+  ),
 };
