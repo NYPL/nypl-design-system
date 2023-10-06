@@ -52,7 +52,7 @@ export const ComponentChangelogTable = (
       fontSize: "desktop.caption",
       _last: {
         borderColor: borderColor,
-      }
+      },
     },
     td: {
       borderColor: borderColor,
@@ -61,7 +61,7 @@ export const ComponentChangelogTable = (
       // pt: "xs",
       _last: {
         borderColor: borderColor,
-      }
+      },
     },
     "th:nth-child(1)": {
       width: { base: "auto", md: narrowTdWidth },
