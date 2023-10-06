@@ -103,7 +103,7 @@ export const NewsletterSignup = chakra(
           {...rest}
         >
           <VStack id="pitch">
-            <Heading level="h3" text={title} />
+            {title && <Heading level="h3" text={title} />}
             <Text>{descriptionText}</Text>
             <Link href={privacyPolicyLink} type="external" id="privacy">
               Privacy Policy

@@ -47,7 +47,11 @@ const meta: Meta<typeof NewsletterSignup> = {
     onSubmit: { control: false },
     title: {
       control: "text",
-      table: { defaultValue: { summary: "Sign Up for Our Newsletter!" } },
+      table: {
+        defaultValue: {
+          summary: "Sign Up for Our Newsletter!",
+        },
+      },
     },
     valueEmail: { control: false },
     view: {
@@ -82,7 +86,7 @@ export const WithControls: Story = {
     newsletterSignupType: undefined,
     onChange: undefined,
     onSubmit: undefined,
-    title: "Sign Up for Our Newsletter!",
+    title: undefined,
     valueEmail: undefined,
     view: undefined,
   },
