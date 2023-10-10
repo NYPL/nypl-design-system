@@ -16,17 +16,26 @@ const NewsLetterSignup = {
       bg: "ui.bg.default",
       borderWidth: { base: ".75rem 0px 0px 0px", md: "0px 0px 0px .75rem" },
       borderLeftColor: {
-        md: getSectionColors(newsletterSignupType, "primary"),
+        md: getSectionColors(
+          newsletterSignupType,
+          newsletterSignupType === "blogs" ? "secondary" : "primary"
+        ),
       },
       borderTopColor: {
-        base: getSectionColors(newsletterSignupType, "primary"),
+        base: getSectionColors(
+          newsletterSignupType,
+          newsletterSignupType === "blogs" ? "secondary" : "primary"
+        ),
         md: "ui.border.default",
       },
       _dark: {
         bg: "dark.ui.bg.default",
         borderTopColor: { md: "dark.ui.border.default" },
         borderLeftColor: {
-          md: getSectionColors(newsletterSignupType, "primary"),
+          md: getSectionColors(
+            newsletterSignupType,
+            newsletterSignupType === "blogs" ? "secondary" : "primary"
+          ),
         },
       },
       padding: {

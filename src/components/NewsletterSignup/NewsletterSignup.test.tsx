@@ -106,7 +106,6 @@ describe("NewsletterSignup Accessibility", () => {
 
 describe("NewsletterSignup Unit Tests", () => {
   /** Notes
-   *
    * The newsletterSignupType tests are covered in the snapshot tests below.
    */
 
@@ -130,7 +129,7 @@ describe("NewsletterSignup Unit Tests", () => {
     expect(screen.getByText(/Privacy Policy/i)).toBeInTheDocument();
   });
 
-  it("Renders the Optional descriptionText and formHelperText Values for the Form", () => {
+  it("Renders the Optional descriptionText and formHelperText String Values for the Form", () => {
     const testNewsletterSignup = (
       <NewsletterSignup
         descriptionText="Do not send cash."
@@ -145,6 +144,33 @@ describe("NewsletterSignup Unit Tests", () => {
     render(testNewsletterSignup);
     expect(screen.getByText(/Do not send cash./i)).toBeInTheDocument();
     expect(screen.getByText(/Just trying to help/i)).toBeInTheDocument();
+  });
+
+  it("Renders the Optional descriptionText and formHelperText HTML Values for the Form", () => {
+    const testNewsletterSignup = (
+      <NewsletterSignup
+        descriptionText={
+          <div>
+            Do not send <a href="https://chias.website/">cash</a>.
+          </div>
+        }
+        formHelperText={
+          <div data-testId="helper-text-container">
+            Just <strong data-testId="emphasized">trying</strong> to help
+          </div>
+        }
+        onSubmit={onSubmit}
+        onChange={onChange}
+        valueEmail={valueEmail}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+      />
+    );
+    render(testNewsletterSignup);
+    const ancestor = screen.getByTestId("helper-text-container");
+    const descendant = screen.getByTestId("emphasized");
+    expect(screen.getByRole("link", { name: "cash" })).toBeInTheDocument();
+    expect(ancestor).toContainElement(descendant);
   });
 
   it("calls the onChange on user type event", () => {
