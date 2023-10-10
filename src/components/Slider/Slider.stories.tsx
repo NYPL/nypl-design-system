@@ -595,7 +595,7 @@ function RangeSliderValuesUpdateExample() {
         <FormField>
           <Slider
             defaultValue={[15, 75]}
-            helperText="Values can be updated through the two inputs aboev."
+            helperText="Values can be updated through the two inputs above."
             id="range-slider-text-example"
             isRangeSlider
             labelText="Slider with Updated Values"
