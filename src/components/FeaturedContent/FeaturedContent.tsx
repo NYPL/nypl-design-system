@@ -83,19 +83,21 @@ export const FeaturedContent = chakra(
 
       return (
         <Box data-testid="featuredcontent" __css={styles}>
-          <Box
-            data-testid="featuredcontent-bg-image"
-            __css={{
-              ...styles.imgWrapper,
-              backgroundImage: `url(${imageProps.src})`,
-            }}
-          >
-            <FeaturedContentImage
-              alt={imageProps.alt}
-              src={imageProps.src ? imageProps.src : undefined}
-            />
+          <Box __css={styles.wrapper}>
+            <Box
+              data-testid="featuredcontent-bg-image"
+              __css={{
+                ...styles.imgWrapper,
+                backgroundImage: `url(${imageProps.src})`,
+              }}
+            >
+              <FeaturedContentImage
+                alt={imageProps.alt}
+                src={imageProps.src ? imageProps.src : undefined}
+              />
+            </Box>
+            <Box __css={styles.text}>{textContent}</Box>
           </Box>
-          <Box __css={styles.text}>{textContent}</Box>
         </Box>
       );
     }

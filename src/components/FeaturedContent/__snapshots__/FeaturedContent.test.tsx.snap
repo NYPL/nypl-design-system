@@ -6,52 +6,56 @@ exports[`Renders the UI snapshot correctly 1`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -63,52 +67,56 @@ exports[`Renders the UI snapshot correctly 2`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -120,52 +128,56 @@ exports[`Renders the UI snapshot correctly 3`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -177,52 +189,56 @@ exports[`Renders the UI snapshot correctly 4`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -234,52 +250,56 @@ exports[`Renders the UI snapshot correctly 5`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -291,52 +311,56 @@ exports[`Renders the UI snapshot correctly 6`] = `
   data-testid="featuredcontent"
 >
   <div
-    className="css-1gt4hjv"
-    data-testid="featuredcontent-bg-image"
+    className="css-0"
   >
+    <div
+      className="css-1gt4hjv"
+      data-testid="featuredcontent-bg-image"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Image example"
+          className="css-0"
+          src="//placekitten.com/800/400"
+        />
+      </div>
+    </div>
     <div
       className="css-0"
     >
-      <img
-        alt="Image example"
-        className="css-0"
-        src="//placekitten.com/800/400"
-      />
-    </div>
-  </div>
-  <div
-    className="css-0"
-  >
-    <div>
-      <br />
-      <hgroup
-        aria-roledescription="Heading group"
-        className="css-0"
-        role="group"
-      >
-        <p
-          aria-roledescription="Overline"
-          className="chakra-text css-rwceap"
-          role="paragraph"
+      <div>
+        <br />
+        <hgroup
+          aria-roledescription="Heading group"
+          className="css-0"
+          role="group"
         >
-          Featured
+          <p
+            aria-roledescription="Overline"
+            className="chakra-text css-rwceap"
+            role="paragraph"
+          >
+            Featured
+          </p>
+          <h1
+            className="chakra-heading css-eyyo6e"
+          >
+            Spotlight on the Public Domain
+          </h1>
+        </hgroup>
+        <p>
+          The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
         </p>
-        <h1
-          className="chakra-heading css-eyyo6e"
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="test"
+          type="button"
         >
-          Spotlight on the Public Domain
-        </h1>
-      </hgroup>
-      <p>
-        The New York Public Library recently enhanced access to all public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways.
-      </p>
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="test"
-        type="button"
-      >
-         Discover more 
-      </button>
+           Discover more 
+        </button>
+      </div>
     </div>
   </div>
 </div>
