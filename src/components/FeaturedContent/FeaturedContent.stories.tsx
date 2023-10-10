@@ -53,29 +53,7 @@ export const WithControls: Story = {
     className: undefined,
     id: "FeaturedContent-id",
     isFullWidth: false,
-    //textContent: (
-    // <div>
-    //   <Button id="test" />
-    //   <p>
-    //     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    //     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-    //     minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
-    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    //     pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    //     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    //     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
-    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    //     pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    //     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    //     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    //     aliquip ex ea commodo consequat. Duis aute irure dolor in
-    //     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    //     pariatur.
-    //   </p>
-    // </div>
-    //),
+    textContent: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
     "imageProps.width": "default",
@@ -83,9 +61,7 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <FeaturedContent
-      className={args.className}
-      id={args.id}
-      isFullWidth={args.isFullWidth}
+      {...args}
       textContent={
         <div>
           <Heading level="h1" overline="Featured">
@@ -105,7 +81,7 @@ export const WithControls: Story = {
         position: args["imageProps.position"],
         src: args["imageProps.src"],
       }}
-    ></FeaturedContent>
+    />
   ),
   parameters: {
     design: {

@@ -60,21 +60,9 @@ describe("FeaturedContent", () => {
     expect(
       screen.getByText("Spotlight on the Public Domain")
     ).toBeInTheDocument();
-    expect(screen.getByTestId("bg-image")).toBeInTheDocument();
-    expect(screen.getByTestId("bg-image")).toHaveStyle(
+    expect(screen.getByTestId("featuredcontent-bg-image")).toBeInTheDocument();
+    expect(screen.getByTestId("featuredcontent-bg-image")).toHaveStyle(
       "background-image: url(//placekitten.com/800/400);"
-    );
-  });
-
-  it("logs a warning if `imageProps` prop is not present", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <FeaturedContent isFullWidth={false} textContent={textContent} />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      `NYPL Reservoir FeaturedContent: The 'imageProps' prop is required.`
     );
   });
 

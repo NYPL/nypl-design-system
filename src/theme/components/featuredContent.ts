@@ -26,26 +26,24 @@ const FeaturedContent = {
       wrapperWidth = "75%";
     }
     return {
-      wrapper: {
-        bgColor: "ui.gray.x-light-cool",
-        _dark: {
-          bgColor: "dark.ui.bg.default",
-        },
-        ...wrapperStyles,
-        width: full ? "100vw" : "100%",
-        left: full ? "50%" : "auto",
-        right: full ? "50%" : "auto",
-        paddingX: full ? "10%" : "auto",
-        position: full ? "relative" : "auto",
-        marginLeft: full ? "-50vw" : "auto",
-        marginRight: full ? "-50vw" : "auto",
-        minHeight: "320px",
-        display: "flex",
-        alignItems: "stretch",
-        flexDirection: imageAtEnd
-          ? { sm: "column-reverse", md: "row-reverse" }
-          : { sm: "column", md: "row" },
+      bgColor: "ui.gray.x-light-cool",
+      _dark: {
+        bgColor: "dark.ui.bg.default",
       },
+      ...wrapperStyles,
+      width: full ? "100vw" : "100%",
+      left: full ? "50%" : "auto",
+      right: full ? "50%" : "auto",
+      paddingX: full ? "10%" : "auto",
+      position: full ? "relative" : "auto",
+      marginLeft: full ? "-50vw" : "auto",
+      marginRight: full ? "-50vw" : "auto",
+      minHeight: "320px",
+      display: "flex",
+      alignItems: "stretch",
+      flexDirection: imageAtEnd
+        ? { sm: "column-reverse", md: "row-reverse" }
+        : { sm: "column", md: "row" },
       text: {
         display: "flex",
         padding: "20px",

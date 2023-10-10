@@ -38,12 +38,12 @@ export interface FeaturedContentProps {
 
 /**
  * The FeaturedContentImage component is used internally in the `FeaturedContent` component. It
- * renders an 'img' element but with overriding styles specific to the
- * `FeaturedContent` component.
+ * renders an 'Image' component but with overriding styles specific to the
+ * `FeaturedContent` component (see featuredContent.ts).
  */
 function FeaturedContentImage(props: FeaturedContentImageProps) {
   const { alt, src } = props;
-  return <Image alt={alt} src={src} style={{ display: "none" }} />;
+  return <Image alt={alt} src={src} />;
 }
 
 export const FeaturedContent = chakra(
@@ -89,9 +89,9 @@ export const FeaturedContent = chakra(
       }
 
       return (
-        <Box data-testid="featuredcontent" __css={styles.wrapper}>
+        <Box data-testid="featuredcontent" __css={styles}>
           <Box
-            data-testid="bg-image"
+            data-testid="featuredcontent-bg-image"
             __css={{
               ...styles.imgWrapper,
               backgroundImage: `url(${imageProps.src})`,
