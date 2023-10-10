@@ -100,6 +100,25 @@ export const WithControls: Story = {
   render: (args) => <NewsletterSignup {...args} />,
 };
 
+export const DescriptionUsingJSXElements: Story = {
+  render: () => (
+    <NewsletterSignup
+      id="jsx-description-text"
+      view="form"
+      onChange={() => {}}
+      onSubmit={() => {}}
+      descriptionText={
+        <div>
+          If the description text needs to have <i>special</i> styling or needs
+          to have a <a href="https://corgiorgy.com/">nested link</a>
+        </div>
+      }
+      confirmationHeading="Thank you for signing up!"
+      confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+    />
+  ),
+};
+
 export const ComponentStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">

@@ -51,6 +51,13 @@ Resources:
 - [DS Button Accessibility](../?path=/docs/components-form-elements-button--docs#accessibility)
 - [DS TextInput Accessibility](../?path=/docs/components-form-elements-textinput--docs#accessibility)
 
+## JSX Elements passed to descriptionText Prop
+
+Alternatively to a `descriptionText` of type `string`, a HTML Element or React component can be passed. When passing a JSX Element, the consuming app is responsible
+to assure its accessibility.
+
+<Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
+
 ## Form Submission Data
 
 Submitted form data can be retrieved when the `NewsletterSignup` component is

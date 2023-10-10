@@ -104,7 +104,14 @@ export const NewsletterSignup = chakra(
         >
           <VStack id="pitch">
             {title && <Heading level="h3" text={title} />}
-            <Text>{descriptionText}</Text>
+            {descriptionText ? (
+              typeof descriptionText === "string" ? (
+                <Text>{descriptionText}</Text>
+              ) : (
+                descriptionText
+              )
+            ) : null}
+
             <Link href={privacyPolicyLink} type="external" id="privacy">
               Privacy Policy
             </Link>
