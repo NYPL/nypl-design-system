@@ -1,9 +1,10 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as DatePickerStories from "./DatePicker.stories";
+import { changelogData } from "./datePickerChangelogData";
 import Link from "../Link/Link";
 import Table from "../Table/Table";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={DatePickerStories} />
 
@@ -262,27 +263,5 @@ const onSubmit = () => {
 />
 
 ## Changelog
-
-export const changelogData = [
-  {
-    date: "???",
-    version: "Prerelease",
-    type: "Update",
-    affects: "Accessibility",
-    notes: [
-      "Updates to pass a secondaryHelperTextId to its TextInput if needed so that the aria-describedby value can be associated with all relevant helperTexts.",
-      "Updates so that focus remains on input after value is changed.",
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: "Styles",
-    notes: [
-      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
-    ],
-  },
-];
 
 <ComponentChangelogTable changelogData={changelogData} />
