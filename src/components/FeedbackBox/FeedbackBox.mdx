@@ -1,8 +1,9 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as FeedbackBoxStories from "./FeedbackBox.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import * as FeedbackBoxStories from "./FeedbackBox.stories";
+import { changelogData } from "./feedbackBoxChangelogData";
+import Link from "../Link/Link";
 
 <Meta of={FeedbackBoxStories} />
 
@@ -387,26 +388,5 @@ const MyComponent = () => {
 />
 
 ## Changelog
-
-export const changelogData = [
-  {
-    date: "???",
-    version: "Prerelease",
-    type: "Update",
-    affects: "Accessibility, Styles",
-    notes: [
-      "Remove the underline on the component's `Privacy Policy` link.",
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: "Styles",
-    notes: [
-      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
-    ],
-  },
-];
 
 <ComponentChangelogTable changelogData={changelogData} />
