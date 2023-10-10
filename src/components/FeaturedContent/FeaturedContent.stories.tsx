@@ -316,11 +316,11 @@ export const textContentVariations: Story = {
         textContent={
           <div>
             <p>
-              This text should have a header. Vestibulum id ligula porta felis
-              euismod semper. Nulla vitae elit libero, a pharetra augue.
-              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-              libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-              semper. Nulla vitae elit libero, a pharetra augue.
+              This text should have a header. This text should have a header.
+              This text should have a header. This text should have a header.
+              This text should have a header. This text should have a header.
+              This text should have a header. This text should have a header.
+              This text should have a header.
             </p>
           </div>
         }
