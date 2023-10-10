@@ -44,6 +44,9 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
+  /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
+   * If more than one, separate each with a space */
+  additionalHelperTextIds?: string;
   /** A class name for the TextInput parent div. */
   className?: string;
   /** The starting value of the input field. */
@@ -126,6 +129,7 @@ export const TextInput = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
+        additionalHelperTextIds,
         className,
         defaultValue,
         helperText,
@@ -200,6 +204,7 @@ export const TextInput = chakra(
         id,
         labelText,
         name: "TextInput",
+        additionalHelperTextIds,
         showLabel,
       });
 
@@ -256,8 +261,8 @@ export const TextInput = chakra(
             ref: finalRef,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
-            ...ariaAttributes,
             ...rest,
+            ...ariaAttributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
       // also needs `type` and `value` to render correctly.
