@@ -65,23 +65,16 @@ export const FeaturedContent = chakra(
         isFullWidth,
       });
 
-      if (!imageProps) {
+      if (!imageProps.src) {
         console.warn(
-          `NYPL Reservoir FeaturedContent: The 'imageProps' prop is required.`
+          `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
         );
-      } else {
-        if (!imageProps.src) {
-          console.warn(
-            `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
-          );
-        }
-        if (!imageProps.alt) {
-          console.warn(
-            `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
-          );
-        }
       }
-
+      if (!imageProps.alt) {
+        console.warn(
+          `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
+        );
+      }
       if (!textContent) {
         console.warn(
           `NYPL Reservoir FeaturedContent: The 'textContent' prop is required.`
