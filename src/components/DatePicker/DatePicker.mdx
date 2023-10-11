@@ -1,7 +1,10 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as DatePickerStories from "./DatePicker.stories";
+import { changelogData } from "./datePickerChangelogData";
 import Link from "../Link/Link";
+import Table from "../Table/Table";
 
 <Meta of={DatePickerStories} />
 
@@ -22,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#other-states" target="_self">Other States</Link>}
 - {<Link href="#date-inputs-and-output" target="_self">Date Inputs and Output</Link>}
 - {<Link href="#getting-date-input-values" target="_self">Getting Date Input Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -257,3 +261,7 @@ const onSubmit = () => {
 `}
   language="jsx"
 />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

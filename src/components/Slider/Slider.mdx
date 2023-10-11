@@ -1,6 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as SliderStories from "./Slider.stories";
+import { changelogData } from "./sliderChangelogData";
 import Link from "../Link/Link";
 
 <Meta of={SliderStories} />
@@ -21,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#examples" target="_self">Examples</Link>}
 - {<Link href="#get-input-values" target="_self">Get Input Values</Link>}
 - {<Link href="#programmatically-update" target="_self">Programmatically Update</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -330,3 +333,7 @@ function RangeSliderValuesUpdateExample() {
 />
 
 <Canvas of={SliderStories.ProgrammaticallyUpdate} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -8,6 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Adds the `ComponentChangelogTable` component.
+- Adds a changelog to the story pages for the `DatePicker`, `FeedbackBox`, `Hero`, and `Slider` components.
+
 ### Updates
 
 - Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
