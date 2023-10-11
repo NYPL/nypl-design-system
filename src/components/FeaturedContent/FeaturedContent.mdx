@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-
+import { changelogData } from "./featuredContentChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as FeaturedContentStories from "./FeaturedContent.stories";
 import Link from "../Link/Link";
 
@@ -20,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-width-variations" target="_self">Component Width Variations</Link>}
 - {<Link href="#image-position-variations" target="_self">Image Position Variations</Link>}
 - {<Link href="#image-width-variations" target="_self">Image Width Variations</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -76,3 +78,7 @@ The options for width are `oneQuarter`, `oneThird`, `oneHalf`, `twoThirds`, and 
 The above example with an overline, a heading, a short paragraph of body text, and a CTA button is the recommended usage. While other configurations are possible, keep in mind that the minimum height of the component is 320px and it is best to avoid excessive white space.
 
 <Canvas of={FeaturedContentStories.textContentVariations} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
