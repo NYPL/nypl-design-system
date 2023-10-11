@@ -45,6 +45,8 @@ export type {
   FullDateType,
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
+export type { FeaturedContentProps } from "./components/FeaturedContent/FeaturedContent";
+export { default as FeaturedContent } from "./components/FeaturedContent/FeaturedContent";
 export {
   default as FeedbackBox,
   useFeedbackBox,

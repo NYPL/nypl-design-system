@@ -21,6 +21,7 @@ import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
+import FeaturedContent from "./components/featuredContent";
 import Fieldset from "./components/fieldset";
 import FilterBar from "./components/filterBar";
 import Heading from "./components/heading";
@@ -104,6 +105,7 @@ const theme: any = {
     CustomSelect,
     DatePicker,
     FeedbackBox,
+    FeaturedContent,
     Fieldset,
     FilterBar,
     Heading,
