@@ -26,7 +26,7 @@ const FeaturedContent = {
       wrapperWidth = "75%";
     }
     return {
-      bgColor: "ui.gray.x-light-cool",
+      bgColor: "ui.bg.default",
       _dark: {
         bgColor: "dark.ui.bg.default",
       },
@@ -40,7 +40,7 @@ const FeaturedContent = {
       wrapper: {
         ...wrapperStyles,
         minHeight: "320px",
-        maxWidth: "1280px",
+        maxWidth: full ? "1280px" : "100%",
         display: "flex",
         alignItems: "stretch",
         flexDirection: imageAtEnd
@@ -49,8 +49,10 @@ const FeaturedContent = {
       },
       text: {
         display: "flex",
-        padding: "20px",
+        padding: "l",
         flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
       },
       imgWrapper: {
         backgroundPosition: "center",

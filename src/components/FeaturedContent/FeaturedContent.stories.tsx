@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 import SimpleGrid from "../Grid/SimpleGrid";
 
 import FeaturedContent, {
@@ -96,7 +97,7 @@ export const WithControls: Story = {
 
 export const LayoutVariations: Story = {
   render: () => (
-    <SimpleGrid columns={1}>
+    <SimpleGrid columns={1} maxWidth="1280px">
       <FeaturedContent
         isFullWidth={true}
         textContent={
@@ -315,13 +316,13 @@ export const textContentVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <p>
+            <Text noSpace>
               This text should have a header. This text should have a header.
               This text should have a header. This text should have a header.
               This text should have a header. This text should have a header.
               This text should have a header. This text should have a header.
               This text should have a header.
-            </p>
+            </Text>
           </div>
         }
         imageProps={{
@@ -335,8 +336,12 @@ export const textContentVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2">Not recommended</Heading>
-            <p>This text is not tall enough for this component.</p>
+            <Heading level="h2" size="heading5">
+              Not recommended
+            </Heading>
+            <Text noSpace>
+              This does not fill the space and could use more.
+            </Text>
           </div>
         }
         imageProps={{
