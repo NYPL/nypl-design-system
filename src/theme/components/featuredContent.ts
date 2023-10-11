@@ -33,7 +33,6 @@ const FeaturedContent = {
       width: full ? "100vw" : "100%",
       left: full ? "50%" : "auto",
       right: full ? "50%" : "auto",
-      paddingX: full ? { "2xl": "5%" } : "auto",
       position: "relative",
       marginLeft: full ? "-50vw" : "auto",
       marginRight: full ? "-50vw" : "auto",
