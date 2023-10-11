@@ -71,8 +71,6 @@ export const ComponentChangelogTable = (
     td: {
       borderColor: borderColor,
       fontSize: "desktop.caption",
-      // pb: "xs",
-      // pt: "xs",
       _last: {
         borderColor: borderColor,
       },
