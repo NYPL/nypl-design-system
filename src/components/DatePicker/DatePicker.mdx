@@ -54,6 +54,11 @@ the "date range" mode by wrapping the elements in a `<fieldset>` element with
 its own `<legend>` label for the group. Note that this is in addition to the two
 labels that each `<input>` element is associated with.
 
+`helperText` is also associated with the `<input>` elements via the `aria-describedby`
+attribute. If a `helperTextFrom` or `helperTextTo` is passed in addition to a general
+`helperText` for the entire `DatePicker`, then the `aria-describedby` attribute of the
+`<input>` element will be "[general-helperText-id] [input-helperText-id]".
+
 When `showLabel` is set to false, the single `<input>` element's `aria-label`
 attribute is set to the required `labelText` value. In the "date range" mode,
 when `showLabel` is set to false, the `<fieldset>`'s `<legend>` will have the
