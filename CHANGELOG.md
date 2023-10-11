@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `DatePicker` so that focus remains on input after value is changed.
 - Updates the `FeedbackBox` component to remove the underline on the component's `Privacy Policy` link.
 - Updates `DatePicker` to pass a `additionalHelperTextIds` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
+- Adds the `FeaturedContent` component.
 
 ### Fixes
 
