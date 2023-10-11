@@ -5,12 +5,13 @@ interface NewsLetterStyleProps {
 }
 
 const NewsLetterSignup = {
+  parts: ["pitch", "privacy", "action"],
   baseStyle: ({ newsletterSignupType }: NewsLetterStyleProps) => ({
     alignItems: "center",
     borderWidth: { base: "0px 1px 1px 1px", md: "1px 1px 1px 0px" },
     maxWidth: "1280px",
     width: "100%",
-    "div#pitch": {
+    pitch: {
       // It's a two-column layout >md
       width: { base: "100%", md: "50%" },
       bg: "ui.bg.default",
@@ -39,22 +40,21 @@ const NewsLetterSignup = {
         },
       },
       padding: {
-        base: "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-l) var(--nypl-space-l)", // @todo For some reason using "padding:" with more than one shorthand value, e.g. l, sm, xxl, doesn't work.
+        base: "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-l) var(--nypl-space-l)",
         md: "l",
         lg: "var(--nypl-space-l) var(--nypl-space-xxl) var(--nypl-space-l) var(--nypl-space-xl)",
       },
       alignItems: "flex-start",
       gap: "xs",
+      margin: "unset",
     },
-    "div#pitch, h3, #pitch>p, #pitch>a": { margin: "unset" },
-    "a#privacy": {
-      display: "flex",
-      alignItems: "center",
+    privacy: {
       gap: "xxs",
       fontSize: "desktop.caption",
       fontWeight: "caption",
+      margin: "unset",
     },
-    "div#action": {
+    action: {
       padding: { base: "l", lg: "var(--nypl-space-l) var(--nypl-space-xxl)" },
       // It's a two-column layout >md
       width: { base: "100%", md: "50%" },
@@ -62,6 +62,7 @@ const NewsLetterSignup = {
     form: {
       width: "100%",
     },
+    // Overwrites the defaut styling of the From component layout
     "#newsletter-form-parent": {
       // The button is 78px wide and must sit to the right of the input field >lg.
       gridTemplateColumns: { base: null, xl: "1fr 78px" },

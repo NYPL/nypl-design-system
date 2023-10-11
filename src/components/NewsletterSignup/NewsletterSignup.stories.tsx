@@ -31,6 +31,17 @@ const meta: Meta<typeof NewsletterSignup> = {
         },
       },
     },
+    errorHeading: {
+      control: "text",
+      table: {
+        defaultValue: {
+          summary: "Oops! Something went wrong.",
+        },
+      },
+    },
+    errorText: {
+      control: "text",
+    },
     formHelperText: {
       control: "text",
     },
@@ -203,7 +214,7 @@ export const ComponentStates: Story = {
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Error View
+          Deafult Error View
         </Heading>
         <NewsletterSignup
           id="error-view"
@@ -212,6 +223,29 @@ export const ComponentStates: Story = {
           onSubmit={() => {}}
           confirmationHeading="Thank you for signing up!"
           confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Error View with Custom Error Message
+        </Heading>
+        <NewsletterSignup
+          id="error-view"
+          view="error"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          errorHeading="An error has occurred."
+          errorText={
+            <div>
+              Please refresh this page and try again. If this error persists,
+              <a href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address">
+                contact our e-mail team
+              </a>
+              .
+            </div>
+          }
         />
       </Box>
     </VStack>

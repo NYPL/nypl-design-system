@@ -3,7 +3,7 @@ import {
   chakra,
   Stack,
   useColorModeValue,
-  useStyleConfig,
+  useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -27,6 +27,10 @@ interface NewsletterSignupProps {
   confirmationText: string;
   /** Appears below the title to provide details about the newsletter. Accepts a string or an element. */
   descriptionText?: string | JSX.Element;
+  /** Text displayed next to the error icon in case of an error in the email submission process*/
+  errorHeading?: string;
+  /** Appears below the title to provide details about next steps in case of an error. Accepts a string or an element. */
+  errorText?: string | JSX.Element;
   /** Appears below the input field's example text to provide any additional instructions. Accepts a string or
    *  an element. */
   formHelperText?: string | JSX.Element;
@@ -47,8 +51,14 @@ interface NewsletterSignupProps {
   /** The value of the email text input field. */
   valueEmail?: string;
   /** Used to specify what is displayed in the component form/feedback area. */
-  view?: "form" | "submitting" | "confirmation" | "error";
+  view?: NewsletterSignupViewType;
 }
+
+export type NewsletterSignupViewType =
+  | "form"
+  | "submitting"
+  | "confirmation"
+  | "error";
 
 const defaultDescriptionText =
   "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
@@ -66,6 +76,8 @@ export const NewsletterSignup = chakra(
         confirmationHeading,
         confirmationText,
         descriptionText = defaultDescriptionText,
+        errorHeading = "Oops! Something went wrong.",
+        errorText,
         formHelperText,
         id,
         isInvalidEmail = false,
@@ -81,7 +93,7 @@ export const NewsletterSignup = chakra(
       ref?
     ) => {
       const { isLargerThanMobile } = useNYPLBreakpoints();
-      const styles = useStyleConfig("NewsletterSignup", {
+      const styles = useMultiStyleConfig("NewsletterSignup", {
         newsletterSignupType,
       });
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
@@ -94,7 +106,6 @@ export const NewsletterSignup = chakra(
       React.useEffect(() => {
         focusRef.current?.focus();
       }, [view]);
-
       return (
         <Stack
           direction={isLargerThanMobile ? "row" : "column"}
@@ -102,21 +113,26 @@ export const NewsletterSignup = chakra(
           __css={styles}
           {...rest}
         >
-          <VStack id="pitch">
-            {title && <Heading level="h3" text={title} />}
+          <VStack __css={styles.pitch} alignItems="flex-start">
+            {title && <Heading level="h3" text={title} margin="unset" />}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text>{descriptionText}</Text>
+                <Text margin="unset">{descriptionText}</Text>
               ) : (
                 descriptionText
               )
             ) : null}
 
-            <Link href={privacyPolicyLink} type="external" id="privacy">
+            <Link
+              href={privacyPolicyLink}
+              type="external"
+              margin="unset"
+              __css={styles.privacy}
+            >
               Privacy Policy
             </Link>
           </VStack>
-          <VStack id="action">
+          <VStack __css={styles.action}>
             {isFormView && (
               <Form id="newsletter-form" onSubmit={onSubmit}>
                 <FormField key="formfield-input">
@@ -177,27 +193,39 @@ export const NewsletterSignup = chakra(
             )}
             {view === "error" && (
               <Box
-                display="flex"
-                color="ui.error.primary"
+                className="feedback-body response"
+                margin="auto"
                 ref={focusRef}
                 tabIndex={0}
-                alignItems={{ md: "center" }}
-                width="full"
               >
-                <Icon
-                  color="ui.error.primary"
-                  name="errorFilled"
-                  size="large"
-                />
-                {/* This text is boilerplate and not meant to be customized. */}
-                <Text
-                  fontSize="xl"
-                  marginStart="xs"
-                  marginBottom="unset"
-                  fontWeight="medium"
+                <Box
+                  display="flex"
+                  marginBottom="xs"
+                  alignItems={{ md: "center" }}
                 >
-                  Oops! Something went wrong.
-                </Text>
+                  <Icon
+                    color="ui.error.primary"
+                    name="errorFilled"
+                    size="large"
+                  />
+                  {/* This text is boilerplate and not meant to be customized. */}
+                  <Text
+                    color="ui.error.primary"
+                    fontSize="xl"
+                    marginStart="xs"
+                    marginBottom="unset"
+                    fontWeight="medium"
+                  >
+                    {errorHeading}
+                  </Text>
+                </Box>
+                {errorText ? (
+                  typeof errorText === "string" ? (
+                    <Text margin="unset">{errorText}</Text>
+                  ) : (
+                    errorText
+                  )
+                ) : null}
               </Box>
             )}
           </VStack>

@@ -5,23 +5,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -35,7 +33,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -66,8 +64,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -154,23 +151,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -184,7 +179,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -215,8 +210,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -303,23 +297,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -333,7 +325,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -364,8 +356,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -452,23 +443,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -482,7 +471,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -513,8 +502,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -601,23 +589,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -631,7 +617,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -662,8 +648,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -750,23 +735,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -780,7 +763,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -811,8 +794,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -899,23 +881,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -929,7 +909,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -960,8 +940,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1048,23 +1027,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1078,7 +1055,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1109,8 +1086,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1197,23 +1173,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1227,7 +1201,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1258,8 +1232,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1346,23 +1319,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1376,7 +1347,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1407,8 +1378,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1495,23 +1465,21 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1525,7 +1493,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1556,8 +1524,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1644,23 +1611,21 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1674,7 +1639,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1705,8 +1670,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -1799,23 +1763,21 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1829,7 +1791,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1860,8 +1822,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <div
       className="feedback-body response css-42igfv"
@@ -1912,6 +1873,129 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
       >
         You can update your email subscription preferences at any time using the links at the bottom of the email.
       </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the custom error state snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-p38jk0"
+  >
+    <h3
+      className="chakra-heading css-a7hbl5"
+    >
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1h5n132"
+    >
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1h5n132"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
+      >
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="link-privacy-policy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
+  </div>
+  <div
+    className="chakra-stack css-1vr2anf"
+  >
+    <div
+      className="feedback-body response css-42igfv"
+      tabIndex={0}
+    >
+      <div
+        className="css-116fi6s"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-cr4d1u"
+          focusable={false}
+          role="img"
+          title="errorFilled icon"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        <p
+          className="chakra-text css-15tigxc"
+        >
+          Oh no! Something went wrong.
+        </p>
+      </div>
+      <div>
+        If the error persists,
+        <a
+          href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address"
+        >
+          contact our e-mail team
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -1922,23 +2006,21 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -1952,7 +2034,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -1983,8 +2065,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <div
       className="feedback-body response css-42igfv"
@@ -2040,28 +2121,26 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
 </div>
 `;
 
-exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
+exports[`NewsletterSignup Snapshots Renders the default error state snapshot correctly 1`] = `
 <div
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -2075,7 +2154,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -2106,8 +2185,122 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
+  >
+    <div
+      className="feedback-body response css-42igfv"
+      tabIndex={0}
+    >
+      <div
+        className="css-116fi6s"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-cr4d1u"
+          focusable={false}
+          role="img"
+          title="errorFilled icon"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        <p
+          className="chakra-text css-15tigxc"
+        >
+          Oops! Something went wrong.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
+<div
+  className="chakra-stack css-j7qwjs"
+>
+  <div
+    className="chakra-stack css-p38jk0"
+  >
+    <h3
+      className="chakra-heading css-a7hbl5"
+    >
+      Sign Up for Our Newsletter!
+    </h3>
+    <p
+      className="chakra-text css-1h5n132"
+    >
+      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
+    </p>
+    <a
+      className="css-1h5n132"
+      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+      <span
+        className="css-0"
+      >
+        This link opens in a new window
+      </span>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="link-privacy-policy-external-icon"
+        role="img"
+        title="External link"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </a>
+  </div>
+  <div
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -2189,142 +2382,26 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
 </div>
 `;
 
-exports[`NewsletterSignup Snapshots Renders the error state snapshot correctly 1`] = `
-<div
-  className="chakra-stack css-j7qwjs"
->
-  <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
-  >
-    <h3
-      className="chakra-heading css-1878n22"
-    >
-      Sign Up for Our Newsletter!
-    </h3>
-    <p
-      className="chakra-text css-1xdhyk6"
-    >
-      Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
-    </p>
-    <a
-      className="css-1xdhyk6"
-      href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
-    >
-      Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1grhd2q"
-        focusable={false}
-        id="privacy-external-icon"
-        role="img"
-        title="External link"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
-    </a>
-  </div>
-  <div
-    className="chakra-stack css-owjkmg"
-    id="action"
-  >
-    <div
-      className="css-16zjcfy"
-      tabIndex={0}
-    >
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-cr4d1u"
-        focusable={false}
-        role="img"
-        title="errorFilled icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
-      <p
-        className="chakra-text css-1g7wtor"
-      >
-        Oops! Something went wrong.
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`NewsletterSignup Snapshots Renders the form UI with description snapshot correctly 1`] = `
 <div
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Why not?
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -2338,7 +2415,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -2369,8 +2446,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -2457,23 +2533,21 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -2487,7 +2561,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -2518,8 +2592,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"
@@ -2607,23 +2680,21 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
   className="chakra-stack css-j7qwjs"
 >
   <div
-    className="chakra-stack css-owjkmg"
-    id="pitch"
+    className="chakra-stack css-p38jk0"
   >
     <h3
-      className="chakra-heading css-1878n22"
+      className="chakra-heading css-a7hbl5"
     >
       Sign Up for Our Newsletter!
     </h3>
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-1h5n132"
     >
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="css-1h5n132"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      id="privacy"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -2637,7 +2708,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         aria-hidden={true}
         className="chakra-icon css-1grhd2q"
         focusable={false}
-        id="privacy-external-icon"
+        id="link-privacy-policy-external-icon"
         role="img"
         title="External link"
         viewBox="0 0 24 24"
@@ -2668,8 +2739,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     </a>
   </div>
   <div
-    className="chakra-stack css-owjkmg"
-    id="action"
+    className="chakra-stack css-1vr2anf"
   >
     <form
       aria-label="form"

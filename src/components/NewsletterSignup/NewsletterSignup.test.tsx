@@ -149,6 +149,7 @@ describe("NewsletterSignup Unit Tests", () => {
   it("Renders the Optional descriptionText and formHelperText HTML Values for the Form", () => {
     const testNewsletterSignup = (
       <NewsletterSignup
+        // This link is safe and fun - If you have a moment check it out ;)
         descriptionText={
           <div>
             Do not send <a href="https://chias.website/">cash</a>.
@@ -364,7 +365,7 @@ describe("NewsletterSignup Snapshots", () => {
     expect(view).toMatchSnapshot();
   });
 
-  it("Renders the error state snapshot correctly", () => {
+  it("Renders the default error state snapshot correctly", () => {
     const view = renderer
       .create(
         <NewsletterSignup
@@ -374,6 +375,31 @@ describe("NewsletterSignup Snapshots", () => {
           view="error"
           confirmationHeading="Thank you for signing up!"
           confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+        />
+      )
+      .toJSON();
+    expect(view).toMatchSnapshot();
+  });
+
+  it("Renders the custom error state snapshot correctly", () => {
+    const view = renderer
+      .create(
+        <NewsletterSignup
+          onSubmit={onSubmit}
+          onChange={onChange}
+          valueEmail={valueEmail}
+          view="error"
+          confirmationHeading="Thank you for signing up!"
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          errorHeading="Oh no! Something went wrong."
+          errorText={
+            <div>
+              If the error persists,
+              <a href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address">
+                contact our e-mail team
+              </a>
+            </div>
+          }
         />
       )
       .toJSON();
@@ -411,7 +437,7 @@ describe("NewsletterSignup Snapshots", () => {
       .toJSON();
     expect(view).toMatchSnapshot();
   });
-
+  // @TODO I don't think these test are working as intended as the colors are now set in the theme file.
   describe("Renders each color for each newsletterSignupType correctly", () => {
     // The newsletterSignupType values are determined by the types contained in the sectionDataMap.
     // So it is safe to use the map directly.
