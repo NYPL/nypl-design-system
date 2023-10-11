@@ -1,11 +1,24 @@
 import List from "../components/List/List";
 import Table from "../components/Table/Table";
 
+export const affectTypesArray = [
+  "Accessibility",
+  "Documentation",
+  "Functionality",
+  "Styles",
+] as const;
+export type AffectTypes = typeof affectTypesArray[number];
+
 export interface ChangelogData {
+  /** Date of the release; format yyyy-mm-dd; when adding new entry during development, set value as "Prerelease" */
   date: string;
+  /** Version nunber of the release; when adding new entry during development, set value as "Prerelease" */
   version: string;
+  /** The type of update  */
   type: "Bug Fix" | "New Feature" | "Update";
-  affects: "Accessibility" | "Documentation" | "Functionality" | "Styles";
+  /** The scope of the update */
+  affects: AffectTypes[];
+  /** Details about the update; this array will be rendered as a bulleted list */
   notes: string[];
 }
 
@@ -27,9 +40,10 @@ export const ComponentChangelogTable = (
             month: "short",
             day: "numeric",
           });
+    const affectsFormatted = affects.sort().join(", ");
     const notesItems = notes.map((item, i) => <li key={i}>{item}</li>);
     const notesList = <List type="ul">{notesItems}</List>;
-    const rowData = [dateFormatted, version, type, affects, notesList];
+    const rowData = [dateFormatted, version, type, affectsFormatted, notesList];
     return rowData;
   });
 
