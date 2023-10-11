@@ -102,6 +102,51 @@ const onSubmit = async (values) => {
 language="jsx"
 />
 
+## Interactive Example with onChange and onSubmit
+
+_NOTE: open the browser console to see the values logged in the example below._
+
+The input value typed into the `TextInput` of the `NewsletterSignup` component can be accessed by the
+functions passed to the `onChange` and `onSubmit` prop.
+
+Both the `onChange` and `onSubmit` callback functions can retrieved the submitted value as `event.target.email.value`
+through the `event` object passed as the single argument.
+
+The following example logs the `event.target.email.value` to the console on each `onChange` call and upon
+cklicking the Submit button which triggers the `onSubmit` function and simulate a submission.
+The component will transition through a `"submitting"` view to an alternating `"confirmation"`, `"error"` or "invalid Email" view.
+
+<Source
+  code={`
+function NewsletterSignupOnSubmitExampleComponent() {
+  const [view, setView] = React.useState("form");
+  const [inputVal, setInputVal] = React.useState("");
+  const handleChange = (event) => {
+    console.log(\`onChange Email Input value: \${event.target.value}\`);
+    setInputVal(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(\`onSubmit Email Input value: \${event.target.email.value}\`);
+  };
+  return (
+    <NewsletterSignup
+    id="interactive"
+    view={view}
+    isInvalidEmail={counter === 3}
+    valueEmail={inputVal}
+    onChange={handleChange}
+    onSubmit={handleSubmit}
+    confirmationHeading="Thank you for signing up!"
+    confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+    />
+  );
+} `}
+  language="jsx"
+/>
+
+<Canvas of={NewsletterSignupStories.NewsletterSignupOnSubmitExample} />
+
 ## Component States
 
 <Canvas of={NewsletterSignupStories.ComponentStates} />

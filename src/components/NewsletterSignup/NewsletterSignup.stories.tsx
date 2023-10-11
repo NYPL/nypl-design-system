@@ -1,7 +1,8 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
 import { withDesign } from "storybook-addon-designs";
-import NewsletterSignup from "./NewsletterSignup";
+import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
 import { sectionTypeArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 
@@ -111,6 +112,57 @@ export const WithControls: Story = {
     jest: "NewsletterSignup.test.tsx",
   },
   render: (args) => <NewsletterSignup {...args} />,
+};
+let counter = 0;
+
+function NewsletterSignupOnSubmitExampleComponent() {
+  const [view, setView]: [
+    NewsletterSignupViewType,
+    React.Dispatch<React.SetStateAction<NewsletterSignupViewType>>
+  ] = React.useState("form");
+  const [inputVal, setInputVal] = React.useState("");
+
+  const changeView = () => {
+    counter++;
+    setView(counter === 1 ? "confirmation" : counter === 2 ? "error" : "form");
+    setTimeout(() => {
+      setView("form");
+      setInputVal("");
+    }, 2000);
+  };
+
+  React.useEffect(() => {
+    if (counter === 3) counter = 0;
+  }, [counter]);
+
+  const handleChange = (event) => {
+    console.log(`onChange Email Input value: ${event.target.value}`);
+    setInputVal(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setView("submitting");
+    console.log(`onSubmit Email Input value: ${event.target.email.value}`);
+    setTimeout(changeView, 2000);
+  };
+
+  return (
+    <NewsletterSignup
+      id="interactive"
+      view={view}
+      isInvalidEmail={counter === 3}
+      valueEmail={inputVal}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+      confirmationHeading="Thank you for signing up!"
+      confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+    />
+  );
+}
+
+export const NewsletterSignupOnSubmitExample: Story = {
+  render: () => <NewsletterSignupOnSubmitExampleComponent />,
+  name: "Interactive Example",
 };
 
 export const DescriptionUsingJSXElements: Story = {
