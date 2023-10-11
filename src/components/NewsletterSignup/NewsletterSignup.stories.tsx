@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
+import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
 import { sectionTypeArray } from "../../helpers/types";
@@ -55,8 +56,8 @@ const meta: Meta<typeof NewsletterSignup> = {
         },
       },
     },
-    onChange: { control: false },
-    onSubmit: { control: false },
+    onChange: { control: false, action: "onChange" },
+    onSubmit: { control: false, action: "onSubmit" },
     title: {
       control: "text",
       table: {
@@ -98,8 +99,13 @@ export const WithControls: Story = {
     id: undefined,
     isInvalidEmail: false,
     newsletterSignupType: undefined,
-    onChange: undefined,
-    onSubmit: undefined,
+    onChange: (event) => {
+      action("onChange")(event.target.value);
+    },
+    onSubmit: (event) => {
+      event.preventDefault();
+      action("onSubmit")(event.target[0].value);
+    },
     title: undefined,
     valueEmail: undefined,
     view: undefined,
