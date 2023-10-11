@@ -4,7 +4,6 @@ import { withDesign } from "storybook-addon-designs";
 import NewsletterSignup from "./NewsletterSignup";
 import { sectionTypeArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
-import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
@@ -81,44 +80,6 @@ const meta: Meta<typeof NewsletterSignup> = {
 export default meta;
 type Story = StoryObj<typeof NewsletterSignup>;
 
-const NewsletterSignupWithControls = (args) => {
-  const [view, setView] = useStateWithDependencies(args.view);
-  const [isInvalidEmail, setIsInvalidEmail] = useStateWithDependencies(
-    args.isInvalidEmail
-  );
-
-  function handleSubmit(event): void {
-    event.preventDefault();
-    setView("submitting");
-    const userEmail = event.target.email.value;
-    switch (userEmail) {
-      case "error@nypl.org":
-        setView("error");
-        break;
-      case "bad@nypl.org":
-        setView("form");
-        setIsInvalidEmail(true);
-        break;
-      default:
-        // Add short delay to demonstrate the "submitted" state.
-        setTimeout(() => {
-          setView("confirmation");
-        }, 3000);
-    }
-    console.log("Submitted email: ", userEmail);
-    setTimeout(() => {
-      setView("form");
-    }, 10000);
-  }
-  return (
-    <NewsletterSignup
-      {...args}
-      onSubmit={handleSubmit}
-      view={view}
-      isInvalidEmail={isInvalidEmail}
-    />
-  );
-};
 /**
  * Main Story for the NewsletterSignup component. This must contains the `args`
  * and `parameters` properties in this object.
@@ -130,6 +91,8 @@ export const WithControls: Story = {
     confirmationText:
       "You can update your email subscription preferences at any time using the links at the bottom of the email.",
     descriptionText: undefined,
+    errorHeading: undefined,
+    errorText: undefined,
     formHelperText: undefined,
     id: undefined,
     isInvalidEmail: false,
@@ -147,7 +110,7 @@ export const WithControls: Story = {
     },
     jest: "NewsletterSignup.test.tsx",
   },
-  render: (args) => <NewsletterSignupWithControls {...args} />,
+  render: (args) => <NewsletterSignup {...args} />,
 };
 
 export const DescriptionUsingJSXElements: Story = {
@@ -214,7 +177,7 @@ export const ComponentStates: Story = {
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Deafult Error View
+          Default Error View
         </Heading>
         <NewsletterSignup
           id="error-view"

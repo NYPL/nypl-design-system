@@ -22,17 +22,9 @@ import Link from "../Link/Link";
 
 <Description of={NewsletterSignupStories} />
 
-**Note**: The `NewsletterSignup` example below will render different states depending on what email address you input.
-* `error@nypl.org` will display the error screen.
-* `bad@nypl.org` will display the bad email screen.
-* Any other validly-constructed email address will display the confirmation screen after three seconds to better
-demonstrate the `submitting` state.
-
-The value of the email will appear in the console log.
-
 ## Component Props
 
-<Canvas of={NewsletterSignupStories.WithControls} sourceState="none"/>
+<Canvas of={NewsletterSignupStories.WithControls} />
 
 <ArgTypes of={NewsletterSignupStories.WithControls} />
 
@@ -45,6 +37,9 @@ Within the `NewsletterSignup` component, the DS `form` component wraps around tw
 Those`FormField` components hold a DS `TextInput` component of `type="email"` and a DS `Button` component of `type="submit"` respectively.
 Each of these components has their own accessibility features documented in their respective Storybook pages.
 
+When the form is submitted, focus is set to the confirmation message or the
+error message if an error occurs.
+
 Resources:
 
 - [DS Form Accessibility](../?path=/docs/components-form-elements-form--docs#accessibility)
@@ -56,7 +51,9 @@ Resources:
 Alternatively to a `descriptionText` of type `string`, a HTML Element or React component can be passed. When passing a JSX Element, the consuming app is responsible
 to assure its accessibility.
 
-<Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements}  sourceState="none"/>
+_NOTE: This is applicable for all component props excepting HTML/JSX elements._
+
+<Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
 
 ## Form Submission Data
 
@@ -107,4 +104,4 @@ language="jsx"
 
 ## Component States
 
-<Canvas of={NewsletterSignupStories.ComponentStates} sourceState="none"/>
+<Canvas of={NewsletterSignupStories.ComponentStates} />
