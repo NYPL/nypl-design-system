@@ -68,10 +68,17 @@ const meta: Meta<typeof NewsletterSignup> = {
       },
     },
     title: {
-      control: "text",
+      control: false,
+      mapping: {
+        default: (
+          <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
+        ),
+      },
       table: {
+        control: "text",
         defaultValue: {
-          summary: "Sign Up for Our Newsletter!",
+          summary:
+            '<Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />',
         },
       },
     },
@@ -115,9 +122,10 @@ export const WithControls: Story = {
       event.preventDefault();
       action("onSubmit")(event.target[0].value);
     },
-    privacyPolicyLink:
-      "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
-    title: undefined,
+    privacyPolicyLink: undefined,
+    title: (
+      <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
+    ),
     valueEmail: undefined,
     view: undefined,
   },
@@ -286,7 +294,9 @@ export const ComponentStates: Story = {
 };
 
 /* To fix focus issue where the page focuses on the last NewsletterSignup 
-component example */
+component example. 
+Note: This behavior only effects the storybook doc and is caused by rendering
+a list of the component in different states. This issue should not happen on a consuming app page*/
 const setFocus = () => {
   const heading = document.getElementById(
     "anchor--components-form-elements-newslettersignup--with-controls"
@@ -295,4 +305,4 @@ const setFocus = () => {
   heading.scrollIntoView({ behavior: "smooth" });
 };
 
-setTimeout(setFocus, 1000);
+setTimeout(setFocus, 2000);

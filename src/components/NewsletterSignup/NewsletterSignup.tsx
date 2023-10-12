@@ -38,7 +38,9 @@ interface NewsletterSignupProps {
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight */
+  /** Value to determine the section color highlight. The default is set to "blogs" as it uses the
+   * "ui.border.deafult" color.
+   */
   newsletterSignupType?: SectionTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
@@ -46,8 +48,8 @@ interface NewsletterSignupProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Link to the relevant privacy policy page. */
   privacyPolicyLink?: string;
-  /** Used to populate the `<h3>` header title. */
-  title?: string;
+  /** Used to populate the title of the Component*/
+  title?: JSX.Element;
   /** The value of the email text input field. */
   valueEmail?: string;
   /** Used to specify what is displayed in the component form/feedback area. */
@@ -86,7 +88,9 @@ export const NewsletterSignup = chakra(
         onSubmit,
         privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
         valueEmail,
-        title = "Sign Up for Our Newsletter!",
+        title = (
+          <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
+        ),
         view = "form",
         ...rest
       },
@@ -114,10 +118,10 @@ export const NewsletterSignup = chakra(
           {...rest}
         >
           <VStack __css={styles.pitch} alignItems="flex-start">
-            {title && <Heading level="h3" text={title} /*margin="unset"*/ />}
+            {title}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text /*margin="unset"*/>{descriptionText}</Text>
+                <Text noSpace>{descriptionText}</Text>
               ) : (
                 descriptionText
               )
@@ -126,7 +130,6 @@ export const NewsletterSignup = chakra(
             <Link
               href={privacyPolicyLink}
               type="external"
-              // margin="unset"
               isUnderlined={false}
               __css={styles.privacy}
             >

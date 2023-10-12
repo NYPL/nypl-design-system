@@ -18,7 +18,6 @@ describe("NewsletterSignup Accessibility", () => {
       <NewsletterSignup
         className="my-class"
         id="my-id"
-        title="Testing"
         formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
@@ -35,7 +34,6 @@ describe("NewsletterSignup Accessibility", () => {
       <NewsletterSignup
         className="my-class"
         id="my-id"
-        title="Testing"
         formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
@@ -53,7 +51,6 @@ describe("NewsletterSignup Accessibility", () => {
       <NewsletterSignup
         className="my-class"
         id="my-id"
-        title="Testing"
         formHelperText="Form helper."
         onSubmit={onSubmit}
         onChange={onChange}
@@ -71,7 +68,6 @@ describe("NewsletterSignup Accessibility", () => {
       <NewsletterSignup
         className="my-class"
         id="my-id"
-        title="Testing"
         formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
@@ -89,7 +85,6 @@ describe("NewsletterSignup Accessibility", () => {
       <NewsletterSignup
         className="my-class"
         id="my-id"
-        title="Testing"
         formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
@@ -115,7 +110,6 @@ describe("NewsletterSignup Unit Tests", () => {
   it("Renders the Minimum Required Elements for the Form", () => {
     render(
       <NewsletterSignup
-        title="Testing"
         onSubmit={onSubmit}
         onChange={onChange}
         confirmationHeading="Thank you for signing up!"
@@ -125,7 +119,7 @@ describe("NewsletterSignup Unit Tests", () => {
     expect(screen.getByRole("form")).toBeInTheDocument();
     expect(screen.getByRole("textbox")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Submit" })).toBeInTheDocument();
-    expect(screen.getByText(/Testing/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
     expect(screen.getByText(/Privacy Policy/i)).toBeInTheDocument();
   });
 

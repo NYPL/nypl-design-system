@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as NewsletterSignupStories from "./NewsletterSignup.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./newsletterSignupChangelogData";
 
 <Meta of={NewsletterSignupStories} />
 
@@ -17,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -33,6 +36,9 @@ import Link from "../Link/Link";
 The `NewsletterSignup` component is a complex component built from various Reservoir
 DS and Chakra components.
 
+The `title` prop of the `NewsletterSignup` component expects a `HTML Element` or a `React Component`. By default it renderes a `h2` tag but it is
+the responsibility of the consuming app to pass the heading tag (`h*`) that aligns with the page structure and ensures accessibility.
+
 Within the `NewsletterSignup` component, the DS `form` component wraps around two DS `FormField` components.
 Those`FormField` components hold a DS `TextInput` component of `type="email"` and a DS `Button` component of `type="submit"` respectively.
 Each of these components has their own accessibility features documented in their respective Storybook pages.
@@ -42,6 +48,7 @@ error message if an error occurs.
 
 Resources:
 
+- [W3C WAI Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
 - [DS Form Accessibility](../?path=/docs/components-form-elements-form--docs#accessibility)
 - [DS Button Accessibility](../?path=/docs/components-form-elements-button--docs#accessibility)
 - [DS TextInput Accessibility](../?path=/docs/components-form-elements-textinput--docs#accessibility)
@@ -150,3 +157,7 @@ function NewsletterSignupOnSubmitExampleComponent() {
 ## Component States
 
 <Canvas of={NewsletterSignupStories.ComponentStates} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

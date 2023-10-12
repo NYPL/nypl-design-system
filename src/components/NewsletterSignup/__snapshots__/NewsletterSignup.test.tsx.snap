@@ -7,11 +7,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -153,11 +153,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -299,11 +299,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -445,11 +445,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -591,11 +591,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -737,11 +737,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -883,11 +883,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1029,11 +1029,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1175,11 +1175,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1321,11 +1321,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1467,11 +1467,11 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1613,11 +1613,11 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1765,11 +1765,11 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -1885,11 +1885,11 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2008,11 +2008,11 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2128,11 +2128,11 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2243,11 +2243,11 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2389,11 +2389,11 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2535,11 +2535,11 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
@@ -2682,11 +2682,11 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
   <div
     className="chakra-stack css-p38jk0"
   >
-    <h3
+    <h2
       className="chakra-heading css-1878n22"
     >
-      Sign Up for Our Newsletter!
-    </h3>
+      Sign Up for Our Newsletter
+    </h2>
     <p
       className="chakra-text css-1xdhyk6"
     >
