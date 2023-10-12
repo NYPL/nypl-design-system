@@ -16,11 +16,4 @@ export const changelogData: ChangelogData[] = [
     affects: [],
     notes: ["Adds the NewsletterSignup component to the DS library"],
   },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "New Feature",
-    affects: [],
-    notes: ["Adds the NewsletterSignup component to the DS library"],
-  },
 ];
