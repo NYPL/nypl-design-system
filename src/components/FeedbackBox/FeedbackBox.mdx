@@ -1,6 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as FeedbackBoxStories from "./FeedbackBox.stories";
+import { changelogData } from "./feedbackBoxChangelogData";
 import Link from "../Link/Link";
 
 <Meta of={FeedbackBoxStories} />
@@ -22,6 +24,7 @@ import Link from "../Link/Link";
 - {<Link href="#feedbackbox-screens" target="_self">FeedbackBox Screens</Link>}
 - {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
 - {<Link href="#programmatically-open" target="_self">Programmatically Open</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -383,3 +386,7 @@ const MyComponent = () => {
 }; `}
   language="jsx"
 />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

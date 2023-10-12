@@ -1,6 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as HeroStories from "./Hero.stories";
+import { changelogData } from "./heroChangelogData";
 import Link from "../Link/Link";
 
 <Meta of={HeroStories} />
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#all-variations" target="_self">All Variations</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -197,3 +200,7 @@ and `"secondaryWhatsOn"`.
 />
 
 <Canvas of={HeroStories.ColorVariations} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
