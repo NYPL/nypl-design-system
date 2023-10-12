@@ -81,7 +81,7 @@ export const NewsletterSignup = chakra(
         formHelperText,
         id,
         isInvalidEmail = false,
-        newsletterSignupType = "whatsOn",
+        newsletterSignupType = "blogs",
         onChange,
         onSubmit,
         privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
@@ -114,10 +114,10 @@ export const NewsletterSignup = chakra(
           {...rest}
         >
           <VStack __css={styles.pitch} alignItems="flex-start">
-            {title && <Heading level="h3" text={title} margin="unset" />}
+            {title && <Heading level="h3" text={title} /*margin="unset"*/ />}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text margin="unset">{descriptionText}</Text>
+                <Text /*margin="unset"*/>{descriptionText}</Text>
               ) : (
                 descriptionText
               )
@@ -126,7 +126,8 @@ export const NewsletterSignup = chakra(
             <Link
               href={privacyPolicyLink}
               type="external"
-              margin="unset"
+              // margin="unset"
+              isUnderlined={false}
               __css={styles.privacy}
             >
               Privacy Policy
@@ -208,7 +209,6 @@ export const NewsletterSignup = chakra(
                     name="errorFilled"
                     size="large"
                   />
-                  {/* This text is boilerplate and not meant to be customized. */}
                   <Text
                     color="ui.error.primary"
                     fontSize="xl"

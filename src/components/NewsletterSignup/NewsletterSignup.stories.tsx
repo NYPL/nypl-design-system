@@ -58,6 +58,15 @@ const meta: Meta<typeof NewsletterSignup> = {
     },
     onChange: { control: false, action: "onChange" },
     onSubmit: { control: false, action: "onSubmit" },
+    privacyPolicyLink: {
+      control: "text",
+      table: {
+        defaultValue: {
+          summery:
+            "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
+        },
+      },
+    },
     title: {
       control: "text",
       table: {
@@ -106,6 +115,8 @@ export const WithControls: Story = {
       event.preventDefault();
       action("onSubmit")(event.target[0].value);
     },
+    privacyPolicyLink:
+      "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
     title: undefined,
     valueEmail: undefined,
     view: undefined,
@@ -119,6 +130,7 @@ export const WithControls: Story = {
   },
   render: (args) => <NewsletterSignup {...args} />,
 };
+/* Counter to allow the interactive example to show different states uponn submit*/
 let counter = 0;
 
 function NewsletterSignupOnSubmitExampleComponent() {
@@ -272,3 +284,15 @@ export const ComponentStates: Story = {
     </VStack>
   ),
 };
+
+/* To fix focus issue where the page focuses on the last NewsletterSignup 
+component example */
+const setFocus = () => {
+  const heading = document.getElementById(
+    "anchor--components-form-elements-newslettersignup--with-controls"
+  );
+  heading.focus();
+  heading.scrollIntoView({ behavior: "smooth" });
+};
+
+setTimeout(setFocus, 1000);
