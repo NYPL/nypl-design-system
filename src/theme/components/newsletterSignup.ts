@@ -4,7 +4,7 @@ interface NewsLetterStyleProps {
   newsletterSignupType: SectionTypes;
 }
 
-const NewsLetterSignup = {
+const NewsletterSignup = {
   parts: ["pitch", "privacy", "action"],
   baseStyle: ({ newsletterSignupType }: NewsLetterStyleProps) => ({
     alignItems: "center",
@@ -46,13 +46,10 @@ const NewsLetterSignup = {
       },
       alignItems: "flex-start",
       gap: "xs",
-      margin: "unset",
     },
     privacy: {
-      gap: "xxs",
       fontSize: "desktop.caption",
       fontWeight: "caption",
-      margin: "unset",
     },
     action: {
       padding: { base: "l", lg: "var(--nypl-space-l) var(--nypl-space-xxl)" },
@@ -75,4 +72,4 @@ const NewsLetterSignup = {
   }),
 };
 
-export default NewsLetterSignup;
+export default NewsletterSignup;

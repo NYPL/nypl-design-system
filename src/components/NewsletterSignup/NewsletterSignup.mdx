@@ -51,7 +51,7 @@ Resources:
 Alternatively to a `descriptionText` of type `string`, a HTML Element or React component can be passed. When passing a JSX Element, the consuming app is responsible
 to assure its accessibility.
 
-_NOTE: This is applicable for all component props excepting HTML/JSX elements._
+_NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
 <Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
 
@@ -113,7 +113,7 @@ Both the `onChange` and `onSubmit` callback functions can retrieved the submitte
 through the `event` object passed as the single argument.
 
 The following example logs the `event.target.email.value` to the console on each `onChange` call and upon
-cklicking the Submit button which triggers the `onSubmit` function and simulate a submission.
+clicking the Submit button which triggers the `onSubmit` function and simulate a submission.
 The component will transition through a `"submitting"` view to an alternating `"confirmation"`, `"error"` or "invalid Email" view.
 
 <Source
