@@ -64,7 +64,7 @@ const meta: Meta<typeof NewsletterSignup> = {
       control: "text",
       table: {
         defaultValue: {
-          summery:
+          summary:
             "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
         },
       },

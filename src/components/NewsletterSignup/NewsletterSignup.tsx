@@ -186,7 +186,7 @@ export const NewsletterSignup = chakra(
                     size="large"
                   />
                   <Text
-                    fontSize="xl"
+                    size="subtitle1"
                     marginStart="xs"
                     marginBottom="unset"
                     fontWeight="medium"
@@ -218,7 +218,7 @@ export const NewsletterSignup = chakra(
                   />
                   <Text
                     color="ui.error.primary"
-                    fontSize="xl"
+                    size="subtitle1"
                     marginStart="xs"
                     marginBottom="unset"
                     fontWeight="medium"
@@ -228,7 +228,7 @@ export const NewsletterSignup = chakra(
                 </Box>
                 {errorText ? (
                   typeof errorText === "string" ? (
-                    <Text noSpace size="body2" margin="unset">
+                    <Text noSpace size="body2">
                       {errorText}
                     </Text>
                   ) : (

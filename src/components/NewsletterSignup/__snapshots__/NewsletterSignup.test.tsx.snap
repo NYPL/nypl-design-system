@@ -1863,7 +1863,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
           </g>
         </svg>
         <p
-          className="chakra-text css-1g7wtor"
+          className="chakra-text css-1e5ycxp"
         >
           Thank you for signing up!
         </p>
@@ -1983,7 +1983,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
           </g>
         </svg>
         <p
-          className="chakra-text css-15tigxc"
+          className="chakra-text css-ia9jis"
         >
           Oh no! Something went wrong.
         </p>
@@ -2106,7 +2106,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
           </g>
         </svg>
         <p
-          className="chakra-text css-1g7wtor"
+          className="chakra-text css-1e5ycxp"
         >
           Thank you for signing up!
         </p>
@@ -2226,7 +2226,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
           </g>
         </svg>
         <p
-          className="chakra-text css-15tigxc"
+          className="chakra-text css-ia9jis"
         >
           Oops! Something went wrong.
         </p>
