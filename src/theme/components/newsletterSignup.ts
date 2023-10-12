@@ -63,7 +63,7 @@ const NewsletterSignup = {
     "#newsletter-form-parent": {
       // The button is 78px wide and must sit to the right of the input field >lg.
       gridTemplateColumns: { base: null, lg: "1fr 78px" },
-      gap: { base: "s", xl: "xs" },
+      gap: { base: "s", lg: "xs" },
     },
     button: {
       // The button must align w/ the input field, but using {align-items: center} doesn't quite work due to the input field not being the literal v-center.
