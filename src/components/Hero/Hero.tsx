@@ -155,7 +155,17 @@ export const Hero = chakra(
           : {};
       } else if (heroType === "campaign") {
         backgroundImageStyle = backgroundImageSrc
-          ? { backgroundImage: `url(${backgroundImageSrc})` }
+          ? {
+              backgroundImage: `url(${backgroundImageSrc})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              content: `" "`,
+              height: "100%",
+              opacity: "0.4",
+              position: "absolute",
+              width: "100%",
+              zIndex: "0",
+            }
           : backdropBackgroundColor
           ? { bgColor: backdropBackgroundColor }
           : { backgroundColor };
@@ -224,9 +234,20 @@ export const Hero = chakra(
         <Box
           data-testid="hero"
           data-responsive-background-image
-          style={backgroundImageSrc ? backgroundImageStyle : undefined}
+          // style={backgroundImageSrc ? backgroundImageStyle : undefined}
+          style={heroType !== "campaign" ? backgroundImageStyle : undefined}
           ref={ref}
-          __css={{ ...styles, ...backgroundImageStyle }}
+          /** The background image for the Campaign Hero was moved into the
+           * `::before` element to allow an opacity to be applied to the image
+           * without affecting the opacity of the entire component. Additionally,
+           * a black background behind the Campagn Hero background image was
+           * also necessary and implemented in the `__css` prop below. */
+          _before={heroType === "campaign" ? backgroundImageStyle : undefined}
+          __css={
+            heroType === "campaign"
+              ? { ...styles, backgroundColor: "ui.black", position: "relative" }
+              : { ...styles, ...backgroundImageStyle }
+          }
         >
           <Box
             data-testid="hero-content"

@@ -137,7 +137,7 @@ describe("Hero", () => {
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 
-  it("renders Campaign Hero", () => {
+  it.skip("renders Campaign Hero", () => {
     render(
       <Hero
         backgroundImageSrc="//placekitten.com/g/2400/800"

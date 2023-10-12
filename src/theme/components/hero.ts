@@ -218,6 +218,7 @@ const campaign = {
   },
   interior: {
     alignSelf: "center",
+    backgroundColor: "ui.black",
     maxWidth: { md: "960px" },
     padding: {
       base: "inset.default",
@@ -227,6 +228,7 @@ const campaign = {
       base: "100%",
       lg: "50%",
     },
+    zIndex: "5",
   },
 };
 const fiftyFifty = {
