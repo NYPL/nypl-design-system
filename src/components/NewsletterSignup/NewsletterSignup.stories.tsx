@@ -6,6 +6,8 @@ import { withDesign } from "storybook-addon-designs";
 import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
 import { sectionTypeArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
+import Text from "../Text/Text";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
@@ -199,10 +201,10 @@ export const DescriptionUsingJSXElements: Story = {
       onChange={() => {}}
       onSubmit={() => {}}
       descriptionText={
-        <div>
+        <Text noSpace size="body2">
           If the description text needs to have <i>special</i> styling or needs
-          to have a <a href="https://corgiorgy.com/">nested link</a>
-        </div>
+          to have a <Link href="https://corgiorgy.com/">nested link</Link>
+        </Text>
       }
       confirmationHeading="Thank you for signing up!"
       confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
@@ -279,13 +281,13 @@ export const ComponentStates: Story = {
           confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
           errorHeading="An error has occurred."
           errorText={
-            <div>
-              Please refresh this page and try again. If this error persists,
-              <a href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address">
+            <Text noSpace size="body2">
+              Please refresh this page and try again. If this error persists,{" "}
+              <Link href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address">
                 contact our e-mail team
-              </a>
+              </Link>
               .
-            </div>
+            </Text>
           }
         />
       </Box>

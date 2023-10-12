@@ -121,7 +121,9 @@ export const NewsletterSignup = chakra(
             {title}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text noSpace>{descriptionText}</Text>
+                <Text noSpace size="body2">
+                  {descriptionText}
+                </Text>
               ) : (
                 descriptionText
               )
@@ -192,7 +194,9 @@ export const NewsletterSignup = chakra(
                     {confirmationHeading}
                   </Text>
                 </Box>
-                <Text>{confirmationText}</Text>
+                <Text noSpace size="body2">
+                  {confirmationText}
+                </Text>
               </Box>
             )}
             {view === "error" && (
@@ -224,7 +228,9 @@ export const NewsletterSignup = chakra(
                 </Box>
                 {errorText ? (
                   typeof errorText === "string" ? (
-                    <Text margin="unset">{errorText}</Text>
+                    <Text noSpace size="body2" margin="unset">
+                      {errorText}
+                    </Text>
                   ) : (
                     errorText
                   )
