@@ -101,6 +101,10 @@ export const NewsletterSignup = chakra(
         newsletterSignupType,
       });
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
+      const errorColor = useColorModeValue(
+        "ui.error.primary",
+        "dark.ui.error.primary"
+      );
 
       const isFormView = view === "form" || view === "submitting";
 
@@ -174,6 +178,7 @@ export const NewsletterSignup = chakra(
                 margin="auto"
                 ref={focusRef}
                 tabIndex={0}
+                width="100%"
               >
                 <Box
                   display="flex"
@@ -205,19 +210,16 @@ export const NewsletterSignup = chakra(
                 margin="auto"
                 ref={focusRef}
                 tabIndex={0}
+                width="100%"
               >
                 <Box
                   display="flex"
                   marginBottom="xs"
                   alignItems={{ md: "center" }}
                 >
-                  <Icon
-                    color="ui.error.primary"
-                    name="errorFilled"
-                    size="large"
-                  />
+                  <Icon color={errorColor} name="errorFilled" size="large" />
                   <Text
-                    color="ui.error.primary"
+                    color={errorColor}
                     size="subtitle1"
                     marginStart="xs"
                     marginBottom="unset"

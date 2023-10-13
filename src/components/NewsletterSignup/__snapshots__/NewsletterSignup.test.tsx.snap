@@ -1825,7 +1825,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
     className="chakra-stack css-1vr2anf"
   >
     <div
-      className="feedback-body response css-42igfv"
+      className="feedback-body response css-6cjp67"
       tabIndex={0}
     >
       <div
@@ -1945,7 +1945,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
     className="chakra-stack css-1vr2anf"
   >
     <div
-      className="feedback-body response css-42igfv"
+      className="feedback-body response css-6cjp67"
       tabIndex={0}
     >
       <div
@@ -2068,7 +2068,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     className="chakra-stack css-1vr2anf"
   >
     <div
-      className="feedback-body response css-42igfv"
+      className="feedback-body response css-6cjp67"
       tabIndex={0}
     >
       <div
@@ -2188,7 +2188,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
     className="chakra-stack css-1vr2anf"
   >
     <div
-      className="feedback-body response css-42igfv"
+      className="feedback-body response css-6cjp67"
       tabIndex={0}
     >
       <div
