@@ -58,6 +58,7 @@ export const FeaturedContent = chakra(
           width: "oneHalf",
           src: "",
         },
+        ...rest
       } = props;
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
@@ -82,7 +83,7 @@ export const FeaturedContent = chakra(
       }
 
       return (
-        <Box data-testid="featuredcontent" __css={styles}>
+        <Box data-testid="featuredcontent" __css={styles} {...rest}>
           <Box __css={styles.wrapper}>
             <Box
               data-testid="featuredcontent-bg-image"
