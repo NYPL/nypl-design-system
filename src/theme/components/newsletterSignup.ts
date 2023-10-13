@@ -7,15 +7,11 @@ interface NewsLetterStyleProps {
 const NewsletterSignup = {
   parts: ["pitch", "privacy", "action"],
   baseStyle: ({ newsletterSignupType }: NewsLetterStyleProps) => ({
-    alignItems: "center",
     borderWidth: { base: "0px 1px 1px 1px", md: "1px 1px 1px 0px" },
-    maxWidth: "1280px",
     width: "100%",
     pitch: {
-      // It's a two-column layout >md
-      width: { base: "100%", md: "50%" },
+      alignItems: "flex-start",
       bg: "ui.bg.default",
-      borderWidth: { base: ".75rem 0px 0px 0px", md: "0px 0px 0px .75rem" },
       borderLeftColor: {
         md: getSectionColors(
           newsletterSignupType,
@@ -29,6 +25,10 @@ const NewsletterSignup = {
         ),
         md: "ui.border.default",
       },
+      borderWidth: { base: ".75rem 0px 0px 0px", md: "0px 0px 0px .75rem" },
+      gap: "xs",
+      justifyContent: "center",
+      width: { base: "100%", md: "50%" }, // It's a two-column layout >md
       _dark: {
         bg: "dark.ui.bg.default",
         borderTopColor: { md: "dark.ui.border.default" },
@@ -44,17 +44,15 @@ const NewsletterSignup = {
         md: "l",
         lg: "var(--nypl-space-l) var(--nypl-space-xxl) var(--nypl-space-l) var(--nypl-space-xl)",
       },
-      alignItems: "flex-start",
-      gap: "xs",
     },
     privacy: {
       fontSize: "desktop.caption",
       fontWeight: "caption",
     },
     action: {
+      justifyContent: "center",
       padding: { base: "l", lg: "var(--nypl-space-l) var(--nypl-space-xxl)" },
-      // It's a two-column layout >md
-      width: { base: "100%", md: "50%" },
+      width: { base: "100%", md: "50%" }, // It's a two-column layout >md
     },
     form: {
       width: "100%",
