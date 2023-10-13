@@ -161,7 +161,7 @@ function NewsletterSignupOnSubmitExampleComponent() {
 
   React.useEffect(() => {
     if (counter === 3) counter = 0;
-  }, [counter]);
+  });
 
   const handleChange = (event) => {
     console.log(`onChange Email Input value: ${event.target.value}`);
@@ -178,8 +178,6 @@ function NewsletterSignupOnSubmitExampleComponent() {
     <NewsletterSignup
       id="interactive"
       view={view}
-      formHelperText="Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus."
-      // descriptionText="Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus."
       isInvalidEmail={counter === 3}
       valueEmail={inputVal}
       onChange={handleChange}
