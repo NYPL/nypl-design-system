@@ -48,7 +48,7 @@ function FeaturedContentImage(props: FeaturedContentImageProps) {
 
 export const FeaturedContent = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
-    (props) => {
+    (props, ref?) => {
       const {
         textContent,
         isFullWidth,
@@ -83,7 +83,7 @@ export const FeaturedContent = chakra(
       }
 
       return (
-        <Box data-testid="featuredcontent" __css={styles} {...rest}>
+        <Box data-testid="featuredcontent" __css={styles} ref={ref} {...rest}>
           <Box __css={styles.wrapper}>
             <Box
               data-testid="featuredcontent-bg-image"
