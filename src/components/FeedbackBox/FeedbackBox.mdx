@@ -70,8 +70,13 @@ Within the `FeedbackBox` component, the radio input field is created from the DS
 `TextInput` component. Each of these components has their own accessibility
 features documented in their respective Storybook pages.
 
-When the form is submitted, focus is set to the confirmation message or the
-error message if an error occurs.
+After the `FeedbackBox` form is submitted, focus is set to the confirmation
+message or the error message if an error occurs. The `tabindex` for the focused
+element is set to `"-1"`, allowing for programmatic focus to be set. After focus
+is set programmatically, the user will be in control of focus and will not be
+able to tab back to the confirmation message or error message after tabbing
+away. This is standard accessibility behavior and the user should not expect to
+be able to tab back to a non-interactive element.
 
 Whereas the `FeedbackBox`'s primary button element is placed within the DOM
 structure where it is rendered, the dialog DOM structure is appended to the end
