@@ -33,7 +33,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
@@ -94,7 +94,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
@@ -155,7 +155,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
@@ -216,7 +216,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
@@ -277,7 +277,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
@@ -338,7 +338,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
           role="group"
         >
           <p
-            aria-roledescription="Overline"
+            aria-roledescription="Subtitle"
             className="chakra-text css-rwceap"
             role="paragraph"
           >
