@@ -1,5 +1,5 @@
-import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React, { useState, forwardRef } from "react";
+import { chakra, useMergeRefs, useMultiStyleConfig } from "@chakra-ui/react";
+import React, { useState, forwardRef, useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -276,6 +276,17 @@ export const DatePicker = chakra(
     const finalStyles = isDateRange ? styles : {};
     const initStartDate = initialDate ? new Date(initialDate) : new Date();
     const initEndDate = initialDateTo ? new Date(initialDateTo) : new Date();
+    const startDateInputRef = useRef(null);
+    const endDateInputRef = useRef(null);
+
+    const inputRefs = {
+      startDate: startDateInputRef,
+      endDate: endDateInputRef,
+    };
+
+    const mergedStartDateRefs = useMergeRefs(startDateInputRef, ref);
+    const mergedEndDateRefs = useMergeRefs(endDateInputRef, refTo);
+
     let initFullDate: FullDateType = { startDate: initStartDate };
     // Only include the `endDate` key for date ranges.
     if (isDateRange) {
@@ -288,6 +299,8 @@ export const DatePicker = chakra(
     const onChangeDefault = (date: Date, value: string) => {
       setFullDate({ ...fullDate, [value]: date });
       onChange && onChange({ ...fullDate, [value]: date });
+
+      inputRefs[value].current.focus();
     };
     // How many years to display in the "year" option.
     const yearsToDisplay = 12;
@@ -372,6 +385,7 @@ export const DatePicker = chakra(
         ...baseCustomTextInputAttrs,
         helperText: helperTextTo,
       };
+
       // These props are used to follow the pattern recommended by
       // the react-datepicker plugin.
       startDatePickerAttrs = {
@@ -392,8 +406,14 @@ export const DatePicker = chakra(
         <ReactDatePicker
           customInput={
             <CustomTextInput
-              dsRef={refTo}
+              dsRef={mergedEndDateRefs}
               labelText="To"
+              // `additionalHelperTextIds` is passed when both `helperTextTo`
+              // and `helperText` are displayed. It tells `TextInput` to associate
+              // with both helper texts using `aria-describedby`.
+              {...(helperTextTo && helperText
+                ? { additionalHelperTextIds: `${id}-helper-text` }
+                : {})}
               {...endCustomTextInputAttrs}
             />
           }
@@ -405,12 +425,19 @@ export const DatePicker = chakra(
         />
       );
     }
+
     const startDatePickerElement = (
       <ReactDatePicker
         customInput={
           <CustomTextInput
-            dsRef={ref}
+            dsRef={mergedStartDateRefs}
             labelText={startLabelText}
+            // `additionalHelperTextIds` is passed when both `helperTextFrom`
+            // and `helperText` are displayed and tells `TextInput` to associate
+            // with both helper texts using `aria-describedby`.
+            {...(isDateRange && helperTextFrom && helperText
+              ? { additionalHelperTextIds: `${id}-helper-text` }
+              : {})}
             {...baseCustomTextInputAttrs}
           />
         }
