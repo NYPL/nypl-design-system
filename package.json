@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -51,6 +51,9 @@
     "semi": true,
     "singleQuote": false,
     "trailingComma": "es5"
+  },
+  "overrides": {
+    "types-ramda": "0.29.4"
   },
   "dependencies": {
     "@chakra-ui/focus-lock": ">=1.2.6 <2.0.0",
@@ -103,7 +106,7 @@
     "@types/jest-axe": "3.5.3",
     "@types/node": "18.13.0",
     "@types/react": "16.9.41",
-    "@types/testing-library__jest-dom": "^5.14.1",
+    "@types/testing-library__jest-dom": "5.14.1",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "@vitejs/plugin-react": "3.1.0",

@@ -46,6 +46,7 @@ type Story = StoryObj<typeof TextInput>;
  */
 export const WithControls: Story = {
   args: {
+    additionalHelperTextIds: undefined,
     className: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",
@@ -255,6 +256,7 @@ export const HTMLHelperText: Story = {
 
 export const Textarea: Story = {
   args: {
+    additionalHelperTextIds: undefined,
     className: undefined,
     defaultValue: undefined,
     helperText: "Let it all out.",

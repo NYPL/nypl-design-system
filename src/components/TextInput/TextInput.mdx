@@ -1,7 +1,9 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TextInputStories from "./TextInput.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import Link from "../Link/Link";
+import { changelogData } from "./textInputChangelogData";
 
 <Meta of={TextInputStories} />
 
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `2.0.0`    |
+| Latest            | `2.1.0`    |
 
 ## Table of Contents
 
@@ -23,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#number-type" target="_self">Number Type</Link>}
 - {<Link href="#html-in-helper-text" target="_self">HTML in Helper Text</Link>}
 - {<Link href="#textarea" target="_self">Textarea</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -203,3 +206,7 @@ The TextInput component includes a multiline `textarea` form field. To render a
 described above are available for the `textarea` option.
 
 <Canvas of={TextInputStories.Textarea} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

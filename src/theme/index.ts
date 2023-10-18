@@ -21,6 +21,7 @@ import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
+import FeaturedContent from "./components/featuredContent";
 import Fieldset from "./components/fieldset";
 import FilterBar from "./components/filterBar";
 import Heading from "./components/heading";
@@ -35,6 +36,7 @@ import Logo from "./components/logo";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectMenuButton from "./components/multiSelectMenuButton";
+import NewsletterSignup from "./components/newsletterSignup";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -104,6 +106,7 @@ const theme: any = {
     CustomSelect,
     DatePicker,
     FeedbackBox,
+    FeaturedContent,
     Fieldset,
     FilterBar,
     Heading,
@@ -119,6 +122,7 @@ const theme: any = {
     MultiSelect,
     MultiSelectMenuButton,
     ...NotificationStyles,
+    NewsletterSignup,
     Pagination,
     ProgressIndicator,
     Radio,

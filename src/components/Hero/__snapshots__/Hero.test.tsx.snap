@@ -14,12 +14,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -240,12 +235,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -274,12 +264,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <div
       className="css-1gt4hjv"
@@ -318,12 +303,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <div
       className="css-1gt4hjv"
@@ -361,12 +341,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -397,12 +372,7 @@ exports[`Hero Renders the UI snapshot correctly 11`] = `
   <div
     className="css-0"
     data-testid="hero-content"
-    style={
-      {
-        "backgroundColor": undefined,
-        "color": undefined,
-      }
-    }
+    style={{}}
   >
     <h1
       className="chakra-heading css-eyyo6e"

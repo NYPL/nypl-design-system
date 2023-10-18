@@ -309,12 +309,12 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-long-text"
-          text="Campaign Hero with separate backdrop and foreground background color"
+          text="Campaign Hero with separate backdrop and foreground background design token color"
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="#DC8034"
-          foregroundColor="black"
+          backgroundColor="dark.ui.warning.primary"
+          foregroundColor="ui.black"
           heroType="campaign"
           heading={
             <Heading
