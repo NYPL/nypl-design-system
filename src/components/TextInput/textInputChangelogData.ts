@@ -13,9 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "2023-10-18",
     version: "2.1.0",
     type: "Bug Fix",
-    affects: ["Functionality"],
+    affects: ["Accessibility"],
     notes: [
-      "Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
+      "Updated so the `aria-describedby` value is not overwritten as 'undefined' when `TextInput` is part of the `DatePicker` component.",
     ],
   },
   {
@@ -23,8 +23,6 @@ export const changelogData: ChangelogData[] = [
     version: "2.0.0",
     type: "Update",
     affects: ["Styles"],
-    notes: [
-      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
-    ],
+    notes: ["Applied Typo2023 styles, including font size and font color."],
   },
 ];

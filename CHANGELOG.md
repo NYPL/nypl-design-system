@@ -8,8 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds a changelog to the story pages for the `Heading` component.
+
+### Updates
+
+- Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
+- Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
+
+## 2.1.0 (October 18, 2023)
+
+### Adds
+
 - Adds the `ComponentChangelogTable` component.
-- Adds a changelog to the story pages for the `DatePicker`, `FeedbackBox`, `Hero`, and `Slider` components.
+- Adds a changelog to the story pages for the `DatePicker`, `FeedbackBox`, `Hero`, `Slider`, and `TextInput` components.
+- Adds the `FeaturedContent` component.
+- Adds the `NewsletterSignup` component.
 
 ### Updates
 
@@ -19,8 +34,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `DatePicker` so that focus remains on input after value is changed.
 - Updates the `FeedbackBox` component to remove the underline on the component's `Privacy Policy` link.
 - Updates `DatePicker` to pass a `additionalHelperTextIds` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
-- Adds the `FeaturedContent` component.
-- Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
 
 ### Fixes
 
