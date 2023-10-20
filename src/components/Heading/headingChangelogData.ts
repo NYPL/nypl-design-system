@@ -10,22 +10,12 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "2023-10-18",
-    version: "2.1.0",
+    date: "Prerelease",
+    version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility", "Styles"],
+    affects: ["Accessibility"],
     notes: [
-      "Remove the underline on the component's `Privacy Policy` link.",
-      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: [
-      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
+      'Updated the `aria-roledescription` value to "subtitle" (a more familiar and recognizable term) for the `overline` element.',
     ],
   },
 ];

@@ -1826,7 +1826,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
   >
     <div
       className="feedback-body response css-6cjp67"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <div
         className="css-116fi6s"
@@ -1946,7 +1946,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
   >
     <div
       className="feedback-body response css-6cjp67"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <div
         className="css-116fi6s"
@@ -2069,7 +2069,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   >
     <div
       className="feedback-body response css-6cjp67"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <div
         className="css-116fi6s"
@@ -2189,7 +2189,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
   >
     <div
       className="feedback-body response css-6cjp67"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <div
         className="css-116fi6s"
