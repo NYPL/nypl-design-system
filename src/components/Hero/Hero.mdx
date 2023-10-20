@@ -9,17 +9,18 @@ import Link from "../Link/Link";
 
 # Hero
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `2.1.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#all-variations" target="_self">All Variations</Link>}
+- {<Link href="#active-variants" target="_self">Active Variants</Link>}
+- {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -31,10 +32,15 @@ The `Hero` component is used to display a full width banner at the top of a page
 The `Hero` will contain a required `h1` page title and may also include optional
 descriptive text and images.
 
-There are currently five main hero types: `"primary"`, `"secondary"`,
-`"tertiary"`, `"campaign"`, and `"fiftyFifty"`. Under the `"secondary"` hero type,
-there are four additional subtypes: `"secondaryBooksAndMore"`, `"secondaryLocations"`,
-`"secondaryResearch"`, and `"secondaryWhatsOn"`.
+There are currently three main hero types: `"primary"`, `"tertiary"`, and
+`"campaign"`.
+
+Two hero types have been deprecated: `"secondary"` and `"fiftyFifty"`. The
+deprecated variants will be removed from the DS in a future release.
+
+Under the `"secondary"` hero type, there are four additional subtypes:
+`"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`, and
+`"secondaryWhatsOn"`.
 
 For the variations that use image "alt" and "src" attributes, the `imageProps`
 prop should be used:
@@ -55,9 +61,10 @@ prop should be used:
   language="jsx"
 />
 
-Note: the `imageProps` prop is not the same as the `backgroundImageSrc` prop used
-for some variations. For a full list of what props to use for each variant, check
-the <Link href="#all-variations" target="_self">All Variations</Link> section.
+Note: the `imageProps` prop is not the same as the `backgroundImageSrc` prop
+used for some variations. For a full list of what props to use for each variant,
+check the <Link href="#active-variants" target="_self">Active Variants</Link>
+section.
 
 ## Component Props
 
@@ -72,7 +79,7 @@ breadcrumbs and above the main content. This means that if the `Hero` displays
 a heading element, it should be the first on the page and an `h1` element set
 through `Heading`'s `level="h1"`.
 
-## All Variations
+## Active Variants
 
 Each `Hero` variation can be rendered through the `heroType` prop.
 
@@ -91,24 +98,6 @@ heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
 />
 
 <Canvas of={HeroStories.Primary} />
-
-### Secondary
-
-The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
-`subHeaderText` props.
-
-<Source
-  code={`
-heading={
-  <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
-}
-imageProps={imageProps}
-subHeaderText={secondarySubHeaderText}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.Secondary} />
 
 ### Tertiary
 
@@ -168,7 +157,33 @@ subHeaderText={otherSubHeaderText}
 
 <Canvas of={HeroStories.Campaign} />
 
+## Deprecated Variants
+
+### Secondary
+
+This `"secondary"` variant of the `Hero` component has been deprecated. This
+variant will be removed from the DS in a future release.
+
+The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
+`subHeaderText` props.
+
+<Source
+  code={`
+heading={
+  <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
+}
+imageProps={imageProps}
+subHeaderText={secondarySubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.Secondary} />
+
 ### FiftyFifty
+
+This `"fiftyFifty"` variant of the `Hero` component has been deprecated. This
+variant will be removed from the DS in a future release.
 
 The `"fiftyFifty"` hero type can be used with the `backgroundColor`,
 `foregroundColor`, `heading`, `imageProps`, and `subHeaderText` props. The
@@ -185,6 +200,10 @@ subHeaderText={otherSubHeaderText}
 <Canvas of={HeroStories.FiftyFifty} />
 
 ## Color Variations for Secondary Hero
+
+This `"secondary"` variant of the `Hero` component has been deprecated. This
+variant and the associated color variations will be removed from the DS in a
+future release.
 
 The background color for the title bar in the `"secondary"` `Hero` changes based
 on the `heroType` variants for the `"secondary"` main variant. There are four
