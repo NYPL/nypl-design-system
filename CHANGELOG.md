@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Deprecates
+
+- Deprecates the `"secondary"` and `"fiftyFifty"` variants of the `Hero` component.
+
 ## 2.1.0 (October 18, 2023)
 
 - Adds the `ComponentChangelogTable` component.
