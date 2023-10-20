@@ -48,6 +48,7 @@ export const getStorybookHrefProps = (pageCount: number) => {
 };
 
 interface GetAriaAttrsProps {
+  additionalAriaLabel?: string;
   footnote: HelperErrorTextType;
   id: string;
   labelText: HelperErrorTextType;
@@ -60,6 +61,7 @@ interface GetAriaAttrsProps {
  * `aria-describedby` attributes, based on the label and footnote values.
  */
 export const getAriaAttrs = ({
+  additionalAriaLabel,
   footnote,
   id,
   labelText,
@@ -83,6 +85,12 @@ export const getAriaAttrs = ({
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
     }${id}-helperText`;
+  }
+
+  if (additionalAriaLabel) {
+    ariaAttributes["aria-label"]
+      ? (ariaAttributes["aria-label"] += ` ${additionalAriaLabel}`)
+      : (ariaAttributes["aria-label"] = additionalAriaLabel);
   }
   return ariaAttributes;
 };
