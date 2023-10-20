@@ -412,7 +412,7 @@ export const FeedbackBox = chakra(
                         className="feedback-body response"
                         key="confirmationWrapper"
                         margin="auto"
-                        tabIndex={0}
+                        tabIndex={-1}
                         textAlign="center"
                         ref={focusRef}
                       >
@@ -458,7 +458,7 @@ export const FeedbackBox = chakra(
                         color="ui.error.primary"
                         key="errorWrapper"
                         margin="auto"
-                        tabIndex={0}
+                        tabIndex={-1}
                         textAlign="center"
                         ref={focusRef}
                       >

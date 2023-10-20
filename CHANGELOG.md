@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
+- Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
 - Updates `DatePicker`'s `TextInput` to always have an `aria-label` attribute that tells screen reader users how to access the calendar.
 
 ## 2.1.0 (October 18, 2023)

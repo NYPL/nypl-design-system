@@ -33,18 +33,27 @@ import { changelogData } from "./newsletterSignupChangelogData";
 
 ## Accessibility
 
-The `NewsletterSignup` component is a complex component built from various Reservoir
-DS and Chakra components.
+The `NewsletterSignup` component is a complex component built from various
+Reservoir DS and Chakra components.
 
-The `title` prop of the `NewsletterSignup` component expects a `HTML Element` or a `React Component`. By default it renderes a `h2` tag but it is
-the responsibility of the consuming app to pass the heading tag (`h*`) that aligns with the page structure and ensures accessibility.
+The `title` prop of the `NewsletterSignup` component expects a `HTML Element` or
+a `React Component`. By default it renderes a `h2` tag but it is the
+responsibility of the consuming app to pass the heading tag (`h*`) that aligns
+with the page structure and ensures accessibility.
 
-Within the `NewsletterSignup` component, the DS `form` component wraps around two DS `FormField` components.
-Those`FormField` components hold a DS `TextInput` component of `type="email"` and a DS `Button` component of `type="submit"` respectively.
-Each of these components has their own accessibility features documented in their respective Storybook pages.
+Within the `NewsletterSignup` component, the DS `form` component wraps around
+two DS `FormField` components. Those`FormField` components hold a DS `TextInput`
+component of `type="email"` and a DS `Button` component of `type="submit"`
+respectively. Each of these components has their own accessibility features
+documented in their respective Storybook pages.
 
-When the form is submitted, focus is set to the confirmation message or the
-error message if an error occurs.
+After the `NewsletterSignup` form is submitted, focus is set to the confirmation
+message or the error message if an error occurs. The `tabindex` for the focused
+element is set to `"-1"`, allowing for programmatic focus to be set. After focus
+is set programmatically, the user will be in control of focus and will not be
+able to tab back to the confirmation message or error message after tabbing
+away. This is standard accessibility behavior and the user should not expect to
+be able to tab back to a non-interactive element.
 
 Resources:
 
@@ -55,8 +64,9 @@ Resources:
 
 ## JSX Elements passed to descriptionText Prop
 
-Alternatively to a `descriptionText` of type `string`, a HTML Element or React component can be passed. When passing a JSX Element, the consuming app is responsible
-to assure its accessibility.
+Alternatively to a `descriptionText` of type `string`, a HTML Element or React
+component can be passed. When passing a JSX Element, the consuming app is
+responsible to assure its accessibility.
 
 _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
@@ -66,17 +76,17 @@ _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
 Submitted form data can be retrieved when the `NewsletterSignup` component is
 submitted through the required `onSubmit` prop. This prop expects a function and
-it will be called when the form is submitted. Similar to other DS form-components
-that have function props, the data from the component will be returned in the
-function's argument. In this case, it will be a single object.
+it will be called when the form is submitted. Similar to other DS
+form-components that have function props, the data from the component will be
+returned in the function's argument. In this case, it will be a single object.
 
 The submitted form data will be passed as an object that the parent component
 can use. The returned object will always contain the "email" field.
 
 Below is an example callback function named `onSubmit` that is passed to the
-`NewsletterSignup` component's `onSubmit` prop and how the view is controlled
-in the data submission process. The form data will be returned through
-the function's argument as an object, called `values` in the example below.
+`NewsletterSignup` component's `onSubmit` prop and how the view is controlled in
+the data submission process. The form data will be returned through the
+function's argument as an object, called `values` in the example below.
 
 <Source 
   code={`
@@ -113,15 +123,18 @@ language="jsx"
 
 _NOTE: open the browser console to see the values logged in the example below._
 
-The input value typed into the `TextInput` of the `NewsletterSignup` component can be accessed by the
-functions passed to the `onChange` and `onSubmit` prop.
+The input value typed into the `TextInput` of the `NewsletterSignup` component
+can be accessed by the functions passed to the `onChange` and `onSubmit` prop.
 
-Both the `onChange` and `onSubmit` callback functions can retrieved the submitted value as `event.target.email.value`
-through the `event` object passed as the single argument.
+Both the `onChange` and `onSubmit` callback functions can retrieved the
+submitted value as `event.target.email.value` through the `event` object passed
+as the single argument.
 
-The following example logs the `event.target.email.value` to the console on each `onChange` call and upon
-clicking the Submit button which triggers the `onSubmit` function and simulate a submission.
-The component will transition through a `"submitting"` view to an alternating `"confirmation"`, `"error"` or "invalid Email" view.
+The following example logs the `event.target.email.value` to the console on each
+`onChange` call and upon clicking the Submit button which triggers the
+`onSubmit` function and simulate a submission. The component will transition
+through a `"submitting"` view to an alternating `"confirmation"`, `"error"` or
+"invalid Email" view.
 
 <Source
   code={`
