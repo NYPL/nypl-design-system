@@ -55,8 +55,8 @@ Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
 required `labelText` value. Some components that use `TextInput`, like `DatePicker`,
 give the `<input>` an `aria-label` regardless of whether `showLabel` is true or false.
-This happens when interacting with the element is not as obvious to those using screen
-readers and more information is necessary.
+This is because interacting with these elements is not as obvious to those using
+screen readers and more information is necessary.
 
 The `helperText` and the `invalidText` are associated with the `<input>` element
 through the `aria-describedby` attribute.

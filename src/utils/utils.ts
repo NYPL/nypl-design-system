@@ -71,26 +71,36 @@ export const getAriaAttrs = ({
 }: GetAriaAttrsProps): AriaAttributes => {
   let ariaAttributes: AriaAttributes = {};
 
+  // If both a label and an aria-label are present, screen
+  // readers will only read the aria-label so we need to
+  // provide all necessary details in the aria-label
+  if (additionalAriaLabel) {
+    ariaAttributes["aria-label"] = `${
+      labelText && footnote
+        ? `${labelText} - ${footnote}`
+        : (labelText as string)
+    } ${additionalAriaLabel}`;
+  }
+
   if (!showLabel) {
     if (typeof labelText !== "string") {
       console.warn(
         `NYPL Reservoir ${name}: \`labelText\` must be a string when \`showLabel\` is false.`
       );
     }
-    ariaAttributes["aria-label"] =
-      labelText && footnote
-        ? `${labelText} - ${footnote}`
-        : (labelText as string);
+    // If showLabel is false and we have not yet added an
+    // aria-label, we need to add one with all relevant
+    // details.
+    if (!("aria-label" in ariaAttributes)) {
+      ariaAttributes["aria-label"] =
+        labelText && footnote
+          ? `${labelText} - ${footnote}`
+          : (labelText as string);
+    }
   } else if (footnote) {
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
     }${id}-helperText`;
-  }
-
-  if (additionalAriaLabel) {
-    ariaAttributes["aria-label"]
-      ? (ariaAttributes["aria-label"] += ` ${additionalAriaLabel}`)
-      : (ariaAttributes["aria-label"] = additionalAriaLabel);
   }
   return ariaAttributes;
 };

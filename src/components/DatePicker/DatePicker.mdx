@@ -63,11 +63,9 @@ attribute. If a `helperTextFrom` or `helperTextTo` is passed in addition to a ge
 `helperText` for the entire `DatePicker`, then the `aria-describedby` attribute of the
 `<input>` element will be "[general-helperText-id] [input-helperText-id]".
 
-The `DatePicker`'s `<input>` has an `aria-label` that tells screen reader users how
-to access the calendar. Additionally, when `showLabel` is set to false, the single
-`<input>` element's `aria-label` attribute contains the required `labelText` value.
-In the "date range" mode, when `showLabel` is set to false, the `<fieldset>`'s
-`<legend>` will have the `labelText` visually hidden.
+The `DatePicker`'s `<input>` has an `aria-label` that tells screen reader users what
+the element is and how to access its calendar. In the "date range" mode, when `showLabel`
+is set to false, the `<fieldset>`'s `<legend>` will have the `labelText` visually hidden.
 
 Resources:
 
