@@ -73,7 +73,7 @@ export const getAriaAttrs = ({
 
   // If both a label and an aria-label are present, screen
   // readers will only read the aria-label so we need to
-  // provide all necessary details in the aria-label
+  // provide all necessary details in the aria-label.
   if (additionalAriaLabel) {
     ariaAttributes["aria-label"] = `${
       labelText && footnote
