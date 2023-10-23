@@ -79,7 +79,7 @@ export const getAriaAttrs = ({
       labelText && footnote
         ? `${labelText} - ${footnote}`
         : (labelText as string)
-    } ${additionalAriaLabel}`;
+    }, ${additionalAriaLabel}`;
   }
 
   if (!showLabel) {

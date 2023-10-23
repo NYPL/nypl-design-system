@@ -107,7 +107,7 @@ describe("DatePicker", () => {
       expect(input).toBeInTheDocument();
       expect(input).toHaveAttribute(
         "aria-label",
-        "Press tab to access the calendar."
+        "Select the full date you want to visit NYPL, Press tab to access the calendar."
       );
       // Date format based on component specification yyyy-mm-dd.
       expect(date).toEqual(`${year}-${month}-${day}`);
@@ -599,21 +599,24 @@ describe("DatePicker", () => {
       // Helper text for the "To" input
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
 
-      const inputs = screen.getAllByRole("textbox", {
-        name: "Press tab to access the calendar.",
+      const inputFrom = screen.getByRole("textbox", {
+        name: "From - Note for the 'from' field., Press tab to access the calendar.",
+      });
+      const inputTo = screen.getByRole("textbox", {
+        name: "To - Note for the 'to' field., Press tab to access the calendar.",
       });
 
       // The `fromInput` should have an `aria-describedby` value of both the id of
       // the `helperText` and the id of the `helperTextFrom` in that order - from
       // more general to more specific.
-      expect(inputs[0]).toHaveAttribute(
+      expect(inputFrom).toHaveAttribute(
         "aria-describedby",
         "datePicker-helper-text datePicker-start-helperText"
       );
       // The `toInput` should have an `aria-describedby` value of both the id of
       // the `helperText` and the id of the `helperTextTo` in that order - from
       // more general to more specific.
-      expect(inputs[1]).toHaveAttribute(
+      expect(inputTo).toHaveAttribute(
         "aria-describedby",
         "datePicker-helper-text datePicker-end-helperText"
       );
@@ -649,11 +652,14 @@ describe("DatePicker", () => {
         />
       );
       // Both input fields are disabled.
-      let inputs = screen.getAllByLabelText(
-        "Press tab to access the calendar."
-      );
-      expect(inputs[0]).toHaveAttribute("disabled");
-      expect(inputs[1]).toHaveAttribute("disabled");
+      let inputFrom = screen.getByRole("textbox", {
+        name: "From, Press tab to access the calendar.",
+      });
+      let inputTo = screen.getByRole("textbox", {
+        name: "To - Note for the 'to' field., Press tab to access the calendar.",
+      });
+      expect(inputFrom).toHaveAttribute("disabled");
+      expect(inputTo).toHaveAttribute("disabled");
 
       rerender(
         <DatePicker
@@ -667,12 +673,16 @@ describe("DatePicker", () => {
         />
       );
 
-      inputs = screen.getAllByLabelText("Press tab to access the calendar.");
-      // Both input fields are required.
+      inputFrom = screen.getByRole("textbox", {
+        name: "From, Press tab to access the calendar.",
+      });
+      inputTo = screen.getByRole("textbox", {
+        name: "To - Note for the 'to' field., Press tab to access the calendar.",
+      }); // Both input fields are required.
       // The "Required" text is only displayed once in the `legend`.
       expect(screen.getAllByText(/Required/i)).toHaveLength(1);
-      expect(inputs[0]).toHaveAttribute("required");
-      expect(inputs[1]).toHaveAttribute("required");
+      expect(inputFrom).toHaveAttribute("required");
+      expect(inputTo).toHaveAttribute("required");
     });
 
     // Note: Have to add initial dates so that the snapshot tests always
@@ -759,16 +769,19 @@ describe("DatePicker", () => {
           labelText="Select the date range you want to visit NYPL"
         />
       );
-      const inputs = screen.getAllByLabelText(
-        "Press tab to access the calendar."
-      );
+      const inputFrom = screen.getByRole("textbox", {
+        name: "From, Press tab to access the calendar.",
+      });
+      const inputTo = screen.getByRole("textbox", {
+        name: "To, Press tab to access the calendar.",
+      });
 
-      expect(inputs[0]).toHaveValue("1988-03-02");
-      expect(inputs[1]).toHaveValue("1988-03-28");
+      expect(inputFrom).toHaveValue("1988-03-02");
+      expect(inputTo).toHaveValue("1988-03-28");
       // expect(screen.getAllByDisplayValue(date)).toHaveLength(2);
 
       // Let's select a new day.
-      userEvent.click(inputs[0]);
+      userEvent.click(inputFrom);
       // The popup displays. Select a new day.
       const newDateFrom = 5;
       const newDateTo = 25;
@@ -781,7 +794,7 @@ describe("DatePicker", () => {
       // expect(screen.getAllByDisplayValue(date)).toHaveLength(1);
 
       // Now select the "To" date.
-      userEvent.click(inputs[1]);
+      userEvent.click(inputTo);
       // The popup displays.
       userEvent.click(screen.getByText(newDateTo));
 
