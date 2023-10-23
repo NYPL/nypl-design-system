@@ -17,6 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
 - Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
 
+### Fixes
+
+- Fixes a bug in the `Hero` component where custom background colors were not rendering properly in dark mode for the `"campaign"` and `"tertiary"` variants.
+
 ### Deprecates
 
 - Deprecates the `"secondary"` and `"fiftyFifty"` variants of the `Hero` component.

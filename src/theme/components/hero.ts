@@ -4,6 +4,7 @@ import { screenreaderOnly } from "./globalMixins";
 // Used for all "secondary" variants.
 const secondaryBase = {
   overflowX: "hidden",
+  bgColor: "ui.bg.default",
   content: {
     ...wrapperStyles,
     paddingEnd: "inset.default",
@@ -35,6 +36,9 @@ const secondaryBase = {
     paddingTop: "inset.default",
     flex: { md: "1 1 50%" },
     order: { base: "3", md: "2" },
+  },
+  _dark: {
+    bgColor: "dark.ui.bg.default",
   },
 };
 // Used for all "secondary" variants' heading component.
@@ -136,7 +140,6 @@ const secondaryLocations = getSecondaryVariantStyles(
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
 const tertiary = {
-  bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
     color: "ui.typography.inverse.body",
@@ -161,9 +164,6 @@ const tertiary = {
   },
   p: {
     marginBottom: "0",
-  },
-  _dark: {
-    bg: "dark.ui.bg.default",
   },
 };
 const campaign = {
@@ -264,10 +264,7 @@ const fiftyFifty = {
 };
 const Hero = {
   baseStyle: {
-    bgColor: "ui.gray.x-light-cool",
-    _dark: {
-      bgColor: "dark.ui.bg.default",
-    },
+    // ...
   },
   // Available variants:
   variants: {

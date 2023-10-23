@@ -2,12 +2,13 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
@@ -33,7 +34,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -228,7 +229,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-14tngpx"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -296,7 +297,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -329,12 +330,13 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
@@ -360,12 +362,13 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
