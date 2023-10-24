@@ -53,7 +53,7 @@ const accordionData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1">
+        <CardHeading level="h4" id="heading1">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -79,7 +79,7 @@ const faqContentData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1-isabelle">
+        <CardHeading level="h4" id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -104,7 +104,7 @@ const faqContentData: AccordionDataProps[] = [
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1-kkslider">
+        <CardHeading level="h4" id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>
@@ -270,7 +270,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
             <Hero
               backgroundImageSrc="//placekitten.com/g/2400/800"
               heroType="campaign"
-              heading={<Heading level="one" id="1" text="Hero Campaign" />}
+              heading={<Heading level="h1" id="1" text="Hero Campaign" />}
               imageProps={{
                 alt: "Image example",
                 src: "//placekitten.com/800/400",
@@ -349,8 +349,10 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               }}
               isCentered
             >
-              <CardHeading id="heading1">Small Animal Image</CardHeading>
-              <CardHeading level="three" id="heading2">
+              <CardHeading size="heading4" id="heading1">
+                Small Animal Image
+              </CardHeading>
+              <CardHeading level="h3" size="heading6" id="heading2">
                 Animal info
               </CardHeading>
               <CardContent>

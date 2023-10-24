@@ -2,7 +2,12 @@ import { baseListStyles, baseUnorderedStyles } from "./list";
 
 const StyledList = {
   baseStyle: ({ textSize = "default" }) => ({
-    fontSize: `text.${textSize}`,
+    fontSize:
+      textSize === "tag" || textSize === "mini"
+        ? `text.${textSize}`
+        : textSize === "caption" || textSize === "default"
+        ? `desktop.${textSize}`
+        : `desktop.body.${textSize}`,
     ...baseListStyles(false, true),
     ...baseUnorderedStyles(true),
   }),

@@ -55,7 +55,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/220",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -68,7 +70,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/220",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -81,7 +85,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/240",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -94,7 +100,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/260",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -107,7 +115,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/320",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -120,7 +130,9 @@ export const WithControls: Story = {
           src: "//placekitten.com/400/300",
         }}
       >
-        <CardHeading level="three">Card Heading</CardHeading>
+        <CardHeading level="h3" size="heading6">
+          Card Heading
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
@@ -181,7 +193,7 @@ export const CardExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading1">
+        <CardHeading level="h4" size="heading5" id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -200,7 +212,7 @@ export const CardExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading2">
+        <CardHeading level="h4" size="heading5" id="heading2">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -219,7 +231,7 @@ export const CardExample: Story = {
         isCentered
         layout="row"
       >
-        <CardHeading level="four" id="heading3">
+        <CardHeading level="h4" size="heading5" id="heading3">
           Card Heading
         </CardHeading>
         <CardContent>

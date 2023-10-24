@@ -46,14 +46,20 @@ function useNYPLTheme() {
       "4": theme.fontSizes["4"],
       // default
       breadcrumbs: theme.fontSizes.breadcrumbs,
-      // default
+      // small, default, large
       button: theme.fontSizes.button,
+      // body, breadcrumbs, button, caption, default
+      // heading, helper, label, overline, subtitle
+      desktop: theme.fontSizes.desktop,
       // primary, secondary, tertiary, callout
       heading: theme.fontSizes.heading,
       // default
       helper: theme.fontSizes.helper,
       // default, secondary
       label: theme.fontSizes.label,
+      // body, breadcrumbs, button, caption, default
+      // heading, helper, label, overline, subtitle
+      mobile: theme.fontSizes.mobile,
       // default, caption, tag, mini
       text: theme.fontSizes.text,
     },
@@ -61,17 +67,28 @@ function useNYPLTheme() {
       light: theme.fontWeights.light,
       regular: theme.fontWeights.regular,
       medium: theme.fontWeights.medium,
+      semibold: theme.fontWeights.semibold,
       bold: theme.fontWeights.bold,
+      // default, body1, body2
+      body: theme.fontWeights.body,
       // default, lastChild
       breadcrumbs: theme.fontWeights.breadcrumbs,
       // default
       button: theme.fontWeights.button,
-      // primary, secondary, tertiary, callout
+      caption: theme.fontWeights.caption,
+      default: theme.fontWeights.default,
+      // display1, heading1, heading2, heading3, heading4,
+      // heading5, heading6
+      // deprecated: primary, secondary, tertiary, callout
       heading: theme.fontWeights.heading,
       // default
       helper: theme.fontWeights.helper,
-      // default
+      // default, secondary
       label: theme.fontWeights.label,
+      // overline1, overline2
+      overline: theme.fontWeights.overline,
+      // subtitle1, subtitle2
+      subtitle: theme.fontWeights.subtitle,
       // default, caption, tag, mini
       text: theme.fontWeights.text,
     },

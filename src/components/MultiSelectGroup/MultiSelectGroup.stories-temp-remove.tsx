@@ -319,7 +319,11 @@ const MultiSelectGroupLayoutStory = () => {
 };
 
 const meta: Meta<typeof MultiSelectGroup> = {
-  title: "Components/Form Elements/MultiSelectGroup",
+  // The documentation for the MultiSelectGroup component will be removed until
+  // the refactor of the v2 version of the MultiSelectGroup component has been
+  // completed. To add the link for the MultiSelectGroup component back to the
+  // side bar, uncomment the `title` attribute below.
+  // title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
   decorators: [withDesign],
   argTypes: {

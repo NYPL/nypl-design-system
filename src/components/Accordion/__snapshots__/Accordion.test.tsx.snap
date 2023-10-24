@@ -20,7 +20,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -81,7 +81,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -142,7 +142,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -204,7 +204,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -265,7 +265,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -326,7 +326,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>
@@ -387,7 +387,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
       type="button"
     >
       <span
-        className="css-1p6r3oe"
+        className="css-1kmgev1"
       >
         Gerry Kellman
       </span>

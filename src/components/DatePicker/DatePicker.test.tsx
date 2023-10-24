@@ -216,13 +216,18 @@ describe("DatePicker", () => {
         />
       );
 
-      // When not errored, we expect only the helper text to appear.
-      expect(
-        screen.getByLabelText(/Select the date you want to visit NYPL/i)
-      ).toBeInTheDocument();
       expect(
         screen.getByText("Note that the Library may be closed on Sundays.")
       ).toBeInTheDocument();
+
+      // The input should be associated with the helper text via aria-describedby.
+      const input = screen.getByRole("textbox");
+      expect(input).toHaveAttribute(
+        "aria-describedby",
+        "datePicker-start-helperText"
+      );
+
+      // When not errored, we expect only the helper text to appear.
       expect(
         screen.queryByText("Please select a valid date.")
       ).not.toBeInTheDocument();
@@ -243,6 +248,13 @@ describe("DatePicker", () => {
       expect(
         screen.getByText("Please select a valid date.")
       ).toBeInTheDocument();
+
+      // The input should be associated with the error text via aria-describedby.
+      // The error text replaces the original helper text.
+      expect(input).toHaveAttribute(
+        "aria-describedby",
+        "datePicker-start-helperText"
+      );
     });
 
     it("should not render the helper text or invalid text when 'showHelperInvalidText' is false", () => {
@@ -569,6 +581,7 @@ describe("DatePicker", () => {
           isDateRange
         />
       );
+
       // There are two labels for each input.
       expect(screen.getByText("From")).toBeInTheDocument();
       expect(screen.getByText("To")).toBeInTheDocument();
@@ -582,6 +595,24 @@ describe("DatePicker", () => {
       ).toBeInTheDocument();
       // Helper text for the "To" input
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
+
+      const fromInput = screen.getByRole("textbox", { name: "From" });
+      const toInput = screen.getByRole("textbox", { name: "To" });
+
+      // The `fromInput` should have an `aria-describedby` value of both the id of
+      // the `helperText` and the id of the `helperTextFrom` in that order - from
+      // more general to more specific.
+      expect(fromInput).toHaveAttribute(
+        "aria-describedby",
+        "datePicker-helper-text datePicker-start-helperText"
+      );
+      // The `toInput` should have an `aria-describedby` value of both the id of
+      // the `helperText` and the id of the `helperTextTo` in that order - from
+      // more general to more specific.
+      expect(toInput).toHaveAttribute(
+        "aria-describedby",
+        "datePicker-helper-text datePicker-end-helperText"
+      );
     });
 
     it("should render different states based on respective props", () => {

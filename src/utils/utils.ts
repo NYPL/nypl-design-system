@@ -52,6 +52,7 @@ interface GetAriaAttrsProps {
   id: string;
   labelText: HelperErrorTextType;
   name: string;
+  additionalHelperTextIds?: string;
   showLabel: boolean;
 }
 /**
@@ -63,6 +64,7 @@ export const getAriaAttrs = ({
   id,
   labelText,
   name,
+  additionalHelperTextIds,
   showLabel,
 }: GetAriaAttrsProps): AriaAttributes => {
   let ariaAttributes: AriaAttributes = {};
@@ -78,9 +80,10 @@ export const getAriaAttrs = ({
         ? `${labelText} - ${footnote}`
         : (labelText as string);
   } else if (footnote) {
-    ariaAttributes["aria-describedby"] = `${id}-helperText`;
+    ariaAttributes["aria-describedby"] = `${
+      additionalHelperTextIds ? additionalHelperTextIds + " " : ""
+    }${id}-helperText`;
   }
-
   return ariaAttributes;
 };
 
@@ -124,4 +127,10 @@ export const contrastRatio = (hex1: string, hex2: string) => {
 export const truncateText = (text: string, truncateTextLength: number = 60) => {
   const updatedText = text.substring(0, truncateTextLength - 1);
   return `${updatedText.substring(0, updatedText.lastIndexOf(" "))}...`;
+};
+
+/** Prepare a string for use in an ID or class attribute */
+export const sanitizeStringForAttribute = (str: string) => {
+  const sanitizedStr = str.replace(/[^a-z0-9]/gi, "-").toLowerCase();
+  return sanitizedStr;
 };

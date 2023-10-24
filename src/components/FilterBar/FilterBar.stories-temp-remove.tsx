@@ -74,7 +74,11 @@ const shortMultiSelectItems = [...multiSelectItems];
 shortMultiSelectItems.pop();
 
 const meta: Meta<typeof FilterBar> = {
-  title: "Components/Form Elements/FilterBar",
+  // The documentation for the FilterBar component will be removed until the
+  // refactor of the v2 version of the FilterBar component has been completed.
+  // To add the link for the FilterBar component back to the side bar, uncomment
+  // the `title` attribute below.
+  // title: "Components/Form Elements/FilterBar",
   component: FilterBar,
   decorators: [withDesign],
   argTypes: {

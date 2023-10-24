@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as HeadingStories from "./Heading.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./headingChangelogData";
 
 <Meta of={HeadingStories} />
 
 # Heading
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `1.7.1`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -23,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#overline-and-subtitle" target="_self">Overline and Subtitle Elements</Link>}
 - {<Link href="#heading-with-bold-text" target="_self">Heading with Bold Text</Link>}
 - {<Link href="#heading-with-links" target="_self">Heading with Links</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -56,13 +59,16 @@ proper order and not skipping any. For example, the following is invalid HTML:
 
 When either the overline or subtitle elements are rendered as part of the
 heading, then the whole lockup will be wrapped in an `<hgroup>` element with
-proper `role` and `aria-roledescription` attributes applied.
+proper `role` and `aria-roledescription` attributes applied. Please note that
+both the overline and subtitle elements use `"Subtitle"` - a familiar and
+recognizable term - for the `aria-roledescription` attribute.
 
 <Source
   code={`
 <hgroup role="group" aria-roledescription="Heading group">
+  <p aria-roledescription="Subtitle">Overline</p>
   <h2>Heading Title</h2>
-  <p aria-roledescription="subtitle">Subtitle</p>
+  <p aria-roledescription="Subtitle">Subtitle</p>
 </hgroup>
 `}
   language="html"
@@ -246,3 +252,7 @@ When the `url` prop is passed to `Heading`, a child `<a>` element is created and
 the heading text becomes an active link.
 
 <Canvas of={HeadingStories.Links} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

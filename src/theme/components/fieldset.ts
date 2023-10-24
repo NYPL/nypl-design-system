@@ -13,8 +13,12 @@ const Fieldset = {
       border: 0,
       padding: 0,
       legend: {
+        color: "ui.typography.heading",
         ...labelLegendText,
         ...screenreaderStyles,
+        _dark: {
+          color: "dark.ui.typography.heading",
+        },
       },
     };
   },

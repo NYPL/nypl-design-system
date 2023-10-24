@@ -1,3 +1,5 @@
+import { baseLinkStyles } from "./link";
+
 interface CardBaseStyleProps {
   hasImage: boolean;
   imageIsAtEnd: boolean;
@@ -133,10 +135,12 @@ const Card = {
       },
       heading: {
         marginBottom: "xs",
-        a: mainActionLink ? { color: "ui.typography.heading" } : null,
-        _dark: {
-          a: mainActionLink ? { color: "dark.ui.typography.heading" } : null,
-        },
+        a: mainActionLink
+          ? {
+              ...baseLinkStyles,
+              textDecoration: "none",
+            }
+          : null,
       },
       ...baseBorderStyles,
       ...layoutStyles,

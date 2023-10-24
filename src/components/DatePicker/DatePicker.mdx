@@ -1,7 +1,10 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as DatePickerStories from "./DatePicker.stories";
+import { changelogData } from "./datePickerChangelogData";
 import Link from "../Link/Link";
+import Table from "../Table/Table";
 
 <Meta of={DatePickerStories} />
 
@@ -10,7 +13,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `1.5.0`    |
+| Latest            | `2.1.0`    |
 
 ## Table of Contents
 
@@ -22,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#other-states" target="_self">Other States</Link>}
 - {<Link href="#date-inputs-and-output" target="_self">Date Inputs and Output</Link>}
 - {<Link href="#getting-date-input-values" target="_self">Getting Date Input Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -42,12 +46,22 @@ also be added through props.
 The Reservoir `DatePicker` component implements the `react-datepicker` npm package.
 This package exports a component that is used internally to display the popup
 calendar, manage its data, and associate the `<label>` element with its corresponding
-`<input>` element. This component is accessible through keyboard navigation.
+`<input>` element.
+
+This component is accessible through keyboard navigation. When keyboard users tab to
+the input, the calendar automatically opens. Tabbing again moves focus into the
+calendar. Dates can be navigated to using the arrow keys. The enter key selects the
+date in focus and closes the calendar. Focus then returns to the input.
 
 The Reservoir `DatePicker` handles the grouping of the two `<input>` elements in
 the "date range" mode by wrapping the elements in a `<fieldset>` element with
 its own `<legend>` label for the group. Note that this is in addition to the two
 labels that each `<input>` element is associated with.
+
+`helperText` is also associated with the `<input>` elements via the `aria-describedby`
+attribute. If a `helperTextFrom` or `helperTextTo` is passed in addition to a general
+`helperText` for the entire `DatePicker`, then the `aria-describedby` attribute of the
+`<input>` element will be "[general-helperText-id] [input-helperText-id]".
 
 When `showLabel` is set to false, the single `<input>` element's `aria-label`
 attribute is set to the required `labelText` value. In the "date range" mode,
@@ -57,6 +71,7 @@ when `showLabel` is set to false, the `<fieldset>`'s `<legend>` will have the
 Resources:
 
 - [react-datepicker Accessibility](https://github.com/Hacker0x01/react-datepicker#accessibility)
+- [Apex 4x Technical Style Guide: Aria Date Picker](https://whatsock.com/Templates/Datepickers/Basic,%20Auto%20Open/index.htm)
 
 ## Date Range
 
@@ -246,3 +261,7 @@ const onSubmit = () => {
 `}
   language="jsx"
 />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

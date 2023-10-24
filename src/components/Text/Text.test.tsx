@@ -29,18 +29,103 @@ describe("Text", () => {
     );
   });
 
+  it("throws a warning when isBold is used with size caption", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Text isBold size="caption">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with caption text."
+    );
+  });
+
+  it("throws a warning when isBold is used with size overline", () => {
+    const warn = jest.spyOn(console, "warn");
+    const { rerender } = render(
+      <Text isBold size="overline1">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with overline text."
+    );
+    rerender(
+      <Text isBold size="overline2">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with overline text."
+    );
+  });
+  it("throws a warning when isBold is used with size subtitle", () => {
+    const warn = jest.spyOn(console, "warn");
+    const { rerender } = render(
+      <Text isBold size="subtitle1">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with subtitle text."
+    );
+    rerender(
+      <Text isBold size="subtitle2">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with subtitle text."
+    );
+  });
+  it("throws a warning when isBold is used with size tag", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Text isBold size="tag">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with tag text."
+    );
+  });
+  it("throws a warning when isBold is used with size mini", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Text isBold size="mini">
+        test text!
+      </Text>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Text: The `isBold` prop does not work with mini text."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const defaultText = renderer
       .create(<Text>Animal Crossing is all that!</Text>)
       .toJSON();
+    const body1 = renderer
+      .create(<Text size="body1">Animal Crossing is all that!</Text>)
+      .toJSON();
+    const body2 = renderer
+      .create(<Text size="body2">Animal Crossing is all that!</Text>)
+      .toJSON();
     const caption = renderer
       .create(<Text size="caption">Animal Crossing is all that!</Text>)
       .toJSON();
-    const tag = renderer
-      .create(<Text size="tag">Animal Crossing is all that!</Text>)
+    const subtitle1 = renderer
+      .create(<Text size="subtitle1">Animal Crossing is all that!</Text>)
       .toJSON();
-    const mini = renderer
-      .create(<Text size="mini">Animal Crossing is all that!</Text>)
+    const subtitle2 = renderer
+      .create(<Text size="subtitle2">Animal Crossing is all that!</Text>)
+      .toJSON();
+    const overline1 = renderer
+      .create(<Text size="overline1">Animal Crossing is all that!</Text>)
+      .toJSON();
+    const overline2 = renderer
+      .create(<Text size="overline2">Animal Crossing is all that!</Text>)
       .toJSON();
     const withChakraProps = renderer
       .create(
@@ -54,9 +139,13 @@ describe("Text", () => {
       .toJSON();
 
     expect(defaultText).toMatchSnapshot();
+    expect(body1).toMatchSnapshot();
+    expect(body2).toMatchSnapshot();
     expect(caption).toMatchSnapshot();
-    expect(tag).toMatchSnapshot();
-    expect(mini).toMatchSnapshot();
+    expect(subtitle1).toMatchSnapshot();
+    expect(subtitle2).toMatchSnapshot();
+    expect(overline1).toMatchSnapshot();
+    expect(overline2).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
