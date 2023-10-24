@@ -18,6 +18,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
 - Updates `DatePicker`'s `TextInput` to always have an `aria-label` attribute that tells screen reader users how to access the calendar.
 
+### Deprecates
+
+- Deprecates the `"secondary"` and `"fiftyFifty"` variants of the `Hero` component.
+
 ## 2.1.0 (October 18, 2023)
 
 ### Adds

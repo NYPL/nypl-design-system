@@ -10,12 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation"],
+    notes: ['Deprecated the "secondary" and "fiftyFifty" variants.'],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "Bug Fix",
     affects: ["Functionality"],
     notes: [
-      "Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
+      "Fixed an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
     ],
   },
   {
