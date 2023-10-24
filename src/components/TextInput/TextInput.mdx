@@ -9,10 +9,10 @@ import { changelogData } from "./textInputChangelogData";
 
 # TextInput
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.22.0`   |
-| Latest            | `2.1.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.22.0`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -53,7 +53,10 @@ prop.
 
 Internally, a `Label` is associated with the `<input>` element. When `showLabel`
 is set to false, the `<input>` element's `aria-label` attribute is set to the
-required `labelText` value.
+required `labelText` value. Some components that use `TextInput`, like `DatePicker`,
+give the `<input>` an `aria-label` regardless of whether `showLabel` is true or false.
+This is because interacting with these elements is not as obvious to those using
+screen readers and more information is necessary.
 
 The `helperText` and the `invalidText` are associated with the `<input>` element
 through the `aria-describedby` attribute.

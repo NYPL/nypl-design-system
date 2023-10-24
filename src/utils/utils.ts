@@ -48,6 +48,7 @@ export const getStorybookHrefProps = (pageCount: number) => {
 };
 
 interface GetAriaAttrsProps {
+  additionalAriaLabel?: string;
   footnote: HelperErrorTextType;
   id: string;
   labelText: HelperErrorTextType;
@@ -60,6 +61,7 @@ interface GetAriaAttrsProps {
  * `aria-describedby` attributes, based on the label and footnote values.
  */
 export const getAriaAttrs = ({
+  additionalAriaLabel,
   footnote,
   id,
   labelText,
@@ -69,17 +71,31 @@ export const getAriaAttrs = ({
 }: GetAriaAttrsProps): AriaAttributes => {
   let ariaAttributes: AriaAttributes = {};
 
+  // If both a label and an aria-label are present, screen
+  // readers will only read the aria-label so we need to
+  // provide all necessary details in the aria-label.
+  if (additionalAriaLabel) {
+    ariaAttributes["aria-label"] = `${labelText}, ${additionalAriaLabel}`;
+  }
+
   if (!showLabel) {
     if (typeof labelText !== "string") {
       console.warn(
         `NYPL Reservoir ${name}: \`labelText\` must be a string when \`showLabel\` is false.`
       );
     }
-    ariaAttributes["aria-label"] =
-      labelText && footnote
-        ? `${labelText} - ${footnote}`
-        : (labelText as string);
-  } else if (footnote) {
+    // If showLabel is false and we have not yet added an
+    // aria-label, we need to add one with all relevant
+    // details.
+    if (!("aria-label" in ariaAttributes)) {
+      ariaAttributes["aria-label"] = labelText as string;
+    }
+  }
+
+  // Screen readers will read both the `aria-label` and the
+  // `aria-describedby`. The footnote should not be added to
+  // the `aria-label` because it would be read twice.
+  if (footnote) {
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
     }${id}-helperText`;
