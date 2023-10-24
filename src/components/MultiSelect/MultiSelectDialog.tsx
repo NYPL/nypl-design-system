@@ -7,7 +7,7 @@ import {
   useMultiStyleConfig,
   useMergeRefs,
 } from "@chakra-ui/react";
-import FocusLock from "@chakra-ui/focus-lock";
+import { FocusLock } from "@chakra-ui/focus-lock";
 
 import Button from "./../Button/Button";
 import ButtonGroup from "./../ButtonGroup/ButtonGroup";

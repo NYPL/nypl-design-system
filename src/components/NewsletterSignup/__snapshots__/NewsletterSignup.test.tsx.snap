@@ -2238,10 +2238,10 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
 
 exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1878n22"
@@ -2300,7 +2300,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"

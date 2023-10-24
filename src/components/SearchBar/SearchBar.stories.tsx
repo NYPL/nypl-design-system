@@ -82,7 +82,7 @@ export const WithControls: Story = {
     textInputElement: undefined,
     textInputProps: undefined,
   },
-  render: (args) => {
+  render: (args: any) => {
     const { helperText, showHelperText, showSelect, ...rest } = args;
     return (
       <SearchBar
