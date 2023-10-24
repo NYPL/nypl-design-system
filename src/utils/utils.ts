@@ -75,11 +75,7 @@ export const getAriaAttrs = ({
   // readers will only read the aria-label so we need to
   // provide all necessary details in the aria-label.
   if (additionalAriaLabel) {
-    ariaAttributes["aria-label"] = `${
-      labelText && footnote
-        ? `${labelText} - ${footnote}`
-        : (labelText as string)
-    }, ${additionalAriaLabel}`;
+    ariaAttributes["aria-label"] = `${labelText}, ${additionalAriaLabel}`;
   }
 
   if (!showLabel) {
@@ -92,12 +88,14 @@ export const getAriaAttrs = ({
     // aria-label, we need to add one with all relevant
     // details.
     if (!("aria-label" in ariaAttributes)) {
-      ariaAttributes["aria-label"] =
-        labelText && footnote
-          ? `${labelText} - ${footnote}`
-          : (labelText as string);
+      ariaAttributes["aria-label"] = labelText as string;
     }
-  } else if (footnote) {
+  }
+
+  // Screen readers will read both the `aria-label` and the
+  // `aria-describedby`. The footnote should not be added to
+  // the `aria-label` because it would be read twice.
+  if (footnote) {
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
     }${id}-helperText`;

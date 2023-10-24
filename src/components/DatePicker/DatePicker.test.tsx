@@ -600,10 +600,10 @@ describe("DatePicker", () => {
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
 
       const inputFrom = screen.getByRole("textbox", {
-        name: "From - Note for the 'from' field., Press tab to access the calendar.",
+        name: "From, Press tab to access the calendar.",
       });
       const inputTo = screen.getByRole("textbox", {
-        name: "To - Note for the 'to' field., Press tab to access the calendar.",
+        name: "To, Press tab to access the calendar.",
       });
 
       // The `fromInput` should have an `aria-describedby` value of both the id of
@@ -656,7 +656,7 @@ describe("DatePicker", () => {
         name: "From, Press tab to access the calendar.",
       });
       let inputTo = screen.getByRole("textbox", {
-        name: "To - Note for the 'to' field., Press tab to access the calendar.",
+        name: "To, Press tab to access the calendar.",
       });
       expect(inputFrom).toHaveAttribute("disabled");
       expect(inputTo).toHaveAttribute("disabled");
@@ -677,7 +677,7 @@ describe("DatePicker", () => {
         name: "From, Press tab to access the calendar.",
       });
       inputTo = screen.getByRole("textbox", {
-        name: "To - Note for the 'to' field., Press tab to access the calendar.",
+        name: "To, Press tab to access the calendar.",
       }); // Both input fields are required.
       // The "Required" text is only displayed once in the `legend`.
       expect(screen.getAllByText(/Required/i)).toHaveLength(1);
