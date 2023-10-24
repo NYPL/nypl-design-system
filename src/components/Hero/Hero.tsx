@@ -162,7 +162,8 @@ export const Hero = chakra(
         primary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
-        campaign: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
+        campaign: useColorModeValue("dark.ui.bg.default", "dark.ui.bg.default"),
+        campaignBackdrop: useColorModeValue("dark.ui.bg.active", "dark.ui.bg.active"),
         fiftyFifty: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
       };
 
@@ -181,7 +182,7 @@ export const Hero = chakra(
           ? { backgroundImage: `url(${backgroundImageSrc})` }
           : backdropBackgroundColor
           ? { bgColor: backdropBackgroundColor }
-          : { bgColor: defaultBackgroundColor };
+          : { bgColor: allDefaultBackgroundColors["campaignBackdrop"] };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
         const tertiaryBgColor = backgroundColor
           ? backgroundColor
@@ -194,7 +195,7 @@ export const Hero = chakra(
       if (!heroSecondaryTypes.includes(heroType)) {
         contentBoxStyling = {
           ...(foregroundColor && { color: foregroundColor }),
-          ...(backgroundColor && { backgroundColor }),
+          ...(backgroundColor ? { backgroundColor } : { defaultBackgroundColor }),
         };
       } else if (
         foregroundColor ||

@@ -195,7 +195,6 @@ const campaign = {
     position: { md: "relative" },
     top: { md: "xxl" },
     _dark: {
-      bg: "dark.ui.bg.default",
       color: "dark.ui.typography.body",
     },
   },
