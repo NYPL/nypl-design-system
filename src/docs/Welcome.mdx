@@ -11,8 +11,6 @@ import Text from "../components/Text/Text";
 
 <Meta title="Welcome" />
 
-{
-
 <VStack spacing="s">
   <Logo name="reservoirVerticalColor" size="small" />
   <Box>
@@ -79,15 +77,13 @@ import Text from "../components/Text/Text";
               type="external"
             >
               Wiki
-            </Link>{" "}
-            and{" "}
-            <Link
+            </Link>
+            and <Link
               href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
               type="external"
             >
               ReadMe
-            </Link>{" "}
-            to setup your project. You can also learn about our component
+            </Link> to setup your project. You can also learn about our component
             architecture and additional documentation.
           </Text>
         </CardContent>
@@ -150,17 +146,18 @@ import Text from "../components/Text/Text";
               type="external"
             >
               npm
-            </Link>
-            . If you're looking to contribute to this project, checkout the <Link
+            </Link>{" "}
+            . If you're looking to contribute to this project, checkout the{" "}
+            <Link
               href="https://github.com/NYPL/nypl-design-system"
               type="external"
             >
               nypl-design-system
-            </Link> repo on Github for more information.
+            </Link>{" "}
+            repo on Github for more information.
           </Text>
         </CardContent>
       </Card>
     </Box>
   </SimpleGrid>
 </VStack>
-}
