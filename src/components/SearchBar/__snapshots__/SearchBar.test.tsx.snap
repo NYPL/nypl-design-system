@@ -35,7 +35,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -226,7 +225,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           </div>
         </div>
       </div>
-      
     </div>
     <div
       className="css-1u8qly9"
@@ -251,7 +249,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -347,7 +344,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -427,7 +423,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -610,7 +605,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -692,7 +686,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -774,7 +767,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -826,7 +818,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
   id="withHeading-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHeading-heading"
   >
     A Heading
@@ -947,7 +939,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   id="withHeadingAndDescription-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-878tmy"
     id="withHeadingAndDescription-heading"
   >
     A Heading
@@ -1042,7 +1034,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"
@@ -1139,7 +1130,6 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
           type="text"
         />
       </div>
-      
     </div>
     <button
       className="chakra-button css-5jypj4"

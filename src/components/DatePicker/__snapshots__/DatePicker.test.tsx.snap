@@ -445,6 +445,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-describedby="invalid-start-helperText"
                   aria-invalid={true}
                   className="chakra-input css-0"
                   disabled={false}
@@ -514,6 +515,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-describedby="invalid-end-helperText"
                   aria-invalid={true}
                   className="chakra-input css-0"
                   disabled={false}
@@ -945,6 +947,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             className="css-79elbk"
           >
             <input
+              aria-describedby="invalid-start-helperText"
               aria-invalid={true}
               className="chakra-input css-0"
               disabled={false}
@@ -1029,6 +1032,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             className="css-79elbk"
           >
             <input
+              aria-describedby="disabled-start-helperText"
               className="chakra-input css-0"
               disabled={true}
               id="disabled-start"
@@ -1112,6 +1116,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             className="css-79elbk"
           >
             <input
+              aria-describedby="chakra-start-helperText"
               className="chakra-input css-0"
               disabled={false}
               id="chakra-start"
@@ -1196,6 +1201,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             className="css-79elbk"
           >
             <input
+              aria-describedby="props-start-helperText"
               className="chakra-input css-0"
               disabled={false}
               id="props-start"

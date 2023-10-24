@@ -45,7 +45,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="notificationID1-heading"
       >
         Notification Heading
@@ -109,7 +109,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="notificationID2-heading"
       >
         Notification Heading
@@ -173,7 +173,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="notificationID3-heading"
       >
         Notification Heading
@@ -263,7 +263,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
       className="css-1xdhyk6"
     >
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="notificationID5-heading"
       >
         Notification Heading
@@ -447,7 +447,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="chakra-heading"
       >
         Notification Heading
@@ -512,7 +512,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1xdhyk6"
+        className="chakra-heading css-1g675rm"
         id="props-heading"
       >
         Notification Heading

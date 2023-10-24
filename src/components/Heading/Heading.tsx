@@ -105,7 +105,7 @@ export const Heading = chakra(
         isCapitalized,
         isUppercase,
         isLowercase,
-        level = "two",
+        level = "h2",
         noSpace,
         overline,
         size,
@@ -123,6 +123,7 @@ export const Heading = chakra(
         isUppercase,
         isLowercase,
         noSpace,
+        url,
       });
       const { isLargerThanMobile } = useNYPLBreakpoints();
       // Combine native base styles with any additional styles.
@@ -223,6 +224,15 @@ export const Heading = chakra(
           ? "overline1"
           : "overline2"
         : undefined;
+      const overlineFontSize = !isNaN(sizeIndex)
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
+          ? isLargerThanMobile
+            ? "desktop.overline.overline1"
+            : "mobile.overline.overline1"
+          : isLargerThanMobile
+          ? "desktop.overline.overline2"
+          : "mobile.overline.overline2"
+        : undefined;
 
       /** If the subtitle element is rendered, we'll also need responsive styles
        * for that. */
@@ -230,6 +240,15 @@ export const Heading = chakra(
         ? sizeIndex <= overlineSubtitleSizeDemarcation
           ? "subtitle1"
           : "subtitle2"
+        : undefined;
+      const subtitleFontSize = !isNaN(sizeIndex)
+        ? sizeIndex <= overlineSubtitleSizeDemarcation
+          ? isLargerThanMobile
+            ? "desktop.subtitle.subtitle1"
+            : "mobile.subtitle.subtitle1"
+          : isLargerThanMobile
+          ? "desktop.subtitle.subtitle2"
+          : "mobile.subtitle.subtitle2"
         : undefined;
 
       /** The styles that should be applied to the outer-most wrapper of the
@@ -257,10 +276,11 @@ export const Heading = chakra(
         <>
           {overline && (
             <Text
-              aria-roledescription="Overline"
+              aria-roledescription="Subtitle"
               mb="xxs"
               role="paragraph"
               size={overlineSize}
+              fontSize={overlineFontSize}
             >
               {overline}
             </Text>
@@ -284,6 +304,7 @@ export const Heading = chakra(
               noSpace
               role="paragraph"
               size={subtitleSize}
+              fontSize={subtitleFontSize}
             >
               {subtitle}
             </Text>

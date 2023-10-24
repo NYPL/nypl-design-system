@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.7.3",
+  "version": "2.1.0",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint src --ext=ts,tsx --cache",
     "prepare": "npm run build && husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook:v1": "storybook build -c .storybook -o ./reservoir/v1",
+    "build-storybook:v2": "storybook build -c .storybook -o ./reservoir/v2",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build"
   },
@@ -51,6 +51,9 @@
     "semi": true,
     "singleQuote": false,
     "trailingComma": "es5"
+  },
+  "overrides": {
+    "types-ramda": "0.29.4"
   },
   "dependencies": {
     "@chakra-ui/focus-lock": ">=1.2.6 <2.0.0",
@@ -103,7 +106,7 @@
     "@types/jest-axe": "3.5.3",
     "@types/node": "18.13.0",
     "@types/react": "18.2.21",
-    "@types/testing-library__jest-dom": "^5.14.1",
+    "@types/testing-library__jest-dom": "5.14.1",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "@vitejs/plugin-react": "3.1.0",

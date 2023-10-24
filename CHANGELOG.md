@@ -8,6 +8,71 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds a changelog to the story pages for the `Heading` component.
+
+### Updates
+
+- Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
+- Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
+
+### Deprecates
+
+- Deprecates the `"secondary"` and `"fiftyFifty"` variants of the `Hero` component.
+
+## 2.1.0 (October 18, 2023)
+
+### Adds
+
+- Adds the `ComponentChangelogTable` component.
+- Adds a changelog to the story pages for the `DatePicker`, `FeedbackBox`, `Hero`, `Slider`, and `TextInput` components.
+- Adds the `FeaturedContent` component.
+- Adds the `NewsletterSignup` component.
+
+### Updates
+
+- Temporarily renaming `FilterBar`, `MultiSelect`, `MultiSelectGroup`, `useMultiSelect`, and `useFilterBar` Storybook page files so they don't show up in the Storybook sidebar.
+- Updates the `Slider` component to use appropriate `aria-label` values for the slider thumbs and text input fields.
+- Updates `TextInput` so it no longer incorrectly overwrites the `aria-describedby` value to undefined when part of the `DatePicker` component.
+- Updates `DatePicker` so that focus remains on input after value is changed.
+- Updates the `FeedbackBox` component to remove the underline on the component's `Privacy Policy` link.
+- Updates `DatePicker` to pass a `additionalHelperTextIds` to its `TextInput` if needed so that the `aria-describedby` value can be associated with all relevant `helperText`s.
+
+### Fixes
+
+- Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.
+
+## 2.0.1 (September 28, 2023)
+
+_NOTE_: Version number `2.0.0` was previously released in 2019 and is marked as deprecated in npm. The first stable relase for Reservoir v2 is `2.0.1`.
+
+## 2.0.0 (September 28, 2023)
+
+### Breaking Changes
+
+- This update introduces a number of visual breaking changes related to typography styles.
+- Removes the `FilterBar` and `MultiSelect` components.
+- Removes the `useFilterBar` and `useMultiSelect` hooks.
+
+### Adds
+
+- Adds the `isUnderlined` prop to the `Link` component.
+- Adds the `"standalone"` variant to the `Link` component.
+- Adds `NYPL Patterns` to the `Links Accessibility Guide`.
+- Adds the `SocialMediaLinks` component.
+
+### Updates
+
+- Updates underline styles of the `Link` component.
+- Updates the hex value for the `Link Primary` color style.
+- Updates the `Link` component so that non-button variants change color once visited.
+- Updates the `Link` component to explicitly assign the text color for the `"buttonPrimary"` variant `hover` state.
+- Updates all components that render text to use the `Typo2023` color scheme.
+- Updates the base styles to use the `Typo2023` styles.
+- Updates all components to implement the `Typo2023` styles.
+- Updates the `Breadcrumbs`, `Card`, `Heading`, `Pagination`, and `SkipNavigation` components to implement the `Typo2023` link patterns.
+
 ## 1.7.3 (September 13, 2023)
 
 ### Updates

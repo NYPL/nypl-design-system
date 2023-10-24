@@ -37,7 +37,7 @@ const baseStyleControl = {
     },
 
     _disabled: {
-      bg: "ui.gray.xx-light-cool",
+      bg: "ui.disabled.secondary",
       borderColor: "ui.disabled.primary",
       svg: {
         color: "ui.disabled.primary",

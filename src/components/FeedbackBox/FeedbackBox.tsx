@@ -173,9 +173,13 @@ export const FeedbackBox = chakra(
             width="100%"
           />
         ) : undefined;
+      const descriptionColor = useColorModeValue(
+        "ui.typography.heading",
+        "dark.ui.typography.heading"
+      );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text fontWeight="medium" noSpace>
+          <Text color={descriptionColor} fontWeight="medium" noSpace>
             {descriptionText}
           </Text>
         ) : undefined;
@@ -185,6 +189,7 @@ export const FeedbackBox = chakra(
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
             type="external"
             fontSize="text.tag"
+            isUnderlined={false}
             width="fit-content"
           >
             Privacy Policy
@@ -407,7 +412,7 @@ export const FeedbackBox = chakra(
                         className="feedback-body response"
                         key="confirmationWrapper"
                         margin="auto"
-                        tabIndex={0}
+                        tabIndex={-1}
                         textAlign="center"
                         ref={focusRef}
                       >
@@ -453,7 +458,7 @@ export const FeedbackBox = chakra(
                         color="ui.error.primary"
                         key="errorWrapper"
                         margin="auto"
-                        tabIndex={0}
+                        tabIndex={-1}
                         textAlign="center"
                         ref={focusRef}
                       >

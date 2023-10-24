@@ -46,6 +46,7 @@ type Story = StoryObj<typeof TextInput>;
  */
 export const WithControls: Story = {
   args: {
+    additionalHelperTextIds: undefined,
     className: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",
@@ -129,7 +130,9 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="three">Invalid</Heading>
+        <Heading level="h3" size="heading6">
+          Invalid
+        </Heading>
         <TextInput
           helperText="Choose wisely!"
           id="errored"
@@ -140,7 +143,9 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="three">Disabled</Heading>
+        <Heading level="h3" size="heading6">
+          Disabled
+        </Heading>
         <TextInput
           helperText="Choose wisely!"
           id="disabled"
@@ -251,6 +256,7 @@ export const HTMLHelperText: Story = {
 
 export const Textarea: Story = {
   args: {
+    additionalHelperTextIds: undefined,
     className: undefined,
     defaultValue: undefined,
     helperText: "Let it all out.",
