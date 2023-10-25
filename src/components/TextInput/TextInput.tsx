@@ -44,6 +44,8 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
+  /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
+  additionalAriaLabel?: string;
   /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
    * If more than one, separate each with a space */
   additionalHelperTextIds?: string;
@@ -129,6 +131,7 @@ export const TextInput = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
+        additionalAriaLabel,
         additionalHelperTextIds,
         className,
         defaultValue,
@@ -200,6 +203,7 @@ export const TextInput = chakra(
       }
 
       const ariaAttributes = getAriaAttrs({
+        additionalAriaLabel,
         footnote,
         id,
         labelText,

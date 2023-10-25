@@ -159,6 +159,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
 
     return (
       <TextInput
+        additionalAriaLabel="Press tab to access the calendar."
         helperText={helperText}
         id={id}
         invalidText={invalidText}
