@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Documentation"],
-    notes: ['Deprecated the "secondary" and "fiftyFifty" variants.'],
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      'Deprecated the "secondary" and "fiftyFifty" variants.',
+      'Fixed a bug where custom background colors were not rendering properly in dark mode for the "campaign" and "tertiary" variants.',
+    ],
   },
   {
     date: "2023-10-18",
