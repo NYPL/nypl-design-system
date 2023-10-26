@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.1.1 (October 26, 2023)
+
 ### Adds
 
 - Adds a changelog to the story pages for the `Heading` component.
