@@ -29,7 +29,7 @@ export interface ListProps {
   noStyling?: boolean;
   /** An optional title that will appear over the list. This prop only applies
    * to Description Lists. */
-  title?: string;
+  title?: string | JSX.Element;
   /** The type of list: "ol", "ul", or "dl". "ul" by default. */
   type: ListTypes;
 }
@@ -56,7 +56,20 @@ export const List = chakra(
       ...rest
     } = props;
     const styles = useStyleConfig("List", { inline, noStyling, variant: type });
+    let finalTitle = null;
     let listElement = null;
+
+    // TODO make this a function and pass
+    // id, title, etc as props
+    if (title) {
+      if (typeof title === "string") {
+        finalTitle = <Heading id={`${id}-heading`}>{title}</Heading>;
+      } else if (typeof title === "object") {
+        finalTitle = title;
+      }
+    }
+    console.log({ title });
+    console.log(typeof title);
 
     // Either li/dt/dd children elements must be passed or the `listItems`
     // prop must be used.
@@ -149,7 +162,7 @@ export const List = chakra(
           __css={styles}
           {...rest}
         >
-          {title && <Heading id={`${id}-heading`}>{title}</Heading>}
+          {finalTitle}
           <dl>{listChildrenElms(type)}</dl>
         </Box>
       );
