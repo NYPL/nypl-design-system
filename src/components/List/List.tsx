@@ -1,7 +1,7 @@
 import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Heading from "../Heading/Heading";
+import useDSHeading from "../../hooks/useDSHeading";
 
 export const listTypesArray = ["ol", "ul", "dl"] as const;
 export type ListTypes = typeof listTypesArray[number];
@@ -56,20 +56,8 @@ export const List = chakra(
       ...rest
     } = props;
     const styles = useStyleConfig("List", { inline, noStyling, variant: type });
-    let finalTitle = null;
+    const finalTitle = useDSHeading({ title, id });
     let listElement = null;
-
-    // TODO make this a function and pass
-    // id, title, etc as props
-    if (title) {
-      if (typeof title === "string") {
-        finalTitle = <Heading id={`${id}-heading`}>{title}</Heading>;
-      } else if (typeof title === "object") {
-        finalTitle = title;
-      }
-    }
-    console.log({ title });
-    console.log(typeof title);
 
     // Either li/dt/dd children elements must be passed or the `listItems`
     // prop must be used.

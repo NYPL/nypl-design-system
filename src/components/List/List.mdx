@@ -71,6 +71,30 @@ list renders `dt` and `dd` elements.
 
 <Canvas of={ListStories.DescriptionList} />
 
+## Description List with Custom Headings
+
+The optional `title` prop will render the description list's heading as an `h2`
+element by default when the `title` value is a string. It's possible that the
+`h2` element will not fit in an app's heading hierarchy. If this is the case,
+`title` can also take a `JSX.Element` type value.
+
+In the following example, the heading is an `h4` defined as:
+
+<Source
+  code={`
+const listHeading = <Heading level="h4">Middle-Earth Peoples</Heading>;
+// ...
+
+<List type="dl" title={listHeading}>
+  <dt>Balrogs</dt>
+  <dd>Demonic creatures of fire and shadow...</dd>
+  <dt>Dwarves</dt>
+  <dd>The race of Dwarves...</dd>
+</List>
+`} language="jsx" />
+
+<Canvas of={ListStories.DescriptionListWithCustomHeading} />
+
 ## Description List of Links
 
 An example with HTML elements inside of the `dd` elements.

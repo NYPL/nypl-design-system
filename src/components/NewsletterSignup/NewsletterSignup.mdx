@@ -19,6 +19,11 @@ import { changelogData } from "./newsletterSignupChangelogData";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#jsx-elements-passed-to-descriptiontext-prop">JSX Elements passed to descriptionText Prop</Link>}
+- {<Link href="#custom-title-heading" target="_self">Custom Title Heading</Link>}
+- {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
+- {<Link href="#interactive-example-with-onchange-and-onsubmit" target="_self">Interactive Example with onChange and onSubmit</Link>}
+- {<Link href="#component-states" target="_self">Component States</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -72,6 +77,33 @@ responsible to assure its accessibility.
 _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
 <Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
+
+## Custom Title Heading
+
+The optional `title` prop will render the description list's heading as an `h2`
+element by default when the `title` value is a string. It's possible that the
+`h2` element will not fit in an app's heading hierarchy. If this is the case,
+`title` can also take a `JSX.Element` type value.
+
+In the following example, the heading is an `h4` defined as:
+
+<Source
+  code={`
+// String Heading Example
+const stringHeading = "Custom string heading";
+// ...
+
+<NewsletterSignup title={stringHeading} {...otherArgs} />
+
+// JSX Heading Example
+
+let jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
+// ...
+
+<NewsletterSignup title={jsxHeading} {...otherArgs} />
+`} language="jsx" />
+
+<Canvas of={NewsletterSignupStories.CustomHeadings} />
 
 ## Form Submission Data
 
