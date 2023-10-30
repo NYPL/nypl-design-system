@@ -81,9 +81,10 @@ _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 ## Custom Title Heading
 
 The optional `title` prop will render the description list's heading as an `h2`
-element by default when the `title` value is a string. It's possible that the
-`h2` element will not fit in an app's heading hierarchy. If this is the case,
-`title` can also take a `JSX.Element` type value.
+element (sized as an `h3`) by default with text `"Sign Up for Our Newsletter"`.
+When the `title` value is a string, the default heading will be an `h2` but not
+sized as an `h3. It's possible that the `h2`element will not fit in an app's heading hierarchy. If this is the case,`title`can also take a`JSX.Element`
+type value.
 
 In the following example, the heading is an `h4` defined as:
 
