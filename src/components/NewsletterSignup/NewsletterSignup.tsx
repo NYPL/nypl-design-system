@@ -177,7 +177,7 @@ export const NewsletterSignup = chakra(
                 className="feedback-body response"
                 margin="auto"
                 ref={focusRef}
-                tabIndex={0}
+                tabIndex={-1}
                 width="100%"
               >
                 <Box
@@ -209,7 +209,7 @@ export const NewsletterSignup = chakra(
                 className="feedback-body response"
                 margin="auto"
                 ref={focusRef}
-                tabIndex={0}
+                tabIndex={-1}
                 width="100%"
               >
                 <Box

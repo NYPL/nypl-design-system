@@ -25,6 +25,7 @@ const config: StorybookConfig = {
     },
     "@storybook/addon-jest",
   ],
+
   // This gets added automatically through react-vite,
   // but leaving it here just to point it out.
   // core: {
@@ -34,9 +35,11 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+
   refs: {
     "@chakra-ui/react": { disable: true },
   },
+
   stories: [
     "../src/docs/Welcome.mdx",
     "../src/docs/Chakra.mdx",
@@ -44,6 +47,7 @@ const config: StorybookConfig = {
     "../src/components/**/*.stories.tsx",
     "../src/hooks/*.mdx",
   ],
+
   typescript: {
     // Type-check stories during Storybook build.
     check: true,
@@ -62,6 +66,7 @@ const config: StorybookConfig = {
       },
     },
   },
+
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
       // Customize the Vite config here:
@@ -72,6 +77,10 @@ const config: StorybookConfig = {
         },
       },
     });
+  },
+
+  docs: {
+    autodocs: true,
   },
 };
 

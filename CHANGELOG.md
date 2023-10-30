@@ -8,7 +8,30 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.1.1 (October 26, 2023)
+
+### Adds
+
+- Adds a changelog to the story pages for the `Heading` component.
+
+### Updates
+
+- Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
+- Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
+- Updates `DatePicker`'s `TextInput` to always have an `aria-label` attribute that tells screen reader users how to access the calendar.
+- Updates Storybook to `v7.5.1`.
+
+### Fixes
+
+- Fixes a bug in the `Hero` component where custom background colors were not rendering properly in dark mode for the `"campaign"` and `"tertiary"` variants.
+
+### Deprecates
+
+- Deprecates the `"secondary"` and `"fiftyFifty"` variants of the `Hero` component.
+
 ## 2.1.0 (October 18, 2023)
+
+### Adds
 
 - Adds the `ComponentChangelogTable` component.
 - Adds a changelog to the story pages for the `DatePicker`, `FeedbackBox`, `Hero`, `Slider`, and `TextInput` components.
