@@ -60,20 +60,6 @@ describe("Checkbox", () => {
     );
   });
 
-  it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
-    render(
-      <Checkbox
-        id="inputID"
-        labelText="Test Label"
-        showLabel={false}
-        helperText="This is the helper text."
-      />
-    );
-    expect(
-      screen.getByLabelText("Test Label - This is the helper text.")
-    ).toBeInTheDocument();
-  });
-
   it("Renders visible helper or error text", () => {
     const { rerender } = render(
       <Checkbox

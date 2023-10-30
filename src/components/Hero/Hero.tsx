@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  useColorModeValue,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Image, { ComponentImageProps } from "../Image/Image";
@@ -149,24 +154,53 @@ export const Hero = chakra(
         );
       }
 
+      /** The _dark object in the theme file was overriding custom background
+       * colors. To overcome this issue, the background color styles were moved
+       * into the component file and the related styles for all variants, other
+       * than the "secondary" variant, were removed from the theme file. */
+      const allDefaultBackgroundColors = {
+        primary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
+        secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
+        tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
+        campaign: useColorModeValue("dark.ui.bg.default", "dark.ui.bg.default"),
+        campaignBackdrop: useColorModeValue(
+          "dark.ui.bg.active",
+          "dark.ui.bg.active"
+        ),
+        fiftyFifty: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
+      };
+
+      const defaultBackgroundColor = allDefaultBackgroundColors[heroType];
       if (heroType === "primary") {
         backgroundImageStyle = backgroundImageSrc
-          ? { backgroundImage: `url(${backgroundImageSrc})` }
+          ? {
+              bgColor: defaultBackgroundColor,
+              backgroundImage: `url(${backgroundImageSrc})`,
+            }
           : {};
+      } else if (heroType === "secondary") {
+        backgroundImageStyle = { bgColor: defaultBackgroundColor };
       } else if (heroType === "campaign") {
         backgroundImageStyle = backgroundImageSrc
           ? { backgroundImage: `url(${backgroundImageSrc})` }
           : backdropBackgroundColor
           ? { bgColor: backdropBackgroundColor }
-          : { backgroundColor };
+          : { bgColor: allDefaultBackgroundColors["campaignBackdrop"] };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
-        backgroundImageStyle = backgroundColor ? { bg: backgroundColor } : {};
+        const tertiaryBgColor = backgroundColor
+          ? backgroundColor
+          : defaultBackgroundColor;
+        backgroundImageStyle = backgroundColor
+          ? { bgColor: backgroundColor }
+          : { bgColor: tertiaryBgColor };
       }
 
       if (!heroSecondaryTypes.includes(heroType)) {
         contentBoxStyling = {
           ...(foregroundColor && { color: foregroundColor }),
-          ...(backgroundColor && { backgroundColor }),
+          ...(backgroundColor
+            ? { backgroundColor }
+            : { defaultBackgroundColor }),
         };
       } else if (
         foregroundColor ||

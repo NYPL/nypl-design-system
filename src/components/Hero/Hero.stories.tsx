@@ -17,6 +17,11 @@ const secondarySubHeaderText = (
     in between.
   </>
 );
+const deprecatedMessage = (
+  <Text mt="s" noSpace>
+    This variant has been deprecated.
+  </Text>
+);
 const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
 const otherSubHeaderTextLong = (
@@ -113,11 +118,20 @@ export const WithControls: Story = {
         <Hero
           {...args}
           heading={
-            <Heading level="h1" id="1" size="heading2" text="Hero Secondary" />
+            <Heading
+              level="h1"
+              id="1"
+              size="heading2"
+              text="Hero Secondary (deprecated)"
+            />
           }
           heroType={args.heroType}
           imageProps={args.imageProps}
-          subHeaderText={secondarySubHeaderText}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
         />
       </div>
     )) ||
@@ -149,7 +163,11 @@ export const WithControls: Story = {
           ...args.imageProps,
           src: "//placekitten.com/1200/400",
         }}
-        subHeaderText={otherSubHeaderText}
+        subHeaderText={
+          <>
+            {otherSubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
     )),
   parameters: {
@@ -182,6 +200,7 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
+  name: "Secondary (deprecated)",
   render: () => (
     <Hero
       heading={
@@ -189,12 +208,16 @@ export const Secondary: Story = {
           level="h1"
           id="secondary-hero"
           size="heading2"
-          text="Hero Secondary"
+          text="Hero Secondary (deprecated)"
         />
       }
       heroType="secondary"
       imageProps={imageProps}
-      subHeaderText={secondarySubHeaderText}
+      subHeaderText={
+        <>
+          {secondarySubHeaderText} {deprecatedMessage}
+        </>
+      }
     />
   ),
 };
@@ -332,28 +355,39 @@ export const Campaign: Story = {
 };
 
 export const FiftyFifty: Story = {
+  name: "FiftyFifty (deprecated)",
   render: () => (
     <Stack spacing="l">
       <div>
         <Heading
           id="fiftyfifty-default"
-          text="FiftyFifty Hero at Default Height"
+          overline="Deprecated"
+          text="FiftyFifty Hero at Default Height (deprecated)"
         />
         <Hero
           heroType="fiftyFifty"
           imageProps={imageProps}
-          subHeaderText={otherSubHeaderText}
+          subHeaderText={
+            <>
+              {otherSubHeaderText} {deprecatedMessage}
+            </>
+          }
         />
       </div>
       <div>
         <Heading
           id="fiftyfifty-long-text"
-          text="FiftyFifty Hero with Long Text"
+          overline="Deprecated"
+          text="FiftyFifty Hero with Long Text (deprecated)"
         />
         <Hero
           heroType="fiftyFifty"
           imageProps={imageProps}
-          subHeaderText={otherSubHeaderTextLong}
+          subHeaderText={
+            <>
+              {otherSubHeaderTextLong} {deprecatedMessage}
+            </>
+          }
         />
       </div>
     </Stack>
@@ -370,12 +404,16 @@ export const ColorVariations: Story = {
             level="h1"
             size="heading2"
             id="main-secondary-hero"
-            text="Secondary"
+            text="Secondary (deprecated)"
           />
         }
         heroType="secondary"
         imageProps={imageProps}
-        subHeaderText={secondarySubHeaderText}
+        subHeaderText={
+          <>
+            {secondarySubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
       <Heading id="books-heading" text="secondaryBooksAndMore" />
       <Hero
@@ -384,12 +422,16 @@ export const ColorVariations: Story = {
             level="h1"
             size="heading2"
             id="books-hero"
-            text="Books and More"
+            text="Books and More (deprecated)"
           />
         }
         heroType="secondaryBooksAndMore"
         imageProps={imageProps}
-        subHeaderText={secondarySubHeaderText}
+        subHeaderText={
+          <>
+            {secondarySubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
       <Heading id="location-heading" text="secondaryLocations" />
       <Hero
@@ -398,12 +440,16 @@ export const ColorVariations: Story = {
             level="h1"
             size="heading2"
             id="locations-hero"
-            text="Locations"
+            text="Locations (deprecated)"
           />
         }
         heroType="secondaryLocations"
         imageProps={imageProps}
-        subHeaderText={secondarySubHeaderText}
+        subHeaderText={
+          <>
+            {secondarySubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
       <Heading id="research-heading" text="secondaryResearch" />
       <Hero
@@ -412,12 +458,16 @@ export const ColorVariations: Story = {
             level="h1"
             size="heading2"
             id="research-hero"
-            text="Research"
+            text="Research (deprecated)"
           />
         }
         heroType="secondaryResearch"
         imageProps={imageProps}
-        subHeaderText={secondarySubHeaderText}
+        subHeaderText={
+          <>
+            {secondarySubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
       <Heading id="whats-on-heading" text="secondaryWhatsOn" />
       <Hero
@@ -426,12 +476,16 @@ export const ColorVariations: Story = {
             level="h1"
             size="heading2"
             id="whats-on-hero"
-            text="What's On"
+            text="What's On (deprecated)"
           />
         }
         heroType="secondaryWhatsOn"
         imageProps={imageProps}
-        subHeaderText={secondarySubHeaderText}
+        subHeaderText={
+          <>
+            {secondarySubHeaderText} {deprecatedMessage}
+          </>
+        }
       />
     </SimpleGrid>
   ),

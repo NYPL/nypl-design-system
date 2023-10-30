@@ -10,12 +10,22 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      'Deprecated the "secondary" and "fiftyFifty" variants.',
+      'Fixed a bug where custom background colors were not rendering properly in dark mode for the "campaign" and "tertiary" variants.',
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "Bug Fix",
     affects: ["Functionality"],
     notes: [
-      "Fixes an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
+      "Fixed an issue with `backgroundColor` and `foregroundColor` props not prioritizing the passed design token values for the `Hero` component.",
     ],
   },
   {

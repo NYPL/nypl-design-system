@@ -212,8 +212,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="errored-textInput-start-helperText"
           aria-invalid={true}
-          aria-label="Label - start value - There is an error related to this field."
+          aria-label="Label - start value"
           autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
@@ -349,8 +350,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="errored-textInput-end-helperText"
           aria-invalid={true}
-          aria-label="Label - end value - There is an error related to this field."
+          aria-label="Label - end value"
           autoComplete={null}
           className="chakra-input css-0"
           disabled={false}
@@ -1437,8 +1439,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="errored-textInput-end-helperText"
           aria-invalid={true}
-          aria-label="Label - value - There is an error related to this field."
+          aria-label="Label - value"
           autoComplete={null}
           className="chakra-input css-0"
           disabled={false}

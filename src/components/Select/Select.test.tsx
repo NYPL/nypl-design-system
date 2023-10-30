@@ -70,10 +70,7 @@ describe("Select", () => {
     );
     expect(
       screen.getByLabelText(/What is your favorite color/i)
-    ).toHaveAttribute(
-      "aria-label",
-      "What is your favorite color? - This is the helper text."
-    );
+    ).toHaveAttribute("aria-label", "What is your favorite color?");
   });
 
   it("renders aria-describedby when helperText prop is passed", () => {

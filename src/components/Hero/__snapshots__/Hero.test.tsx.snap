@@ -2,19 +2,24 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
   <div
-    className="css-0"
+    className="css-puf0z6"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "ui.bg.default",
+      }
+    }
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -33,7 +38,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -228,14 +233,18 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-14tngpx"
   data-responsive-background-image={true}
   data-testid="hero"
 >
   <div
-    className="css-0"
+    className="css-x9wpmn"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "ui.gray.x-dark",
+      }
+    }
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -262,9 +271,13 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   }
 >
   <div
-    className="css-0"
+    className="css-r7tfns"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "dark.ui.bg.default",
+      }
+    }
   >
     <div
       className="css-1gt4hjv"
@@ -296,14 +309,18 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
   <div
-    className="css-0"
+    className="css-puf0z6"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "ui.bg.default",
+      }
+    }
   >
     <div
       className="css-1gt4hjv"
@@ -329,19 +346,24 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
   <div
-    className="css-0"
+    className="css-puf0z6"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "ui.bg.default",
+      }
+    }
   >
     <h1
       className="chakra-heading css-eyyo6e"
@@ -360,19 +382,24 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-1ar4wny"
+  className="css-svxhxl"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "backgroundImage": "url(//placekitten.com/1600/800)",
+      "bgColor": "ui.bg.default",
     }
   }
 >
   <div
-    className="css-0"
+    className="css-puf0z6"
     data-testid="hero-content"
-    style={{}}
+    style={
+      {
+        "defaultBackgroundColor": "ui.bg.default",
+      }
+    }
   >
     <h1
       className="chakra-heading css-eyyo6e"
