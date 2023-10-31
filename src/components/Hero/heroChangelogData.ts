@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Updates the layout for the "campaign" variant to have consistent padding on its left and right sides.',
+    ],
+  },
+  {
     date: "2023-10-26",
     version: "2.1.1",
     type: "Update",
