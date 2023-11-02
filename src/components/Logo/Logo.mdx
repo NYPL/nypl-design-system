@@ -7,10 +7,10 @@ import Link from "../Link/Link";
 
 # Logo
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.9`   |
-| Latest            | `1.5.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.9`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -59,6 +59,10 @@ from the `LogoSizes` type. The values are `"default"`, `"xxsmall"`, `"xsmall"`,
 Note: `"default"` sets the width to `100%` and the rendered logo will expand to
 fill the full width of the parent element.
 
+In addition, the `sizeBasedOn` prop can be passed to determine whether the size
+of the `Logo` is updated based on either the `"height"` or `"width"`. By default,
+the `sizeBasedOn` prop is set to `"width"`.
+
 <Source
   code={`
 // Example
@@ -68,6 +72,16 @@ fill the full width of the parent element.
 />
 
 <Canvas of={LogoStories.Sizes} />
+
+<Source
+  code={`
+// Example
+<Logo name="nyplFullBlack" size="large" sizeBasedOn="height" />
+`}
+  language="jsx"
+/>
+
+<Canvas of={LogoStories.SizesBasedOnHeight} />
 
 ## All Logos
 
