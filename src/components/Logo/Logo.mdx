@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-
+import { changelogData } from "./logoChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as LogoStories from "./Logo.stories";
 import Link from "../Link/Link";
 
@@ -132,3 +133,7 @@ child to the `Logo` component.
 />
 
 <Canvas of={LogoStories.CustomLogos} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
