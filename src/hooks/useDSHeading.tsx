@@ -1,5 +1,11 @@
 import Heading from "../components/Heading/Heading";
 
+interface UseDSHeadingProps {
+  title: string | JSX.Element;
+  id?: string;
+  customDefaultHeading?: string | JSX.Element;
+}
+
 /**
  * DS internal helper hook to render a default `h2` heading element if the
  * passed title is a string. Otherwise, it will return the title as is if it
@@ -9,12 +15,8 @@ function useDSHeading({
   title = "",
   id = "",
   customDefaultHeading,
-}: {
-  title: string | JSX.Element;
-  id: string;
-  customDefaultHeading?: string | JSX.Element;
-}) {
-  const headingID = id ? `${id}-heading` : "";
+}: UseDSHeadingProps) {
+  const headingID = id ? `${id}-heading` : undefined;
   let updatedTitle = null;
 
   if (title) {
