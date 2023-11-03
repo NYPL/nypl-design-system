@@ -309,6 +309,11 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
+            /** If the `autoComplete` prop is passed, that value will take
+             * precedence and will be used here. Otherwise, a value will be set
+             * based on the `type` prop. Lastly, if `autoComplete` is not passed
+             * and a default value is not set based on the `type` prop, then
+             * `autoComplete` will not be set for the input. */
             autoComplete: hasAutocomplete
               ? autoComplete
                 ? autoComplete
