@@ -4,13 +4,20 @@ import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import TextInput, { textInputTypesArray } from "./TextInput";
+import TextInput, {
+  autoCompleteValuesArray,
+  textInputTypesArray,
+} from "./TextInput";
 
 const meta: Meta<typeof TextInput> = {
   title: "Components/Form Elements/TextInput",
   component: TextInput,
   decorators: [withDesign],
   argTypes: {
+    autoComplete: {
+      control: { type: "select" },
+      options: autoCompleteValuesArray,
+    },
     id: { control: false },
     isClearable: { table: { defaultValue: { summary: false } } },
     isDisabled: { table: { defaultValue: { summary: false } } },
@@ -47,6 +54,7 @@ type Story = StoryObj<typeof TextInput>;
 export const WithControls: Story = {
   args: {
     additionalHelperTextIds: undefined,
+    autoComplete: undefined,
     className: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",

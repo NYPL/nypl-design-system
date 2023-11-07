@@ -94,6 +94,16 @@ describe("Logo", () => {
     const withCustomSize = renderer
       .create(<Logo id="test-logo-size" name="nyplFullBlack" size="large" />)
       .toJSON();
+    const withCustomSizeBasedOnHeight = renderer
+      .create(
+        <Logo
+          id="test-logo-size"
+          name="nyplFullBlack"
+          size="large"
+          sizeBasedOn="height"
+        />
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <Logo
@@ -110,6 +120,7 @@ describe("Logo", () => {
 
     expect(standard).toMatchSnapshot();
     expect(withCustomSize).toMatchSnapshot();
+    expect(withCustomSizeBasedOnHeight).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
