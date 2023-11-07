@@ -402,3 +402,35 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
   </div>
 </div>
 `;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
+<div
+  className="css-1u8qly9"
+  id="autocomplete-wrapper"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="autocomplete"
+    id="autocomplete-label"
+  >
+    Custom Input Label
+  </label>
+  <div
+    className="css-79elbk"
+  >
+    <input
+      autoComplete="name"
+      className="chakra-input css-0"
+      disabled={false}
+      id="autocomplete"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="Input Placeholder"
+      required={false}
+      step={null}
+      type="text"
+    />
+  </div>
+</div>
+`;

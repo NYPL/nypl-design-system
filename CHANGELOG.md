@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Adds the `sizeBasedOn` prop to the `Logo` component.
+- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
 - Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
 - Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
 - Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
