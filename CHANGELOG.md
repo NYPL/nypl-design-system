@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `sizeBasedOn` prop to the `Logo` component.
+- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
 
 ## 2.1.1 (October 26, 2023)
 

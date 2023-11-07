@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      'Added the `autoComplete` prop for setting the "autocomplete" attribute manually.',
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "Bug Fix",
