@@ -1,7 +1,7 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import useDSHeading from "../../hooks/useDSHeading";
 
-import Heading from "../Heading/Heading";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -14,7 +14,7 @@ export interface ComponentWrapperProps {
   /** Optional string to set the text for the component's description */
   descriptionText?: string | JSX.Element;
   /** Optional string to set the text for a `Heading` component */
-  headingText?: string;
+  headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: HelperErrorTextType;
   /** Styles that target the helper text. */
@@ -49,6 +49,7 @@ export const ComponentWrapper = chakra(
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
+      const finalHeadingText = useDSHeading({ id, title: headingText });
 
       // Note: Typescript warns when there are no children passed and
       // doesn't compile. This is meant to log in non-Typescript apps.
@@ -66,7 +67,7 @@ export const ComponentWrapper = chakra(
           __css={styles}
           {...rest}
         >
-          {headingText && <Heading id={`${id}-heading`} text={headingText} />}
+          {finalHeadingText}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}
           {footnote && (

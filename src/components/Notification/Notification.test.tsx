@@ -3,8 +3,9 @@ import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Notification from "./Notification";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
+import Notification from "./Notification";
 
 describe("Notification Accessibility", () => {
   it("passes axe accessibility test with heading", async () => {
@@ -68,6 +69,18 @@ describe("Notification", () => {
 
   it("renders Notification heading child component", () => {
     expect(screen.getByText("Notification Heading")).toBeInTheDocument();
+  });
+
+  it("renders a custom heading level", () => {
+    utils.rerender(
+      <Notification
+        ariaLabel="Notification label"
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading={<Heading level="h4">Custom H4 Heading</Heading>}
+      />
+    );
+    expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
   });
 
   it("renders Notification content child component", () => {

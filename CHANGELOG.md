@@ -8,6 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+
+### Updates
+
+- Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
+- Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
+- Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
+- Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
+
 ## 2.1.1 (October 26, 2023)
 
 ### Adds

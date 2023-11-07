@@ -2,26 +2,30 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SearchBarStories from "./SearchBar.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./searchBarChangelogData";
 
 <Meta of={SearchBarStories} />
 
 # SearchBar
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#form-components" target="_self">Form Components</Link>}
 - {<Link href="#search-autocomplete" target="_self">Search Autocomplete</Link>}
 - {<Link href="#form-states" target="_self">Form States</Link>}
 - {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
 - {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -59,6 +63,24 @@ Resources:
 - [Reservoir TextInput](../?path=/docs/components-form-elements-textinput--docs)
 - [a11ymatters Accessible Search Form](https://www.a11ymatters.com/pattern/accessible-search/)
 - [MDN ARIA: search role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/search_role)
+
+## With Custom Heading
+
+By default, the `SearchBar` will render an `h2` element when a string is
+passed to the `headingText` component. If this is an accessibility issue, it's
+possible to pass in a custom heading element.
+
+In the following example, an `h4` is rendered through the DS `Heading` component.
+
+<Source
+  code={`
+
+const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+
+<SearchBar headingText={customH4} {...props} />
+`} language="tsx" />
+
+<Canvas of={SearchBarStories.WithCustomHeading} />
 
 ## Form Components
 
@@ -351,3 +373,7 @@ export function SearchBarValueExample() {
 />
 
 <Canvas of={SearchBarStories.SearchBarValueExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

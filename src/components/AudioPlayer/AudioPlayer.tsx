@@ -29,7 +29,7 @@ export interface AudioPlayerProps {
    */
   /*  filePath?: string; */
   /** Optional string to set the text for a `Heading` component. */
-  headingText?: string;
+  headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component. */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes. */
