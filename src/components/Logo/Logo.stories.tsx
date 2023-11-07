@@ -4,7 +4,11 @@ import { withDesign } from "storybook-addon-designs";
 import Logo from "./Logo";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { logoNamesArray, logoSizesArray } from "./logoVariables";
+import {
+  logoNamesArray,
+  logoSizeBasedOnArray,
+  logoSizesArray,
+} from "./logoVariables";
 
 const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
@@ -22,6 +26,11 @@ const meta: Meta<typeof Logo> = {
       control: { type: "select" },
       options: logoSizesArray,
       table: { defaultValue: { summary: "medium" } },
+    },
+    sizeBasedOn: {
+      control: { type: "radio" },
+      options: logoSizeBasedOnArray,
+      table: { defaultValue: { summary: "width" } },
     },
     title: {
       control: false,
@@ -44,6 +53,7 @@ export const WithControls: Story = {
     id: "logo-id",
     name: "nyplFullBlack",
     size: "large",
+    sizeBasedOn: "width",
     title: undefined,
   },
   render: (args) => (
@@ -76,7 +86,7 @@ const logoRow = (logo, opts: any = {}) => {
   // We'll use this setup function to render all the logos in a list item.
   // Some logos display better with a dark background.
   const styles: any = { textAlign: "center" };
-  const { size = "large", displayValue } = opts;
+  const { size = "large", displayValue, sizeBasedOn = "width" } = opts;
   let key = logo;
 
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
@@ -94,12 +104,13 @@ const logoRow = (logo, opts: any = {}) => {
       <Heading level="h4" size="heading6">
         {displayValue}
       </Heading>
-      <Logo name={logo} size={size} />
+      <Logo name={logo} size={size} sizeBasedOn={sizeBasedOn} />
     </div>
   );
 };
 const logos = [];
 const sizes = [];
+const sizesBasedOnHeight = [];
 const logoNameValues = logoNamesArray;
 const logoSizeValues = [
   { size: "default", display: "default (100%)" },
@@ -122,11 +133,24 @@ for (const logoSizeIndex in logoSizeValues) {
     })
   );
 }
+for (const logoSizeIndex in logoSizeValues) {
+  sizesBasedOnHeight.push(
+    logoRow("nyplFullBlack", {
+      displayValue: logoSizeValues[logoSizeIndex].display,
+      size: logoSizeValues[logoSizeIndex].size,
+      sizeBasedOn: "height",
+    })
+  );
+}
 const allLogosGrid = (list) => <SimpleGrid columns={1}>{list}</SimpleGrid>;
 
 // The following are additional Logo example Stories.
 export const Sizes: Story = {
   render: () => allLogosGrid(sizes),
+};
+
+export const SizesBasedOnHeight: Story = {
+  render: () => allLogosGrid(sizesBasedOnHeight),
 };
 
 export const AllLogos: Story = {

@@ -9,16 +9,17 @@ import { changelogData } from "./textInputChangelogData";
 
 # TextInput
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.22.0`   |
-| Latest            | `2.1.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.22.0`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#autocomplete" target="_self">Autocomplete</Link>}
 - {<Link href="#labelling-variations" target="_self">Labelling Variations</Link>}
 - {<Link href="#browser-states" target="_self">Browser States</Link>}
 - {<Link href="#isclearable-button" target="_self">isClearable Button</Link>}
@@ -70,17 +71,41 @@ When the `type` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
 accessibility rules described above.
 
-If the `type` prop is set to `"email"`, `"tel"`, or `"url"`, the appropriate
-`autocomplete` attribute will be added. The autocomplete attribute makes inputs
-easier and more efficient to complete for all users.
-
 Resources:
 
 - [MDN input: The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - [MDN textarea: The Textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
-- [MDN HTML attribute: Autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
 - [Chakra UI Input](https://chakra-ui.com/docs/components/form/input)
 - [Chakra UI Textarea](https://chakra-ui.com/docs/components/form/textarea)
+
+## Autocomplete
+
+The native HTML `autocomplete` attribute is another tool that can be used to
+improve accessibility. The `autocomplete` attribute improves the browser's
+ability to pre-populate form fields with user-preferred values and makes inputs
+easier and more efficient to complete for all users. For ease of use, the
+`TextInput` component provides a few methods for incorporating the
+`autocomplete` attribute.
+
+If the `type` prop is set to `"email"`, `"tel"`, or `"url"`, the component will
+automatically add the `autocomplete` attribute with an appropriate value.
+
+Additionally, the `autoComplete` prop can be used to set the `autocomplete`
+attribute manually. When the `autoComplete` prop is set, its value will be used
+to set the `autocomplete` attribute on the input field. Furthermore, if the
+`type` prop is set to `"email"`, `"tel"`, or `"url"`, the value of the
+`autoComplete` prop will override the value automatically added by the
+component.
+
+Using the `autoComplete` prop can be helpful when it is necessary to set
+`autocomplete` attribute values that are not automatically added by the
+component or when privacy is a concern. For example, setting the `autoComplete`
+prop to `"off"` will disable the native browser based autocomplete
+functionality.
+
+Resources:
+
+- [MDN HTML attribute: Autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
 
 ## Labelling Variations
 
