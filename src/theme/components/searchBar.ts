@@ -18,6 +18,9 @@ const SearchBar = {
       marginRight: { base: undefined, md: "-1px" },
       _hover: {
         zIndex: "10",
+        "+ .chakra-select__icon-wrapper": {
+          zIndex: "15",
+        },
       },
     },
   },
