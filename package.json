@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@chakra-ui/focus-lock": ">=1.2.6 <2.0.0",
-    "@chakra-ui/react": ">=1.8.5 <=1.8.8",
+    "@chakra-ui/react": ">=1.8.5 <=1.8.9",
     "@chakra-ui/system": ">=1.11.0 <=1.12.1",
     "@charlietango/use-native-lazy-loading": "1.10.0",
     "@emotion/react": "11.4.1",
@@ -73,7 +73,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/focus-lock": ">=1.2.6 <2.0.0",
-    "@chakra-ui/react": ">=1.8.5 <=1.8.8",
+    "@chakra-ui/react": ">=1.8.5 <=1.8.9",
     "@chakra-ui/system": ">=1.11.0 <=1.12.1",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",

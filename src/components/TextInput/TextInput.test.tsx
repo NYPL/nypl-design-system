@@ -164,6 +164,49 @@ describe("TextInput", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "url");
   });
 
+  it("has an 'autocomplete' attribute if the `autoComplete` prop is set", () => {
+    expect(screen.getByRole("textbox")).not.toHaveAttribute("autocomplete");
+
+    utils.rerender(
+      <TextInput
+        autoComplete="name"
+        id="myEmailInput"
+        labelText="Custom Email Input Label"
+        onChange={changeHandler}
+        type="text"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "name");
+
+    utils.rerender(
+      <TextInput
+        autoComplete="off"
+        id="myTelInput"
+        labelText="Custom Tel Input Label"
+        onChange={changeHandler}
+        type="text"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("autocomplete", "off");
+
+    utils.rerender(
+      <TextInput
+        autoComplete="username"
+        id="myURLInput"
+        labelText="Custom URL Input Label"
+        onChange={changeHandler}
+        type="email"
+      />
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "autocomplete",
+      "username"
+    );
+  });
+
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
@@ -690,6 +733,17 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const withCustomAutoComplete = renderer
+      .create(
+        <TextInput
+          autoComplete="name"
+          id="autocomplete"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type="text"
+        />
+      )
+      .toJSON();
 
     expect(basicTextarea).toMatchSnapshot();
     expect(required).toMatchSnapshot();
@@ -702,6 +756,7 @@ describe("UI Snapshots", () => {
     expect(withClearButton).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withCustomAutoComplete).toMatchSnapshot();
   });
 
   it("passes a ref to the input element", () => {
