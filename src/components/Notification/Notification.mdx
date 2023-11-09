@@ -100,13 +100,15 @@ recognized and announced by assistive technology.
 
 The `Notification` component can be rendered with and without a heading. By
 default, when a title is passed to the `notificationHeading` prop, the
-`Notification` component will render an `h4` element. If this causes accessibility
-issues in your app, you can pass in a custom `Heading` element.
+`Notification` component will render an `h4` element sized as a `heading6`
+heading. If this causes accessibility issues in your app, you can pass in a
+custom `Heading` element.
 
 <Canvas of={NotificationStories.NotificationHeading} />
 
-In the following examples, the `Notification` component will render
-custom `h3` and `h5` elements:
+In the following examples, the `Notification` component will render custom `h3`
+and `h5` elements. Note that no matter what heading level is set, the size will
+always be set to `heading6`.
 
 <Source
   code={`

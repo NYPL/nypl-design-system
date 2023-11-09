@@ -1,9 +1,12 @@
+import React from "react";
+
 import Heading from "../components/Heading/Heading";
 
 interface UseDSHeadingProps {
   title: string | JSX.Element;
   id?: string;
   customDefaultHeading?: string | JSX.Element;
+  additionalStyles?: { [key: string]: any };
 }
 
 /**
@@ -15,6 +18,7 @@ function useDSHeading({
   title = "",
   id = "",
   customDefaultHeading,
+  additionalStyles,
 }: UseDSHeadingProps) {
   const headingID = id ? `${id}-heading` : undefined;
   let updatedTitle = null;
@@ -22,10 +26,19 @@ function useDSHeading({
   if (title) {
     if (typeof title === "string") {
       // Use the DS default h2 heading element if the title is a string.
-      updatedTitle = <Heading id={headingID}>{title}</Heading>;
+      updatedTitle = (
+        <Heading id={headingID} __css={additionalStyles}>
+          {title}
+        </Heading>
+      );
     } else if (typeof title === "object") {
-      // Use the passed JSX element if it is passed.
-      updatedTitle = title;
+      // Use the passed JSX element if it is passed. If additional styles are
+      // passed, clone the element and add the styles to the cloned element.
+      // This is to account for base default styles for a component that may
+      // be ignored in a custom heading.
+      updatedTitle = additionalStyles
+        ? React.cloneElement(title, { __css: additionalStyles })
+        : title;
     }
   } else if (customDefaultHeading) {
     // If no title is passed and the component has a custom default heading,

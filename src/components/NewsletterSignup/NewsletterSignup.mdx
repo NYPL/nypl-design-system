@@ -80,10 +80,11 @@ _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
 ## Custom Title Heading
 
-The optional `title` prop will render the description list's heading as an `h2`
+The optional `title` prop will render the `Newsletter`'s heading as an `h2`
 element (sized as an `h3`) by default with text `"Sign Up for Our Newsletter"`.
 When the `title` value is a string, the default heading will be an `h2` but not
-sized as an `h3. It's possible that the `h2`element will not fit in an app's heading hierarchy. If this is the case,`title`can also take a`JSX.Element`
+sized as an `h3`. It's possible that the `h2` element will not fit in an app's
+heading hierarchy. If this is the case,`title` can also take a `JSX.Element`
 type value.
 
 In the following example, the heading is an `h4` defined as:
@@ -98,7 +99,7 @@ const stringHeading = "Custom string heading";
 
 // JSX Heading Example
 
-let jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
+const jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
 // ...
 
 <NewsletterSignup title={jsxHeading} {...otherArgs} />

@@ -1,4 +1,4 @@
-import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { As, Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import useDSHeading from "../../hooks/useDSHeading";
@@ -55,8 +55,16 @@ export const List = chakra(
       type = "ul",
       ...rest
     } = props;
-    const styles = useStyleConfig("List", { inline, noStyling, variant: type });
-    const finalTitle = useDSHeading({ title, id });
+    const styles = useMultiStyleConfig("List", {
+      inline,
+      noStyling,
+      variant: type,
+    });
+    const finalTitle = useDSHeading({
+      title,
+      id,
+      additionalStyles: styles.heading,
+    });
     let listElement = null;
 
     // Either li/dt/dd children elements must be passed or the `listItems`

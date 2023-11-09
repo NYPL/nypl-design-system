@@ -8,20 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 2.1.2 (November 9, 2023)
-
 ### Adds
 
 - Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
 
 ### Updates
 
-- Adds the `sizeBasedOn` prop to the `Logo` component.
-- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
 - Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
 - Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
 - Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
 - Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
+
+## 2.1.2 (November 9, 2023)
+
+### Adds
+
+- Adds the `sizeBasedOn` prop to the `Logo` component.
+- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
 
 ### Updates
 
