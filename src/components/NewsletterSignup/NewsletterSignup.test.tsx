@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import * as React from "react";
 import renderer from "react-test-renderer";
+
 import NewsletterSignup from "./NewsletterSignup";
-import { sectionDataMap } from "../../helpers/types";
+import { sectionColorsDataMap } from "../../helpers/types";
 
 // If you want to see what's happening, insert below render()
 // screen.debug();
@@ -431,16 +431,16 @@ describe("NewsletterSignup Snapshots", () => {
       .toJSON();
     expect(view).toMatchSnapshot();
   });
-  // @TODO I don't think these test are working as intended as the colors are now set in the theme file.
+
   describe("Renders each color for each newsletterSignupType correctly", () => {
-    // The newsletterSignupType values are determined by the types contained in the sectionDataMap.
-    // So it is safe to use the map directly.
-    Object.keys(sectionDataMap).map((section) => {
+    // The newsletterSignupType values are determined by the types contained in
+    // the sectionColorsDataMap. So it is safe to use the map directly.
+    Object.keys(sectionColorsDataMap).map((section) => {
       it(
         "Renders " +
           section +
           " color band with " +
-          sectionDataMap[section].primary,
+          sectionColorsDataMap[section].primary,
         () => {
           const view = renderer
             .create(
