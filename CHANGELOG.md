@@ -19,6 +19,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates max version for Chakra UI to `1.8.9` for minor bug fixes.
 - Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
+- Updates the `getSectionColors` function to also return dark mode color variants.
+- Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
 
 ## 2.1.1 (October 26, 2023)
 
