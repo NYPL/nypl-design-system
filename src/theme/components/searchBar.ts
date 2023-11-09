@@ -19,7 +19,7 @@ const SearchBar = {
       _hover: {
         zIndex: "10",
         "+ .chakra-select__icon-wrapper": {
-          zIndex: "15",
+          zIndex: "9999",
         },
       },
     },

@@ -12,26 +12,10 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "Update",
-    affects: ["Accessibility"],
-    notes: [
-      'Added the `autoComplete` prop for setting the "autocomplete" attribute manually.',
-    ],
-  },
-  {
-    date: "2023-10-18",
-    version: "2.1.0",
     type: "Bug Fix",
-    affects: ["Accessibility"],
-    notes: [
-      "Updated so the `aria-describedby` value is not overwritten as 'undefined' when `TextInput` is part of the `DatePicker` component.",
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
     affects: ["Styles"],
-    notes: ["Applied Typo2023 styles, including font size and font color."],
+    notes: [
+      "Added a z-index on hover to the select icon so it no longer disappears.",
+    ],
   },
 ];

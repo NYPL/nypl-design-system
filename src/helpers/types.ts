@@ -5,9 +5,12 @@ export type LayoutTypes = typeof layoutTypesArray[number];
  *
  * For functionality purposes this list includes section types that are not,
  * technically, sections, but are treated as such, e.g. "brand," and the
- *  research libraries.
+ * research libraries.
+ *
+ * When the dark mode variant for each section is needed, prepend the value with
+ * "dark". For example: `dark.${sectionColorsDataMap.blogs.primary}`.
  */
-export const sectionDataMap = {
+export const sectionColorsDataMap = {
   blogs: {
     primary: "section.blogs.primary",
     secondary: "section.blogs.secondary",
@@ -54,5 +57,5 @@ export const sectionDataMap = {
   },
 };
 
-export const sectionTypeArray = Object.keys(sectionDataMap);
+export const sectionTypeArray = Object.keys(sectionColorsDataMap);
 export type SectionTypes = typeof sectionTypeArray[number];

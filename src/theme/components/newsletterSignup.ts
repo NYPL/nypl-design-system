@@ -1,4 +1,4 @@
-import { getSectionColors } from "../../helpers/getSectionColors";
+import { getSectionColors } from "../../utils/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
 interface NewsLetterStyleProps {
   newsletterSignupType: SectionTypes;
@@ -13,16 +13,18 @@ const NewsletterSignup = {
       alignItems: "flex-start",
       bg: "ui.bg.default",
       borderLeftColor: {
-        md: getSectionColors(
-          newsletterSignupType,
-          newsletterSignupType === "blogs" ? "secondary" : "primary"
-        ),
+        md: getSectionColors({
+          type: newsletterSignupType,
+          colorValue:
+            newsletterSignupType === "blogs" ? "secondary" : "primary",
+        }),
       },
       borderTopColor: {
-        base: getSectionColors(
-          newsletterSignupType,
-          newsletterSignupType === "blogs" ? "secondary" : "primary"
-        ),
+        base: getSectionColors({
+          type: newsletterSignupType,
+          colorValue:
+            newsletterSignupType === "blogs" ? "secondary" : "primary",
+        }),
         md: "ui.border.default",
       },
       borderWidth: { base: ".75rem 0px 0px 0px", md: "0px 0px 0px .75rem" },
@@ -33,10 +35,12 @@ const NewsletterSignup = {
         bg: "dark.ui.bg.default",
         borderTopColor: { md: "dark.ui.border.default" },
         borderLeftColor: {
-          md: getSectionColors(
-            newsletterSignupType,
-            newsletterSignupType === "blogs" ? "secondary" : "primary"
-          ),
+          md: getSectionColors({
+            type: newsletterSignupType,
+            colorValue:
+              newsletterSignupType === "blogs" ? "secondary" : "primary",
+            isDark: true,
+          }),
         },
       },
       padding: {
