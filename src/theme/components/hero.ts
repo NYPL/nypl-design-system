@@ -177,7 +177,7 @@ const campaign = {
   overflow: "visible",
   padding: {
     base: "inset.wide",
-    md: "0",
+    md: "s",
   },
   position: "relative",
   content: {
@@ -190,8 +190,8 @@ const campaign = {
       lg: "row nowrap",
     },
     minHeight: "320px",
-    flex: { md: "0 0 90%" },
-    maxWidth: { md: "1280px" },
+    flex: { md: "0 100%" },
+    maxWidth: { md: "1248px" },
     position: { md: "relative" },
     top: { md: "xxl" },
     _dark: {
