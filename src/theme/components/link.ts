@@ -60,7 +60,7 @@ const moreLink = ({ hasVisitedState }) => ({
 });
 
 // The "button" variant is deprecated.
-const button = () => ({
+const button = {
   width: "100px",
   borderRadius: "sm",
   lineHeight: "1.5",
@@ -94,7 +94,7 @@ const button = () => ({
       },
     },
   },
-});
+};
 
 const buttonPrimary = ({ hasVisitedState }) => ({
   ...baseButtonLinkStyles,
