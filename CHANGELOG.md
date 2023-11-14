@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles.
+
 ## 2.1.2 (November 9, 2023)
 
 ### Adds

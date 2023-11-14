@@ -25,12 +25,6 @@ export const baseLinkStyles = {
       color: "dark.ui.link.secondary",
     },
   },
-  _visited: {
-    color: "ui.link.tertiary",
-    _dark: {
-      color: "dark.ui.link.tertiary",
-    },
-  },
 };
 
 const baseButtonLinkStyles = {
@@ -38,7 +32,7 @@ const baseButtonLinkStyles = {
   display: "inline-flex",
 };
 
-const variants = {
+const variants = ({ hasVisitedState }) => ({
   link: {},
   disabled: {
     color: "ui.gray.dark",
@@ -57,16 +51,18 @@ const variants = {
       color: "ui.link.secondary",
       textDecoration: "underline",
     },
-    _visited: {
-      svg: {
-        fill: "ui.link.tertiary",
-      },
-      _dark: {
-        svg: {
-          fill: "dark.ui.link.tertiary",
-        },
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          svg: {
+            fill: "ui.link.tertiary",
+          },
+          _dark: {
+            svg: {
+              fill: "dark.ui.link.tertiary",
+            },
+          },
+        }
+      : {},
   },
   // The "button" variant is deprecated.
   button: {
@@ -111,22 +107,26 @@ const variants = {
       backgroundColor: "ui.link.secondary",
       color: "ui.white",
     },
-    _visited: {
-      color: "ui.white",
-      _dark: {
-        color: "ui.gray.xxx-dark",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.white",
+          _dark: {
+            color: "ui.gray.xxx-dark",
+          },
+        }
+      : {},
   },
   buttonSecondary: {
     ...baseButtonLinkStyles,
     ...secondary({}),
-    _visited: {
-      color: "ui.link.primary",
-      _dark: {
-        color: "dark.ui.link.primary",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.link.primary",
+          _dark: {
+            color: "dark.ui.link.primary",
+          },
+        }
+      : {},
   },
   buttonPill: {
     ...baseButtonLinkStyles,
@@ -134,12 +134,14 @@ const variants = {
     _hover: {
       color: "ui.black",
     },
-    _visited: {
-      color: "ui.black",
-      _dark: {
-        color: "ui.white",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.black",
+          _dark: {
+            color: "ui.white",
+          },
+        }
+      : {},
   },
   buttonCallout: {
     ...baseButtonLinkStyles,
@@ -147,12 +149,14 @@ const variants = {
     _hover: {
       color: "ui.white",
     },
-    _visited: {
-      color: "ui.white",
-      _dark: {
-        color: "ui.white",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.white",
+          _dark: {
+            color: "ui.white",
+          },
+        }
+      : {},
   },
   buttonNoBrand: {
     ...baseButtonLinkStyles,
@@ -160,12 +164,14 @@ const variants = {
     _hover: {
       color: "ui.white",
     },
-    _visited: {
-      color: "ui.white",
-      _dark: {
-        color: "ui.white",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.white",
+          _dark: {
+            color: "ui.white",
+          },
+        }
+      : {},
   },
   buttonDisabled: {
     ...baseButtonLinkStyles,
@@ -174,22 +180,33 @@ const variants = {
     color: "ui.gray.dark",
     opacity: "1",
     pointerEvents: "none",
-    _visited: {
-      color: "ui.gray.dark",
-      _dark: {
-        color: "dark.ui.disabled.primary",
-      },
-    },
+    _visited: hasVisitedState
+      ? {
+          color: "ui.gray.dark",
+          _dark: {
+            color: "dark.ui.disabled.primary",
+          },
+        }
+      : {},
     _dark: {
       bg: "dark.ui.disabled.secondary",
       color: "dark.ui.disabled.primary",
     },
   },
-};
+});
+
 const Link = {
   parts: ["screenreaderOnly"],
-  baseStyle: ({ finalIsUnderlined = true }) => ({
+  baseStyle: ({ finalIsUnderlined = true, hasVisitedState }) => ({
     ...baseLinkStyles,
+    _visited: hasVisitedState
+      ? {
+          color: "ui.link.tertiary",
+          _dark: {
+            color: "dark.ui.link.tertiary",
+          },
+        }
+      : {},
     textDecoration: finalIsUnderlined ? "underline" : "none",
     /** This is needed for custom anchor elements or link components
      * that are passed as children to the `Link` component. */
