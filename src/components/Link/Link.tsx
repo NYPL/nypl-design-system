@@ -154,7 +154,7 @@ export const Link = chakra(
     const {
       children,
       className,
-      hasVisitedState = false,
+      hasVisitedState = true,
       href,
       id,
       isUnderlined = true,
