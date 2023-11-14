@@ -32,166 +32,166 @@ const baseButtonLinkStyles = {
   display: "inline-flex",
 };
 
-const variants = ({ hasVisitedState }) => ({
-  link: {},
-  disabled: {
-    color: "ui.gray.dark",
-    pointerEvents: "none",
-  },
-  moreLink: {
-    alignItems: "center",
-    display: "inline-flex",
-    svg: {
-      height: "s",
-      width: "s",
-      textDecoration: "none",
-      fill: "currentColor",
-    },
-    _hover: {
-      color: "ui.link.secondary",
-      textDecoration: "underline",
-    },
-    _visited: hasVisitedState
-      ? {
-          svg: {
-            fill: "ui.link.tertiary",
-          },
-          _dark: {
-            svg: {
-              fill: "dark.ui.link.tertiary",
-            },
-          },
-        }
-      : {},
-  },
-  // The "button" variant is deprecated.
-  button: {
-    width: "100px",
-    borderRadius: "sm",
-    lineHeight: "1.5",
-    display: "flex",
-    cursor: "pointer",
-    color: "ui.white",
-    justifyContent: "center",
-    py: "xs",
-    px: "xs",
+const moreLink = ({ hasVisitedState }) => ({
+  alignItems: "center",
+  display: "inline-flex",
+  svg: {
+    height: "s",
+    width: "s",
     textDecoration: "none",
-    fontWeight: "button.default",
-    bg: "ui.link.primary",
+    fill: "currentColor",
+  },
+  _hover: {
+    color: "ui.link.secondary",
+    textDecoration: "underline",
+  },
+  _visited: hasVisitedState
+    ? {
+        svg: {
+          fill: "ui.link.tertiary",
+        },
+        _dark: {
+          svg: {
+            fill: "dark.ui.link.tertiary",
+          },
+        },
+      }
+    : {},
+});
+
+// The "button" variant is deprecated.
+const button = () => ({
+  width: "100px",
+  borderRadius: "sm",
+  lineHeight: "1.5",
+  display: "flex",
+  cursor: "pointer",
+  color: "ui.white",
+  justifyContent: "center",
+  py: "xs",
+  px: "xs",
+  textDecoration: "none",
+  fontWeight: "button.default",
+  bg: "ui.link.primary",
+  _dark: {
+    color: "ui.gray.xxx-dark",
+    bg: "dark.ui.link.primary",
+  },
+  _hover: {
+    color: "ui.white",
+    bg: "ui.link.secondary",
+    textDecoration: "underline",
     _dark: {
       color: "ui.gray.xxx-dark",
-      bg: "dark.ui.link.primary",
+      bg: "dark.ui.link.secondary",
     },
-    _hover: {
-      color: "ui.white",
-      bg: "ui.link.secondary",
-      textDecoration: "underline",
-      _dark: {
+  },
+  _visited: {
+    color: "ui.white",
+    _dark: {
+      _visited: {
         color: "ui.gray.xxx-dark",
-        bg: "dark.ui.link.secondary",
       },
     },
-    _visited: {
-      color: "ui.white",
-      _dark: {
-        _visited: {
+  },
+});
+
+const buttonPrimary = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...primary({}),
+  _hover: {
+    backgroundColor: "ui.link.secondary",
+    color: "ui.white",
+  },
+  _visited: hasVisitedState
+    ? {
+        color: "ui.white",
+        _dark: {
           color: "ui.gray.xxx-dark",
         },
-      },
-    },
+      }
+    : {},
+});
+
+const buttonSecondary = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...secondary({}),
+  _visited: hasVisitedState
+    ? {
+        color: "ui.link.primary",
+        _dark: {
+          color: "dark.ui.link.primary",
+        },
+      }
+    : {},
+});
+
+const buttonPill = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...pill({}),
+  _hover: {
+    color: "ui.black",
   },
-  buttonPrimary: {
-    ...baseButtonLinkStyles,
-    ...primary({}),
-    _hover: {
-      backgroundColor: "ui.link.secondary",
-      color: "ui.white",
-    },
-    _visited: hasVisitedState
-      ? {
+  _visited: hasVisitedState
+    ? {
+        color: "ui.black",
+        _dark: {
           color: "ui.white",
-          _dark: {
-            color: "ui.gray.xxx-dark",
-          },
-        }
-      : {},
+        },
+      }
+    : {},
+});
+
+const buttonCallout = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...callout({}),
+  _hover: {
+    color: "ui.white",
   },
-  buttonSecondary: {
-    ...baseButtonLinkStyles,
-    ...secondary({}),
-    _visited: hasVisitedState
-      ? {
-          color: "ui.link.primary",
-          _dark: {
-            color: "dark.ui.link.primary",
-          },
-        }
-      : {},
-  },
-  buttonPill: {
-    ...baseButtonLinkStyles,
-    ...pill({}),
-    _hover: {
-      color: "ui.black",
-    },
-    _visited: hasVisitedState
-      ? {
-          color: "ui.black",
-          _dark: {
-            color: "ui.white",
-          },
-        }
-      : {},
-  },
-  buttonCallout: {
-    ...baseButtonLinkStyles,
-    ...callout({}),
-    _hover: {
-      color: "ui.white",
-    },
-    _visited: hasVisitedState
-      ? {
+  _visited: hasVisitedState
+    ? {
+        color: "ui.white",
+        _dark: {
           color: "ui.white",
-          _dark: {
-            color: "ui.white",
-          },
-        }
-      : {},
+        },
+      }
+    : {},
+});
+
+const buttonNoBrand = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...noBrand({}),
+  _hover: {
+    color: "ui.white",
   },
-  buttonNoBrand: {
-    ...baseButtonLinkStyles,
-    ...noBrand({}),
-    _hover: {
-      color: "ui.white",
-    },
-    _visited: hasVisitedState
-      ? {
+  _visited: hasVisitedState
+    ? {
+        color: "ui.white",
+        _dark: {
           color: "ui.white",
-          _dark: {
-            color: "ui.white",
-          },
-        }
-      : {},
-  },
-  buttonDisabled: {
-    ...baseButtonLinkStyles,
-    ...primary({}),
-    bg: "ui.gray.light-cool",
-    color: "ui.gray.dark",
-    opacity: "1",
-    pointerEvents: "none",
-    _visited: hasVisitedState
-      ? {
-          color: "ui.gray.dark",
-          _dark: {
-            color: "dark.ui.disabled.primary",
-          },
-        }
-      : {},
-    _dark: {
-      bg: "dark.ui.disabled.secondary",
-      color: "dark.ui.disabled.primary",
-    },
+        },
+      }
+    : {},
+});
+
+const buttonDisabled = ({ hasVisitedState }) => ({
+  ...baseButtonLinkStyles,
+  ...primary({}),
+  bg: "ui.gray.light-cool",
+  color: "ui.gray.dark",
+  opacity: "1",
+  pointerEvents: "none",
+  _visited: hasVisitedState
+    ? {
+        color: "ui.gray.dark",
+        _dark: {
+          color: "dark.ui.disabled.primary",
+        },
+      }
+    : {},
+  _dark: {
+    bg: "dark.ui.disabled.secondary",
+    color: "dark.ui.disabled.primary",
   },
 });
 
@@ -219,7 +219,16 @@ const Link = {
      * screen readers. */
     screenreaderOnly: screenreaderOnly(),
   }),
-  variants,
+  variants: {
+    button,
+    buttonCallout,
+    buttonDisabled,
+    buttonNoBrand,
+    buttonPill,
+    buttonPrimary,
+    buttonSecondary,
+    moreLink,
+  },
 };
 
 export default Link;

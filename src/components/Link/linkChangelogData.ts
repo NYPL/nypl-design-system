@@ -15,7 +15,8 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Adds `hasVisitedStyles` prop which is used to include or omit the component's visited state styles.",
+      "Added `hasVisitedStyles` prop which is used to include or omit the component's visited state styles.",
+      "Removed `disabled` variant from theme file, as it isn't being used.",
     ],
   },
 ];
