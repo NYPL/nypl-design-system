@@ -27,6 +27,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `getSectionColors` function to also return dark mode color variants.
 - Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
 
+## Fixes
+
+- Adds a z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+
+
 ## 2.1.1 (October 26, 2023)
 
 ### Adds
