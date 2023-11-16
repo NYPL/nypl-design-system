@@ -2,21 +2,23 @@ import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as TextStories from "./Text.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./headingChangelogData";
 
 <Meta of={TextStories} />
 
 # Text
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.1`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.1`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -61,3 +63,7 @@ Guide](../?path=/docs/style-guide-typography--docs#text-display-sizes).
 `tag`, `mini`
 
 <Canvas of={TextStories.DeprecatedOptions} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
