@@ -49,7 +49,9 @@ interface NewsletterSignupProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Link to the relevant privacy policy page. */
   privacyPolicyLink?: string;
-  /** Used to populate the title of the Component*/
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
   title?: JSX.Element | string;
   /** The value of the email text input field. */
   valueEmail?: string;

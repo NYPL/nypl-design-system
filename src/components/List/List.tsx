@@ -27,8 +27,9 @@ export interface ListProps {
   listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
-  /** An optional title that will appear over the list. This prop only applies
-   * to Description Lists. */
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in. This title only applies to
+   * to Description Lists and will render above the list. */
   title?: string | JSX.Element;
   /** The type of list: "ol", "ul", or "dl". "ul" by default. */
   type: ListTypes;

@@ -54,7 +54,9 @@ export interface SearchBarProps {
   className?: string;
   /** Optional string for the SearchBar's description above the component. */
   descriptionText?: string;
-  /** Optional string for the SearchBar's heading text above the component. */
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
   headingText?: string | JSX.Element;
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;

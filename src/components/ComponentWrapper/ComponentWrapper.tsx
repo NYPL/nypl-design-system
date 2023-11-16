@@ -13,7 +13,9 @@ export interface ComponentWrapperProps {
   className?: string;
   /** Optional string to set the text for the component's description */
   descriptionText?: string | JSX.Element;
-  /** Optional string to set the text for a `Heading` component */
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
   headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: HelperErrorTextType;

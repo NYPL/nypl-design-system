@@ -18,7 +18,9 @@ export interface StructuredContentProps {
   calloutText?: string | JSX.Element;
   /** Additional class name for the `StructuredContent` component. */
   className?: string;
-  /** Optional value to set the text for the main heading text. */
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
   headingText?: string | JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;

@@ -32,4 +32,38 @@ describe("useDSHeading hook", () => {
 
     expect(heading).toBeInTheDocument();
   });
+
+  it("logs an warning if an HTML heading element was passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    const customHeading = <h3>HTML H3 Heading</h3>;
+    render(<TestComponent incomingTitle={customHeading} />);
+
+    const heading = screen.getByRole("heading", { level: 3 });
+
+    expect(heading).toBeInTheDocument();
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir useDSHeading: An HTML heading element was passed " +
+        "for the `title` or `headingText` in a component. This will render " +
+        "without DS-specific styling."
+    );
+  });
+
+  it(
+    "logs a warning and does not render the title if the custom heading is " +
+      "not a DS Heading component or an HTML heading element.",
+    () => {
+      const warn = jest.spyOn(console, "warn");
+      const customHeading = <span>This is wrong!</span>;
+      render(<TestComponent incomingTitle={customHeading} />);
+
+      const heading = screen.queryByText("This is wrong!");
+
+      expect(heading).not.toBeInTheDocument();
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir useDSHeading: A DS `Heading` component or an HTML " +
+          "heading element should be passed to the `title` or `headingText` " +
+          "in the relevant component. The title will not be rendered."
+      );
+    }
+  );
 });

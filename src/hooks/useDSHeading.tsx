@@ -9,6 +9,8 @@ interface UseDSHeadingProps {
   additionalStyles?: { [key: string]: any };
 }
 
+const headingList = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
 /**
  * DS internal helper hook to render a default `h2` heading element if the
  * passed title is a string. Otherwise, it will return the title as is if it
@@ -36,9 +38,26 @@ function useDSHeading({
       // passed, clone the element and add the styles to the cloned element.
       // This is to account for base default styles for a component that may
       // be ignored in a custom heading.
-      updatedTitle = additionalStyles
-        ? React.cloneElement(title, { __css: additionalStyles })
-        : title;
+      if (title.type === Heading) {
+        updatedTitle = additionalStyles
+          ? React.cloneElement(title, { __css: additionalStyles })
+          : title;
+      } else if (headingList.includes(title.type)) {
+        // If the user passed in an HTML heading element, just use that.
+        // They will not get any DS styling.
+        updatedTitle = title;
+        console.warn(
+          "NYPL Reservoir useDSHeading: An HTML heading element was passed " +
+            "for the `title` or `headingText` in a component. This will render " +
+            "without DS-specific styling."
+        );
+      } else {
+        console.warn(
+          "NYPL Reservoir useDSHeading: A DS `Heading` component or an HTML " +
+            "heading element should be passed to the `title` or `headingText` " +
+            "in the relevant component. The title will not be rendered."
+        );
+      }
     }
   } else if (customDefaultHeading) {
     // If no title is passed and the component has a custom default heading,

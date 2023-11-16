@@ -28,7 +28,10 @@ interface BaseProps {
   id?: string;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   isCentered?: boolean;
-  /** Content to be rendered in a `NotificationHeading` component. */
+  /** Optional content to be rendered in a `NotificationHeading` component. A
+   * string value is used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
   notificationHeading?: string | JSX.Element;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */

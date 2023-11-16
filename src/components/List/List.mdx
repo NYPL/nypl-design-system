@@ -20,7 +20,6 @@ import { changelogData } from "./listChangelogData";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#description-list" target="_self">Description List</Link>}
-- {<Link href="#description-list-of-links" target="_self">Description List of Links</Link>}
 - {<Link href="#lists-with-data-props" target="_self">Lists with Data Props</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -74,7 +73,7 @@ list renders `dt` and `dd` elements.
 
 <Canvas of={ListStories.DescriptionList} />
 
-## Description List with Custom Headings
+### Description List with Custom Headings
 
 The optional `title` prop will render the description list's heading as an `h2`
 element by default when the `title` value is a string. It's possible that the
@@ -98,7 +97,7 @@ const listHeading = <Heading level="h4">Middle-Earth Peoples</Heading>;
 
 <Canvas of={ListStories.DescriptionListWithCustomHeading} />
 
-## Description List of Links
+### Description List of Links
 
 An example with HTML elements inside of the `dd` elements.
 
