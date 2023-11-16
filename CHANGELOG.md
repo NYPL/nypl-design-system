@@ -8,6 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
+- Removes `disabled` variant from `Link` theme file, as it isn't being used.
+
+## Fixes
+
+- Adds a z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+
 ## 2.1.2 (November 9, 2023)
 
 ### Adds
@@ -21,11 +30,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
 - Updates the `getSectionColors` function to also return dark mode color variants.
 - Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
-
-## Fixes
-
-- Adds a z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
-
 
 ## 2.1.1 (October 26, 2023)
 
