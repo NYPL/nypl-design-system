@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
 - Removes `disabled` variant from `Link` theme file, as it isn't being used.
 - Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
+- Udpates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
 
 ## Fixes
 
