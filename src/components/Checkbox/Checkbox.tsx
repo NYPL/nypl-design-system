@@ -71,7 +71,7 @@ function CheckboxIcon(props: CheckboxIconProps) {
   );
 }
 
-export const Checkbox = chakra(
+export const Checkbox: React.FC<any> = chakra(
   forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,

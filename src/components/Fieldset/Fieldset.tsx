@@ -21,7 +21,7 @@ interface FieldsetProps {
  * A wrapper component that renders a `fieldset` element along with a `legend`
  * element as its first child. Commonly used to wrap form components.
  */
-export const Fieldset = chakra(
+export const Fieldset: React.FC<React.PropsWithChildren<any>> = chakra(
   forwardRef<
     HTMLDivElement & HTMLFieldSetElement,
     React.PropsWithChildren<FieldsetProps>

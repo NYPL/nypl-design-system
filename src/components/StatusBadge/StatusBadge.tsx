@@ -16,7 +16,7 @@ export interface StatusBadgeProps {
  * The `StatusBadge` component is used to display a visual badge for three
  * different status levels.
  */
-export const StatusBadge = chakra(
+export const StatusBadge: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
       const { children, className, id, level = "low", ...rest } = props;

@@ -143,7 +143,7 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-export const Tabs = chakra(
+export const Tabs: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TabsProps>>(
     (props, ref?) => {
       const {

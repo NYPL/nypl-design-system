@@ -200,6 +200,7 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
+  name: "Secondary (deprecated)",
   render: () => (
     <Hero
       heading={
@@ -354,6 +355,7 @@ export const Campaign: Story = {
 };
 
 export const FiftyFifty: Story = {
+  name: "FiftyFifty (deprecated)",
   render: () => (
     <Stack spacing="l">
       <div>

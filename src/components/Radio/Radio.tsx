@@ -51,7 +51,7 @@ export interface RadioProps {
   value?: string;
 }
 
-export const Radio = chakra(
+export const Radio: React.FC<any> = chakra(
   forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     const {
       className,

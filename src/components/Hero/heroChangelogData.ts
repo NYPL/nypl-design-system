@@ -10,11 +10,23 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2023-11-09",
+    version: "2.1.2",
     type: "Update",
-    affects: ["Documentation"],
-    notes: ['Deprecated the "secondary" and "fiftyFifty" variants.'],
+    affects: ["Styles"],
+    notes: [
+      'Updates the layout for the "campaign" variant to have consistent padding on its left and right sides.',
+    ],
+  },
+  {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      'Deprecated the "secondary" and "fiftyFifty" variants.',
+      'Fixed a bug where custom background colors were not rendering properly in dark mode for the "campaign" and "tertiary" variants.',
+    ],
   },
   {
     date: "2023-10-18",

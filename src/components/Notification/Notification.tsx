@@ -50,7 +50,7 @@ type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Label used to describe the `Notification`'s aside HTML element. */
   ariaLabel?: string;
-  /** Additional `className` to add.  */
+  /** Additional `className` to add. */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
    * (closed) by a user. */
@@ -66,7 +66,7 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
 /**
  * NotificationHeading child-component.
  */
-export const NotificationHeading = chakra(
+export const NotificationHeading: React.FC<any> = chakra(
   (props: React.PropsWithChildren<NotificationHeadingProps>) => {
     const { children, icon, id, isCentered, notificationType, ...rest } = props;
     const styles = useMultiStyleConfig("NotificationHeading", {
@@ -97,7 +97,7 @@ export const NotificationHeading = chakra(
 /**
  * NotificationContent child-component.
  */
-export const NotificationContent = chakra(
+export const NotificationContent: React.FC<any> = chakra(
   (props: React.PropsWithChildren<NotificationContentProps>) => {
     const {
       alignText,
@@ -128,7 +128,7 @@ export const NotificationContent = chakra(
  * Component used to present users with three different levels of notifications:
  * standard, announcement, and warning.
  */
-export const Notification = chakra(
+export const Notification: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
     const {
       ariaLabel,

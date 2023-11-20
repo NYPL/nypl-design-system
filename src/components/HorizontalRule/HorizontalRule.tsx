@@ -11,7 +11,7 @@ export interface HorizontalRuleProps {
   className?: string;
 }
 
-export const HorizontalRule = chakra(
+export const HorizontalRule: React.FC<any> = chakra(
   forwardRef<HTMLDivElement & HTMLHRElement, HorizontalRuleProps>(
     (props, ref?) => {
       const { align, className, ...rest } = props;

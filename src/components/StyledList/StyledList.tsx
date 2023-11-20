@@ -35,7 +35,7 @@ export interface StyledListProps {
  * adhere to traditional numbered and bulleted list styles. Unlike
  * the `List` component, `StyledList` only renders an unordered list.
  */
-export const StyledList = chakra(
+export const StyledList: React.FC<any> = chakra(
   forwardRef<HTMLDivElement & HTMLUListElement, StyledListProps>(
     (props, ref?) => {
       const {

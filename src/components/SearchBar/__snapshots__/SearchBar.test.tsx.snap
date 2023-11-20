@@ -508,8 +508,9 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="searchbar-textinput-invalidState-helperText"
           aria-invalid={true}
-          aria-label="Item Search - There is an error related to this field."
+          aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"
           disabled={false}

@@ -44,7 +44,7 @@ export interface TableProps {
  * Basic `Table` component used to organize and display tabular data in
  * rows and columns.
  */
-export const Table = chakra(
+export const Table: React.FC<any> = chakra(
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {

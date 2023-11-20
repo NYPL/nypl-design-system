@@ -120,7 +120,7 @@ const ImageWrapper = chakra(
   }
 );
 
-export const Image = chakra(
+export const Image: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, ImageProps>((props, ref?) => {
     const {
       additionalFigureStyles = {},

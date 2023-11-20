@@ -39,7 +39,7 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Description` list type.
  */
-export const List = chakra(
+export const List: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     React.PropsWithChildren<ListProps>

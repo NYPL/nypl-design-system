@@ -30,7 +30,7 @@ export interface AlphabetFilterProps {
   onClick: (filterValue: string) => void;
 }
 
-export const AlphabetFilter = chakra(
+export const AlphabetFilter: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, AlphabetFilterProps>((props, ref?) => {
     const {
       activeLetters,

@@ -32,7 +32,7 @@ export interface ModalProps {
   modalProps: BaseModalProps;
 }
 
-const BaseModal = chakra(
+const BaseModal: React.FC<any> = chakra(
   ({
     bodyContent,
     closeButtonLabel = "Close",
@@ -81,7 +81,7 @@ const BaseModal = chakra(
  * internal `Modal` component. Note that props to update the internal `Modal`
  * component are passed through to the `modalProps` prop.
  */
-export const ModalTrigger = chakra(
+export const ModalTrigger: React.FC<any> = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
     ({ buttonText, id, modalProps, ...rest }, ref?) => {
       const { isOpen, onOpen, onClose } = useDisclosure();
@@ -115,7 +115,7 @@ export const ModalTrigger = chakra(
  * open button(s) and optional custom close button(s). You must render your own
  * button and pass the appropriate `onOpen` and ` handler for the modal to open.
  */
-export function useModal() {
+export function useModal(): any {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const Modal = chakra(
     ({

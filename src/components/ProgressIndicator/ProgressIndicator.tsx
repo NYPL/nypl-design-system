@@ -42,7 +42,7 @@ export interface ProgressIndicatorProps {
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */
-export const ProgressIndicator = chakra(
+export const ProgressIndicator: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
       darkMode = false,

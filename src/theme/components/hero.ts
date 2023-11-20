@@ -4,6 +4,7 @@ import { screenreaderOnly } from "./globalMixins";
 // Used for all "secondary" variants.
 const secondaryBase = {
   overflowX: "hidden",
+  bgColor: "ui.bg.default",
   content: {
     ...wrapperStyles,
     paddingEnd: "inset.default",
@@ -35,6 +36,9 @@ const secondaryBase = {
     paddingTop: "inset.default",
     flex: { md: "1 1 50%" },
     order: { base: "3", md: "2" },
+  },
+  _dark: {
+    bgColor: "dark.ui.bg.default",
   },
 };
 // Used for all "secondary" variants' heading component.
@@ -136,7 +140,6 @@ const secondaryLocations = getSecondaryVariantStyles(
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
 const tertiary = {
-  bg: "ui.gray.x-dark",
   content: {
     ...wrapperStyles,
     color: "ui.typography.inverse.body",
@@ -162,9 +165,6 @@ const tertiary = {
   p: {
     marginBottom: "0",
   },
-  _dark: {
-    bg: "dark.ui.bg.default",
-  },
 };
 const campaign = {
   alignItems: "center",
@@ -177,7 +177,7 @@ const campaign = {
   overflow: "visible",
   padding: {
     base: "inset.wide",
-    md: "0",
+    md: "s",
   },
   position: "relative",
   content: {
@@ -190,12 +190,11 @@ const campaign = {
       lg: "row nowrap",
     },
     minHeight: "320px",
-    flex: { md: "0 0 90%" },
-    maxWidth: { md: "1280px" },
+    flex: { md: "0 100%" },
+    maxWidth: { md: "1248px" },
     position: { md: "relative" },
     top: { md: "xxl" },
     _dark: {
-      bg: "dark.ui.bg.default",
       color: "dark.ui.typography.body",
     },
   },
@@ -264,10 +263,7 @@ const fiftyFifty = {
 };
 const Hero = {
   baseStyle: {
-    bgColor: "ui.gray.x-light-cool",
-    _dark: {
-      bgColor: "dark.ui.bg.default",
-    },
+    // ...
   },
   // Available variants:
   variants: {

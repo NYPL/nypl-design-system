@@ -49,7 +49,7 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-export const Button = chakra(
+export const Button: React.FC<React.PropsWithChildren<any>> = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {

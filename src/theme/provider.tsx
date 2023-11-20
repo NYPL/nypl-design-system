@@ -6,7 +6,6 @@ import {
 import { mergeWith } from "@chakra-ui/utils";
 import React from "react";
 
-// import { ChakraProvider, ChakraProviderProps } from "./internalChakraProvider";
 import nyplTheme from "./index";
 
 const DSProvider = ({

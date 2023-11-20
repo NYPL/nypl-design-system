@@ -34,7 +34,7 @@ interface HelperErrorTextProps {
  * This pattern guarantees accessibility guidelines are met if the text content
  * is dynamically updated by the app or component that implements it.
  */
-export const HelperErrorText = chakra(
+export const HelperErrorText: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
     (
       {

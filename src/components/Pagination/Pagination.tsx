@@ -30,7 +30,7 @@ export interface PaginationProps {
 /**
  * A component that provides a navigational list of page items.
  */
-export const Pagination = chakra(
+export const Pagination: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, PaginationProps>((props, ref?) => {
     const {
       className,

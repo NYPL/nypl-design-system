@@ -51,7 +51,7 @@ export interface SkeletonLoaderProps {
  * The `SkeletonLoader` component renders a placeholder to be used while
  * dynamic content is loading.
  */
-export const SkeletonLoader = chakra(
+export const SkeletonLoader: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkeletonLoaderProps>>(
     (props, ref?) => {
       const {

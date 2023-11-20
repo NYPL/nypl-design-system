@@ -61,7 +61,7 @@ const noop = () => {};
  * for this form group element and is not needed for individual DS `Radio`
  * components when `RadioGroup` is used.
  */
-export const RadioGroup = chakra(
+export const RadioGroup: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<RadioGroupProps>>(
     (props, ref?) => {
       const {

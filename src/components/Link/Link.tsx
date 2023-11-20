@@ -28,6 +28,8 @@ export interface LinkProps {
   children: React.ReactNode;
   /** Additional class name to render in the `Link` component. */
   className?: string;
+  /** Used to include or remove visited state styles. Default is true. */
+  hasVisitedState?: boolean;
   /** The `href` attribute for the anchor element. */
   href?: string;
   /** ID used for accessibility purposes. */
@@ -147,11 +149,12 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
  */
-export const Link = chakra(
+export const Link: React.FC<any> = chakra(
   forwardRef<HTMLDivElement & HTMLAnchorElement, LinkProps>((props, ref?) => {
     const {
       children,
       className,
+      hasVisitedState = true,
       href,
       id,
       isUnderlined = true,
@@ -204,7 +207,11 @@ export const Link = chakra(
       // }
       variant = type;
     }
-    const styles = useMultiStyleConfig("Link", { variant, finalIsUnderlined });
+    const styles = useMultiStyleConfig("Link", {
+      variant,
+      finalIsUnderlined,
+      hasVisitedState,
+    });
     const rel = type === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       type === "external" ? "_blank" : target ? target : null;

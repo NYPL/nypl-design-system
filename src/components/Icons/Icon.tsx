@@ -54,7 +54,7 @@ export interface IconProps {
 /**
  * Renders SVG-based icons.
  */
-export const Icon = chakra(
+export const Icon: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<IconProps>

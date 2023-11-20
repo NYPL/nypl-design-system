@@ -53,7 +53,7 @@ const meta: Meta<typeof Card> = {
       options: layoutTypesArray,
       table: { defaultValue: { summary: "column" } },
     },
-  },
+  } as any,
 };
 
 export default meta;
@@ -80,7 +80,7 @@ export const WithControls: Story = {
     isCentered: false,
     layout: "row",
     mainActionLink: undefined,
-  },
+  } as any,
   render: (args) => (
     <Card
       backgroundColor={args.backgroundColor}

@@ -115,21 +115,23 @@ function CardImage(
 }
 
 // CardHeading child-component
-export const CardHeading = chakra(Heading);
+export const CardHeading: React.FC<any> = chakra(Heading);
 
 // CardContent child-component
-export const CardContent = chakra((props: React.PropsWithChildren<{}>) => {
-  const { children, ...rest } = props;
-  const styles = useStyleConfig("CardContent");
-  return children ? (
-    <Box __css={styles} {...rest}>
-      {children}
-    </Box>
-  ) : null;
-});
+export const CardContent: React.FC<React.PropsWithChildren<any>> = chakra(
+  (props: React.PropsWithChildren<{}>) => {
+    const { children, ...rest } = props;
+    const styles = useStyleConfig("CardContent");
+    return children ? (
+      <Box __css={styles} {...rest}>
+        {children}
+      </Box>
+    ) : null;
+  }
+);
 
 // CardActions child-component
-export const CardActions = chakra(
+export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
   (props: React.PropsWithChildren<CardActionsProps>) => {
     const { bottomBorder, children, isCentered, layout, topBorder, ...rest } =
       props;
@@ -153,7 +155,7 @@ export const CardActions = chakra(
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-const CardWrapper = chakra(
+const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
     ({ className, children, id, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
@@ -192,7 +194,7 @@ function CardLinkOverlay({
   );
 }
 
-export const Card = chakra(
+export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardProps>>(
     (props, ref?) => {
       const {

@@ -127,7 +127,7 @@ const getElementsFromData = (
  * breadcrumb path that reflects the site structure and allows a user to
  * navigate to any page available in the breadcrumb hierarchy.
  */
-export const Breadcrumbs = chakra(
+export const Breadcrumbs: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {
       breadcrumbsData,

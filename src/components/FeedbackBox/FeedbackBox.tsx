@@ -86,7 +86,7 @@ interface FeedbackBoxProps {
  * submitted data; that feature is the responsibility of the consuming
  * application.
  */
-export const FeedbackBox = chakra(
+export const FeedbackBox: React.FC<any> = chakra(
   forwardRef<any, FeedbackBoxProps>(
     (
       {
@@ -504,7 +504,7 @@ export const FeedbackBox = chakra(
   )
 );
 
-export function useFeedbackBox() {
+export function useFeedbackBox(): any {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const InternalFeedbackBox = chakra((props) => {
     return (

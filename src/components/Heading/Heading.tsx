@@ -94,9 +94,7 @@ const getMappedLevel = (level = "two") => {
   return levelMap[level] || "h2";
 };
 
-// TODO: As part of Phase 2 of the typography updates, make sure to update the
-// default value for `level` to be "h2" instead of "two"
-export const Heading = chakra(
+export const Heading: React.FC<any> = chakra(
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {

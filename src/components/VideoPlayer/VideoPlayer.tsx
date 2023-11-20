@@ -46,7 +46,7 @@ export interface VideoPlayerProps {
   videoType?: VideoPlayerTypes;
 }
 
-export const VideoPlayer = chakra(
+export const VideoPlayer: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<VideoPlayerProps>>(
     (props, ref?) => {
       const {

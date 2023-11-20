@@ -49,6 +49,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="From, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="basic-start"
@@ -101,6 +103,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="To, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="basic-end"
@@ -181,6 +185,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="From, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="no-label-start"
@@ -233,6 +239,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="To, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="no-label-end"
@@ -313,6 +321,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="From, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="custom-format-start"
@@ -365,6 +375,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="To, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="custom-format-end"
@@ -447,6 +459,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 <input
                   aria-describedby="invalid-start-helperText"
                   aria-invalid={true}
+                  aria-label="From, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="invalid-start"
@@ -517,6 +531,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 <input
                   aria-describedby="invalid-end-helperText"
                   aria-invalid={true}
+                  aria-label="To, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={false}
                   id="invalid-end"
@@ -622,6 +638,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="From, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={true}
                   id="disabled-start"
@@ -674,6 +692,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 className="css-79elbk"
               >
                 <input
+                  aria-label="To, Press tab to access the calendar."
+                  autoComplete={null}
                   className="chakra-input css-0"
                   disabled={true}
                   id="disabled-end"
@@ -752,6 +772,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             className="css-79elbk"
           >
             <input
+              aria-label="Select the full date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="basic-start"
@@ -812,7 +834,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             className="css-79elbk"
           >
             <input
-              aria-label="Select the date you want to visit NYPL"
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="no-label-start"
@@ -880,6 +903,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             className="css-79elbk"
           >
             <input
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="custom-format-start"
@@ -949,6 +974,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             <input
               aria-describedby="invalid-start-helperText"
               aria-invalid={true}
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="invalid-start"
@@ -1033,6 +1060,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           >
             <input
               aria-describedby="disabled-start-helperText"
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={true}
               id="disabled-start"
@@ -1117,6 +1146,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           >
             <input
               aria-describedby="chakra-start-helperText"
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="chakra-start"
@@ -1202,6 +1233,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           >
             <input
               aria-describedby="props-start-helperText"
+              aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
+              autoComplete={null}
               className="chakra-input css-0"
               disabled={false}
               id="props-start"

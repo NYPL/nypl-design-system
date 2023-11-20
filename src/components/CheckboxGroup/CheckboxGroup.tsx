@@ -63,7 +63,7 @@ const noop = () => {};
  * wrapping and associated text elements, but the checkbox input elements
  * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
-export const CheckboxGroup = chakra(
+export const CheckboxGroup: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,

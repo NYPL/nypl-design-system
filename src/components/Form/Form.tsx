@@ -26,7 +26,7 @@ export interface FormProps extends FormBaseProps {
 }
 
 /** FormRow child-component */
-export const FormRow = chakra(
+export const FormRow: React.FC<any> = chakra(
   (props: React.PropsWithChildren<FormChildProps>) => {
     const { children, className, gap, id, ...rest } = props;
     const count = React.Children.count(children);
@@ -58,7 +58,7 @@ export const FormRow = chakra(
 );
 
 /** FormField child-component */
-export const FormField = chakra(
+export const FormField: React.FC<any> = chakra(
   (props: React.PropsWithChildren<FormChildProps>) => {
     const { children, className, gap, id, ...rest } = props;
     return (
@@ -70,7 +70,7 @@ export const FormField = chakra(
 );
 
 /** Main Form component */
-export const Form = chakra(
+export const Form: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & HTMLFormElement,
     React.PropsWithChildren<FormProps>

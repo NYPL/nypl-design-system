@@ -88,7 +88,7 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
-export const SocialMediaLinks = chakra(
+export const SocialMediaLinks: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     SocialMediaLinksProps

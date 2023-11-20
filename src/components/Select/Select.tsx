@@ -68,7 +68,7 @@ export interface SelectProps {
  * Component that renders Chakra's `Select` component along with an accessible
  * `Label` and optional `HelperErrorText` component.
  */
-export const Select = chakra(
+export const Select: React.FC<any> = chakra(
   forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {

@@ -73,7 +73,7 @@ export type MultiSelectProps = MultiSelectCommonProps &
  * slightly different functionality and requirements.  Because of these
  * differences, the two variants are broken out in separate stories below.
  */
-export const MultiSelect = chakra(
+export const MultiSelect: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
     (props, ref?) => {
       const {

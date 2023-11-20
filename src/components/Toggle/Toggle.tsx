@@ -55,7 +55,7 @@ export const onChangeDefault = () => {
 /**
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
-export const Toggle = chakra(
+export const Toggle: React.FC<any> = chakra(
   forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       defaultChecked = false,

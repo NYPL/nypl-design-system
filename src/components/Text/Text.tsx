@@ -36,7 +36,7 @@ export interface TextProps {
   size?: TextSizes;
 }
 
-export const Text = chakra(
+export const Text: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TextProps>>(
     (props, ref?) => {
       const {

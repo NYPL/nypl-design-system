@@ -37,7 +37,7 @@ export function isFilterType(type: TagSetProps["type"]): type is "filter" {
  * The full label text will be automatically revealed when the tag is hovered
  * with a DS `Tooltip` component.
  */
-export const TagSet = chakra(
+export const TagSet: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, TagSetProps>((props: TagSetProps, ref?) => {
     const {
       className,

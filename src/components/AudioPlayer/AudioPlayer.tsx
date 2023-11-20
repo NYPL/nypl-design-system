@@ -43,7 +43,7 @@ export interface AudioPlayerProps {
 /**
  * Renders an audio player from 3rd party services such as Libsyn, SoundCloud, and Spotify.
  */
-export const AudioPlayer = chakra(
+export const AudioPlayer: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<AudioPlayerProps>>(
     (props, ref?) => {
       const {

@@ -23,7 +23,7 @@ export interface TooltipProps {
   shouldWrapChildren?: boolean;
 }
 
-export const Tooltip = chakra(
+export const Tooltip: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, TooltipProps>((props, ref?) => {
     const {
       children,

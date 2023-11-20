@@ -10,28 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
+    date: "2023-11-14",
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
+      "Added `hasVisitedStyles` prop which is used to include or omit the component's visited state styles. Default value is true.",
+      "Removed `disabled` variant from theme file, as it isn't being used.",
     ],
-  },
-  {
-    date: "2023-10-26",
-    version: "2.1.1",
-    type: "Update",
-    affects: ["Accessibility"],
-    notes: [
-      'Updated the `aria-roledescription` value to "subtitle" (a more familiar and recognizable term) for the `overline` element.',
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Applied Typo2023 styles, including font size and font color."],
   },
 ];

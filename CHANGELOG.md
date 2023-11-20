@@ -8,6 +8,32 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
+- Removes `disabled` variant from `Link` theme file, as it isn't being used.
+- Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
+
+## Fixes
+
+- Adds a z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+
+## 2.1.2 (November 9, 2023)
+
+### Adds
+
+- Adds the `sizeBasedOn` prop to the `Logo` component.
+- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
+
+### Updates
+
+- Updates max version for Chakra UI to `1.8.9` for minor bug fixes.
+- Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
+- Updates the `getSectionColors` function to also return dark mode color variants.
+- Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
+
+## 2.1.1 (October 26, 2023)
+
 ### Adds
 
 - Adds a changelog to the story pages for the `Heading` component.
@@ -16,6 +42,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
 - Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
+- Updates `DatePicker`'s `TextInput` to always have an `aria-label` attribute that tells screen reader users how to access the calendar.
+- Updates Storybook to `v7.5.1`.
+
+### Fixes
+
+- Fixes a bug in the `Hero` component where custom background colors were not rendering properly in dark mode for the `"campaign"` and `"tertiary"` variants.
 
 ### Deprecates
 

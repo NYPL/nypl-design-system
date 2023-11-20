@@ -26,7 +26,7 @@ export interface SimpleGridProps {
   id?: string;
 }
 
-export const SimpleGrid = chakra(
+export const SimpleGrid: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SimpleGridProps>>(
     (props, ref?) => {
       const {

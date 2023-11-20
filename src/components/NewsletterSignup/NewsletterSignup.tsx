@@ -70,7 +70,7 @@ const defaultDescriptionText =
  * The NewsletterSignup component provides a way for patrons to register for an
  * email-based newsletter distribution list.
  */
-export const NewsletterSignup = chakra(
+export const NewsletterSignup: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {

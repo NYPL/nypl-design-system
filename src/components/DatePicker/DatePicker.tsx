@@ -159,6 +159,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
 
     return (
       <TextInput
+        additionalAriaLabel="Press tab to access the calendar."
         helperText={helperText}
         id={id}
         invalidText={invalidText}
@@ -245,7 +246,7 @@ const DateRangeRow: React.FC<DateRangeRowProps & React.PropsWithChildren> = ({
 /**
  * Returns a single date input field or two date input fields for a date range.
  */
-export const DatePicker = chakra(
+export const DatePicker: React.FC<any> = chakra(
   forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,

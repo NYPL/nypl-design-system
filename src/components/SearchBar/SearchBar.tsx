@@ -90,7 +90,7 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export const SearchBar = chakra(
+export const SearchBar: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, SearchBarProps>((props, ref?) => {
     const {
       action,

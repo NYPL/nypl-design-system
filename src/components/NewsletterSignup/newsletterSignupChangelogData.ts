@@ -10,6 +10,24 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-11-09",
+    version: "2.1.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the dark mode color variants for the `newsletterSignupType` prop.",
+    ],
+  },
+  {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "New Feature",

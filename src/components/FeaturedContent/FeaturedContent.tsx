@@ -46,7 +46,7 @@ function FeaturedContentImage(props: FeaturedContentImageProps) {
   return <Image alt={alt} src={src} />;
 }
 
-export const FeaturedContent = chakra(
+export const FeaturedContent: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
     (props, ref?) => {
       const {

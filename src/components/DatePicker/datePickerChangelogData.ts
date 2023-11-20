@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      'Updates the internal TextInput to always have an "aria-label" attribute that tells screenreader users how to access the calendar.',
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "Update",

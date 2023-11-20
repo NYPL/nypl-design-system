@@ -31,7 +31,7 @@ export interface StructuredContentProps {
  * Internal component used in the `StructuredContent` component
  * that renders the DS `Image` component.
  */
-const StructuredContentImage = chakra((props: ImageProps) => {
+const StructuredContentImage: React.FC<any> = chakra((props: ImageProps) => {
   const {
     additionalFigureStyles,
     additionalImageStyles,
@@ -64,7 +64,7 @@ const StructuredContentImage = chakra((props: ImageProps) => {
  * The `StructuredContent` component that displays a heading, callout content,
  * an image, and body content. All are optional except for body content.
  */
-export const StructuredContent = chakra(
+export const StructuredContent: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StructuredContentProps>>(
     (props, ref?) => {
       const {

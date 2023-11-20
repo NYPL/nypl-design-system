@@ -7,10 +7,15 @@ import {
 import React, { forwardRef } from "react";
 
 import logoSvgs from "./LogoSvgs";
-import { logoNamesArray, logoSizesArray } from "./logoVariables";
+import {
+  logoNamesArray,
+  logoSizeBasedOnArray,
+  logoSizesArray,
+} from "./logoVariables";
 
 export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
+export type LogoSizeBasedOn = typeof logoSizeBasedOnArray[number];
 
 export interface LogoProps {
   /** Optional className that will be added to the parent element */
@@ -24,6 +29,8 @@ export interface LogoProps {
   name?: LogoNames;
   /** Sets the logo size. */
   size?: LogoSizes;
+  /** Sets the logo size based on the width or height. Width by default. */
+  sizeBasedOn?: LogoSizeBasedOn;
   /** For accessibility purposes, the text passed in the `title` prop gets
    * rendered in a `title` element in the SVG. This descriptive text is not
    * visible but is needed for screenreaders to describe the graphic. */
@@ -34,7 +41,7 @@ export interface LogoProps {
  * The `Logo` component renders SVG-based logos and color variants that are
  * commonly used by the New York Public Library.
  */
-export const Logo = chakra(
+export const Logo: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<LogoProps>
@@ -46,11 +53,13 @@ export const Logo = chakra(
       id,
       name,
       size = "medium",
+      sizeBasedOn = "width",
       title = `${name} logo`,
       ...rest
     } = props;
     const styles = useStyleConfig("Logo", {
       size,
+      sizeBasedOn,
     });
     const logoProps = {
       "aria-hidden": decorative,

@@ -1,12 +1,16 @@
 interface LogoBaseStyle {
-  size: keyof typeof size;
+  size: keyof typeof size | keyof typeof sizeBasedOnHeight;
+  sizeBasedOn: "height" | "width";
 }
 
-const svgBase = {
-  display: "inline-block",
-  height: "auto",
-  width: "100%",
+const svgBase = (sizeBasedOn: "height" | "width") => {
+  return {
+    display: "inline-block",
+    height: sizeBasedOn === "width" ? "auto" : "100%",
+    width: sizeBasedOn === "width" ? "100%" : "auto",
+  };
 };
+
 const size = {
   default: {
     maxWidth: "100%",
@@ -38,11 +42,44 @@ const size = {
     width: "var(--nypl-space-xxl)",
   },
 };
+const sizeBasedOnHeight = {
+  default: {
+    maxHeight: "100%",
+  },
+  xxsmall: {
+    maxHeight: "64px",
+  },
+  xsmall: {
+    maxHeight: "96px",
+  },
+  small: {
+    maxHeight: "165px",
+  },
+  medium: {
+    maxHeight: "225px",
+  },
+  large: {
+    maxHeight: "360px",
+  },
+  xlarge: {
+    maxHeight: "360px",
+  },
+  xxlarge: {
+    height: "var(--nypl-space-xl)",
+    width: "var(--nypl-space-xl)",
+  },
+  xxxlarge: {
+    height: "var(--nypl-space-xxl)",
+    width: "var(--nypl-space-xxl)",
+  },
+};
 const Logo = {
   baseStyle: (props: LogoBaseStyle) => {
     const allStyles = {
-      ...svgBase,
-      ...size[props.size],
+      ...svgBase(props.sizeBasedOn),
+      ...(props.sizeBasedOn === "width"
+        ? size[props.size]
+        : sizeBasedOnHeight[props.size]),
     };
     return {
       ...allStyles,

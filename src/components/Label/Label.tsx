@@ -22,7 +22,7 @@ interface LabelProps {
 /**
  * A label for form inputs. It should never be used alone.
  */
-export const Label = chakra(
+export const Label: React.FC<any> = chakra(
   forwardRef<
     HTMLDivElement & HTMLLabelElement,
     React.PropsWithChildren<LabelProps>

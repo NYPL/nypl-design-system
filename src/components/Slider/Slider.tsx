@@ -80,7 +80,7 @@ export interface SliderProps {
  * with a min and max value. The value(s) can be updated through the slider
  * thumb(s) or through the text input(s) elements.
  */
-export const Slider = chakra(
+export const Slider: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SliderProps>>(
     (props, ref?) => {
       const {

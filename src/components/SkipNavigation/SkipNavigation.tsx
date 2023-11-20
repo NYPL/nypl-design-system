@@ -19,7 +19,7 @@ interface SkipNavigationProps {
  * the `#mainContent` id, and the second link points to accessibility information
  * on NYPL.org. These links are visually hidden but can be read by screenreaders.
  */
-export const SkipNavigation = chakra(
+export const SkipNavigation: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkipNavigationProps>>(
     (props, ref?) => {
       const { className, id, target = "#mainContent", ...rest } = props;
