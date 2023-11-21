@@ -91,7 +91,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
 
 // Styles for different visual variants:
 // primary, secondary, link, text, pill, iconOnly, callout, noBrand
-export const primary = definePartsStyle(({ buttonSize = "medium" }) => ({
+export const primary = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "ui.link.primary",
     ...generalSizeValues(buttonSize),
@@ -106,7 +106,7 @@ export const primary = definePartsStyle(({ buttonSize = "medium" }) => ({
   },
   screenreaderOnly: {},
 }));
-export const secondary = definePartsStyle(({ buttonSize = "medium" }) => ({
+export const secondary = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     border: "1px solid",
     borderColor: "ui.link.primary",
@@ -129,7 +129,7 @@ export const secondary = definePartsStyle(({ buttonSize = "medium" }) => ({
 }));
 // The "link" type is deprecated but we still want to style
 // it correctly for backwards compatibility.
-const link = definePartsStyle(({ buttonSize = "medium" }) => ({
+const link = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "transparent",
     color: "ui.link.primary",
@@ -153,7 +153,7 @@ const link = definePartsStyle(({ buttonSize = "medium" }) => ({
     },
   },
 }));
-const text = definePartsStyle(({ buttonSize = "medium" }) => ({
+const text = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "transparent",
     color: "ui.link.primary",
@@ -176,7 +176,7 @@ const text = definePartsStyle(({ buttonSize = "medium" }) => ({
     },
   },
 }));
-export const pill = definePartsStyle(({ buttonSize = "medium" }) => ({
+export const pill = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "ui.white",
     border: "1px solid",
@@ -203,7 +203,7 @@ export const pill = definePartsStyle(({ buttonSize = "medium" }) => ({
     },
   },
 }));
-const iconOnly = definePartsStyle(({ buttonSize = "medium" }) => ({
+const iconOnly = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "ui.white",
     border: "1px solid",
@@ -222,7 +222,7 @@ const iconOnly = definePartsStyle(({ buttonSize = "medium" }) => ({
     },
   },
 }));
-export const callout = definePartsStyle(({ buttonSize = "medium" }) => ({
+export const callout = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "brand.primary",
     ...generalSizeValues(buttonSize),
@@ -242,7 +242,7 @@ export const callout = definePartsStyle(({ buttonSize = "medium" }) => ({
     },
   },
 }));
-export const noBrand = definePartsStyle(({ buttonSize = "medium" }) => ({
+export const noBrand = definePartsStyle(({ buttonSize = "medium" }: any) => ({
   base: {
     bg: "ui.black",
     color: "ui.white",

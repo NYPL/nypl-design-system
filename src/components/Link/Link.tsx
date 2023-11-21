@@ -248,7 +248,7 @@ export const Link: React.FC<any> = chakra(
       const childProps = childrenToClone.props;
       return (
         <>
-          <Box as="span" __css={styles} {...rest}>
+          <Box as="span" __css={styles.base} {...rest}>
             {React.cloneElement(
               childrenToClone,
               {
@@ -279,7 +279,7 @@ export const Link: React.FC<any> = chakra(
           onClick={onClick}
           target={internalTarget}
           {...linkProps}
-          __css={styles}
+          __css={styles.base}
         >
           {newChildren}
           {screenreaderOnlyText && (
