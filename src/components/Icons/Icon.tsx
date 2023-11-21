@@ -73,7 +73,7 @@ export const Icon: React.FC<any> = chakra(
       type = "default",
       ...rest
     } = props;
-    const styles = useStyleConfig("Icon", {
+    const styles = useStyleConfig("CustomIcon", {
       align,
       color,
       iconRotation,

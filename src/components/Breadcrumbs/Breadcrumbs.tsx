@@ -143,7 +143,9 @@ export const Breadcrumbs: React.FC<any> = chakra(
       );
     }
 
-    const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
+    const styles = useStyleConfig("CustomBreadcrumb", {
+      variant: breadcrumbsType,
+    });
     const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
     return (

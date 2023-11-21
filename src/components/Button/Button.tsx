@@ -93,7 +93,10 @@ export const Button: React.FC<React.PropsWithChildren<any>> = chakra(
         variant = "iconOnly";
       }
 
-      styles = useMultiStyleConfig("Button", { variant, buttonSize: size });
+      styles = useMultiStyleConfig("CustomButton", {
+        variant,
+        buttonSize: size,
+      });
 
       return (
         <ChakraButton
@@ -104,7 +107,7 @@ export const Button: React.FC<React.PropsWithChildren<any>> = chakra(
           ref={ref}
           type={type}
           {...btnCallback}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {children}
