@@ -29,9 +29,11 @@ export const imageSizesArray = [
   "large",
 ] as const;
 export const imageTypesArray = ["default", "circle"] as const;
+export const imageSizeBasedOnArray = ["height", "width"] as const;
 export type ImageRatios = typeof imageRatiosArray[number];
 export type ImageSizes = typeof imageSizesArray[number];
 export type ImageTypes = typeof imageTypesArray[number];
+export type ImageSizeBasedOn = typeof imageSizeBasedOnArray[number];
 
 // Used for components that have an `imageProps` prop.
 export interface ComponentImageProps extends Partial<HTMLImageElement> {
@@ -67,6 +69,8 @@ interface ImageWrapperProps {
   aspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
+  /** Sets the image size based on the width or height. Width by default. */
+  sizeBasedOn?: ImageSizeBasedOn;
 }
 
 export interface ImageProps
@@ -100,11 +104,13 @@ const ImageWrapper = chakra(
       children,
       aspectRatio = "original",
       size = "default",
+      sizeBasedOn = "width",
       ...rest
     } = props;
     const styles = useMultiStyleConfig("CustomImageWrapper", {
       ratio: aspectRatio,
       size,
+      sizeBasedOn,
     });
     return (
       <Box
@@ -135,6 +141,7 @@ export const Image = chakra(
       imageType = "default",
       isLazy = false,
       size = "default",
+      sizeBasedOn = "width",
       src,
       ...rest
     } = props;
@@ -149,7 +156,9 @@ export const Image = chakra(
     const useImageWrapper = aspectRatio !== "original";
     const styles = useMultiStyleConfig("CustomImage", {
       variant: imageType,
+      ratio: aspectRatio,
       size,
+      sizeBasedOn,
     });
     let imageComponent: JSX.Element | null = null;
     let lazyRef = undefined;
@@ -196,6 +205,7 @@ export const Image = chakra(
         aspectRatio={aspectRatio}
         className={className}
         size={size}
+        sizeBasedOn={sizeBasedOn}
         {...(caption || credit ? {} : rest)}
       >
         {imageComponent}

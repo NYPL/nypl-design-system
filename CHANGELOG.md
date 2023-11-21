@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `sizeBasedOn` prop to the `Image` component.
+
 ## 2.1.2 (November 9, 2023)
 
 ### Adds
