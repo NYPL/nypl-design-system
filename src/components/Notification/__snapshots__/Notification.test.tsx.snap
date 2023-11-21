@@ -109,7 +109,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1g675rm"
+        className="chakra-heading css-1bsg0mh"
         id="notificationID2-heading"
       >
         Notification Heading
@@ -512,7 +512,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-1g675rm"
+        className="chakra-heading css-1bsg0mh"
         id="props-heading"
       >
         Notification Heading

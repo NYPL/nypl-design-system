@@ -95,13 +95,13 @@ exports[`Renders the UI snapshot correctly 2`] = `
         >
           <p
             aria-roledescription="Subtitle"
-            className="chakra-text css-rwceap"
+            className="chakra-text css-fli4r2"
             role="paragraph"
           >
             Featured
           </p>
           <h1
-            className="chakra-heading css-eyyo6e"
+            className="chakra-heading css-1hehbgj"
           >
             Spotlight on the Public Domain
           </h1>
@@ -217,13 +217,13 @@ exports[`Renders the UI snapshot correctly 4`] = `
         >
           <p
             aria-roledescription="Subtitle"
-            className="chakra-text css-rwceap"
+            className="chakra-text css-fli4r2"
             role="paragraph"
           >
             Featured
           </p>
           <h1
-            className="chakra-heading css-eyyo6e"
+            className="chakra-heading css-1hehbgj"
           >
             Spotlight on the Public Domain
           </h1>
@@ -339,13 +339,13 @@ exports[`Renders the UI snapshot correctly 6`] = `
         >
           <p
             aria-roledescription="Subtitle"
-            className="chakra-text css-rwceap"
+            className="chakra-text css-fli4r2"
             role="paragraph"
           >
             Featured
           </p>
           <h1
-            className="chakra-heading css-eyyo6e"
+            className="chakra-heading css-1hehbgj"
           >
             Spotlight on the Public Domain
           </h1>

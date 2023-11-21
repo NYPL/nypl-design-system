@@ -11,7 +11,7 @@ exports[`Heading renders the UI snapshot correctly 1`] = `
 
 exports[`Heading renders the UI snapshot correctly 2`] = `
 <h1
-  className="chakra-heading css-eyyo6e"
+  className="chakra-heading css-1hehbgj"
   id="basicWithChildText"
 >
   Heading text
@@ -29,7 +29,7 @@ exports[`Heading renders the UI snapshot correctly 3`] = `
 
 exports[`Heading renders the UI snapshot correctly 4`] = `
 <h6
-  className="chakra-heading css-1g675rm"
+  className="chakra-heading css-1bsg0mh"
   id="otherLevel"
 >
   Heading level six
@@ -55,7 +55,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
 
 exports[`Heading renders the UI snapshot correctly 6`] = `
 <h1
-  className="chakra-heading css-eyyo6e"
+  className="chakra-heading css-1hehbgj"
   id="withCustomLink"
 >
   Part of the heading text is
@@ -81,7 +81,7 @@ exports[`Heading renders the UI snapshot correctly 7`] = `
 
 exports[`Heading renders the UI snapshot correctly 8`] = `
 <h2
-  className="chakra-heading css-878tmy"
+  className="chakra-heading css-1j5o63i"
   data-testid="props"
   id="props"
 >
@@ -118,14 +118,14 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
   role="group"
 >
   <h1
-    className="chakra-heading css-878tmy"
+    className="chakra-heading css-1j5o63i"
     id="customDisplaySize"
   >
     Heading with Secondary size
   </h1>
   <p
     aria-roledescription="Subtitle"
-    className="chakra-text css-1lhcbgg"
+    className="chakra-text css-244cj7"
     role="paragraph"
   >
     This is the subtitle

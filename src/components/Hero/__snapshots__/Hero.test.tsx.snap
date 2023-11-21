@@ -61,7 +61,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-eyyo6e"
+      className="chakra-heading css-1hehbgj"
       id="secondary-hero"
     >
       Hero Secondary
@@ -139,7 +139,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-eyyo6e"
+      className="chakra-heading css-1hehbgj"
       id="secondary-hero"
     >
       Hero Secondary Locations
@@ -217,7 +217,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
       </div>
     </div>
     <h1
-      className="chakra-heading css-eyyo6e"
+      className="chakra-heading css-1hehbgj"
       id="secondary-hero"
     >
       Hero Secondary What's On
@@ -247,7 +247,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
     }
   >
     <h1
-      className="chakra-heading css-eyyo6e"
+      className="chakra-heading css-1hehbgj"
       id="tertiary-hero"
     >
       Hero Tertiary

@@ -2,14 +2,11 @@ import { axe } from "jest-axe";
 import { act, render, screen } from "@testing-library/react";
 
 import renderer from "react-test-renderer";
-import MatchMedia from "../../__tests__/mediaMatchMock";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
+import React from "react";
 
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
-
-let matchMedia: MatchMedia;
 
 const items = [
   { id: "dogs", name: "Dogs" },
@@ -124,7 +121,6 @@ describe.skip("MultiSelect Accessibility", () => {
 
 describe.skip("MultiSelect Dialog", () => {
   beforeAll(() => {
-    matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
         innerWidth: width,
@@ -134,9 +130,7 @@ describe.skip("MultiSelect Dialog", () => {
       }).dispatchEvent(new this.Event("resize"));
     };
   });
-  afterEach(() => {
-    matchMedia.clear();
-  });
+
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 

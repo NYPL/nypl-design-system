@@ -32,7 +32,7 @@ const TooltipOnButton = (
 describe("Tooltip accessibility", () => {
   it("passes axe accessibility test with string content", async () => {
     render(<TooltipOnButton content={tooltipContent} />);
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
     const tooltip = await screen.findByRole("tooltip");
     expect(await axe(tooltip)).toHaveNoViolations();
   });
@@ -43,7 +43,7 @@ describe("Tooltip accessibility", () => {
         {buttonLabel}
       </Tooltip>
     );
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
     const tooltip = await screen.findByRole("tooltip");
     expect(await axe(tooltip)).toHaveNoViolations();
   });
@@ -64,17 +64,17 @@ describe("Tooltip accessibility", () => {
         {buttonLabel}
       </Tooltip>
     );
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
     const tooltip = await screen.findByRole("tooltip");
     expect(await axe(tooltip)).toHaveNoViolations();
   });
 });
 
 describe.skip("Tooltip", () => {
-  it("should render on mouseover and close on mouseleave", async () => {
+  it("should render on pointerOver and close on mouseleave", async () => {
     render(<TooltipOnButton content={tooltipContent} />);
 
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
 
     await screen.findByRole("tooltip");
 
@@ -93,7 +93,7 @@ describe.skip("Tooltip", () => {
 
     render(<TooltipOnButton content={tooltipContent} />);
 
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
 
     act(() => {
       jest.advanceTimersByTime(200);
@@ -112,12 +112,12 @@ describe.skip("Tooltip", () => {
     jest.useRealTimers();
   });
 
-  it("should not render on mouseover if isDisabled is true", async () => {
+  it("should not render on pointerOver if isDisabled is true", async () => {
     jest.useFakeTimers();
 
     render(<TooltipOnButton isDisabled content={tooltipContent} />);
 
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
 
     act(() => {
       jest.advanceTimersByTime(500);
@@ -128,20 +128,20 @@ describe.skip("Tooltip", () => {
     jest.useRealTimers();
   });
 
-  it("should render on mouseover if isDisabled has a falsy value", async () => {
+  it("should render on pointerOver if isDisabled has a falsy value", async () => {
     render(<TooltipOnButton isDisabled={false} content={tooltipContent} />);
 
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
 
     await screen.findByRole("tooltip");
 
     expect(screen.getByText(tooltipContent)).toBeInTheDocument();
   });
 
-  it("should render on mouseover and closes on pressing 'esc'", async () => {
+  it("should render on pointerOver and closes on pressing 'esc'", async () => {
     render(<TooltipOnButton content={tooltipContent} />);
 
-    fireEvent.mouseOver(screen.getByText(buttonLabel));
+    fireEvent.pointerOver(screen.getByText(buttonLabel));
 
     await screen.findByRole("tooltip");
 
