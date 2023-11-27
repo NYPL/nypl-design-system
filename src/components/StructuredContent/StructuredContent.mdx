@@ -1,7 +1,9 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as StructuredContentStories from "./StructuredContent.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./structuredContentChangelogData";
 
 <Meta of={StructuredContentStories} />
 
@@ -19,7 +21,9 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#with-html-string-text-content" target="_self">With HTML String Text Content</Link>}
 - {<Link href="#with-html-element-text-content" target="_self">With HTML Element Text Content</Link>}
+- {<Link href="#with-custom-heading-levels" target="_self">With Custom Heading Levels</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -60,6 +64,33 @@ The following content is passed as HTML DOM elements to the `bodyContent` prop.
 
 <Canvas of={StructuredContentStories.WithHTMLElementTextContent} />
 
+## With Custom Heading Levels
+
+By default, the `StructuredContent` component will render its `headingText` as
+an `h2` and its `calloutText` as an `h3`. If this needs to be updated in a
+consuming application, it's possible to pass custom `Heading` or h\* HTML
+elements.
+
+In the following examples, the `headingText` is rendered as an `h3` and the
+`calloutText` is rendered as an `h4`. Note that both headings are rendered
+sequentially, so the callout heading level MUST be the next heading after the
+`headingText` level.
+
+<Source
+  code={`
+
+const customH3heading = <Heading level="h3">Custom H3 Heading Text</Heading>;
+const customH4callout = <Heading level="h4">Custom H4 callout Text</Heading>;
+
+<StructuredContent
+  headingText={customH3heading}
+  calloutText={customH4callout}
+  {...otherProps}
+/>
+`} language="tsx" />
+
+<Canvas of={StructuredContentStories.WithCustomHeadingsLevels} />
+
 ## Examples
 
 The following has two `StructuredContent` components. The first one has an image
@@ -77,3 +108,7 @@ The following has two `StructuredContent` components. The first one only display
 text content. The second one has a callout content and image spanning full width.
 
 <Canvas of={StructuredContentStories.ExampleWithMixedContent} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

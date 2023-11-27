@@ -1,9 +1,11 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
-import AlphabetFilter from "./AlphabetFilter";
 import userEvent from "@testing-library/user-event";
 import renderer from "react-test-renderer";
+import { axe } from "jest-axe";
+import React from "react";
+
+import AlphabetFilter from "./AlphabetFilter";
+import Heading from "../Heading/Heading";
 
 const onClick = jest.fn();
 describe("AlphabetFilter accessibility", () => {
@@ -57,6 +59,19 @@ describe("AlphabetFilter", () => {
     const description = screen.getByText("This is a description.");
     expect(heading).toBeInTheDocument();
     expect(description).toBeInTheDocument();
+  });
+
+  it("should render a custom heading level", () => {
+    render(
+      <AlphabetFilter
+        onClick={onClick}
+        id="alphabet-filter-id"
+        headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+        descriptionText="This is a description."
+      />
+    );
+    const heading = screen.getByRole("heading", { level: 4 });
+    expect(heading).toBeInTheDocument();
   });
 
   it("should disable buttons with values not passed through activeLetters", () => {

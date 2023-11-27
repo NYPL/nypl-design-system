@@ -8,12 +8,20 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+
 ### Updates
 
 - Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
 - Removes `disabled` variant from `Link` theme file, as it isn't being used.
 - Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
-- Udpates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
+- Updates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
+- Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
+- Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
+- Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
+- Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
 
 ## Fixes
 

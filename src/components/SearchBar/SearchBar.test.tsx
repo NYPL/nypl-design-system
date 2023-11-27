@@ -4,6 +4,7 @@ import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
 import renderer from "react-test-renderer";
 
+import Heading from "../Heading/Heading";
 import SearchBar, { SelectProps, TextInputProps } from "./SearchBar";
 
 const optionsGroup = [
@@ -107,6 +108,18 @@ describe("SearchBar", () => {
     );
     expect(screen.getByPlaceholderText("Item Search")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
+  it("renders a custom heading level", () => {
+    render(
+      <SearchBar
+        headingText={<Heading level="h4">Custom Heading</Heading>}
+        id="id-custom-heading"
+        onSubmit={searchBarSubmit}
+        labelText="SearchBar label"
+      />
+    );
+    expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
   });
 
   it("renders an optional Select component", () => {

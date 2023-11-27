@@ -3,6 +3,7 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
+import Heading from "../Heading/Heading";
 import StructuredContent from "./StructuredContent";
 
 const htmlStringBodyContent =
@@ -155,6 +156,30 @@ describe("StructuredContent", () => {
     expect(calloutHeading).toHaveTextContent("This is the callout text");
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByText(/Lorem ipsum dolor sit amet/i)).toBeInTheDocument();
+  });
+
+  it("renders a custom heading and callout level", () => {
+    render(
+      <StructuredContent
+        bodyContent={htmlStringBodyContent}
+        calloutText={<Heading as="h5">This is the callout text</Heading>}
+        headingText={<Heading as="h4">Heading text</Heading>}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: "original",
+          caption: "Image caption",
+          credit: "Image credit",
+          position: "left",
+          size: "medium",
+          src: "//placekitten.com/400/300",
+        }}
+      />
+    );
+    const mainHeading = screen.getByRole("heading", { level: 4 });
+    const calloutHeading = screen.getByRole("heading", { level: 5 });
+
+    expect(mainHeading).toBeInTheDocument();
+    expect(calloutHeading).toBeInTheDocument();
   });
 
   it("optionally renders without the headings", () => {

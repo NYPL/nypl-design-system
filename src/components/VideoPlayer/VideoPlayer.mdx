@@ -2,25 +2,29 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as VideoPlayerStories from "./VideoPlayer.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./videoPlayerChangelogData";
 
 <Meta of={VideoPlayerStories} />
 
 # Video Player
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.23.2`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#extracting-video-ids" target="_self">Extracting Video IDs</Link>}
 - {<Link href="#example-embed-code-snippets" target="_self">Example Embed Code Snippets</Link>}
 - {<Link href="#errored" target="_self">Errored</Link>}
 - {<Link href="#html-in-helper-text" target="_self">HTML in Helper Text</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -75,6 +79,24 @@ Resources:
 - [WebAIM Creating Accessible Frames and Iframes](https://webaim.org/techniques/frames/)
 - [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 - [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
+
+## With Custom Heading
+
+By default, the `VideoPlayer` will render an `h2` element when a string is
+passed to the `headingText` component. If this is an accessibility issue, it's
+possible to pass in a custom heading element.
+
+In the following example, an `h4` is rendered through the DS `Heading` component.
+
+<Source
+  code={`
+
+const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+
+<VideoPlayer headingText={customH4} {...props} />
+`} language="tsx" />
+
+<Canvas of={VideoPlayerStories.WithCustomHeading} />
 
 ## Extracting Video IDs
 
@@ -149,3 +171,7 @@ component UI will display an error message.
 It's possible to include HTML in the `helperText` prop.
 
 <Canvas name="HTML in Helper Text" of={VideoPlayerStories.HTMLInHelperText} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

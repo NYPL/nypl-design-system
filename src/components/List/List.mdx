@@ -2,15 +2,17 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as ListStories from "./List.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./listChangelogData";
 
 <Meta of={ListStories} />
 
 # List
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.7.0`    |
-| Latest            | `1.7.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.7.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -18,8 +20,8 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#description-list" target="_self">Description List</Link>}
-- {<Link href="#description-list-of-links" target="_self">Description List of Links</Link>}
 - {<Link href="#lists-with-data-props" target="_self">Lists with Data Props</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -71,7 +73,31 @@ list renders `dt` and `dd` elements.
 
 <Canvas of={ListStories.DescriptionList} />
 
-## Description List of Links
+### Description List with Custom Headings
+
+The optional `title` prop will render the description list's heading as an `h2`
+element by default when the `title` value is a string. It's possible that the
+`h2` element will not fit in an app's heading hierarchy. If this is the case,
+`title` can also take a `JSX.Element` type value.
+
+In the following example, the heading is an `h4` defined as:
+
+<Source
+  code={`
+const listHeading = <Heading level="h4">Middle-Earth Peoples</Heading>;
+// ...
+
+<List type="dl" title={listHeading}>
+  <dt>Balrogs</dt>
+  <dd>Demonic creatures of fire and shadow...</dd>
+  <dt>Dwarves</dt>
+  <dd>The race of Dwarves...</dd>
+</List>
+`} language="jsx" />
+
+<Canvas of={ListStories.DescriptionListWithCustomHeading} />
+
+### Description List of Links
 
 An example with HTML elements inside of the `dd` elements.
 
@@ -163,3 +189,7 @@ const fishDescriptions = [
 />
 
 <Canvas of={ListStories.ListWithDataProps} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
