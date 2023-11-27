@@ -12,26 +12,10 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "Update",
+    type: "Bug Fix",
     affects: ["Styles"],
     notes: [
-      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
+      "Added a z-index on hover to the select icon so it no longer disappears.",
     ],
-  },
-  {
-    date: "2023-10-26",
-    version: "2.1.1",
-    type: "Update",
-    affects: ["Accessibility"],
-    notes: [
-      'Updated the `aria-roledescription` value to "subtitle" (a more familiar and recognizable term) for the `overline` element.',
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Applied Typo2023 styles, including font size and font color."],
   },
 ];
