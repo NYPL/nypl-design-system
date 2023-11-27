@@ -88,6 +88,7 @@ function CardImage(
     credit,
     isAtEnd,
     isCentered,
+    isLazy,
     layout,
     size,
     src,
@@ -99,14 +100,16 @@ function CardImage(
     layout,
     size,
   });
+
   return (
     <Box __css={styles}>
       <Image
         alt={alt}
+        aspectRatio={aspectRatio}
         caption={caption}
         component={component}
         credit={credit}
-        aspectRatio={aspectRatio}
+        isLazy={isLazy}
         size={size}
         src={src}
       />
@@ -208,6 +211,7 @@ export const Card = chakra(
           component: undefined,
           credit: undefined,
           isAtEnd: false,
+          isLazy: false,
           size: "default",
           src: "",
         },
@@ -319,6 +323,7 @@ export const Card = chakra(
               component={imageProps.component}
               credit={imageProps.credit}
               isAtEnd={imageProps.isAtEnd}
+              isLazy={imageProps.isLazy}
               layout={layout}
               size={imageProps.size}
               src={imageProps.src ? imageProps.src : undefined}
