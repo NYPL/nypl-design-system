@@ -43,8 +43,8 @@ describe("useDSHeading hook", () => {
     expect(heading).toBeInTheDocument();
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir useDSHeading: An HTML heading element was passed " +
-        "for the `title` or `headingText` in a component. This will render " +
-        "without DS-specific styling."
+        "for the `title` or `headingText` prop in a Reservoir component. " +
+        "The heading will render without DS-specific styling."
     );
   });
 
@@ -60,9 +60,11 @@ describe("useDSHeading hook", () => {
 
       expect(heading).not.toBeInTheDocument();
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir useDSHeading: A DS `Heading` component or an HTML " +
-          "heading element should be passed to the `title` or `headingText` " +
-          "in the relevant component. The title will not be rendered."
+        "NYPL Reservoir useDSHeading: An unsupported heading element was " +
+          "passed to the `title` or `headingText` prop in a Reservoir " +
+          "component, so that component's title will not be rendered. " +
+          "Instead, a DS `Heading` component or an HTML heading element " +
+          "should be passed."
       );
     }
   );
