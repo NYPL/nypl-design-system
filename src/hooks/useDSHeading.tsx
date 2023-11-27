@@ -23,7 +23,7 @@ function useDSHeading({
   additionalStyles,
 }: UseDSHeadingProps) {
   const headingID = id ? `${id}-heading` : undefined;
-  let updatedTitle: null | JSX.Element = null;
+  let updatedTitle: null | JSX.Element | string = null;
 
   if (title) {
     if (typeof title === "string") {

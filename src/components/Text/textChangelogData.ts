@@ -13,18 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: [
-      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
-    ],
-  },
-  {
-    date: "2023-10-26",
-    version: "2.1.1",
-    type: "Update",
     affects: ["Accessibility"],
     notes: [
-      'Updated the `aria-roledescription` value to "subtitle" (a more familiar and recognizable term) for the `overline` element.',
+      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
     ],
   },
   {
