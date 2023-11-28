@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-11-28",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Adds z-index to calendar container so that helper text does not shift when calendar opens.",
+    ],
+  },
+  {
     date: "2023-10-26",
     version: "2.1.1",
     type: "Update",

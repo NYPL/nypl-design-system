@@ -1,4 +1,10 @@
 // Styles needed to override `react-datepicker` plugin styles.
+.react-datepicker__tab-loop {
+  // Prevents the calendar from shifting any elements below it.
+  position: absolute;
+  z-index: 1000;
+}
+
 .date-picker-calendar {
   font-family: var(--nypl-fonts-body);
 
