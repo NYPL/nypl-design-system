@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
 - Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
 - Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
+- Adds z-index to the `DatePicker`'s calendar container so that the helper text does not shift when the calendar opens.
 
 ## Fixes
 
