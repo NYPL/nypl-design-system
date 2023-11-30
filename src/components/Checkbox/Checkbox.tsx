@@ -1,5 +1,6 @@
 import {
   chakra,
+  ChakraComponent,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
@@ -71,13 +72,18 @@ function CheckboxIcon(props: CheckboxIconProps) {
   ) : null;
 }
 
-export const Checkbox: React.FC<any> = chakra(
+export const Checkbox: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    CheckboxProps & React.RefAttributes<HTMLInputElement>
+  >,
+  CheckboxProps
+> = chakra(
   forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,
-      invalidText,
       helperText,
       id,
+      invalidText,
       isChecked,
       isDisabled = false,
       isIndeterminate = false,
@@ -108,7 +114,6 @@ export const Checkbox: React.FC<any> = chakra(
         "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
       );
     }
-    console.log("ischecked", isChecked);
 
     return (
       <ComponentWrapper

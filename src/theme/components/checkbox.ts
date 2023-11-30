@@ -1,7 +1,7 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { defineStyle } from "@chakra-ui/system";
 
-// @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/checkbox.ts
+// @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/theme/src/components/checkbox.ts
 // for available theme override options.
 
 import {
@@ -24,8 +24,8 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 // Style object for the Checkbox's visual icon.
 const baseStyleIcon = defineStyle({
-  transitionProperty: "transform",
-  transitionDuration: "normal",
+  // Remove Chakra's default animation
+  animation: null,
   width: "22px",
   height: "22px",
 });
@@ -137,16 +137,16 @@ const baseStyleControl = defineStyle({
   },
 });
 
-// Style object for the Checkbox's label
-const baseStyleLabel = {
+// // Style object for the Checkbox's label
+const baseStyleLabel = defineStyle({
+  cursor: "pointer",
+  verticalAlign: "top",
   ...checkboxRadioLabelStyles,
-};
-
-// Style object for the Checkbox's helper text
-const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
+});
 
 const baseStyle = definePartsStyle({
-  helperErrorText: baseStyleHelperErrorText,
+  // Style object for the Checkbox's helper text
+  helperErrorText: checkboxRadioHelperErrorTextStyle,
   icon: baseStyleIcon,
   container: checkboxRadioHoverStyles,
   control: baseStyleControl,
@@ -157,12 +157,12 @@ const baseStyle = definePartsStyle({
 const sizes = {
   lg: {
     // Controls the width/height of the checkbox itself.
-    control: {
+    control: defineStyle({
       ...checkboxRadioControlSize,
       borderRadius: "checkbox",
-    },
+    }),
     // Controls the font-size of the label only.
-    label: { fontSize: "desktop.label.label1" },
+    label: defineStyle({ fontSize: "desktop.label.label1" }),
   },
 };
 
