@@ -63,6 +63,8 @@ const imageSizes = {
 const imageSizesBasedOnHeight = {
   default: {
     maxHeight: "100%",
+    maxWidth: "100%",
+    width: "100%",
   },
   xxxsmall: {
     ...sideMarginsAuto,
@@ -162,6 +164,10 @@ const CustomImage = {
             ...imageSizesBasedOnHeight[size],
             ...imageWidthsBasedOnHeight(sizes[size])[ratio],
             height: "100%",
+            width:
+              ratio === "original" && size !== "default"
+                ? "max-content"
+                : "100%",
           }),
       img: {
         backgroundColor: "ui.bg.default",

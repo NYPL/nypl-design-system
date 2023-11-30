@@ -64,6 +64,12 @@ const imageRow = (opts: any = {}) => {
   // Some images display better with a dark background.
   const styles: any = { textAlign: "center" };
   const { size = "large", displayValue, sizeBasedOn = "width", id } = opts;
+  if (sizeBasedOn === "width" && size === "default") {
+    styles.width = "100%";
+  } else if (sizeBasedOn === "height" && size === "default") {
+    styles.width = "100%";
+    styles.height = "100%";
+  }
 
   return (
     <Box style={styles} key={id}>
