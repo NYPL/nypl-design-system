@@ -188,12 +188,50 @@ export const OtherStates: Story = {
 
 export const InitialDate: Story = {
   render: () => (
+    <VStack align="stretch" spacing="s">
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        initialDate="12/1/21"
+        initialDateTo="12/10/21"
+        isDateRange
+      />
+      <Heading level="h3" size="heading6">
+        Passing initialDate an empty string renders an empty input
+      </Heading>
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        initialDate=""
+        initialDateTo=""
+        isDateRange
+      />
+      <Heading level="h3" size="heading6">
+        Passing no initialDate renders today's date
+      </Heading>
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        isDateRange
+      />
+    </VStack>
+  ),
+};
+
+export const Placeholder: Story = {
+  render: () => (
     <DatePicker
-      id="init-dates"
+      id="format-date"
+      dateFormat="MM-dd-yyyy"
       dateType="full"
       labelText="Select the date you want to visit NYPL"
-      initialDate="12/1/21"
-      initialDateTo="12/10/21"
+      initialDate=""
+      initialDateTo=""
+      placeholder="This is placeholder text"
+      placeholderTo="This is placeholderTo text"
       isDateRange
     />
   ),
