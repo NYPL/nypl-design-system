@@ -59,7 +59,7 @@ const FeaturedContent = {
          * we opted to not adjust the spacing around the text when the image is
          * positioned at the start.
          * */
-        paddingLeft: full && imageAtEnd ? { base: null, md: 0 } : null,
+        paddingStart: full && imageAtEnd ? { base: null, md: 0 } : null,
       },
       imgWrapper: {
         backgroundPosition: "center",
