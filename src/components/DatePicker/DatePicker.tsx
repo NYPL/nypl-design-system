@@ -31,9 +31,9 @@ export type DatePickerTypes = typeof datePickerTypesArray[number];
 export interface FullDateType {
   /** Date object that gets returned for the onChange
    * function only for date ranges. */
-  endDate?: Date;
+  endDate?: Date | null;
   /** Date object that gets returned for the onChange function. */
-  startDate: Date;
+  startDate: Date | null;
 }
 
 // Used for the input fields' parent wrapper. Internal use only.
