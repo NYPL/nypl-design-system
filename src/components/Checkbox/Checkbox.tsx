@@ -61,14 +61,14 @@ function CheckboxIcon(props: CheckboxIconProps) {
   // before passing all the props to the `Icon` component.
   const { isIndeterminate, isChecked, ...rest } = props;
 
-  return (
-    <Icon viewBox="0 0 24 24" {...rest}>
+  return isChecked || isIndeterminate ? (
+    <Icon viewBox="0 0 24 24" {...rest} id="test">
       <path
         fill="currentColor"
         d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
       />
     </Icon>
-  );
+  ) : null;
 }
 
 export const Checkbox: React.FC<any> = chakra(
@@ -108,6 +108,7 @@ export const Checkbox: React.FC<any> = chakra(
         "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
       );
     }
+    console.log("ischecked", isChecked);
 
     return (
       <ComponentWrapper
@@ -136,7 +137,7 @@ export const Checkbox: React.FC<any> = chakra(
                 onChange,
               }
             : {
-                defaultIsChecked: false,
+                defaultChecked: false,
               })}
           alignItems="flex-start"
           __css={styles}

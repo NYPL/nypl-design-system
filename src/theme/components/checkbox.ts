@@ -1,3 +1,6 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { defineStyle } from "@chakra-ui/system";
+
 // @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/checkbox.ts
 // for available theme override options.
 
@@ -8,16 +11,27 @@ import {
   checkboxRadioHoverStyles,
 } from "./global";
 
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "helperErrorText",
+    "icon",
+    "control",
+    "label",
+    "container",
+  ]);
+
 // Style object for the Checkbox's visual icon.
-const baseStyleIcon = {
+const baseStyleIcon = defineStyle({
   transitionProperty: "transform",
   transitionDuration: "normal",
   width: "22px",
   height: "22px",
-};
+});
 
 // Style object for the Checkbox's "control."
-const baseStyleControl = {
+const baseStyleControl = defineStyle({
   border: "2px solid",
   borderRadius: "sm",
   borderColor: "ui.gray.dark",
@@ -121,21 +135,23 @@ const baseStyleControl = {
       color: "dark.ui.error.primary",
     },
   },
-};
+});
 
 // Style object for the Checkbox's label
-const baseStyleLabel = checkboxRadioLabelStyles;
+const baseStyleLabel = {
+  ...checkboxRadioLabelStyles,
+};
 
 // Style object for the Checkbox's helper text
 const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
-const baseStyle = {
+const baseStyle = definePartsStyle({
+  helperErrorText: baseStyleHelperErrorText,
   icon: baseStyleIcon,
+  container: checkboxRadioHoverStyles,
   control: baseStyleControl,
   label: baseStyleLabel,
-  helperErrorText: baseStyleHelperErrorText,
-  ...checkboxRadioHoverStyles,
-};
+});
 
 // Sticking to "lg" for the default size.
 const sizes = {
@@ -150,8 +166,7 @@ const sizes = {
   },
 };
 
-const Checkbox = {
-  parts: ["helperErrorText", "icon", "control", "label"],
+const Checkbox = defineMultiStyleConfig({
   baseStyle,
   sizes,
   // Default values
@@ -159,6 +174,6 @@ const Checkbox = {
     size: "lg",
     colorScheme: "white",
   },
-};
+});
 
 export default Checkbox;
