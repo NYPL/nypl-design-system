@@ -20,9 +20,6 @@
     },
     "./dist/styles.css": "./dist/styles.css"
   },
-  "engines": {
-    "node": ">=18"
-  },
   "author": "NYPL",
   "license": "Apache-2.0",
   "publishConfig": {
