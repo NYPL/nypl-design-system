@@ -7,7 +7,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 >
   <label
     className="chakra-checkbox css-19e67wo"
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -46,18 +45,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
@@ -119,6 +107,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       <svg
         className="chakra-icon css-qyb3gi"
         focusable={false}
+        id="test"
         viewBox="0 0 24 24"
       >
         <path
@@ -235,7 +224,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 >
   <label
     className="chakra-checkbox css-19e67wo"
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -274,18 +262,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
@@ -304,7 +281,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
   <label
     className="chakra-checkbox css-19e67wo"
     data-invalid=""
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -344,18 +320,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       data-invalid=""
@@ -375,7 +340,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   <label
     className="chakra-checkbox css-19e67wo"
     data-disabled=""
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -415,18 +379,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       data-disabled=""
@@ -445,7 +398,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 >
   <label
     className="chakra-checkbox css-19e67wo"
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -485,18 +437,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
@@ -526,7 +467,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 >
   <label
     className="chakra-checkbox css-cnetlc"
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -565,18 +505,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
@@ -595,7 +524,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 >
   <label
     className="chakra-checkbox css-19e67wo"
-    defaultIsChecked={false}
     onClick={[Function]}
   >
     <input
@@ -634,18 +562,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
-    >
-      <svg
-        className="chakra-icon css-qyb3gi"
-        focusable={false}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
+    />
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
