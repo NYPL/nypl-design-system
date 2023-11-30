@@ -33,6 +33,9 @@ const meta: Meta<typeof Card> = {
     "imageProps.isAtEnd": {
       table: { defaultValue: { summary: false } },
     },
+    "imageProps.isLazy": {
+      table: { defaultValue: { summary: false } },
+    },
     "imageProps.size": {
       table: { defaultValue: { summary: "default" } },
     },
@@ -73,6 +76,7 @@ export const WithControls: Story = {
     "imageProps.aspectRatio": "square",
     "imageProps.component": undefined,
     "imageProps.isAtEnd": false,
+    "imageProps.isLazy": true,
     "imageProps.size": "default",
     "imageProps.src": "//placekitten.com/400/300",
     isAlignedRightActions: false,
@@ -92,6 +96,7 @@ export const WithControls: Story = {
         aspectRatio: args["imageProps.aspectRatio"],
         component: args["imageProps.component"],
         isAtEnd: args["imageProps.isAtEnd"],
+        isLazy: args["imageProps.isLazy"],
         size: args["imageProps.size"],
         src: args["imageProps.src"],
       }}
@@ -148,6 +153,7 @@ export const ImagePositionColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
       >
@@ -164,6 +170,7 @@ export const ImagePositionColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
       >
@@ -187,6 +194,7 @@ export const ImagePositionRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           src: "//placekitten.com/400/200",
+          isLazy: true,
         }}
         isCentered
         layout="row"
@@ -205,6 +213,7 @@ export const ImagePositionRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
         isCentered
@@ -230,6 +239,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           size: "xxsmall",
           src: "//placekitten.com/400/200",
         }}
@@ -253,6 +263,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           size: "xsmall",
           src: "//placekitten.com/400/200",
         }}
@@ -276,6 +287,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           size: "small",
           src: "//placekitten.com/400/200",
         }}
@@ -299,6 +311,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           size: "medium",
           src: "//placekitten.com/400/200",
         }}
@@ -322,6 +335,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           size: "large",
           src: "//placekitten.com/400/200",
         }}
@@ -345,6 +359,7 @@ export const ImageSizeColumnCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "square",
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
         isCentered
@@ -372,6 +387,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           size: "xxsmall",
           src: "//placekitten.com/400/200",
         }}
@@ -394,6 +410,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           size: "xsmall",
           src: "//placekitten.com/400/200",
         }}
@@ -416,6 +433,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           size: "small",
           src: "//placekitten.com/400/200",
         }}
@@ -438,6 +456,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           size: "medium",
           src: "//placekitten.com/400/200",
         }}
@@ -461,6 +480,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           size: "large",
           src: "//placekitten.com/400/200",
         }}
@@ -485,6 +505,7 @@ export const ImageSizeRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
         isCentered
@@ -757,6 +778,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
       >
@@ -778,6 +800,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/410/210",
         }}
       >
@@ -799,6 +822,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/420/220",
         }}
       >
@@ -820,6 +844,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/430/230",
         }}
       >
@@ -841,6 +866,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/440/200",
         }}
       >
@@ -862,6 +888,7 @@ export const GridExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/450/200",
         }}
       >
@@ -890,6 +917,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/400/200",
         }}
         isCentered
@@ -914,6 +942,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/410/210",
         }}
         isCentered
@@ -938,6 +967,7 @@ export const StackExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
+          isLazy: true,
           src: "//placekitten.com/420/220",
         }}
         isCentered

@@ -13,18 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility", "Documentation"],
+    affects: ["Functionality", "Documentation"],
     notes: [
-      "Updated the `headingText` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-    ],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [
-      "Added a z-index on hover to the select icon so it no longer disappears.",
+      "Propagates the `imageProps.isLazy` property down to the `Card`'s internal `Image` component implementation.",
     ],
   },
 ];

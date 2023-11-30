@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
 - Adds the `sizeBasedOn` prop to the `Image` component.
 
 ### Updates
@@ -17,6 +18,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
 - Removes `disabled` variant from `Link` theme file, as it isn't being used.
 - Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
+- Updates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
+- Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
+- Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
+- Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
+- Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
 
 ## Fixes
 
@@ -35,6 +41,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
 - Updates the `getSectionColors` function to also return dark mode color variants.
 - Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
+- Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
 
 ## 2.1.1 (October 26, 2023)
 

@@ -15,16 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Accessibility", "Documentation"],
     notes: [
-      "Updated the `headingText` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-    ],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [
-      "Added a z-index on hover to the select icon so it no longer disappears.",
+      "Updated the `notificationHeading` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
     ],
   },
 ];

@@ -6,6 +6,7 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Notification, { notificationTypesArray } from "./Notification";
 import Text from "../Text/Text";
+import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
@@ -154,6 +155,39 @@ export const NotificationHeading: Story = {
         notificationContent={
           <>
             This is a "warning" Notification without a heading. Cras mattis
+            consectetur purus sit amet fermentum. Maecenas faucibus mollis
+            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+            rutrum faucibus dolor auctor.
+          </>
+        }
+      />
+    </>
+  ),
+};
+
+export const CustomNotificationHeading: Story = {
+  render: () => (
+    <>
+      <Notification
+        notificationHeading={<Heading level="h3">Custom H3 Heading</Heading>}
+        notificationContent={
+          <>
+            This is a "standard" Notification with a heading. Cras mattis
+            consectetur purus sit amet fermentum. Maecenas faucibus mollis
+            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+            rutrum faucibus dolor auctor.
+          </>
+        }
+      />
+      <Notification
+        notificationHeading={<Heading level="h5">Custom H5 Heading</Heading>}
+        notificationContent={
+          <>
+            This is a "standard" Notification with a heading. Cras mattis
             consectetur purus sit amet fermentum. Maecenas faucibus mollis
             interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
             eros. Cum sociis natoque penatibus et magnis dis parturient montes,

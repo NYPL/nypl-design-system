@@ -2,23 +2,27 @@ import { ArgTypes, Canvas, Meta, Source } from "@storybook/blocks";
 
 import * as AudioPlayerStories from "./AudioPlayer.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./audioPlayerChangelogData";
 
 <Meta of={AudioPlayerStories} />
 
 # Audio Player
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#example-embed-code-snippets" target="_self">Example Embed Code Snippets</Link>}
 - {<Link href="#errored" target="_self">Errored</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -66,6 +70,24 @@ Resources:
 - [WebAIM Creating Accessible Frames and Iframes](https://webaim.org/techniques/frames/)
 - [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 - [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
+
+## With Custom Heading
+
+By default, the `AudioPlayer` will render an `h2` element when a string is
+passed to the `headingText` component. If this is an accessibility issue, it's
+possible to pass in a custom heading element.
+
+In the following example, an `h4` is rendered through the DS `Heading` component.
+
+<Source
+  code={`
+
+const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+
+<AudioPlayer headingText={customH4} {...props} />
+`} language="tsx" />
+
+<Canvas of={AudioPlayerStories.WithCustomHeading} />
 
 ## Example Embed Code Snippets
 
@@ -166,3 +188,7 @@ If the necessary props are not passed to the `AudioPlayer` component, the
 component UI will display an error message.
 
 <Canvas of={AudioPlayerStories.ErroredExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
