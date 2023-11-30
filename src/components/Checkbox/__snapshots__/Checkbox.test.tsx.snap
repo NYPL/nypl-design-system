@@ -107,7 +107,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       <svg
         className="chakra-icon css-qyb3gi"
         focusable={false}
-        id="test"
         viewBox="0 0 24 24"
       >
         <path
