@@ -45,8 +45,8 @@ const FeaturedContent = {
           : { sm: "column", md: "row" },
         maxWidth: full ? "1280px" : "100%",
         minHeight: "320px",
-        paddingLeft: full ? { base: null, md: "s" } : 0,
-        paddingRight: full ? { base: null, md: "s" } : 0,
+        paddingLeft: full ? { base: null, md: "s" } : null,
+        paddingRight: full ? { base: null, md: "s" } : null,
       },
       text: {
         display: "flex",
