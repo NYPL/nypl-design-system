@@ -97,7 +97,8 @@ export const WithControls: Story = {
 
 export const LayoutVariations: Story = {
   render: () => (
-    <SimpleGrid columns={1} maxWidth="1280px">
+    <SimpleGrid columns={1} maxWidth="1280px" margin="auto">
+      <Text noSpace>The examples below are within a container with the max-width set to 1280px.</Text>
       <FeaturedContent
         isFullWidth={true}
         textContent={
