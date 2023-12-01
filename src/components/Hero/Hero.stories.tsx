@@ -72,6 +72,10 @@ const meta: Meta<typeof Hero> = {
       table: { defaultValue: { summary: "primary" } },
     },
     imageProps: { control: false },
+    isDarkBackgroundImage: {
+      control: false,
+      table: { defaultValue: { summary: "false" } },
+    },
     locationDetails: { control: false },
     subHeaderText: { control: false },
   },
@@ -93,6 +97,7 @@ export const WithControls: Story = {
     heading: undefined,
     heroType: "primary",
     imageProps,
+    isDarkBackgroundImage: undefined,
     locationDetails: undefined,
     subHeaderText: undefined,
   },
@@ -276,7 +281,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/g/2400/800"
+          backgroundImageSrc="//placekitten.com/1600/800"
           heroType="campaign"
           heading={
             <Heading
@@ -295,7 +300,7 @@ export const Campaign: Story = {
           text="Campaign Hero with Long Text"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/g/2400/800"
+          backgroundImageSrc="//placekitten.com/1600/800"
           heroType="campaign"
           heading={
             <Heading
@@ -308,6 +313,26 @@ export const Campaign: Story = {
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          text="Campaign Hero with Dark Background Image"
+        />
+        <Hero
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
         />
       </div>
       <div>
