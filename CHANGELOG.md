@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
 - Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
 - Adds z-index to the `DatePicker`'s calendar container so that the helper text does not shift when the calendar opens.
+- Updates the `FeaturedContent` component by adjusting the spacing in the `"fullScreen"` variant to better align the component text content with the page text content.
 
 ## Fixes
 
