@@ -8,6 +8,7 @@ import {
 import React, { forwardRef, ImgHTMLAttributes } from "react";
 import { useInView } from "react-intersection-observer";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { DimensionTypes } from "../../helpers/types";
 
 export const imageRatiosArray = [
   "fourByThree",
@@ -29,11 +30,9 @@ export const imageSizesArray = [
   "large",
 ] as const;
 export const imageTypesArray = ["default", "circle"] as const;
-export const imageSizeBasedOnArray = ["height", "width"] as const;
 export type ImageRatios = typeof imageRatiosArray[number];
 export type ImageSizes = typeof imageSizesArray[number];
 export type ImageTypes = typeof imageTypesArray[number];
-export type ImageSizeBasedOn = typeof imageSizeBasedOnArray[number];
 
 // Used for components that have an `imageProps` prop.
 export interface ComponentImageProps extends Partial<HTMLImageElement> {
@@ -70,7 +69,7 @@ interface ImageWrapperProps {
   /** Optional value to control the size of the image */
   size?: ImageSizes;
   /** Sets the image size based on the width or height. Width by default. */
-  sizeBasedOn?: ImageSizeBasedOn;
+  sizeBasedOn?: DimensionTypes;
 }
 
 export interface ImageProps

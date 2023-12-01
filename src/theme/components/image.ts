@@ -3,11 +3,6 @@ interface CustomImageBaseStyle {
   size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
   sizeBasedOn: "height" | "width";
 }
-interface CustomImageWrapperBaseStyle {
-  ratio: keyof typeof imageRatios;
-  size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
-  sizeBasedOn: "height" | "width";
-}
 
 const sizes = {
   xxxsmall: 32,
@@ -205,7 +200,7 @@ const CustomImageWrapper = {
     ratio = "original",
     size = "default",
     sizeBasedOn = "width",
-  }: CustomImageWrapperBaseStyle) => ({
+  }: CustomImageBaseStyle) => ({
     marginStart: "auto",
     marginEnd: "auto",
     ...(sizeBasedOn === "width"

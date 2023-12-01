@@ -5,11 +5,11 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import Image, {
   imageRatiosArray,
-  imageSizeBasedOnArray,
   imageSizesArray,
   imageTypesArray,
 } from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
+import { dimensionTypeArray } from "../../helpers/types";
 
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
@@ -46,7 +46,7 @@ const meta: Meta<typeof Image> = {
     },
     sizeBasedOn: {
       control: { type: "radio" },
-      options: imageSizeBasedOnArray,
+      options: dimensionTypeArray,
       table: { defaultValue: { summary: "width" } },
     },
     src: {
@@ -107,14 +107,14 @@ for (const imageValue of imageSizeValues) {
     imageRow({
       size: imageValue.size,
       displayValue: imageValue.display,
-      id: imageValue.id,
+      id: `${imageValue.id}-width`,
     })
   );
   sizesBasedOnHeight.push(
     imageRow({
       size: imageValue.size,
       displayValue: imageValue.display,
-      id: imageValue.id,
+      id: `${imageValue.id}-height`,
       sizeBasedOn: "height",
     })
   );
