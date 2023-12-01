@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+- Adds the `isDarkBackgroundImage` prop to the `Hero` component.
 
 ### Updates
 
@@ -23,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
 - Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
 - Adds z-index to the `DatePicker`'s calendar container so that the helper text does not shift when the calendar opens.
+- Updates the `"campagin"` variant of the `Hero` component to improve the spacing around the component.
 
 ## Fixes
 
