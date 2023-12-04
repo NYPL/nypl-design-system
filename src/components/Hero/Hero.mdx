@@ -133,15 +133,8 @@ do understand that the naming can be confusing, but it helps to think of this
 variant having two layers. The bottom is the backdrop and the top is the
 foreground.
 
-The "backdrop" is what we call the background and that can be set through either
-the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
-the `backgroundImageSrc` will take precedence.
-
 To modify the foreground, the `backgroundColor`, `foregroundColor`, `imageProps`
 props should be used.
-
-View the last example in this section to see an example of the backdrop and
-foreground settings in action.
 
 <Source
   code={`
@@ -156,6 +149,54 @@ subHeaderText={otherSubHeaderText}
 />
 
 <Canvas of={HeroStories.Campaign} />
+
+#### isDarkBackgroundImage
+
+The `isDarkBackgroundImage` prop can be used in the `"campaign"` hero to toggle
+the visual treatment of the background image. If true, the background image will
+be converted to black & white and darkened to 60% black.
+
+<Source
+  code={`
+backgroundImageSrc="https://placekitten.com/g/2400/800"
+heading={
+  <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
+}
+imageProps={imageProps}
+isDarkBackgroundImage
+subHeaderText={otherSubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.CampaignDarkBackgroundImage} />
+
+#### backdropBackgroundColor
+
+The "backdrop" is what we call the background and that can be set through either
+the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
+the `backgroundImageSrc` will take precedence.
+
+<Source
+  code={`
+backdropBackgroundColor="section.education.primary"
+backgroundColor="ui.warning.primary"
+foregroundColor="ui.typgraphy.heading"
+heading={
+  <Heading 
+    color="ui.typgraphy.heading" 
+    level="h1" 
+    id="campaign-hero" 
+    text="Hero Campaign" 
+  />
+}
+imageProps={imageProps}
+subHeaderText={otherSubHeaderText}
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.CampaignBackgroundColors} />
 
 ## Deprecated Variants
 

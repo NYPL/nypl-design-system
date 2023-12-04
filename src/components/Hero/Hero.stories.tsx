@@ -278,6 +278,7 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-default"
+          size="heading6"
           text="Campaign Hero at Default Height"
         />
         <Hero
@@ -297,6 +298,7 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-long-text"
+          size="heading6"
           text="Campaign Hero with Long Text"
         />
         <Hero
@@ -315,11 +317,13 @@ export const Campaign: Story = {
           subHeaderText={otherSubHeaderTextLong}
         />
       </div>
+    </Stack>
+  ),
+};
+export const CampaignDarkBackgroundImage: Story = {
+  render: () => (
+    <Stack spacing="l">
       <div>
-        <Heading
-          id="campaign-hero-default"
-          text="Campaign Hero with Dark Background Image"
-        />
         <Hero
           backgroundImageSrc="//placekitten.com/1600/800"
           heroType="campaign"
@@ -335,9 +339,16 @@ export const Campaign: Story = {
           subHeaderText={otherSubHeaderText}
         />
       </div>
+    </Stack>
+  ),
+};
+export const CampaignBackgroundColors: Story = {
+  render: () => (
+    <Stack spacing="l">
       <div>
         <Heading
-          id="campaign-hero-long-text"
+          id="campaign-hero-custom-background-color"
+          size="heading6"
           text="Campaign Hero with backdrop background color"
         />
         <Hero
@@ -356,16 +367,18 @@ export const Campaign: Story = {
       </div>
       <div>
         <Heading
-          id="campaign-hero-long-text"
+          id="campaign-hero-custom-background-and-foreground-colors"
+          size="heading6"
           text="Campaign Hero with separate backdrop and foreground background design token color"
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="dark.ui.warning.primary"
-          foregroundColor="ui.black"
+          backgroundColor="ui.warning.primary"
+          foregroundColor="ui.typgraphy.heading"
           heroType="campaign"
           heading={
             <Heading
+              color="ui.typgraphy.heading"
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
