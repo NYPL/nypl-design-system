@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Updated the "campagin" variant to improve the spacing around the component.',
+      'Updated the "campaign" variant to improve the spacing around the component.',
       "Added the `isDarkBackgroundImage` prop.",
     ],
   },
