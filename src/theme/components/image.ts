@@ -158,7 +158,7 @@ const CustomImage = {
         : {
             ...imageSizesBasedOnHeight[size],
             ...imageWidthsBasedOnHeight(sizes[size])[ratio],
-            height: "100%",
+            height: ratio === "original" ? `${sizes[size]}px` : "100%",
             width:
               ratio === "original" && size !== "default"
                 ? "max-content"
