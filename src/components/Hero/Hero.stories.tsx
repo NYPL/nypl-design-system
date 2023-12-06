@@ -73,7 +73,7 @@ const meta: Meta<typeof Hero> = {
     },
     imageProps: { control: false },
     isDarkBackgroundImage: {
-      control: false,
+      control: { type: "boolean" },
       table: { defaultValue: { summary: "false" } },
     },
     locationDetails: { control: false },
