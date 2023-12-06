@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+- Adds the `sizeBasedOn` prop to the `Image` component.
 - Adds the `isDarkBackgroundImage` prop to the `Hero` component.
 
 ### Updates
