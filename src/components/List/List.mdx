@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as ListStories from "./List.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./listChangelogData";
 
 <Meta of={ListStories} />
 
 # List
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.7.0`    |
-| Latest            | `1.7.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.7.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -20,6 +22,7 @@ import Link from "../Link/Link";
 - {<Link href="#description-list" target="_self">Description List</Link>}
 - {<Link href="#description-list-of-links" target="_self">Description List of Links</Link>}
 - {<Link href="#lists-with-data-props" target="_self">Lists with Data Props</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -163,3 +166,7 @@ const fishDescriptions = [
 />
 
 <Canvas of={ListStories.ListWithDataProps} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

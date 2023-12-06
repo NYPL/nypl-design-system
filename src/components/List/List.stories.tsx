@@ -4,6 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Link from "../Link/Link";
 import List, { listTypesArray } from "./List";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
@@ -13,9 +14,10 @@ const meta: Meta<typeof List> = {
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
-    inline: { table: { defaultValue: { summary: false } } },
+    inline: argsBooleanType(),
     listItems: { control: false },
-    noStyling: { table: { defaultValue: { summary: false } } },
+    noStyling: argsBooleanType(),
+    title: { control: { type: "text" } },
     type: {
       control: { type: "radio" },
       options: listTypesArray,

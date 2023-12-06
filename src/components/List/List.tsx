@@ -1,4 +1,10 @@
-import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import {
+  As,
+  Box,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Heading from "../Heading/Heading";
@@ -39,7 +45,13 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Description` list type.
  */
-export const List: React.FC<any> = chakra(
+export const List: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ListProps> &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
+  >,
+  React.PropsWithChildren<ListProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     React.PropsWithChildren<ListProps>
@@ -55,7 +67,11 @@ export const List: React.FC<any> = chakra(
       type = "ul",
       ...rest
     } = props;
-    const styles = useStyleConfig("List", { inline, noStyling, variant: type });
+    const styles = useStyleConfig("CustomList", {
+      inline,
+      noStyling,
+      variant: type,
+    });
     let listElement = null;
 
     // Either li/dt/dd children elements must be passed or the `listItems`

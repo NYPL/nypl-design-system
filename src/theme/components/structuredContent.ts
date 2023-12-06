@@ -3,10 +3,10 @@ import { textMargin } from "./global";
 import { headings } from "./heading";
 import { baseLinkStyles } from "./link";
 import {
-  baseDescriptionStyles,
+  descriptionStyles,
   baseListStyles,
   baseSectionDescriptionStyles,
-  baseUnorderedStyles,
+  unorderedStyles,
 } from "./list";
 
 interface StructuredContentBaseStyle {
@@ -104,7 +104,7 @@ const StructuredContent = {
       ul: {
         ...baseListStyles(),
         listStyle: "none",
-        ...baseUnorderedStyles(),
+        ...unorderedStyles(),
       },
       ol: {
         ...baseListStyles(),
@@ -112,9 +112,9 @@ const StructuredContent = {
       },
       // For section, h2 in the definition list.
       section: baseSectionDescriptionStyles,
-      dl: baseDescriptionStyles.dl,
-      dt: baseDescriptionStyles.dt,
-      dd: baseDescriptionStyles.dd,
+      dl: descriptionStyles.dl,
+      dt: descriptionStyles.dt,
+      dd: descriptionStyles.dd,
       table: {
         width: "100%",
         th: {

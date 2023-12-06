@@ -1,34 +1,39 @@
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+
 import { textMargin } from "./global";
 
-interface ListBaseStyle {
+interface ListBaseStyle extends Partial<StyleFunctionProps> {
   inline?: boolean;
-  noStyling: boolean;
+  noStyling?: boolean;
 }
 
-export const baseListStyles = (inline = false, noStyling = false) => ({
+export const baseListStyles = defineStyle((props?: ListBaseStyle) => ({
   // Browser automatically applies margin, so by default we unset it.
-  margin: noStyling ? "0" : "unset",
-  listStyle: noStyling ? "none" : null,
+  margin: props.noStyling ? "0" : "unset",
+  listStyle: props.noStyling ? "none" : null,
   marginInlineStart: "unset",
-  paddingStart: noStyling ? "0" : "l",
-  padding: noStyling ? "0" : null,
-  display: inline ? "flex" : null,
+  paddingStart: props.noStyling ? "0" : "l",
+  padding: props.noStyling ? "0" : null,
+  display: props.inline ? "flex" : null,
   li: {
-    marginEnd: inline ? "xs" : null,
-    listStyleType: inline ? "none" : null,
+    marginEnd: props.inline ? "xs" : null,
+    listStyleType: props.inline ? "none" : null,
     _notFirst: {
-      marginTop: inline ? null : "xxs",
+      marginTop: props.inline ? null : "xxs",
     },
   },
-});
-export const baseUnorderedStyles = (noStyling = false) => ({
+}));
+
+// For specific component variants
+export const unorderedStyles = defineStyle((props?: ListBaseStyle) => ({
   ...textMargin,
   listStyle: "none",
   li: {
     _before: {
       color: "ui.gray.medium",
       // \2022 is the CSS Code/unicode for a bullet.
-      content: noStyling ? "unset" : `"\\2022"`,
+      content: props.noStyling ? "unset" : `"\\2022"`,
       // Needed to add space between the bullet and the text.
       display: "inline-block",
       fontWeight: "bold",
@@ -43,7 +48,7 @@ export const baseUnorderedStyles = (noStyling = false) => ({
       },
     },
   },
-});
+}));
 export const baseSectionDescriptionStyles = {
   borderBottom: "1px solid",
   borderColor: "ui.border.default",
@@ -61,7 +66,7 @@ export const baseSectionDescriptionStyles = {
     borderColor: "dark.ui.border.default",
   },
 };
-export const baseDescriptionStyles = {
+export const descriptionStyles = defineStyle({
   ...baseSectionDescriptionStyles,
   dl: {
     display: "grid",
@@ -92,16 +97,15 @@ export const baseDescriptionStyles = {
       borderColor: { md: "dark.ui.border.default" },
     },
   },
-};
+});
 
-const List = {
-  baseStyle: ({ inline, noStyling }: ListBaseStyle) =>
-    baseListStyles(inline, noStyling),
+const List = defineStyleConfig({
+  baseStyle: baseListStyles,
   variants: {
-    ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
+    ul: unorderedStyles,
     ol: textMargin,
-    dl: baseDescriptionStyles,
+    dl: descriptionStyles,
   },
-};
+});
 
 export default List;
