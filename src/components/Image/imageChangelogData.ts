@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2023-12-07",
+    version: "2.1.3",
     type: "Update",
     affects: ["Documentation", "Functionality", "Styles"],
     notes: ["Adds `sizeBasedOn` prop to the `Logo` component."],

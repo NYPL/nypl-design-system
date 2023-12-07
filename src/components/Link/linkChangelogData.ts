@@ -11,7 +11,7 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 export const changelogData: ChangelogData[] = [
   {
     date: "2023-11-14",
-    version: "Prerelease",
+    version: "2.1.3",
     type: "Update",
     affects: ["Styles"],
     notes: [
