@@ -10,20 +10,12 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2023-12-07",
+    version: "2.1.3",
     type: "Update",
-    affects: ["Accessibility", "Documentation"],
+    affects: ["Accessibility", "Documentation", "Styles"],
     notes: [
       "Updated the `headingText` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-    ],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [
       "Added a z-index on hover to the select icon so it no longer disappears.",
     ],
   },
