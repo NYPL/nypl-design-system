@@ -192,19 +192,11 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
 <div
   className="css-0"
 >
-  <div
-    className="the-wrap css-1u8qly9"
-  >
-    <div
-      className="the-crop css-0"
-    >
-      <img
-        alt=""
-        className="css-0"
-        src="test.png"
-      />
-    </div>
-  </div>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
 </div>
 `;
 
@@ -232,18 +224,6 @@ exports[`Image Renders the UI snapshot correctly 12`] = `
 <div
   className="css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
-</div>
-`;
-
-exports[`Image Renders the UI snapshot correctly 13`] = `
-<div
-  className="css-0"
->
   <div
     className="the-wrap css-1u8qly9"
   >
@@ -257,6 +237,18 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
       />
     </div>
   </div>
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 13`] = `
+<div
+  className="css-0"
+>
+  <img
+    alt=""
+    className="css-0"
+    src="test.png"
+  />
 </div>
 `;
 
@@ -364,6 +356,26 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
 <div
   className="css-0"
 >
+  <div
+    className="the-wrap css-1u8qly9"
+  >
+    <div
+      className="the-crop css-0"
+    >
+      <img
+        alt=""
+        className="css-0"
+        src="test.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image Renders the UI snapshot correctly 20`] = `
+<div
+  className="css-0"
+>
   <img
     alt=""
     className="css-qvgr6z"
@@ -372,7 +384,7 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
 </div>
 `;
 
-exports[`Image Renders the UI snapshot correctly 20`] = `
+exports[`Image Renders the UI snapshot correctly 21`] = `
 <div
   className="css-0"
 >
