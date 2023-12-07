@@ -28,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
 - Updates the `FeaturedContent` component by adjusting the spacing in the `"fullScreen"` variant to better align the component text content with the page text content.
 - Updates the `"campaign"` variant of the `Hero` component to improve the spacing around the component.
+- Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
 
 ## Fixes
 
@@ -47,7 +48,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
 - Updates the `getSectionColors` function to also return dark mode color variants.
 - Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
-- Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
 
 ## 2.1.1 (October 26, 2023)
 
