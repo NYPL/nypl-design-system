@@ -62,4 +62,3 @@ export const logoSizesArray = [
   "medium",
   "large",
 ] as const;
-export const logoSizeBasedOnArray = ["height", "width"] as const;

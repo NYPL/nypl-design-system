@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import * as React from "react";
 import renderer from "react-test-renderer";
+
 import AudioPlayer from "./AudioPlayer";
+import Heading from "../Heading/Heading";
 
 const libsynCode = `<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen ></iframe> `;
 const soundCloudCode = ` <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" ></iframe> <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;" > <a href="https://soundcloud.com/nypl" title="New York Public Library" target="_blank" style="color: #cccccc; text-decoration: none;" >New York Public Library</a > · <a href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump" title="Journalism in the Age of Trump" target="_blank" style="color: #cccccc; text-decoration: none;" >Journalism in the Age of Trump</a > </div> `;
@@ -74,6 +75,17 @@ describe("AudioPlayer valid render", () => {
 
   it("Renders headingText", () => {
     expect(screen.getByText("Audio Player Heading")).toBeInTheDocument();
+  });
+
+  it("Renders a custom heading level", () => {
+    render(
+      <AudioPlayer
+        embedCode={libsynCode}
+        audioType="libsyn"
+        headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+      />
+    );
+    expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
   });
 
   it("Renders descriptionText", () => {

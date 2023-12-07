@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as CardStories from "./Card.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./cardChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={CardStories} />
 
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `2.0.0`    |
+| Latest            | `2.1.3`    |
 
 ## Table of Contents
 
@@ -26,6 +28,7 @@ import Link from "../Link/Link";
 - {<Link href="#cards-in-a-grid" target="_self">Cards in a Grid</Link>}
 - {<Link href="#cards-in-a-stack" target="_self">Cards in a Stack</Link>}
 - {<Link href="#cards-without-images" target="_self">Cards Without Images</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -38,6 +41,8 @@ content area is composed using Card-specific child components: `CardHeading`,
 order and each child component may be used multiple times within the content
 area. Although a `Card` is a self-contained unit, `Card` components are often
 grouped together and displayed in some type of grid layout.
+
+Note: all of the examples have images with the `isLazy` set to true.
 
 ### CardHeading
 
@@ -58,6 +63,44 @@ in the row layout of the `Card` component.
 
 The `CardContent` component should be used to display all content other than
 headings and CTAs.
+
+### CardImage
+
+The `CardImage` component is _not_ exported and is used internally only in the
+`Card` component. It is a convenience component that mirrors the standard DS
+`Image` component. This means that the `CardImage` component accepts the same
+props as the `Image` component, in addition to the `isAtEnd` prop.
+
+Developers do _not_ need to implement this component. Instead, it will be
+rendered in the `Card` component through its `imageProps` prop.
+
+<Source
+  code={`
+<Card
+  imageProps={{
+    alt: "Alt text",
+    aspectRatio: "twoByOne",
+    caption: "caption text",
+    credit: "credit text",
+    isAtEnd: true,
+    isLazy: true,
+    size: "medium",
+    src: "//placekitten.com/400/200",
+  }}
+  {...otherCardProps}
+>
+  <CardHeading level="h3" id="heading-id">
+    Heading Text
+  </CardHeading>
+  <CardContent>
+    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+    Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+    facilisis in, egestas eget quam.
+  </CardContent>
+</Card>
+`}
+  language="jsx"
+/>
 
 ## Component Props
 
@@ -106,9 +149,9 @@ link.
 
 By default, the image is always the first element within a `Card`. This means
 the image is at the top of a `Card` with a column layout and on the left side of
-a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean prop
-to override the default placement and move the image to the last element within
-a `Card`.
+a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean
+prop to override the default placement and move the image to the last element
+within a `Card`.
 
 ### Column Cards
 
@@ -185,3 +228,7 @@ must be set to `true`.
 ## Cards Without Images
 
 <Canvas of={CardStories.WithoutImages} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
