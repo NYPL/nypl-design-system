@@ -13,9 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",
-    affects: ["Accessibility", "Documentation"],
-    notes: [
-      "Updated the `headingText` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-    ],
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: ["Adds `sizeBasedOn` prop to the `Logo` component."],
   },
 ];
