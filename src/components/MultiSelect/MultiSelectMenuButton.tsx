@@ -1,8 +1,5 @@
 import React, { forwardRef } from "react";
 import {
-  Box,
-  keyframes,
-  useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import Button from "./../Button/Button";
@@ -25,10 +22,6 @@ export interface MultiSelectMenuButtonProps {
   onClear?: () => void;
   onKeyDown?: () => void;
 }
-const grow = keyframes`
-  from {width: 22px; opacity: 0; }
-  to {width: 46px; opacity: 1;}
-`;
 
 /**
  * The toggle button component used to open and close the `MultiSelect` menu.
@@ -40,22 +33,14 @@ const grow = keyframes`
 const MultiSelectMenuButton = forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
->((props, ref?) => {
+>((props) => {
   const {
-    id,
     isOpen,
     multiSelectId,
     multiSelectLabelText,
     onClear,
-    onKeyDown,
-    onMenuToggle,
     selectedItems,
-    ...rest
   } = props;
-  const iconType = isOpen ? "minus" : "plus";
-  const growAnimation = `${grow} 150ms ease-out`;
-
-  const [prevIsOpen, setPrevIsOpen] = React.useState(isOpen);
 
   // Sets the selected items count on the menu button.
   let getSelectedItemsCount;
@@ -65,81 +50,34 @@ const MultiSelectMenuButton = forwardRef<
     const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
     selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
   }
+  
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
-    hasSelectedItems: getSelectedItemsCount,
+    hasSelectedItems: (getSelectedItemsCount === undefined) ? 0 : getSelectedItemsCount,
   });
-  // We need an internal Ref to manage the focus
-  const internalRef = React.useRef(null);
-  const mergedRefs = useMergeRefs(internalRef, ref);
-
-  // We need this for our "fake" button inside the main menu button.
-  function onKeyPress(e) {
-    const enterOrSpace =
-      e.key === "Enter" ||
-      e.key === " " ||
-      e.key === "Spacebar" ||
-      e.which === 13 ||
-      e.which === 32;
-
-    if (enterOrSpace) {
-      e.preventDefault();
-      onClear();
-      internalRef?.current.focus();
-    }
-  }
-  // Manage focus upon closing the MultiSelect
-  React.useEffect(() => {
-    setPrevIsOpen(isOpen);
-    // Catching the inital render of the page
-    if (isOpen !== prevIsOpen) {
-      if (!isOpen && internalRef) {
-        internalRef.current?.focus();
-      }
-    }
-  }, [isOpen, prevIsOpen]);
 
   return (
     <>
-      <Button
-        buttonType="secondary"
-        id={id}
-        onClick={onMenuToggle}
-        ref={mergedRefs}
-        __css={styles.menuButton}
-        {...rest}
-      >
-        <Box as="span" title={multiSelectLabelText} __css={styles.buttonLabel}>
-          {multiSelectLabelText}
-        </Box>
-        <Icon id={`ms-${multiSelectId}-icon`} name={iconType} size="small" />
-      </Button>
       {getSelectedItemsCount && (
-        <Box
-          animation={growAnimation}
-          aria-label={selectedItemsAriaLabel}
-          as="span"
-          onClick={() => {
-            internalRef?.current.focus();
-            onClear();
-          }}
-          onKeyPress={onKeyPress}
-          role="button"
-          tabIndex={0}
-          __css={styles.selectedItemsCountButton}
-        >
-          <Box as="span" verticalAlign="text-bottom">
+        <>
+          <Button id="multo-select-button" buttonType="pill" size="small" 
+                  aria-label={selectedItemsAriaLabel}
+                  onClick={() => {
+                    onClear();
+                  }}
+                  __css={styles.selectedItemsCountButton}
+                  >
             {getSelectedItemsCount}
-          </Box>
-          <Icon
-            align="right"
-            id={`ms-${multiSelectId}-selected-items-count-icon`}
-            marginLeft="xs"
-            name="close"
-            size="xsmall"
-            title="Remove selected items"
-          />
-        </Box>
+            <Icon
+              align="right"
+              id={`ms-${multiSelectId}-selected-items-count-icon`}
+              marginLeft="xs"
+              name="close"
+              size="xsmall"
+              title="Remove selected items"
+            />
+          </Button>
+        </>
       )}
     </>
   );

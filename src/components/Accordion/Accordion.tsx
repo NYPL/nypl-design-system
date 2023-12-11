@@ -32,6 +32,7 @@ export interface AccordionProps {
    * within accordion panel is greater than height set by panelMaxHeight, a
    * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
+  buttonRef?: any;
 }
 
 /**
@@ -65,7 +66,8 @@ const getElementsFromData = (
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
-  panelMaxHeight: string
+  panelMaxHeight: string,
+  buttonRef: any,
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -115,6 +117,7 @@ const getElementsFromData = (
             <>
               <AccordionButton
                 id={`${id}-button-${index}`}
+                ref={buttonRef}
                 borderColor={
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
                 }
@@ -189,6 +192,7 @@ export const Accordion = chakra(
       isDefaultOpen = false,
       isAlwaysRendered = false,
       panelMaxHeight,
+      buttonRef,
       ...rest
     } = props;
 
@@ -209,7 +213,8 @@ export const Accordion = chakra(
           id,
           isAlwaysRendered,
           isDarkMode,
-          panelMaxHeight
+          panelMaxHeight,
+          buttonRef
         )}
       </ChakraAccordion>
     );

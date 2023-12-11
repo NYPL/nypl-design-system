@@ -1,18 +1,13 @@
 export const multiSelectWidths = {
-  default: {
-    width: {
-      base: "100%",
-      md: "250px",
-    },
-  },
   fitContent: {
-    width: {
-      base: "100%",
-      md: "fit-content",
-    },
+
+    width: 'fit-content',
     minWidth: {
       md: "175px",
     },
+    maxWidth: {
+      md: "200px",
+    },      
   },
   full: {
     width: "100%",
@@ -26,8 +21,11 @@ const MultiSelect = {
     "menuButton",
     "menuContainer",
     "menuChildren",
+    'viewAllButton',
+    'accordian',
+    'hideAccordian'
   ],
-  baseStyle: ({ isBlockElement, isOpen, width = "default" }) => ({
+  baseStyle: ({ isBlockElement, isOpen, width = "fitContent", hasSelectedItems, isDropDownOpen }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     actionButtons: {
@@ -37,6 +35,10 @@ const MultiSelect = {
       justifyContent: "flex-end",
       padding: { base: "s", md: "xs" },
       width: "auto",
+    },
+    menuButton: {
+      minWidth: "175px",
+      width: 'fit-content',
     },
     menuContainer: {
       backgroundColor: "white",
@@ -128,6 +130,33 @@ const MultiSelect = {
       paddingLeft: "m",
       marginBottom: 0,
     },
+    viewAllButton: {
+      marginBottom: 0,
+      color: "ui.link.primary",
+    },
+    accordianLabel: {
+      marginLeft: (hasSelectedItems) ? 54 : 0,
+      marginBottom: 0,
+    },
+    menuInputText: {
+      input: {
+        backgroundColor: "ui.bg.default",
+        border: "none",
+      },
+      button: {
+        width: 'fit-content',
+      },
+      minWidth: {
+        md: "175px",
+      },
+      maxWidth: {
+        md: "200px",
+      },
+    },
+    hideAccordian: {
+      display: (isDropDownOpen) ?  'block' : 'none',
+    },
+    
   }),
 };
 

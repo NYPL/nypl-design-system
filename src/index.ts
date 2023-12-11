@@ -91,12 +91,12 @@ export { ModalTrigger, useModal } from "./components/Modal/Modal";
 // The code associated with the MultiSelect component will not be exported until
 // the refactor of the v2 version of the MultiSelect component has been
 // completed.
-// export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
-// export type {
-//   MultiSelectProps,
-//   MultiSelectItem,
-//   SelectedItems,
-// } from "./components/MultiSelect/MultiSelect";
+export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
+export type {
+  MultiSelectProps,
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelect";
 // export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 // export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";

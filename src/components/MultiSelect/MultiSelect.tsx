@@ -11,29 +11,52 @@ export interface MultiSelectItem {
 }
 
 export const multiSelectWidthsArray = [
-  "default",
   "fitContent",
   "full",
 ] as const;
 export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 
+export const multiSelectListOverflowArray = [
+  "scroll",
+  "expand"
+] as const;
+export type multiSelectListOverflowTypes = typeof multiSelectListOverflowArray[number];
+
+
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 interface MultiSelectCommonProps {
+  /** The helperText sets the text for the internal HelperErrorText */
+  helperText: string;
   /** The id of the MultiSelect. */
   id: string;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
+  /** Boolean value used to enable the component's search functionality 
+   * The default value is false. */
+  isSearchable?: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
    * The default value is false. */
   isBlockElement?: boolean;
+
+  closeOnBlur: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
+
+  listOverflow?: multiSelectListOverflowTypes;
   /** The label text rendered within the MultiSelect. */
-  labelText: string;
+  buttonText: string;
+  /** Numeric value to set the maximum number of checkbox items
+  * The default value is 5. */
+  defaultItemsVisible: number;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
+
+  showLabel: boolean;
+  /** Boolean value used to toggle the visibility of the Show All button
+   * The default value is false. */
+  showAll: boolean
   /** The type of MultiSelect that will be rendered. */
   type: "listbox" | "dialog";
   /** The selected items state (items that were checked by user). */
@@ -77,29 +100,43 @@ export const MultiSelect = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
     (props, ref?) => {
       const {
+        helperText,
         id,
         isBlockElement = false,
         isDefaultOpen = false,
+        isSearchable = false,
+        defaultItemsVisible = 5,
         items,
-        labelText,
+        listOverflow = "scroll",
+        buttonText,
+        closeOnBlur,
         onApply,
         onChange,
         onClear,
         onMixedStateChange,
         selectedItems,
+        showLabel = false,
+        showAll = false,
         type,
-        width = "default",
+        width = "fitContent",
         ...rest
       } = props;
 
       const commonProps = {
+        helperText,
         id,
         isBlockElement,
         isDefaultOpen,
+        isSearchable,
+        defaultItemsVisible,
         items,
-        labelText,
+        listOverflow,
+        buttonText,
         onClear,
+        closeOnBlur,
         selectedItems,
+        showLabel,
+        showAll,
         type,
         width,
       };

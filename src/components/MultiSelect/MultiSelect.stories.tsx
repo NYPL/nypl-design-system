@@ -87,7 +87,20 @@ const meta: Meta<typeof MultiSelect> = {
       control: false,
     },
     items: { control: false },
-    labelText: { table: { default: "" } },
+    listOverflow: {
+      description: "Value used to view the all items for the MultiSelect component",
+      control: "radio",
+      options: ["scroll", "expand"],
+      table: { defaultValue: { summary: "scroll" } },
+    },
+
+    buttonText: { table: { default: "" } },
+
+    defaultItemsVisible: {
+      table: { defaultValue: { summary: "false" } },
+      control: 5,
+    },
+
     onApply: {
       description:
         "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
@@ -105,7 +118,7 @@ const meta: Meta<typeof MultiSelect> = {
     width: {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
-      options: ["default", "fitContent", "full"],
+      options: ["fitContent", "full"],
       table: { defaultValue: { summary: "default" } },
     },
   },
@@ -121,7 +134,7 @@ type Story = StoryObj<typeof MultiSelect>;
 export const ListboxControls: Story = {
   args: {
     id: "multiselect-listbox",
-    labelText: "MultiSelect Listbox",
+    buttonText: "MultiSelect Listbox",
     type: "listbox",
   },
   render: (args) => <MultiSelectListboxStory {...args} />,
@@ -136,7 +149,7 @@ export const ListboxControls: Story = {
 export const DialogControls: Story = {
   args: {
     id: "multiselect-dialog",
-    labelText: "MultiSelect Dialog",
+    buttonText: "MultiSelect Dialog",
     type: "dialog",
   },
   render: (args) => <MultiSelectDialogStory {...args} />,
@@ -166,7 +179,7 @@ const MultiSelectListboxStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      isDefaultOpen
+      isDefaultOpen={false}
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => {

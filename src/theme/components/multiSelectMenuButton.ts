@@ -6,6 +6,7 @@ const MultiSelectMenuButton = {
     "menuButton",
     "selectedItemsCountButton",
     "toggleIcon",
+    "menuClearButton",
   ],
   baseStyle: ({ hasSelectedItems = false, isOpen = false }) => ({
     buttonLabel: {
