@@ -88,7 +88,8 @@ const meta: Meta<typeof MultiSelect> = {
     },
     items: { control: false },
     listOverflow: {
-      description: "Value used to view the all items for the MultiSelect component",
+      description:
+        "Value used to view the all items for the MultiSelect component",
       control: "radio",
       options: ["scroll", "expand"],
       table: { defaultValue: { summary: "scroll" } },

@@ -1,7 +1,5 @@
 import React, { forwardRef } from "react";
-import {
-  useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { useMultiStyleConfig } from "@chakra-ui/react";
 import Button from "./../Button/Button";
 import Icon from "./../Icons/Icon";
 import { SelectedItems } from "./MultiSelect";
@@ -50,23 +48,27 @@ const MultiSelectMenuButton = forwardRef<
     const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
     selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
   }
-  
+
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
-    hasSelectedItems: (getSelectedItemsCount === undefined) ? 0 : getSelectedItemsCount,
+    hasSelectedItems:
+      getSelectedItemsCount === undefined ? 0 : getSelectedItemsCount,
   });
 
   return (
     <>
       {getSelectedItemsCount && (
         <>
-          <Button id="multo-select-button" buttonType="pill" size="small" 
-                  aria-label={selectedItemsAriaLabel}
-                  onClick={() => {
-                    onClear();
-                  }}
-                  __css={styles.selectedItemsCountButton}
-                  >
+          <Button
+            id="multo-select-button"
+            buttonType="pill"
+            size="small"
+            aria-label={selectedItemsAriaLabel}
+            onClick={() => {
+              onClear();
+            }}
+            __css={styles.selectedItemsCountButton}
+          >
             {getSelectedItemsCount}
             <Icon
               align="right"

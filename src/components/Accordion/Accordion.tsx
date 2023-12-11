@@ -67,7 +67,7 @@ const getElementsFromData = (
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
   panelMaxHeight: string,
-  buttonRef: any,
+  buttonRef: any
 ) => {
   const colorMap = isDarkMode
     ? {

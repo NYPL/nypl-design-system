@@ -1,13 +1,12 @@
 export const multiSelectWidths = {
   fitContent: {
-
-    width: 'fit-content',
+    width: "fit-content",
     minWidth: {
       md: "175px",
     },
     maxWidth: {
       md: "200px",
-    },      
+    },
   },
   full: {
     width: "100%",
@@ -21,11 +20,17 @@ const MultiSelect = {
     "menuButton",
     "menuContainer",
     "menuChildren",
-    'viewAllButton',
-    'accordian',
-    'hideAccordian'
+    "viewAllButton",
+    "accordian",
+    "hideAccordian",
   ],
-  baseStyle: ({ isBlockElement, isOpen, width = "fitContent", hasSelectedItems, isDropDownOpen }) => ({
+  baseStyle: ({
+    isBlockElement,
+    isOpen,
+    width = "fitContent",
+    hasSelectedItems,
+    isDropDownOpen,
+  }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     actionButtons: {
@@ -38,7 +43,7 @@ const MultiSelect = {
     },
     menuButton: {
       minWidth: "175px",
-      width: 'fit-content',
+      width: "fit-content",
     },
     menuContainer: {
       backgroundColor: "white",
@@ -135,7 +140,7 @@ const MultiSelect = {
       color: "ui.link.primary",
     },
     accordianLabel: {
-      marginLeft: (hasSelectedItems) ? 54 : 0,
+      marginLeft: hasSelectedItems ? 54 : 0,
       marginBottom: 0,
     },
     menuInputText: {
@@ -144,7 +149,7 @@ const MultiSelect = {
         border: "none",
       },
       button: {
-        width: 'fit-content',
+        width: "fit-content",
       },
       minWidth: {
         md: "175px",
@@ -154,9 +159,8 @@ const MultiSelect = {
       },
     },
     hideAccordian: {
-      display: (isDropDownOpen) ?  'block' : 'none',
+      display: isDropDownOpen ? "block" : "none",
     },
-    
   }),
 };
 

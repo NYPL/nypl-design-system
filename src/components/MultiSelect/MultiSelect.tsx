@@ -10,18 +10,12 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 
-export const multiSelectWidthsArray = [
-  "fitContent",
-  "full",
-] as const;
+export const multiSelectWidthsArray = ["fitContent", "full"] as const;
 export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 
-export const multiSelectListOverflowArray = [
-  "scroll",
-  "expand"
-] as const;
-export type multiSelectListOverflowTypes = typeof multiSelectListOverflowArray[number];
-
+export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
+export type multiSelectListOverflowTypes =
+  typeof multiSelectListOverflowArray[number];
 
 export interface SelectedItems {
   [name: string]: { items: string[] };
@@ -33,7 +27,7 @@ interface MultiSelectCommonProps {
   id: string;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
-  /** Boolean value used to enable the component's search functionality 
+  /** Boolean value used to enable the component's search functionality
    * The default value is false. */
   isSearchable?: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
@@ -48,7 +42,7 @@ interface MultiSelectCommonProps {
   /** The label text rendered within the MultiSelect. */
   buttonText: string;
   /** Numeric value to set the maximum number of checkbox items
-  * The default value is 5. */
+   * The default value is 5. */
   defaultItemsVisible: number;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
@@ -56,7 +50,7 @@ interface MultiSelectCommonProps {
   showLabel: boolean;
   /** Boolean value used to toggle the visibility of the Show All button
    * The default value is false. */
-  showAll: boolean
+  showAll: boolean;
   /** The type of MultiSelect that will be rendered. */
   type: "listbox" | "dialog";
   /** The selected items state (items that were checked by user). */
