@@ -1,8 +1,20 @@
+import { defineStyleConfig } from "@chakra-ui/react";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+
 import { activeFocus } from "./global";
 
-const TagSetFilter = {
-  parts: ["clearAll"],
-  baseStyle: ({ isDismissible }: { isDismissible: boolean }) => ({
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["clearAll"]);
+
+interface TagSetFilterProps extends StyleFunctionProps {
+  isDismissible: boolean;
+}
+
+const TagSetFilter = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isDismissible }: TagSetFilterProps) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -49,11 +61,11 @@ const TagSetFilter = {
         color: "dark.ui.typography.heading",
       },
     },
-  }),
-};
+  })),
+});
 
-const TagSetExplore = {
-  baseStyle: {
+const TagSetExplore = defineStyleConfig({
+  baseStyle: defineStyle({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -122,16 +134,16 @@ const TagSetExplore = {
         },
       },
     },
-  },
-};
+  }),
+});
 
-const TagSet = {
-  baseStyle: () => ({
+const TagSet = defineStyleConfig({
+  baseStyle: defineStyle({
     display: "inline-flex",
     flexWrap: "wrap",
     gap: "xs",
   }),
-};
+});
 
 export default {
   TagSet,
