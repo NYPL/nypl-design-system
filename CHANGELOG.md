@@ -8,6 +8,49 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.1.3 (December 7, 2023)
+
+### Adds
+
+- Adds the `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
+- Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+- Adds the `sizeBasedOn` prop to the `Image` component.
+- Adds the `isDarkBackgroundImage` prop to the `Hero` component.
+
+### Updates
+
+- Removes `disabled` variant from `Link` theme file, as it isn't being used.
+- Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
+- Updates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
+- Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
+- Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
+- Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
+- Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
+- Updates the `FeaturedContent` component by adjusting the spacing in the `"fullScreen"` variant to better align the component text content with the page text content.
+- Updates the `"campaign"` variant of the `Hero` component to improve the spacing around the component.
+- Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
+
+## Fixes
+
+- Adds z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+- Adds z-index to the `DatePicker`'s calendar container so that the helper text does not shift when the calendar opens.
+
+## 2.1.2 (November 9, 2023)
+
+### Adds
+
+- Adds the `sizeBasedOn` prop to the `Logo` component.
+- Added the `autoComplete` prop to the `TextInput` component for setting the "autocomplete" attribute manually.
+
+### Updates
+
+- Updates max version for Chakra UI to `1.8.9` for minor bug fixes.
+- Updates the layout for the `"campaign"` variant of the `Hero` component to have consistent padding on its left and right sides.
+- Updates the `getSectionColors` function to also return dark mode color variants.
+- Updates the `NewsletterSignup` component's `newsletterSignupType` prop to render proper dark mode variant colors.
+
+## 2.1.1 (October 26, 2023)
+
 ### Adds
 
 - Adds a changelog to the story pages for the `Heading` component.
@@ -17,6 +60,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to set the `aria-roledescription` value as `"subtitle"` (a more familiar and recognizable value) for the `overline` element.
 - Updates the `FeedbackBox` and `NewsletterSignup` components to set the `tabindex` on the internal elements to `"-1"`.
 - Updates `DatePicker`'s `TextInput` to always have an `aria-label` attribute that tells screen reader users how to access the calendar.
+- Updates Storybook to `v7.5.1`.
 
 ### Fixes
 

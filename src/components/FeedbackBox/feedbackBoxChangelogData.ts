@@ -10,14 +10,20 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "Update",
-    affects: ["Accessibility", "Styles"],
-    notes: [
-      "Remove the underline on the component's `Privacy Policy` link.",
-      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
-    ],
+    affects: ["Styles"],
+    notes: ["Remove the underline on the component's `Privacy Policy` link."],
   },
   {
     date: "2023-9-28",

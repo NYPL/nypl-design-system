@@ -61,6 +61,10 @@ export interface HeroProps {
    * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
    * `Hero` type. Note: not all `Hero` variations utilize this prop. */
   imageProps?: HeroImageProps;
+  /** Optional boolean used to toggle the treatment of the background image in
+   * the "campaign" variant. If true, the background image will be converted to
+   * black & white and darkened to 60% black. */
+  isDarkBackgroundImage?: boolean;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
   locationDetails?: JSX.Element;
@@ -83,6 +87,7 @@ export const Hero = chakra(
           alt: "",
           src: "",
         },
+        isDarkBackgroundImage = false,
         locationDetails,
         subHeaderText,
       } = props;
@@ -153,6 +158,12 @@ export const Hero = chakra(
             "but the `'campaign'` `heroType` variant was not set. It will be ignored."
         );
       }
+      if (heroType !== "campaign" && isDarkBackgroundImage) {
+        console.warn(
+          "NYPL Reservoir Hero: The `isDarkBackgroundImage` prop has been passed, " +
+            "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+        );
+      }
 
       /** The _dark object in the theme file was overriding custom background
        * colors. To overcome this issue, the background color styles were moved
@@ -181,11 +192,52 @@ export const Hero = chakra(
       } else if (heroType === "secondary") {
         backgroundImageStyle = { bgColor: defaultBackgroundColor };
       } else if (heroType === "campaign") {
+        /**
+         * For better control of the background image in the "campaign" variant,
+         * the image and the associated styles were moved into the `:before`
+         * element.
+         */
+        const campaignBgStyles = {
+          content: `""`,
+          height: { base: "100%", md: "calc(100% - var(--nypl-space-xl))" },
+          minHeight: "300px",
+          paddingBottom: { base: "0", md: "xl" },
+          position: "absolute",
+          top: 0,
+          width: "100%",
+        };
         backgroundImageStyle = backgroundImageSrc
-          ? { backgroundImage: `url(${backgroundImageSrc})` }
+          ? {
+              _before: {
+                ...campaignBgStyles,
+                bgColor: "ui.black",
+              },
+              _after: {
+                ...campaignBgStyles,
+                backgroundBlendMode: isDarkBackgroundImage
+                  ? "saturation"
+                  : null,
+                backgroundImage: isDarkBackgroundImage
+                  ? `linear-gradient(black, black), url(${backgroundImageSrc})`
+                  : `url(${backgroundImageSrc})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                opacity: isDarkBackgroundImage ? "0.4" : "1.0",
+              },
+            }
           : backdropBackgroundColor
-          ? { bgColor: backdropBackgroundColor }
-          : { bgColor: allDefaultBackgroundColors["campaignBackdrop"] };
+          ? {
+              _before: {
+                ...campaignBgStyles,
+                bgColor: backdropBackgroundColor,
+              },
+            }
+          : {
+              _before: {
+                ...campaignBgStyles,
+                bgColor: allDefaultBackgroundColors["campaignBackdrop"],
+              },
+            };
       } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
         const tertiaryBgColor = backgroundColor
           ? backgroundColor
@@ -260,7 +312,10 @@ export const Hero = chakra(
           data-responsive-background-image
           style={backgroundImageSrc ? backgroundImageStyle : undefined}
           ref={ref}
-          __css={{ ...styles, ...backgroundImageStyle }}
+          __css={{
+            ...styles,
+            ...backgroundImageStyle,
+          }}
         >
           <Box
             data-testid="hero-content"

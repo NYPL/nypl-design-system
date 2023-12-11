@@ -168,16 +168,11 @@ const tertiary = {
 };
 const campaign = {
   alignItems: "center",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
   display: "flex",
   justifyContent: "center",
-  marginBottom: ["0", "0", "xxl"],
-  minHeight: "300px",
-  overflow: "visible",
   padding: {
     base: "inset.wide",
-    md: "0",
+    md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
   },
   position: "relative",
   content: {
@@ -190,10 +185,10 @@ const campaign = {
       lg: "row nowrap",
     },
     minHeight: "320px",
-    flex: { md: "0 0 90%" },
-    maxWidth: { md: "1280px" },
+    flex: { md: "0 100%" },
+    maxWidth: { md: "1248px" },
     position: { md: "relative" },
-    top: { md: "xxl" },
+    zIndex: 2,
     _dark: {
       color: "dark.ui.typography.body",
     },

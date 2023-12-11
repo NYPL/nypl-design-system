@@ -6,6 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
+import useDSHeading from "../../hooks/useDSHeading";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
@@ -27,8 +28,11 @@ interface BaseProps {
   id?: string;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   isCentered?: boolean;
-  /** Content to be rendered in a `NotificationHeading` component. */
-  notificationHeading?: string;
+  /** Optional content to be rendered in a `NotificationHeading` component. A
+   * string value is used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
+  notificationHeading?: string | JSX.Element;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
@@ -37,10 +41,7 @@ interface BaseProps {
 }
 
 // Used for `NotificationHeading`
-type NotificationHeadingProps = Omit<
-  BasePropsWithoutAlignText,
-  "notificationHeading" | "showIcon"
->;
+type NotificationHeadingProps = Omit<BasePropsWithoutAlignText, "showIcon">;
 // Used for `NotificationContent`
 type NotificationContentProps = Omit<BaseProps, "icon">;
 
@@ -74,21 +75,37 @@ export const NotificationHeading = chakra(
       isCentered,
       notificationType,
     });
+    // Only if a heading child was passed, then either render the string in the
+    // default NotificationHeading h4 with its default styles, or render the
+    // custom `Heading` or heading child with the `NotificationHeading` styles.
+    const title = children ? (
+      typeof children === "string" ? (
+        <Heading
+          id={`${id}-heading`}
+          level="h4"
+          noSpace
+          size="heading6"
+          __css={styles.heading}
+        >
+          {children}
+        </Heading>
+      ) : (
+        React.cloneElement(children as any, {
+          __css: styles.heading,
+          noSpace: true,
+          size: "heading6",
+        })
+      )
+    ) : undefined;
+    const finalTitle = useDSHeading({
+      title,
+      id,
+    });
 
     return (
       <Box as="header" __css={styles} {...rest}>
         {icon}
-        {children && (
-          <Heading
-            id={`${id}-heading`}
-            level="h4"
-            noSpace
-            size="heading6"
-            __css={styles.heading}
-          >
-            {children}
-          </Heading>
-        )}
+        {children && finalTitle}
       </Box>
     );
   }

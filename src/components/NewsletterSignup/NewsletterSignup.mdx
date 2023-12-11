@@ -12,13 +12,18 @@ import { changelogData } from "./newsletterSignupChangelogData";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `2.1.0`    |
-| Latest            | `2.1.0`    |
+| Latest            | `2.1.3`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#jsx-elements-passed-to-descriptiontext-prop">JSX Elements passed to descriptionText Prop</Link>}
+- {<Link href="#custom-title-heading" target="_self">Custom Title Heading</Link>}
+- {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
+- {<Link href="#interactive-example-with-onchange-and-onsubmit" target="_self">Interactive Example with onChange and onSubmit</Link>}
+- {<Link href="#component-states" target="_self">Component States</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -37,9 +42,10 @@ The `NewsletterSignup` component is a complex component built from various
 Reservoir DS and Chakra components.
 
 The `title` prop of the `NewsletterSignup` component expects a `HTML Element` or
-a `React Component`. By default it renderes a `h2` tag but it is the
-responsibility of the consuming app to pass the heading tag (`h*`) that aligns
-with the page structure and ensures accessibility.
+a `React Component`. By default it renders a `h2` tag with text of
+`"Sign Up for Our Newsletter"` but it is the responsibility of the consuming app
+to pass the heading tag (`h*`) that aligns with the page structure and ensures
+accessibility.
 
 Within the `NewsletterSignup` component, the DS `form` component wraps around
 two DS `FormField` components. Those`FormField` components hold a DS `TextInput`
@@ -71,6 +77,35 @@ responsible to assure its accessibility.
 _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 
 <Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
+
+## Custom Title Heading
+
+The optional `title` prop will render the `Newsletter`'s heading as an `h2`
+element (sized as an `h3`) by default with text `"Sign Up for Our Newsletter"`.
+When the `title` value is a string, the default heading will be an `h2` but not
+sized as an `h3`. It's possible that the `h2` element will not fit in an app's
+heading hierarchy. If this is the case,`title` can also take a `JSX.Element`
+type value.
+
+In the following example, the heading is an `h4` defined as:
+
+<Source
+  code={`
+// String Heading Example
+const stringHeading = "Custom string heading";
+// ...
+
+<NewsletterSignup title={stringHeading} {...otherArgs} />
+
+// JSX Heading Example
+
+const jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
+// ...
+
+<NewsletterSignup title={jsxHeading} {...otherArgs} />
+`} language="jsx" />
+
+<Canvas of={NewsletterSignupStories.CustomHeadings} />
 
 ## Form Submission Data
 

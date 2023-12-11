@@ -10,6 +10,33 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Accessibility", "Documentation"],
+    notes: [
+      "Updated the `title` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
+    ],
+  },
+  {
+    date: "2023-11-09",
+    version: "2.1.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the dark mode color variants for the `newsletterSignupType` prop.",
+    ],
+  },
+  {
+    date: "2023-10-26",
+    version: "2.1.1",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "New Feature",

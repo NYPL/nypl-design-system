@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import VideoPlayer, {
   VideoPlayerAspectRatiosArray,
@@ -73,6 +74,15 @@ export const WithControls: Story = {
 };
 
 // The following are additional VideoPlayer example Stories.
+export const WithCustomHeading: Story = {
+  render: () => (
+    <VideoPlayer
+      headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+      videoId="474719268"
+      videoType="vimeo"
+    />
+  ),
+};
 export const Errored: Story = {
   render: () => (
     <VideoPlayer videoId="https://vimeo.com/474719268" videoType="vimeo" />

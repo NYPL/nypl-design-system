@@ -10,8 +10,27 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Updated the "campaign" variant to improve the spacing around the component.',
+      "Added the `isDarkBackgroundImage` prop.",
+    ],
+  },
+  {
+    date: "2023-11-09",
+    version: "2.1.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Updated the layout for the "campaign" variant to have consistent padding on its left and right sides.',
+    ],
+  },
+  {
+    date: "2023-10-26",
+    version: "2.1.1",
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
