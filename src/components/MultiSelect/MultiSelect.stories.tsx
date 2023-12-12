@@ -102,6 +102,11 @@ const meta: Meta<typeof MultiSelect> = {
       control: 5,
     },
 
+    isSearchable: {
+      table: { defaultValue: { summary: "false" } },
+      control: false,
+    },
+
     onApply: {
       description:
         "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
@@ -183,6 +188,7 @@ const MultiSelectListboxStory = (args) => {
       isDefaultOpen={false}
       items={items}
       selectedItems={selectedItems}
+      isSearchable={true}
       onChange={(selectedItem) => {
         onChange(selectedItem.id, multiSelectId);
         setActionName("onChange");
@@ -218,6 +224,7 @@ const MultiSelectDialogStory = (args) => {
       {...args}
       items={items}
       isDefaultOpen={false}
+      isSearchable={true}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);

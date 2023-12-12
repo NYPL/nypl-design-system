@@ -239,27 +239,33 @@ export const MultiSelectDialog = chakra(
         setItemsList(list);
       };
 
+      const showSearchInputBox = () => {
+        if (isSearchable) {
+          return <TextInput
+            id="multi-select-text-input-id"
+            invalidText="This is error text :("
+            isClearable={true}
+            isClearableCallback={clearSearchKeyword}
+            isRequired
+            placeholder="Search for options"
+            onChange={handleSearchKeyword}
+            showHelperInvalidText={true}
+            showLabel
+            showRequiredLabel
+            step={1}
+            textInputType="default"
+            type="text"
+            __css={styles.menuInputText}
+            marginBottom="s"
+          />
+        }
+      }
+
       const displayAccordionData = () => {
         return (
           <>
             <Box>
-              <TextInput
-                id="multi-select-text-input-id"
-                invalidText="This is error text :("
-                isClearable={true}
-                isClearableCallback={clearSearchKeyword}
-                isRequired
-                placeholder="Search for options"
-                onChange={handleSearchKeyword}
-                showHelperInvalidText={true}
-                showLabel
-                showRequiredLabel
-                step={1}
-                textInputType="default"
-                type="text"
-                __css={styles.menuInputText}
-                marginBottom="s"
-              />
+              {showSearchInputBox()}
               {itemsNotFound()}
               <CheckboxGroup
                 id="multi-select-checkbox-group"
@@ -408,11 +414,17 @@ export const MultiSelectDialog = chakra(
             isOpen={isOpen}
             selectedItems={selectedItems}
             onClear={onClear}
-            width
           />
           <Accordion
             sx={{
-              button: styles.menuButton,
+              _first: {
+                "> div": {
+                  button: styles.menuButton,
+                  "> div": {
+                    button: {minWidth: "0px"},
+                  }
+                }
+              },
               "> div": {
                 _first: {
                   "> div": {
