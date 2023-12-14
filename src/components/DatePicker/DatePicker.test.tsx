@@ -152,7 +152,9 @@ describe("DatePicker", () => {
 
       const today = getTodaysDateDisplay("full");
 
-      expect(today).toBeInTheDocument();
+      const date = screen.getByDisplayValue(today);
+
+      expect(date).toBeInTheDocument();
     });
 
     it("should render the 'month' DatePicker type", () => {
