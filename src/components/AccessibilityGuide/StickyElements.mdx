@@ -1,0 +1,77 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Sticky Elements" />
+
+# Sticky Elements
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#implementation" target="_self">Implementation</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+**Edwin/Marty: Why do we use sticky headers or sticky elements in general?**
+
+Sighted keyboard users tab through a page to display more content and to access buttons and links.
+To return to the top of the page, keyboard users tab backwards. If the header on a page uses `position: sticky`,
+tabbing backwards moves the focused element underneath the header, so the user can no longer see where the focus is.
+A similar issue arises with users tabbing forwards against a sticky footer.
+
+The apparent solution would be using `scroll-margin-top` to snap-scroll the viewport to wherever the focused
+element is, but that's not supported on several major browsers.
+
+Instead, our approach uses a combination of CSS, HTML, and Typescript to check whether a focused element needs a sticky margin by
+dynamically calculating boundary interactions, then applies that margin (pushing page up) accordingly. This hook is called by a
+focus event on any page element or a ResizeObserver event on the sticky element.
+
+## Implementation
+
+This approach was first implemented with the Digital Collections header, using a [custom hook](https://github.com/NYPL/digital-collections/blob/ebb86fd722d9e70492cd37ebb7832a2aac7199f9/src/hooks/useScrolled.ts) on the header.
+This code can be modified to apply to any sticky element, alongside
+
+1. HTML data attributes on the sticky element, ex. `<header data-sticky-header> ... </header>`
+2. CSS: `position: sticky` on the sticky element
+
+`applyStickyMargin()` contains most of the logic, namely calculating boundary interactions between the sticky object
+and the focused object, then applying that margin accordingly:
+
+<Source
+  code={`
+const applyStickyMargin = (sticky) => {
+      // Specifying which element on the page is focused, if none then defaulting to body.
+      const focused = (document.activeElement || document.body) as HTMLElement;
+      let applicable = focused !== document.body;
+      if (applicable && sticky.header) {
+        applicable = !sticky.header.contains(focused);
+      }
+      // Calculating difference between the edge of the header and the focused element.
+      if (applicable) {
+        const edge = {
+          header: sticky.header
+            ? sticky.header.getBoundingClientRect().bottom + sticky.offset
+            : 0,
+        };
+        const diff = sticky.header
+          ? focused.getBoundingClientRect().top - edge.header
+          : 0;
+        // Then scrolls window by that difference (plus a little padding).
+        if (diff < 0) {
+          window.scrollBy(0, diff - 10);
+        }
+      }
+    };
+`}
+  language="tsx"
+/>
+
+**Do I need to step through the remainder of the hook, or is it enough to link it above?**
+
+## Resources
+
+- {<Link href="https://www.tpgi.com/prevent-focused-elements-from-being-obscured-by-sticky-headers/" target="_self">TPGi: Prevent focused elements from being obscured by sticky headers</Link>}
+
+This article is the source of our entire approach, and this guide is pretty much an abridged summary of this article. Additionally, the code given here is Javascript and includes more sticky elements like a footer.
