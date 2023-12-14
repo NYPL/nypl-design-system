@@ -186,8 +186,17 @@ export const OtherStates: Story = {
   ),
 };
 
-export const InitialDate: Story = {
-  render: () => (
+// Examples that use the `initialDate` and `initialDateTo` props and
+// also the `onChange` prop to show an empty input returns null.
+function InitialDateExample() {
+  const onChange = (data) => {
+    console.log({
+      startDate: data.startDate,
+      endDate: data.endDate,
+    });
+  };
+
+  return (
     <VStack align="stretch" spacing="s">
       <DatePicker
         id="init-dates"
@@ -207,6 +216,7 @@ export const InitialDate: Story = {
         initialDate=""
         initialDateTo=""
         isDateRange
+        onChange={onChange}
       />
       <Heading level="h3" size="heading6">
         Passing no initialDate renders today's date
@@ -218,7 +228,11 @@ export const InitialDate: Story = {
         isDateRange
       />
     </VStack>
-  ),
+  );
+}
+
+export const InitialDate: Story = {
+  render: () => InitialDateExample(),
 };
 
 export const Placeholder: Story = {
