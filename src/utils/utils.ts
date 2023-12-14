@@ -150,3 +150,12 @@ export const sanitizeStringForAttribute = (str: string) => {
   const sanitizedStr = str.replace(/[^a-z0-9]/gi, "-").toLowerCase();
   return sanitizedStr;
 };
+
+export const arrayToCommaList = (arr: []) => {
+  let newArray = [];
+  arr.forEach((val: string) => {
+    let item = `\`"${val}"\``;
+    newArray.push(item);
+  });
+  return newArray.join(", ");
+};

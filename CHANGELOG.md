@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
+
 ## 2.1.3 (December 7, 2023)
 
 ### Adds
