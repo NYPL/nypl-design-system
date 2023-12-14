@@ -114,7 +114,7 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(date)).toBeInTheDocument();
     });
 
-    it("should render with an initial date", () => {
+    it("should render with an initial date if a date is passed", () => {
       render(
         <DatePicker
           id="datePicker"
@@ -125,6 +125,34 @@ describe("DatePicker", () => {
       const date = screen.getByDisplayValue("1988-01-02");
 
       expect(date).toBeInTheDocument();
+    });
+
+    it("should render with an empty input if an empty string is passed as the initialDate", () => {
+      render(
+        <DatePicker
+          id="datePicker"
+          labelText="Select the full date you want to visit NYPL"
+          initialDate=""
+        />
+      );
+      const input = screen.getByLabelText(
+        "Select the full date you want to visit NYPL"
+      );
+
+      expect(input).toHaveValue("");
+    });
+
+    it("should render with today's date if no initialDate is passed", () => {
+      render(
+        <DatePicker
+          id="datePicker"
+          labelText="Select the full date you want to visit NYPL"
+        />
+      );
+
+      const today = getTodaysDateDisplay("full");
+
+      expect(today).toBeInTheDocument();
     });
 
     it("should render the 'month' DatePicker type", () => {
