@@ -45,6 +45,8 @@ export type {
   FullDateType,
 } from "./components/DatePicker/DatePicker";
 export { default as DSProvider } from "./theme/provider";
+export type { FeaturedContentProps } from "./components/FeaturedContent/FeaturedContent";
+export { default as FeaturedContent } from "./components/FeaturedContent/FeaturedContent";
 export {
   default as FeedbackBox,
   useFeedbackBox,
@@ -97,6 +99,8 @@ export { ModalTrigger, useModal } from "./components/Modal/Modal";
 // } from "./components/MultiSelect/MultiSelect";
 // export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 // export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
+export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
+export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
 export { default as Notification } from "./components/Notification/Notification";
 export type { NotificationTypes } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";

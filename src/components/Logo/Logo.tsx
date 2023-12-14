@@ -5,6 +5,7 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { DimensionTypes } from "../../helpers/types";
 
 import logoSvgs from "./LogoSvgs";
 import { logoNamesArray, logoSizesArray } from "./logoVariables";
@@ -24,6 +25,8 @@ export interface LogoProps {
   name?: LogoNames;
   /** Sets the logo size. */
   size?: LogoSizes;
+  /** Sets the logo size based on the width or height. Width by default. */
+  sizeBasedOn?: DimensionTypes;
   /** For accessibility purposes, the text passed in the `title` prop gets
    * rendered in a `title` element in the SVG. This descriptive text is not
    * visible but is needed for screenreaders to describe the graphic. */
@@ -46,11 +49,13 @@ export const Logo = chakra(
       id,
       name,
       size = "medium",
+      sizeBasedOn = "width",
       title = `${name} logo`,
       ...rest
     } = props;
     const styles = useStyleConfig("Logo", {
       size,
+      sizeBasedOn,
     });
     const logoProps = {
       "aria-hidden": decorative,

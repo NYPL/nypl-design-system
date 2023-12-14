@@ -1,7 +1,7 @@
-import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { As, Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Heading from "../Heading/Heading";
+import useDSHeading from "../../hooks/useDSHeading";
 
 export const listTypesArray = ["ol", "ul", "dl"] as const;
 export type ListTypes = typeof listTypesArray[number];
@@ -27,9 +27,10 @@ export interface ListProps {
   listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
-  /** An optional title that will appear over the list. This prop only applies
-   * to Description Lists. */
-  title?: string;
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in. This title only applies to
+   * to Description Lists and will render above the list. */
+  title?: string | JSX.Element;
   /** The type of list: "ol", "ul", or "dl". "ul" by default. */
   type: ListTypes;
 }
@@ -55,7 +56,16 @@ export const List = chakra(
       type = "ul",
       ...rest
     } = props;
-    const styles = useStyleConfig("List", { inline, noStyling, variant: type });
+    const styles = useMultiStyleConfig("List", {
+      inline,
+      noStyling,
+      variant: type,
+    });
+    const finalTitle = useDSHeading({
+      title,
+      id,
+      additionalStyles: styles.heading,
+    });
     let listElement = null;
 
     // Either li/dt/dd children elements must be passed or the `listItems`
@@ -149,7 +159,7 @@ export const List = chakra(
           __css={styles}
           {...rest}
         >
-          {title && <Heading id={`${id}-heading`}>{title}</Heading>}
+          {finalTitle}
           <dl>{listChildrenElms(type)}</dl>
         </Box>
       );

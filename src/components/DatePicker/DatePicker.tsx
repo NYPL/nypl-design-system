@@ -159,6 +159,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
 
     return (
       <TextInput
+        additionalAriaLabel="Press tab to access the calendar."
         helperText={helperText}
         id={id}
         invalidText={invalidText}
@@ -385,6 +386,7 @@ export const DatePicker = chakra(
         ...baseCustomTextInputAttrs,
         helperText: helperTextTo,
       };
+
       // These props are used to follow the pattern recommended by
       // the react-datepicker plugin.
       startDatePickerAttrs = {
@@ -407,6 +409,12 @@ export const DatePicker = chakra(
             <CustomTextInput
               dsRef={mergedEndDateRefs}
               labelText="To"
+              // `additionalHelperTextIds` is passed when both `helperTextTo`
+              // and `helperText` are displayed. It tells `TextInput` to associate
+              // with both helper texts using `aria-describedby`.
+              {...(helperTextTo && helperText
+                ? { additionalHelperTextIds: `${id}-helper-text` }
+                : {})}
               {...endCustomTextInputAttrs}
             />
           }
@@ -425,6 +433,12 @@ export const DatePicker = chakra(
           <CustomTextInput
             dsRef={mergedStartDateRefs}
             labelText={startLabelText}
+            // `additionalHelperTextIds` is passed when both `helperTextFrom`
+            // and `helperText` are displayed and tells `TextInput` to associate
+            // with both helper texts using `aria-describedby`.
+            {...(isDateRange && helperTextFrom && helperText
+              ? { additionalHelperTextIds: `${id}-helper-text` }
+              : {})}
             {...baseCustomTextInputAttrs}
           />
         }

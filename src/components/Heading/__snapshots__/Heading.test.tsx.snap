@@ -96,7 +96,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
   role="group"
 >
   <p
-    aria-roledescription="Overline"
+    aria-roledescription="Subtitle"
     className="chakra-text css-rwceap"
     role="paragraph"
   >
@@ -140,7 +140,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
   role="group"
 >
   <p
-    aria-roledescription="Overline"
+    aria-roledescription="Subtitle"
     className="chakra-text css-rwceap"
     role="paragraph"
   >

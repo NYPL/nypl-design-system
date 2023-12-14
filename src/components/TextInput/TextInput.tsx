@@ -16,6 +16,65 @@ import { getAriaAttrs } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
+export const autoCompleteValuesArray = [
+  "on",
+  "off",
+  "additional-name",
+  "address-level1",
+  "address-level2",
+  "address-level3",
+  "address-level4",
+  "address-line1",
+  "address-line2",
+  "address-line3",
+  "bday-day",
+  "bday-month",
+  "bday-year",
+  "bday",
+  "cc-additional-name",
+  "cc-csc",
+  "cc-exp-month",
+  "cc-exp-year",
+  "cc-exp",
+  "cc-family-name",
+  "cc-given-name",
+  "cc-name",
+  "cc-number",
+  "cc-type",
+  "country-name",
+  "country",
+  "current-password",
+  "email",
+  "family-name",
+  "given-name",
+  "honorific-prefix",
+  "honorific-suffix",
+  "impp",
+  "language",
+  "name",
+  "new-password",
+  "nickname",
+  "organization-title",
+  "organization",
+  "photo",
+  "postal-code",
+  "sex",
+  "street-address",
+  "tel-area-code",
+  "tel-country-code",
+  "tel-extension",
+  "tel-local-prefix",
+  "tel-local-suffix",
+  "tel-local",
+  "tel-national",
+  "tel",
+  "transaction-amount",
+  "transaction-currency",
+  "url",
+  "username",
+] as const;
+export type AutoCompleteValues = typeof autoCompleteValuesArray[number];
+
 export const textInputTypesArray = [
   "email",
   "hidden",
@@ -44,6 +103,13 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
+  /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
+  additionalAriaLabel?: string;
+  /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
+   * If more than one, separate each with a space */
+  additionalHelperTextIds?: string;
+  /** String value used to set the autocomplete attribute. */
+  autoComplete?: AutoCompleteValues;
   /** A class name for the TextInput parent div. */
   className?: string;
   /** The starting value of the input field. */
@@ -126,6 +192,9 @@ export const TextInput = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
+        additionalAriaLabel,
+        additionalHelperTextIds,
+        autoComplete,
         className,
         defaultValue,
         helperText,
@@ -167,7 +236,7 @@ export const TextInput = chakra(
       });
       const isTextArea = type === "textarea";
       const isHidden = type === "hidden";
-      let hasAutocomplete = false;
+      let hasAutocomplete = autoComplete ? true : false;
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -196,10 +265,12 @@ export const TextInput = chakra(
       }
 
       const ariaAttributes = getAriaAttrs({
+        additionalAriaLabel,
         footnote,
         id,
         labelText,
         name: "TextInput",
+        additionalHelperTextIds,
         showLabel,
       });
 
@@ -238,7 +309,16 @@ export const TextInput = chakra(
           }
         : {
             "aria-required": isRequired,
-            autoComplete: hasAutocomplete ? type : null,
+            /** If the `autoComplete` prop is passed, that value will take
+             * precedence and will be used here. Otherwise, a value will be set
+             * based on the `type` prop. Lastly, if `autoComplete` is not passed
+             * and a default value is not set based on the `type` prop, then
+             * `autoComplete` will not be set for the input. */
+            autoComplete: hasAutocomplete
+              ? autoComplete
+                ? autoComplete
+                : type
+              : null,
             defaultValue,
             id,
             isDisabled,
@@ -256,8 +336,8 @@ export const TextInput = chakra(
             ref: finalRef,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
-            ...ariaAttributes,
             ...rest,
+            ...ariaAttributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
       // also needs `type` and `value` to render correctly.

@@ -9,6 +9,7 @@ import Image, {
   imageTypesArray,
 } from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
+import { dimensionTypeArray } from "../../helpers/types";
 
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
@@ -43,6 +44,11 @@ const meta: Meta<typeof Image> = {
       options: imageSizesArray,
       table: { defaultValue: { summary: "default" } },
     },
+    sizeBasedOn: {
+      control: { type: "radio" },
+      options: dimensionTypeArray,
+      table: { defaultValue: { summary: "width" } },
+    },
     src: {
       description:
         "The src attribute is required, and contains the path to the image you want to embed.",
@@ -53,6 +59,66 @@ const meta: Meta<typeof Image> = {
 export default meta;
 type Story = StoryObj<typeof Image>;
 
+const imageRow = (opts: any = {}) => {
+  // We'll use this setup function to render all the images in a list item.
+  // Some images display better with a dark background.
+  const styles: any = { textAlign: "center" };
+  const { size = "large", displayValue, sizeBasedOn = "width", id } = opts;
+  if (sizeBasedOn === "width" && size === "default") {
+    styles.width = "100%";
+  } else if (sizeBasedOn === "height" && size === "default") {
+    styles.width = "100%";
+    styles.height = "100%";
+  }
+
+  return (
+    <Box style={styles} key={id}>
+      <Heading id={id} level="h4" size="heading6" text={size} />
+      <Image
+        alt="Alt text"
+        caption={displayValue}
+        size={size}
+        sizeBasedOn={sizeBasedOn}
+        src="//placekitten.com/400/300"
+      />
+    </Box>
+  );
+};
+
+const allVStack = (items) => {
+  return <VStack spacing="l">{items}</VStack>;
+};
+
+const imageSizeValues = [
+  { size: "xxxsmall", display: "32px", id: "ExtraExtraExtraSmall" },
+  { size: "xxsmall", display: "64px", id: "ExtraExtraSmall" },
+  { size: "xsmall", display: "96px", id: "ExtraSmall" },
+  { size: "small", display: "165px", id: "Small" },
+  { size: "medium", display: "225px", id: "Medium" },
+  { size: "large", display: "360px", id: "Large" },
+  { size: "default", display: "100%", id: "Default" },
+];
+
+const sizes = [];
+const sizesBasedOnHeight = [];
+
+for (const imageValue of imageSizeValues) {
+  sizes.push(
+    imageRow({
+      size: imageValue.size,
+      displayValue: imageValue.display,
+      id: `${imageValue.id}-width`,
+    })
+  );
+  sizesBasedOnHeight.push(
+    imageRow({
+      size: imageValue.size,
+      displayValue: imageValue.display,
+      id: `${imageValue.id}-height`,
+      sizeBasedOn: "height",
+    })
+  );
+}
 /**
  * Main Story for the Image component. This must contains the `args`
  * and `parameters` properties in this object.
@@ -70,6 +136,7 @@ export const WithControls: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
+    sizeBasedOn: "width",
     src: "//placekitten.com/400/300",
   },
   render: (args) => <Image {...args} />,
@@ -105,78 +172,10 @@ export const FigureAndFigcaption: Story = {
   render: (args) => <Image {...args} />,
 };
 export const Sizes: Story = {
-  render: () => (
-    <VStack spacing="l">
-      <Box textAlign="center">
-        <Heading
-          id="ExtraExtraExtraSmall"
-          level="h4"
-          size="heading6"
-          text="xxxsmall"
-        />
-        <Image
-          alt="Alt text"
-          caption="32px"
-          size="xxxsmall"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center">
-        <Heading
-          id="ExtraExtraSmall"
-          level="h4"
-          size="heading6"
-          text="xxsmall"
-        />
-        <Image
-          alt="Alt text"
-          caption="64px"
-          size="xxsmall"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center">
-        <Heading id="ExtraSmall" level="h4" size="heading6" text="xsmall" />
-        <Image
-          alt="Alt text"
-          caption="96px"
-          size="xsmall"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center">
-        <Heading id="Small" level="h4" size="heading6" text="small" />
-        <Image
-          alt="Alt text"
-          caption="165px"
-          size="small"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center">
-        <Heading id="Medium" level="h4" size="heading6" text="medium" />
-        <Image
-          alt="Alt text"
-          caption="225px"
-          size="medium"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center">
-        <Heading id="Large" level="h4" size="heading6" text="large" />
-        <Image
-          alt="Alt text"
-          caption="360px"
-          size="large"
-          src="//placekitten.com/400/300"
-        />
-      </Box>
-      <Box textAlign="center" width="100%">
-        <Heading id="Default" level="h4" size="heading6" text="default" />
-        <Image alt="Alt text" caption="100%" src="//placekitten.com/400/300" />
-      </Box>
-    </VStack>
-  ),
+  render: () => allVStack(sizes),
+};
+export const SizesBasedOnHeight: Story = {
+  render: () => allVStack(sizesBasedOnHeight),
 };
 
 const imageBlockStyles = {

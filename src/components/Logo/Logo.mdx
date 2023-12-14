@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-
+import { changelogData } from "./logoChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as LogoStories from "./Logo.stories";
 import Link from "../Link/Link";
 
@@ -10,7 +11,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `1.5.2`    |
+| Latest            | `2.1.3`    |
 
 ## Table of Contents
 
@@ -20,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#sizes" target="_self">Sizes</Link>}
 - {<Link href="#all-logos" target="_self">All Logos</Link>}
 - {<Link href="#custom-logos" target="_self">Custom Logos</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -59,6 +61,10 @@ from the `LogoSizes` type. The values are `"default"`, `"xxsmall"`, `"xsmall"`,
 Note: `"default"` sets the width to `100%` and the rendered logo will expand to
 fill the full width of the parent element.
 
+In addition, the `sizeBasedOn` prop can be passed to determine whether the size
+of the `Logo` is updated based on either the `"height"` or `"width"`. By default,
+the `sizeBasedOn` prop is set to `"width"`.
+
 <Source
   code={`
 // Example
@@ -68,6 +74,16 @@ fill the full width of the parent element.
 />
 
 <Canvas of={LogoStories.Sizes} />
+
+<Source
+  code={`
+// Example
+<Logo name="nyplFullBlack" size="large" sizeBasedOn="height" />
+`}
+  language="jsx"
+/>
+
+<Canvas of={LogoStories.SizesBasedOnHeight} />
 
 ## All Logos
 
@@ -118,3 +134,7 @@ child to the `Logo` component.
 />
 
 <Canvas of={LogoStories.CustomLogos} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -254,8 +254,8 @@ const typography: Typography = {
       overline2: fontWeightValues["semibold"],
     },
     subtitle: {
-      subtitle1: fontWeightValues["medium"],
-      subtitle2: fontWeightValues["medium"],
+      subtitle1: fontWeightValues["regular"],
+      subtitle2: fontWeightValues["regular"],
     },
     text: {
       default: fontWeightValues["light"],
