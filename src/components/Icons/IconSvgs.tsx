@@ -3,6 +3,7 @@ import { ReactComponent as accessibilityFull } from "../../../icons/svg/accessib
 import { ReactComponent as accessibilityPartial } from "../../../icons/svg/accessibility-partial.svg";
 import { ReactComponent as actionCheckCircle } from "../../../icons/svg/action-check-circle.svg";
 import { ReactComponent as actionCheckCircleFilled } from "../../../icons/svg/action-check-circle-filled.svg";
+import { ReactComponent as actionDelete } from "../../../icons/svg/action-delete.svg";
 import { ReactComponent as actionExit } from "../../../icons/svg/action-exit.svg";
 import { ReactComponent as actionHelpDefault } from "../../../icons/svg/action-help-default.svg";
 import { ReactComponent as actionHelpOutline } from "../../../icons/svg/action-help-outline.svg";
@@ -75,6 +76,7 @@ export default {
   accessibilityPartial,
   actionCheckCircle,
   actionCheckCircleFilled,
+  actionDelete,
   actionExit,
   actionHelpDefault,
   actionHelpOutline,

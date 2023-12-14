@@ -41,6 +41,7 @@ export const iconNamesArray = [
   "accessibilityPartial",
   "actionCheckCircle",
   "actionCheckCircleFilled",
+  "actionDelete",
   "actionExit",
   "actionHelpDefault",
   "actionHelpOutline",
