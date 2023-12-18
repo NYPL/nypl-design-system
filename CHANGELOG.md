@@ -8,7 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
+### Adds
+
+- Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
+
+### Updates
+
+- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
 
 ## 2.1.3 (December 7, 2023)
 
@@ -18,7 +24,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
 - Adds the `sizeBasedOn` prop to the `Image` component.
 - Adds the `isDarkBackgroundImage` prop to the `Hero` component.
-- Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
 
 ### Updates
 
@@ -32,8 +37,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FeaturedContent` component by adjusting the spacing in the `"fullScreen"` variant to better align the component text content with the page text content.
 - Updates the `"campaign"` variant of the `Hero` component to improve the spacing around the component.
 - Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
-- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
-
 
 ## Fixes
 
