@@ -54,7 +54,7 @@ export interface RadioProps {
 
 export const Radio: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<RadioProps> & React.RefAttributes<HTMLSelectElement>
+    React.PropsWithChildren<RadioProps> & React.RefAttributes<HTMLInputElement>
   >,
   React.PropsWithChildren<RadioProps>
 > = chakra(
