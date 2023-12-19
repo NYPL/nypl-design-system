@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
+
 ### Adds
 
 - Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
