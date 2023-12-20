@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./searchBarChangelogData";
 
 import * as SearchBarStories from "./SearchBar.stories";
 import Link from "../Link/Link";
@@ -22,6 +24,7 @@ import Link from "../Link/Link";
 - {<Link href="#form-states" target="_self">Form States</Link>}
 - {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
 - {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -351,3 +354,7 @@ export function SearchBarValueExample() {
 />
 
 <Canvas of={SearchBarStories.SearchBarValueExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
