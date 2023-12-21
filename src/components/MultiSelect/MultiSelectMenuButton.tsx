@@ -31,7 +31,7 @@ export interface MultiSelectMenuButtonProps {
 const MultiSelectMenuButton = forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
->((props) => {
+>((props, _ref) => {
   const {
     isOpen,
     multiSelectId,
@@ -51,38 +51,29 @@ const MultiSelectMenuButton = forwardRef<
 
   const styles = useMultiStyleConfig("MultiSelectMenuButton", {
     isOpen,
-    hasSelectedItems:
-      getSelectedItemsCount === undefined ? 0 : getSelectedItemsCount,
+    hasSelectedItems: getSelectedItemsCount,
   });
 
-  return (
-    <>
-      {getSelectedItemsCount && (
-        <>
-          <Button
-            id="multo-select-button"
-            buttonType="pill"
-            size="small"
-            aria-label={selectedItemsAriaLabel}
-            onClick={() => {
-              onClear();
-            }}
-            __css={styles.selectedItemsCountButton}
-          >
-            {getSelectedItemsCount}
-            <Icon
-              align="right"
-              id={`ms-${multiSelectId}-selected-items-count-icon`}
-              marginLeft="xs"
-              name="close"
-              size="xsmall"
-              title="Remove selected items"
-            />
-          </Button>
-        </>
-      )}
-    </>
-  );
+  return getSelectedItemsCount ? ( <Button
+    id="multo-select-button"
+    buttonType="pill"
+    size="small"
+    aria-label={selectedItemsAriaLabel}
+    onClick={() => {
+      onClear();
+    }}
+    __css={styles.selectedItemsCountButton}
+  >
+    {getSelectedItemsCount}
+    <Icon
+      align="right"
+      id={`ms-${multiSelectId}-selected-items-count-icon`}
+      marginLeft="xs"
+      name="close"
+      size="xsmall"
+      title="Remove selected items"
+    />
+  </Button> ) : null;
 });
 
 export default MultiSelectMenuButton;

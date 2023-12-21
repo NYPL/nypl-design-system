@@ -14,7 +14,7 @@ import Icon from "../Icons/Icon";
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
-  label: string;
+  label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
 export interface AccordionProps {

@@ -27,13 +27,13 @@ import Link from "../Link/Link";
 
 <Description of={MultiSelectStories} />
 
-## Component Props for MultiSelect Listbox
+<!-- ## Component Props for MultiSelect Listbox
 
 The `MultiSelect` listbox renders a non-hierarchical list of items to select from.
 
 <Canvas of={MultiSelectStories.ListboxControls} />
 
-<ArgTypes of={MultiSelectStories.ListboxControls} />
+<ArgTypes of={MultiSelectStories.ListboxControls} /> -->
 
 ## Component Props for MultiSelect Dialog
 
