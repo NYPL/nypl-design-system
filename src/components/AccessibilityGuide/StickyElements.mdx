@@ -32,7 +32,7 @@ If you absolutely have to use a sticky element on a page, consider the following
 - Is it hiding focused elements?
 
 The solution presented below only addresses the _last_ of these concerns: preventing a sticky
-header from hiding focused elements. For the Digital Collections site, we chose to accept the shortcomings of the sticky header
+header from hiding focused elements. For the new Digital Collections site, we chose to accept the shortcomings of the sticky header
 to maintain parity with the experience and feel of the old site.
 
 ## Implementation
@@ -61,9 +61,9 @@ The hook first defines the `sticky` object:
 <Source
   code={`
 let sticky: {
-header?: HTMLElement | null;
-// Could have 'footer' as well here, for example.
-offset?: number;
+  header?: HTMLElement | null;
+  // Could have 'footer' as well here, for example.
+  offset?: number;
 } = {};
 `}
 />
@@ -72,27 +72,23 @@ between the sticky object and the focused object, then applying that margin acco
 <Source
   code={`
 const applyStickyMargin = (sticky) => {
-// Specifying which element on the page is focused, if none then defaulting to body.
-const focused = (document.activeElement || document.body) as HTMLElement;
-let applicable = focused !== document.body;
-if (applicable && sticky.header) {
-applicable = !sticky.header.contains(focused);
-}
-// Calculating difference between the edge of the header and the focused element.
-if (applicable) {
-const edge = {
-header: sticky.header
-? sticky.header.getBoundingClientRect().bottom + sticky.offset
-: 0,
-};
-const diff = sticky.header
-? focused.getBoundingClientRect().top - edge.header
-: 0;
-// Then scrolls window by that difference (plus a little padding).
-if (diff < 0) {
-window.scrollBy(0, diff - 10);
-}
-}
+  // Specifying which element on the page is focused, if none then defaulting to body.
+  const focused = (document.activeElement || document.body) as HTMLElement;
+  let applicable = focused !== document.body;
+  if (applicable && sticky.header) {
+    applicable = !sticky.header.contains(focused);
+  }
+  // Calculating difference between the edge of the header and the focused element.
+  if (applicable) {
+    const edge = {
+      header: sticky.header ? sticky.header.getBoundingClientRect().bottom + sticky.offset : 0,
+    };
+    const diff = sticky.header ? focused.getBoundingClientRect().top - edge.header : 0;
+  // Then scrolls window by that difference (plus a little padding).
+    if (diff < 0) {
+      window.scrollBy(0, diff - 10);
+    }
+  }
 };
 `}
   language="tsx"
