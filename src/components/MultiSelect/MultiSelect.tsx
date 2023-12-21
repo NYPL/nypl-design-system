@@ -1,9 +1,5 @@
 import React, { useRef, useState, forwardRef } from "react";
-import {
-  Box,
-  chakra,
-  useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Accordion from "./../Accordion/Accordion";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
@@ -63,40 +59,25 @@ export const MultiSelect = chakra(
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState("275px");
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
-      //const [prevIsOpen, setPrevIsOpen] = React.useState(isDropDownOpen);     
-        
-      // React.useEffect(() => {
-      //   if (listOverflow === "scroll") {
-      //     setListHeight("275px");
-      //   } else if (listOverflow === "expand"){
-      //     setListHeight("");
-      //     if (listItemsCount === defaultItemsVisible) {
-      //       displayDefaultItems();
-      //     } else {
-      //       setItemsList(items);
-      //       setViewAllLabel("View less");
-      //     }
-      //   }
-      // }, [listHeight, viewAllLabel, listItemsCount]);
-
+      //const [prevIsOpen, setPrevIsOpen] = React.useState(isDropDownOpen);
 
       // Separate effect for handling listOverflow "scroll"
       React.useEffect(() => {
-        if (listOverflow === 'scroll') {
-          setListHeight('275px');
+        if (listOverflow === "scroll") {
+          setListHeight("275px");
           setItemsList(items);
         }
       }, [listOverflow, items]);
 
       // Separate effect for handling listOverflow "expand"
       React.useEffect(() => {
-        if (listOverflow === 'expand') {
-          setListHeight('');
+        if (listOverflow === "expand") {
+          setListHeight("");
           if (listItemsCount === defaultItemsVisible) {
             displayDefaultItems();
           } else {
             setItemsList(items);
-            setViewAllLabel('View less');
+            setViewAllLabel("View less");
           }
         }
       }, [listOverflow, listItemsCount, items, defaultItemsVisible]);
@@ -118,10 +99,9 @@ export const MultiSelect = chakra(
       // Create a ref that we add to the element for which we want to detect outside clicks.
       const internalRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
-      
+
       // Custom Hook, Closes the MultiSelect if user clicks outside.
       function useOnClickOutside(ref, handler) {
-
         React.useEffect(() => {
           const listener = (event) => {
             // Do nothing if clicking ref's element or descendent elements
@@ -145,15 +125,13 @@ export const MultiSelect = chakra(
       // Merge internal ref with the ref passed through the chakra function.
       // const mergedRefs = useMergeRefs(internalRef, ref);
 
-
       // Manage focus upon closing the MultiSelect
       React.useEffect(() => {
         if (isDropDownOpen) {
-          console.log(internalRef.current)
           //internalRef.current?.click();
         }
       }, [isDropDownOpen]);
-     
+
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
         if (selectedItems[multiSelectId]) {
           return !!selectedItems[multiSelectId].items.find(
@@ -228,8 +206,8 @@ export const MultiSelect = chakra(
           setItemsList(items);
         } else {
           listItemsCount === defaultItemsVisible
-          ? displayDefaultItems()
-          : setItemsList(items);
+            ? displayDefaultItems()
+            : setItemsList(items);
         }
       };
 
@@ -246,13 +224,16 @@ export const MultiSelect = chakra(
             // if (!showChilds && !showIndeterminateChilds) {
             //   currentItem.children = currentItem.children.slice(0, defaultItemsVisible - count);
             // }
-      
+
             // if (currentItem.children.length === 0 && (!showChilds && !showIndeterminateChilds)) {
             //   delete currentItem.children; // Delete the children property to hide it
             // }
-            count += (!showChilds || !showIndeterminateChilds) ? currentItem.children?.length : items[i].children.length;
+            count +=
+              !showChilds || !showIndeterminateChilds
+                ? currentItem.children?.length
+                : items[i].children.length;
           }
-          
+
           list.push(currentItem);
           if (count >= defaultItemsVisible) {
             break;
@@ -318,7 +299,7 @@ export const MultiSelect = chakra(
                                 onChange: onChange,
                               })}
                         />
-                        
+
                         {item.children.map((childItem) => (
                           <Checkbox
                             key={childItem.id}
@@ -406,11 +387,7 @@ export const MultiSelect = chakra(
       };
 
       return (
-        <Box
-          id={id}
-          __css={styles}
-          {...rest}
-        >
+        <Box id={id} __css={styles} {...rest}>
           <MultiSelectMenuButton
             id={`ms-${id}-menu-button`}
             multiSelectId={id}

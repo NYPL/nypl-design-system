@@ -54,26 +54,28 @@ const MultiSelectMenuButton = forwardRef<
     hasSelectedItems: getSelectedItemsCount,
   });
 
-  return getSelectedItemsCount ? ( <Button
-    id="multo-select-button"
-    buttonType="pill"
-    size="small"
-    aria-label={selectedItemsAriaLabel}
-    onClick={() => {
-      onClear();
-    }}
-    __css={styles.selectedItemsCountButton}
-  >
-    {getSelectedItemsCount}
-    <Icon
-      align="right"
-      id={`ms-${multiSelectId}-selected-items-count-icon`}
-      marginLeft="xs"
-      name="close"
-      size="xsmall"
-      title="Remove selected items"
-    />
-  </Button> ) : null;
+  return getSelectedItemsCount ? (
+    <Button
+      id="multo-select-button"
+      buttonType="pill"
+      size="small"
+      aria-label={selectedItemsAriaLabel}
+      onClick={() => {
+        onClear();
+      }}
+      __css={styles.selectedItemsCountButton}
+    >
+      {getSelectedItemsCount}
+      <Icon
+        align="right"
+        id={`ms-${multiSelectId}-selected-items-count-icon`}
+        marginLeft="xs"
+        name="close"
+        size="xsmall"
+        title="Remove selected items"
+      />
+    </Button>
+  ) : null;
 });
 
 export default MultiSelectMenuButton;

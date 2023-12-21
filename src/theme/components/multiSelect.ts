@@ -1,12 +1,12 @@
 export const multiSelectWidths = {
   fitContent: {
-    width: 'fit-content',
+    width: "fit-content",
     minWidth: {
       md: "175px",
     },
     maxWidth: {
       md: "200px",
-    },      
+    },
   },
   full: {
     width: "100%",
@@ -21,8 +21,8 @@ const MultiSelect = {
     "menuButton",
     "menuContainer",
     "menuChildren",
-    'viewAllButton',
-    'accordian',
+    "viewAllButton",
+    "accordian",
   ],
   baseStyle: ({ isBlockElement, isOpen, width = "full" }) => ({
     ...multiSelectWidths[width],
@@ -36,8 +36,8 @@ const MultiSelect = {
       width: "auto",
     },
     menuButton: {
-      minWidth: width === 'full'? '100%': '175px',
-      width: width === 'full'? '100%' : 'fit-content',
+      minWidth: width === "full" ? "100%" : "175px",
+      width: width === "full" ? "100%" : "fit-content",
     },
     menuContainer: {
       backgroundColor: "white",
@@ -135,11 +135,11 @@ const MultiSelect = {
     },
     buttonTextLabel: {
       marginBottom: 0,
-      whiteSpace: 'nowrap',
-      width: '70px',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      marginLeft: 54
+      whiteSpace: "nowrap",
+      width: "70px",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      marginLeft: 54,
     },
     menuSearchInputBox: {
       input: {
@@ -147,10 +147,10 @@ const MultiSelect = {
         border: "none",
       },
       button: {
-        width: width === 'full'? '100%' : 'fit-content',
+        width: width === "full" ? "100%" : "fit-content",
       },
       minWidth: {
-        md: width === 'full'? '100%': '175px',
+        md: width === "full" ? "100%" : "175px",
       },
       maxWidth: {
         md: "200px",
@@ -161,8 +161,8 @@ const MultiSelect = {
         "> div": {
           button: {
             background: "ui.link.primary-05",
-            minWidth: width === 'full' ? '100%' : '175px',
-            width: width === 'full' ? '100%' : 'fit-content',
+            minWidth: width === "full" ? "100%" : "175px",
+            width: width === "full" ? "100%" : "fit-content",
           },
           "> div": {
             button: { minWidth: "0px" },
@@ -173,14 +173,14 @@ const MultiSelect = {
         _first: {
           "> div": {
             _first: {
-              minWidth: width === 'full' ? "100%" : "200px",
-              maxWidth: width === 'full' ? "100%" : "300px",
+              minWidth: width === "full" ? "100%" : "200px",
+              maxWidth: width === "full" ? "100%" : "300px",
               borderTopWidth: "0.5px",
             },
           },
         },
       },
-    }
+    },
   }),
 };
 
