@@ -1,10 +1,9 @@
-import React, { useRef, useState, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Accordion from "./../Accordion/Accordion";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import Checkbox from "./../Checkbox/Checkbox";
-import useCloseDropDown from "../../hooks/useCloseDropDown";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import TextInput from "../TextInput/TextInput";
 
@@ -55,11 +54,9 @@ export const MultiSelect = chakra(
       // Control the open or closed state of the MultiSelect.
       const [isOpen] = useState(isDefaultOpen);
       const [itemsList, setItemsList] = useState(items);
-      const [isDropDownOpen, setIsDropDownOpen] = useState(isDefaultOpen);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState("275px");
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
-      //const [prevIsOpen, setPrevIsOpen] = React.useState(isDropDownOpen);
 
       // Separate effect for handling listOverflow "scroll"
       React.useEffect(() => {
@@ -93,44 +90,7 @@ export const MultiSelect = chakra(
         isBlockElement,
         isOpen,
         hasSelectedItems: getSelectedItemsCount,
-        isDropDownOpen,
       });
-
-      // Create a ref that we add to the element for which we want to detect outside clicks.
-      const internalRef: React.RefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>();
-
-      // Custom Hook, Closes the MultiSelect if user clicks outside.
-      function useOnClickOutside(ref, handler) {
-        React.useEffect(() => {
-          const listener = (event) => {
-            // Do nothing if clicking ref's element or descendent elements
-            if (!ref.current || ref.current.contains(event.target)) {
-              return;
-            }
-            handler(event);
-          };
-          document.addEventListener("mousedown", listener);
-          document.addEventListener("touchstart", listener);
-          return () => {
-            document.removeEventListener("mousedown", listener);
-            document.removeEventListener("touchstart", listener);
-          };
-        }, [ref, handler]);
-      }
-
-      useOnClickOutside(internalRef, () => setIsDropDownOpen(false));
-      // Hook to close Dialog on ESC key storke
-      useCloseDropDown(() => setIsDropDownOpen(true), internalRef);
-      // Merge internal ref with the ref passed through the chakra function.
-      // const mergedRefs = useMergeRefs(internalRef, ref);
-
-      // Manage focus upon closing the MultiSelect
-      React.useEffect(() => {
-        if (isDropDownOpen) {
-          //internalRef.current?.click();
-        }
-      }, [isDropDownOpen]);
 
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
         if (selectedItems[multiSelectId]) {
@@ -221,13 +181,6 @@ export const MultiSelect = chakra(
           if (currentItem.children) {
             const showChilds = isAllChecked(id, currentItem);
             const showIndeterminateChilds = isIndeterminate(id, currentItem);
-            // if (!showChilds && !showIndeterminateChilds) {
-            //   currentItem.children = currentItem.children.slice(0, defaultItemsVisible - count);
-            // }
-
-            // if (currentItem.children.length === 0 && (!showChilds && !showIndeterminateChilds)) {
-            //   delete currentItem.children; // Delete the children property to hide it
-            // }
             count +=
               !showChilds || !showIndeterminateChilds
                 ? currentItem.children?.length
@@ -408,7 +361,6 @@ export const MultiSelect = chakra(
             panelMaxHeight={listHeight}
             isAlwaysRendered
             id="multi-select-accordion-id"
-            buttonRef={internalRef}
           />
         </Box>
       );
