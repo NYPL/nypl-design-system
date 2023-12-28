@@ -10,16 +10,16 @@ import {
 import * as IconStories from "./Icon.stories";
 import { changelogData } from "./iconChangelogData";
 import Link from "../Link/Link";
-import { arrayToCommaList } from "../../utils/utils";
+import List from "../List/List";
 
 <Meta of={IconStories} />
 
 # Icon
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `1.7.3`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -65,7 +65,8 @@ Resources:
 
 Passing an `iconRotation` prop with a value from `IconRotations` allows
 the icon to be rotated when it is rendered. The values are:
-{ arrayToCommaList(iconRotationsArray) }.
+
+{<List type="ul" listItems={iconRotationsArray} />}
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
@@ -83,7 +84,9 @@ Note: All of the examples below have been rendered with the `size` prop set to
 ## Colors
 
 Update an SVG icon by passing a `color` prop with a value from the `IconColors`
-type. The values are: { arrayToCommaList(iconColorsArray) }.
+type. The values are:
+
+{<List type="ul" listItems={iconColorsArray.sort()} />}
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
@@ -101,7 +104,9 @@ Note: All of the examples below have been rendered with the `size` prop set to
 ## Sizes
 
 Update an SVG icon by passing a `size` prop with a value from `IconSizes`. The
-values are: { arrayToCommaList(iconSizesArray) }.
+values are:
+
+{<List type="ul" listItems={iconSizesArray} />}
 
 Note: `"default"` sets the width to `100%` and the rendered icon will expand to
 fill the full width of the parent element.
@@ -119,7 +124,9 @@ fill the full width of the parent element.
 ## All Icons
 
 The following icons are for generic purposes. All the available icon names can
-be found in the `IconNames` type. They are: { arrayToCommaList(iconNamesArray) }
+be found in the `IconNames` type. The values are:
+
+{<List type="ul" listItems={iconNamesArray.sort()} />}
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
