@@ -189,12 +189,18 @@ const campaign = {
     maxWidth: { md: "1248px" },
     position: { md: "relative" },
     zIndex: 2,
+    ".chakra-heading": {
+      color: "ui.typography.inverse.heading",
+    },
     _dark: {
       color: "dark.ui.typography.body",
+      ".chakra-heading": {
+        color: "dark.ui.typography.heading",
+      },
     },
   },
   heading: {
-    color: "dark.ui.typography.heading",
+    color: "ui.typography.inverse.heading",
   },
   a: {
     color: "inherit",

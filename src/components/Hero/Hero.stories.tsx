@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Stack, useColorModeValue } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -24,16 +24,28 @@ const deprecatedMessage = (
 );
 const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+const CustomHeadingColors = () => {
+  const c = useColorModeValue("brown", "yellow");
+  return c;
+};
 const otherSubHeaderTextLong = (
   <>
     <Heading
       level="h2"
       size="heading3"
       subtitle="Lorem Parturient Bibendum Aenean Cras"
+      __css={{ color: "magenta", _dark: { color: "yellow" } }}
     >
       Subheading
     </Heading>
-    <Heading level="h3" noSpace size="heading6">
+    <Heading
+      level="h3"
+      noSpace
+      size="heading6"
+      color="red"
+      // sx={{ color: "red" }}
+      // color={CustomHeadingColors()}
+    >
       Subheading
     </Heading>
     <Text>
@@ -356,9 +368,11 @@ export const CampaignBackgroundColors: Story = {
           heroType="campaign"
           heading={
             <Heading
+              color={CustomHeadingColors()}
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
+              __css={{ _dark: "red" }}
             />
           }
           imageProps={imageProps}
@@ -373,12 +387,12 @@ export const CampaignBackgroundColors: Story = {
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="ui.warning.primary"
-          foregroundColor="ui.typgraphy.heading"
+          backgroundColor="ui.error.secondary"
+          foregroundColor="ui.typography.inverse.body"
           heroType="campaign"
           heading={
             <Heading
-              color="ui.typgraphy.heading"
+              color={CustomHeadingColors()}
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
