@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
+- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
 
 ### Updates
 
