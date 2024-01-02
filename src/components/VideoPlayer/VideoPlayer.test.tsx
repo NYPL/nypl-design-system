@@ -3,6 +3,7 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
+import Heading from "../Heading/Heading";
 import VideoPlayer from "./VideoPlayer";
 
 describe("VideoPlayer Accessibility", () => {
@@ -113,6 +114,17 @@ describe("VideoPlayer", () => {
 
     it("Renders Heading component", () => {
       expect(screen.getByText("Video Player Heading")).toBeInTheDocument();
+    });
+
+    it("Renders a custom heading level", () => {
+      render(
+        <VideoPlayer
+          videoType="youtube"
+          videoId={videoId}
+          headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+        />
+      );
+      expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
     });
 
     it("Renders description text", () => {

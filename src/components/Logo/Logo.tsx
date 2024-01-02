@@ -5,17 +5,13 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { DimensionTypes } from "../../helpers/types";
 
 import logoSvgs from "./LogoSvgs";
-import {
-  logoNamesArray,
-  logoSizeBasedOnArray,
-  logoSizesArray,
-} from "./logoVariables";
+import { logoNamesArray, logoSizesArray } from "./logoVariables";
 
 export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
-export type LogoSizeBasedOn = typeof logoSizeBasedOnArray[number];
 
 export interface LogoProps {
   /** Optional className that will be added to the parent element */
@@ -30,7 +26,7 @@ export interface LogoProps {
   /** Sets the logo size. */
   size?: LogoSizes;
   /** Sets the logo size based on the width or height. Width by default. */
-  sizeBasedOn?: LogoSizeBasedOn;
+  sizeBasedOn?: DimensionTypes;
   /** For accessibility purposes, the text passed in the `title` prop gets
    * rendered in a `title` element in the SVG. This descriptive text is not
    * visible but is needed for screenreaders to describe the graphic. */

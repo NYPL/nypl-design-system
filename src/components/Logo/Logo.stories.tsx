@@ -4,11 +4,8 @@ import { withDesign } from "storybook-addon-designs";
 import Logo from "./Logo";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
-import {
-  logoNamesArray,
-  logoSizeBasedOnArray,
-  logoSizesArray,
-} from "./logoVariables";
+import { logoNamesArray, logoSizesArray } from "./logoVariables";
+import { dimensionTypeArray } from "../../helpers/types";
 
 const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
@@ -29,7 +26,7 @@ const meta: Meta<typeof Logo> = {
     },
     sizeBasedOn: {
       control: { type: "radio" },
-      options: logoSizeBasedOnArray,
+      options: dimensionTypeArray,
       table: { defaultValue: { summary: "width" } },
     },
     title: {

@@ -25,8 +25,10 @@ export interface VideoPlayerProps {
    * `videoPlayer` component will accept the `embedCode` prop or the `videoId`
    * and `videoType` props */
   embedCode?: string;
-  /** Optional string to set the text for a `Heading` component */
-  headingText?: string;
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
+  headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */

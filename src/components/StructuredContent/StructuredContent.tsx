@@ -1,5 +1,6 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import useDSHeading from "../../hooks/useDSHeading";
 
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
@@ -14,11 +15,13 @@ interface StructuredContentImageProps extends ComponentImageProps {
 
 export interface StructuredContentProps {
   /** Optional value to set the text for the callout heading text. */
-  calloutText?: string;
+  calloutText?: string | JSX.Element;
   /** Additional class name for the `StructuredContent` component. */
   className?: string;
-  /** Optional value to set the text for the main heading text. */
-  headingText?: string;
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
+  headingText?: string | JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Object used to create and render the `Image` component. */
@@ -101,6 +104,22 @@ export const StructuredContent: React.FC<any> = chakra(
         ) : (
           <Box className="structuredcontent-body">{bodyContent}</Box>
         );
+      const finalTitle = useDSHeading({
+        title: headingText,
+        id,
+      });
+      const calloutTextUpdate = calloutText ? (
+        typeof calloutText === "string" ? (
+          <Heading id={`${id}-callout`} level="h3" size="heading5">
+            {calloutText}
+          </Heading>
+        ) : (
+          calloutText
+        )
+      ) : undefined;
+      const finalCalloutText = useDSHeading({
+        title: calloutTextUpdate,
+      });
 
       if (hasImage && !imageProps.alt) {
         console.warn(
@@ -111,12 +130,8 @@ export const StructuredContent: React.FC<any> = chakra(
 
       return (
         <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
-          {headingText && <Heading id={`${id}-heading`}>{headingText}</Heading>}
-          {calloutText && (
-            <Heading id={`${id}-callout`} level="h3" size="heading5">
-              {calloutText}
-            </Heading>
-          )}
+          {finalTitle}
+          {finalCalloutText}
           {hasImage && (
             <StructuredContentImage
               additionalFigureStyles={styles.imageFigure}

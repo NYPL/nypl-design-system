@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Accessibility", "Documentation"],
+    notes: [
+      "Updated the `title` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
+    ],
+  },
+  {
     date: "2023-11-09",
     version: "2.1.2",
     type: "Update",

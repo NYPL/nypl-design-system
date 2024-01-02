@@ -59,3 +59,6 @@ export const sectionColorsDataMap = {
 
 export const sectionTypeArray = Object.keys(sectionColorsDataMap);
 export type SectionTypes = typeof sectionTypeArray[number];
+
+export const dimensionTypeArray = ["height", "width"] as const;
+export type DimensionTypes = typeof dimensionTypeArray[number];
