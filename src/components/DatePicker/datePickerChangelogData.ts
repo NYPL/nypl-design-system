@@ -10,6 +10,24 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes bug where month and year calendars were rendering vertically rather than horizontally.",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Updates the `initialDate` and `initialDateTo` props to accept an empty string and adds optional `placeholder` and `placeholderTo` props.",
+    ],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",
