@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   useColorMode,
   useColorModeValue,
   useMultiStyleConfig,
@@ -145,7 +146,12 @@ export const NotificationContent: React.FC<any> = chakra(
  * Component used to present users with three different levels of notifications:
  * standard, announcement, and warning.
  */
-export const Notification: React.FC<any> = chakra(
+export const Notification: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    NotificationProps & React.RefAttributes<HTMLDivElement>
+  >,
+  NotificationProps
+> = chakra(
   forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
     const {
       ariaLabel,
