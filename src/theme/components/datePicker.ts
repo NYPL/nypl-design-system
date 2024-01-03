@@ -7,6 +7,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["subLabels"]);
+
 const DatePicker = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     subLabels: {
