@@ -8,6 +8,7 @@ import {
 import React, { forwardRef, ImgHTMLAttributes } from "react";
 import { useInView } from "react-intersection-observer";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { DimensionTypes } from "../../helpers/types";
 
 export const imageRatiosArray = [
   "fourByThree",
@@ -67,6 +68,8 @@ interface ImageWrapperProps {
   aspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
+  /** Sets the image size based on the width or height. Width by default. */
+  sizeBasedOn?: DimensionTypes;
 }
 
 export interface ImageProps
@@ -100,11 +103,13 @@ const ImageWrapper = chakra(
       children,
       aspectRatio = "original",
       size = "default",
+      sizeBasedOn = "width",
       ...rest
     } = props;
     const styles = useMultiStyleConfig("CustomImageWrapper", {
       ratio: aspectRatio,
       size,
+      sizeBasedOn,
     });
     return (
       <Box
@@ -135,6 +140,7 @@ export const Image: React.FC<any> = chakra(
       imageType = "default",
       isLazy = false,
       size = "default",
+      sizeBasedOn = "width",
       src,
       ...rest
     } = props;
@@ -149,7 +155,9 @@ export const Image: React.FC<any> = chakra(
     const useImageWrapper = aspectRatio !== "original";
     const styles = useMultiStyleConfig("CustomImage", {
       variant: imageType,
+      ratio: aspectRatio,
       size,
+      sizeBasedOn,
     });
     let imageComponent: JSX.Element | null = null;
     let lazyRef = undefined;
@@ -196,6 +204,7 @@ export const Image: React.FC<any> = chakra(
         aspectRatio={aspectRatio}
         className={className}
         size={size}
+        sizeBasedOn={sizeBasedOn}
         {...(caption || credit ? {} : rest)}
       >
         {imageComponent}

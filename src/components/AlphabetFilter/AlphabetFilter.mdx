@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as AlphabetFilterStories from "./AlphabetFilter.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./alphabetFilterChangelogData";
 
 <Meta of={AlphabetFilterStories} />
 
@@ -10,14 +12,16 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.2.0`    |
-| Latest            | `2.0.0`    |
+| Latest            | `2.1.3`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -76,6 +80,24 @@ the updated filter results must be the child of an element that has the
 `role=”alert”` attribute applied or as a child of a Live Region container with
 the `aria-live="polite"` attribute applied.
 
+## With Custom Heading
+
+By default, the `AlphabetFilter` will render an `h2` element when a string is
+passed to the `headingText` component. If this is an accessibility issue, it's
+possible to pass in a custom heading element.
+
+In the following example, an `h4` is rendered through the DS `Heading` component.
+
+<Source
+  code={`
+
+const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+
+<AlphabetFilter headingText={customH4} {...props} />
+`} language="tsx" />
+
+<Canvas of={AlphabetFilterStories.WithCustomHeading} />
+
 ## Examples
 
 ### AlphabetFilter with activeLetters set
@@ -122,3 +144,7 @@ change.
 />
 
 <Canvas of={AlphabetFilterStories.UsingOnClick} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

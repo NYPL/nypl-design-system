@@ -72,6 +72,10 @@ const meta: Meta<typeof Hero> = {
       table: { defaultValue: { summary: "primary" } },
     },
     imageProps: { control: false },
+    isDarkBackgroundImage: {
+      control: { type: "boolean" },
+      table: { defaultValue: { summary: "false" } },
+    },
     locationDetails: { control: false },
     subHeaderText: { control: false },
   },
@@ -93,6 +97,7 @@ export const WithControls: Story = {
     heading: undefined,
     heroType: "primary",
     imageProps,
+    isDarkBackgroundImage: undefined,
     locationDetails: undefined,
     subHeaderText: undefined,
   },
@@ -273,10 +278,11 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-default"
+          size="heading6"
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/g/2400/800"
+          backgroundImageSrc="//placekitten.com/1600/800"
           heroType="campaign"
           heading={
             <Heading
@@ -292,10 +298,11 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-long-text"
+          size="heading6"
           text="Campaign Hero with Long Text"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/g/2400/800"
+          backgroundImageSrc="//placekitten.com/1600/800"
           heroType="campaign"
           heading={
             <Heading
@@ -310,9 +317,38 @@ export const Campaign: Story = {
           subHeaderText={otherSubHeaderTextLong}
         />
       </div>
+    </Stack>
+  ),
+};
+export const CampaignDarkBackgroundImage: Story = {
+  render: () => (
+    <Stack spacing="l">
+      <div>
+        <Hero
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+      </div>
+    </Stack>
+  ),
+};
+export const CampaignBackgroundColors: Story = {
+  render: () => (
+    <Stack spacing="l">
       <div>
         <Heading
-          id="campaign-hero-long-text"
+          id="campaign-hero-custom-background-color"
+          size="heading6"
           text="Campaign Hero with backdrop background color"
         />
         <Hero
@@ -331,16 +367,18 @@ export const Campaign: Story = {
       </div>
       <div>
         <Heading
-          id="campaign-hero-long-text"
+          id="campaign-hero-custom-background-and-foreground-colors"
+          size="heading6"
           text="Campaign Hero with separate backdrop and foreground background design token color"
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="dark.ui.warning.primary"
-          foregroundColor="ui.black"
+          backgroundColor="ui.warning.primary"
+          foregroundColor="ui.typgraphy.heading"
           heroType="campaign"
           heading={
             <Heading
+              color="ui.typgraphy.heading"
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"

@@ -4,6 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
+import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -223,6 +224,22 @@ export const DisabledState: Story = {
   ),
 };
 
+export const WithCustomHeading: Story = {
+  render: () => (
+    <SearchBar
+      headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+      id="custom-heading"
+      labelText="Custom Heading example"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  ),
+  name: "Heading and Description Text",
+};
 export const HeadingDescriptionExample: Story = {
   render: () => (
     <SearchBar
