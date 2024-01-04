@@ -1,7 +1,16 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import {
+  iconColorsArray,
+  iconNamesArray,
+  iconRotationsArray,
+  iconSizesArray,
+} from "./iconVariables";
 import * as IconStories from "./Icon.stories";
+import { changelogData } from "./iconChangelogData";
 import Link from "../Link/Link";
+import List from "../List/List";
 
 <Meta of={IconStories} />
 
@@ -10,7 +19,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `1.7.3`    |
+| Latest            | `2.1.4`    |
 
 ## Table of Contents
 
@@ -22,6 +31,7 @@ import Link from "../Link/Link";
 - {<Link href="#sizes" target="_self">Sizes</Link>}
 - {<Link href="#all-icons" target="_self">All Icons</Link>}
 - {<Link href="#custom-icons" target="_self">Custom Icons</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -54,8 +64,7 @@ Resources:
 ## Rotations
 
 Passing an `iconRotation` prop with a value from `IconRotations` allows
-the icon to be rotated when it is rendered. The values are:
-`"rotate0"`, `"rotate90"`, `"rotate180"`, and `"rotate270"`.
+the icon to be rotated when it is rendered.
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
@@ -73,17 +82,7 @@ Note: All of the examples below have been rendered with the `size` prop set to
 ## Colors
 
 Update an SVG icon by passing a `color` prop with a value from the `IconColors`
-type. The values are: `"ui.black"`, `"ui.white"`, `"brand.primary"`, `"brand.secondary"`,
-`"ui.error.primary"`, `"ui.error.secondary"`, `"ui.status.primary"`, `"ui.status.secondary"`,
-`"ui.success.primary"`, `"ui.success.secondary"`, `"ui.warning.primary"`, `"ui.warning.secondary"`,
-`"section.blogs.primary"`, `"section.blogs.secondary"`, `"section.books-and-more.primary"`,
-`"section.books-and-more.secondary"`, `"section.education.primary"`, `"section.education.secondary"`,
-`"section.locations.primary"`, `"section.locations.secondary"`, `"section.research.primary"`,
-`"section.research.secondary"`, `"section.research-library.lpa"`, `"section.research-library.schomburg"`,
-`"section.research-library.schwartzman"`, `"section.whats-on.primary"`, `"section.whats-on.secondary"`,
-`"dark.ui.error.primary"`, `"dark.ui.error.secondary"`, `"dark.ui.status.primary"`,
-`"dark.ui.status.secondary"`, `"dark.ui.success.primary"`, `"dark.ui.success.secondary"`,
-`"dark.ui.warning.primary"`, `"dark.ui.warning.secondary",`.
+type.
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
@@ -100,9 +99,7 @@ Note: All of the examples below have been rendered with the `size` prop set to
 
 ## Sizes
 
-Update an SVG icon by passing a `size` prop with a value from `IconSizes`. The
-values are: `"default"`, `"small"`, `"medium"`, `"large"`, `"xlarge"`,
-`"xxlarge"`, `"xxxlarge"`.
+Update an SVG icon by passing a `size` prop with a value from `IconSizes`.
 
 Note: `"default"` sets the width to `100%` and the rendered icon will expand to
 fill the full width of the parent element.
@@ -120,25 +117,7 @@ fill the full width of the parent element.
 ## All Icons
 
 The following icons are for generic purposes. All the available icon names can
-be found in the `IconNames` type. They are: `"accessibilityFull"`,
-`"accessibilityPartial"`, `"actionCheckCircle"`, `"actionCheckCircleFilled"`,
-`"actionExit"`, `"actionHelpDefault"`, `"actionHelpOutline"`,
-`"actionIdentity"`, `"actionIdentityFilled"`, `"actionLaunch"`, `"actionPower"`,
-`"actionRegistration"`, `"actionSearch"`, `"actionSettings"`,
-`"alertNotificationImportant"`, `"alertWarningFilled"`, `"alertWarningOutline"`,
-`"arrow"`, `"building"`, `"check"`, `"clock"`, `"close"`,
-`"decorativeEnvelope"`, `"decorativeLibraryCard"`, `"decorativeShoppingBag"`,
-`"download"`, `"errorFilled"`, `"errorOutline"`, `"fileTypeAudio"`,
-`"fileTypeDoc"`, `"fileTypeGenericDoc"`, `"fileTypeImage"`, `"fileTypePdf"`,
-`"fileTypeSpreadsheet"`, `"fileTypeVideo"`, `"headset"`,
-`"legacyAccountFilled"`, `"legacyAccountUnfilled"`, `"legacySocialFacebook"`,
-`"legacySocialInstagram"`, `"legacySocialTwitter"`, `"legacySocialYoutube"`,
-`"locator"`, `"mapsPlace"`, `"minus"`, `"moonCrescent"`, `"plus"`, `"search"`,
-`"socialFacebook"`, `"socialInstagram"`, `"socialPinterest"`,
-`"socialSoundCloud"`, `"socialSpotify"`, `"socialTikTok"`, `"socialTumblr"`,
-`"socialTwitter"`, `"socialVimeo"`, `"socialYoutube"`, `"speakerNotes"`,
-`"sunFull"`, `"utilityAccountFilled"`, `"utilityAccountUnfilled"`,
-`"utilityHamburger"`, `"utilitySearch"`.
+be found in the `IconNames` type.
 
 Note: All of the examples below have been rendered with the `size` prop set to
 `xxlarge`.
@@ -164,3 +143,7 @@ child to the `Icon` component.
 />
 
 <Canvas of={IconStories.CustomIcons} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

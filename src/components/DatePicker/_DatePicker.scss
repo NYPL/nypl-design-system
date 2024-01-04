@@ -7,6 +7,7 @@
 
 .date-picker-calendar {
   font-family: var(--nypl-fonts-body);
+  position: unset !important;
 
   .react-datepicker {
     border-color: var(--nypl-colors-ui-border-default);

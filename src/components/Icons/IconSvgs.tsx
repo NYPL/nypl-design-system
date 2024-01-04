@@ -3,12 +3,16 @@ import { ReactComponent as accessibilityFull } from "../../../icons/svg/accessib
 import { ReactComponent as accessibilityPartial } from "../../../icons/svg/accessibility-partial.svg";
 import { ReactComponent as actionCheckCircle } from "../../../icons/svg/action-check-circle.svg";
 import { ReactComponent as actionCheckCircleFilled } from "../../../icons/svg/action-check-circle-filled.svg";
+import { ReactComponent as actionDelete } from "../../../icons/svg/action-delete.svg";
 import { ReactComponent as actionExit } from "../../../icons/svg/action-exit.svg";
 import { ReactComponent as actionHelpDefault } from "../../../icons/svg/action-help-default.svg";
 import { ReactComponent as actionHelpOutline } from "../../../icons/svg/action-help-outline.svg";
+import { ReactComponent as actionHome } from "../../../icons/svg/action-home.svg";
 import { ReactComponent as actionIdentity } from "../../../icons/svg/action-identity.svg";
 import { ReactComponent as actionIdentityFilled } from "../../../icons/svg/action-identity-filled.svg";
 import { ReactComponent as actionLaunch } from "../../../icons/svg/action-launch.svg";
+import { ReactComponent as actionLockClosed } from "../../../icons/svg/action-lock-closed.svg";
+import { ReactComponent as actionPayment } from "../../../icons/svg/action-payment.svg";
 import { ReactComponent as actionPower } from "../../../icons/svg/action-power.svg";
 import { ReactComponent as actionRegistration } from "../../../icons/svg/action-registration.svg";
 import { ReactComponent as actionSearch } from "../../../icons/svg/action-search.svg";
@@ -18,6 +22,9 @@ import { ReactComponent as alertWarningFilled } from "../../../icons/svg/alert-w
 import { ReactComponent as alertWarningOutline } from "../../../icons/svg/alert-warning-outline.svg";
 import { ReactComponent as arrow } from "../../../icons/svg/arrow.svg";
 import { ReactComponent as building } from "../../../icons/svg/building.svg";
+import { ReactComponent as communicationCall } from "../../../icons/svg/communication-call.svg";
+import { ReactComponent as communicationChatBubble } from "../../../icons/svg/communication-chat-bubble.svg";
+import { ReactComponent as communicationEmail } from "../../../icons/svg/communication-email.svg";
 import { ReactComponent as check } from "../../../icons/svg/check.svg";
 import { ReactComponent as clock } from "../../../icons/svg/clock.svg";
 import { ReactComponent as close } from "../../../icons/svg/close.svg";
@@ -69,12 +76,16 @@ export default {
   accessibilityPartial,
   actionCheckCircle,
   actionCheckCircleFilled,
+  actionDelete,
   actionExit,
   actionHelpDefault,
   actionHelpOutline,
+  actionHome,
   actionIdentity,
   actionIdentityFilled,
   actionLaunch,
+  actionLockClosed,
+  actionPayment,
   actionPower,
   actionRegistration,
   actionSearch,
@@ -87,6 +98,9 @@ export default {
   check,
   clock,
   close,
+  communicationCall,
+  communicationChatBubble,
+  communicationEmail,
   decorativeEnvelope,
   decorativeLibraryCard,
   decorativeShoppingBag,
