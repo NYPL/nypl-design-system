@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import { ModalTrigger, useModal } from "./Modal";
 
@@ -54,7 +55,14 @@ const ModalStory = () => {
       </>
     ),
     closeButtonLabel: "Close Button",
-    headingText: "Modal Heading Text",
+    headingText: (
+      <Heading level="h3">
+        <>
+          <Icon name="errorFilled" size="large" color="ui.error.primary" />
+          Location change failed
+        </>
+      </Heading>
+    ),
     onClose: () => {
       console.log("custom close");
       onClose();
@@ -160,7 +168,18 @@ const scrollModalProps = {
     </>
   ),
   closeButtonLabel: "Close Button",
-  headingText: "Modal Heading Text",
+  headingText: (
+    <Heading level="h3">
+      <>
+        <Icon
+          name="actionCheckCircleFilled"
+          size="large"
+          color="ui.success.primary"
+        />
+        Modal Heading Text
+      </>
+    </Heading>
+  ),
 };
 
 export const ContentWindowScrolling: Story = {
