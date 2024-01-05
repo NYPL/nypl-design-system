@@ -84,7 +84,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                 onClick={
                   isDismissible ? () => finalOnClick(tagSet.label) : undefined
                 }
-                sx={styles}
+                sx={styles.base}
               >
                 {!isDismissible && tagSet.iconName ? (
                   <Icon
