@@ -107,10 +107,6 @@ const meta: Meta<typeof MultiSelect> = {
       control: false,
     },
 
-    onApply: {
-      description:
-        "The action to perform for save/apply button of multiselect. <br /> `onApply: () => void;`",
-    },
     onChange: {
       description:
         "The action to perform on the checkbox's onChange function. <br /> For dialog: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> For listbox: `onChange: (selectedItem: MultiSelectItem, id: string) => void;`",
@@ -133,25 +129,6 @@ const meta: Meta<typeof MultiSelect> = {
 export default meta;
 type Story = StoryObj<typeof MultiSelect>;
 
-/**
- * Main Stories for the MultiSelect component. This must contains the `args`
- * and `parameters` properties in this object.
- */
-// export const ListboxControls: Story = {
-//   args: {
-//     id: "multiselect-listbox",
-//     buttonText: "MultiSelect Listbox",
-//     type: "listbox",
-//   },
-//   render: (args) => <MultiSelectListboxStory {...args} />,
-//   parameters: {
-//     design: {
-//       type: "figma",
-//       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-//     },
-//     jest: ["MultiSelect.test.tsx"],
-//   },
-// };
 export const DialogControls: Story = {
   args: {
     id: "multiselect-dialog",
@@ -167,39 +144,6 @@ export const DialogControls: Story = {
     jest: ["MultiSelect.test.tsx"],
   },
 };
-
-// const MultiSelectListboxStory = (args) => {
-//   // Example with custom hook useMultiSelect.
-//   const { onChange, onClear, selectedItems } = useMultiSelect();
-//   const multiSelectId = args.id;
-
-//   // Hack to get storybook's action tab to log state change when selectedItems state changes.
-//   const [actionName, setActionName] = useState("");
-
-//   useEffect(() => {
-//     if (Object.keys(selectedItems).length !== 0) {
-//       action(actionName)(selectedItems);
-//     }
-//   }, [actionName, selectedItems]);
-
-//   return (
-//     <MultiSelect
-//       {...args}
-//       isDefaultOpen={false}
-//       items={items}
-//       selectedItems={selectedItems}
-//       isSearchable={true}
-//       onChange={(selectedItem) => {
-//         onChange(selectedItem.id, multiSelectId);
-//         setActionName("onChange");
-//       }}
-//       onClear={() => {
-//         onClear(multiSelectId);
-//         setActionName("onClear");
-//       }}
-//     />
-//   );
-// };
 
 const MultiSelectDialogStory = (args) => {
   // Example with custom hook useMultiSelect.
@@ -237,9 +181,6 @@ const MultiSelectDialogStory = (args) => {
       onClear={() => {
         onClear(multiSelectId);
         setActionName("onClear");
-      }}
-      onApply={() => {
-        setActionName("onApply");
       }}
     />
   );

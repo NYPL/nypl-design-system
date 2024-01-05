@@ -15,11 +15,47 @@ export interface MultiSelectItem {
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
 export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
-export type MultiSelectListOverflowTypes =
+export type multiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
+type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+interface MultiSelectProps {
+  /** The helperText sets the text for the internal HelperErrorText */
+  helperText: string;
+  /** The id of the MultiSelect. */
+  id: string;
+  /** Set the default open or closed state of the Multiselect. */
+  isDefaultOpen?: boolean;
+  /** Boolean value used to enable the component's search functionality
+   * The default value is false. */
+  isSearchable?: boolean;
+  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
+   * The default value is false. */
+  isBlockElement?: boolean;
+  /** The items to be rendered in the Multiselect as checkbox options. */
+  items: MultiSelectItem[];
+  
+  listOverflow?: multiSelectListOverflowTypes;
+  /** The label text rendered within the MultiSelect. */
+  buttonText: string;
+  /** Numeric value to set the maximum number of checkbox items
+   * The default value is 5. */
+  defaultItemsVisible: number;
+  /** The action to perform for clear/reset button of MultiSelect. */
+  onClear?: () => void;
+  /** The action to perform on the checkbox's onChange function.  */
+  onChange?: DialogOnChange;
+  /** The action to perform for a mixed state checkbox (parent checkbox). */
+  onMixedStateChange?: DialogOnChange;
+  /** The selected items state (items that were checked by user). */
+  selectedItems: SelectedItems;
+   /** Value used to set the width for the MultiSelect component. */
+  width?: MultiSelectWidths;
+}
+
 
 /**
  * The `MultiSelect` component is a form input element that presents a list
@@ -41,8 +77,6 @@ export const MultiSelect = chakra(
         items,
         listOverflow = "scroll",
         buttonText,
-        closeOnBlur,
-        onApply,
         onChange,
         onClear,
         onMixedStateChange,
@@ -312,7 +346,7 @@ export const MultiSelect = chakra(
 
       const viewAllItems = () => {
         setViewAllLabel(viewAllLabel === "View all" ? "View less" : "View all");
-        setListHeight(listHeight === "260px" ? "" : "260px");
+        setListHeight(listHeight === "275px" ? "" : "275px");
         setListItemsCount(
           listItemsCount === defaultItemsVisible
             ? items.length
@@ -359,6 +393,7 @@ export const MultiSelect = chakra(
               },
             ]}
             panelMaxHeight={listHeight}
+            isDefaultOpen={isOpen}
             isAlwaysRendered
             id="multi-select-accordion-id"
           />

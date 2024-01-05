@@ -56,10 +56,11 @@ const MultiSelectMenuButton = forwardRef<
 
   return getSelectedItemsCount ? (
     <Button
-      id="multo-select-button"
+      id="multi-select-button"
       buttonType="pill"
       size="small"
       aria-label={selectedItemsAriaLabel}
+      data-testid="multi-select-close-button-testid"
       onClick={() => {
         onClear();
       }}
