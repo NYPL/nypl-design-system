@@ -8,6 +8,26 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.1.4 (January 4, 2024)
+
+### Adds
+
+- Adds optional `placeholder` and `placeholderTo` props to the `DatePicker`
+  component.
+- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`,
+  `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and
+  `"communicationEmail"` options to the `Icon` component.
+
+### Updates
+
+- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept
+  an empty string.
+
+### Fixes
+
+- Fixes bug where month and year `Datepicker` calendars were rendering
+  vertically rather than horizontally.
+
 ## 2.1.3 (December 7, 2023)
 
 ### Adds
