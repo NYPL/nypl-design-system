@@ -1,14 +1,17 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { screenreaderOnly } from "./globalMixins";
 
-const FeedbackBox = {
-  parts: [
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
     "closeButton",
     "drawerBody",
     "drawerContent",
     "drawerHeader",
     "openButton",
-  ],
-  baseStyle: {
+  ]);
+
+const FeedbackBox = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     closeButton: {
       /** This is overriding the default min-height value in order to keep the
        * button spacing symmetrical. */
@@ -70,7 +73,7 @@ const FeedbackBox = {
       right: "0",
       zIndex: "5",
     },
-  },
-};
+  }),
+});
 
 export default FeedbackBox;

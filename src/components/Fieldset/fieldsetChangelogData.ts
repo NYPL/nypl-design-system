@@ -16,29 +16,4 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
-  {
-    date: "2023-10-26",
-    version: "2.1.1",
-    type: "Update",
-    affects: ["Accessibility"],
-    notes: [
-      "Updates `tabindex` value from 0 to -1. See Accessibility section for details.",
-    ],
-  },
-  {
-    date: "2023-10-18",
-    version: "2.1.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Remove the underline on the component's `Privacy Policy` link."],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: [
-      "Applied Typo2023 styles, including font size, font color, and text link patterns.",
-    ],
-  },
 ];
