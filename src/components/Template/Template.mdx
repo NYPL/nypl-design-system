@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./templateChangelogData";
 
 import * as TemplateStories from "./Template.stories";
 import {
@@ -33,6 +35,7 @@ import Link from "../Link/Link";
 - {<Link href="#template-children-overview">Template Children Overview</Link>}
 - {<Link href="#template-children-component-props">Template Children Component Props</Link>}
 - {<Link href="#full-example-with-template-children-components">Full Example with Template Children Components</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## TemplateAppContainer Overview
 
@@ -491,3 +494,7 @@ export const otherSubHeaderText =
 This is best viewed in the Storybook "Canvas" and not "Docs" section.
 
 <Canvas of={TemplateStories.FullExampleWithTemplateChildrenComponents} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
