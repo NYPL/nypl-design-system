@@ -37,7 +37,7 @@ interface MultiSelectProps {
   isBlockElement?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
-  
+
   listOverflow?: multiSelectListOverflowTypes;
   /** The label text rendered within the MultiSelect. */
   buttonText: string;
@@ -52,10 +52,9 @@ interface MultiSelectProps {
   onMixedStateChange?: DialogOnChange;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
-   /** Value used to set the width for the MultiSelect component. */
+  /** Value used to set the width for the MultiSelect component. */
   width?: MultiSelectWidths;
 }
-
 
 /**
  * The `MultiSelect` component is a form input element that presents a list
