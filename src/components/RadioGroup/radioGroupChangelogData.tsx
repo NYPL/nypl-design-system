@@ -16,21 +16,4 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [],
-  },
-  {
-    date: "2023-12-07",
-    version: "2.1.3",
-    type: "Update",
-    affects: ["Accessibility", "Documentation", "Styles"],
-    notes: [
-      "Updated the `headingText` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-      "Added a z-index on hover to the select icon so it no longer disappears.",
-    ],
-  },
 ];

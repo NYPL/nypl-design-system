@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
@@ -19,15 +20,9 @@ const meta: Meta<typeof SearchBar> = {
     },
     className: { control: false },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
     method: { control: false },
     onSubmit: { control: false },
     selectProps: { control: false },
