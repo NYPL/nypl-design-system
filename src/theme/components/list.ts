@@ -44,19 +44,22 @@ export const baseUnorderedStyles = (noStyling = false) => ({
     },
   },
 });
+
+const baseHeadingStyles = {
+  borderTop: "3px solid",
+  borderColor: "ui.border.default",
+  margin: "0",
+  padding: "var(--nypl-space-xs) 0 0",
+  _dark: {
+    borderColor: "dark.ui.border.default",
+  },
+};
+
 export const baseSectionDescriptionStyles = {
   borderBottom: "1px solid",
   borderColor: "ui.border.default",
   paddingStart: "0",
-  h2: {
-    borderTop: "3px solid",
-    borderColor: "ui.border.default",
-    margin: "0",
-    padding: "var(--nypl-space-xs) 0 0",
-    _dark: {
-      borderColor: "dark.ui.border.default",
-    },
-  },
+  h2: baseHeadingStyles,
   _dark: {
     borderColor: "dark.ui.border.default",
   },
@@ -95,8 +98,13 @@ export const baseDescriptionStyles = {
 };
 
 const List = {
-  baseStyle: ({ inline, noStyling }: ListBaseStyle) =>
-    baseListStyles(inline, noStyling),
+  parts: ["heading"],
+  baseStyle: ({ inline, noStyling }: ListBaseStyle) => {
+    return {
+      ...baseListStyles(inline, noStyling),
+      heading: baseHeadingStyles,
+    };
+  },
   variants: {
     ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
     ol: textMargin,

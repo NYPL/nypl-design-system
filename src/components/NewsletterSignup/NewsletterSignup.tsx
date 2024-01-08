@@ -16,6 +16,7 @@ import Link from "../Link/Link";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
+import useDSHeading from "../../hooks/useDSHeading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { SectionTypes } from "../../helpers/types";
 
@@ -49,8 +50,10 @@ interface NewsletterSignupProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Link to the relevant privacy policy page. */
   privacyPolicyLink?: string;
-  /** Used to populate the title of the Component*/
-  title?: JSX.Element;
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
+  title?: JSX.Element | string;
   /** The value of the email text input field. */
   valueEmail?: string;
   /** Used to specify what is displayed in the component form/feedback area. */
@@ -66,6 +69,9 @@ export type NewsletterSignupViewType =
 const defaultDescriptionText =
   "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
   "exhibitions, and collections.";
+const defaultTitle = (
+  <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
+);
 
 /**
  * The NewsletterSignup component provides a way for patrons to register for an
@@ -95,9 +101,7 @@ export const NewsletterSignup: ChakraComponent<
         onSubmit,
         privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
         valueEmail,
-        title = (
-          <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
-        ),
+        title,
         view = "form",
         ...rest
       },
@@ -112,8 +116,12 @@ export const NewsletterSignup: ChakraComponent<
         "ui.error.primary",
         "dark.ui.error.primary"
       );
-
       const isFormView = view === "form" || view === "submitting";
+      const finalTitle = useDSHeading({
+        title,
+        id,
+        customDefaultHeading: defaultTitle,
+      });
 
       // Manage focus to ensure accessibility when confirmation or error message is rendered.
       const focusRef = React.useRef<HTMLDivElement>(null);
@@ -129,7 +137,7 @@ export const NewsletterSignup: ChakraComponent<
           {...rest}
         >
           <VStack __css={styles.pitch} alignItems="flex-start">
-            {title}
+            {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
                 <Text noSpace size="body2">

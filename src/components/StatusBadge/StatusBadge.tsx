@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 export const statusBadgeTypeArray = ["low", "medium", "high"] as const;
@@ -16,7 +16,14 @@ export interface StatusBadgeProps {
  * The `StatusBadge` component is used to display a visual badge for three
  * different status levels.
  */
-export const StatusBadge: React.FC<any> = chakra(
+export const StatusBadge: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    StatusBadgeProps & {
+      children?: React.ReactNode;
+    } & React.RefAttributes<HTMLDivElement>
+  >,
+  StatusBadgeProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
       const { children, className, id, level = "low", ...rest } = props;
