@@ -93,7 +93,6 @@ export { ModalTrigger, useModal } from "./components/Modal/Modal";
 // completed.
 export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
 export type {
-  MultiSelectProps,
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";

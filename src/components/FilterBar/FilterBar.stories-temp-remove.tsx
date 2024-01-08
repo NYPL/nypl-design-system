@@ -1,3 +1,4 @@
+export {}
 // import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 // import { action } from "@storybook/addon-actions";
 // import type { Meta, StoryObj } from "@storybook/react";
@@ -917,77 +918,77 @@
 //   //       <FilterBar
 //   //         key="row-multiple-multiselect-groups-buttons"
 //   //         id="row-multiple-multiselect-groups-buttons"
-//   //         headingText="Row with multiple MultiselectGroups - with Buttons"
-//   //         selectedItems={selectedItems}
-//   //         isOpen={isModalOpen}
-//   //         onToggle={onToggle}
-//   //         onClear={onClearAll}
-//   //         onSubmit={() => null}
-//   //         showClearAll
-//   //         showSubmitAll
-//   //       >
-//   //         <MultiSelectGroup
-//   //           id="group-one"
-//   //           key="group-one-4"
-//   //           labelText="Group One"
-//   //         >
-//   //           {multiSelectItems &&
-//   //             multiSelectItems.map((multiSelect) => (
-//   //               <MultiSelect
-//   //                 key={`${multiSelect.id}-17`}
-//   //                 id={`${multiSelect.id}-17`}
-//   //                 labelText={multiSelect.name}
-//   //                 type="listbox"
-//   //                 items={multiSelect.items}
-//   //                 selectedItems={selectedItems}
-//   //                 onChange={(e) =>
-//   //                   onChange(e.target.id, `${multiSelect.id}-17`)
-//   //                 }
-//   //                 onMixedStateChange={(e) => {
-//   //                   return onMixedStateChange(
-//   //                     e.target.id,
-//   //                     `${multiSelect.id}-17`,
-//   //                     multiSelect.items
-//   //                   );
-//   //                 }}
-//   //                 onClear={() => onClear(`${multiSelect.id}-17`)}
-//   //                 onApply={() => {}}
-//   //               />
-//   //             ))}
-//   //         </MultiSelectGroup>
-//   //         <MultiSelectGroup
-//   //           id="group-two"
-//   //           key="group-two-4"
-//   //           labelText="Group Two"
-//   //         >
-//   //           {multiSelectItems &&
-//   //             multiSelectItems.map((multiSelect) => (
-//   //               <MultiSelect
-//   //                 key={`${multiSelect.id}-18`}
-//   //                 id={`${multiSelect.id}-18`}
-//   //                 labelText={multiSelect.name}
-//   //                 type="listbox"
-//   //                 items={multiSelect.items}
-//   //                 selectedItems={selectedItems}
-//   //                 onChange={(e) =>
-//   //                   onChange(e.target.id, `${multiSelect.id}-18`)
-//   //                 }
-//   //                 onMixedStateChange={(e) => {
-//   //                   return onMixedStateChange(
-//   //                     e.target.id,
-//   //                     `${multiSelect.id}-18`,
-//   //                     multiSelect.items
-//   //                   );
-//   //                 }}
-//   //                 onClear={() => onClear(`${multiSelect.id}-18`)}
-//   //                 onApply={() => {}}
-//   //               />
-//   //             ))}
-//   //         </MultiSelectGroup>
-//   //       </FilterBar>
-//   //     </Box>
-//   //   </VStack>
-//   // );
+//         headingText="Row with multiple MultiselectGroups - with Buttons"
+//         selectedItems={selectedItems}
+//         isOpen={isModalOpen}
+//         onToggle={onToggle}
+//         onClear={onClearAll}
+//         onSubmit={() => null}
+//         showClearAll
+//         showSubmitAll
+//       >
+//         <MultiSelectGroup
+//           id="group-one"
+//           key="group-one-4"
+//           labelText="Group One"
+//         >
+//           {multiSelectItems &&
+//             multiSelectItems.map((multiSelect) => (
+//               <MultiSelect
+//                 key={`${multiSelect.id}-17`}
+//                 id={`${multiSelect.id}-17`}
+//                 labelText={multiSelect.name}
+//                 type="listbox"
+//                 items={multiSelect.items}
+//                 selectedItems={selectedItems}
+//                 onChange={(e) =>
+//                   onChange(e.target.id, `${multiSelect.id}-17`)
+//                 }
+//                 onMixedStateChange={(e) => {
+//                   return onMixedStateChange(
+//                     e.target.id,
+//                     `${multiSelect.id}-17`,
+//                     multiSelect.items
+//                   );
+//                 }}
+//                 onClear={() => onClear(`${multiSelect.id}-17`)}
+//                 onApply={() => {}}
+//               />
+//             ))}
+//         </MultiSelectGroup>
+//         <MultiSelectGroup
+//           id="group-two"
+//           key="group-two-4"
+//           labelText="Group Two"
+//         >
+//           {multiSelectItems &&
+//             multiSelectItems.map((multiSelect) => (
+//               <MultiSelect
+//                 key={`${multiSelect.id}-18`}
+//                 id={`${multiSelect.id}-18`}
+//                 labelText={multiSelect.name}
+//                 type="listbox"
+//                 items={multiSelect.items}
+//                 selectedItems={selectedItems}
+//                 onChange={(e) =>
+//                   onChange(e.target.id, `${multiSelect.id}-18`)
+//                 }
+//                 onMixedStateChange={(e) => {
+//                   return onMixedStateChange(
+//                     e.target.id,
+//                     `${multiSelect.id}-18`,
+//                     multiSelect.items
+//                   );
+//                 }}
+//                 onClear={() => onClear(`${multiSelect.id}-18`)}
+//                 onApply={() => {}}
+//               />
+//             ))}
+//         </MultiSelectGroup>
+//       </FilterBar>
+//     </Box>
+//   </VStack>
+// );
 // };
 
 // const FilterBarColumnContainerStory = () => {
