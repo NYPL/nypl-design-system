@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -86,8 +87,14 @@ interface FeedbackBoxProps {
  * submitted data; that feature is the responsibility of the consuming
  * application.
  */
-export const FeedbackBox: React.FC<any> = chakra(
-  forwardRef<any, FeedbackBoxProps>(
+export const FeedbackBox: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FeedbackBoxProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  FeedbackBoxProps
+> = chakra(
+  forwardRef<HTMLDivElement, FeedbackBoxProps>(
     (
       {
         className,
