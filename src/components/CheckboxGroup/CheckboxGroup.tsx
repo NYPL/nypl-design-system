@@ -85,6 +85,7 @@ export const CheckboxGroup = chakra(
       value,
       ...rest
     } = props;
+    console.log("new props");
     const footnote = isInvalid ? invalidText : helperText;
     const newChildren: JSX.Element[] = [];
     // const newChildren = children;
