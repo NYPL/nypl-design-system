@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "experimental-2.1.4-checkbox-group-investigation",
+  "version": "2.1.4-checkbox-group-investigation",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
