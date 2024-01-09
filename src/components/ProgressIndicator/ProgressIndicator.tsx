@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   CircularProgress as ChakraCircularProgress,
   CircularProgressLabel as ChakraCircularProgressLabel,
   Progress as ChakraProgress,
@@ -42,7 +43,12 @@ export interface ProgressIndicatorProps {
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */
-export const ProgressIndicator: React.FC<any> = chakra(
+export const ProgressIndicator: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    ProgressIndicatorProps & React.RefAttributes<HTMLDivElement>
+  >,
+  ProgressIndicatorProps
+> = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
       darkMode = false,
