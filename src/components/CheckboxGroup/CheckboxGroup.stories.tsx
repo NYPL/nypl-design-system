@@ -60,6 +60,18 @@ const meta: Meta<typeof CheckboxGroup> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxGroup>;
 
+const array = new Array(30).fill("spaghetti");
+const children = array.map((_, i) => {
+  return (
+    <Checkbox
+      key={i}
+      id={"checkbox" + i}
+      value={i.toString()}
+      labelText={`Checkbox ${i}`}
+    />
+  );
+});
+
 export const WithControls: Story = {
   args: {
     defaultValue: ["4"],
@@ -78,13 +90,15 @@ export const WithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
   },
-  render: (args) => (
-    <CheckboxGroup {...args}>
-      <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
-      <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
-      <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
-      <Checkbox id="checkbox-5" value="5" labelText="Checkbox 5" />
-    </CheckboxGroup>
+  render: () => (
+    <>
+      <CheckboxGroup id="group1" labelText="group1" name="a11y-test">
+        {children}
+      </CheckboxGroup>
+      <CheckboxGroup id="group2" labelText="group2" name="a11y-test">
+        {children}
+      </CheckboxGroup>
+    </>
   ),
 };
 

@@ -87,6 +87,7 @@ export const CheckboxGroup = chakra(
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
     const newChildren: JSX.Element[] = [];
+    // const newChildren = children;
     const spacingProp =
       layout === "column"
         ? spacing.input.group.default.vstack
@@ -112,6 +113,7 @@ export const CheckboxGroup = chakra(
     React.Children.map(
       children as JSX.Element,
       (child: React.ReactElement, i) => {
+        console.log(`Checkbox group children map iteration ${i}`);
         if (child.type !== Checkbox) {
           // Special case for Storybook MDX documentation.
           if (child.props.mdxType && child.props.mdxType === "Checkbox") {
@@ -133,6 +135,7 @@ export const CheckboxGroup = chakra(
             isInvalid,
             isRequired,
           };
+          console.log("Checkbox group message: push");
           newChildren.push(React.cloneElement(child, newProps));
         }
       }

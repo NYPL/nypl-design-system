@@ -76,6 +76,42 @@ describe("CheckboxGroup Accessibility", () => {
 });
 
 describe("Checkbox", () => {
+  it.only("can render multiple checkbox groups with a lot of checkboxes", () => {
+    const array = new Array(30).fill("spaghetti");
+    const children = array.map((_, i) => {
+      return (
+        <Checkbox
+          key={i}
+          id={"checkbox" + i}
+          value={i.toString()}
+          labelText={`Checkbox ${i}`}
+        />
+      );
+    });
+    console.time("spaghetti");
+    render(
+      <>
+        <CheckboxGroup id="group1" labelText="group1" name="a11y-test">
+          {children}
+        </CheckboxGroup>
+        <CheckboxGroup id="group2" labelText="group2" name="a11y-test">
+          {children}
+        </CheckboxGroup>
+      </>
+    );
+    console.timeLog("spaghetti");
+
+    console.time("get");
+    screen.getAllByLabelText("Checkbox 1")[0];
+    console.timeLog("get");
+    // userEvent.click();
+    // userEvent.click(screen.getAllByLabelText("Checkbox 2")[1]);
+    // userEvent.click(screen.getAllByLabelText("Checkbox 3")[0]);
+    // userEvent.click(screen.getAllByLabelText("Checkbox 4")[1]);
+
+    expect(false);
+  });
+
   it("renders with Checkbox inputs and a label", () => {
     render(
       <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test1">
