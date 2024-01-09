@@ -118,7 +118,7 @@ const theme: any = {
     CustomIcon: Icon,
     Label,
     Link,
-    CustomList: List,
+    ReservoirList: List,
     Logo,
     Modal,
     MultiSelect,

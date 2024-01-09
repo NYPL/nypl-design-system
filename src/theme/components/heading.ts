@@ -168,6 +168,7 @@ const Heading = defineMultiStyleConfig({
           textDecoration: url ? "none" : "underline",
         },
         color: "ui.typography.heading",
+        margin: "0",
         textTransform: isCapitalized
           ? "capitalize"
           : isUppercase

@@ -154,7 +154,7 @@ export const List: ChakraComponent<
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {listChildrenElms(type)}
@@ -168,7 +168,7 @@ export const List: ChakraComponent<
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {finalTitle}
