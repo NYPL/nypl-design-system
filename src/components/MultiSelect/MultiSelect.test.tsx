@@ -407,7 +407,6 @@ describe("MultiSelect", () => {
     // Child is checked
     expect(screen.getByLabelText("Red")).toBeChecked();
     // Parent is indeterminated
-    console.log(screen.getByLabelText("Colors"));
     //expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
   });
 
