@@ -1,4 +1,9 @@
-import { chakra, useMergeRefs, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  ChakraComponent,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { useState, forwardRef, useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
@@ -253,7 +258,12 @@ const DateRangeRow: React.FC<DateRangeRowProps & React.PropsWithChildren> = ({
 /**
  * Returns a single date input field or two date input fields for a date range.
  */
-export const DatePicker: React.FC<any> = chakra(
+export const DatePicker: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    DatePickerProps & React.RefAttributes<TextInputRefType>
+  >,
+  DatePickerProps
+> = chakra(
   forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,
