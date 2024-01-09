@@ -116,27 +116,21 @@ describe("MultiSelect", () => {
     expect(container.querySelector("#multiselect-test-id")).toBeInTheDocument();
   });
 
-  // it("should initially render with a given label", () => {
-  //   render(
-  //     <MultiSelect
-  //       id="multiselect-test-id"
-  //       helperText="multiselect-helper-text"
-  //       buttonText="multiselect-button-text"
-  //       defaultItemsVisible={defaultItemsVisible}
-  //       items={items}
-  //       selectedItems={selectedTestItems}
-  //       onChange={() => null}
-  //       onClear={() => null}
-  //     />
-  //   );
-
-  //   console.log(screen)
-  //   expect(
-  //     screen.getByRole("button", {
-  //       name: /multiselect test label/i,
-  //     })
-  //   ).toBeInTheDocument();
-  // });
+  it("should initially render with a given label", () => {
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        helperText="multiselect-helper-text"
+        buttonText="multiselect-button-text"
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
 
   it("should initially render with a closed menu when the isDefaultOpen is omitted or set to false", () => {
     render(
