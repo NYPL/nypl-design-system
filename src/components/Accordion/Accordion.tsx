@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
+import Icon, { IconColors } from "../Icons/Icon";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
@@ -42,7 +42,7 @@ const getIcon = (
   isExpanded = false,
   index: number,
   id: string,
-  iconColor: string
+  iconColor: IconColors
 ) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
