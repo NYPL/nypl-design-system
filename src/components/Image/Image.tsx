@@ -2,6 +2,7 @@ import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
 import {
   Box,
   chakra,
+  ChakraComponent,
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -65,7 +66,7 @@ interface ImageWrapperProps {
   className?: string;
   /** Optional value to control the aspect ratio of the card image; default
    * value is `"original"` */
-  aspectRatio?: ImageRatios;
+  ratio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
   /** Sets the image size based on the width or height. Width by default. */
@@ -81,6 +82,9 @@ export interface ImageProps
   additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
   alt?: string;
+  /** Optional value to control the aspect ratio of the card image; default
+   * value is `"original"` */
+  aspectRatio?: ImageRatios;
   /** Adding will wrap the image in a <figure> */
   caption?: string;
   /** Custom image component */
@@ -101,20 +105,20 @@ const ImageWrapper = chakra(
       additionalWrapperStyles = {},
       className = "",
       children,
-      aspectRatio = "original",
+      ratio = "original",
       size = "default",
       sizeBasedOn = "width",
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("CustomImageWrapper", {
-      ratio: aspectRatio,
+    const styles = useMultiStyleConfig("ReservoirImageWrapper", {
+      ratio,
       size,
       sizeBasedOn,
     });
     return (
       <Box
         className={`the-wrap ${className}`}
-        __css={{ ...styles, ...additionalWrapperStyles }}
+        __css={{ ...styles.base, ...additionalWrapperStyles }}
         {...rest}
       >
         <Box className="the-crop" __css={styles.crop}>
@@ -125,7 +129,12 @@ const ImageWrapper = chakra(
   }
 );
 
-export const Image: React.FC<any> = chakra(
+export const Image: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    ImageProps & React.RefAttributes<HTMLDivElement>
+  >,
+  ImageProps
+> = chakra(
   forwardRef<HTMLDivElement, ImageProps>((props, ref?) => {
     const {
       additionalFigureStyles = {},
@@ -153,7 +162,7 @@ export const Image: React.FC<any> = chakra(
       skip: supportsLazyLoading,
     });
     const useImageWrapper = aspectRatio !== "original";
-    const styles = useMultiStyleConfig("CustomImage", {
+    const styles = useMultiStyleConfig("ReservoirImage", {
       variant: imageType,
       ratio: aspectRatio,
       size,
@@ -201,7 +210,7 @@ export const Image: React.FC<any> = chakra(
     const finalImage = useImageWrapper ? (
       <ImageWrapper
         additionalWrapperStyles={additionalWrapperStyles}
-        aspectRatio={aspectRatio}
+        ratio={aspectRatio}
         className={className}
         size={size}
         sizeBasedOn={sizeBasedOn}
