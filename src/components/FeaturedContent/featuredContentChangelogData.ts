@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Updated the spacing in the "fullScreen" variant to better align the component text content with the page text content.',
+    ],
+  },
+  {
     date: "2023-10-18",
     version: "2.1.0",
     type: "New Feature",

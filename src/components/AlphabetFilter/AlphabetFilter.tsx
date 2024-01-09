@@ -20,8 +20,10 @@ export interface AlphabetFilterProps {
   currentLetter?: string;
   /** Value used to set the text for a `Text` component that will be displayed above the letter buttons. */
   descriptionText?: string | JSX.Element;
-  /** Value used to set the text for a `Heading` component. */
-  headingText?: string;
+  /** Optional string value used to set the text for a `Heading` component, or
+   * a DS Heading component that can be passed in.
+   */
+  headingText?: string | JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Adds the `disabled` prop to the AlphabetFilter when true. */

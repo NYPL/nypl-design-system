@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import AlphabetFilter from "./AlphabetFilter";
+import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof AlphabetFilter> = {
   title: "Components/Navigation/AlphabetFilter",
@@ -66,6 +67,14 @@ export const SetActiveLetters: Story = {
         "s",
       ]}
       onClick={undefined}
+    />
+  ),
+};
+export const WithCustomHeading: Story = {
+  render: () => (
+    <AlphabetFilter
+      onClick={undefined}
+      headingText={<Heading level="h4">Custom H4 Heading</Heading>}
     />
   ),
 };

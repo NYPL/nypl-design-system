@@ -1,5 +1,3 @@
-import { defineStyle } from "@chakra-ui/system";
-
 /** Export "mixin" styles. */
 export { screenreaderOnly, wrapperStyles } from "./globalMixins";
 
@@ -138,10 +136,10 @@ const selectTextInputFocusStyles = {
   },
 };
 // Used for p, ul, and ol
-const textMargin = defineStyle({
+const textMargin = {
   margin: "0",
   marginBottom: "s",
-});
+};
 
 export {
   activeFocus,

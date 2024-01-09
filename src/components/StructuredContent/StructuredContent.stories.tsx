@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
 import StructuredContent from "./StructuredContent";
 
 const meta: Meta<typeof StructuredContent> = {
@@ -330,6 +331,29 @@ export const WithHTMLElementTextContent: Story = {
     />
   ),
   name: "HTML Element Text Content",
+};
+
+export const WithCustomHeadingsLevels: Story = {
+  render: () => (
+    <StructuredContent
+      calloutText={<Heading level="h4">Custom H4 callout Text</Heading>}
+      headingText={<Heading level="h3">Custom H3 Heading Text</Heading>}
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: "original",
+        caption: "Image caption",
+        credit: "Image credit",
+        position: "left",
+        size: "medium",
+        src: "//placekitten.com/400/300",
+      }}
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua</p>"
+      }
+    />
+  ),
+  name: "Custom Heading Levels",
 };
 
 export const ExampleWithTwoComponents: Story = {

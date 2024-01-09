@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import List, { listTypesArray } from "./List";
 import { argsBooleanType } from "../../helpers/storybookUtils";
@@ -172,6 +173,29 @@ export const DescriptionList: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
     },
   },
+};
+export const DescriptionListWithCustomHeading: Story = {
+  args: {
+    id: "nypl-list3",
+    noStyling: false,
+    title: <Heading level="h4">Middle-Earth Peoples</Heading>,
+  },
+  argTypes: {
+    inline: { control: false },
+    noStyling: { control: false },
+    type: { control: false },
+  },
+  render: (args) => (
+    <List {...args} type="dl">
+      {descriptions
+        // just for a shorter example
+        .slice(0, 2)
+        .map((item, i) => [
+          <dt key={`dt_${i}`}>{item.term}</dt>,
+          <dd key={`dd_${i}`}>{item.description}</dd>,
+        ])}
+    </List>
+  ),
 };
 
 export const DescriptionListWithLinks: Story = {

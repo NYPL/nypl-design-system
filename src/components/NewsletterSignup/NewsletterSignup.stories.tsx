@@ -100,6 +100,10 @@ const meta: Meta<typeof NewsletterSignup> = {
 export default meta;
 type Story = StoryObj<typeof NewsletterSignup>;
 
+const defaultConfirmationHeading = "Thank you for signing up!";
+const defaultConfirmationText =
+  "You can update your email subscription preferences at any time using the links at the bottom of the email.";
+
 /**
  * Main Story for the NewsletterSignup component. This must contains the `args`
  * and `parameters` properties in this object.
@@ -107,9 +111,8 @@ type Story = StoryObj<typeof NewsletterSignup>;
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationHeading: "Thank you for signing up!",
-    confirmationText:
-      "You can update your email subscription preferences at any time using the links at the bottom of the email.",
+    confirmationHeading: defaultConfirmationHeading,
+    confirmationText: defaultConfirmationText,
     descriptionText: undefined,
     errorHeading: undefined,
     errorText: undefined,
@@ -125,9 +128,7 @@ export const WithControls: Story = {
       action("onSubmit")(event.target[0].value);
     },
     privacyPolicyLink: undefined,
-    title: (
-      <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
-    ),
+    title: undefined,
     valueEmail: undefined,
     view: undefined,
   },
@@ -182,8 +183,8 @@ function NewsletterSignupOnSubmitExampleComponent() {
       valueEmail={inputVal}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      confirmationHeading="Thank you for signing up!"
-      confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+      confirmationHeading={defaultConfirmationHeading}
+      confirmationText={defaultConfirmationText}
     />
   );
 }
@@ -206,9 +207,34 @@ export const DescriptionUsingJSXElements: Story = {
           to have a <Link href="https://corgiorgy.com/">nested link</Link>
         </Text>
       }
-      confirmationHeading="Thank you for signing up!"
-      confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+      confirmationHeading={defaultConfirmationHeading}
+      confirmationText={defaultConfirmationText}
     />
+  ),
+};
+
+export const CustomHeadings: Story = {
+  render: () => (
+    <VStack align="stretch" spacing="l">
+      <NewsletterSignup
+        id="string-title"
+        view="form"
+        onChange={() => {}}
+        onSubmit={() => {}}
+        title="Custom string heading"
+        confirmationHeading={defaultConfirmationHeading}
+        confirmationText={defaultConfirmationText}
+      />
+      <NewsletterSignup
+        id="custom-heading"
+        view="form"
+        onChange={() => {}}
+        onSubmit={() => {}}
+        title={<Heading level="h4" text="Custom h4 DS Heading" />}
+        confirmationHeading={defaultConfirmationHeading}
+        confirmationText={defaultConfirmationText}
+      />
+    </VStack>
   ),
 };
 
@@ -225,8 +251,8 @@ export const ComponentStates: Story = {
           view="form"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading="Thank you for signing up!"
-          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          confirmationHeading={defaultConfirmationHeading}
+          confirmationText={defaultConfirmationText}
         />
       </Box>
       <Box>
@@ -238,8 +264,8 @@ export const ComponentStates: Story = {
           view="submitting"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading="Thank you for signing up!"
-          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          confirmationHeading={defaultConfirmationHeading}
+          confirmationText={defaultConfirmationText}
         />
       </Box>
       <Box>
@@ -251,8 +277,8 @@ export const ComponentStates: Story = {
           view="confirmation"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading="Thank you for signing up!"
-          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          confirmationHeading={defaultConfirmationHeading}
+          confirmationText={defaultConfirmationText}
         />
       </Box>
       <Box>
@@ -264,8 +290,8 @@ export const ComponentStates: Story = {
           view="error"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading="Thank you for signing up!"
-          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          confirmationHeading={defaultConfirmationHeading}
+          confirmationText={defaultConfirmationText}
         />
       </Box>
       <Box>
@@ -277,8 +303,8 @@ export const ComponentStates: Story = {
           view="error"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading="Thank you for signing up!"
-          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          confirmationHeading={defaultConfirmationHeading}
+          confirmationText={defaultConfirmationText}
           errorHeading="An error has occurred."
           errorText={
             <Text noSpace size="body2">

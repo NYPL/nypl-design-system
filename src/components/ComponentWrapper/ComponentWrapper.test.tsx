@@ -4,6 +4,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import ComponentWrapper from "./ComponentWrapper";
+import Heading from "../Heading/Heading";
 
 /**
  * @NOTE while the component is accessible, whatever is passed as children
@@ -57,6 +58,19 @@ describe("ComponentWrapper", () => {
     expect(screen.getByText("helper text")).toBeInTheDocument();
     expect(screen.queryByText("invalid text")).not.toBeInTheDocument();
     expect(screen.getByText("children elements")).toBeInTheDocument();
+  });
+
+  it("renders a custom heading level", () => {
+    render(
+      <ComponentWrapper
+        headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+        id="id-custom-heading"
+      >
+        <div>children elements</div>
+      </ComponentWrapper>
+    );
+
+    expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
   });
 
   it("renders with only its children elements", () => {

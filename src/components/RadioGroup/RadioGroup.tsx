@@ -1,5 +1,6 @@
 import {
   chakra,
+  ChakraComponent,
   RadioGroup as ChakraRadioGroup,
   Stack,
   useMultiStyleConfig,
@@ -61,7 +62,13 @@ const noop = () => {};
  * for this form group element and is not needed for individual DS `Radio`
  * components when `RadioGroup` is used.
  */
-export const RadioGroup: React.FC<any> = chakra(
+export const RadioGroup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<RadioGroupProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<RadioGroupProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<RadioGroupProps>>(
     (props, ref?) => {
       const {

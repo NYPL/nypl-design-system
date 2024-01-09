@@ -8,15 +8,45 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
+
+### Adds
+
+- Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
+- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
+
 ### Updates
 
-- Adds `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
+- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
+
+## 2.1.3 (December 7, 2023)
+
+### Adds
+
+- Adds the `hasVisitedStyles` prop to `Link` which is used to include or omit the visited state styles. Default value is true.
+- Adds the `useDSHeading` hook to render a default H2 heading or a custom heading element.
+- Adds the `sizeBasedOn` prop to the `Image` component.
+- Adds the `isDarkBackgroundImage` prop to the `Hero` component.
+
+### Updates
+
 - Removes `disabled` variant from `Link` theme file, as it isn't being used.
 - Updates the `font-weight` to `"regular"` for the `subtitle1` and `subtitle2` text styles.
+- Updates the `"digitalCollectionsBlack"` variant of the `Logo` component to use NYPL color design tokens.
+- Updates the following components to accept `JSX.Element` type values into their `"title"` prop: `List`, `NewsletterSignup`,
+- Updates the following components to accept `JSX.Element` type values into their `"headingText"` prop: `AlphabetFilter`, `AudioPlayer`, `ComponentWrapper`, `SearchBar`, `VideoPlayer`
+- Updates the `Notification` component to accept `JSX.Element` type values into its `"notificationHeading"` prop.
+- Updates the `StructuredContent` component to accept `JSX.Element` type values into its `"headingText"` and `"calloutText"` props.
+- Updates the `FeaturedContent` component by adjusting the spacing in the `"fullScreen"` variant to better align the component text content with the page text content.
+- Updates the `"campaign"` variant of the `Hero` component to improve the spacing around the component.
+- Updates the `Card` component so that it accepts the `imageProps.isLazy` prop and passes it to its internal `Image` component.
 
 ## Fixes
 
-- Adds a z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+- Adds z-index on hover to the `SearchBar`'s select icon so it no longer disappears.
+- Adds z-index to the `DatePicker`'s calendar container so that the helper text does not shift when the calendar opens.
 
 ## 2.1.2 (November 9, 2023)
 
