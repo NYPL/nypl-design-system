@@ -3,6 +3,7 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
+import Heading from "../Heading/Heading";
 import List from "./List";
 
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
@@ -124,6 +125,23 @@ describe("List", () => {
       />
     );
     expect(screen.getAllByRole("definition")).toHaveLength(2);
+    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+      "Animal Crossing Fish"
+    );
+  });
+
+  it("returns description list with custom heading", () => {
+    render(
+      <List
+        type="dl"
+        title={<Heading level="h4">Animal Crossing Fish</Heading>}
+        listItems={fishDescriptions}
+      />
+    );
+    expect(screen.getAllByRole("definition")).toHaveLength(2);
+    expect(screen.getByRole("heading", { level: 4 })).toHaveTextContent(
+      "Animal Crossing Fish"
+    );
   });
 
   it("consoles a warning when children and the `listItems` prop are both passed", () => {

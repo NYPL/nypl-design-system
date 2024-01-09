@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import AudioPlayer from "./AudioPlayer";
+import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof AudioPlayer> = {
   title: "Components/Media & Icons/AudioPlayer",
@@ -20,6 +21,9 @@ const meta: Meta<typeof AudioPlayer> = {
 export default meta;
 type Story = StoryObj<typeof AudioPlayer>;
 
+const libsynPlayerEmbedCode =
+  '<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+
 /**
  * Main Story for the AudioPlayer component. This must contains the `args`
  * and `parameters` properties in this object.
@@ -30,7 +34,7 @@ export const WithControls: Story = {
     className: undefined,
     descriptionText:
       "Audio description lorem ipsum dolor simet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis.",
-    embedCode: `<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no"  allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`,
+    embedCode: libsynPlayerEmbedCode,
     headingText: "Audio Title",
     helperText: "Audio helper text lorem ipsum dolor simet.",
     id: "audioplayer-id",
@@ -45,13 +49,20 @@ export const WithControls: Story = {
   },
 };
 
+export const WithCustomHeading: Story = {
+  render: () => (
+    <AudioPlayer
+      headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+      embedCode={libsynPlayerEmbedCode}
+      audioType="libsyn"
+    />
+  ),
+};
+
 // The following are additional AudioPlayer example Stories.
 export const LibsynExample: Story = {
   render: () => (
-    <AudioPlayer
-      embedCode='<iframe title="Libsyn Player" style="border: none" src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/" height="90" width="100%" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen ></iframe>'
-      audioType="libsyn"
-    />
+    <AudioPlayer embedCode={libsynPlayerEmbedCode} audioType="libsyn" />
   ),
 };
 export const SoundcloudExample: Story = {

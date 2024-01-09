@@ -10,6 +10,40 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes bug where month and year calendars were rendering vertically rather than horizontally.",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Updates the `initialDate` and `initialDateTo` props to accept an empty string and adds optional `placeholder` and `placeholderTo` props.",
+    ],
+  },
+  {
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Adds z-index to calendar container so that helper text does not shift when calendar opens.",
+    ],
+  },
+  {
     date: "2023-10-26",
     version: "2.1.1",
     type: "Update",

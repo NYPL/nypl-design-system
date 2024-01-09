@@ -1,4 +1,9 @@
-import { chakra, useMergeRefs, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  ChakraComponent,
+  useMergeRefs,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { useState, forwardRef, useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
@@ -31,9 +36,9 @@ export type DatePickerTypes = typeof datePickerTypesArray[number];
 export interface FullDateType {
   /** Date object that gets returned for the onChange
    * function only for date ranges. */
-  endDate?: Date;
+  endDate?: Date | null;
   /** Date object that gets returned for the onChange function. */
-  startDate: Date;
+  startDate: Date | null;
 }
 
 // Used for the input fields' parent wrapper. Internal use only.
@@ -88,10 +93,13 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   helperTextFrom?: string;
   /** Populates the `HelperErrorText` component in the "To" `TextInput` component. */
   helperTextTo?: string;
-  /** The initial date value. This must be in the mm/dd/yyyy format. */
+  /** The initial date value. If no initialDate is passed, the input will render with
+   * today's date. If an empty string is passed, the input will render with no initial
+   * value. If a date is passed, it must be in the mm/dd/yyyy format. */
   initialDate?: string;
-  /** The initialTo date value used for date ranges.
-   * This must be in the mm/dd/yyyy format. */
+  /** The initialTo date value (used for date ranges). If no initialTo is passed, the input
+   * will render with today's date. If an empty string is passed, the input will render with
+   * no initial value.  If a date is passed, it must be in the mm/dd/yyyy format. */
   initialDateTo?: string;
   /** Populates the `HelperErrorText` error state for both "From"
    * and "To" input components. */
@@ -116,6 +124,10 @@ export interface DatePickerProps extends DatePickerWrapperProps {
    * This will return the data in an object with `startDate` and `endDate` keys.
    */
   onChange?: (data: FullDateType) => void;
+  /** Placeholder text for the input. */
+  placeholder?: string;
+  /** Placeholder text for the end date input (used in date ranges). */
+  placeholderTo?: string;
   /** An additional explicit React ref passed for a date range's "To"
    * input field. Note that the "From" input takes the initial "ref" value. */
   refTo?: React.Ref<TextInputRefType>;
@@ -246,7 +258,12 @@ const DateRangeRow: React.FC<DateRangeRowProps & React.PropsWithChildren> = ({
 /**
  * Returns a single date input field or two date input fields for a date range.
  */
-export const DatePicker: React.FC<any> = chakra(
+export const DatePicker: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    DatePickerProps & React.RefAttributes<TextInputRefType>
+  >,
+  DatePickerProps
+> = chakra(
   forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,
@@ -269,6 +286,8 @@ export const DatePicker: React.FC<any> = chakra(
       nameFrom,
       nameTo,
       onChange,
+      placeholder,
+      placeholderTo,
       refTo,
       showHelperInvalidText = true,
       showLabel = true,
@@ -277,8 +296,16 @@ export const DatePicker: React.FC<any> = chakra(
     } = props;
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
-    const initStartDate = initialDate ? new Date(initialDate) : new Date();
-    const initEndDate = initialDateTo ? new Date(initialDateTo) : new Date();
+    const initStartDate = initialDate
+      ? new Date(initialDate)
+      : initialDate === ""
+      ? null
+      : new Date();
+    const initEndDate = initialDateTo
+      ? new Date(initialDateTo)
+      : initialDateTo === ""
+      ? null
+      : new Date();
     const startDateInputRef = useRef(null);
     const endDateInputRef = useRef(null);
 
@@ -423,6 +450,7 @@ export const DatePicker: React.FC<any> = chakra(
           id={`${id}-end`}
           name={nameTo}
           onChange={(date: Date) => onChangeDefault(date, "endDate")}
+          placeholderText={placeholderTo}
           selected={fullDate.endDate}
           {...endDatePickerAttrs}
         />
@@ -447,6 +475,7 @@ export const DatePicker: React.FC<any> = chakra(
         id={`${id}-start`}
         name={nameFrom}
         onChange={(date: Date) => onChangeDefault(date, "startDate")}
+        placeholderText={placeholder}
         selected={fullDate.startDate}
         {...startDatePickerAttrs}
       />
