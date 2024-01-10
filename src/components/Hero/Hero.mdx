@@ -205,6 +205,9 @@ By default, the `Hero` component renders a dark background color with light
 text. This color treatment can be overridden using a combination of the
 `backgroundColor`, `foregroundColor` and `isDarkText` props.
 
+**NOTE:** The `foregroundColor` prop will override the `isDarkText` prop, so they
+should not be used at the same time. 
+
 <Canvas of={HeroStories.TextColorStyles} />
 
 ## Deprecated Variants

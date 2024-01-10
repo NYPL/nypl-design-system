@@ -271,6 +271,13 @@ export const Hero = chakra(
             "`'secondary'` `heroType` variant will not use them."
         );
       }
+      if (foregroundColor && isDarkText) {
+        console.warn(
+          "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
+            "have both been passed. Thse props can not be used at the same time, " +
+            "so the `foregroundColor` prop will override the `isDarkText` prop."
+        );
+      }
 
       const childrenToRender =
         heroType === "campaign" ? (

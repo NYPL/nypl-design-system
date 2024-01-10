@@ -455,6 +455,26 @@ describe("Hero", () => {
     );
   });
 
+  it("logs a warning if `foregroundColor` and `isDarkText` props are both passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        foregroundColor="ui.black"
+        heroType="campaign"
+        imageProps={imageProps}
+        isDarkBackgroundImage
+        isDarkText
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
+        "have both been passed. Thse props can not be used at the same time, " +
+        "so the `foregroundColor` prop will override the `isDarkText` prop."
+    );
+  });
+
   it("renders FiftyFifty Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const { rerender } = render(
