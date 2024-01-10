@@ -34,11 +34,7 @@ const otherSubHeaderTextLong = (
     >
       Subheading
     </Heading>
-    <Heading
-      level="h3"
-      noSpace
-      size="heading6"
-    >
+    <Heading level="h3" noSpace size="heading6">
       Subheading
     </Heading>
     <Text>

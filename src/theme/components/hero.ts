@@ -180,10 +180,10 @@ const campaign = ({ foregroundColor, isDarkText }) => ({
     bg: "ui.black",
     // color: "ui.typography.inverse.body",
     color: foregroundColor
-        ? foregroundColor
-        : isDarkText
-        ? "ui.typography.body"
-        : "ui.typography.inverse.body",
+      ? foregroundColor
+      : isDarkText
+      ? "ui.typography.body"
+      : "ui.typography.inverse.body",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
