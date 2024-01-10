@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Added the `isDarkText` prop.",
+      "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
+    ],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",

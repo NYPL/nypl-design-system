@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `isDarkText` prop to the `Hero` component.
+
+### Updates
+
+- Updates the `Hero` component with conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.
+
 ## 2.1.4 (January 4, 2024)
 
 ### Adds

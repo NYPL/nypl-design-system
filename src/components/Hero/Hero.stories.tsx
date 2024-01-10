@@ -1,4 +1,5 @@
-import { Stack, useColorModeValue } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import { Source } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -24,17 +25,12 @@ const deprecatedMessage = (
 );
 const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-const CustomHeadingColors = () => {
-  const c = useColorModeValue("brown", "yellow");
-  return c;
-};
 const otherSubHeaderTextLong = (
   <>
     <Heading
       level="h2"
       size="heading3"
       subtitle="Lorem Parturient Bibendum Aenean Cras"
-      __css={{ color: "magenta", _dark: { color: "yellow" } }}
     >
       Subheading
     </Heading>
@@ -42,9 +38,6 @@ const otherSubHeaderTextLong = (
       level="h3"
       noSpace
       size="heading6"
-      color="red"
-      // sx={{ color: "red" }}
-      // color={CustomHeadingColors()}
     >
       Subheading
     </Heading>
@@ -305,6 +298,8 @@ export const Campaign: Story = {
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
+          backgroundColor="ui.bg.hover"
+          isDarkBackgroundImage
         />
       </div>
       <div>
@@ -368,11 +363,9 @@ export const CampaignBackgroundColors: Story = {
           heroType="campaign"
           heading={
             <Heading
-              color={CustomHeadingColors()}
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
-              __css={{ _dark: "red" }}
             />
           }
           imageProps={imageProps}
@@ -387,12 +380,11 @@ export const CampaignBackgroundColors: Story = {
         />
         <Hero
           backdropBackgroundColor="section.education.primary"
-          backgroundColor="ui.error.secondary"
-          foregroundColor="ui.typography.inverse.body"
+          backgroundColor="ui.warning.primary"
+          foregroundColor="ui.typography.heading"
           heroType="campaign"
           heading={
             <Heading
-              color={CustomHeadingColors()}
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
@@ -400,6 +392,142 @@ export const CampaignBackgroundColors: Story = {
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
+        />
+      </div>
+    </Stack>
+  ),
+};
+export const TextColorStyles: Story = {
+  render: () => (
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Default Colors"
+        />
+        <Hero
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundImageSrc="//placekitten.com/1600/800"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Custom Background and Text Colors"
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="//placekitten.com/1600/800"
+          foregroundColor="ui.error.secondary"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="//placekitten.com/1600/800"
+  foregroundColor="ui.error.secondary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          size="heading6"
+          text='Campaign Hero with Custom Background Color and "Dark" Text'
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-long-text-heading"
+              overline="Example"
+              subtitle="Donec id elit non mi porta gravida at eget metus."
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          isDarkText
+          subHeaderText={otherSubHeaderTextLong}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="//placekitten.com/1600/800"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  isDarkText
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
         />
       </div>
     </Stack>

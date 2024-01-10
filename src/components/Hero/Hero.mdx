@@ -9,10 +9,10 @@ import Link from "../Link/Link";
 
 # Hero
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `2.1.3`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -22,6 +22,7 @@ import Link from "../Link/Link";
 - {<Link href="#active-variants" target="_self">Active Variants</Link>}
 - {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
+- {<Link href="#text-colors" target="_self">Text Colors</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -197,6 +198,14 @@ subHeaderText={otherSubHeaderText}
 />
 
 <Canvas of={HeroStories.CampaignBackgroundColors} />
+
+## Text Colors
+
+By default, the `Hero` component renders a dark background color with light
+text. This color treatment can be overridden using a combination of the
+`backgroundColor`, `foregroundColor` and `isDarkText` props.
+
+<Canvas of={HeroStories.TextColorStyles} />
 
 ## Deprecated Variants
 

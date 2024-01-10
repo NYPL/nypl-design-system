@@ -61,6 +61,7 @@ export interface HeroProps {
    * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
    * `Hero` type. Note: not all `Hero` variations utilize this prop. */
   imageProps?: HeroImageProps;
+  isDarkText?: boolean;
   /** Optional boolean used to toggle the treatment of the background image in
    * the "campaign" variant. If true, the background image will be converted to
    * black & white and darkened to 60% black. */
@@ -87,11 +88,16 @@ export const Hero = chakra(
           alt: "",
           src: "",
         },
+        isDarkText,
         isDarkBackgroundImage = false,
         locationDetails,
         subHeaderText,
       } = props;
-      const styles = useMultiStyleConfig("Hero", { variant: heroType });
+      const styles = useMultiStyleConfig("Hero", {
+        foregroundColor,
+        isDarkText,
+        variant: heroType,
+      });
       const headingStyles = styles.heading;
       // We want to add `Hero`-specific styling to the `Heading` component.
       const finalHeading =

@@ -166,7 +166,7 @@ const tertiary = {
     marginBottom: "0",
   },
 };
-const campaign = {
+const campaign = ({ foregroundColor, isDarkText }) => ({
   alignItems: "center",
   display: "flex",
   justifyContent: "center",
@@ -178,7 +178,12 @@ const campaign = {
   content: {
     alignItems: "stretch",
     bg: "ui.black",
-    color: "ui.typography.inverse.body",
+    // color: "ui.typography.inverse.body",
+    color: foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? "ui.typography.body"
+        : "ui.typography.inverse.body",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -190,12 +195,25 @@ const campaign = {
     position: { md: "relative" },
     zIndex: 2,
     ".chakra-heading": {
-      color: "ui.typography.inverse.heading",
+      color: foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? "ui.typography.heading"
+        : "ui.typography.inverse.heading",
     },
     _dark: {
-      color: "dark.ui.typography.body",
+      // color: "dark.ui.typography.body",
+      color: foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? "dark.ui.typography.inverse.body"
+        : "dark.ui.typography.body",
       ".chakra-heading": {
-        color: "dark.ui.typography.heading",
+        color: foregroundColor
+          ? foregroundColor
+          : isDarkText
+          ? "dark.ui.typography.inverse.heading"
+          : "dark.ui.typography.heading",
       },
     },
   },
@@ -228,7 +246,7 @@ const campaign = {
       lg: "50%",
     },
   },
-};
+});
 const fiftyFifty = {
   content: {
     ...wrapperStyles,
