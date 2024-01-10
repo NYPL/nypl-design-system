@@ -1,0 +1,105 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Sticky Elements" />
+
+# Sticky Elements
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#general-issues" target="_self">General Issues</Link>}
+- {<Link href="#implementation" target="_self">Implementation</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+Sticky elements (`position: sticky`) switch between relative and fixed position. They move with the viewport as the user scrolls, so they are visible until they hit a given breakpoint.
+
+Avoid sticky elements in general. The most common use case, a sticky header, is only useful when users will be repeatedly accessing the menu and scrolling through multiple pages.
+This is why you often see them used on e-commerce sites. If users don't need immediate navigation and will generally stay on one or two pages, a sticky header is unnecessary.
+
+Additionally, sticky headers can obscure other elements on the page. For large menus that will cover parts of the page, consider an accordion or just making it fixed. This keeps the header in place
+at the top of the screen, so users will only need to cover part of the screen when they return to the header.
+
+## General Issues
+
+When using a sticky element on a page, consider the following UX issues:
+
+- How much space is it taking up?
+- Is it difficult to access when tabbing forward and backwards?
+- Does it break when users zoom in on mobile devices?
+- Is it hiding focused elements?
+
+The solution presented below only addresses the _last_ of these concerns: preventing a sticky
+header from hiding focused elements.
+
+## Implementation
+
+Sighted keyboard users tab through a page to display more content and to access buttons and links.
+To return to the top of the page, keyboard users tab backwards. If the header on a page uses `position: sticky`,
+tabbing backwards moves the focused element underneath the header, so the user can no longer see where the focus is.
+A similar issue arises with users tabbing forwards against a sticky footer.
+
+The apparent solution would be using `scroll-margin-top` to snap-scroll the viewport to wherever the focused
+element is, but that's not supported on several major browsers.
+
+Instead, this approach uses a combination of CSS, HTML, and Typescript to check whether a focused element needs a sticky margin by
+dynamically calculating boundary interactions, then applies that margin (pushing page up) accordingly. This React hook is called by a
+focus event on any page element or a ResizeObserver event on the sticky element.
+
+This approach was first implemented with the Digital Collections header, using a [custom hook](https://github.com/NYPL/digital-collections/blob/main/src/hooks/useScrolled.ts) on the header.
+
+This code can be modified to apply to any sticky element, alongside
+
+1. HTML data attributes on the sticky element, ex. `<header data-sticky-header> ... </header>`
+2. CSS: `position: sticky` on the sticky element
+
+The hook first defines the `sticky` object:
+
+<Source
+  code={`
+let sticky: {
+  header?: HTMLElement | null;
+  // Could have 'footer' as well here, for example.
+  offset?: number;
+} = {};
+`}
+/>
+`applyStickyMargin()` contains most of the logic, namely calculating boundary interactions
+between the sticky object and the focused object, then applying that margin accordingly:
+<Source
+  code={`
+const applyStickyMargin = (sticky) => {
+  // Specifying which element on the page is focused, if none then defaulting to body.
+  const focused = (document.activeElement || document.body) as HTMLElement;
+  let applicable = focused !== document.body;
+  if (applicable && sticky.header) {
+    applicable = !sticky.header.contains(focused);
+  }
+  // Calculating difference between the edge of the header and the focused element.
+  if (applicable) {
+    const edge = {
+      header: sticky.header ? sticky.header.getBoundingClientRect().bottom + sticky.offset : 0,
+    };
+    const diff = sticky.header ? focused.getBoundingClientRect().top - edge.header : 0;
+  // Then scrolls window by that difference (plus a little padding).
+    if (diff < 0) {
+      window.scrollBy(0, diff - 10);
+    }
+  }
+};
+`}
+  language="tsx"
+/>
+
+For the complete code and more information, check out the [hook](https://github.com/NYPL/digital-collections/blob/main/src/hooks/useScrolled.ts) and its behavior on the [Digital Collections site](https://github.com/NYPL/digital-collections).
+
+## Resources
+
+- {<Link href="https://www.tpgi.com/prevent-focused-elements-from-being-obscured-by-sticky-headers/">TPGi: Prevent focused elements from being obscured by sticky headers</Link>}
+  (This article is the source of the above approach, and this guide is pretty much an abridged summary of this article. Additionally, the code given here is Javascript and includes more sticky elements like a footer.)
+- {<Link href="https://www.smashingmagazine.com/2023/05/sticky-menus-ux-guidelines/"> Designing Sticky Menus: UX Guidelines</Link>}
+- {<Link href="https://technology.blog.gov.uk/2018/05/21/sticky-elements-functionality-and-accessibility-testing/">Sticky elements: functionality and accessibility testing</Link>}
+- {<Link href="https://design.gs.com/patterns/sticky-elements">Sticky Elements</Link>}
