@@ -136,6 +136,7 @@ export const CheckboxGroup = chakra(
             isInvalid,
             isRequired,
           };
+          console.log({ newProps, child });
           console.log("Checkbox group message: push");
           newChildren.push(React.cloneElement(child, newProps));
         }
