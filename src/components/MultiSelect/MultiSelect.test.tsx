@@ -401,7 +401,7 @@ describe("MultiSelect", () => {
     // Child is checked
     expect(screen.getByLabelText("Red")).toBeChecked();
     // Parent is indeterminated
-    //expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
+    expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
   });
 
   it("should check all child items if parent is checked", () => {

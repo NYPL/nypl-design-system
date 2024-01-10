@@ -22,7 +22,7 @@ export interface SelectedItems {
 }
 type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
-interface MultiSelectProps {
+export type MultiSelectProps = {
   /** The helperText sets the text for the internal HelperErrorText */
   helperText: string;
   /** The id of the MultiSelect. */
@@ -134,16 +134,14 @@ export const MultiSelect = chakra(
         return false;
       };
 
-      // isAllChecked defines the isChecked status of parent checkboxes.If all child items are selected, it will turn true, otherwise it returns false.
+      // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false.
       // This prop is only passed to parent options.
       const isAllChecked = (
         multiSelectId: string,
-        targetItem: MultiSelectItem
+        item: MultiSelectItem
       ): boolean => {
-        const childIds: string[] = targetItem.children.map(
-          (childItem) => childItem.id
-        );
-        if (childIds.length > 0 && selectedItems[multiSelectId] !== undefined) {
+        let childIds: string[] = item.children.map((childItem) => childItem.id);
+        if (selectedItems[multiSelectId] !== undefined) {
           return childIds.every((childItem) =>
             selectedItems[multiSelectId].items.includes(childItem)
           );
@@ -159,9 +157,9 @@ export const MultiSelect = chakra(
         let childIds: string[] = item.children.map((childItem) => childItem.id);
         if (
           selectedItems[multiSelectId] !== undefined &&
-          childIds.some((childItem) => {
-            selectedItems[multiSelectId].items.includes(childItem);
-          })
+          childIds.some((childItem) =>
+            selectedItems[multiSelectId].items.includes(childItem)
+          )
         ) {
           return !isAllChecked(multiSelectId, item);
         }
@@ -285,7 +283,6 @@ export const MultiSelect = chakra(
                                 onChange: onChange,
                               })}
                         />
-
                         {item.children.map((childItem) => (
                           <Checkbox
                             key={childItem.id}
