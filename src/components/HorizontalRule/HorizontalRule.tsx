@@ -14,7 +14,7 @@ export interface HorizontalRuleProps {
 export const HorizontalRule: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<HorizontalRuleProps> &
-      React.RefAttributes<HTMLHRElement>
+      React.RefAttributes<HTMLDivElement & HTMLHRElement>
   >,
   React.PropsWithChildren<HorizontalRuleProps>
 > = chakra(
