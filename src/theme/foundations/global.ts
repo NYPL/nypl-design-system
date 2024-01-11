@@ -25,6 +25,9 @@ const global = {
   a: {
     color: "ui.link.primary",
   },
+  b: {
+    fontWeight: "bold",
+  },
   svg: {
     display: "inline",
   },

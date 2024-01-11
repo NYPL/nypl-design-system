@@ -1,4 +1,4 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import { checkListChildrenError } from "../List/List";
@@ -35,7 +35,13 @@ export interface StyledListProps {
  * adhere to traditional numbered and bulleted list styles. Unlike
  * the `List` component, `StyledList` only renders an unordered list.
  */
-export const StyledList: React.FC<any> = chakra(
+export const StyledList: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<StyledListProps> &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement>
+  >,
+  React.PropsWithChildren<StyledListProps>
+> = chakra(
   forwardRef<HTMLDivElement & HTMLUListElement, StyledListProps>(
     (props, ref?) => {
       const {
@@ -46,7 +52,7 @@ export const StyledList: React.FC<any> = chakra(
         style = "capped",
         textSize = "default",
       } = props;
-      const styles = useMultiStyleConfig("StyledList", {
+      const styles = useStyleConfig("StyledList", {
         textSize,
         variant: style,
       });

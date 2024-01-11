@@ -3,10 +3,10 @@ import { textMargin } from "./global";
 import { headings } from "./heading";
 import { baseLinkStyles } from "./link";
 import {
-  baseDescriptionStyles,
+  descriptionStyles,
   baseListStyles,
   baseSectionDescriptionStyles,
-  baseUnorderedStyles,
+  unorderedStyles,
 } from "./list";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
@@ -109,7 +109,7 @@ const StructuredContent = defineMultiStyleConfig({
         ul: {
           ...baseListStyles(),
           listStyle: "none",
-          ...baseUnorderedStyles(),
+          ...unorderedStyles(),
         },
         ol: {
           ...baseListStyles(),
@@ -117,9 +117,9 @@ const StructuredContent = defineMultiStyleConfig({
         },
         // For section, h2 in the definition list.
         section: baseSectionDescriptionStyles,
-        dl: baseDescriptionStyles.dl,
-        dt: baseDescriptionStyles.dt,
-        dd: baseDescriptionStyles.dd,
+        dl: descriptionStyles.dl,
+        dt: descriptionStyles.dt,
+        dd: descriptionStyles.dd,
         table: {
           width: "100%",
           th: {

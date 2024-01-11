@@ -5,12 +5,31 @@ import { withDesign } from "storybook-addon-designs";
 
 import Checkbox from "./Checkbox";
 
+const argsBooleanType = (defaultValue = false) => ({
+  control: { type: "boolean" },
+  table: { defaultValue: { summary: defaultValue } },
+});
+
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Form Elements/Checkbox",
   component: Checkbox,
   decorators: [withDesign],
   argTypes: {
+    className: { control: false },
+    helperText: { control: { type: "text" } },
     id: { control: false },
+    invalidText: { control: { type: "text" } },
+    isChecked: argsBooleanType(),
+    isDisabled: argsBooleanType(),
+    isIndeterminate: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
+    labelText: { control: { type: "text" } },
+    name: { control: { type: "text" } },
+    onChange: { control: false },
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    value: { control: { type: "text" } },
   },
 };
 
