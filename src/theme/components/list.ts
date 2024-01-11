@@ -13,7 +13,7 @@ interface ListBaseStyle extends Partial<StyleFunctionProps> {
   noStyling?: boolean;
 }
 
-export const baseListStyles = (props?: ListBaseStyle) => ({
+export const baseListStyles = (props: ListBaseStyle = {}) => ({
   // Browser automatically applies margin, so by default we unset it.
   margin: props.noStyling ? "0" : "unset",
   listStyle: props.noStyling ? "none" : null,
@@ -50,7 +50,7 @@ export const baseSectionDescriptionStyles = {
   },
 };
 // For specific component variants
-export const unorderedStyles = (props?: ListBaseStyle) => ({
+export const unorderedStyles = (props: ListBaseStyle = {}) => ({
   ...textMargin,
   listStyle: "none",
   li: {
