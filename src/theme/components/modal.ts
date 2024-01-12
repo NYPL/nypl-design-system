@@ -1,5 +1,7 @@
-const Modal = {
-  parts: [
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
     "header",
     "overlay",
     "dialogContainer",
@@ -7,8 +9,10 @@ const Modal = {
     "closeButton",
     "body",
     "footer",
-  ],
-  baseStyle: {
+  ]);
+
+const Modal = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     dialog: {
       _dark: {
         bg: "dark.ui.bg.default",
@@ -30,7 +34,7 @@ const Modal = {
         color: "dark.ui.typography.body",
       },
     },
-  },
-};
+  }),
+});
 
 export default Modal;

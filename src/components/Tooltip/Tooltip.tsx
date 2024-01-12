@@ -3,6 +3,7 @@ import {
   chakra,
   Tooltip as ChakraTooltip,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
@@ -23,7 +24,12 @@ export interface TooltipProps {
   shouldWrapChildren?: boolean;
 }
 
-export const Tooltip: React.FC<any> = chakra(
+export const Tooltip: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TooltipProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TooltipProps>
+> = chakra(
   forwardRef<HTMLDivElement, TooltipProps>((props, ref?) => {
     const {
       children,
