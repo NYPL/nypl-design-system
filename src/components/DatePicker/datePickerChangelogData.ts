@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Fixes the range calendar style for the month and year calendars."],
+    notes: [
+      "Fixes the range calendar style for the month and year calendars.",
+      "Fixes minor typo in the Initial Date Values section.",
+    ],
   },
   {
     date: "2024-01-04",
