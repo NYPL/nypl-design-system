@@ -60,34 +60,37 @@ export default function useMultiSelect(initialState?: SelectedItems) {
     // Build an array of child items.
     const childItems = items
       .filter((item: MultiSelectItem) => item.id === parentId)[0]
-      .children.map((child) => child.id);
+      .children.map((child) => ({ id: child.id, isDisabled: child.isDisabled }));
+    
+    const childIds = childItems.map((childItem) => childItem.id);
 
     let newItems;
     // If some items of the multiSelect are already selected
+
     if (selectedItems[multiSelectId] !== undefined) {
+      const nonDisabledArray = childItems.filter((childItem) => { return !childItem.isDisabled }).map((childItem) => childItem.id)
+
       // If all children of the parent are already selected
-      if (
-        childItems.every((childItem) =>
+      if (nonDisabledArray.every((childItem) => 
           selectedItems[multiSelectId].items.includes(childItem)
-        )
-      ) {
+        )) {
         // Remove all children from the selectedItems array (unselect all child checkbox options)
         newItems = selectedItems[multiSelectId].items.filter(
-          (stateItem) => !childItems.includes(stateItem)
+          (stateItem) => !childIds.map((childId) => childId).includes(stateItem)
         );
       } else {
         // Else add missing childItems.
-        newItems = [
-          ...childItems.filter(
-            (childItem) =>
-              !selectedItems[multiSelectId].items.includes(childItem)
-          ),
-          ...selectedItems[multiSelectId].items,
-        ];
+        newItems = [...childItems.filter((childItem) => 
+          (!childItem.isDisabled) && !selectedItems[multiSelectId].items.includes(childItem.id)
+        ).map((childItem) => childItem.id), ...selectedItems[multiSelectId].items ];
+
       }
-      // If no items of this multiSelect were selected before
     } else {
-      newItems = childItems;
+      // If no items of this multiSelect were selected before, select non-disabled child items
+      newItems = childItems  
+        .filter((childItem) => {
+          return !childItem.isDisabled
+        }).map((childItem) => childItem.id);
     }
     // Update selectedItems on state to reflect the new selection
     setSelectedItems({

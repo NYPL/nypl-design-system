@@ -10,19 +10,20 @@ import useMultiSelect from "../../hooks/useMultiSelect";
 let matchMedia: MatchMedia;
 
 const items = [
-  { id: "dogs", name: "Dogs" },
-  { id: "cats", name: "Cats" },
-  { id: "cars", name: "Cars" },
+  { id: "dogs", name: "Dogs", isDisabled: false },
+  { id: "cats", name: "Cats", isDisabled: false },
+  { id: "cars", name: "Cars", isDisabled: false },
   {
     id: "colors",
     name: "Colors",
+    isdisabled: false,
     children: [
-      { id: "red", name: "Red" },
-      { id: "blue", name: "Blue" },
+      { id: "red", name: "Red", isDisabled: false },
+      { id: "blue", name: "Blue", isDisabled: false },
     ],
   },
-  { id: "plants", name: "Plants" },
-  { id: "furniture", name: "Furniture" },
+  { id: "plants", name: "Plants", isDisabled: false },
+  { id: "furniture", name: "Furniture", isDisabled: false },
 ];
 
 const defaultItemsVisible = 5;

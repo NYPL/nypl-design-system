@@ -18,6 +18,7 @@ const items = [
   {
     id: "art_history",
     name: "Art History",
+    isDisabled: true,
   },
   {
     id: "design",
@@ -27,10 +28,22 @@ const items = [
       {
         id: "fashion",
         name: "Fashion",
+        isDisabled: false,
       },
       {
         id: "ux",
         name: "User Experience",
+        isDisabled: false,
+      },
+      {
+        id: "tecture",
+        name: "Architecture",
+        isDisabled: true,
+      },
+      {
+        id: "home",
+        name: "Home",
+        isDisabled: true,
       },
     ],
   },
@@ -168,7 +181,7 @@ const MultiSelectDialogStory = (args) => {
       {...args}
       items={items}
       isDefaultOpen={false}
-      isSearchable={true}
+      isSearchable={false}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);

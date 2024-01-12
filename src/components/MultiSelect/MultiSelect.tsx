@@ -10,6 +10,7 @@ import TextInput from "../TextInput/TextInput";
 export interface MultiSelectItem {
   id: string;
   name: string;
+  isDisabled?: boolean;
   children?: MultiSelectItem[];
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
@@ -128,7 +129,7 @@ export const MultiSelect = chakra(
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
         if (selectedItems[multiSelectId]) {
           return !!selectedItems[multiSelectId].items.find(
-            (selectedItemId: string) => selectedItemId === itemId
+            (selectedItemId: string) => selectedItemId === itemId 
           );
         }
         return false;
@@ -142,8 +143,10 @@ export const MultiSelect = chakra(
       ): boolean => {
         let childIds: string[] = item.children.map((childItem) => childItem.id);
         if (selectedItems[multiSelectId] !== undefined) {
-          return childIds.every((childItem) =>
-            selectedItems[multiSelectId].items.includes(childItem)
+          return childIds.every(
+            (childItem) =>
+              selectedItems[multiSelectId].items.includes(childItem) &&
+              !item.children.find((c) => c.id === childItem)?.isDisabled
           );
         }
         return false;
@@ -154,16 +157,36 @@ export const MultiSelect = chakra(
         multiSelectId: string,
         item: MultiSelectItem
       ): boolean => {
-        let childIds: string[] = item.children.map((childItem) => childItem.id);
+        let childIds: string[] = item.children.map((childItem) => childItem.id);      
         if (
           selectedItems[multiSelectId] !== undefined &&
-          childIds.some((childItem) =>
-            selectedItems[multiSelectId].items.includes(childItem)
+          childIds.length > 0 &&
+          childIds.some(
+            (childItem) =>
+              selectedItems[multiSelectId].items.includes(childItem) &&
+              !item.children.find((c) => c.id === childItem)?.isDisabled 
           )
         ) {
           return !isAllChecked(multiSelectId, item);
         }
         return false;
+      };
+
+      const updateDisabledState = (
+        multiSelectId: string,
+        item: MultiSelectItem
+      ): boolean => {
+        // Update isDisabled for the parent item
+        item.isDisabled = isAllChecked(multiSelectId, item);
+
+        // Check if all child items are disabled, and update the parent accordingly
+        if (item.children.every((childItem) => childItem.isDisabled)) {
+          item.isDisabled = true;
+        } else {
+          item.isDisabled = false;
+        }
+        // Return the updated isDisabled state for the parent item
+        return item.isDisabled;
       };
 
       const onChangeSearch = (event) => {
@@ -277,9 +300,11 @@ export const MultiSelect = chakra(
                                 isChecked: isAllChecked(id, item),
                                 isIndeterminate: isIndeterminate(id, item),
                                 onChange: onMixedStateChange,
+                                isDisabled: updateDisabledState(id, item),
                               }
                             : {
                                 isChecked: isChecked(id, item.id),
+                                isDisabled: updateDisabledState(id, item),
                                 onChange: onChange,
                               })}
                         />
@@ -291,6 +316,7 @@ export const MultiSelect = chakra(
                             id={childItem.id}
                             labelText={childItem.name}
                             name={childItem.name}
+                            isDisabled={childItem.isDisabled}
                             isChecked={isChecked(id, childItem.id)}
                             onChange={onChange}
                           />
@@ -301,6 +327,7 @@ export const MultiSelect = chakra(
                         id={item.id}
                         labelText={item.name}
                         name={item.name}
+                        isDisabled={item.isDisabled}
                         isChecked={isChecked(id, item.id)}
                         onChange={onChange}
                         key={item.id}
