@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2023-12-07",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Fixes the range calendar style for the month and year calendars."],
+  },
+  {
     date: "2024-01-04",
     version: "2.1.4",
     type: "Update",
