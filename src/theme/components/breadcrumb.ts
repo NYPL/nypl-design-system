@@ -1,5 +1,8 @@
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
+
 // Variant styling
-const blogs = {
+const blogs = defineStyle({
   bg: "section.blogs.secondary",
   color: "ui.black",
   _dark: {
@@ -26,51 +29,51 @@ const blogs = {
   svg: {
     fill: "ui.black",
   },
-};
-const booksAndMore = {
+});
+const booksAndMore = defineStyle({
   bg: "section.books-and-more.secondary",
   _dark: {
     bg: "dark.section.books-and-more.secondary",
   },
-};
-const brand = {
+});
+const brand = defineStyle({
   bg: "brand.secondary",
   _dark: {
     bg: "dark.brand.secondary",
   },
-};
-const connect = {
+});
+const connect = defineStyle({
   bg: "section.connect.secondary",
   _dark: {
     bg: "dark.section.connect.secondary",
   },
-};
-const education = {
+});
+const education = defineStyle({
   bg: "section.education.secondary",
   _dark: {
     bg: "dark.section.education.secondary",
   },
-};
-const locations = {
+});
+const locations = defineStyle({
   bg: "section.locations.primary",
   _dark: {
     bg: "dark.section.locations.primary",
   },
-};
-const research = {
+});
+const research = defineStyle({
   bg: "section.research.secondary",
   _dark: {
     bg: "dark.section.research.secondary",
   },
-};
-const whatsOn = {
+});
+const whatsOn = defineStyle({
   bg: "section.whats-on.secondary",
   _dark: {
     bg: "dark.section.whats-on.secondary",
   },
-};
+});
 
-const Breadcrumb = {
+const Breadcrumb = defineStyleConfig({
   baseStyle: {
     bg: "ui.black",
     color: "ui.white",
@@ -146,6 +149,6 @@ const Breadcrumb = {
     research,
     whatsOn,
   },
-};
+});
 
 export default Breadcrumb;

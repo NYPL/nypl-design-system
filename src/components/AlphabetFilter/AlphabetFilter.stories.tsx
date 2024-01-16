@@ -4,6 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import AlphabetFilter from "./AlphabetFilter";
 import Heading from "../Heading/Heading";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof AlphabetFilter> = {
   title: "Components/Navigation/AlphabetFilter",
@@ -14,9 +15,7 @@ const meta: Meta<typeof AlphabetFilter> = {
     className: { control: false },
     currentLetter: { control: false },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
     onClick: { control: false },
   },
 };

@@ -1,6 +1,8 @@
 // @todo maybe set the border to always be on, but invisible if prop is set to "none"?
 
 import { StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
 
 function getPadding(size) {
   let paddingSize = "xs"; // 8px / .5rem
@@ -38,9 +40,9 @@ function getColor(color) {
   };
 }
 
-const SocialMediaLinks = {
+const SocialMediaLinks = defineStyleConfig({
   // The base styles for each part
-  baseStyle: {
+  baseStyle: defineStyle({
     // ul styles should not specifically be identified as ul:
     display: "flex",
     alignItems: "flex-start",
@@ -97,7 +99,7 @@ const SocialMediaLinks = {
         fill: "dark.ui.typography.heading",
       },
     },
-  },
+  }),
   // The variants are based on border values
   variants: {
     // Each variant is a function that returns an object with styles for that variant.
@@ -224,6 +226,6 @@ const SocialMediaLinks = {
   defaultProps: {
     variant: "none",
   },
-};
+});
 
 export default SocialMediaLinks;
