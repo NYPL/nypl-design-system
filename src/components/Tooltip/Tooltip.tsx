@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import {
   chakra,
   Tooltip as ChakraTooltip,
-  useMultiStyleConfig,
+  useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
 import Icon from "../Icons/Icon";
@@ -60,7 +60,7 @@ export const Tooltip: ChakraComponent<
       children
     );
 
-    const styles = useMultiStyleConfig("Tooltip", {});
+    const styles = useStyleConfig("Tooltip", {});
 
     return (
       <ChakraTooltip
