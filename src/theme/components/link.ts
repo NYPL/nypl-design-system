@@ -219,30 +219,32 @@ const buttonDisabled = definePartsStyle(({ hasVisitedState }) => ({
 }));
 
 const Link = defineMultiStyleConfig({
-  baseStyle: ({ finalIsUnderlined = true, hasVisitedState }) => ({
-    base: {
-      ...baseLinkStyles,
-      _visited: hasVisitedState
-        ? {
-            color: "ui.link.tertiary",
-            _dark: {
-              color: "dark.ui.link.tertiary",
-            },
-          }
-        : {},
-      textDecoration: finalIsUnderlined ? "underline" : "none",
-      /** This is needed for custom anchor elements or link components
-       * that are passed as children to the `Link` component. */
-      a: {
-        _hover: {
-          color: "ui.link.secondary",
+  baseStyle: definePartsStyle(
+    ({ finalIsUnderlined = true, hasVisitedState }) => ({
+      base: {
+        ...baseLinkStyles,
+        _visited: hasVisitedState
+          ? {
+              color: "ui.link.tertiary",
+              _dark: {
+                color: "dark.ui.link.tertiary",
+              },
+            }
+          : {},
+        textDecoration: finalIsUnderlined ? "underline" : "none",
+        /** This is needed for custom anchor elements or link components
+         * that are passed as children to the `Link` component. */
+        a: {
+          _hover: {
+            color: "ui.link.secondary",
+          },
         },
       },
-    },
-    /** The element will handle descriptive text added to aid
-     * screen readers. */
-    screenreaderOnly: screenreaderOnly(),
-  }),
+      /** The element will handle descriptive text added to aid
+       * screen readers. */
+      screenreaderOnly: screenreaderOnly(),
+    })
+  ),
   variants: {
     button,
     buttonCallout,

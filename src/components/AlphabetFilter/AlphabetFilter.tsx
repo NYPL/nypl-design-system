@@ -35,10 +35,9 @@ export interface AlphabetFilterProps {
 
 export const AlphabetFilter: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<AlphabetFilterProps> &
-      React.RefAttributes<HTMLDivElement>
+    AlphabetFilterProps & React.RefAttributes<HTMLDivElement>
   >,
-  React.PropsWithChildren<AlphabetFilterProps>
+  AlphabetFilterProps
 > = chakra(
   forwardRef<HTMLDivElement, AlphabetFilterProps>((props, ref?) => {
     const {

@@ -74,7 +74,7 @@ const whatsOn = defineStyle({
 });
 
 const Breadcrumb = defineStyleConfig({
-  baseStyle: {
+  baseStyle: defineStyle({
     bg: "ui.black",
     color: "ui.white",
     fontSize: "desktop.breadcrumbs.default",
@@ -137,7 +137,7 @@ const Breadcrumb = defineStyleConfig({
         display: { base: "none", md: "inline" },
       },
     },
-  },
+  }),
   // Available variants:
   variants: {
     blogs,

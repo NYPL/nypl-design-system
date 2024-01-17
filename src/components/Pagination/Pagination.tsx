@@ -37,10 +37,9 @@ export interface PaginationProps {
  */
 export const Pagination: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<PaginationProps> &
-      React.RefAttributes<HTMLDivElement>
+    PaginationProps & React.RefAttributes<HTMLDivElement>
   >,
-  React.PropsWithChildren<PaginationProps>
+  PaginationProps
 > = chakra(
   forwardRef<HTMLDivElement, PaginationProps>((props, ref?) => {
     const {

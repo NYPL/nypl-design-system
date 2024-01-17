@@ -90,10 +90,10 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
  */
 export const SocialMediaLinks: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<SocialMediaLinksProps> &
+    SocialMediaLinkDataProps &
       React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
   >,
-  React.PropsWithChildren<SocialMediaLinksProps>
+  SocialMediaLinkDataProps
 > = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,

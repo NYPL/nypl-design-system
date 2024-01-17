@@ -1,7 +1,7 @@
 // @todo maybe set the border to always be on, but invisible if prop is set to "none"?
 
-import { StyleFunctionProps } from "@chakra-ui/theme-tools";
-import { defineStyleConfig } from "@chakra-ui/react";
+//import { StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { defineStyleConfig, StyleFunctionProps } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
 
 function getPadding(size) {
