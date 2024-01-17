@@ -191,8 +191,10 @@ function MultiSelectControlledExample() {
       id="subjects"
       labelText="Subjects"
       items={items}
-      type="listbox"
       selectedItems={selectedItems}
+      helperText="Multi Select Helper Text"
+      buttonText="MultiSelect"
+      defaultItemsVisible={5}
       onChange={(selectedItem) => {
         handleChange(selectedItem.id, "subjects");
       }}
