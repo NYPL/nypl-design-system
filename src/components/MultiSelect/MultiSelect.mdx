@@ -6,7 +6,7 @@ import Link from "../Link/Link";
 <Meta of={MultiSelectStories} />
 
 # MultiSelect
-D
+
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.4.0`    |
@@ -17,6 +17,7 @@ D
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#with-disabled-checkboxes-example" target="_self">With Disabled Checkboxes Example</Link>}
 - {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
@@ -28,7 +29,7 @@ D
 
 ## Component Props
 
-The `MultiSelect` listbox renders a non-hierarchical list of items to select from.
+The `MultiSelect` renders a non-hierarchical list of items to select from.
 
 <Canvas of={MultiSelectStories.MultiSelectControls} />
 
@@ -37,6 +38,14 @@ The `MultiSelect` listbox renders a non-hierarchical list of items to select fro
 ## Accessibility
 
 TBD
+
+## With Children Items Example
+
+<Canvas of={MultiSelectStories.withChildrenMultiSelectItems} />
+
+## With Disabled Checkboxes Example
+
+<Canvas of={MultiSelectStories.withDisabledCheckboxes} />
 
 ## Using the items prop
 
@@ -49,7 +58,6 @@ items, in the following format:
 <MultiSelect
   id="subject"
   labelText="Subject Specialities"
-  type="dialog"
   items={[
     {
       id: "art",

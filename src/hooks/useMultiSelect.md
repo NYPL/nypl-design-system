@@ -66,7 +66,6 @@ export default function MultiSelectWithHookExample() {
   return (
     <MultiSelect
       id={multiSelectId}
-      type="listbox"
       items={items}
       selectedItems={selectedItems}
       onChange={(selectedItem) => onChange(selectedItem.id, multiSelectId)}
@@ -112,7 +111,6 @@ export default function MultiSelectWithHookExample() {
       onClear={() => {
         onClear(multiSelectId);
       }}
-      type="dialog"
     />
   );
 }

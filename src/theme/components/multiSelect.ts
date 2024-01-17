@@ -137,8 +137,10 @@ const MultiSelect = {
       marginBottom: 0,
       whiteSpace: "nowrap",
       width: "70px",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
+      ...(width === "fitContent" && {
+        textOverflow: "ellipsis",
+        overflow: "hidden"
+      }),
       marginLeft: 54,
     },
     menuSearchInputBox: {

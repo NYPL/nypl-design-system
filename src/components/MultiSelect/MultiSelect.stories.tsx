@@ -18,7 +18,57 @@ const items = [
   {
     id: "art_history",
     name: "Art History",
-    isDisabled: true,
+  },
+  {
+    id: "design",
+    name: "Design",
+  },
+  {
+    id: "business",
+    name: "Business",
+  },
+  {
+    id: "advertising",
+    name: "Advertising",
+  },
+  {
+    id: "government_and_law",
+    name: "Government and Law",
+  },
+  {
+    id: "civil_rights",
+    name: "Civil Rights",
+  },
+  {
+    id: "history",
+    name: "History",
+  },
+  {
+    id: "atlases",
+    name: "Atlases",
+  },
+  {
+    id: "cartography",
+    name: "Cartography",
+  },
+  {
+    id: "geology",
+    name: "Geology",
+  },
+];
+
+const withChildrenCheckboxItems = [
+  {
+    id: "art",
+    name: "Art",
+  },
+  {
+    id: "architecture",
+    name: "Architecture",
+  },
+  {
+    id: "art_history",
+    name: "Art History",
   },
   {
     id: "design",
@@ -28,22 +78,18 @@ const items = [
       {
         id: "fashion",
         name: "Fashion",
-        isDisabled: false,
       },
       {
         id: "ux",
         name: "User Experience",
-        isDisabled: true,
       },
       {
         id: "tecture",
         name: "Architecture",
-        isDisabled: true,
       },
       {
         id: "home",
         name: "Home",
-        isDisabled: true,
       },
     ],
   },
@@ -92,12 +138,10 @@ const meta: Meta<typeof MultiSelect> = {
   argTypes: {
     id: { control: false },
     isBlockElement: {
-      table: { defaultValue: { summary: "false" } },
-      control: false,
+      table: { defaultValue: { summary: false } },
     },
     isDefaultOpen: {
-      table: { defaultValue: { summary: "false" } },
-      control: false,
+      table: { defaultValue: { summary: false } },
     },
     items: { control: false },
     listOverflow: {
@@ -107,17 +151,15 @@ const meta: Meta<typeof MultiSelect> = {
       options: ["scroll", "expand"],
       table: { defaultValue: { summary: "scroll" } },
     },
-
+    
     buttonText: { table: { default: "" } },
 
     defaultItemsVisible: {
-      table: { defaultValue: { summary: "false" } },
-      control: 5,
+      table: { defaultValue: { summary: 5 } },
     },
 
     isSearchable: {
-      table: { defaultValue: { summary: "false" } },
-      control: false,
+      table: { defaultValue: { summary: false } },
     },
 
     onChange: {
@@ -129,7 +171,6 @@ const meta: Meta<typeof MultiSelect> = {
         "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
     },
     selectedItems: { control: false },
-    type: { control: false },
     width: {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
@@ -146,7 +187,96 @@ export const MultiSelectControls: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
-    type: "dialog",
+    items: items,
+    isSearchable: false,
+    defaultItemsVisible: 5,
+    isDefaultOpen: false,
+  },
+  render: (args) => <MultiSelectStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
+
+export const withChildrenMultiSelectItems: Story = {
+  args: {
+    id: "multiselect-dialog",
+    buttonText: "MultiSelect",
+    isSearchable: false,
+    defaultItemsVisible: 5,
+    isDefaultOpen: false,
+    items: withChildrenCheckboxItems,
+  },
+  render: (args) => <MultiSelectStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
+const withDisabledCheckboxItems = [
+  {
+    id: "art",
+    name: "Art",
+  },
+  {
+    id: "architecture",
+    name: "Architecture",
+    isDisabled: true,
+  },
+  {
+    id: "art_history",
+    name: "Art History",
+  },
+  {
+    id: "design",
+    name: "Design",
+    // Children array will only be renderd in a "dialog" type
+    children: [
+      {
+        id: "fashion",
+        name: "Fashion",
+        isDisabled: true,
+      },
+      {
+        id: "ux",
+        name: "User Experience",
+        isDisabled: true,
+      },
+      {
+        id: "tecture",
+        name: "Architecture",
+        isDisabled: false,
+      },
+      {
+        id: "home",
+        name: "Home",
+        isDisabled: false,
+      },
+    ],
+  },
+  {
+    id: "business",
+    name: "Business",
+  },
+];
+
+export const withDisabledCheckboxes: Story = {
+  args: {
+    id: "multiselect-dialog",
+    buttonText: "MultiSelect",
+    isSearchable: false,
+    defaultItemsVisible: 5,
+    isDefaultOpen: false,
+    items: withDisabledCheckboxItems,
   },
   render: (args) => <MultiSelectStory {...args} />,
   parameters: {
@@ -179,7 +309,6 @@ const MultiSelectStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      items={items}
       isDefaultOpen={false}
       isSearchable={false}
       selectedItems={selectedItems}

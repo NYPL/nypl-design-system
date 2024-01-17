@@ -29,13 +29,13 @@ export type MultiSelectProps = {
   /** The id of the MultiSelect. */
   id: string;
   /** Set the default open or closed state of the Multiselect. */
-  isDefaultOpen?: boolean;
+  isDefaultOpen: boolean;
   /** Boolean value used to enable the component's search functionality
    * The default value is false. */
-  isSearchable?: boolean;
+  isSearchable: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
    * The default value is false. */
-  isBlockElement?: boolean;
+  isBlockElement: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
 
