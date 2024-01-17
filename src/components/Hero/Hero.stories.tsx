@@ -1,4 +1,5 @@
 import { Stack } from "@chakra-ui/react";
+import { Source } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -6,15 +7,16 @@ import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
+import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Text from "../Text/Text";
 
 const secondarySubHeaderText = (
   <>
-    Explore our collection of hundreds of online resources and databases. Use
-    our free online content to help with your research, whether it's finding a
-    single article, tracing a family tree, learning a new language, or anything
-    in between.
+    Explore our <Link href="#">collection</Link> of hundreds of online resources
+    and databases. Use our free online content to help with your research,
+    whether it's finding a single article, tracing a family tree, learning a new
+    language, or anything in between.
   </>
 );
 const deprecatedMessage = (
@@ -22,8 +24,15 @@ const deprecatedMessage = (
     This variant has been deprecated.
   </Text>
 );
-const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+const otherSubHeaderText = (
+  <>
+    With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+    <Link href="https://www.nypl.org/locations/snfl/childrens">
+      The New York Public Library
+    </Link>{" "}
+    is an essential part of neighborhoods across the city. Visit us today.
+  </>
+);
 const otherSubHeaderTextLong = (
   <>
     <Heading
@@ -37,12 +46,19 @@ const otherSubHeaderTextLong = (
       Subheading
     </Heading>
     <Text>
-      Donec ullamcorper nulla non metus auctor fringilla. Cras mattis
+      Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
       consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
       augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-      Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta
-      felis euismod semper. Donec sed odio dui. Nullam quis risus eget urna
-      mollis ornare vel eu leo.
+      Aenean lacinia{" "}
+      <Link href="https://google.com" type="external">
+        Google
+      </Link>{" "}
+      bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+      semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+      eu leo.
     </Text>
     <ButtonGroup>
       <Button id="other-button-example-1">Button</Button>
@@ -200,29 +216,9 @@ export const Primary: Story = {
         />
       }
       heroType="primary"
-    />
-  ),
-};
-
-export const Secondary: Story = {
-  name: "Secondary (deprecated)",
-  render: () => (
-    <Hero
-      heading={
-        <Heading
-          level="h1"
-          id="secondary-hero"
-          size="heading2"
-          text="Hero Secondary (deprecated)"
-        />
-      }
-      heroType="secondary"
-      imageProps={imageProps}
-      subHeaderText={
-        <>
-          {secondarySubHeaderText} {deprecatedMessage}
-        </>
-      }
+      // foregroundColor="red"
+      // backgroundColor="silver"
+      // isDarkText
     />
   ),
 };
@@ -242,6 +238,9 @@ export const Tertiary: Story = {
         }
         heroType="tertiary"
         subHeaderText={otherSubHeaderText}
+        // foregroundColor="yellow"
+        // backgroundColor="pink"
+        // isDarkText
       />
       <br />
       <Hero
@@ -374,11 +373,10 @@ export const CampaignBackgroundColors: Story = {
         <Hero
           backdropBackgroundColor="section.education.primary"
           backgroundColor="ui.warning.primary"
-          foregroundColor="ui.typgraphy.heading"
+          foregroundColor="ui.typography.heading"
           heroType="campaign"
           heading={
             <Heading
-              color="ui.typgraphy.heading"
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
@@ -389,6 +387,165 @@ export const CampaignBackgroundColors: Story = {
         />
       </div>
     </Stack>
+  ),
+};
+export const TextColorStyles: Story = {
+  render: () => (
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Default Colors"
+        />
+        <Hero
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundImageSrc="//placekitten.com/1600/800"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Custom Background and Text Colors"
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="//placekitten.com/1600/800"
+          foregroundColor="ui.error.secondary"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="//placekitten.com/1600/800"
+  foregroundColor="ui.error.secondary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          size="heading6"
+          text='Campaign Hero with Custom Background Color and "Dark" Text'
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="//placekitten.com/1600/800"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-long-text-heading"
+              overline="Example"
+              subtitle="Donec id elit non mi porta gravida at eget metus."
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          isDarkText
+          subHeaderText={otherSubHeaderTextLong}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="//placekitten.com/1600/800"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  isDarkText
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+    </Stack>
+  ),
+};
+
+export const Secondary: Story = {
+  name: "Secondary (deprecated)",
+  render: () => (
+    <Hero
+      heading={
+        <Heading
+          level="h1"
+          id="secondary-hero"
+          size="heading2"
+          text="Hero Secondary (deprecated)"
+        />
+      }
+      heroType="secondary"
+      imageProps={imageProps}
+      subHeaderText={
+        <>
+          {secondarySubHeaderText} {deprecatedMessage}
+        </>
+      }
+    />
   ),
 };
 

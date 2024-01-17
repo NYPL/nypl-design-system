@@ -89,8 +89,65 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     },
   };
 };
+const getTextColor = (type, mode, foregroundColor, isDarkText) => {
+  const prefix = mode === "dark" ? "dark.ui." : "ui.";
+  const colorLight = foregroundColor
+    ? foregroundColor
+    : isDarkText
+    ? `${prefix}typography.${type}`
+    : `${prefix}typography.inverse.${type}`;
+  const colorDark = foregroundColor
+    ? foregroundColor
+    : isDarkText
+    ? `${prefix}typography.inverse.${type}`
+    : `${prefix}typography.${type}`;
+  const colorLink = foregroundColor
+    ? foregroundColor
+    : isDarkText
+    ? `ui.link.primary`
+    : `dark.ui.link.primary`;
+  const finalColor =
+    type === "link" ? colorLink : mode === "dark" ? colorDark : colorLight;
+  return finalColor;
+};
+const getLinkColor = (state, mode, foregroundColor, isDarkText) => {
+  let finalColor;
+  const isDarkMode = mode === "dark" ? true : false;
+  switch (state) {
+    default:
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-primary) !important`
+        : isDarkMode
+        ? `dark.ui.link.primary`
+        : `dark.ui.link.primary`;
+      break;
+    case "hover": {
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-secondary) !important`
+        : isDarkMode
+        ? `dark.ui.link.secondary`
+        : `dark.ui.link.secondary`;
+      break;
+    }
+    case "visited": {
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-tertiary) !important`
+        : isDarkMode
+        ? `dark.ui.link.tertiary`
+        : `dark.ui.link.tertiary`;
+      break;
+    }
+  }
+  return finalColor;
+};
 // Variant styling
-const primary = {
+const primary = ({ foregroundColor, isDarkText }) => ({
   alignItems: "center",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -103,7 +160,7 @@ const primary = {
   minHeight: "350px",
   content: {
     bg: "ui.black",
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     flex: {
       base: "0 0 100%",
       md: "0 0 60%",
@@ -120,16 +177,21 @@ const primary = {
     bodyText: {
       marginBottom: "0",
     },
-    // h1: { color: "ui.typography.inverse.heading" },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
       bgColor: "dark.ui.bg.default",
-      color: "dark.ui.typography.body",
+      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
     color: "dark.ui.typography.heading",
   },
-};
+});
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
@@ -139,20 +201,50 @@ const secondaryLocations = getSecondaryVariantStyles(
 );
 const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
 const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
-const tertiary = {
+const tertiary = ({ foregroundColor, isDarkText }) => ({
   content: {
     ...wrapperStyles,
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     display: "flex",
     flexFlow: "column nowrap",
     px: "inset.default",
     py: { base: "inset.default", xl: "inset.wide" },
+    a: {
+      color: getLinkColor("default", "light", foregroundColor, isDarkText),
+      _hover: {
+        color: getLinkColor("hover", "light", foregroundColor, isDarkText),
+      },
+      _visited: {
+        color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        },
+      },
+    },
     p: {
       marginBottom: "0",
       marginTop: { base: "xxs", xl: "xs" },
     },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
-      p: { color: "dark.ui.typography.body" },
+      a: {
+        color: getLinkColor("default", "dark", foregroundColor, isDarkText),
+        _hover: {
+          color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
+        },
+        _visited: {
+          color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          svg: {
+            fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          },
+        },
+      },
+      p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
@@ -165,8 +257,8 @@ const tertiary = {
   p: {
     marginBottom: "0",
   },
-};
-const campaign = {
+});
+const campaign = ({ foregroundColor, isDarkText }) => ({
   alignItems: "center",
   display: "flex",
   justifyContent: "center",
@@ -178,7 +270,7 @@ const campaign = {
   content: {
     alignItems: "stretch",
     bg: "ui.black",
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -189,12 +281,42 @@ const campaign = {
     maxWidth: { md: "1248px" },
     position: { md: "relative" },
     zIndex: 2,
+    a: {
+      color: getLinkColor("default", "light", foregroundColor, isDarkText),
+      _hover: {
+        color: getLinkColor("hover", "light", foregroundColor, isDarkText),
+      },
+      _visited: {
+        color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        },
+      },
+    },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
-      color: "dark.ui.typography.body",
+      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+      a: {
+        color: getLinkColor("default", "dark", foregroundColor, isDarkText),
+        _hover: {
+          color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
+        },
+        _visited: {
+          color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          svg: {
+            fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          },
+        },
+      },
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
-    color: "dark.ui.typography.heading",
+    color: "ui.typography.inverse.heading",
   },
   a: {
     color: "inherit",
@@ -222,7 +344,7 @@ const campaign = {
       lg: "50%",
     },
   },
-};
+});
 const fiftyFifty = {
   content: {
     ...wrapperStyles,
