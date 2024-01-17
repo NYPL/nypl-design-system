@@ -51,6 +51,9 @@ const MultiSelectTestDialogComponent = ({
       helperText="multiselect-helper-text"
       buttonText="multiselect-button-text"
       defaultItemsVisible={defaultItemsVisible}
+      isDefaultOpen={false}
+      isSearchable={false}
+      isBlockElement={false}
       items={items}
       selectedItems={selectedItems}
       onChange={(e) => onChange(e.target.id, multiSelectId)}
@@ -72,6 +75,9 @@ describe("MultiSelect Accessibility", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         selectedItems={selectedTestItems}
@@ -107,6 +113,9 @@ describe("MultiSelect", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         selectedItems={selectedTestItems}
@@ -123,6 +132,9 @@ describe("MultiSelect", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         selectedItems={selectedTestItems}
@@ -139,9 +151,11 @@ describe("MultiSelect", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
-        isDefaultOpen={false}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -156,9 +170,11 @@ describe("MultiSelect", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
-        isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -177,9 +193,11 @@ describe("MultiSelect", () => {
         id="multiselect-test-id"
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         defaultItemsVisible={defaultItemsVisible}
         items={items}
-        isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -199,6 +217,8 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isSearchable={false}
+        isBlockElement={false}
         isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
@@ -238,6 +258,9 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -299,6 +322,9 @@ describe("MultiSelect", () => {
         helperText="multiselect-helper-text"
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         items={items}
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
@@ -319,6 +345,9 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
@@ -350,6 +379,9 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
@@ -369,6 +401,9 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
@@ -432,6 +467,8 @@ describe("MultiSelect", () => {
         buttonText="multiselect-button-text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
+        isSearchable={false}
+        isBlockElement={false}
         isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onMixedStateChange={() => null}
@@ -490,6 +527,9 @@ describe("MultiSelect", () => {
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
+          isDefaultOpen={false}
+          isSearchable={false}
+          isBlockElement={false}
           selectedItems={selectedTestItems}
           onChange={() => null}
           onClear={() => null}
@@ -505,6 +545,8 @@ describe("MultiSelect", () => {
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
+          isSearchable={false}
+          isBlockElement={false}
           isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onChange={() => null}
@@ -523,6 +565,8 @@ describe("MultiSelect", () => {
           defaultItemsVisible={defaultItemsVisible}
           items={items}
           isDefaultOpen={true}
+          isSearchable={false}
+          isBlockElement={false}
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}
@@ -542,7 +586,9 @@ describe("MultiSelect", () => {
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
-          isDefaultOpen={true}
+          isDefaultOpen={false}
+          isSearchable={false}
+          isBlockElement={false}
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}

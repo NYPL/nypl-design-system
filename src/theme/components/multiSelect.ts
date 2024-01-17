@@ -139,7 +139,7 @@ const MultiSelect = {
       width: "70px",
       ...(width === "fitContent" && {
         textOverflow: "ellipsis",
-        overflow: "hidden"
+        overflow: "hidden",
       }),
       marginLeft: 54,
     },

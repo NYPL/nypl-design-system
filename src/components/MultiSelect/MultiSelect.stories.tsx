@@ -309,8 +309,8 @@ const MultiSelectStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      isDefaultOpen={false}
-      isSearchable={false}
+      isDefaultOpen={args.isDefaultOpen}
+      isSearchable={args.isSearchable}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
