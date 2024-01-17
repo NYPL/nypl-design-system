@@ -21,7 +21,7 @@ export type multiSelectListOverflowTypes =
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
-type DialogOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
+type MultiSelectOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 export type MultiSelectProps = {
   /** The helperText sets the text for the internal HelperErrorText */
@@ -48,9 +48,9 @@ export type MultiSelectProps = {
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   /** The action to perform on the checkbox's onChange function.  */
-  onChange?: DialogOnChange;
+  onChange?: MultiSelectOnChange;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
-  onMixedStateChange?: DialogOnChange;
+  onMixedStateChange?: MultiSelectOnChange;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */

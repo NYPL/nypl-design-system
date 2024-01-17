@@ -151,17 +151,13 @@ const meta: Meta<typeof MultiSelect> = {
       options: ["scroll", "expand"],
       table: { defaultValue: { summary: "scroll" } },
     },
-    
     buttonText: { table: { default: "" } },
-
     defaultItemsVisible: {
       table: { defaultValue: { summary: 5 } },
     },
-
     isSearchable: {
       table: { defaultValue: { summary: false } },
     },
-
     onChange: {
       description:
         "The action to perform on the checkbox's onChange function. <br /> For dialog: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> For listbox: `onChange: (selectedItem: MultiSelectItem, id: string) => void;`",
@@ -202,7 +198,6 @@ export const MultiSelectControls: Story = {
   },
 };
 
-
 export const withChildrenMultiSelectItems: Story = {
   args: {
     id: "multiselect-dialog",
@@ -239,7 +234,6 @@ const withDisabledCheckboxItems = [
   {
     id: "design",
     name: "Design",
-    // Children array will only be renderd in a "dialog" type
     children: [
       {
         id: "fashion",
@@ -269,7 +263,7 @@ const withDisabledCheckboxItems = [
   },
 ];
 
-export const withDisabledCheckboxes: Story = {
+export const withDisabledItems: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
@@ -293,6 +287,8 @@ const MultiSelectStory = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
   const multiSelectId = args.id;
+  const isSearchable = args.isSearchable;
+  const isDefaultOpen = args.isDefaultOpen;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   const [actionName, setActionName] = useState("");
@@ -309,8 +305,8 @@ const MultiSelectStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      isDefaultOpen={args.isDefaultOpen}
-      isSearchable={args.isSearchable}
+      isDefaultOpen={isDefaultOpen}
+      isSearchable={isSearchable}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
