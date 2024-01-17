@@ -112,14 +112,13 @@ const getTextColor = (type, mode, foregroundColor, isDarkText) => {
 };
 const getLinkColor = (state, mode, foregroundColor, isDarkText) => {
   let finalColor;
-  // const prefix = mode === "dark" ? "dark.ui." : "ui.";
   const isDarkMode = mode === "dark" ? true : false;
   switch (state) {
     default:
       finalColor = foregroundColor
         ? foregroundColor
         : isDarkText
-        ? `ui.link.primary`
+        ? `var(--nypl-colors-ui-link-primary) !important`
         : isDarkMode
         ? `dark.ui.link.primary`
         : `dark.ui.link.primary`;
@@ -210,6 +209,18 @@ const tertiary = ({ foregroundColor, isDarkText }) => ({
     flexFlow: "column nowrap",
     px: "inset.default",
     py: { base: "inset.default", xl: "inset.wide" },
+    a: {
+      color: getLinkColor("default", "light", foregroundColor, isDarkText),
+      _hover: {
+        color: getLinkColor("hover", "light", foregroundColor, isDarkText),
+      },
+      _visited: {
+        color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        },
+      },
+    },
     p: {
       marginBottom: "0",
       marginTop: { base: "xxs", xl: "xs" },
@@ -218,6 +229,18 @@ const tertiary = ({ foregroundColor, isDarkText }) => ({
       color: getTextColor("heading", "light", foregroundColor, isDarkText),
     },
     _dark: {
+      a: {
+        color: getLinkColor("default", "dark", foregroundColor, isDarkText),
+        _hover: {
+          color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
+        },
+        _visited: {
+          color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          svg: {
+            fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          },
+        },
+      },
       p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
       ".chakra-heading": {
         color: getTextColor("heading", "dark", foregroundColor, isDarkText),
@@ -265,19 +288,20 @@ const campaign = ({ foregroundColor, isDarkText }) => ({
       },
       _visited: {
         color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        },
       },
     },
     ".chakra-heading": {
       color: getTextColor("heading", "light", foregroundColor, isDarkText),
     },
     _dark: {
+      color: getTextColor("body", "dark", foregroundColor, isDarkText),
       a: {
         color: getLinkColor("default", "dark", foregroundColor, isDarkText),
         _hover: {
           color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
-          // svg: {
-          //   fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
-          // },
         },
         _visited: {
           color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
@@ -286,7 +310,6 @@ const campaign = ({ foregroundColor, isDarkText }) => ({
           },
         },
       },
-      color: getTextColor("body", "dark", foregroundColor, isDarkText),
       ".chakra-heading": {
         color: getTextColor("heading", "dark", foregroundColor, isDarkText),
       },
