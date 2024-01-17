@@ -60,10 +60,13 @@ export type MultiSelectProps = {
 /**
  * The `MultiSelect` component is a form input element that presents a list
  * of `Checkbox` components from which a user can make one or multiple
- * selections. Two variants of the MultiSelect component are offered, each with
- * slightly different functionality and requirements.  Because of these
- * differences, the two variants are broken out in separate stories below.
+ * selections. The MultiSelect allows for an optional set of child checkboxes to be passed,
+ * which makes the “parent” checkbox function as a check/uncheck all toggle.
+ * If all of the children checkboxes are checked, the parent isChecked prop will be true.
+ * If only some of the child checkboxes are checked, the parent checkbox will have a isIndeterminate prop set to true,
+ * implying that it is not checked or unchecked.
  */
+
 export const MultiSelect = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
     (props, _ref?) => {
@@ -129,7 +132,7 @@ export const MultiSelect = chakra(
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
         if (selectedItems[multiSelectId]) {
           return !!selectedItems[multiSelectId].items.find(
-            (selectedItemId: string) => selectedItemId === itemId 
+            (selectedItemId: string) => selectedItemId === itemId
           );
         }
         return false;
@@ -157,14 +160,14 @@ export const MultiSelect = chakra(
         multiSelectId: string,
         item: MultiSelectItem
       ): boolean => {
-        let childIds: string[] = item.children.map((childItem) => childItem.id);      
+        let childIds: string[] = item.children.map((childItem) => childItem.id);
         if (
           selectedItems[multiSelectId] !== undefined &&
           childIds.length > 0 &&
           childIds.some(
             (childItem) =>
               selectedItems[multiSelectId].items.includes(childItem) &&
-              !item.children.find((c) => c.id === childItem)?.isDisabled 
+              !item.children.find((c) => c.id === childItem)?.isDisabled
           )
         ) {
           return !isAllChecked(multiSelectId, item);

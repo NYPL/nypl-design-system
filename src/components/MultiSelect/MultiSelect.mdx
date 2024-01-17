@@ -6,7 +6,7 @@ import Link from "../Link/Link";
 <Meta of={MultiSelectStories} />
 
 # MultiSelect
-
+D
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.4.0`    |
@@ -15,8 +15,7 @@ import Link from "../Link/Link";
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props-multiselect-listbox" target="_self">Component Props for MultiSelect Listbox</Link>}
-- {<Link href="#component-props-multiselect-dialog" target="_self">Component Props for MultiSelect Dialog</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
@@ -27,106 +26,22 @@ import Link from "../Link/Link";
 
 <Description of={MultiSelectStories} />
 
-<!-- ## Component Props for MultiSelect Listbox
+## Component Props
 
 The `MultiSelect` listbox renders a non-hierarchical list of items to select from.
 
-<Canvas of={MultiSelectStories.ListboxControls} />
+<Canvas of={MultiSelectStories.MultiSelectControls} />
 
-<ArgTypes of={MultiSelectStories.ListboxControls} /> -->
-
-## Component Props for MultiSelect Dialog
-
-The `MultiSelect` dialog allows for an optional set of child checkboxes to be
-passed, which makes the “parent” checkbox function as a check/uncheck all toggle.
-If all of the children checkboxes are checked, the parent `isChecked` prop will
-be true. If only some of the child checkboxes are checked, the parent checkbox
-will have a `isIndeterminate` prop set to true, implying that it is not checked
-or unchecked.
-
-<Canvas of={MultiSelectStories.DialogControls} />
-
-<ArgTypes of={MultiSelectStories.DialogControls} />
+<ArgTypes of={MultiSelectStories.MultiSelectControls} />
 
 ## Accessibility
 
-### ListBox
-
-The `MultiSelect` `listbox` leverages `downshift.js` to assist with
-accessibility compliance. By using Downshift's `useSelect` hook and prop getters
-`getToggleButtonProps`, `getMenuProps`, `getItemProps` we are able to create a W3
-WAI-ARIA compliant listbox that behaves like a select element. Up and down arrow
-keys are used for navigating through the `MultiSelect` options.
-
-### Dialog
-
-The `MultiSelect` `dialog` looks similar to the `MultiSelect` `listbox`, but because
-of its “clear” and “apply” buttons, it has some key functionality differences,
-and accessibility must be handled differently. When the `MultiSelect` is open,
-focus is trapped inside the dropdown menu, and the tab key is used to move through
-the checkboxes and buttons inside the dialog modal. The focus trap is performed
-through Chakra's `@chakra-ui/focus-lock` package which uses the `react-focus-lock`
-package under the hood.
-
-NOTE: The `react-focus-lock` package renders two "focus guard" elements and one
-has a `tabindex` set to `1`, in order to perform the focus trap behavior. The
-Storybook accessibility checker [complains](https://dequeuniversity.com/rules/axe/4.4/tabindex?application=axeAPI)
-about this whenever the "dialog" type is opened.
-
-While this is an accessibility issue, we explicitly want the focus trap behavior
-within the `MultiSelect`. Once the component is closed, the issue goes away. For
-the moment, we will continue to use Chakra's implementation of the `react-focus-lock`
-package.
-
-### Selected Items Count Button
-
-When items are selected in a `MultiSelect`, a button with the count of the selected
-items will display above the main `MultiSelect` button. This count button is
-rendered _after_ the main button but visualy displays above the main button. This
-is performed to prevent the accessibility issue where nested interactive control
-elements are not properly accessible by screen readers.
-
-Resources:
-
-- [downshift.js documentation](https://www.downshift-js.com/)
-- [Reservoir Checkbox Component](../?path=/docs/components-form-elements-checkbox--docs#accessibility)
-- [W3C WAI Listbox Example](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/listbox/listbox.html)
-- [W3C WAI on using ARIA role=dialog](https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box)
-- [Chakra focus-lock npm](https://www.npmjs.com/package/@chakra-ui/focus-lock)
-- [react-focus-lock npm](https://www.npmjs.com/package/react-focus-lock)
-- [Deque University - Nested interactive controls are not announced by screen readers](https://dequeuniversity.com/rules/axe/4.4/nested-interactive)
+TBD
 
 ## Using the items prop
 
 The options rendered in the MultiSelect are passed into the component's items prop.
-The expected data structure is an array of objects, in the following format:
-
-<Source
-  code={`
-<MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
-  type="listbox"
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-  ]}
-/>
-`}
-  language="jsx"
-/>
-
-If you are using `type = 'dialog'`, you can also add a second level of child
+The expected data structure is an array of objects, you can also add a second level of child
 items, in the following format:
 
 <Source
@@ -139,6 +54,7 @@ items, in the following format:
     {
       id: "art",
       name: "Art",
+      isDisabled: true,
     },
     {
       id: "parent_option",
@@ -147,10 +63,12 @@ items, in the following format:
         {
           id: "child_1",
           name: "Child 1",
+          isDisabled: true,
         },
         {
           id: "child_2",
           name: "Child 2",
+          isDisabled: false,
         },
       ],
     },
@@ -159,6 +77,7 @@ items, in the following format:
 `}
   language="jsx"
 />
+
 
 ## Controlling state using selectedItems and onChange prop
 

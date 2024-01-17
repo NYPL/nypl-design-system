@@ -33,7 +33,7 @@ const items = [
       {
         id: "ux",
         name: "User Experience",
-        isDisabled: false,
+        isDisabled: true,
       },
       {
         id: "tecture",
@@ -142,13 +142,13 @@ const meta: Meta<typeof MultiSelect> = {
 export default meta;
 type Story = StoryObj<typeof MultiSelect>;
 
-export const DialogControls: Story = {
+export const MultiSelectControls: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
     type: "dialog",
   },
-  render: (args) => <MultiSelectDialogStory {...args} />,
+  render: (args) => <MultiSelectStory {...args} />,
   parameters: {
     design: {
       type: "figma",
@@ -158,7 +158,7 @@ export const DialogControls: Story = {
   },
 };
 
-const MultiSelectDialogStory = (args) => {
+const MultiSelectStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
