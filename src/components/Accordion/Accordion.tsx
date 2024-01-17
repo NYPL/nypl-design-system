@@ -184,10 +184,9 @@ const getElementsFromData = (
  */
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<AccordionProps> &
-      React.RefAttributes<HTMLDivElement>
+    AccordionProps & React.RefAttributes<HTMLDivElement>
   >,
-  React.PropsWithChildren<AccordionProps>
+  AccordionProps
 > = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
