@@ -33,7 +33,7 @@ export interface TagSetFilterProps {
  * The "filter" `TagSet` variant will display tags that can be removed when
  * `isDismissible` is true and they are clicked.
  */
-export const TagSetFilter: React.FC<any> = chakra(
+export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
   (props: TagSetFilterProps) => {
     const { id, isDismissible = false, onClick, tagSetData = [] } = props;
     const [filters, setFilters] =
@@ -84,7 +84,7 @@ export const TagSetFilter: React.FC<any> = chakra(
                 onClick={
                   isDismissible ? () => finalOnClick(tagSet.label) : undefined
                 }
-                sx={styles}
+                sx={styles.base}
               >
                 {!isDismissible && tagSet.iconName ? (
                   <Icon
