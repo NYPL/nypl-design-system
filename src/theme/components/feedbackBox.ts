@@ -16,6 +16,7 @@ const FeedbackBox = defineMultiStyleConfig({
       /** This is overriding the default min-height value in order to keep the
        * button spacing symmetrical. */
       minHeight: "40px",
+      minWidth: "40px",
       right: "xs",
       p: "0",
       position: "absolute",
