@@ -92,13 +92,16 @@ export const MultiSelect = chakra(
       const [isOpen] = useState(isDefaultOpen);
       const [itemsList, setItemsList] = useState(items);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
-      const [listHeight, setListHeight] = useState("275px");
+      const [listHeight, setListHeight] = useState("215px");
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
 
       // Separate effect for handling listOverflow "scroll"
       React.useEffect(() => {
         if (listOverflow === "scroll") {
-          setListHeight("275px");
+          setListHeight("215px");
+          if (isSearchable || items.some(item => !!item.children)) {
+            setListHeight("275px");
+          }
           setItemsList(items);
         }
       }, [listOverflow, items]);
