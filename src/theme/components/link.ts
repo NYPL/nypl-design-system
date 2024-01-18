@@ -1,5 +1,5 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-
+import { StyleFunctionProps } from "@chakra-ui/system";
 import {
   buttonBaseStyle,
   callout,
@@ -12,6 +12,11 @@ import { screenreaderOnly } from "./globalMixins";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["base", "screenreaderOnly"]);
+
+interface CustomLinkStyleProps extends StyleFunctionProps {
+  finalIsUnderlined: boolean;
+  hasVisitedState: boolean;
+}
 
 export const baseLinkStyles = definePartsStyle({
   base: {
@@ -32,41 +37,46 @@ export const baseLinkStyles = definePartsStyle({
       },
     },
   },
+  screenreaderOnly: {},
 });
 
-const baseButtonLinkStyles = {
-  ...buttonBaseStyle,
-  display: "inline-flex",
-};
-
-const moreLink = definePartsStyle(({ hasVisitedState }) => ({
+const baseButtonLinkStyles = definePartsStyle({
   base: {
-    alignItems: "center",
+    ...buttonBaseStyle.base,
     display: "inline-flex",
-    svg: {
-      height: "s",
-      width: "s",
-      textDecoration: "none",
-      fill: "currentColor",
-    },
-    _hover: {
-      color: "ui.link.secondary",
-      textDecoration: "underline",
-    },
-    _visited: hasVisitedState
-      ? {
-          svg: {
-            fill: "ui.link.tertiary",
-          },
-          _dark: {
-            svg: {
-              fill: "dark.ui.link.tertiary",
-            },
-          },
-        }
-      : {},
   },
-}));
+});
+
+const moreLink = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    base: {
+      alignItems: "center",
+      display: "inline-flex",
+      svg: {
+        height: "s",
+        width: "s",
+        textDecoration: "none",
+        fill: "currentColor",
+      },
+      _hover: {
+        color: "ui.link.secondary",
+        textDecoration: "underline",
+      },
+      _visited: hasVisitedState
+        ? {
+            svg: {
+              fill: "ui.link.tertiary",
+            },
+            _dark: {
+              svg: {
+                fill: "dark.ui.link.tertiary",
+              },
+            },
+          }
+        : {},
+    },
+  })
+);
 
 // The "button" variant is deprecated.
 const button = definePartsStyle({
@@ -107,9 +117,9 @@ const button = definePartsStyle({
   },
 });
 
-const buttonPrimary = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
+const buttonPrimary = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    ...baseButtonLinkStyles.base,
     ...primary({}),
     _hover: {
       backgroundColor: "ui.link.secondary",
@@ -123,12 +133,12 @@ const buttonPrimary = definePartsStyle(({ hasVisitedState }) => ({
           },
         }
       : {},
-  },
-}));
+  })
+);
 
-const buttonSecondary = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
+const buttonSecondary = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    ...baseButtonLinkStyles.base,
     ...secondary({}),
     _visited: hasVisitedState
       ? {
@@ -138,12 +148,12 @@ const buttonSecondary = definePartsStyle(({ hasVisitedState }) => ({
           },
         }
       : {},
-  },
-}));
+  })
+);
 
-const buttonPill = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
+const buttonPill = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    ...baseButtonLinkStyles.base,
     ...pill({}),
     _hover: {
       color: "ui.black",
@@ -156,30 +166,32 @@ const buttonPill = definePartsStyle(({ hasVisitedState }) => ({
           },
         }
       : {},
-  },
-}));
+  })
+);
 
-const buttonCallout = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
-    ...callout({}),
-    _hover: {
-      color: "ui.white",
-    },
-    _visited: hasVisitedState
-      ? {
-          color: "ui.white",
-          _dark: {
+const buttonCallout = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    base: {
+      ...baseButtonLinkStyles.base,
+      ...callout({}),
+      _hover: {
+        color: "ui.white",
+      },
+      _visited: hasVisitedState
+        ? {
             color: "ui.white",
-          },
-        }
-      : {},
-  },
-}));
+            _dark: {
+              color: "ui.white",
+            },
+          }
+        : {},
+    },
+  })
+);
 
-const buttonNoBrand = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
+const buttonNoBrand = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    ...baseButtonLinkStyles.base,
     ...noBrand({}),
     _hover: {
       color: "ui.white",
@@ -192,12 +204,12 @@ const buttonNoBrand = definePartsStyle(({ hasVisitedState }) => ({
           },
         }
       : {},
-  },
-}));
+  })
+);
 
-const buttonDisabled = definePartsStyle(({ hasVisitedState }) => ({
-  base: {
-    ...baseButtonLinkStyles,
+const buttonDisabled = definePartsStyle(
+  ({ hasVisitedState }: CustomLinkStyleProps) => ({
+    ...baseButtonLinkStyles.base,
     ...primary({}),
     bg: "ui.gray.light-cool",
     color: "ui.gray.dark",
@@ -215,14 +227,14 @@ const buttonDisabled = definePartsStyle(({ hasVisitedState }) => ({
       bg: "dark.ui.disabled.secondary",
       color: "dark.ui.disabled.primary",
     },
-  },
-}));
+  })
+);
 
 const Link = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ finalIsUnderlined = true, hasVisitedState }) => ({
+    ({ finalIsUnderlined = true, hasVisitedState }: CustomLinkStyleProps) => ({
       base: {
-        ...baseLinkStyles,
+        ...baseLinkStyles.base,
         _visited: hasVisitedState
           ? {
               color: "ui.link.tertiary",
