@@ -67,13 +67,8 @@ const withChildrenItems = [
     name: "Architecture",
   },
   {
-    id: "art_history",
-    name: "Art History",
-  },
-  {
     id: "design",
     name: "Design",
-    // Children array will only be renderd in a "dialog" type
     children: [
       {
         id: "fashion",
@@ -96,34 +91,6 @@ const withChildrenItems = [
   {
     id: "business",
     name: "Business",
-  },
-  {
-    id: "advertising",
-    name: "Advertising",
-  },
-  {
-    id: "government_and_law",
-    name: "Government and Law",
-  },
-  {
-    id: "civil_rights",
-    name: "Civil Rights",
-  },
-  {
-    id: "history",
-    name: "History",
-  },
-  {
-    id: "atlases",
-    name: "Atlases",
-  },
-  {
-    id: "cartography",
-    name: "Cartography",
-  },
-  {
-    id: "geology",
-    name: "Geology",
   },
 ];
 
@@ -174,11 +141,7 @@ const withDisabledItems = [
 ];
 
 const meta: Meta<typeof MultiSelect> = {
-  // The documentation for the MultiSelect component will be removed until the
-  // refactor of the v2 version of the MultiSelect component has been completed.
-  // To add the link for the MultiSelect component back to the side bar,
-  // uncomment the `title` attribute below.
-  // title: "Components/Form Elements/MultiSelect",
+  title: "Components/Form Elements/MultiSelect",
   component: MultiSelect,
   decorators: [withDesign],
   argTypes: {
@@ -282,6 +245,25 @@ export const withDisabledItemsExample: Story = {
   },
 };
 
+export const withSearchInputFieldExample: Story = {
+  args: {
+    id: "multiselect-dialog",
+    buttonText: "MultiSelect",
+    isSearchable: true,
+    defaultItemsVisible: 5,
+    isDefaultOpen: false,
+    items: withChildrenItems,
+  },
+  render: (args) => <MultiSelectStory {...args} />,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
 const MultiSelectStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -309,6 +291,7 @@ const MultiSelectStory = (args) => {
       isDefaultOpen={isDefaultOpen}
       isSearchable={isSearchable}
       selectedItems={selectedItems}
+      defaultItemsVisible={5}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
         setActionName("onChange");

@@ -63,8 +63,8 @@ export type MultiSelectProps = {
  * selections. The MultiSelect allows for an optional set of child checkboxes to be passed,
  * which makes the “parent” checkbox function as a check/uncheck all toggle.
  * If all of the children checkboxes are checked, the parent isChecked prop will be true.
- * If only some of the child checkboxes are checked, the parent checkbox will have a isIndeterminate prop set to true,
- * implying that it is not checked or unchecked.
+ * If only some of the child checkboxes are checked, the parent checkbox will have a isIndeterminate state,
+ * that can be checked or unchecked.
  */
 
 export const MultiSelect = chakra(
@@ -117,7 +117,7 @@ export const MultiSelect = chakra(
       }, [listOverflow, listItemsCount, items, defaultItemsVisible]);
 
       // Sets the selected items count on the menu button.
-      let getSelectedItemsCount;
+      let getSelectedItemsCount: any;
       if (selectedItems[id]?.items.length > 0) {
         getSelectedItemsCount = !!(selectedItems[id]?.items.length || 0);
       }

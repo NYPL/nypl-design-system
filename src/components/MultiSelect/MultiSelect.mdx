@@ -18,6 +18,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#with-disabled-checkboxes-example" target="_self">With Disabled Checkboxes Example</Link>}
+- {<Link href="#with-search-input-field-example" target="_self">With Search Input Field Example</Link>}
 - {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
@@ -33,6 +34,30 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 
 <Canvas of={MultiSelectStories.withControls} />
 
+<Source
+  code={`
+<MultiSelect
+  id="subject"
+  labelText="Subject Specialities"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
 <ArgTypes of={MultiSelectStories.withControls} />
 
 ## Accessibility
@@ -41,11 +66,132 @@ TBD
 
 ## With Children Items Example
 
+The MultiSelect component allows for an optional set of child checkboxes to be passed, providing a hierarchical structure.
+The "parent" checkbox functions as a check/uncheck all toggle for its children.
+
+- If all of the children checkboxes are checked, the parent's `isChecked` prop will be set to true.
+- If only some of the child checkboxes are checked, the parent checkbox will have an `isIndeterminate` state.
+
 <Canvas of={MultiSelectStories.withChildrenItemsExample} />
 
+<Source
+  code={`
+<MultiSelect
+  id="subject"
+  labelText="Subject Specialities"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "parent_option",
+      name: "Parent option",
+      children: [
+        {
+          id: "child_1",
+          name: "Child 1",
+        },
+        {
+          id: "child_2",
+          name: "Child 2",
+        },
+      ],
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
 ## With Disabled Items Example
+Each checkbox, whether parent or child, can be in a disabled state:
+
+- **Parent Checkbox:**
+  - When disabled, the parent checkbox will not be interactable, and its state will not change.
+  
+- **Child Checkboxes:**
+  - Disabled child checkboxes will not be interactable. If only some of the child checkboxes are checked, the parent checkbox will have an `isIndeterminate` state.
+
+This provides flexibility in managing the interaction and state of checkboxes within the MultiSelect component,
+especially when certain options need to be disabled.
 
 <Canvas of={MultiSelectStories.withDisabledItemsExample} />
+
+<Source
+  code={`
+<MultiSelect
+  id="subject"
+  labelText="Subject Specialities"
+  isSearchable="true"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+      isDisabled: true,
+    },
+    {
+      id: "parent_option",
+      name: "Parent option",
+      children: [
+        {
+          id: "child_1",
+          name: "Child 1",
+          isDisabled: true,
+        },
+        {
+          id: "child_2",
+          name: "Child 2",
+        },
+      ],
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
+## With Search Input Field Example
+When isSearchable is set to true, it enables the input field to search the items.
+<Canvas of={MultiSelectStories.withDisabledItemsExample} />
+<Source
+  code={`
+<MultiSelect
+  id="subject"
+  labelText="Subject Specialities"
+  isSearchable="true"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "parent_option",
+      name: "Parent option",
+      children: [
+        {
+          id: "child_1",
+          name: "Child 1",
+        },
+        {
+          id: "child_2",
+          name: "Child 2",
+        },
+      ],
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
 
 ## Using the items prop
 
@@ -62,7 +208,6 @@ items, in the following format:
     {
       id: "art",
       name: "Art",
-      isDisabled: true,
     },
     {
       id: "parent_option",
@@ -71,12 +216,10 @@ items, in the following format:
         {
           id: "child_1",
           name: "Child 1",
-          isDisabled: true,
         },
         {
           id: "child_2",
           name: "Child 2",
-          isDisabled: false,
         },
       ],
     },
