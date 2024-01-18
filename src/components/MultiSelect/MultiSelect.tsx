@@ -99,7 +99,7 @@ export const MultiSelect = chakra(
       React.useEffect(() => {
         if (listOverflow === "scroll") {
           setListHeight("215px");
-          if (isSearchable || items.some(item => !!item.children)) {
+          if (isSearchable || items.some((item) => !!item.children)) {
             setListHeight("275px");
           }
           setItemsList(items);
