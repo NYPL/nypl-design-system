@@ -289,6 +289,7 @@ const MultiSelectStory = (args) => {
   const multiSelectId = args.id;
   const isSearchable = args.isSearchable;
   const isDefaultOpen = args.isDefaultOpen;
+  const itemsArray = args.items;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   const [actionName, setActionName] = useState("");
@@ -313,7 +314,7 @@ const MultiSelectStory = (args) => {
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, items);
+        onMixedStateChange(e.target.id, multiSelectId, itemsArray);
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
