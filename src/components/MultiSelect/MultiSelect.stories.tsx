@@ -57,7 +57,7 @@ const items = [
   },
 ];
 
-const withChildrenCheckboxItems = [
+const withChildrenItems = [
   {
     id: "art",
     name: "Art",
@@ -127,6 +127,52 @@ const withChildrenCheckboxItems = [
   },
 ];
 
+const withDisabledItems = [
+  {
+    id: "art",
+    name: "Art",
+  },
+  {
+    id: "architecture",
+    name: "Architecture",
+    isDisabled: true,
+  },
+  {
+    id: "art_history",
+    name: "Art History",
+  },
+  {
+    id: "design",
+    name: "Design",
+    children: [
+      {
+        id: "fashion",
+        name: "Fashion",
+        isDisabled: true,
+      },
+      {
+        id: "ux",
+        name: "User Experience",
+        isDisabled: true,
+      },
+      {
+        id: "tecture",
+        name: "Architecture",
+        isDisabled: false,
+      },
+      {
+        id: "home",
+        name: "Home",
+        isDisabled: false,
+      },
+    ],
+  },
+  {
+    id: "business",
+    name: "Business",
+  },
+];
+
 const meta: Meta<typeof MultiSelect> = {
   // The documentation for the MultiSelect component will be removed until the
   // refactor of the v2 version of the MultiSelect component has been completed.
@@ -179,7 +225,7 @@ const meta: Meta<typeof MultiSelect> = {
 export default meta;
 type Story = StoryObj<typeof MultiSelect>;
 
-export const MultiSelectControls: Story = {
+export const withControls: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
@@ -198,14 +244,14 @@ export const MultiSelectControls: Story = {
   },
 };
 
-export const withChildrenMultiSelectItems: Story = {
+export const withChildrenItemsExample: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
     isSearchable: false,
     defaultItemsVisible: 5,
     isDefaultOpen: false,
-    items: withChildrenCheckboxItems,
+    items: withChildrenItems,
   },
   render: (args) => <MultiSelectStory {...args} />,
   parameters: {
@@ -217,60 +263,14 @@ export const withChildrenMultiSelectItems: Story = {
   },
 };
 
-const withDisabledCheckboxItems = [
-  {
-    id: "art",
-    name: "Art",
-  },
-  {
-    id: "architecture",
-    name: "Architecture",
-    isDisabled: true,
-  },
-  {
-    id: "art_history",
-    name: "Art History",
-  },
-  {
-    id: "design",
-    name: "Design",
-    children: [
-      {
-        id: "fashion",
-        name: "Fashion",
-        isDisabled: true,
-      },
-      {
-        id: "ux",
-        name: "User Experience",
-        isDisabled: true,
-      },
-      {
-        id: "tecture",
-        name: "Architecture",
-        isDisabled: false,
-      },
-      {
-        id: "home",
-        name: "Home",
-        isDisabled: false,
-      },
-    ],
-  },
-  {
-    id: "business",
-    name: "Business",
-  },
-];
-
-export const withDisabledItems: Story = {
+export const withDisabledItemsExample: Story = {
   args: {
     id: "multiselect-dialog",
     buttonText: "MultiSelect",
     isSearchable: false,
     defaultItemsVisible: 5,
     isDefaultOpen: false,
-    items: withDisabledCheckboxItems,
+    items: withDisabledItems,
   },
   render: (args) => <MultiSelectStory {...args} />,
   parameters: {
