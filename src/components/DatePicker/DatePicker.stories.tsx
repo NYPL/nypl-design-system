@@ -186,14 +186,66 @@ export const OtherStates: Story = {
   ),
 };
 
+// Examples that use the `initialDate` and `initialDateTo` props and
+// also the `onChange` prop to show an empty input returns null.
+function InitialDateExample() {
+  const onChange = (data) => {
+    console.log({
+      startDate: data.startDate,
+      endDate: data.endDate,
+    });
+  };
+
+  return (
+    <VStack align="stretch" spacing="s">
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        initialDate="12/1/21"
+        initialDateTo="12/10/21"
+        isDateRange
+      />
+      <Heading level="h3" size="heading6">
+        Passing initialDate an empty string renders an empty input
+      </Heading>
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        initialDate=""
+        initialDateTo=""
+        isDateRange
+        onChange={onChange}
+      />
+      <Heading level="h3" size="heading6">
+        Passing no initialDate renders today's date
+      </Heading>
+      <DatePicker
+        id="init-dates"
+        dateType="full"
+        labelText="Select the date you want to visit NYPL"
+        isDateRange
+      />
+    </VStack>
+  );
+}
+
 export const InitialDate: Story = {
+  render: () => InitialDateExample(),
+};
+
+export const Placeholder: Story = {
   render: () => (
     <DatePicker
-      id="init-dates"
+      id="format-date"
+      dateFormat="MM-dd-yyyy"
       dateType="full"
       labelText="Select the date you want to visit NYPL"
-      initialDate="12/1/21"
-      initialDateTo="12/10/21"
+      initialDate=""
+      initialDateTo=""
+      placeholder="This is placeholder text"
+      placeholderTo="This is placeholderTo text"
       isDateRange
     />
   ),

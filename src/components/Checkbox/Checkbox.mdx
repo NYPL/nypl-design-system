@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as CheckboxStories from "./Checkbox.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./checkboxChangelogData";
 
 <Meta of={CheckboxStories} />
 
 # Checkbox
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -25,6 +27,7 @@ import Link from "../Link/Link";
 - {<Link href="#helper-text" target="_self">Helper Text</Link>}
 - {<Link href="#error-text" target="_self">Error Text</Link>}
 - {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -86,3 +89,7 @@ a layout to the label. View the `CheckboxGroup` documentation for this
 usage.
 
 <Canvas of={CheckboxStories.LabelUsingJSXElements} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

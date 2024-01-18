@@ -2,24 +2,27 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as NotificationStories from "./Notification.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./notificationChangelogData";
 
 <Meta of={NotificationStories} />
 
 # Notification
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.23.2`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
 - {<Link href="#overiew" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#variants" target="_self">Variants</Link>}
-- {<Link href="#custom-icon" target="_self">Custom Icon</Link>}
+- {<Link href="#notification-heading" target="_self">Notification Heading</Link>}
+- {<Link href="#notification-icon" target="_self">Notification Icon</Link>}
 - {<Link href="#dismissible" target="_self">Dismissible</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -95,9 +98,29 @@ recognized and announced by assistive technology.
 
 ## Notification Heading
 
-The `Notification` component can be rendered with and without a heading.
+The `Notification` component can be rendered with and without a heading. By
+default, when a title is passed to the `notificationHeading` prop, the
+`Notification` component will render an `h4` element sized as a `heading6`
+heading. If this causes accessibility issues in your app, you can pass in a
+custom `Heading` element.
 
 <Canvas of={NotificationStories.NotificationHeading} />
+
+In the following examples, the `Notification` component will render custom `h3`
+and `h5` elements. Note that no matter what heading level is set, the size will
+always be set to `heading6`.
+
+<Source
+  code={`
+
+const customH3 = <Heading level="h3">Custom H3 Heading</Heading>;
+const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
+
+<Notification notificationHeading={customH3} {...props} />
+<Notification notificationHeading={customH5} {...props} />
+`} language="tsx" />
+
+<Canvas of={NotificationStories.CustomNotificationHeading} />
 
 ## Notification Icon
 
@@ -128,3 +151,7 @@ clicked, the `Notification` will be removed from the DOM, therefore it only
 appears once.
 
 <Canvas of={NotificationStories.Dismissible} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
+import Heading from "../Heading/Heading";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -18,15 +20,9 @@ const meta: Meta<typeof SearchBar> = {
     },
     className: { control: false },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
     method: { control: false },
     onSubmit: { control: false },
     selectProps: { control: false },
@@ -223,6 +219,22 @@ export const DisabledState: Story = {
   ),
 };
 
+export const WithCustomHeading: Story = {
+  render: () => (
+    <SearchBar
+      headingText={<Heading level="h4">Custom H4 Heading</Heading>}
+      id="custom-heading"
+      labelText="Custom Heading example"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  ),
+  name: "Heading and Description Text",
+};
 export const HeadingDescriptionExample: Story = {
   render: () => (
     <SearchBar

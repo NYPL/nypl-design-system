@@ -37,7 +37,9 @@ import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectMenuButton from "./components/multiSelectMenuButton";
 import NewsletterSignup from "./components/newsletterSignup";
-import NotificationStyles from "./components/notification";
+import Notification from "./components/notification";
+import NotificationContent from "./components/notificationContent";
+import NotificationHeading from "./components/notificationHeading";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
@@ -116,12 +118,14 @@ const theme: any = {
     CustomIcon: Icon,
     Label,
     Link,
-    List,
+    ReservoirList: List,
     Logo,
     Modal,
     MultiSelect,
     MultiSelectMenuButton,
-    ...NotificationStyles,
+    Notification,
+    NotificationContent,
+    NotificationHeading,
     NewsletterSignup,
     Pagination,
     ProgressIndicator,

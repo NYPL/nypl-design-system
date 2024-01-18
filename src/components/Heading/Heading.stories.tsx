@@ -3,6 +3,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
 import { VStack } from "@chakra-ui/react";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
@@ -11,16 +12,24 @@ const meta: Meta<typeof Heading> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
+    isCapitalized: argsBooleanType(),
+    isUppercase: argsBooleanType(),
+    isLowercase: argsBooleanType(),
     level: {
       control: { type: "select" },
       options: headingLevelsArray,
-      table: { defaultValue: { summary: "two" } },
+      table: { defaultValue: { summary: "h2" } },
     },
     noSpace: { table: { defaultValue: { summary: false } } },
+    overline: { control: { type: "text" } },
     size: {
       control: { type: "select" },
       options: headingSizesArray,
     },
+    subtitle: { control: { type: "text" } },
+    text: { control: { type: "text" } },
+    url: { control: { type: "text" } },
+    urlClass: { control: false },
   },
 };
 
@@ -38,8 +47,8 @@ export const WithControls: Story = {
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,
-    noSpace: true,
     level: "h2",
+    noSpace: true,
     overline: undefined,
     size: undefined,
     subtitle: undefined,

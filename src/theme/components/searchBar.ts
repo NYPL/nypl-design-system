@@ -1,6 +1,10 @@
-const SearchBar = {
-  parts: ["select"],
-  baseStyle: {
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["select"]);
+
+const SearchBar = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     display: "flex",
     marginBottom: {
       base: "xs",
@@ -23,7 +27,7 @@ const SearchBar = {
         },
       },
     },
-  },
-};
+  }),
+});
 
 export default SearchBar;

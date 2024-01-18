@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as StatusBadgeStories from "./StatusBadge.stories";
+import { changelogData } from "./statusBadgeChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import Link from "../Link/Link";
 
 <Meta of={StatusBadgeStories} />
 
 # StatusBadge
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.18.7`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.18.7`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -18,6 +20,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#patterns" target="_self">Patterns</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -51,3 +54,5 @@ Used in instances where the associated message is the lower barrier. Use
 `"low"` for this level which is the default.
 
 <Canvas of={StatusBadgeStories.LowerBarrier} />
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -2,8 +2,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import List, { listTypesArray } from "./List";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
@@ -13,9 +15,10 @@ const meta: Meta<typeof List> = {
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
-    inline: { table: { defaultValue: { summary: false } } },
+    inline: argsBooleanType(),
     listItems: { control: false },
-    noStyling: { table: { defaultValue: { summary: false } } },
+    noStyling: argsBooleanType(),
+    title: { control: { type: "text" } },
     type: {
       control: { type: "radio" },
       options: listTypesArray,
@@ -170,6 +173,29 @@ export const DescriptionList: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
     },
   },
+};
+export const DescriptionListWithCustomHeading: Story = {
+  args: {
+    id: "nypl-list3",
+    noStyling: false,
+    title: <Heading level="h4">Middle-Earth Peoples</Heading>,
+  },
+  argTypes: {
+    inline: { control: false },
+    noStyling: { control: false },
+    type: { control: false },
+  },
+  render: (args) => (
+    <List {...args} type="dl">
+      {descriptions
+        // just for a shorter example
+        .slice(0, 2)
+        .map((item, i) => [
+          <dt key={`dt_${i}`}>{item.term}</dt>,
+          <dd key={`dd_${i}`}>{item.description}</dd>,
+        ])}
+    </List>
+  ),
 };
 
 export const DescriptionListWithLinks: Story = {

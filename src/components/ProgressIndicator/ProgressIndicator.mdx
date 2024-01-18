@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as ProgressIndicatorStories from "./ProgressIndicator.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./progressIndicatorChangelogData";
 import Link from "../Link/Link";
 
 <Meta of={ProgressIndicatorStories} />
 
 # ProgressIndicator
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.4`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.4`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -24,6 +26,7 @@ import Link from "../Link/Link";
 - {<Link href="#indeterminate-state" target="_self">Indeterminate State</Link>}
 - {<Link href="#dark-mode" target="_self">Dark Mode</Link>}
 - {<Link href="#get-input-values" target="_self">Get Input Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -155,3 +158,7 @@ function ProgressIndicatorExample() {
 />
 
 <Canvas of={ProgressIndicatorStories.WorkingExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
