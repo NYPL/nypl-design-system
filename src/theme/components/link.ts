@@ -1,7 +1,7 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 import {
-  buttonBaseStyle,
+  baseButtonStyle,
   callout,
   noBrand,
   pill,
@@ -18,34 +18,29 @@ interface CustomLinkStyleProps extends StyleFunctionProps {
   hasVisitedState: boolean;
 }
 
-export const baseLinkStyles = definePartsStyle({
-  base: {
-    color: "ui.link.primary",
-    textDecoration: "underline",
+export const baseLinkStyles = {
+  color: "ui.link.primary",
+  textDecoration: "underline",
+  textDecorationStyle: "dotted",
+  textDecorationThickness: "1px",
+  textUnderlineOffset: "2px",
+  _dark: {
+    color: "dark.ui.link.primary",
+  },
+  _hover: {
+    color: "ui.link.secondary",
     textDecorationStyle: "dotted",
     textDecorationThickness: "1px",
-    textUnderlineOffset: "2px",
     _dark: {
-      color: "dark.ui.link.primary",
-    },
-    _hover: {
-      color: "ui.link.secondary",
-      textDecorationStyle: "dotted",
-      textDecorationThickness: "1px",
-      _dark: {
-        color: "dark.ui.link.secondary",
-      },
+      color: "dark.ui.link.secondary",
     },
   },
-  screenreaderOnly: {},
-});
+};
 
-const baseButtonLinkStyles = definePartsStyle({
-  base: {
-    ...buttonBaseStyle.base,
-    display: "inline-flex",
-  },
-});
+const baseButtonLinkStyles = {
+  ...baseButtonStyle,
+  display: "inline-flex",
+};
 
 const moreLink = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
@@ -61,6 +56,8 @@ const moreLink = definePartsStyle(
       _hover: {
         color: "ui.link.secondary",
         textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
       },
       _visited: hasVisitedState
         ? {
@@ -77,7 +74,6 @@ const moreLink = definePartsStyle(
     },
   })
 );
-
 // The "button" variant is deprecated.
 const button = definePartsStyle({
   base: {
@@ -101,6 +97,8 @@ const button = definePartsStyle({
       color: "ui.white",
       bg: "ui.link.secondary",
       textDecoration: "underline",
+      textDecorationStyle: "dotted !important",
+      textDecorationThickness: "1px !important",
       _dark: {
         color: "ui.gray.xxx-dark",
         bg: "dark.ui.link.secondary",
@@ -119,63 +117,84 @@ const button = definePartsStyle({
 
 const buttonPrimary = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
-    ...baseButtonLinkStyles.base,
-    ...primary({}),
-    _hover: {
-      backgroundColor: "ui.link.secondary",
-      color: "ui.white",
+    base: {
+      ...baseButtonLinkStyles,
+      ...primary({}).base,
+      _hover: {
+        backgroundColor: "ui.link.secondary",
+        color: "ui.white",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
+      },
+      _visited: hasVisitedState
+        ? {
+            color: "ui.white",
+            _dark: {
+              color: "ui.gray.xxx-dark",
+            },
+          }
+        : {},
     },
-    _visited: hasVisitedState
-      ? {
-          color: "ui.white",
-          _dark: {
-            color: "ui.gray.xxx-dark",
-          },
-        }
-      : {},
   })
 );
 
 const buttonSecondary = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
-    ...baseButtonLinkStyles.base,
-    ...secondary({}),
-    _visited: hasVisitedState
-      ? {
-          color: "ui.link.primary",
-          _dark: {
-            color: "dark.ui.link.primary",
-          },
-        }
-      : {},
+    base: {
+      ...baseButtonLinkStyles,
+      ...secondary({}).base,
+      _hover: {
+        backgroundColor: "ui.link.primary-05",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
+      },
+      _visited: hasVisitedState
+        ? {
+            color: "ui.link.primary",
+            _dark: {
+              color: "dark.ui.link.primary",
+            },
+          }
+        : {},
+    },
   })
 );
 
 const buttonPill = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
-    ...baseButtonLinkStyles.base,
-    ...pill({}),
-    _hover: {
-      color: "ui.black",
+    base: {
+      ...baseButtonLinkStyles,
+      ...pill({}).base,
+      _hover: {
+        color: "ui.black",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
+      },
+      _visited: hasVisitedState
+        ? {
+            color: "ui.black",
+            _dark: {
+              color: "ui.white",
+            },
+          }
+        : {},
     },
-    _visited: hasVisitedState
-      ? {
-          color: "ui.black",
-          _dark: {
-            color: "ui.white",
-          },
-        }
-      : {},
   })
 );
 
 const buttonCallout = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
     base: {
-      ...baseButtonLinkStyles.base,
-      ...callout({}),
+      ...baseButtonLinkStyles,
+      ...callout({}).base,
       _hover: {
         color: "ui.white",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
       },
       _visited: hasVisitedState
         ? {
@@ -191,41 +210,48 @@ const buttonCallout = definePartsStyle(
 
 const buttonNoBrand = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
-    ...baseButtonLinkStyles.base,
-    ...noBrand({}),
-    _hover: {
-      color: "ui.white",
-    },
-    _visited: hasVisitedState
-      ? {
-          color: "ui.white",
-          _dark: {
+    base: {
+      ...baseButtonLinkStyles,
+      ...noBrand({}).base,
+      _hover: {
+        color: "ui.white",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted !important",
+        textDecorationThickness: "1px !important",
+      },
+      _visited: hasVisitedState
+        ? {
             color: "ui.white",
-          },
-        }
-      : {},
+            _dark: {
+              color: "ui.white",
+            },
+          }
+        : {},
+    },
   })
 );
 
 const buttonDisabled = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
-    ...baseButtonLinkStyles.base,
-    ...primary({}),
-    bg: "ui.gray.light-cool",
-    color: "ui.gray.dark",
-    opacity: "1",
-    pointerEvents: "none",
-    _visited: hasVisitedState
-      ? {
-          color: "ui.gray.dark",
-          _dark: {
-            color: "dark.ui.disabled.primary",
-          },
-        }
-      : {},
-    _dark: {
-      bg: "dark.ui.disabled.secondary",
-      color: "dark.ui.disabled.primary",
+    base: {
+      ...baseButtonLinkStyles,
+      ...primary({}).base,
+      bg: "ui.gray.light-cool",
+      color: "ui.gray.dark",
+      opacity: "1",
+      pointerEvents: "none",
+      _visited: hasVisitedState
+        ? {
+            color: "ui.gray.dark",
+            _dark: {
+              color: "dark.ui.disabled.primary",
+            },
+          }
+        : {},
+      _dark: {
+        bg: "dark.ui.disabled.secondary",
+        color: "dark.ui.disabled.primary",
+      },
     },
   })
 );
@@ -234,7 +260,7 @@ const Link = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ finalIsUnderlined = true, hasVisitedState }: CustomLinkStyleProps) => ({
       base: {
-        ...baseLinkStyles.base,
+        ...baseLinkStyles,
         _visited: hasVisitedState
           ? {
               color: "ui.link.tertiary",
