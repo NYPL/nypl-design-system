@@ -14,6 +14,9 @@ const SearchBar = defineMultiStyleConfig({
       base: "column nowrap",
       md: "row nowrap",
     },
+    "#searchbar-textinput-searchBar-id-wrapper": {
+      flexGrow: "1",
+    },
     select: {
       flexShrink: "0",
       marginBottom: { base: "-1px", md: "0" },
