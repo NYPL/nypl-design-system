@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: [
       "Chakra 2.8 update.",
-      "Updates the component's theme file to use native Chakra responsive styles for the responsive font sizes and removed the conditional logic that handled this previously.",
+      "Updates the component's theme file to use native Chakra responsive styles of the font sizes and removed the conditional logic that handled that previously.",
     ],
   },
   {

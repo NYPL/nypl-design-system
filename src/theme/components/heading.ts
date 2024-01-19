@@ -11,12 +11,7 @@ const margins = {
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers([
-    "base",
-    "headingWrapper",
-    "overline",
-    "subtitle",
-  ]);
+  createMultiStyleConfigHelpers(["base", "headingWrapper"]);
 
 // Heading Styles
 export const headings = {
@@ -217,8 +212,6 @@ const Heading = defineMultiStyleConfig({
         marginBottom: noSpace ? "0" : "s",
         ...margins,
       },
-      overline: {},
-      subtitle: {},
     })
   ),
   // Available variants:
