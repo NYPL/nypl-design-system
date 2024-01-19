@@ -119,7 +119,12 @@ const carouselParent = {
   paddingTop: { base: "4px", md: "0" },
   right: { base: "52px", md: "auto" },
   top: { base: "4px", md: "0" },
-  overflowX: { base: "hidden", md: "visible" },
+  scrollbarWidth: "none",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
+  overflowY: "hidden",
+  overflowX: { base: "hidden", md: "scroll" },
 };
 
 const CustomTabs = {

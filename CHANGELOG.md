@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
+
 ## 2.1.4 (January 4, 2024)
 
 ### Adds
