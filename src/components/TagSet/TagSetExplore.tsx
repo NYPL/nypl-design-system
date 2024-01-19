@@ -30,7 +30,7 @@ export interface TagSetExploreProps {
  * The `label` property in the `tagSetData` prop should be set to a link-type
  * JSX component for linking to specific content.
  */
-export const TagSetExplore: React.FC<any> = chakra(
+export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
   (props: TagSetExploreProps) => {
     const { id, tagSetData = [] } = props;
     const styles = useStyleConfig("TagSetExplore");

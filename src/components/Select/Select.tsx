@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Select as ChakraSelect,
   useColorModeValue,
   useMultiStyleConfig,
@@ -68,7 +69,13 @@ export interface SelectProps {
  * Component that renders Chakra's `Select` component along with an accessible
  * `Label` and optional `HelperErrorText` component.
  */
-export const Select: React.FC<any> = chakra(
+export const Select: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<SelectProps> &
+      React.RefAttributes<HTMLSelectElement>
+  >,
+  React.PropsWithChildren<SelectProps>
+> = chakra(
   forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {

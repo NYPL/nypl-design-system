@@ -1,8 +1,11 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import TagSet from "./TagSet";
+import { TagSetExploreProps } from "./TagSetExplore";
+import { TagSetFilterProps } from "./TagSetFilter";
 
 const meta: Meta<typeof TagSet> = {
   title: "Components/Form Elements/TagSet",
@@ -11,10 +14,7 @@ const meta: Meta<typeof TagSet> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
-    isDismissible: {
-      control: "boolean",
-      table: { defaultValue: { summary: "false" } },
-    },
+    isDismissible: argsBooleanType(),
     onClick: { control: false },
     tagSetData: { control: false },
     type: {
@@ -35,8 +35,6 @@ export const ExploreVariant: Story = {
   args: {
     className: undefined,
     id: "tagSet-id-explore",
-    isDismissible: undefined,
-    onClick: undefined,
     tagSetData: [
       {
         label: (
@@ -71,7 +69,7 @@ export const ExploreVariant: Story = {
       },
     ],
     type: "explore",
-  },
+  } as TagSetExploreProps,
   argTypes: {
     isDismissible: { table: { disable: true } },
     onClick: { table: { disable: true } },
@@ -103,7 +101,7 @@ export const FilterVariant: Story = {
       },
     ],
     type: "filter",
-  },
+  } as TagSetFilterProps,
 };
 
 // The following are additional TagSet example Stories.
