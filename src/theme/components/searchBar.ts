@@ -14,7 +14,7 @@ const SearchBar = defineMultiStyleConfig({
       base: "column nowrap",
       md: "row nowrap",
     },
-    "#searchbar-textinput-searchBar-id-wrapper": {
+    ".textInput": {
       flexGrow: "1",
     },
     select: {
