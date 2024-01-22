@@ -1,6 +1,5 @@
 import React, { useState, forwardRef } from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-
 import Accordion from "./../Accordion/Accordion";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import Checkbox from "./../Checkbox/Checkbox";
@@ -24,33 +23,31 @@ export interface SelectedItems {
 type MultiSelectOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 export type MultiSelectProps = {
-  /** The helperText sets the text for the internal HelperErrorText */
-  helperText: string;
-  /** The id of the MultiSelect. */
-  id: string;
-  /** Set the default open or closed state of the Multiselect. */
-  isDefaultOpen: boolean;
-  /** Boolean value used to enable the component's search functionality
-   * The default value is false. */
-  isSearchable: boolean;
-  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
-   * The default value is false. */
-  isBlockElement: boolean;
-  /** The items to be rendered in the Multiselect as checkbox options. */
-  items: MultiSelectItem[];
-
-  listOverflow?: multiSelectListOverflowTypes;
   /** The label text rendered within the MultiSelect. */
   buttonText: string;
-  /** Numeric value to set the maximum number of checkbox items
-   * The default value is 5. */
-  defaultItemsVisible: number;
+  /** The selected items state (items that were checked by the user). */
+  defaultItemsVisible?: number;
+  /** The helperText sets the text for the internal HelperErrorText */
+  helperText: string;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
-  /** The action to perform on the checkbox's onChange function.  */
-  onChange?: MultiSelectOnChange;
+  /** The action to perform on the checkbox's onChange function. */
+  onChange: MultiSelectOnChange;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
   onMixedStateChange?: MultiSelectOnChange;
+  /** The id of the MultiSelect. */
+  id: string;
+  /** Boolean value used to enable the component's search functionality
+   * The default value is false. */
+  isBlockElement?: boolean;
+  /** Set the default open or closed state of the Multiselect. */
+  isDefaultOpen?: boolean;
+  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
+   * The default value is false. */
+  isSearchable?: boolean;
+  /** The items to be rendered in the Multiselect as checkbox options. */
+  items: MultiSelectItem[];
+  listOverflow?: multiSelectListOverflowTypes;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
@@ -58,14 +55,10 @@ export type MultiSelectProps = {
 };
 
 /**
- * The `MultiSelect` component is a form input element that presents a list
- * of `Checkbox` components from which a user can make one or multiple
- * selections. The MultiSelect allows for an optional set of child checkboxes to be passed,
- * which makes the “parent” checkbox function as a check/uncheck all toggle.
- * If all of the children checkboxes are checked, the parent isChecked prop will be true.
- * If only some of the child checkboxes are checked, the parent checkbox will have a isIndeterminate state,
- * that can be checked or unchecked.
- */
+  The MultiSelect component is a customizable form input that supports multiple configurations,
+  including search functionality, checkbox options, and hierarchical structure,
+  with a parent checkbox toggling all children and dynamic styling through Chakra UI.
+*/
 
 export const MultiSelect = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
@@ -89,7 +82,6 @@ export const MultiSelect = chakra(
       } = props;
 
       // Control the open or closed state of the MultiSelect.
-      const [isOpen] = useState(isDefaultOpen);
       const [itemsList, setItemsList] = useState(items);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState("215px");
@@ -128,7 +120,7 @@ export const MultiSelect = chakra(
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
         isBlockElement,
-        isOpen,
+        isDefaultOpen,
         hasSelectedItems: getSelectedItemsCount,
       });
 
@@ -408,7 +400,7 @@ export const MultiSelect = chakra(
             id={`ms-${id}-menu-button`}
             multiSelectId={id}
             multiSelectLabelText={buttonText}
-            isOpen={isOpen}
+            isOpen={isDefaultOpen}
             selectedItems={selectedItems}
             onClear={onClear}
           />
@@ -422,7 +414,7 @@ export const MultiSelect = chakra(
               },
             ]}
             panelMaxHeight={listHeight}
-            isDefaultOpen={isOpen}
+            isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
             id="multi-select-accordion-id"
           />

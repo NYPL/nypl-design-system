@@ -2,11 +2,12 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
 import { withDesign } from "storybook-addon-designs";
-
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
-const items = [
+const multiSelectListOverflowArray = ["scroll", "expand"] as const;
+const multiSelectWidthsArray = ["fitContent", "full"] as const;
+const withItems = [
   {
     id: "art",
     name: "Art",
@@ -157,7 +158,7 @@ const meta: Meta<typeof MultiSelect> = {
       description:
         "Value used to view the all items for the MultiSelect component",
       control: "radio",
-      options: ["scroll", "expand"],
+      options: multiSelectListOverflowArray,
       table: { defaultValue: { summary: "scroll" } },
     },
     buttonText: { table: { default: "" } },
@@ -179,7 +180,7 @@ const meta: Meta<typeof MultiSelect> = {
     width: {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
-      options: ["fitContent", "full"],
+      options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "default" } },
     },
   },
@@ -189,15 +190,15 @@ export default meta;
 type Story = StoryObj<typeof MultiSelect>;
 
 export const withControls: Story = {
-  args: {
-    id: "multiselect-dialog",
-    buttonText: "MultiSelect",
-    items: items,
-    isSearchable: false,
-    defaultItemsVisible: 5,
-    isDefaultOpen: false,
-  },
-  render: (args) => <MultiSelectStory {...args} />,
+
+  render: () => (
+    <MultiSelectStory
+      id='multi-select-id'
+      isDefaultOpen={false}
+      isSearchable={false}
+      items={withItems}
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -208,15 +209,14 @@ export const withControls: Story = {
 };
 
 export const withChildrenItemsExample: Story = {
-  args: {
-    id: "multiselect-dialog",
-    buttonText: "MultiSelect",
-    isSearchable: false,
-    defaultItemsVisible: 5,
-    isDefaultOpen: false,
-    items: withChildrenItems,
-  },
-  render: (args) => <MultiSelectStory {...args} />,
+  render: () => (
+    <MultiSelectStory
+      id='multi-select-id'
+      isDefaultOpen={false}
+      isSearchable={false}
+      items={withChildrenItems}
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -227,15 +227,14 @@ export const withChildrenItemsExample: Story = {
 };
 
 export const withDisabledItemsExample: Story = {
-  args: {
-    id: "multiselect-dialog",
-    buttonText: "MultiSelect",
-    isSearchable: false,
-    defaultItemsVisible: 5,
-    isDefaultOpen: false,
-    items: withDisabledItems,
-  },
-  render: (args) => <MultiSelectStory {...args} />,
+  render: () => (
+    <MultiSelectStory
+      id='multi-select-id'
+      isDefaultOpen={false}
+      isSearchable={false}
+      items={withDisabledItems}
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -246,15 +245,14 @@ export const withDisabledItemsExample: Story = {
 };
 
 export const withSearchInputFieldExample: Story = {
-  args: {
-    id: "multiselect-dialog",
-    buttonText: "MultiSelect",
-    isSearchable: true,
-    defaultItemsVisible: 5,
-    isDefaultOpen: false,
-    items: withChildrenItems,
-  },
-  render: (args) => <MultiSelectStory {...args} />,
+  render: () => (
+    <MultiSelectStory
+      id='multi-select-id'
+      isSearchable={true}
+      isDefaultOpen={false}
+      items={withChildrenItems}
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -264,14 +262,28 @@ export const withSearchInputFieldExample: Story = {
   },
 };
 
-const MultiSelectStory = (args) => {
+export const withDefaultOpenStateExample: Story = {
+  render: () => (
+    <MultiSelectStory
+      id='multi-select-id'
+      isSearchable={true}
+      isDefaultOpen={true}
+      items={withChildrenItems}
+    />
+  ),
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
+const MultiSelectStory = ({id, isSearchable, isDefaultOpen, items}) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
-  const multiSelectId = args.id;
-  const isSearchable = args.isSearchable;
-  const isDefaultOpen = args.isDefaultOpen;
-  const itemsArray = args.items;
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
   const [actionName, setActionName] = useState("");
@@ -287,21 +299,24 @@ const MultiSelectStory = (args) => {
 
   return (
     <MultiSelect
-      {...args}
+      id={id}
+      buttonText="MultiSelect"
+      helperText="multi-select-helper-text"
+      defaultItemsVisible={5}
       isDefaultOpen={isDefaultOpen}
       isSearchable={isSearchable}
       selectedItems={selectedItems}
-      defaultItemsVisible={5}
+      items={items}
       onChange={(e) => {
-        onChange(e.target.id, multiSelectId);
+        onChange(e.target.id, id);
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, itemsArray);
+        onMixedStateChange(e.target.id, id, items);
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
-        onClear(multiSelectId);
+        onClear(id);
         setActionName("onClear");
       }}
     />

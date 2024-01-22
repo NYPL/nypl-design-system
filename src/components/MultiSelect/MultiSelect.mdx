@@ -17,9 +17,10 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-disabled-checkboxes-example" target="_self">With Disabled Checkboxes Example</Link>}
-- {<Link href="#with-search-input-field-example" target="_self">With Search Input Field Example</Link>}
 - {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
+- {<Link href="#with-disabled-items-example" target="_self">With Disabled Items Example</Link>}
+- {<Link href="#with-search-input-field-example" target="_self">With Search Input Field Example</Link>}
+- {<Link href="#with-default-open-state-example" target="_self">With Default Open State Example</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
@@ -37,8 +38,9 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 <Source
   code={`
 <MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
+  buttonText: "MultiSelect",
+  defaultItemsVisible={5}
+  id="multi-select-id"
   items={[
     {
       id: "art",
@@ -52,6 +54,15 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
       id: "art_history",
       name: "Art History",
     },
+    {
+      id: 'design',
+      name: 'Design'
+    },
+    {
+      id: 'business',
+      name: 'Business'
+    },
+    ...
   ]}
 />
 `}
@@ -63,6 +74,63 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 ## Accessibility
 
 TBD
+
+## Using the items prop
+
+The options rendered in the MultiSelect component are passed into the component's `items` prop.
+The expected data structure is an array of objects, with each item having an `id` and a `name`.
+You also have the option to include a second level of child items.
+Both parent and child items can optionally use the `isDisabled` flag.
+The format is as follows:
+
+<Source
+  code={`
+  <MultiSelect
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
+  isSearchable={true}
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+      isDisabled: true,
+    },
+    {
+      id: 'design',
+      name: 'Design',
+      children: [
+        {
+          id: 'fashion',
+          isDisabled: true,
+          name: 'Fashion'
+        },
+        {
+          id: 'ux',
+          isDisabled: true,
+          name: 'User Experience'
+        },
+        {
+          id: 'tecture',
+          isDisabled: false,
+          name: 'Architecture'
+        },
+        {
+          id: 'home',
+          isDisabled: false,
+          name: 'Home'
+        },
+      ],
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
 
 ## With Children Items Example
 
@@ -77,25 +145,35 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
 <Source
   code={`
 <MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
   items={[
     {
       id: "art",
       name: "Art",
     },
     {
-      id: "parent_option",
-      name: "Parent option",
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
+    },
+    {
+      id: 'design',
+      name: 'Design',
       children: [
         {
-          id: "child_1",
-          name: "Child 1",
+          id: 'fashion',
+          name: 'Fashion'
         },
         {
-          id: "child_2",
-          name: "Child 2",
+          id: 'ux',
+          name: 'User Experience'
         },
+        ...
       ],
     },
   ]}
@@ -121,9 +199,10 @@ especially when certain options need to be disabled.
 <Source
   code={`
 <MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
-  isSearchable="true"
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
+  isSearchable={true}
   items={[
     {
       id: "art",
@@ -135,17 +214,28 @@ especially when certain options need to be disabled.
       isDisabled: true,
     },
     {
-      id: "parent_option",
-      name: "Parent option",
+      id: 'design',
+      name: 'Design',
       children: [
         {
-          id: "child_1",
-          name: "Child 1",
+          id: 'fashion',
           isDisabled: true,
+          name: 'Fashion'
         },
         {
-          id: "child_2",
-          name: "Child 2",
+          id: 'ux',
+          isDisabled: true,
+          name: 'User Experience'
+        },
+        {
+          id: 'tecture',
+          isDisabled: false,
+          name: 'Architecture'
+        },
+        {
+          id: 'home',
+          isDisabled: false,
+          name: 'Home'
         },
       ],
     },
@@ -156,14 +246,15 @@ especially when certain options need to be disabled.
 />
 
 ## With Search Input Field Example
-When isSearchable is set to true, it enables the input field to search the items.
+When `isSearchable` is set to `true`, it enables the input field to search the items.
 <Canvas of={MultiSelectStories.withSearchInputFieldExample} />
 <Source
   code={`
 <MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
-  isSearchable="true"
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
+  isSearchable={true}
   items={[
     {
       id: "art",
@@ -174,17 +265,18 @@ When isSearchable is set to true, it enables the input field to search the items
       name: "Architecture",
     },
     {
-      id: "parent_option",
-      name: "Parent option",
+      id: 'design',
+      name: 'Design',
       children: [
         {
-          id: "child_1",
-          name: "Child 1",
+          id: 'fashion',
+          name: 'Fashion',
         },
         {
-          id: "child_2",
-          name: "Child 2",
+          id: 'ux',
+          name: 'User Experience'
         },
+        ...
       ],
     },
   ]}
@@ -193,34 +285,39 @@ When isSearchable is set to true, it enables the input field to search the items
   language="jsx"
 />
 
-## Using the items prop
-
-The options rendered in the MultiSelect are passed into the component's items prop.
-The expected data structure is an array of objects, you can also add a second level of child
-items, in the following format:
-
+## With Default Open State Example
+When `isDefaultOpen` is set to `true`, the multi-select component is displayed in the open state by default.
+<Canvas of={MultiSelectStories.withSearchInputFieldExample} />
 <Source
   code={`
 <MultiSelect
-  id="subject"
-  labelText="Subject Specialities"
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
+  isSearchable={true}
+  isDefaultOpen={true}
   items={[
     {
       id: "art",
       name: "Art",
     },
     {
-      id: "parent_option",
-      name: "Parent option",
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: 'design',
+      name: 'Design',
       children: [
         {
-          id: "child_1",
-          name: "Child 1",
+          id: 'fashion',
+          name: 'Fashion',
         },
         {
-          id: "child_2",
-          name: "Child 2",
+          id: 'ux',
+          name: 'User Experience'
         },
+        ...
       ],
     },
   ]}
@@ -228,7 +325,6 @@ items, in the following format:
 `}
   language="jsx"
 />
-
 
 ## Controlling state using selectedItems and onChange prop
 
@@ -266,7 +362,7 @@ slice of the state.
     locations: {
       items: ["sasb"]
     }
-  }
+}
 // Getting the selectedItems for a specific MultiSelect
 const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
 const locationsSelectedItemssOnly = selectedItems["locations"].items;
@@ -339,8 +435,7 @@ function MultiSelectControlledExample() {
   }
   return (
     <MultiSelect
-      id="subjects"
-      labelText="Subjects"
+      id="multi-select-id"
       items={items}
       selectedItems={selectedItems}
       helperText="Multi Select Helper Text"
