@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useCallback } from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import Accordion from "./../Accordion/Accordion";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
@@ -86,7 +86,7 @@ export const MultiSelect = chakra(
       // Control the open or closed state of the MultiSelect.
       const DEFAULT_ITEMS_LIST_HEIGHT = "0px";
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
-      const MAXIMUM_ITEMS_LIST_HEIGHT = "273px";
+      const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
       const [itemsList, setItemsList] = useState(items);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState(MINIMUM_ITEMS_LIST_HEIGHT);
@@ -96,7 +96,7 @@ export const MultiSelect = chakra(
       React.useEffect(() => {
         if (listOverflow === "scroll") {
           setListHeight(MINIMUM_ITEMS_LIST_HEIGHT);
-          if (isSearchable || items.some((item) => !!item.children)) {
+          if (isSearchable) {
             setListHeight(MAXIMUM_ITEMS_LIST_HEIGHT);
           }
           setItemsList(items);
@@ -212,7 +212,7 @@ export const MultiSelect = chakra(
         }
       };
 
-      const displayDefaultItems = () => {
+      const displayDefaultItems = useCallback(() => {
         const list = [];
         let count = 0;
         for (let i = 0; i < items.length && count < defaultItemsVisible; i++) {
@@ -224,7 +224,7 @@ export const MultiSelect = chakra(
           }
         }
         setItemsList(list);
-      };
+      }, [items, defaultItemsVisible, setItemsList]);
 
       // Separate effect for handling listOverflow "expand"
       React.useEffect(() => {
@@ -237,7 +237,7 @@ export const MultiSelect = chakra(
             setViewAllLabel("View less");
           }
         }
-      }, [listOverflow, listItemsCount, items, defaultItemsVisible]);
+      }, [listOverflow, listItemsCount, items, defaultItemsVisible, displayDefaultItems]);
 
       const showSearchInputBox = () => (
         <>
