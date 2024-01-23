@@ -71,7 +71,7 @@ export default function useMultiSelect(initialState?: SelectedItems) {
     // If some items of the multiSelect are already selected
 
     if (selectedItems[multiSelectId] !== undefined) {
-      const nonDisabledArray = childItems
+      const nonDisabledItems = childItems
         .filter((childItem) => {
           return !childItem.isDisabled;
         })
@@ -79,7 +79,7 @@ export default function useMultiSelect(initialState?: SelectedItems) {
 
       // If all children of the parent are already selected
       if (
-        nonDisabledArray.every((childItem) =>
+        nonDisabledItems.every((childItem) =>
           selectedItems[multiSelectId].items.includes(childItem)
         )
       ) {
