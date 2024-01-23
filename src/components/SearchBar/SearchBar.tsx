@@ -165,6 +165,7 @@ export const SearchBar: React.FC<any> = chakra(
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
+        className="textInput"
         defaultValue={textInputProps?.defaultValue}
         id={textInputProps?.id || `searchbar-textinput-${id}`}
         isClearable={textInputProps?.isClearable}
