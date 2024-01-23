@@ -91,7 +91,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
               id="multi-select-checkbox-group-checkbox-group"
             >
               <legend>
-                
+                Multi select checkbox group label
               </legend>
               <div
                 className="chakra-stack css-1wdv1uh"
@@ -714,7 +714,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
-          className="chakra-accordion__panel css-g1ldc"
+          className="chakra-accordion__panel css-17zq58e"
           id="accordion-panel-multi-select-accordion-id-item-0"
           role="region"
         >
@@ -726,7 +726,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
               id="multi-select-checkbox-group-checkbox-group"
             >
               <legend>
-                
+                Multi select checkbox group label
               </legend>
               <div
                 className="chakra-stack css-1wdv1uh"
@@ -1403,7 +1403,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
               id="multi-select-checkbox-group-checkbox-group"
             >
               <legend>
-                
+                Multi select checkbox group label
               </legend>
               <div
                 className="chakra-stack css-1wdv1uh"
@@ -2093,7 +2093,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
-          className="chakra-accordion__panel css-g1ldc"
+          className="chakra-accordion__panel css-17zq58e"
           id="accordion-panel-multi-select-accordion-id-item-0"
           role="region"
         >
@@ -2105,7 +2105,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
               id="multi-select-checkbox-group-checkbox-group"
             >
               <legend>
-                
+                Multi select checkbox group label
               </legend>
               <div
                 className="chakra-stack css-1wdv1uh"

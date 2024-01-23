@@ -13,9 +13,9 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
-export type multiSelectWidths = typeof multiSelectWidthsArray[number];
+export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
-export type multiSelectListOverflowTypes =
+export type MultiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
 export interface SelectedItems {
   [name: string]: { items: string[] };
@@ -49,11 +49,11 @@ export type MultiSelectProps = {
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
   /** listOverflow is a property indicating how the list should handle overflow, with options limited to either "scroll" or "expand." */
-  listOverflow?: multiSelectListOverflowTypes;
+  listOverflow?: MultiSelectListOverflowTypes;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
-  width?: multiSelectWidths;
+  width?: MultiSelectWidths;
 };
 
 /**
