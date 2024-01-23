@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import { Accordion, AccordionDataProps } from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
@@ -140,8 +141,8 @@ const meta: Meta<typeof Accordion> = {
       },
     },
     id: { control: false },
-    isDefaultOpen: { table: { defaultValue: { summary: false } } },
-    isAlwaysRendered: { table: { defaultValue: { summary: false } } },
+    isDefaultOpen: argsBooleanType(),
+    isAlwaysRendered: argsBooleanType(),
     panelMaxHeight: { control: { type: "text" } },
   },
 };

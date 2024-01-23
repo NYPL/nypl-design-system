@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./modalChangelogData";
 
 import * as ModalStories from "./Modal.stories";
 import { ModalTrigger, useModal } from "./Modal";
@@ -8,10 +10,10 @@ import Link from "../Link/Link";
 
 # Modal
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -24,6 +26,7 @@ import Link from "../Link/Link";
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -206,3 +209,7 @@ scroll while the `Modal`'s header and footer still stay static. Check the
 example below with a lot of content inside the `Modal`.
 
 <Canvas of={ModalStories.ContentWindowScrolling} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

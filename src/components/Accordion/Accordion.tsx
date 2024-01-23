@@ -6,6 +6,7 @@ import {
   Box,
   chakra,
   useColorMode,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -181,7 +182,12 @@ const getElementsFromData = (
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-export const Accordion: React.FC<any> = chakra(
+export const Accordion: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    AccordionProps & React.RefAttributes<HTMLDivElement>
+  >,
+  AccordionProps
+> = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
