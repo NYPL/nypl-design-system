@@ -2,10 +2,7 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
 import { withDesign } from "storybook-addon-designs";
-import MultiSelect, {
-  multiSelectWidthsArray,
-  multiSelectListOverflowArray,
-} from "./MultiSelect";
+import MultiSelect, {multiSelectWidthsArray, multiSelectListOverflowArray} from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
 const withItems = [
@@ -237,6 +234,7 @@ export default meta;
 type Story = StoryObj<typeof MultiSelect>;
 
 export const withControls: Story = {
+
   args: {
     buttonText: "MultiSelect",
     defaultItemsVisible: 5,
@@ -383,7 +381,7 @@ const MultiSelectWithControlsStory = (args) => {
       }}
     />
   );
-};
+}
 
 const MultiSelectStory = ({ id, isSearchable, isDefaultOpen, items }) => {
   // Example with custom hook useMultiSelect.

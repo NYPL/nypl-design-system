@@ -41,6 +41,8 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
   buttonText="MultiSelect",
   defaultItemsVisible={5}
   id="multi-select-id"
+  isDefaultOpen={false}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -89,7 +91,8 @@ The format is as follows:
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
-  isSearchable={true}
+  isDefaultOpen={false}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -126,6 +129,7 @@ The format is as follows:
         },
       ],
     },
+    ...
   ]}
 />
 `}
@@ -148,6 +152,8 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isDefaultOpen={false}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -202,6 +208,7 @@ especially when certain options need to be disabled.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isDefaultOpen={false}
   isSearchable={true}
   items={[
     {
@@ -237,6 +244,7 @@ especially when certain options need to be disabled.
           isDisabled: false,
           name: 'Home'
         },
+        ...
       ],
     },
   ]}
@@ -253,6 +261,7 @@ especially when certain options need to be disabled.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isDefaultOpen={false}
   isSearchable={true}
   items={[
     {
@@ -288,6 +297,7 @@ especially when certain options need to be disabled.
           isDisabled: true,
           name: 'Home'
         },
+        ...
       ],
     },
   ]}
@@ -305,6 +315,7 @@ When `isSearchable` is set to `true`, it enables the input field to search the i
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isDefaultOpen={false}
   isSearchable={true}
   items={[
     {

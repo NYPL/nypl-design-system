@@ -23,7 +23,7 @@ export interface SelectedItems {
 type MultiSelectOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 export type MultiSelectProps = {
-  /** The label text rendered within the MultiSelect. */
+  /** The button text rendered within the MultiSelect. */
   buttonText: string;
   /** The selected items state (items that were checked by the user). */
   defaultItemsVisible?: number;
@@ -42,11 +42,13 @@ export type MultiSelectProps = {
   isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
-  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements.
+  /** Boolean value used to control how the MultiSelect component will render input field within the page 
+   * and interact with other DOM elements.
    * The default value is false. */
   isSearchable?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
+  /** listOverflow is a property indicating how the list should handle overflow, with options limited to either "scroll" or "expand." */
   listOverflow?: multiSelectListOverflowTypes;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
