@@ -89,7 +89,6 @@ export const MultiSelect = chakra(
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState(MINIMUM_ITEMS_LIST_HEIGHT);
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
-      
 
       // Separate effect for handling listOverflow "scroll"
       React.useEffect(() => {
@@ -105,7 +104,7 @@ export const MultiSelect = chakra(
       // Sets the selected items count on the menu button.
       let getSelectedItemsCount: any;
       getSelectedItemsCount = !!(selectedItems[id]?.items.length || 0);
-      
+
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
         isBlockElement,
@@ -159,9 +158,7 @@ export const MultiSelect = chakra(
         return false;
       };
 
-      const updateDisabledState = (
-        item: MultiSelectItem
-      ): boolean => {
+      const updateDisabledState = (item: MultiSelectItem): boolean => {
         // Check if all child items are disabled, and update the parent accordingly
         if (item.children.every((childItem) => childItem.isDisabled)) {
           item.isDisabled = true;
@@ -213,7 +210,7 @@ export const MultiSelect = chakra(
             : setItemsList(items);
         }
       };
-      
+
       const displayDefaultItems = () => {
         const list = [];
         let count = 0;
@@ -337,9 +334,7 @@ export const MultiSelect = chakra(
               name="multi-select-checkbox-group"
             >
               {itemsList.map((item: MultiSelectItem) => (
-                <>
-                  {generateCheckboxArray(item)}
-                </>
+                <>{generateCheckboxArray(item)}</>
               ))}
             </CheckboxGroup>
             {showViewLabel()}
@@ -365,7 +360,11 @@ export const MultiSelect = chakra(
       const itemsNotFound = () => {
         if (itemsList.length === 0) {
           return (
-            <Box key="items-not-found-text-id" id="items-not-found-text-id" marginTop="xs">
+            <Box
+              key="items-not-found-text-id"
+              id="items-not-found-text-id"
+              marginTop="xs"
+            >
               No options found
             </Box>
           );
@@ -374,9 +373,17 @@ export const MultiSelect = chakra(
       };
 
       const viewAllItems = () => {
-        setViewAllLabel((prevProp) => prevProp === "View all" ? "View less" : "View all");
-        setListHeight((prevProp) => prevProp === MAXIMUM_ITEMS_LIST_HEIGHT ? DEFAULT_ITEMS_LIST_HEIGHT : MAXIMUM_ITEMS_LIST_HEIGHT);
-        setListItemsCount((prevProp) => prevProp === defaultItemsVisible ? items.length : defaultItemsVisible);
+        setViewAllLabel((prevProp) =>
+          prevProp === "View all" ? "View less" : "View all"
+        );
+        setListHeight((prevProp) =>
+          prevProp === MAXIMUM_ITEMS_LIST_HEIGHT
+            ? DEFAULT_ITEMS_LIST_HEIGHT
+            : MAXIMUM_ITEMS_LIST_HEIGHT
+        );
+        setListItemsCount((prevProp) =>
+          prevProp === defaultItemsVisible ? items.length : defaultItemsVisible
+        );
 
         if (listItemsCount === defaultItemsVisible) {
           setItemsList(items);
@@ -384,7 +391,7 @@ export const MultiSelect = chakra(
           displayDefaultItems();
         }
       };
-      
+
       const buttonTextLabel = () => {
         return (
           <Box
