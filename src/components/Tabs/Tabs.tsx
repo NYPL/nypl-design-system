@@ -7,6 +7,7 @@ import {
   TabPanel,
   Tabs as ChakraTabs,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -143,7 +144,12 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-export const Tabs: React.FC<any> = chakra(
+export const Tabs: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TabsProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TabsProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TabsProps>>(
     (props, ref?) => {
       const {

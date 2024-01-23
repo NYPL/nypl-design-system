@@ -14,6 +14,13 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
     notes: [
       "Fixes bug where month and year calendars were rendering vertically rather than horizontally.",
     ],

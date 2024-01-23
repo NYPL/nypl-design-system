@@ -1,4 +1,10 @@
-import { As, Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  As,
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import useDSHeading from "../../hooks/useDSHeading";
@@ -40,7 +46,13 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Description` list type.
  */
-export const List: React.FC<any> = chakra(
+export const List: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ListProps> &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
+  >,
+  React.PropsWithChildren<ListProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     React.PropsWithChildren<ListProps>
@@ -56,7 +68,7 @@ export const List: React.FC<any> = chakra(
       type = "ul",
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("List", {
+    const styles = useMultiStyleConfig("ReservoirList", {
       inline,
       noStyling,
       variant: type,
@@ -142,7 +154,7 @@ export const List: React.FC<any> = chakra(
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {listChildrenElms(type)}
@@ -156,7 +168,7 @@ export const List: React.FC<any> = chakra(
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {finalTitle}

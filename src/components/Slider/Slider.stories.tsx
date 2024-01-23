@@ -8,6 +8,7 @@ import Form, { FormRow, FormField } from "../Form/Form";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Slider from "./Slider";
 import TextInput from "../TextInput/TextInput";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Slider> = {
   title: "Components/Form Elements/Slider",
@@ -19,43 +20,25 @@ const meta: Meta<typeof Slider> = {
       control: false,
       table: { defaultValue: { summary: 0 } },
     },
+    helperText: { control: "text" },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
-    max: {
-      table: { defaultValue: { summary: 100 } },
-    },
-    min: {
-      table: { defaultValue: { summary: 0 } },
-    },
+    invalidText: { control: "text" },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRangeSlider: argsBooleanType(),
+    isRequired: argsBooleanType(),
+    labelText: { control: "text" },
+    max: { control: "number", table: { defaultValue: { summary: 100 } } },
+    min: { control: "number", table: { defaultValue: { summary: 0 } } },
     name: { control: false },
     onChange: { control: false },
     onChangeEnd: { control: false },
-    showBoxes: {
-      table: { defaultValue: { summary: true } },
-    },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
-    showLabel: {
-      table: { defaultValue: { summary: true } },
-    },
-    showRequiredLabel: {
-      table: { defaultValue: { summary: true } },
-    },
-    showValues: {
-      table: { defaultValue: { summary: true } },
-    },
-    step: {
-      table: { defaultValue: { summary: 1 } },
-    },
+    showBoxes: argsBooleanType(true),
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    showRequiredLabel: argsBooleanType(true),
+    showValues: argsBooleanType(true),
+    step: { control: "number", table: { defaultValue: { summary: 1 } } },
     value: { control: false },
   },
 };

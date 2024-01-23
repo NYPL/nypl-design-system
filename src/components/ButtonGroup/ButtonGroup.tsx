@@ -1,4 +1,9 @@
-import { chakra, Stack, useStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  ChakraComponent,
+  Stack,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
@@ -28,7 +33,13 @@ const noop = () => {};
  * to row or column and the width of internal `Button` components can be set to
  * the parent's full width or the `Button`'s content width
  */
-export const ButtonGroup: React.FC<React.PropsWithChildren<any>> = chakra(
+export const ButtonGroup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ButtonGroupProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<ButtonGroupProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<ButtonGroupProps>>(
     (props, ref?) => {
       const {

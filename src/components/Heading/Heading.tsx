@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Heading as ChakraHeading,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -94,7 +95,13 @@ const getMappedLevel = (level = "two") => {
   return levelMap[level] || "h2";
 };
 
-export const Heading: React.FC<any> = chakra(
+export const Heading: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<HeadingProps> &
+      React.RefAttributes<HTMLHeadingElement>
+  >,
+  React.PropsWithChildren<HeadingProps>
+> = chakra(
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {
@@ -260,11 +267,11 @@ export const Heading: React.FC<any> = chakra(
       const headingStyles =
         overline || subtitle
           ? {
-              ...styles,
+              ...styles.base,
               ...responsiveStyles,
             }
           : {
-              ...styles,
+              ...styles.base,
               ...responsiveStyles,
               ...wrapperStyles,
             };

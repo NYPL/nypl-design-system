@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   useColorMode,
   useColorModeValue,
   useMultiStyleConfig,
@@ -67,85 +68,98 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
 /**
  * NotificationHeading child-component.
  */
-export const NotificationHeading: React.FC<any> = chakra(
-  (props: React.PropsWithChildren<NotificationHeadingProps>) => {
-    const { children, icon, id, isCentered, notificationType, ...rest } = props;
-    const styles = useMultiStyleConfig("NotificationHeading", {
-      icon,
-      isCentered,
-      notificationType,
-    });
-    // Only if a heading child was passed, then either render the string in the
-    // default NotificationHeading h4 with its default styles, or render the
-    // custom `Heading` or heading child with the `NotificationHeading` styles.
-    const title = children ? (
-      typeof children === "string" ? (
-        <Heading
-          id={`${id}-heading`}
-          level="h4"
-          noSpace
-          size="heading6"
-          __css={styles.heading}
-        >
-          {children}
-        </Heading>
-      ) : (
-        React.cloneElement(children as any, {
-          __css: styles.heading,
-          noSpace: true,
-          size: "heading6",
-        })
-      )
-    ) : undefined;
-    const finalTitle = useDSHeading({
-      title,
-      id,
-    });
+export const NotificationHeading: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<NotificationHeadingProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  NotificationHeadingProps
+> = chakra((props: React.PropsWithChildren<NotificationHeadingProps>) => {
+  const { children, icon, id, isCentered, notificationType, ...rest } = props;
+  const styles = useMultiStyleConfig("NotificationHeading", {
+    icon,
+    isCentered,
+    notificationType,
+  });
+  // Only if a heading child was passed, then either render the string in the
+  // default NotificationHeading h4 with its default styles, or render the
+  // custom `Heading` or heading child with the `NotificationHeading` styles.
+  const title = children ? (
+    typeof children === "string" ? (
+      <Heading
+        id={`${id}-heading`}
+        level="h4"
+        noSpace
+        size="heading6"
+        __css={styles.heading}
+      >
+        {children}
+      </Heading>
+    ) : (
+      React.cloneElement(children as any, {
+        __css: styles.heading,
+        noSpace: true,
+        size: "heading6",
+      })
+    )
+  ) : undefined;
+  const finalTitle = useDSHeading({
+    title,
+    id,
+  });
 
-    return (
-      <Box as="header" __css={styles} {...rest}>
-        {icon}
-        {children && finalTitle}
-      </Box>
-    );
-  }
-);
+  return (
+    <Box as="header" __css={styles} {...rest}>
+      {icon}
+      {children && finalTitle}
+    </Box>
+  );
+});
 
 /**
  * NotificationContent child-component.
  */
-export const NotificationContent: React.FC<any> = chakra(
-  (props: React.PropsWithChildren<NotificationContentProps>) => {
-    const {
-      alignText,
-      children,
-      isCentered,
-      notificationHeading,
-      notificationType,
-      showIcon,
-      ...rest
-    } = props;
-    const styles = useMultiStyleConfig("NotificationContent", {
-      alignText,
-      isCentered,
-      notificationHeading,
-      notificationType,
-      showIcon,
-    });
+export const NotificationContent: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<NotificationContentProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  NotificationContentProps
+> = chakra((props: React.PropsWithChildren<NotificationContentProps>) => {
+  const {
+    alignText,
+    children,
+    isCentered,
+    notificationHeading,
+    notificationType,
+    showIcon,
+    ...rest
+  } = props;
+  const styles = useMultiStyleConfig("NotificationContent", {
+    alignText,
+    isCentered,
+    notificationHeading,
+    notificationType,
+    showIcon,
+  });
 
-    return (
-      <Box __css={styles} {...rest}>
-        {children && <Box __css={styles.content}>{children}</Box>}
-      </Box>
-    );
-  }
-);
+  return (
+    <Box __css={styles} {...rest}>
+      {children && <Box __css={styles.content}>{children}</Box>}
+    </Box>
+  );
+});
 
 /**
  * Component used to present users with three different levels of notifications:
  * standard, announcement, and warning.
  */
-export const Notification: React.FC<any> = chakra(
+export const Notification: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    NotificationProps & React.RefAttributes<HTMLDivElement>
+  >,
+  NotificationProps
+> = chakra(
   forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
     const {
       ariaLabel,

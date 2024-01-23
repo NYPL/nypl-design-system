@@ -1,9 +1,11 @@
 import { cssVar } from "@chakra-ui/theme-tools";
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
 
 const $bg = cssVar("tooltip-bg");
 
-const Tooltip = {
-  baseStyle: {
+const Tooltip = defineStyleConfig({
+  baseStyle: defineStyle({
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
     boxShadow: "none",
@@ -17,7 +19,7 @@ const Tooltip = {
       [$bg.variable]: "colors.ui.gray.x-dark",
       color: "dark.ui.typography.heading",
     },
-  },
-};
+  }),
+});
 
 export default Tooltip;

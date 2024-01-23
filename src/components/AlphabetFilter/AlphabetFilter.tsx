@@ -2,6 +2,7 @@ import React, { forwardRef, useRef, useState } from "react";
 import {
   Box,
   chakra,
+  ChakraComponent,
   Flex,
   useColorModeValue,
   useMultiStyleConfig,
@@ -32,7 +33,12 @@ export interface AlphabetFilterProps {
   onClick: (filterValue: string) => void;
 }
 
-export const AlphabetFilter: React.FC<any> = chakra(
+export const AlphabetFilter: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    AlphabetFilterProps & React.RefAttributes<HTMLDivElement>
+  >,
+  AlphabetFilterProps
+> = chakra(
   forwardRef<HTMLDivElement, AlphabetFilterProps>((props, ref?) => {
     const {
       activeLetters,

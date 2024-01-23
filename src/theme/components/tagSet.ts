@@ -1,43 +1,57 @@
+import { defineStyleConfig } from "@chakra-ui/react";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+
 import { activeFocus } from "./global";
 
-const TagSetFilter = {
-  parts: ["clearAll"],
-  baseStyle: ({ isDismissible }: { isDismissible: boolean }) => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    bg: "ui.bg.default",
-    border: "1px solid",
-    borderColor: "ui.border.default",
-    borderRadius: "pill",
-    color: "ui.typography.body",
-    cursor: isDismissible ? "pointer" : "auto",
-    height: { base: "32px", md: "22px" },
-    minHeight: "22px",
-    maxWidth: "200px",
-    py: "xxxs",
-    paddingLeft: "s",
-    paddingRight: isDismissible ? { base: "8px", md: "6px" } : "s",
-    fontSize: "desktop.caption",
-    "> span": {
-      display: "inline-block",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      whiteSpace: "nowrap",
-    },
-    _hover: {
-      bg: isDismissible ? "ui.bg.hover" : "ui.bg.default",
-      borderColor: isDismissible ? "ui.border.hover" : "ui.border.default",
-    },
-    _dark: {
-      bg: "dark.ui.bg.default",
-      borderColor: "dark.ui.border.default",
-      color: "dark.ui.typography.body",
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["base", "clearAll"]);
+
+interface TagSetFilterProps extends StyleFunctionProps {
+  isDismissible: boolean;
+}
+
+const TagSetFilter = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isDismissible }: TagSetFilterProps) => ({
+    base: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      bg: "ui.bg.default",
+      border: "1px solid",
+      borderColor: "ui.border.default",
+      borderRadius: "pill",
+      color: "ui.typography.body",
+      cursor: isDismissible ? "pointer" : "auto",
+      height: { base: "32px", md: "22px" },
+      minHeight: "22px",
+      maxWidth: "200px",
+      py: "xxxs",
+      paddingLeft: "s",
+      paddingRight: isDismissible ? { base: "8px", md: "6px" } : "s",
+      fontSize: "desktop.caption",
+      "> span": {
+        display: "inline-block",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+      },
       _hover: {
-        bg: isDismissible ? "dark.ui.bg.hover" : "dark.ui.bg.default",
-        borderColor: isDismissible
-          ? "dark.ui.border.hover"
-          : "dark.ui.border.default",
+        bg: isDismissible ? "ui.bg.hover" : "ui.bg.default",
+        borderColor: isDismissible ? "ui.border.hover" : "ui.border.default",
+      },
+      _dark: {
+        bg: "dark.ui.bg.default",
+        borderColor: "dark.ui.border.default",
+        color: "dark.ui.typography.body",
+        _hover: {
+          bg: isDismissible ? "dark.ui.bg.hover" : "dark.ui.bg.default",
+          borderColor: isDismissible
+            ? "dark.ui.border.hover"
+            : "dark.ui.border.default",
+        },
       },
     },
     clearAll: {
@@ -49,11 +63,11 @@ const TagSetFilter = {
         color: "dark.ui.typography.heading",
       },
     },
-  }),
-};
+  })),
+});
 
-const TagSetExplore = {
-  baseStyle: {
+const TagSetExplore = defineStyleConfig({
+  baseStyle: defineStyle({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -122,16 +136,16 @@ const TagSetExplore = {
         },
       },
     },
-  },
-};
+  }),
+});
 
-const TagSet = {
-  baseStyle: () => ({
+const TagSet = defineStyleConfig({
+  baseStyle: defineStyle({
     display: "inline-flex",
     flexWrap: "wrap",
     gap: "xs",
   }),
-};
+});
 
 export default {
   TagSet,
