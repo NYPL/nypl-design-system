@@ -237,7 +237,13 @@ export const MultiSelect = chakra(
             setViewAllLabel("View less");
           }
         }
-      }, [listOverflow, listItemsCount, items, defaultItemsVisible, displayDefaultItems]);
+      }, [
+        listOverflow,
+        listItemsCount,
+        items,
+        defaultItemsVisible,
+        displayDefaultItems,
+      ]);
 
       const showSearchInputBox = () => (
         <>

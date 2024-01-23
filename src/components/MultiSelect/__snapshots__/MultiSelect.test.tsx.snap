@@ -714,7 +714,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
-          className="chakra-accordion__panel css-17zq58e"
+          className="chakra-accordion__panel css-e7ng5h"
           id="accordion-panel-multi-select-accordion-id-item-0"
           role="region"
         >
@@ -2093,7 +2093,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
-          className="chakra-accordion__panel css-17zq58e"
+          className="chakra-accordion__panel css-e7ng5h"
           id="accordion-panel-multi-select-accordion-id-item-0"
           role="region"
         >
