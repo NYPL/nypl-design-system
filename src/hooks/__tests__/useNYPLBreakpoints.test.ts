@@ -32,6 +32,8 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanMobile: false,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
+      isSmallerThanDesktop: true,
+      isSmallerThanMedium: true,
     });
 
     act(() => window.resizeTo(360, 600));
@@ -41,6 +43,8 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanMobile: false,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
+      isSmallerThanDesktop: true,
+      isSmallerThanMedium: true,
     });
 
     act(() => window.resizeTo(736, 600));
@@ -50,6 +54,8 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanMobile: true,
       isLargerThanLarge: false,
       isLargerThanXLarge: false,
+      isSmallerThanDesktop: false,
+      isSmallerThanMedium: false,
     });
 
     act(() => window.resizeTo(1000, 600));
@@ -59,6 +65,8 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanMobile: true,
       isLargerThanLarge: true,
       isLargerThanXLarge: false,
+      isSmallerThanDesktop: false,
+      isSmallerThanMedium: false,
     });
 
     act(() => window.resizeTo(1300, 600));
@@ -68,6 +76,8 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanMobile: true,
       isLargerThanLarge: true,
       isLargerThanXLarge: true,
+      isSmallerThanDesktop: false,
+      isSmallerThanMedium: false,
     });
   });
 });

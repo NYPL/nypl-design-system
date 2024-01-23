@@ -827,7 +827,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
   id="withHeading-wrapper"
 >
   <h2
-    className="chakra-heading css-878tmy"
+    className="chakra-heading css-1j5o63i"
     id="withHeading-heading"
   >
     A Heading
@@ -948,7 +948,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   id="withHeadingAndDescription-wrapper"
 >
   <h2
-    className="chakra-heading css-878tmy"
+    className="chakra-heading css-1j5o63i"
     id="withHeadingAndDescription-heading"
   >
     A Heading

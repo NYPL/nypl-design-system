@@ -125,7 +125,7 @@ export const Heading = chakra(
         noSpace,
         url,
       });
-      const { isLargerThanMobile } = useNYPLBreakpoints();
+      const { isSmallerThanDesktop } = useNYPLBreakpoints();
       // Combine native base styles with any additional styles.
       // This is used in the `Hero` and `Notification` components.
       const asHeading: any = finalLevel;
@@ -210,11 +210,11 @@ export const Heading = chakra(
        * styles.
        * */
       const responsiveStyles = !isNaN(sizeIndex)
-        ? isLargerThanMobile
+        ? isSmallerThanDesktop
           ? {
-              fontSize: `desktop.heading.${finalRoot}${sizeIndex}`,
+              fontSize: `mobile.heading.${finalRoot}${sizeIndex}`,
             }
-          : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
+          : { fontSize: `desktop.heading.${finalRoot}${sizeIndex}` }
         : undefined;
 
       /** If the overline element is rendered, we'll also need responsive styles
@@ -226,12 +226,12 @@ export const Heading = chakra(
         : undefined;
       const overlineFontSize = !isNaN(sizeIndex)
         ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? isLargerThanMobile
-            ? "desktop.overline.overline1"
-            : "mobile.overline.overline1"
-          : isLargerThanMobile
-          ? "desktop.overline.overline2"
-          : "mobile.overline.overline2"
+          ? isSmallerThanDesktop
+            ? "mobile.overline.overline1"
+            : "desktop.overline.overline1"
+          : isSmallerThanDesktop
+          ? "mobile.overline.overline2"
+          : "desktop.overline.overline2"
         : undefined;
 
       /** If the subtitle element is rendered, we'll also need responsive styles
@@ -243,12 +243,12 @@ export const Heading = chakra(
         : undefined;
       const subtitleFontSize = !isNaN(sizeIndex)
         ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? isLargerThanMobile
-            ? "desktop.subtitle.subtitle1"
-            : "mobile.subtitle.subtitle1"
-          : isLargerThanMobile
-          ? "desktop.subtitle.subtitle2"
-          : "mobile.subtitle.subtitle2"
+          ? isSmallerThanDesktop
+            ? "mobile.subtitle.subtitle1"
+            : "desktop.subtitle.subtitle1"
+          : isSmallerThanDesktop
+          ? "mobile.subtitle.subtitle2"
+          : "desktop.subtitle.subtitle2"
         : undefined;
 
       /** The styles that should be applied to the outer-most wrapper of the
