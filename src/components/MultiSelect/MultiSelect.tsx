@@ -86,7 +86,7 @@ export const MultiSelect = chakra(
       // Control the open or closed state of the MultiSelect.
       const DEFAULT_ITEMS_LIST_HEIGHT = "0px";
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
-      const MAXIMUM_ITEMS_LIST_HEIGHT = "275px";
+      const MAXIMUM_ITEMS_LIST_HEIGHT = "273px";
       const [itemsList, setItemsList] = useState(items);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
       const [listHeight, setListHeight] = useState(MINIMUM_ITEMS_LIST_HEIGHT);
@@ -105,8 +105,7 @@ export const MultiSelect = chakra(
 
       // Sets the selected items count on the menu button.
       let getSelectedItemsCount: any;
-      getSelectedItemsCount = !!(selectedItems[id]?.items.length || 0);
-
+      getSelectedItemsCount = (selectedItems[id]?.items.length || 0);
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
         isBlockElement,
@@ -216,19 +215,9 @@ export const MultiSelect = chakra(
       const displayDefaultItems = () => {
         const list = [];
         let count = 0;
-
         for (let i = 0; i < items.length && count < defaultItemsVisible; i++) {
           const currentItem = items[i];
           count++;
-          if (currentItem.children) {
-            const showChilds = isAllChecked(id, currentItem);
-            const showIndeterminateChilds = isIndeterminate(id, currentItem);
-            count +=
-              !showChilds || !showIndeterminateChilds
-                ? currentItem.children?.length
-                : items[i].children.length;
-          }
-
           list.push(currentItem);
           if (count >= defaultItemsVisible) {
             break;

@@ -94,6 +94,14 @@ const withChildrenItems = [
     id: "business",
     name: "Business",
   },
+  {
+    id: "education",
+    name: "Education",
+  },
+  {
+    id: "games",
+    name: "Games",
+  },
 ];
 
 const withDisabledItems = [
