@@ -13,7 +13,7 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
-export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
+export type multiSelectWidths = typeof multiSelectWidthsArray[number];
 export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
 export type multiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
@@ -51,7 +51,7 @@ export type MultiSelectProps = {
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
-  width?: MultiSelectWidths;
+  width?: multiSelectWidths;
 };
 
 /**
@@ -82,41 +82,30 @@ export const MultiSelect = chakra(
       } = props;
 
       // Control the open or closed state of the MultiSelect.
+      const DEFAULT_ITEMS_LIST_HEIGHT = "0px";
+      const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
+      const MAXIMUM_ITEMS_LIST_HEIGHT = "275px";
       const [itemsList, setItemsList] = useState(items);
       const [viewAllLabel, setViewAllLabel] = useState("View all");
-      const [listHeight, setListHeight] = useState("215px");
+      const [listHeight, setListHeight] = useState(MINIMUM_ITEMS_LIST_HEIGHT);
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
+      
 
       // Separate effect for handling listOverflow "scroll"
       React.useEffect(() => {
         if (listOverflow === "scroll") {
-          setListHeight("215px");
+          setListHeight(MINIMUM_ITEMS_LIST_HEIGHT);
           if (isSearchable || items.some((item) => !!item.children)) {
-            setListHeight("275px");
+            setListHeight(MAXIMUM_ITEMS_LIST_HEIGHT);
           }
           setItemsList(items);
         }
-      }, [listOverflow, items]);
-
-      // Separate effect for handling listOverflow "expand"
-      React.useEffect(() => {
-        if (listOverflow === "expand") {
-          setListHeight("");
-          if (listItemsCount === defaultItemsVisible) {
-            displayDefaultItems();
-          } else {
-            setItemsList(items);
-            setViewAllLabel("View less");
-          }
-        }
-      }, [listOverflow, listItemsCount, items, defaultItemsVisible]);
+      }, [listOverflow, items, isSearchable]);
 
       // Sets the selected items count on the menu button.
       let getSelectedItemsCount: any;
-      if (selectedItems[id]?.items.length > 0) {
-        getSelectedItemsCount = !!(selectedItems[id]?.items.length || 0);
-      }
-
+      getSelectedItemsCount = !!(selectedItems[id]?.items.length || 0);
+      
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
         isBlockElement,
@@ -171,12 +160,8 @@ export const MultiSelect = chakra(
       };
 
       const updateDisabledState = (
-        multiSelectId: string,
         item: MultiSelectItem
       ): boolean => {
-        // Update isDisabled for the parent item
-        item.isDisabled = isAllChecked(multiSelectId, item);
-
         // Check if all child items are disabled, and update the parent accordingly
         if (item.children.every((childItem) => childItem.isDisabled)) {
           item.isDisabled = true;
@@ -213,6 +198,12 @@ export const MultiSelect = chakra(
         setItemsList(filteredItems);
       };
 
+      // The clearSearchKeyword method resets the search keyword in the MultiSelect component.
+      // If the listOverflow is set to "scroll," it sets the list of items to the full list (items).
+      // If listOverflow is set to a value other than "scroll,"
+      // it checks if the current count of displayed items (listItemsCount) is equal to the default number of visible items (defaultItemsVisible).
+      // If true, it displays the default items; otherwise, it sets the list of items to the full list.
+      // This method is responsible for clearing the search and displaying the appropriate items based on the listOverflow and item count conditions.
       const clearSearchKeyword = () => {
         if (listOverflow === "scroll") {
           setItemsList(items);
@@ -222,13 +213,13 @@ export const MultiSelect = chakra(
             : setItemsList(items);
         }
       };
-
+      
       const displayDefaultItems = () => {
         const list = [];
         let count = 0;
 
         for (let i = 0; i < items.length && count < defaultItemsVisible; i++) {
-          const currentItem = { ...items[i] };
+          const currentItem = items[i];
           count++;
           if (currentItem.children) {
             const showChilds = isAllChecked(id, currentItem);
@@ -247,96 +238,112 @@ export const MultiSelect = chakra(
         setItemsList(list);
       };
 
-      const showSearchInputBox = () => {
-        if (isSearchable) {
-          return (
+      // Separate effect for handling listOverflow "expand"
+      React.useEffect(() => {
+        if (listOverflow === "expand") {
+          setListHeight("");
+          if (listItemsCount === defaultItemsVisible) {
+            displayDefaultItems();
+          } else {
+            setItemsList(items);
+            setViewAllLabel("View less");
+          }
+        }
+      }, [listOverflow, listItemsCount, items, defaultItemsVisible]);
+
+      const showSearchInputBox = () => (
+        <>
+          {isSearchable && (
             <TextInput
               id="multi-select-text-input-id"
               labelText={`Search ${buttonText}`}
               isClearable={true}
               isClearableCallback={clearSearchKeyword}
-              isRequired
               placeholder={`Search ${buttonText}`}
               onChange={onChangeSearch}
               showLabel={false}
               showRequiredLabel={false}
-              step={1}
-              textInputType="default"
               type="text"
               __css={styles.menuSearchInputBox}
               marginBottom="s"
             />
-          );
+          )}
+          {!isSearchable && null}
+        </>
+      );
+
+      const generateCheckboxArray = (item: MultiSelectItem) => {
+        if (item.children) {
+          return [
+            <Checkbox
+              id={item.id}
+              labelText={item.name}
+              name={item.name}
+              key={item.id}
+              {...(onMixedStateChange !== undefined
+                ? {
+                    isChecked: isAllChecked(id, item),
+                    isIndeterminate: isIndeterminate(id, item),
+                    onChange: onMixedStateChange,
+                    isDisabled: updateDisabledState(item),
+                  }
+                : {
+                    isChecked: isChecked(id, item.id),
+                    isDisabled: updateDisabledState(item),
+                    onChange: onChange,
+                  })}
+            />,
+            ...item.children.map((childItem) => (
+              <Checkbox
+                key={childItem.id}
+                marginInlineStart="0"
+                __css={styles.menuChildren}
+                id={childItem.id}
+                labelText={childItem.name}
+                name={childItem.name}
+                isDisabled={childItem.isDisabled}
+                isChecked={isChecked(id, childItem.id)}
+                onChange={onChange}
+              />
+            )),
+          ];
+        } else {
+          return [
+            <Checkbox
+              id={item.id}
+              labelText={item.name}
+              name={item.name}
+              isDisabled={item.isDisabled}
+              isChecked={isChecked(id, item.id)}
+              onChange={onChange}
+              key={item.id}
+            />,
+          ];
         }
       };
 
       const displayAccordionData = () => {
         return (
-          <>
-            <Box>
-              {showSearchInputBox()}
-              {itemsNotFound()}
-              <CheckboxGroup
-                id="multi-select-checkbox-group"
-                layout="column"
-                isFullWidth
-                isRequired={false}
-                labelText=""
-                name="multi-select-checkbox-group"
-              >
-                {itemsList.map((item: MultiSelectItem) => (
-                  <React.Fragment key={item.id}>
-                    {item.children ? (
-                      <>
-                        <Checkbox
-                          id={item.id}
-                          labelText={item.name}
-                          name={item.name}
-                          key={item.id}
-                          {...(onMixedStateChange !== undefined
-                            ? {
-                                isChecked: isAllChecked(id, item),
-                                isIndeterminate: isIndeterminate(id, item),
-                                onChange: onMixedStateChange,
-                                isDisabled: updateDisabledState(id, item),
-                              }
-                            : {
-                                isChecked: isChecked(id, item.id),
-                                isDisabled: updateDisabledState(id, item),
-                                onChange: onChange,
-                              })}
-                        />
-                        {item.children.map((childItem) => (
-                          <Checkbox
-                            key={childItem.id}
-                            marginInlineStart="0"
-                            __css={styles.menuChildren}
-                            id={childItem.id}
-                            labelText={childItem.name}
-                            name={childItem.name}
-                            isDisabled={childItem.isDisabled}
-                            isChecked={isChecked(id, childItem.id)}
-                            onChange={onChange}
-                          />
-                        ))}
-                      </>
-                    ) : (
-                      <Checkbox
-                        id={item.id}
-                        labelText={item.name}
-                        name={item.name}
-                        isDisabled={item.isDisabled}
-                        isChecked={isChecked(id, item.id)}
-                        onChange={onChange}
-                        key={item.id}
-                      />
-                    )}
-                  </React.Fragment>
-                ))}
-              </CheckboxGroup>
-              {showViewLabel()}
-            </Box>
-          </>
+          <Box>
+            {showSearchInputBox()}
+            {itemsNotFound()}
+            <CheckboxGroup
+              id="multi-select-checkbox-group"
+              layout="column"
+              isFullWidth
+              isRequired={false}
+              labelText="Multi select checkbox group label"
+              showLabel={false}
+              name="multi-select-checkbox-group"
+            >
+              {itemsList.map((item: MultiSelectItem) => (
+                <>
+                  {generateCheckboxArray(item)}
+                </>
+              ))}
+            </CheckboxGroup>
+            {showViewLabel()}
+          </Box>
         );
       };
 
@@ -358,27 +365,26 @@ export const MultiSelect = chakra(
       const itemsNotFound = () => {
         if (itemsList.length === 0) {
           return (
-            <Box id="items-not-found-text-id" marginTop="xs">
+            <Box key="items-not-found-text-id" id="items-not-found-text-id" marginTop="xs">
               No options found
             </Box>
           );
         }
+        return null; // Return null when itemsList.length !== 0
       };
 
       const viewAllItems = () => {
-        setViewAllLabel(viewAllLabel === "View all" ? "View less" : "View all");
-        setListHeight(listHeight === "275px" ? "" : "275px");
-        setListItemsCount(
-          listItemsCount === defaultItemsVisible
-            ? items.length
-            : defaultItemsVisible
-        );
+        setViewAllLabel((prevProp) => prevProp === "View all" ? "View less" : "View all");
+        setListHeight((prevProp) => prevProp === MAXIMUM_ITEMS_LIST_HEIGHT ? DEFAULT_ITEMS_LIST_HEIGHT : MAXIMUM_ITEMS_LIST_HEIGHT);
+        setListItemsCount((prevProp) => prevProp === defaultItemsVisible ? items.length : defaultItemsVisible);
+
         if (listItemsCount === defaultItemsVisible) {
           setItemsList(items);
         } else {
           displayDefaultItems();
         }
       };
+      
       const buttonTextLabel = () => {
         return (
           <Box

@@ -38,7 +38,7 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 <Source
   code={`
 <MultiSelect
-  buttonText: "MultiSelect",
+  buttonText="MultiSelect",
   defaultItemsVisible={5}
   id="multi-select-id"
   items={[
@@ -235,6 +235,57 @@ especially when certain options need to be disabled.
         {
           id: 'home',
           isDisabled: false,
+          name: 'Home'
+        },
+      ],
+    },
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
+<Canvas of={MultiSelectStories.withDisabledAllChildrenItemsExample} />
+
+<Source
+  code={`
+<MultiSelect
+  buttonText="MultiSelect"
+  defaultItemsVisible={5}
+  id="multi-select-id"
+  isSearchable={true}
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+      isDisabled: true,
+    },
+    {
+      id: 'design',
+      name: 'Design',
+      children: [
+        {
+          id: 'fashion',
+          isDisabled: true,
+          name: 'Fashion'
+        },
+        {
+          id: 'ux',
+          isDisabled: true,
+          name: 'User Experience'
+        },
+        {
+          id: 'tecture',
+          isDisabled: true,
+          name: 'Architecture'
+        },
+        {
+          id: 'home',
+          isDisabled: true,
           name: 'Home'
         },
       ],
