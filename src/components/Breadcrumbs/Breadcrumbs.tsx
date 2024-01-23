@@ -4,6 +4,7 @@ import {
   BreadcrumbLink,
   chakra,
   useStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -127,7 +128,13 @@ const getElementsFromData = (
  * breadcrumb path that reflects the site structure and allows a user to
  * navigate to any page available in the breadcrumb hierarchy.
  */
-export const Breadcrumbs: React.FC<any> = chakra(
+
+export const Breadcrumbs: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    BreadcrumbProps & React.RefAttributes<HTMLDivElement>
+  >,
+  BreadcrumbProps
+> = chakra(
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {
       breadcrumbsData,

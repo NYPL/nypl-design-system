@@ -5,6 +5,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Link, { linkTypesArray } from "./Link";
 import Icon from "../Icons/Icon";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Link> = {
   title: "Components/Navigation/Link",
@@ -12,7 +13,7 @@ const meta: Meta<typeof Link> = {
   decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
-    isUnderlined: { table: { defaultValue: { summary: "true" } } },
+    isUnderlined: argsBooleanType(true),
     key: { table: { disable: true } },
     ref: { table: { disable: true } },
     target: { control: false },
