@@ -105,7 +105,7 @@ export const MultiSelect = chakra(
 
       // Sets the selected items count on the menu button.
       let getSelectedItemsCount: any;
-      getSelectedItemsCount = (selectedItems[id]?.items.length || 0);
+      getSelectedItemsCount = selectedItems[id]?.items.length || 0;
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
         isBlockElement,
