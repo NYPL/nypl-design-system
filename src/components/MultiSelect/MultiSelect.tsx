@@ -42,7 +42,7 @@ export type MultiSelectProps = {
   isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
-  /** Boolean value used to control how the MultiSelect component will render input field within the page 
+  /** Boolean value used to control how the MultiSelect component will render input field within the page
    * and interact with other DOM elements.
    * The default value is false. */
   isSearchable?: boolean;
