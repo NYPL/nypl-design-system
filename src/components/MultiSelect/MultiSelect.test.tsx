@@ -13,10 +13,7 @@ const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
   { id: "cats", name: "Cats", isDisabled: false },
   { id: "cars", name: "Cars", isDisabled: false },
-  {
-    id: "colors",
-    name: "Colors",
-    isdisabled: false,
+  { id: "colors", name: "Colors", isDisabled: false,
     children: [
       { id: "red", name: "Red", isDisabled: false },
       { id: "blue", name: "Blue", isDisabled: false },
@@ -28,7 +25,7 @@ const items = [
 
 const defaultItemsVisible = 5;
 
-const MultiSelectTestDialogComponent = ({
+const MultiSelectTestComponent = ({
   multiSelectId,
   initialSelectedItems = {},
 }) => {
@@ -69,12 +66,12 @@ describe("MultiSelect Accessibility", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 
-  it("should have no axe violations for the 'dialog' type", async () => {
+  it("should have no axe violations for the 'multi-select' component", async () => {
     const { container } = render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
         isBlockElement={false}
@@ -111,8 +108,8 @@ describe("MultiSelect", () => {
     const { container } = render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
         isBlockElement={false}
@@ -130,8 +127,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
         isBlockElement={false}
@@ -149,8 +146,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
         isBlockElement={false}
@@ -168,8 +165,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={true}
         isSearchable={false}
         isBlockElement={false}
@@ -191,8 +188,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         isDefaultOpen={true}
         isSearchable={false}
         isBlockElement={false}
@@ -213,8 +210,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isSearchable={false}
@@ -254,8 +251,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isDefaultOpen={false}
@@ -319,8 +316,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         isDefaultOpen={false}
         isSearchable={false}
@@ -341,8 +338,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isDefaultOpen={false}
@@ -375,8 +372,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isDefaultOpen={false}
@@ -397,8 +394,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isDefaultOpen={false}
@@ -425,7 +422,7 @@ describe("MultiSelect", () => {
 
   it("should have indeterminate state for parent item if not all child items are checked", () => {
     render(
-      <MultiSelectTestDialogComponent multiSelectId="multiselect-test-id" />
+      <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     // Open menu
     userEvent.click(screen.queryByRole("button"));
@@ -442,7 +439,7 @@ describe("MultiSelect", () => {
 
   it("should check all child items if parent is checked", () => {
     render(
-      <MultiSelectTestDialogComponent multiSelectId="multiselect-test-id" />
+      <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     // Open menu
     userEvent.click(screen.queryByRole("button"));
@@ -463,8 +460,8 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="multiselect-helper-text"
-        buttonText="multiselect-button-text"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
         isSearchable={false}
@@ -481,7 +478,7 @@ describe("MultiSelect", () => {
 
   it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
     render(
-      <MultiSelectTestDialogComponent multiSelectId="multiselect-test-id" />
+      <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     expect(
       screen.queryByTestId("multi-select-close-button-testid")
@@ -491,7 +488,7 @@ describe("MultiSelect", () => {
     userEvent.click(screen.queryByRole("button"));
 
     render(
-      <MultiSelectTestDialogComponent multiSelectId="multiselect-test-id" />
+      <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     // Check on item
     userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
@@ -519,7 +516,7 @@ describe("MultiSelect", () => {
   });
 
   it("should render the UI snapshot correctly", () => {
-    const defaultDialog = renderer
+    const defaultComponent = renderer
       .create(
         <MultiSelect
           id="multiselect-test-id"
@@ -597,7 +594,7 @@ describe("MultiSelect", () => {
       )
       .toJSON();
 
-    expect(defaultDialog).toMatchSnapshot();
+    expect(defaultComponent).toMatchSnapshot();
     expect(isOpen).toMatchSnapshot();
     expect(mixedState).toMatchSnapshot();
     expect(allChecked).toMatchSnapshot();
