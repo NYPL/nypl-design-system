@@ -13,7 +13,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-basic-wrapper"
     >
       <div
@@ -227,7 +227,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-withSelect-wrapper"
     >
       <div
@@ -322,7 +322,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-withoutHelperText-wrapper"
     >
       <div
@@ -401,7 +401,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-withClearButton-wrapper"
     >
       <div
@@ -496,7 +496,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-invalidState-wrapper"
     >
       <div
@@ -584,7 +584,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-disabledState-wrapper"
     >
       <div
@@ -664,7 +664,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-requiredState-wrapper"
     >
       <div
@@ -745,7 +745,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-noBrandButtonType-wrapper"
     >
       <div
@@ -1013,7 +1013,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-chakra-wrapper"
     >
       <div
@@ -1109,7 +1109,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     role="search"
   >
     <div
-      className="css-1u8qly9"
+      className="textInput css-1u8qly9"
       id="searchbar-textinput-props-wrapper"
     >
       <div

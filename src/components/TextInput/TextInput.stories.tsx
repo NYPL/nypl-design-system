@@ -2,6 +2,7 @@ import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import TextInput, {
@@ -17,19 +18,33 @@ const meta: Meta<typeof TextInput> = {
     autoComplete: {
       control: { type: "select" },
       options: autoCompleteValuesArray,
+      table: { defaultValue: { summary: "off" } },
     },
+    className: { control: false },
+    defaultValue: { control: false },
+    helperText: { control: "text" },
     id: { control: false },
-    isClearable: { table: { defaultValue: { summary: false } } },
-    isDisabled: { table: { defaultValue: { summary: false } } },
-    isInvalid: { table: { defaultValue: { summary: false } } },
-    isRequired: { table: { defaultValue: { summary: false } } },
+    invalidText: { control: "text" },
+    isClearable: argsBooleanType(),
+    isClearableCallback: { control: false },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
+    labelText: { control: "text" },
+    max: { control: "number" },
+    min: { control: "number" },
+    name: { control: false },
     key: { table: { disable: true } },
     onChange: { control: false },
+    onClick: { control: false },
+    onFocus: { control: false },
+    pattern: { control: "text" },
+    placeholder: { control: "text" },
     ref: { table: { disable: true } },
-    requiredLabelText: { table: { defaultValue: { summary: true } } },
-    showHelperInvalidText: { table: { defaultValue: { summary: true } } },
-    showLabel: { table: { defaultValue: { summary: true } } },
-    showRequiredLabel: { table: { defaultValue: { summary: true } } },
+    requiredLabelText: argsBooleanType(true),
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    showRequiredLabel: argsBooleanType(true),
     step: { table: { defaultValue: { summary: 1 } } },
     textInputType: {
       control: false,

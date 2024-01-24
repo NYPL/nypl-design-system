@@ -164,7 +164,7 @@ const Heading = defineMultiStyleConfig({
         // This is to help target custom anchor elements
         // passed as children to the Heading component.
         a: {
-          ...baseLinkStyles.base,
+          ...baseLinkStyles,
           textDecoration: url ? "none" : "underline",
         },
         color: "ui.typography.heading",

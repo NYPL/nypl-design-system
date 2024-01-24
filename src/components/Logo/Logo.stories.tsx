@@ -6,6 +6,7 @@ import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { logoNamesArray, logoSizesArray } from "./logoVariables";
 import { dimensionTypeArray } from "../../helpers/types";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
@@ -14,6 +15,7 @@ const meta: Meta<typeof Logo> = {
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
+    decorative: argsBooleanType(),
     id: { control: false },
     name: {
       control: { type: "select" },

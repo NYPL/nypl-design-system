@@ -8,6 +8,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -32,7 +33,13 @@ export interface ModalProps {
   modalProps: BaseModalProps;
 }
 
-const BaseModal: React.FC<any> = chakra(
+export const BaseModal: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<BaseModalProps> &
+      React.RefAttributes<HTMLButtonElement>
+  >,
+  React.PropsWithChildren<BaseModalProps>
+> = chakra(
   ({
     bodyContent,
     closeButtonLabel = "Close",
@@ -81,7 +88,12 @@ const BaseModal: React.FC<any> = chakra(
  * internal `Modal` component. Note that props to update the internal `Modal`
  * component are passed through to the `modalProps` prop.
  */
-export const ModalTrigger: React.FC<any> = chakra(
+export const ModalTrigger: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ModalProps> & React.RefAttributes<HTMLButtonElement>
+  >,
+  React.PropsWithChildren<ModalProps>
+> = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
     ({ buttonText, id, modalProps, ...rest }, ref?) => {
       const { isOpen, onOpen, onClose } = useDisclosure();

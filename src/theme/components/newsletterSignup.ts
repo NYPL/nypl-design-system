@@ -21,7 +21,8 @@ const NewsletterSignup = defineMultiStyleConfig({
         borderLeftColor: {
           md: getSectionColors({
             type: newsletterSignupType,
-            colorValue: NewsletterSignup === "blogs" ? "secondary" : "primary",
+            colorValue:
+              newsletterSignupType === "blogs" ? "secondary" : "primary",
           }) as any,
         },
         borderTopColor: {
@@ -66,7 +67,7 @@ const NewsletterSignup = defineMultiStyleConfig({
       form: {
         width: "100%",
       },
-      // Overwrites the defaut styling of the From component layout
+      // Overwrites the default styling of the Form component layout
       "#newsletter-form-parent": {
         // The button is 78px wide and must sit to the right of the input field >lg.
         gridTemplateColumns: { base: null, lg: "1fr 78px" },
@@ -75,6 +76,7 @@ const NewsletterSignup = defineMultiStyleConfig({
       button: {
         // The button must align w/ the input field, but using {align-items: center} doesn't quite work due to the input field not being the literal v-center.
         marginTop: { base: null, lg: "31px" },
+        height: "40px",
       },
     })
   ),
