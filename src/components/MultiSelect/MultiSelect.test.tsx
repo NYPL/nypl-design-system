@@ -13,7 +13,10 @@ const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
   { id: "cats", name: "Cats", isDisabled: false },
   { id: "cars", name: "Cars", isDisabled: false },
-  { id: "colors", name: "Colors", isDisabled: false,
+  {
+    id: "colors",
+    name: "Colors",
+    isDisabled: false,
     children: [
       { id: "red", name: "Red", isDisabled: false },
       { id: "blue", name: "Blue", isDisabled: false },
@@ -139,7 +142,7 @@ describe("MultiSelect", () => {
         onClear={() => null}
       />
     );
-    expect(screen.getByText('Multiselect button text').textContent)
+    expect(screen.getByText("Multiselect button text").textContent);
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
@@ -373,7 +376,7 @@ describe("MultiSelect", () => {
     userEvent.click(screen.queryByRole("button"));
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
-      );
+    );
     rerender(
       <MultiSelect
         id="multiselect-test-id"
@@ -412,7 +415,7 @@ describe("MultiSelect", () => {
     expect(screen.queryByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
-    rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />)
+    rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     expect(screen.queryAllByRole("checkbox")).toHaveLength(8);
     // Check the child
     userEvent.click(screen.getByText("Red"));
@@ -428,7 +431,7 @@ describe("MultiSelect", () => {
     );
     // Open menu
     userEvent.click(screen.queryByRole("button"));
-    rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />)
+    rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     expect(screen.queryAllByRole("checkbox")).toHaveLength(8);
     // Check the parent item
     userEvent.click(screen.getByText("Colors"));
@@ -474,9 +477,7 @@ describe("MultiSelect", () => {
     // Open menu
     userEvent.click(screen.queryByRole("button"));
 
-    rerender(
-      <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
-    );
+    rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     // Check on item
     userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
     const countButton = screen.queryByTestId(

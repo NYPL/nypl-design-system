@@ -104,7 +104,8 @@ export const MultiSelect = chakra(
       }, [listOverflow, items, isSearchable]);
 
       // Sets the selected items count on the menu button.
-      const getSelectedItemsCount: number = selectedItems[id]?.items.length || 0;
+      const getSelectedItemsCount: number =
+        selectedItems[id]?.items.length || 0;
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
       });
@@ -241,7 +242,7 @@ export const MultiSelect = chakra(
         displayDefaultItems,
       ]);
 
-      const showSearchInputBox = () => (
+      const showSearchInputBox = () =>
         isSearchable && (
           <TextInput
             id="multi-select-text-input-id"
@@ -256,8 +257,7 @@ export const MultiSelect = chakra(
             __css={styles.menuSearchInputBox}
             marginBottom="s"
           />
-        )
-      );
+        );
 
       const generateCheckboxArray = (item: MultiSelectItem) => {
         if (item.children) {
