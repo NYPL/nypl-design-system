@@ -16,7 +16,8 @@ export const changelogData: ChangelogData[] = [
     affects: ["Accessibility", "Functionality"],
     notes: [
       "Updates the focus ring style for the open button.",
-      "Fixes..........",
+      "Updates the required comment field so it cannot be submitted when empty.",
+      "Forcibly focuses on the open button when the form is closed.",
     ],
   },
   {
