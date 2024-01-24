@@ -63,7 +63,7 @@ interface DividerItem {
 
 type ListItemsData = ActionItem | GroupItem | DividerItem;
 
-export const Menu = chakra(
+const Menu = chakra(
   forwardRef<HTMLDivElement, MenuProps>((props?) => {
     const {
       className,
@@ -76,34 +76,30 @@ export const Menu = chakra(
       ...rest
     } = props;
 
-    const getButton = (showBorder) => {
-      return (
-        <MenuButton
-          padding="8px 16px"
-          borderRadius="2px"
-          border={showBorder ? "1px solid #BDBDBD" : "unset"}
-        >
-          {showLabel ? (
-            <>
-              <Text>{labelText}</Text>
-
-              <Icon name="arrow" size="xsmall" />
-            </>
-          ) : (
+    const getButton = (showBorder: boolean) => (
+      <MenuButton
+        padding="8px 16px"
+        borderRadius="2px"
+        border={showBorder ? "1px solid #BDBDBD" : "unset"}
+      >
+        {showLabel && (
+          <>
+            <Text>{labelText}</Text>
             <Icon name="arrow" size="xsmall" />
-          )}
-        </MenuButton>
-      );
-    };
+          </>
+        )}
+        {!showLabel && <Icon name="arrow" size="xsmall" />}
+      </MenuButton>
+    );
 
-    const getMenuElements = (data: ListItemsData[] = []) => {
-      return data.map((item) =>
+    const getMenuElements = (data: ListItemsData[] = []) =>
+      data.map((item) =>
         item.type === "divider" ? (
           <MenuDivider key={item.id} />
         ) : (
           <MenuItem key={item.id}>
             {item.type === "group" ? (
-              <>{item.label}</>
+              item.label
             ) : (
               <>
                 {item.media}
@@ -113,7 +109,6 @@ export const Menu = chakra(
           </MenuItem>
         )
       );
-    };
 
     return (
       <ChakraMenu id={id} {...rest}>
@@ -127,3 +122,5 @@ export const Menu = chakra(
     );
   })
 );
+
+export default Menu;
