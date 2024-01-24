@@ -15,6 +15,7 @@ import {
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
+    "base",
     "helperErrorText",
     "icon",
     "control",
@@ -37,6 +38,7 @@ const baseStyleControl = defineStyle({
   borderColor: "ui.gray.dark",
   backgroundColor: "ui.gray.xx-light-cool",
   color: "ui.black",
+  cursor: "pointer",
   outline: "none",
   transitionProperty: "box-shadow",
   transitionDuration: "normal",
@@ -132,7 +134,7 @@ const baseStyle = definePartsStyle({
   // Style object for the Checkbox's helper text
   helperErrorText: checkboxRadioHelperErrorTextStyle,
   icon: baseStyleIcon,
-  container: checkboxRadioHoverStyles,
+  base: checkboxRadioHoverStyles,
   control: baseStyleControl,
   label: baseStyleLabel,
 });

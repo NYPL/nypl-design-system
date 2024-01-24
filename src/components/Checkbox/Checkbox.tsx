@@ -145,7 +145,7 @@ export const Checkbox: ChakraComponent<
                 defaultChecked: false,
               })}
           alignItems="flex-start"
-          __css={styles}
+          __css={styles.base}
           {...ariaAttributes}
         >
           {showLabel && labelText}
