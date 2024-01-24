@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import { sectionTypeArray } from "../../helpers/types";
-import Icon from "../Icons/Icon";
 //import Image from "../Image/Image";
 
 import Menu from "./Menu";
@@ -24,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof Menu>;
 
 /**
- * Main Story for the Menu component. This must contain the `args`
+ * Main Story for the Menu component. This must contains the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
@@ -33,13 +32,13 @@ export const WithControls: Story = {
     id: "Menu-id",
     labelText: "I'm the menu",
     showLabel: true,
-    showBorder: true,
+    showBorder: false,
     listItemsData: [
       {
         type: "action",
         id: "item-title-1",
         label: "I'm item 1",
-        media: <Icon name="arrow" size="xsmall" />,
+        media: "arrow",
         onClick: () => {
           console.log("Item Title 1 clicked");
         },
@@ -48,11 +47,45 @@ export const WithControls: Story = {
         type: "action",
         id: "item-title-2",
         label: "I'm item 2",
-        media: <Icon name="arrow" size="xsmall" />,
+        media: "search",
         onClick: () => {
           console.log("Item Title 2 clicked");
         },
       },
+      {
+        type: "group",
+        id: "group-item-2",
+        label: "I'm the group",
+        children: [
+          {
+            type: "action",
+            id: "item-title-11",
+            label: "I'm item 11",
+            media: "arrow",
+            onClick: () => {
+              console.log("Item Title 1 clicked");
+            },
+          },
+          {
+            type: "action",
+            id: "item-title-21",
+            label: "I'm item 21",
+            media: "search",
+            onClick: () => {
+              console.log("Item Title 2 clicked");
+            },
+          },
+        ],
+      },
+      // {
+      //   type: "action",
+      //   id: "item-title-3",
+      //   label: "I'm item 3",
+      //   media: <Image alt="" src="//placekitten.com/300/300" />,
+      //   onClick: () => {
+      //     console.log("Item Title 3 clicked");
+      //   },
+      // },
       {
         type: "divider",
         id: "item-title-3",
@@ -69,7 +102,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
+      url: "",
     },
     jest: ["Menu.test.tsx"],
   },

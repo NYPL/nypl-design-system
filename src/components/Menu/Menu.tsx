@@ -10,8 +10,7 @@ import {
   MenuDivider,
   //   Box,
 } from "@chakra-ui/react";
-import Text from "../Text/Text";
-import Icon from "../Icons/Icon";
+import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
 import React, { forwardRef } from "react";
 import { SectionTypes } from "../../helpers/types";
@@ -45,7 +44,7 @@ interface ActionItem {
   type: "action";
   label: string;
   id: string;
-  media?: React.ReactElement<typeof Icon | typeof Image> | null;
+  media?: IconNames | typeof Image | null;
   onClick: () => void;
 }
 
@@ -76,16 +75,38 @@ const Menu = chakra(
       ...rest
     } = props;
 
-    const getButton = (showBorder: boolean) => (
+    // const renderMedia = (media) => {
+    //   if (typeof media === ) {
+    //     return <Icon name={media} size="xsmall" />;
+    //   } else if (media.type === "image") {
+    //     return (
+    //       <Image
+    //         src={media.src}
+    //         sx={{ width: "24px", height: "24px", borderRadius: "50%" }}
+    //       />
+    //     );
+    //   }
+    //   return null;
+    // };
+
+    const getButton = (showBorder, isOpen) => (
       <MenuButton
+        _hover={{ bg: "ui.link.primary-05" }}
+        color={showBorder ? "unset" : "ui.link.secondary"}
         padding="8px 16px"
         borderRadius="2px"
+        backgroundColor={isOpen ? "ui.link.primary-05" : "unset"}
         border={showBorder ? "1px solid #BDBDBD" : "unset"}
       >
         {showLabel && (
           <>
-            <Text>{labelText}</Text>
-            <Icon name="arrow" size="xsmall" />
+            <span style={{ paddingRight: "8px" }}>{labelText}</span>
+            <Icon
+              name="arrow"
+              color={showBorder ? "unset" : "ui.link.primary"}
+              iconRotation={isOpen ? "rotate180" : "rotate0"}
+              size="xsmall"
+            />
           </>
         )}
         {!showLabel && <Icon name="arrow" size="xsmall" />}
@@ -97,13 +118,23 @@ const Menu = chakra(
         item.type === "divider" ? (
           <MenuDivider key={item.id} />
         ) : (
-          <MenuItem key={item.id}>
-            {item.type === "group" ? (
-              item.label
-            ) : (
+          <MenuItem
+            key={item.id}
+            _hover={{ fontWeight: "500" }}
+            sx={{
+              padding: "8px 12px",
+            }}
+          >
+            {item.type === "action" ? (
               <>
-                {item.media}
+                {/* {renderMedia(item.media)} */}
+                <span style={{ paddingLeft: "8px" }}>{item.label}</span>
+              </>
+            ) : (
+              //if Group
+              <>
                 {item.label}
+                {getMenuElements(item.children)}
               </>
             )}
           </MenuItem>
@@ -112,10 +143,12 @@ const Menu = chakra(
 
     return (
       <ChakraMenu id={id} {...rest}>
-        {() => (
+        {({ isOpen }) => (
           <>
-            {getButton(showBorder)}
-            <MenuList>{getMenuElements(listItemsData)}</MenuList>
+            {getButton(showBorder, isOpen)}
+            <MenuList sx={{ borderRadius: "2px" }}>
+              {getMenuElements(listItemsData)}
+            </MenuList>
           </>
         )}
       </ChakraMenu>
