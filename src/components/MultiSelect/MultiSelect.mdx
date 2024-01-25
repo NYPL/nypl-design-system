@@ -1,5 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import { changelogData } from "./multiSelectChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as MultiSelectStories from "./MultiSelect.stories";
 import Link from "../Link/Link";
 
@@ -7,10 +9,10 @@ import Link from "../Link/Link";
 
 # MultiSelect
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.4.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.4.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -24,6 +26,7 @@ import Link from "../Link/Link";
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -79,15 +82,15 @@ TBD
 
 ## Using the items prop
 
-The options rendered in the MultiSelect component are passed into the component's `items` prop.
-The expected data structure is an array of objects, with each item having an `id` and a `name`.
-You also have the option to include a second level of child items.
-Both parent and child items can optionally use the `isDisabled` flag.
-The format is as follows:
+The options rendered in the `MultiSelect` component are passed into the
+component's `items` prop. The expected data structure is an array of objects,
+with each item having an `id` and a `name`. You also have the option to include
+a second level of child items. Both parent and child items can optionally use
+the `isDisabled` flag. The format is as follows:
 
 <Source
   code={`
-  <MultiSelect
+<MultiSelect
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
@@ -189,16 +192,35 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
 />
 
 ## With Disabled Items Example
-Each checkbox, whether parent or child, can be in a disabled state:
 
-- **Parent Checkbox:**
-  - When disabled, the parent checkbox will not be interactable, and its state will not change.
-  
-- **Child Checkboxes:**
-  - Disabled child checkboxes will not be interactable. If only some of the child checkboxes are checked, the parent checkbox will have an `isIndeterminate` state.
-
-This provides flexibility in managing the interaction and state of checkboxes within the MultiSelect component,
+Each checkbox &mdash; whether standalone, parent, or child &mdash; can be set in
+a disabled state by using `isDisabled`. This provides flexibility in managing
+the interaction and state of checkboxes within the `MultiSelect` component,
 especially when certain options need to be disabled.
+
+**Standalone Checkbox**
+
+`isDisabled` can be set directly for a standalone checkbox. When disabled, a
+standalone checkbox will not be clickable and its state will not change.
+
+**Parent Checkbox**
+
+`isDisabled` cannot be set directly for a parent checkbox.
+
+- If only some of the child checkboxes under a parent checkbox are disabled, the
+  parent checkbox will be enabled.
+- If all of the child checkboxes under a parent checkbox are disabled, the
+  parent checkbox will be disabled.
+
+When disabled, a parent checkbox will not be clickable and its state will not
+change.
+
+**Child Checkboxes**
+
+`isDisabled` can be set directly for a standalone checkbox. When disabled, a
+child checkbox will not be clickable and its state will not change.
+
+### Mixed Example
 
 <Canvas of={MultiSelectStories.withDisabledItemsExample} />
 
@@ -252,6 +274,8 @@ especially when certain options need to be disabled.
 `}
   language="jsx"
 />
+
+### Disabled Parent Checkbox
 
 <Canvas of={MultiSelectStories.withDisabledAllChildrenItemsExample} />
 
@@ -307,7 +331,10 @@ especially when certain options need to be disabled.
 />
 
 ## With Search Input Field Example
-When `isSearchable` is set to `true`, it enables the input field to search the items.
+
+When `isSearchable` is set to `true`, a text input field will be enabled within
+the component to allow users to search the available checkbox items.
+
 <Canvas of={MultiSelectStories.withSearchInputFieldExample} />
 <Source
   code={`
@@ -348,7 +375,10 @@ When `isSearchable` is set to `true`, it enables the input field to search the i
 />
 
 ## With Default Open State Example
-When `isDefaultOpen` is set to `true`, the multi-select component is displayed in the open state by default.
+
+When `isDefaultOpen` is set to `true`, the component is displayed in the open
+state by default.
+
 <Canvas of={MultiSelectStories.withSearchInputFieldExample} />
 <Source
   code={`
@@ -356,8 +386,8 @@ When `isDefaultOpen` is set to `true`, the multi-select component is displayed i
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
-  isSearchable={true}
   isDefaultOpen={true}
+  isSearchable={true}
   items={[
     {
       id: "art",
@@ -388,14 +418,14 @@ When `isDefaultOpen` is set to `true`, the multi-select component is displayed i
   language="jsx"
 />
 
-## Controlling state using selectedItems and onChange prop
+## Controlling State Using selectedItems and onChange Props
 
-The MultiSelect does not store its state internally. It expects a selectedItems
-prop whose value follows a certain data structure that is "normalized". This is
-used for calculating the selected item count. The value is an object with a key
-of the MultiSelect's id value set to an object with an "items" key. The "items"
-value is an array of the selected items. Below is an exaple of the expected
-state shape of `selectedItems`:
+The `MultiSelect` component does not store its state internally. It expects a
+`selectedItems` prop whose value follows a certain data structure that is
+"normalized." This is used for calculating the selected item count. The value is
+an object with a key of the `MultiSelect` component's `id` value set to an
+object with an "items" key. The "items" value is an array of the selected items.
+Below is an exaple of the expected state shape of `selectedItems`:
 
 <Source
   code={`
@@ -410,9 +440,9 @@ state shape of `selectedItems`:
 
 ## MultiSelect NextJS routing implementation
 
-This is helpful for when several MultiSelect components are rendered inside a
-FilterBar component, you can use the MultiSelect id to get items for a specific
-slice of the state.
+This is helpful for when several `MultiSelect` components are rendered inside a
+`FilterBar` component. The `MultiSelect` component's `id` can be used to get
+items for a specific slice of the state.
 
 <Source
   code={`
@@ -459,7 +489,7 @@ router.push({
   language="jsx"
 />
 
-This is an example with a handleChange function to manage the `selectedItems`
+This is an example with a `handleChange` function to manage the `selectedItems`
 state, without mutating it.
 
 <Source
@@ -497,12 +527,12 @@ function MultiSelectControlledExample() {
   }
   return (
     <MultiSelect
+      buttonText="MultiSelect"
+      defaultItemsVisible={5}
+      helperText="Multi Select Helper Text"
       id="multi-select-id"
       items={items}
       selectedItems={selectedItems}
-      helperText="Multi Select Helper Text"
-      buttonText="MultiSelect"
-      defaultItemsVisible={5}
       onChange={(selectedItem) => {
         handleChange(selectedItem.id, "subjects");
       }}
@@ -526,3 +556,7 @@ the selectedItems. That includes the functions `onChange`, `onClear`,
 current state of the selection: `selectedItems`.
 
 Find the full documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

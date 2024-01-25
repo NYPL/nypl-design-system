@@ -1,6 +1,7 @@
 import React, { useState, forwardRef, useCallback } from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import Accordion from "./../Accordion/Accordion";
+import Button from "./../Button/Button";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import Checkbox from "./../Checkbox/Checkbox";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
@@ -253,7 +254,7 @@ export const MultiSelect = chakra(
               labelText={`Search ${buttonText}`}
               isClearable={true}
               isClearableCallback={clearSearchKeyword}
-              placeholder={`Search ${buttonText}`}
+              placeholder={`Search for options`}
               onChange={onChangeSearch}
               showLabel={false}
               showRequiredLabel={false}
@@ -342,14 +343,15 @@ export const MultiSelect = chakra(
       const showViewLabel = () => {
         if (listOverflow === "expand" && items.length >= defaultItemsVisible) {
           return (
-            <Box
+            <Button
+              buttonType="text"
+              fontSize="desktop.button.default"
+              id="view-all-text-btn"
               onClick={() => viewAllItems()}
               __css={styles.viewAllButton}
-              id="view-all-text-btn"
-              marginTop="s"
             >
               {viewAllLabel}
-            </Box>
+            </Button>
           );
         }
       };
@@ -415,7 +417,6 @@ export const MultiSelect = chakra(
             onClear={onClear}
           />
           <Accordion
-            sx={styles.accordionStyles}
             accordionData={[
               {
                 accordionType: "default",
@@ -423,10 +424,13 @@ export const MultiSelect = chakra(
                 panel: displayAccordionData(),
               },
             ]}
-            panelMaxHeight={listHeight}
+            id="multi-select-accordion-id"
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
-            id="multi-select-accordion-id"
+            panelMaxHeight={listHeight}
+            sx={{
+              ...styles.accordionStyles,
+            }}
           />
         </Box>
       );
