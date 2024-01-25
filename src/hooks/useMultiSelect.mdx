@@ -1,0 +1,107 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Hooks/useMultiSelect" />
+
+# useMultiSelect
+
+| Hook Version | DS Version  |
+| ------------ | ----------  |
+| Added        | `1.4.0`     |
+| Latest       | `Prerelease`|
+
+`useMultiSelect` provides all functions needed to handle the selectedItems. This hook can be used for
+cases where managing the state of the component in the consuming app is less of a concern and general ease of use is prefered.
+
+The two main functions are `onChange` and `onMixedStateChange` used for handling the selectedItems object and `disabled` state of items are not included in the selectedItems.
+The function `onClear` can be used to clear the selectedItems of a specific `MultiSelect` component connected to the hook.
+The hook also provides the `selectedItems` object containing the currently checked/selected items and a `setSelectedItems`
+function to set or manipulate the state of `selectedItems`. If using `setSelectedItems`, check that the correct data structure is passed into `setSelectedItems`.
+
+
+## Usage
+
+For a full implementation example with a  `MultiSelect` component, view the  [MultiSelect component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelect.tsx).
+
+<Source
+  code={`
+const {
+  onChange,
+  onMixedStateChange,
+  onClear,
+  selectedItems,
+  setSelectedItems,
+} = useMultiSelect();
+`}
+  language="jsx"
+/>
+
+## useMultiSelect Hook implementation in a MultiSelect
+
+The MultiSelect component can display nested items.
+When the `useMultiSelect` hook is used within MultiSelect, additional to the selectedItems and the `onChange` and `onClear` functions, you will need
+a `onMixedStateChange` function. It is also provided by the hook and handles the state change of parent items.
+
+<Source
+  code={`
+import React from "react";
+import {
+  MultiSelect,
+  useMultiSelect,
+} from "@nypl/design-system-react-components";
+// ...
+export default function MultiSelectWithHookExample() {
+  const multiSelectId = "multi-select-1";
+  // Without this hook, you'd have to add handlers for onChange, onMixedStateChange and onClear,
+  // and also manage the selectedItems state yourself.
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
+  return (
+    <MultiSelect
+      id={multiSelectId}
+      items={items}
+      selectedItems={selectedItems}
+      onChange={(e) => onChange(e.target.id, multiSelectId)}
+      onMixedStateChange={(e) =>
+        onMixedStateChange(e.target.id, multiSelectId, items)
+      }
+      onClear={() => {
+        onClear(multiSelectId);
+      }}
+    />
+  );
+}
+`}
+  language="jsx"
+/>
+
+## setSelectedItems
+
+The data structure to pass the setSelectedItems function in order to set a inital state:
+
+<Source
+  code={`
+// The selectedItems structur for one MultiSelect
+const initialSelectedItems = {
+  colors: {
+    items: ["red"],
+  },
+};
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// The selectedItems structur for setting state of multiple MultiSelects
+const initialSelectedItems = {
+  colors: {
+    items: ["red"],
+  },
+  pets: {
+    items: ["corgy", "german-sheperd"],
+  },
+};
+`}
+  language="jsx"
+/>
+

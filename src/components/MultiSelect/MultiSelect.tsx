@@ -327,7 +327,7 @@ export const MultiSelect = chakra(
               showLabel={false}
               name="multi-select-checkbox-group"
             >
-              {itemsList.map((item: MultiSelectItem) => (
+              { itemsList.map((item: MultiSelectItem) => (
                 <>{generateCheckboxArray(item)}</>
               ))}
             </CheckboxGroup>

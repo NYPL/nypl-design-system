@@ -162,7 +162,7 @@ export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
 // refactor of the v2 versions of the MultiSelect and FilterBar components has
 // been completed.
 // export { default as useFilterBar } from "./hooks/useFilterBar";
-// export { default as useMultiSelect } from "./hooks/useMultiSelect";
+export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";
