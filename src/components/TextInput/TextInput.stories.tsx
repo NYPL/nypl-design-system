@@ -1,14 +1,15 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import TextInput, {
   autoCompleteValuesArray,
   textInputTypesArray,
 } from "./TextInput";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TextInput> = {
   title: "Components/Form Elements/TextInput",
@@ -106,6 +107,11 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
     jest: "TextInput.test.tsx",
+  },
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.type(textInput, "Hello World");
+    await userEvent.clear(textInput);
   },
 };
 
