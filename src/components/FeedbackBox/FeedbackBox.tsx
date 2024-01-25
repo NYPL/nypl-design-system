@@ -22,7 +22,7 @@ import Notification from "../Notification/Notification";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
-import TextInput from "../TextInput/TextInput";
+import TextInput, { TextInputRefType } from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
@@ -129,6 +129,7 @@ export const FeedbackBox = chakra(
       const finalOnClose = onClose ? onClose : disclosure.onClose;
       const focusRef = useRef<HTMLDivElement>();
       const openButtonRef = useRef<HTMLButtonElement>();
+      const commentInputRef = useRef<TextInputRefType>();
       const styles = useMultiStyleConfig("FeedbackBox", {});
       const isFormView = viewType === "form";
       const isConfirmationView = viewType === "confirmation";
@@ -164,6 +165,7 @@ export const FeedbackBox = chakra(
 
         // Set the invalid state if the comment text field is empty.
         if (submittedValues.comment.length === 0) {
+          commentInputRef?.current?.focus();
           setFinalIsInvalidComment(true);
           return;
         }
@@ -368,6 +370,7 @@ export const FeedbackBox = chakra(
                         )}
                         <FormField width="100%">
                           <TextInput
+                            defaultValue={state.comment}
                             helperText={`${
                               maxCommentCharacters - state.comment.length
                             } characters remaining`}
@@ -380,8 +383,8 @@ export const FeedbackBox = chakra(
                             name={`${id}-comment`}
                             onChange={(e) => setComment(e.target.value)}
                             placeholder="Enter your question or feedback here"
+                            ref={commentInputRef}
                             type="textarea"
-                            defaultValue={state.comment}
                           />
                         </FormField>
                         {showEmailField && (
