@@ -258,7 +258,8 @@ export const IndeterminateExample: Story = {
   render: () => <IndeterminateCheckboxExample />,
 };
 
-// Set up CheckboxGoup with progremmatically set selections using React.useState
+// Set up CheckboxGoup with progremmatically set selections using React.useState.
+// This example uses the checkboxData prop to avoid lag associated with this use case.
 function CheckboxGroupValuesUpdateExample() {
   const [value, setValue] = React.useState([]);
   const onClick1 = () => {
@@ -294,16 +295,17 @@ function CheckboxGroupValuesUpdateExample() {
         name="courseSelection"
         onChange={onChange}
         value={value}
-      >
-        <Checkbox id="art" labelText="Art" value="art" />
-        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
-        <Checkbox id="english" labelText="English" value="english" />
-        <Checkbox id="magic" labelText="Magic" value="magic" />
-        <Checkbox id="math" labelText="Math" value="math" />
-        <Checkbox id="music" labelText="Music" value="music" />
-        <Checkbox id="physics" labelText="Physics" value="physics" />
-        <Checkbox id="science" labelText="Science" value="science" />
-      </CheckboxGroup>
+        checkboxData={[
+          { id: "art", labelText: "Art", value: "art" },
+          { id: "chemistry", labelText: "Chemistry", value: "chemistry" },
+          { id: "english", labelText: "English", value: "english" },
+          { id: "magic", labelText: "Magic", value: "magic" },
+          { id: "math", labelText: "Math", value: "math" },
+          { id: "music", labelText: "Music", value: "music" },
+          { id: "physics", labelText: "Physics", value: "physics" },
+          { id: "science", labelText: "Science", value: "science" },
+        ]}
+      />
     </VStack>
   );
 }

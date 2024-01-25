@@ -7,6 +7,7 @@ import {
 import React, { forwardRef } from "react";
 
 import Checkbox from "../Checkbox/Checkbox";
+import type { CheckboxProps } from "../Checkbox/Checkbox";
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -16,7 +17,7 @@ import { spacing } from "../../theme/foundations/spacing";
 
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /** Populates the initial value of the input */
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
@@ -53,6 +54,8 @@ export interface CheckboxGroupProps {
   showRequiredLabel?: boolean;
   /** The values to programmatically update the selected `Checkbox`es. */
   value?: string[];
+  /** Objects representing the checkboxes that will be rendered as children. Recommended when CheckboxGroup values is updated programatically, as in the Storybook example. */
+  checkboxData?: CheckboxProps[];
 }
 
 const noop = () => {};
@@ -67,6 +70,7 @@ export const CheckboxGroup = chakra(
   forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,
+      checkboxData,
       defaultValue = [],
       helperText,
       id,
@@ -86,7 +90,7 @@ export const CheckboxGroup = chakra(
       ...rest
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
-    const newChildren: JSX.Element[] = [];
+    const checkboxChildren: JSX.Element[] = [];
     const spacingProp =
       layout === "column"
         ? spacing.input.group.default.vstack
@@ -108,35 +112,53 @@ export const CheckboxGroup = chakra(
         "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
       );
     }
-    // Go through the Checkbox children and update them as needed.
-    React.Children.map(
-      children as JSX.Element,
-      (child: React.ReactElement, i) => {
-        if (child.type !== Checkbox) {
-          // Special case for Storybook MDX documentation.
-          if (child.props.mdxType && child.props.mdxType === "Checkbox") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
-                "allowed as children."
-            );
+    if (checkboxData?.length) {
+      checkboxData.forEach((boxDatum: CheckboxProps, i) => {
+        const props = {
+          ...boxDatum,
+          isRequired,
+          isInvalid,
+          isDisabled,
+        };
+        checkboxChildren.push(<Checkbox key={`checkbox-${i}`} {...props} />);
+      });
+    } else if (React.Children) {
+      console.warn(
+        "NYPL Reservoir CheckboxGroup: Passing in `Checkbox` nodes can lead to" +
+          " performance issues. Try using the checkboxData prop to pass " +
+          "children in if you are experiencing laggy behavior in your" +
+          "checkbox group."
+      );
+      // Go through the Checkbox children and update them as needed.
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, i) => {
+          if (child.type !== Checkbox) {
+            // Special case for Storybook MDX documentation.
+            if (child.props.mdxType && child.props.mdxType === "Checkbox") {
+              noop();
+            } else {
+              console.warn(
+                "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+                  "allowed as children."
+              );
+            }
+          }
+
+          if (child !== undefined && child !== null) {
+            const newProps = {
+              key: i,
+              id: `${id}-${i}`,
+              name,
+              isDisabled,
+              isInvalid,
+              isRequired,
+            };
+            checkboxChildren.push(React.cloneElement(child, newProps));
           }
         }
-
-        if (child !== undefined && child !== null) {
-          const newProps = {
-            key: i,
-            id: `${id}-${i}`,
-            name,
-            isDisabled,
-            isInvalid,
-            isRequired,
-          };
-          newChildren.push(React.cloneElement(child, newProps));
-        }
-      }
-    );
+      );
+    }
 
     // Get the Chakra-based styles for the custom elements in this component.
     const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
@@ -159,7 +181,7 @@ export const CheckboxGroup = chakra(
             spacing={spacingProp}
             ref={ref}
           >
-            {newChildren}
+            {checkboxChildren}
           </Stack>
         </ChakraCheckboxGroup>
         <HelperErrorText
