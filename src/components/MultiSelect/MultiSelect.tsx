@@ -242,22 +242,26 @@ export const MultiSelect = chakra(
         displayDefaultItems,
       ]);
 
-      const showSearchInputBox = () =>
-        isSearchable && (
-          <TextInput
-            id="multi-select-text-input-id"
-            labelText={`Search ${buttonText}`}
-            isClearable={true}
-            isClearableCallback={clearSearchKeyword}
-            placeholder={`Search ${buttonText}`}
-            onChange={onChangeSearch}
-            showLabel={false}
-            showRequiredLabel={false}
-            type="text"
-            __css={styles.menuSearchInputBox}
-            marginBottom="s"
-          />
-        );
+      const showSearchInputBox = () => {
+        if (isSearchable) {
+          return (
+            <TextInput
+              id="multi-select-text-input-id"
+              labelText={`Search ${buttonText}`}
+              isClearable={true}
+              isClearableCallback={clearSearchKeyword}
+              placeholder={`Search ${buttonText}`}
+              onChange={onChangeSearch}
+              showLabel={false}
+              showRequiredLabel={false}
+              type="text"
+              __css={styles.searchInputBox}
+              marginBottom="s"
+            />
+          );
+        }
+        return null;
+      };
 
       const generateCheckboxArray = (item: MultiSelectItem) => {
         if (item.children) {
