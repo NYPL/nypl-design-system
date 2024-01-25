@@ -168,7 +168,9 @@ const MultiSelect = {
       ".chakra-collapse": {
         borderTopWidth: "1px",
         marginTop: "-1px",
-        position: isBlockElement ? "block" : "relative",
+        // position: isBlockElement ? "block" : "relative",
+        position: isBlockElement ? "relative" : "relative",
+        // position: "relative",
         ...multiSelectWidths[width],
       },
 
