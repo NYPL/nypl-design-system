@@ -7,6 +7,7 @@ import MultiSelect, {
   multiSelectListOverflowArray,
 } from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
+import { VStack } from "@chakra-ui/react";
 
 const withItems = [
   {
@@ -236,7 +237,7 @@ const meta: Meta<typeof MultiSelect> = {
       description: "Value used to set the width for the MultiSelect component",
       control: "radio",
       options: multiSelectWidthsArray,
-      table: { defaultValue: { summary: "default" } },
+      table: { defaultValue: { summary: "full" } },
     },
   },
 };
@@ -249,9 +250,15 @@ export const withControls: Story = {
     buttonText: "MultiSelect",
     defaultItemsVisible: 5,
     id: "multi-select-id",
+    isBlockElement: false,
     isDefaultOpen: false,
     isSearchable: false,
     items: withItems,
+    listOverflow: "scroll",
+    onChange: undefined,
+    onMixedStateChange: undefined,
+    selectedItems: undefined,
+    width: "full",
   },
   render: (args) => <MultiSelectWithControlsStory {...args} />,
   parameters: {
@@ -353,6 +360,34 @@ export const withDefaultOpenStateExample: Story = {
   },
 };
 
+export const isBlockElement: Story = {
+  render: () => (
+    <VStack align="left">
+      <MultiSelectStory
+        id="multi-select-id"
+        isBlockElement={false}
+        isDefaultOpen={false}
+        isSearchable={true}
+        items={withChildrenItems}
+      />
+      <MultiSelectStory
+        id="multi-select-id"
+        isBlockElement={true}
+        isDefaultOpen={false}
+        isSearchable={true}
+        items={withChildrenItems}
+      />
+    </VStack>
+  ),
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
+    },
+    jest: ["MultiSelect.test.tsx"],
+  },
+};
+
 const MultiSelectWithControlsStory = (args) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -393,7 +428,13 @@ const MultiSelectWithControlsStory = (args) => {
   );
 };
 
-const MultiSelectStory = ({ id, isSearchable, isDefaultOpen, items }) => {
+const MultiSelectStory = ({
+  id,
+  isBlockElement = false,
+  isSearchable,
+  isDefaultOpen,
+  items,
+}) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
@@ -416,6 +457,7 @@ const MultiSelectStory = ({ id, isSearchable, isDefaultOpen, items }) => {
       buttonText="MultiSelect"
       helperText="multi-select-helper-text"
       defaultItemsVisible={5}
+      isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}
       isSearchable={isSearchable}
       selectedItems={selectedItems}
