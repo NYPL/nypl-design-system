@@ -38,13 +38,13 @@ export type MultiSelectProps = {
   onMixedStateChange?: MultiSelectOnChange;
   /** The id of the MultiSelect. */
   id: string;
-  /** Boolean value used to enable the component's search functionality
+  /** Boolean value used to control how the MultiSelect component will render within the page
+   * and interact with other DOM elements.
    * The default value is false. */
   isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
-  /** Boolean value used to control how the MultiSelect component will render input field within the page
-   * and interact with other DOM elements.
+  /** Boolean value used to enable the component's search functionality
    * The default value is false. */
   isSearchable?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
@@ -69,7 +69,7 @@ export const MultiSelect = chakra(
       const {
         helperText,
         id,
-        isBlockElement = false,
+        // isBlockElement = false,
         isDefaultOpen = false,
         isSearchable = false,
         defaultItemsVisible = 5,
@@ -105,13 +105,10 @@ export const MultiSelect = chakra(
       }, [listOverflow, items, isSearchable]);
 
       // Sets the selected items count on the menu button.
-      let getSelectedItemsCount: any;
-      getSelectedItemsCount = selectedItems[id]?.items.length || 0;
+      const getSelectedItemsCount: number =
+        selectedItems[id]?.items.length || 0;
       const styles = useMultiStyleConfig("MultiSelect", {
         width,
-        isBlockElement,
-        isDefaultOpen,
-        hasSelectedItems: getSelectedItemsCount,
       });
 
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
@@ -246,9 +243,9 @@ export const MultiSelect = chakra(
         displayDefaultItems,
       ]);
 
-      const showSearchInputBox = () => (
-        <>
-          {isSearchable && (
+      const showSearchInputBox = () => {
+        if (isSearchable) {
+          return (
             <TextInput
               id="multi-select-text-input-id"
               labelText={`Search ${buttonText}`}
@@ -259,13 +256,13 @@ export const MultiSelect = chakra(
               showLabel={false}
               showRequiredLabel={false}
               type="text"
-              __css={styles.menuSearchInputBox}
+              __css={styles.searchInputBox}
               marginBottom="s"
             />
-          )}
-          {!isSearchable && null}
-        </>
-      );
+          );
+        }
+        return null;
+      };
 
       const generateCheckboxArray = (item: MultiSelectItem) => {
         if (item.children) {

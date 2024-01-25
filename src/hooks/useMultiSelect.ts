@@ -49,9 +49,10 @@ export default function useMultiSelect(initialState?: SelectedItems) {
   };
 
   /**
-   * handleMixedStateChange is used only for the "dialog" variant. It handles the state for checkbox options with child options.
+   * handleMixedStateChange handles the state for checkbox options with child options.
    * It accepts three arguments - the id of the checkbox option (parentId), the id of the MultiSelect component and the items array of the MultiSelect.
-   */
+    `disabled` state of items are not included in the selectedItems array. 
+  */
   const handleMixedStateChange = (
     parentId: string,
     multiSelectId: string,
