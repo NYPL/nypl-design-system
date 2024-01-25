@@ -4,6 +4,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  isBlockElement={false}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -639,6 +640,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  isBlockElement={false}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -1274,6 +1276,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  isBlockElement={false}
 >
   <button
     aria-label="remove 1 item selected from multiselect-button-text"
@@ -1976,6 +1979,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  isBlockElement={false}
 >
   <button
     aria-label="remove 2 items selected from multiselect-button-text"
