@@ -75,6 +75,7 @@ const MultiSelectMenuButton = {
       position: "absolute",
       top: { base: "12px", md: "10px" },
       width: "46px",
+      zIndex: 2,
       _hover: {
         borderColor: isOpen ? "ui.gray.xx-dark" : "ui.border.hover",
       },

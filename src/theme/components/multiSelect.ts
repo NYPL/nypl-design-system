@@ -21,7 +21,7 @@ const MultiSelect = {
     "accordionStyles",
     "buttonTextLabel",
   ],
-  baseStyle: ({ isBlockElement, isOpen, width = "full" }) => ({
+  baseStyle: ({ isBlockElement, width = "full" }) => ({
     position: "relative",
     menuChildren: {
       paddingLeft: "m",
@@ -52,13 +52,13 @@ const MultiSelect = {
     },
     accordionStyles: {
       ".chakra-accordion__button": {
-        backgroundColor: isOpen ? "ui.link.primary-05" : "transparent",
+        backgroundColor: "ui.white",
         fontWeight: "default",
         minWidth: width === "full" ? "100%" : "175px",
         position: "relative",
         width: width === "full" ? "100%" : "fit-content",
         overflow: "hidden",
-        zIndex: 2,
+        zIndex: 1,
         div: {
           overflow: "hidden",
           textOverflow: "ellipsis",
@@ -67,12 +67,15 @@ const MultiSelect = {
         span: {
           overflow: "hidden",
         },
-        // backgroundColor: "transparent",
+        _hover: {
+          backgroundColor: "ui.white",
+        },
       },
       ".css-uaipls[aria-expanded=true]": {
         bgColor: "ui.link.primary-05",
       },
       ".chakra-collapse": {
+        bgColor: "ui.white",
         borderTopWidth: "1px",
         marginTop: "-1px",
         // position: isBlockElement ? "block" : "relative",
