@@ -8,10 +8,12 @@ import {
   //   MenuGroup,
   //   MenuOptionGroup,
   MenuDivider,
+  useMultiStyleConfig,
   //   Box,
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
+import Text from "../Text/Text";
 import React, { forwardRef } from "react";
 import { SectionTypes } from "../../helpers/types";
 
@@ -63,97 +65,125 @@ interface DividerItem {
 type ListItemsData = ActionItem | GroupItem | DividerItem;
 
 const Menu = chakra(
-  forwardRef<HTMLDivElement, MenuProps>((props?) => {
-    const {
+  forwardRef<HTMLDivElement, MenuProps>(
+    ({
       className,
       id,
       labelText,
       listAlignment,
+      currentItem,
+      highlightColor = "blogs",
       showBorder = true,
       showLabel = true,
       listItemsData,
       ...rest
-    } = props;
+    }) => {
+      const styles = useMultiStyleConfig("Menu", {
+        highlightColor,
+      });
 
-    // const renderMedia = (media) => {
-    //   if (typeof media === ) {
-    //     return <Icon name={media} size="xsmall" />;
-    //   } else if (media.type === "image") {
-    //     return (
-    //       <Image
-    //         src={media.src}
-    //         sx={{ width: "24px", height: "24px", borderRadius: "50%" }}
-    //       />
-    //     );
-    //   }
-    //   return null;
-    // };
+      // const renderMedia = (media) => {
+      //   if (typeof media === ) {
+      //     return <Icon name={media} size="xsmall" />;
+      //   } else if (media.type === "image") {
+      //     return (
+      //       <Image
+      //         src={media.src}
+      //         sx={{ width: "24px", height: "24px", borderRadius: "50%" }}
+      //       />
+      //     );
+      //   }
+      //   return null;
+      // };
 
-    const getButton = (showBorder, isOpen) => (
-      <MenuButton
-        _hover={{ bg: "ui.link.primary-05" }}
-        color={showBorder ? "unset" : "ui.link.secondary"}
-        padding="8px 16px"
-        borderRadius="2px"
-        backgroundColor={isOpen ? "ui.link.primary-05" : "unset"}
-        border={showBorder ? "1px solid #BDBDBD" : "unset"}
-      >
-        {showLabel && (
-          <>
-            <span style={{ paddingRight: "8px" }}>{labelText}</span>
-            <Icon
-              name="arrow"
-              color={showBorder ? "unset" : "ui.link.primary"}
-              iconRotation={isOpen ? "rotate180" : "rotate0"}
-              size="xsmall"
-            />
-          </>
-        )}
-        {!showLabel && <Icon name="arrow" size="xsmall" />}
-      </MenuButton>
-    );
-
-    const getMenuElements = (data: ListItemsData[] = []) =>
-      data.map((item) =>
-        item.type === "divider" ? (
-          <MenuDivider key={item.id} />
-        ) : (
-          <MenuItem
-            key={item.id}
-            _hover={{ fontWeight: "500" }}
-            sx={{
-              padding: "8px 12px",
-            }}
-          >
-            {item.type === "action" ? (
-              <>
-                {/* {renderMedia(item.media)} */}
-                <span style={{ paddingLeft: "8px" }}>{item.label}</span>
-              </>
-            ) : (
-              //if Group
-              <>
-                {item.label}
-                {getMenuElements(item.children)}
-              </>
-            )}
-          </MenuItem>
-        )
+      const getButton = (showBorder, isOpen) => (
+        <MenuButton
+          _hover={{ bg: "ui.link.primary-05" }}
+          color={showBorder ? "unset" : "ui.link.secondary"}
+          padding="8px 16px"
+          borderRadius="2px"
+          backgroundColor={isOpen ? "ui.link.primary-05" : "unset"}
+          border={showBorder ? "1px solid #BDBDBD" : "unset"}
+        >
+          {showLabel && (
+            <>
+              <span style={{ paddingRight: "8px" }}>{labelText}</span>
+              <Icon
+                name="arrow"
+                color={showBorder ? "unset" : "ui.link.primary"}
+                iconRotation={isOpen ? "rotate180" : "rotate0"}
+                size="xsmall"
+              />
+            </>
+          )}
+          {!showLabel && <Icon name="arrow" size="xsmall" />}
+        </MenuButton>
       );
 
-    return (
-      <ChakraMenu id={id} {...rest}>
-        {({ isOpen }) => (
-          <>
-            {getButton(showBorder, isOpen)}
-            <MenuList sx={{ borderRadius: "2px" }}>
-              {getMenuElements(listItemsData)}
-            </MenuList>
-          </>
-        )}
-      </ChakraMenu>
-    );
-  })
-);
+      const getMenuElements = (data: ListItemsData[] = [], current) =>
+        data.reduce((lst, item) => {
+          if (item.type === "divider") {
+            //if Divider item
+            return [...lst, <MenuDivider key={item.id} />];
+          }
+          //const isActive = current === item.id;
+          const menuItem = (
+            <MenuItem
+              key={item.id}
+              // _hover={{
+              //   fontWeight: "500",
+              // }}
+              __css={styles.menuItem}
+              // sx={{
+              //   padding: "8px 12px",
+              //   ...(item.type === "group" && {
+              //     ":hover": { background: "none" },
+              //   }),
+              //   ...(isActive && {
+              //     ":focus": {},
+              //   }),
+              // }}
+            >
+              {item.type === "action" ? ( //if Action item
+                <>
+                  {/* {renderMedia(item.media)} */}
+                  <span style={{ paddingLeft: "8px" }}>{item.label}</span>
+                </>
+              ) : (
+                // If Group item
+                <>
+                  <Text
+                    sx={{
+                      paddingLeft: "8px",
+                      fontWeight: "500",
+                      margin: "0px",
+                    }}
+                  >
+                    {item.label}
+                  </Text>
+                </>
+              )}
+            </MenuItem>
+          );
 
+          return item.type === "group"
+            ? [...lst, menuItem, ...getMenuElements(item.children, current)]
+            : [...lst, menuItem];
+        }, []);
+
+      return (
+        <ChakraMenu id={id} {...rest}>
+          {({ isOpen }) => (
+            <>
+              {getButton(showBorder, isOpen)}
+              <MenuList __css={styles} sx={{ borderRadius: "2px" }}>
+                {getMenuElements(listItemsData, currentItem)}
+              </MenuList>
+            </>
+          )}
+        </ChakraMenu>
+      );
+    }
+  )
+);
 export default Menu;

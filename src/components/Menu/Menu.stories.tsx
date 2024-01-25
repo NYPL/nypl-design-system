@@ -15,6 +15,11 @@ const meta: Meta<typeof Menu> = {
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
+      table: {
+        defaultValue: {
+          summary: "blogs",
+        },
+      },
     },
   },
 };
@@ -33,6 +38,8 @@ export const WithControls: Story = {
     labelText: "I'm the menu",
     showLabel: true,
     showBorder: false,
+    highlightColor: undefined,
+    currentItem: "item-title-2",
     listItemsData: [
       {
         type: "action",
@@ -75,6 +82,35 @@ export const WithControls: Story = {
               console.log("Item Title 2 clicked");
             },
           },
+          {
+            type: "divider",
+            id: "item-title-4",
+          },
+        ],
+      },
+      {
+        type: "group",
+        id: "group-item-7",
+        label: "I'm the group",
+        children: [
+          {
+            type: "action",
+            id: "item-title-17",
+            label: "I'm item 17",
+            media: "arrow",
+            onClick: () => {
+              console.log("Item Title 17 clicked");
+            },
+          },
+          {
+            type: "action",
+            id: "item-title-213",
+            label: "I'm item 213",
+            media: "search",
+            onClick: () => {
+              console.log("Item Title 213 clicked");
+            },
+          },
         ],
       },
       // {
@@ -86,10 +122,6 @@ export const WithControls: Story = {
       //     console.log("Item Title 3 clicked");
       //   },
       // },
-      {
-        type: "divider",
-        id: "item-title-3",
-      },
     ],
   },
   render: (args) => (
