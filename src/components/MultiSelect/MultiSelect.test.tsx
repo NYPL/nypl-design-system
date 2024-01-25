@@ -12,7 +12,7 @@ let matchMedia: MatchMedia;
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
   { id: "cats", name: "Cats", isDisabled: false },
-  { id: "cars", name: "Cars", isDisabled: false },
+  { id: "cars", name: "Cars", isDisabled: true },
   {
     id: "colors",
     name: "Colors",
@@ -20,6 +20,23 @@ const items = [
     children: [
       { id: "red", name: "Red", isDisabled: false },
       { id: "blue", name: "Blue", isDisabled: false },
+    ],
+  },
+  { id: "plants", name: "Plants", isDisabled: false },
+  { id: "furniture", name: "Furniture", isDisabled: false },
+];
+
+const disabledItems = [
+  { id: "dogs", name: "Dogs", isDisabled: false },
+  { id: "cats", name: "Cats", isDisabled: false },
+  { id: "cars", name: "Cars", isDisabled: true },
+  {
+    id: "colors",
+    name: "Colors",
+    isDisabled: false,
+    children: [
+      { id: "red", name: "Red", isDisabled: true },
+      { id: "blue", name: "Blue", isDisabled: true },
     ],
   },
   { id: "plants", name: "Plants", isDisabled: false },
@@ -163,6 +180,33 @@ describe("MultiSelect", () => {
       />
     );
     expect(screen.queryByRole("checkbox")).toBeNull();
+  });
+
+  it("should initially render with open menu and disabled items", () => {
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        helperText="Multiselect helper text"
+        buttonText="Multiselect button text"
+        isDefaultOpen={true}
+        isSearchable={false}
+        isBlockElement={false}
+        defaultItemsVisible={defaultItemsVisible}
+        items={disabledItems}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
+      "true"
+    );
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
+    expect(screen.getByLabelText("Cats")).not.toBeDisabled();
+    expect(screen.getByLabelText("Dogs")).not.toBeDisabled();
+    expect(screen.getByLabelText("Cars")).toBeDisabled();
+    expect(screen.getByLabelText("Red")).toBeDisabled();
+    expect(screen.getByLabelText("Blue")).toBeDisabled();
   });
 
   it("should initially render with open menu if isDefaultOpen prop is true", () => {

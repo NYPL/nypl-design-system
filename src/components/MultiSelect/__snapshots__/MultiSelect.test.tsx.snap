@@ -235,14 +235,15 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 >
                   <label
                     className="chakra-checkbox css-scawxr"
+                    data-disabled=""
                     onClick={[Function]}
                   >
                     <input
-                      aria-disabled={false}
+                      aria-disabled={true}
                       aria-invalid={false}
                       checked={false}
                       className="chakra-checkbox__input"
-                      disabled={false}
+                      disabled={true}
                       id="cars"
                       name="Cars"
                       onBlur={[Function]}
@@ -269,6 +270,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     <span
                       aria-hidden={true}
                       className="chakra-checkbox__control css-dnty2r"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -287,6 +289,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </span>
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
@@ -871,14 +874,15 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 >
                   <label
                     className="chakra-checkbox css-scawxr"
+                    data-disabled=""
                     onClick={[Function]}
                   >
                     <input
-                      aria-disabled={false}
+                      aria-disabled={true}
                       aria-invalid={false}
                       checked={false}
                       className="chakra-checkbox__input"
-                      disabled={false}
+                      disabled={true}
                       id="cars"
                       name="Cars"
                       onBlur={[Function]}
@@ -905,6 +909,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     <span
                       aria-hidden={true}
                       className="chakra-checkbox__control css-dnty2r"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -923,6 +928,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </span>
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
@@ -1549,14 +1555,15 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 >
                   <label
                     className="chakra-checkbox css-scawxr"
+                    data-disabled=""
                     onClick={[Function]}
                   >
                     <input
-                      aria-disabled={false}
+                      aria-disabled={true}
                       aria-invalid={false}
                       checked={false}
                       className="chakra-checkbox__input"
-                      disabled={false}
+                      disabled={true}
                       id="cars"
                       name="Cars"
                       onBlur={[Function]}
@@ -1583,6 +1590,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     <span
                       aria-hidden={true}
                       className="chakra-checkbox__control css-dnty2r"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -1601,6 +1609,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </span>
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
@@ -2252,14 +2261,15 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 >
                   <label
                     className="chakra-checkbox css-scawxr"
+                    data-disabled=""
                     onClick={[Function]}
                   >
                     <input
-                      aria-disabled={false}
+                      aria-disabled={true}
                       aria-invalid={false}
                       checked={false}
                       className="chakra-checkbox__input"
-                      disabled={false}
+                      disabled={true}
                       id="cars"
                       name="Cars"
                       onBlur={[Function]}
@@ -2286,6 +2296,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     <span
                       aria-hidden={true}
                       className="chakra-checkbox__control css-dnty2r"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
@@ -2304,6 +2315,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </span>
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
+                      data-disabled=""
                       onMouseDown={[Function]}
                       onTouchStart={[Function]}
                     >
