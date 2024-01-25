@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Heading` component to use a desktop-first approach to implement the responsive `font-size` styles.
+- Updates the `useNYPLBreakpoints` hook to include `isSmallerThanMedium` and `isSmallerThanDesktop`, both of which implement a desktop-first design approach.
 
 ## 2.1.4 (January 4, 2024)
 
