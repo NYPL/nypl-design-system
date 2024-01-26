@@ -158,7 +158,7 @@ export const MultiSelect = chakra(
         return false;
       };
 
-      const updateDisabledState = (item: MultiSelectItem): boolean => {
+      const isAllDisabled = (item: MultiSelectItem): boolean => {
         // Check if all child items are disabled, and update the parent accordingly
         if (item.children.every((childItem) => childItem.isDisabled)) {
           item.isDisabled = true;
@@ -211,6 +211,11 @@ export const MultiSelect = chakra(
         }
       };
 
+      /**
+       * Display default items based on the specified limit.
+       * This function creates a list of items to be displayed, limited by the `defaultItemsVisible` parameter.
+       * The resulting list is set using the `setItemsList` function.
+       */
       const displayDefaultItems = useCallback(() => {
         const list = [];
         let count = 0;
@@ -244,6 +249,13 @@ export const MultiSelect = chakra(
         displayDefaultItems,
       ]);
 
+      /**
+       * Render a search input box if the MultiSelect is searchable.
+       * This function conditionally renders a TextInput component for searching options
+       * based on the isSearchable prop. It returns null if the MultiSelect is not searchable.
+       *
+       * @returns {JSX.Element | null} The rendered search input box or null if not searchable.
+       */
       const showSearchInputBox = () => {
         if (isSearchable) {
           return (
@@ -265,6 +277,12 @@ export const MultiSelect = chakra(
         return null;
       };
 
+      /**
+       * Generate an array of Checkbox components based on the provided MultiSelectItem.
+       * If the item has children, it creates a Checkbox for the parent and its children.
+       * If the item does not have children, it creates a single Checkbox for the item.
+       * @returns {JSX.Element[]} An array of Checkbox components.
+       */
       const generateCheckboxArray = (item: MultiSelectItem) => {
         if (item.children) {
           return [
@@ -278,11 +296,11 @@ export const MultiSelect = chakra(
                     isChecked: isAllChecked(id, item),
                     isIndeterminate: isIndeterminate(id, item),
                     onChange: onMixedStateChange,
-                    isDisabled: updateDisabledState(item),
+                    isDisabled: isAllDisabled(item),
                   }
                 : {
                     isChecked: isChecked(id, item.id),
-                    isDisabled: updateDisabledState(item),
+                    isDisabled: isAllDisabled(item),
                     onChange: onChange,
                   })}
             />,
@@ -338,6 +356,13 @@ export const MultiSelect = chakra(
         );
       };
 
+      /**
+       * Render a "View All" button based on the state of listOverflow and the number of items.
+       * This function conditionally renders a button to expand or collapse the list based on the
+       * listOverflow state and the number of items exceeding the default visible count.
+       *
+       * @returns {JSX.Element | null} The rendered "View All" button or null if conditions are not met.
+       */
       const showViewLabel = () => {
         if (listOverflow === "expand" && items.length >= defaultItemsVisible) {
           return (
@@ -352,6 +377,9 @@ export const MultiSelect = chakra(
             </Button>
           );
         }
+
+        // Return null if conditions are not met
+        return null;
       };
 
       const itemsNotFound = () => {
@@ -369,6 +397,10 @@ export const MultiSelect = chakra(
         return null; // Return null when itemsList.length !== 0
       };
 
+      /**
+       * Toggle between viewing all items and a limited number of default items.
+       * Updates the state to control the visibility and height of the items list.
+       */
       const viewAllItems = () => {
         setViewAllLabel((prevProp) =>
           prevProp === "View all" ? "View less" : "View all"
