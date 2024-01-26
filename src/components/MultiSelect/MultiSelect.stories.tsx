@@ -462,6 +462,7 @@ export const defaultOpenState: Story = {
   render: () => (
     <MultiSelectStory
       id="multi-select-id"
+      isBlockElement
       isDefaultOpen={true}
       items={withChildrenItems}
     />
