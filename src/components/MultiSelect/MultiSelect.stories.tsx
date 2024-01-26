@@ -6,6 +6,7 @@ import Heading from "../Heading/Heading";
 import MultiSelect, {
   multiSelectWidthsArray,
   multiSelectListOverflowArray,
+  MultiSelectProps,
 } from "./MultiSelect";
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
@@ -522,7 +523,7 @@ const MultiSelectStory = ({
   items,
   listOverflow = "scroll",
   width = "full",
-}) => {
+}: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
