@@ -26,7 +26,7 @@ type MultiSelectOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 export type MultiSelectProps = {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
-  /** The selected items state (items that were checked by the user). */
+  /** The number of items that will be visible in the list when the component first loads. */
   defaultItemsVisible?: number;
   /** The helperText sets the text for the internal HelperErrorText */
   helperText: string;
@@ -36,7 +36,7 @@ export type MultiSelectProps = {
   onChange: MultiSelectOnChange;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
   onMixedStateChange?: MultiSelectOnChange;
-  /** The id of the MultiSelect. */
+  /** An ID string that other components can cross reference for accessibility purposes. */
   id: string;
   /** Boolean value used to control how the MultiSelect component will render within the page
    * and interact with other DOM elements.

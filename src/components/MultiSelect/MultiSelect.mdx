@@ -19,12 +19,12 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#using-the-items-prop" target="_self">Using the items prop</Link>}
-- {<Link href="#with-children-items-example" target="_self">With Children Items Example</Link>}
-- {<Link href="#with-disabled-items-example" target="_self">With Disabled Items Example</Link>}
-- {<Link href="#with-search-input-field-example" target="_self">With Search Input Field Example</Link>}
+- {<Link href="#populating-the-list-items" target="_self">Populating the List Items</Link>}
+- {<Link href="#nested-list-items" target="_self">Nested List Items</Link>}
+- {<Link href="#disabled-list-items" target="_self">Disabled List Items</Link>}
+- {<Link href="#search-input-field" target="_self">Search Input Field</Link>}
 - {<Link href="#isblockelement" target="_self">isBlockElement</Link>}
-- {<Link href="#with-default-open-state-example" target="_self">With Default Open State Example</Link>}
+- {<Link href="#default-open-state" target="_self">Default Open State</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
@@ -44,11 +44,8 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
   code={`
 <MultiSelect
   buttonText="MultiSelect",
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
   items={[
     {
       id: "art",
@@ -83,7 +80,7 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 
 TBD
 
-## Using the items prop
+## Populating the List Items
 
 The options rendered in the `MultiSelect` component are passed into the
 component's `items` prop. The expected data structure is an array of objects,
@@ -95,11 +92,8 @@ the `isDisabled` flag. The format is as follows:
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
   items={[
     {
       id: "art",
@@ -143,7 +137,7 @@ the `isDisabled` flag. The format is as follows:
   language="jsx"
 />
 
-## With Children Items Example
+## Nested List Items
 
 The MultiSelect component allows for an optional set of child checkboxes to be passed, providing a hierarchical structure.
 The "parent" checkbox functions as a check/uncheck all toggle for its children.
@@ -151,17 +145,14 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
 - If all of the children checkboxes are checked, the parent's `isChecked` prop will be set to true.
 - If only some of the child checkboxes are checked, the parent checkbox will have an `isIndeterminate` state.
 
-<Canvas of={MultiSelectStories.withChildrenItemsExample} />
+<Canvas of={MultiSelectStories.nestedListItems} />
 
 <Source
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
   items={[
     {
       id: "art",
@@ -196,7 +187,7 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
   language="jsx"
 />
 
-## With Disabled Items Example
+## Disabled List Items
 
 Each checkbox &mdash; whether standalone, parent, or child &mdash; can be set in
 a disabled state by using `isDisabled`. This provides flexibility in managing
@@ -227,17 +218,14 @@ child checkbox will not be clickable and its state will not change.
 
 ### Mixed Example
 
-<Canvas of={MultiSelectStories.withDisabledItemsExample} />
+<Canvas of={MultiSelectStories.disabledListItems}ed />
 
 <Source
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
   items={[
     {
       id: "art",
@@ -283,17 +271,14 @@ child checkbox will not be clickable and its state will not change.
 
 ### Disabled Parent Checkbox
 
-<Canvas of={MultiSelectStories.withDisabledAllChildrenItemsExample} />
+<Canvas of={MultiSelectStories.disabledListItemsAllChildren} />
 
 <Source
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
   items={[
     {
       id: "art",
@@ -337,20 +322,19 @@ child checkbox will not be clickable and its state will not change.
   language="jsx"
 />
 
-## With Search Input Field Example
+## Search Input Field
 
 When `isSearchable` is set to `true`, a text input field will be enabled within
 the component to allow users to search the available checkbox items.
 
-<Canvas of={MultiSelectStories.withSearchInputFieldExample} />
+<Canvas of={MultiSelectStories.searchInputField} />
+
 <Source
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
   isSearchable
   items={[
     {
@@ -428,21 +412,20 @@ is used in a horizontal filter bar layout.
   language="jsx"
 />
 
-## With Default Open State Example
+## Default Open State
 
 When `isDefaultOpen` is set to `true`, the component is displayed in the open
 state by default.
 
-<Canvas of={MultiSelectStories.withSearchInputFieldExample} />
+<Canvas of={MultiSelectStories.defaultOpenState} />
+
 <Source
   code={`
 <MultiSelect
   buttonText="MultiSelect"
-  defaultItemsVisible={5}
   id="multi-select-id"
   isBlockElement
-  isDefaultOpen={false}
-  isSearchable={false}
+  isDefaultOpen
   items={[
     {
       id: "art",
@@ -583,7 +566,6 @@ function MultiSelectControlledExample() {
   return (
     <MultiSelect
       buttonText="MultiSelect"
-      defaultItemsVisible={5}
       helperText="Multi Select Helper Text"
       id="multi-select-id"
       items={items}
