@@ -375,7 +375,7 @@ export const FeedbackBox = chakra(
                               maxCommentCharacters - state.comment.length
                             } characters remaining`}
                             id={`${id}-comment`}
-                            invalidText="Please fill out this field."
+                            invalidText="There was a problem. Please fill out this field."
                             isDisabled={isSubmitted}
                             isInvalid={finalIsInvalidComment}
                             labelText="Comment (Required)"
@@ -391,7 +391,7 @@ export const FeedbackBox = chakra(
                           <FormField width="100%">
                             <TextInput
                               id={`${id}-email`}
-                              invalidText="Please enter a valid email address."
+                              invalidText="There was a problem. Please enter a valid email address."
                               isDisabled={isSubmitted}
                               isInvalid={isInvalidEmail}
                               labelText="Email"
