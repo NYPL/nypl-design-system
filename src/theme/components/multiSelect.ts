@@ -38,6 +38,12 @@ const MultiSelect = {
       _hover: {
         bg: "ui.link.primary-05",
       },
+      _dark: {
+        color: "dark.ui.link.primary",
+        _hover: {
+          bg: "dark.ui.link.primary-10",
+        },
+      },
     },
     buttonTextLabel: {
       marginBottom: 0,
@@ -54,12 +60,17 @@ const MultiSelect = {
       },
     },
     accordionStyles: {
+      ".chakra-accordion__item": {
+        _dark: {
+          bgColor: "transparent",
+        },
+      },
       ".chakra-accordion__button": {
         backgroundColor: "ui.white",
         fontWeight: "default",
         minWidth: width === "full" ? "100%" : "175px",
         position: "relative",
-        width: width === "full" ? "100%" : "fit-content",
+        width: width === "full" ? "100%" : { base: "100%", md: "fit-content" },
         overflow: "hidden",
         zIndex: 1,
         div: {
@@ -73,17 +84,34 @@ const MultiSelect = {
         _hover: {
           backgroundColor: "ui.white",
         },
-      },
-      ".css-uaipls[aria-expanded=true]": {
-        bgColor: "ui.link.primary-05",
+        _dark: {
+          backgroundColor: "dark.ui.bg.default",
+          borderStartColor: "dark.ui.border.default",
+          borderStartWidth: "1px",
+          _hover: {
+            borderStartColor: "ui.gray.dark",
+          },
+        },
+        _expanded: {
+          bgColor: "ui.link.primary-05",
+          _dark: {
+            bgColor: "dark.ui.link.primary-10",
+          },
+        },
       },
       ".chakra-collapse": {
-        bgColor: "ui.white",
+        bgColor: "ui.bg.page",
         borderTopWidth: "1px",
         marginTop: "-1px",
         position: isBlockElement ? null : "absolute",
         zIndex: 2,
         ...multiSelectWidths[width],
+      },
+      ".chakra-accordion__panel": {
+        bgColor: "ui.white",
+        _dark: {
+          bgColor: "dark.ui.bg.page",
+        },
       },
     },
   }),
