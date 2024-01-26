@@ -476,7 +476,6 @@ const MultiSelectWithControlsStory = (args) => {
     <MultiSelect
       {...args}
       helperText="multi-select-helper-text"
-      defaultItemsVisible={5}
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
