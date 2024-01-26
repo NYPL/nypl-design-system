@@ -8,12 +8,13 @@ import {
   Tabs as ChakraTabs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import useScrollTabIntoView from "../../hooks/useScrollTabIntoView";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -155,6 +156,7 @@ export const Tabs = chakra(
         useHash = false,
         ...rest
       } = props;
+      const [tabIndex, setTabIndex] = useState(0);
       const styles = useMultiStyleConfig("Tabs", {});
       // Just an estimate of the tab width for the mobile carousel.
       const initTabWidth = 65;
@@ -233,13 +235,20 @@ export const Tabs = chakra(
         );
       }
 
+      const tablistRef = useScrollTabIntoView(tabIndex);
+
       return (
         <ChakraTabs
           defaultIndex={defaultIndex}
           id={id}
           // The following lazy loads each panel whenever it is needed.
           isLazy
-          onChange={onChange}
+          onChange={(index) => {
+            if (onChange !== undefined) {
+              onChange(index);
+            }
+            setTabIndex(index);
+          }}
           ref={ref}
           variant="enclosed"
           {...rest}
@@ -254,7 +263,9 @@ export const Tabs = chakra(
           >
             {previousButton}
             <Box __css={styles.carouselParent}>
-              <Box {...carouselStyle}>{tabs}</Box>
+              <Box {...carouselStyle} ref={tablistRef}>
+                {tabs}
+              </Box>
             </Box>
             {nextButton}
           </Box>
