@@ -78,7 +78,34 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 
 ## Accessibility
 
-TBD
+The `MultiSelect` component is composed using the DS `Accordion` and `Checkbox`
+components and its accessibility compliance is derived from what is already
+included in those components.
+
+Accordion:
+
+- Follows [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/accordion/)
+  guidelines:
+  - Use the `button` HTML element for screenreaders and keyboards.
+  - Use the `aria-expanded` attribute to indicate whether the `Accordion` is
+    expanded (`true`) or collapsed (`false`).
+  - Use the `aria-controls` attribute to associate the control with the panel.
+- The open and close icons are decorative (`aria-hidden` is `true`).
+- Visible focus goes around full button and full button is clickable.
+
+Checkbox:
+
+The Checkbox component renders `<label>` and `<input type="checkbox" />`
+elements that are associated with each other; the label has a `for` attribute with
+the value of the `input`'s `id` element. If there is helper or invalid text, the
+`<input>` element will have a `aria-describedby` attribute with the value of the
+helper or invalid text.
+
+Resources:
+
+- [Reservoir Accordion Component](../?path=/docs/components-overlays-switchers-accordion--docs#accessibility)
+- [Reservoir Checkbox Component](../?path=/docs/components-form-elements-checkbox--docs#accessibility)
+- [Deque University - Nested interactive controls are not announced by screen readers](https://dequeuniversity.com/rules/axe/4.4/nested-interactive)
 
 ## Populating the List Items
 
@@ -218,7 +245,7 @@ child checkbox will not be clickable and its state will not change.
 
 ### Mixed Example
 
-<Canvas of={MultiSelectStories.disabledListItems}ed />
+<Canvas of={MultiSelectStories.disabledListItems} ed />
 
 <Source
   code={`
