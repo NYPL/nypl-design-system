@@ -20,10 +20,12 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#populating-the-list-items" target="_self">Populating the List Items</Link>}
+- {<Link href="#visible-list-items" target="_self">Visible List Items</Link>}
 - {<Link href="#nested-list-items" target="_self">Nested List Items</Link>}
 - {<Link href="#disabled-list-items" target="_self">Disabled List Items</Link>}
 - {<Link href="#search-input-field" target="_self">Search Input Field</Link>}
-- {<Link href="#isblockelement" target="_self">isBlockElement</Link>}
+- {<Link href="#block-element-or-float" target="_self">Block Element or Float</Link>}
+- {<Link href="#width" target="_self">Width</Link>}
 - {<Link href="#default-open-state" target="_self">Default Open State</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
@@ -156,6 +158,46 @@ the `isDisabled` flag. The format is as follows:
           name: 'Home'
         },
       ],
+    },
+    ...
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
+## Visible List Items
+
+The `defaultItemsVisible` prop can be used to set the number of list items that
+will be visible when the list is first opened. The default value is `5`.
+
+When there are nested list items, only the parent items will be considered when
+counting the items to display.
+
+**IMPORTANT:** This prop can only be used with `listOverflow="expand"`.
+
+<Canvas of={MultiSelectStories.visibleListItems} />
+
+<Source
+  code={`
+<MultiSelect
+  buttonText="MultiSelect"
+  defaultItemsVisible={8}
+  id="multi-select-id"
+  isBlockElement
+  listOverlow="expand"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
     },
     ...
   ]}
@@ -393,7 +435,7 @@ the component to allow users to search the available checkbox items.
   language="jsx"
 />
 
-## isBlockElement
+## Block Element or Float
 
 Using the `isBlockElement` prop, the `MultiSelect` component can be configured
 for the list portion of the component act as a block element when it is opened
@@ -406,7 +448,7 @@ recommended configuration for the component when it is used in a vertical filter
 bar layout.
 
 When `isBlockElement` is `false` (default configuration), the list element will
-float above other UI elements and not impact their placement nor the overall
+_float_ above other UI elements and not impact their placement nor the overall
 page structure. This is the recommended configuration for the component when it
 is used in a horizontal filter bar layout.
 
@@ -434,6 +476,54 @@ is used in a horizontal filter bar layout.
     },
     ...
   ]}
+/>
+`}
+  language="jsx"
+/>
+
+## Width
+
+The width of the `MultiSelect` component can be configured to handle the width in
+two ways: `fitContent` or `full`.
+
+When `width` is set to `fitContent`, the button and list elements will expand
+and contract independently of each other, depending on the width of the text
+within each element, and adhere to the following rules:
+
+- The button element has a minimum width of 175px
+- The list element has a minimum width of 200px and a maximum width of 300px
+
+When `width` is set to `full`, the button and list elements will expand to fill
+the full width of the component's parent element and the width of the two
+elements will always be identical.
+
+**IMPORTANT:** For a mobile viewport, the component will always render with
+`width` set to `full`.
+
+<Canvas of={MultiSelectStories.width} />
+
+<Source
+  code={`
+<MultiSelect
+  buttonText="MultiSelect"
+  id="multi-select-id"
+  isBlockElement
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
+    },
+    ...
+  ]}
+  width="fitContent"
 />
 `}
   language="jsx"

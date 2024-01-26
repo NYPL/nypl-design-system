@@ -294,6 +294,47 @@ export const withControls: Story = {
   },
 };
 
+export const visibleListItems: Story = {
+  render: () => (
+    <>
+      <Stack align="left" spacing="l">
+        <div>
+          <Heading level="h3" size="heading6" text="Default" />
+          <MultiSelectStory
+            id="multi-select-id"
+            isBlockElement
+            items={withItems}
+            listOverflow="expand"
+          />
+        </div>
+        <div>
+          <Heading level="h3" size="heading6" text="Custom" />
+          <MultiSelectStory
+            defaultItemsVisible={8}
+            id="multi-select-id"
+            isBlockElement
+            items={withItems}
+            listOverflow="expand"
+          />
+        </div>
+        <div>
+          <Heading
+            level="h3"
+            size="heading6"
+            text="Default with Nested Items"
+          />
+          <MultiSelectStory
+            id="multi-select-id"
+            isBlockElement
+            items={withChildrenItems}
+            listOverflow="expand"
+          />
+        </div>
+      </Stack>
+    </>
+  ),
+};
+
 export const nestedListItems: Story = {
   render: () => (
     <MultiSelectStory
@@ -304,13 +345,6 @@ export const nestedListItems: Story = {
       items={withChildrenItems}
     />
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
 };
 
 export const disabledListItems: Story = {
@@ -323,13 +357,6 @@ export const disabledListItems: Story = {
       items={withDisabledItems}
     />
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
 };
 
 export const disabledListItemsAllChildren: Story = {
@@ -342,13 +369,6 @@ export const disabledListItemsAllChildren: Story = {
       items={withDisabledAllChildrenItems}
     />
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
 };
 
 export const searchInputField: Story = {
@@ -361,13 +381,6 @@ export const searchInputField: Story = {
       items={withChildrenItems}
     />
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
 };
 
 export const isBlockElement: Story = {
@@ -376,24 +389,18 @@ export const isBlockElement: Story = {
     <>
       <Stack align="left" spacing="l">
         <div>
-          <Heading
-            level="h3"
-            size="heading6"
-            text="isBlockElement set as {true}"
-          />
+          <Heading level="h3" size="heading6" text="true" />
           <Stack align="left" spacing="s">
             <Stack align="left">
               <MultiSelectStory
                 id="multi-select-id"
-                isBlockElement={true}
-                isDefaultOpen={false}
+                isBlockElement
                 items={withItems}
                 listOverflow="expand"
               />
               <MultiSelectStory
                 id="multi-select-id"
-                isBlockElement={true}
-                isDefaultOpen={false}
+                isBlockElement
                 items={withItems}
                 listOverflow="expand"
               />
@@ -410,28 +417,13 @@ export const isBlockElement: Story = {
           <Heading
             level="h3"
             size="heading6"
-            text="isBlockElement set as {false}"
+            text="false (default configuration)"
           />
           <Stack align="left" spacing="s">
             <Stack direction="row" width="100%" alignContent="stretch">
-              <MultiSelectStory
-                id="multi-select-id"
-                isBlockElement={false}
-                isDefaultOpen={false}
-                items={withItems}
-              />
-              <MultiSelectStory
-                id="multi-select-id"
-                isBlockElement={false}
-                isDefaultOpen={false}
-                items={withItems}
-              />
-              <MultiSelectStory
-                id="multi-select-id"
-                isBlockElement={false}
-                isDefaultOpen={false}
-                items={withItems}
-              />
+              <MultiSelectStory id="multi-select-id" items={withItems} />
+              <MultiSelectStory id="multi-select-id" items={withItems} />
+              <MultiSelectStory id="multi-select-id" items={withItems} />
             </Stack>
             <Text>
               Maecenas sed diam eget risus varius blandit sit amet non magna.
@@ -458,6 +450,36 @@ export const isBlockElement: Story = {
   ),
 };
 
+export const width: Story = {
+  render: () => (
+    <>
+      <Stack align="left" spacing="l">
+        <div>
+          <Heading
+            level="h3"
+            size="heading6"
+            text="full (default configuration)"
+          />
+          <MultiSelectStory
+            id="multi-select-id"
+            isBlockElement
+            items={withItems}
+          />
+        </div>
+        <div>
+          <Heading level="h3" size="heading6" text="fitContent" />
+          <MultiSelectStory
+            id="multi-select-id"
+            isBlockElement
+            items={withItems}
+            width="fitContent"
+          />
+        </div>
+      </Stack>
+    </>
+  ),
+};
+
 export const defaultOpenState: Story = {
   render: () => (
     <MultiSelectStory
@@ -467,13 +489,6 @@ export const defaultOpenState: Story = {
       items={withChildrenItems}
     />
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
 };
 
 const MultiSelectWithControlsStory = (args) => {
