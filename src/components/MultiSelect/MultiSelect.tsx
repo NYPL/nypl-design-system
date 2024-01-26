@@ -69,7 +69,7 @@ export const MultiSelect = chakra(
       const {
         helperText,
         id,
-        // isBlockElement = false,
+        isBlockElement = false,
         isDefaultOpen = false,
         isSearchable = false,
         defaultItemsVisible = 5,
@@ -108,6 +108,7 @@ export const MultiSelect = chakra(
       const getSelectedItemsCount: number =
         selectedItems[id]?.items.length || 0;
       const styles = useMultiStyleConfig("MultiSelect", {
+        isBlockElement,
         width,
       });
 

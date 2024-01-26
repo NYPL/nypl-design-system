@@ -23,11 +23,11 @@ import Link from "../Link/Link";
 - {<Link href="#with-children-items-example" target="_self">With Children Items Example</Link>}
 - {<Link href="#with-disabled-items-example" target="_self">With Disabled Items Example</Link>}
 - {<Link href="#with-search-input-field-example" target="_self">With Search Input Field Example</Link>}
+- {<Link href="#isblockelement" target="_self">isBlockElement</Link>}
 - {<Link href="#with-default-open-state-example" target="_self">With Default Open State Example</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
-- {<Link href="#isblockelement" target="_self">isBlockElement</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -46,6 +46,7 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
   buttonText="MultiSelect",
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
   isSearchable={false}
   items={[
@@ -96,6 +97,7 @@ the `isDisabled` flag. The format is as follows:
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
   isSearchable={false}
   items={[
@@ -157,6 +159,7 @@ The "parent" checkbox functions as a check/uncheck all toggle for its children.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
   isSearchable={false}
   items={[
@@ -232,8 +235,9 @@ child checkbox will not be clickable and its state will not change.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
-  isSearchable={true}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -287,8 +291,9 @@ child checkbox will not be clickable and its state will not change.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
-  isSearchable={true}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -344,8 +349,9 @@ the component to allow users to search the available checkbox items.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
+  isBlockElement
   isDefaultOpen={false}
-  isSearchable={true}
+  isSearchable
   items={[
     {
       id: "art",
@@ -376,6 +382,52 @@ the component to allow users to search the available checkbox items.
   language="jsx"
 />
 
+## isBlockElement
+
+Using the `isBlockElement` prop, the `MultiSelect` component can be configured
+for the list portion of the component act as a block element when it is opened
+and closed or to float above adjacent UI elements (similar to a standard
+`<select>` input).
+
+When `isBlockElement` is `true`, the list will render as a block element and displace
+subsequent UI elements, pushing them further down the page. This is the
+recommended configuration for the component when it is used in a vertical filter
+bar layout.
+
+When `isBlockElement` is `false` (default configuration), the list element will
+float above other UI elements and not impact their placement nor the overall
+page structure. This is the recommended configuration for the component when it
+is used in a horizontal filter bar layout.
+
+<Canvas of={MultiSelectStories.isBlockElement} />
+
+<Source
+  code={`
+<MultiSelect
+  buttonText="MultiSelect"
+  id="multi-select-id"
+  isBlockElement
+  listOverlow="expand"
+  items={[
+    {
+      id: "art",
+      name: "Art",
+    },
+    {
+      id: "architecture",
+      name: "Architecture",
+    },
+    {
+      id: "art_history",
+      name: "Art History",
+    },
+    ...
+  ]}
+/>
+`}
+  language="jsx"
+/>
+
 ## With Default Open State Example
 
 When `isDefaultOpen` is set to `true`, the component is displayed in the open
@@ -388,8 +440,9 @@ state by default.
   buttonText="MultiSelect"
   defaultItemsVisible={5}
   id="multi-select-id"
-  isDefaultOpen={true}
-  isSearchable={true}
+  isBlockElement
+  isDefaultOpen={false}
+  isSearchable={false}
   items={[
     {
       id: "art",
@@ -558,10 +611,6 @@ the selectedItems. That includes the functions `onChange`, `onClear`,
 current state of the selection: `selectedItems`.
 
 Find the full documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
-
-## isBlockElement
-
-<Canvas of={MultiSelectStories.isBlockElement} />
 
 ## Changelog
 

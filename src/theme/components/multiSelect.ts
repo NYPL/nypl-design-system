@@ -1,6 +1,9 @@
 export const multiSelectWidths = {
   fitContent: {
-    width: "fit-content",
+    width: {
+      base: "100%",
+      md: "fit-content",
+    },
     minWidth: {
       md: "175px",
     },
@@ -10,7 +13,6 @@ export const multiSelectWidths = {
   },
   full: {
     width: "100%",
-    md: "100%",
   },
 };
 
@@ -78,9 +80,8 @@ const MultiSelect = {
         bgColor: "ui.white",
         borderTopWidth: "1px",
         marginTop: "-1px",
-        // position: isBlockElement ? "block" : "relative",
-        position: isBlockElement ? "relative" : "relative",
-        // position: "relative",
+        position: isBlockElement ? null : "absolute",
+        zIndex: 2,
         ...multiSelectWidths[width],
       },
     },

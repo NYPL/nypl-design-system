@@ -2,12 +2,14 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
 import { withDesign } from "storybook-addon-designs";
+import Heading from "../Heading/Heading";
 import MultiSelect, {
   multiSelectWidthsArray,
   multiSelectListOverflowArray,
 } from "./MultiSelect";
+import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { VStack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 const withItems = [
   {
@@ -250,7 +252,7 @@ export const withControls: Story = {
     buttonText: "MultiSelect",
     defaultItemsVisible: 5,
     id: "multi-select-id",
-    isBlockElement: false,
+    isBlockElement: true,
     isDefaultOpen: false,
     isSearchable: false,
     items: withItems,
@@ -274,6 +276,7 @@ export const withChildrenItemsExample: Story = {
   render: () => (
     <MultiSelectStory
       id="multi-select-id"
+      isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
       items={withChildrenItems}
@@ -292,6 +295,7 @@ export const withDisabledItemsExample: Story = {
   render: () => (
     <MultiSelectStory
       id="multi-select-id"
+      isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
       items={withDisabledItems}
@@ -310,6 +314,7 @@ export const withDisabledAllChildrenItemsExample: Story = {
   render: () => (
     <MultiSelectStory
       id="multi-select-id"
+      isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
       items={withDisabledAllChildrenItems}
@@ -328,26 +333,9 @@ export const withSearchInputFieldExample: Story = {
   render: () => (
     <MultiSelectStory
       id="multi-select-id"
-      isSearchable={true}
+      isBlockElement
       isDefaultOpen={false}
-      items={withChildrenItems}
-    />
-  ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
-    },
-    jest: ["MultiSelect.test.tsx"],
-  },
-};
-
-export const withDefaultOpenStateExample: Story = {
-  render: () => (
-    <MultiSelectStory
-      id="multi-select-id"
-      isSearchable={true}
-      isDefaultOpen={true}
+      isSearchable
       items={withChildrenItems}
     />
   ),
@@ -361,23 +349,100 @@ export const withDefaultOpenStateExample: Story = {
 };
 
 export const isBlockElement: Story = {
+  name: "isBlockElement",
   render: () => (
-    <VStack align="left">
-      <MultiSelectStory
-        id="multi-select-id"
-        isBlockElement={false}
-        isDefaultOpen={false}
-        isSearchable={true}
-        items={withChildrenItems}
-      />
-      <MultiSelectStory
-        id="multi-select-id"
-        isBlockElement={true}
-        isDefaultOpen={false}
-        isSearchable={true}
-        items={withChildrenItems}
-      />
-    </VStack>
+    <>
+      <Stack align="left" spacing="l">
+        <div>
+          <Heading
+            level="h3"
+            size="heading6"
+            text="isBlockElement set as {true}"
+          />
+          <Stack align="left" spacing="s">
+            <Stack align="left">
+              <MultiSelectStory
+                id="multi-select-id"
+                isBlockElement={true}
+                isDefaultOpen={false}
+                items={withItems}
+                listOverflow="expand"
+              />
+              <MultiSelectStory
+                id="multi-select-id"
+                isBlockElement={true}
+                isDefaultOpen={false}
+                items={withItems}
+                listOverflow="expand"
+              />
+            </Stack>
+            <Text>
+              Maecenas sed diam eget risus varius blandit sit amet non magna.
+              Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
+              consectetur. Donec sed odio dui.
+            </Text>
+          </Stack>
+        </div>
+        <div>
+          <Heading
+            level="h3"
+            size="heading6"
+            text="isBlockElement set as {false}"
+          />
+          <Stack align="left" spacing="s">
+            <Stack direction="row" width="100%" alignContent="stretch">
+              <MultiSelectStory
+                id="multi-select-id"
+                isBlockElement={false}
+                isDefaultOpen={false}
+                items={withItems}
+              />
+              <MultiSelectStory
+                id="multi-select-id"
+                isBlockElement={false}
+                isDefaultOpen={false}
+                items={withItems}
+              />
+              <MultiSelectStory
+                id="multi-select-id"
+                isBlockElement={false}
+                isDefaultOpen={false}
+                items={withItems}
+              />
+            </Stack>
+            <Text>
+              Maecenas sed diam eget risus varius blandit sit amet non magna.
+              Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
+              consectetur. Donec sed odio dui.
+            </Text>
+            <Text>
+              Maecenas sed diam eget risus varius blandit sit amet non magna.
+              Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
+              consectetur. Donec sed odio dui.
+            </Text>
+            <Text>
+              Maecenas sed diam eget risus varius blandit sit amet non magna.
+              Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
+              consectetur. Donec sed odio dui.
+            </Text>
+          </Stack>
+        </div>
+      </Stack>
+    </>
+  ),
+};
+
+export const withDefaultOpenStateExample: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id"
+      isDefaultOpen={true}
+      items={withChildrenItems}
+    />
   ),
   parameters: {
     design: {
@@ -431,9 +496,11 @@ const MultiSelectWithControlsStory = (args) => {
 const MultiSelectStory = ({
   id,
   isBlockElement = false,
-  isSearchable,
+  isSearchable = false,
   isDefaultOpen,
   items,
+  listOverflow = "scroll",
+  width = "full",
 }) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -453,15 +520,17 @@ const MultiSelectStory = ({
 
   return (
     <MultiSelect
-      id={id}
       buttonText="MultiSelect"
-      helperText="multi-select-helper-text"
       defaultItemsVisible={5}
+      helperText="multi-select-helper-text"
+      id={id}
       isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}
       isSearchable={isSearchable}
-      selectedItems={selectedItems}
       items={items}
+      listOverflow={listOverflow}
+      selectedItems={selectedItems}
+      width={width}
       onChange={(e) => {
         onChange(e.target.id, id);
         setActionName("onChange");
