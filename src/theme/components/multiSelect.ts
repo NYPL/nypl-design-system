@@ -18,10 +18,11 @@ export const multiSelectWidths = {
 
 const MultiSelect = {
   parts: [
-    "menuChildren",
-    "viewAllButton",
     "accordionStyles",
     "buttonTextLabel",
+    "menuChildren",
+    "menuSearchInputBox",
+    "viewAllButton",
   ],
   baseStyle: ({ isBlockElement, width = "full" }) => ({
     position: "relative",
