@@ -13,8 +13,12 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility"],
-    notes: ["Updates the focus ring style for the open button.."],
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Updates the focus ring style for the open button.",
+      "Updates the required comment field so it cannot be submitted when empty.",
+      "Forcibly focuses on the open button when the form is closed.",
+    ],
   },
   {
     date: "2023-10-26",
