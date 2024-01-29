@@ -538,6 +538,7 @@ const MultiSelectStory = ({
   items,
   listOverflow = "scroll",
   width = "full",
+  defaultItemsVisible = 5
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -558,7 +559,7 @@ const MultiSelectStory = ({
   return (
     <MultiSelect
       buttonText="MultiSelect"
-      defaultItemsVisible={5}
+      defaultItemsVisible={defaultItemsVisible}
       helperText="multi-select-helper-text"
       id={id}
       isBlockElement={isBlockElement}
