@@ -272,7 +272,6 @@ type Story = StoryObj<typeof MultiSelect>;
 export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
-    defaultItemsVisible: 5,
     id: "multi-select-id",
     isBlockElement: true,
     isDefaultOpen: false,
