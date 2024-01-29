@@ -87,12 +87,6 @@ const FeedbackBoxWithControls = (args) => {
         }
         onSubmit={onSubmit}
         view={internalView}
-        sx={{
-          "> button": {
-            mr: "20px",
-            mb: "20px",
-          },
-        }}
       />
     </Box>
   );
