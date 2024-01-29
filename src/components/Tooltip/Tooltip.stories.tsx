@@ -46,7 +46,9 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <Tooltip {...args}>
-      <Button id="tooltip-button">Hover me</Button>
+      <Button height="40px" id="tooltip-button">
+        Hover me
+      </Button>
     </Tooltip>
   ),
   parameters: {
@@ -182,7 +184,9 @@ export const DisablingTooltip: Story = {
       content="This is a tooltip with information describing the hovered object."
       isDisabled
     >
-      <Button id="tooltip-button">Hover me</Button>
+      <Button height="40px" id="tooltip-button">
+        Hover me
+      </Button>
     </Tooltip>
   ),
 };
@@ -191,7 +195,7 @@ export const DisablingTooltipButton: Story = {
   render: () => (
     <VStack spacing="input.group.button.vstack" width="150px">
       <Tooltip content="This is a tooltip with information describing the hovered object.">
-        <Button id="tooltip-button" isDisabled>
+        <Button id="tooltip-button" height="40px" isDisabled>
           Disabled Tooltip
         </Button>
       </Tooltip>
@@ -199,7 +203,7 @@ export const DisablingTooltipButton: Story = {
         content="This is a tooltip with information describing the hovered object."
         shouldWrapChildren
       >
-        <Button id="tooltip-button" isDisabled>
+        <Button id="tooltip-button" height="40px" isDisabled>
           Enabled Tooltip
         </Button>
       </Tooltip>
