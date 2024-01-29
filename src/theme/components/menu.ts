@@ -1,5 +1,5 @@
-//import { getSectionColors } from "../../utils/getSectionColors";
 import { SectionTypes } from "../../helpers/types";
+import { getSectionColors } from "../../utils/getSectionColors";
 interface MenuStyleProps {
   highlightColor: SectionTypes;
   showBorder: boolean;
@@ -7,7 +7,7 @@ interface MenuStyleProps {
 
 const Menu = {
   parts: ["menuItem", "menuButton", "menuGroup", "menuList", "icon"],
-  baseStyle: ({ showBorder }: MenuStyleProps) => ({
+  baseStyle: ({ highlightColor, showBorder }: MenuStyleProps) => ({
     groupItem: {
       padding: "8px 12px",
       lineHeight: "150%",
@@ -27,16 +27,22 @@ const Menu = {
     actionItem: {
       padding: "8px 12px",
       fontSize: "14px",
+      maxHeight: "40px",
       lineHeight: "150%",
       ":focus, :hover": {
-        borderLeftColor: "green",
-        textColor: "red",
+        borderLeftColor: getSectionColors({
+          type: highlightColor,
+          //colorValue: highlightColor === "blogs" ? "secondary" : "primary",
+        }),
+        textColor: getSectionColors({
+          type: highlightColor,
+          //colorValue: highlightColor === "blogs" ? "secondary" : "primary",
+        }),
         borderWidth: "0px 0px 0px 1px",
-        bg: "blue", //getSectionColors({
-        //     type: highlightColor,
-        //     colorValue:
-        //       highlightColor === "blogs" ? "secondary" : "primary",
-        //   }),
+        background: getSectionColors({
+          type: highlightColor,
+          //colorValue: highlightColor === "blogs" ? "secondary" : "primary",
+        }),
       },
       _dark: {
         bg: "dark.ui.bg.default",
@@ -78,6 +84,7 @@ const Menu = {
       },
       boxShadow: "none",
       overflowY: "auto",
+      maxHeight: "320px",
     },
   }),
 };
