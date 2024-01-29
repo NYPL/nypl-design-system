@@ -2,7 +2,7 @@
 
 exports[`ModalTrigger renders the UI snapshot correctly 1`] = `
 <button
-  className="chakra-button css-1xdhyk6"
+  className="chakra-button css-1aaxv66"
   id="modal-open-btn"
   onClick={[Function]}
   type="button"
