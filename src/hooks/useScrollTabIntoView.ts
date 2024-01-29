@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from "react";
 
+/**
+ * DS internal helper hook for the Tabs component to scroll
+ * the selected tab into view using useEffect and querySelector.
+ *
+ * Returns a ref for the TabList component.
+ */
 export const useScrollTabIntoView = (index: number) => {
   const tablistRef = useRef<HTMLDivElement>();
 

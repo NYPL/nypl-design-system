@@ -156,7 +156,7 @@ export const Tabs = chakra(
         useHash = false,
         ...rest
       } = props;
-      const [tabIndex, setTabIndex] = useState(0);
+      const [tabIndex, setTabIndex] = useState(defaultIndex);
       const styles = useMultiStyleConfig("Tabs", {});
       // Just an estimate of the tab width for the mobile carousel.
       const initTabWidth = 65;
