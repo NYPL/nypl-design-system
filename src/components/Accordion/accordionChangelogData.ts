@@ -14,8 +14,6 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Accessibility"],
-    notes: [
-      "Added the ariaLabel prop.",
-    ],
+    notes: ["Added the ariaLabel prop."],
   },
 ];
