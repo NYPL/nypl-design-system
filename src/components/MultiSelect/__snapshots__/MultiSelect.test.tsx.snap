@@ -15,6 +15,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
       <button
         aria-controls="accordion-panel-multi-select-accordion-id-item-0"
         aria-expanded={false}
+        aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
         id="accordion-button-multi-select-accordion-id-item-0"
@@ -653,6 +654,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
       <button
         aria-controls="accordion-panel-multi-select-accordion-id-item-0"
         aria-expanded={false}
+        aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
         id="accordion-button-multi-select-accordion-id-item-0"
@@ -1333,6 +1335,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
       <button
         aria-controls="accordion-panel-multi-select-accordion-id-item-0"
         aria-expanded={false}
+        aria-label="multiselect-button-text, 1 item currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
         id="accordion-button-multi-select-accordion-id-item-0"
@@ -2038,6 +2041,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
       <button
         aria-controls="accordion-panel-multi-select-accordion-id-item-0"
         aria-expanded={false}
+        aria-label="multiselect-button-text, 2 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
         id="accordion-button-multi-select-accordion-id-item-0"

@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `MultiSelect` v2 component.
 - Adds the `useMultiSelect` hook.
 
+### Updates
+
+- Updates the `Accordion` component to include the `ariaLabel` prop.
+
 ## 2.1.4 (January 4, 2024)
 
 ### Adds

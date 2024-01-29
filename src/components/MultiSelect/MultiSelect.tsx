@@ -436,6 +436,10 @@ export const MultiSelect = chakra(
         );
       };
 
+      // const itemsTotal = selectedItems[id].items.length;
+      const itemPlural = getSelectedItemsCount === 1 ? "" : "s";
+      const ariaLabelValue = `${buttonText}, ${getSelectedItemsCount} item${itemPlural} currently selected`;
+
       return (
         <Box id={id} __css={styles} {...rest}>
           <MultiSelectMenuButton
@@ -454,6 +458,7 @@ export const MultiSelect = chakra(
                 panel: displayAccordionData(),
               },
             ]}
+            ariaLabel={ariaLabelValue}
             id="multi-select-accordion-id"
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
