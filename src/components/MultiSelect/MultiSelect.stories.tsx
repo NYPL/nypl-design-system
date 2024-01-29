@@ -246,7 +246,7 @@ const meta: Meta<typeof MultiSelect> = {
     },
     onChange: {
       description:
-        "The action to perform on the checkbox's onChange function. <br /> For dialog: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> For listbox: `onChange: (selectedItem: MultiSelectItem, id: string) => void;`",
+        "The action to perform on the checkbox's onChange function. <br /> `onChange`: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> ",
     },
     onMixedStateChange: {
       description:
@@ -538,7 +538,7 @@ const MultiSelectStory = ({
   items,
   listOverflow = "scroll",
   width = "full",
-  defaultItemsVisible = 5
+  defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, selectedItems } =
