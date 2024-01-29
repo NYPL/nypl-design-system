@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import { sectionTypeArray } from "../../helpers/types";
-//import Image from "../Image/Image";
 
 import Menu from "./Menu";
 
@@ -21,6 +20,11 @@ const meta: Meta<typeof Menu> = {
         },
       },
     },
+    listAlignment: {
+      controls: { type: "radio" },
+      options: ["left", "right"],
+      table: { defaultValue: { summary: "left" } },
+    },
   },
 };
 
@@ -37,7 +41,8 @@ export const WithControls: Story = {
     id: "Menu-id",
     labelText: "I'm the menu",
     showLabel: true,
-    showBorder: false,
+    showBorder: true,
+    listAlignment: undefined,
     highlightColor: undefined,
     currentItem: "item-title-2",
     listItemsData: [
@@ -45,83 +50,32 @@ export const WithControls: Story = {
         type: "action",
         id: "item-title-1",
         label: "I'm item 1",
-        media: "arrow",
+        media: { type: "icon", name: "search" },
         onClick: () => {
           console.log("Item Title 1 clicked");
         },
+        selected: false,
       },
       {
         type: "action",
         id: "item-title-2",
         label: "I'm item 2",
-        media: "search",
+        media: { type: "icon", name: "arrow" },
         onClick: () => {
           console.log("Item Title 2 clicked");
         },
+        selected: false,
       },
       {
-        type: "group",
-        id: "group-item-2",
-        label: "I'm the group",
-        children: [
-          {
-            type: "action",
-            id: "item-title-11",
-            label: "I'm item 11",
-            media: "arrow",
-            onClick: () => {
-              console.log("Item Title 1 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-21",
-            label: "I'm item 21",
-            media: "search",
-            onClick: () => {
-              console.log("Item Title 2 clicked");
-            },
-          },
-          {
-            type: "divider",
-            id: "item-title-4",
-          },
-        ],
+        type: "action",
+        id: "item-title-3",
+        label: "I'm item 3",
+        media: { type: "icon", name: "actionCheckCircle" },
+        onClick: () => {
+          console.log("Item Title 3 clicked");
+        },
+        selected: false,
       },
-      {
-        type: "group",
-        id: "group-item-7",
-        label: "I'm the group",
-        children: [
-          {
-            type: "action",
-            id: "item-title-17",
-            label: "I'm item 17",
-            media: "arrow",
-            onClick: () => {
-              console.log("Item Title 17 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-213",
-            label: "I'm item 213",
-            media: "search",
-            onClick: () => {
-              console.log("Item Title 213 clicked");
-            },
-          },
-        ],
-      },
-      // {
-      //   type: "action",
-      //   id: "item-title-3",
-      //   label: "I'm item 3",
-      //   media: <Image alt="" src="//placekitten.com/300/300" />,
-      //   onClick: () => {
-      //     console.log("Item Title 3 clicked");
-      //   },
-      // },
     ],
   },
   render: (args) => (
@@ -134,7 +88,87 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "",
+      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
+    },
+    jest: ["Menu.test.tsx"],
+  },
+};
+
+// The following are additional Menu Stories.
+export const MenuWithGroup: Story = {
+  args: {
+    className: undefined,
+    id: "Menu-id",
+    labelText: "I'm the menu",
+    showLabel: true,
+    showBorder: false,
+    listAlignment: undefined,
+    highlightColor: undefined,
+    currentItem: "item-title-2",
+    listItemsData: [
+      {
+        type: "group",
+        id: "group-1",
+        label: "I'm group 1",
+        children: [
+          {
+            type: "action",
+            id: "item-title-1",
+            label: "I'm item 1",
+            onClick: () => {
+              console.log("Item Title 1 clicked");
+            },
+            selected: false,
+          },
+          {
+            type: "action",
+            id: "item-title-2",
+            label: "I'm item 2",
+            onClick: () => {
+              console.log("Item Title 2 clicked");
+            },
+            selected: false,
+          },
+        ],
+      },
+      {
+        type: "group",
+        id: "group-2",
+        label: "I'm group 2",
+        children: [
+          {
+            type: "action",
+            id: "item-title-3",
+            label: "I'm item 3",
+            onClick: () => {
+              console.log("Item Title 3 clicked");
+            },
+            selected: false,
+          },
+          {
+            type: "action",
+            id: "item-title-4",
+            label: "I'm item 4",
+            onClick: () => {
+              console.log("Item Title 4 clicked");
+            },
+            selected: false,
+          },
+        ],
+      },
+    ],
+  },
+  render: (args) => (
+    <Menu
+      {...args}
+      labelText={args.labelText}
+      listItemsData={args.listItemsData}
+    />
+  ),
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
     },
     jest: ["Menu.test.tsx"],
   },

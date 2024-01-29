@@ -5,22 +5,22 @@ import {
   MenuItem,
   MenuList,
   //   MenuItemOption,
-  //   MenuGroup,
+  MenuGroup,
   //   MenuOptionGroup,
   MenuDivider,
   useMultiStyleConfig,
-  //   Box,
+  Flex,
+  Box,
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
-import Text from "../Text/Text";
 import React, { forwardRef } from "react";
 import { SectionTypes } from "../../helpers/types";
 
 export interface MenuProps {
   /** Optional CSS class name that will be added to the component's parent element. */
   className?: string;
-  /** Optional string used to identify and highlight an item.  The value should match the id associated with one of the items.*/
+  /** Optional string used to identify and highlight an item. The value should match the id associated with one of the items.*/
   currentItem?: string;
   /**   Used to set the highlight color for the current item.  The values correspond with the NYPL section colors */
   highlightColor?: SectionTypes;
@@ -42,12 +42,19 @@ export interface MenuProps {
   showLabel?: boolean;
 }
 
+interface Media {
+  type: string;
+  name?: IconNames;
+  src?: string;
+  alt?: string;
+}
 interface ActionItem {
   type: "action";
   label: string;
   id: string;
-  media?: IconNames | typeof Image | null;
+  media?: Media | null;
   onClick: () => void;
+  selected: boolean;
 }
 
 interface GroupItem {
@@ -80,37 +87,37 @@ const Menu = chakra(
     }) => {
       const styles = useMultiStyleConfig("Menu", {
         highlightColor,
+        showBorder,
       });
 
-      // const renderMedia = (media) => {
-      //   if (typeof media === ) {
-      //     return <Icon name={media} size="xsmall" />;
-      //   } else if (media.type === "image") {
-      //     return (
-      //       <Image
-      //         src={media.src}
-      //         sx={{ width: "24px", height: "24px", borderRadius: "50%" }}
-      //       />
-      //     );
-      //   }
-      //   return null;
-      // };
+      const renderMedia = (media: Media | null) => {
+        if (media) {
+          if (media.type === "icon") {
+            return <Icon name={media.name} size="small" />;
+          } else {
+            return (
+              <Image
+                src={media.src}
+                alt={media.alt}
+                size="xxxsmall"
+                sx={{ borderRadius: "24px" }}
+              />
+            );
+          }
+        }
+        return null;
+      };
 
-      const getButton = (showBorder, isOpen) => (
+      const getButton = (isOpen) => (
         <MenuButton
-          _hover={{ bg: "ui.link.primary-05" }}
-          color={showBorder ? "unset" : "ui.link.secondary"}
-          padding="8px 16px"
-          borderRadius="2px"
-          backgroundColor={isOpen ? "ui.link.primary-05" : "unset"}
-          border={showBorder ? "1px solid #BDBDBD" : "unset"}
+          sx={styles.menuButton}
+          backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
           {showLabel && (
             <>
               <span style={{ paddingRight: "8px" }}>{labelText}</span>
               <Icon
                 name="arrow"
-                color={showBorder ? "unset" : "ui.link.primary"}
                 iconRotation={isOpen ? "rotate180" : "rotate0"}
                 size="xsmall"
               />
@@ -123,65 +130,73 @@ const Menu = chakra(
       const getMenuElements = (data: ListItemsData[] = [], current) =>
         data.reduce((lst, item) => {
           if (item.type === "divider") {
-            //if Divider item
-            return [...lst, <MenuDivider key={item.id} />];
+            return [
+              ...lst,
+              <MenuDivider sx={styles.dividerItem} key={item.id} />,
+            ];
+          }
+          if (item.type === "group") {
+            return [
+              ...lst,
+              <MenuGroup
+                key={item.id}
+                sx={{ ...styles.groupItem }}
+                title={item.label}
+              />,
+              ...getMenuElements(item.children, current),
+            ];
           }
           //const isActive = current === item.id;
           const menuItem = (
             <MenuItem
               key={item.id}
-              // _hover={{
-              //   fontWeight: "500",
-              // }}
-              __css={styles.menuItem}
-              // sx={{
-              //   padding: "8px 12px",
-              //   ...(item.type === "group" && {
-              //     ":hover": { background: "none" },
-              //   }),
-              //   ...(isActive && {
-              //     ":focus": {},
-              //   }),
-              // }}
+              isFocusable={true}
+              onClick={item.onClick}
+              sx={{
+                ...styles.actionItem,
+                ...{
+                  // ...(isActive && {
+                  //   selected: true,
+                  //   bg: "green",
+                  // }),
+                },
+              }}
             >
-              {item.type === "action" ? ( //if Action item
-                <>
-                  {/* {renderMedia(item.media)} */}
-                  <span style={{ paddingLeft: "8px" }}>{item.label}</span>
-                </>
-              ) : (
-                // If Group item
-                <>
-                  <Text
-                    sx={{
-                      paddingLeft: "8px",
-                      fontWeight: "500",
-                      margin: "0px",
-                    }}
-                  >
-                    {item.label}
-                  </Text>
-                </>
-              )}
+              <>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  {renderMedia(item.media)}
+                  <span>{item.label}</span>
+                </div>
+              </>
             </MenuItem>
           );
 
-          return item.type === "group"
-            ? [...lst, menuItem, ...getMenuElements(item.children, current)]
-            : [...lst, menuItem];
+          return [...lst, menuItem];
         }, []);
 
       return (
-        <ChakraMenu id={id} {...rest}>
-          {({ isOpen }) => (
-            <>
-              {getButton(showBorder, isOpen)}
-              <MenuList __css={styles} sx={{ borderRadius: "2px" }}>
-                {getMenuElements(listItemsData, currentItem)}
-              </MenuList>
-            </>
-          )}
-        </ChakraMenu>
+        <Box sx={styles}>
+          <ChakraMenu id={id} autoSelect={false} {...rest}>
+            {({ isOpen }) => (
+              <Flex
+                flexDirection={
+                  listAlignment === "right" ? "row-reverse" : "row"
+                }
+              >
+                {getButton(isOpen)}
+                <MenuList sx={styles.menuList}>
+                  {getMenuElements(listItemsData, currentItem)}
+                </MenuList>
+              </Flex>
+            )}
+          </ChakraMenu>
+        </Box>
       );
     }
   )
