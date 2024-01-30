@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, useCallback } from "react";
+import React, { useState, forwardRef, useCallback, useRef } from "react";
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
@@ -83,6 +83,10 @@ export const MultiSelect = chakra(
         width = "full",
         ...rest
       } = props;
+
+       // Create a ref that we add to the element for which we want to detect outside clicks.
+       const internalRef: React.RefObject<HTMLDivElement> =
+       useRef<HTMLDivElement>();
 
       // Control the open or closed state of the MultiSelect.
       const DEFAULT_ITEMS_LIST_HEIGHT = "0px";
@@ -439,7 +443,6 @@ export const MultiSelect = chakra(
       // const itemsTotal = selectedItems[id].items.length;
       const itemPlural = getSelectedItemsCount === 1 ? "" : "s";
       const ariaLabelValue = `${buttonText}, ${getSelectedItemsCount} item${itemPlural} currently selected`;
-
       return (
         <Box id={id} __css={styles} {...rest}>
           <MultiSelectMenuButton
@@ -449,6 +452,7 @@ export const MultiSelect = chakra(
             isOpen={isDefaultOpen}
             selectedItems={selectedItems}
             onClear={onClear}
+            buttonRef={internalRef}
           />
           <Accordion
             accordionData={[
@@ -466,6 +470,7 @@ export const MultiSelect = chakra(
             sx={{
               ...styles.accordionStyles,
             }}
+            buttonRef={internalRef}
           />
         </Box>
       );

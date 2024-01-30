@@ -19,6 +19,7 @@ export interface MultiSelectMenuButtonProps {
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   onKeyDown?: () => void;
+  buttonRef: any,
 }
 
 /**
@@ -36,6 +37,7 @@ const MultiSelectMenuButton = forwardRef<
     isOpen,
     multiSelectId,
     multiSelectLabelText,
+    buttonRef,
     onClear,
     selectedItems,
   } = props;
@@ -63,6 +65,7 @@ const MultiSelectMenuButton = forwardRef<
       data-testid="multi-select-close-button-testid"
       onClick={() => {
         onClear();
+        buttonRef.current?.focus();
       }}
       __css={styles.selectedItemsCountButton}
     >
