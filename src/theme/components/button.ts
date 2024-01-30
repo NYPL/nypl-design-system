@@ -14,8 +14,10 @@ export const baseButtonStyle = {
   cursor: "pointer",
   color: "ui.white",
   fontWeight: "button.default",
+  height: "10",
   justifyContent: "center",
   lineHeight: "1.5",
+  minWidth: "10",
   textDecoration: "none",
   wordWrap: "normal",
   svg: {
