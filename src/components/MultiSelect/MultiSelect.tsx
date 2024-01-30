@@ -84,9 +84,9 @@ export const MultiSelect = chakra(
         ...rest
       } = props;
 
-       // Create a ref that we add to the element for which we want to detect outside clicks.
-       const internalRef: React.RefObject<HTMLDivElement> =
-       useRef<HTMLDivElement>();
+      // Create a ref that we add to the element for which we want to detect outside clicks.
+      const internalRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
 
       // Control the open or closed state of the MultiSelect.
       const DEFAULT_ITEMS_LIST_HEIGHT = "0px";

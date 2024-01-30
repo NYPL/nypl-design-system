@@ -19,7 +19,7 @@ export interface MultiSelectMenuButtonProps {
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   onKeyDown?: () => void;
-  buttonRef: any,
+  buttonRef: any;
 }
 
 /**
