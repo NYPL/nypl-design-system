@@ -37,7 +37,7 @@ export interface AccordionProps {
   panelMaxHeight?: string;
   /**
    * A buttonRef that will hold a reference to the underlying DOM element of the AccordionButton.
-   * This buttonRef can be used to interact with or manipulate the AccordionButton programmatically.
+   * This buttonRef can be used to interact with AccordionButton programmatically.
    */
   buttonRef?: any;
 }
