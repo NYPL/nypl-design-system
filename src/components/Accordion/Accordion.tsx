@@ -71,7 +71,7 @@ const getElementsFromData = (
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
-  panelMaxHeight: string,
+  panelMaxHeight: string
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -229,7 +229,7 @@ export const Accordion = chakra(
           id,
           isAlwaysRendered,
           isDarkMode,
-          panelMaxHeight,
+          panelMaxHeight
         )}
       </ChakraAccordion>
     );
