@@ -15,7 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `Accordion` component to include the `ariaLabel` prop.
+- Updates the `Accordion` component to include the `ariaLabel` and `interactionRef` prop.
 
 ## 2.1.4 (January 4, 2024)
 

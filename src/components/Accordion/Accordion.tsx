@@ -15,6 +15,8 @@ export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   ariaLabel?: string;
+  /** Ref to the DOM element of the AccordionButton. */
+  buttonInteractionRef?: any;
   label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
@@ -35,11 +37,6 @@ export interface AccordionProps {
    * within accordion panel is greater than height set by panelMaxHeight, a
    * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
-  /**
-   * A buttonRef that will hold a reference to the underlying DOM element of the AccordionButton.
-   * This buttonRef can be used to interact with AccordionButton programmatically.
-   */
-  buttonRef?: any;
 }
 
 /**
@@ -75,7 +72,6 @@ const getElementsFromData = (
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
   panelMaxHeight: string,
-  buttonRef: any
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -140,7 +136,7 @@ const getElementsFromData = (
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
                 }
                 padding={multiplePadding}
-                ref={buttonRef}
+                ref={content.buttonInteractionRef}
                 bg={
                   !content.accordionType
                     ? colorMap.default
@@ -212,7 +208,6 @@ export const Accordion = chakra(
       isDefaultOpen = false,
       isAlwaysRendered = false,
       panelMaxHeight,
-      buttonRef,
       ...rest
     } = props;
 
@@ -235,7 +230,6 @@ export const Accordion = chakra(
           isAlwaysRendered,
           isDarkMode,
           panelMaxHeight,
-          buttonRef
         )}
       </ChakraAccordion>
     );

@@ -458,6 +458,7 @@ export const MultiSelect = chakra(
             accordionData={[
               {
                 accordionType: "default",
+                buttonInteractionRef: accordianButtonRef,
                 label: buttonTextLabel(),
                 panel: displayAccordionData(),
               },
@@ -470,7 +471,6 @@ export const MultiSelect = chakra(
             sx={{
               ...styles.accordionStyles,
             }}
-            buttonRef={accordianButtonRef}
           />
         </Box>
       );
