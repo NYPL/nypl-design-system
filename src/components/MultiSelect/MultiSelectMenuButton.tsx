@@ -19,7 +19,8 @@ export interface MultiSelectMenuButtonProps {
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   onKeyDown?: () => void;
-  buttonRef: any;
+  /** Ref to the Accordion Button element. */
+  accordianButtonRef: any;
 }
 
 /**
@@ -37,7 +38,7 @@ const MultiSelectMenuButton = forwardRef<
     isOpen,
     multiSelectId,
     multiSelectLabelText,
-    buttonRef,
+    accordianButtonRef,
     onClear,
     selectedItems,
   } = props;
@@ -65,7 +66,8 @@ const MultiSelectMenuButton = forwardRef<
       data-testid="multi-select-close-button-testid"
       onClick={() => {
         onClear();
-        buttonRef.current?.focus();
+        // Set focus on the Accordion Button when close the selected items count button.
+        accordianButtonRef.current?.focus();
       }}
       __css={styles.selectedItemsCountButton}
     >
