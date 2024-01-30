@@ -114,6 +114,7 @@ export const CheckboxGroup = chakra(
     }
     if (checkboxData?.length) {
       checkboxData.forEach((boxDatum: CheckboxProps, i) => {
+        console.log("spaghetti", i.toLocaleString());
         const props = {
           ...boxDatum,
           isRequired,
