@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import { SectionTypes } from "../../helpers/types";
 
 export interface MenuProps {
@@ -41,21 +41,21 @@ export interface MenuProps {
   showLabel?: boolean;
 }
 
+/**Type for the icons/images displayed inline with menu items. */
 interface Media {
-  // Type for the icons/images displayed inline with menu items.
   type: string;
   name?: IconNames;
   src?: string;
   alt?: string;
 }
 
-// The three types of menu items:
+/** The three types of menu items: */
 interface ActionItem {
   type: "action";
   label: string;
   id: string;
   media?: Media | null;
-  onClick: () => void;
+  onClick: (id: string) => void;
 }
 
 interface GroupItem {
@@ -70,8 +70,8 @@ interface DividerItem {
   id: string;
 }
 
-// List items can be one of the three types:
-type ListItemsData = ActionItem | GroupItem | DividerItem;
+/** List items can be one of the three types: */
+export type ListItemsData = ActionItem | GroupItem | DividerItem;
 
 const Menu = chakra(
   forwardRef<HTMLDivElement, MenuProps>(
@@ -79,7 +79,7 @@ const Menu = chakra(
       className,
       id,
       labelText,
-      listAlignment,
+      listAlignment = "left",
       selectedItem,
       highlightColor,
       showBorder = true,
@@ -90,10 +90,20 @@ const Menu = chakra(
       const styles = useMultiStyleConfig("Menu", {
         highlightColor,
         showBorder,
+        showLabel,
       });
 
+      /**  Handle selection alongside custom onClick behavior. */
+      const [selected, setSelected] = useState(selectedItem);
+      const handleSelect = (id, customHandler) => {
+        if (customHandler) {
+          customHandler(id);
+        }
+        setSelected(id);
+      };
+
+      /** Helper function that renders either an Image or an Icon for a menu item. */
       const renderMedia = (media: Media | null) => {
-        // Helper function that renders either an Image or an Icon for a menu item.
         if (media) {
           if (media.type === "icon") {
             return <Icon name={media.name} size="medium" />;
@@ -111,8 +121,8 @@ const Menu = chakra(
         return null;
       };
 
+      /** Renders the trigger button for the Menu List to open or close. */
       const getButton = (isOpen) => (
-        // Renders the trigger button for the Menu List to open or close.
         <MenuButton
           sx={styles.menuButton}
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
@@ -127,13 +137,15 @@ const Menu = chakra(
               />
             </>
           )}
-          {!showLabel && <Icon name="arrow" size="xsmall" />}
+          {!showLabel && (
+            <Icon name="arrow" size={showBorder ? "small" : "medium"} />
+          )}
         </MenuButton>
       );
 
-      const getMenuElements = (data: ListItemsData[] = [], selected) =>
-        /** Renders all Menu Items, passed to the Menu List. Flattened into a reduce() so that
+      /** Renders all Menu Items to be passed to the Menu List. Flattened into a reduce() so that
        Groups of items display together. */
+      const getMenuElements = (data: ListItemsData[] = [], selectedItem) =>
         data.reduce((lst, item) => {
           if (item.type === "divider") {
             // If item is a divider
@@ -148,10 +160,10 @@ const Menu = chakra(
               ...lst,
               <MenuGroup
                 key={item.id}
-                sx={{ ...styles.groupItem }}
+                sx={styles.groupItem}
                 title={item.label}
               />,
-              ...getMenuElements(item.children, selected),
+              ...getMenuElements(item.children, selectedItem),
             ];
           }
           // If item is an action item
@@ -160,9 +172,11 @@ const Menu = chakra(
             <MenuItem
               key={item.id}
               isFocusable={true}
-              onClick={item.onClick}
-              className={isSelected ? "active & hover" : ""}
-              sx={styles.actionItem}
+              onClick={() => handleSelect(item.id, item.onClick)}
+              className={isSelected ? "selected" : ""}
+              sx={{
+                ...styles.actionItem,
+              }}
             >
               <>
                 <div

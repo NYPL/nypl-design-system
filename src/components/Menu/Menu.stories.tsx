@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import { sectionTypeArray } from "../../helpers/types";
 
-import Menu from "./Menu";
+import Menu, { ListItemsData } from "./Menu";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
@@ -17,7 +17,6 @@ const meta: Meta<typeof Menu> = {
       options: sectionTypeArray,
     },
     listAlignment: {
-      controls: { type: "radio" },
       options: ["left", "right"],
       table: { defaultValue: { summary: "left" } },
     },
@@ -27,8 +26,261 @@ const meta: Meta<typeof Menu> = {
 export default meta;
 type Story = StoryObj<typeof Menu>;
 
+const defaultListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    label: "I'm item 1",
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-2",
+    label: "I'm item 2",
+    onClick: () => {
+      console.log("Item Title 2 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+  },
+];
+
+const iconListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    label: "I'm item 1",
+    media: { type: "icon", name: "search" },
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-2",
+    label: "I'm item 2",
+    media: { type: "icon", name: "arrow" },
+    onClick: () => {
+      console.log("Item Title 2 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    media: { type: "icon", name: "actionCheckCircle" },
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+  },
+];
+
+const imageListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    label: "I'm item 1",
+    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-2",
+    label: "I'm item 2",
+    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    onClick: () => {
+      console.log("Item Title 2 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+  },
+];
+
+const longListItems: ListItemsData[] = [
+  {
+    type: "group",
+    id: "group-1",
+    label: "I'm group 1",
+    children: [
+      {
+        type: "action",
+        id: "item-title-1",
+        label: "I'm item 1",
+        onClick: () => {
+          console.log("Item Title 1 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-2",
+        label: "I'm item 2",
+        onClick: () => {
+          console.log("Item Title 2 clicked");
+        },
+      },
+    ],
+  },
+  { type: "divider", id: "divider-1" },
+  {
+    type: "group",
+    id: "group-2",
+    label: "I'm group 2",
+    children: [
+      {
+        type: "action",
+        id: "item-title-3",
+        label: "I'm item 3",
+        onClick: () => {
+          console.log("Item Title 3 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-4",
+        label: "I'm item 4",
+        onClick: () => {
+          console.log("Item Title 4 clicked");
+        },
+      },
+    ],
+  },
+];
+
+const reallyLongListItems: ListItemsData[] = [
+  {
+    type: "group",
+    id: "group-1",
+    label: "I'm group 1",
+    children: [
+      {
+        type: "action",
+        id: "item-title-1",
+        label: "I'm item 1",
+        onClick: () => {
+          console.log("Item Title 1 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-2",
+        label: "I'm item 2",
+        onClick: () => {
+          console.log("Item Title 2 clicked");
+        },
+      },
+    ],
+  },
+  {
+    type: "group",
+    id: "group-2",
+    label: "I'm group 2",
+    children: [
+      {
+        type: "action",
+        id: "item-title-3",
+        label: "I'm item 3",
+        onClick: () => {
+          console.log("Item Title 3 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-4",
+        label: "I'm item 4",
+        onClick: () => {
+          console.log("Item Title 4 clicked");
+        },
+      },
+    ],
+  },
+  {
+    type: "group",
+    id: "group-3",
+    label: "I'm group 3",
+    children: [
+      {
+        type: "action",
+        id: "item-title-5",
+        label: "I'm item 5",
+        onClick: () => {
+          console.log("Item Title 5 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-6",
+        label: "I'm item 6",
+        onClick: () => {
+          console.log("Item Title 6 clicked");
+        },
+      },
+    ],
+  },
+  { type: "divider", id: "divider-1" },
+  {
+    type: "action",
+    id: "item-title-7",
+    label: "I'm item 7",
+    onClick: () => {
+      console.log("Item Title 7 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-8",
+    label: "I'm item 8",
+    onClick: () => {
+      console.log("Item Title 8 clicked");
+    },
+  },
+];
+
+const wideListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    label: "I'm item 1 and I'm very long, too long even, I should be shorter",
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-2",
+    label: "I'm item 2 and I'm also very very long",
+    onClick: () => {
+      console.log("Item Title 2 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+  },
+];
+
 /**
- * Main Story for the Menu component. This must contains the `args`
+ * Main Story for the Menu component. This must contain the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
@@ -41,242 +293,25 @@ export const WithControls: Story = {
     listAlignment: undefined,
     highlightColor: undefined,
     selectedItem: undefined,
-    listItemsData: [
-      {
-        type: "action",
-        id: "item-title-1",
-        label: "I'm item 1",
-        media: { type: "icon", name: "search" },
-        onClick: () => {
-          console.log("Item Title 1 clicked");
-        },
-      },
-      {
-        type: "action",
-        id: "item-title-2",
-        label: "I'm item 2",
-        media: { type: "icon", name: "arrow" },
-        onClick: () => {
-          console.log("Item Title 2 clicked");
-        },
-      },
-      {
-        type: "action",
-        id: "item-title-3",
-        label: "I'm item 3",
-        media: { type: "icon", name: "actionCheckCircle" },
-        onClick: () => {
-          console.log("Item Title 3 clicked");
-        },
-      },
-    ],
+    listItemsData: undefined,
   },
   render: (args) => (
     <Menu
       {...args}
       labelText={args.labelText}
-      listItemsData={args.listItemsData}
+      listItemsData={defaultListItems}
     />
   ),
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
     },
     jest: ["Menu.test.tsx"],
   },
 };
 
 // The following are additional Menu Stories.
-export const MenuWithGroup: Story = {
-  args: {
-    className: undefined,
-    id: "Menu-id",
-    labelText: "I'm the menu",
-    showLabel: true,
-    showBorder: true,
-    listAlignment: undefined,
-    highlightColor: undefined,
-    selectedItem: "item-title-2",
-    listItemsData: [
-      {
-        type: "group",
-        id: "group-1",
-        label: "I'm group 1",
-        children: [
-          {
-            type: "action",
-            id: "item-title-1",
-            label: "I'm item 1",
-            onClick: () => {
-              console.log("Item Title 1 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-2",
-            label: "I'm item 2",
-            onClick: () => {
-              console.log("Item Title 2 clicked");
-            },
-          },
-        ],
-      },
-      {
-        type: "group",
-        id: "group-2",
-        label: "I'm group 2",
-        children: [
-          {
-            type: "action",
-            id: "item-title-3",
-            label: "I'm item 3",
-            onClick: () => {
-              console.log("Item Title 3 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-4",
-            label: "I'm item 4",
-            onClick: () => {
-              console.log("Item Title 4 clicked");
-            },
-          },
-        ],
-      },
-    ],
-  },
-  render: (args) => (
-    <Menu
-      {...args}
-      labelText={args.labelText}
-      listItemsData={args.listItemsData}
-    />
-  ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
-    },
-    jest: ["Menu.test.tsx"],
-  },
-};
-
-export const MenuWithScroll: Story = {
-  args: {
-    className: undefined,
-    id: "Menu-id",
-    labelText: "I scroll!",
-    showLabel: true,
-    showBorder: true,
-    listAlignment: undefined,
-    highlightColor: undefined,
-    selectedItem: "item-title-2",
-    listItemsData: [
-      {
-        type: "group",
-        id: "group-1",
-        label: "I'm group 1",
-        children: [
-          {
-            type: "action",
-            id: "item-title-1",
-            label: "I'm item 1",
-            onClick: () => {
-              console.log("Item Title 1 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-2",
-            label: "I'm item 2",
-            onClick: () => {
-              console.log("Item Title 2 clicked");
-            },
-          },
-        ],
-      },
-      {
-        type: "group",
-        id: "group-2",
-        label: "I'm group 2",
-        children: [
-          {
-            type: "action",
-            id: "item-title-3",
-            label: "I'm item 3",
-            onClick: () => {
-              console.log("Item Title 3 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-4",
-            label: "I'm item 4",
-            onClick: () => {
-              console.log("Item Title 4 clicked");
-            },
-          },
-        ],
-      },
-      {
-        type: "group",
-        id: "group-3",
-        label: "I'm group 3",
-        children: [
-          {
-            type: "action",
-            id: "item-title-5",
-            label: "I'm item 5",
-            onClick: () => {
-              console.log("Item Title 5 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-6",
-            label: "I'm item 6",
-            onClick: () => {
-              console.log("Item Title 6 clicked");
-            },
-          },
-        ],
-      },
-      { type: "divider", id: "divider-1" },
-      {
-        type: "action",
-        id: "item-title-7",
-        label: "I'm item 7",
-        onClick: () => {
-          console.log("Item Title 7 clicked");
-        },
-      },
-      {
-        type: "action",
-        id: "item-title-8",
-        label: "I'm item 8",
-        onClick: () => {
-          console.log("Item Title 8 clicked");
-        },
-      },
-    ],
-  },
-  render: (args) => (
-    <Menu
-      {...args}
-      labelText={args.labelText}
-      listItemsData={args.listItemsData}
-    />
-  ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
-    },
-    jest: ["Menu.test.tsx"],
-  },
-};
 
 export const MenuTypes: Story = {
   args: {
@@ -287,122 +322,85 @@ export const MenuTypes: Story = {
     showBorder: true,
     listAlignment: undefined,
     highlightColor: undefined,
-    selectedItem: "item-title-2",
-    listItemsData: [
-      {
-        type: "action",
-        id: "item-title-1",
-        label: "I'm item 1",
-        onClick: () => {
-          console.log("Item Title 1 clicked");
-        },
-      },
-      {
-        type: "action",
-        id: "item-title-2",
-        label: "I'm item 2",
-        media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
-        onClick: () => {
-          console.log("Item Title 2 clicked");
-        },
-      },
-      {
-        type: "action",
-        id: "item-title-3",
-        label: "I'm item 3",
-        media: { type: "icon", name: "search" },
-        onClick: () => {
-          console.log("Item Title 3 clicked");
-        },
-      },
-    ],
+    selectedItem: undefined,
+    listItemsData: undefined,
   },
   render: (args) => (
     <HStack>
       <Menu
         {...args}
         labelText={"Default Button"}
-        listItemsData={args.listItemsData}
+        listItemsData={defaultListItems}
       />
       <Menu
         {...args}
         showBorder={false}
         labelText={"Text Button"}
-        listItemsData={args.listItemsData}
+        listItemsData={defaultListItems}
       />
-      <Menu {...args} showLabel={false} listItemsData={args.listItemsData} />
+      <Menu {...args} showLabel={false} listItemsData={defaultListItems} />
       <Menu
         {...args}
         showBorder={false}
         showLabel={false}
-        listItemsData={args.listItemsData}
+        listItemsData={defaultListItems}
       />
     </HStack>
   ),
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
     },
     jest: ["Menu.test.tsx"],
   },
 };
 
-export const MenuAlignment: Story = {
+export const MenuContent: Story = {
   args: {
     className: undefined,
     id: "Menu-id",
     labelText: "I'm the menu",
     showLabel: true,
     showBorder: true,
-    listAlignment: "left",
+    listAlignment: undefined,
     highlightColor: undefined,
-    selectedItem: "item-title-2",
-    listItemsData: [
-      {
-        type: "group",
-        id: "group-1",
-        label: "I'm group 1",
-        children: [
-          {
-            type: "action",
-            id: "item-title-1",
-            label: "I'm item 1",
-            onClick: () => {
-              console.log("Item Title 1 clicked");
-            },
-          },
-          {
-            type: "action",
-            id: "item-title-2",
-            label: "I'm item 2",
-            onClick: () => {
-              console.log("Item Title 2 clicked");
-            },
-          },
-        ],
-      },
-    ],
+    selectedItem: undefined,
+    listItemsData: undefined,
   },
   render: (args) => (
     <HStack>
       <Menu
         {...args}
-        labelText={args.labelText}
-        listItemsData={args.listItemsData}
+        labelText={"I have images"}
+        listItemsData={imageListItems}
       />
-      {/* <Menu
+      <Menu
         {...args}
-        listAlignment="right"
-        labelText={args.labelText}
-        listItemsData={args.listItemsData}
-      /> */}
+        labelText={"I have icons"}
+        listItemsData={iconListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"I have groups"}
+        listItemsData={longListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"I have max height"}
+        listItemsData={reallyLongListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"I have max width"}
+        listItemsData={wideListItems}
+      />
     </HStack>
   ),
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/4hI4ibH9Wz9XtuBmPlwJjh/Exploration---Menu?type=design&node-id=2032-7203&mode=design&t=QeXxeYNlIYDpBAxp-0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
     },
     jest: ["Menu.test.tsx"],
   },
