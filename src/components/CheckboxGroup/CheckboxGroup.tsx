@@ -112,6 +112,7 @@ export const CheckboxGroup = chakra(
         "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
       );
     }
+    console.log("render checkbox group");
     if (checkboxData?.length) {
       checkboxData.forEach((boxDatum: CheckboxProps, i) => {
         console.log("spaghetti", i.toLocaleString());
