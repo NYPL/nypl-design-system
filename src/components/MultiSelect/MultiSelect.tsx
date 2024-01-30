@@ -84,8 +84,8 @@ export const MultiSelect = chakra(
         ...rest
       } = props;
 
-      // Create a ref that we add to the element for which we want to detect outside clicks.
-      const internalRef: React.RefObject<HTMLDivElement> =
+      // Create a ref to hold a reference to the accordian button, enabling us to programmatically focus it.
+      const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
 
       // Control the open or closed state of the MultiSelect.
@@ -452,7 +452,7 @@ export const MultiSelect = chakra(
             isOpen={isDefaultOpen}
             selectedItems={selectedItems}
             onClear={onClear}
-            buttonRef={internalRef}
+            accordianButtonRef={accordianButtonRef}
           />
           <Accordion
             accordionData={[
@@ -470,7 +470,7 @@ export const MultiSelect = chakra(
             sx={{
               ...styles.accordionStyles,
             }}
-            buttonRef={internalRef}
+            buttonRef={accordianButtonRef}
           />
         </Box>
       );
