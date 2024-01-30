@@ -35,7 +35,7 @@ export interface AccordionProps {
    * within accordion panel is greater than height set by panelMaxHeight, a
    * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
-  /** 
+  /**
    * A buttonRef that will hold a reference to the underlying DOM element of the AccordionButton.
    * This buttonRef can be used to interact with or manipulate the AccordionButton programmatically.
    */

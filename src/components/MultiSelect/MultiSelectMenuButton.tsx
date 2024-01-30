@@ -66,8 +66,8 @@ const MultiSelectMenuButton = forwardRef<
       data-testid="multi-select-close-button-testid"
       onClick={() => {
         onClear();
-      // Set focus on the Accordion Button when close the selected items count button.
-      accordianButtonRef.current?.focus();
+        // Set focus on the Accordion Button when close the selected items count button.
+        accordianButtonRef.current?.focus();
       }}
       __css={styles.selectedItemsCountButton}
     >
