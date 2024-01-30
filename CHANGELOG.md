@@ -16,10 +16,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
 - Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
+- Adds `5%` and `10%` opacities for the semantic colors in the color pallette.
 
 ### Updates
 
 - Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
+- Updates the `StatusBadge` component to add the `type` prop.
+- Updates the `StatusBadge` component to change the UI styles.
 
 ## 2.1.3 (December 7, 2023)
 
