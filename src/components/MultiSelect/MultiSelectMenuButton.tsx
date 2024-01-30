@@ -19,7 +19,7 @@ export interface MultiSelectMenuButtonProps {
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   onKeyDown?: () => void;
-  /** This reference to the Accordion Button. */
+  /** Ref to the Accordion Button element. */
   accordianButtonRef: any;
 }
 
