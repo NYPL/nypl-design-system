@@ -1,4 +1,4 @@
-import { Box, chakra } from "@chakra-ui/react";
+import { Box, chakra, ChakraComponent } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
@@ -26,51 +26,65 @@ export interface FormProps extends FormBaseProps {
 }
 
 /** FormRow child-component */
-export const FormRow: React.FC<any> = chakra(
-  (props: React.PropsWithChildren<FormChildProps>) => {
-    const { children, className, gap, id, ...rest } = props;
-    const count = React.Children.count(children);
-    const alteredChildren = React.Children.map(
-      children as JSX.Element,
-      (child: React.ReactElement, i) => {
-        if (!child) return null;
-        if (child.type === FormField || child.props.mdxType === "FormField") {
-          return React.cloneElement(child, { id: `${id}-grandchild${i}` });
-        }
-        console.warn(
-          "NYPL Reservoir FormRow: Children must be `FormField` components."
-        );
-        return null;
+export const FormRow: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FormChildProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  FormChildProps
+> = chakra((props: React.PropsWithChildren<FormChildProps>) => {
+  const { children, className, gap, id, ...rest } = props;
+  const count = React.Children.count(children);
+  const alteredChildren = React.Children.map(
+    children as JSX.Element,
+    (child: React.ReactElement, i) => {
+      if (!child) return null;
+      if (child.type === FormField || child.props.mdxType === "FormField") {
+        return React.cloneElement(child, { id: `${id}-grandchild${i}` });
       }
-    );
-    return (
-      <SimpleGrid
-        columns={count}
-        className={className}
-        gap={gap}
-        id={id}
-        {...rest}
-      >
-        {alteredChildren}
-      </SimpleGrid>
-    );
-  }
-);
+      console.warn(
+        "NYPL Reservoir FormRow: Children must be `FormField` components."
+      );
+      return null;
+    }
+  );
+  return (
+    <SimpleGrid
+      columns={count}
+      className={className}
+      gap={gap}
+      id={id}
+      {...rest}
+    >
+      {alteredChildren}
+    </SimpleGrid>
+  );
+});
 
 /** FormField child-component */
-export const FormField: React.FC<any> = chakra(
-  (props: React.PropsWithChildren<FormChildProps>) => {
-    const { children, className, gap, id, ...rest } = props;
-    return (
-      <SimpleGrid columns={1} className={className} gap={gap} id={id} {...rest}>
-        {children}
-      </SimpleGrid>
-    );
-  }
-);
+export const FormField: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FormChildProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  FormChildProps
+> = chakra((props: React.PropsWithChildren<FormChildProps>) => {
+  const { children, className, gap, id, ...rest } = props;
+  return (
+    <SimpleGrid columns={1} className={className} gap={gap} id={id} {...rest}>
+      {children}
+    </SimpleGrid>
+  );
+});
 
 /** Main Form component */
-export const Form: React.FC<any> = chakra(
+export const Form: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FormProps> &
+      React.RefAttributes<HTMLDivElement & HTMLFormElement>
+  >,
+  React.PropsWithChildren<FormProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLFormElement,
     React.PropsWithChildren<FormProps>

@@ -26,7 +26,7 @@
   // The left and right arrow buttons.
   .react-datepicker__navigation {
     &-icon {
-      top: 5px;
+      top: 2px;
       width: 0px;
       &::before {
         border-color: var(--nypl-colors-ui-border-default);
@@ -118,6 +118,7 @@
       border-bottom-color: var(--nypl-colors-ui-border-default) !important;
     }
     &::after {
+      border-top-color: var(--nypl-colors-dark-ui-bg-hover) !important;
       border-bottom-color: var(--nypl-colors-dark-ui-bg-hover) !important;
     }
   }

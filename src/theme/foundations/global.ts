@@ -28,6 +28,9 @@ const global = {
   b: {
     fontWeight: "bold",
   },
+  strong: {
+    fontWeight: "bold",
+  },
   svg: {
     display: "inline",
   },

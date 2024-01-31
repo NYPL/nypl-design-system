@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -21,10 +22,14 @@ const meta: Meta<typeof VideoPlayer> = {
       },
     },
     className: { control: false },
+    descriptionText: { control: "text" },
+    embedCode: { control: false },
+    headingText: { control: "text" },
+    helperText: { control: "text" },
     id: { control: false },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
+    iframeTitle: { control: "text" },
+    showHelperInvalidText: argsBooleanType(true),
+    videoId: { control: "text" },
     videoType: {
       controls: { type: "radio" },
       options: VideoPlayerTypesArray,

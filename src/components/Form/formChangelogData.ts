@@ -13,23 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
-  },
-  {
-    date: "2023-12-07",
-    version: "2.1.3",
-    type: "Update",
-    affects: ["Styles"],
-    notes: [
-      'Udpates the "digitalCollectionsBlack" variant to use NYPL color design tokens.',
-    ],
-  },
-  {
-    date: "2023-11-09",
-    version: "2.1.2",
-    type: "Update",
-    affects: ["Documentation", "Functionality", "Styles"],
-    notes: ["Adds `sizeBasedOn` prop to the `Logo` component."],
+    affects: ["Documentation"],
+    notes: ["Updates the component's type definition to be more specific."],
   },
 ];
