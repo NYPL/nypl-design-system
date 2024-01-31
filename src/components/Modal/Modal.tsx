@@ -72,7 +72,7 @@ export const BaseModal: ChakraComponent<
 
           <ModalFooter>
             <ButtonGroup>
-              <Button id="modal-close-btn" height="40px" onClick={onClose}>
+              <Button id="modal-close-btn" onClick={onClose}>
                 {closeButtonLabel}
               </Button>
             </ButtonGroup>
@@ -103,7 +103,7 @@ export const ModalTrigger: ChakraComponent<
       };
       return (
         <>
-          <Button id="modal-open-btn" height="40px" onClick={onOpen} ref={ref}>
+          <Button id="modal-open-btn" onClick={onOpen} ref={ref}>
             {buttonText}
           </Button>
 
