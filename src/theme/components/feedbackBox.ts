@@ -69,6 +69,7 @@ const FeedbackBox = {
       bottom: "0",
       right: "0",
       zIndex: "5",
+      _focus: { boxShadow: "0 0 0 6px var(--nypl-colors-ui-white) !important" },
     },
   },
 };

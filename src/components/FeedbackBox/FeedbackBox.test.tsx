@@ -106,6 +106,26 @@ describe("FeedbackBox", () => {
     ).toBeInTheDocument();
   });
 
+  it("sets the invalid state for the comment field if it is empty when submitted", () => {
+    render(
+      <FeedbackBox
+        onSubmit={onSubmit}
+        showCategoryField
+        showEmailField
+        title="Help and Feedback"
+      />
+    );
+
+    const button = screen.getByRole("button", { name: "Help and Feedback" });
+
+    button.click();
+
+    const submit = screen.getByRole("button", { name: "Submit" });
+    submit.click();
+
+    expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
+  });
+
   it("renders optional additional description text", () => {
     render(
       <FeedbackBox
