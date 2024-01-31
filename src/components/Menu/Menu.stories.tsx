@@ -293,7 +293,7 @@ export const WithControls: Story = {
     showBorder: true,
     listAlignment: undefined,
     highlightColor: "blogs",
-    selectedItem: "item-title-1",
+    selectedItem: undefined,
     listItemsData: undefined,
   },
   render: (args) => (

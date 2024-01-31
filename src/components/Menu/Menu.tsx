@@ -93,7 +93,6 @@ const Menu = chakra(
       });
 
       /**  Handle selection alongside custom onClick behavior. */
-      // useStateWithDependencies
       const [selected, setSelected] = useState(selectedItem);
       const handleSelect = (id, customHandler) => {
         if (customHandler) {
@@ -102,13 +101,75 @@ const Menu = chakra(
         setSelected(id);
       };
 
-      // Component prop validation
-      if (!listItemsData) {
-        console.warn(
-          "NYPL Reservoir Menu: The `listItemsData` prop is required."
-        );
-        return null;
-      }
+      /**  Check props. */
+      const validateProps = (listItemsData, selectedItem) => {
+        if (!listItemsData) {
+          console.warn(
+            "NYPL Reservoir Menu: The `listItemsData` prop is required."
+          );
+        } else if (
+          selectedItem &&
+          !listItemsData.map((item) => item.id).includes(selectedItem)
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: The `selectedItem` prop does not match any of the menu items."
+          );
+        } else if (
+          new Set(listItemsData.map((item) => item.id)).size !==
+          listItemsData.length
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: The `id` values for the list items are not all unique."
+          );
+        } else if (
+          listItemsData.some(
+            (item) =>
+              !item.type ||
+              item.type === "" ||
+              !(
+                item.type === "group" ||
+                item.type === "action" ||
+                item.type === "divider"
+              )
+          )
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: A `type` value is required for each list item."
+          );
+        } else if (listItemsData.some((item) => !item.id || item.id === "")) {
+          console.warn(
+            "NYPL Reservoir Menu: An `id` value is required for each list item."
+          );
+        } else if (
+          listItemsData.some(
+            (item) =>
+              (item.type === "action" || item.type === "group") &&
+              (!item.label || item.label.trim() === "")
+          )
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: A `label` value is required for all list actions and groups."
+          );
+        } else if (
+          listItemsData.some((item) => item.type === "action" && !item.onClick)
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: An `onClick` function is required for all actions."
+          );
+        } else if (
+          listItemsData.some(
+            (item) =>
+              item.type === "group" &&
+              (!item.children || item.children.length === 0)
+          )
+        ) {
+          console.warn(
+            "NYPL Reservoir Menu: A `children` array is required for all list groups."
+          );
+        }
+        return true;
+      };
+      validateProps(listItemsData, selectedItem);
 
       /** Helper function that renders either an Image or an Icon for a menu item. */
       const renderMedia = (media: Media | null) => {
@@ -180,6 +241,7 @@ const Menu = chakra(
             <MenuItem
               key={item.id}
               isFocusable={true}
+              data-testid={isSelected ? "selected-item" : ""}
               onClick={() => handleSelect(item.id, item.onClick)}
               sx={{
                 ...styles.actionItem,
@@ -211,7 +273,7 @@ const Menu = chakra(
               flexDirection={listAlignment === "right" ? "row-reverse" : "row"}
             >
               {getButton(isOpen)}
-              <MenuList sx={styles.menuList}>
+              <MenuList data-testid="menuList" sx={styles.menuList}>
                 {getMenuElements(listItemsData, selectedItem)}
               </MenuList>
             </Flex>

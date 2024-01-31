@@ -19,7 +19,8 @@ import Menu from "../Menu/Menu";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#menu-types" target="_self">Menu Types</Link>}
-- {<Link href="#menu-content-variations" target="_self">Menu Content</Link>}
+- {<Link href="#menu-content" target="_self">Menu Content</Link>}
+- {<Link href="#menu-highlight-colors" target="_self">Menu Highlight Colors</Link>}
 
 ## Overview
 
@@ -66,4 +67,9 @@ The menu can be aligned to the left or right by its consuming app.
 
 <Canvas of={MenuStories.MenuContent} />
 
-## Menu Highlight Color Variations
+## Menu Highlight Colors
+
+The default coloring for highlighting the selected item is grayscale, but the highlight color can be set using the `highlightColor` prop.
+These colors correspond to the NYPL section colors. Some of these options are displayed below:
+
+<Canvas of={MenuStories.MenuHighlightColors} />
