@@ -15,6 +15,7 @@ const meta: Meta<typeof Menu> = {
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
+      defaultValue: "blogs",
     },
     listAlignment: {
       options: ["left", "right"],
@@ -291,8 +292,8 @@ export const WithControls: Story = {
     showLabel: true,
     showBorder: true,
     listAlignment: undefined,
-    highlightColor: undefined,
-    selectedItem: undefined,
+    highlightColor: "blogs",
+    selectedItem: "item-title-1",
     listItemsData: undefined,
   },
   render: (args) => (
@@ -321,7 +322,7 @@ export const MenuTypes: Story = {
     showLabel: true,
     showBorder: true,
     listAlignment: undefined,
-    highlightColor: undefined,
+    highlightColor: "blogs",
     selectedItem: undefined,
     listItemsData: undefined,
   },
@@ -364,7 +365,7 @@ export const MenuContent: Story = {
     showLabel: true,
     showBorder: true,
     listAlignment: undefined,
-    highlightColor: undefined,
+    highlightColor: "blogs",
     selectedItem: undefined,
     listItemsData: undefined,
   },
@@ -394,6 +395,59 @@ export const MenuContent: Story = {
         {...args}
         labelText={"I have max width"}
         listItemsData={wideListItems}
+      />
+    </HStack>
+  ),
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
+    },
+    jest: ["Menu.test.tsx"],
+  },
+};
+
+export const MenuHighlightColors: Story = {
+  args: {
+    className: undefined,
+    id: "Menu-id",
+    labelText: "I'm the menu",
+    showLabel: true,
+    showBorder: true,
+    listAlignment: undefined,
+    highlightColor: "blogs",
+    selectedItem: undefined,
+    listItemsData: undefined,
+  },
+  render: (args) => (
+    <HStack>
+      <Menu
+        {...args}
+        labelText={"Blogs (default) "}
+        highlightColor={"blogs"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"Research"}
+        highlightColor={"research"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"LPA"}
+        highlightColor={"researchLibraryLpa"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        {...args}
+        labelText={"Education"}
+        highlightColor={"education"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
       />
     </HStack>
   ),

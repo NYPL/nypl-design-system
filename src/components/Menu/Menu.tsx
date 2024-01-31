@@ -8,7 +8,6 @@ import {
   MenuDivider,
   useMultiStyleConfig,
   Flex,
-  Box,
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
@@ -81,7 +80,7 @@ const Menu = chakra(
       labelText,
       listAlignment = "left",
       selectedItem,
-      highlightColor,
+      highlightColor = "blogs",
       showBorder = true,
       showLabel = true,
       listItemsData,
@@ -94,6 +93,7 @@ const Menu = chakra(
       });
 
       /**  Handle selection alongside custom onClick behavior. */
+      // useStateWithDependencies
       const [selected, setSelected] = useState(selectedItem);
       const handleSelect = (id, customHandler) => {
         if (customHandler) {
@@ -101,6 +101,14 @@ const Menu = chakra(
         }
         setSelected(id);
       };
+
+      // Component prop validation
+      if (!listItemsData) {
+        console.warn(
+          "NYPL Reservoir Menu: The `listItemsData` prop is required."
+        );
+        return null;
+      }
 
       /** Helper function that renders either an Image or an Icon for a menu item. */
       const renderMedia = (media: Media | null) => {
@@ -173,9 +181,9 @@ const Menu = chakra(
               key={item.id}
               isFocusable={true}
               onClick={() => handleSelect(item.id, item.onClick)}
-              className={isSelected ? "selected" : ""}
               sx={{
                 ...styles.actionItem,
+                ...(isSelected && styles.selected),
               }}
             >
               <>
@@ -197,22 +205,18 @@ const Menu = chakra(
         }, []);
 
       return (
-        <Box sx={styles}>
-          <ChakraMenu id={id} autoSelect={false} {...rest}>
-            {({ isOpen }) => (
-              <Flex
-                flexDirection={
-                  listAlignment === "right" ? "row-reverse" : "row"
-                }
-              >
-                {getButton(isOpen)}
-                <MenuList sx={styles.menuList}>
-                  {getMenuElements(listItemsData, selectedItem)}
-                </MenuList>
-              </Flex>
-            )}
-          </ChakraMenu>
-        </Box>
+        <ChakraMenu id={id} autoSelect={false} {...rest}>
+          {({ isOpen }) => (
+            <Flex
+              flexDirection={listAlignment === "right" ? "row-reverse" : "row"}
+            >
+              {getButton(isOpen)}
+              <MenuList sx={styles.menuList}>
+                {getMenuElements(listItemsData, selectedItem)}
+              </MenuList>
+            </Flex>
+          )}
+        </ChakraMenu>
       );
     }
   )
