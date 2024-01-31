@@ -16,7 +16,7 @@ const buttonStyles = {
   " > span ": {
     display: "flex",
     alignItems: "center",
-    minHeight: "24px",
+    minHeight: "21px",
   },
   color: "ui.typography.heading",
   fontWeight: "medium",

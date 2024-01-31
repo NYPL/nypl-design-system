@@ -83,7 +83,7 @@ const getElementsFromData = (
   // Otherwise, use the default.
   const multipleFontSize =
     data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
-  const multiplePadding = data?.length > 1 ? "s" : "6.5px 16px";
+  const multiplePadding = data?.length > 1 ? "18px" : "xs s";
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
