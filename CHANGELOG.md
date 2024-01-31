@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
+- Updates the base `Modal` component to use the ` useDSHeading`` hook internally to render a DS Heading for the  `headingText` prop.
 
 ## 2.1.3 (December 7, 2023)
 
