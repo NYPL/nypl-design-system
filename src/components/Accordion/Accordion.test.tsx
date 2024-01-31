@@ -211,18 +211,18 @@ describe("Accordion", () => {
   });
 
   describe("Check aria-label values", () => {
-    it("renders with attrbute generated from component prop", () => {
+    it("renders with attribute generated from component prop", () => {
       render(
         <Accordion
           accordionData={[accordionData[0]]}
           ariaLabel="Tom Nook, an Animal Crossing character"
         />
       );
-      const accordionLabel = screen.getByRole("button", {
+      const accordionPropLabel = screen.getByRole("button", {
         name: "Tom Nook, an Animal Crossing character",
       });
-      expect(accordionLabel).toBeInTheDocument();
-      expect(accordionLabel).toHaveAttribute(
+      expect(accordionPropLabel).toBeInTheDocument();
+      expect(accordionPropLabel).toHaveAttribute(
         "aria-label",
         "Tom Nook, an Animal Crossing character"
       );
@@ -247,17 +247,25 @@ describe("Accordion", () => {
           ariaLabel="Tom Nook, an Animal Crossing character"
         />
       );
-      const accordionOverrideLabel = screen.getByRole("button", {
+
+      // value from data is used
+      const accordionDataLabel = screen.getByRole("button", {
         name: "Tom Nook, known in Japan as Tanukichi",
       });
-      expect(accordionOverrideLabel).toBeInTheDocument();
-      expect(accordionOverrideLabel).toHaveAttribute(
+      expect(accordionDataLabel).toBeInTheDocument();
+      expect(accordionDataLabel).toHaveAttribute(
         "aria-label",
         "Tom Nook, known in Japan as Tanukichi"
       );
+
+      // value from prop is not used
+      const accordionPropLabel = screen.queryByText(
+        "Tom Nook, an Animal Crossing character"
+      );
+      expect(accordionPropLabel).not.toBeInTheDocument();
     });
 
-    it("generates warning ariaLabel is set twice", () => {
+    it("generates warning when ariaLabel is set twice", () => {
       render(
         <Accordion
           accordionData={[accordionDataWithAriaLabel[0]]}

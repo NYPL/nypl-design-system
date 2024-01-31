@@ -23,7 +23,8 @@ export interface AccordionDataProps {
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** Description of aria-label. */
+  /** Global aria-label value that is applied to all accordions if individual
+   * ariaLabel props are not included with accordionData entries. */
   ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
