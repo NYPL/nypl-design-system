@@ -13,6 +13,11 @@ const containerStyles = {
 };
 const buttonStyles = {
   borderWidth: "1px",
+  " > span ": {
+    display: "flex",
+    alignItems: "center",
+    minHeight: "21px",
+  },
   color: "ui.typography.heading",
   fontWeight: "medium",
   _dark: {
