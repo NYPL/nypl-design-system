@@ -4,7 +4,7 @@ import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import Checkbox from "./../Checkbox/Checkbox";
-import MultiSelectMenuButton from "./MultiSelectMenuButton";
+import MultiSelectItemsCountButton from "./MultiSelectItemsCountButton";
 import TextInput from "../TextInput/TextInput";
 
 export interface MultiSelectItem {
@@ -445,19 +445,11 @@ export const MultiSelect = chakra(
       const ariaLabelValue = `${buttonText}, ${getSelectedItemsCount} item${itemPlural} currently selected`;
       return (
         <Box id={id} __css={styles} {...rest}>
-          <MultiSelectMenuButton
-            id={`ms-${id}-menu-button`}
-            multiSelectId={id}
-            multiSelectLabelText={buttonText}
-            isOpen={isDefaultOpen}
-            selectedItems={selectedItems}
-            onClear={onClear}
-            accordianButtonRef={accordianButtonRef}
-          />
           <Accordion
             accordionData={[
               {
                 accordionType: "default",
+                // Pass the ref for interaction with the accordion button.
                 buttonInteractionRef: accordianButtonRef,
                 label: buttonTextLabel(),
                 panel: displayAccordionData(),
@@ -471,6 +463,15 @@ export const MultiSelect = chakra(
             sx={{
               ...styles.accordionStyles,
             }}
+          />
+          <MultiSelectItemsCountButton
+            id={`ms-${id}-menu-button`}
+            multiSelectId={id}
+            multiSelectLabelText={buttonText}
+            isOpen={isDefaultOpen}
+            selectedItems={selectedItems}
+            onClear={onClear}
+            accordianButtonRef={accordianButtonRef}
           />
         </Box>
       );

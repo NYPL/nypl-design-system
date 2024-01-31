@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import { useMultiStyleConfig } from "@chakra-ui/react";
-import Button from "./../Button/Button";
-import Icon from "./../Icons/Icon";
+import Button from "../Button/Button";
+import Icon from "../Icons/Icon";
 import { SelectedItems } from "./MultiSelect";
 
-export interface MultiSelectMenuButtonProps {
+export interface MultiSelectItemsCountButtonProps {
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
@@ -30,9 +30,9 @@ export interface MultiSelectMenuButtonProps {
  * the selected items and the main button's close event will not be fired
  * (as expected).
  */
-const MultiSelectMenuButton = forwardRef<
+const MultiSelectItemsCountButton = forwardRef<
   HTMLButtonElement,
-  MultiSelectMenuButtonProps
+  MultiSelectItemsCountButtonProps
 >((props, _ref) => {
   const {
     isOpen,
@@ -52,7 +52,7 @@ const MultiSelectMenuButton = forwardRef<
     selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
   }
 
-  const styles = useMultiStyleConfig("MultiSelectMenuButton", {
+  const styles = useMultiStyleConfig("MultiSelectItemsCountButton", {
     isOpen,
     hasSelectedItems: getSelectedItemsCount,
   });
@@ -69,7 +69,7 @@ const MultiSelectMenuButton = forwardRef<
         // Set focus on the Accordion Button when close the selected items count button.
         accordianButtonRef.current?.focus();
       }}
-      __css={styles.selectedItemsCountButton}
+      __css={styles}
     >
       {getSelectedItemsCount}
       <Icon
@@ -84,4 +84,4 @@ const MultiSelectMenuButton = forwardRef<
   ) : null;
 });
 
-export default MultiSelectMenuButton;
+export default MultiSelectItemsCountButton;
