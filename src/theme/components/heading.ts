@@ -52,6 +52,12 @@ export const headings = {
     lineHeight: "1.10",
     width: "auto",
     a: { textUnderlineOffset: "7px" },
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.display1",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.display1",
+    },
   },
   heading1: {
     fontWeight: "heading.heading1",
@@ -59,6 +65,12 @@ export const headings = {
     lineHeight: "1.15",
     width: "auto",
     a: { textUnderlineOffset: "6px" },
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading1",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading1",
+    },
   },
   heading2: {
     fontWeight: "heading.heading2",
@@ -66,6 +78,12 @@ export const headings = {
     lineHeight: "1.20",
     width: "auto",
     a: { textUnderlineOffset: "5px" },
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading2",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading2",
+    },
   },
   heading3: {
     fontWeight: "heading.heading3",
@@ -73,6 +91,12 @@ export const headings = {
     lineHeight: "1.25",
     width: "auto",
     a: { textUnderlineOffset: "4px" },
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading3",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading3",
+    },
   },
   heading4: {
     fontWeight: "heading.heading4",
@@ -80,18 +104,36 @@ export const headings = {
     lineHeight: "1.30",
     width: "auto",
     a: { textUnderlineOffset: "3px" },
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading4",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading4",
+    },
   },
   heading5: {
     fontWeight: "heading.heading5",
     letterSpacing: "0",
     lineHeight: "1.35",
     width: "auto",
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading5",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading4",
+    },
   },
   heading6: {
     fontWeight: "heading.heading6",
     letterSpacing: "0",
     lineHeight: "1.40",
     width: "auto",
+    "@media (min-width: 0px)": {
+      fontSize: "mobile.heading.heading6",
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "desktop.heading.heading6",
+    },
   },
 };
 

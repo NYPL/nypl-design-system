@@ -40,7 +40,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>
@@ -101,7 +101,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>
@@ -162,7 +162,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>
@@ -223,7 +223,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>
@@ -284,7 +284,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>
@@ -345,7 +345,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
             Featured
           </p>
           <h1
-            className="chakra-heading css-1hehbgj"
+            className="chakra-heading css-1xdhyk6"
           >
             Spotlight on the Public Domain
           </h1>

@@ -6,7 +6,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   id="id-wrapper"
 >
   <h2
-    className="chakra-heading css-1j5o63i"
+    className="chakra-heading css-1xdhyk6"
     id="id-heading"
   >
     heading text
@@ -55,7 +55,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   id="id-wrapper"
 >
   <h2
-    className="chakra-heading css-1j5o63i"
+    className="chakra-heading css-1xdhyk6"
     id="id-heading"
   >
     heading text

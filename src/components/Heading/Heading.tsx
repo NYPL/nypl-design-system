@@ -178,7 +178,7 @@ export const Heading = chakra(
 
       /** The default style used to map the `level` value to the corresponding
        * `size` value. */
-      const defaultRoot = "heading";
+      // const defaultRoot = "heading";
 
       /** The heading size index that acts as a separator between the smaller
        * and larger sizing styles of the overline and subtitle elements. This
@@ -187,12 +187,12 @@ export const Heading = chakra(
 
       /**  Most variant values have a number at the end, so let's remove the
        * last character from that value and see what's left. */
-      const variantRoot = variant.slice(0, -1);
+      // const variantRoot = variant.slice(0, -1);
 
       /** The `level` values should map to a corresponding `size` value. If the
        * root is "h", then reassign the root to the `defaultRoot`. This value
        * will be used to build the style object. */
-      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
+      // const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
 
       /** The new heading styles use a number with the variant style to indicate
        * which style should be used. For example, heading1, heading2, and so on.
@@ -209,13 +209,15 @@ export const Heading = chakra(
        * are being used and we don't need to worry about responsive font-size
        * styles.
        * */
-      const responsiveStyles = !isNaN(sizeIndex)
-        ? isSmallerThanDesktop
-          ? {
-              fontSize: `mobile.heading.${finalRoot}${sizeIndex}`,
-            }
-          : { fontSize: `desktop.heading.${finalRoot}${sizeIndex}` }
-        : undefined;
+      // const responsiveStyles = !isNaN(sizeIndex)
+      //   ? isSmallerThanDesktop
+      //     ? {
+      //         fontSize: `mobile.heading.${finalRoot}${sizeIndex}`,
+      //       }
+      //     : {
+      //         fontSize: `desktop.heading.${finalRoot}${sizeIndex}`
+      //       }
+      //   : undefined;
 
       /** If the overline element is rendered, we'll also need responsive styles
        * for that. */
@@ -263,11 +265,11 @@ export const Heading = chakra(
         overline || subtitle
           ? {
               ...styles,
-              ...responsiveStyles,
+              // ...responsiveStyles,
             }
           : {
               ...styles,
-              ...responsiveStyles,
+              // ...responsiveStyles,
               ...wrapperStyles,
             };
 

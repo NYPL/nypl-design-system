@@ -2,7 +2,7 @@
 
 exports[`Heading renders the UI snapshot correctly 1`] = `
 <h1
-  className="chakra-heading css-1hehbgj"
+  className="chakra-heading css-1xdhyk6"
   id="basic"
 >
   Heading text
@@ -11,7 +11,7 @@ exports[`Heading renders the UI snapshot correctly 1`] = `
 
 exports[`Heading renders the UI snapshot correctly 2`] = `
 <h1
-  className="chakra-heading css-1hehbgj"
+  className="chakra-heading css-1xdhyk6"
   id="basicWithChildText"
 >
   Heading text
@@ -20,7 +20,7 @@ exports[`Heading renders the UI snapshot correctly 2`] = `
 
 exports[`Heading renders the UI snapshot correctly 3`] = `
 <h1
-  className="chakra-heading css-1j5o63i"
+  className="chakra-heading css-1xdhyk6"
   id="customDisplaySize"
 >
   Heading with Secondary size
@@ -29,7 +29,7 @@ exports[`Heading renders the UI snapshot correctly 3`] = `
 
 exports[`Heading renders the UI snapshot correctly 4`] = `
 <h6
-  className="chakra-heading css-1bsg0mh"
+  className="chakra-heading css-1xdhyk6"
   id="otherLevel"
 >
   Heading level six
@@ -38,7 +38,7 @@ exports[`Heading renders the UI snapshot correctly 4`] = `
 
 exports[`Heading renders the UI snapshot correctly 5`] = `
 <h1
-  className="chakra-heading css-1hehbgj"
+  className="chakra-heading css-1xdhyk6"
   id="withLink"
 >
   <a
@@ -55,7 +55,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
 
 exports[`Heading renders the UI snapshot correctly 6`] = `
 <h1
-  className="chakra-heading css-1hehbgj"
+  className="chakra-heading css-1xdhyk6"
   id="withCustomLink"
 >
   Part of the heading text is
@@ -72,7 +72,7 @@ exports[`Heading renders the UI snapshot correctly 6`] = `
 
 exports[`Heading renders the UI snapshot correctly 7`] = `
 <h2
-  className="chakra-heading css-k378on"
+  className="chakra-heading css-10g9ftz"
   id="chakra"
 >
   Heading
@@ -81,7 +81,7 @@ exports[`Heading renders the UI snapshot correctly 7`] = `
 
 exports[`Heading renders the UI snapshot correctly 8`] = `
 <h2
-  className="chakra-heading css-1j5o63i"
+  className="chakra-heading css-1xdhyk6"
   data-testid="props"
   id="props"
 >
@@ -103,7 +103,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
     Overline
   </p>
   <h1
-    className="chakra-heading css-1j5o63i"
+    className="chakra-heading css-1xdhyk6"
     id="customDisplaySize"
   >
     Heading with Secondary size
@@ -118,7 +118,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
   role="group"
 >
   <h1
-    className="chakra-heading css-1j5o63i"
+    className="chakra-heading css-1xdhyk6"
     id="customDisplaySize"
   >
     Heading with Secondary size
@@ -147,7 +147,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
     Overline
   </p>
   <h1
-    className="chakra-heading css-1j5o63i"
+    className="chakra-heading css-1xdhyk6"
     id="customDisplaySize"
   >
     Heading with Secondary size
