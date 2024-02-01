@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updated to use a custom `@media query` method to handle the responsive `font-size` styles."
+      "Updated to use a custom `@media query` method to handle the responsive `font-size` styles.",
     ],
   },
   {
