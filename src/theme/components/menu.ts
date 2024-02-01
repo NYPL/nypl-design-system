@@ -17,6 +17,8 @@ const Menu = {
       type: highlightColor,
       colorValue: highlightColor === "blogs" ? "secondary" : "primary",
     });
+    const lightSectionColor = sectionColor + "-05";
+    const darkSectionColor = "dark." + sectionColor + "-10";
     return {
       groupItem: {
         padding: "8px 12px",
@@ -59,9 +61,18 @@ const Menu = {
       },
       selected: {
         fontWeight: 500,
-        borderLeftColor: sectionColor,
+        borderLeftColor:
+          highlightColor === "whatsOn" ? "#E9E9E933" : sectionColor,
         textColor: highlightColor === "blogs" ? "ui.black" : sectionColor,
         borderWidth: "0px 0px 0px 2px",
+        background: lightSectionColor,
+        _dark: {
+          textColor: "ui.white",
+          background:
+            highlightColor === "whatsOn"
+              ? "dark.ui.bg.hover"
+              : darkSectionColor,
+        },
       },
       menuButton: {
         padding: showLabel ? "8px 16px" : "8px 8px",

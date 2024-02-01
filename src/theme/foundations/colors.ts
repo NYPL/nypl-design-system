@@ -56,10 +56,12 @@ const whatsOnSecondary = black;
 const brandObj = {
   light: {
     primary: brandPrimary,
+    "primary-05": hexToRGB(brandPrimary, 0.05),
     secondary: brandSecondary,
   },
   dark: {
     primary: hexToRGB(brandPrimary, 0.2),
+    "primary-10": hexToRGB(brandPrimary, 0.1),
     secondary: hexToRGB(brandSecondary, 0.2),
   },
 };
@@ -67,10 +69,12 @@ const brandObj = {
 const blogsObj = {
   light: {
     primary: blogsPrimary,
+    "primary-05": hexToRGB(blogsPrimary, 0.05),
     secondary: blogsSecondary,
   },
   dark: {
     primary: hexToRGB(blogsPrimary, 0.2),
+    "primary-10": hexToRGB(blogsPrimary, 0.1),
     secondary: hexToRGB(blogsSecondary, 0.2),
   },
 };
@@ -83,10 +87,12 @@ const booksAndMoreObj = {
 const connectObj = {
   light: {
     primary: connectPrimary,
+    "primary-05": hexToRGB(connectPrimary, 0.05),
     secondary: connectSecondary,
   },
   dark: {
     primary: hexToRGB(connectPrimary, 0.4),
+    "primary-10": hexToRGB(connectPrimary, 0.1),
     secondary: hexToRGB(connectSecondary, 0.4),
   },
 };
@@ -94,10 +100,12 @@ const connectObj = {
 const educationObj = {
   light: {
     primary: educationPrimary,
+    "primary-05": hexToRGB(educationPrimary, 0.05),
     secondary: educationSecondary,
   },
   dark: {
     primary: hexToRGB(educationPrimary, 0.2),
+    "primary-10": hexToRGB(educationPrimary, 0.1),
     secondary: hexToRGB(educationSecondary, 0.2),
   },
 };
@@ -110,10 +118,12 @@ const locationsObj = {
 const researchObj = {
   light: {
     primary: researchPrimary,
+    "primary-05": hexToRGB(researchPrimary, 0.05),
     secondary: researchSecondary,
   },
   dark: {
     primary: hexToRGB(researchPrimary, 0.2),
+    "primary-10": hexToRGB(researchPrimary, 0.1),
     secondary: hexToRGB(researchSecondary, 0.2),
   },
 };
@@ -121,23 +131,31 @@ const researchObj = {
 const researchLibraryObj = {
   light: {
     lpa: researchLibraryLpa,
+    "lpa-05": hexToRGB(researchLibraryLpa, 0.05),
     schomburg: researchLibrarySchomburg,
+    "schomburg-05": hexToRGB(researchLibrarySchomburg, 0.05),
     schwartzman: researchLibrarySchwartzman,
+    "schwartzman-05": hexToRGB(researchLibrarySchwartzman, 0.05),
   },
   dark: {
     lpa: hexToRGB(researchLibraryLpa, 0.2),
+    "lpa-10": hexToRGB(researchLibraryLpa, 0.1),
     schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
+    "schomburg-10": hexToRGB(researchLibrarySchomburg, 0.1),
     schwartzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+    "schwartzman-10": hexToRGB(researchLibrarySchwartzman, 0.1),
   },
 };
 
 const whatsOnObj = {
   light: {
     primary: whatsOnPrimary,
+    "primary-05": hexToRGB(whatsOnPrimary, 0.05),
     secondary: whatsOnSecondary,
   },
   dark: {
     primary: hexToRGB(grayLightCool, 0.2),
+    "primary-10": hexToRGB(grayLightCool, 0.1),
     secondary: hexToRGB(white, 0.05),
   },
 };
