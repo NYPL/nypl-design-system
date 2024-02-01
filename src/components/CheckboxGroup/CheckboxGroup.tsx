@@ -163,7 +163,7 @@ export const CheckboxGroup: ChakraComponent<
             id={id}
             data-testid="checkbox-group"
             direction={[layout]}
-            spacing={spacingProp}
+            gap={spacingProp}
             ref={ref}
           >
             {newChildren}

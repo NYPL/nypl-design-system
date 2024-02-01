@@ -92,7 +92,7 @@ export const WithControls: Story = {
 
 export const Layout: Story = {
   render: () => (
-    <VStack align="left" spacing="l">
+    <VStack align="left">
       <CheckboxGroup
         id="column"
         labelText="Column (default)"

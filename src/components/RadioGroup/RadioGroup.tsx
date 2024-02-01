@@ -156,7 +156,7 @@ export const RadioGroup: ChakraComponent<
           __css={styles}
         >
           <ChakraRadioGroup {...radioGroupProps}>
-            <Stack direction={[layout]} spacing={spacingProp}>
+            <Stack direction={[layout]} gap={spacingProp}>
               {newChildren}
             </Stack>
           </ChakraRadioGroup>

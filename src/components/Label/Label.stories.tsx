@@ -40,7 +40,7 @@ export const WithControls: Story = {
 // The following are additional Accordion example Stories.
 export const RequiredState: Story = {
   render: () => (
-    <VStack>
+    <VStack gap={0}>
       <Label htmlFor="label-id1" id="regular">
         A regular label
       </Label>
@@ -53,7 +53,7 @@ export const RequiredState: Story = {
 
 export const CustomRequiredText: Story = {
   render: () => (
-    <VStack>
+    <VStack gap={0}>
       <Label htmlFor="label-id1" id="regular" isRequired>
         A regular isRequired label
       </Label>
