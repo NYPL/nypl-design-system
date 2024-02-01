@@ -19,24 +19,36 @@ const variants = {
     fontWeight: "caption",
   },
   overline1: {
-    fontSize: "desktop.overline.overline1",
+    fontSize: {
+      base: "mobile.overline.overline1",
+      md: "desktop.overline.overline1",
+    },
     fontWeight: "overline.overline1",
     lineHeight: 1,
     textTransform: "uppercase",
   },
   overline2: {
-    fontSize: "desktop.overline.overline2",
+    fontSize: {
+      base: "mobile.overline.overline2",
+      md: "desktop.overline.overline2",
+    },
     fontWeight: "overline.overline2",
     lineHeight: 1,
     textTransform: "uppercase",
   },
   subtitle1: {
-    fontSize: "desktop.subtitle.subtitle1",
+    fontSize: {
+      base: "mobile.subtitle.subtitle1",
+      md: "desktop.subtitle.subtitle1",
+    },
     fontWeight: "subtitle.subtitle1",
     lineHeight: 1.35,
   },
   subtitle2: {
-    fontSize: "desktop.subtitle.subtitle2",
+    fontSize: {
+      base: "mobile.subtitle.subtitle2",
+      md: "desktop.subtitle.subtitle2",
+    },
     fontWeight: "subtitle.subtitle2",
     lineHeight: 1.4,
   },

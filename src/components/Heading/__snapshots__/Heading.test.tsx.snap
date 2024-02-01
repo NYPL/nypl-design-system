@@ -97,7 +97,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
 >
   <p
     aria-roledescription="Subtitle"
-    className="chakra-text css-fli4r2"
+    className="chakra-text css-e3ddnr"
     role="paragraph"
   >
     Overline
@@ -125,7 +125,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
   </h1>
   <p
     aria-roledescription="Subtitle"
-    className="chakra-text css-244cj7"
+    className="chakra-text css-dqoc1s"
     role="paragraph"
   >
     This is the subtitle
@@ -141,7 +141,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
 >
   <p
     aria-roledescription="Subtitle"
-    className="chakra-text css-fli4r2"
+    className="chakra-text css-e3ddnr"
     role="paragraph"
   >
     Overline
@@ -154,7 +154,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
   </h1>
   <p
     aria-roledescription="Subtitle"
-    className="chakra-text css-244cj7"
+    className="chakra-text css-dqoc1s"
     role="paragraph"
   >
     This is the subtitle

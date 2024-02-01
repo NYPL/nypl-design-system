@@ -6,45 +6,80 @@ const margins = {
   marginEnd: "0",
 };
 
-// Heading Styles
+/**
+ * Heading Styles
+ *
+ * Chakra's standard responsive style method is not working for the fontSize
+ * attribute. Because of the, we are including our own @media queries to set
+ * fontSize.
+ *
+ * For the deprecated variants, the base and 600px breakpoints use the same
+ * values. This was needed for consistency and necessary to override the styles
+ * set later in the file for the new heading variants.
+ */
 export const headings = {
   one: {
-    fontSize: "heading.primary", // var(--nypl-fontSizes-4);
     fontWeight: "heading.primary",
     letterSpacing: "0",
     lineHeight: "1.1",
     ...margins,
     width: "auto",
     a: { textUnderlineOffset: "4px" },
+    "@media (min-width: 0px)": {
+      fontSize: "heading.primary", // var(--nypl-fontSizes-4);
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "heading.primary", // var(--nypl-fontSizes-4);
+    },
   },
   two: {
-    fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
     fontWeight: "heading.secondary",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
     a: { textUnderlineOffset: "3px" },
+    "@media (min-width: 0px)": {
+      fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
+    },
   },
   three: {
-    fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
     fontWeight: "heading.tertiary",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
+    "@media (min-width: 0px)": {
+      fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
+    },
   },
   four: {
-    fontSize: "heading.callout", // var(--nypl-fontSizes-1);
     fontWeight: "heading.callout",
     lineHeight: "1.15",
     ...margins,
     width: "auto",
+    "@media (min-width: 0px)": {
+      fontSize: "heading.callout", // var(--nypl-fontSizes-1);
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "heading.callout", // var(--nypl-fontSizes-1);
+    },
   },
   fallback: {
-    fontSize: "1", // var(--nypl-fontSizes-1);
     fontWeight: "regular",
     lineHeight: "1.15",
     ...margins,
     width: "auto",
+    "@media (min-width: 0px)": {
+      fontSize: "1", // var(--nypl-fontSizes-1);
+    },
+    "@media (min-width: 600px)": {
+      fontSize: "1", // var(--nypl-fontSizes-1);
+    },
   },
   display1: {
     fontWeight: "heading.display1",
