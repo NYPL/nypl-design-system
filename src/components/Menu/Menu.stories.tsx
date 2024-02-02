@@ -12,14 +12,21 @@ const meta: Meta<typeof Menu> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
-    showLabel: { control: { type: "boolean" } },
+    showLabel: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "true" },
+    },
+    showBorder: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "true" },
+    },
     selectedItem: { description: "Set item id to be selected on open." },
     labelText: { description: "Set menu button text." },
     listItemsData: { control: false },
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
-      defaultValue: "blogs",
+      defaultValue: { summary: "blogs" },
     },
     listAlignment: {
       options: ["left", "right"],
