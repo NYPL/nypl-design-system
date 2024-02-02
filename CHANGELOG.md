@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
 - Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
+- Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
+- Updates the `useNYPLBreakpoints` hook to include `isSmallerThanMedium` and `isSmallerThanDesktop`, both of which implement a desktop-first design approach.
 
 ### Fixes
 
