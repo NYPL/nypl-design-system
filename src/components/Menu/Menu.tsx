@@ -197,7 +197,9 @@ export const Menu = chakra(
         >
           {showLabel && (
             <>
-              <span style={{ paddingRight: "8px" }}>{labelText}</span>
+              <Box as="span" sx={{ paddingRight: "xs" }}>
+                {labelText}
+              </Box>
               <Icon
                 name="arrow"
                 iconRotation={isOpen ? "rotate180" : "rotate0"}

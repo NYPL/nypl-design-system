@@ -96,12 +96,12 @@ const exampleListItemsData = [
   },
   { type: "divider", id: "divider-1" },
   {
-        type: "action",
-        id: "item-title-3",
-        label: "I'm item 3",
-        onClick: () => {
-          console.log("Item Title 3 clicked");
-        }
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    }
   },
 ];
 
@@ -111,7 +111,8 @@ const exampleListItemsData = [
 `} language="tsx" />
 
 All `ActionItem`s require an `onClick` function, but the `media` prop is optional. Media will display
-to the left of the menu text, and will render either an `Icon` or `Image`. The `media` prop requires a type (icon or image)
+to the left of the menu text, and will render either an {<Link href="https://nypl-design-system.vercel.app/?path=/docs/components-media-icons-icon--docs"target="">Icon</Link>}
+or {<Link href="https://nypl-design-system.vercel.app/?path=/docs/components-media-icons-image--docs" target="">Image</Link>}. The `media` prop requires a type (icon or image)
 and then either the name of the icon, or the source url and alt text of the image.
 
 <Source

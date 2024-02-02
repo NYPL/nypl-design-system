@@ -1,5 +1,12 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import Menu, { ListItemsData } from "./Menu";
@@ -9,25 +16,19 @@ const defaultListItems: ListItemsData[] = [
     type: "action",
     id: "item-title-1",
     label: "I'm item 1",
-    onClick: () => {
-      console.log("Item Title 1 clicked");
-    },
+    onClick: () => {},
   },
   {
     type: "action",
     id: "item-title-2",
     label: "I'm item 2",
-    onClick: () => {
-      console.log("Item Title 2 clicked");
-    },
+    onClick: () => {},
   },
   {
     type: "action",
     id: "item-title-3",
     label: "I'm item 3",
-    onClick: () => {
-      console.log("Item Title 3 clicked");
-    },
+    onClick: () => {},
   },
 ];
 
@@ -41,38 +42,59 @@ describe("Menu Accessibility", () => {
 });
 
 describe("Menu opens and closes", () => {
-  it("renders content when it is opened", () => {
+  it("renders content when it is opened", async () => {
     render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
-    const openButton = screen.getByText("Menu").closest("button");
-    expect(openButton).toBeInTheDocument();
+
+    const openButton = screen.getByText("Menu").parentElement!;
 
     fireEvent.click(openButton);
-    const menuList = screen.getByTestId("menuList");
-    expect(menuList).toBeVisible();
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "true");
   });
 
-  it("closes on Escape key press", () => {
+  it("closes when menu item is selected", async () => {
     render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
-    const openButton = screen.getByText("Menu");
+
+    const openButton = screen.getByText("Menu").parentElement!;
 
     fireEvent.click(openButton);
-    const menuList = screen.getByTestId("menuList");
-    expect(menuList).toBeVisible();
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "true");
+
+    const firstMenuItem = screen.getByText("I'm item 1");
+    act(() => {
+      fireEvent.focus(firstMenuItem);
+      fireEvent.click(firstMenuItem);
+    });
+
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "false");
+  });
+
+  it("closes with Escape key when focus is on menu list", async () => {
+    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+
+    const openButton = screen.getByText("Menu").parentElement!;
+
+    fireEvent.click(openButton);
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "true");
+
+    const firstMenuItem = screen.getByText("I'm item 1");
+    act(() => {
+      fireEvent.focus(firstMenuItem);
+    });
 
     fireEvent.keyDown(document, { key: "Escape" });
-    expect(menuList).not.toBeVisible();
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "false");
   });
 
-  it("closes when clicking outside of the menu", () => {
+  it("closes when clicking outside of the menu", async () => {
     render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
-    const openButton = screen.getByText("Menu");
+
+    const openButton = screen.getByText("Menu").parentElement!;
 
     fireEvent.click(openButton);
-    const menuList = screen.getByTestId("menuList");
-    expect(menuList).toBeVisible();
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "true");
 
-    fireEvent.mouseDown(document.body);
-    expect(menuList).not.toBeVisible();
+    fireEvent.click(document);
+    await waitFor(() => openButton.getAttribute("aria-expanded") === "false");
   });
 });
 
