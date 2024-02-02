@@ -117,7 +117,7 @@ const getElementsFromData = (
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
-        "NYPL Reservoir Accordion: An arialLabel value has been passed for the " +
+        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
           "overall component and as part of the accordionData prop. Both can not " +
           "be used, so the value in the accordionData prop will be used."
       );
