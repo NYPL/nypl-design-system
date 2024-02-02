@@ -26,11 +26,6 @@ const meta: Meta<typeof Menu> = {
       table: { defaultValue: { summary: "left" } },
     },
   },
-  parameters: {
-    docs: {
-      story: { height: "200px" },
-    },
-  },
 };
 
 export default meta;
@@ -318,6 +313,9 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
     },
     jest: ["Menu.test.tsx"],
+    docs: {
+      story: { height: "170px" },
+    },
   },
 };
 
@@ -345,6 +343,11 @@ export const MenuTypes: Story = {
       />
     </HStack>
   ),
+  parameters: {
+    docs: {
+      story: { height: "170px" },
+    },
+  },
 };
 
 export const MenuContent: Story = {
@@ -360,6 +363,11 @@ export const MenuContent: Story = {
       <Menu labelText={"I have max width"} listItemsData={wideListItems} />
     </HStack>
   ),
+  parameters: {
+    docs: {
+      story: { height: "350px" },
+    },
+  },
 };
 
 export const MenuHighlightColors: Story = {
@@ -391,4 +399,9 @@ export const MenuHighlightColors: Story = {
       />
     </HStack>
   ),
+  parameters: {
+    docs: {
+      story: { height: "170px" },
+    },
+  },
 };
