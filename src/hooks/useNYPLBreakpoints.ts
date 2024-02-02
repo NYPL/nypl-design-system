@@ -25,7 +25,6 @@ const useNYPLBreakpoints = () => {
     "(min-width: 600px)",
     "(min-width: 960px)",
     "(min-width: 1280px)",
-    "(max-width: 599px)",
   ]);
 
   useEffect(() => {
