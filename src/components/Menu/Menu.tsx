@@ -207,9 +207,7 @@ export const Menu = chakra(
               />
             </>
           )}
-          {!showLabel && (
-            <Icon name="arrow" size={showBorder ? "small" : "medium"} />
-          )}
+          {!showLabel && <Icon name="navigationMoreVert" size="medium" />}
         </MenuButton>
       );
 

@@ -83,7 +83,7 @@ const Menu = {
         },
       },
       menuButton: {
-        padding: showLabel ? "8px 16px" : "8px 8px",
+        padding: showLabel ? "8px 16px" : "",
         borderRadius: "2px",
         fontSize: "14px",
         color: showBorder ? "ui.gray.xx-dark" : "ui.link.primary",
@@ -100,6 +100,8 @@ const Menu = {
             : showLabel
             ? "ui.link.primary"
             : "ui.black",
+          paddingTop: showLabel ? "" : "5px",
+          margin: showLabel ? "" : "7px",
         },
         _dark: {
           color: showBorder ? "ui.white" : "dark.ui.link.secondary",
