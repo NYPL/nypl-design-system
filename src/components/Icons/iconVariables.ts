@@ -90,6 +90,7 @@ export const iconNamesArray = [
   "mapsPlace",
   "minus",
   "moonCrescent",
+  "navigationMoreVert",
   "plus",
   "search",
   "socialFacebook",
