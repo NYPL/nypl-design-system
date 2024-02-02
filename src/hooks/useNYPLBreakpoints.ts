@@ -14,14 +14,12 @@ const useNYPLBreakpoints = () => {
     isLargerThanMedium: false,
     isLargerThanLarge: false,
     isLargerThanXLarge: false,
-    isSmallerThanMedium: false,
   });
   const [
     isLargerThanSmall,
     isLargerThanMedium,
     isLargerThanLarge,
     isLargerThanXLarge,
-    isSmallerThanMedium,
   ] = useMediaQuery([
     "(min-width: 320px)",
     "(min-width: 600px)",
@@ -36,14 +34,12 @@ const useNYPLBreakpoints = () => {
       isLargerThanMedium,
       isLargerThanLarge,
       isLargerThanXLarge,
-      isSmallerThanMedium,
     });
   }, [
     isLargerThanSmall,
     isLargerThanMedium,
     isLargerThanLarge,
     isLargerThanXLarge,
-    isSmallerThanMedium,
   ]);
 
   return {
@@ -54,11 +50,6 @@ const useNYPLBreakpoints = () => {
     isLargerThanMobile: layoutSize.isLargerThanMedium,
     isLargerThanLarge: layoutSize.isLargerThanLarge,
     isLargerThanXLarge: layoutSize.isLargerThanXLarge,
-    // The values use a desktop-first approach. In an effort to mitigate the
-    // flashing font size issue in the Heading responsive font sizes, the DS
-    // will use a desktop-first style approach.
-    isSmallerThanMedium: layoutSize.isSmallerThanMedium,
-    isSmallerThanDesktop: layoutSize.isSmallerThanMedium,
   };
 };
 

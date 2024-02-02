@@ -11,7 +11,7 @@ import { Meta, Source } from "@storybook/blocks";
 
 This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally, the
 hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine the
-current breakpoint size based on NYPL's breakpoint configuration. 
+current breakpoint size based on NYPL's breakpoint configuration.
 
 ## Mobile-First
 
@@ -19,14 +19,6 @@ In order to follow mobile-first responsive design patterns, the "min-width"
 media query is used with the breakpoint configuration. The list of breakpoints
 can be found on the [Reservoir's
 Breakpoints](../?path=/docs/style-guide-breakpoints--docs) style guide.
-
-## Desktop-First Options
-
-To mitigate some "flashing" issues related to certain responsive styles, two
-`desktop-first` options have been added: `isSmallerThanMedium` and
-`isSmallerThanDesktop`. These two options look at the "medium" breakpoint value
-of `"38em"` (or `"600px"`) and they will return `true` when the viewport width
-is less than that value (i.e. 599px or less).
 
 ## Usage
 
@@ -40,8 +32,6 @@ const {
   isLargerThanMobile,
   isLargerThanLarge,
   isLargerThanXLarge,
-  isSmallerThanMedium,
-  isSmallerThanDesktop,
 } = useNYPLBreakpoints();
 `}
   language="jsx"
