@@ -7,7 +7,15 @@ interface MenuStyleProps {
 }
 
 const Menu = {
-  parts: ["menuItem", "menuButton", "menuGroup", "menuList"],
+  parts: [
+    "groupItem",
+    "actionItem",
+    "dividerItem",
+    "selected",
+    "menuButton",
+    "menuGroup",
+    "menuList",
+  ],
   baseStyle: ({
     highlightColor = "blogs",
     showBorder,

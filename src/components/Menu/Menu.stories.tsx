@@ -12,6 +12,10 @@ const meta: Meta<typeof Menu> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
+    showLabel: { control: { type: "boolean" } },
+    selectedItem: { description: "Set item id to be selected on open." },
+    labelText: { description: "Set menu button text." },
+    listItemsData: { control: false },
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
@@ -291,7 +295,7 @@ export const WithControls: Story = {
     labelText: "I'm the menu",
     showLabel: true,
     showBorder: true,
-    listAlignment: undefined,
+    listAlignment: "left",
     highlightColor: "blogs",
     selectedItem: undefined,
     listItemsData: undefined,
@@ -315,135 +319,66 @@ export const WithControls: Story = {
 // The following are additional Menu Stories.
 
 export const MenuTypes: Story = {
-  args: {
-    className: undefined,
-    id: "Menu-id",
-    labelText: "I'm the menu",
-    showLabel: true,
-    showBorder: true,
-    listAlignment: undefined,
-    highlightColor: "blogs",
-    selectedItem: undefined,
-    listItemsData: undefined,
-  },
-  render: (args) => (
+  render: () => (
     <HStack>
+      <Menu labelText={"Default Button"} listItemsData={defaultListItems} />
       <Menu
-        {...args}
-        labelText={"Default Button"}
-        listItemsData={defaultListItems}
-      />
-      <Menu
-        {...args}
         showBorder={false}
         labelText={"Text Button"}
         listItemsData={defaultListItems}
       />
-      <Menu {...args} showLabel={false} listItemsData={defaultListItems} />
       <Menu
-        {...args}
+        showLabel={false}
+        labelText={"Menu"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
         showBorder={false}
+        labelText={"Menu"}
         showLabel={false}
         listItemsData={defaultListItems}
       />
     </HStack>
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
-    },
-    jest: ["Menu.test.tsx"],
-  },
 };
 
 export const MenuContent: Story = {
-  args: {
-    className: undefined,
-    id: "Menu-id",
-    labelText: "I'm the menu",
-    showLabel: true,
-    showBorder: true,
-    listAlignment: undefined,
-    highlightColor: "blogs",
-    selectedItem: undefined,
-    listItemsData: undefined,
-  },
-  render: (args) => (
+  render: () => (
     <HStack>
+      <Menu labelText={"I have images"} listItemsData={imageListItems} />
+      <Menu labelText={"I have icons"} listItemsData={iconListItems} />
+      <Menu labelText={"I have groups"} listItemsData={longListItems} />
       <Menu
-        {...args}
-        labelText={"I have images"}
-        listItemsData={imageListItems}
-      />
-      <Menu
-        {...args}
-        labelText={"I have icons"}
-        listItemsData={iconListItems}
-      />
-      <Menu
-        {...args}
-        labelText={"I have groups"}
-        listItemsData={longListItems}
-      />
-      <Menu
-        {...args}
         labelText={"I have max height"}
         listItemsData={reallyLongListItems}
       />
-      <Menu
-        {...args}
-        labelText={"I have max width"}
-        listItemsData={wideListItems}
-      />
+      <Menu labelText={"I have max width"} listItemsData={wideListItems} />
     </HStack>
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
-    },
-    jest: ["Menu.test.tsx"],
-  },
 };
 
 export const MenuHighlightColors: Story = {
-  args: {
-    className: undefined,
-    id: "Menu-id",
-    labelText: "I'm the menu",
-    showLabel: true,
-    showBorder: true,
-    listAlignment: undefined,
-    highlightColor: "blogs",
-    selectedItem: undefined,
-    listItemsData: undefined,
-  },
-  render: (args) => (
+  render: () => (
     <HStack>
       <Menu
-        {...args}
         labelText={"Blogs (default) "}
         highlightColor={"blogs"}
         selectedItem={"item-title-1"}
         listItemsData={defaultListItems}
       />
       <Menu
-        {...args}
         labelText={"Research"}
         highlightColor={"research"}
         selectedItem={"item-title-1"}
         listItemsData={defaultListItems}
       />
       <Menu
-        {...args}
         labelText={"LPA"}
         highlightColor={"researchLibraryLpa"}
         selectedItem={"item-title-1"}
         listItemsData={defaultListItems}
       />
       <Menu
-        {...args}
         labelText={"Education"}
         highlightColor={"education"}
         selectedItem={"item-title-1"}
@@ -451,11 +386,4 @@ export const MenuHighlightColors: Story = {
       />
     </HStack>
   ),
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80460%3A101982",
-    },
-    jest: ["Menu.test.tsx"],
-  },
 };

@@ -10,7 +10,7 @@ import Menu from "../Menu/Menu";
 
 | Component Version | DS Version   |
 | ----------------- | ------------ |
-| Added             | `0.0.10`     |
+| Added             | `Prerelease` |
 | Latest            | `Prerelease` |
 
 ## Table of Contents
@@ -64,6 +64,51 @@ maximum width is `300px`. Past that width, menu items will wrap onto the next li
 menu item labels are kept short.
 
 The menu can be aligned to the left or right by its consuming app.
+
+Content is passed to the menu through `listItemsData`, and each menu item needs to be one of three types: Action, Group, or Divider.
+Each type expects different properties, as shown below:
+
+<Source
+  code={`
+const exampleListItemsData = [
+  {
+    type: "group",
+    id: "group-1",
+    label: "I'm group 1",
+    children: [
+      {
+        type: "action",
+        id: "item-title-1",
+        label: "I'm item 1",
+        onClick: () => {
+          console.log("Item Title 1 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-2",
+        label: "I'm item 2",
+        onClick: () => {
+          console.log("Item Title 2 clicked");
+        },
+      },
+    ],
+  },
+  { type: "divider", id: "divider-1" },
+  {
+        type: "action",
+        id: "item-title-3",
+        label: "I'm item 3",
+        onClick: () => {
+          console.log("Item Title 3 clicked");
+        }
+  },
+];
+
+...
+
+<Menu listItemsData={exampleListItemsData} />
+`} language="tsx" />
 
 <Canvas of={MenuStories.MenuContent} />
 

@@ -8,6 +8,7 @@ import {
   MenuDivider,
   useMultiStyleConfig,
   Flex,
+  Box,
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
@@ -49,7 +50,7 @@ interface Media {
 }
 
 /** The three types of menu items: */
-interface ActionItem {
+export interface ActionItem {
   type: "action";
   label: string;
   id: string;
@@ -57,35 +58,38 @@ interface ActionItem {
   onClick: (id: string) => void;
 }
 
-interface GroupItem {
+export interface GroupItem {
   type: "group";
   id: string;
   label: string;
   children: ListItemsData[];
 }
 
-interface DividerItem {
+export interface DividerItem {
   type: "divider";
   id: string;
 }
 
-/** List items can be one of the three types: */
+/** Menu items can be one of the three types: */
 export type ListItemsData = ActionItem | GroupItem | DividerItem;
 
-const Menu = chakra(
+export const Menu = chakra(
   forwardRef<HTMLDivElement, MenuProps>(
-    ({
-      className,
-      id,
-      labelText,
-      listAlignment = "left",
-      selectedItem,
-      highlightColor = "blogs",
-      showBorder = true,
-      showLabel = true,
-      listItemsData,
-      ...rest
-    }) => {
+    (
+      {
+        className,
+        id,
+        labelText,
+        listAlignment = "left",
+        selectedItem,
+        highlightColor = "blogs",
+        showBorder = true,
+        showLabel = true,
+        listItemsData,
+        ...rest
+      },
+      ref?
+    ) => {
       const styles = useMultiStyleConfig("Menu", {
         highlightColor,
         showBorder,
@@ -102,74 +106,69 @@ const Menu = chakra(
       };
 
       /**  Check props. */
-      const validateProps = (listItemsData, selectedItem) => {
-        if (!listItemsData) {
-          console.warn(
-            "NYPL Reservoir Menu: The `listItemsData` prop is required."
-          );
-        } else if (
-          selectedItem &&
-          !listItemsData.map((item) => item.id).includes(selectedItem)
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: The `selectedItem` prop does not match any of the menu items."
-          );
-        } else if (
-          new Set(listItemsData.map((item) => item.id)).size !==
-          listItemsData.length
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: The `id` values for the list items are not all unique."
-          );
-        } else if (
-          listItemsData.some(
-            (item) =>
-              !item.type ||
-              item.type === "" ||
-              !(
-                item.type === "group" ||
-                item.type === "action" ||
-                item.type === "divider"
-              )
-          )
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: A `type` value is required for each list item."
-          );
-        } else if (listItemsData.some((item) => !item.id || item.id === "")) {
-          console.warn(
-            "NYPL Reservoir Menu: An `id` value is required for each list item."
-          );
-        } else if (
-          listItemsData.some(
-            (item) =>
-              (item.type === "action" || item.type === "group") &&
-              (!item.label || item.label.trim() === "")
-          )
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: A `label` value is required for all list actions and groups."
-          );
-        } else if (
-          listItemsData.some((item) => item.type === "action" && !item.onClick)
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: An `onClick` function is required for all actions."
-          );
-        } else if (
-          listItemsData.some(
-            (item) =>
-              item.type === "group" &&
-              (!item.children || item.children.length === 0)
-          )
-        ) {
-          console.warn(
-            "NYPL Reservoir Menu: A `children` array is required for all list groups."
-          );
-        }
-        return true;
-      };
-      validateProps(listItemsData, selectedItem);
+      if (!listItemsData) {
+        console.warn(
+          "NYPL Reservoir Menu: The `listItemsData` prop is required."
+        );
+      } else if (
+        selectedItem &&
+        !listItemsData.map((item) => item.id).includes(selected)
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: The `selectedItem` prop does not match any of the menu items."
+        );
+      } else if (
+        new Set(listItemsData.map((item) => item.id)).size !==
+        listItemsData.length
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: The `id` values for the list items are not all unique."
+        );
+      } else if (
+        listItemsData.some(
+          (item) =>
+            !item.type ||
+            !(
+              item.type === "group" ||
+              item.type === "action" ||
+              item.type === "divider"
+            )
+        )
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: A `type` value is required for each list item."
+        );
+      } else if (listItemsData.some((item) => !item.id || item.id === "")) {
+        console.warn(
+          "NYPL Reservoir Menu: An `id` value is required for each list item."
+        );
+      } else if (
+        listItemsData.some(
+          (item) =>
+            (item.type === "action" || item.type === "group") &&
+            (!item.label || item.label.trim() === "")
+        )
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: A `label` value is required for all list actions and groups."
+        );
+      } else if (
+        listItemsData.some((item) => item.type === "action" && !item.onClick)
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: An `onClick` function is required for all actions."
+        );
+      } else if (
+        listItemsData.some(
+          (item) =>
+            item.type === "group" &&
+            (!item.children || item.children.length === 0)
+        )
+      ) {
+        console.warn(
+          "NYPL Reservoir Menu: A `children` array is required for all list groups."
+        );
+      }
 
       /** Helper function that renders either an Image or an Icon for a menu item. */
       const renderMedia = (media: Media | null) => {
@@ -214,7 +213,7 @@ const Menu = chakra(
 
       /** Renders all Menu Items to be passed to the Menu List. Flattened into a reduce() so that
        Groups of items display together. */
-      const getMenuElements = (data: ListItemsData[] = [], selectedItem) =>
+      const getMenuElements = (data: ListItemsData[] = []) =>
         data.reduce((lst, item) => {
           if (item.type === "divider") {
             // If item is a divider
@@ -232,7 +231,7 @@ const Menu = chakra(
                 sx={styles.groupItem}
                 title={item.label}
               />,
-              ...getMenuElements(item.children, selectedItem),
+              ...getMenuElements(item.children),
             ];
           }
           // If item is an action item
@@ -248,18 +247,16 @@ const Menu = chakra(
                 ...(isSelected && styles.selected),
               }}
             >
-              <>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
-                >
-                  {renderMedia(item.media)}
-                  <span>{item.label}</span>
-                </div>
-              </>
+              <Box
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                {renderMedia(item.media)}
+                <span>{item.label}</span>
+              </Box>
             </MenuItem>
           );
 
@@ -267,18 +264,22 @@ const Menu = chakra(
         }, []);
 
       return (
-        <ChakraMenu id={id} autoSelect={false} {...rest}>
-          {({ isOpen }) => (
-            <Flex
-              flexDirection={listAlignment === "right" ? "row-reverse" : "row"}
-            >
-              {getButton(isOpen)}
-              <MenuList data-testid="menuList" sx={styles.menuList}>
-                {getMenuElements(listItemsData, selectedItem)}
-              </MenuList>
-            </Flex>
-          )}
-        </ChakraMenu>
+        <Box ref={ref}>
+          <ChakraMenu id={id} autoSelect={false} {...rest}>
+            {({ isOpen }) => (
+              <Flex
+                flexDirection={
+                  listAlignment === "right" ? "row-reverse" : "row"
+                }
+              >
+                {getButton(isOpen)}
+                <MenuList data-testid="menuList" sx={styles.menuList}>
+                  {getMenuElements(listItemsData)}
+                </MenuList>
+              </Flex>
+            )}
+          </ChakraMenu>
+        </Box>
       );
     }
   )
