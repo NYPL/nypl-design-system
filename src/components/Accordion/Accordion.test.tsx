@@ -228,7 +228,7 @@ describe("Accordion", () => {
       );
     });
 
-    it("renders with attrbute generated from accordionData", () => {
+    it("renders with attribute generated from accordionData", () => {
       render(<Accordion accordionData={[accordionDataWithAriaLabel[0]]} />);
       const accordionDataLabel = screen.getByRole("button", {
         name: "Tom Nook, known in Japan as Tanukichi",

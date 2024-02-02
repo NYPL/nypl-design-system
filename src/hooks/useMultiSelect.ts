@@ -5,10 +5,13 @@ import {
 } from "../components/MultiSelect/MultiSelect";
 
 /**
- * The useMultiSelect hook returns an object containing all the functions and state needed to handle the selectedItems of a `MultiSelect` component.
- * It can be used in conjunction with one single `MultiSelect` component as well as a group of `MultiSelect`s in the `MultiSelectGroup` component.
- * The returned object includes the functions onChange, onClear, onMixedStateChange for handling any changes to the selection of items
- * and the current state of the selection: selectedItems.
+ * The useMultiSelect hook returns an object containing all the functions and
+ * state needed to handle the selectedItems of a `MultiSelect` component. It can
+ * be used in conjunction with one single `MultiSelect` component as well as a
+ * group of `MultiSelect`s in the `MultiSelectGroup` component. The returned
+ * object includes the functions onChange, onClear, onMixedStateChange for
+ * handling any changes to the selection of items and the current state of the
+ * selection: selectedItems.
  */
 
 export default function useMultiSelect(initialState?: SelectedItems) {
@@ -17,8 +20,10 @@ export default function useMultiSelect(initialState?: SelectedItems) {
   );
 
   /**
-   * handleChange is used for both MultiSelect variants. It handles the state for checkbox options that either have no child options or are child options themselves.
-   * It accepts two arguments - the id of the checkbox option and the id of the MultiSelect component.
+   * handleChange is used for both MultiSelect variants. It handles the state
+   * for checkbox options that either have no child options or are child options
+   * themselves. It accepts two arguments - the id of the checkbox option and
+   * the id of the MultiSelect component.
    */
   const handleChange = (itemId: string, multiSelectId: string) => {
     let itemIds;
@@ -49,10 +54,12 @@ export default function useMultiSelect(initialState?: SelectedItems) {
   };
 
   /**
-   * handleMixedStateChange handles the state for checkbox options with child options.
-   * It accepts three arguments - the id of the checkbox option (parentId), the id of the MultiSelect component and the items array of the MultiSelect.
-    `disabled` state of items are not included in the selectedItems array. 
-  */
+   * handleMixedStateChange handles the state for checkbox options with child
+   * options. It accepts three arguments - the id of the checkbox option
+   * (parentId), the id of the MultiSelect component and the items array of the
+   * MultiSelect. `disabled` state of items are not included in the
+   * selectedItems array.
+   */
   const handleMixedStateChange = (
     parentId: string,
     multiSelectId: string,
@@ -119,8 +126,9 @@ export default function useMultiSelect(initialState?: SelectedItems) {
   };
 
   /**
-   * handleClear is used for both MultiSelect variants. It will remove all selected items of specific MultiSelect component from the selectedItems array.
-   * It accepts one argument - the id of the MultiSelect component.
+   * handleClear is used for both MultiSelect variants. It will remove all
+   * selected items of specific MultiSelect component from the selectedItems
+   * array. It accepts one argument - the id of the MultiSelect component.
    */
   const handleClear = (multiSelectId: string) => {
     let newSelectedItems = {};
@@ -133,7 +141,8 @@ export default function useMultiSelect(initialState?: SelectedItems) {
   };
 
   /**
-   * handleClearAll is used to clear all MultiSelects of a group. It will remove all selected items.
+   * handleClearAll is used to clear all MultiSelects of a group. It will remove
+   * all selected items.
    */
   const handleClearAll = () => setSelectedItems({});
 

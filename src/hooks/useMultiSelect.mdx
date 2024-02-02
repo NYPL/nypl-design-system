@@ -4,23 +4,29 @@ import { Meta, Source } from "@storybook/blocks";
 
 # useMultiSelect
 
-| Hook Version | DS Version  |
-| ------------ | ----------  |
-| Added        | `1.4.0`     |
-| Latest       | `Prerelease`|
+| Hook Version | DS Version   |
+| ------------ | ------------ |
+| Added        | `1.4.0`      |
+| Latest       | `Prerelease` |
 
-`useMultiSelect` provides all functions needed to handle the selectedItems. This hook can be used for
-cases where managing the state of the component in the consuming app is less of a concern and general ease of use is prefered.
+`useMultiSelect` provides all functions needed to handle the selectedItems. This
+hook can be used for cases where managing the state of the component in the
+consuming app is less of a concern and general ease of use is preferred.
 
-The two main functions are `onChange` and `onMixedStateChange` used for handling the selectedItems object and `disabled` state of items are not included in the selectedItems.
-The function `onClear` can be used to clear the selectedItems of a specific `MultiSelect` component connected to the hook.
-The hook also provides the `selectedItems` object containing the currently checked/selected items and a `setSelectedItems`
-function to set or manipulate the state of `selectedItems`. If using `setSelectedItems`, check that the correct data structure is passed into `setSelectedItems`.
-
+The two main functions are `onChange` and `onMixedStateChange` used for handling
+the selectedItems object and `disabled` state of items are not included in the
+selectedItems. The function `onClear` can be used to clear the selectedItems of
+a specific `MultiSelect` component connected to the hook. The hook also provides
+the `selectedItems` object containing the currently checked/selected items and a
+`setSelectedItems` function to set or manipulate the state of `selectedItems`.
+If using `setSelectedItems`, check that the correct data structure is passed
+into `setSelectedItems`.
 
 ## Usage
 
-For a full implementation example with a  `MultiSelect` component, view the  [MultiSelect component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelect.tsx).
+For a full implementation example with a `MultiSelect` component, view the
+[MultiSelect
+component](https://github.com/NYPL/nypl-design-system/blob/development/src/components/MultiSelect/MultiSelect.tsx).
 
 <Source
   code={`
@@ -37,9 +43,11 @@ const {
 
 ## useMultiSelect Hook implementation in a MultiSelect
 
-The MultiSelect component can display nested items.
-When the `useMultiSelect` hook is used within MultiSelect, additional to the selectedItems and the `onChange` and `onClear` functions, you will need
-a `onMixedStateChange` function. It is also provided by the hook and handles the state change of parent items.
+The MultiSelect component can display nested items. When the `useMultiSelect`
+hook is used within MultiSelect, additional to the selectedItems and the
+`onChange` and `onClear` functions, you will need a `onMixedStateChange`
+function. It is also provided by the hook and handles the state change of parent
+items.
 
 <Source
   code={`
@@ -76,7 +84,8 @@ export default function MultiSelectWithHookExample() {
 
 ## setSelectedItems
 
-The data structure to pass the setSelectedItems function in order to set a inital state:
+The data structure to pass the setSelectedItems function in order to set a
+inital state:
 
 <Source
   code={`
@@ -104,4 +113,3 @@ const initialSelectedItems = {
 `}
   language="jsx"
 />
-
