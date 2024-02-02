@@ -13,6 +13,7 @@ const Tooltip = defineStyleConfig({
     fontSize: "desktop.caption",
     marginBottom: "xxs",
     maxWidth: "240px",
+    marginTop: "0px",
     px: "s",
     py: "xs",
     _dark: {
