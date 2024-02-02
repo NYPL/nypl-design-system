@@ -36,7 +36,7 @@ import Link from "../Link/Link";
 
 ## Accessibility
 
-The visual aspect of the `StatusBadge` component displays multiple different
+The visual aspect of the `StatusBadge` component is able to displays multiple
 statuses and priorities through the use of different colors, so it is
 recommended to align the usage of the component with the semantic meaning of one
 of the component's variants. 
@@ -50,7 +50,8 @@ variant. In this way, the user will be able to understand the priority of the
 
 ## Semantic Type Variants
 
-The `semantic` variants align with specific uses. Please refer to the purpose of each variant.
+The semantic `type` variants align with specific uses. Please refer to the
+purpose of each variant.
 
 <Canvas of={StatusBadgeStories.TypeVariants} />
 
@@ -64,10 +65,13 @@ the `type` prop.
 
 ## Labeling Variations
 
-The capitalization of a badge label will be controlled by the component and
-labels will render exactly as they are passed into the component. However, that
-does not mean that an "all caps" styling can not be used. If a use case calls
-for all caps, then an all caps string should be passed into the component.
+The capitalization of a badge label will not be forced by the component and
+labels will render exactly as they are passed into the component. If an
+all-lowercase string is passed in, the label will render all lowercase. If an
+all-caps string is passed in, the label will render all caps. And so on.
+
+The text case should be dependent on the use case and the final decision should
+ultimately come from Product and UX.
 
 <Canvas of={StatusBadgeStories.LabelingVariations} />
 

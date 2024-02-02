@@ -21,7 +21,8 @@ export interface StatusBadgeProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge. */
+  /** Level of the status badge. This prop has been deprecated in favor of the
+   * `type` prop. */
   level?: StatusBadgeLevels;
   /** Semantic type of the status badge. */
   type?: StatusBadgeTypes;
@@ -43,14 +44,7 @@ export const StatusBadge: ChakraComponent<
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
       const { children, className, id, level, type, ...rest } = props;
-
-      // let finalVariant;
-      // if (!level && !type) finalVariant = "low";
-      // else if (level) finalVariant = level;
-      // else if (type) finalVariant = type;
-
       const finalVariant = level ? level : type ? type : "low";
-
       const styles = useStyleConfig("StatusBadge", { variant: finalVariant });
 
       if (!children) {
