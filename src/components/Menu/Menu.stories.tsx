@@ -26,6 +26,11 @@ const meta: Meta<typeof Menu> = {
       table: { defaultValue: { summary: "left" } },
     },
   },
+  parameters: {
+    docs: {
+      story: { height: "200px" },
+    },
+  },
 };
 
 export default meta;
