@@ -49,7 +49,6 @@ export const WithControls: Story = {
         >
           <>
             <Icon
-              align="left"
               color="ui.success.primary"
               name="actionCheckCircleFilled"
               size="large"
@@ -125,7 +124,7 @@ export const useModalStory: Story = {
     headingText: {
       control: { type: "text" },
       description:
-        "The text to display in the modal heading, can be a string or JSX Element.",
+        "The text to display in the modal heading. Can be a string or JSX Element.",
     },
     id: { control: false },
     isOpen: {
