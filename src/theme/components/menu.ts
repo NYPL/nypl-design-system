@@ -68,12 +68,21 @@ const Menu = {
         },
       },
       selected: {
+        _hover: {
+          background:
+            highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
+        },
+        _active: {
+          background:
+            highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
+        },
         fontWeight: 500,
         borderLeftColor:
           highlightColor === "whatsOn" ? "#E9E9E933" : sectionColor,
         textColor: highlightColor === "blogs" ? "ui.black" : sectionColor,
         borderWidth: "0px 0px 0px 2px",
-        background: lightSectionColor,
+        background:
+          highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
         _dark: {
           textColor: "ui.white",
           background:
