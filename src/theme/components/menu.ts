@@ -35,12 +35,14 @@ const Menu = {
         fontSize: "12px",
         margin: "0px",
         _dark: {
+          textColor: "ui.white",
           bg: "dark.ui.bg.default",
         },
       },
       dividerItem: {
         margin: "0px",
         _dark: {
+          textColor: "ui.white",
           bg: "dark.ui.bg.default",
         },
       },
@@ -58,6 +60,7 @@ const Menu = {
           bg: "ui.bg.hover",
         },
         _dark: {
+          textColor: "ui.white",
           bg: "dark.ui.bg.default",
           "> div > svg": {
             fill: "ui.white",
