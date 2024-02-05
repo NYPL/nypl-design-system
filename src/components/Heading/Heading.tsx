@@ -8,7 +8,6 @@ import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 import Text from "../Text/Text";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const headingSizesArray = [
   "display1",
@@ -125,7 +124,7 @@ export const Heading = chakra(
         noSpace,
         url,
       });
-      const { isLargerThanMobile } = useNYPLBreakpoints();
+
       // Combine native base styles with any additional styles.
       // This is used in the `Hero` and `Notification` components.
       const asHeading: any = finalLevel;
@@ -171,28 +170,11 @@ export const Heading = chakra(
       );
 
       /** *********************************************************************
-       * The syntax for responsive styles is not working properly for fontSize
-       * in the theme object, so logic for the responsive styles has been
-       * written here.
+       * The new heading component provide overline and subtitle elements and
+       * the font size for those elements is based on the level of the heading
+       * component. The conditions below determine the styles that should be
+       * used for the overline and subtitle elements.
        * *********************************************************************/
-
-      /** The default style used to map the `level` value to the corresponding
-       * `size` value. */
-      const defaultRoot = "heading";
-
-      /** The heading size index that acts as a separator between the smaller
-       * and larger sizing styles of the overline and subtitle elements. This
-       * demarcation is purely based on design and aesthetics. */
-      const overlineSubtitleSizeDemarcation = 2;
-
-      /**  Most variant values have a number at the end, so let's remove the
-       * last character from that value and see what's left. */
-      const variantRoot = variant.slice(0, -1);
-
-      /** The `level` values should map to a corresponding `size` value. If the
-       * root is "h", then reassign the root to the `defaultRoot`. This value
-       * will be used to build the style object. */
-      const finalRoot = variantRoot === "h" ? defaultRoot : variantRoot;
 
       /** The new heading styles use a number with the variant style to indicate
        * which style should be used. For example, heading1, heading2, and so on.
@@ -201,54 +183,23 @@ export const Heading = chakra(
        * let's grab that character and type it as an integer. */
       const sizeIndex = parseInt(variant.at(-1));
 
-      /** The 2023 typography styles call for the Heading component to be
-       * responsive and set differing font-size values for desktop and mobile.
-       * We can tell if the new styles are being used if the size index is in
-       * fact a number. If it is a number, let's go ahead and setup the
-       * responsive styles. If it is not a number, then the deprecated styles
-       * are being used and we don't need to worry about responsive font-size
-       * styles.
-       * */
-      const responsiveStyles = !isNaN(sizeIndex)
-        ? isLargerThanMobile
-          ? {
-              fontSize: `desktop.heading.${finalRoot}${sizeIndex}`,
-            }
-          : { fontSize: `mobile.heading.${finalRoot}${sizeIndex}` }
-        : undefined;
+      /** This is the heading size index that acts as a separator between the
+       * smaller and larger sizing styles of the overline and subtitle elements.
+       * This demarcation is purely based on design and aesthetics. */
+      const overlineSubtitleSizeDemarcation = 2;
 
-      /** If the overline element is rendered, we'll also need responsive styles
-       * for that. */
+      /** Set the size of the overline based on the heading size index. */
       const overlineSize = !isNaN(sizeIndex)
         ? sizeIndex <= overlineSubtitleSizeDemarcation
           ? "overline1"
           : "overline2"
         : undefined;
-      const overlineFontSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? isLargerThanMobile
-            ? "desktop.overline.overline1"
-            : "mobile.overline.overline1"
-          : isLargerThanMobile
-          ? "desktop.overline.overline2"
-          : "mobile.overline.overline2"
-        : undefined;
 
-      /** If the subtitle element is rendered, we'll also need responsive styles
-       * for that. */
+      /** Set the size of the subtitle based on the heading size index. */
       const subtitleSize = !isNaN(sizeIndex)
         ? sizeIndex <= overlineSubtitleSizeDemarcation
           ? "subtitle1"
           : "subtitle2"
-        : undefined;
-      const subtitleFontSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? isLargerThanMobile
-            ? "desktop.subtitle.subtitle1"
-            : "mobile.subtitle.subtitle1"
-          : isLargerThanMobile
-          ? "desktop.subtitle.subtitle2"
-          : "mobile.subtitle.subtitle2"
         : undefined;
 
       /** The styles that should be applied to the outer-most wrapper of the
@@ -263,11 +214,9 @@ export const Heading = chakra(
         overline || subtitle
           ? {
               ...styles,
-              ...responsiveStyles,
             }
           : {
               ...styles,
-              ...responsiveStyles,
               ...wrapperStyles,
             };
 
@@ -280,7 +229,6 @@ export const Heading = chakra(
               mb="xxs"
               role="paragraph"
               size={overlineSize}
-              fontSize={overlineFontSize}
             >
               {overline}
             </Text>
@@ -304,7 +252,6 @@ export const Heading = chakra(
               noSpace
               role="paragraph"
               size={subtitleSize}
-              fontSize={subtitleFontSize}
             >
               {subtitle}
             </Text>
