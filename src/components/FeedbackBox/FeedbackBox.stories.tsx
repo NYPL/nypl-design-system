@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
 import FeedbackBox, { feedbackBoxViewTypeArray } from "./FeedbackBox";
+import Heading from "../Heading/Heading";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 const meta: Meta<typeof FeedbackBox> = {
@@ -54,17 +56,39 @@ const FeedbackBoxWithControls = (args) => {
     console.log("Submitted values:", values);
   };
   return (
-    <FeedbackBox
-      {...args}
-      hiddenFields={hiddenFields}
-      notificationText={
-        <span>
-          <b>Call Number:</b> JFE 95-8555
-        </span>
-      }
-      onSubmit={onSubmit}
-      view={internalView}
-    />
+    <Box maxHeight="200px" overflowY="auto">
+      <Box height="400px" bgColor="ui.white" width="100%">
+        <Heading level="h3" m="s">
+          ui.white
+        </Heading>
+      </Box>
+      <Box height="400px" bgColor="ui.bg.default" width="100%">
+        <Heading level="h3" m="s">
+          ui.bg.default
+        </Heading>
+      </Box>
+      <Box height="400px" bgColor="dark.ui.bg.default" width="100%">
+        <Heading level="h3" m="s" color="ui.white">
+          dark.ui.bg.default
+        </Heading>
+      </Box>
+      <Box height="400px" bgColor="dark.ui.bg.page" width="100%">
+        <Heading level="h3" m="s" color="ui.white">
+          dark.ui.bg.page
+        </Heading>
+      </Box>
+      <FeedbackBox
+        {...args}
+        hiddenFields={hiddenFields}
+        notificationText={
+          <span>
+            <b>Call Number:</b> JFE 95-8555
+          </span>
+        }
+        onSubmit={onSubmit}
+        view={internalView}
+      />
+    </Box>
   );
 };
 

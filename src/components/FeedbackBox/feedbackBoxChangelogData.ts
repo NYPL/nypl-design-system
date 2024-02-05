@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-02-05",
+    version: "2.1.5",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Updates the focus ring style for the open button.",
+      "Updates the required comment field so it cannot be submitted when empty.",
+      "Forcibly focuses on the open button when the form is closed.",
+    ],
+  },
+  {
     date: "2023-10-26",
     version: "2.1.1",
     type: "Update",

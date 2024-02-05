@@ -137,6 +137,7 @@ describe("Tabs", () => {
   });
 
   it("switches between tabs", () => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
     render(<Tabs tabsData={animalCrossing} />);
     const isabelleTab = getTabByName("Isabelle");
     const kkSliderTab = getTabByName("K.K. Slider");

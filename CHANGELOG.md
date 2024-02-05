@@ -8,6 +8,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 2.1.5 (February 5, 2024)
+
+### Adds
+
+- Adds the `"navigationMoreVert"` option (vertical ellipsis) to the `Icon` component.
+
+### Updates
+
+- Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
+- Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
+- Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
+- Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
+
+### Fixes
+
+- Fixes the focus ring style for the open button in the `FeedbackBox` component.
+- Forcibly focuses on the open button when the `FeedbackBox` form is closed to ensure focus is not lost.
+
 ## 2.1.4 (January 4, 2024)
 
 ### Adds
@@ -147,7 +165,7 @@ _NOTE_: Version number `2.0.0` was previously released in 2019 and is marked as 
 ### Updates
 
 - Updates the `Logo` component to include variants for `NYC Public Schools`.
-- Updates the `Icon` component to include varisnts for `"sunFull"` and `"moonCrescent"`.
+- Updates the `Icon` component to include variants for `"sunFull"` and `"moonCrescent"`.
 - Updates `Breadcrumbs` default design token to support apps using both newer and older DS versions.
 
 ## 1.7.2 (August 31 , 2023)

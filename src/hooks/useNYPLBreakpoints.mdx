@@ -9,17 +9,20 @@ import { Meta, Source } from "@storybook/blocks";
 | Added        | `1.0.4`    |
 | Latest       | `1.0.5`    |
 
-This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally,
-the hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine
-the current breakpoint size based on NYPL's breakpoint configuration. In order
-to follow responsive design patterns, the "min-width" media query is used
-with the breakpoint configuration. The list of breakpoints can be found on
-the [Reservoir's Breakpoints](../?path=/docs/style-guide-breakpoints--docs)
-style guide.
+This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally, the
+hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine the
+current breakpoint size based on NYPL's breakpoint configuration.
+
+## Mobile-First
+
+In order to follow mobile-first responsive design patterns, the "min-width"
+media query is used with the breakpoint configuration. The list of breakpoints
+can be found on the [Reservoir's
+Breakpoints](../?path=/docs/style-guide-breakpoints--docs) style guide.
 
 ## Usage
 
-The hook returns an object with four boolean values:
+The hook returns an object with five boolean values:
 
 <Source
   code={`
