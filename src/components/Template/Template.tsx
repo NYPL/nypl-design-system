@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig, ChakraComponent } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
@@ -55,7 +55,12 @@ export interface TemplateAppContainerProps
  * The main top-level parent component that wraps all template-related
  * components.
  */
-const Template: React.FC<any> = chakra(
+const Template: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
     (props, ref?) => {
       const styles = useStyleConfig("Template", {});
@@ -280,7 +285,13 @@ const TemplateFooter: React.FC<any> = ({
  * be rendered. For example, if you want to render content in the
  * `TemplateContentPrimary` section, then pass it as a prop to `contentPrimary`.
  */
-export const TemplateAppContainer: React.FC<any> = chakra(
+export const TemplateAppContainer: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateAppContainerProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateAppContainerProps>
+> = chakra(
   forwardRef<
     HTMLDivElement,
     React.PropsWithChildren<TemplateAppContainerProps>

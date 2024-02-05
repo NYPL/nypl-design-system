@@ -8,6 +8,7 @@ import {
   Th as ChakraTh,
   Tr as ChakraTr,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
@@ -44,7 +45,12 @@ export interface TableProps {
  * Basic `Table` component used to organize and display tabular data in
  * rows and columns.
  */
-export const Table: React.FC<any> = chakra(
+export const Table: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TableProps> & React.RefAttributes<HTMLTableElement>
+  >,
+  React.PropsWithChildren<TableProps>
+> = chakra(
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {

@@ -1,4 +1,8 @@
-import { chakra, SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
+import {
+  chakra,
+  SimpleGrid as ChakraSimpleGrid,
+  ChakraComponent,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 export const gridGapsArray = [
@@ -26,7 +30,13 @@ export interface SimpleGridProps {
   id?: string;
 }
 
-export const SimpleGrid: React.FC<any> = chakra(
+export const SimpleGrid: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<SimpleGridProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<SimpleGridProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SimpleGridProps>>(
     (props, ref?) => {
       const {
