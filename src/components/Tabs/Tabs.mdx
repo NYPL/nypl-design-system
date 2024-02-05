@@ -4,6 +4,8 @@ import { changelogData } from "./tabsChangelogData";
 
 import * as TabsStories from "./Tabs.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./tabsChangelogData";
 
 <Meta of={TabsStories} />
 
@@ -21,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#composing-with-a-data-object" target="_self">Composing with a Data Object</Link>}
 - {<Link href="#responsive-mobile-carousel" target="_self">Responsive Mobile Carousel</Link>}
+- {<Link href="#scrollable-desktop-tab-set" target="_self">Scrollable Desktop Tab Set</Link>}
 - {<Link href="#callback-event-function" target="_self">Callback Event Function</Link>}
 - {<Link href="#url-hash-option" target="_self">URL Hash Option</Link>}
 - {<Link href="#children-components" target="_self">Children Components</Link>}
@@ -130,6 +133,15 @@ the <Link href="#children-components" target="_self">Children Components</Link> 
 
 To view and test this in Storybook, go to the "Canvas" tab and change the
 viewport in the Storybook toolbar at the top of the page.
+
+## Scrollable Desktop Tab Set
+
+For desktop viewports (600px and greater), the full tab set scrolls left/right when
+the width of the tab set is greater than the width of the viewport.
+
+To scroll horizontally, use the `shift + scroll wheel` combination.
+
+<Canvas of={TabsStories.ExtendedTabSetExample} />
 
 ## Callback Event Function
 

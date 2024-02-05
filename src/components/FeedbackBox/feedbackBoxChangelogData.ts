@@ -16,6 +16,18 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
+  // TODO: Update on new date
+  {
+    date: "Prelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Updates the focus ring style for the open button.",
+      "Updates the required comment field so it cannot be submitted when empty.",
+      "Forcibly focuses on the open button when the form is closed.",
+    ],
+  },
   {
     date: "2023-10-26",
     version: "2.1.1",

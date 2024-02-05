@@ -37,7 +37,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     id="video-player-with-text-componentWrapper-wrapper"
   >
     <h2
-      className="chakra-heading css-878tmy"
+      className="chakra-heading css-1xdhyk6"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
@@ -90,7 +90,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     id="video-player-with-text-componentWrapper-wrapper"
   >
     <h2
-      className="chakra-heading css-1j5o63i"
+      className="chakra-heading css-1xdhyk6"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading

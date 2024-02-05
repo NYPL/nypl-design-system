@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates the component's theme file to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.",
+    ],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",
