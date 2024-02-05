@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Tabs, { TabList, Tab, TabPanels, TabPanel } from "./Tabs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const animalCrossingData = [
   {
@@ -49,6 +50,27 @@ const animalCrossingData = [
   },
 ];
 
+const extraACData = [
+  {
+    label: "Filbert",
+    content:
+      "<strong>Filbert</strong> is a lazy squirrel villager in the Animal Crossing " +
+      "series. His name, like most of his species, comes from a type of nut. In " +
+      "this case, his name comes from an edible type of hazelnut. He has made an " +
+      "appearance in every Animal Crossing game to date. He is the only lazy " +
+      "squirrel villager in the series so far. His initial catchphrase could be " +
+      "based on the fact that squirrels usually appear to have buck teeth. He " +
+      "has the nature hobby.",
+  },
+  {
+    label: "Timmy and Tommy",
+    content:
+      "<strong>Timothy</strong> (better known as Timmy) and <strong>Thomas</strong> " +
+      "(more often known as Tommy) are the twin apprentices of Tom Nook, the tanuki " +
+      "who runs the town's store. Their last names are said to be Nook.",
+  },
+];
+
 const meta: Meta<typeof Tabs> = {
   title: "Components/Overlays & Switchers/Tabs",
   component: Tabs,
@@ -61,9 +83,7 @@ const meta: Meta<typeof Tabs> = {
     id: { control: false },
     onChange: { control: false },
     tabsData: { control: false },
-    useHash: {
-      table: { defaultValue: { summary: false } },
-    },
+    useHash: argsBooleanType(),
   },
 };
 
@@ -94,6 +114,10 @@ export const WithControls: Story = {
 // The following are additional Tabs example Stories.
 const onChange = (value) => {
   window.alert(`Tab index selected was ${value}`);
+};
+
+export const ExtendedTabSetExample: Story = {
+  render: () => <Tabs tabsData={[...animalCrossingData, ...extraACData]} />,
 };
 
 export const CallbackEventFunction: Story = {

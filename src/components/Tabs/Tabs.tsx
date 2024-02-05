@@ -7,13 +7,15 @@ import {
   TabPanel,
   Tabs as ChakraTabs,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import useScrollTabIntoView from "../../hooks/useScrollTabIntoView";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -143,7 +145,12 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-export const Tabs: React.FC<any> = chakra(
+export const Tabs: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TabsProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TabsProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TabsProps>>(
     (props, ref?) => {
       const {
@@ -155,6 +162,7 @@ export const Tabs: React.FC<any> = chakra(
         useHash = false,
         ...rest
       } = props;
+      const [tabIndex, setTabIndex] = useState(defaultIndex);
       const styles = useMultiStyleConfig("Tabs", {});
       // Just an estimate of the tab width for the mobile carousel.
       const initTabWidth = 65;
@@ -233,13 +241,20 @@ export const Tabs: React.FC<any> = chakra(
         );
       }
 
+      const tablistRef = useScrollTabIntoView(tabIndex);
+
       return (
         <ChakraTabs
           defaultIndex={defaultIndex}
           id={id}
           // The following lazy loads each panel whenever it is needed.
           isLazy
-          onChange={onChange}
+          onChange={(index) => {
+            if (onChange !== undefined) {
+              onChange(index);
+            }
+            setTabIndex(index);
+          }}
           ref={ref}
           variant="enclosed"
           {...rest}
@@ -254,7 +269,9 @@ export const Tabs: React.FC<any> = chakra(
           >
             {previousButton}
             <Box __css={styles.carouselParent}>
-              <Box {...carouselStyle}>{tabs}</Box>
+              <Box {...carouselStyle} ref={tablistRef}>
+                {tabs}
+              </Box>
             </Box>
             {nextButton}
           </Box>

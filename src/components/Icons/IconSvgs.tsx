@@ -52,6 +52,7 @@ import { ReactComponent as locator } from "../../../icons/svg/locator.svg";
 import { ReactComponent as mapsPlace } from "../../../icons/svg/maps-place.svg";
 import { ReactComponent as minus } from "../../../icons/svg/minus.svg";
 import { ReactComponent as moonCrescent } from "../../../icons/svg/moon-crescent.svg";
+import { ReactComponent as navigationMoreVert } from "../../../icons/svg/navigation-more-vert.svg";
 import { ReactComponent as plus } from "../../../icons/svg/plus.svg";
 import { ReactComponent as search } from "../../../icons/svg/search.svg";
 import { ReactComponent as socialFacebook } from "../../../icons/svg/social-facebook.svg";
@@ -125,6 +126,7 @@ export default {
   mapsPlace,
   minus,
   moonCrescent,
+  navigationMoreVert,
   plus,
   search,
   socialFacebook,

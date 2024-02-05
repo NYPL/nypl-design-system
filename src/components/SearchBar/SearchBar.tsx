@@ -136,6 +136,7 @@ export const SearchBar: React.FC<any> = chakra(
       borderRightRadius: { base: "none", md: "sm" },
       lineHeight: "1.70",
       marginBottom: "auto",
+      maxWidth: { base: "unset", md: "80px" },
     };
 
     if (!id) {
@@ -165,6 +166,7 @@ export const SearchBar: React.FC<any> = chakra(
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
+        className="textInput"
         defaultValue={textInputProps?.defaultValue}
         id={textInputProps?.id || `searchbar-textinput-${id}`}
         isClearable={textInputProps?.isClearable}

@@ -7,40 +7,45 @@ const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["base", "screenreaderOnly"]);
 
 // Style object for base or default style
-export const buttonBaseStyle = definePartsStyle({
-  base: {
-    alignItems: "center",
-    borderRadius: "sm",
-    display: "flex",
-    cursor: "pointer",
+export const baseButtonStyle = {
+  alignItems: "center",
+  borderRadius: "sm",
+  display: "flex",
+  cursor: "pointer",
+  color: "ui.white",
+  fontWeight: "button.default",
+  height: "10",
+  justifyContent: "center",
+  lineHeight: "1.5",
+  minWidth: "10",
+  textDecoration: "none",
+  wordWrap: "normal",
+  svg: {
+    fill: "currentColor",
+  },
+  _hover: {
+    bg: "ui.link.secondary",
+  },
+  _visited: {
     color: "ui.white",
-    fontWeight: "button.default",
-    justifyContent: "center",
-    lineHeight: "1.5",
-    textDecoration: "none",
-    wordWrap: "normal",
-    svg: {
-      fill: "currentColor",
-    },
-    _hover: {
-      bg: "ui.link.secondary",
-    },
-    _visited: {
-      color: "ui.white",
-    },
+  },
+  _disabled: {
+    bg: "ui.gray.light-cool",
+    color: "ui.gray.dark",
+    opacity: "1",
+    pointerEvents: "none",
+  },
+  _dark: {
     _disabled: {
-      bg: "ui.gray.light-cool",
-      color: "ui.gray.dark",
-      opacity: "1",
-      pointerEvents: "none",
-    },
-    _dark: {
-      _disabled: {
-        bg: "dark.ui.disabled.secondary",
-        color: "dark.ui.disabled.primary",
-      },
+      bg: "dark.ui.disabled.secondary",
+      color: "dark.ui.disabled.primary",
     },
   },
+};
+
+// Style object for base or default style
+export const buttonBaseStyle = definePartsStyle({
+  base: baseButtonStyle,
   /** The element will handle descriptive text added to aid
    * screen readers. */
   screenreaderOnly: screenreaderOnly(),

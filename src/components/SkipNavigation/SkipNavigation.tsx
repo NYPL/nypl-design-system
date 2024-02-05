@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
@@ -19,7 +19,13 @@ interface SkipNavigationProps {
  * the `#mainContent` id, and the second link points to accessibility information
  * on NYPL.org. These links are visually hidden but can be read by screenreaders.
  */
-export const SkipNavigation: React.FC<any> = chakra(
+export const SkipNavigation: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<SkipNavigationProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<SkipNavigationProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkipNavigationProps>>(
     (props, ref?) => {
       const { className, id, target = "#mainContent", ...rest } = props;

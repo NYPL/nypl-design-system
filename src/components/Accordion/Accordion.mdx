@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./accordionChangelogData";
 
 import * as AccordionStories from "./Accordion.stories";
 import Link from "../Link/Link";
@@ -7,10 +9,10 @@ import Link from "../Link/Link";
 
 # Accordion
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#faq-example" target="_self">FAQ Example</Link>}
 - {<Link href="#example-with-panelmaxheight-prop" target="_self">Example with panelMaxHeight Prop</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -220,3 +223,7 @@ of the content when it is closed. Click on subjects inside both `Accordion`s and
 toggle them closed and opened to see the difference.
 
 <Canvas of={AccordionStories.IsAlwaysRendered} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

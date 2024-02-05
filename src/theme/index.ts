@@ -17,7 +17,6 @@ import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CheckboxGroup from "./components/checkboxGroup";
-import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
@@ -44,6 +43,7 @@ import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
+import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
@@ -103,8 +103,6 @@ const theme: any = {
     Checkbox,
     CheckboxGroup,
     ComponentWrapper,
-    CustomImage,
-    CustomImageWrapper,
     CustomSelect,
     DatePicker,
     FeedbackBox,
@@ -115,7 +113,6 @@ const theme: any = {
     HelperErrorText,
     Hero,
     HorizontalRule,
-    CustomIcon: Icon,
     Label,
     Link,
     ReservoirList: List,
@@ -132,6 +129,9 @@ const theme: any = {
     Radio,
     RadioGroup,
     RadioWrapper,
+    ReservoirIcon: Icon,
+    ReservoirImage,
+    ReservoirImageWrapper,
     SearchBar,
     Skeleton,
     SkeletonLoader,

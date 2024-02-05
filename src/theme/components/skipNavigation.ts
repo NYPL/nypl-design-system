@@ -1,5 +1,8 @@
-const SkipNavigation = {
-  baseStyle: {
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
+
+const SkipNavigation = defineStyleConfig({
+  baseStyle: defineStyle({
     ul: {
       margin: "0",
     },
@@ -25,7 +28,7 @@ const SkipNavigation = {
         backgroundColor: "dark.ui.bg.page",
       },
     },
-  },
-};
+  }),
+});
 
 export default SkipNavigation;
