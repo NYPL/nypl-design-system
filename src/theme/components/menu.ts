@@ -1,5 +1,6 @@
 import { SectionTypes } from "../../helpers/types";
 import { getSectionColors } from "../../utils/getSectionColors";
+import { defaultElementSizes } from "./global";
 interface MenuStyleProps {
   highlightColor: SectionTypes;
   showBorder: boolean;
@@ -29,28 +30,36 @@ const Menu = {
     const darkSectionColor = "dark." + sectionColor + "-10";
     return {
       groupItem: {
-        padding: "8px 12px",
-        lineHeight: "150%",
+        paddingY: "xs",
+        paddingX: "s",
+        lineHeight: "18px",
         fontWeight: "510",
-        fontSize: "12px",
+        fontSize: "desktop.caption",
+        textColor: "ui.typography.heading",
         margin: "0px",
         _dark: {
-          textColor: "ui.white",
+          textColor: "dark.ui.typography.body",
           bg: "dark.ui.bg.default",
         },
       },
       dividerItem: {
         margin: "0px",
         _dark: {
-          textColor: "ui.white",
+          textColor: "dark.ui.typography.body",
           bg: "dark.ui.bg.default",
         },
       },
       actionItem: {
         outline: "none !important",
-        padding: "8px 12px",
-        fontSize: "14px",
+        textColor: "ui.typography.body",
+        paddingY: "xs",
+        paddingX: "s",
+        fontSize: "desktop.body.body2",
+        fontWeight: "body.body2",
         lineHeight: "150%",
+        "> div > svg": {
+          fill: "ui.black",
+        },
         _hover: {
           fontWeight: 510,
           bg: "ui.bg.hover",
@@ -60,10 +69,10 @@ const Menu = {
           bg: "ui.bg.hover",
         },
         _dark: {
-          textColor: "ui.white",
+          textColor: "dark.ui.typography.body",
           bg: "dark.ui.bg.default",
           "> div > svg": {
-            fill: "ui.white",
+            fill: "dark.ui.typography.body",
           },
           _hover: {
             bg: "dark.ui.bg.active",
@@ -73,21 +82,21 @@ const Menu = {
       selected: {
         _hover: {
           background:
-            highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
+            highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
         },
         _active: {
           background:
-            highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
+            highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
         },
-        fontWeight: 500,
-        borderLeftColor:
-          highlightColor === "whatsOn" ? "#E9E9E933" : sectionColor,
-        textColor: highlightColor === "blogs" ? "ui.black" : sectionColor,
+        fontWeight: 510,
+        borderLeftColor: sectionColor,
+        textColor:
+          highlightColor === "blogs" ? "ui.typography.heading" : sectionColor,
         borderWidth: "0px 0px 0px 2px",
         background:
           highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
         _dark: {
-          textColor: "ui.white",
+          textColor: "dark.ui.typography.heading",
           background:
             highlightColor === "whatsOn"
               ? "dark.ui.bg.hover"
@@ -95,33 +104,50 @@ const Menu = {
         },
       },
       menuButton: {
-        padding: showLabel ? "8px 16px" : "",
+        minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "40px" },
+        minWidth: { base: defaultElementSizes.mobileFieldHeight, md: "40px" },
+        whiteSpace: "nowrap",
+        paddingY: showLabel ? "xs" : "unset",
+        paddingX: showLabel ? "s" : "unset",
         borderRadius: "2px",
-        fontSize: "14px",
-        color: showBorder ? "ui.gray.xx-dark" : "ui.link.primary",
-        fill: "ui.black",
-        border: showBorder ? "1px solid #616161" : "unset",
+        fontSize: "desktop.button.default",
+        textColor: showBorder ? "ui.typography.heading" : "ui.link.primary",
+        fill: "ui.typography.heading",
+        border: showBorder ? "1px solid" : "unset",
+        borderColor: "ui.border.default",
         _hover: {
           bg: "ui.link.primary-05",
-          color: showBorder ? "" : "ui.link.secondary",
+          textColor: showBorder ? "ui.typography.heading" : "ui.link.secondary",
+          borderColor: "ui.border.hover",
         },
         _active: { bg: "ui.link.primary-05" },
+        "> span ": {
+          alignItems: showLabel ? undefined : "center",
+          display: showLabel ? undefined : "flex",
+          justifyContent: showLabel ? undefined : "center",
+        },
         "> span > svg ": {
           fill: showBorder
-            ? "ui.gray.xx-dark"
+            ? "ui.typography.heading"
             : showLabel
             ? "ui.link.primary"
             : "ui.black",
-          paddingTop: showLabel ? "" : "5px",
-          margin: showLabel ? "" : "7px",
         },
         _dark: {
-          color: showBorder ? "ui.white" : "dark.ui.link.secondary",
-          borderColor: showBorder ? "dark.ui.border.hover" : "unset",
-          _hover: { bg: "dark.ui.link.primary-10" },
+          textColor: showBorder
+            ? "dark.ui.typography.heading"
+            : "dark.ui.link.primary",
+          borderColor: showBorder ? "dark.ui.border.default" : "unset",
+          _hover: {
+            bg: "dark.ui.link.primary-10",
+            borderColor: showBorder ? "dark.ui.border.hover" : "unset",
+            textColor: showBorder
+              ? "dark.ui.typography.heading"
+              : "dark.ui.link.secondary",
+          },
           _active: { bg: "dark.ui.link.primary-10" },
           "> span > svg": {
-            fill: showBorder ? "ui.white" : "dark.ui.link.secondary",
+            fill: "dark.ui.typography.heading",
           },
         },
       },
@@ -131,7 +157,8 @@ const Menu = {
         maxWidth: "300px",
         padding: "0px",
         borderRadius: "2px",
-        border: "1px solid ui.gray.light-cool",
+        border: "1px solid",
+        borderColor: "ui.gray.light-cool",
         _dark: {
           borderColor: "dark.ui.border-default",
         },
