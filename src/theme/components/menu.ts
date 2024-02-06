@@ -112,15 +112,33 @@ const Menu = {
         borderRadius: "2px",
         fontSize: "desktop.button.default",
         textColor: showBorder ? "ui.typography.heading" : "ui.link.primary",
-        fill: "ui.typography.heading",
         border: showBorder ? "1px solid" : "unset",
         borderColor: "ui.border.default",
         _hover: {
           bg: "ui.link.primary-05",
           textColor: showBorder ? "ui.typography.heading" : "ui.link.secondary",
           borderColor: "ui.border.hover",
+          "> span > svg ": {
+            fill: showBorder
+              ? "ui.gray.xx-dark"
+              : showLabel
+              ? "ui.link.secondary"
+              : "ui.black",
+          },
         },
-        _active: { bg: "ui.link.primary-05" },
+        _active: {
+          bg: "ui.link.primary-05",
+          textColor: showBorder ? "ui.typography.heading" : "ui.link.secondary",
+          borderColor: "ui.border.hover",
+          "> span > svg ": {
+            fill: showBorder
+              ? "ui.typography.heading"
+              : showLabel
+              ? "ui.link.secondary"
+              : "ui.black",
+          },
+        },
+
         "> span ": {
           alignItems: showLabel ? undefined : "center",
           display: showLabel ? undefined : "flex",
@@ -131,7 +149,7 @@ const Menu = {
             ? "ui.typography.heading"
             : showLabel
             ? "ui.link.primary"
-            : "ui.black",
+            : "ui.typography.heading",
         },
         _dark: {
           textColor: showBorder
