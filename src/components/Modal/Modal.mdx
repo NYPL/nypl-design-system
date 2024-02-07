@@ -25,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -124,7 +125,24 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   modalProps={{
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
-    headingText: "Modal Heading Text",
+    headingText: (
+      <Heading
+        level="h3"
+        display="flex"
+        alignItems="center"
+        gap="xs"
+        size="heading5"
+      >
+        <>
+          <Icon
+            color="ui.success.primary"
+            name="actionCheckCircleFilled"
+            size="large"
+          />
+          Modal Heading Text
+        </>
+      </Heading>
+    ),
     onClose: () => {
       console.log("custom close");
     },
@@ -201,6 +219,48 @@ export const ModalStory = (args) => {
 ## useModal Component Props
 
 <Canvas of={ModalStories.useModalStory} />
+
+<ArgTypes of={ModalStories.useModalStory} />
+
+## Custom Heading Text
+
+By default, the `Modal` component will render a DS h2 `Heading` component when
+a string is passed to the `headingText` prop. However, a custom heading can be
+passed to the `headingText` property. This can be useful when you want to add
+additional elements to the heading, such as an icon, or to set the level to
+something other than an `h2`.
+
+In the following example, the heading is an `h3` `Heading` component with an
+additional icon.
+
+<Source
+  code={`
+// Example for the ModalTrigger component.
+modalProps={{
+  bodyContent: "body text",
+  closeButtonLabel: "Close Button",
+  headingText: (
+    <Heading
+      level="h3"
+      display="flex"
+      alignItems="center"
+      gap="xs"
+      size="heading5"
+    >
+      <>
+        <Icon
+          color="ui.success.primary"
+          name="actionCheckCircleFilled"
+          size="large"
+        />
+        Modal Heading Text
+      </>
+    </Heading>
+  ),
+}}
+`}
+  language="jsx"
+/>
 
 ## Content Window Scrolling
 

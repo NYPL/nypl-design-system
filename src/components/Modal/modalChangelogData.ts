@@ -13,7 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Uses the useDSHeading hook internally to render a DS Heading for the `Modal`'s `headingText` prop.",
+    ],
   },
 ];

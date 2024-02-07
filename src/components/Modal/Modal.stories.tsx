@@ -5,12 +5,24 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import { ModalTrigger, useModal } from "./Modal";
 
 const meta: Meta<typeof ModalTrigger> = {
   title: "Components/Overlays & Switchers/Modal",
   component: ModalTrigger,
+  argTypes: {
+    buttonText: { control: { type: "text" } },
+    id: { control: false },
+    modalProps: {
+      control: { type: "object" },
+      description:
+        "Props to update the internal `Modal` component. This contains the" +
+        "`bodyContent`, `closeButtonLabel`, `headingText`, `isOpen`, and " +
+        "`onClose` props",
+    },
+  },
 };
 
 export default meta;
@@ -27,7 +39,24 @@ export const WithControls: Story = {
     modalProps: {
       bodyContent: "body text",
       closeButtonLabel: "Close Button",
-      headingText: "Modal Heading Text",
+      headingText: (
+        <Heading
+          level="h3"
+          display="flex"
+          alignItems="center"
+          gap="xs"
+          size="heading5"
+        >
+          <>
+            <Icon
+              color="ui.success.primary"
+              name="actionCheckCircleFilled"
+              size="large"
+            />
+            Modal Heading Text
+          </>
+        </Heading>
+      ),
       onClose: () => {
         console.log("custom close");
       },
@@ -82,6 +111,32 @@ const ModalStory = () => {
 
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
+  argTypes: {
+    buttonText: { table: { disable: true } },
+    bodyContent: {
+      control: { type: "text" },
+      description: "The content to display in the modal body.",
+    },
+    closeButtonLabel: {
+      control: { type: "text" },
+      description: "The label for the close button.",
+    },
+    headingText: {
+      control: { type: "text" },
+      description:
+        "The text to display in the modal heading. Can be a string or JSX Element.",
+    },
+    id: { control: false },
+    isOpen: {
+      control: false,
+      description: "Boolean to determine if the modal is open or closed.",
+    },
+    onClose: {
+      control: false,
+      description: "Function to call when the modal is closed.",
+    },
+    modalProps: { table: { disable: true } },
+  },
   render: () => <ModalStory />,
   name: "useModal Component",
 };
