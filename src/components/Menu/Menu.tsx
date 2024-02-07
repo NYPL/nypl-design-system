@@ -193,6 +193,7 @@ export const Menu = chakra(
       const getButton = (isOpen) => (
         <MenuButton
           sx={styles.menuButton}
+          aria-label={labelText}
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
           {showLabel && (
