@@ -13,25 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "2024-02-05",
     version: "2.1.5",
     type: "Update",
-    affects: ["Accessibility"],
+    affects: ["Accessibility", "Documentation"],
     notes: [
-      "Updates the component's theme file to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.",
+      "Updates tab set to be scrollable when the width of the tab set is greater than the viewport",
     ],
-  },
-  {
-    date: "2023-12-07",
-    version: "2.1.3",
-    type: "Update",
-    affects: ["Accessibility"],
-    notes: [
-      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
-    ],
-  },
-  {
-    date: "2023-9-28",
-    version: "2.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Applied Typo2023 styles, including font size and font color."],
   },
 ];
