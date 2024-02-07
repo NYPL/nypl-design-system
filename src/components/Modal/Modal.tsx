@@ -15,21 +15,31 @@ import React, { forwardRef } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import useDSHeading from "../../hooks/useDSHeading";
 
-interface BaseModalProps {
+export interface BaseModalProps {
+  /** The content to display in the modal body. */
   bodyContent?: string | JSX.Element;
+  /** The label for the close button. */
   closeButtonLabel?: string;
+  /** The text to display in the modal heading, can be a string or JSX Element. */
   headingText?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Boolean to determine if the modal is open or closed. */
   isOpen?: boolean;
+  /* Function to call when the modal is closed. */
   onClose?: () => void;
 }
 
 export interface ModalProps {
+  /** The text to display on the button that opens the modal. */
   buttonText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Props to update the internal `Modal` component. This contains the
+   * `bodyContent`, `closeButtonLabel`, `headingText`, `isOpen`, and
+   * `onClose` props. */
   modalProps: BaseModalProps;
 }
 
@@ -54,6 +64,10 @@ export const BaseModal: ChakraComponent<
     const { isLargerThanMobile } = useNYPLBreakpoints();
     // For larger screens, set the size to xl, otherwise set it to full.
     const size = isLargerThanMobile ? xlarge : fullSize;
+    const finalTitle = useDSHeading({
+      title: headingText,
+      id,
+    });
 
     return (
       <ChakraModal
@@ -66,7 +80,7 @@ export const BaseModal: ChakraComponent<
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{headingText}</ModalHeader>
+          <ModalHeader>{finalTitle}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>{bodyContent}</ModalBody>
 
