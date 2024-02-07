@@ -6,21 +6,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## React 18 / Chakra 2.8 Release
+
+### Adds
+
+- Adds `5%` and `10%` opacities for the semantic colors in the color pallette.
+
+### Updates
+
+- Updates the `StatusBadge` component to add the `type` prop.
+- Updates the `StatusBadge` component to change the UI styles.
+- Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
+
 ## Prerelease
+
+### Adds
+
+- Adds the `"navigationMoreVert"` option (vertical ellipsis) to the `Icon` component.
+
+### Updates
+
+- Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
+- Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
+- Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
+- Updates the `useNYPLBreakpoints` hook to include `isSmallerThanMedium` and `isSmallerThanDesktop`, both of which implement a desktop-first design approach.
 
 ### Fixes
 
-- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
+- Fixes the focus ring style for the open button in the `FeedbackBox` component.
+- Forcibly focuses on the open button when the `FeedbackBox` form is closed to ensure focus is not lost.
+
+## 2.1.4 (January 4, 2024)
 
 ### Adds
 
 - Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
-- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
+- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`,
+  `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
 
 ### Updates
 
 - Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
-- Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
+
+### Fixes
+
+- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
 
 ## 2.1.3 (December 7, 2023)
 
@@ -141,7 +171,7 @@ _NOTE_: Version number `2.0.0` was previously released in 2019 and is marked as 
 ### Updates
 
 - Updates the `Logo` component to include variants for `NYC Public Schools`.
-- Updates the `Icon` component to include varisnts for `"sunFull"` and `"moonCrescent"`.
+- Updates the `Icon` component to include variants for `"sunFull"` and `"moonCrescent"`.
 - Updates `Breadcrumbs` default design token to support apps using both newer and older DS versions.
 
 ## 1.7.2 (August 31 , 2023)

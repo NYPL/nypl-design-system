@@ -16,4 +16,14 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
+  // TODO: Update on new date
+  {
+    date: "Prelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Documentation"],
+    notes: [
+      "Updates tab set to be scrollable when the width of the tab set is greater than the viewport",
+    ],
+  },
 ];

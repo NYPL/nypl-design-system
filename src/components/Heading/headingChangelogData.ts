@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updated to use a custom `@media query` method to handle the responsive `font-size` styles.",
+    ],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",
@@ -22,7 +31,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
+      'Updated the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
     ],
   },
   {

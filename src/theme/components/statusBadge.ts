@@ -2,35 +2,95 @@ import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
 
 const baseStyle = defineStyle({
+  bgColor: "ui.bg.default",
+  borderLeft: "4px solid",
+  borderColor: "ui.gray.semi-dark",
   borderRadius: "base",
   color: "ui.typography.heading",
   display: "block",
   fontSize: "desktop.body.body2", // slightly smaller than the default size
-  fontStyle: "italic",
+  fontWeight: "500",
   py: "inset.extranarrow",
-  px: "inset.narrow",
+  paddingInlineEnd: "inset.default",
+  paddingInlineStart: ".75rem",
   textAlign: "center",
+  whiteSpace: "nowrap",
   width: "fit-content",
   _dark: {
-    backgroundColor: "dark.ui.bg.active",
-    borderLeft: "4px solid",
+    backgroundColor: "dark.ui.bg.default",
+    // borderLeft: "4px solid",
     borderColor: "dark.ui.border.default",
     color: "dark.ui.typography.heading",
   },
 });
 
-// Variants
-const low = defineStyle({ bg: "ui.gray.light-cool" });
+// Level variants
+const low = defineStyle({});
 const medium = defineStyle({
-  bg: "ui.status.primary",
+  borderColor: "ui.status.primary",
   _dark: {
     borderColor: "ui.status.primary",
   },
 });
 const high = defineStyle({
-  bg: "ui.status.secondary",
+  borderColor: "ui.error.primary",
   _dark: {
     borderColor: "dark.ui.error.primary",
+  },
+});
+// Type variants
+const neutral = defineStyle({
+  borderColor: "ui.gray.dark",
+  _dark: {
+    borderColor: "dark.ui.gray.semi-dark",
+  },
+});
+const informative = defineStyle({
+  bgColor: "ui.link.primary-10",
+  borderColor: "ui.link.primary",
+  _dark: {
+    bgColor: "dark.ui.link.primary-10",
+    borderColor: "dark.ui.link.primary",
+  },
+});
+const positive = defineStyle({
+  bgColor: "ui.success.primary-10",
+  borderColor: "ui.success.primary",
+  _dark: {
+    bgColor: "dark.ui.success.primary-10",
+    borderColor: "dark.ui.success.primary",
+  },
+});
+const negative = defineStyle({
+  bgColor: "ui.error.primary-10",
+  borderColor: "ui.error.primary",
+  _dark: {
+    bgColor: "dark.ui.error.primary-10",
+    borderColor: "dark.ui.error.primary",
+  },
+});
+const warningHigh = defineStyle({
+  bgColor: "ui.warning.primary-10",
+  borderColor: "ui.warning.primary",
+  _dark: {
+    bgColor: "dark.ui.warning.primary-10",
+    borderColor: "dark.ui.warning.primary",
+  },
+});
+const warningLow = defineStyle({
+  bgColor: "ui.status.primary-10",
+  borderColor: "ui.status.primary",
+  _dark: {
+    bgColor: "dark.ui.status.primary-10",
+    borderColor: "dark.ui.status.primary",
+  },
+});
+const recommendation = defineStyle({
+  bgColor: "ui.link.tertiary-10",
+  borderColor: "ui.link.tertiary",
+  _dark: {
+    bgColor: "dark.ui.link.tertiary-10",
+    borderColor: "dark.ui.link.tertiary",
   },
 });
 
@@ -40,6 +100,13 @@ const StatusBadge = defineStyleConfig({
     low,
     medium,
     high,
+    neutral,
+    informative,
+    positive,
+    negative,
+    warningHigh,
+    warningLow,
+    recommendation,
   },
 });
 
