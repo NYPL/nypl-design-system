@@ -166,13 +166,19 @@ const CardWrapper: React.FC<any> = chakra(
           id={id}
           className={className}
           ref={ref}
-          sx={styles}
+          sx={styles.base}
           {...rest}
         >
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box
+          id={id}
+          className={className}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           {children}
         </Box>
       )
@@ -244,7 +250,7 @@ export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
       backgroundColor && (customColors["backgroundColor"] = backgroundColor);
       foregroundColor && (customColors["color"] = foregroundColor);
 
-      const styles = useMultiStyleConfig("Card", {
+      const styles = useMultiStyleConfig("CustomCard", {
         hasImage,
         imageIsAtEnd: imageProps.isAtEnd,
         isAlignedRightActions,
@@ -312,7 +318,7 @@ export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
           mainActionLink={mainActionLink}
           ref={ref}
           styles={{
-            ...styles,
+            ...styles.base,
             ...customColors,
           }}
           {...rest}
