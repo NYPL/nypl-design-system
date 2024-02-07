@@ -15,7 +15,8 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updated to use a custom `@media query` method to handle the responsive `font-size` styles.",
+      "Chakra 2.8 update.",
+      "Updates the component's theme file to use native Chakra responsive styles of the font sizes and removed the conditional logic that handled that previously.",
     ],
   },
   {
@@ -23,15 +24,8 @@ export const changelogData: ChangelogData[] = [
     version: "2.1.3",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Update",
-    affects: ["Styles"],
     notes: [
-      'Updated the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
+      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
     ],
   },
   {
