@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `StatusBadge` component to add the `type` prop.
 - Updates the `StatusBadge` component to change the UI styles.
+- Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
 - Updates the `Heading` component to use native Chakra responsive styles to handle the font sizes of the component's internal `heading`, `overline` and `subtitle` elements. This also resolves the flashing font size bug that is most noticeable on slower internet connections.
 - Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
 
@@ -47,13 +48,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept
-  an empty string.
+- Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
 
 ### Fixes
 
-- Fixes bug where month and year `Datepicker` calendars were rendering
-  vertically rather than horizontally.
+- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
 
 ## 2.1.3 (December 7, 2023)
 
