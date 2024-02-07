@@ -204,29 +204,6 @@ export const Primary: Story = {
   ),
 };
 
-export const Secondary: Story = {
-  name: "Secondary (deprecated)",
-  render: () => (
-    <Hero
-      heading={
-        <Heading
-          level="h1"
-          id="secondary-hero"
-          size="heading2"
-          text="Hero Secondary (deprecated)"
-        />
-      }
-      heroType="secondary"
-      imageProps={imageProps}
-      subHeaderText={
-        <>
-          {secondarySubHeaderText} {deprecatedMessage}
-        </>
-      }
-    />
-  ),
-};
-
 export const Tertiary: Story = {
   render: () => (
     <>
@@ -389,6 +366,29 @@ export const CampaignBackgroundColors: Story = {
         />
       </div>
     </Stack>
+  ),
+};
+
+export const Secondary: Story = {
+  name: "Secondary (deprecated)",
+  render: () => (
+    <Hero
+      heading={
+        <Heading
+          level="h1"
+          id="secondary-hero"
+          size="heading2"
+          text="Hero Secondary (deprecated)"
+        />
+      }
+      heroType="secondary"
+      imageProps={imageProps}
+      subHeaderText={
+        <>
+          {secondarySubHeaderText} {deprecatedMessage}
+        </>
+      }
+    />
   ),
 };
 

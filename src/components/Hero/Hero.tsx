@@ -313,7 +313,7 @@ export const Hero: React.FC<any> = chakra(
           style={backgroundImageSrc ? backgroundImageStyle : undefined}
           ref={ref}
           __css={{
-            ...styles,
+            ...styles.base,
             ...backgroundImageStyle,
           }}
         >
