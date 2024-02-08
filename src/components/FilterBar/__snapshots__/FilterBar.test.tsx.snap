@@ -22,7 +22,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
   id="filter-bar-filterBarWithClearAllButton"
 >
   <h2
-    className="chakra-heading css-ejul5c"
+    className="chakra-heading css-1xdhyk6"
   >
     FilterBar
   </h2>
@@ -30,7 +30,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
     className="chakra-stack css-gpv9hk"
   >
     <div
-      className="chakra-stack css-ytb711"
+      className="chakra-stack css-6dfzd0"
     >
       <button
         className="chakra-button css-1e643n3"
@@ -50,14 +50,27 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
   className="css-1xdhyk6"
   id="filter-bar-filterBarWithSubmitAllButton"
 >
-  <button
-    className="chakra-button css-1xdhyk6"
-    id="filter-bar-filterBarWithSubmitAllButton-show-filters"
-    onClick={[Function]}
-    type="button"
+  <h2
+    className="chakra-heading css-1xdhyk6"
   >
-    Show Filter 
-  </button>
+    FilterBar
+  </h2>
+  <div
+    className="chakra-stack css-gpv9hk"
+  >
+    <div
+      className="chakra-stack css-6dfzd0"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        id="filterBarWithSubmitAllButton-submit-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Apply Filters
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
@@ -67,7 +80,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
   id="filter-bar-filterBarWithButtons"
 >
   <h2
-    className="chakra-heading css-ejul5c"
+    className="chakra-heading css-1xdhyk6"
   >
     FilterBar
   </h2>
@@ -75,7 +88,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
     className="chakra-stack css-gpv9hk"
   >
     <div
-      className="chakra-stack css-ytb711"
+      className="chakra-stack css-6dfzd0"
     >
       <button
         className="chakra-button css-1xdhyk6"
