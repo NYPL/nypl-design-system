@@ -8,6 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `MultiSelect` v2 component.
+- Adds the `useMultiSelect` hook.
+
+### Updates
+
+- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+
 ### Fixes
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types
