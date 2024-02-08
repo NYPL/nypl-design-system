@@ -58,8 +58,6 @@ const multiSelectItems = [
   },
 ];
 
-const defaultItemsVisible = 5;
-
 interface FilterBarTestComponentProps {
   id?: string;
   showClearAll?: boolean;
@@ -104,14 +102,10 @@ const FilterBarTestComponent = ({
             <MultiSelect
               key={multiSelect.id}
               id={multiSelect.id}
+              labelText={multiSelect.name}
+              type="dialog"
               items={multiSelect.items}
               selectedItems={selectedItems}
-              isDefaultOpen={false}
-              isSearchable={false}
-              isBlockElement={false}
-              helperText="Multi Select Helper Text"
-              buttonText="MultiSelect"
-              defaultItemsVisible={defaultItemsVisible}
               onChange={(e) => {
                 onChange(e.target.id, multiSelect.id);
               }}
@@ -125,6 +119,7 @@ const FilterBarTestComponent = ({
               onClear={() => {
                 onClear(multiSelect.id);
               }}
+              onApply={() => {}}
             />
           ))}
       </MultiSelectGroup>
@@ -136,28 +131,25 @@ const MultiSelectTestGroup = (multiSelectItems) => (
     id="MultiSelectGroup"
     labelText="MultiSelectGroup example"
     showLabel={true}
-    multiSelectWidth="full"
+    multiSelectWidth="default"
   >
     {multiSelectItems.map((multiSelectItem) => (
       <MultiSelect
         key={multiSelectItem.id}
         id={multiSelectItem.id}
+        type="listbox"
+        labelText={multiSelectItem.name}
         items={multiSelectItem.items}
-        isDefaultOpen={false}
-        isSearchable={false}
-        isBlockElement={false}
         selectedItems={{}}
-        helperText="Multi Select Helper Text"
-        buttonText="MultiSelect"
-        defaultItemsVisible={defaultItemsVisible}
         onChange={() => null}
         onMixedStateChange={() => null}
+        onApply={() => {}}
         onClear={() => "clear"}
       />
     ))}
   </MultiSelectGroup>
 );
-describe.skip("FilterBar Accessibility", () => {
+describe("FilterBar Accessibility", () => {
   beforeAll(() => {
     matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
@@ -191,7 +183,7 @@ describe.skip("FilterBar Accessibility", () => {
   });
 });
 
-describe.skip("FilterBar", () => {
+describe("FilterBar", () => {
   beforeAll(() => {
     matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {

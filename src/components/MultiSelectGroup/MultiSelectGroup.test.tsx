@@ -52,9 +52,7 @@ const multiSelectItems = [
   },
 ];
 
-const defaultItemsVisible = 5;
-
-describe.skip("MulitSelectGroup Accessibility", () => {
+describe("MulitSelectGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
     const handleChangeMock = jest.fn();
     const { container } = render(
@@ -62,20 +60,16 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
         showLabel={true}
-        multiSelectWidth="full"
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            helperText="Multi Select Helper Text"
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
             onClear={() => "clear"}
           />
@@ -91,20 +85,16 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
         showLabel={false}
-        multiSelectWidth="full"
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            helperText="Multi Select Helper Text"
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
             onClear={() => "clear"}
           />
@@ -120,20 +110,16 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
         showLabel={true}
-        multiSelectWidth="full"
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
             selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            helperText="Multi Select Helper Text"
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
             onClear={() => "clear"}
           />
@@ -150,20 +136,16 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
         showLabel={false}
-        multiSelectWidth="full"
+        multiSelectWidth="default"
       >
         {multiSelectItems.map((multiSelectItem) => (
           <MultiSelect
             key={multiSelectItem.id}
             id={multiSelectItem.id}
+            type="listbox"
+            labelText={multiSelectItem.name}
             items={multiSelectItem.items}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
             selectedItems={{}}
-            helperText="Multi Select Helper Text"
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
             onClear={() => "clear"}
           />
@@ -182,7 +164,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         labelText="Not a MultiSelect child!"
         showLabel={true}
         id="wrong-child"
-        multiSelectWidth="full"
+        multiSelectWidth="default"
       >
         <p>I pretend to be a MultiSelect!</p>
       </MultiSelectGroup>
@@ -198,7 +180,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
       .create(
         <MultiSelectGroup
           id="MultiSelectGroup"
-          multiSelectWidth="full"
+          multiSelectWidth="default"
           labelText="MultiSelectGroup example"
           showLabel={true}
         >
@@ -206,16 +188,13 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
+              type="dialog"
+              labelText={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}
-              isDefaultOpen={false}
-              isSearchable={false}
-              isBlockElement={false}
-              helperText="Multi Select Helper Text"
-              buttonText="MultiSelect"
-              defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
               onClear={() => "clear"}
+              onApply={() => "apply"}
             />
           ))}
         </MultiSelectGroup>
@@ -226,7 +205,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
       .create(
         <MultiSelectGroup
           id="MultiSelectGroup"
-          multiSelectWidth="full"
+          multiSelectWidth="default"
           labelText="MultiSelectGroup example"
           showLabel={false}
         >
@@ -234,16 +213,13 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             <MultiSelect
               key={multiSelectItem.id}
               id={multiSelectItem.id}
+              type="dialog"
+              labelText={multiSelectItem.name}
               items={multiSelectItem.items}
               selectedItems={{}}
-              isDefaultOpen={false}
-              isSearchable={false}
-              isBlockElement={false}
-              helperText="Multi Select Helper Text"
-              buttonText="MultiSelect"
-              defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
               onClear={() => "clear"}
+              onApply={() => "apply"}
             />
           ))}
         </MultiSelectGroup>

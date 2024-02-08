@@ -106,19 +106,6 @@ export const accordionData = [
   },
 ];
 
-export const accordionDataWithAriaLabel = [
-  {
-    ariaLabel: "Tom Nook, known in Japan as Tanukichi",
-    label: "Tom Nook",
-    panel: (
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
-        in the Animal Crossing series who operates the village store.
-      </p>
-    ),
-  },
-];
-
 describe("Accordion", () => {
   it("renders a visible button with a label to click on", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
@@ -208,77 +195,6 @@ describe("Accordion", () => {
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion2).toHaveAttribute("aria-expanded", "true");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");
-  });
-
-  describe("Check aria-label values", () => {
-    it("renders with attribute generated from component prop", () => {
-      render(
-        <Accordion
-          accordionData={[accordionData[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
-        />
-      );
-      const accordionPropLabel = screen.getByRole("button", {
-        name: "Tom Nook, an Animal Crossing character",
-      });
-      expect(accordionPropLabel).toBeInTheDocument();
-      expect(accordionPropLabel).toHaveAttribute(
-        "aria-label",
-        "Tom Nook, an Animal Crossing character"
-      );
-    });
-
-    it("renders with attribute generated from accordionData", () => {
-      render(<Accordion accordionData={[accordionDataWithAriaLabel[0]]} />);
-      const accordionDataLabel = screen.getByRole("button", {
-        name: "Tom Nook, known in Japan as Tanukichi",
-      });
-      expect(accordionDataLabel).toBeInTheDocument();
-      expect(accordionDataLabel).toHaveAttribute(
-        "aria-label",
-        "Tom Nook, known in Japan as Tanukichi"
-      );
-    });
-
-    it("accordionData value overrides component prop value", () => {
-      render(
-        <Accordion
-          accordionData={[accordionDataWithAriaLabel[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
-        />
-      );
-
-      // value from data is used
-      const accordionDataLabel = screen.getByRole("button", {
-        name: "Tom Nook, known in Japan as Tanukichi",
-      });
-      expect(accordionDataLabel).toBeInTheDocument();
-      expect(accordionDataLabel).toHaveAttribute(
-        "aria-label",
-        "Tom Nook, known in Japan as Tanukichi"
-      );
-
-      // value from prop is not used
-      const accordionPropLabel = screen.queryByText(
-        "Tom Nook, an Animal Crossing character"
-      );
-      expect(accordionPropLabel).not.toBeInTheDocument();
-    });
-
-    it("generates warning when ariaLabel is set twice", () => {
-      render(
-        <Accordion
-          accordionData={[accordionDataWithAriaLabel[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
-        />
-      );
-      const warn = jest.spyOn(console, "warn");
-      expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
-          "overall component and as part of the accordionData prop. Both can not " +
-          "be used, so the value in the accordionData prop will be used."
-      );
-    });
   });
 
   it("Renders the UI snapshot correctly", () => {
