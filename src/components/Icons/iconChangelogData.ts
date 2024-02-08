@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-02-05",
+    version: "2.1.5",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the navigationMoreVert (vertical ellipsis) icon."],
+  },
+  {
     date: "2024-01-04",
     version: "2.1.4",
     type: "Update",

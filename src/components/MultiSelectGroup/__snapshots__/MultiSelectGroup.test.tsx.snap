@@ -9,7 +9,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-ofymhf"
+    className="chakra-stack css-1qqyp9p"
     data-testid="multi-select-group"
     id="MultiSelectGroup"
   >
@@ -18,6 +18,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       id="colors"
       type="dialog"
     >
+      <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
       <div
         data-focus-guard={true}
         style={
@@ -131,6 +146,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         tabIndex={-1}
       />
       <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
+      <div
         data-focus-lock-disabled="disabled"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -212,6 +242,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       id="tools"
       type="dialog"
     >
+      <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
       <div
         data-focus-guard={true}
         style={
@@ -317,7 +362,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-a2evad"
+    className="chakra-stack css-1i5d0m2"
     data-testid="multi-select-group"
     id="MultiSelectGroup"
   >
@@ -326,6 +371,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       id="colors"
       type="dialog"
     >
+      <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
       <div
         data-focus-guard={true}
         style={
@@ -439,6 +499,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         tabIndex={-1}
       />
       <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
+      <div
         data-focus-lock-disabled="disabled"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -520,6 +595,21 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       id="tools"
       type="dialog"
     >
+      <div
+        data-focus-guard={true}
+        style={
+          {
+            "height": "0px",
+            "left": "1px",
+            "overflow": "hidden",
+            "padding": 0,
+            "position": "fixed",
+            "top": "1px",
+            "width": "1px",
+          }
+        }
+        tabIndex={-1}
+      />
       <div
         data-focus-guard={true}
         style={

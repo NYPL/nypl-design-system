@@ -6,7 +6,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
   id="inputID-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
   >
     <input
       checked={false}
@@ -21,12 +21,12 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -45,6 +45,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     <span
       className="chakra-radio__label css-1y8kf23"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -62,7 +63,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
   id="radio-checked-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
     data-checked=""
   >
     <input
@@ -78,12 +79,12 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -104,6 +105,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       className="chakra-radio__label css-1y8kf23"
       data-checked=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -121,7 +123,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
   id="radio-required-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
   >
     <input
       aria-required={true}
@@ -137,12 +139,12 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       required={true}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -161,6 +163,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     <span
       className="chakra-radio__label css-1y8kf23"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -178,7 +181,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
   id="radio-invalid-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
     data-invalid=""
   >
     <input
@@ -195,12 +198,12 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -221,6 +224,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       className="chakra-radio__label css-1y8kf23"
       data-invalid=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -238,7 +242,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
   id="radio-disabled-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
     data-disabled=""
   >
     <input
@@ -255,12 +259,12 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -281,6 +285,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       className="chakra-radio__label css-1y8kf23"
       data-disabled=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -298,7 +303,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
   id="jsxLabel-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
   >
     <input
       checked={false}
@@ -313,12 +318,12 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -338,6 +343,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     <span
       className="chakra-radio__label css-1y8kf23"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -367,7 +373,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
   id="chakra-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
   >
     <input
       checked={false}
@@ -382,12 +388,12 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -406,6 +412,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     <span
       className="chakra-radio__label css-1y8kf23"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"
@@ -424,7 +431,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
   id="props-wrapper"
 >
   <label
-    className="chakra-radio css-rfs4w5"
+    className="chakra-radio css-13p0l12"
   >
     <input
       checked={false}
@@ -439,12 +446,12 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -463,6 +470,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     <span
       className="chakra-radio__label css-1y8kf23"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <span
         className="css-0"

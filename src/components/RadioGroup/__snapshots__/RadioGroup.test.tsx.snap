@@ -13,14 +13,14 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -36,12 +36,12 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -61,6 +61,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -75,7 +76,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -91,12 +92,12 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -116,6 +117,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -150,14 +152,14 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-1478f2b"
+      className="chakra-stack css-1objuxj"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -173,12 +175,12 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -198,6 +200,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -212,7 +215,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -228,12 +231,12 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -253,6 +256,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -287,14 +291,14 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -310,12 +314,12 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -335,6 +339,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -349,7 +354,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -365,12 +370,12 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -390,6 +395,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -424,14 +430,14 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -447,12 +453,12 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -472,6 +478,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -486,7 +493,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -502,12 +509,12 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -527,6 +534,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -570,14 +578,14 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -593,12 +601,12 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -618,6 +626,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -632,7 +641,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -648,12 +657,12 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -673,6 +682,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -707,14 +717,14 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             aria-required={true}
@@ -731,12 +741,12 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
             required={true}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -756,6 +766,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -770,7 +781,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             aria-required={true}
@@ -787,12 +798,12 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
             required={true}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -812,6 +823,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -849,14 +861,14 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             aria-required={true}
@@ -873,12 +885,12 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
             required={true}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -898,6 +910,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -912,7 +925,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             aria-required={true}
@@ -929,12 +942,12 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
             required={true}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -954,6 +967,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -988,14 +1002,14 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
           data-invalid=""
         >
           <input
@@ -1013,12 +1027,12 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1040,6 +1054,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
             className="chakra-radio__label css-1y8kf23"
             data-invalid=""
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1054,7 +1069,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
           data-invalid=""
         >
           <input
@@ -1072,12 +1087,12 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1099,6 +1114,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
             className="chakra-radio__label css-1y8kf23"
             data-invalid=""
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1133,14 +1149,14 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
           data-disabled=""
         >
           <input
@@ -1158,12 +1174,12 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1185,6 +1201,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
             className="chakra-radio__label css-1y8kf23"
             data-disabled=""
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1199,7 +1216,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
           data-disabled=""
         >
           <input
@@ -1217,12 +1234,12 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1244,6 +1261,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
             className="chakra-radio__label css-1y8kf23"
             data-disabled=""
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1278,14 +1296,14 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="arts-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1301,12 +1319,12 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1326,6 +1344,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1352,7 +1371,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
         id="English-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1368,12 +1387,12 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1393,6 +1412,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1439,14 +1459,14 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1462,12 +1482,12 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1487,6 +1507,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1501,7 +1522,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1517,12 +1538,12 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1542,6 +1563,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1577,14 +1599,14 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack css-1wdv1uh"
     >
       <div
         className="css-1xdhyk6"
         id="radio-2-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1600,12 +1622,12 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1625,6 +1647,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"
@@ -1639,7 +1662,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
         id="radio-3-wrapper"
       >
         <label
-          className="chakra-radio css-rfs4w5"
+          className="chakra-radio css-13p0l12"
         >
           <input
             checked={false}
@@ -1655,12 +1678,12 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
             required={false}
             style={
               {
-                "border": "0",
-                "clip": "rect(0, 0, 0, 0)",
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
                 "height": "1px",
                 "margin": "-1px",
                 "overflow": "hidden",
-                "padding": "0",
+                "padding": "0px",
                 "position": "absolute",
                 "whiteSpace": "nowrap",
                 "width": "1px",
@@ -1680,6 +1703,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
           <span
             className="chakra-radio__label css-1y8kf23"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
           >
             <span
               className="css-0"

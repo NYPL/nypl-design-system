@@ -6,7 +6,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
   id="inputID-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     onClick={[Function]}
   >
     <input
@@ -25,12 +25,12 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -49,6 +49,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -62,7 +63,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
   id="checkbox-checked-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     data-checked=""
     onClick={[Function]}
   >
@@ -82,12 +83,12 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -105,7 +106,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       onMouseUp={[Function]}
     >
       <svg
-        className="chakra-icon css-qyb3gi"
+        className="chakra-icon css-oi1lnb"
         focusable={false}
         viewBox="0 0 24 24"
       >
@@ -119,6 +120,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       className="chakra-checkbox__label css-1oeb2oe"
       data-checked=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -132,7 +134,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
   id="checkbox-checked-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     data-checked=""
     onClick={[Function]}
   >
@@ -152,12 +154,12 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -176,22 +178,24 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       onMouseUp={[Function]}
     >
       <div
-        className="css-0"
         style={
           {
             "alignItems": "center",
             "display": "flex",
             "height": "100%",
             "justifyContent": "center",
+            "transform": "none",
           }
         }
       >
         <svg
-          className="css-1w6vdd7"
+          className="css-o8vbdw"
           style={
             {
+              "opacity": 1,
               "stroke": "currentColor",
               "strokeWidth": 4,
+              "transform": "none",
             }
           }
           viewBox="0 0 24 24"
@@ -209,6 +213,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       className="chakra-checkbox__label css-1oeb2oe"
       data-checked=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -222,7 +227,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   id="checkbox-required-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     onClick={[Function]}
   >
     <input
@@ -241,12 +246,12 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       required={true}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -265,6 +270,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -278,7 +284,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
   id="checkbox-invalid-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     data-invalid=""
     onClick={[Function]}
   >
@@ -298,12 +304,12 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -324,6 +330,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       className="chakra-checkbox__label css-1oeb2oe"
       data-invalid=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -337,7 +344,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   id="checkbox-disabled-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     data-disabled=""
     onClick={[Function]}
   >
@@ -357,12 +364,12 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -383,6 +390,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       className="chakra-checkbox__label css-1oeb2oe"
       data-disabled=""
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -396,7 +404,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   id="jsxLabel-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     onClick={[Function]}
   >
     <input
@@ -415,12 +423,12 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -440,6 +448,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       <div
         className="css-k008qs"
@@ -465,7 +474,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   id="checkbox-chakra-wrapper"
 >
   <label
-    className="chakra-checkbox css-cnetlc"
+    className="chakra-checkbox css-wkfjn4"
     onClick={[Function]}
   >
     <input
@@ -484,12 +493,12 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -508,6 +517,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
@@ -522,7 +532,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
   id="checkbox-props-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-scawxr"
     onClick={[Function]}
   >
     <input
@@ -541,12 +551,12 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       required={false}
       style={
         {
-          "border": "0",
-          "clip": "rect(0, 0, 0, 0)",
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
           "height": "1px",
           "margin": "-1px",
           "overflow": "hidden",
-          "padding": "0",
+          "padding": "0px",
           "position": "absolute",
           "whiteSpace": "nowrap",
           "width": "1px",
@@ -565,6 +575,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     <span
       className="chakra-checkbox__label css-1oeb2oe"
       onMouseDown={[Function]}
+      onTouchStart={[Function]}
     >
       Test Label
     </span>
