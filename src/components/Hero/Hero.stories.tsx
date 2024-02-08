@@ -97,6 +97,8 @@ export const WithControls: Story = {
     heading: undefined,
     heroType: "primary",
     imageProps,
+    "imageProps.alt": "",
+    "imageProps.src": "",
     isDarkBackgroundImage: undefined,
     locationDetails: undefined,
     subHeaderText: undefined,

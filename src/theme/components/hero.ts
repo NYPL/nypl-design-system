@@ -5,15 +5,14 @@ import { screenreaderOnly } from "./globalMixins";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
-const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers([
-    "base",
-    "bodyText",
-    "content",
-    "heading",
-    "imgWrapper",
-    "interior",
-  ]);
+const { definePartsStyle } = createMultiStyleConfigHelpers([
+  "base",
+  "bodyText",
+  "content",
+  "heading",
+  "imgWrapper",
+  "interior",
+]);
 
 // Used for all "secondary" variants.
 const secondaryBase = definePartsStyle({
@@ -284,10 +283,8 @@ const fiftyFifty = definePartsStyle({
     },
   },
 });
-const Hero = defineMultiStyleConfig({
-  baseStyle: definePartsStyle({
-    // ...
-  }),
+const Hero = {
+  baseStyle: {},
   // Available variants:
   variants: {
     primary,
@@ -300,6 +297,6 @@ const Hero = defineMultiStyleConfig({
     campaign,
     fiftyFifty,
   },
-});
+};
 
 export default Hero;

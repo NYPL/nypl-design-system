@@ -16,7 +16,6 @@ import ButtonGroup from "./components/buttonGroup";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CheckboxGroup from "./components/checkboxGroup";
-import CustomCard from "./components/card";
 import CustomSelect from "./components/select";
 import CustomSlider from "./components/slider";
 import CustomTable from "./components/customTable";
@@ -45,6 +44,7 @@ import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
+import ReservoirCard from "./components/card";
 import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
@@ -99,7 +99,6 @@ const theme: any = {
     CustomBreadcrumb: Breadcrumb,
     CustomButton: Button,
     ButtonGroup,
-    ...CustomCard,
     Checkbox,
     CheckboxGroup,
     ComponentWrapper,
@@ -129,6 +128,7 @@ const theme: any = {
     Radio,
     RadioGroup,
     RadioWrapper,
+    ...ReservoirCard,
     ReservoirIcon: Icon,
     ReservoirImage,
     ReservoirImageWrapper,

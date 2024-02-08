@@ -34,15 +34,18 @@ const FeaturedContent = defineMultiStyleConfig({
         wrapperWidth = "75%";
       }
       return {
-        bgColor: "ui.bg.default",
-        left: full ? "50%" : "auto",
-        marginLeft: full ? "-50vw" : "auto",
-        marginRight: full ? "-50vw" : "auto",
-        position: "relative",
-        right: full ? "50%" : "auto",
-        width: full ? "100vw" : "100%",
-        _dark: {
-          bgColor: "dark.ui.bg.default",
+        base: {
+          bgColor: "ui.bg.default",
+          left: full ? "50%" : "auto",
+          marginLeft: full ? "-50vw" : "auto",
+          marginRight: full ? "-50vw" : "auto",
+          position: "relative",
+          right: full ? "50%" : "auto",
+          width: full ? "100vw" : "100%",
+          _dark: {
+            bgColor: "dark.ui.bg.default",
+          },
+          img: screenreaderOnly(),
         },
         wrapper: {
           ...wrapperStyles,
@@ -75,7 +78,6 @@ const FeaturedContent = defineMultiStyleConfig({
           height: { sm: "320px", md: "auto" },
           width: { sm: "100%", md: wrapperWidth },
         },
-        img: screenreaderOnly(),
       };
     }
   ),

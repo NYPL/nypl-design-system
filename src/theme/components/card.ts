@@ -1,5 +1,6 @@
+import { defineStyleConfig } from "@chakra-ui/react";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-import { StyleFunctionProps } from "@chakra-ui/system";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
 import { baseLinkStyles } from "./link";
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -72,7 +73,7 @@ const getBodyPaddingStyles = ({
   }
   return bodyPadding;
 };
-const CustomCard = defineMultiStyleConfig({
+const ReservoirCard = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({
       hasImage,
@@ -156,103 +157,102 @@ const CustomCard = defineMultiStyleConfig({
   ),
 });
 
-const CardActions = {
-  baseStyle: ({
-    bottomBorder,
-    isCentered,
-    layout,
-    topBorder,
-  }: CardActionsBaseStyleProps) => {
-    let justifyContent = null;
-    // Only center in the column layout.
-    if (layout === "row") {
-      justifyContent = "left";
-    } else if (isCentered) {
-      justifyContent = "center";
+const CardActions = defineStyleConfig({
+  baseStyle: defineStyle(
+    ({
+      bottomBorder,
+      isCentered,
+      layout,
+      topBorder,
+    }: CardActionsBaseStyleProps) => {
+      let justifyContent = null;
+      // Only center in the column layout.
+      if (layout === "row") {
+        justifyContent = "left";
+      } else if (isCentered) {
+        justifyContent = "center";
+      }
+
+      const topBorderStyles = topBorder
+        ? {
+            borderTop: "1px solid",
+            paddingTop: "xs",
+          }
+        : {};
+      const bottomBorderStyles = bottomBorder
+        ? {
+            borderBottom: "1px solid",
+            paddingBottom: "xs",
+          }
+        : {};
+      return {
+        marginBottom: "xs",
+        columnGap: "var(--nypl-space-xs)",
+        display: "flex",
+        _last: {
+          marginBottom: "0",
+        },
+        ...topBorderStyles,
+        ...bottomBorderStyles,
+        justifyContent,
+        borderColor: "ui.border.default",
+        _dark: {
+          borderColor: "dark.ui.border.default",
+        },
+      };
     }
+  ),
+});
 
-    const topBorderStyles = topBorder
-      ? {
-          borderTop: "1px solid",
-          paddingTop: "xs",
-        }
-      : {};
-    const bottomBorderStyles = bottomBorder
-      ? {
-          borderBottom: "1px solid",
-          paddingBottom: "xs",
-        }
-      : {};
-    return {
-      marginBottom: "xs",
-      columnGap: "var(--nypl-space-xs)",
-      display: "flex",
-      _last: {
-        marginBottom: "0",
-      },
-      ...topBorderStyles,
-      ...bottomBorderStyles,
-      justifyContent,
-      borderColor: "ui.border.default",
-      _dark: {
-        borderColor: "dark.ui.border.default",
-      },
-    };
-  },
-};
-
-const CardContent = {
-  baseStyle: {
+const CardContent = defineStyleConfig({
+  baseStyle: defineStyle({
     marginBottom: "xs",
     _last: {
       marginBottom: "0",
     },
-  },
-};
+  }),
+});
 
-const CardImage = {
-  baseStyle: ({
-    imageIsAtEnd,
-    isCentered,
-    layout,
-    size,
-  }: CardImageBaseStyleProps) => {
-    // These sizes are only for the "row" layout.
-    const imageSize = size ? imageSizes[size] : {};
-    const layoutStyles =
-      layout === "row"
+const CardImage = defineStyleConfig({
+  baseStyle: defineStyle(
+    ({ imageIsAtEnd, isCentered, layout, size }: CardImageBaseStyleProps) => {
+      // These sizes are only for the "row" layout.
+      const imageSize = size ? imageSizes[size] : {};
+      const layoutStyles =
+        layout === "row"
+          ? {
+              flex: { md: "0 0 225px" },
+              maxWidth: { base: "100%", md: "50%" },
+              textAlign: "left",
+              alignItems: isCentered ? "center" : null,
+              margin: {
+                base: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
+                md: imageIsAtEnd
+                  ? "0 0 0 var(--nypl-space-m)"
+                  : "0 var(--nypl-space-m) 0 0",
+              },
+              width: { base: "100%", md: null },
+              marginBottom: ["xs", "xs"],
+              ...imageSize,
+            }
+          : {
+              marginBottom: "xs",
+              width: "100%",
+            };
+      const imageIsAtEndStyles = imageIsAtEnd
         ? {
-            flex: { md: "0 0 225px" },
-            maxWidth: { base: "100%", md: "50%" },
-            textAlign: "left",
-            alignItems: isCentered ? "center" : null,
-            margin: {
-              base: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
-              md: imageIsAtEnd
-                ? "0 0 0 var(--nypl-space-m)"
-                : "0 var(--nypl-space-m) 0 0",
-            },
-            width: { base: "100%", md: null },
-            marginBottom: ["xs", "xs"],
-            ...imageSize,
+            marginBottom: "0",
+            marginTop: "s",
+            order: "2",
           }
-        : {
-            marginBottom: "xs",
-            width: "100%",
-          };
-    const imageIsAtEndStyles = imageIsAtEnd
-      ? {
-          marginBottom: "0",
-          marginTop: "s",
-          order: "2",
-        }
-      : {};
+        : {};
 
-    return {
-      ...imageIsAtEndStyles,
-      ...layoutStyles,
-    };
-  },
-};
+      return {
+        ...imageIsAtEndStyles,
+        ...layoutStyles,
+      };
+    }
+  ),
+});
 
-export default { CustomCard, CardActions, CardContent, CardImage };
+export default { ReservoirCard, CardActions, CardContent, CardImage };

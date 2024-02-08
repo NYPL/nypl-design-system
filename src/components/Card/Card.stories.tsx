@@ -72,9 +72,12 @@ export const WithControls: Story = {
     className: undefined,
     foregroundColor: undefined,
     id: "card-id",
+    imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.aspectRatio": "square",
+    "imageProps.caption": undefined,
     "imageProps.component": undefined,
+    "imageProps.credit": undefined,
     "imageProps.isAtEnd": false,
     "imageProps.isLazy": true,
     "imageProps.size": "default",
@@ -84,6 +87,7 @@ export const WithControls: Story = {
     isCentered: false,
     layout: "row",
     mainActionLink: undefined,
+    styles: undefined,
   } as any,
   render: (args) => (
     <Card
