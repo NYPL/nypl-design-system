@@ -14,6 +14,11 @@ const blogs = {
         color: "dark.ui.typography.heading",
       },
     },
+    _focus: {
+      outline: "none",
+      ring: "2px",
+      ringColor: "ui.black",
+    },
   },
   "li:last-child": {
     ".chakra-breadcrumb__link": {
@@ -94,6 +99,11 @@ const Breadcrumb = {
       _hover: {
         color: "ui.gray.light-cool",
         textDecoration: "none",
+      },
+      _focus: {
+        outline: "none",
+        ring: "2px",
+        ringColor: "ui.white",
       },
     },
     "li:last-child": {

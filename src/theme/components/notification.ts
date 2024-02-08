@@ -121,6 +121,11 @@ const NotificationContent = {
             color: "dark.ui.link.secondary",
           },
         },
+        _focus: {
+          outline: "none",
+          ring: "2px",
+          ringColor: "ui.black",
+        },
       },
     },
   }),

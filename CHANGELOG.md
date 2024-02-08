@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
 - Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
 - Updates the `useNYPLBreakpoints` hook to include `isSmallerThanMedium` and `isSmallerThanDesktop`, both of which implement a desktop-first design approach.
+- Updates focus ring color in `Notification` and `Breadcrumbs` to match color of text.
 
 ### Fixes
 
