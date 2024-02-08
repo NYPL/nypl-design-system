@@ -166,19 +166,13 @@ const CardWrapper: React.FC<any> = chakra(
           id={id}
           className={className}
           ref={ref}
-          sx={styles.base}
+          sx={styles}
           {...rest}
         >
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box
-          id={id}
-          className={className}
-          ref={ref}
-          __css={styles.base}
-          {...rest}
-        >
+        <Box id={id} className={className} ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )

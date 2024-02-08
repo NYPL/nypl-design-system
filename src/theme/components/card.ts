@@ -124,8 +124,8 @@ const CustomCard = defineMultiStyleConfig({
           display: "flex",
           flexFlow: "column wrap",
           textAlign: isCentered ? "center" : null,
-          bgColor: "red",
-          p: "64px",
+          ...baseBorderStyles,
+          ...layoutStyles,
         },
         actions: {
           flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
@@ -151,8 +151,6 @@ const CustomCard = defineMultiStyleConfig({
               }
             : null,
         },
-        ...baseBorderStyles,
-        ...layoutStyles,
       };
     }
   ),
