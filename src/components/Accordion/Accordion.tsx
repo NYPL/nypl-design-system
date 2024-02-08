@@ -14,12 +14,18 @@ import Icon from "../Icons/Icon";
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
-  label: string;
+  ariaLabel?: string;
+  /** Ref to the DOM element of the AccordionButton. */
+  buttonInteractionRef?: any;
+  label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
+  /** Global aria-label value that is applied to all accordions if individual
+   * ariaLabel props are not included with accordionData entries. */
+  ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -62,6 +68,7 @@ const getIcon = (
  */
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
+  ariaLabel: string,
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
@@ -106,6 +113,16 @@ const getElementsFromData = (
         </AccordionPanel>
       );
 
+    const finalAriaLabel = content.ariaLabel ? content.ariaLabel : ariaLabel;
+
+    if (content.ariaLabel && ariaLabel) {
+      console.warn(
+        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+          "overall component and as part of the accordionData prop. Both can not " +
+          "be used, so the value in the accordionData prop will be used."
+      );
+    }
+
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
@@ -114,11 +131,13 @@ const getElementsFromData = (
           return (
             <>
               <AccordionButton
+                aria-label={finalAriaLabel}
                 id={`${id}-button-${index}`}
                 borderColor={
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
                 }
                 padding={multiplePadding}
+                ref={content.buttonInteractionRef}
                 bg={
                   !content.accordionType
                     ? colorMap.default
@@ -185,6 +204,7 @@ export const Accordion = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
+      ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,
@@ -206,6 +226,7 @@ export const Accordion = chakra(
       >
         {getElementsFromData(
           accordionData,
+          ariaLabel,
           id,
           isAlwaysRendered,
           isDarkMode,
