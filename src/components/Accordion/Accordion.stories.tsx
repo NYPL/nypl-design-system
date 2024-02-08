@@ -139,7 +139,6 @@ const meta: Meta<typeof Accordion> = {
         faqData: faqContentData,
       },
     },
-    ariaLabel: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
     isAlwaysRendered: { table: { defaultValue: { summary: false } } },
@@ -157,7 +156,6 @@ type Story = StoryObj<typeof Accordion>;
 export const WithControls: Story = {
   args: {
     accordionData,
-    ariaLabel: undefined,
     id: "accordion-id",
     isDefaultOpen: false,
     isAlwaysRendered: false,

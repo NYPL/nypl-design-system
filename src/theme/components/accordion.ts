@@ -10,9 +10,6 @@ const buttonStyles = {
   borderWidth: "1px",
   color: "ui.typography.heading",
   fontWeight: "medium",
-  svg: {
-    marginStart: "s",
-  },
   _dark: {
     bg: "dark.ui.bg.default",
     color: "dark.ui.typography.heading",

@@ -2,17 +2,15 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as AccordionStories from "./Accordion.stories";
 import Link from "../Link/Link";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./accordionChangelogData";
 
 <Meta of={AccordionStories} />
 
 # Accordion
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.1.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `2.0.0`    |
 
 ## Table of Contents
 
@@ -21,49 +19,36 @@ import { changelogData } from "./accordionChangelogData";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#faq-example" target="_self">FAQ Example</Link>}
 - {<Link href="#example-with-panelmaxheight-prop" target="_self">Example with panelMaxHeight Prop</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
 <Description of={AccordionStories} />
 
-The `Accordion` component displays a list of high-level options that can expand
-and collapse to reveal associated sections of content. This component pushes
-existing content on the page down. Each accordion item is self contained, but
-when the data for multiple accordions is passed in through the `accordionData`
-prop, the `Accordion` components are grouped together and rendered under a
-single element. When grouped like this, each `Accordion` component still opens
-and closes independent from the others in the group.
+The `Accordion` component displays a list of high-level options that can
+expand and collapse to reveal associated sections of content. This component
+pushes existing content on the page down. Each accordion item is self contained,
+but when the data for multiple accordions is passed in through the `accordionData`
+prop, the `Accordion` components are grouped together and rendered under a single
+element. When grouped like this, each `Accordion` component still opens and
+closes independent from the others in the group.
 
-The only way to render an `Accordion` component is to pass in an array of
-objects with `label`, `panel`, optional `accordionType`, optional `ariaLabel`,
-and optional `buttonInteractionRef` properties for each accordion item. Note
-that you can pass in a string or DOM elements into the `panel` property in each
-object. This approach is needed because, internally, we deal with the logic to
-render the necessary icon, Chakra components, and styles.
+The only way to render an `Accordion` component is to pass in an array of objects
+with `label`, `panel`, and optional `accordionType` properties for each accordion item.
+Note that you can pass in a string or DOM elements into the `panel` property in each
+object. This approach is needed because, internally, we deal with the logic to render
+the necessary icon, Chakra components, and styles.
 
-The `accordionType` prop can be used to change the accordion button's background
-color. It takes a value of `"default"` for `"ui.white"`, `"warning"` for
-`"ui.status.primary"`, and `"error"` for `"ui.status.secondary"`. The optional
-`panelMaxHeight` prop determines the maximum height of the `Accordion`'s panel
-when expanded. If the content within the panel exceeds the `panelMaxHeight`, a
-scrollbar will appear.
-
-The `buttonInteractionRef` prop can be used to set a programmatic reference to
-the main button element in each accordion with an accordion group.
-
-An `ariaLabel` prop is also available on the component level. When this prop is
-set, the value will set the same `aria-label` value on all accordions in an
-accordion group. Please note, however, that the `ariaLabel` key in the
-`accordionData` entries will override the value of the `ariaLabel` component
-prop.
+The `accordionType` prop can be used to change the accordion button's background color.
+It takes a value of `"default"` for `"ui.white"`, `"warning"` for `"ui.status.primary"`,
+and `"error"` for `"ui.status.secondary"`. The optional `panelMaxHeight` prop determines
+the maximum height of the `Accordion`'s panel when expanded. If the content within the
+panel exceeds the `panelMaxHeight`, a scrollbar will appear.
 
 <Source
   code={`
 const accordionData = [
   {
     accordionType: "default",
-    ariaLabel: "Tom Nook, known in Japan as Tanukichi",
     label: "Tom Nook",
     panel: (
       <Card
@@ -111,12 +96,6 @@ const accordionData = [
   does not collapse already expanded panel.
 - The open and close icons are decorative (`aria-hidden` is `true`).
 - Visible focus goes around full button and full button is clickable.
-- An `aria-label` attribute can be applied to the main accordion button using
-  one of the following methods:
-  - The global `ariaLabel` prop can set a general value that will be applied to
-    all accordions within an accordion group.
-  - The `ariaLabel` key available within the `accordionData` array entries can set
-    a unnique value for each accordion within an accordion group.
 
 Resources:
 
@@ -241,7 +220,3 @@ of the content when it is closed. Click on subjects inside both `Accordion`s and
 toggle them closed and opened to see the difference.
 
 <Canvas of={AccordionStories.IsAlwaysRendered} />
-
-## Changelog
-
-<ComponentChangelogTable changelogData={changelogData} />
