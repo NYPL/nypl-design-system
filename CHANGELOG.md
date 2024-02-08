@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes a styling issue on the range `DatePicker` for the month and year types
+  where the in-range selected date values did not have the correct DS colors.
+
+## 2.1.5 (February 5, 2024)
+
 ### Adds
 
 - Adds the `"navigationMoreVert"` option (vertical ellipsis) to the `Icon` component.
@@ -17,7 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
 - Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
 - Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
-- Updates the `useNYPLBreakpoints` hook to include `isSmallerThanMedium` and `isSmallerThanDesktop`, both of which implement a desktop-first design approach.
+- Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
 
 ### Fixes
 
