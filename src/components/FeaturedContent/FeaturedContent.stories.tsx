@@ -53,12 +53,11 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     id: "FeaturedContent-id",
+    imageProps: undefined,
+    "imageProps.alt": undefined,
+    "imageProps.src": undefined,
     isFullWidth: false,
     textContent: undefined,
-    "imageProps.alt": "Alt text",
-    "imageProps.position": "end",
-    "imageProps.width": "default",
-    "imageProps.src": "//placekitten.com/600/600",
   },
   render: (args) => (
     <FeaturedContent

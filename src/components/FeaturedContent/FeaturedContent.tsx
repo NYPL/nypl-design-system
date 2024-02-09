@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import Image, { ImageProps } from "../Image/Image";
 
@@ -46,7 +51,13 @@ function FeaturedContentImage(props: FeaturedContentImageProps) {
   return <Image alt={alt} src={src} />;
 }
 
-export const FeaturedContent: React.FC<any> = chakra(
+export const FeaturedContent: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FeaturedContentProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  FeaturedContentProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
     (props, ref?) => {
       const {
@@ -83,7 +94,12 @@ export const FeaturedContent: React.FC<any> = chakra(
       }
 
       return (
-        <Box data-testid="featuredcontent" __css={styles} ref={ref} {...rest}>
+        <Box
+          data-testid="featuredcontent"
+          __css={styles.base}
+          ref={ref}
+          {...rest}
+        >
           <Box __css={styles.wrapper}>
             <Box
               data-testid="featuredcontent-bg-image"

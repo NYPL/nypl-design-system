@@ -29,6 +29,7 @@ export const baseLinkStyles = {
   },
   _hover: {
     color: "ui.link.secondary",
+    textDecoration: "underline",
     textDecorationStyle: "dotted",
     textDecorationThickness: "1px",
   },

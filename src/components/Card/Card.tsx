@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   LinkBox as ChakraLinkBox,
   LinkOverlay as ChakraLinkOverlay,
   useMultiStyleConfig,
@@ -172,7 +173,7 @@ const CardWrapper: React.FC<any> = chakra(
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box id={id} className={className} ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )
@@ -197,7 +198,12 @@ function CardLinkOverlay({
   );
 }
 
-export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
+export const Card: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<CardProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  CardProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardProps>>(
     (props, ref?) => {
       const {
@@ -244,7 +250,7 @@ export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
       backgroundColor && (customColors["backgroundColor"] = backgroundColor);
       foregroundColor && (customColors["color"] = foregroundColor);
 
-      const styles = useMultiStyleConfig("Card", {
+      const styles = useMultiStyleConfig("ReservoirCard", {
         hasImage,
         imageIsAtEnd: imageProps.isAtEnd,
         isAlignedRightActions,
@@ -312,7 +318,7 @@ export const Card: React.FC<React.PropsWithChildren<any>> = chakra(
           mainActionLink={mainActionLink}
           ref={ref}
           styles={{
-            ...styles,
+            ...styles.base,
             ...customColors,
           }}
           {...rest}
