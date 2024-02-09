@@ -9,28 +9,16 @@ import {
 } from "@testing-library/react";
 import { axe } from "jest-axe";
 
-import Menu, { ListItemsData } from "./Menu";
-
-const defaultListItems: ListItemsData[] = [
-  {
-    type: "action",
-    id: "item-title-1",
-    label: "I'm item 1",
-    onClick: () => {},
-  },
-  {
-    type: "action",
-    id: "item-title-2",
-    label: "I'm item 2",
-    onClick: () => {},
-  },
-  {
-    type: "action",
-    id: "item-title-3",
-    label: "I'm item 3",
-    onClick: () => {},
-  },
-];
+import Menu from "./Menu";
+import {
+  defaultListItems,
+  duplicateIdListItems,
+  missingChildrenListItems,
+  missingIdListItems,
+  missingLabelListItems,
+  missingOnClickListItems,
+  missingTypeListItems,
+} from "./menuTestData";
 
 describe("Menu Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -120,5 +108,79 @@ describe("Menu allows selection", () => {
     fireEvent.mouseDown(document.body);
     fireEvent.click(openButton);
     expect(button1).toHaveAttribute("data-testid", "selected-item");
+  });
+});
+
+describe("Menu logs errors when props are incorrect or missing", () => {
+  it("logs an error if Menu is missing listItemsData", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Menu labelText={"Menu"} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: The `listItemsData` prop is required."
+    );
+  });
+  it("logs an error if the selectedItem prop does not match any menu item", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Menu
+        labelText={"Menu"}
+        listItemsData={defaultListItems}
+        selectedItem="im-not-an-id"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: The `selectedItem` prop does not match any of the menu items."
+    );
+  });
+  it("logs an error if menu items have duplicate ids", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Menu labelText={"Menu"} listItemsData={duplicateIdListItems} />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: The `id` values for the list items are not all unique."
+    );
+  });
+  it("logs a warning if a menu item does not have a type", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Menu labelText={"Menu"} listItemsData={missingTypeListItems} />);
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: A `type` value is required for each list item."
+    );
+  });
+  it("logs a warning if a menu item does not have an id", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Menu labelText={"Menu"} listItemsData={missingIdListItems} />);
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: An `id` value is required for each list item."
+    );
+  });
+  it("logs a warning if a menu item does not have a label", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Menu labelText={"Menu"} listItemsData={missingLabelListItems} />);
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: A `label` value is required for all list actions and groups."
+    );
+  });
+  it("logs a warning if a menu item does not have an onClick function", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Menu labelText={"Menu"} listItemsData={missingOnClickListItems} />);
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: An `onClick` function is required for all actions."
+    );
+  });
+  it("logs a warning if a group item does not have children", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Menu labelText={"Menu"} listItemsData={missingChildrenListItems} />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Menu: A `children` array is required for all list groups."
+    );
   });
 });
