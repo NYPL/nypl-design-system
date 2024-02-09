@@ -1,4 +1,5 @@
 import { NotificationTypes } from "../../components/Notification/Notification";
+import { customFocusColor } from "./global";
 
 interface NotificationBaseStyle {
   isCentered: boolean;
@@ -121,11 +122,7 @@ const NotificationContent = {
             color: "dark.ui.link.secondary",
           },
         },
-        _focus: {
-          outline: "none",
-          ring: "2px",
-          ringColor: "ui.black",
-        },
+        _focus: { ...customFocusColor("ui.black", "dark.ui.link.primary") },
       },
     },
   }),

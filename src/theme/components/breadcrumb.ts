@@ -1,3 +1,5 @@
+import { customFocusColor } from "./global";
+
 // Variant styling
 const blogs = {
   bg: "section.blogs.secondary",
@@ -14,11 +16,7 @@ const blogs = {
         color: "dark.ui.typography.heading",
       },
     },
-    _focus: {
-      outline: "none",
-      ring: "2px",
-      ringColor: "ui.black",
-    },
+    _focus: { ...customFocusColor("ui.black", "dark.section.blogs.secondary") },
   },
   "li:last-child": {
     ".chakra-breadcrumb__link": {
@@ -101,9 +99,7 @@ const Breadcrumb = {
         textDecoration: "none",
       },
       _focus: {
-        outline: "none",
-        ring: "2px",
-        ringColor: "ui.white",
+        ...customFocusColor("ui.white", "dark.ui.typography.heading"),
       },
     },
     "li:last-child": {
