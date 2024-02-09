@@ -42,6 +42,8 @@ The focus indicator is the gray background and bolded text.
 The `Enter` key, or a click, selects an item and closes the menu.
 The menu can also be closed with a click outside of its container or the `Escape` key.
 
+After a list action item is clicked, consuming apps should be mindful of the action that is performed by the action item's onClick handler and adjust the focus accordingly.
+
 The menu itself requires a label to provide meaningful accessible text, even when only the vertical ellipsis is used instead of a visible label.
 
 Resources:
@@ -59,11 +61,12 @@ Use the icon type when there is limited space such as a table or on mobile.
 
 Menu items can be displayed with images, icons, or just as text. They can be grouped with headings, dividers, or both.
 
-The maximum height of the menu list container is `320px`, or roughly eight menu items. Past that height, it will scroll. The
-maximum width is `300px`. Past that width, menu items will wrap onto the next line. It is recommended that, like the menu button,
-menu item labels are kept short.
-
 The menu can be aligned to the left or right by its consuming app.
+
+The maximum height of the menu list container is `320px`, or roughly eight menu items. Past that height, it will scroll. The
+maximum width is `300px`. Past that width, menu items will wrap onto the next line.
+
+**IMPORTANT:** Avoid long labels for list items. Keep the item labels short and avoid sentences from wrapping to the next line.
 
 Content is passed to the menu through `listItemsData`, and each menu item needs to be one of three types: Action, Group, or Divider.
 Each type expects different properties, as shown below:

@@ -393,8 +393,8 @@ export const MenuHighlightColors: Story = {
         listItemsData={defaultListItems}
       />
       <Menu
-        labelText={"LPA"}
-        highlightColor={"researchLibraryLpa"}
+        labelText={"Books And More"}
+        highlightColor={"booksAndMore"}
         selectedItem={"item-title-1"}
         listItemsData={defaultListItems}
       />

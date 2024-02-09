@@ -129,12 +129,16 @@ const researchObj = {
     "primary-05": hexToRGB(researchPrimary, 0.05),
     "primary-10": hexToRGB(researchPrimary, 0.1),
     secondary: researchSecondary,
+    "secondary-05": hexToRGB(researchSecondary, 0.05),
+    "secondary-10": hexToRGB(researchSecondary, 0.1),
   },
   dark: {
     primary: hexToRGB(researchPrimary, 0.2),
     "primary-05": hexToRGB(researchPrimary, 0.05),
     "primary-10": hexToRGB(researchPrimary, 0.1),
     secondary: hexToRGB(researchSecondary, 0.2),
+    "secondary-05": hexToRGB(researchSecondary, 0.05),
+    "secondary-10": hexToRGB(researchSecondary, 0.1),
   },
 };
 

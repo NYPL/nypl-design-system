@@ -24,7 +24,10 @@ const Menu = {
   }: MenuStyleProps) => {
     const sectionColor = getSectionColors({
       type: highlightColor,
-      colorValue: highlightColor === "blogs" ? "secondary" : "primary",
+      colorValue:
+        highlightColor === "blogs" || highlightColor === "research"
+          ? "secondary"
+          : "primary",
     });
     const lightSectionColor = sectionColor + "-05";
     const darkSectionColor = "dark." + sectionColor + "-10";
@@ -56,10 +59,6 @@ const Menu = {
         paddingX: "s",
         fontSize: "desktop.body.body2",
         fontWeight: "body.body2",
-        lineHeight: "150%",
-        "> div > svg": {
-          fill: "ui.black",
-        },
         _hover: {
           fontWeight: 510,
           bg: "ui.bg.hover",
@@ -120,7 +119,7 @@ const Menu = {
           borderColor: "ui.border.hover",
           "> span > svg ": {
             fill: showBorder
-              ? "ui.gray.xx-dark"
+              ? "ui.typography.heading"
               : showLabel
               ? "ui.link.secondary"
               : "ui.black",
