@@ -86,7 +86,6 @@ export {};
 //             id={multiSelect.id}
 //             items={multiSelect.items}
 //             selectedItems={selectedItems}
-//             helperText="Multi Select Helper Text"
 //             buttonText="MultiSelect"
 //             defaultItemsVisible={defaultItemsVisible}
 //             onChange={(e) => {
@@ -197,7 +196,6 @@ export {};
 //               id={multiSelect.id}
 //               items={multiSelect.items}
 //               selectedItems={selectedItems}
-//               helperText="Multi Select Helper Text"
 //               buttonText="MultiSelect"
 //               defaultItemsVisible={defaultItemsVisible}
 //               onChange={(e) => {
@@ -230,7 +228,6 @@ export {};
 //               id={`${multiSelect.id}-1`}
 //               items={multiSelect.items}
 //               selectedItems={selectedItems}
-//               helperText="Multi Select Helper Text"
 //               buttonText="MultiSelect"
 //               defaultItemsVisible={defaultItemsVisible}
 //               onChange={(e) => {
@@ -263,7 +260,6 @@ export {};
 //               id={`${multiSelect.id}-2`}
 //               items={multiSelect.items}
 //               selectedItems={selectedItems}
-//               helperText="Multi Select Helper Text"
 //               buttonText="MultiSelect"
 //               defaultItemsVisible={defaultItemsVisible}
 //               onChange={(e) => {
@@ -296,7 +292,6 @@ export {};
 //               id={`${multiSelect.id}-3`}
 //               items={multiSelect.items}
 //               selectedItems={selectedItems}
-//               helperText="Multi Select Helper Text"
 //               buttonText="MultiSelect"
 //               defaultItemsVisible={defaultItemsVisible}
 //               onChange={(e) => {

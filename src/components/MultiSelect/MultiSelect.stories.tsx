@@ -206,59 +206,41 @@ const meta: Meta<typeof MultiSelect> = {
   decorators: [withDesign],
   argTypes: {
     buttonText: {
-      description: "The button text rendered within the MultiSelect.",
       table: { default: "" },
     },
     defaultItemsVisible: {
-      description:
-        "The number of items that will be visible in the list when the component first loads.",
       table: { defaultValue: { summary: 5 } },
     },
     id: {
       control: false,
-      description:
-        "An ID string that other components can cross reference for accessibility purposes.",
     },
     isBlockElement: {
-      description:
-        "Controls how the component will render within the page and interact with other DOM elements.",
       table: { defaultValue: { summary: false } },
     },
     isDefaultOpen: {
-      description: "Set the default open or closed state of the Multiselect.",
       table: { defaultValue: { summary: false } },
     },
     isSearchable: {
-      description: "Enables the internal search functionality.",
       table: { defaultValue: { summary: false } },
     },
     items: {
       control: false,
-      description:
-        "The items to be rendered in the Multiselect as checkbox options.",
     },
     listOverflow: {
-      description:
-        "Value used to view the all items for the MultiSelect component",
       control: "radio",
       options: multiSelectListOverflowArray,
       table: { defaultValue: { summary: "scroll" } },
     },
     onChange: {
-      description:
-        "The action to perform on the checkbox's onChange function. <br /> `onChange`: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> ",
+      table: { defaultValue: { summary: false } },
     },
     onMixedStateChange: {
-      description:
-        "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+      table: { defaultValue: { summary: false } },
     },
     selectedItems: {
       control: false,
-      description:
-        "The selected items state (items that were checked by user).",
     },
     width: {
-      description: "Value used to set the width for the MultiSelect component",
       control: "radio",
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "full" } },
@@ -511,7 +493,6 @@ const MultiSelectWithControlsStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      helperText="multi-select-helper-text"
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
@@ -559,7 +540,6 @@ const MultiSelectStory = ({
     <MultiSelect
       buttonText="MultiSelect"
       defaultItemsVisible={defaultItemsVisible}
-      helperText="multi-select-helper-text"
       id={id}
       isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}

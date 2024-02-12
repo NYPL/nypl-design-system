@@ -65,7 +65,6 @@ const MultiSelectTestComponent = ({
   return (
     <MultiSelect
       id={multiSelectId}
-      helperText="multiselect-helper-text"
       buttonText="multiselect-button-text"
       defaultItemsVisible={defaultItemsVisible}
       isDefaultOpen={false}
@@ -90,7 +89,6 @@ describe("MultiSelect Accessibility", () => {
     const { container } = render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -128,7 +126,6 @@ describe("MultiSelect", () => {
     const { container } = render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -147,7 +144,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -167,7 +163,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -186,7 +181,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={true}
         isSearchable={false}
@@ -213,7 +207,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={true}
         isSearchable={false}
@@ -236,7 +229,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         isDefaultOpen={true}
         isSearchable={false}
@@ -260,7 +252,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -282,7 +273,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -347,7 +337,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         isDefaultOpen={false}
@@ -369,7 +358,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -402,7 +390,6 @@ describe("MultiSelect", () => {
     const { rerender } = render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -424,7 +411,6 @@ describe("MultiSelect", () => {
     rerender(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -494,7 +480,6 @@ describe("MultiSelect", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
-        helperText="Multiselect helper text"
         buttonText="Multiselect button text"
         defaultItemsVisible={defaultItemsVisible}
         items={items}
@@ -552,7 +537,6 @@ describe("MultiSelect", () => {
       .create(
         <MultiSelect
           id="multiselect-test-id"
-          helperText="multiselect-helper-text"
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
@@ -570,7 +554,6 @@ describe("MultiSelect", () => {
       .create(
         <MultiSelect
           id="multiselect-test-id"
-          helperText="multiselect-helper-text"
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
@@ -589,7 +572,6 @@ describe("MultiSelect", () => {
       .create(
         <MultiSelect
           id="multiselect-test-id"
-          helperText="multiselect-helper-text"
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}
@@ -611,7 +593,6 @@ describe("MultiSelect", () => {
       .create(
         <MultiSelect
           id="multiselect-test-id"
-          helperText="multiselect-helper-text"
           buttonText="multiselect-button-text"
           defaultItemsVisible={defaultItemsVisible}
           items={items}

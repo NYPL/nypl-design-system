@@ -109,7 +109,6 @@ const FilterBarTestComponent = ({
               isDefaultOpen={false}
               isSearchable={false}
               isBlockElement={false}
-              helperText="Multi Select Helper Text"
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
               onChange={(e) => {
@@ -147,7 +146,6 @@ const MultiSelectTestGroup = (multiSelectItems) => (
         isSearchable={false}
         isBlockElement={false}
         selectedItems={{}}
-        helperText="Multi Select Helper Text"
         buttonText="MultiSelect"
         defaultItemsVisible={defaultItemsVisible}
         onChange={() => null}

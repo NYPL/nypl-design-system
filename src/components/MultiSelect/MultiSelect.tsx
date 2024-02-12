@@ -21,21 +21,18 @@ export type MultiSelectListOverflowTypes =
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
-type MultiSelectOnChange = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
-export type MultiSelectProps = {
+export interface MultiSelectProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
   /** The number of items that will be visible in the list when the component first loads. */
   defaultItemsVisible?: number;
-  /** The helperText sets the text for the internal HelperErrorText */
-  helperText: string;
   /** The action to perform for clear/reset button of MultiSelect. */
   onClear?: () => void;
   /** The action to perform on the checkbox's onChange function. */
-  onChange: MultiSelectOnChange;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
-  onMixedStateChange?: MultiSelectOnChange;
+  onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** An ID string that other components can cross reference for accessibility purposes. */
   id: string;
   /** Boolean value used to control how the MultiSelect component will render within the page
@@ -67,7 +64,6 @@ export const MultiSelect = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
     (props, _ref?) => {
       const {
-        helperText,
         id,
         isBlockElement = false,
         isDefaultOpen = false,
