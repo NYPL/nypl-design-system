@@ -125,7 +125,7 @@ const imageListItems: ListItemsData[] = [
   },
 ];
 
-const longListItems: ListItemsData[] = [
+const groupListItems: ListItemsData[] = [
   {
     type: "group",
     id: "group-1",
@@ -149,7 +149,6 @@ const longListItems: ListItemsData[] = [
       },
     ],
   },
-  { type: "divider", id: "divider-1" },
   {
     type: "group",
     id: "group-2",
@@ -172,6 +171,43 @@ const longListItems: ListItemsData[] = [
         },
       },
     ],
+  },
+];
+
+const dividerListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    label: "I'm item 1",
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-2",
+    label: "I'm item 2",
+    onClick: () => {
+      console.log("Item Title 2 clicked");
+    },
+  },
+  { type: "divider", id: "divider-1" },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+  },
+  { type: "divider", id: "divider-2" },
+  {
+    type: "action",
+    id: "item-title-4",
+    label: "I'm item 4",
+    onClick: () => {
+      console.log("Item Title 4 clicked");
+    },
   },
 ];
 
@@ -362,7 +398,8 @@ export const MenuContent: Story = {
     <HStack>
       <Menu labelText={"I have images"} listItemsData={imageListItems} />
       <Menu labelText={"I have icons"} listItemsData={iconListItems} />
-      <Menu labelText={"I have groups"} listItemsData={longListItems} />
+      <Menu labelText={"I have groups"} listItemsData={groupListItems} />
+      <Menu labelText={"I have dividers"} listItemsData={dividerListItems} />
       <Menu
         labelText={"I have max height"}
         listItemsData={reallyLongListItems}
