@@ -52,7 +52,7 @@ export interface MultiSelectProps {
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
   width?: MultiSelectWidths;
-};
+}
 
 /**
   The MultiSelect component is a customizable form input that supports multiple configurations,
