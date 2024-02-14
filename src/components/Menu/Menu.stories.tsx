@@ -183,6 +183,7 @@ const dividerListItems: ListItemsData[] = [
       console.log("Item Title 1 clicked");
     },
   },
+  { type: "divider", id: "divider-0" },
   {
     type: "action",
     id: "item-title-2",
