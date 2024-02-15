@@ -205,9 +205,6 @@ const meta: Meta<typeof MultiSelect> = {
   component: MultiSelect,
   decorators: [withDesign],
   argTypes: {
-    buttonText: {
-      table: { default: "" },
-    },
     defaultItemsVisible: {
       table: { defaultValue: { summary: 5 } },
     },
@@ -223,24 +220,19 @@ const meta: Meta<typeof MultiSelect> = {
     isSearchable: {
       table: { defaultValue: { summary: false } },
     },
-    items: {
-      control: false,
-    },
     listOverflow: {
       control: "radio",
       options: multiSelectListOverflowArray,
       table: { defaultValue: { summary: "scroll" } },
     },
-    onChange: {
-      table: { defaultValue: { summary: false } },
-    },
+    onChange: { control: false },
     onMixedStateChange: {
-      table: { defaultValue: { summary: false } },
+      control: false,
     },
     selectedItems: {
       control: false,
     },
-    width: {
+    multiSelectWidth: {
       control: "radio",
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "full" } },
@@ -263,7 +255,7 @@ export const withControls: Story = {
     onChange: undefined,
     onMixedStateChange: undefined,
     selectedItems: undefined,
-    width: "full",
+    multiSelectWidth: "full",
   },
   render: (args) => <MultiSelectWithControlsStory {...args} />,
   parameters: {
@@ -453,7 +445,7 @@ export const width: Story = {
             id="multi-select-id"
             isBlockElement
             items={withItems}
-            width="fitContent"
+            multiSelectWidth="fitContent"
           />
         </div>
       </Stack>
@@ -517,7 +509,7 @@ const MultiSelectStory = ({
   isDefaultOpen,
   items,
   listOverflow = "scroll",
-  width = "full",
+  multiSelectWidth = "full",
   defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
@@ -547,7 +539,7 @@ const MultiSelectStory = ({
       items={items}
       listOverflow={listOverflow}
       selectedItems={selectedItems}
-      width={width}
+      multiSelectWidth={multiSelectWidth}
       onChange={(e) => {
         onChange(e.target.id, id);
         setActionName("onChange");
