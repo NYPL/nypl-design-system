@@ -1,3 +1,17 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "accordionStyles",
+    "buttonTextLabel",
+    "menuChildren",
+    "menuSearchInputBox",
+    "viewAllButton",
+  ]);
+
 export const multiSelectWidths = {
   fitContent: {
     width: {
@@ -16,16 +30,11 @@ export const multiSelectWidths = {
   },
 };
 
-const MultiSelect = {
-  parts: [
-    "accordionStyles",
-    "buttonTextLabel",
-    "menuChildren",
-    "menuSearchInputBox",
-    "viewAllButton",
-  ],
-  baseStyle: ({ isBlockElement, width = "full" }) => ({
-    position: "relative",
+const MultiSelect = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isBlockElement, width = "full" }) => ({
+    base: {
+      position: "relative",
+    },
     menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
@@ -114,7 +123,7 @@ const MultiSelect = {
         },
       },
     },
-  }),
-};
+  })),
+});
 
 export default MultiSelect;

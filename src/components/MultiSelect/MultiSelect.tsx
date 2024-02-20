@@ -1,5 +1,11 @@
-import React, { useState, forwardRef, useCallback, useRef } from "react";
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
@@ -60,7 +66,13 @@ export interface MultiSelectProps {
   with a parent checkbox toggling all children and dynamic styling through Chakra UI.
 */
 
-export const MultiSelect = chakra(
+export const MultiSelect: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<MultiSelectProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<MultiSelectProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectProps>>(
     (props, _ref?) => {
       const {
@@ -94,7 +106,7 @@ export const MultiSelect = chakra(
       const [listItemsCount, setListItemsCount] = useState(defaultItemsVisible);
 
       // Separate effect for handling listOverflow "scroll"
-      React.useEffect(() => {
+      useEffect(() => {
         if (listOverflow === "scroll") {
           setListHeight(MINIMUM_ITEMS_LIST_HEIGHT);
           if (isSearchable) {
@@ -231,7 +243,7 @@ export const MultiSelect = chakra(
       }, [items, defaultItemsVisible, setItemsList]);
 
       // Separate effect for handling listOverflow "expand"
-      React.useEffect(() => {
+      useEffect(() => {
         if (listOverflow === "expand") {
           setListHeight("");
           if (listItemsCount === defaultItemsVisible) {
@@ -269,7 +281,7 @@ export const MultiSelect = chakra(
               showLabel={false}
               showRequiredLabel={false}
               type="text"
-              __css={styles.searchInputBox}
+              __css={styles.menuSearchInputBox}
               marginBottom="s"
             />
           );
@@ -440,7 +452,7 @@ export const MultiSelect = chakra(
       const itemPlural = getSelectedItemsCount === 1 ? "" : "s";
       const ariaLabelValue = `${buttonText}, ${getSelectedItemsCount} item${itemPlural} currently selected`;
       return (
-        <Box id={id} __css={styles} {...rest}>
+        <Box id={id} __css={styles.base} {...rest}>
           <Accordion
             accordionData={[
               {
