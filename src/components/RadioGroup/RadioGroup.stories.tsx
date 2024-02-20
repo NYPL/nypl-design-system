@@ -2,6 +2,7 @@ import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createRef } from "react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -19,33 +20,19 @@ const meta: Meta<typeof RadioGroup> = {
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isFullWidth: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
+    isFullWidth: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
     layout: {
       table: { defaultValue: { summary: "column" } },
     },
     key: { table: { disable: true } },
     onChange: { control: false },
     ref: { table: { disable: true } },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
-    showLabel: {
-      table: { defaultValue: { summary: true } },
-    },
-    showRequiredLabel: {
-      table: { defaultValue: { summary: true } },
-    },
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    showRequiredLabel: argsBooleanType(true),
   },
 };
 

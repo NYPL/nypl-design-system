@@ -7,7 +7,7 @@ import {
   useMultiStyleConfig,
   useMergeRefs,
 } from "@chakra-ui/react";
-import FocusLock from "@chakra-ui/focus-lock";
+import { FocusLock } from "@chakra-ui/focus-lock";
 
 import Button from "./../Button/Button";
 import ButtonGroup from "./../ButtonGroup/ButtonGroup";
@@ -21,7 +21,7 @@ type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const MultiSelectDialog = chakra(
+export const MultiSelectDialog: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectDialogProps>>(
     (props, ref) => {
       const {

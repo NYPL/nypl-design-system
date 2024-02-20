@@ -3,6 +3,7 @@ import {
   Box,
   chakra,
   useStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -54,7 +55,13 @@ export interface IconProps {
 /**
  * Renders SVG-based icons.
  */
-export const Icon = chakra(
+export const Icon: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<IconProps> &
+      React.RefAttributes<HTMLDivElement & SVGSVGElement>
+  >,
+  IconProps
+> = chakra(
   forwardRef<
     HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<IconProps>
@@ -73,7 +80,7 @@ export const Icon = chakra(
       type = "default",
       ...rest
     } = props;
-    const styles = useStyleConfig("Icon", {
+    const styles = useStyleConfig("ReservoirIcon", {
       align,
       color,
       iconRotation,

@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
@@ -55,7 +56,12 @@ export const onChangeDefault = () => {
 /**
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
-export const Toggle = chakra(
+export const Toggle: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    ToggleProps & React.RefAttributes<HTMLInputElement>
+  >,
+  ToggleProps
+> = chakra(
   forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       defaultChecked = false,

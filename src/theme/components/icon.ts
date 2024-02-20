@@ -1,3 +1,6 @@
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+
 const svgBase = {
   display: "inline-block",
   fill: "currentColor",
@@ -56,14 +59,16 @@ const size = {
     width: "0.65rem",
   },
 };
-interface IconBaseStyle {
+
+interface IconBaseStyle extends StyleFunctionProps {
   align: keyof typeof align;
   color: string;
   iconRotation: keyof typeof iconRotation;
   size: keyof typeof size;
 }
-const Icon = {
-  baseStyle: (props: IconBaseStyle) => {
+
+const Icon = defineStyleConfig({
+  baseStyle: defineStyle((props: IconBaseStyle) => {
     const allStyles = {
       ...svgBase,
       ...align[props.align],
@@ -79,14 +84,14 @@ const Icon = {
         ...allStyles,
       },
     };
-  },
+  }),
   variants: {
     default: {},
-    breadcrumbs: {
+    breadcrumbs: defineStyle({
       fill: "var(--nypl-colors-ui-white)",
       display: { md: "none" },
-    },
+    }),
   },
-};
+});
 
 export default Icon;

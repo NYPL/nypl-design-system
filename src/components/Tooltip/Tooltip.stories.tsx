@@ -12,6 +12,7 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import Text from "../Text/Text";
 import Toggle from "../Toggle/Toggle";
 import Tooltip from "./Tooltip";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
@@ -21,12 +22,8 @@ const meta: Meta<typeof Tooltip> = {
     children: { control: false },
     className: { control: false },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    shouldWrapChildren: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
+    shouldWrapChildren: argsBooleanType(),
   },
 };
 

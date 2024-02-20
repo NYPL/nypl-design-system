@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import { forwardRef } from "react";
 
 export type AriaLiveValues = "assertive" | "off" | "polite" | undefined;
@@ -34,7 +39,12 @@ interface HelperErrorTextProps {
  * This pattern guarantees accessibility guidelines are met if the text content
  * is dynamically updated by the app or component that implements it.
  */
-export const HelperErrorText = chakra(
+export const HelperErrorText: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    HelperErrorTextProps & React.RefAttributes<HTMLDivElement>
+  >,
+  HelperErrorTextProps
+> = chakra(
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
     (
       {

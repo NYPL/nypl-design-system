@@ -85,7 +85,7 @@ export type FilterBarProps = FilterBarCommonProps &
  * _optional_ buttons are controlled by the `showClearAll`/ `onClear` or `showSubmitAll`/`onSubmit` props repectively.
  */
 
-export const FilterBar = chakra(
+export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<FilterBarProps>>(
     (props, ref?) => {
       const {

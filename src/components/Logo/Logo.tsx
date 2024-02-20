@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Icon as ChakraIcon,
   useStyleConfig,
 } from "@chakra-ui/react";
@@ -37,7 +38,13 @@ export interface LogoProps {
  * The `Logo` component renders SVG-based logos and color variants that are
  * commonly used by the New York Public Library.
  */
-export const Logo = chakra(
+export const Logo: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<LogoProps> &
+      React.RefAttributes<HTMLDivElement & SVGSVGElement>
+  >,
+  LogoProps
+> = chakra(
   forwardRef<
     HTMLDivElement & SVGSVGElement,
     React.PropsWithChildren<LogoProps>

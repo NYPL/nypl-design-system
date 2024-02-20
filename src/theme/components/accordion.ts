@@ -1,3 +1,8 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["container", "button", "panel"]);
+
 const containerStyles = {
   border: "none",
   width: "100%",
@@ -8,6 +13,11 @@ const containerStyles = {
 };
 const buttonStyles = {
   borderWidth: "1px",
+  " > span ": {
+    display: "flex",
+    alignItems: "center",
+    minHeight: "21px",
+  },
   color: "ui.typography.heading",
   fontWeight: "medium",
   _dark: {
@@ -27,13 +37,12 @@ const panelStyles = {
   },
 };
 
-const Accordion = {
-  parts: ["container", "button", "panel"],
-  baseStyle: {
+const Accordion = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     container: containerStyles,
     button: buttonStyles,
     panel: panelStyles,
-  },
-};
+  }),
+});
 
 export default Accordion;

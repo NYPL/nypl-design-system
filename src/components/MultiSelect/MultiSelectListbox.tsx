@@ -17,7 +17,7 @@ type MultiSelectListboxProps = Omit<MultiSelectProps, "onChange"> & {
 };
 
 /** MultiSelectListbox renders a non-hierarchical list of checkbox options for the `type="listbox". It leverager downshift-js for accessiblity. */
-export const MultiSelectListbox = chakra(
+export const MultiSelectListbox: React.FC<any> = chakra(
   forwardRef<HTMLElement, React.PropsWithChildren<MultiSelectListboxProps>>(
     (props, ref?) => {
       const {

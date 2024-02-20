@@ -10,6 +10,7 @@ import Image, {
 } from "./Image";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { dimensionTypeArray } from "../../helpers/types";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
@@ -29,16 +30,23 @@ const meta: Meta<typeof Image> = {
       options: imageRatiosArray,
       table: { defaultValue: { summary: "original" } },
     },
+    caption: {
+      control: { type: "text" },
+    },
     className: {
       control: false,
       description: "Additional class name for the component to use.",
     },
     component: { control: false },
+    credit: {
+      control: { type: "text" },
+    },
     imageType: {
       control: { type: "radio" },
       options: imageTypesArray,
       table: { defaultValue: { summary: "default" } },
     },
+    isLazy: argsBooleanType(),
     size: {
       control: { type: "select" },
       options: imageSizesArray,

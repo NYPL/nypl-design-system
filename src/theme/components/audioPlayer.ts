@@ -1,5 +1,13 @@
-const AudioPlayer = {
-  baseStyle: {
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["base", "invalid"]);
+
+const AudioPlayer = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
+    base: {},
     invalid: {
       backgroundColor: "ui.bg.default",
       border: "1px solid",
@@ -11,7 +19,7 @@ const AudioPlayer = {
         borderColor: "dark.ui.border.default",
       },
     },
-  },
-};
+  }),
+});
 
 export default AudioPlayer;

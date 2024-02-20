@@ -361,7 +361,7 @@ export const Controls: Story = {
     multiSelectWidth: "default",
     showLabel: true,
   },
-  render: (args) => <MultiSelectGroupStory {...args} />,
+  render: (args: any) => <MultiSelectGroupStory {...args} />,
   parameters: {
     design: {
       type: "figma",
@@ -373,5 +373,5 @@ export const Controls: Story = {
 
 // The following are additional MultiSelectGroup example Stories.
 export const LayoutPatterns: Story = {
-  render: (args) => <MultiSelectGroupLayoutStory {...args} />,
+  render: (args: any) => <MultiSelectGroupLayoutStory {...args} />,
 };
