@@ -74,17 +74,10 @@ describe("StatusBadge", () => {
         </StatusBadge>
       )
       .toJSON();
-    const warningHigh = renderer
+    const warning = renderer
       .create(
-        <StatusBadge id="warningHigh" type="warningHigh">
-          Warning high type
-        </StatusBadge>
-      )
-      .toJSON();
-    const warningLow = renderer
-      .create(
-        <StatusBadge id="warningLow" type="warningLow">
-          Warning low type
+        <StatusBadge id="warning" type="warning">
+          Warning type
         </StatusBadge>
       )
       .toJSON();
@@ -117,8 +110,7 @@ describe("StatusBadge", () => {
     expect(informative).toMatchSnapshot();
     expect(positive).toMatchSnapshot();
     expect(negative).toMatchSnapshot();
-    expect(warningHigh).toMatchSnapshot();
-    expect(warningLow).toMatchSnapshot();
+    expect(warning).toMatchSnapshot();
     expect(recommendation).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();

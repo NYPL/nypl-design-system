@@ -66,22 +66,13 @@ exports[`StatusBadge renders the UI snapshot correctly 7`] = `
 exports[`StatusBadge renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
-  id="warningHigh"
+  id="warning"
 >
-  Warning high type
+  Warning type
 </div>
 `;
 
 exports[`StatusBadge renders the UI snapshot correctly 9`] = `
-<div
-  className="css-1xdhyk6"
-  id="warningLow"
->
-  Warning low type
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
   id="recommendation"
@@ -90,7 +81,7 @@ exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 11`] = `
+exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 <div
   className="css-kle7zy"
   id="chakra"
@@ -99,7 +90,7 @@ exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 12`] = `
+exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
