@@ -1,13 +1,15 @@
+import { defineStyleConfig, StyleFunctionProps } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
 import { labelLegendText } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
-interface FieldSetProps {
+interface FieldSetProps extends StyleFunctionProps {
   isLegendHidden?: boolean;
 }
 
-const Fieldset = {
-  baseStyle: ({ isLegendHidden }: FieldSetProps) => {
-    const screenreaderStyles = isLegendHidden ? screenreaderOnly() : {};
+const Fieldset = defineStyleConfig({
+  baseStyle: defineStyle((props: FieldSetProps) => {
+    const screenreaderStyles = props.isLegendHidden ? screenreaderOnly() : {};
 
     return {
       border: 0,
@@ -21,7 +23,7 @@ const Fieldset = {
         },
       },
     };
-  },
-};
+  }),
+});
 
 export default Fieldset;

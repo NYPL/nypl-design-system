@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 interface FieldsetProps {
@@ -21,7 +26,13 @@ interface FieldsetProps {
  * A wrapper component that renders a `fieldset` element along with a `legend`
  * element as its first child. Commonly used to wrap form components.
  */
-export const Fieldset = chakra(
+export const Fieldset: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<FieldsetProps> &
+      React.RefAttributes<HTMLDivElement & HTMLFieldSetElement>
+  >,
+  React.PropsWithChildren<FieldsetProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLFieldSetElement,
     React.PropsWithChildren<FieldsetProps>

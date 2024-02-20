@@ -1,13 +1,10 @@
 import { axe } from "jest-axe";
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import MatchMedia from "../../__tests__/mediaMatchMock";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
+import { useEffect } from "react";
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
-
-let matchMedia: MatchMedia;
 
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
@@ -57,7 +54,7 @@ const MultiSelectTestComponent = ({
     onClear,
   } = useMultiSelect();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSelectedItems(initialSelectedItems);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -106,7 +103,6 @@ describe("MultiSelect Accessibility", () => {
 
 describe("MultiSelect", () => {
   beforeAll(() => {
-    matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
         innerWidth: width,
@@ -116,9 +112,7 @@ describe("MultiSelect", () => {
       }).dispatchEvent(new this.Event("resize"));
     };
   });
-  afterEach(() => {
-    matchMedia.clear();
-  });
+
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 

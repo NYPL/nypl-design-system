@@ -28,7 +28,7 @@ export interface MultiSelectGroupProps {
  * wrapping and associated text elements, but the child elements
  * _need_ to be `MultiSelect` components from the NYPL Design System.
  */
-export const MultiSelectGroup = chakra(
+export const MultiSelectGroup: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectGroupProps>>(
     (props, ref?) => {
       const {

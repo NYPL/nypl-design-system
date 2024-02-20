@@ -6,10 +6,11 @@ import {
   Box,
   chakra,
   useColorMode,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
+import Icon, { IconColors } from "../Icons/Icon";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
@@ -48,7 +49,7 @@ const getIcon = (
   isExpanded = false,
   index: number,
   id: string,
-  iconColor: string
+  iconColor: IconColors
 ) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
@@ -89,7 +90,7 @@ const getElementsFromData = (
   // Otherwise, use the default.
   const multipleFontSize =
     data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
-  const multiplePadding = data?.length > 1 ? "s" : "xs s";
+  const multiplePadding = data?.length > 1 ? "17.5px" : "xs s";
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -200,7 +201,12 @@ const getElementsFromData = (
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-export const Accordion = chakra(
+export const Accordion: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    AccordionProps & React.RefAttributes<HTMLDivElement>
+  >,
+  AccordionProps
+> = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,

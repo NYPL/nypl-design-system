@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraComponent,
+  chakra,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef, useState, useRef } from "react";
 
 import Link from "../Link/Link";
@@ -30,7 +35,12 @@ export interface PaginationProps {
 /**
  * A component that provides a navigational list of page items.
  */
-export const Pagination = chakra(
+export const Pagination: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    PaginationProps & React.RefAttributes<HTMLDivElement>
+  >,
+  PaginationProps
+> = chakra(
   forwardRef<HTMLDivElement, PaginationProps>((props, ref?) => {
     const {
       className,

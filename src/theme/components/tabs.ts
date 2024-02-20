@@ -1,3 +1,20 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// root, tablist, tab, tabpanel, and tabpanels are existing keys which are extended but
+// buttonArrows, tablistWrapper, and carouselParent are custom elements
+// in the `Tabs` component.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "root",
+    "tab",
+    "tabpanels",
+    "tabpanel",
+    "tablist",
+    "buttonArrows",
+    "tablistWrapper",
+    "carouselParent",
+  ]);
+
 const tablist = {
   borderColor: "ui.black",
 };
@@ -127,24 +144,25 @@ const carouselParent = {
   overflowX: { base: "hidden", md: "scroll" },
 };
 
-const CustomTabs = {
+const CustomTabs = defineMultiStyleConfig({
   // tablist, tab, and tabpanels are existing keys which are extended but
   // buttonArrows, tablistWrapper, and carouselParent are custom elements
   // in the `Tabs` component.
-  parts: ["buttonArrows", "tablistWrapper", "carouselParent"],
-  baseStyle: {
+  baseStyle: definePartsStyle({
+    tabpanel: {},
+    root: {},
+    tabpanels,
     tablist,
     tab,
     // Only display the previous/next arrow buttons on mobile.
     buttonArrows,
     // To better align the mobile arrow buttons with the tablist.
     tablistWrapper,
-    tabpanels,
     carouselParent,
-  },
+  }),
   defaultProps: {
     colorScheme: "ui.black",
   },
-};
+});
 
 export default CustomTabs;

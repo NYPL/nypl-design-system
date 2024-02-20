@@ -1,6 +1,10 @@
-const Pagination = {
-  parts: ["link"],
-  baseStyle: {
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["link"]);
+
+const Pagination = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     alignItems: "stretch",
     display: "flex",
     width: "100%",
@@ -14,7 +18,7 @@ const Pagination = {
     ul: {
       marginBottom: "0",
     },
-  },
-};
+  }),
+});
 
 export default Pagination;

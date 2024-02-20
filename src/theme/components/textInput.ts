@@ -1,9 +1,16 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
 import {
   defaultElementSizes,
   screenreaderOnly,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["clearButton", "input", "textarea"]);
 
 const input = {
   bgColor: "ui.white",
@@ -63,16 +70,9 @@ const input = {
   },
 };
 
-const TextInput = {
-  parts: ["input", "textarea"],
-  baseStyle: ({ showLabel }) => ({
+const TextInput = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ showLabel }) => ({
     position: "relative",
-    input,
-    textarea: {
-      ...input,
-      lineheight: "1.5",
-      minHeight: "xxl",
-    },
     clearButton: {
       borderRadius: "1px",
       minHeight: { base: "42px", md: "auto" },
@@ -93,23 +93,29 @@ const TextInput = {
         },
       },
     },
-  }),
+    input,
+    textarea: {
+      ...input,
+      lineheight: "1.5",
+      minHeight: "xxl",
+    },
+  })),
   variants: {
-    searchBar: {
+    searchBar: definePartsStyle({
       flex: "1 1 80%",
       input: {
         borderRightRadius: "none",
       },
-    },
-    searchBarSelect: {
+    }),
+    searchBarSelect: definePartsStyle({
       flex: "1 1 80%",
       input: {
         borderRadius: "none",
         borderTopLeftRadius: { base: "sm", md: "none" },
         borderTopRightRadius: { base: "sm", md: "none" },
       },
-    },
+    }),
   },
-};
+});
 
 export default TextInput;

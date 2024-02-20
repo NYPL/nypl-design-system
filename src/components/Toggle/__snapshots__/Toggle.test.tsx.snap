@@ -28,12 +28,12 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -56,7 +56,6 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
       <span
         className="chakra-switch__label css-1y8kf23"
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -94,12 +93,12 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -125,7 +124,6 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
         className="chakra-switch__label css-1y8kf23"
         data-checked=""
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -163,12 +161,12 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -187,13 +185,13 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
       >
         <span
           className="chakra-switch__thumb css-0"
+          data-invalid=""
         />
       </span>
       <span
         className="chakra-switch__label css-1y8kf23"
         data-invalid=""
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -231,12 +229,12 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -255,13 +253,13 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
       >
         <span
           className="chakra-switch__thumb css-0"
+          data-disabled=""
         />
       </span>
       <span
         className="chakra-switch__label css-1y8kf23"
         data-disabled=""
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -299,12 +297,12 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -323,13 +321,13 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
       >
         <span
           className="chakra-switch__thumb css-0"
+          data-disabled=""
         />
       </span>
       <span
         className="chakra-switch__label css-1y8kf23"
         data-disabled=""
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -366,12 +364,12 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -394,7 +392,6 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
       <span
         className="chakra-switch__label css-1y8kf23"
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
@@ -432,12 +429,12 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
         required={false}
         style={
           {
-            "border": "0px",
-            "clip": "rect(0px, 0px, 0px, 0px)",
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
             "height": "1px",
             "margin": "-1px",
             "overflow": "hidden",
-            "padding": "0px",
+            "padding": "0",
             "position": "absolute",
             "whiteSpace": "nowrap",
             "width": "1px",
@@ -460,7 +457,6 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
       <span
         className="chakra-switch__label css-1y8kf23"
         onMouseDown={[Function]}
-        onTouchStart={[Function]}
       >
         Test Label
       </span>
