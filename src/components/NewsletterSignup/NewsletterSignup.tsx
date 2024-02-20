@@ -165,7 +165,7 @@ export const NewsletterSignup: ChakraComponent<
                     id="email-input"
                     isDisabled={view === "submitting"}
                     isRequired
-                    invalidText="Please enter a valid email address."
+                    invalidText="There was a problem. Please enter a valid email address."
                     isInvalid={isInvalidEmail}
                     labelText="Email Address"
                     helperText={formHelperText}
