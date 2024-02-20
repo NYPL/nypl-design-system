@@ -16,13 +16,4 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: ["Updates focus ring color to match color of text."],
   },
-  {
-    date: "2023-12-07",
-    version: "2.1.3",
-    type: "Update",
-    affects: ["Accessibility", "Documentation"],
-    notes: [
-      "Updated the `notificationHeading` prop to allow JSX to render custom heading elements for accessible heading hierarchy.",
-    ],
-  },
 ];
