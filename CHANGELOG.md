@@ -19,7 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
 - Updates the `Heading` component to use native Chakra responsive styles to handle the font sizes of the component's internal `heading`, `overline` and `subtitle` elements. This also resolves the flashing font size bug that is most noticeable on slower internet connections.
 - Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
-- Updates the `NewsletterSignup` component to following NYPL recommendations and use more direct language for the email field error message.
+- Updates the `NewsletterSignup` component to follow NYPL recommendations and use more direct language for the email field error message.
 
 ## Prerelease
 
