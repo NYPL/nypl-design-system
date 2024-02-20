@@ -1,8 +1,9 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import Link from "../Link/Link";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as MenuStories from "./Menu.stories";
-import Menu from "../Menu/Menu";
+import { changelogData } from "./menuChangelogData";
 
 <Meta of={MenuStories} />
 
@@ -21,6 +22,7 @@ import Menu from "../Menu/Menu";
 - {<Link href="#menu-types" target="_self">Menu Types</Link>}
 - {<Link href="#menu-content" target="_self">Menu Content</Link>}
 - {<Link href="#menu-highlight-colors" target="_self">Menu Highlight Colors</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -152,3 +154,7 @@ The default coloring for highlighting the selected item is grayscale, but the hi
 These colors correspond to the NYPL section colors. Some of these options are displayed below:
 
 <Canvas of={MenuStories.MenuHighlightColors} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

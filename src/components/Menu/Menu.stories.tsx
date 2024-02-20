@@ -1,9 +1,9 @@
 import { HStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { sectionTypeArray } from "../../helpers/types";
 
 import Menu, { ListItemsData } from "./Menu";
+import { sectionTypeArray } from "../../helpers/types";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
@@ -11,26 +11,26 @@ const meta: Meta<typeof Menu> = {
   decorators: [withDesign],
   argTypes: {
     className: { control: false },
-    id: { control: false },
-    showLabel: {
-      control: { type: "boolean" },
-      defaultValue: { summary: "true" },
-    },
-    showBorder: {
-      control: { type: "boolean" },
-      defaultValue: { summary: "true" },
-    },
-    selectedItem: { description: "Set item id to be selected on open." },
-    labelText: { description: "Set menu button text." },
-    listItemsData: { control: false },
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
       defaultValue: { summary: "blogs" },
     },
+    id: { control: false },
+    labelText: { description: "Set menu button text." },
     listAlignment: {
       options: ["left", "right"],
       table: { defaultValue: { summary: "left" } },
+    },
+    listItemsData: { control: false },
+    selectedItem: { description: "Set item id to be selected on open." },
+    showBorder: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "true" },
+    },
+    showLabel: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "true" },
     },
   },
 };
@@ -335,16 +335,16 @@ const wideListItems: ListItemsData[] = [
 export const WithControls: Story = {
   args: {
     className: undefined,
+    highlightColor: "blogs",
     id: "Menu-id",
     labelText: "I'm the menu",
-    showLabel: true,
-    showBorder: true,
     listAlignment: "left",
-    highlightColor: "blogs",
-    selectedItem: undefined,
     listItemsData: undefined,
+    selectedItem: undefined,
+    showBorder: true,
+    showLabel: true,
   },
-  render: (args) => (
+  render: (args: any) => (
     <Menu
       {...args}
       labelText={args.labelText}

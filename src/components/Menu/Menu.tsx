@@ -1,5 +1,8 @@
 import {
+  Box,
   chakra,
+  ChakraComponent,
+  Flex,
   Menu as ChakraMenu,
   MenuButton,
   MenuItem,
@@ -7,8 +10,6 @@ import {
   MenuGroup,
   MenuDivider,
   useMultiStyleConfig,
-  Flex,
-  Box,
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
@@ -73,7 +74,12 @@ export interface DividerItem {
 /** Menu items can be one of the three types: */
 export type ListItemsData = ActionItem | GroupItem | DividerItem;
 
-export const Menu = chakra(
+export const Menu: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<MenuProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<MenuProps>
+> = chakra(
   forwardRef<HTMLDivElement, MenuProps>(
     (
       {
