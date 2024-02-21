@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes the mobile font size for the `"heading5"` variant in the `Heading` component.
+
 ## 2.1.5 (February 5, 2024)
 
 ### Adds
