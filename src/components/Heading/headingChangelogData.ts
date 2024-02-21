@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Bug Fix",
     affects: ["Styles"],
-    notes: ['Fixed the mobile font size for the "heading5" variant.'],
+    notes: ['Fixed the desktop font size for the "heading5" variant.'],
   },
   {
     date: "2024-02-05",

@@ -12,7 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types
   where the in-range selected date values did not have the correct DS colors.
-- Fixes the mobile font size for the `"heading5"` variant in the `Heading` component.
+- Fixes the desktop font size for the `"heading5"` variant in the `Heading` component.
 
 ### Updates
 
