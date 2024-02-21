@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraComponent,
+  chakra,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
@@ -149,7 +154,13 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
  */
-export const Link = chakra(
+export const Link: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<LinkProps> &
+      React.RefAttributes<HTMLDivElement & HTMLAnchorElement>
+  >,
+  React.PropsWithChildren<LinkProps>
+> = chakra(
   forwardRef<HTMLDivElement & HTMLAnchorElement, LinkProps>((props, ref?) => {
     const {
       children,
@@ -248,7 +259,7 @@ export const Link = chakra(
       const childProps = childrenToClone.props;
       return (
         <>
-          <Box as="span" __css={styles} {...rest}>
+          <Box as="span" __css={styles.base} {...rest}>
             {React.cloneElement(
               childrenToClone,
               {
@@ -279,7 +290,7 @@ export const Link = chakra(
           onClick={onClick}
           target={internalTarget}
           {...linkProps}
-          __css={styles}
+          __css={styles.base}
         >
           {newChildren}
           {screenreaderOnlyText && (

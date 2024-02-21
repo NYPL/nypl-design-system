@@ -2,7 +2,7 @@ import { Box, HStack } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 
 import Heading from "../Heading/Heading";
-import Icon from "../Icons/Icon";
+import Icon, { IconColors } from "../Icons/Icon";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
 import { checkContrast } from "../../utils/colorUtils";
@@ -943,7 +943,7 @@ export interface DataTableProps {
    * with the current color. */
   dataWhiteColor: string[];
   /** The color to use for text in the color card. */
-  textColor: string;
+  textColor: IconColors;
 }
 
 export interface ColorCardProps extends DataTableProps {

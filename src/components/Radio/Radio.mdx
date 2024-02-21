@@ -2,15 +2,17 @@ import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as RadioStories from "./Radio.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./radioChangelogData";
 
 <Meta of={RadioStories} />
 
 # Radio
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.22.0`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.22.0`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -20,6 +22,7 @@ import Link from "../Link/Link";
 - {<Link href="#browser-states" target="_self">Browser States</Link>}
 - {<Link href="#helper-and-error-text" target="_self">Helper and Error Text</Link>}
 - {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -67,3 +70,7 @@ a layout to the label. View the `RadioGroup` documentation for this
 usage.
 
 <Canvas of={RadioStories.LabelUsingJSXElements} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

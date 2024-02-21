@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as HelperErrorTextStories from "./HelperErrorText.stories";
+import { changelogData } from "./helperErrorTextChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import Link from "../Link/Link";
 
 <Meta of={HelperErrorTextStories} />
 
 # HelperErrorText
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.10`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.10`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#html-and-jsx-children" target="_self">HTML and JSX Children</Link>}
 - {<Link href="#invalid-state" target="_self">Invalid State</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -104,3 +107,7 @@ Set the `isInvalid` prop to `true` to render the passed text content with the
 NYPL "invalid" styling.
 
 <Canvas of={HelperErrorTextStories.InvalidState} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

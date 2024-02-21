@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as ToggleStories from "./Toggle.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./toggleChangelogData";
 
 <Meta of={ToggleStories} />
 
 # Toggle
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.8`   |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.8`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -21,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#controlled-toggle" target="_self">Controlled Toggle</Link>}
 - {<Link href="#browser-states" target="_self">Browser States</Link>}
 - {<Link href="#layouts" target="_self">Layouts</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -99,3 +102,7 @@ const onChange = (e) => {
 ## Layouts
 
 <Canvas of={ToggleStories.Layouts} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -95,7 +95,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 Multi select checkbox group label
               </legend>
               <div
-                className="chakra-stack css-1wdv1uh"
+                className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
                 id="multi-select-checkbox-group"
               >
@@ -104,7 +104,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="dogs-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -123,12 +123,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -143,22 +143,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Dogs
                     </span>
@@ -169,7 +157,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="cats-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -188,12 +176,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -208,22 +196,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cats
                     </span>
@@ -234,7 +210,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="cars-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     data-disabled=""
                     onClick={[Function]}
                   >
@@ -254,12 +230,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -275,23 +251,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-disabled=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cars
                     </span>
@@ -302,7 +266,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="colors-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -321,12 +285,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -341,22 +305,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Colors
                     </span>
@@ -367,7 +319,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="red-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     onClick={[Function]}
                   >
                     <input
@@ -386,12 +338,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -406,22 +358,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Red
                     </span>
@@ -432,7 +372,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="blue-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     onClick={[Function]}
                   >
                     <input
@@ -451,12 +391,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -471,22 +411,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Blue
                     </span>
@@ -497,7 +425,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="plants-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -516,12 +444,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -536,22 +464,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Plants
                     </span>
@@ -562,7 +478,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="furniture-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -581,12 +497,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -601,22 +517,10 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Furniture
                     </span>
@@ -734,7 +638,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 Multi select checkbox group label
               </legend>
               <div
-                className="chakra-stack css-1wdv1uh"
+                className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
                 id="multi-select-checkbox-group"
               >
@@ -743,7 +647,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="dogs-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -762,12 +666,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -782,22 +686,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Dogs
                     </span>
@@ -808,7 +700,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="cats-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -827,12 +719,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -847,22 +739,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cats
                     </span>
@@ -873,7 +753,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="cars-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     data-disabled=""
                     onClick={[Function]}
                   >
@@ -893,12 +773,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -914,23 +794,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-disabled=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cars
                     </span>
@@ -941,7 +809,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="colors-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -960,12 +828,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -980,22 +848,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Colors
                     </span>
@@ -1006,7 +862,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="red-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     onClick={[Function]}
                   >
                     <input
@@ -1025,12 +881,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1045,22 +901,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Red
                     </span>
@@ -1071,7 +915,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="blue-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     onClick={[Function]}
                   >
                     <input
@@ -1090,12 +934,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1110,22 +954,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Blue
                     </span>
@@ -1136,7 +968,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="plants-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1155,12 +987,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1175,22 +1007,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Plants
                     </span>
@@ -1201,7 +1021,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="furniture-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1220,12 +1040,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1240,22 +1060,10 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Furniture
                     </span>
@@ -1373,7 +1181,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 Multi select checkbox group label
               </legend>
               <div
-                className="chakra-stack css-1wdv1uh"
+                className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
                 id="multi-select-checkbox-group"
               >
@@ -1382,7 +1190,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="dogs-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1401,12 +1209,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1421,22 +1229,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Dogs
                     </span>
@@ -1447,7 +1243,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="cats-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1466,12 +1262,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1486,22 +1282,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cats
                     </span>
@@ -1512,7 +1296,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="cars-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     data-disabled=""
                     onClick={[Function]}
                   >
@@ -1532,12 +1316,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1553,23 +1337,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-disabled=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cars
                     </span>
@@ -1580,7 +1352,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="colors-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1599,12 +1371,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1622,24 +1394,22 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseUp={[Function]}
                     >
                       <div
+                        className="css-0"
                         style={
                           {
                             "alignItems": "center",
                             "display": "flex",
                             "height": "100%",
                             "justifyContent": "center",
-                            "transform": "none",
                           }
                         }
                       >
                         <svg
-                          className="css-o8vbdw"
+                          className="css-1w6vdd7"
                           style={
                             {
-                              "opacity": 1,
                               "stroke": "currentColor",
                               "strokeWidth": 4,
-                              "transform": "none",
                             }
                           }
                           viewBox="0 0 24 24"
@@ -1656,7 +1426,6 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Colors
                     </span>
@@ -1667,7 +1436,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="red-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     data-checked=""
                     onClick={[Function]}
                   >
@@ -1687,12 +1456,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1710,7 +1479,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseUp={[Function]}
                     >
                       <svg
-                        className="chakra-icon css-oi1lnb"
+                        className="chakra-icon css-qyb3gi"
                         focusable={false}
                         viewBox="0 0 24 24"
                       >
@@ -1724,7 +1493,6 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Red
                     </span>
@@ -1735,7 +1503,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="blue-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     onClick={[Function]}
                   >
                     <input
@@ -1754,12 +1522,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1774,22 +1542,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Blue
                     </span>
@@ -1800,7 +1556,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="plants-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1819,12 +1575,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1839,22 +1595,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Plants
                     </span>
@@ -1865,7 +1609,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="furniture-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -1884,12 +1628,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -1904,22 +1648,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Furniture
                     </span>
@@ -2079,7 +1811,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 Multi select checkbox group label
               </legend>
               <div
-                className="chakra-stack css-1wdv1uh"
+                className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
                 id="multi-select-checkbox-group"
               >
@@ -2088,7 +1820,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="dogs-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -2107,12 +1839,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2127,22 +1859,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Dogs
                     </span>
@@ -2153,7 +1873,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="cats-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -2172,12 +1892,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2192,22 +1912,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cats
                     </span>
@@ -2218,7 +1926,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="cars-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     data-disabled=""
                     onClick={[Function]}
                   >
@@ -2238,12 +1946,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2259,23 +1967,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-disabled=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Cars
                     </span>
@@ -2286,7 +1982,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="colors-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     data-checked=""
                     onClick={[Function]}
                   >
@@ -2306,12 +2002,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2329,7 +2025,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseUp={[Function]}
                     >
                       <svg
-                        className="chakra-icon css-oi1lnb"
+                        className="chakra-icon css-qyb3gi"
                         focusable={false}
                         viewBox="0 0 24 24"
                       >
@@ -2343,7 +2039,6 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Colors
                     </span>
@@ -2354,7 +2049,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="red-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     data-checked=""
                     onClick={[Function]}
                   >
@@ -2374,12 +2069,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2397,7 +2092,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseUp={[Function]}
                     >
                       <svg
-                        className="chakra-icon css-oi1lnb"
+                        className="chakra-icon css-qyb3gi"
                         focusable={false}
                         viewBox="0 0 24 24"
                       >
@@ -2411,7 +2106,6 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Red
                     </span>
@@ -2422,7 +2116,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="blue-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-11w2yn4"
+                    className="chakra-checkbox css-1n8aert"
                     data-checked=""
                     onClick={[Function]}
                   >
@@ -2442,12 +2136,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2465,7 +2159,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseUp={[Function]}
                     >
                       <svg
-                        className="chakra-icon css-oi1lnb"
+                        className="chakra-icon css-qyb3gi"
                         focusable={false}
                         viewBox="0 0 24 24"
                       >
@@ -2479,7 +2173,6 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       className="chakra-checkbox__label css-1oeb2oe"
                       data-checked=""
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Blue
                     </span>
@@ -2490,7 +2183,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="plants-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -2509,12 +2202,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2529,22 +2222,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Plants
                     </span>
@@ -2555,7 +2236,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="furniture-wrapper"
                 >
                   <label
-                    className="chakra-checkbox css-scawxr"
+                    className="chakra-checkbox css-19e67wo"
                     onClick={[Function]}
                   >
                     <input
@@ -2574,12 +2255,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       required={false}
                       style={
                         {
-                          "border": "0px",
-                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "border": "0",
+                          "clip": "rect(0, 0, 0, 0)",
                           "height": "1px",
                           "margin": "-1px",
                           "overflow": "hidden",
-                          "padding": "0px",
+                          "padding": "0",
                           "position": "absolute",
                           "whiteSpace": "nowrap",
                           "width": "1px",
@@ -2594,22 +2275,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
-                    >
-                      <svg
-                        className="chakra-icon css-1vfv7ic"
-                        focusable={false}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    />
                     <span
                       className="chakra-checkbox__label css-1oeb2oe"
                       onMouseDown={[Function]}
-                      onTouchStart={[Function]}
                     >
                       Furniture
                     </span>

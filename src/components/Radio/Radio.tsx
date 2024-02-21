@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Radio as ChakraRadio,
   useMultiStyleConfig,
   useStyleConfig,
@@ -51,7 +52,12 @@ export interface RadioProps {
   value?: string;
 }
 
-export const Radio = chakra(
+export const Radio: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<RadioProps> & React.RefAttributes<HTMLInputElement>
+  >,
+  React.PropsWithChildren<RadioProps>
+> = chakra(
   forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     const {
       className,

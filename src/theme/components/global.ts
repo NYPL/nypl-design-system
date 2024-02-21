@@ -92,6 +92,7 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
     marginTop: "xs",
   },
   label: {
+    display: "flex",
     width: isFullWidth ? "100%" : "fit-content",
   },
 });

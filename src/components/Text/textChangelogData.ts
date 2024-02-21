@@ -13,8 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "2024-02-05",
     version: "2.1.5",
     type: "Update",
-    affects: ["Accessibility"],
+    affects: ["Styles"],
     notes: [
+      "Chakra 2.8 update.",
       "Updates the component's theme file to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.",
     ],
   },

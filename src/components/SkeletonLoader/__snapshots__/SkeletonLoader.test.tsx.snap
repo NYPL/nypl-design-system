@@ -10,7 +10,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -23,7 +23,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -39,7 +39,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -51,7 +51,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -63,7 +63,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -89,7 +89,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -102,7 +102,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -118,7 +118,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -130,7 +130,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -142,7 +142,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -168,7 +168,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -181,7 +181,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -197,7 +197,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -209,7 +209,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -221,7 +221,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -253,7 +253,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -269,7 +269,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -281,7 +281,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -293,7 +293,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -319,7 +319,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -332,7 +332,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -344,7 +344,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -356,7 +356,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -382,7 +382,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -395,7 +395,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -421,7 +421,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -434,7 +434,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -450,7 +450,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -462,7 +462,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -474,7 +474,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -490,7 +490,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-uhwxm5"
+        className="chakra-skeleton css-du76nm"
       >
         <div
           className="css-0"
@@ -511,7 +511,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -524,7 +524,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -540,7 +540,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -552,7 +552,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -564,7 +564,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -590,7 +590,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -603,7 +603,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -619,7 +619,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -631,7 +631,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -643,7 +643,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -669,7 +669,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -682,7 +682,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -698,7 +698,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -710,7 +710,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -722,7 +722,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -748,7 +748,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -761,7 +761,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -777,7 +777,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -789,7 +789,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -801,7 +801,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"
@@ -828,7 +828,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
   }
 >
   <div
-    className="chakra-skeleton css-1twknw3"
+    className="chakra-skeleton css-fotqef"
   >
     <div
       className="css-0"
@@ -841,7 +841,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-tz3wol"
+        className="chakra-skeleton css-1l0joh4"
       >
         <div
           className="css-0"
@@ -857,7 +857,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
       className="css-0"
     >
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -869,7 +869,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-1akrz52"
+        className="chakra-skeleton css-lx2l1e"
       >
         <div
           className="css-0"
@@ -881,7 +881,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
         />
       </div>
       <div
-        className="chakra-skeleton css-qaeww3"
+        className="chakra-skeleton css-1c2gwvd"
       >
         <div
           className="css-0"

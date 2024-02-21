@@ -1,10 +1,23 @@
 import { keyframes } from "@chakra-ui/system";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
+import { defineStyleConfig } from "@chakra-ui/react";
 
-interface SkeletonLoaderBaseStyle {
+interface SkeletonLoaderBaseStyle extends StyleFunctionProps {
   imageAspectRatio: keyof typeof imagePaddingBottomStyles;
   isBordered: boolean;
   showImage?: boolean;
 }
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "section",
+    "image",
+    "container",
+    "heading",
+    "content",
+    "button",
+  ]);
 
 const element = {
   borderRadius: "2px",
@@ -30,51 +43,52 @@ const imageRowHeightStyles = {
   square: "220px",
 };
 // NYPL's skeleton loader component.
-const SkeletonLoader = {
-  parts: ["section", "image", "container", "heading", "content", "button"],
-  baseStyle: ({ imageAspectRatio, isBordered }: SkeletonLoaderBaseStyle) => {
-    const borderStyles = isBordered ? { ...borderRules } : {};
+const SkeletonLoader = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(
+    ({ imageAspectRatio, isBordered }: SkeletonLoaderBaseStyle) => {
+      const borderStyles = isBordered ? { ...borderRules } : {};
 
-    return {
-      margin: "auto",
-      width: "100%",
-      ...borderStyles,
-      section: {
-        marginBottom: "s",
-        _last: {
-          marginBottom: "0",
-        },
-      },
-      image: {
-        ...element,
-        boxSizing: "border-box",
-        flexShrink: "0",
-        height: "0",
-        overflow: "hidden",
-        paddingBottom: imagePaddingBottomStyles[imageAspectRatio],
-        position: "relative",
-        width: "100%",
-      },
-      container: {
-        marginTop: "s",
-        width: "100%",
-      },
-      heading: {
-        ...element,
-        height: "32px",
-      },
-      content: {
-        ...element,
-        height: "20px",
-      },
-      button: {
-        height: "32px",
+      return {
         margin: "auto",
-        maxWidth: "160px",
         width: "100%",
-      },
-    };
-  },
+        ...borderStyles,
+        section: {
+          marginBottom: "s",
+          _last: {
+            marginBottom: "0",
+          },
+        },
+        image: {
+          ...element,
+          boxSizing: "border-box",
+          flexShrink: "0",
+          height: "0",
+          overflow: "hidden",
+          paddingBottom: imagePaddingBottomStyles[imageAspectRatio],
+          position: "relative",
+          width: "100%",
+        },
+        container: {
+          marginTop: "s",
+          width: "100%",
+        },
+        heading: {
+          ...element,
+          height: "32px",
+        },
+        content: {
+          ...element,
+          height: "20px",
+        },
+        button: {
+          height: "32px",
+          margin: "auto",
+          maxWidth: "160px",
+          width: "100%",
+        },
+      };
+    }
+  ),
   variants: {
     row: ({ imageAspectRatio, showImage }: SkeletonLoaderBaseStyle) => ({
       alignItems: "flex-start",
@@ -95,7 +109,7 @@ const SkeletonLoader = {
       },
     }),
   },
-};
+});
 
 // Fade animation
 const fade = () =>
@@ -105,7 +119,7 @@ const fade = () =>
     to: { opacity: 0.9 },
   });
 // Overriding Chakra's Skeleton animation.
-const Skeleton = {
+const Skeleton = defineStyleConfig({
   baseStyle: {
     borderRadius: "2px",
     bg: "ui.gray.light-cool",
@@ -114,6 +128,6 @@ const Skeleton = {
       bg: "dark.ui.bg.hover",
     },
   },
-};
+});
 
 export { Skeleton, SkeletonLoader };

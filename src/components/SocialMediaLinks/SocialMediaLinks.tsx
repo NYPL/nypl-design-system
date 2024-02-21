@@ -1,4 +1,4 @@
-import { chakra, useStyleConfig } from "@chakra-ui/react";
+import { ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
@@ -88,7 +88,13 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
-export const SocialMediaLinks = chakra(
+export const SocialMediaLinks: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    SocialMediaLinksProps &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
+  >,
+  SocialMediaLinksProps
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     SocialMediaLinksProps

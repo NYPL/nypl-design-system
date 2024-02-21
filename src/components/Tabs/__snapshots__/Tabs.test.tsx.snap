@@ -2,7 +2,7 @@
 
 exports[`Tabs renders the UI snapshot correctly 1`] = `
 <div
-  className="chakra-tabs css-1xdhyk6"
+  className="chakra-tabs css-19sk4h4"
   id="basic"
 >
   <div
@@ -61,10 +61,12 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
           role="tablist"
         >
           <button
-            aria-controls="basic--tabpanel--1"
+            aria-controls="tabs-basic--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="basic--tab--1"
+            disabled={false}
+            id="tabs-basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -74,10 +76,12 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
             Tom Nook
           </button>
           <button
-            aria-controls="basic--tabpanel--1"
+            aria-controls="tabs-basic--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="basic--tab--1"
+            disabled={false}
+            id="tabs-basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -87,10 +91,12 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
             Isabelle
           </button>
           <button
-            aria-controls="basic--tabpanel--1"
+            aria-controls="tabs-basic--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="basic--tab--1"
+            disabled={false}
+            id="tabs-basic--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -147,10 +153,10 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     className="chakra-tabs__tab-panels css-8atqhb"
   >
     <div
-      aria-labelledby="basic--tab-0"
+      aria-labelledby="tabs-basic--tab-0"
       className="chakra-tabs__tab-panel css-sjt5nk"
       hidden={false}
-      id="basic--tabpanel-0"
+      id="tabs-basic--tabpanel-0"
       role="tabpanel"
       tabIndex={0}
     >
@@ -163,7 +169,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       </p>
     </div>
     <div
-      aria-labelledby="basic--tab-1"
+      aria-labelledby="tabs-basic--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -171,12 +177,12 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         }
       }
       hidden={true}
-      id="basic--tabpanel-1"
+      id="tabs-basic--tabpanel-1"
       role="tabpanel"
       tabIndex={0}
     />
     <div
-      aria-labelledby="basic--tab-2"
+      aria-labelledby="tabs-basic--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -184,7 +190,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         }
       }
       hidden={true}
-      id="basic--tabpanel-2"
+      id="tabs-basic--tabpanel-2"
       role="tabpanel"
       tabIndex={0}
     />
@@ -194,7 +200,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
 
 exports[`Tabs renders the UI snapshot correctly 2`] = `
 <div
-  className="chakra-tabs css-kle7zy"
+  className="chakra-tabs css-mz7vzl"
   id="chakra"
 >
   <div
@@ -253,10 +259,12 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
           role="tablist"
         >
           <button
-            aria-controls="chakra--tabpanel--1"
+            aria-controls="tabs-chakra--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="chakra--tab--1"
+            disabled={false}
+            id="tabs-chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -266,10 +274,12 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
             Tom Nook
           </button>
           <button
-            aria-controls="chakra--tabpanel--1"
+            aria-controls="tabs-chakra--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="chakra--tab--1"
+            disabled={false}
+            id="tabs-chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -279,10 +289,12 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
             Isabelle
           </button>
           <button
-            aria-controls="chakra--tabpanel--1"
+            aria-controls="tabs-chakra--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="chakra--tab--1"
+            disabled={false}
+            id="tabs-chakra--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -339,10 +351,10 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
     className="chakra-tabs__tab-panels css-8atqhb"
   >
     <div
-      aria-labelledby="chakra--tab-0"
+      aria-labelledby="tabs-chakra--tab-0"
       className="chakra-tabs__tab-panel css-sjt5nk"
       hidden={false}
-      id="chakra--tabpanel-0"
+      id="tabs-chakra--tabpanel-0"
       role="tabpanel"
       tabIndex={0}
     >
@@ -355,7 +367,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       </p>
     </div>
     <div
-      aria-labelledby="chakra--tab-1"
+      aria-labelledby="tabs-chakra--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -363,12 +375,12 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         }
       }
       hidden={true}
-      id="chakra--tabpanel-1"
+      id="tabs-chakra--tabpanel-1"
       role="tabpanel"
       tabIndex={0}
     />
     <div
-      aria-labelledby="chakra--tab-2"
+      aria-labelledby="tabs-chakra--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -376,7 +388,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         }
       }
       hidden={true}
-      id="chakra--tabpanel-2"
+      id="tabs-chakra--tabpanel-2"
       role="tabpanel"
       tabIndex={0}
     />
@@ -386,7 +398,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
 
 exports[`Tabs renders the UI snapshot correctly 3`] = `
 <div
-  className="chakra-tabs css-1xdhyk6"
+  className="chakra-tabs css-19sk4h4"
   data-testid="props"
   id="props"
 >
@@ -446,10 +458,12 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
           role="tablist"
         >
           <button
-            aria-controls="props--tabpanel--1"
+            aria-controls="tabs-props--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="props--tab--1"
+            disabled={false}
+            id="tabs-props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -459,10 +473,12 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
             Tom Nook
           </button>
           <button
-            aria-controls="props--tabpanel--1"
+            aria-controls="tabs-props--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="props--tab--1"
+            disabled={false}
+            id="tabs-props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -472,10 +488,12 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
             Isabelle
           </button>
           <button
-            aria-controls="props--tabpanel--1"
+            aria-controls="tabs-props--tabpanel--1"
+            aria-disabled={false}
             aria-selected={false}
             className="chakra-tabs__tab css-p5yrdq"
-            id="props--tab--1"
+            disabled={false}
+            id="tabs-props--tab--1"
             onClick={[Function]}
             onFocus={[Function]}
             role="tab"
@@ -532,10 +550,10 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
     className="chakra-tabs__tab-panels css-8atqhb"
   >
     <div
-      aria-labelledby="props--tab-0"
+      aria-labelledby="tabs-props--tab-0"
       className="chakra-tabs__tab-panel css-sjt5nk"
       hidden={false}
-      id="props--tabpanel-0"
+      id="tabs-props--tabpanel-0"
       role="tabpanel"
       tabIndex={0}
     >
@@ -548,7 +566,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       </p>
     </div>
     <div
-      aria-labelledby="props--tab-1"
+      aria-labelledby="tabs-props--tab-1"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -556,12 +574,12 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         }
       }
       hidden={true}
-      id="props--tabpanel-1"
+      id="tabs-props--tabpanel-1"
       role="tabpanel"
       tabIndex={0}
     />
     <div
-      aria-labelledby="props--tab-2"
+      aria-labelledby="tabs-props--tab-2"
       className="chakra-tabs__tab-panel css-sjt5nk"
       dangerouslySetInnerHTML={
         {
@@ -569,7 +587,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         }
       }
       hidden={true}
-      id="props--tabpanel-2"
+      id="tabs-props--tabpanel-2"
       role="tabpanel"
       tabIndex={0}
     />

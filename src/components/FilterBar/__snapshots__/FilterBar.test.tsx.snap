@@ -27,10 +27,10 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-gpv9hk"
+    className="chakra-stack css-9fzpic"
   >
     <div
-      className="chakra-stack css-6dfzd0"
+      className="chakra-stack css-sg7sn5"
     >
       <button
         className="chakra-button css-1e643n3"
@@ -50,27 +50,14 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
   className="css-1xdhyk6"
   id="filter-bar-filterBarWithSubmitAllButton"
 >
-  <h2
-    className="chakra-heading css-1xdhyk6"
+  <button
+    className="chakra-button css-1xdhyk6"
+    id="filter-bar-filterBarWithSubmitAllButton-show-filters"
+    onClick={[Function]}
+    type="button"
   >
-    FilterBar
-  </h2>
-  <div
-    className="chakra-stack css-gpv9hk"
-  >
-    <div
-      className="chakra-stack css-6dfzd0"
-    >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="filterBarWithSubmitAllButton-submit-all-button"
-        onClick={[Function]}
-        type="button"
-      >
-        Apply Filters
-      </button>
-    </div>
-  </div>
+    Show Filter 
+  </button>
 </div>
 `;
 
@@ -85,10 +72,10 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-gpv9hk"
+    className="chakra-stack css-9fzpic"
   >
     <div
-      className="chakra-stack css-6dfzd0"
+      className="chakra-stack css-sg7sn5"
     >
       <button
         className="chakra-button css-1xdhyk6"

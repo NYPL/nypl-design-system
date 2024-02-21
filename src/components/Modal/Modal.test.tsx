@@ -5,6 +5,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
 import { ModalTrigger, useModal } from "./Modal";
 
 describe("Modal Accessibility", () => {
@@ -90,7 +91,32 @@ describe("ModalTrigger", () => {
 
     expect(openButton).toBeInTheDocument();
     expect(screen.queryByText("Close Button")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
     expect(screen.queryByText("Modal Heading Text")).toBeInTheDocument();
+  });
+
+  it("renders a custom heading", () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          bodyContent: "body text",
+          closeButtonLabel: "Close Button",
+          headingText: <Heading level="h4">Modal Heading Text</Heading>,
+          onClose: () => {
+            console.log("custom close");
+          },
+        }}
+      />
+    );
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 4 })).toHaveTextContent(
+      "Modal Heading Text"
+    );
   });
 
   it("renders the UI snapshot correctly", () => {

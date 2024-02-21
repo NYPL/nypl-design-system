@@ -4,6 +4,7 @@ import {
   Stack,
   useColorModeValue,
   useMultiStyleConfig,
+  ChakraComponent,
   VStack,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -76,7 +77,13 @@ const defaultTitle = (
  * The NewsletterSignup component provides a way for patrons to register for an
  * email-based newsletter distribution list.
  */
-export const NewsletterSignup = chakra(
+export const NewsletterSignup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<NewsletterSignupProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<NewsletterSignupProps>
+> = chakra(
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {

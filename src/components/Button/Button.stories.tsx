@@ -86,7 +86,7 @@ export const WithControls: Story = {
     },
     jest: ["Button.test.tsx"],
   },
-  render: (args) => (
+  render: (args: any) => (
     <Button id="button-id" {...args}>
       {args.displayIcon && args.displayIconLeft && (
         <Icon name={args.iconType} align="left" size="small" />

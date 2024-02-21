@@ -1,16 +1,12 @@
 import { axe } from "jest-axe";
 import { render, screen, waitFor } from "@testing-library/react";
-import React from "react";
 import renderer from "react-test-renderer";
-import MatchMedia from "../../__tests__/mediaMatchMock";
 import userEvent from "@testing-library/user-event";
 
 import FilterBar from "./FilterBar";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import useFilterBar from "../../hooks/useFilterBar";
-
-let matchMedia: MatchMedia;
 
 const multiSelectItems = [
   {
@@ -157,7 +153,6 @@ const MultiSelectTestGroup = (multiSelectItems) => (
 );
 describe.skip("FilterBar Accessibility", () => {
   beforeAll(() => {
-    matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
         innerWidth: width,
@@ -167,9 +162,7 @@ describe.skip("FilterBar Accessibility", () => {
       }).dispatchEvent(new this.Event("resize"));
     };
   });
-  afterEach(() => {
-    matchMedia.clear();
-  });
+
   it("should have no axe violations on desktop", async () => {
     window.resizeTo(1024, 600);
     const { container } = render(<FilterBarTestComponent />);
@@ -191,7 +184,6 @@ describe.skip("FilterBar Accessibility", () => {
 
 describe.skip("FilterBar", () => {
   beforeAll(() => {
-    matchMedia = new MatchMedia();
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
         innerWidth: width,
@@ -201,9 +193,7 @@ describe.skip("FilterBar", () => {
       }).dispatchEvent(new this.Event("resize"));
     };
   });
-  afterEach(() => {
-    matchMedia.clear();
-  });
+
   it("should render the `Show Filter` button when window size is mobile", () => {
     render(<FilterBarTestComponent id="filter-bar-test-5" />);
     window.resizeTo(300, 300);

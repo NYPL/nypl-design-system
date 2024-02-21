@@ -46,6 +46,55 @@ describe("StatusBadge", () => {
         </StatusBadge>
       )
       .toJSON();
+    const neutral = renderer
+      .create(
+        <StatusBadge id="neutral" type="neutral">
+          Neutral type
+        </StatusBadge>
+      )
+      .toJSON();
+    const informative = renderer
+      .create(
+        <StatusBadge id="informative" type="informative">
+          Informative type
+        </StatusBadge>
+      )
+      .toJSON();
+    const positive = renderer
+      .create(
+        <StatusBadge id="positive" type="positive">
+          Positive type
+        </StatusBadge>
+      )
+      .toJSON();
+    const negative = renderer
+      .create(
+        <StatusBadge id="negative" type="negative">
+          Negative type
+        </StatusBadge>
+      )
+      .toJSON();
+    const warningHigh = renderer
+      .create(
+        <StatusBadge id="warningHigh" type="warningHigh">
+          Warning high type
+        </StatusBadge>
+      )
+      .toJSON();
+    const warningLow = renderer
+      .create(
+        <StatusBadge id="warningLow" type="warningLow">
+          Warning low type
+        </StatusBadge>
+      )
+      .toJSON();
+    const recommendation = renderer
+      .create(
+        <StatusBadge id="recommendation" type="recommendation">
+          Recommendation type
+        </StatusBadge>
+      )
+      .toJSON();
     const withChakraProps = renderer
       .create(
         <StatusBadge id="chakra" p="20px" color="ui.error.primary">
@@ -64,6 +113,13 @@ describe("StatusBadge", () => {
     expect(low).toMatchSnapshot();
     expect(medium).toMatchSnapshot();
     expect(high).toMatchSnapshot();
+    expect(neutral).toMatchSnapshot();
+    expect(informative).toMatchSnapshot();
+    expect(positive).toMatchSnapshot();
+    expect(negative).toMatchSnapshot();
+    expect(warningHigh).toMatchSnapshot();
+    expect(warningLow).toMatchSnapshot();
+    expect(recommendation).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
