@@ -1,7 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-
 import * as StatusBadgeStories from "./StatusBadge.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./statusBadgeChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={StatusBadgeStories} />
 
@@ -18,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#patterns" target="_self">Patterns</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -59,3 +61,7 @@ If you are using an icon, you should still pass text to the badge so that the us
 understand its meaning.
 
 <Canvas of={StatusBadgeStories.Icons} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
