@@ -7,6 +7,7 @@ import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
+import Table from "../Table/Table";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
@@ -66,90 +67,115 @@ export const WithControls: Story = {
   render: (args) => <Banner {...args} />,
 };
 
-// The following are additional Notification example Stories.
-export const BannerHeading: Story = {
+// The following are additional Banner example Stories.
+export const TypeVariants: Story = {
   render: () => (
-    <>
-      <Banner
-        heading="Standard Notification"
-        content={
+    <Table
+      columnHeaders={["Variant", "Purpose"]}
+      tableData={[
+        [
           <>
-            This is a "standard" Notification with a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-      <Banner
-        type="neutral"
-        heading="Announcement Notification"
-        content={
+            <Banner
+              content={`
+              This is a "neutral" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Neutral Banner"
+            />
+          </>,
+          "Indicates a general, non-ciritical status update.",
+        ],
+        [
           <>
-            This is an "neutral" Notification with a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-      <Banner
-        type="warning"
-        heading="Warning Notification"
-        content={
+            <Banner
+              content={`
+              This is a "informative" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Informative Banner"
+              type="informative"
+            />
+          </>,
+          "Communicates helpful information or an important attribute.",
+        ],
+        [
           <>
-            This is a "warning" Notification with a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-      <Banner
-        content={
+            <Banner
+              content={`
+              This is a "positive" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Positive Banner"
+              type="positive"
+            />
+          </>,
+          "Indicates a constructive or successful state.",
+        ],
+        [
           <>
-            This is a "standard" Notification without a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-      <Banner
-        type="neutral"
-        content={
+            <Banner
+              content={`
+              This is a "negative" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Negative Banner"
+              type="negative"
+            />
+          </>,
+          "Informs users of problems or errors that require potential action to correct.",
+        ],
+        [
           <>
-            This is an "neutral" Notification without a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-      <Banner
-        type="warning"
-        content={
+            <Banner
+              content={`
+              This is a "warning" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Warning Banner"
+              type="warning"
+            />
+          </>,
+          "Communicates cautionary or time-sensitive information.",
+        ],
+        [
           <>
-            This is a "warning" Notification without a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
-          </>
-        }
-      />
-    </>
+            <Banner
+              content={`
+              This is a "recommendation" Banner with a heading. Cras mattis consectetur
+              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+              `}
+              heading="Recommendation Banner"
+              type="recommendation"
+            />
+          </>,
+          "Highlights a suggestion that will improve the experience and achieve better results.",
+        ],
+      ]}
+    />
   ),
 };
 
@@ -160,12 +186,12 @@ export const CustomBannerHeading: Story = {
         heading={<Heading level="h3">Custom H3 Heading</Heading>}
         content={
           <>
-            This is a "standard" Notification with a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
+            This is a "standard" Banner with a heading. Cras mattis consectetur
+            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+            faucibus dolor auctor.
           </>
         }
       />
@@ -173,12 +199,12 @@ export const CustomBannerHeading: Story = {
         heading={<Heading level="h5">Custom H5 Heading</Heading>}
         content={
           <>
-            This is a "standard" Notification with a heading. Cras mattis
-            consectetur purus sit amet fermentum. Maecenas faucibus mollis
-            interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-            rutrum faucibus dolor auctor.
+            This is a "standard" Banner with a heading. Cras mattis consectetur
+            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
+            faucibus dolor auctor.
           </>
         }
       />
@@ -241,9 +267,9 @@ export const CustomIcon: Story = {
       heading="Custom Icon"
       content={
         <>
-          This is a Notification with a custom icon. Cras mattis consectetur
-          purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
-          risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
+          This is a Banner with a custom icon. Cras mattis consectetur purus sit
+          amet fermentum. Maecenas faucibus mollis interdum. Morbi leo risus,
+          porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
           penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </>
       }
@@ -253,7 +279,7 @@ export const CustomIcon: Story = {
 export const HTMLContent: Story = {
   render: () => (
     <Banner
-      heading="Standard Notification with HTML content"
+      heading="Standard Banner with HTML content"
       content={
         <>
           <Text>
@@ -277,14 +303,13 @@ export const Dismissible: Story = {
   render: () => (
     <Banner
       isDismissible
-      heading="isDismissible Notification"
+      heading="isDismissible Banner"
       content={
         <>
-          This is a isDismissible Notification with an X icon. Cras mattis
-          consectetur purus sit amet fermentum. Maecenas faucibus mollis
-          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus.
+          This is a isDismissible Banner with an X icon. Cras mattis consectetur
+          purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
+          risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </>
       }
       type="neutral"

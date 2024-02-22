@@ -2,7 +2,6 @@ import {
   Box,
   chakra,
   ChakraComponent,
-  HStack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
@@ -85,7 +84,7 @@ export const Banner: ChakraComponent<
       icon,
       id,
       isDismissible = false,
-      type,
+      type = "neutral",
       ...rest
     } = props;
     const [isOpen, setIsOpen] = useState(true);
@@ -95,7 +94,8 @@ export const Banner: ChakraComponent<
       highlightColor,
       type,
     });
-    // if heading is string, then we want the default heading...
+    // If `heading is a string, then we want the default heading,
+    // otherwise, use whatever the user passed in.
     const finalHeading =
       typeof heading === "string" ? (
         <Heading
@@ -104,11 +104,11 @@ export const Banner: ChakraComponent<
           text={heading}
           noSpace
           maxWidth="800px"
+          color={type === "negative" ? "ui.error.primary" : null}
         />
       ) : (
         heading
       );
-
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
@@ -125,53 +125,43 @@ export const Banner: ChakraComponent<
         />
       </Button>
     );
-    // const { colorMode } = useColorMode();
-    const iconElement = () => {
-      // If a custom icon is passed, add specific `Banner` styles.
-      if (icon) {
-        return React.cloneElement(icon, {
-          id: `${id}-custom-banner-icon`,
-          size: "large",
-        });
-      }
-      const iconProps: Record<BannerTypes, IconProps> = {
-        neutral: {
-          name: "errorOutline",
-          title: "Banner neutral icon",
-          iconRotation: "rotate180",
-        },
-        informative: {
-          name: "errorOutline",
-          title: "Banner informative icon",
-          iconRotation: "rotate180",
-        },
-        positive: {
-          name: "actionCheckCircle",
-          title: "Banner positive icon",
-        },
-        negative: {
-          name: "errorOutline",
-          title: "Banner negative icon",
-        },
-        warning: {
-          name: "alertNotificationImportant",
-          title: "Banner warning icon",
-        },
-        recommendation: {
-          name: "actionHelpOutline",
-          title: "Banner warning icon",
-        },
-      };
-      return (
-        <Icon
-          className="banner-icon"
-          id={`${id}-banner-icon`}
-          title="Banner announcement icon"
-          size="large"
-          {...(iconProps[type] as IconProps)}
-        />
-      );
+    const iconProps: Record<BannerTypes, IconProps> = {
+      neutral: {
+        name: "errorOutline",
+        title: "Banner neutral icon",
+        iconRotation: "rotate180",
+      },
+      informative: {
+        name: "errorOutline",
+        title: "Banner informative icon",
+        iconRotation: "rotate180",
+      },
+      positive: {
+        name: "actionCheckCircle",
+        title: "Banner positive icon",
+      },
+      negative: {
+        name: "errorOutline",
+        title: "Banner negative icon",
+      },
+      warning: {
+        name: "alertNotificationImportant",
+        title: "Banner warning icon",
+      },
+      recommendation: {
+        name: "actionHelpOutline",
+        title: "Banner warning icon",
+      },
     };
+    const finalIcon = icon || (
+      <Icon
+        className="banner-icon"
+        id={`${id}-banner-icon`}
+        title="Banner announcement icon"
+        size="large"
+        {...(iconProps[type] as IconProps)}
+      />
+    );
 
     // If the `Banner` is closed, don't render anything.
     if (!isOpen) {
@@ -189,14 +179,12 @@ export const Banner: ChakraComponent<
         __css={styles.base}
         {...rest}
       >
-        <HStack sx={styles.content}>
-          {iconElement()}
-          <Box>
-            {heading && finalHeading}
-            {content}
-          </Box>
-          {isDismissible && dismissibleButton}
-        </HStack>
+        {finalIcon}
+        <Box>
+          {heading && finalHeading}
+          {content}
+        </Box>
+        {isDismissible && dismissibleButton}
       </Box>
     );
   })

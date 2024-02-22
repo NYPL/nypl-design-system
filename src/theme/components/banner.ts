@@ -8,8 +8,9 @@ interface BannerStyleProps extends Partial<StyleFunctionProps> {
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers(["base", "content", "dismissibleButton"]);
+  createMultiStyleConfigHelpers(["base", "dismissibleButton"]);
 
+// For now, this semantic mapping is specific to the Banner component.
 const colorTypes = {
   neutral: {
     bg: "ui.bg.default",
@@ -64,53 +65,55 @@ const colorTypes = {
 const Banner = defineMultiStyleConfig({
   baseStyle: definePartsStyle(({ type = "informative" }: BannerStyleProps) => ({
     base: {
-      width: "100%",
-    },
-    content: {
       alignItems: "flex-start",
       bg: colorTypes[type].bg,
       borderLeft: "4px",
       borderColor: colorTypes[type].border,
+      color:
+        type === "negative"
+          ? "var(--nypl-colors-ui-error-primary) !important"
+          : "ui.typography.heading",
+      display: "flex",
+      flexDirection: "row",
       gap: "xs",
       justifyContent: "flex-start",
+      padding:
+        "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       width: "100%",
-      _dark: {
-        bg: colorTypes[type].dark.bg,
-        borderLeftColor: colorTypes[type].dark.border,
-      },
-      padding: {
-        base: "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-s) var(--nypl-space-l)",
-      },
       svg: {
         fill: colorTypes[type].border,
         _dark: {
           fill: colorTypes[type].dark.border,
         },
       },
+      _dark: {
+        bg: colorTypes[type].dark.bg,
+        borderLeftColor: colorTypes[type].dark.border,
+      },
     },
     dismissibleButton: {
+      alignItems: "center",
       border: "none",
       bgColor: "inherit",
-      alignItems: "center",
       color: "ui.typography.heading",
       display: "flex",
+      margin: "xs",
       minWidth: "0",
       position: "absolute",
-      margin: "xs",
       right: "0",
       top: "0",
-      _dark: {
-        color: "dark.ui.typography.heading",
-      },
-      _hover: {
-        bg: "inherit",
-      },
       svg: {
         fill: "ui.black",
         _dark: {
           fill: "dark.ui.typography.heading",
         },
+      },
+      _hover: {
+        bg: "inherit",
+      },
+      _dark: {
+        color: "dark.ui.typography.heading",
       },
     },
   })),
