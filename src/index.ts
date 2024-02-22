@@ -87,6 +87,13 @@ export { default as List } from "./components/List/List";
 export type { DescriptionProps, ListTypes } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoSizes } from "./components/Logo/Logo";
+export { default as Menu } from "./components/Menu/Menu";
+export type {
+  ListItemsData,
+  ActionItem,
+  GroupItem,
+  DividerItem,
+} from "./components/Menu/Menu";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
 // The code associated with the MultiSelect component will not be exported until
 // the refactor of the v2 version of the MultiSelect component has been

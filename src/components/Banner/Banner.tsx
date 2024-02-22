@@ -2,16 +2,14 @@ import {
   Box,
   chakra,
   ChakraComponent,
-  useColorMode,
-  useColorModeValue,
+  HStack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
-import useDSHeading from "../../hooks/useDSHeading";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
-import Icon, { IconNames, IconSizes } from "../Icons/Icon";
+import Icon, { IconProps } from "../Icons/Icon";
 
 export const bannerTypesArray = [
   "informative",
@@ -48,12 +46,6 @@ export const bannerColorsArray = [
 ] as const;
 export type BannerColors = typeof bannerColorsArray[number];
 
-interface IconProps {
-  color: any;
-  name: IconNames;
-  title: string;
-}
-
 interface BannerProps {
   /** Label used to describe the `Banner`'s aside HTML element. */
   ariaLabel?: string;
@@ -72,96 +64,6 @@ interface BannerProps {
   isDismissible?: boolean;
   type?: BannerTypes;
 }
-
-/**
- * BannerHeading child-component.
- */
-export const BannerHeading: ChakraComponent<
-  React.ForwardRefExoticComponent<
-    React.PropsWithChildren<any> & React.RefAttributes<HTMLDivElement>
-  >,
-  any
-> = chakra((props: React.PropsWithChildren<any>) => {
-  const { heading, icon, id, type } = props;
-  const styles = useMultiStyleConfig("BannerHeading", {
-    icon,
-    type,
-  });
-  const { colorMode } = useColorMode();
-  const iconElement = () => {
-    const baseIconProps = {
-      size: "large" as IconSizes,
-      __css: styles.icon,
-    };
-    // If a custom icon is passed, add specific `Banner` styles.
-    if (icon)
-      return React.cloneElement(icon, {
-        id: `${id}-custom-banner-icon`,
-        ...baseIconProps,
-      });
-    const iconProps = {
-      announcement: {
-        color:
-          colorMode === "dark"
-            ? "dark.ui.success.primary"
-            : "section.research.secondary",
-        name: "speakerNotes",
-        title: "Banner announcement icon",
-      } as IconProps,
-      standard: {
-        color: colorMode === "dark" ? "ui.status.primary" : "ui.black",
-        name: "alertBannerImportant",
-        title: "Banner standard icon",
-      } as any,
-      warning: {
-        color: colorMode === "dark" ? "dark.ui.error.primary" : "brand.primary",
-        name: "errorFilled",
-        title: "Banner warning icon",
-      } as IconProps,
-    };
-    return (
-      <Icon
-        className="banner-icon"
-        id={`${id}-banner-icon`}
-        {...baseIconProps}
-        {...iconProps[type]}
-      />
-    );
-  };
-  // Only if a heading child was passed, then either render the string in the
-  // default BannerHeading h4 with its default styles, or render the
-  // custom `Heading` or heading child with the `BannerHeading` styles.
-  const title = heading ? (
-    typeof heading === "string" ? (
-      <Heading
-        id={`${id}-heading`}
-        level="h4"
-        noSpace
-        size="heading6"
-        __css={styles.heading}
-      >
-        {heading}
-      </Heading>
-    ) : (
-      React.cloneElement(heading as any, {
-        __css: styles.heading,
-        noSpace: true,
-        size: "heading6",
-      })
-    )
-  ) : undefined;
-  const finalTitle = useDSHeading({
-    title,
-    id,
-  });
-
-  return (
-    <Box as="header" __css={styles}>
-      {iconElement()}
-      {heading && finalTitle}
-    </Box>
-  );
-});
 
 /**
  * Component used to present users with different levels of banners: @TODO
@@ -188,17 +90,25 @@ export const Banner: ChakraComponent<
     } = props;
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
-    const styles = useMultiStyleConfig("Banner", {});
-    /** Setting the icon color in the styles is not working, so we need to
-     * explicitly override the icon color directly on the component. */
-    const dismissibleButtonIconColor = useColorModeValue(
-      "ui.black",
-      "dark.ui.typography.heading"
-    );
+    const styles = useMultiStyleConfig("Banner", {
+      backgroundColor,
+      highlightColor,
+      type,
+    });
+    // if heading is string, then we want the default heading...
+    const finalHeading =
+      typeof heading === "string" ? (
+        <Heading
+          level="h2"
+          size="heading6"
+          text={heading}
+          noSpace
+          maxWidth="800px"
+        />
+      ) : (
+        heading
+      );
 
-    const finalHeading = (
-      <BannerHeading icon={icon} heading={heading} id={id} type={type} />
-    );
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
@@ -208,7 +118,6 @@ export const Banner: ChakraComponent<
         __css={styles.dismissibleButton}
       >
         <Icon
-          fill={dismissibleButtonIconColor}
           id={`${id}-dismissible-banner-icon`}
           name="close"
           size="large"
@@ -216,6 +125,53 @@ export const Banner: ChakraComponent<
         />
       </Button>
     );
+    // const { colorMode } = useColorMode();
+    const iconElement = () => {
+      // If a custom icon is passed, add specific `Banner` styles.
+      if (icon) {
+        return React.cloneElement(icon, {
+          id: `${id}-custom-banner-icon`,
+          size: "large",
+        });
+      }
+      const iconProps: Record<BannerTypes, IconProps> = {
+        neutral: {
+          name: "errorOutline",
+          title: "Banner neutral icon",
+          iconRotation: "rotate180",
+        },
+        informative: {
+          name: "errorOutline",
+          title: "Banner informative icon",
+          iconRotation: "rotate180",
+        },
+        positive: {
+          name: "actionCheckCircle",
+          title: "Banner positive icon",
+        },
+        negative: {
+          name: "errorOutline",
+          title: "Banner negative icon",
+        },
+        warning: {
+          name: "alertNotificationImportant",
+          title: "Banner warning icon",
+        },
+        recommendation: {
+          name: "actionHelpOutline",
+          title: "Banner warning icon",
+        },
+      };
+      return (
+        <Icon
+          className="banner-icon"
+          id={`${id}-banner-icon`}
+          title="Banner announcement icon"
+          size="large"
+          {...(iconProps[type] as IconProps)}
+        />
+      );
+    };
 
     // If the `Banner` is closed, don't render anything.
     if (!isOpen) {
@@ -230,14 +186,17 @@ export const Banner: ChakraComponent<
         data-type={type}
         id={id}
         ref={ref}
-        __css={styles}
+        __css={styles.base}
         {...rest}
       >
-        <Box __css={styles.container}>
-          {finalHeading}
-          <Box __css={styles.content}>{content}</Box>
-        </Box>
-        {isDismissible && dismissibleButton}
+        <HStack sx={styles.content}>
+          {iconElement()}
+          <Box>
+            {heading && finalHeading}
+            {content}
+          </Box>
+          {isDismissible && dismissibleButton}
+        </HStack>
       </Box>
     );
   })

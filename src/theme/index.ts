@@ -10,6 +10,7 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
 import AudioPlayer from "./components/audioPlayer";
+import Banner from "./components/banner";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -33,6 +34,7 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import Menu from "./components/menu";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectMenuButton from "./components/multiSelectMenuButton";
@@ -96,6 +98,7 @@ const theme: any = {
     Accordion,
     AlphabetFilter,
     AudioPlayer,
+    Banner,
     CustomBreadcrumb: Breadcrumb,
     CustomButton: Button,
     ButtonGroup,
@@ -116,6 +119,7 @@ const theme: any = {
     Link,
     ReservoirList: List,
     Logo,
+    Menu,
     Modal,
     MultiSelect,
     MultiSelectMenuButton,

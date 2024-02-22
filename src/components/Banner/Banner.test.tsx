@@ -12,8 +12,8 @@ describe("Banner Accessibility", () => {
     const { container } = render(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -21,7 +21,7 @@ describe("Banner Accessibility", () => {
 
   it("passes axe accessibility test without heading", async () => {
     const { container } = render(
-      <Banner id="BannerID" BannerContent={<>Banner content.</>} />
+      <Banner id="BannerID" content={<>Banner content.</>} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -30,21 +30,20 @@ describe("Banner Accessibility", () => {
     const { container } = render(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
-        showIcon={false}
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility test for the dismissible type", async () => {
+  it("passes axe accessibility test for the isDismissible type", async () => {
     const { container } = render(
       <Banner
-        dismissible
+        isDismissible
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -58,8 +57,8 @@ describe("Banner", () => {
       <Banner
         ariaLabel="Banner label"
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
   });
@@ -73,8 +72,8 @@ describe("Banner", () => {
       <Banner
         ariaLabel="Banner label"
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading={<Heading level="h4">Custom H4 Heading</Heading>}
+        content={<>Banner content.</>}
+        heading={<Heading level="h4">Custom H4 Heading</Heading>}
       />
     );
     expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
@@ -95,9 +94,8 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
-        showIcon={false}
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
     const icon = utils.container.querySelector("#BannerID-Banner-icon");
@@ -117,8 +115,8 @@ describe("Banner", () => {
           />
         }
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
 
@@ -132,9 +130,9 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
-        BannerType="announcement"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="neutral"
       />
     );
 
@@ -148,9 +146,9 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
-        BannerType="warning"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="warning"
       />
     );
 
@@ -167,20 +165,20 @@ describe("Banner", () => {
     );
   });
 
-  it("renders a dismissible icon", () => {
+  it("renders a isDismissible icon", () => {
     utils.rerender(
       <Banner
-        dismissible
+        isDismissible
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
       />
     );
 
-    const dismissibleIcon = utils.container.querySelector(
-      "#BannerID-dismissible-Banner-icon"
+    const isDismissibleIcon = utils.container.querySelector(
+      "#BannerID-isDismissible-Banner-icon"
     );
-    expect(dismissibleIcon).toBeInTheDocument();
+    expect(isDismissibleIcon).toBeInTheDocument();
     expect(screen.getByTitle("Banner close icon")).toBeInTheDocument();
   });
 
@@ -189,8 +187,8 @@ describe("Banner", () => {
       .create(
         <Banner
           id="BannerID1"
-          BannerContent={<>Banner content.</>}
-          BannerHeading="Banner Heading"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
         />
       )
       .toJSON();
@@ -198,9 +196,9 @@ describe("Banner", () => {
       .create(
         <Banner
           id="BannerID2"
-          BannerContent={<>Banner content.</>}
-          BannerHeading="Banner Heading"
-          BannerType="announcement"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
+          type="neutral"
         />
       )
       .toJSON();
@@ -208,49 +206,38 @@ describe("Banner", () => {
       .create(
         <Banner
           id="BannerID3"
-          BannerContent={<>Banner content.</>}
-          BannerHeading="Banner Heading"
-          BannerType="warning"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
+          type="warning"
         />
       )
       .toJSON();
     const withoutHeading = renderer
-      .create(<Banner id="BannerID4" BannerContent={<>Banner content.</>} />)
+      .create(<Banner id="BannerID4" content={<>Banner content.</>} />)
       .toJSON();
     const withoutAnIcon = renderer
       .create(
         <Banner
           id="BannerID5"
-          BannerHeading="Banner Heading"
-          BannerContent={<>Banner content.</>}
-          showIcon={false}
+          heading="Banner Heading"
+          content={<>Banner content.</>}
         />
       )
       .toJSON();
     const withoutHeadingAndIcon = renderer
-      .create(
-        <Banner
-          id="BannerID6"
-          BannerContent={<>Banner content.</>}
-          showIcon={false}
-        />
-      )
+      .create(<Banner id="BannerID6" content={<>Banner content.</>} />)
       .toJSON();
-    const dismissible = renderer
+    const isDismissible = renderer
       .create(
-        <Banner
-          dismissible
-          id="BannerID7"
-          BannerContent={<>Banner content.</>}
-        />
+        <Banner isDismissible id="BannerID7" content={<>Banner content.</>} />
       )
       .toJSON();
     const withChakraProps = renderer
       .create(
         <Banner
           id="chakra"
-          BannerContent={<>Banner content.</>}
-          BannerHeading="Banner Heading"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
           p="20px"
           color="ui.error.primary"
         />
@@ -260,8 +247,8 @@ describe("Banner", () => {
       .create(
         <Banner
           id="props"
-          BannerContent={<>Banner content.</>}
-          BannerHeading="Banner Heading"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
           data-testid="props"
         />
       )
@@ -273,7 +260,7 @@ describe("Banner", () => {
     expect(withoutHeading).toMatchSnapshot();
     expect(withoutAnIcon).toMatchSnapshot();
     expect(withoutHeadingAndIcon).toMatchSnapshot();
-    expect(dismissible).toMatchSnapshot();
+    expect(isDismissible).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
@@ -283,8 +270,8 @@ describe("Banner", () => {
     const { container } = render(
       <Banner
         id="BannerID"
-        BannerContent={<>Banner content.</>}
-        BannerHeading="Banner Heading"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
         ref={ref}
       />
     );

@@ -48,12 +48,12 @@ export const WithControls: Story = {
     ariaLabel: "Banner label",
     backgroundColor: undefined,
     className: undefined,
-    content: undefined,
-    heading: undefined,
+    content: "test content",
+    heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
     id: undefined,
-    isisDismissible: false,
+    isDismissible: true,
     type: "neutral",
   },
   parameters: {
@@ -67,7 +67,7 @@ export const WithControls: Story = {
 };
 
 // The following are additional Notification example Stories.
-export const heading: Story = {
+export const BannerHeading: Story = {
   render: () => (
     <>
       <Banner
@@ -153,7 +153,7 @@ export const heading: Story = {
   ),
 };
 
-export const Customheading: Story = {
+export const CustomBannerHeading: Story = {
   render: () => (
     <>
       <Banner
@@ -186,11 +186,11 @@ export const Customheading: Story = {
   ),
 };
 
-export const NotificationIcon: Story = {
+export const BannerIcon: Story = {
   render: () => (
     <>
       <Banner
-        heading="Notification with Icon"
+        heading="Banner with Icon"
         content={
           <>
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
@@ -211,7 +211,7 @@ export const NotificationIcon: Story = {
         }
       />
       <Banner
-        heading="Notification without Icon"
+        heading="Banner without Icon"
         content={
           <>
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
@@ -273,7 +273,7 @@ export const HTMLContent: Story = {
     />
   ),
 };
-export const isDismissible: Story = {
+export const Dismissible: Story = {
   render: () => (
     <Banner
       isDismissible
