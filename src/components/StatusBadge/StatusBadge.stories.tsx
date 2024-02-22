@@ -68,17 +68,17 @@ export const Icons: Story = {
   render: () => (
     <VStack spacing="s" align="stretch">
       <StatusBadge level="high">
-        <Icon color="brand.primary" mr="2" name="errorFilled" size="medium" />
+        <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
         On-Site Access Only
       </StatusBadge>
       <StatusBadge level="low">
+        Registration Required
         <Icon
           color="ui.black"
-          mr="2"
+          ml="xs"
           name="actionIdentityFilled"
           size="medium"
         />
-        Registration Required
       </StatusBadge>
     </VStack>
   ),
