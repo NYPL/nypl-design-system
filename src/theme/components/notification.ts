@@ -1,4 +1,5 @@
 import { NotificationTypes } from "../../components/Notification/Notification";
+import { customFocusColor } from "./global";
 
 interface NotificationBaseStyle {
   isCentered: boolean;
@@ -71,6 +72,13 @@ const Notification = {
         _dark: {
           color: "dark.ui.typography.heading",
         },
+        _focus: {
+          // This pseudo-class selector is needed for overriding Chakra styles
+          [":not([disabled])"]: customFocusColor(
+            "ui.typography.heading",
+            "dark.ui.typography.heading"
+          ),
+        },
         _hover: {
           bg: "inherit",
         },
@@ -121,6 +129,7 @@ const NotificationContent = {
             color: "dark.ui.link.secondary",
           },
         },
+        _focus: customFocusColor("ui.black", "dark.ui.typography.body"),
       },
     },
   }),

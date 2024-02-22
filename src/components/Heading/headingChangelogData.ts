@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: ['Fixed the desktop font size for the "heading5" variant.'],
+  },
+  {
     date: "2024-02-05",
     version: "2.1.5",
     type: "Update",
