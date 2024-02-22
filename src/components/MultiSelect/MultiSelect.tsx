@@ -106,9 +106,10 @@ export const MultiSelect: ChakraComponent<
 
       const isOverflowExpand =
         items.length > defaultItemsVisible && listOverflow === "expand";
-      const defaultItemsList = isOverflowExpand
-        ? items.slice(0, defaultItemsVisible)
-        : items;
+      const defaultItemsList = React.useMemo(
+        () => (isOverflowExpand ? items.slice(0, defaultItemsVisible) : items),
+        [isOverflowExpand, items, defaultItemsVisible]
+      );
       const [itemsList, setItemsList] = useState(defaultItemsList);
       const [isExpandable, setIsExpandable] = useState(true);
 
