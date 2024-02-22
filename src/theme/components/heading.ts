@@ -155,7 +155,7 @@ export const headings = {
       fontSize: "mobile.heading.heading5",
     },
     "@media (min-width: 600px)": {
-      fontSize: "desktop.heading.heading4",
+      fontSize: "desktop.heading.heading5",
     },
   },
   heading6: {
