@@ -1,13 +1,13 @@
 const StatusBadge = {
   baseStyle: {
+    alignItems: "center",
     borderRadius: "base",
     color: "ui.typography.heading",
-    display: "block",
+    display: "flex",
     fontSize: "desktop.body.body2", // slightly smaller than the default size
     fontStyle: "italic",
     py: "inset.extranarrow",
     px: "inset.narrow",
-    textAlign: "center",
     width: "fit-content",
     _dark: {
       backgroundColor: "dark.ui.bg.active",
