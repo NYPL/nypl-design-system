@@ -96,19 +96,11 @@ export const TypeVariants: Story = {
         ],
         [
           <>
-            <StatusBadge type="warningHigh">Warning high</StatusBadge>
+            <StatusBadge type="warning">Warning</StatusBadge>
           </>,
-          "Warning (high)",
+          "Warning",
           "Communicates cautionary or time-sensitive information.",
-          "Missing, Warning, Cancelled",
-        ],
-        [
-          <>
-            <StatusBadge type="warningLow">Warning low</StatusBadge>
-          </>,
-          "Warning (low)",
-          "Communicates less severe cautionary or time-sensitive information.",
-          "Busy, Important",
+          "Missing, Warning, Cancelled, Busy",
         ],
         [
           <>
@@ -198,18 +190,10 @@ export const LabelingVariations: Story = {
         ],
         [
           <>
-            <StatusBadge type="warningHigh">Cancelled</StatusBadge>
+            <StatusBadge type="warning">Cancelled</StatusBadge>
           </>,
           <>
-            <StatusBadge type="warningHigh">CANCELLED</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge type="warningLow">Busy</StatusBadge>
-          </>,
-          <>
-            <StatusBadge type="warningLow">BUSY</StatusBadge>
+            <StatusBadge type="warning">CANCELLED</StatusBadge>
           </>,
         ],
         [

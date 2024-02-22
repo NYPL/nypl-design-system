@@ -69,20 +69,12 @@ const negative = defineStyle({
     borderColor: "dark.ui.error.primary",
   },
 });
-const warningHigh = defineStyle({
+const warning = defineStyle({
   bgColor: "ui.warning.primary-10",
   borderColor: "ui.warning.primary",
   _dark: {
     bgColor: "dark.ui.warning.primary-10",
     borderColor: "dark.ui.warning.primary",
-  },
-});
-const warningLow = defineStyle({
-  bgColor: "ui.status.primary-10",
-  borderColor: "ui.status.primary",
-  _dark: {
-    bgColor: "dark.ui.status.primary-10",
-    borderColor: "dark.ui.status.primary",
   },
 });
 const recommendation = defineStyle({
@@ -104,8 +96,7 @@ const StatusBadge = defineStyleConfig({
     informative,
     positive,
     negative,
-    warningHigh,
-    warningLow,
+    warning,
     recommendation,
   },
 });

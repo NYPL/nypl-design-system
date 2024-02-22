@@ -8,6 +8,7 @@ export {
   Circle,
   ColorModeScript,
   cookieStorageManager,
+  cookieStorageManagerSSR,
   Flex,
   Grid,
   GridItem,
@@ -87,6 +88,13 @@ export { default as List } from "./components/List/List";
 export type { DescriptionProps, ListTypes } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoSizes } from "./components/Logo/Logo";
+export { default as Menu } from "./components/Menu/Menu";
+export type {
+  ListItemsData,
+  ActionItem,
+  GroupItem,
+  DividerItem,
+} from "./components/Menu/Menu";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
 export type {
