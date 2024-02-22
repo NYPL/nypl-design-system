@@ -8,6 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Updates the `StatusBadge` styles so that if an icon is passed, the icon and text line up with one another
+
+
 ### Fixes
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types

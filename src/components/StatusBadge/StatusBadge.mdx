@@ -1,7 +1,8 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import * as StatusBadgeStories from "./StatusBadge.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./statusBadgeChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={StatusBadgeStories} />
 
@@ -18,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#patterns" target="_self">Patterns</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -51,3 +53,35 @@ Used in instances where the associated message is the lower barrier. Use
 `"low"` for this level which is the default.
 
 <Canvas of={StatusBadgeStories.LowerBarrier} />
+
+### Icons
+
+You may render an icon within the `StatusBadge` by passing it as a child to the component.
+If you are using an icon, you should still pass text to the badge so that the user can
+understand its meaning.
+
+You will have to pass a `margin-left` or `margin-right` to add space
+between the icon and the text. The use of the design tokens (ie, `xs`) is encouraged.
+
+<Canvas of={StatusBadgeStories.Icons} />
+
+<Source
+  code={`
+// Icon first (add margin-right)
+
+<StatusBadge level="high">
+  <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
+  On-Site Access Only
+</StatusBadge>
+
+// Icon second (add margin-left)
+
+<StatusBadge level="low">
+  Registration Required
+  <Icon color="ui.black" ml="xs" name="actionIdentityFilled" size="medium" />
+</StatusBadge>
+`} language="jsx" />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
