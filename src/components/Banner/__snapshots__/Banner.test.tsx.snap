@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner renders the UI snapshot correctly 1`] = `
+<aside
+  className="css-1xdhyk6"
+  id="BannerID1"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 2`] = `
+<aside
+  className="css-1xdhyk6"
+  data-type="neutral"
+  id="BannerID2"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon banner-icon css-1grhd2q"
+      focusable={false}
+      id="BannerID2-banner-icon"
+      role="img"
+      title="Banner neutral icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 3`] = `
+<aside
+  className="css-1xdhyk6"
+  data-type="warning"
+  id="BannerID3"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon banner-icon css-1grhd2q"
+      focusable={false}
+      id="BannerID3-banner-icon"
+      role="img"
+      title="Banner warning icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 4`] = `
+<aside
+  className="css-1xdhyk6"
+  id="BannerID4"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 5`] = `
+<aside
+  className="css-1xdhyk6"
+  id="BannerID5"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 6`] = `
+<aside
+  className="css-1xdhyk6"
+  id="BannerID6"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 7`] = `
+<aside
+  className="css-1xdhyk6"
+  id="BannerID7"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      Banner content.
+    </div>
+    <button
+      aria-label="Close the banner"
+      className="chakra-button css-8bx9xp"
+      id="BannerID7-banner-dismissible-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="BannerID7-dismissible-banner-icon"
+        role="img"
+        title="Banner close icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </button>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 8`] = `
+<aside
+  className="css-kle7zy"
+  id="chakra"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Banner renders the UI snapshot correctly 9`] = `
+<aside
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  <div
+    className="chakra-stack css-1igwmid"
+  >
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-o0otit"
+      >
+        Banner Heading
+      </h2>
+      Banner content.
+    </div>
+  </div>
+</aside>
+`;
