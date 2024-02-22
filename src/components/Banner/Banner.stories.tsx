@@ -8,6 +8,7 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import Table from "../Table/Table";
+import { VStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
@@ -49,12 +50,16 @@ export const WithControls: Story = {
     ariaLabel: "Banner label",
     backgroundColor: undefined,
     className: undefined,
-    content: "test content",
+    content: `Cras mattis consectetur purus sit amet fermentum. Maecenas
+      faucibus mollis interdum. Morbileo risus, porta ac consectetur ac,
+      vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.`,
     heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
     id: undefined,
-    isDismissible: true,
+    isDismissible: false,
     type: "neutral",
   },
   parameters: {
@@ -181,42 +186,40 @@ export const TypeVariants: Story = {
 
 export const CustomBannerHeading: Story = {
   render: () => (
-    <>
+    <VStack>
       <Banner
+        content={
+          <>
+            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+            mollis interdum. Morbi leo risus, porta ac consectetur ac,
+            vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus
+            vel augue laoreet rutrum faucibus dolor auctor.
+          </>
+        }
         heading={<Heading level="h3">Custom H3 Heading</Heading>}
-        content={
-          <>
-            This is a "standard" Banner with a heading. Cras mattis consectetur
-            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
-            faucibus dolor auctor.
-          </>
-        }
       />
       <Banner
-        heading={<Heading level="h5">Custom H5 Heading</Heading>}
         content={
           <>
-            This is a "standard" Banner with a heading. Cras mattis consectetur
-            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
-            faucibus dolor auctor.
+            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+            mollis interdum. Morbi leo risus, porta ac consectetur ac,
+            vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus
+            vel augue laoreet rutrum faucibus dolor auctor.
           </>
         }
+        heading={<Heading level="h5">Custom H5 Heading</Heading>}
+        type="positive"
       />
-    </>
+    </VStack>
   ),
 };
 
-export const BannerIcon: Story = {
+export const CustomBannerIcon: Story = {
   render: () => (
-    <>
+    <VStack>
       <Banner
-        heading="Banner with Icon"
         content={
           <>
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
@@ -225,6 +228,15 @@ export const BannerIcon: Story = {
             parturient montes, nascetur ridiculus mus.
           </>
         }
+        heading="Banner with Custom Icon"
+        icon={
+          <Icon
+            name="actionLightbulb"
+            title="Banner with custom icon"
+            size="large"
+          />
+        }
+        type="informative"
       />
       <Banner
         content={
@@ -235,17 +247,15 @@ export const BannerIcon: Story = {
             parturient montes, nascetur ridiculus mus.
           </>
         }
-      />
-      <Banner
-        heading="Banner without Icon"
-        content={
-          <>
-            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
-            mollis interdum. Morbi leo risus, porta ac consectetur ac,
-            vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus.
-          </>
+        heading="Banner with Custom Icon"
+        icon={
+          <Icon
+            name="actionLightbulb"
+            title="Banner with custom icon"
+            size="large"
+          />
         }
+        type="positive"
       />
       <Banner
         content={
@@ -256,24 +266,31 @@ export const BannerIcon: Story = {
             parturient montes, nascetur ridiculus mus.
           </>
         }
+        heading="Banner with Custom Icon"
+        icon={
+          <Icon
+            name="alertWarningOutline"
+            title="Banner with custom icon"
+            size="large"
+          />
+        }
+        type="negative"
       />
-    </>
-  ),
-};
-export const CustomIcon: Story = {
-  render: () => (
-    <Banner
-      icon={<Icon name="check" color="section.research.secondary" />}
-      heading="Custom Icon"
-      content={
-        <>
-          This is a Banner with a custom icon. Cras mattis consectetur purus sit
-          amet fermentum. Maecenas faucibus mollis interdum. Morbi leo risus,
-          porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        </>
-      }
-    />
+      <Banner
+        content={
+          <>
+            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+            mollis interdum. Morbi leo risus, porta ac consectetur ac,
+            vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus.
+          </>
+        }
+        heading="Banner with Custom Icon"
+        icon={
+          <Icon name="check" title="Banner with custom icon" size="large" />
+        }
+      />
+    </VStack>
   ),
 };
 export const HTMLContent: Story = {
@@ -302,16 +319,16 @@ export const HTMLContent: Story = {
 export const Dismissible: Story = {
   render: () => (
     <Banner
-      isDismissible
-      heading="isDismissible Banner"
       content={
         <>
-          This is a isDismissible Banner with an X icon. Cras mattis consectetur
+          This is a dismissible Banner with an X icon. Cras mattis consectetur
           purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
           risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
           penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </>
       }
+      heading="Dismissible Banner"
+      isDismissible
       type="neutral"
     />
   ),

@@ -25,7 +25,7 @@ const colorTypes = {
     border: "ui.link.primary",
     dark: {
       bg: "dark.ui.bg.default",
-      border: "dark.ui.border.hover",
+      border: "dark.ui.link.primary",
     },
   },
   positive: {
@@ -33,7 +33,7 @@ const colorTypes = {
     border: "ui.success.primary",
     dark: {
       bg: "dark.ui.bg.default",
-      border: "dark.ui.border.hover",
+      border: "dark.ui.success.primary",
     },
   },
   negative: {
@@ -41,7 +41,7 @@ const colorTypes = {
     border: "ui.error.primary",
     dark: {
       bg: "dark.ui.bg.default",
-      border: "dark.ui.border.hover",
+      border: "dark.ui.error.primary",
     },
   },
   warning: {
@@ -49,7 +49,7 @@ const colorTypes = {
     border: "ui.warning.primary",
     dark: {
       bg: "dark.ui.bg.default",
-      border: "dark.ui.border.hover",
+      border: "dark.ui.warning.primary",
     },
   },
   recommendation: {
@@ -57,7 +57,7 @@ const colorTypes = {
     border: "ui.link.tertiary",
     dark: {
       bg: "dark.ui.bg.default",
-      border: "dark.ui.border.hover",
+      border: "dark.ui.tertiary.primary",
     },
   },
 };
@@ -71,16 +71,26 @@ const Banner = defineMultiStyleConfig({
       borderColor: colorTypes[type].border,
       color:
         type === "negative"
-          ? "var(--nypl-colors-ui-error-primary) !important"
+          ? "var(--nypl-colors-ui-error-primary)"
           : "ui.typography.heading",
       display: "flex",
       flexDirection: "row",
       gap: "xs",
       justifyContent: "flex-start",
-      padding:
-        "var(--nypl-space-s) var(--nypl-space-l) var(--nypl-space-s) var(--nypl-space-l)",
+      py: "s",
+      paddingEnd: "l",
+      paddingStart: {
+        base: "s",
+        md: "l",
+      },
       position: "relative",
       width: "100%",
+      a: {
+        color:
+          type === "negative"
+            ? "var(--nypl-colors-ui-error-primary)"
+            : "ui.typography.heading",
+      },
       svg: {
         fill: colorTypes[type].border,
         _dark: {
@@ -88,8 +98,18 @@ const Banner = defineMultiStyleConfig({
         },
       },
       _dark: {
+        a: {
+          color:
+            type === "negative"
+              ? "dark.ui.error.primary"
+              : "dark.ui.typography.heading",
+        },
         bg: colorTypes[type].dark.bg,
         borderLeftColor: colorTypes[type].dark.border,
+        color:
+          type === "negative"
+            ? "dark.ui.error.primary"
+            : "dark.ui.typography.heading",
       },
     },
     dismissibleButton: {

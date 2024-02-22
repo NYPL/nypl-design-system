@@ -64,8 +64,40 @@ interface BannerProps {
   type?: BannerTypes;
 }
 
+const iconProps: Record<BannerTypes, IconProps> = {
+  neutral: {
+    name: "errorOutline",
+    title: "Banner neutral icon",
+    iconRotation: "rotate180",
+  },
+  informative: {
+    name: "errorOutline",
+    title: "Banner informative icon",
+    iconRotation: "rotate180",
+  },
+  positive: {
+    name: "actionCheckCircle",
+    title: "Banner positive icon",
+  },
+  negative: {
+    name: "errorOutline",
+    title: "Banner negative icon",
+  },
+  warning: {
+    name: "alertNotificationImportant",
+    title: "Banner warning icon",
+  },
+  recommendation: {
+    name: "actionLightbulb",
+    title: "Banner recommendation icon",
+  },
+};
+
 /**
- * Component used to present users with different levels of banners: @TODO
+ * The `Banner` component is a non-modal semantic dialog used to communicate a
+ * general status event or to promote a feature, providing contextual feedback
+ * messages for typical user actions. They are displayed contextually within a
+ * page flow and they will often prompt a user to take action.
  */
 export const Banner: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -105,9 +137,20 @@ export const Banner: ChakraComponent<
           noSpace
           maxWidth="800px"
           color={type === "negative" ? "ui.error.primary" : null}
+          _dark={{
+            color: type === "negative" ? "dark.ui.error.primary" : null,
+          }}
         />
       ) : (
-        heading
+        React.cloneElement(heading, {
+          size: "heading6",
+          maxWidth: "800px",
+          noSpace: true,
+          color: type === "negative" ? "ui.error.primary" : null,
+          _dark: {
+            color: type === "negative" ? "dark.ui.error.primary" : null,
+          },
+        })
       );
     const dismissibleButton = (
       <Button
@@ -125,41 +168,13 @@ export const Banner: ChakraComponent<
         />
       </Button>
     );
-    const iconProps: Record<BannerTypes, IconProps> = {
-      neutral: {
-        name: "errorOutline",
-        title: "Banner neutral icon",
-        iconRotation: "rotate180",
-      },
-      informative: {
-        name: "errorOutline",
-        title: "Banner informative icon",
-        iconRotation: "rotate180",
-      },
-      positive: {
-        name: "actionCheckCircle",
-        title: "Banner positive icon",
-      },
-      negative: {
-        name: "errorOutline",
-        title: "Banner negative icon",
-      },
-      warning: {
-        name: "alertNotificationImportant",
-        title: "Banner warning icon",
-      },
-      recommendation: {
-        name: "actionLightbulb",
-        title: "Banner recommendation icon",
-      },
-    };
     const finalIcon = icon || (
       <Icon
         className="banner-icon"
         id={`${id}-banner-icon`}
         title="Banner announcement icon"
         size="large"
-        {...(iconProps[type] as IconProps)}
+        {...iconProps[type]}
       />
     );
 
