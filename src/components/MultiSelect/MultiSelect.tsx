@@ -56,7 +56,7 @@ export interface MultiSelectProps {
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */
-  multiSelectWidth?: MultiSelectWidths;
+  width?: MultiSelectWidths;
 }
 
 /**
@@ -87,7 +87,7 @@ export const MultiSelect: ChakraComponent<
         onClear,
         onMixedStateChange,
         selectedItems,
-        multiSelectWidth = "full",
+        width = "full",
         ...rest
       } = props;
 
@@ -95,11 +95,17 @@ export const MultiSelect: ChakraComponent<
       const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
 
+      const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
+      const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
       const listHeight =
-        listOverflow === "expand" ? "unset" : isSearchable ? "270px" : "215px";
+        listOverflow === "expand"
+          ? "unset"
+          : isSearchable
+          ? MAXIMUM_ITEMS_LIST_HEIGHT
+          : MINIMUM_ITEMS_LIST_HEIGHT;
 
       const isOverflowExpand =
-        items.length >= defaultItemsVisible && listOverflow === "expand";
+        items.length > defaultItemsVisible && listOverflow === "expand";
       const defaultItemsList = isOverflowExpand
         ? items.slice(0, defaultItemsVisible)
         : items;
@@ -114,13 +120,8 @@ export const MultiSelect: ChakraComponent<
       // Get the styles for the component
       const styles = useMultiStyleConfig("MultiSelect", {
         isBlockElement,
-        width: multiSelectWidth,
+        width,
       });
-
-      // Only for storybook
-      React.useEffect(() => {
-        setItemsList(defaultItemsList);
-      }, [listOverflow]);
 
       const isChecked = (multiSelectId: string, itemId: string): boolean => {
         if (selectedItems[multiSelectId]) {
@@ -179,7 +180,7 @@ export const MultiSelect: ChakraComponent<
         return item.isDisabled;
       };
 
-      // Logic for isSearchable MultiSelect
+      // Additional components for isSearchable
       const NoSearchResults = (): JSX.Element => {
         return (
           <Box id="items-not-found-text-id" marginTop="xs">
@@ -211,6 +212,11 @@ export const MultiSelect: ChakraComponent<
 
         setItemsList(filteredItems);
       };
+      /** If the TextInput is cleard using the "x" button,
+       * display the default options list depending on the isExpandable boolean
+       * (isExpandable is taking an account the listOverflow type and the state of
+       * the ExpandToggleButton if applicable)
+       */
 
       const clearSearchKeyword = () => {
         isExpandable ? setItemsList(defaultItemsList) : setItemsList(items);
@@ -223,7 +229,7 @@ export const MultiSelect: ChakraComponent<
 
       React.useEffect(() => {
         setItemsList(isExpandable ? defaultItemsList : items);
-      }, [isExpandable]);
+      }, [isExpandable, defaultItemsList, items]);
 
       const ExpandToggleButton = (): JSX.Element => {
         return (
@@ -239,49 +245,46 @@ export const MultiSelect: ChakraComponent<
         );
       };
 
-      /** Generate Checkboxe components based on the provided MultiSelectItem. */
-      const MultiSelectItem = ({
-        item,
-      }: {
-        item: MultiSelectItem;
-      }): JSX.Element => {
+      /** Generate Checkbox components based on the provided MultiSelectItem. */
+      const getMultiSelectCheckboxItem = (
+        item: MultiSelectItem
+      ): JSX.Element[] => {
         if (item.children) {
-          return (
-            <>
+          return [
+            <Checkbox
+              id={item.id}
+              key={item.id}
+              labelText={item.name}
+              name={item.name}
+              {...(onMixedStateChange !== undefined
+                ? {
+                    isChecked: isAllChecked(id, item),
+                    isIndeterminate: isIndeterminate(id, item),
+                    onChange: onMixedStateChange,
+                    isDisabled: isAllDisabled(item),
+                  }
+                : {
+                    isChecked: isChecked(id, item.id),
+                    isDisabled: isAllDisabled(item),
+                    onChange: onChange,
+                  })}
+            />,
+            ...item.children.map((childItem) => (
               <Checkbox
-                id={item.id}
-                labelText={item.name}
-                name={item.name}
-                {...(onMixedStateChange !== undefined
-                  ? {
-                      isChecked: isAllChecked(id, item),
-                      isIndeterminate: isIndeterminate(id, item),
-                      onChange: onMixedStateChange,
-                      isDisabled: isAllDisabled(item),
-                    }
-                  : {
-                      isChecked: isChecked(id, item.id),
-                      isDisabled: isAllDisabled(item),
-                      onChange: onChange,
-                    })}
+                key={childItem.id}
+                marginInlineStart="0"
+                __css={styles.menuChildren}
+                id={childItem.id}
+                labelText={childItem.name}
+                name={childItem.name}
+                isDisabled={childItem.isDisabled}
+                isChecked={isChecked(id, childItem.id)}
+                onChange={onChange}
               />
-              {item.children.map((childItem) => (
-                <Checkbox
-                  key={childItem.id}
-                  marginInlineStart="0"
-                  __css={styles.menuChildren}
-                  id={childItem.id}
-                  labelText={childItem.name}
-                  name={childItem.name}
-                  isDisabled={childItem.isDisabled}
-                  isChecked={isChecked(id, childItem.id)}
-                  onChange={onChange}
-                />
-              ))}
-            </>
-          );
+            )),
+          ];
         } else {
-          return (
+          return [
             <Checkbox
               id={item.id}
               labelText={item.name}
@@ -290,8 +293,8 @@ export const MultiSelect: ChakraComponent<
               isChecked={isChecked(id, item.id)}
               onChange={onChange}
               key={item.id}
-            />
-          );
+            />,
+          ];
         }
       };
 
@@ -335,9 +338,9 @@ export const MultiSelect: ChakraComponent<
                 showLabel={false}
                 name="multi-select-checkbox-group"
               >
-                {itemsList.map((item: MultiSelectItem) => (
-                  <MultiSelectItem key={id} item={item} />
-                ))}
+                {itemsList.map((item: MultiSelectItem) =>
+                  getMultiSelectCheckboxItem(item)
+                )}
               </CheckboxGroup>
               {isOverflowExpand && <ExpandToggleButton />}
             </>

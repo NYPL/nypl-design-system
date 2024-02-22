@@ -232,7 +232,9 @@ const meta: Meta<typeof MultiSelect> = {
     selectedItems: {
       control: false,
     },
-    multiSelectWidth: {
+    width: {
+      description:
+        'Value used to set the width for the MultiSelect component. \n\n `"full"` `"fitContent"`',
       control: "radio",
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "full" } },
@@ -255,7 +257,7 @@ export const withControls: Story = {
     onChange: undefined,
     onMixedStateChange: undefined,
     selectedItems: undefined,
-    multiSelectWidth: "full",
+    width: "full",
   },
   render: (args) => <MultiSelectWithControlsStory {...args} />,
   parameters: {
@@ -445,7 +447,7 @@ export const width: Story = {
             id="multi-select-id"
             isBlockElement
             items={withItems}
-            multiSelectWidth="fitContent"
+            width="fitContent"
           />
         </div>
       </Stack>
@@ -509,7 +511,7 @@ const MultiSelectStory = ({
   isDefaultOpen,
   items,
   listOverflow = "scroll",
-  multiSelectWidth = "full",
+  width = "full",
   defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
@@ -539,7 +541,7 @@ const MultiSelectStory = ({
       items={items}
       listOverflow={listOverflow}
       selectedItems={selectedItems}
-      multiSelectWidth={multiSelectWidth}
+      width={width}
       onChange={(e) => {
         onChange(e.target.id, id);
         setActionName("onChange");
