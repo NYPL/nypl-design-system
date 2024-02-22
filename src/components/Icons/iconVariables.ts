@@ -120,6 +120,7 @@ export const iconNamesArray = [
   "actionIdentity",
   "actionIdentityFilled",
   "actionLaunch",
+  "actionLightbulb",
   "actionLockClosed",
   "actionPayment",
   "actionPower",

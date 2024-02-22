@@ -158,7 +158,7 @@ export const Banner: ChakraComponent<
           title: "Banner warning icon",
         },
         recommendation: {
-          name: "actionHelpOutline",
+          name: "actionLightbulb",
           title: "Banner warning icon",
         },
       };

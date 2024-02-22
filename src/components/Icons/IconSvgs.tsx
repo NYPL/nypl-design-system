@@ -11,6 +11,7 @@ import { ReactComponent as actionHome } from "../../../icons/svg/action-home.svg
 import { ReactComponent as actionIdentity } from "../../../icons/svg/action-identity.svg";
 import { ReactComponent as actionIdentityFilled } from "../../../icons/svg/action-identity-filled.svg";
 import { ReactComponent as actionLaunch } from "../../../icons/svg/action-launch.svg";
+import { ReactComponent as actionLightbulb } from "../../../icons/svg/action-lightbulb.svg";
 import { ReactComponent as actionLockClosed } from "../../../icons/svg/action-lock-closed.svg";
 import { ReactComponent as actionPayment } from "../../../icons/svg/action-payment.svg";
 import { ReactComponent as actionPower } from "../../../icons/svg/action-power.svg";
@@ -85,6 +86,7 @@ export default {
   actionIdentity,
   actionIdentityFilled,
   actionLaunch,
+  actionLightbulb,
   actionLockClosed,
   actionPayment,
   actionPower,
