@@ -8,6 +8,7 @@ export {
   Circle,
   ColorModeScript,
   cookieStorageManager,
+  cookieStorageManagerSSR,
   Flex,
   Grid,
   GridItem,
