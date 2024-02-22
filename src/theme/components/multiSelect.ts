@@ -22,7 +22,7 @@ export const multiSelectWidths = {
       md: "175px",
     },
     maxWidth: {
-      md: "200px",
+      md: "360px",
     },
   },
   full: {

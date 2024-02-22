@@ -2,7 +2,6 @@ import React, { forwardRef } from "react";
 import { useMultiStyleConfig } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectItemsCountButtonProps {
   id: string;
@@ -13,7 +12,8 @@ export interface MultiSelectItemsCountButtonProps {
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
-  selectedItems: SelectedItems;
+  selectedItemsString: string;
+  selectedItemsCount: number;
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
   /** The action to perform for clear/reset button of MultiSelect. */
@@ -40,24 +40,19 @@ const MultiSelectItemsCountButton = forwardRef<
     multiSelectLabelText,
     accordianButtonRef,
     onClear,
-    selectedItems,
+    selectedItemsString,
+    selectedItemsCount,
   } = props;
 
   // Sets the selected items count on the menu button.
-  let getSelectedItemsCount;
-  let selectedItemsAriaLabel;
-  if (selectedItems[multiSelectId]?.items.length > 0) {
-    getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
-    const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
-    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
-  }
+  let selectedItemsAriaLabel = `remove ${selectedItemsCount} ${selectedItemsString} selected from ${multiSelectLabelText}`;
 
   const styles = useMultiStyleConfig("MultiSelectItemsCountButton", {
     isOpen,
-    hasSelectedItems: getSelectedItemsCount,
+    hasSelectedItems: selectedItemsCount,
   });
 
-  return getSelectedItemsCount ? (
+  return (
     <Button
       id="multi-select-button"
       buttonType="pill"
@@ -71,7 +66,7 @@ const MultiSelectItemsCountButton = forwardRef<
       }}
       __css={styles}
     >
-      {getSelectedItemsCount}
+      {selectedItemsCount}
       <Icon
         align="right"
         id={`ms-${multiSelectId}-selected-items-count-icon`}
@@ -81,7 +76,7 @@ const MultiSelectItemsCountButton = forwardRef<
         title="Remove selected items"
       />
     </Button>
-  ) : null;
+  );
 });
 
 export default MultiSelectItemsCountButton;

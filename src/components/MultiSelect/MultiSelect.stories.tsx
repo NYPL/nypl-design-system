@@ -205,9 +205,6 @@ const meta: Meta<typeof MultiSelect> = {
   component: MultiSelect,
   decorators: [withDesign],
   argTypes: {
-    buttonText: {
-      table: { default: "" },
-    },
     defaultItemsVisible: {
       table: { defaultValue: { summary: 5 } },
     },
@@ -223,24 +220,21 @@ const meta: Meta<typeof MultiSelect> = {
     isSearchable: {
       table: { defaultValue: { summary: false } },
     },
-    items: {
-      control: false,
-    },
     listOverflow: {
       control: "radio",
       options: multiSelectListOverflowArray,
       table: { defaultValue: { summary: "scroll" } },
     },
-    onChange: {
-      table: { defaultValue: { summary: false } },
-    },
+    onChange: { control: false },
     onMixedStateChange: {
-      table: { defaultValue: { summary: false } },
+      control: false,
     },
     selectedItems: {
       control: false,
     },
     width: {
+      description:
+        'Value used to set the width for the MultiSelect component. \n\n `"full"` `"fitContent"`',
       control: "radio",
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "full" } },
