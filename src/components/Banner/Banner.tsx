@@ -7,7 +7,7 @@ import {
 import React, { forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
-import Heading from "../Heading/Heading";
+import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
 
 export const bannerTypesArray = [
@@ -162,31 +162,22 @@ export const Banner: ChakraComponent<
       // overrides the Banner types.
       variant: backgroundColor || highlightColor ? undefined : type,
     });
+    const generalHeadingProps = {
+      size: "heading6" as HeadingSizes,
+      maxWidth: "800px",
+      noSpace: true,
+      color: type === "negative" ? "ui.error.primary" : null,
+      _dark: {
+        color: type === "negative" ? "dark.ui.error.primary" : null,
+      },
+    };
     // If `heading is a string, then we want the default heading,
     // otherwise, use whatever the user passed in.
     const finalHeading = heading ? (
       typeof heading === "string" ? (
-        <Heading
-          level="h2"
-          size="heading6"
-          text={heading}
-          noSpace
-          maxWidth="800px"
-          color={type === "negative" ? "ui.error.primary" : null}
-          _dark={{
-            color: type === "negative" ? "dark.ui.error.primary" : null,
-          }}
-        />
+        <Heading level="h2" text={heading} {...generalHeadingProps} />
       ) : (
-        React.cloneElement(heading, {
-          size: "heading6",
-          maxWidth: "800px",
-          noSpace: true,
-          color: type === "negative" ? "ui.error.primary" : null,
-          _dark: {
-            color: type === "negative" ? "dark.ui.error.primary" : null,
-          },
-        })
+        React.cloneElement(heading, generalHeadingProps)
       )
     ) : null;
     const dismissibleButton = (
