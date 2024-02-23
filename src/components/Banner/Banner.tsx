@@ -19,7 +19,7 @@ export const bannerTypesArray = [
   "warning",
 ] as const;
 export type BannerTypes = typeof bannerTypesArray[number];
-export const bannerColorsArray = [
+export const bannerBgColorsArray = [
   "brand.primary-05",
   "section.blogs.primary-05",
   "section.books-and-more.primary-05",
@@ -43,17 +43,50 @@ export const bannerColorsArray = [
   "dark.section.research-library-schwarzman.primary-05",
   "dark.section.whats-on.primary-05",
 ] as const;
-export type BannerColors = typeof bannerColorsArray[number];
+export type BannerBgColors = typeof bannerBgColorsArray[number];
+export const bannerHighlightColorsArray = [
+  "brand.primary",
+  "section.blogs.primary",
+  "section.books-and-more.primary",
+  "section.connect.primary",
+  "section.education.primary",
+  "section.locations.primary",
+  "section.research.primary",
+  "section.research-library-lpa.primary",
+  "section.research-library-schomburg.primary",
+  "section.research-library-schwarzman.primary",
+  "section.whats-on.primary",
+  "dark.brand.primary",
+  "dark.section.blogs.primary",
+  "dark.section.books-and-more.primary",
+  "dark.section.connect.primary",
+  "dark.section.education.primary",
+  "dark.section.locations.primary",
+  "dark.section.research.secondary",
+  "dark.section.research-library-lpa.primary",
+  "dark.section.research-library-schomburg.primary",
+  "dark.section.research-library-schwarzman.primary",
+  "dark.section.whats-on.primary",
+] as const;
+export type BannerHighlightColors = typeof bannerHighlightColorsArray[number];
 
 interface BannerProps {
   /** Label used to describe the `Banner`'s aside HTML element. */
   ariaLabel?: string;
-  backgroundColor?: BannerColors;
+  /** Used to set the color of the background for the full component.
+   * Refer to how color values are defined and typed in the DS Icon component. */
+  backgroundColor?: BannerBgColors;
   /** Additional `className` to add. */
   className?: string;
+  /** Used to populate the body content of the component. */
   content: string | JSX.Element;
+  /** Used to populate the heading element within the component.  A string
+   * value can be passed to set the text for a default DS Heading component,
+   * or an actual DS Heading component can be passed in. */
   heading?: string | JSX.Element;
-  highlightColor?: BannerColors;
+  /** Used to set the color for the left border and icon.  Refer to how color
+   * values are defined and typed in the DS Icon component. */
+  highlightColor?: BannerHighlightColors;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -61,6 +94,7 @@ interface BannerProps {
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
+  /** Used to control the component's semantic coloring and iconography. */
   type?: BannerTypes;
 }
 
@@ -130,7 +164,7 @@ export const Banner: ChakraComponent<
     });
     // If `heading is a string, then we want the default heading,
     // otherwise, use whatever the user passed in.
-    const finalHeading =
+    const finalHeading = heading ? (
       typeof heading === "string" ? (
         <Heading
           level="h2"
@@ -153,17 +187,19 @@ export const Banner: ChakraComponent<
             color: type === "negative" ? "dark.ui.error.primary" : null,
           },
         })
-      );
+      )
+    ) : null;
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
         buttonType="text"
-        id={`${id}-banner-dismissible-button`}
+        id={`${id}-dismissible-button`}
         onClick={handleClose}
         __css={styles.dismissibleButton}
       >
         <Icon
-          id={`${id}-dismissible-banner-icon`}
+          id={`${id}-dismissible-icon`}
+          data-testid={`${id}-dismissible-icon`}
           name="close"
           size="large"
           title="Banner close icon"
@@ -174,6 +210,7 @@ export const Banner: ChakraComponent<
       <Icon
         className="banner-icon"
         id={`${id}-banner-icon`}
+        data-testid={`${id}-banner-icon`}
         title="Banner announcement icon"
         size="large"
         {...iconProps[type]}

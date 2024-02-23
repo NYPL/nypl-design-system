@@ -2,7 +2,11 @@ import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
-import Banner, { bannerColorsArray, bannerTypesArray } from "./Banner";
+import Banner, {
+  bannerBgColorsArray,
+  bannerHighlightColorsArray,
+  bannerTypesArray,
+} from "./Banner";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
@@ -19,14 +23,14 @@ const meta: Meta<typeof Banner> = {
     ariaLabel: { control: { type: "text" } },
     backgroundColor: {
       control: { type: "select" },
-      options: bannerColorsArray,
+      options: bannerBgColorsArray,
     },
     className: { control: false },
     content: { control: false },
     heading: { control: false },
     highlightColor: {
       control: { type: "select" },
-      options: bannerColorsArray,
+      options: bannerHighlightColorsArray,
     },
     icon: { control: false },
     id: { control: false },

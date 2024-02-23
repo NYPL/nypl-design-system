@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `5%` and `10%` opacities for the semantic colors in the color pallette.
 - Adds the `"actionLightbulb"` option to the `Icon` component.
+- Adds the `Banner` component.
 
 ### Updates
 

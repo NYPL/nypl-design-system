@@ -11,9 +11,9 @@ describe("Banner Accessibility", () => {
   it("passes axe accessibility test with heading", async () => {
     const { container } = render(
       <Banner
-        id="BannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
+        id="bannerID"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -21,18 +21,7 @@ describe("Banner Accessibility", () => {
 
   it("passes axe accessibility test without heading", async () => {
     const { container } = render(
-      <Banner id="BannerID" content={<>Banner content.</>} />
-    );
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
-  it("passes axe accessibility test without an icon", async () => {
-    const { container } = render(
-      <Banner
-        id="BannerID"
-        content={<>Banner content.</>}
-        heading="Banner Heading"
-      />
+      <Banner id="bannerID" content={<>Banner content.</>} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -40,10 +29,10 @@ describe("Banner Accessibility", () => {
   it("passes axe accessibility test for the isDismissible type", async () => {
     const { container } = render(
       <Banner
-        isDismissible
-        id="BannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
+        isDismissible
+        id="bannerID"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -56,9 +45,9 @@ describe("Banner", () => {
     utils = render(
       <Banner
         ariaLabel="Banner label"
-        id="BannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
+        id="bannerID"
       />
     );
   });
@@ -71,7 +60,7 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         ariaLabel="Banner label"
-        id="BannerID"
+        id="bannerID"
         content={<>Banner content.</>}
         heading={<Heading level="h4">Custom H4 Heading</Heading>}
       />
@@ -83,53 +72,88 @@ describe("Banner", () => {
     expect(screen.getByText("Banner content.")).toBeInTheDocument();
   });
 
-  it.skip("renders with an Icon", () => {
+  it("renders with an Icon", () => {
     // Since the icon has aria-hidden set to true, we can't get it
     // by its "img" role.
-    const icon = utils.container.querySelector("#BannerID-Banner-icon");
+    const icon = screen.getByTestId("bannerID-banner-icon");
     expect(icon).toBeInTheDocument();
   });
 
-  it("does not render an Icon", () => {
-    utils.rerender(
-      <Banner
-        id="BannerID"
-        content={<>Banner content.</>}
-        heading="Banner Heading"
-      />
-    );
-    const icon = utils.container.querySelector("#BannerID-Banner-icon");
-    expect(icon).not.toBeInTheDocument();
-  });
-
-  it.skip("renders a custom Icon component", () => {
+  it("renders a custom Icon component", () => {
     utils.rerender(
       <Banner
         icon={
           <Icon
             id="custom-icon"
+            data-testid="custom-icon"
             className="custom-icon"
             color="brand.primary"
             name="check"
             size="large"
           />
         }
-        id="BannerID"
+        id="bannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
       />
     );
 
-    const customIcon = utils.container.querySelector(
-      "#BannerID-custom-Banner-icon"
-    );
+    const customIcon = screen.getByTestId("custom-icon");
     expect(customIcon).toBeInTheDocument();
   });
 
-  it.skip("renders the announcement Banner type", () => {
+  it("renders with an aria-label attribute", () => {
+    expect(screen.getByRole("complementary")).toHaveAttribute(
+      "aria-label",
+      "Banner label"
+    );
+  });
+
+  it("renders a dismissible icon", () => {
     utils.rerender(
       <Banner
-        id="BannerID"
+        isDismissible
+        id="bannerID"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+      />
+    );
+
+    expect(screen.getByTestId("bannerID-dismissible-icon")).toBeInTheDocument();
+    expect(screen.getByTitle("Banner close icon")).toBeInTheDocument();
+  });
+
+  it("renders the informative Banner type", () => {
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="informative"
+      />
+    );
+
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "informative"
+    );
+  });
+  it("renders the negative Banner type", () => {
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="negative"
+      />
+    );
+
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "negative"
+    );
+  });
+  it("renders the neutral Banner type", () => {
+    utils.rerender(
+      <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
         type="neutral"
@@ -138,14 +162,40 @@ describe("Banner", () => {
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
       "data-type",
-      "announcement"
+      "neutral"
     );
   });
+  it("renders the positive Banner type", () => {
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="positive"
+      />
+    );
 
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "positive"
+    );
+  });
+  it("renders the recommendation Banner type", () => {
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        type="recommendation"
+      />
+    );
+
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "recommendation"
+    );
+  });
   it("renders the warning Banner type", () => {
     utils.rerender(
       <Banner
-        id="BannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
         type="warning"
@@ -158,54 +208,60 @@ describe("Banner", () => {
     );
   });
 
-  it("renders with an aria-label attribute", () => {
-    expect(screen.getByRole("complementary")).toHaveAttribute(
-      "aria-label",
-      "Banner label"
-    );
-  });
-
-  it.skip("renders a isDismissible icon", () => {
-    utils.rerender(
-      <Banner
-        isDismissible
-        id="BannerID"
-        content={<>Banner content.</>}
-        heading="Banner Heading"
-      />
-    );
-
-    const isDismissibleIcon = utils.container.querySelector(
-      "#BannerID-isDismissible-Banner-icon"
-    );
-    expect(isDismissibleIcon).toBeInTheDocument();
-    expect(screen.getByTitle("Banner close icon")).toBeInTheDocument();
-  });
-
   it("renders the UI snapshot correctly", () => {
-    const standard = renderer
+    const informative = renderer
       .create(
         <Banner
-          id="BannerID1"
           content={<>Banner content.</>}
           heading="Banner Heading"
+          type="informative"
         />
       )
       .toJSON();
-    const announcement = renderer
+    const negative = renderer
       .create(
         <Banner
-          id="BannerID2"
+          id="bannerID3"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
+          type="negative"
+        />
+      )
+      .toJSON();
+    const neutral = renderer
+      .create(
+        <Banner
+          id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
           type="neutral"
         />
       )
       .toJSON();
+    const positive = renderer
+      .create(
+        <Banner
+          id="bannerID3"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
+          type="positive"
+        />
+      )
+      .toJSON();
+    const recommendation = renderer
+      .create(
+        <Banner
+          id="bannerID3"
+          content={<>Banner content.</>}
+          heading="Banner Heading"
+          type="recommendation"
+        />
+      )
+      .toJSON();
     const warning = renderer
       .create(
         <Banner
-          id="BannerID3"
+          id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
           type="warning"
@@ -213,23 +269,11 @@ describe("Banner", () => {
       )
       .toJSON();
     const withoutHeading = renderer
-      .create(<Banner id="BannerID4" content={<>Banner content.</>} />)
-      .toJSON();
-    const withoutAnIcon = renderer
-      .create(
-        <Banner
-          id="BannerID5"
-          heading="Banner Heading"
-          content={<>Banner content.</>}
-        />
-      )
-      .toJSON();
-    const withoutHeadingAndIcon = renderer
-      .create(<Banner id="BannerID6" content={<>Banner content.</>} />)
+      .create(<Banner id="bannerID4" content={<>Banner content.</>} />)
       .toJSON();
     const isDismissible = renderer
       .create(
-        <Banner isDismissible id="BannerID7" content={<>Banner content.</>} />
+        <Banner isDismissible id="bannerID7" content={<>Banner content.</>} />
       )
       .toJSON();
     const withChakraProps = renderer
@@ -254,12 +298,13 @@ describe("Banner", () => {
       )
       .toJSON();
 
-    expect(standard).toMatchSnapshot();
-    expect(announcement).toMatchSnapshot();
+    expect(informative).toMatchSnapshot();
+    expect(negative).toMatchSnapshot();
+    expect(neutral).toMatchSnapshot();
+    expect(positive).toMatchSnapshot();
+    expect(recommendation).toMatchSnapshot();
     expect(warning).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
-    expect(withoutAnIcon).toMatchSnapshot();
-    expect(withoutHeadingAndIcon).toMatchSnapshot();
     expect(isDismissible).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
@@ -269,7 +314,7 @@ describe("Banner", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <Banner
-        id="BannerID"
+        id="bannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
         ref={ref}
