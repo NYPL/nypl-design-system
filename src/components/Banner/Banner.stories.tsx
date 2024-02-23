@@ -1,4 +1,4 @@
-// import { VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -8,7 +8,8 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import Table from "../Table/Table";
-import { VStack } from "@chakra-ui/react";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Button from "../Button/Button";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
@@ -81,14 +82,17 @@ export const TypeVariants: Story = {
         [
           <>
             <Banner
-              content={`
-              This is a "neutral" Banner with a heading. Cras mattis consectetur
-              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-              natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
-              faucibus dolor auctor.
-              `}
+              content={
+                <>
+                  This is a "neutral" Banner with a heading. Cras mattis
+                  consectetur purus sit amet fermentum. Maecenas faucibus mollis
+                  interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+                  at eros. Cum sociis natoque penatibus et magnis dis parturient
+                  montes, nascetur ridiculus mus. Vivamus sagittis lacus vel
+                  augue laoreet rutrum faucibus dolor auctor.{" "}
+                  <Link href="#">This is a link</Link>.
+                </>
+              }
               heading="Neutral Banner"
             />
           </>,
@@ -131,14 +135,17 @@ export const TypeVariants: Story = {
         [
           <>
             <Banner
-              content={`
-              This is a "negative" Banner with a heading. Cras mattis consectetur
-              purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-              leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-              natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum
-              faucibus dolor auctor.
-              `}
+              content={
+                <>
+                  This is a "negative" Banner with a heading. Cras mattis
+                  consectetur purus sit amet fermentum. Maecenas faucibus mollis
+                  interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+                  at eros. Cum sociis natoque penatibus et magnis dis parturient
+                  montes, nascetur ridiculus mus. Vivamus sagittis lacus vel
+                  augue laoreet rutrum faucibus dolor auctor.{" "}
+                  <Link href="#">This is a link</Link>.
+                </>
+              }
               heading="Negative Banner"
               type="negative"
             />
@@ -295,25 +302,44 @@ export const CustomBannerIcon: Story = {
 };
 export const HTMLContent: Story = {
   render: () => (
-    <Banner
-      heading="Standard Banner with HTML content"
-      content={
-        <>
-          <Text>
-            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
-            mollis interdum.
-          </Text>
-          <Text noSpace>
-            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
-            <b>
-              Cum sociis natoque penatibus et magnis dis parturient montes,
-              nascetur ridiculus mus
-            </b>
-            . <Link href="#">This is a link</Link>.
-          </Text>
-        </>
-      }
-    />
+    <VStack>
+      <Banner
+        heading="Standard Banner with HTML content"
+        content={
+          <>
+            <Text>
+              Cras mattis consectetur purus sit amet fermentum. Maecenas
+              faucibus mollis interdum.
+            </Text>
+            <Text noSpace>
+              Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
+              <b>
+                Cum sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus
+              </b>
+              . <Link href="#">This is a link</Link>.
+            </Text>
+          </>
+        }
+      />
+      <Banner
+        heading="Standard Banner with Buttons"
+        content={
+          <>
+            <Text>
+              Cras mattis consectetur purus sit amet fermentum. Maecenas
+              faucibus mollis interdum.
+            </Text>
+            <ButtonGroup>
+              <Button buttonType="secondary" id="group-1">
+                Button
+              </Button>
+              <Button id="group-2">Submit</Button>
+            </ButtonGroup>
+          </>
+        }
+      />
+    </VStack>
   ),
 };
 export const Dismissible: Story = {

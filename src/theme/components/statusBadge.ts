@@ -18,7 +18,6 @@ const baseStyle = defineStyle({
   width: "fit-content",
   _dark: {
     backgroundColor: "dark.ui.bg.default",
-    // borderLeft: "4px solid",
     borderColor: "dark.ui.border.default",
     color: "dark.ui.typography.heading",
   },
@@ -39,13 +38,13 @@ const high = defineStyle({
   },
 });
 // Type variants
-const neutral = defineStyle({
+export const neutral = defineStyle({
   borderColor: "ui.gray.dark",
   _dark: {
     borderColor: "dark.ui.gray.semi-dark",
   },
 });
-const informative = defineStyle({
+export const informative = defineStyle({
   bgColor: "ui.link.primary-10",
   borderColor: "ui.link.primary",
   _dark: {
@@ -53,7 +52,7 @@ const informative = defineStyle({
     borderColor: "dark.ui.link.primary",
   },
 });
-const positive = defineStyle({
+export const positive = defineStyle({
   bgColor: "ui.success.primary-10",
   borderColor: "ui.success.primary",
   _dark: {
@@ -61,7 +60,7 @@ const positive = defineStyle({
     borderColor: "dark.ui.success.primary",
   },
 });
-const negative = defineStyle({
+export const negative = defineStyle({
   bgColor: "ui.error.primary-10",
   borderColor: "ui.error.primary",
   _dark: {
@@ -69,7 +68,7 @@ const negative = defineStyle({
     borderColor: "dark.ui.error.primary",
   },
 });
-const warning = defineStyle({
+export const warning = defineStyle({
   bgColor: "ui.warning.primary-10",
   borderColor: "ui.warning.primary",
   _dark: {
@@ -77,7 +76,7 @@ const warning = defineStyle({
     borderColor: "dark.ui.warning.primary",
   },
 });
-const recommendation = defineStyle({
+export const recommendation = defineStyle({
   bgColor: "ui.link.tertiary-10",
   borderColor: "ui.link.tertiary",
   _dark: {

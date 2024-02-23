@@ -30,7 +30,7 @@ import { changelogData } from "./bannerChangelogData";
 
 <Description of={BannerStories} />
 
-**Important:** The `Banner` component mirrors the `Notification` component but
+**IMPORTANT:** The `Banner` component mirrors the `Notification` component but
 the `Notification` component should be used for more global messaging at the top
 of the screen. The `Banner` component should be used for all messaging that
 sits within the flow of the page.
@@ -108,6 +108,14 @@ the implementation should not rely on the color alone to convey meaning, as
 color is not a universal experience for everyone. The meaning of the heading
 and body copy should align with the general meaning associated with the semantic
 colors used in a specific variant.
+
+**IMPORTANT:** The text color for links within the content will NOT use the
+DS standard link color. Instead, the color will match the color of the content.
+Additionally, links will always be underlined.
+
+**IMPORTANT:** For the "negative" variant only, the heading and text color will
+both be set to the same color, `ui.error.primary` and `dark.ui.error.primary`
+for dark mode.
 
 <Canvas of={BannerStories.TypeVariants} />
 

@@ -124,7 +124,7 @@ export const Banner: ChakraComponent<
     const styles = useMultiStyleConfig("Banner", {
       backgroundColor,
       highlightColor,
-      type,
+      variant: type,
     });
     // If `heading is a string, then we want the default heading,
     // otherwise, use whatever the user passed in.
