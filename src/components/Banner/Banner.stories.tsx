@@ -357,7 +357,7 @@ export const CustomColors: Story = {
         nascetur ridiculus mus.
       `}
       heading="Custom Color Banner"
-      highlightColor="brand.primary-05"
+      highlightColor="brand.primary"
     />
   ),
 };
