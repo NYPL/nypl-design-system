@@ -3,13 +3,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Banner, { bannerColorsArray, bannerTypesArray } from "./Banner";
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
-import Text from "../Text/Text";
 import Table from "../Table/Table";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import Button from "../Button/Button";
+import Text from "../Text/Text";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
@@ -340,6 +340,21 @@ export const HTMLContent: Story = {
         }
       />
     </VStack>
+  ),
+};
+export const CustomColors: Story = {
+  render: () => (
+    <Banner
+      backgroundColor="section.whats-on.primary-05"
+      content={`
+        Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+        mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+        at eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus.
+      `}
+      heading="Custom Color Banner"
+      highlightColor="brand.primary-05"
+    />
   ),
 };
 export const Dismissible: Story = {

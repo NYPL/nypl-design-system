@@ -23,6 +23,7 @@ import { changelogData } from "./bannerChangelogData";
 - {<Link href="#banner-heading" target="_self">Banner Heading</Link>}
 - {<Link href="#banner-icon" target="_self">Banner Icon</Link>}
 - {<Link href="#with-html-content" target="_self">With HTML Content</Link>}
+- {<Link href="#custom-color" target="_self">Custom Color</Link>}
 - {<Link href="#dismissible" target="_self">Dismissible</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -155,6 +156,19 @@ custom `Icon` component.
 The `content` prop can accept HTML.
 
 <Canvas of={BannerStories.HTMLContent} />
+
+## Custom Color
+
+It is recommended to rely on the color styles set with the `type` prop.
+However, in cases where a different color is necessary, a value from a defined
+set of colors can be used.
+
+- The `backgroundColor` prop can be used to set the color of the entire
+  background.
+- The `highlightColor` prop can be used to set the color of the left border
+  and the icon.
+
+<Canvas of={BannerStories.CustomColors} />
 
 ## Dismissible
 

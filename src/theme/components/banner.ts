@@ -95,10 +95,12 @@ const recommendation = definePartsStyle({
 });
 
 const Banner = defineMultiStyleConfig({
-  baseStyle: definePartsStyle(() => ({
+  baseStyle: definePartsStyle(({ backgroundColor, highlightColor }) => ({
     base: {
       alignItems: "flex-start",
+      bgColor: backgroundColor ? backgroundColor : null,
       borderLeft: "4px",
+      borderColor: highlightColor ? highlightColor : null,
       display: "flex",
       flexDirection: "row",
       gap: "xs",
@@ -114,6 +116,9 @@ const Banner = defineMultiStyleConfig({
       a: {
         color: "ui.typography.heading",
         textDecoration: "underline",
+      },
+      svg: {
+        fill: highlightColor ? highlightColor : null,
       },
       _dark: {
         a: {

@@ -124,7 +124,9 @@ export const Banner: ChakraComponent<
     const styles = useMultiStyleConfig("Banner", {
       backgroundColor,
       highlightColor,
-      variant: type,
+      // If either `backgroundColor` or `highlightColor` are set, then it
+      // overrides the Banner types.
+      variant: backgroundColor || highlightColor ? undefined : type,
     });
     // If `heading is a string, then we want the default heading,
     // otherwise, use whatever the user passed in.
@@ -202,7 +204,8 @@ export const Banner: ChakraComponent<
         {isDismissible && dismissibleButton}
       </Box>
     );
-  })
+  }),
+  { shouldForwardProp: () => true }
 );
 
 export default Banner;
