@@ -16,7 +16,7 @@ describe("useNYPLBreakpoints", () => {
   it("should report the correct media query match on window resize", () => {
     const { result } = renderHook(() => useNYPLBreakpoints());
 
-    act(() => window.resizeTo(300, 600));
+    act(() => window.resizeTo(390, 600));
     expect(result.current).toEqual({
       isLargerThanSmall: false,
       isLargerThanMedium: false,
@@ -25,7 +25,7 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanXLarge: false,
     });
 
-    act(() => window.resizeTo(360, 600));
+    act(() => window.resizeTo(480, 600));
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: false,
@@ -34,7 +34,7 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanXLarge: false,
     });
 
-    act(() => window.resizeTo(736, 600));
+    act(() => window.resizeTo(768, 600));
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
@@ -43,7 +43,7 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanXLarge: false,
     });
 
-    act(() => window.resizeTo(1000, 600));
+    act(() => window.resizeTo(1024, 600));
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
@@ -52,7 +52,7 @@ describe("useNYPLBreakpoints", () => {
       isLargerThanXLarge: false,
     });
 
-    act(() => window.resizeTo(1300, 600));
+    act(() => window.resizeTo(1280, 600));
     expect(result.current).toEqual({
       isLargerThanSmall: true,
       isLargerThanMedium: true,
