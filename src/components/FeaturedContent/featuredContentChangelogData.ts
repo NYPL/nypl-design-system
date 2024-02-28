@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    notes: [
+      "Chakra 2.8 update.",
+      "Fixed the responsive styles related to the image.",
+    ],
   },
   {
     date: "2023-12-07",
