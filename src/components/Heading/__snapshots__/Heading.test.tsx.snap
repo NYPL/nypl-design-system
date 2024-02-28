@@ -42,7 +42,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
   id="withLink"
 >
   <a
-    className="css-1xdhyk6"
+    className="chakra-link css-1xdhyk6"
     href="fake-url"
     id="withLink-link"
     rel={null}

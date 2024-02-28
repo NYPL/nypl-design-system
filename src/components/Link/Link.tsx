@@ -2,6 +2,8 @@ import {
   Box,
   ChakraComponent,
   chakra,
+  Link as ChakraLink,
+  LinkProps as ChakraLinkProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -28,9 +30,7 @@ export const linkTypesArray = [
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
-export interface LinkProps {
-  /** Any child node passed to the component. */
-  children: React.ReactNode;
+export interface LinkProps extends ChakraLinkProps {
   /** Additional class name to render in the `Link` component. */
   className?: string;
   /** Used to include or remove visited state styles. Default is true. */
@@ -58,38 +58,31 @@ export interface LinkProps {
 
 /**
  * Renders the `Link` children components with a direction arrow icon based
- * on the `"backwards"` or `"forwards"` `linkType` value.
+ * on the `"backwards"` or `"forwards"` `type` prop value.
  */
 function getWithDirectionIcon(
   children: JSX.Element,
   type: LinkTypes,
   linkId: string
 ) {
-  let iconRotation;
-  let iconAlign;
-  let icon = null;
+  const linkProps: any = {
+    align: undefined,
+    iconRotation: undefined,
+    id: `${linkId}-direction-icon`,
+  };
+  let icon;
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
   if (type === "backwards") {
-    iconRotation = "rotate90";
-    iconAlign = "left";
+    linkProps.align = "left";
+    linkProps.iconRotation = "rotate90";
   } else if (type === "forwards") {
-    iconRotation = "rotate270";
-    iconAlign = "right";
+    linkProps.align = "right";
+    linkProps.iconRotation = "rotate270";
   }
 
-  const iconId = `${linkId}-direction-icon`;
-
-  icon = (
-    <Icon
-      align={iconAlign}
-      iconRotation={iconRotation}
-      id={iconId}
-      name="arrow"
-      size="medium"
-    />
-  );
+  icon = <Icon name="arrow" size="medium" {...linkProps} />;
 
   return (
     <>
@@ -112,7 +105,7 @@ function getExternalExtraElements(
         This link opens in a new window
       </Box>
       <Icon
-        align={"right"}
+        align="right"
         id={iconId}
         name="actionLaunch"
         size="medium"
@@ -133,7 +126,7 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-standalone-icon`;
   const extraElements = (
     <Icon
-      align={"right"}
+      align="right"
       iconRotation="rotate270"
       id={iconId}
       name="arrow"
@@ -151,8 +144,8 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
 }
 
 /**
- * A component that uses an `href` prop or a child anchor element, to create
- * an anchor element with added styling and conventions.
+ * A component that uses an `href` prop or a child anchor `<a>` element, to
+ * create an anchor element with added styling and conventions.
  */
 export const Link: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -161,8 +154,12 @@ export const Link: ChakraComponent<
   >,
   React.PropsWithChildren<LinkProps>
 > = chakra(
-  forwardRef<HTMLDivElement & HTMLAnchorElement, LinkProps>((props, ref?) => {
+  forwardRef<
+    HTMLDivElement & HTMLAnchorElement,
+    React.PropsWithChildren<LinkProps>
+  >((props, ref?) => {
     const {
+      as = "a",
       children,
       className,
       hasVisitedState = true,
@@ -175,30 +172,27 @@ export const Link: ChakraComponent<
       type = "default",
       ...rest
     } = props;
-
     // Set initial underline style for certain variants
     const finalIsUnderlined =
       type === "backwards" || type === "forwards" || type === "standalone"
         ? false
-        : isUnderlined
-        ? true
-        : false;
-
+        : isUnderlined;
+    const rel = type === "external" ? "nofollow noopener noreferrer" : null;
+    const internalTarget =
+      type === "external" ? "_blank" : target ? target : null;
     // Merge the necessary props alongside any extra props for the
     // anchor element.
     const linkProps = {
       id,
       href,
+      onClick,
+      rel,
+      ref,
+      target: internalTarget,
       ...rest,
     };
     // The "default" type.
     let variant = "link";
-
-    if (typeof children === "string" && !href) {
-      throw new Error(
-        "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
-      );
-    }
 
     if (
       type === "action" ||
@@ -209,23 +203,13 @@ export const Link: ChakraComponent<
     ) {
       variant = "moreLink";
     } else if (type.includes("button")) {
-      /** This deprecation warning is temporarily being removed, but it will be
-       * reinstated once teams are able to update their `Link`s appropriately. */
-      // if (type === "button") {
-      //   console.warn(
-      //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
-      //   );
-      // }
       variant = type;
     }
     const styles = useMultiStyleConfig("Link", {
-      variant,
       finalIsUnderlined,
       hasVisitedState,
+      variant,
     });
-    const rel = type === "external" ? "nofollow noopener noreferrer" : null;
-    const internalTarget =
-      type === "external" ? "_blank" : target ? target : null;
     const sanitizedId = id
       ? id
       : sanitizeStringForAttribute(`link-${children as string}`);
@@ -245,63 +229,32 @@ export const Link: ChakraComponent<
       (type === "standalone" &&
         getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;
+    const screenReaderOnlyElement = screenreaderOnlyText ? (
+      <Box as="span" __css={styles.screenreaderOnly}>
+        {screenreaderOnlyText}
+      </Box>
+    ) : null;
 
-    if (!href) {
-      // React Types error makes this fail:
-      // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
-      // let children = React.Children.only(children);
-      if (React.Children.count(children) > 1) {
-        throw new Error(
-          "NYPL Reservoir Link: Please pass only one child into the `Link` component."
-        );
-      }
-      const childrenToClone: any = children[0] ? children[0] : children;
-      const childProps = childrenToClone.props;
-      return (
-        <>
-          <Box as="span" __css={styles.base} {...rest}>
-            {React.cloneElement(
-              childrenToClone,
-              {
-                className,
-                ...linkProps,
-                ...childProps,
-                ref,
-                rel,
-                target: internalTarget,
-              },
-              [childrenToClone.props.children]
-            )}
-          </Box>
-          {screenreaderOnlyText && (
-            <Box as="span" __css={styles.screenreaderOnly}>
-              {screenreaderOnlyText}
-            </Box>
-          )}
-        </>
-      );
-    } else {
-      return (
-        <Box
-          as="a"
-          className={className}
-          ref={ref}
-          rel={rel}
-          onClick={onClick}
-          target={internalTarget}
-          {...linkProps}
-          __css={styles.base}
-        >
-          {newChildren}
-          {screenreaderOnlyText && (
-            <Box as="span" __css={styles.screenreaderOnly}>
-              {screenreaderOnlyText}
-            </Box>
-          )}
-        </Box>
+    if (typeof children === "string" && !href) {
+      console.warn(
+        "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
       );
     }
-  })
+
+    return (
+      <ChakraLink
+        as={as}
+        className={className}
+        {...linkProps}
+        sx={styles.base}
+        {...rest}
+      >
+        {newChildren}
+        {screenReaderOnlyElement}
+      </ChakraLink>
+    );
+  }),
+  { shouldForwardProp: () => true }
 );
 
 export default Link;

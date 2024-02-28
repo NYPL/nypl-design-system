@@ -154,25 +154,6 @@ describe("Link", () => {
     expect(screen.getByRole("link")).toHaveAttribute("target", "_self");
   });
 
-  it("throws an error if text is passed but no url is passed", () => {
-    expect(() => render(<Link>Test</Link>)).toThrowError(
-      "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
-    );
-  });
-
-  it("throws an error if more than one child element is passed", () => {
-    expect(() =>
-      render(
-        <Link>
-          <Icon name="download" align="left" iconRotation="rotate0" />
-          <a href="#test">Test</a>
-        </Link>
-      )
-    ).toThrowError(
-      "NYPL Reservoir Link: Please pass only one child into the `Link` component."
-    );
-  });
-
   /** This deprecation warning is temporarily being removed, but it will be
    * reinstated once teams are able to update their `Link`s appropriately. */
   // it("logs a deprecated warning if 'button' `type` passed", () => {

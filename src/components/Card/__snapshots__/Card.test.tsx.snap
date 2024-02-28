@@ -94,7 +94,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -103,7 +103,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -220,7 +220,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -233,7 +233,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -242,7 +242,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -301,7 +301,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -319,7 +319,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -328,7 +328,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}

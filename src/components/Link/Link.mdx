@@ -251,20 +251,6 @@ export const NextJsLink = (props: HTMLAnchorElement) =>
   language="jsx"
 />
 
-export const NextJsLink = (props) =>
-  cloneElement(
-    props.children,
-    { href: props.href },
-    props.children.props.children
-  );
-
-{
-
-<NextJsLink href="#" passHref>
-  <Link type="action">Next Page</Link>
-</NextJsLink>
-}
-
 ## Changelog
 
 <ComponentChangelogTable changelogData={changelogData} />
