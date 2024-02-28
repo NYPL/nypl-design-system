@@ -442,6 +442,36 @@ export const MenuHighlightColors: Story = {
         selectedItem={"item-title-1"}
         listItemsData={defaultListItems}
       />
+      <Menu
+        labelText={"Schomburg"}
+        highlightColor={"researchLibrarySchomburg"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        labelText={"LPA"}
+        highlightColor={"researchLibraryLpa"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        labelText={"Schwarzman"}
+        highlightColor={"researchLibrarySchwarzman"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        labelText={"What's On"}
+        highlightColor={"whatsOn"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
+      <Menu
+        labelText={"Connect"}
+        highlightColor={"connect"}
+        selectedItem={"item-title-1"}
+        listItemsData={defaultListItems}
+      />
     </HStack>
   ),
   parameters: {
