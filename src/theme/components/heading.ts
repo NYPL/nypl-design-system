@@ -23,6 +23,7 @@ export const headings = {
       lineHeight: "1.1",
       ...margins,
       width: "auto",
+      a: { textUnderlineOffset: "4px" },
     },
   }),
   two: definePartsStyle({
