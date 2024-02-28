@@ -7,7 +7,6 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Checkbox from "../Checkbox/Checkbox";
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -55,8 +54,6 @@ export interface CheckboxGroupProps {
   /** The values to programmatically update the selected `Checkbox`es. */
   value?: string[];
 }
-
-const noop = () => {};
 
 /**
  * Wrapper component to wrap `Checkbox` components. Can be displayed in a
@@ -119,18 +116,6 @@ export const CheckboxGroup: ChakraComponent<
     React.Children.map(
       children as JSX.Element,
       (child: React.ReactElement, i) => {
-        if (child.type !== Checkbox) {
-          // Special case for Storybook MDX documentation.
-          if (child.props.mdxType && child.props.mdxType === "Checkbox") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
-                "allowed as children."
-            );
-          }
-        }
-
         if (child !== undefined && child !== null) {
           const newProps = {
             key: i,

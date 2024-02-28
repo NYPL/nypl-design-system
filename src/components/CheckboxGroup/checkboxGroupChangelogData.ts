@@ -13,7 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    affects: ["Styles", "Functionality"],
+    notes: [
+      "Removes console warning for children elements that are not `Checkbox` components.",
+      "Chakra 2.8 update.",
+    ],
   },
 ];
