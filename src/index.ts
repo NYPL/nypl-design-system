@@ -107,11 +107,12 @@ export type {
  * */
 // export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 // export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
-/** The code associated with the NewsletterSignup component will not be exported
- * until the refactor of the component has been completed.
+/** The code associated with the NewsletterSignup component and the
+ * NewsletterSignupViewType type will not be exported until the refactor of the
+ * component has been completed.
  * */
-export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
-export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
+// export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
+// export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
 export { default as Notification } from "./components/Notification/Notification";
 export type { NotificationTypes } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
