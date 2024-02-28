@@ -111,145 +111,91 @@ links with icons. Icons can be rendered to the left or right of the link text.
 
 <Canvas of={LinkStories.LinksWithIcons} />
 
-## Anchor Element Rendering
+## DS v3 Breaking Change
 
-`Link` can wrap an existing `<a>` element (and `Icon` component) or it
-can use the `href` prop to generate an `<a>` element.
+Previous versions of the Design System allowed an anchor element to be passed
+as a child if the `href` prop was not used.
 
 <Source
   code={`
-// Existing anchor element
-<Link type="action">
-  <a href="#existing-anchor-tag">link</a>
-</Link>
+import { Link } from "@nypl/design-system-react-components";
 // ...
-// Also works with an icon component. Make sure to wrap the icon and anchor
-// in a single element for this pattern.
-<Link type="action">
-  <>
-    <Icon name="check" align="left" size="small" />
-    <a href="#existing-anchor-tag">check link</a>
-  </>
-</Link>
-// ...
-// Otherwise, the \`href\` prop will generate an \`<a>\` tag.
-<Link type="action" href="#passed-in-link">
-  link
-</Link>
-`}
-  language="jsx"
-/>
 
-{
+<Link>
+  <a href="#">Next Page</a>
+</Link>
+`} language="jsx" />
 
-<>
-  This is a{" "}
-  <Link type="action">
-    <a href="#existing-anchor-tag">link</a>
-  </Link>{" "}
-  with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
-  <Link type="action" href="#passed-in-link">
-    link
-  </Link>{" "}
-  where the `Link` component uses the `href` prop and has a string-only child.
-  Finally, this is a{" "}
-  <Link type="action">
-    <>
-      <Icon name="check" align="left" size="small" />
-      <a href="#existing-anchor-tag">link</a>
-    </>
-  </Link>{" "}
-  with a check icon.
-  <Box mb="20px"></Box>
-</>
-}
+In DS 3.0.0+, this pattern is no longer supported. The `href` prop should be
+passed to render an accessible and valid link. There are cases where the `href`
+prop is not required, such as when using with an application framework router.
+For more information and recommended routing patterns, see the following
+sections.
 
 ## Link with Routers
 
+When it comes to routing, the patterns set in Chakra's `Link` component can also
+be used in the Design System's `Link` component. This means that the routing
+library's component should be passed to the DS `Link` component in the `as` prop.
+By default, an anchor `<a>` element is rendered.
+
 ### React Router
 
-The Design System's `Link` component should wrap around `react-router`'s own
-`Link` component. To avoid name conflicts, rename either the Design System's
-or `react-router`'s `Link` component. Any of the following patterns are valid.
+The recommended pattern is to pass the React Router's `Link` component in the
+`as` prop in the DS' `Link` component.
+
+**Important**: NYPL uses Next.js for their web applications so while the
+following pattern is available, it has not been heavily tested.
 
 <Source
   code={`
 // In this first example, React Router's \`Link\` component
 // is renamed as \`ReactRouterLink\`.
-import {
-  BrowserRouter as Router,
-  Link as ReactRouterLink,
-} from "react-router-dom";
+import { Link as ReactRouterLink } from "react-router-dom";
 import { Link } from "@nypl/design-system-react-components";
 // ...
-<Link type="action">
-  <ReactRouterLink to="#">Next Page</ReactRouterLink>
-</Link>;
-`}
-  language="jsx"
-/>
+
+<Link as={ReactRouterLink} type="action" href="#">
+  Next Page
+</Link>
+`} language="jsx" />
+
+### Next.js
+
+In Next.js 13+, their `Link` component renders an anchor element and this
+causes a conflict with the Design System's 2.X `Link` component which also
+renders an anchor element. The nested anchor element is an HTML and
+accessibility issue. In DS 3.0.0+, we are using React 18 and expect consuming
+applications to use Next.js 13+ and React 18 as well.
+
+To resolve the conflict, we are following Chakra's recommended pattern to pass
+the NextJS `Link` component in the `as` prop in the DS `Link` component.
 
 <Source
   code={`
-// In this second example, React Router's \`Link\` component
-// is not renamed but the DS's \`Link\` component is renamed
-// to \`DSLink\`.
-import { BrowserRouter, Link } from "react-router-dom";
-import { Link as DSLink } from "@nypl/design-system-react-components";
-// ...
-<DSLink type="action">
-  <Link to="#">Next Page</Link>
-</DSLink>;
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// In this third example, React Router's \`Link\` component
-// is not renamed and the DS's \`Link\` component is
-// imported and rendered as \`DS.Link\`.
-import { BrowserRouter, Link } from "react-router-dom";
-import DS from "@nypl/design-system-react-components";
-// ...
-<DS.Link type="action">
-  <Link to="#">Next Page</Link>
-</DS.Link>;
-`}
-  language="jsx"
-/>
-
-### NextJS
-
-NextJS's `Link` component should wrap the Design System's `Link` component.
-The `href` and `passHref` props MUST be passed into NextJS' `Link` component.
-These props, along with an implicit `ref` from NextJS and the Design System's
-`Link` component `forwardRef` implementation, handle correctly routing between
-pages in a NextJS app.
-
-<Source
-  code={`
+import { Link as NextLink } from "next/link";
 import { Link } from "@nypl/design-system-react-components";
 // ...
-/**
- * This is just an example wrapper that works similarly to NextJS' \`Link\`
- * component. In real life, NextJS's \`Link\` component will pass down the
- * \`href\` and \`passHref\` props and a \`ref\` to make routing functional.
- */
-export const NextJsLink = (props: HTMLAnchorElement) =>
-  React.cloneElement(
-    props.children,
-    { ...props },
-    props.children.props.children
-  );
+
+<Link as={NextLink} type="action" href="#">
+  Next Page
+</Link>
+`} language="jsx" />
+
+If you want to use the previous Next.js pattern, it is still available. Pass in
+the `legacyBehavior` prop to the Next.js `Link` component along with the
+`passHref` prop.
+
+<Source
+  code={`
+import { Link as NextLink } from "next/link";
+import { Link } from "@nypl/design-system-react-components";
 // ...
-// Note that NextJS' \`href\` and \`passHref\` props are required.
-<NextJsLink href="#" passHref>
-  <Link type="action">Next Page</Link>
-</NextJsLink>;
-`}
-  language="jsx"
-/>
+
+<NextLink href="/about" passHref legacyBehavior>
+  <Link>About</Link>
+</NextLink>
+`} language="jsx" />
 
 ## Changelog
 

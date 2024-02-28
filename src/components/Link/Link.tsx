@@ -235,12 +235,6 @@ export const Link: ChakraComponent<
       </Box>
     ) : null;
 
-    if (typeof children === "string" && !href) {
-      console.warn(
-        "NYPL Reservoir Link: The `Link` component needs the `href` prop if its child element is a string."
-      );
-    }
-
     return (
       <ChakraLink
         as={as}

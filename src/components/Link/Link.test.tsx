@@ -7,15 +7,6 @@ import Link from "./Link";
 import Icon from "../Icons/Icon";
 
 describe("Link Accessibility", () => {
-  it("passes axe accessibility test for children component", async () => {
-    const { container } = render(
-      <Link>
-        <a href="#test">Test</a>
-      </Link>
-    );
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
   it("passes axe accessibility test for screenreader only text", async () => {
     const { container } = render(
       <Link href="#test" screenreaderOnlyText="hidden text">
@@ -32,7 +23,7 @@ describe("Link Accessibility", () => {
 });
 
 describe("Link", () => {
-  it("Can pass in an icon and text as children and url as prop", () => {
+  it("can pass in an icon and text as children and url as prop", () => {
     const utils = render(
       <Link href="#passed-in-link" type="action">
         <Icon name="download" align="left" iconRotation="rotate0" />
@@ -43,29 +34,7 @@ describe("Link", () => {
     expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
   });
 
-  it("Can pass a link with <a> tag", () => {
-    render(
-      <Link>
-        <a href="#test">Test</a>
-      </Link>
-    );
-    expect(screen.getByRole("link")).toBeInTheDocument();
-  });
-
-  it("Can pass a link with <a> tag and an icon", () => {
-    const utils = render(
-      <Link type="action">
-        <a href="#test2">
-          <Icon name="download" align="left" iconRotation="rotate0" />
-          Test
-        </a>
-      </Link>
-    );
-    expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(utils.container.querySelector(".chakra-icon")).toBeInTheDocument();
-  });
-
-  it("Generated back link has icon", () => {
+  it("generates a back link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="backwards">
         link text
@@ -77,7 +46,7 @@ describe("Link", () => {
     ).toBeInTheDocument();
   });
 
-  it("Generated forwards link has icon", () => {
+  it("generates a forwards link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="forwards">
         link text
@@ -89,7 +58,7 @@ describe("Link", () => {
     ).toBeInTheDocument();
   });
 
-  it("Generated external link has icon", () => {
+  it("generates an external link has icon", () => {
     const utils = render(
       <Link href="https://nypl.org" type="external">
         link text
@@ -101,7 +70,7 @@ describe("Link", () => {
     ).toBeInTheDocument();
   });
 
-  it("Generated standalone link has icon", () => {
+  it("generates a standalone link has icon", () => {
     const utils = render(
       <Link href="#passed-in-link" type="standalone">
         link text
@@ -113,7 +82,7 @@ describe("Link", () => {
     ).toBeInTheDocument();
   });
 
-  it("Can pass in text as child and url as props", () => {
+  it("can pass in text as child and url as props", () => {
     render(<Link href="#test">Test</Link>);
     expect(screen.getByRole("link")).toBeInTheDocument();
   });

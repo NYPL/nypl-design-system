@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    affects: ["Styles", "Functionality"],
+    notes: [
+      "A general refactor of the Link component to improve its usability with other elements and within application frameworks.",
+      "Chakra 2.8 update.",
+    ],
   },
   {
     date: "2023-11-14",
