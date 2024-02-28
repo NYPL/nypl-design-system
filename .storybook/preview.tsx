@@ -38,14 +38,14 @@ const customViewports = {
   xl: {
     name: "xl - large tablet (less than 1280)",
     styles: {
-      width: "1280px",
+      width: "1200px",
       height: "1024px",
     },
   },
   "2xl": {
     name: "desktop (greater than or equal to 1280)",
     styles: {
-      width: "1440px",
+      width: "1280px",
       height: "1024px",
     },
   },
