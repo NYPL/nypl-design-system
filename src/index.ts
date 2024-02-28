@@ -9,6 +9,7 @@ export {
   ColorModeScript,
   cookieStorageManager,
   cookieStorageManagerSSR,
+  FocusLock,
   Flex,
   Grid,
   GridItem,
@@ -19,6 +20,8 @@ export {
   Stack,
   useColorMode,
   useColorModeValue,
+  useStyleConfig,
+  useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
@@ -88,6 +91,7 @@ export { default as List } from "./components/List/List";
 export type { DescriptionProps, ListTypes } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoSizes } from "./components/Logo/Logo";
+export { default as MatchMedia } from "../src/__tests__/mediaMatchMock";
 export { default as Menu } from "./components/Menu/Menu";
 export type {
   ListItemsData,
