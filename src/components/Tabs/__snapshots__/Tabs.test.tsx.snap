@@ -52,60 +52,56 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="css-tjdjds"
+        aria-orientation="horizontal"
+        className="chakra-tabs__tablist css-k008qs"
+        onKeyDown={[Function]}
+        role="tablist"
       >
-        <div
-          aria-orientation="horizontal"
-          className="chakra-tabs__tablist css-k008qs"
-          onKeyDown={[Function]}
-          role="tablist"
+        <button
+          aria-controls="tabs-basic--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-basic--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
         >
-          <button
-            aria-controls="tabs-basic--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-basic--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Tom Nook
-          </button>
-          <button
-            aria-controls="tabs-basic--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-basic--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Isabelle
-          </button>
-          <button
-            aria-controls="tabs-basic--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-basic--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            K.K. Slider
-          </button>
-        </div>
+          Tom Nook
+        </button>
+        <button
+          aria-controls="tabs-basic--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-basic--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          Isabelle
+        </button>
+        <button
+          aria-controls="tabs-basic--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-basic--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          K.K. Slider
+        </button>
       </div>
     </div>
     <button
@@ -250,60 +246,56 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="css-tjdjds"
+        aria-orientation="horizontal"
+        className="chakra-tabs__tablist css-k008qs"
+        onKeyDown={[Function]}
+        role="tablist"
       >
-        <div
-          aria-orientation="horizontal"
-          className="chakra-tabs__tablist css-k008qs"
-          onKeyDown={[Function]}
-          role="tablist"
+        <button
+          aria-controls="tabs-chakra--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-chakra--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
         >
-          <button
-            aria-controls="tabs-chakra--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-chakra--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Tom Nook
-          </button>
-          <button
-            aria-controls="tabs-chakra--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-chakra--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Isabelle
-          </button>
-          <button
-            aria-controls="tabs-chakra--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-chakra--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            K.K. Slider
-          </button>
-        </div>
+          Tom Nook
+        </button>
+        <button
+          aria-controls="tabs-chakra--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-chakra--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          Isabelle
+        </button>
+        <button
+          aria-controls="tabs-chakra--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-chakra--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          K.K. Slider
+        </button>
       </div>
     </div>
     <button
@@ -449,60 +441,56 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="css-tjdjds"
+        aria-orientation="horizontal"
+        className="chakra-tabs__tablist css-k008qs"
+        onKeyDown={[Function]}
+        role="tablist"
       >
-        <div
-          aria-orientation="horizontal"
-          className="chakra-tabs__tablist css-k008qs"
-          onKeyDown={[Function]}
-          role="tablist"
+        <button
+          aria-controls="tabs-props--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-props--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
         >
-          <button
-            aria-controls="tabs-props--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-props--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Tom Nook
-          </button>
-          <button
-            aria-controls="tabs-props--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-props--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            Isabelle
-          </button>
-          <button
-            aria-controls="tabs-props--tabpanel--1"
-            aria-disabled={false}
-            aria-selected={false}
-            className="chakra-tabs__tab css-p5yrdq"
-            disabled={false}
-            id="tabs-props--tab--1"
-            onClick={[Function]}
-            onFocus={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            K.K. Slider
-          </button>
-        </div>
+          Tom Nook
+        </button>
+        <button
+          aria-controls="tabs-props--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-props--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          Isabelle
+        </button>
+        <button
+          aria-controls="tabs-props--tabpanel--1"
+          aria-disabled={false}
+          aria-selected={false}
+          className="chakra-tabs__tab css-p5yrdq"
+          disabled={false}
+          id="tabs-props--tab--1"
+          onClick={[Function]}
+          onFocus={[Function]}
+          role="tab"
+          tabIndex={-1}
+          type="button"
+        >
+          K.K. Slider
+        </button>
       </div>
     </div>
     <button

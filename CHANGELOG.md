@@ -31,6 +31,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates the `Tabs` component to use horizontal scrolling and arrow buttons step through tabs in mobile view.
 
 ### Fixes
 
