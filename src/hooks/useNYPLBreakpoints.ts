@@ -42,13 +42,25 @@ const useNYPLBreakpoints = () => {
   ]);
 
   return {
+    // Chakra default
     isLargerThanSmall: layoutSize.isLargerThanSmall,
     isLargerThanMedium: layoutSize.isLargerThanMedium,
-    // NYPL uses the medium 768px breakpoint to determine if the screen is
-    // in the mobile view. This is the recommended boolean value to use.
-    isLargerThanMobile: layoutSize.isLargerThanMedium,
     isLargerThanLarge: layoutSize.isLargerThanLarge,
     isLargerThanXLarge: layoutSize.isLargerThanXLarge,
+
+    // NYPL semantic
+    isLargerThanSmallMobile: layoutSize.isLargerThanSmall,
+    isLargerThanLargeMobile: layoutSize.isLargerThanMedium,
+    isLargerThanSmallTablet: layoutSize.isLargerThanLarge,
+    isLargerThanLargeTablet: layoutSize.isLargerThanXLarge,
+
+    // NYPL uses the medium 768px breakpoint to determine if the screen is in
+    // the mobile view. This is the recommended boolean value to use.
+    isLargerThanMobile: layoutSize.isLargerThanMedium,
+
+    // NYPL uses the extra arge 1280px breakpoint to determine if the screen is
+    // in the tablet view. This is the recommended boolean value to use.
+    isLargerThanTablet: layoutSize.isLargerThanXLarge,
   };
 };
 

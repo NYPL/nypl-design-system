@@ -13,9 +13,16 @@
  * recommend using this value until further notice.
  */
 export default {
+  // Chakra default keys
   sm: "30em",
   md: "48em",
   lg: "64em",
   xl: "80em",
   "2xl": "96em",
+
+  // NYPL semantic keys
+  smallMobile: "30em",
+  largeMobile: "48em",
+  smallTablet: "64em",
+  largeTablet: "80em",
 };

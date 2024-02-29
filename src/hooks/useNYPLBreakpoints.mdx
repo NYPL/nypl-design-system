@@ -4,10 +4,10 @@ import { Meta, Source } from "@storybook/blocks";
 
 # useNYPLBreakpoints
 
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `1.0.4`    |
-| Latest       | `1.0.5`    |
+| Hook Version | DS Version   |
+| ------------ | ------------ |
+| Added        | `1.0.4`      |
+| Latest       | `Prerelease` |
 
 This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally, the
 hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine the
@@ -22,16 +22,26 @@ Breakpoints](../?path=/docs/style-guide-breakpoints--docs) style guide.
 
 ## Usage
 
-The hook returns an object with five boolean values:
+The hook returns an object with a series of boolean values. Some of the values
+adhere to the default Chakra syntax for breakpoints, while others use an NYPL
+semantic naming convention.
 
 <Source
   code={`
 const {
+  // Chakra syntax
   isLargerThanSmall,
   isLargerThanMedium,
-  isLargerThanMobile,
   isLargerThanLarge,
   isLargerThanXLarge,
+  
+  // NYPL semantic syntax
+  isLargerThanSmallMobile,
+  isLargerThanLargeMobile,
+  isLargerThanSmallTablet,
+  isLargerThanLargeTablet,
+  isLargerThanMobile,
+  isLargerThanTablet,
 } = useNYPLBreakpoints();
 `}
   language="jsx"
