@@ -421,7 +421,7 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"Blogs (default) "}
         highlightColor={"blogs"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-2"}
         listItemsData={defaultListItems}
       />
       <Menu
@@ -433,19 +433,19 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"Books And More"}
         highlightColor={"booksAndMore"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-2"}
         listItemsData={defaultListItems}
       />
       <Menu
         labelText={"Education"}
         highlightColor={"education"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-3"}
         listItemsData={defaultListItems}
       />
       <Menu
         labelText={"Schomburg"}
         highlightColor={"researchLibrarySchomburg"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-3"}
         listItemsData={defaultListItems}
       />
       <Menu
@@ -457,7 +457,7 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"Schwarzman"}
         highlightColor={"researchLibrarySchwarzman"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-2"}
         listItemsData={defaultListItems}
       />
       <Menu
@@ -469,7 +469,7 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"Connect"}
         highlightColor={"connect"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-3"}
         listItemsData={defaultListItems}
       />
     </HStack>
