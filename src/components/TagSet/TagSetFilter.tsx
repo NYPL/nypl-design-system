@@ -15,6 +15,8 @@ export interface TagSetFilterDataProps {
   iconName?: IconNames;
   /** The string label to display. */
   label: string;
+  /** Any other properties the consuming app may need for app logic filtering. */
+  [key: string]: string;
 }
 export interface TagSetFilterProps {
   /** ID that other components can cross reference for accessibility purposes. */
@@ -22,7 +24,7 @@ export interface TagSetFilterProps {
   /** Whether the tags should be removable. */
   isDismissible?: boolean;
   /** The function to perform when a tag is clicked when `isDismissible` is true. */
-  onClick?: (tagLabel: string) => void;
+  onClick?: (tagSet: TagSetFilterDataProps) => void;
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
@@ -39,8 +41,8 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
     const [filters, setFilters] =
       React.useState<TagSetFilterDataProps[]>(tagSetData);
     const styles = useMultiStyleConfig("TagSetFilter", { isDismissible });
-    const finalOnClick = (tagLabel: string) => {
-      onClick && onClick(tagLabel);
+    const finalOnClick = (tagSet: TagSetFilterDataProps) => {
+      onClick && onClick(tagSet);
     };
 
     // Set element colors based on color mode
@@ -81,9 +83,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                 }
                 data-testid="filter-tags"
                 id={`ts-filter-${id}-${key}`}
-                onClick={
-                  isDismissible ? () => finalOnClick(tagSet.label) : undefined
-                }
+                onClick={isDismissible ? () => finalOnClick(tagSet) : undefined}
                 sx={styles.base}
               >
                 {!isDismissible && tagSet.iconName ? (
@@ -116,7 +116,12 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
             buttonType="link"
             data-testid="filter-clear-all"
             id={`ts-filter-clear-all-${id}`}
-            onClick={() => finalOnClick("clearFilters")}
+            onClick={() =>
+              finalOnClick({
+                id: "clear-filters",
+                label: "Clear Filters",
+              })
+            }
             __css={styles.clearAll}
           >
             Clear Filters

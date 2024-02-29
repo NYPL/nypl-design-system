@@ -14,6 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    notes: [
+      "Allows for more properties in the tag data object and returns the entire data object in the onClick callback.",
+      "Chakra 2.8 update.",
+    ],
   },
 ];

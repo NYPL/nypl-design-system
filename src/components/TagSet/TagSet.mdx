@@ -102,12 +102,14 @@ Notes:
 - The `isDismissible` prop is optional and the `onClick` prop is required for
   this variant.
 - The `onClick` prop will only fire when `isDismissible` is true and the user
-  clicks a tag.
+  clicks a tag. The function will return the entire object for the tag that was
+  clicked on.
 - Icons will not be rendered when `isDismissible` is true. In this case, the "X"
   close icon will be rendered instead.
 - When the `isDismissible` prop is true, a "Clear Filters" button will be
   rendered at the end of the list of tags. Clicking this button will also
-  trigger the `onClick` prop.
+  trigger the `onClick` prop. The `onClick` function will return the following
+  object as an argument: `{ label: "Clear Filters", id: "clear-filters" }`
 
 <Canvas of={TagSetStories.FilterVariant} />
 
@@ -120,16 +122,16 @@ properties. The `iconName` is the name of the icon to display through the
 Reservoir `Icon` component and is optional. The `label` _MUST_ be a string for
 the filter type.
 
+Additionally, the data object can take in any additional properties that the
+consuming application may need for logic filtering such as `id` or `value`.
+
 <Source
   code={`
 const tagSetData = [
-  { iconName: "utilityAccountFilled", label: "Abbey Road" },
-  { iconName: "actionLaunch", label: "The Beatles" },
-  { iconName: "alertWarningOutline", label: "Revolver" },
-  {
-    iconName: "check",
-    label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
-  },
+  { iconName: "utilityAccountFilled", label: "Abbey Road", id: "abby-road" },
+  { iconName: "actionLaunch", label: "The Beatles", id: "the-beatles" },
+  { iconName: "alertWarningOutline", label: "Revolver", id: "revolver" },
+  { iconName: "check", label: "Sgt. Pepper's Lonely Hearts Club Band", id: "sgt-pepper" },
 ];
 `}
   language="tsx"
