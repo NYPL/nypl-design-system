@@ -8,6 +8,7 @@ export {
   Circle,
   ColorModeScript,
   cookieStorageManager,
+  cookieStorageManagerSSR,
   Flex,
   Grid,
   GridItem,
@@ -95,15 +96,14 @@ export type {
   DividerItem,
 } from "./components/Menu/Menu";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
-// The code associated with the MultiSelect component will not be exported until
-// the refactor of the v2 version of the MultiSelect component has been
-// completed.
-// export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
-// export type {
-//   MultiSelectProps,
-//   MultiSelectItem,
-//   SelectedItems,
-// } from "./components/MultiSelect/MultiSelect";
+export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
+export type {
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelect";
+// The code associated with the MultiSelectGroup component will not be exported
+// until the refactor of the v2 version of the MultiSelectGroup component has
+// been completed.
 // export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 // export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
@@ -170,7 +170,7 @@ export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
 // refactor of the v2 versions of the MultiSelect and FilterBar components has
 // been completed.
 // export { default as useFilterBar } from "./hooks/useFilterBar";
-// export { default as useMultiSelect } from "./hooks/useMultiSelect";
+export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useWindowSize } from "./hooks/useWindowSize";

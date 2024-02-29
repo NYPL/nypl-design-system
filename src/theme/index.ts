@@ -36,7 +36,7 @@ import Logo from "./components/logo";
 import Menu from "./components/menu";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
-import MultiSelectMenuButton from "./components/multiSelectMenuButton";
+import MultiSelectItemsCountButton from "./components/multiSelectItemsCountButton";
 import NewsletterSignup from "./components/newsletterSignup";
 import Notification from "./components/notification";
 import NotificationContent from "./components/notificationContent";
@@ -120,7 +120,7 @@ const theme: any = {
     Menu,
     Modal,
     MultiSelect,
-    MultiSelectMenuButton,
+    MultiSelectItemsCountButton,
     Notification,
     NotificationContent,
     NotificationHeading,

@@ -13,10 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility", "Functionality"],
-    notes: [
-      "Chakra 2.8 update.",
-      "Added the ariaLabel and buttonInteractionRef prop.",
-    ],
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
+    notes: ["Refactors the `MultiSelect` component."],
   },
 ];

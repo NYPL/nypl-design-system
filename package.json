@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "2.2.0-react-chakra-rc-2",
+  "version": "3.0.0-react-chakra-rc2",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",

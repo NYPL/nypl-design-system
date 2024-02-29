@@ -52,8 +52,8 @@ const FeaturedContent = defineMultiStyleConfig({
           alignItems: "stretch",
           display: "flex",
           flexDirection: imageAtEnd
-            ? { sm: "column-reverse", md: "row-reverse" }
-            : { sm: "column", md: "row" },
+            ? { base: "column-reverse", md: "row-reverse" }
+            : { base: "column", md: "row" },
           maxWidth: full ? "1280px" : "100%",
           minHeight: "320px",
           paddingLeft: full ? { base: null, md: "s" } : null,
@@ -75,8 +75,8 @@ const FeaturedContent = defineMultiStyleConfig({
         imgWrapper: {
           backgroundPosition: "center",
           backgroundSize: "cover",
-          height: { sm: "320px", md: "auto" },
-          width: { sm: "100%", md: wrapperWidth },
+          height: { base: "320px", md: "auto" },
+          width: { base: "100%", md: wrapperWidth },
         },
       };
     }
