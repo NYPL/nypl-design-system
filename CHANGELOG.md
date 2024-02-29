@@ -38,6 +38,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   where the in-range selected date values did not have the correct DS colors.
 - Fixes the responsive styles related to the image in the `FeaturedContent` component.
 
+### Breaking Changes
+
+- Removes the `NewsletterSignup` and `SocialMediaLinks` components.
+
 ## 2.1.5 (February 5, 2024)
 
 ### Adds
