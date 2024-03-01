@@ -17,6 +17,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 const tablist = {
   borderColor: "ui.black",
+  width: "max-content",
 };
 const tab = {
   background: "transparent",
@@ -141,7 +142,7 @@ const carouselParent = {
     display: "none",
   },
   overflowY: "hidden",
-  overflowX: { base: "hidden", md: "scroll" },
+  overflowX: "scroll",
 };
 
 const CustomTabs = defineMultiStyleConfig({
