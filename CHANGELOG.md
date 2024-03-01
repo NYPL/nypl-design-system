@@ -37,6 +37,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types
   where the in-range selected date values did not have the correct DS colors.
+- Fixes the responsive styles related to the image in the `FeaturedContent` component.
+
+### Breaking Changes
+
+- Removes the `NewsletterSignup` and `SocialMediaLinks` components.
 
 ## 2.1.5 (February 5, 2024)
 

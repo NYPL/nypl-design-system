@@ -101,13 +101,18 @@ export type {
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";
-// The code associated with the MultiSelectGroup component will not be exported
-// until the refactor of the v2 version of the MultiSelectGroup component has
-// been completed.
+/** The code associated with the MultiSelectGroup component will not be exported
+ * until the refactor of the v2 version of the MultiSelectGroup component has
+ * been completed.
+ * */
 // export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 // export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
-export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
-export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
+/** The code associated with the NewsletterSignup component and the
+ * NewsletterSignupViewType type will not be exported until the refactor of the
+ * component has been completed.
+ * */
+// export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
+// export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
 export { default as Notification } from "./components/Notification/Notification";
 export type { NotificationTypes } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
@@ -127,7 +132,10 @@ export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonL
 export type { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
-export { default as SocialMediaLinks } from "./components/SocialMediaLinks/SocialMediaLinks";
+/** The code associated with the SocialMediaLinks component will not be exported
+ * until the refactor of the component has been completed.
+ * */
+// export { default as SocialMediaLinks } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type { StatusBadgeTypes } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
@@ -166,9 +174,9 @@ export { default as Toggle } from "./components/Toggle/Toggle";
 export type { ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
-// The useFilterBar and useMultiSelect hooks will not be exported until the
-// refactor of the v2 versions of the MultiSelect and FilterBar components has
-// been completed.
+/** The useFilterBar hooks will not be exported until the refactor of the v2
+ * versions of the FilterBar component has been completed.
+ * */
 // export { default as useFilterBar } from "./hooks/useFilterBar";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
