@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
-import * as React from "react";
 import renderer from "react-test-renderer";
 
 import MultiSelectGroup from "./MultiSelectGroup";
@@ -54,7 +53,7 @@ const multiSelectItems = [
 
 const defaultItemsVisible = 5;
 
-describe.skip("MulitSelectGroup Accessibility", () => {
+describe("MulitSelectGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
     const handleChangeMock = jest.fn();
     const { container } = render(
@@ -171,25 +170,9 @@ describe.skip("MulitSelectGroup Accessibility", () => {
       "MultiSelectGroup example"
     );
   });
-  xit("should throw warning when a non-MultiSelect component is used as a child", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <MultiSelectGroup
-        labelText="Not a MultiSelect child!"
-        showLabel={true}
-        id="wrong-child"
-        multiSelectWidth="full"
-      >
-        <p>I pretend to be a MultiSelect!</p>
-      </MultiSelectGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
-    );
-  });
+
   it("renders the UI snapshots correctly", () => {
     const handleChangeMock = jest.fn();
-
     const multiSelectGroup = renderer
       .create(
         <MultiSelectGroup
@@ -216,7 +199,6 @@ describe.skip("MulitSelectGroup Accessibility", () => {
         </MultiSelectGroup>
       )
       .toJSON();
-
     const labelHidden = renderer
       .create(
         <MultiSelectGroup
