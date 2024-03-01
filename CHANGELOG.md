@@ -21,6 +21,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
 - Updates the `NewsletterSignup` component to follow NYPL recommendations and use more direct language for the email field error message.
 
+### Fixes
+
+- Removes console warnings from the `CheckboxGroup` component when a non-`Checkbox` component is passed as a child.
+
 ## Prerelease
 
 ### Adds
