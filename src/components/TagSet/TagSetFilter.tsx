@@ -3,7 +3,6 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
@@ -13,11 +12,14 @@ import { TooltipWrapper } from "./TooltipWrapper";
 export interface TagSetFilterDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
   iconName?: IconNames;
+  /** The ID of the tag. */
+  id: string;
   /** The string label to display. */
   label: string;
   /** Any other properties the consuming app may need for app logic filtering. */
   [key: string]: string;
 }
+
 export interface TagSetFilterProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
@@ -38,10 +40,9 @@ export interface TagSetFilterProps {
 export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
   (props: TagSetFilterProps) => {
     const { id, isDismissible = false, onClick, tagSetData = [] } = props;
-    const [filters, setFilters] =
-      React.useState<TagSetFilterDataProps[]>(tagSetData);
     const styles = useMultiStyleConfig("TagSetFilter", { isDismissible });
     const finalOnClick = (tagSet: TagSetFilterDataProps) => {
+      // Return the entire tagSet object to the consuming app.
       onClick && onClick(tagSet);
     };
 
@@ -52,15 +53,9 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
     );
     const iconColor = useColorModeValue("ui.black", "dark.ui.typography.body");
 
-    // This expects that the consuming app passes in a new set of data
-    // whenever the current list of tags needs to be updated.
-    useEffect(() => {
-      setFilters(tagSetData);
-    }, [tagSetData, setFilters]);
-
     return (
       <>
-        {filters.map((tagSet: TagSetFilterDataProps, key: number) => {
+        {tagSetData.map((tagSet: TagSetFilterDataProps, key: number) => {
           if (typeof tagSet.label !== "string") {
             console.warn(
               "NYPL Reservoir TagSet: Filter tags require all `label` props to be strings."
@@ -82,7 +77,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                     : undefined
                 }
                 data-testid="filter-tags"
-                id={`ts-filter-${id}-${key}`}
+                id={`ts-filter-${tagSet.id}-${key}`}
                 onClick={isDismissible ? () => finalOnClick(tagSet) : undefined}
                 sx={styles.base}
               >
@@ -111,16 +106,13 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
           );
         })}
 
-        {filters.length > 1 && isDismissible ? (
+        {tagSetData.length > 1 && isDismissible ? (
           <Button
             buttonType="link"
             data-testid="filter-clear-all"
             id={`ts-filter-clear-all-${id}`}
             onClick={() =>
-              finalOnClick({
-                id: "clear-filters",
-                label: "Clear Filters",
-              })
+              finalOnClick({ id: "clear-filters", label: "Clear Filters" })
             }
             __css={styles.clearAll}
           >
