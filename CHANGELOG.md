@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates mobile styles for the `SocialMediaLinks` component
+
 ## 2.1.6 (February 22, 2024)
 
 ### Updates

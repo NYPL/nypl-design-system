@@ -3,6 +3,8 @@ import { GetTableData } from "./SocialMediaLinksUtils";
 import Table from "../Table/Table";
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./socialMediaLinksChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={SocialMediaLinksStories} />
 
@@ -20,6 +22,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#variations" target="_self">Variations</Link>}
 - {<Link href="#responsive-design" target="_self">Responsive Design</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -93,8 +96,11 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 
 ### Layout Variations
 
-NOTE: Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
-This layout prop is therefore effectively limited to desktop views.
+NOTE: This layout prop is effectively limited to desktop views. For any viewport less than or equal to
+the "md" breakpoint (currently 600px), links _with labels_ will stack vertically and those _without labels_
+will align horizontally automatically.
+
+Also, for any viewport less than or equal to the "md" breakpoint, links will be center-aligned.
 
 <Canvas of={SocialMediaLinksStories.LayoutVariations} sourceState={"none"} />
 
@@ -120,6 +126,11 @@ This layout prop is therefore effectively limited to desktop views.
 
 ## Responsive Design
 
-- Icons will stack automatically for any viewport less than or equal to the "md" breakpoint (currently 600px).
+- For any viewport less than or equal to the "md" breakpoint (currently 600px),
+  links _with labels_ will stack vertically and those _without labels_ will align horizontally automatically.
 - The minimum clickable area for a link on a mobile device is 44px. This requirement causes the spacing between
   small and medium icons to be greater than when in a column layout in a desktop viewport.
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
