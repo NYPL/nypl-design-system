@@ -99,17 +99,18 @@ filters and updated results are the responsibility of the consuming application.
 
 Notes:
 
-- The `isDismissible` prop is optional and the `onClick` prop is required for
-  this variant.
-- The `onClick` prop will only fire when `isDismissible` is true and the user
-  clicks a tag. The function will return the entire object for the tag that was
-  clicked on.
-- Icons will not be rendered when `isDismissible` is true. In this case, the "X"
-  close icon will be rendered instead.
+- The `isDismissible` and `onClick` props are optional for this variant. However,
+  when `isDismissible` is true, the `onClick` prop is required. The `onClick`
+  prop will only fire when `isDismissible` is true and the user clicks a tag.
+  The function will return the entire tag object that was clicked to remove.
+- Icons will not be rendered when `isDismissible` is true so the `iconName`
+  property will be ignored. In this case, the "X" close icon will be
+  rendered instead.
 - When the `isDismissible` prop is true, a "Clear Filters" button will be
-  rendered at the end of the list of tags. Clicking this button will also
-  trigger the `onClick` prop. The `onClick` function will return the following
-  object as an argument: `{ label: "Clear Filters", id: "clear-filters" }`
+  rendered at the end of the list of tags when there are two or more tags.
+  Clicking this button will also trigger the `onClick` prop. The `onClick`
+  function will return the following object as an argument:
+  `{ label: "Clear Filters", id: "clear-filters" }`
 
 <Canvas of={TagSetStories.FilterVariant} />
 
