@@ -28,11 +28,11 @@ export interface TabsDataProps {
 }
 
 export interface TabsProps {
-  /** The index of the tab to display for controlled situations. */
+  /** The index of the tab to display for the initial render. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** The callback function invoked on every tab change event. */
+  /** The callback function invoked after every tab change event. */
   onChange?: (index: number) => any;
   /** Array of data to display */
   tabsData?: TabsDataProps[];
