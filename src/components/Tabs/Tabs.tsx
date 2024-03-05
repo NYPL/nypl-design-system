@@ -26,13 +26,12 @@ export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
-
 export interface TabsProps {
-  /** The index of the tab to display for controlled situations. */
+  /** The index of the tab to display on the initial render. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** The callback function invoked on every tab change event. */
+  /** The callback function invoked after every tab change event. The argument passed to the callback is the index of the tab just selected. */
   onChange?: (index: number) => any;
   /** Array of data to display */
   tabsData?: TabsDataProps[];
