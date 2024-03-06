@@ -228,7 +228,7 @@ export const MultiSelect: ChakraComponent<
           if (buttonRef.current) {
             buttonRef.current.focus(); // Set focus after expansion
           }
-        }, 1);
+        }, 1); // Ensure focus logic runs after state update
       };
 
       React.useEffect(() => {
