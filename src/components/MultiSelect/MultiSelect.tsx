@@ -94,6 +94,8 @@ export const MultiSelect: ChakraComponent<
       // Create a ref to hold a reference to the accordian button, enabling us to programmatically focus it.
       const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
+      const buttonRef: React.RefObject<HTMLButtonElement> =
+        useRef<HTMLButtonElement>();
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
@@ -222,6 +224,11 @@ export const MultiSelect: ChakraComponent<
       /** Toggle for listOverflow = "expand" */
       const toggleItemsList = () => {
         setIsExpandable((prevProp) => !prevProp);
+        setTimeout(() => {
+          if (buttonRef.current) {
+            buttonRef.current.focus(); // Set focus after expansion
+          }
+        }, 1);
       };
 
       React.useEffect(() => {
@@ -234,6 +241,7 @@ export const MultiSelect: ChakraComponent<
             buttonType="text"
             fontSize="desktop.button.default"
             id={`view-all-text-btn-${id}`}
+            ref={buttonRef}
             onClick={toggleItemsList}
             __css={styles.viewAllButton}
           >
