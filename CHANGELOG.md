@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor.
 - Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
 - Updates the `Tabs` component to use horizontal scrolling and arrow buttons step through tabs in mobile view.
+- Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
 
 ### Fixes
 
