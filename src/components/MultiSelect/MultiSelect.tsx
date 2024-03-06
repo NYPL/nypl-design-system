@@ -33,7 +33,7 @@ export interface MultiSelectProps {
   /** The number of items that will be visible in the list when the component first loads. */
   defaultItemsVisible?: number;
   /** The action to perform for clear/reset button of MultiSelect. */
-  onClear?: () => void;
+  onClearAll?: () => void;
   /** The action to perform on the checkbox's onChange function. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
@@ -84,7 +84,7 @@ export const MultiSelect: ChakraComponent<
         listOverflow = "scroll",
         buttonText,
         onChange,
-        onClear,
+        onClearAll,
         onMixedStateChange,
         selectedItems,
         width = "full",
@@ -94,6 +94,8 @@ export const MultiSelect: ChakraComponent<
       // Create a ref to hold a reference to the accordian button, enabling us to programmatically focus it.
       const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
+      const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
+        useRef<HTMLButtonElement>();
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
@@ -222,6 +224,11 @@ export const MultiSelect: ChakraComponent<
       /** Toggle for listOverflow = "expand" */
       const toggleItemsList = () => {
         setIsExpandable((prevProp) => !prevProp);
+        setTimeout(() => {
+          if (expandToggleButtonRef.current) {
+            expandToggleButtonRef.current.focus(); // Set focus after expansion
+          }
+        }, 1); // Ensure focus logic runs after state update
       };
 
       React.useEffect(() => {
@@ -234,6 +241,7 @@ export const MultiSelect: ChakraComponent<
             buttonType="text"
             fontSize="desktop.button.default"
             id={`view-all-text-btn-${id}`}
+            ref={expandToggleButtonRef}
             onClick={toggleItemsList}
             __css={styles.viewAllButton}
           >
@@ -374,7 +382,7 @@ export const MultiSelect: ChakraComponent<
               isOpen={isDefaultOpen}
               selectedItemsString={selectedItemsString}
               selectedItemsCount={selectedItemsCount}
-              onClear={onClear}
+              onClearAll={onClearAll}
               accordianButtonRef={accordianButtonRef}
             />
           )}
