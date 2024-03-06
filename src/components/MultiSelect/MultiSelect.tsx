@@ -33,7 +33,7 @@ export interface MultiSelectProps {
   /** The number of items that will be visible in the list when the component first loads. */
   defaultItemsVisible?: number;
   /** The action to perform for clear/reset button of MultiSelect. */
-  onClear?: () => void;
+  onClearAll?: () => void;
   /** The action to perform on the checkbox's onChange function. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
@@ -43,7 +43,7 @@ export interface MultiSelectProps {
   /** Boolean value used to control how the MultiSelect component will render within the page
    * and interact with other DOM elements.
    * The default value is false. */
-  isBlockElement?: boolean;
+  //isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
   /** Boolean value used to enable the component's search functionality
@@ -76,7 +76,7 @@ export const MultiSelect: ChakraComponent<
     (props, _ref?) => {
       const {
         id,
-        isBlockElement = false,
+        //isBlockElement = false,
         isDefaultOpen = false,
         isSearchable = false,
         defaultItemsVisible = 5,
@@ -84,7 +84,7 @@ export const MultiSelect: ChakraComponent<
         listOverflow = "scroll",
         buttonText,
         onChange,
-        onClear,
+        onClearAll,
         onMixedStateChange,
         selectedItems,
         width = "full",
@@ -120,7 +120,6 @@ export const MultiSelect: ChakraComponent<
 
       // Get the styles for the component
       const styles = useMultiStyleConfig("MultiSelect", {
-        isBlockElement,
         width,
       });
 
@@ -378,7 +377,7 @@ export const MultiSelect: ChakraComponent<
               isOpen={isDefaultOpen}
               selectedItemsString={selectedItemsString}
               selectedItemsCount={selectedItemsCount}
-              onClear={onClear}
+              onClearAll={onClearAll}
               accordianButtonRef={accordianButtonRef}
             />
           )}

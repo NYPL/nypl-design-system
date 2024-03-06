@@ -17,7 +17,7 @@ export interface MultiSelectItemsCountButtonProps {
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
   /** The action to perform for clear/reset button of MultiSelect. */
-  onClear?: () => void;
+  onClearAll?: () => void;
   onKeyDown?: () => void;
   /** Ref to the Accordion Button element. */
   accordianButtonRef: any;
@@ -39,7 +39,7 @@ const MultiSelectItemsCountButton = forwardRef<
     multiSelectId,
     multiSelectLabelText,
     accordianButtonRef,
-    onClear,
+    onClearAll,
     selectedItemsString,
     selectedItemsCount,
   } = props;
@@ -60,7 +60,7 @@ const MultiSelectItemsCountButton = forwardRef<
       aria-label={selectedItemsAriaLabel}
       data-testid="multi-select-close-button-testid"
       onClick={() => {
-        onClear();
+        onClearAll();
         // Set focus on the Accordion Button when close the selected items count button.
         accordianButtonRef.current?.focus();
       }}

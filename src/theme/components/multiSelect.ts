@@ -31,7 +31,7 @@ export const multiSelectWidths = {
 };
 
 const MultiSelect = defineMultiStyleConfig({
-  baseStyle: definePartsStyle(({ isBlockElement, width = "full" }) => ({
+  baseStyle: definePartsStyle(({ width = "full" }) => ({
     base: {
       position: "relative",
     },
@@ -112,7 +112,7 @@ const MultiSelect = defineMultiStyleConfig({
         bgColor: "ui.bg.page",
         borderTopWidth: "1px",
         marginTop: "-1px",
-        position: isBlockElement ? null : "absolute",
+        //position: isBlockElement ? null : "relative",
         zIndex: 2,
         ...multiSelectWidths[width],
       },
