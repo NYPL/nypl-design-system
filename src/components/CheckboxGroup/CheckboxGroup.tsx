@@ -1,12 +1,12 @@
 import {
   chakra,
+  ChakraComponent,
   CheckboxGroup as ChakraCheckboxGroup,
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Checkbox from "../Checkbox/Checkbox";
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -55,15 +55,19 @@ export interface CheckboxGroupProps {
   value?: string[];
 }
 
-const noop = () => {};
-
 /**
  * Wrapper component to wrap `Checkbox` components. Can be displayed in a
  * column or in a row. The `CheckboxGroup` component renders all the necessary
  * wrapping and associated text elements, but the checkbox input elements
  * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
-export const CheckboxGroup = chakra(
+export const CheckboxGroup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<CheckboxGroupProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<CheckboxGroupProps>
+> = chakra(
   forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,
@@ -112,18 +116,6 @@ export const CheckboxGroup = chakra(
     React.Children.map(
       children as JSX.Element,
       (child: React.ReactElement, i) => {
-        if (child.type !== Checkbox) {
-          // Special case for Storybook MDX documentation.
-          if (child.props.mdxType && child.props.mdxType === "Checkbox") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
-                "allowed as children."
-            );
-          }
-        }
-
         if (child !== undefined && child !== null) {
           const newProps = {
             key: i,

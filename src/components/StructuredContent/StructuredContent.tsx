@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import useDSHeading from "../../hooks/useDSHeading";
 
@@ -34,7 +39,7 @@ export interface StructuredContentProps {
  * Internal component used in the `StructuredContent` component
  * that renders the DS `Image` component.
  */
-const StructuredContentImage = chakra((props: ImageProps) => {
+const StructuredContentImage: React.FC<any> = chakra((props: ImageProps) => {
   const {
     additionalFigureStyles,
     additionalImageStyles,
@@ -67,7 +72,13 @@ const StructuredContentImage = chakra((props: ImageProps) => {
  * The `StructuredContent` component that displays a heading, callout content,
  * an image, and body content. All are optional except for body content.
  */
-export const StructuredContent = chakra(
+const StructuredContent: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<StructuredContentProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<StructuredContentProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StructuredContentProps>>(
     (props, ref?) => {
       const {

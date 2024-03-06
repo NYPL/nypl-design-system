@@ -1,6 +1,10 @@
-const SearchBar = {
-  parts: ["select"],
-  baseStyle: {
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["select"]);
+
+const SearchBar = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     display: "flex",
     marginBottom: {
       base: "xs",
@@ -9,6 +13,9 @@ const SearchBar = {
     flexFlow: {
       base: "column nowrap",
       md: "row nowrap",
+    },
+    ".textInput": {
+      flexGrow: "1",
     },
     select: {
       flexShrink: "0",
@@ -23,7 +30,7 @@ const SearchBar = {
         },
       },
     },
-  },
-};
+  }),
+});
 
 export default SearchBar;

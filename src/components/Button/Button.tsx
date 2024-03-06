@@ -2,6 +2,7 @@ import {
   Box,
   Button as ChakraButton,
   chakra,
+  ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -49,7 +50,13 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-export const Button = chakra(
+export const Button: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ButtonProps> &
+      React.RefAttributes<HTMLButtonElement>
+  >,
+  React.PropsWithChildren<ButtonProps>
+> = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
@@ -93,7 +100,10 @@ export const Button = chakra(
         variant = "iconOnly";
       }
 
-      styles = useMultiStyleConfig("Button", { variant, buttonSize: size });
+      styles = useMultiStyleConfig("CustomButton", {
+        variant,
+        buttonSize: size,
+      });
 
       return (
         <ChakraButton
@@ -104,7 +114,7 @@ export const Button = chakra(
           ref={ref}
           type={type}
           {...btnCallback}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {children}

@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as TagSetStories from "./TagSet.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./tagSetChangelogData";
 
 <Meta of={TagSetStories} />
 
 # TagSet
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#filter-variant" target="_self">Filter Variant</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -152,3 +155,7 @@ Resources:
 ## Examples
 
 <Canvas of={TagSetStories.FormattingExamples} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

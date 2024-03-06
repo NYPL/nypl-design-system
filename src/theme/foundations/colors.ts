@@ -20,7 +20,8 @@ import { hexToRGB } from "../../utils/utils";
  * following "ui", "brand", and "section" colors below.
  */
 
-// Reusable variables:
+/** Reusable variables: */
+// grayscale
 const black = "#000";
 const white = "#fff";
 const grayxxxxDark = "#191919";
@@ -34,9 +35,30 @@ const graySemiMedium = "#D9D9D9";
 const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
+// semantic
+const errorPrimary = "#97272C";
+const errorSecondary = "#6F0106";
 const linkPrimary = "#0069BF";
 const linkSecondary = "#004B98";
 const linkTertiary = "#551A8B";
+const statusPrimary = "#F9E08E";
+const statusSecondary = "#FBE7E1";
+const successPrimary = "#077719";
+const successSecondary = "#095212";
+const warningPrimary = "#F0974E";
+const warningSecondary = "#EC7B1F";
+const errorPrimaryDark = "#E1767B";
+const errorSecondaryDark = "#F08F93";
+const linkPrimaryDark = "#79B7EB";
+const linkSecondaryDark = "#95CFFF";
+const linkTertiaryDark = "#B583E1";
+const statusPrimaryDark = "#B69C46";
+const statusSecondaryDark = "#CB8E7C";
+const successPrimaryDark = "#52AA60";
+const successSecondaryDark = "#81C88A";
+const warningPrimaryDark = "#DC8034";
+const warningSecondaryDark = "#EC7B1F";
+// brand
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
@@ -56,10 +78,14 @@ const whatsOnSecondary = black;
 const brandObj = {
   light: {
     primary: brandPrimary,
+    "primary-05": hexToRGB(brandPrimary, 0.05),
+    "primary-10": hexToRGB(brandPrimary, 0.1),
     secondary: brandSecondary,
   },
   dark: {
     primary: hexToRGB(brandPrimary, 0.2),
+    "primary-05": hexToRGB(brandPrimary, 0.05),
+    "primary-10": hexToRGB(brandPrimary, 0.1),
     secondary: hexToRGB(brandSecondary, 0.2),
   },
 };
@@ -67,10 +93,14 @@ const brandObj = {
 const blogsObj = {
   light: {
     primary: blogsPrimary,
+    "primary-05": hexToRGB(blogsPrimary, 0.05),
+    "primary-10": hexToRGB(blogsPrimary, 0.1),
     secondary: blogsSecondary,
   },
   dark: {
     primary: hexToRGB(blogsPrimary, 0.2),
+    "primary-05": hexToRGB(blogsPrimary, 0.05),
+    "primary-10": hexToRGB(blogsPrimary, 0.1),
     secondary: hexToRGB(blogsSecondary, 0.2),
   },
 };
@@ -83,10 +113,14 @@ const booksAndMoreObj = {
 const connectObj = {
   light: {
     primary: connectPrimary,
+    "primary-05": hexToRGB(connectPrimary, 0.05),
+    "primary-10": hexToRGB(connectPrimary, 0.1),
     secondary: connectSecondary,
   },
   dark: {
     primary: hexToRGB(connectPrimary, 0.4),
+    "primary-05": hexToRGB(connectPrimary, 0.05),
+    "primary-10": hexToRGB(connectPrimary, 0.1),
     secondary: hexToRGB(connectSecondary, 0.4),
   },
 };
@@ -94,10 +128,14 @@ const connectObj = {
 const educationObj = {
   light: {
     primary: educationPrimary,
+    "primary-05": hexToRGB(educationPrimary, 0.05),
+    "primary-10": hexToRGB(educationPrimary, 0.1),
     secondary: educationSecondary,
   },
   dark: {
     primary: hexToRGB(educationPrimary, 0.2),
+    "primary-05": hexToRGB(educationPrimary, 0.05),
+    "primary-10": hexToRGB(educationPrimary, 0.1),
     secondary: hexToRGB(educationSecondary, 0.2),
   },
 };
@@ -110,34 +148,58 @@ const locationsObj = {
 const researchObj = {
   light: {
     primary: researchPrimary,
+    "primary-05": hexToRGB(researchPrimary, 0.05),
+    "primary-10": hexToRGB(researchPrimary, 0.1),
     secondary: researchSecondary,
+    "secondary-05": hexToRGB(researchSecondary, 0.05),
+    "secondary-10": hexToRGB(researchSecondary, 0.1),
   },
   dark: {
     primary: hexToRGB(researchPrimary, 0.2),
+    "primary-05": hexToRGB(researchPrimary, 0.05),
+    "primary-10": hexToRGB(researchPrimary, 0.1),
     secondary: hexToRGB(researchSecondary, 0.2),
+    "secondary-05": hexToRGB(researchSecondary, 0.05),
+    "secondary-10": hexToRGB(researchSecondary, 0.1),
   },
 };
 
 const researchLibraryObj = {
   light: {
     lpa: researchLibraryLpa,
+    "lpa-05": hexToRGB(researchLibraryLpa, 0.05),
+    "lpa-10": hexToRGB(researchLibraryLpa, 0.1),
     schomburg: researchLibrarySchomburg,
+    "schomburg-05": hexToRGB(researchLibrarySchomburg, 0.05),
+    "schomburg-10": hexToRGB(researchLibrarySchomburg, 0.1),
     schwartzman: researchLibrarySchwartzman,
+    "schwartzman-05": hexToRGB(researchLibrarySchwartzman, 0.05),
+    "schwartzman-10": hexToRGB(researchLibrarySchwartzman, 0.1),
   },
   dark: {
     lpa: hexToRGB(researchLibraryLpa, 0.2),
+    "lpa-05": hexToRGB(researchLibraryLpa, 0.05),
+    "lpa-10": hexToRGB(researchLibraryLpa, 0.1),
     schomburg: hexToRGB(researchLibrarySchomburg, 0.2),
+    "schomburg-05": hexToRGB(researchLibrarySchomburg, 0.05),
+    "schomburg-10": hexToRGB(researchLibrarySchomburg, 0.1),
     schwartzman: hexToRGB(researchLibrarySchwartzman, 0.2),
+    "schwartzman-05": hexToRGB(researchLibrarySchwartzman, 0.05),
+    "schwartzman-10": hexToRGB(researchLibrarySchwartzman, 0.1),
   },
 };
 
 const whatsOnObj = {
   light: {
     primary: whatsOnPrimary,
+    "primary-05": hexToRGB(whatsOnPrimary, 0.05),
+    "primary-10": hexToRGB(whatsOnPrimary, 0.1),
     secondary: whatsOnSecondary,
   },
   dark: {
     primary: hexToRGB(grayLightCool, 0.2),
+    "primary-05": hexToRGB(grayLightCool, 0.05),
+    "primary-10": hexToRGB(grayLightCool, 0.1),
     secondary: hexToRGB(white, 0.05),
   },
 };
@@ -155,8 +217,10 @@ const colors: Colors = {
       secondary: grayxxLightCool,
     },
     error: {
-      primary: "#97272C",
-      secondary: "#6F0106",
+      primary: errorPrimary,
+      "primary-05": hexToRGB(errorPrimary, 0.05),
+      "primary-10": hexToRGB(errorPrimary, 0.1),
+      secondary: errorSecondary,
     },
     focus: "#4181F1",
     link: {
@@ -165,19 +229,27 @@ const colors: Colors = {
       "primary-10": hexToRGB(linkPrimary, 0.1),
       secondary: linkSecondary,
       tertiary: linkTertiary,
+      "tertiary-05": hexToRGB(linkTertiary, 0.05),
+      "tertiary-10": hexToRGB(linkTertiary, 0.1),
     },
     status: {
-      primary: "#F9E08E",
-      secondary: "#FBE7E1",
+      primary: statusPrimary,
+      "primary-05": hexToRGB(statusPrimary, 0.05),
+      "primary-10": hexToRGB(statusPrimary, 0.1),
+      secondary: statusSecondary,
     },
     success: {
-      primary: "#077719",
-      secondary: "#095212",
+      primary: successPrimary,
+      "primary-05": hexToRGB(successPrimary, 0.05),
+      "primary-10": hexToRGB(successPrimary, 0.1),
+      secondary: successSecondary,
     },
     test: "#FF6347",
     warning: {
-      primary: "#F0974E",
-      secondary: "#EC7B1F",
+      primary: warningPrimary,
+      "primary-05": hexToRGB(warningPrimary, 0.05),
+      "primary-10": hexToRGB(warningPrimary, 0.1),
+      secondary: warningSecondary,
     },
     // Semantic colors
     bg: {
@@ -236,29 +308,37 @@ const colors: Colors = {
         secondary: grayxDark,
       },
       error: {
-        primary: "#E1767B",
-        secondary: "#F08F93",
+        primary: errorPrimaryDark,
+        "primary-05": hexToRGB(errorPrimaryDark, 0.05),
+        "primary-10": hexToRGB(errorPrimaryDark, 0.1),
+        secondary: errorSecondaryDark,
       },
       focus: "#6090E3",
       link: {
-        primary: "#79B7EB",
-        "primary-05": hexToRGB("#79B7EB", 0.05),
-        "primary-10": hexToRGB("#79B7EB", 0.1),
-        secondary: "#95CFFF",
-        tertiary: "#B583E1",
+        primary: linkPrimaryDark,
+        "primary-05": hexToRGB(linkPrimaryDark, 0.05),
+        "primary-10": hexToRGB(linkPrimaryDark, 0.1),
+        secondary: linkSecondaryDark,
+        tertiary: linkTertiaryDark,
       },
       status: {
-        primary: "#B69C46",
-        secondary: "#CB8E7C",
+        primary: statusPrimaryDark,
+        "primary-05": hexToRGB(statusPrimaryDark, 0.05),
+        "primary-10": hexToRGB(statusPrimaryDark, 0.1),
+        secondary: statusSecondaryDark,
       },
       success: {
-        primary: "#52AA60",
-        secondary: "#81C88A",
+        primary: successPrimaryDark,
+        "primary-05": hexToRGB(successPrimaryDark, 0.05),
+        "primary-10": hexToRGB(successPrimaryDark, 0.1),
+        secondary: successSecondaryDark,
       },
       test: "#592B22",
       warning: {
-        primary: "#DC8034",
-        secondary: "#F1A66A",
+        primary: warningPrimaryDark,
+        "primary-05": hexToRGB(warningPrimaryDark, 0.05),
+        "primary-10": hexToRGB(warningPrimaryDark, 0.1),
+        secondary: warningSecondaryDark,
       },
       // Semantic colors
       bg: {
