@@ -10,7 +10,7 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
   >
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#mainContent"
         rel={null}
         target={null}
@@ -20,7 +20,7 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
     </li>
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -42,7 +42,7 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
   >
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="customId"
         rel={null}
         target={null}
@@ -52,7 +52,7 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
     </li>
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -74,7 +74,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
   >
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#mainContent"
         rel={null}
         target={null}
@@ -84,7 +84,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
     </li>
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -107,7 +107,7 @@ exports[`Label Renders the UI snapshot correctly 4`] = `
   >
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#mainContent"
         rel={null}
         target={null}
@@ -117,7 +117,7 @@ exports[`Label Renders the UI snapshot correctly 4`] = `
     </li>
     <li>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}

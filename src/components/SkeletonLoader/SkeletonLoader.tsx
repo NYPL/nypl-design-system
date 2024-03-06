@@ -96,7 +96,11 @@ export const SkeletonLoader: ChakraComponent<
           const marginBottomValue =
             i === size - 1 && type === "content" ? "0" : undefined;
           return (
-            <ChakraSkeleton key={`${type}-${i}`} width={width}>
+            <ChakraSkeleton
+              key={`${type}-${i}`}
+              width={width}
+              sx={styles.loader}
+            >
               <Box
                 __css={styles[type]}
                 style={{ marginBottom: marginBottomValue }}
@@ -110,12 +114,12 @@ export const SkeletonLoader: ChakraComponent<
         <Box
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           style={{ width }}
           {...rest}
         >
           {showImage && (
-            <ChakraSkeleton>
+            <ChakraSkeleton sx={styles.loader}>
               <Box __css={{ ...styles.element, ...styles.image }} />
             </ChakraSkeleton>
           )}
@@ -132,7 +136,7 @@ export const SkeletonLoader: ChakraComponent<
             )}
             {showButton && (
               <Box __css={{ ...styles.section, ...styles.button }}>
-                <ChakraSkeleton borderRadius="16px">
+                <ChakraSkeleton borderRadius="16px" sx={styles.loader}>
                   <Box __css={styles.button} />
                 </ChakraSkeleton>
               </Box>

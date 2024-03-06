@@ -276,7 +276,7 @@ export const visibleListItems: Story = {
         <div>
           <Heading level="h3" size="heading6" text="Default" />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-1"
             isBlockElement
             items={withItems}
             listOverflow="expand"
@@ -286,7 +286,7 @@ export const visibleListItems: Story = {
           <Heading level="h3" size="heading6" text="Custom" />
           <MultiSelectStory
             defaultItemsVisible={8}
-            id="multi-select-id"
+            id="multi-select-id-2"
             isBlockElement
             items={withItems}
             listOverflow="expand"
@@ -299,7 +299,7 @@ export const visibleListItems: Story = {
             text="Default with Nested Items"
           />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-3"
             isBlockElement
             items={withChildrenItems}
             listOverflow="expand"
@@ -313,7 +313,7 @@ export const visibleListItems: Story = {
 export const nestedListItems: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-4"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -325,7 +325,7 @@ export const nestedListItems: Story = {
 export const disabledListItems: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-5"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -337,7 +337,7 @@ export const disabledListItems: Story = {
 export const disabledListItemsAllChildren: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-6"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -349,7 +349,7 @@ export const disabledListItemsAllChildren: Story = {
 export const searchInputField: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-7"
       isBlockElement
       isDefaultOpen={false}
       isSearchable
@@ -368,13 +368,13 @@ export const isBlockElement: Story = {
           <Stack align="left" spacing="s">
             <Stack align="left">
               <MultiSelectStory
-                id="multi-select-id"
+                id="multi-select-id-8"
                 isBlockElement
                 items={withItems}
                 listOverflow="expand"
               />
               <MultiSelectStory
-                id="multi-select-id"
+                id="multi-select-id-9"
                 isBlockElement
                 items={withItems}
                 listOverflow="expand"
@@ -396,9 +396,9 @@ export const isBlockElement: Story = {
           />
           <Stack align="left" spacing="s">
             <Stack direction="row" width="100%" alignContent="stretch">
-              <MultiSelectStory id="multi-select-id" items={withItems} />
-              <MultiSelectStory id="multi-select-id" items={withItems} />
-              <MultiSelectStory id="multi-select-id" items={withItems} />
+              <MultiSelectStory id="multi-select-id-10" items={withItems} />
+              <MultiSelectStory id="multi-select-id-11" items={withItems} />
+              <MultiSelectStory id="multi-select-id-12" items={withItems} />
             </Stack>
             <Text>
               Maecenas sed diam eget risus varius blandit sit amet non magna.
@@ -436,7 +436,7 @@ export const width: Story = {
             text="full (default configuration)"
           />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-13"
             isBlockElement
             items={withItems}
           />
@@ -444,7 +444,7 @@ export const width: Story = {
         <div>
           <Heading level="h3" size="heading6" text="fitContent" />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-14"
             isBlockElement
             items={withItems}
             width="fitContent"
@@ -458,7 +458,7 @@ export const width: Story = {
 export const defaultOpenState: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-15"
       isBlockElement
       isDefaultOpen={true}
       items={withChildrenItems}
@@ -468,7 +468,7 @@ export const defaultOpenState: Story = {
 
 const MultiSelectWithControlsStory = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -478,7 +478,7 @@ const MultiSelectWithControlsStory = (args) => {
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClear") {
+    if (actionName === "onClearAll") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -496,9 +496,9 @@ const MultiSelectWithControlsStory = (args) => {
         onMixedStateChange(e.target.id, multiSelectId, args.items);
         setActionName("onMixedStateChange");
       }}
-      onClear={() => {
-        onClear(multiSelectId);
-        setActionName("onClear");
+      onClearAll={() => {
+        onClearAll();
+        setActionName("onClearAll");
       }}
     />
   );
@@ -515,7 +515,7 @@ const MultiSelectStory = ({
   defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -525,7 +525,7 @@ const MultiSelectStory = ({
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClear") {
+    if (actionName === "onClearAll") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -550,9 +550,9 @@ const MultiSelectStory = ({
         onMixedStateChange(e.target.id, id, items);
         setActionName("onMixedStateChange");
       }}
-      onClear={() => {
-        onClear(id);
-        setActionName("onClear");
+      onClearAll={() => {
+        onClearAll();
+        setActionName("onClearAll");
       }}
     />
   );

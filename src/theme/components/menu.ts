@@ -26,6 +26,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const Menu = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ highlightColor = "blogs", showBorder, showLabel }: MenuStyleProps) => {
+      // TO-DO: Change this to explicit color variants.
       const sectionColor = getSectionColors({
         type: highlightColor,
         colorValue:
@@ -78,30 +79,47 @@ const Menu = defineMultiStyleConfig({
               fill: "dark.ui.typography.body",
             },
             _hover: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              bg: "dark.ui.bg.active",
+            },
+            _focus: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
               bg: "dark.ui.bg.active",
             },
           },
         },
         selected: {
-          _hover: {
-            background:
-              highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
-          },
-          _active: {
-            background:
-              highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
-          },
           fontWeight: 510,
-          borderLeftColor: sectionColor,
+          borderLeftColor:
+            highlightColor === "blogs"
+              ? "dark.ui.border.default"
+              : highlightColor === "whatsOn"
+              ? "dark.section.whatsOn.primary"
+              : sectionColor,
           textColor:
-            highlightColor === "blogs" ? "ui.typography.heading" : sectionColor,
+            highlightColor === "blogs" || highlightColor === "connect"
+              ? "ui.typography.heading"
+              : sectionColor,
           borderWidth: "0px 0px 0px 2px",
           background:
             highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
           _dark: {
             textColor: "dark.ui.typography.heading",
+            _hover: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              background:
+                highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
+            },
+            _focus: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              bg: "dark.ui.bg.active",
+            },
             background:
-              highlightColor === "whatsOn"
+              highlightColor === "whatsOn" || highlightColor === "blogs"
                 ? "dark.ui.bg.hover"
                 : darkSectionColor,
           },
@@ -189,6 +207,7 @@ const Menu = defineMultiStyleConfig({
           borderColor: "ui.gray.light-cool",
           _dark: {
             borderColor: "dark.ui.border-default",
+            bgColor: "dark.ui.bg.default",
           },
           boxShadow: "none",
           overflowY: "auto",

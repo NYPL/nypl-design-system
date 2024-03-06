@@ -21,4 +21,13 @@ export const changelogData: ChangelogData[] = [
       "Updated the UI styles.",
     ],
   },
+  {
+    date: "2024-02-22",
+    version: "2.1.6",
+    type: "Update",
+    affects: ["Styles", "Documentation"],
+    notes: [
+      "Updated the styles so that if a dev passes an icon to the badge as well as text, the icon and text line up with one another",
+    ],
+  },
 ];

@@ -20,24 +20,36 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to use native Chakra responsive styles to handle the font sizes of the component's internal `heading`, `overline` and `subtitle` elements. This also resolves the flashing font size bug that is most noticeable on slower internet connections.
 - Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
 - Updates the `NewsletterSignup` component to follow NYPL recommendations and use more direct language for the email field error message.
-- Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
-
-## Prerelease
-
-### Adds
-
 - Adds the `MultiSelect` v2 component.
 - Adds the `useMultiSelect` hook.
+- Updates the default export to include `FocusLock`, `useStyleConfig`, and `useMultiStyleConfig` from Chakra UI.
+- Updates the default export to include the test helper "MatchMedia".
+- Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor.
+- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates the `Tabs` component to use horizontal scrolling and arrow buttons step through tabs in mobile view.
+- Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
+
+### Fixes
+
+- Removes console warnings from the `CheckboxGroup` component when a non-`Checkbox` component is passed as a child.
+- Fixes the responsive styles related to the image in the `FeaturedContent` component.
+
+### Breaking Changes
+
+- Removes the `NewsletterSignup` and `SocialMediaLinks` components.
+
+## 2.1.6 (February 22, 2024)
 
 ### Updates
 
-- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates focus ring color in `Notification` and `Breadcrumbs` to match color of text.
+- Updates the `StatusBadge` styles so that if an icon is passed, the icon and text line up with one another
 
 ### Fixes
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types
   where the in-range selected date values did not have the correct DS colors.
-- Fixes the responsive styles related to the image in the `FeaturedContent` component.
+- Fixes the desktop font size for the `"heading5"` variant in the `Heading` component.
 
 ## 2.1.5 (February 5, 2024)
 

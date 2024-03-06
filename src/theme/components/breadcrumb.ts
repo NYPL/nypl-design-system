@@ -1,5 +1,6 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
+import { customFocusColor } from "./global";
 
 // Variant styling
 const blogs = defineStyle({
@@ -17,6 +18,7 @@ const blogs = defineStyle({
         color: "dark.ui.typography.heading",
       },
     },
+    _focus: customFocusColor("ui.black", "dark.ui.typography.body"),
   },
   "li:last-child": {
     ".chakra-breadcrumb__link": {
@@ -98,6 +100,7 @@ const Breadcrumb = defineStyleConfig({
         color: "ui.gray.light-cool",
         textDecoration: "none",
       },
+      _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
     },
     "li:last-child": {
       fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
