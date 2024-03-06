@@ -468,7 +468,7 @@ export const defaultOpenState: Story = {
 
 const MultiSelectWithControlsStory = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -478,7 +478,7 @@ const MultiSelectWithControlsStory = (args) => {
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClear") {
+    if (actionName === "onClearAll") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -496,9 +496,9 @@ const MultiSelectWithControlsStory = (args) => {
         onMixedStateChange(e.target.id, multiSelectId, args.items);
         setActionName("onMixedStateChange");
       }}
-      onClear={() => {
-        onClear(multiSelectId);
-        setActionName("onClear");
+      onClearAll={() => {
+        onClearAll();
+        setActionName("onClearAll");
       }}
     />
   );
@@ -515,7 +515,7 @@ const MultiSelectStory = ({
   defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -525,7 +525,7 @@ const MultiSelectStory = ({
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClear") {
+    if (actionName === "onClearAll") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -550,9 +550,9 @@ const MultiSelectStory = ({
         onMixedStateChange(e.target.id, id, items);
         setActionName("onMixedStateChange");
       }}
-      onClear={() => {
-        onClear(id);
-        setActionName("onClear");
+      onClearAll={() => {
+        onClearAll();
+        setActionName("onClearAll");
       }}
     />
   );
