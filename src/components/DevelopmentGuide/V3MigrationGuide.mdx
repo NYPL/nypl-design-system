@@ -41,6 +41,28 @@ that does not mean that an application has to immediately adopt and use it.
 The ideal approach is to go through the "Breaking Changes” and “Additional
 Testing Needs” sections and update accordingly.
 
+### npm Package Update
+
+The recommended approach to upgrade to v3 is to update the
+`@nypl/design-system-react-components` package in the `package.json` file.
+
+<Source
+  code={`
+// Update the package.json file
+"dependencies": {
+  "@nypl/design-system-react-components": "3.0.0",
+}
+`}
+  language="json"
+/>
+
+Alternatively, you can run the following command in the terminal:
+
+`npm install @nypl/design-system-react-components@3.0.0`
+
+We recommended being explict with the version number to avoid any unexpected
+changes in the future that the caret (`^`) might introduce.
+
 ### Main Additions and Upgrades
 
 - The `Menu` (new) and `MultiSelect` (v2) components are included in this release.
@@ -148,6 +170,7 @@ window.HTMLElement.prototype.scrollIntoView = jest.fn()
 `}
   language="jsx"
 />
+
 <Source
   code={`
 // Related to the Slider component
