@@ -51,7 +51,7 @@ const MultiSelectTestComponent = ({
     onMixedStateChange,
     selectedItems,
     setSelectedItems,
-    onClearAll,
+    onClear,
   } = useMultiSelect();
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const MultiSelectTestComponent = ({
       onMixedStateChange={(e) => {
         onMixedStateChange(e.target.id, multiSelectId, items);
       }}
-      onClearAll={() => onClearAll()}
+      onClear={() => onClear(multiSelectId)}
     />
   );
 };
@@ -94,7 +94,7 @@ describe("MultiSelect Accessibility", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -128,7 +128,7 @@ describe("MultiSelect", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(container.querySelector("#multiselect-test-id")).toBeInTheDocument();
@@ -146,7 +146,7 @@ describe("MultiSelect", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getByText("Multiselect button text").textContent);
@@ -165,7 +165,7 @@ describe("MultiSelect", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.queryByRole("checkbox")).toBeNull();
@@ -183,7 +183,7 @@ describe("MultiSelect", () => {
         items={disabledItems}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
@@ -209,7 +209,7 @@ describe("MultiSelect", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
@@ -231,7 +231,7 @@ describe("MultiSelect", () => {
         items={items}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
@@ -254,7 +254,7 @@ describe("MultiSelect", () => {
         isDefaultOpen={true}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
@@ -275,7 +275,7 @@ describe("MultiSelect", () => {
         isBlockElement={false}
         selectedItems={selectedTestItems}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
 
@@ -340,7 +340,7 @@ describe("MultiSelect", () => {
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     // Open multiselect menu.
@@ -361,7 +361,7 @@ describe("MultiSelect", () => {
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
@@ -393,7 +393,7 @@ describe("MultiSelect", () => {
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
 
@@ -414,7 +414,7 @@ describe("MultiSelect", () => {
         selectedItems={selectedTestItems}
         onChange={onChangeMock}
         onMixedStateChange={onMixedStateChangeMock}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.queryAllByRole("checkbox")).toHaveLength(8);
@@ -483,7 +483,7 @@ describe("MultiSelect", () => {
         selectedItems={selectedTestItems}
         onMixedStateChange={() => null}
         onChange={() => null}
-        onClearAll={() => null}
+        onClear={() => null}
       />
     );
     expect(screen.getByLabelText("Colors")).toBeChecked();
@@ -539,7 +539,7 @@ describe("MultiSelect", () => {
           isBlockElement={false}
           selectedItems={selectedTestItems}
           onChange={() => null}
-          onClearAll={() => null}
+          onClear={() => null}
         />
       )
       .toJSON();
@@ -556,7 +556,7 @@ describe("MultiSelect", () => {
           isDefaultOpen={true}
           selectedItems={selectedTestItems}
           onChange={() => null}
-          onClearAll={() => null}
+          onClear={() => null}
         />
       )
       .toJSON();
@@ -575,7 +575,7 @@ describe("MultiSelect", () => {
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}
-          onClearAll={() => null}
+          onClear={() => null}
         />
       )
       .toJSON();
@@ -596,7 +596,7 @@ describe("MultiSelect", () => {
           selectedItems={selectedTestItems}
           onMixedStateChange={() => null}
           onChange={() => null}
-          onClearAll={() => null}
+          onClear={() => null}
         />
       )
       .toJSON();
