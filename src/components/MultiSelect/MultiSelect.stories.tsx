@@ -10,7 +10,8 @@ import MultiSelect, {
 } from "./MultiSelect";
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { Stack } from "@chakra-ui/react";
+import { HStack, Stack } from "@chakra-ui/react";
+import Button from "../Button/Button";
 
 const withItems = [
   {
@@ -466,9 +467,13 @@ export const defaultOpenState: Story = {
   ),
 };
 
+export const InAGroup: Story = {
+  render: () => <MultiSelecGroupStory items={withItems} />,
+};
+
 const MultiSelectWithControlsStory = (args) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -478,7 +483,7 @@ const MultiSelectWithControlsStory = (args) => {
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClearAll") {
+    if (actionName === "onClear") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -496,9 +501,9 @@ const MultiSelectWithControlsStory = (args) => {
         onMixedStateChange(e.target.id, multiSelectId, args.items);
         setActionName("onMixedStateChange");
       }}
-      onClearAll={() => {
-        onClearAll();
-        setActionName("onClearAll");
+      onClear={() => {
+        onClear(multiSelectId);
+        setActionName("onClear");
       }}
     />
   );
@@ -515,7 +520,7 @@ const MultiSelectStory = ({
   defaultItemsVisible = 5,
 }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClearAll, selectedItems } =
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -525,7 +530,7 @@ const MultiSelectStory = ({
     if (Object.keys(selectedItems).length !== 0) {
       action(actionName)(selectedItems);
     }
-    if (actionName === "onClearAll") {
+    if (actionName === "onClear") {
       action(actionName)(selectedItems);
     }
   }, [actionName, selectedItems]);
@@ -550,10 +555,95 @@ const MultiSelectStory = ({
         onMixedStateChange(e.target.id, id, items);
         setActionName("onMixedStateChange");
       }}
-      onClearAll={() => {
-        onClearAll();
-        setActionName("onClearAll");
+      onClear={() => {
+        onClear(id);
+        setActionName("onClear");
       }}
     />
+  );
+};
+
+// TODO: Replace with MultiSelectGroup once that component is done.
+const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
+  // Example with custom hook useMultiSelect.
+  const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
+    useMultiSelect();
+
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = useState("");
+
+  useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action(actionName)(selectedItems);
+    }
+    if (actionName === "onClear") {
+      action(actionName)(selectedItems);
+    }
+  }, [actionName, selectedItems]);
+
+  return (
+    <HStack minHeight="300px" alignItems="baseline">
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-1"
+        isBlockElement
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-1");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-1", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-1");
+          setActionName("onClear");
+        }}
+      />
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-2"
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-2");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-2", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-2");
+          setActionName("onClear");
+        }}
+      />
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-3"
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-3");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-3", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-3");
+          setActionName("onClear");
+        }}
+      />
+      <Button id="clear-all" onClick={() => onClearAll()}>
+        Clear All
+      </Button>
+    </HStack>
   );
 };

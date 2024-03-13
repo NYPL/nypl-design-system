@@ -76,7 +76,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClearAll={() => "clearAll"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -104,7 +104,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClearAll={() => "clearall"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -132,7 +132,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClearAll={() => "clearAll"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -161,7 +161,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClearAll={() => "clearAll"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -210,7 +210,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
-              onClearAll={() => "clearAll"}
+              onClear={() => "onClear"}
             />
           ))}
         </MultiSelectGroup>
@@ -237,7 +237,7 @@ describe.skip("MulitSelectGroup Accessibility", () => {
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
-              onClearAll={() => "clearAll"}
+              onClear={() => "onClear"}
             />
           ))}
         </MultiSelectGroup>
