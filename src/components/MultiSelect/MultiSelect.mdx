@@ -27,6 +27,7 @@ import { changelogData } from "./multiSelectChangelogData";
 - {<Link href="#block-element-or-float" target="_self">Block Element or Float</Link>}
 - {<Link href="#width" target="_self">Width</Link>}
 - {<Link href="#default-open-state" target="_self">Default Open State</Link>}
+- {<Link href="#multiselect-in-a-group" target="_self">MultiSelect in a Group</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
@@ -576,11 +577,19 @@ state by default.
 ## MultiSelect in a Group
 
 When using the `MultiSelect` component in a group, it is recommended to use the
-`useMultiSelect` hook to manage the state of all the components. The `onClearAll`
-function prop is available to use but it is recommended to use the `onClear`
-function to let the hook control the state of individual `MultiSelect` components.
-This allows the "clear" button to clear all the selected checkboxes in individual
-`MultiSelect` components without affect the rest in the same group.
+`useMultiSelect` hook to manage the state of all the `MultiSelect` components.
+
+The `useMultiSelect` hook provides an `onClear` function that should be used to
+clear all the selected checkboxes in individual `MultiSelect` components. This
+function should be passed to the `onClear` prop and is invoked through the
+"clear" button in the `MultiSelect` component.
+
+The `useMultiSelect` hook also provides an `onClearAll` function that can be
+used to clear all the selected checkboxes across all `MultiSelect` components.
+The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
+`onClearAll` function should be invoked in a separate button or action.
+Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
+in future releases.
 
 **IMPORTANT**: Make sure to give each `MultiSelect` component a unique `id`.
 

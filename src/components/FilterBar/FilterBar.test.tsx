@@ -72,6 +72,7 @@ const FilterBarTestComponent = ({
     onChange,
     onMixedStateChange,
     selectedItems,
+    onClear,
     onClearAll,
     isModalOpen,
     onToggle,
@@ -116,8 +117,8 @@ const FilterBarTestComponent = ({
                   multiSelect.items
                 );
               }}
-              onClearAll={() => {
-                onClearAll();
+              onClear={() => {
+                onClear(multiSelect.id);
               }}
             />
           ))}
@@ -145,7 +146,7 @@ const MultiSelectTestGroup = (multiSelectItems) => (
         defaultItemsVisible={defaultItemsVisible}
         onChange={() => null}
         onMixedStateChange={() => null}
-        onClearAll={() => "clearAll"}
+        onClear={() => "onClear"}
       />
     ))}
   </MultiSelectGroup>

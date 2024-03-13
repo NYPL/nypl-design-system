@@ -34,8 +34,6 @@ export interface MultiSelectProps {
   defaultItemsVisible?: number;
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
-  /** The action to perform for clear/reset button for multiple MultiSelect components. */
-  onClearAll?: () => void;
   /** The action to perform on the checkbox's onChange function. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
@@ -87,7 +85,6 @@ export const MultiSelect: ChakraComponent<
         buttonText,
         onChange,
         onClear,
-        onClearAll,
         onMixedStateChange,
         selectedItems,
         width = "full",
@@ -386,7 +383,6 @@ export const MultiSelect: ChakraComponent<
               selectedItemsString={selectedItemsString}
               selectedItemsCount={selectedItemsCount}
               onClear={onClear}
-              onClearAll={onClearAll}
               accordianButtonRef={accordianButtonRef}
             />
           )}

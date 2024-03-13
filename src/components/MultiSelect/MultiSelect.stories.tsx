@@ -11,6 +11,7 @@ import MultiSelect, {
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import { HStack, Stack } from "@chakra-ui/react";
+import Button from "../Button/Button";
 
 const withItems = [
   {
@@ -565,7 +566,7 @@ const MultiSelectStory = ({
 // TODO: Replace with MultiSelectGroup once that component is done.
 const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
+  const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useMultiSelect();
 
   // Hack to get storybook's action tab to log state change when selectedItems state changes.
@@ -640,6 +641,9 @@ const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onClear");
         }}
       />
+      <Button id="clear-all" onClick={() => onClearAll()}>
+        Clear All
+      </Button>
     </HStack>
   );
 };
