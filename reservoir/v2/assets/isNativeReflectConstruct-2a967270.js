@@ -1,0 +1,2 @@
+function i(t){if(t===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function o(t){return o=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(n){return n.__proto__||Object.getPrototypeOf(n)},o(t)}function r(){try{var t=!Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){}))}catch{}return(r=function(){return!!t})()}export{r as _,o as a,i as b};
+//# sourceMappingURL=isNativeReflectConstruct-2a967270.js.map

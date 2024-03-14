@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import CheckboxGroup from "./CheckboxGroup";
+declare const meta: Meta<typeof CheckboxGroup>;
+export default meta;
+type Story = StoryObj<typeof CheckboxGroup>;
+export declare const WithControls: Story;
+export declare const Layout: Story;
+export declare const Errored: Story;
+export declare const Required: Story;
+export declare const Disabled: Story;
+export declare const LabelsUsingJSXElements: Story;
+export declare const IndeterminateExample: Story;
+export declare const ProgrammaticallyUpdateValues: Story;

@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import SocialMediaLinks from "./SocialMediaLinks";
+declare const meta: Meta<typeof SocialMediaLinks>;
+export default meta;
+type Story = StoryObj<typeof SocialMediaLinks>;
+export declare const WithControls: Story;
+export declare const LayoutVariations: Story;
+export declare const SizeVariations: Story;
+export declare const ColorVariations: Story;
+export declare const BorderVariations: Story;
+export declare const LabelVariations: Story;
+export declare const noLinksData: Story;

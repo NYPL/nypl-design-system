@@ -1,0 +1,2 @@
+var o="STORYBOOK_ADDON_DESIGNS",i={UpdateConfig:o+"/update_config"},m="design";const{addons:d,makeDecorator:p}=__STORYBOOK_MODULE_ADDONS__;var s=function(e,a,r){var t=r.parameters,n=d.getChannel();return n.emit(i.UpdateConfig,t),e(a)},O=p({name:"withDesign",parameterName:m,skipIfNoParametersOrOptions:!0,wrapper:s});module&&module.hot&&module.hot.decline&&module.hot.decline();export{O as w};
+//# sourceMappingURL=index-6148c31a.js.map
