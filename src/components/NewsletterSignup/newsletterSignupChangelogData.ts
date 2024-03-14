@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles", "Functionality"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Updated the email field error message to following NYPL recommendations and use more direct language.",
+    ],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",

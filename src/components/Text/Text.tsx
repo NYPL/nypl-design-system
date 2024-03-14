@@ -1,4 +1,9 @@
-import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
+import {
+  Text as ChakraText,
+  chakra,
+  useStyleConfig,
+  ChakraComponent,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 export const textSizesArray = [
@@ -36,7 +41,12 @@ export interface TextProps {
   size?: TextSizes;
 }
 
-export const Text = chakra(
+export const Text: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TextProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TextProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TextProps>>(
     (props, ref?) => {
       const {

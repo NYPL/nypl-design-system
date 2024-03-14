@@ -10,7 +10,7 @@ import Tooltip from "../Tooltip/Tooltip";
 export const TooltipWrapper = ({
   label,
   children,
-}: React.PropsWithChildren<{ label: any }>) => {
+}: React.PropsWithChildren<any>) => {
   const maxCharLengthToShow = 20;
   const labelText = typeof label === "string" ? label : label.props.children;
   if (labelText.length > maxCharLengthToShow && typeof labelText === "string") {

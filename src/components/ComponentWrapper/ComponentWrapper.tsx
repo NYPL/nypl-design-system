@@ -32,7 +32,7 @@ export interface ComponentWrapperProps {
   showHelperInvalidText?: boolean;
 }
 
-export const ComponentWrapper = chakra(
+export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<ComponentWrapperProps>>(
     (props, ref?) => {
       const {

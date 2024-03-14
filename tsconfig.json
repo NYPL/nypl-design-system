@@ -32,7 +32,7 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "jsxImportSource": "@emotion/react",
+    // "jsxImportSource": "@emotion/react",
     // From header
     // "target": "ESNext",
     // "useDefineForClassFields": true,

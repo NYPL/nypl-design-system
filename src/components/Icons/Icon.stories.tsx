@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Icon from "./Icon";
@@ -28,6 +29,7 @@ const meta: Meta<typeof Icon> = {
       options: iconColorsArray,
       table: { defaultValue: { summary: "ui.black" } },
     },
+    decorative: argsBooleanType(true),
     iconRotation: {
       control: { type: "radio" },
       options: iconRotationsArray,

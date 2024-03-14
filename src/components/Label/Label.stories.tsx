@@ -31,7 +31,7 @@ export const WithControls: Story = {
     isRequired: false,
     text: "A label for a villager.",
   },
-  render: (args) => <Label {...args}>{args.text}</Label>,
+  render: (args: any) => <Label {...args}>{args.text}</Label>,
   parameters: {
     jest: "Label.test.tsx",
   },

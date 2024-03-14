@@ -1,6 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./skeletonLoaderChangelogData";
 import Link from "../Link/Link";
 
 <Meta of={SkeletonLoaderStories} />
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.17.3`   |
-| Latest            | `1.5.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#card-placeholders-in-a-grid" target="_self">Card Placeholders in a Grid</Link>}
 - {<Link href="#text-placeholders-in-a-list" target="_self">Text Placeholders in a List</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -63,3 +66,7 @@ Resources:
 ## Text Placeholders in a List
 
 <Canvas of={SkeletonLoaderStories.ListExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

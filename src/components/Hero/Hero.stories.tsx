@@ -97,6 +97,8 @@ export const WithControls: Story = {
     heading: undefined,
     heroType: "primary",
     imageProps,
+    "imageProps.alt": "",
+    "imageProps.src": "",
     isDarkBackgroundImage: undefined,
     locationDetails: undefined,
     subHeaderText: undefined,
@@ -200,29 +202,6 @@ export const Primary: Story = {
         />
       }
       heroType="primary"
-    />
-  ),
-};
-
-export const Secondary: Story = {
-  name: "Secondary (deprecated)",
-  render: () => (
-    <Hero
-      heading={
-        <Heading
-          level="h1"
-          id="secondary-hero"
-          size="heading2"
-          text="Hero Secondary (deprecated)"
-        />
-      }
-      heroType="secondary"
-      imageProps={imageProps}
-      subHeaderText={
-        <>
-          {secondarySubHeaderText} {deprecatedMessage}
-        </>
-      }
     />
   ),
 };
@@ -389,6 +368,29 @@ export const CampaignBackgroundColors: Story = {
         />
       </div>
     </Stack>
+  ),
+};
+
+export const Secondary: Story = {
+  name: "Secondary (deprecated)",
+  render: () => (
+    <Hero
+      heading={
+        <Heading
+          level="h1"
+          id="secondary-hero"
+          size="heading2"
+          text="Hero Secondary (deprecated)"
+        />
+      }
+      heroType="secondary"
+      imageProps={imageProps}
+      subHeaderText={
+        <>
+          {secondarySubHeaderText} {deprecatedMessage}
+        </>
+      }
+    />
   ),
 };
 
