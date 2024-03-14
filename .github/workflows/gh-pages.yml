@@ -30,7 +30,7 @@ jobs:
       - name: Build Storybook
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
-        run: npm run prebuild:storybook && npm run build-storybook:v2
+        run: npm run prebuild:storybook && npm run build-storybook:v3
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
