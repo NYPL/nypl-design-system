@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2014-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Updates the component's theme file to use native Chakra responsive styles of the font sizes and removed the conditional logic that handled that previously.",
+    ],
+  },
+  {
     date: "2024-02-22",
     version: "2.1.6",
     type: "Bug Fix",
@@ -22,8 +32,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Chakra 2.8 update.",
-      "Updates the component's theme file to use native Chakra responsive styles of the font sizes and removed the conditional logic that handled that previously.",
+      "Updated to use a custom `@media query` method to handle the responsive `font-size` styles.",
     ],
   },
   {
