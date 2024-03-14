@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Tabs, { TabList, Tab, TabPanels, TabPanel } from "./Tabs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const animalCrossingData = [
   {
@@ -82,9 +83,7 @@ const meta: Meta<typeof Tabs> = {
     id: { control: false },
     onChange: { control: false },
     tabsData: { control: false },
-    useHash: {
-      table: { defaultValue: { summary: false } },
-    },
+    useHash: argsBooleanType(),
   },
 };
 

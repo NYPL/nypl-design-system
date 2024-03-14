@@ -1,6 +1,7 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Radio from "./Radio";
@@ -13,24 +14,14 @@ const meta: Meta<typeof Radio> = {
     className: { control: false },
     id: { control: false },
     isChecked: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
     key: { table: { disable: true } },
     onChange: { control: false },
     ref: { table: { disable: true } },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
-    showLabel: {
-      table: { defaultValue: { summary: true } },
-    },
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
   },
 };
 

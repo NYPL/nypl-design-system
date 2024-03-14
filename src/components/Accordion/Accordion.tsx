@@ -6,20 +6,27 @@ import {
   Box,
   chakra,
   useColorMode,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
+import Icon, { IconColors } from "../Icons/Icon";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
-  label: string;
+  ariaLabel?: string;
+  /** Ref to the DOM element of the AccordionButton. */
+  buttonInteractionRef?: any;
+  label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
+  /** Global aria-label value that is applied to all accordions if individual
+   * ariaLabel props are not included with accordionData entries. */
+  ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -42,7 +49,7 @@ const getIcon = (
   isExpanded = false,
   index: number,
   id: string,
-  iconColor: string
+  iconColor: IconColors
 ) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
@@ -62,6 +69,7 @@ const getIcon = (
  */
 const getElementsFromData = (
   data: AccordionDataProps[] = [],
+  ariaLabel: string,
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
@@ -82,7 +90,7 @@ const getElementsFromData = (
   // Otherwise, use the default.
   const multipleFontSize =
     data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
-  const multiplePadding = data?.length > 1 ? "s" : "xs s";
+  const multiplePadding = data?.length > 1 ? "17.5px" : "xs s";
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -106,6 +114,16 @@ const getElementsFromData = (
         </AccordionPanel>
       );
 
+    const finalAriaLabel = content.ariaLabel ? content.ariaLabel : ariaLabel;
+
+    if (content.ariaLabel && ariaLabel) {
+      console.warn(
+        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+          "overall component and as part of the accordionData prop. Both can not " +
+          "be used, so the value in the accordionData prop will be used."
+      );
+    }
+
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
@@ -114,11 +132,13 @@ const getElementsFromData = (
           return (
             <>
               <AccordionButton
+                aria-label={finalAriaLabel}
                 id={`${id}-button-${index}`}
                 borderColor={
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
                 }
                 padding={multiplePadding}
+                ref={content.buttonInteractionRef}
                 bg={
                   !content.accordionType
                     ? colorMap.default
@@ -181,10 +201,16 @@ const getElementsFromData = (
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-export const Accordion = chakra(
+export const Accordion: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    AccordionProps & React.RefAttributes<HTMLDivElement>
+  >,
+  AccordionProps
+> = chakra(
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
+      ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,
@@ -206,6 +232,7 @@ export const Accordion = chakra(
       >
         {getElementsFromData(
           accordionData,
+          ariaLabel,
           id,
           isAlwaysRendered,
           isDarkMode,

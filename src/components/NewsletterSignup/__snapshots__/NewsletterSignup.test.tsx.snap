@@ -2,10 +2,10 @@
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders blogs color band with section.blogs.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -18,7 +18,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -64,7 +64,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -148,10 +148,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders booksAndMore color band with section.books-and-more.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -164,7 +164,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -210,7 +210,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -294,10 +294,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders brand color band with brand.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -310,7 +310,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -356,7 +356,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -440,10 +440,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders connect color band with section.connect.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -456,7 +456,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -502,7 +502,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -586,10 +586,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders education color band with section.education.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -602,7 +602,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -648,7 +648,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -732,10 +732,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders locations color band with section.locations.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -748,7 +748,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -794,7 +794,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -878,10 +878,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders research color band with section.research.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -894,7 +894,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -940,7 +940,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1024,10 +1024,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibraryLpa color band with section.research-library.lpa 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1040,7 +1040,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1086,7 +1086,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1170,10 +1170,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibrarySchomburg color band with section.research-library.schomburg 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1186,7 +1186,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1232,7 +1232,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1316,10 +1316,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders researchLibrarySchwarzman color band with section.research-library.schwartzman 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1332,7 +1332,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1378,7 +1378,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1462,10 +1462,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignupType correctly Renders whatsOn color band with section.whats-on.primary 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1478,7 +1478,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1524,7 +1524,7 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1608,10 +1608,10 @@ exports[`NewsletterSignup Snapshots Renders each color for each newsletterSignup
 
 exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1624,7 +1624,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1670,7 +1670,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -1733,7 +1733,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
                 className="css-0"
                 dangerouslySetInnerHTML={
                   {
-                    "__html": "Please enter a valid email address.",
+                    "__html": "There was a problem. Please enter a valid email address.",
                   }
                 }
               />
@@ -1760,10 +1760,10 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
 
 exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmationText snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1776,7 +1776,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1822,7 +1822,7 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -1880,10 +1880,10 @@ exports[`NewsletterSignup Snapshots Renders the confirmation UI with confirmatio
 
 exports[`NewsletterSignup Snapshots Renders the custom error state snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -1896,7 +1896,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1942,7 +1942,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -2003,10 +2003,10 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
 
 exports[`NewsletterSignup Snapshots Renders the default confirmation state snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2019,7 +2019,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2065,7 +2065,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -2123,10 +2123,10 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
 
 exports[`NewsletterSignup Snapshots Renders the default error state snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2139,7 +2139,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2185,7 +2185,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -2238,10 +2238,10 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
 
 exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2254,7 +2254,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2300,7 +2300,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -2384,10 +2384,10 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
 
 exports[`NewsletterSignup Snapshots Renders the form UI with description snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2400,7 +2400,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
       Why not?
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2446,7 +2446,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -2530,10 +2530,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
 
 exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2546,7 +2546,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2592,7 +2592,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"
@@ -2677,10 +2677,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
 
 exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-j7qwjs"
+  className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack css-p38jk0"
+    className="chakra-stack css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -2693,7 +2693,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
       Stay connected with the latest research news from NYPL, including information about our events, programs, exhibitions, and collections.
     </p>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2739,7 +2739,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     </a>
   </div>
   <div
-    className="chakra-stack css-1vr2anf"
+    className="chakra-stack css-tl3ftk"
   >
     <form
       aria-label="form"

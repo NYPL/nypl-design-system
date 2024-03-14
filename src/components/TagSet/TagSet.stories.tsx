@@ -1,8 +1,13 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { useState } from "react";
 
+import Button from "../Button/Button";
 import TagSet from "./TagSet";
+import { TagSetExploreProps } from "./TagSetExplore";
+import { TagSetFilterDataProps } from "./TagSetFilter";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TagSet> = {
   title: "Components/Form Elements/TagSet",
@@ -11,10 +16,7 @@ const meta: Meta<typeof TagSet> = {
   argTypes: {
     className: { control: false },
     id: { control: false },
-    isDismissible: {
-      control: "boolean",
-      table: { defaultValue: { summary: "false" } },
-    },
+    isDismissible: argsBooleanType(),
     onClick: { control: false },
     tagSetData: { control: false },
     type: {
@@ -35,8 +37,6 @@ export const ExploreVariant: Story = {
   args: {
     className: undefined,
     id: "tagSet-id-explore",
-    isDismissible: undefined,
-    onClick: undefined,
     tagSetData: [
       {
         label: (
@@ -71,7 +71,7 @@ export const ExploreVariant: Story = {
       },
     ],
     type: "explore",
-  },
+  } as TagSetExploreProps,
   argTypes: {
     isDismissible: { table: { disable: true } },
     onClick: { table: { disable: true } },
@@ -85,25 +85,58 @@ export const ExploreVariant: Story = {
   },
 };
 
-export const FilterVariant: Story = {
-  args: {
-    className: undefined,
-    id: "tagSet-id-filter",
-    isDismissible: true,
-    onClick: (tagLabel) => {
-      console.log(`Clicked from the onClick props: ${tagLabel}`);
-    },
-    tagSetData: [
-      { iconName: "utilityAccountFilled", label: "Abbey Road" },
-      { iconName: "actionLaunch", label: "The Beatles" },
-      { iconName: "alertWarningOutline", label: "Revolver" },
-      {
-        iconName: "check",
-        label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
-      },
-    ],
-    type: "filter",
+const defaultTagSetData: TagSetFilterDataProps[] = [
+  {
+    iconName: "utilityAccountFilled",
+    id: "abby-road",
+    label: "Abbey Road",
   },
+  { iconName: "actionLaunch", id: "the-beatles", label: "The Beatles" },
+  { iconName: "alertWarningOutline", id: "revolver", label: "Revolver" },
+  {
+    iconName: "check",
+    id: "st-peppers",
+    label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
+  },
+];
+const FilterVariantStory = () => {
+  const [tagSetData, setTagSetData] =
+    useState<TagSetFilterDataProps[]>(defaultTagSetData);
+  const handleOnClick = (tagSet) => {
+    console.log(`Clicked from the onClick props: ${tagSet.label}`);
+
+    if (tagSet.id === "clear-filters") {
+      setTagSetData([]);
+      return;
+    }
+    setTagSetData((prevTagSetData) =>
+      prevTagSetData.filter((tag) => {
+        return tag.id !== tagSet.id;
+      })
+    );
+  };
+
+  if (tagSetData.length === 0) {
+    return (
+      <Button id="reset-tags" onClick={() => setTagSetData(defaultTagSetData)}>
+        Reset Tags
+      </Button>
+    );
+  }
+
+  return (
+    <TagSet
+      id="tagSet-id-filter"
+      isDismissible
+      onClick={handleOnClick}
+      tagSetData={tagSetData}
+      type="filter"
+    />
+  );
+};
+
+export const FilterVariant: Story = {
+  render: (_args) => <FilterVariantStory />,
 };
 
 // The following are additional TagSet example Stories.
@@ -192,13 +225,13 @@ export const FormattingExamples: Story = {
           console.log(`Clicked from the onClick props: ${tagLabel}`)
         }
         tagSetData={[
-          { label: "Red" },
-          { label: "Orange" },
-          { label: "Yellow" },
-          { label: "Green" },
-          { label: "Blue" },
-          { label: "Indigo" },
-          { label: "Violet" },
+          { id: "red", label: "Red" },
+          { id: "orange", label: "Orange" },
+          { id: "yellow", label: "Yellow" },
+          { id: "green", label: "Green" },
+          { id: "blue", label: "Blue" },
+          { id: "indigo", label: "Indigo" },
+          { id: "violet", label: "Violet" },
         ]}
         type="filter"
       />
@@ -208,13 +241,13 @@ export const FormattingExamples: Story = {
           console.log(`Clicked from the onClick props: ${tagLabel}`)
         }
         tagSetData={[
-          { label: "Red" },
-          { label: "Orange" },
-          { label: "Yellow" },
-          { label: "Green" },
-          { label: "Blue" },
-          { label: "Indigo" },
-          { label: "Violet" },
+          { id: "red", label: "Red" },
+          { id: "orange", label: "Orange" },
+          { id: "yellow", label: "Yellow" },
+          { id: "green", label: "Green" },
+          { id: "blue", label: "Blue" },
+          { id: "indigo", label: "Indigo" },
+          { id: "violet", label: "Violet" },
         ]}
         type="filter"
       />
@@ -223,13 +256,13 @@ export const FormattingExamples: Story = {
           console.log(`Clicked from the onClick props: ${tagLabel}`)
         }
         tagSetData={[
-          { iconName: "alertWarningFilled", label: "Red" },
-          { iconName: "check", label: "Orange" },
-          { iconName: "check", label: "Yellow" },
-          { iconName: "alertWarningFilled", label: "Green" },
-          { iconName: "check", label: "Blue" },
-          { iconName: "check", label: "Indigo" },
-          { iconName: "check", label: "Violet" },
+          { iconName: "alertWarningFilled", id: "red", label: "Red" },
+          { iconName: "check", id: "orange", label: "Orange" },
+          { iconName: "check", id: "yellow", label: "Yellow" },
+          { iconName: "alertWarningFilled", id: "green", label: "Green" },
+          { iconName: "check", id: "blue", label: "Blue" },
+          { iconName: "check", id: "indigo", label: "Indigo" },
+          { iconName: "check", id: "violet", label: "Violet" },
         ]}
         type="filter"
       />

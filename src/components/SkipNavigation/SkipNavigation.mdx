@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./skipNavigationChangelogData";
 
 import * as SkipNavigationStories from "./SkipNavigation.stories";
 import Link from "../Link/Link";
@@ -10,13 +12,14 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.28.0`   |
-| Latest            | `1.5.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -53,3 +56,7 @@ Resources:
 - [WebAIM Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 - [WebAIM CSS in Action "Skip" links](https://webaim.org/techniques/css/invisiblecontent/#skipnavlinks)
 - [CSS-Tricks A Deep Dive on Skipping to Content](https://css-tricks.com/a-deep-dive-on-skipping-to-content/)
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

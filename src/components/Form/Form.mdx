@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import { changelogData } from "./formChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 import * as FormStories from "./Form.stories";
 import Link from "../Link/Link";
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `1.0.6`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#spacing-variants" target="_self">Spacing Variants</Link>}
 - {<Link href="#example-code" target="_self">Example Code</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -130,3 +133,7 @@ the `Form` component: `"grid.xxs"`, `"grid.xs"`, `"grid.s"`, `"grid.m"`,
 `}
   language="tsx"
 />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
