@@ -1,10 +1,29 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+// import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "bodyText",
+    "content",
+    "heading",
+    "imgWrapper",
+    "interior",
+  ]);
+
 // Used for all "secondary" variants.
-const secondaryBase = {
-  overflowX: "hidden",
-  bgColor: "ui.bg.default",
+const secondaryBase = definePartsStyle({
+  base: {
+    overflowX: "hidden",
+    bgColor: "ui.bg.default",
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+    },
+  },
   content: {
     ...wrapperStyles,
     paddingEnd: "inset.default",
@@ -37,10 +56,7 @@ const secondaryBase = {
     flex: { md: "1 1 50%" },
     order: { base: "3", md: "2" },
   },
-  _dark: {
-    bgColor: "dark.ui.bg.default",
-  },
-};
+});
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
   marginBottom: "0",
@@ -90,17 +106,19 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
   };
 };
 // Variant styling
-const primary = {
-  alignItems: "center",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexFlow: {
-    base: "column nowrap",
-    md: "row nowrap",
+const primary = definePartsStyle({
+  base: {
+    alignItems: "center",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    flexFlow: {
+      base: "column nowrap",
+      md: "row nowrap",
+    },
+    justifyContent: "center",
+    minHeight: "350px",
   },
-  justifyContent: "center",
-  minHeight: "350px",
   content: {
     bg: "ui.black",
     color: "ui.typography.inverse.body",
@@ -129,17 +147,26 @@ const primary = {
   heading: {
     color: "dark.ui.typography.heading",
   },
-};
+});
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
 );
-const secondaryLocations = getSecondaryVariantStyles(
-  "section.locations.primary"
+const secondaryLocations = definePartsStyle(
+  getSecondaryVariantStyles("section.locations.primary")
 );
-const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
-const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
-const tertiary = {
+const secondaryResearch = definePartsStyle(
+  getSecondaryVariantStyles("section.research.primary")
+);
+const secondaryWhatsOn = definePartsStyle(
+  getSecondaryVariantStyles("section.whats-on.primary")
+);
+const tertiary = definePartsStyle({
+  base: {
+    p: {
+      marginBottom: "0",
+    },
+  },
   content: {
     ...wrapperStyles,
     color: "ui.typography.inverse.body",
@@ -162,19 +189,23 @@ const tertiary = {
       marginBottom: "0",
     },
   },
-  p: {
-    marginBottom: "0",
+});
+const campaign = definePartsStyle({
+  base: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    padding: {
+      base: "inset.wide",
+      md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
+    },
+    position: "relative",
+    a: {
+      color: "inherit",
+      display: "inline-block",
+    },
+    img: screenreaderOnly(),
   },
-};
-const campaign = {
-  alignItems: "center",
-  display: "flex",
-  justifyContent: "center",
-  padding: {
-    base: "inset.wide",
-    md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
-  },
-  position: "relative",
   content: {
     alignItems: "stretch",
     bg: "ui.black",
@@ -196,11 +227,6 @@ const campaign = {
   heading: {
     color: "dark.ui.typography.heading",
   },
-  a: {
-    color: "inherit",
-    display: "inline-block",
-  },
-  img: screenreaderOnly(),
   imgWrapper: {
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -222,8 +248,11 @@ const campaign = {
       lg: "50%",
     },
   },
-};
-const fiftyFifty = {
+});
+const fiftyFifty = definePartsStyle({
+  base: {
+    img: screenreaderOnly(),
+  },
   content: {
     ...wrapperStyles,
     alignItems: "stretch",
@@ -242,7 +271,6 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-  img: screenreaderOnly(),
   bodyText: {
     alignSelf: "center",
     maxWidth: { md: "960px" },
@@ -255,11 +283,9 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-};
-const Hero = {
-  baseStyle: {
-    // ...
-  },
+});
+const Hero = defineMultiStyleConfig({
+  baseStyle: {},
   // Available variants:
   variants: {
     primary,
@@ -272,6 +298,6 @@ const Hero = {
     campaign,
     fiftyFifty,
   },
-};
+});
 
 export default Hero;

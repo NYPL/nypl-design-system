@@ -1,15 +1,17 @@
+import { defineStyleConfig, StyleFunctionProps } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
 import { labelLegendText } from "./global";
 
-interface LabelBaseStyle {
+interface LabelBaseStyle extends StyleFunctionProps {
   isInlined: boolean;
 }
 
-const Label = {
-  baseStyle: ({ isInlined }: LabelBaseStyle) => ({
+const Label = defineStyleConfig({
+  baseStyle: defineStyle((props: LabelBaseStyle) => ({
     ...labelLegendText,
-    flex: isInlined ? "1" : null,
-    whiteSpace: isInlined ? "nowrap" : null,
-  }),
-};
+    flex: props.isInlined ? "1" : null,
+    whiteSpace: props.isInlined ? "nowrap" : null,
+  })),
+});
 
 export default Label;

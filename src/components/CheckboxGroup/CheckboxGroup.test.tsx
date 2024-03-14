@@ -520,19 +520,6 @@ describe("Checkbox", () => {
     expect(withOtherProps).toMatchSnapshot();
   });
 
-  it("should throw warning when a non-Checkbox component is used as a child", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <CheckboxGroup labelText="wrong child!" name="wrong" id="wrong-child">
-        <p>This is wrong!</p>
-      </CheckboxGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
-        "allowed as children."
-    );
-  });
-
   it("passes a ref to the inner div wrapper element", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(

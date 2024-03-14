@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import { changelogData } from "./checkboxGroupChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 import * as CheckboxGroupStories from "./CheckboxGroup.stories";
 import Link from "../Link/Link";
@@ -7,10 +9,10 @@ import Link from "../Link/Link";
 
 # CheckboxGroup
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.1`   |
-| Latest            | `1.5.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.1`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -25,6 +27,7 @@ import Link from "../Link/Link";
 - {<Link href="#indeterminate-example" target="_self">Indeterminate Example</Link>}
 - {<Link href="#getting-checkbox-input-values" target="_self">Getting Checkbox Input Values</Link>}
 - {<Link href="#programmatically-update" target="_self">Programmatically Update</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -309,3 +312,7 @@ export function CheckboxGroupValuesUpdateExample() {
 />
 
 <Canvas of={CheckboxGroupStories.ProgrammaticallyUpdateValues} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

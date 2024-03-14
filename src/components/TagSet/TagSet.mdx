@@ -1,16 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as TagSetStories from "./TagSet.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./tagSetChangelogData";
 
 <Meta of={TagSetStories} />
 
 # TagSet
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `2.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `1.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#filter-variant" target="_self">Filter Variant</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -51,7 +54,7 @@ element; typically, links are expected to be used for the "explore" variant.
 const tagSetData = [
   {
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v2/?path=/story/components-basic-elements-card--with-controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/story/components-basic-elements-card--with-controls">
         Card
       </a>
     ),
@@ -59,7 +62,7 @@ const tagSetData = [
   {
     iconName: "fileTypeDoc",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v2/?path=/story/components-page-layout-structuredcontent--controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/story/components-page-layout-structuredcontent--controls">
         StructuredContent
       </a>
     ),
@@ -67,7 +70,7 @@ const tagSetData = [
   {
     iconName: "alertWarningOutline",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v2/?path=/story/components-feedback-progressindicator--with-controls">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/story/components-feedback-progressindicator--with-controls">
         ProgressIndicator
       </a>
     ),
@@ -75,7 +78,7 @@ const tagSetData = [
   {
     iconName: "actionSettings",
     label: (
-      <a href="https://nypl.github.io/nypl-design-system/reservoir/v2/?path=/docs/hooks-usenyplbreakpoints--docs">
+      <a href="https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/docs/hooks-usenyplbreakpoints--docs">
         useNYPLBreakpoints React hook
       </a>
     ),
@@ -96,37 +99,79 @@ filters and updated results are the responsibility of the consuming application.
 
 Notes:
 
-- The `isDismissible` prop is optional and the `onClick` prop is required for
-  this variant.
-- The `onClick` prop will only fire when `isDismissible` is true and the user
-  clicks a tag.
-- Icons will not be rendered when `isDismissible` is true. In this case, the "X"
-  close icon will be rendered instead.
+- The `isDismissible` and `onClick` props are optional for this variant. However,
+  when `isDismissible` is true, the `onClick` prop is required. The `onClick`
+  prop will only fire when `isDismissible` is true and the user clicks a tag.
+  The function will return the entire tag object that was clicked to remove.
+- Icons will not be rendered when `isDismissible` is true so the `iconName`
+  property will be ignored. In this case, the "X" close icon will be
+  rendered instead.
 - When the `isDismissible` prop is true, a "Clear Filters" button will be
-  rendered at the end of the list of tags. Clicking this button will also
-  trigger the `onClick` prop.
+  rendered at the end of the list of tags when there are two or more tags.
+  Clicking this button will also trigger the `onClick` prop. The `onClick`
+  function will return the following object as an argument:
+  `{ label: "Clear Filters", id: "clear-filters" }`
 
 <Canvas of={TagSetStories.FilterVariant} />
+
+<Source
+  code={`
+// Code for the working example above.
+const FilterVariantStory = () => {
+  const [tagSetData, setTagSetData] =
+    useState<TagSetFilterDataProps[]>(defaultTagSetData);
+  const handleOnClick = (tagSet) => {
+    if (tagSet.id === "clear-filters") {
+      setTagSetData([]);
+      return;
+    }
+    setTagSetData((prevTagSetData) =>
+      prevTagSetData.filter((tag) => {
+        return tag.id !== tagSet.id;
+      })
+    );
+  };
+  // Just to restart the Storybook example
+  if (tagSetData.length === 0) {
+    return (
+      <Button id="reset-tags" onClick={() => setTagSetData(defaultTagSetData)}>
+        Reset Tags
+      </Button>
+    );
+  }
+  return (
+    <TagSet
+      id="tagSet-id-filter"
+      isDismissible
+      onClick={handleOnClick}
+      tagSetData={tagSetData}
+      type="filter"
+    />
+  );
+};
+`}
+  language="tsx"
+/>
 
 <ArgTypes of={TagSetStories.FilterVariant} />
 
 ### \`tagSetData\` Prop for Filter Variant
 
-The `tagSetData` prop is an array of objects that contain `iconName` and `label`
-properties. The `iconName` is the name of the icon to display through the
-Reservoir `Icon` component and is optional. The `label` _MUST_ be a string for
-the filter type.
+The `tagSetData` prop is an array of objects that contain `iconName`, `id`, and
+`label` properties. The `iconName` is the name of the icon to display through
+the Reservoir `Icon` component and is optional. The `label` _MUST_ be a string
+for the filter type.
+
+Additionally, the data object can take in any additional properties that the
+consuming application may need for logic filtering.
 
 <Source
   code={`
 const tagSetData = [
-  { iconName: "utilityAccountFilled", label: "Abbey Road" },
-  { iconName: "actionLaunch", label: "The Beatles" },
-  { iconName: "alertWarningOutline", label: "Revolver" },
-  {
-    iconName: "check",
-    label: "The Beatles Sgt. Pepper's Lonely Hearts Club Band",
-  },
+  { iconName: "utilityAccountFilled", label: "Abbey Road", id: "abby-road" },
+  { iconName: "actionLaunch", label: "The Beatles", id: "the-beatles" },
+  { iconName: "alertWarningOutline", label: "Revolver", id: "revolver" },
+  { iconName: "check", label: "Sgt. Pepper's Lonely Hearts Club Band", id: "sgt-pepper" },
 ];
 `}
   language="tsx"
@@ -152,3 +197,8 @@ Resources:
 ## Examples
 
 <Canvas of={TagSetStories.FormattingExamples} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
+```

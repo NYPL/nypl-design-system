@@ -1,7 +1,5 @@
-interface LogoBaseStyle {
-  size: keyof typeof size | keyof typeof sizeBasedOnHeight;
-  sizeBasedOn: "height" | "width";
-}
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
 
 const svgBase = (sizeBasedOn: "height" | "width") => {
   return {
@@ -73,8 +71,14 @@ const sizeBasedOnHeight = {
     width: "var(--nypl-space-xxl)",
   },
 };
-const Logo = {
-  baseStyle: (props: LogoBaseStyle) => {
+
+interface LogoBaseStyle extends StyleFunctionProps {
+  size: keyof typeof size | keyof typeof sizeBasedOnHeight;
+  sizeBasedOn: "height" | "width";
+}
+
+const Logo = defineStyleConfig({
+  baseStyle: defineStyle((props: LogoBaseStyle) => {
     const allStyles = {
       ...svgBase(props.sizeBasedOn),
       ...(props.sizeBasedOn === "width"
@@ -89,7 +93,7 @@ const Logo = {
         ...allStyles,
       },
     };
-  },
-};
+  }),
+});
 
 export default Logo;

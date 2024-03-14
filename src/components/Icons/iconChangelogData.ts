@@ -20,6 +20,13 @@ export const changelogData: ChangelogData[] = [
     date: "2024-01-04",
     version: "2.1.4",
     type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
       "Added the actionDelete, actionHome, actionLockClosed, actionPayment, communicationCall, communicationChatBubble, and communicationEmail icons.",

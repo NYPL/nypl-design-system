@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { useState, forwardRef, useEffect } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -45,7 +50,13 @@ export interface AudioPlayerProps {
 /**
  * Renders an audio player from 3rd party services such as Libsyn, SoundCloud, and Spotify.
  */
-export const AudioPlayer = chakra(
+export const AudioPlayer: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<AudioPlayerProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  AudioPlayerProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<AudioPlayerProps>>(
     (props, ref?) => {
       const {
@@ -133,7 +144,7 @@ export const AudioPlayer = chakra(
           id={`${id}-componentWrapper`}
           data-testid="audio-player-component"
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {invalidEmbed ? (

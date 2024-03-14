@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles", "Functionality"],
+    notes: [
+      "A general refactor of the Link component to improve its usability with other elements and within application frameworks.",
+      "Chakra 2.8 update.",
+    ],
+  },
+  {
     date: "2023-11-14",
     version: "2.1.3",
     type: "Update",

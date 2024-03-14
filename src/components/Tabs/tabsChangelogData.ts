@@ -9,6 +9,17 @@
 import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
+  // TODO: Update on new date
+  {
+    date: "Prelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Documentation", "Styles"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Updates mobile view of tabs to be scrollable and arrow buttons updates the active tab",
+    ],
+  },
   {
     date: "2024-02-05",
     version: "2.1.5",

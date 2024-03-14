@@ -1,10 +1,18 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "accordionStyles",
+    "buttonTextLabel",
+    "menuChildren",
+    "menuSearchInputBox",
+    "viewAllButton",
+  ]);
+
 export const multiSelectWidths = {
-  default: {
-    width: {
-      base: "100%",
-      md: "250px",
-    },
-  },
   fitContent: {
     width: {
       base: "100%",
@@ -13,122 +21,110 @@ export const multiSelectWidths = {
     minWidth: {
       md: "175px",
     },
+    maxWidth: {
+      md: "360px",
+    },
   },
   full: {
     width: "100%",
   },
 };
 
-const MultiSelect = {
-  parts: [
-    "actionButtons",
-    "menu",
-    "menuButton",
-    "menuContainer",
-    "menuChildren",
-  ],
-  baseStyle: ({ isBlockElement, isOpen, width = "default" }) => ({
-    ...multiSelectWidths[width],
-    position: "relative",
-    actionButtons: {
-      borderTop: "1px solid",
-      borderColor: "ui.gray.medium",
-      gap: { base: "0", md: "s" },
-      justifyContent: "flex-end",
-      padding: { base: "s", md: "xs" },
-      width: "auto",
-    },
-    menuContainer: {
-      backgroundColor: "white",
-      position: {
-        md: isBlockElement ? "relative" : "absolute",
-      },
-      display: isOpen ? "block" : "none",
-      zIndex: isBlockElement ? 0 : 9999,
-      ...(width === "fitContent" && {
-        minWidth: {
-          md: "275px",
-        },
-        maxWidth: {
-          md: "375px",
-        },
-      }),
-      width: "100%",
-      // These are for active states
-      boxSizing: "border-box",
-      border: "1px solid",
-      borderBottomLeftRadius: "button.default",
-      borderBottomRightRadius: "button.default",
-      borderTopLeftRadius: "0",
-      borderTopRightRadius: "0",
-      borderColor: "ui.gray.dark",
-      marginTop: "-1px",
-      paddingX: 0,
-      paddingY: 0,
-      ul: {
-        m: 0,
-        px: 0,
-        py: "xs",
-        li: {
-          p: 0,
-          div: {
-            px: "s",
-            paddingTop: "xs",
-            paddingBottom: "6px",
-            _hover: {
-              bg: "ui.gray.x-light-cool",
-            },
-          },
-        },
-        ul: {
-          py: 0,
-          li: {
-            div: {
-              paddingLeft: "46px",
-              paddingRight: 0,
-            },
-          },
-        },
-      },
-      _dark: {
-        background: "dark.ui.bg.default",
-        borderColor: "dark.ui.border.hover",
-        ul: {
-          li: {
-            div: {
-              _hover: {
-                bg: "dark.ui.bg.hover",
-              },
-            },
-          },
-        },
-      },
-    },
-    menu: {
-      paddingX: "xs",
-      // Controls the height of the multiselect menu, before scroll bar.
-      maxHeight: {
-        base: "100%",
-        md: "285px",
-      },
-      overflowX: {
-        base: "hidden",
-      },
-      overflowY: {
-        base: "auto",
-      },
-      _focus: {
-        outline: "0px !important",
-      },
-      _dark: {
-        colorScheme: "dark",
-      },
+const MultiSelect = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isBlockElement, width = "full" }) => ({
+    base: {
+      position: "relative",
     },
     menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
     },
-  }),
-};
+    viewAllButton: {
+      color: "ui.link.primary",
+      marginLeft: "-4px",
+      px: "xs",
+      py: "xxs",
+      _hover: {
+        bg: "ui.link.primary-05",
+      },
+      _dark: {
+        color: "dark.ui.link.primary",
+        _hover: {
+          bg: "dark.ui.link.primary-10",
+        },
+      },
+    },
+    buttonTextLabel: {
+      marginBottom: 0,
+      ...(width === "fitContent" && {
+        textOverflow: "ellipsis",
+        overflow: "hidden",
+      }),
+      marginLeft: "56px",
+    },
+    menuSearchInputBox: {
+      input: {
+        backgroundColor: "ui.bg.default",
+        border: "none",
+      },
+    },
+    accordionStyles: {
+      ".chakra-accordion__item": {
+        _dark: {
+          bgColor: "transparent",
+        },
+      },
+      ".chakra-accordion__button": {
+        backgroundColor: "ui.white",
+        fontWeight: "default",
+        minWidth: width === "full" ? "100%" : "175px",
+        position: "relative",
+        width: width === "full" ? "100%" : { base: "100%", md: "fit-content" },
+        overflow: "hidden",
+        zIndex: 1,
+        div: {
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        },
+        span: {
+          overflow: "hidden",
+        },
+        _hover: {
+          backgroundColor: "ui.white",
+        },
+        _dark: {
+          backgroundColor: "dark.ui.bg.default",
+          borderStartColor: "dark.ui.border.default",
+          borderStartWidth: "1px",
+          _hover: {
+            borderStartColor: "ui.gray.dark",
+          },
+        },
+        _expanded: {
+          bgColor: "ui.link.primary-05",
+          _dark: {
+            bgColor: "dark.ui.link.primary-10",
+          },
+        },
+      },
+      ".chakra-collapse": {
+        bgColor: "ui.bg.page",
+        overflow: "unset !important",
+        borderTopWidth: "1px",
+        marginTop: "-1px",
+        position: isBlockElement ? null : "absolute",
+        zIndex: 2,
+        ...multiSelectWidths[width],
+      },
+      ".chakra-accordion__panel": {
+        bgColor: "ui.white",
+        _dark: {
+          bgColor: "dark.ui.bg.page",
+        },
+      },
+    },
+  })),
+});
 
 export default MultiSelect;
