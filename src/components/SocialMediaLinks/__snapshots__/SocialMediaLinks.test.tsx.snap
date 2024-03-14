@@ -7,7 +7,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when linksD
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/elsewhere"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -56,7 +56,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when linksD
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -113,7 +113,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -162,7 +162,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -211,7 +211,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -260,7 +260,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -309,7 +309,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -358,7 +358,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -407,7 +407,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -456,7 +456,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -505,7 +505,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -562,7 +562,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -611,7 +611,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -660,7 +660,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -709,7 +709,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -758,7 +758,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -807,7 +807,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -856,7 +856,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -905,7 +905,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -954,7 +954,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1011,7 +1011,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1058,7 +1058,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1105,7 +1105,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1152,7 +1152,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1199,7 +1199,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1246,7 +1246,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1293,7 +1293,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1340,7 +1340,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1387,7 +1387,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1442,7 +1442,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1491,7 +1491,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1540,7 +1540,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1589,7 +1589,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1638,7 +1638,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1687,7 +1687,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1736,7 +1736,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1785,7 +1785,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1834,7 +1834,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1891,7 +1891,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1940,7 +1940,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -1989,7 +1989,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2038,7 +2038,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2087,7 +2087,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2136,7 +2136,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2185,7 +2185,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2234,7 +2234,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2283,7 +2283,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2340,7 +2340,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2387,7 +2387,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2434,7 +2434,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2481,7 +2481,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2528,7 +2528,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2575,7 +2575,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2622,7 +2622,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2669,7 +2669,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2716,7 +2716,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2771,7 +2771,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2820,7 +2820,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2869,7 +2869,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2918,7 +2918,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -2967,7 +2967,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3016,7 +3016,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3065,7 +3065,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3114,7 +3114,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3163,7 +3163,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3220,7 +3220,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3267,7 +3267,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3314,7 +3314,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3361,7 +3361,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3408,7 +3408,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3455,7 +3455,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3502,7 +3502,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3549,7 +3549,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3596,7 +3596,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3651,7 +3651,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3700,7 +3700,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3749,7 +3749,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3798,7 +3798,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3847,7 +3847,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3896,7 +3896,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3945,7 +3945,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -3994,7 +3994,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4043,7 +4043,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4100,7 +4100,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4149,7 +4149,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4198,7 +4198,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4247,7 +4247,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4296,7 +4296,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4345,7 +4345,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4394,7 +4394,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4443,7 +4443,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4492,7 +4492,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4549,7 +4549,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4596,7 +4596,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4643,7 +4643,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4690,7 +4690,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4737,7 +4737,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4784,7 +4784,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4831,7 +4831,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4878,7 +4878,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4925,7 +4925,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -4980,7 +4980,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5027,7 +5027,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5074,7 +5074,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5121,7 +5121,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5168,7 +5168,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5215,7 +5215,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5262,7 +5262,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5309,7 +5309,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5356,7 +5356,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5411,7 +5411,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5460,7 +5460,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5509,7 +5509,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5558,7 +5558,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5607,7 +5607,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5656,7 +5656,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5705,7 +5705,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5754,7 +5754,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5803,7 +5803,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5860,7 +5860,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5907,7 +5907,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -5954,7 +5954,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6001,7 +6001,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6048,7 +6048,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6095,7 +6095,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6142,7 +6142,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6189,7 +6189,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6236,7 +6236,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6291,7 +6291,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6340,7 +6340,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6389,7 +6389,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6438,7 +6438,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6487,7 +6487,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6536,7 +6536,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6585,7 +6585,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6634,7 +6634,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6683,7 +6683,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6740,7 +6740,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6789,7 +6789,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6838,7 +6838,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6887,7 +6887,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6936,7 +6936,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -6985,7 +6985,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7034,7 +7034,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7083,7 +7083,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7132,7 +7132,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7189,7 +7189,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7238,7 +7238,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7287,7 +7287,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7336,7 +7336,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7385,7 +7385,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7434,7 +7434,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7483,7 +7483,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7532,7 +7532,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7581,7 +7581,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7638,7 +7638,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7687,7 +7687,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7736,7 +7736,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7785,7 +7785,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7834,7 +7834,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7883,7 +7883,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7932,7 +7932,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -7981,7 +7981,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8030,7 +8030,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8087,7 +8087,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8134,7 +8134,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8181,7 +8181,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8228,7 +8228,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8275,7 +8275,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8322,7 +8322,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8369,7 +8369,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8416,7 +8416,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8463,7 +8463,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8518,7 +8518,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8567,7 +8567,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8616,7 +8616,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8665,7 +8665,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8714,7 +8714,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8763,7 +8763,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8812,7 +8812,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8861,7 +8861,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8910,7 +8910,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -8967,7 +8967,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9016,7 +9016,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9065,7 +9065,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9114,7 +9114,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9163,7 +9163,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9212,7 +9212,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9261,7 +9261,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9310,7 +9310,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9359,7 +9359,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9416,7 +9416,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9463,7 +9463,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9510,7 +9510,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9557,7 +9557,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9604,7 +9604,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9651,7 +9651,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9698,7 +9698,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9745,7 +9745,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9792,7 +9792,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9847,7 +9847,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9896,7 +9896,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9945,7 +9945,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -9994,7 +9994,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10043,7 +10043,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10092,7 +10092,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10141,7 +10141,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10190,7 +10190,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10239,7 +10239,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10296,7 +10296,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10343,7 +10343,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10390,7 +10390,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10437,7 +10437,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10484,7 +10484,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10531,7 +10531,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10578,7 +10578,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10625,7 +10625,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10672,7 +10672,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10727,7 +10727,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10776,7 +10776,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10825,7 +10825,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10874,7 +10874,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10923,7 +10923,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -10972,7 +10972,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11021,7 +11021,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11070,7 +11070,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11119,7 +11119,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11176,7 +11176,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11225,7 +11225,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11274,7 +11274,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11323,7 +11323,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11372,7 +11372,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11421,7 +11421,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11470,7 +11470,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11519,7 +11519,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11568,7 +11568,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11625,7 +11625,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11672,7 +11672,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11719,7 +11719,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11766,7 +11766,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11813,7 +11813,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11860,7 +11860,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11907,7 +11907,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -11954,7 +11954,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12001,7 +12001,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12056,7 +12056,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12103,7 +12103,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12150,7 +12150,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12197,7 +12197,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12244,7 +12244,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12291,7 +12291,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12338,7 +12338,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12385,7 +12385,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12432,7 +12432,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12487,7 +12487,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12536,7 +12536,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12585,7 +12585,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12634,7 +12634,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12683,7 +12683,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12732,7 +12732,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12781,7 +12781,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12830,7 +12830,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12879,7 +12879,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12936,7 +12936,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -12983,7 +12983,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13030,7 +13030,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13077,7 +13077,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13124,7 +13124,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13171,7 +13171,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13218,7 +13218,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13265,7 +13265,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13312,7 +13312,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13367,7 +13367,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13416,7 +13416,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13465,7 +13465,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13514,7 +13514,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13563,7 +13563,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13612,7 +13612,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13661,7 +13661,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13710,7 +13710,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13759,7 +13759,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13816,7 +13816,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 >
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.org/blog"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13865,7 +13865,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://facebook.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13914,7 +13914,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://instagram.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -13963,7 +13963,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://pinterest.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -14012,7 +14012,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://soundcloud.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -14061,7 +14061,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://tiktok.com/@nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -14110,7 +14110,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://nypl.tumblr.com"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -14159,7 +14159,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://twitter.com/nypl"
       rel="nofollow noopener noreferrer"
       target="_blank"
@@ -14208,7 +14208,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   </li>
   <li>
     <a
-      className="css-1xdhyk6"
+      className="chakra-link css-1xdhyk6"
       href="https://youtube.com/newyorkpubliclibrary"
       rel="nofollow noopener noreferrer"
       target="_blank"

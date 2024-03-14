@@ -7,7 +7,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -107,7 +107,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -207,7 +207,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -307,7 +307,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -407,7 +407,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -507,7 +507,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"
@@ -608,7 +608,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
   id="breadcrumbs-test"
 >
   <ol
-    className="chakra-breadcrumb__list css-0"
+    className="chakra-breadcrumb__list css-70qvj9"
   >
     <li
       className="chakra-breadcrumb__list-item css-18biwo"

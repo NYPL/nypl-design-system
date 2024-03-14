@@ -1,8 +1,16 @@
-interface CustomImageBaseStyle {
-  ratio: keyof typeof imageRatios;
-  size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
-  sizeBasedOn: "height" | "width";
-}
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const {
+  defineMultiStyleConfig: defineImageMultiStyleConfig,
+  definePartsStyle: defineImagePartsStyle,
+} = createMultiStyleConfigHelpers(["base", "img", "figcaption", "figure"]);
+const {
+  defineMultiStyleConfig: defineImageWrapperMultiStyleConfig,
+  definePartsStyle: defineImageWrapperPartsStyle,
+} = createMultiStyleConfigHelpers(["base", "crop"]);
 
 const sizes = {
   xxxsmall: 32,
@@ -12,7 +20,6 @@ const sizes = {
   medium: 225,
   large: 360,
 };
-
 const imageWrap = (sizeBasedOn: "height" | "width") => {
   return {
     position: "relative",
@@ -21,7 +28,6 @@ const imageWrap = (sizeBasedOn: "height" | "width") => {
     overflow: "hidden",
   };
 };
-
 const sideMarginsAuto = {
   marginStart: "auto",
   marginEnd: "auto",
@@ -110,7 +116,6 @@ const imageRatios = {
     paddingBottom: "50%",
   },
 };
-
 const imageWidthsBasedOnHeight = (height: number) => {
   return {
     fourByThree: {
@@ -137,101 +142,113 @@ const imageWidthsBasedOnHeight = (height: number) => {
     },
   };
 };
-const CustomImage = {
-  parts: ["captionWrappers"],
-  variants: {
-    circle: {
-      img: {
-        borderRadius: "50%",
+
+interface ReservoirImageBaseStyle extends StyleFunctionProps {
+  ratio: keyof typeof imageRatios;
+  size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
+  sizeBasedOn: "height" | "width";
+}
+
+const ReservoirImage = defineImageMultiStyleConfig({
+  baseStyle: defineImagePartsStyle(
+    ({
+      ratio = "original",
+      size = "default",
+      sizeBasedOn = "width",
+    }: ReservoirImageBaseStyle) => ({
+      figure: {
+        margin: "auto",
+        ...(sizeBasedOn === "width"
+          ? { ...imageSizes[size], width: "100%" }
+          : {
+              ...imageSizesBasedOnHeight[size],
+              ...imageWidthsBasedOnHeight(sizes[size])[ratio],
+              height: ratio === "original" ? `${sizes[size]}px` : "100%",
+              width:
+                ratio === "original" && size !== "default"
+                  ? "max-content"
+                  : "100%",
+            }),
+        img: {
+          backgroundColor: "ui.bg.default",
+          marginBottom: "xxs",
+          _dark: {
+            backgroundColor: "dark.ui.bg.default",
+          },
+        },
       },
-    },
-  },
-  baseStyle: ({
-    ratio = "original",
-    size = "default",
-    sizeBasedOn = "width",
-  }: CustomImageBaseStyle) => ({
-    figure: {
-      margin: "auto",
-      ...(sizeBasedOn === "width"
-        ? { ...imageSizes[size], width: "100%" }
-        : {
-            ...imageSizesBasedOnHeight[size],
-            ...imageWidthsBasedOnHeight(sizes[size])[ratio],
-            height: ratio === "original" ? `${sizes[size]}px` : "100%",
-            width:
-              ratio === "original" && size !== "default"
-                ? "max-content"
-                : "100%",
-          }),
+      figcaption: {
+        fontStyle: "italic",
+      },
       img: {
+        display: "block",
         backgroundColor: "ui.bg.default",
-        marginBottom: "xxs",
+        boxSizing: "border-box",
+        objectFit: "cover",
+        position: "relative",
+        ...(sizeBasedOn === "width"
+          ? { ...imageSizes[size], width: "100%" }
+          : {
+              ...imageSizesBasedOnHeight[size],
+              ...imageWidthsBasedOnHeight(sizes[size])[ratio],
+              height: "100%",
+            }),
         _dark: {
           backgroundColor: "dark.ui.bg.default",
         },
       },
-    },
-    figcaption: {
-      fontStyle: "italic",
-    },
-    img: {
-      display: "block",
-      backgroundColor: "ui.bg.default",
-      boxSizing: "border-box",
-      objectFit: "cover",
-      position: "relative",
-      ...(sizeBasedOn === "width"
-        ? { ...imageSizes[size], width: "100%" }
-        : {
-            ...imageSizesBasedOnHeight[size],
-            ...imageWidthsBasedOnHeight(sizes[size])[ratio],
-            height: "100%",
-          }),
-      _dark: {
-        backgroundColor: "dark.ui.bg.default",
+    })
+  ),
+  variants: {
+    circle: defineImagePartsStyle({
+      img: {
+        borderRadius: "50%",
       },
-    },
-  }),
-};
-const CustomImageWrapper = {
-  parts: ["crop"],
-  baseStyle: ({
-    ratio = "original",
-    size = "default",
-    sizeBasedOn = "width",
-  }: CustomImageBaseStyle) => ({
-    marginStart: "auto",
-    marginEnd: "auto",
-    ...(sizeBasedOn === "width"
-      ? { ...imageSizes[size], width: "100%" }
-      : {
-          ...imageSizesBasedOnHeight[size],
-          ...imageWidthsBasedOnHeight(sizes[size])[ratio],
-          height: "100%",
-        }),
-    crop: {
-      ...imageWrap(sizeBasedOn),
-      ...imageRatios[ratio],
-      ...(sizeBasedOn === "height" && {
-        ...imageWidthsBasedOnHeight(sizes[size])[ratio],
-      }),
-    },
-    img: {
-      ...(sizeBasedOn === "width"
-        ? { maxWidth: "100%" }
-        : { maxHeight: "100%" }),
-      backgroundColor: "ui.bg.default",
-      height: "100%",
-      left: "0",
-      width: "100%",
-      position: "absolute",
-      top: "0",
-      _dark: {
-        backgroundColor: "dark.ui.bg.default",
-      },
-    },
-  }),
-};
+    }),
+  },
+});
 
-export { CustomImage, CustomImageWrapper };
+const ReservoirImageWrapper = defineImageWrapperMultiStyleConfig({
+  baseStyle: defineImageWrapperPartsStyle(
+    ({
+      ratio = "original",
+      size = "default",
+      sizeBasedOn = "width",
+    }: ReservoirImageBaseStyle) => ({
+      base: {
+        marginStart: "auto",
+        marginEnd: "auto",
+        ...(sizeBasedOn === "width"
+          ? { ...imageSizes[size], width: "100%" }
+          : {
+              ...imageSizesBasedOnHeight[size],
+              ...imageWidthsBasedOnHeight(sizes[size])[ratio],
+              height: "100%",
+            }),
+        img: {
+          ...(sizeBasedOn === "width"
+            ? { maxWidth: "100%" }
+            : { maxHeight: "100%" }),
+          backgroundColor: "ui.bg.default",
+          height: "100%",
+          left: "0",
+          width: "100%",
+          position: "absolute",
+          top: "0",
+          _dark: {
+            backgroundColor: "dark.ui.bg.default",
+          },
+        },
+      },
+      crop: {
+        ...imageWrap(sizeBasedOn),
+        ...imageRatios[ratio],
+        ...(sizeBasedOn === "height" && {
+          ...imageWidthsBasedOnHeight(sizes[size])[ratio],
+        }),
+      },
+    })
+  ),
+});
+
+export { ReservoirImage, ReservoirImageWrapper };

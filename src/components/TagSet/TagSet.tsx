@@ -1,4 +1,9 @@
-import { chakra, Flex, useStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  ChakraComponent,
+  Flex,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import TagSetExplore, {
@@ -13,6 +18,8 @@ import TagSetFilter, {
 export interface BaseTagSetProps {
   /** Additional class for the component. */
   className?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
 }
 
 // We want either the "explore" or "filter" type props.
@@ -37,7 +44,12 @@ export function isFilterType(type: TagSetProps["type"]): type is "filter" {
  * The full label text will be automatically revealed when the tag is hovered
  * with a DS `Tooltip` component.
  */
-export const TagSet = chakra(
+export const TagSet: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    TagSetProps & React.RefAttributes<HTMLDivElement>
+  >,
+  TagSetProps
+> = chakra(
   forwardRef<HTMLDivElement, TagSetProps>((props: TagSetProps, ref?) => {
     const {
       className,
@@ -67,7 +79,6 @@ export const TagSet = chakra(
       <Flex className={className} id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterType(type) && (
           <TagSetExplore
-            id={id}
             tagSetData={tagSetData as TagSetExploreDataProps[]}
             type={type}
           />

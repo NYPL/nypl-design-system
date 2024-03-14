@@ -1,0 +1,160 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import Link from "../Link/Link";
+
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import * as MenuStories from "./Menu.stories";
+import { changelogData } from "./menuChangelogData";
+
+<Meta of={MenuStories} />
+
+# Menu
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `Prerelease` |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#menu-types" target="_self">Menu Types</Link>}
+- {<Link href="#menu-content" target="_self">Menu Content</Link>}
+- {<Link href="#menu-highlight-colors" target="_self">Menu Highlight Colors</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
+
+## Overview
+
+<Description of={MenuStories} />
+
+The Menu component renders a collection of button and/or link elements within a dropdown menu format.
+The component allows users to perform multiple actions from an element with a small footprint.
+
+## Component Props
+
+<Canvas of={MenuStories.WithControls} />
+
+<ArgTypes of={MenuStories.WithControls} />
+
+## Accessibility
+
+When the menu is open, the menu items are keyboard accessible with the `ArrowDown` and `ArrowUp` keys, but not tabbable.
+The focus indicator is the gray background and bolded text.
+The `Enter` key, or a click, selects an item and closes the menu.
+The menu can also be closed with a click outside of its container or the `Escape` key.
+
+After a list action item is clicked, consuming apps should be mindful of the action that is performed by the action item's onClick handler and adjust the focus accordingly.
+
+The menu itself requires a label to provide meaningful accessible text, even when only the vertical ellipsis is used instead of a visible label.
+
+Resources:
+
+- [MDN Menu accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role)
+
+## Menu Types
+
+There are four types: button, text button, icon (with container), and icon (without container). These types are toggled with `showLabel` and `showBorder`.
+Use the icon type when there is limited space such as a table or on mobile.
+
+<Canvas of={MenuStories.MenuTypes} />
+
+## Menu Content
+
+Menu items can be displayed with images, icons, or just as text. They can be grouped with headings, dividers, or both.
+
+The menu can be aligned to the left or right by its consuming app.
+
+The maximum height of the menu list container is `320px`, or roughly eight menu items. Past that height, it will scroll. The
+maximum width is `300px`. Past that width, menu items will wrap onto the next line.
+
+**IMPORTANT:** Avoid long labels for list items. Keep the item labels short and avoid sentences from wrapping to the next line.
+
+Content is passed to the menu through `listItemsData`, and each menu item needs to be one of three types: Action, Group, or Divider.
+Each type expects different properties, as shown below:
+
+<Source
+  code={`
+const exampleListItemsData = [
+  {
+    type: "group",
+    id: "group-1",
+    label: "I'm group 1",
+    children: [
+      {
+        type: "action",
+        id: "item-title-1",
+        label: "I'm item 1",
+        onClick: () => {
+          console.log("Item Title 1 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-2",
+        label: "I'm item 2",
+        onClick: () => {
+          console.log("Item Title 2 clicked");
+        },
+      },
+    ],
+  },
+  { type: "divider", id: "divider-1" },
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    }
+  },
+];
+
+...
+
+<Menu labelText={"Menu"} listItemsData={exampleListItemsData} />
+`} language="tsx" />
+
+All `ActionItem`s require an `onClick` function, but the `media` prop is optional. Media will display
+to the left of the menu text, and will render either an {<Link href="../?path=/docs/components-media-icons-icon--docs"target="">Icon</Link>}
+or {<Link href="../?path=/docs/components-media-icons-image--docs" target="">Image</Link>}. The `media` prop requires a type (icon or image)
+and then either the name of the icon or the source url and alt text of the image.
+
+<Source
+  code={`
+      {
+        type: "action",
+        id: "item-title-1",
+        label: "I have an icon",
+        media: { type: "icon", name: "search" },
+        onClick: () => {
+          console.log("Item Title 1 clicked");
+        },
+      },
+      {
+        type: "action",
+        id: "item-title-2",
+        label: "I have an image",
+        media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+        onClick: () => {
+          console.log("Item Title 2 clicked");
+        },
+      },
+`}
+  language="tsx"
+/>
+
+Below are examples of different content variations:
+
+<Canvas of={MenuStories.MenuContent} />
+
+## Menu Highlight Colors
+
+The default coloring for highlighting the selected item is grayscale, but the highlight color can be set using the `highlightColor` prop.
+These colors correspond to the NYPL section colors. These options are displayed below:
+
+<Canvas of={MenuStories.MenuHighlightColors} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

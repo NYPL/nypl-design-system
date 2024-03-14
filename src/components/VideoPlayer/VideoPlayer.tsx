@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -48,7 +53,13 @@ export interface VideoPlayerProps {
   videoType?: VideoPlayerTypes;
 }
 
-export const VideoPlayer = chakra(
+export const VideoPlayer: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<VideoPlayerProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  VideoPlayerProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<VideoPlayerProps>>(
     (props, ref?) => {
       const {
@@ -171,7 +182,7 @@ export const VideoPlayer = chakra(
           data-testid="video-player-component"
           id={id}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {isInvalid ? (

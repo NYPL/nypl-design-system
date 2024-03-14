@@ -1,5 +1,5 @@
 // HorizontalRule
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig, ChakraComponent } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 export interface HorizontalRuleProps {
@@ -11,7 +11,13 @@ export interface HorizontalRuleProps {
   className?: string;
 }
 
-export const HorizontalRule = chakra(
+export const HorizontalRule: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<HorizontalRuleProps> &
+      React.RefAttributes<HTMLDivElement & HTMLHRElement>
+  >,
+  React.PropsWithChildren<HorizontalRuleProps>
+> = chakra(
   forwardRef<HTMLDivElement & HTMLHRElement, HorizontalRuleProps>(
     (props, ref?) => {
       const { align, className, ...rest } = props;

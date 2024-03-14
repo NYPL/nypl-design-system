@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as RadioGroupStories from "./RadioGroup.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./radioGroupChangelogData";
 
 <Meta of={RadioGroupStories} />
 
@@ -21,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#browser-states" target="_self">Browser States</Link>}
 - {<Link href="#labels-using-jsx-elements" target="_self">Labels Using JSX Elements</Link>}
 - {<Link href="#getting-radio-input-values" target="_self">Getting Radio Input Values</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -200,3 +203,7 @@ export function RadioGroupUncontrolledExample() {
 />
 
 <Canvas of={RadioGroupStories.UncontrolledExample} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

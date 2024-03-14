@@ -27,6 +27,7 @@ import {
   TemplateHeader,
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TemplateAppContainer> = {
   title: "Components/Page Layout/Template",
@@ -159,7 +160,7 @@ export const WithControls: Story = {
     contentTop: { control: false },
     footer: { control: false },
     header: { control: false },
-    renderSkipNavigation: { table: { defaultValue: { summary: "false" } } },
+    renderSkipNavigation: argsBooleanType(),
     sidebar: {
       table: { defaultValue: { summary: "none" } },
     },
