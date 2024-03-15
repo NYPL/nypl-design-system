@@ -75,7 +75,7 @@ describe("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClear={() => "clear"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -103,7 +103,7 @@ describe("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClear={() => "clear"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -131,7 +131,7 @@ describe("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClear={() => "clear"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -160,7 +160,7 @@ describe("MulitSelectGroup Accessibility", () => {
             buttonText="MultiSelect"
             defaultItemsVisible={defaultItemsVisible}
             onChange={handleChangeMock}
-            onClear={() => "clear"}
+            onClear={() => "onClear"}
           />
         ))}
       </MultiSelectGroup>
@@ -193,7 +193,7 @@ describe("MulitSelectGroup Accessibility", () => {
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
-              onClear={() => "clear"}
+              onClear={() => "onClear"}
             />
           ))}
         </MultiSelectGroup>
@@ -219,7 +219,7 @@ describe("MulitSelectGroup Accessibility", () => {
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
               onChange={handleChangeMock}
-              onClear={() => "clear"}
+              onClear={() => "onClear"}
             />
           ))}
         </MultiSelectGroup>

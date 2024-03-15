@@ -1,6 +1,7 @@
 import { NotificationTypes } from "../../components/Notification/Notification";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
+import { customFocusColor } from "./global";
 
 interface NotificationBaseStyle extends StyleFunctionProps {
   isCentered: boolean;
@@ -62,6 +63,13 @@ const baseStyle = definePartsStyle(
         },
         _dark: {
           color: "dark.ui.typography.heading",
+        },
+        _focus: {
+          // This pseudo-class selector is needed for overriding Chakra styles
+          [":not([disabled])"]: customFocusColor(
+            "ui.typography.heading",
+            "dark.ui.typography.heading"
+          ),
         },
         _hover: {
           bg: "inherit",

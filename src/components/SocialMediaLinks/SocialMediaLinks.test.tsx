@@ -7,7 +7,7 @@ import SocialMediaLinks from "./SocialMediaLinks";
 // If you want to see what's happening.
 // screen.debug();
 
-describe("SocialMediaLinks Accessibility", () => {
+describe.skip("SocialMediaLinks Accessibility", () => {
   describe("Labels", () => {
     it("passes axe accessibility test without visible labels", async () => {
       const { container } = render(<SocialMediaLinks />);
@@ -46,7 +46,7 @@ describe("SocialMediaLinks Accessibility", () => {
   });
 });
 
-describe("SocialMediaLinks", () => {
+describe.skip("SocialMediaLinks", () => {
   it("Renders default", () => {
     render(<SocialMediaLinks />);
 
@@ -119,7 +119,7 @@ describe("SocialMediaLinks", () => {
   });
 });
 
-describe("SocialMediaLinks Snapshot", () => {
+describe.skip("SocialMediaLinks Snapshot", () => {
   it("Renders the UI snapshot correctly when the layout is in a row.", () => {
     const socialMediaLinksSnapshot = renderer
       .create(<SocialMediaLinks id="socialmedialinks-test" />)

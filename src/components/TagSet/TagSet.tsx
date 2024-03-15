@@ -18,6 +18,8 @@ import TagSetFilter, {
 export interface BaseTagSetProps {
   /** Additional class for the component. */
   className?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
 }
 
 // We want either the "explore" or "filter" type props.
@@ -77,7 +79,6 @@ export const TagSet: ChakraComponent<
       <Flex className={className} id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterType(type) && (
           <TagSetExplore
-            id={id}
             tagSetData={tagSetData as TagSetExploreDataProps[]}
             type={type}
           />

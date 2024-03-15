@@ -1,7 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-// import { cloneElement } from "react";
 
 import Link, { linkTypesArray } from "./Link";
 import Icon from "../Icons/Icon";
@@ -13,9 +12,15 @@ const meta: Meta<typeof Link> = {
   decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
+    className: { control: false },
+    hasVisitedState: argsBooleanType(true),
+    href: { control: { type: "text" } },
+    id: { control: false },
     isUnderlined: argsBooleanType(true),
-    key: { table: { disable: true } },
+    onClick: { control: false },
     ref: { table: { disable: true } },
+    rel: { control: { type: "text" } },
+    screenreaderOnlyText: { control: { type: "text" } },
     target: { control: false },
     type: {
       control: { type: "select" },
@@ -34,15 +39,19 @@ type Story = StoryObj<typeof Link>;
  */
 export const WithControls: Story = {
   args: {
+    children: "Link",
     className: "custom-class",
+    hasVisitedState: true,
     href: "https://nypl.org",
     id: "nypl-link",
     isUnderlined: true,
+    onClick: undefined,
+    rel: undefined,
     screenreaderOnlyText: "Screenreader only text",
     target: undefined,
     type: "action",
   },
-  render: (args) => <Link {...args}>Link</Link>,
+  render: (args: any) => <Link {...args}>{args.children}</Link>,
   parameters: {
     design: {
       type: "figma",
@@ -63,43 +72,43 @@ export const Accessibility: Story = {
 export const AllLinkTypes: Story = {
   render: () => (
     <VStack spacing="l" align="flex-start">
-      <Link type="default" href="#passed-in-link">
+      <Link type="default" href="#default-link-example">
         Default
       </Link>
-      <Link type="action" href="#passed-in-link">
+      <Link type="action" href="#action-link-example">
         Action
       </Link>
-      <Link type="external" href="#passed-in-link">
+      <Link type="external" href="#external-link-example">
         External
       </Link>
-      <Link type="standalone" href="#passed-in-link">
+      <Link type="standalone" href="#standalone-link-example">
         Standalone
       </Link>
-      <Link type="backwards" href="#passed-in-link">
+      <Link type="backwards" href="#backwards-link-example">
         Backwards
       </Link>
-      <Link type="forwards" href="#passed-in-link">
+      <Link type="forwards" href="#forwards-link-example">
         Forwards
       </Link>
-      <Link type="buttonPrimary" href="#passed-in-link">
+      <Link type="buttonPrimary" href="#buttonPrimary-link-example">
         Button Primary
       </Link>
-      <Link type="buttonSecondary" href="#passed-in-link">
+      <Link type="buttonSecondary" href="#buttonSecondary-link-example">
         Button Secondary
       </Link>
-      <Link type="buttonPill" href="#passed-in-link">
+      <Link type="buttonPill" href="#buttonPill-link-example">
         Button Pill
       </Link>
-      <Link type="buttonCallout" href="#passed-in-link">
+      <Link type="buttonCallout" href="#buttonCallout-link-example">
         Button Callout
       </Link>
-      <Link type="buttonNoBrand" href="#passed-in-link">
+      <Link type="buttonNoBrand" href="#buttonNoBrand-link-example">
         Button No Brand
       </Link>
-      <Link type="buttonDisabled" href="#passed-in-link">
+      <Link type="buttonDisabled" href="#buttonDisabled-link-example">
         Button Disabled
       </Link>
-      <Link type="button" href="#passed-in-link" width="auto">
+      <Link type="button" href="#button-deprecated" width="auto">
         Button (deprecated)
       </Link>
     </VStack>
@@ -108,61 +117,22 @@ export const AllLinkTypes: Story = {
 export const LinksWithIcons: Story = {
   render: () => (
     <VStack spacing="xs" align="flex-start">
-      <Link type="action" href="#passed-in-link">
+      <Link type="action" href="#headset-icon-example">
         <Icon name="headset" align="left" size="small" />
         Headset Link
       </Link>
-      <Link type="action" href="#passed-in-link">
+      <Link type="action" href="#clock-icon-example">
         <Icon name="clock" align="left" size="small" />
         Clock Link
       </Link>
-      <Link type="action" href="#passed-in-link">
+      <Link type="action" href="#action-check-left">
         <Icon name="check" align="left" size="small" />
         Check Link
       </Link>
-      <Link type="action" href="#passed-in-link-right">
+      <Link type="action" href="#action-check-right">
         Check Link Right
         <Icon name="check" align="right" size="small" />
       </Link>
     </VStack>
   ),
 };
-// export const AnchorElementRendering: Story = {
-//   render: () => (
-//     <>
-//       This is a{" "}
-//       <Link type="action">
-//         <a href="#existing-anchor-tag">link</a>
-//       </Link>{" "}
-//       with the &lt;a&gt; element as a child of the `Link` component. This is a{" "}
-//       <Link type="action" href="#passed-in-link">
-//         link
-//       </Link>{" "}
-//       where the `Link` component uses the `href` prop and has a string-only
-//       child. Finally, this is a{" "}
-//       <Link type="action">
-//         <>
-//           <Icon name="check" align="left" size="small" />
-//           <a href="#existing-anchor-tag">link</a>
-//         </>
-//       </Link>{" "}
-//       with a check icon.
-//     </>
-//   ),
-// };
-
-// const NextJsLink = (props) =>
-//   cloneElement(
-//     props.children,
-//     { href: props.href },
-//     props.children.props.children
-//   );
-
-// export const NextJSExample: Story = {
-//   render: () => (
-//     <NextJsLink href="#" passHref>
-//       <Link type="action">Next Page</Link>
-//     </NextJsLink>
-//   ),
-//   name: "Next.js Router example",
-// };
