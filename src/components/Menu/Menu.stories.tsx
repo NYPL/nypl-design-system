@@ -427,7 +427,7 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"Research"}
         highlightColor={"research"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-3"}
         listItemsData={defaultListItems}
       />
       <Menu
@@ -463,7 +463,7 @@ export const MenuHighlightColors: Story = {
       <Menu
         labelText={"What's On"}
         highlightColor={"whatsOn"}
-        selectedItem={"item-title-1"}
+        selectedItem={"item-title-3"}
         listItemsData={defaultListItems}
       />
       <Menu

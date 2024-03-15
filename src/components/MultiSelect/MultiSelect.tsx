@@ -32,7 +32,7 @@ export interface MultiSelectProps {
   buttonText: string;
   /** The number of items that will be visible in the list when the component first loads. */
   defaultItemsVisible?: number;
-  /** The action to perform for clear/reset button of MultiSelect. */
+  /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
   /** The action to perform on the checkbox's onChange function. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -94,6 +94,8 @@ export const MultiSelect: ChakraComponent<
       // Create a ref to hold a reference to the accordian button, enabling us to programmatically focus it.
       const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
+      const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
+        useRef<HTMLButtonElement>();
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
@@ -183,11 +185,7 @@ export const MultiSelect: ChakraComponent<
 
       // Additional components for isSearchable
       const NoSearchResults = (): JSX.Element => {
-        return (
-          <Box id="items-not-found-text-id" marginTop="xs">
-            No options found
-          </Box>
-        );
+        return <Box marginTop="xs">No options found</Box>;
       };
 
       const onChangeSearch = (event) => {
@@ -226,6 +224,11 @@ export const MultiSelect: ChakraComponent<
       /** Toggle for listOverflow = "expand" */
       const toggleItemsList = () => {
         setIsExpandable((prevProp) => !prevProp);
+        setTimeout(() => {
+          if (expandToggleButtonRef.current) {
+            expandToggleButtonRef.current.focus(); // Set focus after expansion
+          }
+        }, 1); // Ensure focus logic runs after state update
       };
 
       React.useEffect(() => {
@@ -237,7 +240,8 @@ export const MultiSelect: ChakraComponent<
           <Button
             buttonType="text"
             fontSize="desktop.button.default"
-            id="view-all-text-btn"
+            id={`view-all-text-btn-${id}`}
+            ref={expandToggleButtonRef}
             onClick={toggleItemsList}
             __css={styles.viewAllButton}
           >
@@ -274,13 +278,13 @@ export const MultiSelect: ChakraComponent<
               <Checkbox
                 key={childItem.id}
                 marginInlineStart="0"
-                __css={styles.menuChildren}
                 id={childItem.id}
                 labelText={childItem.name}
                 name={childItem.name}
                 isDisabled={childItem.isDisabled}
                 isChecked={isChecked(id, childItem.id)}
                 onChange={onChange}
+                __css={styles.menuChildren}
               />
             )),
           ];
@@ -302,8 +306,8 @@ export const MultiSelect: ChakraComponent<
       /** Components for accordionData */
       const accordionLabel = (
         <Box
-          __css={selectedItemsCount > 0 ? styles.buttonTextLabel : null}
           title={buttonText}
+          __css={selectedItemsCount > 0 ? styles.buttonTextLabel : null}
         >
           {buttonText}
         </Box>
@@ -313,7 +317,7 @@ export const MultiSelect: ChakraComponent<
         <Box>
           {isSearchable && (
             <TextInput
-              id="multi-select-text-input-id"
+              id={`multi-select-text-input-${id}`}
               labelText={`Search ${buttonText}`}
               isClearable={true}
               isClearableCallback={clearSearchKeyword}
@@ -331,7 +335,7 @@ export const MultiSelect: ChakraComponent<
           ) : (
             <>
               <CheckboxGroup
-                id="multi-select-checkbox-group"
+                id={`multi-select-checkbox-group-${id}`}
                 layout="column"
                 isFullWidth
                 isRequired={false}
@@ -362,7 +366,7 @@ export const MultiSelect: ChakraComponent<
               },
             ]}
             ariaLabel={ariaLabelValue}
-            id="multi-select-accordion-id"
+            id={`multi-select-accordion-${id}`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
             panelMaxHeight={listHeight}

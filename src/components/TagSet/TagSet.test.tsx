@@ -35,24 +35,33 @@ const exploreTagSetData = {
 };
 const filterTagSetData = {
   simple: [
-    { label: "Red" },
-    { label: "Orange" },
-    { label: "Yellow" },
-    { label: "Green" },
-    { label: "Blue" },
-    { label: "Indigo" },
-    { label: "Violet" },
+    { id: "red", label: "Red" },
+    { id: "orange", label: "Orange" },
+    { id: "yellow", label: "Yellow" },
+    { id: "green", label: "Green" },
+    { id: "blue", label: "Blue" },
+    { id: "indigo", label: "Indigo" },
+    { id: "violet", label: "Violet" },
   ] as TagSetFilterDataProps[],
   withIcon: [
-    { iconName: "alertWarningFilled", label: "Red" },
-    { iconName: "check", label: "Orange" },
-    { iconName: "check", label: "Yellow" },
-    { iconName: "alertWarningFilled", label: "Green" },
-    { iconName: "check", label: "Blue" },
-    { iconName: "check", label: "Indigo" },
-    { iconName: "check", label: "Violet" },
+    { id: "red", iconName: "alertWarningFilled", label: "Red" },
+    { id: "orange", iconName: "check", label: "Orange" },
+    { id: "yellow", iconName: "check", label: "Yellow" },
+    { id: "green", iconName: "alertWarningFilled", label: "Green" },
+    { id: "blue", iconName: "check", label: "Blue" },
+    { id: "indigo", iconName: "check", label: "Indigo" },
+    { id: "violet", iconName: "check", label: "Violet" },
   ] as TagSetFilterDataProps[],
 };
+const filterWithMoreProperties = [
+  { label: "Red", id: "red", field: "color" },
+  { label: "Orange", id: "orange", field: "color" },
+  { label: "Yellow", id: "yellow", field: "color" },
+  { label: "Green", id: "green", field: "color" },
+  { label: "Blue", id: "blue", field: "color" },
+  { label: "Indigo", id: "indigo", field: "color" },
+  { label: "Violet", id: "violet", field: "color" },
+] as TagSetFilterDataProps[];
 
 describe("TagSet Accessibility", () => {
   it("passes axe accessibility test for the 'explore' variant", async () => {
@@ -269,29 +278,35 @@ describe("TagSet Filter", () => {
     );
   });
 
-  it("returns the clicked tag's label to the `onClick` function", () => {
-    let currentLabel = "";
-    const onClick = (selectedLabel: string) => (currentLabel = selectedLabel);
+  it("returns the clicked tag's object to the `onClick` function", () => {
+    let currentTag = {};
+    const onClick = (tagSet) => {
+      currentTag = tagSet;
+    };
     render(
       <TagSet
         isDismissible
         onClick={onClick}
-        tagSetData={filterTagSetData.simple}
+        tagSetData={filterWithMoreProperties}
         type="filter"
       />
     );
 
     screen.getByText("Blue").click();
-    expect(currentLabel).toEqual("Blue");
+    expect(currentTag).toEqual({ label: "Blue", id: "blue", field: "color" });
     screen.getByText("Red").click();
-    expect(currentLabel).toEqual("Red");
+    expect(currentTag).toEqual({ label: "Red", id: "red", field: "color" });
     screen.getByText("Violet").click();
-    expect(currentLabel).toEqual("Violet");
+    expect(currentTag).toEqual({
+      label: "Violet",
+      id: "violet",
+      field: "color",
+    });
   });
 
   it("renders the 'Clear Filters' button when there are more than two tags", () => {
     const onClick = jest.fn();
-    const tagSetData = [{ label: "Red" }];
+    const tagSetData = [{ id: "red", label: "Red" }];
     const { rerender } = render(
       <TagSet
         isDismissible
@@ -302,7 +317,7 @@ describe("TagSet Filter", () => {
     );
     expect(screen.queryByText("Clear Filters")).not.toBeInTheDocument();
 
-    tagSetData.push({ label: "Orange" });
+    tagSetData.push({ id: "orange", label: "Orange" });
     rerender(
       <TagSet
         isDismissible
@@ -315,8 +330,10 @@ describe("TagSet Filter", () => {
   });
 
   it("returns 'clearFilters' when the 'Clear Filters' button is clicked", () => {
-    let currentLabel = "";
-    const onClick = (selectedLabel: string) => (currentLabel = selectedLabel);
+    let currentTag = {};
+    const onClick = (tagSet) => {
+      currentTag = tagSet;
+    };
     render(
       <TagSet
         isDismissible
@@ -327,7 +344,8 @@ describe("TagSet Filter", () => {
     );
 
     screen.getByText("Clear Filters").click();
-    expect(currentLabel).toEqual("clearFilters");
+
+    expect(currentTag).toEqual({ label: "Clear Filters", id: "clear-filters" });
   });
 
   it("logs a warning when the labels are JSX elements", () => {

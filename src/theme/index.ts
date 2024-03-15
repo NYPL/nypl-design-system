@@ -48,7 +48,7 @@ import RadioGroup from "./components/radioGroup";
 import ReservoirCard from "./components/card";
 import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
 import SearchBar from "./components/searchBar";
-import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import SkeletonLoader from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
@@ -135,7 +135,6 @@ const theme: any = {
     ReservoirImage,
     ReservoirImageWrapper,
     SearchBar,
-    Skeleton,
     SkeletonLoader,
     SkipNavigation,
     CustomSlider,

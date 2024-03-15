@@ -79,19 +79,18 @@ const Menu = defineMultiStyleConfig({
               fill: "dark.ui.typography.body",
             },
             _hover: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              bg: "dark.ui.bg.active",
+            },
+            _focus: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
               bg: "dark.ui.bg.active",
             },
           },
         },
         selected: {
-          _hover: {
-            background:
-              highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
-          },
-          _active: {
-            background:
-              highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
-          },
           fontWeight: 510,
           borderLeftColor:
             highlightColor === "blogs"
@@ -108,6 +107,17 @@ const Menu = defineMultiStyleConfig({
             highlightColor === "blogs" ? "ui.bg.default" : lightSectionColor,
           _dark: {
             textColor: "dark.ui.typography.heading",
+            _hover: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              background:
+                highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
+            },
+            _focus: {
+              textColor: "dark.ui.typography.heading",
+              fontWeight: 510,
+              bg: "dark.ui.bg.active",
+            },
             background:
               highlightColor === "whatsOn" || highlightColor === "blogs"
                 ? "dark.ui.bg.hover"
