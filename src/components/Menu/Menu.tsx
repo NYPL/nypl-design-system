@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Icon, { IconNames } from "../Icons/Icon";
 import Image from "../Image/Image";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import { SectionTypes } from "../../helpers/types";
 
 export interface MenuProps {
@@ -249,6 +249,7 @@ export const Menu: ChakraComponent<
               isFocusable={true}
               data-testid={isSelected ? "selected-item" : ""}
               onClick={() => handleSelect(item.id, item.onClick)}
+              ref={isSelected ? initialRef : null}
               sx={{
                 ...styles.actionItem,
                 ...(isSelected && styles.selected),
@@ -270,9 +271,14 @@ export const Menu: ChakraComponent<
           return [...lst, menuItem];
         }, []);
 
+      const initialRef = useRef();
       return (
         <Box ref={ref}>
-          <ChakraMenu id={id} autoSelect={false} {...rest}>
+          <ChakraMenu
+            id={id}
+            initialFocusRef={selected ? initialRef : null}
+            {...rest}
+          >
             {({ isOpen }) => (
               <Flex
                 flexDirection={

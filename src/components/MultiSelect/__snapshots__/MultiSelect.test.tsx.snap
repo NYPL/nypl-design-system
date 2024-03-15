@@ -7,18 +7,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="multi-select-accordion-id"
+    id="multi-select-accordion-multiselect-test-id"
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-multi-select-accordion-id-item-0"
+        aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
-        id="accordion-button-multi-select-accordion-id-item-0"
+        id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -38,7 +38,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
           aria-hidden={true}
           className="chakra-icon css-q3eg3a"
           focusable={false}
-          id="accordion-multi-select-accordion-id-icon-0"
+          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
           viewBox="0 0 24 24"
@@ -79,9 +79,9 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
+          aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-multi-select-accordion-id-item-0"
+          id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
           <div
@@ -89,7 +89,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
           >
             <fieldset
               className="css-1u8qly9"
-              id="multi-select-checkbox-group-checkbox-group"
+              id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
                 Multi select checkbox group label
@@ -97,7 +97,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
               <div
                 className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
-                id="multi-select-checkbox-group"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <div
                   className="css-1xdhyk6"
@@ -532,7 +532,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                id="multi-select-checkbox-group-helperErrorText"
+                id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
               />
             </fieldset>
           </div>
@@ -550,18 +550,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="multi-select-accordion-id"
+    id="multi-select-accordion-multiselect-test-id"
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-multi-select-accordion-id-item-0"
+        aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
-        id="accordion-button-multi-select-accordion-id-item-0"
+        id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -581,7 +581,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
           aria-hidden={true}
           className="chakra-icon css-q3eg3a"
           focusable={false}
-          id="accordion-multi-select-accordion-id-icon-0"
+          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
           viewBox="0 0 24 24"
@@ -622,9 +622,9 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
+          aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-multi-select-accordion-id-item-0"
+          id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
           <div
@@ -632,7 +632,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
           >
             <fieldset
               className="css-1u8qly9"
-              id="multi-select-checkbox-group-checkbox-group"
+              id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
                 Multi select checkbox group label
@@ -640,7 +640,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
               <div
                 className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
-                id="multi-select-checkbox-group"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <div
                   className="css-1xdhyk6"
@@ -1075,7 +1075,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                id="multi-select-checkbox-group-helperErrorText"
+                id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
               />
             </fieldset>
           </div>
@@ -1093,18 +1093,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="multi-select-accordion-id"
+    id="multi-select-accordion-multiselect-test-id"
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-multi-select-accordion-id-item-0"
+        aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
-        id="accordion-button-multi-select-accordion-id-item-0"
+        id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1124,7 +1124,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
           aria-hidden={true}
           className="chakra-icon css-q3eg3a"
           focusable={false}
-          id="accordion-multi-select-accordion-id-icon-0"
+          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
           viewBox="0 0 24 24"
@@ -1165,9 +1165,9 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
+          aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-multi-select-accordion-id-item-0"
+          id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
           <div
@@ -1175,7 +1175,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
           >
             <fieldset
               className="css-1u8qly9"
-              id="multi-select-checkbox-group-checkbox-group"
+              id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
                 Multi select checkbox group label
@@ -1183,7 +1183,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
               <div
                 className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
-                id="multi-select-checkbox-group"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <div
                   className="css-1xdhyk6"
@@ -1663,7 +1663,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                id="multi-select-checkbox-group-helperErrorText"
+                id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
               />
             </fieldset>
           </div>
@@ -1675,7 +1675,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
     aria-label="remove 1 item selected from multiselect-button-text"
     className="chakra-button css-8bx9xp"
     data-testid="multi-select-close-button-testid"
-    id="multi-select-button"
+    id="ms-count-button-multiselect-test-id"
     onClick={[Function]}
     type="button"
   >
@@ -1684,7 +1684,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-h7dq2k"
       focusable={false}
-      id="ms-multiselect-test-id-selected-items-count-icon"
+      id="ms-count-icon-multiselect-test-id"
       role="img"
       title="Remove selected items"
       viewBox="0 0 24 24"
@@ -1723,18 +1723,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="multi-select-accordion-id"
+    id="multi-select-accordion-multiselect-test-id"
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-multi-select-accordion-id-item-0"
+        aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
         className="chakra-accordion__button css-h5m7h6"
         disabled={false}
-        id="accordion-button-multi-select-accordion-id-item-0"
+        id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1754,7 +1754,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
           aria-hidden={true}
           className="chakra-icon css-q3eg3a"
           focusable={false}
-          id="accordion-multi-select-accordion-id-icon-0"
+          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
           viewBox="0 0 24 24"
@@ -1795,9 +1795,9 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-multi-select-accordion-id-item-0"
+          aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-multi-select-accordion-id-item-0"
+          id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
           <div
@@ -1805,7 +1805,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
           >
             <fieldset
               className="css-1u8qly9"
-              id="multi-select-checkbox-group-checkbox-group"
+              id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
                 Multi select checkbox group label
@@ -1813,7 +1813,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
               <div
                 className="chakra-stack css-19s3t1h"
                 data-testid="checkbox-group"
-                id="multi-select-checkbox-group"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <div
                   className="css-1xdhyk6"
@@ -2290,7 +2290,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={false}
-                id="multi-select-checkbox-group-helperErrorText"
+                id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
               />
             </fieldset>
           </div>
@@ -2302,7 +2302,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
     aria-label="remove 2 items selected from multiselect-button-text"
     className="chakra-button css-8bx9xp"
     data-testid="multi-select-close-button-testid"
-    id="multi-select-button"
+    id="ms-count-button-multiselect-test-id"
     onClick={[Function]}
     type="button"
   >
@@ -2311,7 +2311,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-h7dq2k"
       focusable={false}
-      id="ms-multiselect-test-id-selected-items-count-icon"
+      id="ms-count-icon-multiselect-test-id"
       role="img"
       title="Remove selected items"
       viewBox="0 0 24 24"

@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import Icon from "../Icons/Icon";
 
 import StatusBadge, {
   statusBadgeLevelArray,
@@ -206,5 +207,25 @@ export const LabelingVariations: Story = {
         ],
       ]}
     />
+  ),
+};
+
+export const Icons: Story = {
+  render: () => (
+    <VStack spacing="s" align="stretch">
+      <StatusBadge level="high">
+        <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
+        On-Site Access Only
+      </StatusBadge>
+      <StatusBadge level="low">
+        Registration Required
+        <Icon
+          color="ui.black"
+          ml="xs"
+          name="actionIdentityFilled"
+          size="medium"
+        />
+      </StatusBadge>
+    </VStack>
   ),
 };

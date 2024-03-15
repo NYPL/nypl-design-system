@@ -146,7 +146,7 @@ const MultiSelectTestGroup = (multiSelectItems) => (
         defaultItemsVisible={defaultItemsVisible}
         onChange={() => null}
         onMixedStateChange={() => null}
-        onClear={() => "clear"}
+        onClear={() => "onClear"}
       />
     ))}
   </MultiSelectGroup>

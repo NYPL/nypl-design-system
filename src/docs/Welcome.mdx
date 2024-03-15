@@ -7,7 +7,139 @@ import Icon from "../components/Icons/Icon";
 import Link from "../components/Link/Link";
 import Logo from "../components/Logo/Logo";
 import SimpleGrid from "../components/Grid/SimpleGrid";
+import Table from "../components/Table/Table";
 import Text from "../components/Text/Text";
+export const versionsHeadersData = [
+  "Version",
+  "Date",
+  "Summary",
+  "Documentation",
+  "Github",
+];
+export const versionsData = [
+  [
+    <Text size="body2" whiteSpace="nowrap">
+      Reservoir 3.x (latest)
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      March 2024
+    </Text>,
+    <Text size="body2">
+      Reservoir v3 updated the design system's foundations to use React 18 and
+      Chakra 2.8.
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://nypl.github.io/nypl-design-system/reservoir/v3"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github branch for Reservoir v1.7.3"
+        target="_blank"
+        type="default"
+      >
+        Storybook
+      </Link>
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/tree/release"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github branch for Reservoir v3.x"
+        target="_blank"
+        type="default"
+      >
+        latest stable branch
+      </Link>
+    </Text>,
+  ],
+  [
+    <Text size="body2" whiteSpace="nowrap">
+      Reservoir 2.1.6
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      February 2024
+    </Text>,
+    <Text size="body2">
+      Reservoir v2 added significant typography style changes. Reservoir v2.1.6
+      is the last release in the v2 series.
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://nypl-design-system-git-reservoir-v216-nypl.vercel.app"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Documentation for Reservoir v2.1.6"
+        target="_blank"
+        type="default"
+      >
+        Storybook
+      </Link>
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/tree/reservoir-v2.1.6"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github branch for Reservoir v2.1.6"
+        target="_blank"
+        type="default"
+      >
+        branch
+      </Link>{" "}
+      /{" "}
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/releases/tag/v2.1.6"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github tag for Reservoir v2.1.6"
+        target="_blank"
+        type="default"
+      >
+        tag
+      </Link>
+    </Text>,
+  ],
+  [
+    <Text size="body2" whiteSpace="nowrap">
+      Reservoir 1.7.3
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      September 2023
+    </Text>,
+    <Text size="body2">
+      Reservoir spent more than a year in beta before the first production
+      build. Reservoir v1.7.3 is the last release in the v1 series.
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://nypl-design-system-git-reservoir-v173-nypl.vercel.app"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Documentation for Reservoir v1.7.3"
+        target="_blank"
+        type="default"
+      >
+        Storybook
+      </Link>
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/tree/reservoir-v1.7.3"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github branch for Reservoir v1.7.3"
+        target="_blank"
+        type="default"
+      >
+        branch
+      </Link>{" "}
+      /{" "}
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/releases/tag/v1.7.3"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github tag for Reservoir v1.7.3"
+        target="_blank"
+        type="default"
+      >
+        tag
+      </Link>
+    </Text>,
+  ],
+];
 
 <Meta title="Welcome" />
 
@@ -15,41 +147,19 @@ import Text from "../components/Text/Text";
 
 <VStack spacing="s">
   <Logo name="reservoirVerticalColor" size="small" />
-  <Box>
+  <Box maxWidth="800px">
     <Center>
       <Heading level="h1" size="heading4">
         The React Component Library of the New York Public Library
       </Heading>
     </Center>
     <Text>
-      Reservoir v2 is NYPL's open-source extensible React component library for
-      products and experiences, with accessibility as its core. Aiming to
-      provide design and user experience consistency, Reservoir is the
-      foundation for all digital properties in the NYPL landscape, offering
-      functional components that implement the NYPL style standards.
+      The Reservoir Design System is NYPL's open-source extensible React
+      component library for products and experiences, with accessibility as its
+      core. Aiming to provide design and user experience consistency, Reservoir
+      is the foundation for all digital properties in the NYPL landscape,
+      offering functional components that implement NYPL style standards.
     </Text>
-    <Heading level="h2" border="0" size="heading6">
-      Reservoir v2.x
-    </Heading>
-    <Text>
-      Reservoir v2.x is the latest version of the React Component Library of the
-      New York Public Library.
-    </Text>
-    <Heading level="h2" border="0" size="heading6">
-      Reservoir v1.7.3
-    </Heading>
-    <Text>
-      Reservoir v1.7.3 is the last version in the v1 series. If you are unable
-      to upgrade to the latest version of Reservoir, the documentation for the
-      v1 series is available at the link below.
-    </Text>
-    <Link
-      href="https://nypl-design-system-git-reservoir-v173-nypl.vercel.app/"
-      fontSize="desktop.body.body2"
-      type="external"
-    >
-      Documentation for Reservoir v1.7.3
-    </Link>
   </Box>
   <SimpleGrid>
     <Box
@@ -73,14 +183,19 @@ import Text from "../components/Text/Text";
         </CardHeading>
         <CardContent>
           <Text size="body2">
-            To start using Reservoir Design System, refer to Reservoir's Github{" "}
+            To start using Reservoir Design System, refer to Reservoir's{" "}
             <Link
               href="https://github.com/NYPL/nypl-design-system/wiki"
               type="external"
             >
-              Wiki
+              Github Wiki
             </Link>
-            and ReadMe to setup your project. You can also learn about our component
+            and <Link
+              href="https://github.com/NYPL/nypl-design-system?tab=readme-ov-file"
+              type="external"
+            >
+              ReadMe
+            </Link> to setup your project. You can also learn about our component
             architecture and additional documentation.
           </Text>
         </CardContent>
@@ -132,17 +247,78 @@ import Text from "../components/Text/Text";
       />
       <Card isCentered>
         <CardHeading id="main-heading1" level="h3" size="heading5">
-          View the Code
+          Install the Code
         </CardHeading>
         <CardContent>
           <Text size="body2">
             The Reservoir Design System React component library is currently
-            published on npm . If you're looking to contribute to this project,
-            checkout the nypl-design-system repo on Github for more information.
+            published on{" "}
+            <Link
+              href="https://www.npmjs.com/package/@nypl/design-system-react-components"
+              type="external"
+            >
+              npm
+            </Link>
+            . If you're looking to contribute to this project, checkout the <b>
+              nypl-design-system
+            </b>
+            repo on{" "}
+            <Link
+              href="https://github.com/NYPL/nypl-design-system"
+              type="external"
+            >
+              Github
+            </Link>{" "}
+            for more information.
           </Text>
         </CardContent>
       </Card>
     </Box>
   </SimpleGrid>
+  <Box maxWidth="800px" mt="xl">
+    <Heading level="h2" border="0" size="heading6">
+      Reservoir Versioning
+    </Heading>
+    <Text>
+      The Reservoir Design System was first releases in beta in 2019. It has
+      continued to grow and improve over the years and the v1 production build
+      was released in May 2022. As Reservoir continues to evolve, landmark
+      versions of the code have been archived and made available to conumers.
+      Please refer to the table below.
+    </Text>
+  </Box>
+  <Table
+    columnHeaders={versionsHeadersData}
+    showRowDividers
+    tableData={versionsData}
+    useRowHeaders
+    border="0"
+    sx={{
+      tr: {
+        bgColor: "transparent !important",
+        borderBottom:
+          "1px solid var(--nypl-colors-ui-border-default) !important",
+        borderLeft: "0 !important",
+        borderRight: "0 !important",
+        borderTop: "0 !important",
+      },
+      th: {
+        borderBottom:
+          "1px solid var(--nypl-colors-ui-border-default) !important",
+        borderLeft: "0 !important",
+        borderRight: "0 !important",
+        borderTop: "1px solid var(--nypl-colors-ui-border-default) !important",
+        paddingInline: "1rem !important",
+        textTransform: "none !important",
+      },
+      td: {
+        borderBottom:
+          "1px solid var(--nypl-colors-ui-border-default) !important",
+        borderLeft: "0 !important",
+        borderRight: "0 !important",
+        paddingInline: "1rem !important",
+      },
+    }}
+  />
 </VStack>
 }

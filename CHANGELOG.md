@@ -13,36 +13,53 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the values for the breakpoints and the associated docs.
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
 
-## React 18 / Chakra 2.8 Release
+## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
 ### Adds
 
 - Adds `5%` and `10%` opacities for the semantic colors in the color pallette.
+- Adds the `Menu` component.
+- Adds the `MultiSelect` v2 component.
+- Adds the `useMultiSelect` hook.
 
 ### Updates
 
+- Updates the repo to use Node 18.
+- Updates to React 18 and Chakra 2.8.
 - Updates the `StatusBadge` component to add the `type` prop.
 - Updates the `StatusBadge` component to change the UI styles.
 - Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
 - Updates the `Heading` component to use native Chakra responsive styles to handle the font sizes of the component's internal `heading`, `overline` and `subtitle` elements. This also resolves the flashing font size bug that is most noticeable on slower internet connections.
 - Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
 - Updates the `NewsletterSignup` component to follow NYPL recommendations and use more direct language for the email field error message.
+- Updates the default export to include `FocusLock`, `useStyleConfig`, and `useMultiStyleConfig` from Chakra UI.
+- Updates the default export to include the test helper "MatchMedia".
+- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates the `Tabs` component to use horizontal scrolling and arrow buttons step through tabs in mobile view.
 
-## Prerelease
+### Fixes
 
-### Adds
+- Removes console warnings from the `CheckboxGroup` component when a non-`Checkbox` component is passed as a child.
+- Fixes the responsive styles related to the image in the `FeaturedContent` component.
 
-- Adds the `MultiSelect` v2 component.
-- Adds the `useMultiSelect` hook.
+### Breaking Changes
+
+- Removes the `NewsletterSignup` and `SocialMediaLinks` components.
+- Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
+- Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor. Usage with Next.js has been updated.
+
+## 2.1.6 (February 22, 2024)
 
 ### Updates
 
-- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates focus ring color in `Notification` and `Breadcrumbs` to match color of text.
+- Updates the `StatusBadge` styles so that if an icon is passed, the icon and text line up with one another
 
 ### Fixes
 
 - Fixes a styling issue on the range `DatePicker` for the month and year types
   where the in-range selected date values did not have the correct DS colors.
+- Fixes the desktop font size for the `"heading5"` variant in the `Heading` component.
 
 ## 2.1.5 (February 5, 2024)
 

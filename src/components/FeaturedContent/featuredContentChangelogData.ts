@@ -10,11 +10,14 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-03-14",
+    version: "3.0.0",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    notes: [
+      "Chakra 2.8 update.",
+      "Fixed the responsive styles related to the image.",
+    ],
   },
   {
     date: "2023-12-07",
