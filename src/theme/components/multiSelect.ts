@@ -110,6 +110,7 @@ const MultiSelect = defineMultiStyleConfig({
       },
       ".chakra-collapse": {
         bgColor: "ui.bg.page",
+        overflow: "unset !important",
         borderTopWidth: "1px",
         marginTop: "-1px",
         position: isBlockElement ? null : "absolute",

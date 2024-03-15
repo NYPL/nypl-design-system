@@ -8,16 +8,20 @@ import { TooltipWrapper } from "./TooltipWrapper";
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
   iconName?: IconNames;
+  /** The ID of the tag. */
+  id?: string;
   /** The content to display; should be a link-type component. */
   label: JSX.Element;
 }
 export interface TagSetExploreProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
-  /** Whether the tags should be removable. This prop is not used in the "explore" variant. */
+  /** Whether the tags should be removable. This prop is not used in the
+   * "explore" variant. */
   isDismissible?: never;
+  /** The function to perform when the Clear All button is clicked. This prop
+   * is not used in the "explore" variant. */
+  onClear?: never;
   /** The function to perform when a tag is clicked when `isDismissible` is
-   * true.  This prop is not used in the "explore" variant.*/
+   * true.  This prop is not used in the "explore" variant. */
   onClick?: never;
   /** The array of data to display as tags. */
   tagSetData: TagSetExploreDataProps[];
@@ -32,7 +36,7 @@ export interface TagSetExploreProps {
  */
 export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
   (props: TagSetExploreProps) => {
-    const { id, tagSetData = [] } = props;
+    const { tagSetData = [] } = props;
     const styles = useStyleConfig("TagSetExplore");
 
     return (
@@ -48,7 +52,7 @@ export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
             <TooltipWrapper key={key} label={tagSet.label}>
               <Box
                 data-testid="explore-tags"
-                id={`ts-explore-${id}-${key}`}
+                id={`ts-explore-${tagSet.id}-${key}`}
                 __css={styles}
               >
                 {tagSet.iconName ? (

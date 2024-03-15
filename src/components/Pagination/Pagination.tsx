@@ -161,7 +161,7 @@ export const Pagination: ChakraComponent<
                     MouseEvent
                   >
                 ) => handlePageClick(e, item as number),
-          },
+          } as any,
           text: item,
         },
         previous: {

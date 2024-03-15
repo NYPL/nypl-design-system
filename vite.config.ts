@@ -42,6 +42,7 @@ export default defineConfig({
         globals: {
           react: "React",
           "@chakra-ui/react": "ChakraUI",
+          "@chakra-ui/system": "ChakraSystem",
           "@emotion/react": "Emotion",
         },
         assetFileNames: (assetInfo) => {

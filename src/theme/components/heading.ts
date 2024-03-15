@@ -17,75 +17,50 @@ const { defineMultiStyleConfig, definePartsStyle } =
 export const headings = {
   one: definePartsStyle({
     base: {
+      fontSize: "heading.primary", // var(--nypl-fontSizes-4);
       fontWeight: "heading.primary",
       letterSpacing: "0",
       lineHeight: "1.1",
       ...margins,
       width: "auto",
       a: { textUnderlineOffset: "4px" },
-      "@media (min-width: 0px)": {
-        fontSize: "heading.primary", // var(--nypl-fontSizes-4);
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "heading.primary", // var(--nypl-fontSizes-4);
-      },
     },
   }),
   two: definePartsStyle({
     base: {
+      fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
       fontWeight: "heading.secondary",
       lineHeight: "1.25",
       ...margins,
       width: "auto",
       a: { textUnderlineOffset: "3px" },
-      "@media (min-width: 0px)": {
-        fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
-      },
     },
   }),
   three: definePartsStyle({
     base: {
+      fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
       fontWeight: "heading.tertiary",
       lineHeight: "1.25",
       ...margins,
       width: "auto",
-      "@media (min-width: 0px)": {
-        fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
-      },
     },
   }),
   four: definePartsStyle({
     base: {
+      fontSize: "heading.callout", // var(--nypl-fontSizes-1);
       fontWeight: "heading.callout",
       lineHeight: "1.15",
       ...margins,
       width: "auto",
-      "@media (min-width: 0px)": {
-        fontSize: "heading.callout", // var(--nypl-fontSizes-1);
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "heading.callout", // var(--nypl-fontSizes-1);
-      },
     },
   }),
   fallback: definePartsStyle({
     base: {
+      fontSize: "1", // var(--nypl-fontSizes-1);
       fontWeight: "regular",
       lineHeight: "1.15",
       ...margins,
       width: "auto",
-      "@media (min-width: 0px)": {
-        fontSize: "1", // var(--nypl-fontSizes-1);
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "1", // var(--nypl-fontSizes-1);
-      },
     },
   }),
   display1: definePartsStyle({
@@ -99,12 +74,6 @@ export const headings = {
       lineHeight: "1.10",
       width: "auto",
       a: { textUnderlineOffset: "7px" },
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.display1",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.display1",
-      },
     },
   }),
   heading1: definePartsStyle({
@@ -118,12 +87,6 @@ export const headings = {
       lineHeight: "1.15",
       width: "auto",
       a: { textUnderlineOffset: "6px" },
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading1",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading1",
-      },
     },
   }),
   heading2: definePartsStyle({
@@ -137,12 +100,6 @@ export const headings = {
       lineHeight: "1.20",
       width: "auto",
       a: { textUnderlineOffset: "5px" },
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading2",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading2",
-      },
     },
   }),
   heading3: definePartsStyle({
@@ -156,12 +113,6 @@ export const headings = {
       lineHeight: "1.25",
       width: "auto",
       a: { textUnderlineOffset: "4px" },
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading3",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading3",
-      },
     },
   }),
   heading4: definePartsStyle({
@@ -175,12 +126,6 @@ export const headings = {
       lineHeight: "1.30",
       width: "auto",
       a: { textUnderlineOffset: "3px" },
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading4",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading4",
-      },
     },
   }),
   heading5: definePartsStyle({
@@ -193,12 +138,6 @@ export const headings = {
       letterSpacing: "0",
       lineHeight: "1.35",
       width: "auto",
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading5",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading4",
-      },
     },
   }),
   heading6: definePartsStyle({
@@ -211,12 +150,6 @@ export const headings = {
       letterSpacing: "0",
       lineHeight: "1.40",
       width: "auto",
-      "@media (min-width: 0px)": {
-        fontSize: "mobile.heading.heading6",
-      },
-      "@media (min-width: 600px)": {
-        fontSize: "desktop.heading.heading6",
-      },
     },
   }),
 };

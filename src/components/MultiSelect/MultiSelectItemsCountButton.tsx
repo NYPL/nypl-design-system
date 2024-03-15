@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
 export interface MultiSelectItemsCountButtonProps {
+  /** An ID string that other components can cross reference for accessibility purposes. */
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
@@ -13,11 +14,13 @@ export interface MultiSelectItemsCountButtonProps {
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
   selectedItemsString: string;
+  /** The number of selected items. */
   selectedItemsCount: number;
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
-  /** The action to perform for clear/reset button of MultiSelect. */
+  /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
+  /** The action to perform for key down event. */
   onKeyDown?: () => void;
   /** Ref to the Accordion Button element. */
   accordianButtonRef: any;
@@ -54,13 +57,13 @@ const MultiSelectItemsCountButton = forwardRef<
 
   return (
     <Button
-      id="multi-select-button"
+      id={`ms-count-button-${multiSelectId}`}
       buttonType="pill"
       size="small"
       aria-label={selectedItemsAriaLabel}
       data-testid="multi-select-close-button-testid"
       onClick={() => {
-        onClear();
+        onClear && onClear();
         // Set focus on the Accordion Button when close the selected items count button.
         accordianButtonRef.current?.focus();
       }}
@@ -69,7 +72,7 @@ const MultiSelectItemsCountButton = forwardRef<
       {selectedItemsCount}
       <Icon
         align="right"
-        id={`ms-${multiSelectId}-selected-items-count-icon`}
+        id={`ms-count-icon-${multiSelectId}`}
         marginLeft="xs"
         name="close"
         size="xsmall"
