@@ -70,6 +70,7 @@ const SocialMediaLinks = defineStyleConfig({
       color: "ui.typography.heading",
       _hover: {
         color: "ui.typography.heading",
+        textDecoration: "underline 1px dotted",
       },
       _visited: {
         color: "ui.typography.heading",

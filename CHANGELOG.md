@@ -6,20 +6,87 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## Prerelease
+## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
+
+### Adds
+
+- Adds `5%` and `10%` opacities for the semantic colors in the color pallette.
+- Adds the `Menu` component.
+- Adds the `MultiSelect` v2 component.
+- Adds the `useMultiSelect` hook.
+
+### Updates
+
+- Updates the repo to use Node 18.
+- Updates to React 18 and Chakra 2.8.
+- Updates the `StatusBadge` component to add the `type` prop.
+- Updates the `StatusBadge` component to change the UI styles.
+- Updates the base `Modal` component to use the `useDSHeading` hook internally to render a DS Heading for the `headingText` prop.
+- Updates the `Heading` component to use native Chakra responsive styles to handle the font sizes of the component's internal `heading`, `overline` and `subtitle` elements. This also resolves the flashing font size bug that is most noticeable on slower internet connections.
+- Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
+- Updates the `NewsletterSignup` component to follow NYPL recommendations and use more direct language for the email field error message.
+- Updates the default export to include `FocusLock`, `useStyleConfig`, and `useMultiStyleConfig` from Chakra UI.
+- Updates the default export to include the test helper "MatchMedia".
+- Updates the `Accordion` component to include the `ariaLabel` and `buttonInteractionRef` props.
+- Updates the `Tabs` component to use horizontal scrolling and arrow buttons step through tabs in mobile view.
 
 ### Fixes
 
-- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
+- Removes console warnings from the `CheckboxGroup` component when a non-`Checkbox` component is passed as a child.
+- Fixes the responsive styles related to the image in the `FeaturedContent` component.
+
+### Breaking Changes
+
+- Removes the `NewsletterSignup` and `SocialMediaLinks` components.
+- Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
+- Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor. Usage with Next.js has been updated.
+
+## 2.1.6 (February 22, 2024)
+
+### Updates
+
+- Updates focus ring color in `Notification` and `Breadcrumbs` to match color of text.
+- Updates the `StatusBadge` styles so that if an icon is passed, the icon and text line up with one another
+
+### Fixes
+
+- Fixes a styling issue on the range `DatePicker` for the month and year types
+  where the in-range selected date values did not have the correct DS colors.
+- Fixes the desktop font size for the `"heading5"` variant in the `Heading` component.
+
+## 2.1.5 (February 5, 2024)
+
+### Adds
+
+- Adds the `"navigationMoreVert"` option (vertical ellipsis) to the `Icon` component.
+
+### Updates
+
+- Updates `Tabs` to be scrollable when the width of the tab set is greater than the viewport.
+- Updates the required comment field so it cannot be submitted when empty for the `FeedbackBox` component.
+- Updates the `Heading` component to use a custom `@media query` method to handle the responsive `font-size` styles.
+- Updates the `Text` component to use native Chakra responsive styles for the font sizes of the `subtitle1` and `subtitle2` variants.
+
+### Fixes
+
+- Fixes the focus ring style for the open button in the `FeedbackBox` component.
+- Forcibly focuses on the open button when the `FeedbackBox` form is closed to ensure focus is not lost.
+
+## 2.1.4 (January 4, 2024)
 
 ### Adds
 
 - Adds optional `placeholder` and `placeholderTo` props to the `DatePicker` component.
-- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`, `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
+- Adds the `"actionDelete"`, `"actionHome"`, `"actionLockClosed"`,
+  `"actionPayment"`, `"communicationCall"`, `"communicationChatBubble"`, and `"communicationEmail"` options to the `Icon` component.
 
 ### Updates
 
 - Updates the `DatePicker`'s `initialDate` and `initialDateTo` props to accept an empty string.
+
+### Fixes
+
+- Fixes bug where month and year `Datepicker` calendars were rendering vertically rather than horizontally.
 
 ## 2.1.3 (December 7, 2023)
 
@@ -140,7 +207,7 @@ _NOTE_: Version number `2.0.0` was previously released in 2019 and is marked as 
 ### Updates
 
 - Updates the `Logo` component to include variants for `NYC Public Schools`.
-- Updates the `Icon` component to include varisnts for `"sunFull"` and `"moonCrescent"`.
+- Updates the `Icon` component to include variants for `"sunFull"` and `"moonCrescent"`.
 - Updates `Breadcrumbs` default design token to support apps using both newer and older DS versions.
 
 ## 1.7.2 (August 31 , 2023)

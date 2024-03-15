@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -73,7 +74,12 @@ export interface HeroProps {
   subHeaderText?: string | JSX.Element;
 }
 
-export const Hero: React.FC<any> = chakra(
+export const Hero: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<HeroProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  HeroProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<HeroProps>>(
     (props, ref?) => {
       const {
@@ -313,7 +319,7 @@ export const Hero: React.FC<any> = chakra(
           style={backgroundImageSrc ? backgroundImageStyle : undefined}
           ref={ref}
           __css={{
-            ...styles,
+            ...styles.base,
             ...backgroundImageStyle,
           }}
         >

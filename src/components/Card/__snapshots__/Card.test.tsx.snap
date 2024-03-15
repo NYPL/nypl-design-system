@@ -22,7 +22,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1981cs0"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
@@ -71,7 +71,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-ntf6yc"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
@@ -94,7 +94,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -103,7 +103,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -170,7 +170,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-j9s2tm"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
@@ -215,12 +215,12 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-ntf6yc"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -233,7 +233,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -242,7 +242,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -296,12 +296,12 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-j9s2tm"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -319,7 +319,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -328,7 +328,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -395,7 +395,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-hbl0gn"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
@@ -449,7 +449,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1981cs0"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
@@ -510,7 +510,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-6hbh5e"
+      className="chakra-heading css-1dti2w"
       id="heading1"
       layout="column"
     >
@@ -560,7 +560,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-itatq0"
+      className="chakra-heading css-1dti2w"
       id="heading1"
       layout="column"
     >

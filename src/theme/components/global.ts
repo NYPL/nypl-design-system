@@ -3,6 +3,16 @@ export { screenreaderOnly, wrapperStyles } from "./globalMixins";
 
 /** Reusable component styles. */
 
+const customFocusColor = (focusColor, focusColorDark) => ({
+  boxShadow: "none",
+  outline: "2px solid",
+  outlineOffset: "2px",
+  outlineColor: focusColor,
+  zIndex: "9999",
+  _dark: {
+    outlineColor: focusColorDark,
+  },
+});
 // Used in `Select` and `TextInput`.
 const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
@@ -149,6 +159,7 @@ export {
   checkboxRadioHelperErrorTextStyle,
   checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
+  customFocusColor,
   defaultElementSizes,
   labelLegendText,
   selectTextInputDisabledStyles,

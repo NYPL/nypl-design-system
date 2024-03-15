@@ -29,8 +29,11 @@ export const baseLinkStyles = {
   },
   _hover: {
     color: "ui.link.secondary",
+    textDecoration: "underline",
     textDecorationStyle: "dotted",
     textDecorationThickness: "1px",
+    // The dark mode hover color is not being picked up properly down stream, so
+    // it is being explicitly added here.
     _dark: {
       color: "dark.ui.link.secondary",
     },
@@ -126,6 +129,11 @@ const buttonPrimary = definePartsStyle(
         textDecoration: "underline",
         textDecorationStyle: "dotted !important",
         textDecorationThickness: "1px !important",
+        // The dark mode hover color is not being picked up properly down stream, so
+        // it is being explicitly added here.
+        _dark: {
+          color: "ui.gray.xxx-dark",
+        },
       },
       _visited: hasVisitedState
         ? {
@@ -172,6 +180,11 @@ const buttonPill = definePartsStyle(
         textDecoration: "underline",
         textDecorationStyle: "dotted !important",
         textDecorationThickness: "1px !important",
+        // The dark mode hover color is not being picked up properly down stream, so
+        // it is being explicitly added here.
+        _dark: {
+          color: "dark.ui.typography.heading",
+        },
       },
       _visited: hasVisitedState
         ? {
@@ -195,6 +208,11 @@ const buttonCallout = definePartsStyle(
         textDecoration: "underline",
         textDecorationStyle: "dotted !important",
         textDecorationThickness: "1px !important",
+        // The dark mode hover color is not being picked up properly down stream, so
+        // it is being explicitly added here.
+        _dark: {
+          color: "ui.white",
+        },
       },
       _visited: hasVisitedState
         ? {
@@ -218,6 +236,11 @@ const buttonNoBrand = definePartsStyle(
         textDecoration: "underline",
         textDecorationStyle: "dotted !important",
         textDecorationThickness: "1px !important",
+        // The dark mode hover color is not being picked up properly down stream, so
+        // it is being explicitly added here.
+        _dark: {
+          color: "ui.white",
+        },
       },
       _visited: hasVisitedState
         ? {

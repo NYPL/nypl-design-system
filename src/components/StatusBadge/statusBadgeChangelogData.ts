@@ -10,10 +10,24 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-03-14",
+    version: "3.0.0",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Added the 'type' prop.",
+      "Deprecated the `level` prop.",
+      "Updated the UI styles.",
+    ],
+  },
+  {
+    date: "2024-02-22",
+    version: "2.1.6",
+    type: "Update",
+    affects: ["Styles", "Documentation"],
+    notes: [
+      "Updated the styles so that if a dev passes an icon to the badge as well as text, the icon and text line up with one another",
+    ],
   },
 ];

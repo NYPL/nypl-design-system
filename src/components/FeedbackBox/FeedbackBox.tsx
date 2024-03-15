@@ -12,7 +12,7 @@ import {
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -23,7 +23,7 @@ import Notification from "../Notification/Notification";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
-import TextInput from "../TextInput/TextInput";
+import TextInput, { TextInputRefType } from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
@@ -121,6 +121,8 @@ export const FeedbackBox: ChakraComponent<
       // update if the consuming app updates it, based on API
       // success and failure responses.
       const [viewType, setViewType] = useStateWithDependencies(view);
+      const [finalIsInvalidComment, setFinalIsInvalidComment] =
+        useStateWithDependencies(isInvalidComment);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
@@ -133,6 +135,8 @@ export const FeedbackBox: ChakraComponent<
       const finalOnOpen = onOpen ? onOpen : disclosure.onOpen;
       const finalOnClose = onClose ? onClose : disclosure.onClose;
       const focusRef = useRef<HTMLDivElement>();
+      const openButtonRef = useRef<HTMLButtonElement>();
+      const commentInputRef = useRef<TextInputRefType>();
       const styles = useMultiStyleConfig("FeedbackBox", {});
       const isFormView = viewType === "form";
       const isConfirmationView = viewType === "confirmation";
@@ -152,6 +156,12 @@ export const FeedbackBox: ChakraComponent<
         finalOnClose();
         setViewType("form");
         clearValues();
+        setFinalIsInvalidComment(false);
+
+        // Leave some time after closing before focusing on the open button.
+        setTimeout(() => {
+          openButtonRef?.current?.focus();
+        }, 250);
       };
       const internalOnSubmit = (e) => {
         e.preventDefault();
@@ -159,7 +169,16 @@ export const FeedbackBox: ChakraComponent<
         if (hiddenFields) {
           submittedValues = { ...submittedValues, ...hiddenFields };
         }
+
+        // Set the invalid state if the comment text field is empty.
+        if (submittedValues.comment.length === 0) {
+          commentInputRef?.current?.focus();
+          setFinalIsInvalidComment(true);
+          return;
+        }
+
         onSubmit && onSubmit(submittedValues);
+        setFinalIsInvalidComment(false);
         setIsSubmitted(true);
       };
       const notificationElement =
@@ -270,14 +289,19 @@ export const FeedbackBox: ChakraComponent<
 
       return (
         <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
-          <Button id="open" onClick={finalOnOpen} sx={styles.openButton}>
+          <Button
+            id="open"
+            onClick={finalOnOpen}
+            sx={styles.openButton}
+            ref={openButtonRef}
+          >
             {title}
           </Button>
 
           <Drawer
             blockScrollOnMount={false}
             isOpen={finalIsOpen}
-            onClose={finalOnClose}
+            onClose={closeAndResetForm}
             placement="bottom"
           >
             {/* Adds the opaque background. */}
@@ -287,7 +311,7 @@ export const FeedbackBox: ChakraComponent<
               <Button
                 buttonType="text"
                 id="close-btn"
-                onClick={finalOnClose}
+                onClick={closeAndResetForm}
                 sx={styles.closeButton}
               >
                 <Icon color="ui.black" name="minus" size="medium" />
@@ -353,28 +377,28 @@ export const FeedbackBox: ChakraComponent<
                         )}
                         <FormField width="100%">
                           <TextInput
+                            defaultValue={state.comment}
                             helperText={`${
                               maxCommentCharacters - state.comment.length
                             } characters remaining`}
                             id={`${id}-comment`}
-                            invalidText="Please fill out this field."
+                            invalidText="There was a problem. Please fill out this field."
                             isDisabled={isSubmitted}
-                            isInvalid={isInvalidComment}
-                            isRequired
-                            labelText="Comment"
+                            isInvalid={finalIsInvalidComment}
+                            labelText="Comment (Required)"
                             maxLength={maxCommentCharacters}
                             name={`${id}-comment`}
                             onChange={(e) => setComment(e.target.value)}
                             placeholder="Enter your question or feedback here"
+                            ref={commentInputRef}
                             type="textarea"
-                            defaultValue={state.comment}
                           />
                         </FormField>
                         {showEmailField && (
                           <FormField width="100%">
                             <TextInput
                               id={`${id}-email`}
-                              invalidText="Please enter a valid email address."
+                              invalidText="There was a problem. Please enter a valid email address."
                               isDisabled={isSubmitted}
                               isInvalid={isInvalidEmail}
                               labelText="Email"

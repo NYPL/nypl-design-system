@@ -65,6 +65,10 @@ export const headings = {
   }),
   display1: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.display1",
+        md: "desktop.heading.display1",
+      },
       fontWeight: "heading.display1",
       letterSpacing: "0.0625rem",
       lineHeight: "1.10",
@@ -74,6 +78,10 @@ export const headings = {
   }),
   heading1: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading1",
+        md: "desktop.heading.heading1",
+      },
       fontWeight: "heading.heading1",
       letterSpacing: "0.0625rem",
       lineHeight: "1.15",
@@ -83,6 +91,10 @@ export const headings = {
   }),
   heading2: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading2",
+        md: "desktop.heading.heading2",
+      },
       fontWeight: "heading.heading2",
       letterSpacing: "0.0625rem",
       lineHeight: "1.20",
@@ -92,6 +104,10 @@ export const headings = {
   }),
   heading3: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading3",
+        md: "desktop.heading.heading3",
+      },
       fontWeight: "heading.heading3",
       letterSpacing: "0",
       lineHeight: "1.25",
@@ -101,6 +117,10 @@ export const headings = {
   }),
   heading4: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading4",
+        md: "desktop.heading.heading4",
+      },
       fontWeight: "heading.heading4",
       letterSpacing: "0",
       lineHeight: "1.30",
@@ -110,6 +130,10 @@ export const headings = {
   }),
   heading5: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading5",
+        md: "desktop.heading.heading5",
+      },
       fontWeight: "heading.heading5",
       letterSpacing: "0",
       lineHeight: "1.35",
@@ -118,6 +142,10 @@ export const headings = {
   }),
   heading6: definePartsStyle({
     base: {
+      fontSize: {
+        base: "mobile.heading.heading6",
+        md: "desktop.heading.heading6",
+      },
       fontWeight: "heading.heading6",
       letterSpacing: "0",
       lineHeight: "1.40",

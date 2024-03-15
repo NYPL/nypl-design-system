@@ -10,10 +10,22 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-03-14",
+    version: "3.0.0",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    affects: ["Accessibility", "Documentation", "Styles"],
+    notes: [
+      "Updates mobile view of tabs to be scrollable and arrow buttons updates the active tab",
+      "Chakra 2.8 update.",
+    ],
+  },
+  {
+    date: "2024-02-05",
+    version: "2.1.5",
+    type: "Update",
+    affects: ["Accessibility", "Documentation"],
+    notes: [
+      "Updates tab set to be scrollable when the width of the tab set is greater than the viewport",
+    ],
   },
 ];

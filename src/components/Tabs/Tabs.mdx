@@ -1,18 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./tabsChangelogData";
 
 import * as TabsStories from "./Tabs.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./tabsChangelogData";
 
 <Meta of={TabsStories} />
 
 # Tabs
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.24.0`     |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -21,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#composing-with-a-data-object" target="_self">Composing with a Data Object</Link>}
 - {<Link href="#responsive-mobile-carousel" target="_self">Responsive Mobile Carousel</Link>}
+- {<Link href="#scrollable-desktop-tab-set" target="_self">Scrollable Desktop Tab Set</Link>}
 - {<Link href="#callback-event-function" target="_self">Callback Event Function</Link>}
 - {<Link href="#url-hash-option" target="_self">URL Hash Option</Link>}
 - {<Link href="#children-components" target="_self">Children Components</Link>}
@@ -61,8 +62,8 @@ related `aria-labelledby` and `id` attributes for the panels, and the `tablist`,
 
 When viewing the `Tabs` component on a narrow screen, an additional carousel
 interface is wrapped around the button tabs. "Next" and "Previous" arrow buttons
-slide the view of the tabs to the left and right, but all initial functionality
-for the `Tabs` component doesn't change.
+changes the active tab by moving the same direction as the arrow, but all initial
+functionality for the `Tabs` component doesn't change.
 
 Resources:
 
@@ -130,6 +131,15 @@ the <Link href="#children-components" target="_self">Children Components</Link> 
 
 To view and test this in Storybook, go to the "Canvas" tab and change the
 viewport in the Storybook toolbar at the top of the page.
+
+## Scrollable Desktop Tab Set
+
+For desktop viewports (600px and greater), the full tab set scrolls left/right when
+the width of the tab set is greater than the width of the viewport.
+
+To scroll horizontally, use the `shift + scroll wheel` combination.
+
+<Canvas of={TabsStories.ExtendedTabSetExample} />
 
 ## Callback Event Function
 

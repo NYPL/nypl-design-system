@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "2.2.0-react-chakra-rc-2",
+  "version": "3.0.0",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "lint": "eslint src --ext=ts,tsx --cache",
     "prepare": "npm run build && husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook:v2": "storybook build -c .storybook -o ./reservoir/v2",
+    "build-storybook:v3": "storybook build -c .storybook -o ./reservoir/v3",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build"
   },
@@ -53,9 +53,8 @@
     "types-ramda": "0.29.4"
   },
   "dependencies": {
-    "@chakra-ui/focus-lock": ">=2.1.0",
-    "@chakra-ui/react": ">=2.8.1",
-    "@chakra-ui/system": ">=2.6.2",
+    "@chakra-ui/react": "2.8.1",
+    "@chakra-ui/system": "2.6.2",
     "@charlietango/use-native-lazy-loading": "1.10.0",
     "@emotion/react": ">=11.11.1",
     "@emotion/styled": ">=11.11.0",
@@ -69,7 +68,6 @@
     "vite-plugin-svgr": "2.4.0"
   },
   "peerDependencies": {
-    "@chakra-ui/focus-lock": ">=2.1.0",
     "@chakra-ui/react": ">=2.8.1",
     "@chakra-ui/system": ">=2.6.2",
     "@emotion/react": ">=11.11.1",
@@ -136,7 +134,7 @@
     "style-loader": "2.0.0",
     "ts-jest": "29.0.5",
     "tslib": "2.3.0",
-    "vite": "4.3.9",
+    "vite": "4.5.2",
     "vite-plugin-dts": "2.1.0"
   }
 }

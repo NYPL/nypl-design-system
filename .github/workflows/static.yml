@@ -27,16 +27,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Build Storybook
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
-        run: npm run prebuild:storybook && npm run build-storybook:v2
+        run: npm run prebuild:storybook && npm run build-storybook:v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

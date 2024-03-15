@@ -67,12 +67,18 @@ const variants = {
     textTransform: "uppercase",
   }),
   subtitle1: defineStyle({
-    fontSize: "desktop.subtitle.subtitle1",
+    fontSize: {
+      base: "mobile.subtitle.subtitle1",
+      md: "desktop.subtitle.subtitle1",
+    },
     fontWeight: "subtitle.subtitle1",
     lineHeight: 1.35,
   }),
   subtitle2: defineStyle({
-    fontSize: "desktop.subtitle.subtitle2",
+    fontSize: {
+      base: "mobile.subtitle.subtitle2",
+      md: "desktop.subtitle.subtitle2",
+    },
     fontWeight: "subtitle.subtitle2",
     lineHeight: 1.4,
   }),
