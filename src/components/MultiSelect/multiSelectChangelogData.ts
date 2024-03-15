@@ -10,10 +10,10 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-03-14",
+    version: "3.0.0",
     type: "Update",
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
-    notes: ["Refactors the `MultiSelect` component."],
+    notes: ["Chakra 2.8 update.", "Refactors the `MultiSelect` component."],
   },
 ];

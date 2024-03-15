@@ -12,7 +12,7 @@ import { changelogData } from "./newsletterSignupChangelogData";
 | Component Version | DS Version   |
 | ----------------- | ------------ |
 | Added             | `2.1.0`      |
-| Latest            | `Prerelease` |
+| Latest            | `3.0.0` |
 
 ## Table of Contents
 
