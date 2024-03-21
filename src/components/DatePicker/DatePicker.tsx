@@ -16,6 +16,7 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
+import { labelLegendTextSpecialSpacing } from "../../theme/components/global";
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
@@ -225,6 +226,12 @@ const DatePickerWrapper: React.FC<
           isRequired={isRequired}
           legendText={labelText}
           showRequiredLabel={showRequiredLabel}
+          __css={{
+            legend: {
+              // marginBottom: "xxxs",
+              ...labelLegendTextSpecialSpacing,
+            },
+          }}
         >
           {children}
         </Fieldset>

@@ -12,7 +12,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -107,7 +107,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -203,7 +203,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -316,7 +316,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -428,7 +428,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -527,7 +527,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -626,7 +626,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="select"
         id="select-label"
       >
@@ -723,7 +723,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="chakra"
         id="chakra-label"
       >
@@ -819,7 +819,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
       className="css-0"
     >
       <label
-        className="css-1xdhyk6"
+        className="css-163xsah"
         htmlFor="props"
         id="props-label"
       >
