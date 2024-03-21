@@ -98,10 +98,11 @@ const Banner = defineMultiStyleConfig({
   baseStyle: definePartsStyle(({ backgroundColor, highlightColor }) => ({
     base: {
       alignItems: "flex-start",
-      bgColor: backgroundColor ? backgroundColor : null,
+      backgroundColor: backgroundColor ? backgroundColor : null,
       borderLeft: "4px",
       borderColor: highlightColor ? highlightColor : null,
       display: "flex",
+      fontSize: "desktop.body.body2",
       flexDirection: "row",
       gap: "xs",
       justifyContent: "flex-start",
@@ -115,7 +116,9 @@ const Banner = defineMultiStyleConfig({
       width: "100%",
       a: {
         color: "ui.typography.heading",
-        textDecoration: "underline",
+        _hover: {
+          color: "ui.typography.heading",
+        },
       },
       svg: {
         fill: highlightColor ? highlightColor : null,
@@ -123,6 +126,9 @@ const Banner = defineMultiStyleConfig({
       _dark: {
         a: {
           color: "dark.ui.typography.heading",
+          _hover: {
+            color: "dark.ui.typography.heading",
+          },
         },
       },
     },

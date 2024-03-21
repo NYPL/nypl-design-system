@@ -58,7 +58,7 @@ export const iconColorsArray = [
   "section.research.secondary",
   "section.research-library.lpa",
   "section.research-library.schomburg",
-  "section.research-library.schwartzman",
+  "section.research-library.schwarzman",
   "section.whats-on.primary",
   "section.whats-on.secondary",
   "dark.brand.primary",

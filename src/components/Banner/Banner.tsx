@@ -27,9 +27,9 @@ export const bannerBgColorsArray = [
   "section.education.primary-05",
   "section.locations.primary-05",
   "section.research.primary-05",
-  "section.research-library-lpa.primary-05",
-  "section.research-library-schomburg.primary-05",
-  "section.research-library-schwarzman.primary-05",
+  "section.research-library.lpa-05",
+  "section.research-library.schomburg-05",
+  "section.research-library.schwarzman-05",
   "section.whats-on.primary-05",
   "dark.brand.primary-05",
   "dark.section.blogs.primary-05",
@@ -38,9 +38,9 @@ export const bannerBgColorsArray = [
   "dark.section.education.primary-05",
   "dark.section.locations.primary-05",
   "dark.section.research.secondary-05",
-  "dark.section.research-library-lpa.primary-05",
-  "dark.section.research-library-schomburg.primary-05",
-  "dark.section.research-library-schwarzman.primary-05",
+  "dark.section.research-library.lpa-05",
+  "dark.section.research-library.schomburg-05",
+  "dark.section.research-library.schwarzman-05",
   "dark.section.whats-on.primary-05",
 ] as const;
 export type BannerBgColors = typeof bannerBgColorsArray[number];
@@ -158,9 +158,9 @@ export const Banner: ChakraComponent<
     const styles = useMultiStyleConfig("Banner", {
       backgroundColor,
       highlightColor,
-      // If either `backgroundColor` or `highlightColor` are set, then it
+      // If `backgroundColor` and `highlightColor` are set, then it
       // overrides the Banner types.
-      variant: backgroundColor || highlightColor ? undefined : type,
+      variant: backgroundColor && highlightColor ? undefined : type,
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,
@@ -189,7 +189,6 @@ export const Banner: ChakraComponent<
         __css={styles.dismissibleButton}
       >
         <Icon
-          id={`${id}-dismissible-icon`}
           data-testid={`${id}-dismissible-icon`}
           name="close"
           size="large"
@@ -200,7 +199,6 @@ export const Banner: ChakraComponent<
     const finalIcon = icon || (
       <Icon
         className="banner-icon"
-        id={`${id}-banner-icon`}
         data-testid={`${id}-banner-icon`}
         title="Banner announcement icon"
         size="large"
@@ -211,6 +209,21 @@ export const Banner: ChakraComponent<
     // If the `Banner` is closed, don't render anything.
     if (!isOpen) {
       return null;
+    }
+
+    if (backgroundColor && !highlightColor) {
+      console.warn(
+        "NYPL Reservoir Banner: The `backgroundColor` prop has been passed, " +
+          "but the `highlightColor` prop has not been passed. Because of " +
+          "this, the `backgroundColor` prop will be ignored."
+      );
+    }
+    if (highlightColor && !backgroundColor) {
+      console.warn(
+        "NYPL Reservoir Banner: The `highlightColor` prop has been passed, " +
+          "but the `backgroundColor` prop has not been passed. Because of " +
+          "this, the `highlightColor` prop will be ignored."
+      );
     }
 
     return (

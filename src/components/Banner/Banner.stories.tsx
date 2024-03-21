@@ -100,13 +100,13 @@ export const TypeVariants: Story = {
               heading="Neutral Banner"
             />
           </>,
-          "Indicates a general, non-ciritical status update.",
+          "Indicates a general, non-critical status update.",
         ],
         [
           <>
             <Banner
               content={`
-              This is a "informative" Banner with a heading. Cras mattis consectetur
+              This is an "informative" Banner with a heading. Cras mattis consectetur
               purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
               leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
               natoque penatibus et magnis dis parturient montes, nascetur
@@ -349,7 +349,7 @@ export const HTMLContent: Story = {
 export const CustomColors: Story = {
   render: () => (
     <Banner
-      backgroundColor="section.whats-on.primary-05"
+      backgroundColor="section.research-library.schomburg-05"
       content={`
         Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
         mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum

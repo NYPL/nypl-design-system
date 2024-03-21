@@ -208,6 +208,36 @@ describe("Banner", () => {
     );
   });
 
+  it("logs warnings when both background and highlight colors are not set together", () => {
+    const warn = jest.spyOn(console, "warn");
+
+    const { rerender } = render(
+      <Banner
+        backgroundColor="section.books-and-more.primary-05"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Banner: The `backgroundColor` prop has been passed, " +
+        "but the `highlightColor` prop has not been passed. Because of " +
+        "this, the `backgroundColor` prop will be ignored."
+    );
+
+    rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        highlightColor="section.education.primary"
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Banner: The `highlightColor` prop has been passed, " +
+        "but the `backgroundColor` prop has not been passed. Because of " +
+        "this, the `highlightColor` prop will be ignored."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const informative = renderer
       .create(

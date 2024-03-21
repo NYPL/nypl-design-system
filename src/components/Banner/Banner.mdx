@@ -31,10 +31,11 @@ import { changelogData } from "./bannerChangelogData";
 
 <Description of={BannerStories} />
 
-**IMPORTANT:** The `Banner` component mirrors the `Notification` component but
-the `Notification` component should be used for more global messaging at the top
-of the screen. The `Banner` component should be used for all messaging that
-sits within the flow of the page.
+**IMPORTANT:** The `Banner` component is similar in form and function to the
+`Notification` component. However, the `Notification` component should be used
+for global messaging located at the top of the site, above the NYPL header,
+while the `Banner` component should be used for all messaging that sits within
+the flow of the page.
 
 ## Component Props
 
@@ -53,17 +54,18 @@ landmark element is acceptable.
 
 ### ARIA Label
 
-Every `Banner` component must have a unique `aria-label` attribute. This
-is set through the `ariaLabel` prop. A unique `aria-label` value, along with the
+If an `aria-label` is needed, it can be set through the `ariaLabel` prop. If
+there are multiple `Banner` components on a page, they must each have unique
+`aria-label` attributes. A unique `aria-label` value, along with the
 `<aside>` HTML landmark element, helps screen readers better navigate a page
 with multiple `Banner`s.
 
 ### Icons
 
 Icons rendered in the `Banner` component are decorative by default which
-means that they are hidden to screen readers. Since the "X" close icon inside
-the dismissible button is decorative and because there is no discernible text
-inside the button, an `aria-label` attribute is added to the button.
+means that they are hidden to screen readers. If `isDismissable` is true, the
+"X" close icon is wrapped inside a button with an appropriate `aria-label`
+attribute.
 
 ### Language Patterns
 
@@ -75,10 +77,10 @@ heading or body copy within the Banner should use the words `"warning"` or
 
 ### Dynamic Banners
 
-If dynamically generated Banners are required, a container into which the
-Banner will be injected should be included in the DOM. The container
+If dynamically generated `Banners` are required, a container into which the
+`Banner` will be injected should be included in the DOM. The container
 element should have `aria-live="polite"` applied. The container element should
-always be rendered in the DOM regardless of the presence of the Banner
+always be rendered in the DOM regardless of the presence of the `Banner`
 component. This DOM structure will allow the newly generated content to be
 recognized and announced by assistive technology.
 
@@ -149,11 +151,61 @@ const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
 The default icon can be overridden by using the `icon` prop to pass a
 custom `Icon` component.
 
+<Source
+  code={`
+<Banner
+  content={
+    <>
+      Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+      mollis interdum. Morbi leo risus, porta ac consectetur ac,
+      vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+      parturient montes, nascetur ridiculus mus.
+    </>
+  }
+  heading="Banner with Custom Icon"
+  icon={
+    <Icon
+      name="actionLightbulb"
+      title="Banner with custom icon"
+      size="large"
+    />
+  }
+  type="informative"
+/>
+`}
+  language="tsx"
+/>
+
 <Canvas of={BannerStories.CustomBannerIcon} />
 
 ## With HTML Content
 
 The `content` prop can accept HTML.
+
+<Source
+  code={`
+<Banner
+  heading="Standard Banner with HTML content"
+  content={
+    <>
+      <Text>
+        Cras mattis consectetur purus sit amet fermentum. Maecenas
+        faucibus mollis interdum.
+      </Text>
+      <Text noSpace>
+        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
+        <b>
+          Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus
+        </b>
+        . <Link href="#">This is a link</Link>.
+      </Text>
+    </>
+  }
+/>
+`}
+  language="tsx"
+/>
 
 <Canvas of={BannerStories.HTMLContent} />
 
