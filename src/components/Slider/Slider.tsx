@@ -20,6 +20,7 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
+import { labelLegendTextSpecialSpacing } from "../../theme/components/global";
 
 export interface SliderProps {
   /** Additional class name for the Slider component. */
@@ -347,6 +348,7 @@ export const Slider: ChakraComponent<
                 : ""
             }
             isRequired={showRequiredLabel && isRequired}
+            __css={labelLegendTextSpecialSpacing}
           >
             {labelText}
           </Label>

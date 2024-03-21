@@ -13,6 +13,7 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
+import { labelLegendTextSpecialSpacing } from "../../theme/components/global";
 
 export const selectTypesArray = ["default", "searchbar"];
 export const labelPositionsArray = ["default", "inline"];
@@ -169,6 +170,7 @@ export const Select: ChakraComponent<
                   id={`${id}-label`}
                   isInlined
                   isRequired={showRequiredLabel && isRequired}
+                  __css={labelLegendTextSpecialSpacing}
                 >
                   {labelText}
                 </Label>
