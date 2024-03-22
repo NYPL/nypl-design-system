@@ -23,6 +23,7 @@ import { changelogData } from "./tableChangelogData";
 - {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
 - {<Link href="#row-headers" target="_self">Row Headers</Link>}
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
+- {<Link href="#custom-column-widths" target="_self">Custom Column Widths</Link>}
 - {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
 - {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -94,6 +95,31 @@ and `columnHeadersTextColor` props. Note that the colors need to have sufficient
 color contrast.
 
 <Canvas of={TableStories.CustomHeaderColors} />
+
+## Custom Column Widths
+
+Column widths in HTML `<table>` elements can be a bit confusing and
+unpredictable when relying on the default settings. The default settings will
+allow column widths to resize enough to let a table fit fully within a given
+width and with that all of the table content will be visible, but often the
+resizing is unbalanced and text content within the columns becomes unreadable.
+
+Using the `customColumnWidths` prop, specific `width` and `min-width` values can
+be set for each column in a table. This will allow consuming apps to set column
+widths that make for better UX.
+
+Related to better UX, if the `min-width` values cause a table to exceed the
+width of a parent element, the table will allow for horizontal scrolling.
+Additionally in that same situation, if `useRowHeaders` is true, the first
+column will remain fixed as the subsequent columns scroll beneath it.
+
+### Without Row Headers
+
+<Canvas of={TableStories.CustomColumnWidths} />
+
+### With Row Headers
+
+<Canvas of={TableStories.CustomColumnWidthsWithRowHeaders} />
 
 ## JSX Elements
 

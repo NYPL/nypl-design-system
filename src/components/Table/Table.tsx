@@ -2,6 +2,7 @@ import {
   chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
+  TableContainer,
   Tbody as ChakraTbody,
   Thead as ChakraTHead,
   Td as ChakraTd,
@@ -27,6 +28,9 @@ export interface TableProps {
   columnHeadersBackgroundColor?: string;
   /** Hex value to set the text color of the column headers. */
   columnHeadersTextColor?: string;
+  /** Array of style objects used to set custom width values for the table
+   * columns. Will accept "width" and "maxWidth" attributes. */
+  columnWidths?: object[];
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** If true, a border will be displayed between each row in the `Table`
@@ -58,6 +62,7 @@ export const Table: ChakraComponent<
         columnHeaders = [],
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
+        columnWidths = [],
         id,
         showRowDividers = false,
         tableData,
@@ -92,7 +97,11 @@ export const Table: ChakraComponent<
           <ChakraTHead>
             <ChakraTr>
               {columnHeaders.map((child, key) => (
-                <ChakraTh key={key} scope="col" sx={customColors}>
+                <ChakraTh
+                  key={key}
+                  scope="col"
+                  sx={{ ...customColors, ...columnWidths[key] }}
+                >
                   {child}
                 </ChakraTh>
               ))}
@@ -177,19 +186,21 @@ export const Table: ChakraComponent<
       }
 
       return (
-        <ChakraTable
-          className={className}
-          id={id}
-          ref={ref}
-          sx={styles}
-          {...rest}
-        >
-          <>
-            {tableCaption}
-            {columnHeadersElems}
-            {tableBodyElems()}
-          </>
-        </ChakraTable>
+        <TableContainer whiteSpace="wrap">
+          <ChakraTable
+            className={className}
+            id={id}
+            ref={ref}
+            sx={styles}
+            {...rest}
+          >
+            <>
+              {tableCaption}
+              {columnHeadersElems}
+              {tableBodyElems()}
+            </>
+          </ChakraTable>
+        </TableContainer>
       );
     }
   )

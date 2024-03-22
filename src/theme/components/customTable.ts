@@ -14,6 +14,22 @@ const CellBorderColorStyles = () => {
   );
   return colorValues;
 };
+export const fixedColumnStyles = (useRowHeaders = false) => ({
+  backgroundColor: useRowHeaders ? "ui.bg.default" : undefined,
+  borderRight: useRowHeaders
+    ? { base: undefined, md: "1px solid var(--nypl-colors-ui-border-default)" }
+    : undefined,
+  left: useRowHeaders ? "0" : undefined,
+  paddingLeft: useRowHeaders ? { base: "0", md: "s" } : undefined,
+  position: useRowHeaders ? "sticky" : undefined,
+  zIndex: "5",
+  _dark: {
+    backgroundColor: useRowHeaders ? "dark.ui.bg.default" : undefined,
+    borderRight: useRowHeaders
+      ? "2px solid var(--nypl-colors-dark-ui-border-default)"
+      : undefined,
+  },
+});
 
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
@@ -54,11 +70,11 @@ export const baseCellStyles = (
   letterSpacing: "0",
   lineHeight: 1.5,
   paddingBottom: { base: "0", md: "s" },
-  paddingStart: 0,
-  paddingEnd: { base: "0", md: "m" },
+  paddingStart: { base: "0", md: "s" },
+  paddingEnd: { base: "0", md: "s" },
   paddingTop: { base: "0", md: "s" },
   _first: {
-    paddingStart: showRowDividers ? { base: "0", md: "m" } : null,
+    paddingStart: showRowDividers ? { base: "0", md: "s" } : "0",
     borderBottom: showRowDividers
       ? {
           base: "1px solid var(--nypl-colors-ui-light-cool)",
@@ -67,7 +83,7 @@ export const baseCellStyles = (
       : "none",
   },
   _last: {
-    paddingEnd: showRowDividers ? { base: "0", md: "m" } : null,
+    paddingEnd: showRowDividers ? { base: "0", md: "s" } : "0",
     borderBottom: showRowDividers ? "1px solid" : "none",
     borderColor: CellBorderColorStyles(),
   },
@@ -116,8 +132,9 @@ export const baseTHStyles = (
   _first: {
     paddingStart:
       showRowDividers || columnHeadersBackgroundColor
-        ? { base: "0", md: "m" }
+        ? { base: "0", md: "s" }
         : { base: "0", md: undefined },
+    ...fixedColumnStyles(useRowHeaders),
   },
   _dark: {
     color: columnHeadersTextColor
@@ -140,16 +157,21 @@ export const baseTDStyles = (
   _first: {
     paddingStart:
       showRowDividers && !useRowHeaders
-        ? { base: "0", md: "m" }
+        ? { base: "0", md: "s" }
         : columnHeadersBackgroundColor && !useRowHeaders
-        ? { base: "0", md: "m" }
-        : { base: "0", md: undefined },
+        ? { base: "0", md: "s" }
+        : { base: "0", md: useRowHeaders ? "s" : undefined },
   },
   _last: {
     borderBottom: showRowDividers
       ? { base: 0, md: "1px solid" }
       : { base: 0, md: undefined },
     borderColor: CellBorderColorStyles(),
+    paddingEnd: showRowDividers
+      ? { base: "0", md: "s" }
+      : columnHeadersBackgroundColor && !useRowHeaders
+      ? { base: "0", md: "s" }
+      : 0,
   },
 });
 export const baseStyle = ({
@@ -158,6 +180,8 @@ export const baseStyle = ({
   showRowDividers,
   useRowHeaders,
 }: BaseStyleProps) => ({
+  borderCollapse: "separate",
+  borderSpacing: 0,
   // Headers `th` can be rendered as the first cell in every row through the
   // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
   // with a custom color, the row header `th` in the `tbody` should always have
