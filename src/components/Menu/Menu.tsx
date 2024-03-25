@@ -281,6 +281,7 @@ export const Menu: ChakraComponent<
           >
             {({ isOpen }) => (
               <Flex
+                // TO-DO: Alignment in page context
                 flexDirection={
                   listAlignment === "right" ? "row-reverse" : "row"
                 }
