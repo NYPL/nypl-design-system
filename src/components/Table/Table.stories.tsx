@@ -49,6 +49,7 @@ const columnHeadersAlt = [
   "Nick Name",
   "Species",
   "Description",
+  "Bio",
   "Salary (USD)",
 ];
 const tableDataAlt = [
@@ -56,28 +57,32 @@ const tableDataAlt = [
     "Tom Nook",
     "Tanukichi",
     "Raccoon",
-    "A businessman who manages the town shop and the player's home loan. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue.",
+    "A businessman who manages the town shop and the player's home loan.",
+    "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue.",
     "$225,000",
   ],
   [
     "Isabelle",
     "Shizue",
     "Dog",
-    "A secretary and assistant to the player. Twin sister to Digby. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.",
+    "A secretary and assistant to the player. Twin sister to Digby.",
+    "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
     "$228,500",
   ],
   [
     "K.K. Slider",
     "Totakeke",
     "Dog",
-    "A traveling musician and DJ. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.",
+    "A traveling musician and DJ. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+    "Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.",
     "$157,000",
   ],
   [
     "Sonny Resetti",
     "Risetto san",
     "Mole",
-    "Lectures the player if they reset their game. Brother to Don Resetti. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    "Lectures the player if they reset their game. Brother to Don Resetti.",
+    "Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
     "$89,000",
   ],
 ];
@@ -87,7 +92,8 @@ const columnStyles = [
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
   { minWidth: "500px", width: "auto" },
-  { minWidth: "200px", width: "15%", textAlign: "right" },
+  { minWidth: "500px", width: "auto" },
+  { minWidth: "160px", width: "15%", textAlign: "right" },
 ];
 
 /**
@@ -185,6 +191,16 @@ export const CustomColumnStylesWithRowHeaders: Story = {
       id="columnWidth-table-without-row-headers"
       tableData={tableDataAlt}
       useRowHeaders
+    />
+  ),
+};
+
+export const DefaultColumnStyles: Story = {
+  render: () => (
+    <Table
+      columnHeaders={columnHeadersAlt}
+      id="columnWidth-table"
+      tableData={tableDataAlt}
     />
   ),
 };
