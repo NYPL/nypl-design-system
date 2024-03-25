@@ -30,7 +30,7 @@ export interface TableProps {
   columnHeadersTextColor?: string;
   /** Array of style objects used to set custom width values for the table
    * columns. Will accept "width" and "maxWidth" attributes. */
-  columnWidths?: object[];
+  columnStyles?: object[];
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** If true, a border will be displayed between each row in the `Table`
@@ -62,7 +62,7 @@ export const Table: ChakraComponent<
         columnHeaders = [],
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
-        columnWidths = [],
+        columnStyles = [],
         id,
         showRowDividers = false,
         tableData,
@@ -100,7 +100,7 @@ export const Table: ChakraComponent<
                 <ChakraTh
                   key={key}
                   scope="col"
-                  sx={{ ...customColors, ...columnWidths[key] }}
+                  sx={{ ...customColors, ...columnStyles[key] }}
                 >
                   {child}
                 </ChakraTh>
@@ -158,11 +158,17 @@ export const Table: ChakraComponent<
               <ChakraTr key={index}>
                 {row.map((column, key) =>
                   key === 0 && useRowHeaders ? (
-                    <ChakraTh scope="row" key={key}>
+                    <ChakraTh
+                      scope="row"
+                      key={key}
+                      sx={{ ...columnStyles[key] }}
+                    >
                       {cellContent(key, column)}
                     </ChakraTh>
                   ) : (
-                    <ChakraTd key={key}>{cellContent(key, column)}</ChakraTd>
+                    <ChakraTd key={key} sx={{ ...columnStyles[key] }}>
+                      {cellContent(key, column)}
+                    </ChakraTd>
                   )
                 )}
               </ChakraTr>

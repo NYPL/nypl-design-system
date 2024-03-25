@@ -14,8 +14,15 @@ const CellBorderColorStyles = () => {
   );
   return colorValues;
 };
-export const fixedColumnStyles = (useRowHeaders = false) => ({
-  backgroundColor: useRowHeaders ? "ui.bg.default" : undefined,
+export const fixedColumnStyles = (
+  columnHeadersBackgroundColor,
+  useRowHeaders = false
+) => ({
+  backgroundColor: useRowHeaders
+    ? columnHeadersBackgroundColor
+      ? columnHeadersBackgroundColor
+      : "ui.bg.default"
+    : undefined,
   borderRight: useRowHeaders
     ? { base: undefined, md: "1px solid var(--nypl-colors-ui-border-default)" }
     : undefined,
@@ -134,7 +141,7 @@ export const baseTHStyles = (
       showRowDividers || columnHeadersBackgroundColor
         ? { base: "0", md: "s" }
         : { base: "0", md: undefined },
-    ...fixedColumnStyles(useRowHeaders),
+    ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
   },
   _dark: {
     color: columnHeadersTextColor

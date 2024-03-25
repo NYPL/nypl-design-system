@@ -44,39 +44,50 @@ const tableData = [
   ],
 ];
 
-const columnHeadersAlt = ["Name", "Nick Name", "Species", "Description"];
+const columnHeadersAlt = [
+  "Name",
+  "Nick Name",
+  "Species",
+  "Description",
+  "Salary (USD)",
+];
 const tableDataAlt = [
   [
     "Tom Nook",
     "Tanukichi",
     "Raccoon",
     "A businessman who manages the town shop and the player's home loan. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue.",
+    "$225,000",
   ],
   [
     "Isabelle",
     "Shizue",
     "Dog",
     "A secretary and assistant to the player. Twin sister to Digby. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.",
+    "$228,500",
   ],
   [
     "K.K. Slider",
     "Totakeke",
     "Dog",
     "A traveling musician and DJ. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.",
+    "$157,000",
   ],
   [
     "Sonny Resetti",
     "Risetto san",
     "Mole",
     "Lectures the player if they reset their game. Brother to Don Resetti. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    "$89,000",
   ],
 ];
 
-const columnWidths = [
+const columnStyles = [
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
   { minWidth: "500px", width: "auto" },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
 ];
 
 /**
@@ -154,23 +165,23 @@ export const CustomHeaderColors: Story = {
   ),
 };
 
-export const CustomColumnWidths: Story = {
+export const CustomColumnStyles: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeadersAlt}
-      columnWidths={columnWidths}
+      columnStyles={columnStyles}
       id="columnWidth-table"
       tableData={tableDataAlt}
     />
   ),
 };
 
-export const CustomColumnWidthsWithRowHeaders: Story = {
+export const CustomColumnStylesWithRowHeaders: Story = {
   name: "Custom Column Widths with Row Headers",
   render: () => (
     <Table
       columnHeaders={columnHeadersAlt}
-      columnWidths={columnWidths}
+      columnStyles={columnStyles}
       id="columnWidth-table-without-row-headers"
       tableData={tableDataAlt}
       useRowHeaders

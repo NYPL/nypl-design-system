@@ -104,7 +104,7 @@ allow column widths to resize enough to let a table fit fully within a given
 width and with that all of the table content will be visible, but often the
 resizing is unbalanced and text content within the columns becomes unreadable.
 
-Using the `customColumnWidths` prop, specific `width` and `min-width` values can
+Using the `columnStyles` prop, specific `width` and `min-width` values can
 be set for each column in a table. This will allow consuming apps to set column
 widths that make for better UX.
 
@@ -113,13 +113,24 @@ width of a parent element, the table will allow for horizontal scrolling.
 Additionally in that same situation, if `useRowHeaders` is true, the first
 column will remain fixed as the subsequent columns scroll beneath it.
 
+<Source
+  code={`const columnStyles = [
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "500px", width: "auto" },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
+];`}
+  language="jsx"
+/>
+
 ### Without Row Headers
 
-<Canvas of={TableStories.CustomColumnWidths} />
+<Canvas of={TableStories.CustomColumnStyles} />
 
 ### With Row Headers
 
-<Canvas of={TableStories.CustomColumnWidthsWithRowHeaders} />
+<Canvas of={TableStories.CustomColumnStylesWithRowHeaders} />
 
 ## JSX Elements
 
