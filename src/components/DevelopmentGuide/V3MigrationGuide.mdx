@@ -1,0 +1,186 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Button from "../Button/Button";
+import Link from "../Link/Link";
+import Text from "../Text/Text";
+
+<Meta title="Development Guide/v3 Migration Guide" />
+
+# Reservoir v3 Migration Guide
+
+## Table of Contents
+
+- {<Link href="#general-updates-requirements">General Updates & Requirements</Link>}
+- {<Link href="#upgrade-path">Upgrade Path</Link>}
+- {<Link href="#breaking-changes">Breaking Changes</Link>}
+- {<Link href="#additional-testing-needs">Additional Testing Needs</Link>}
+
+## General Updates & Requirements
+
+The Design System (DS) v3 release includes the following main updates:
+
+- Node 18+
+- React 18
+
+With these updates, the DS will offer better support for apps that are using the
+latest version of React. We strongly encourage this upgrade to take advantage of
+the latest features and improvements for React, Next.js, and other modern web
+development tools.
+
+Related to these updates, it is important to consider the following:
+
+- The Chakra UI 1.8 version is not supported by React 18.
+- Node 16 support ended in September, 2023 so while AWS and Vercel still
+  support it, they urgently recommend upgrading to a higher version.
+
+## Upgrade Path
+
+Not everything in this migration guide is applicable to all consuming
+applications. For example, even though the `Menu` component is a new addition,
+that does not mean that an application has to immediately adopt and use it.
+The ideal approach is to go through the "Breaking Changes” and “Additional
+Testing Needs” sections and update accordingly.
+
+### npm Package Update
+
+The recommended approach to upgrade to v3 is to update the
+`@nypl/design-system-react-components` package in the `package.json` file.
+
+<Source
+  code={`
+// Update the package.json file
+"dependencies": {
+  "@nypl/design-system-react-components": "3.0.0",
+}
+`}
+  language="json"
+/>
+
+Alternatively, you can run the following command in the terminal:
+
+`npm install @nypl/design-system-react-components@3.0.0`
+
+We recommended being explict with the version number to avoid any unexpected
+changes in the future that the caret (`^`) might introduce.
+
+### Main Additions and Upgrades
+
+- The `Menu` (new) and `MultiSelect` (v2) components are included in this release.
+- Chakra 1.8 does not support React 18, so Chakra has been updated to version
+  2.8. **IMPORTANT: If you manually and separately install Chakra in your app,
+  make sure to also upgrade it in the `package.json` file.**
+
+General updates can be found in the [Changelog](https://github.com/NYPL/nypl-design-system/blob/development/CHANGELOG.md),
+but the main points to note are:
+
+- `StatusBadge` has a new `type` prop.
+- There are better responsive styles for the `Heading` and `Text` components.
+- The following Chakra 2.8 helpers are now exported through the DS:
+  `cookieStorageManagerSSR`, `FocusLock`, `useStyleConfig`, and `useMultiStyleConfig`.
+
+### Major Visual Changes
+
+- `StatusBadge` has updated UI variants.
+- `Tabs` adds horizontal scrolling for desktop viewports and improves
+  horizontal scrolling for mobile viewports.
+
+## Breaking Changes
+
+### Design System
+
+- The `NewsletterSignup` and `SocialMediaLinks` components have been removed.
+  They will be added back in a later version.
+- `SimpleGrid` gap values have been updated to include `"grid"` in the prop
+  value name. For example, `gap=”grid.xs”`.
+- The `Link` component now supports app framework's routing link components. For
+  example, `Link` component from Next.js can be used through the `as` prop. The
+  previous pattern where the framework's `Link` component was used as a parent
+  component is no longer supported.
+
+<Source
+  code={`
+// Assuming that Next.js 13+ is being used
+
+// Do This
+import Link as NextLink from "next/link";
+import { Link } from "@nypl/design-system-react-components";
+
+<Link href="/about" as={NextLink}>
+  About
+</Link>
+
+// Don't Do This
+import Link from "next/link";
+import { Link as DSLink } from "@nypl/design-system-react-components";
+
+<Link href="/about" passHref>
+  <DSLink>About</DSLink>
+</Link>
+`} language="jsx" />
+
+- The `TagSet` `"filter"` variant has been updated to improve filtering logic in
+  consuming apps.
+  - Only for the `"filter"` variant, the `tagSetData` prop now
+    expects an array of objects with the following required properties:
+    `{ label: string, id: string }`. Any additional property can now also be
+    added to the object.
+  - The `onClick` function now returns the entire data object of the clicked
+    tag instead of the tag's "label".
+
+### Chakra UI
+
+- It is recommended to use `cookieStorageManagerSSR` instead of
+  `cookieStorageManager` for color mode server-side rendering (SSR). The returned
+  value should still used in the `DSProvider`'s `colorModeManager` prop.
+- The `FocusLock` component was previously imported from the separate Chakra
+  `@chakra-ui/focus-lock` package. In Chakra v2+, `FocusLock` can now be
+  imported from the main npm Chakra package. This is now included as an export
+  from the DS.
+
+<Source
+  code={`
+    import { FocusLock } from "@nypl/design-system-react-components";
+  `}
+  language="jsx"
+/>
+
+## Additional Testing Needs
+
+- Due to some JS features and how we test, consuming apps need to add the
+  following to their Jest setup file (typically `jest.config.js`). They are
+  needed for the following components and hooks: `Tabs`, `Slider`, and
+  `useNYPLBreakpoints`. _We are actively working on updates so that consuming
+  apps do not have to include these test helpers in future releases._
+
+<Source
+  code={`
+// Related to the useNYPLBreakpoints hook which is used in: ButtonGroup,
+// FeedbackBox, Modal, MultiSelectGroup, and NewsletterSignup.
+import { MatchMedia } from "@nypl/design-system-react-components";
+
+new MatchMedia();
+`}
+language="jsx"
+/>
+
+<Source
+  code={`
+// The scrollIntoView function is necessary for the Tabs component.
+window.HTMLElement.prototype.scrollIntoView = jest.fn()
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+// Related to the Slider component
+class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {
+}
+
+window.ResizeObserver = ResizeObserver;
+`}
+language="jsx"
+/>

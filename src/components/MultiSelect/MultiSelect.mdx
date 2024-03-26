@@ -9,10 +9,10 @@ import { changelogData } from "./multiSelectChangelogData";
 
 # MultiSelect
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.4.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.4.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -27,6 +27,7 @@ import { changelogData } from "./multiSelectChangelogData";
 - {<Link href="#block-element-or-float" target="_self">Block Element or Float</Link>}
 - {<Link href="#width" target="_self">Width</Link>}
 - {<Link href="#default-open-state" target="_self">Default Open State</Link>}
+- {<Link href="#multiselect-in-a-group" target="_self">MultiSelect in a Group</Link>}
 - {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
 - {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
 - {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
@@ -573,6 +574,67 @@ state by default.
   language="jsx"
 />
 
+## MultiSelect in a Group
+
+When using the `MultiSelect` component in a group, it is recommended to use the
+`useMultiSelect` hook to manage the state of all the `MultiSelect` components.
+
+The `useMultiSelect` hook provides an `onClear` function that should be used to
+clear all the selected checkboxes in individual `MultiSelect` components. This
+function should be passed to the `onClear` prop and is invoked through the
+"clear" button in the `MultiSelect` component.
+
+The `useMultiSelect` hook also provides an `onClearAll` function that can be
+used to clear all the selected checkboxes across all `MultiSelect` components.
+The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
+`onClearAll` function should be invoked in a separate button or action.
+Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
+in future releases.
+
+**IMPORTANT**: Make sure to give each `MultiSelect` component a unique `id`.
+
+<Canvas of={MultiSelectStories.InAGroup} />
+
+<Source
+  code={`
+import { MultiSelect, useMultiSelect } from "@nypl/design-system-react-components";
+// ...
+function MultiSelectGroupExample() {
+  // Example with custom hook useMultiSelect.
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
+  return (
+    <HStack>
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-1"
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-1");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-1", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-1");
+          setActionName("onClear");
+        }}
+      />
+      <MultiSelect
+        id="ms-group-2"
+        // ...
+      />
+    </HStack>
+  );
+}
+`}
+  language="jsx"
+/>
+
 ## Controlling State Using selectedItems and onChange Props
 
 The `MultiSelect` component does not store its state internally. It expects a
@@ -705,8 +767,8 @@ of a concern and general ease of use is prefered.
 
 The hook returns an object containing all the props and state needed to handle
 the selectedItems. That includes the functions `onChange`, `onClear`,
-`onMixedStateChange` for handling any changes to the selection of items and the
-current state of the selection: `selectedItems`.
+`onClearAll`, `onMixedStateChange` for handling any changes to the selection of
+items and the current state of the selection: `selectedItems`.
 
 Find the full documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
 
