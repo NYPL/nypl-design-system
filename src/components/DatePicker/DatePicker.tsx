@@ -227,10 +227,7 @@ const DatePickerWrapper: React.FC<
           legendText={labelText}
           showRequiredLabel={showRequiredLabel}
           __css={{
-            legend: {
-              // marginBottom: "xxxs",
-              ...labelLegendTextSpecialSpacing,
-            },
+            legend: labelLegendTextSpecialSpacing,
           }}
         >
           {children}
