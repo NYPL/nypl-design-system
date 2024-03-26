@@ -13,6 +13,13 @@ export const changelogData: ChangelogData[] = [
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",
+    affects: ["Styles", "Accessibility"],
+    notes: ["List <ul> bullet color updated."],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
