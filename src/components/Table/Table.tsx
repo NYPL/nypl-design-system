@@ -79,8 +79,9 @@ export const Table: ChakraComponent<
         useRowHeaders,
       });
 
+      // @TODO This logic should be reworked to use one of the breakpoint hooks (i.e. isLargerThanMobile)
       // Based on --nypl-breakpoint-medium
-      const breakpointMedium = 600;
+      const breakpointMedium = 768;
       const windowDimensions = useWindowSize();
 
       const tableCaption = titleText && (
