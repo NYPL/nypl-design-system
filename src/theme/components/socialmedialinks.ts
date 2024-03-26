@@ -3,6 +3,7 @@
 //import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 import { defineStyleConfig, StyleFunctionProps } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
+import { defaultElementSizes } from "./global";
 
 function getPadding(size) {
   let paddingSize = "xs"; // 8px / .5rem
@@ -51,7 +52,7 @@ const SocialMediaLinks = defineStyleConfig({
       flexDirection: { base: labelsOn ? "column" : "row", md: layout },
       justifyContent: { base: "center", md: "unset" },
       flexWrap: "wrap",
-      gap: "s", // 1rem / 16px
+      gap: { base: "0", md: "s" },
       marginBottom: "unset",
       li: {
         marginInlineEnd: "0",
@@ -66,8 +67,8 @@ const SocialMediaLinks = defineStyleConfig({
         justifyContent: "center",
         alignContent: "center",
         flexWrap: "wrap",
-        minWidth: { base: "44px", md: "unset" },
-        minHeight: { base: "44px", md: "unset" },
+        minWidth: { base: defaultElementSizes.mobileFieldHeight, md: "unset" },
+        minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "unset" },
         fontStyle: "normal",
         fontSize: "desktop.body.body2",
         textDecoration: "none",
@@ -116,6 +117,16 @@ const SocialMediaLinks = defineStyleConfig({
         gap: "xs", // Borders require the gap to reduce from 1rem to .5rem / 8px.
         a: {
           color: theseColors.ltColor,
+          ".platLink": {
+            minHeight: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+            minWidth: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+          },
           _hover: {
             color: theseColors.ltColor,
           },
@@ -157,7 +168,7 @@ const SocialMediaLinks = defineStyleConfig({
       const { color, size } = props;
       let theseColors = getColor(color);
       return {
-        gap: "xs",
+        gap: { base: "0", md: "xs" },
         a: {
           color: theseColors.ltColor,
           _hover: {
