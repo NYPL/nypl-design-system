@@ -110,6 +110,7 @@ export const WithControls: Story = {
     },
     jest: ["SearchBar.test.tsx"],
   },
+  // TODO: Add better tests and expectations for this Story.
   play: async ({ canvasElement }) => {
     const textInput = within(canvasElement).getByRole("textbox");
     await userEvent.type(textInput, "Hello World");

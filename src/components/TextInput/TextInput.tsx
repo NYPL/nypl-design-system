@@ -252,6 +252,7 @@ export const TextInput: ChakraComponent<
           | React.ChangeEvent<HTMLTextAreaElement>
       ) => {
         setFinalValue(e.target.value);
+        console.log("onChange", e.target.value, onChange);
         onChange && onChange(e);
       };
       let footnote: HelperErrorTextType = isInvalid

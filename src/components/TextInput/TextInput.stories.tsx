@@ -1,6 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
+import { expect, userEvent, waitFor, within } from "@storybook/test";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -75,7 +75,7 @@ export const WithControls: Story = {
     defaultValue: undefined,
     helperText: "Choose wisely.",
     id: "textInput-id",
-    isClearable: false,
+    isClearable: true,
     isClearableCallback: undefined,
     isDisabled: false,
     isInvalid: false,
@@ -110,8 +110,19 @@ export const WithControls: Story = {
   },
   play: async ({ canvasElement }) => {
     const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.click(textInput);
     await userEvent.type(textInput, "Hello World");
-    await userEvent.clear(textInput);
+
+    await waitFor(() => {
+      expect(textInput).toHaveValue("Hello World");
+    });
+
+    const clearButton = within(canvasElement).getByRole("button");
+    await userEvent.click(clearButton);
+
+    await waitFor(() => {
+      expect(textInput).not.toHaveValue("Hello World");
+    });
   },
 };
 
