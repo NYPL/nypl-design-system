@@ -11,10 +11,10 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
-    version: "3.0.0",
+    version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Sets default heading size to 'heading4' for Modal header."],
+    notes: ["Sets default heading size to 'heading4' for `Modal` header."],
   },
   {
     date: "2024-03-14",
