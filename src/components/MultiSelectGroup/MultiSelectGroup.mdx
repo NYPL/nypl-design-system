@@ -20,6 +20,7 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
+- {<Link href="#passing-multiselect-children" target="_self">Passing `MultiSelect` Children</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -34,10 +35,11 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 
 ## Accessibility
 
-The `MultiSelectGroup` renders a group of `MultiSelect` components that are wrapped
-in a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element
-that can be visually hidden through the `showLabel` prop. If the `<legend>` is
-hidden an `aria-label` attribute with `labelText` value will be rendered instead.
+The `MultiSelectGroup` renders a group of `MultiSelect` components that are
+wrapped in a `<fieldset>` element. The `<fieldset>` element renders a `<legend>`
+element that can be visually hidden through the `showLabel` prop. If the
+`<legend>` is hidden an `aria-label` attribute with `labelText` value will be
+rendered instead.
 
 For accessibility information on the `MultiSelect` component, see the
 [MultiSelect Accessibility](../?path=/docs/components-form-elements-multiselect--docs#accessibility) documentation.
@@ -54,9 +56,9 @@ the MultiSelect components will have `isBlockElement` set to `true` by default.
 
 ## useMultiSelect hook
 
-`useMultiSelect` is an optional hook for
-cases where managing the state of the component in the consuming app is less
-of a concern and general ease of use is prefered.
+`useMultiSelect` is an optional but recommended hook for cases where managing
+the state of the component in the consuming app is less of a concern and general
+ease of use is prefered.
 
 The hook returns an object containing all the props and state needed to handle
 the selectedItems. That includes the functions `onChange`, `onClearAll`,
@@ -67,8 +69,52 @@ the `selectedItems` if needed.
 
 Due to it's data structure and functions setup, it is capable to handle a group
 of `MultiSelect` components. Find the full documentation under
-
 [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
+
+## Passing `MultiSelect` Children
+
+In order to optimize rendering `MultiSelect` children and control the
+`isBlockElement` and `multiSelectWidth` props, the `MultiSelectGroup` component
+accepts `MultiSelect` children through its render prop `renderMultiSelect`
+function. This callback function returns an object argument with two optional
+properties: `isBlockElement` and `multiSelectWidth`.
+
+Both `isBlockElement` and `multiSelectWidth` are passed to the `MultiSelect`
+children.
+
+<Source
+  code={`
+<MultiSelectGroup
+  {...otherArgs}
+  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+    return (
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText="MultiSelect"
+          defaultItemsVisible={defaultItemsVisible}
+          id={multiSelect.id}
+          isBlockElement={isBlockElement}
+          items={multiSelect.items}
+          key={multiSelect.id}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onClear={() => onClear(multiSelect.id)}
+          onMixedStateChange={(e) =>
+            onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            )
+          }
+          selectedItems={selectedItems}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  }}
+/>
+`}
+  language="tsx"
+/>
 
 ## Changelog
 

@@ -76,35 +76,42 @@ const MultiSelectGroupStory = (args) => {
   }, [actionName, selectedItems]);
 
   return (
-    <MultiSelectGroup {...args}>
-      {multiSelectItems &&
-        multiSelectItems.map((multiSelect) => (
-          <MultiSelect
-            key={multiSelect.id}
-            id={multiSelect.id}
-            items={multiSelect.items}
-            selectedItems={selectedItems}
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
-            onChange={(e) => {
-              onChange(e.target.id, multiSelect.id);
-              setActionName("onChange");
-            }}
-            onMixedStateChange={(e) => {
-              onMixedStateChange(
-                e.target.id,
-                multiSelect.id,
-                multiSelect.items
-              );
-              setActionName("onMixedStateChange");
-            }}
-            onClear={() => {
-              onClear(multiSelect.id);
-              setActionName("onClear");
-            }}
-          />
-        ))}
-    </MultiSelectGroup>
+    <MultiSelectGroup
+      {...args}
+      renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+        return (
+          multiSelectItems &&
+          multiSelectItems.map((multiSelect) => (
+            <MultiSelect
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              id={multiSelect.id}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={multiSelect.id}
+              onChange={(e) => {
+                onChange(e.target.id, multiSelect.id);
+                setActionName("onChange");
+              }}
+              onMixedStateChange={(e) => {
+                onMixedStateChange(
+                  e.target.id,
+                  multiSelect.id,
+                  multiSelect.items
+                );
+                setActionName("onMixedStateChange");
+              }}
+              onClear={() => {
+                onClear(multiSelect.id);
+                setActionName("onClear");
+              }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
+            />
+          ))
+        );
+      }}
+    />
   );
 };
 
@@ -120,16 +127,15 @@ const MultiSelectGroupLayoutStory = () => {
         showLabel
         layout="row"
         multiSelectWidth="fitContent"
-      >
-        {multiSelectItems &&
-          multiSelectItems.map((multiSelect) => (
+        renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+          return multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={multiSelect.id}
-              id={multiSelect.id}
-              items={multiSelect.items}
-              selectedItems={selectedItems}
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
+              id={multiSelect.id}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={multiSelect.id}
               onChange={(e) => {
                 onChange(e.target.id, multiSelect.id);
               }}
@@ -144,25 +150,27 @@ const MultiSelectGroupLayoutStory = () => {
                 onClear(multiSelect.id);
                 action("onClear")({});
               }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
             />
-          ))}
-      </MultiSelectGroup>
+          ));
+        }}
+      />
       <MultiSelectGroup
         showLabel={true}
         id="column"
         layout="column"
         labelText="Column & multiSelectWidth='fitContent'"
         multiSelectWidth="fitContent"
-      >
-        {multiSelectItems &&
-          multiSelectItems.map((multiSelect) => (
+        renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+          return multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${multiSelect.id}-1`}
-              id={`${multiSelect.id}-1`}
-              items={multiSelect.items}
-              selectedItems={selectedItems}
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
+              id={`${multiSelect.id}-1`}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={`${multiSelect.id}-1`}
               onChange={(e) => {
                 onChange(e.target.id, `${multiSelect.id}-1`);
               }}
@@ -176,25 +184,27 @@ const MultiSelectGroupLayoutStory = () => {
               onClear={() => {
                 onClear(`${multiSelect.id}-1`);
               }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
             />
-          ))}
-      </MultiSelectGroup>
+          ));
+        }}
+      />
       <MultiSelectGroup
         showLabel={true}
         id="row-full"
         layout="row"
-        labelText="Row & multiSelectWidth='full'"
+        labelText="Row (default) & multiSelectWidth='full' (default)"
         multiSelectWidth="full"
-      >
-        {multiSelectItems &&
-          multiSelectItems.map((multiSelect) => (
+        renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+          return multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${multiSelect.id}-2`}
-              id={`${multiSelect.id}-2`}
-              items={multiSelect.items}
-              selectedItems={selectedItems}
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
+              id={`${multiSelect.id}-2`}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={`${multiSelect.id}-2`}
               onChange={(e) => {
                 onChange(e.target.id, `${multiSelect.id}-2`);
               }}
@@ -208,25 +218,27 @@ const MultiSelectGroupLayoutStory = () => {
               onClear={() => {
                 onClear(`${multiSelect.id}-2`);
               }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
             />
-          ))}
-      </MultiSelectGroup>
+          ));
+        }}
+      />
       <MultiSelectGroup
         showLabel={true}
         id="column-full"
         layout="column"
-        labelText="Column & multiSelectWidth='full'"
+        labelText="Column & multiSelectWidth='full' (default)"
         multiSelectWidth="full"
-      >
-        {multiSelectItems &&
-          multiSelectItems.map((multiSelect) => (
+        renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+          return multiSelectItems.map((multiSelect) => (
             <MultiSelect
-              key={`${multiSelect.id}-3`}
-              id={`${multiSelect.id}-3`}
-              items={multiSelect.items}
-              selectedItems={selectedItems}
               buttonText="MultiSelect"
               defaultItemsVisible={defaultItemsVisible}
+              id={`${multiSelect.id}-3`}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={`${multiSelect.id}-3`}
               onChange={(e) => {
                 onChange(e.target.id, `${multiSelect.id}-3`);
               }}
@@ -240,9 +252,12 @@ const MultiSelectGroupLayoutStory = () => {
               onClear={() => {
                 onClear(`${multiSelect.id}-3`);
               }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
             />
-          ))}
-      </MultiSelectGroup>
+          ));
+        }}
+      />
     </VStack>
   );
 };

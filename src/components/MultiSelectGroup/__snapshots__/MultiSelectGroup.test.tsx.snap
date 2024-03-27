@@ -14,7 +14,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="colors"
     >
       <div
@@ -286,7 +286,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       </div>
     </div>
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="pets"
     >
       <div
@@ -717,7 +717,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       </div>
     </div>
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="tools"
     >
       <div
@@ -1165,7 +1165,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     id="MultiSelectGroup"
   >
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="colors"
     >
       <div
@@ -1437,7 +1437,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       </div>
     </div>
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="pets"
     >
       <div
@@ -1868,7 +1868,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       </div>
     </div>
     <div
-      className="css-46lyr"
+      className="css-1xdhyk6"
       id="tools"
     >
       <div

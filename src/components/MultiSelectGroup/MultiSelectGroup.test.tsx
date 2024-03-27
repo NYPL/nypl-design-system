@@ -62,23 +62,24 @@ describe("MulitSelectGroup Accessibility", () => {
         labelText="MultiSelectGroup example"
         showLabel={true}
         multiSelectWidth="full"
-      >
-        {multiSelectItems.map((multiSelectItem) => (
-          <MultiSelect
-            key={multiSelectItem.id}
-            id={multiSelectItem.id}
-            items={multiSelectItem.items}
-            selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
-            onChange={handleChangeMock}
-            onClear={() => "onClear"}
-          />
-        ))}
-      </MultiSelectGroup>
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelectItem) => (
+            <MultiSelect
+              key={multiSelectItem.id}
+              id={multiSelectItem.id}
+              items={multiSelectItem.items}
+              selectedItems={{}}
+              isDefaultOpen={false}
+              isSearchable={false}
+              isBlockElement={false}
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              onChange={handleChangeMock}
+              onClear={() => "onClear"}
+            />
+          ));
+        }}
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -90,23 +91,24 @@ describe("MulitSelectGroup Accessibility", () => {
         labelText="MultiSelectGroup example"
         showLabel={false}
         multiSelectWidth="full"
-      >
-        {multiSelectItems.map((multiSelectItem) => (
-          <MultiSelect
-            key={multiSelectItem.id}
-            id={multiSelectItem.id}
-            items={multiSelectItem.items}
-            selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
-            onChange={handleChangeMock}
-            onClear={() => "onClear"}
-          />
-        ))}
-      </MultiSelectGroup>
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelectItem) => (
+            <MultiSelect
+              key={multiSelectItem.id}
+              id={multiSelectItem.id}
+              items={multiSelectItem.items}
+              selectedItems={{}}
+              isDefaultOpen={false}
+              isSearchable={false}
+              isBlockElement={false}
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              onChange={handleChangeMock}
+              onClear={() => "onClear"}
+            />
+          ));
+        }}
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -118,23 +120,24 @@ describe("MulitSelectGroup Accessibility", () => {
         labelText="MultiSelectGroup example"
         showLabel={true}
         multiSelectWidth="full"
-      >
-        {multiSelectItems.map((multiSelectItem) => (
-          <MultiSelect
-            key={multiSelectItem.id}
-            id={multiSelectItem.id}
-            items={multiSelectItem.items}
-            selectedItems={{}}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
-            onChange={handleChangeMock}
-            onClear={() => "onClear"}
-          />
-        ))}
-      </MultiSelectGroup>
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelectItem) => (
+            <MultiSelect
+              key={multiSelectItem.id}
+              id={multiSelectItem.id}
+              items={multiSelectItem.items}
+              selectedItems={{}}
+              isDefaultOpen={false}
+              isSearchable={false}
+              isBlockElement={false}
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              onChange={handleChangeMock}
+              onClear={() => "onClear"}
+            />
+          ));
+        }}
+      />
     );
     expect(container.querySelector("legend")).toBeVisible();
     expect(container.querySelector("legend")).toHaveTextContent(
@@ -147,23 +150,24 @@ describe("MulitSelectGroup Accessibility", () => {
         labelText="MultiSelectGroup example"
         showLabel={false}
         multiSelectWidth="full"
-      >
-        {multiSelectItems.map((multiSelectItem) => (
-          <MultiSelect
-            key={multiSelectItem.id}
-            id={multiSelectItem.id}
-            items={multiSelectItem.items}
-            isDefaultOpen={false}
-            isSearchable={false}
-            isBlockElement={false}
-            selectedItems={{}}
-            buttonText="MultiSelect"
-            defaultItemsVisible={defaultItemsVisible}
-            onChange={handleChangeMock}
-            onClear={() => "onClear"}
-          />
-        ))}
-      </MultiSelectGroup>
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelectItem) => (
+            <MultiSelect
+              key={multiSelectItem.id}
+              id={multiSelectItem.id}
+              items={multiSelectItem.items}
+              isDefaultOpen={false}
+              isSearchable={false}
+              isBlockElement={false}
+              selectedItems={{}}
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              onChange={handleChangeMock}
+              onClear={() => "onClear"}
+            />
+          ));
+        }}
+      />
     );
     expect(container.querySelector("legend")).toBeVisible();
     expect(container.querySelector("legend")).toHaveTextContent(
@@ -180,23 +184,24 @@ describe("MulitSelectGroup Accessibility", () => {
           multiSelectWidth="full"
           labelText="MultiSelectGroup example"
           showLabel={true}
-        >
-          {multiSelectItems.map((multiSelectItem) => (
-            <MultiSelect
-              key={multiSelectItem.id}
-              id={multiSelectItem.id}
-              items={multiSelectItem.items}
-              selectedItems={{}}
-              isDefaultOpen={false}
-              isSearchable={false}
-              isBlockElement={false}
-              buttonText="MultiSelect"
-              defaultItemsVisible={defaultItemsVisible}
-              onChange={handleChangeMock}
-              onClear={() => "onClear"}
-            />
-          ))}
-        </MultiSelectGroup>
+          renderMultiSelect={() => {
+            return multiSelectItems.map((multiSelectItem) => (
+              <MultiSelect
+                key={multiSelectItem.id}
+                id={multiSelectItem.id}
+                items={multiSelectItem.items}
+                selectedItems={{}}
+                isDefaultOpen={false}
+                isSearchable={false}
+                isBlockElement={false}
+                buttonText="MultiSelect"
+                defaultItemsVisible={defaultItemsVisible}
+                onChange={handleChangeMock}
+                onClear={() => "onClear"}
+              />
+            ));
+          }}
+        />
       )
       .toJSON();
     const labelHidden = renderer
@@ -206,23 +211,24 @@ describe("MulitSelectGroup Accessibility", () => {
           multiSelectWidth="full"
           labelText="MultiSelectGroup example"
           showLabel={false}
-        >
-          {multiSelectItems.map((multiSelectItem) => (
-            <MultiSelect
-              key={multiSelectItem.id}
-              id={multiSelectItem.id}
-              items={multiSelectItem.items}
-              selectedItems={{}}
-              isDefaultOpen={false}
-              isSearchable={false}
-              isBlockElement={false}
-              buttonText="MultiSelect"
-              defaultItemsVisible={defaultItemsVisible}
-              onChange={handleChangeMock}
-              onClear={() => "onClear"}
-            />
-          ))}
-        </MultiSelectGroup>
+          renderMultiSelect={() => {
+            return multiSelectItems.map((multiSelectItem) => (
+              <MultiSelect
+                key={multiSelectItem.id}
+                id={multiSelectItem.id}
+                items={multiSelectItem.items}
+                selectedItems={{}}
+                isDefaultOpen={false}
+                isSearchable={false}
+                isBlockElement={false}
+                buttonText="MultiSelect"
+                defaultItemsVisible={defaultItemsVisible}
+                onChange={handleChangeMock}
+                onClear={() => "onClear"}
+              />
+            ));
+          }}
+        />
       )
       .toJSON();
 
