@@ -168,9 +168,19 @@ const SocialMediaLinks = defineStyleConfig({
       const { color, size } = props;
       let theseColors = getColor(color);
       return {
-        gap: { base: "0", md: "xs" },
+        gap: "xs",
         a: {
           color: theseColors.ltColor,
+          ".platLink": {
+            minHeight: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+            minWidth: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+          },
           _hover: {
             color: theseColors.ltColor,
           },

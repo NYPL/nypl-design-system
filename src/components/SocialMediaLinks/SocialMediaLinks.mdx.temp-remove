@@ -10,10 +10,10 @@ import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 # SocialMediaLinks
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `2.0.0`      |
-| Latest            | `3.0.0` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `2.0.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -96,7 +96,7 @@ The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combin
 
 ### Layout Variations
 
-NOTE: This layout prop is effectively limited to desktop views. For any viewport less than or equal to
+**NOTE:** This layout prop is effectively limited to desktop views. For any viewport less than or equal to
 the "md" breakpoint (currently 600px), links _with labels_ will stack vertically and those _without labels_
 will align horizontally automatically.
 
@@ -128,8 +128,7 @@ Also, for any viewport less than or equal to the "md" breakpoint, links will be 
 
 - For any viewport less than or equal to the "md" breakpoint (currently 600px),
   links _with labels_ will stack vertically and those _without labels_ will align horizontally automatically.
-- The minimum clickable area for a link on a mobile device is 44px. This requirement causes the spacing between
-  small and medium icons to be greater than when in a column layout in a desktop viewport.
+- The minimum height is `44px` and the minumum width is `44px` regardless of the `size` prop value.
 
 ## Changelog
 
