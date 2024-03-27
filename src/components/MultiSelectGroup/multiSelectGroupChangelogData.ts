@@ -14,6 +14,8 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
-    notes: ["V2 refactor of the `MultiSelectGroup` component."],
+    notes: [
+      "V2 refactor of the `MultiSelectGroup` component including updating to Chakra 2.8.",
+    ],
   },
 ];
