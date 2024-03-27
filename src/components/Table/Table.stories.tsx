@@ -124,13 +124,25 @@ export const WithControls: Story = {
 };
 
 // The following are additional Table example Stories.
-export const Title: Story = {
+export const ShowTitleText: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
       id="title-table"
       tableData={tableData}
-      titleText="Table with a title"
+      titleText="Table with a visible title and an aria-label attribute"
+    />
+  ),
+};
+
+export const HideTitleText: Story = {
+  render: () => (
+    <Table
+      columnHeaders={columnHeaders}
+      id="aria-label-table"
+      showTitleText={false}
+      tableData={tableData}
+      titleText="Table with only an aria-label"
     />
   ),
 };
@@ -177,7 +189,9 @@ export const CustomColumnStyles: Story = {
       columnHeaders={columnHeadersAlt}
       columnStyles={columnStyles}
       id="columnWidth-table"
+      showTitleText={false}
       tableData={tableDataAlt}
+      titleText="Table with custom column styles"
     />
   ),
 };
@@ -189,7 +203,9 @@ export const CustomColumnStylesWithRowHeaders: Story = {
       columnHeaders={columnHeadersAlt}
       columnStyles={columnStyles}
       id="columnWidth-table-without-row-headers"
+      showTitleText={false}
       tableData={tableDataAlt}
+      titleText="Table with custom column styles and row headers"
       useRowHeaders
     />
   ),

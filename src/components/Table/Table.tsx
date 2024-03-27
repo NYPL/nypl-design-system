@@ -36,6 +36,9 @@ export interface TableProps {
   /** If true, a border will be displayed between each row in the `Table`
    * component. The default value is false. */
   showRowDividers?: boolean;
+  /** If true, the heading text will be rendered above the table. The default
+   * value is true. */
+  showTitleText?: boolean;
   /** Two-dimensional array used to populate the table rows. */
   tableData: (string | JSX.Element)[][];
   /** Displays `Table` title element. */
@@ -65,6 +68,7 @@ export const Table: ChakraComponent<
         columnStyles = [],
         id,
         showRowDividers = false,
+        showTitleText = true,
         tableData,
         titleText,
         useRowHeaders = false,
@@ -191,8 +195,26 @@ export const Table: ChakraComponent<
         }
       }
 
+      const wapperStyles = {
+        overflow: "auto",
+        maxWidth: "100%",
+        background:
+          "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "white",
+        backgroundSize: "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+        backgroundPosition: "0 0, 100%, 0 0, 100%",
+        backgroundAttachment: "local, local, scroll, scroll",
+      };
+
       return (
-        <TableContainer whiteSpace="wrap">
+        <TableContainer
+          role="region"
+          style={wapperStyles}
+          tabIndex={0}
+          whiteSpace="wrap"
+          aria-label={titleText ? titleText : undefined}
+        >
           <ChakraTable
             className={className}
             id={id}
@@ -201,7 +223,7 @@ export const Table: ChakraComponent<
             {...rest}
           >
             <>
-              {tableCaption}
+              {showTitleText && tableCaption}
               {columnHeadersElems}
               {tableBodyElems()}
             </>

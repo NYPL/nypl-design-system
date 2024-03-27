@@ -19,7 +19,7 @@ import { changelogData } from "./tableChangelogData";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#title" target="_self">Title</Link>}
+- {<Link href="#title-text" target="_self">Title Text</Link>}
 - {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
 - {<Link href="#row-headers" target="_self">Row Headers</Link>}
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
@@ -69,11 +69,42 @@ Resources:
 - [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
 - [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
 
-## Title
+## Title Text
 
-Use the `titleText` prop to add a title to the table.
+The `titleText` prop can be used to add a visible title above the table and to
+add an appropriate `aria-label` attribute.
 
-<Canvas of={TableStories.Title} />
+**IMPORTANT:** While the `titleText` prop is not required, it is recommended to
+always use this prop for better accessibility.
+
+<Source
+  code={`<Table
+  columnHeaders={columnHeaders}
+  id="title-table"
+  tableData={tableData}
+  titleText="Table with a visible title and an aria-label attribute"
+/>`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.ShowTitleText} />
+
+Use the `showTitleText` prop to control the visibility of the title. When
+`showTitleText` is set to `false`, the `aria-label` attribute will still be
+added.
+
+<Source
+  code={`<Table
+  columnHeaders={columnHeaders}
+  id="aria-label-table"
+  showTitleText={false}
+  tableData={tableData}
+  titleText="Table with only an aria-label"
+/>`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.HideTitleText} />
 
 ## Row Dividers
 

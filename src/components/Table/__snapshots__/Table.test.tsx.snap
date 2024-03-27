@@ -3,6 +3,20 @@
 exports[`Table renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -364,7 +378,22 @@ exports[`Table renders the UI snapshot correctly 1`] = `
 
 exports[`Table renders the UI snapshot correctly 2`] = `
 <div
+  aria-label="this is the caption"
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -591,7 +620,22 @@ exports[`Table renders the UI snapshot correctly 2`] = `
 
 exports[`Table renders the UI snapshot correctly 3`] = `
 <div
+  aria-label="this is the caption"
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -958,7 +1002,22 @@ exports[`Table renders the UI snapshot correctly 3`] = `
 
 exports[`Table renders the UI snapshot correctly 4`] = `
 <div
+  aria-label="this is the caption"
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -1189,7 +1248,22 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 
 exports[`Table renders the UI snapshot correctly 5`] = `
 <div
+  aria-label="this is the caption"
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -1561,6 +1635,20 @@ exports[`Table renders the UI snapshot correctly 5`] = `
 exports[`Table renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-kle7zy"
@@ -1783,6 +1871,20 @@ exports[`Table renders the UI snapshot correctly 6`] = `
 exports[`Table renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
@@ -2146,6 +2248,20 @@ exports[`Table renders the UI snapshot correctly 7`] = `
 exports[`Table renders the UI snapshot correctly 8`] = `
 <div
   className="chakra-table__container css-1nvmkmq"
+  role="region"
+  style={
+    {
+      "background": "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      "backgroundAttachment": "local, local, scroll, scroll",
+      "backgroundColor": "white",
+      "backgroundPosition": "0 0, 100%, 0 0, 100%",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      "maxWidth": "100%",
+      "overflow": "auto",
+    }
+  }
+  tabIndex={0}
 >
   <table
     className="chakra-table css-1xdhyk6"
