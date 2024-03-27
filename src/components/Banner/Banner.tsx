@@ -155,16 +155,18 @@ export const Banner: ChakraComponent<
     } = props;
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
+    const overrideType = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
-      backgroundColor,
-      highlightColor,
+      // Only set the custom `backgroundColor` and `highlightColor` values
+      // if they are both set.
+      backgroundColor: overrideType ? backgroundColor : undefined,
+      highlightColor: overrideType ? highlightColor : undefined,
       // If `backgroundColor` and `highlightColor` are set, then it
       // overrides the Banner types.
-      variant: backgroundColor && highlightColor ? undefined : type,
+      variant: overrideType ? undefined : type,
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,
-      maxWidth: "800px",
       noSpace: true,
       color: type === "negative" ? "ui.error.primary" : null,
       _dark: {
@@ -203,6 +205,7 @@ export const Banner: ChakraComponent<
         title="Banner announcement icon"
         size="large"
         {...iconProps[type]}
+        __css={finalHeading ? { marginTop: "xxxs" } : {}}
       />
     );
 
@@ -238,7 +241,7 @@ export const Banner: ChakraComponent<
         {...rest}
       >
         {finalIcon}
-        <Box>
+        <Box maxWidth="800px">
           {heading && finalHeading}
           {content}
         </Box>

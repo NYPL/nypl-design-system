@@ -11,7 +11,7 @@ import { changelogData } from "./bannerChangelogData";
 
 | Component Version | DS Version   |
 | ----------------- | ------------ |
-| Added             | `0.23.2`     |
+| Added             | `Prerelease` |
 | Latest            | `Prerelease` |
 
 ## Table of Contents
@@ -125,10 +125,10 @@ for dark mode.
 ## Banner Heading
 
 The `Banner` component can be rendered with and without a heading. By
-default, when a title is passed to the `heading` prop, the
+default, when a string is passed to the `heading` prop, the
 `Banner` component will render an `h2` element sized as a `heading6`
-heading. If this causes accessibility issues in your app, you can pass in a
-custom `Heading` element.
+heading. If this causes accessibility issues in your app, you can set a custom
+heading by passing in a DS `Heading` component.
 
 In the following examples, the `Banner` component will render custom `h3`
 and `h5` elements. Note that no matter what heading level is set, the size will
@@ -213,7 +213,8 @@ The `content` prop can accept HTML.
 
 It is recommended to rely on the color styles set with the `type` prop.
 However, in cases where a different color is necessary, a value from a defined
-set of colors can be used.
+set of colors can be used. Both `backgroundColor` and `highlightColor` must be
+set in order to override the predefined variant types.
 
 - The `backgroundColor` prop can be used to set the color of the entire
   background.

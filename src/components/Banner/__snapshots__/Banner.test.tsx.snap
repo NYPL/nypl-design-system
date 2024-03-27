@@ -7,7 +7,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="undefined-banner-icon"
     focusable={false}
     role="img"
@@ -38,10 +38,10 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -58,7 +58,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="bannerID3-banner-icon"
     focusable={false}
     role="img"
@@ -89,10 +89,10 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-14uzp4u"
+      className="chakra-heading css-1nof84k"
     >
       Banner Heading
     </h2>
@@ -109,7 +109,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="bannerID3-banner-icon"
     focusable={false}
     role="img"
@@ -140,10 +140,10 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -160,7 +160,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="bannerID3-banner-icon"
     focusable={false}
     role="img"
@@ -191,10 +191,10 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -211,7 +211,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="bannerID3-banner-icon"
     focusable={false}
     role="img"
@@ -242,10 +242,10 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -262,7 +262,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="bannerID3-banner-icon"
     focusable={false}
     role="img"
@@ -293,10 +293,10 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -344,7 +344,7 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     Banner content.
   </div>
@@ -390,7 +390,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     Banner content.
   </div>
@@ -445,7 +445,7 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="chakra-banner-icon"
     focusable={false}
     role="img"
@@ -476,10 +476,10 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>
@@ -497,7 +497,7 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1grhd2q"
+    className="chakra-icon banner-icon css-28nzh"
     data-testid="props-banner-icon"
     focusable={false}
     role="img"
@@ -528,10 +528,10 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
     </g>
   </svg>
   <div
-    className="css-0"
+    className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-zjio3a"
+      className="chakra-heading css-hagw4o"
     >
       Banner Heading
     </h2>

@@ -56,9 +56,18 @@ const negative = definePartsStyle({
     color: "ui.error.primary",
     a: {
       color: "ui.error.primary",
+      _hover: {
+        color: "ui.error.secondary",
+      },
+      _visited: {
+        color: "ui.error.primary",
+      },
     },
     svg: {
       fill: "ui.error.primary",
+      _hover: {
+        fill: "ui.error.secondary",
+      },
       _dark: {
         fill: "dark.ui.error.primary",
       },
@@ -66,6 +75,12 @@ const negative = definePartsStyle({
     _dark: {
       a: {
         color: "dark.ui.error.primary",
+        _hover: {
+          color: "dark.ui.error.secondary",
+        },
+        _visited: {
+          color: "dark.ui.error.primary",
+        },
       },
       color: "dark.ui.error.primary",
     },
