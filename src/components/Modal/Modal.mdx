@@ -10,10 +10,10 @@ import Link from "../Link/Link";
 
 # Modal
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -25,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#default-heading-text" target="_self">Default Heading Text</Link>}
 - {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -222,10 +223,16 @@ export const ModalStory = (args) => {
 
 <ArgTypes of={ModalStories.useModalStory} />
 
+## Default Heading Text
+
+By default, the `Modal` component will render a DS level `h2` and size `h4` `Heading` component when
+a string is passed to the `headingText` prop.
+
+<Canvas of={ModalStories.DefaultHeading} />
+
 ## Custom Heading Text
 
-By default, the `Modal` component will render a DS h2 `Heading` component when
-a string is passed to the `headingText` prop. However, a custom heading can be
+However, a custom heading can be
 passed to the `headingText` property. This can be useful when you want to add
 additional elements to the heading, such as an icon, or to set the level to
 something other than an `h2`.

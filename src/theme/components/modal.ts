@@ -20,10 +20,6 @@ const Modal = defineMultiStyleConfig({
     },
     header: {
       color: "ui.typography.heading",
-      fontSize: {
-        base: "mobile.heading.heading4",
-        md: "desktop.heading.heading4",
-      },
       fontWeight: "medium",
       _dark: {
         color: "dark.ui.typography.heading",
