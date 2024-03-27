@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `"editorMode"` option (pencil) to the `Icon` component.
+- Updates the `ul` bullet color in the `List` component.
+- Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
 
 ### Updates
 
