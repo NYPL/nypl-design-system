@@ -14,6 +14,13 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Documentation", "Functionality"],
+    notes: ["Added the actionLightbulb icon."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
     notes: ["Addsed the editorMode (pencil) icon."],
   },
   {

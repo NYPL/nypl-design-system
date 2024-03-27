@@ -234,7 +234,7 @@ export const cssVars = {
     },
     {
       colorSource: "brand.secondary",
-      name: "section.research-library.schwartzman",
+      name: "section.research-library.schwarzman",
       dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
       dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
       textColor: colorContrastData.brand.secondary.textColor,

@@ -10,6 +10,7 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
 import AudioPlayer from "./components/audioPlayer";
+import Banner from "./components/banner";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
@@ -97,6 +98,7 @@ const theme: any = {
     Accordion,
     AlphabetFilter,
     AudioPlayer,
+    Banner,
     CustomBreadcrumb: Breadcrumb,
     CustomButton: Button,
     ButtonGroup,
