@@ -55,7 +55,7 @@ export const unorderedStyles = (props: ListBaseStyle = {}) => ({
   listStyle: "none",
   li: {
     _before: {
-      color: "ui.gray.medium",
+      color: "ui.border.hover",
       // \2022 is the CSS Code/unicode for a bullet.
       content: props.noStyling ? "unset" : `"\\2022"`,
       // Needed to add space between the bullet and the text.

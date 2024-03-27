@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## Prerelease
+
+### Adds
+
+- Adds the `"editorMode"` option (pencil) to the `Icon` component.
+- Updates the `ul` bullet color in the `List` component.
+- Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
+
+### Updates
+
+- Updates default heading size to `heading4` on Modal component.
+
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
 ### Adds

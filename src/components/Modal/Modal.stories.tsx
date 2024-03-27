@@ -218,6 +218,27 @@ const scrollModalProps = {
   headingText: "Modal Heading Text",
 };
 
+const defaultHeadingModalProps = {
+  bodyContent: (
+    <p>
+      The heading of this modal is level "h2" and size "heading4", since no
+      custom heading element has been passed in.
+    </p>
+  ),
+  closeButtonLabel: "Close Button",
+  headingText: "Default Heading",
+};
+
+export const DefaultHeading: Story = {
+  render: () => (
+    <ModalTrigger
+      buttonText="Button Text"
+      id="modal-scrolling"
+      modalProps={defaultHeadingModalProps}
+    />
+  ),
+};
+
 export const ContentWindowScrolling: Story = {
   render: () => (
     <ModalTrigger
