@@ -1,12 +1,12 @@
+import { HeadingProps, Heading } from "../components/Heading/Heading";
 import React from "react";
-
-import Heading from "../components/Heading/Heading";
 
 interface UseDSHeadingProps {
   title: string | JSX.Element;
   id?: string;
   customDefaultHeading?: string | JSX.Element;
   additionalStyles?: { [key: string]: any };
+  headingSize?: HeadingProps["size"];
 }
 
 const headingList = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -21,6 +21,7 @@ function useDSHeading({
   id = "",
   customDefaultHeading,
   additionalStyles,
+  headingSize,
 }: UseDSHeadingProps) {
   const headingID = id ? `${id}-heading` : undefined;
   let updatedTitle: null | JSX.Element | string = null;
@@ -29,7 +30,7 @@ function useDSHeading({
     if (typeof title === "string") {
       // Use the DS default h2 heading element if the title is a string.
       updatedTitle = (
-        <Heading id={headingID} __css={additionalStyles}>
+        <Heading size={headingSize} id={headingID} __css={additionalStyles}>
           {title}
         </Heading>
       );

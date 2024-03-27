@@ -103,7 +103,7 @@ describe("ModalTrigger", () => {
         modalProps={{
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
-          headingText: <Heading level="h4">Modal Heading Text</Heading>,
+          headingText: <Heading level="h3">Modal Heading Text</Heading>,
           onClose: () => {
             console.log("custom close");
           },
@@ -114,8 +114,33 @@ describe("ModalTrigger", () => {
     const openButton = screen.getByText("Button Text");
     openButton.click();
 
-    expect(screen.getByRole("heading", { level: 4 })).toHaveTextContent(
+    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       "Modal Heading Text"
+    );
+  });
+
+  it("renders default heading with expected size", () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          bodyContent: "body text",
+          closeButtonLabel: "Close Button",
+          headingText: "Modal Heading Text",
+          onClose: () => {
+            console.log("custom close");
+          },
+        }}
+      />
+    );
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 2 })).toHaveStyle(
+      //var(--nypl-fontSizes-mobile-heading-heading4) = 1.5em
+      "font-size: 1.5em"
     );
   });
 
