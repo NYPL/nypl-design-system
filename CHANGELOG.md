@@ -14,6 +14,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `ul` bullet color in the `List` component.
 - Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
 
+### Updates
+
+- Updates default heading size to `heading4` on Modal component.
+
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
 ### Adds

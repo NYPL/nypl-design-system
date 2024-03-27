@@ -67,6 +67,7 @@ export const BaseModal: ChakraComponent<
     const finalTitle = useDSHeading({
       title: headingText,
       id,
+      headingSize: "heading4",
     });
 
     return (
