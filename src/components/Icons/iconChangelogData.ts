@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-03-28",
+    version: "3.0.1",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the editorMode (pencil) icon."],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",
@@ -24,8 +31,8 @@ export const changelogData: ChangelogData[] = [
     notes: ["Added the navigationMoreVert (vertical ellipsis) icon."],
   },
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-01-24",
+    version: "2.1.4",
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
