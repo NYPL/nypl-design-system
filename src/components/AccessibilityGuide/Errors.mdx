@@ -1,0 +1,99 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Errors" />
+
+# Error Messages
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#making-errors-explicit-and-providing-instructions" target="_self">Making Errors Explicit and Providing Instructions</Link>}
+- {<Link href="#avoiding-reliance-on-color" target="_self">Avoiding Reliance on Color</Link>}
+- {<Link href="#programmatic-indicator-of-error" target="_self">Programmatic Indicator of Error</Link>}
+- {<Link href="#associating-inline-errors-with-their-field" target="_self">Associating Inline Errors with their Fields</Link>}
+- {<Link href="#shifting-focus-to-errors" target="_self">Shifting Focus to Errors</Link>}
+- {<Link href="#NYPL-patterns" target="_self">NYPL Patterns</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+Accessible error handling ensures errors are easily perceived, understood, and
+corrected by a wide range of users both with and without using assistive technology.
+Some core features of accessible errors include:
+
+- Explicit statements of error and instructions for correction
+- Avoiding reliance on color alone to indicate the error state
+- Using a programmatic indicator of error
+- Associating inline error messages programmatically with their respective fields
+- Shifting focus to either the error summary (if provided) or the first field in error
+  if form submission failed
+
+## Making Errors Explicit and Providing Instructions
+
+Avoid merely reiterating the requirement as the error, for example “First Name
+is required”. Instead, include either the word error (or another clear word or
+phrase indicating an error state) or an error icon that has a text equivalent
+(such as `alt=”error”` or off-screen text, etc.)
+
+Example: “Error: First Name is required”
+
+Whenever possible, provide as much instruction for resolving the error as
+feasible. For example, if the user enters a password that does not meet the
+minimum requirements, have the error message include details about which
+requirements were not met. (Such requirements should also always be explicitly
+provided on the page so users can avoid making errors in the first place.)
+
+## Avoiding Reliance on Color
+
+Ensure errors are not solely indicated through color, such as outlining a text
+field in red. This does not mean that color cannot be used, but that there must
+also be a secondary visual indication, such as an icon or the word “error” such
+as described in the previous section.
+
+## Programmatic Indicator of Error
+
+Errors can also be indicated programmatically by setting `aria-invalid=”true”` on
+the input element. This should not be set until after the form is submitted or
+validation occurs and an error state is triggered. It may be confusing to have
+inputs set to an invalid state before a user even starts to fill out a form.
+
+## Associating Inline Errors with their Fields
+
+When a text error is added inline with a field, the error should be programmatically
+associated with the field. The most common way of doing this is by adding the
+`aria-describedby` attribute to the input and having that reference the `id` of the
+element containing the error. Another technique is to add the error into the form
+label itself dynamically.
+
+`aria-describedby` example:
+
+<Source
+  code={`
+<label for=”fname”>First Name (required)</label>
+<input type=”text” id=”fname” aria-describedby=”fnameerror”>
+<span id=”fnameerror”>Error: Please enter your first name</span>
+`}
+  language="html"
+/>
+
+## Shifting Focus to Errors
+
+When a form is submitted and errors are added, focus should move either to the list
+of errors (if provided) or to the first field in error if using inline validation. If
+you submit a form, and an error message is added in its place, then focus should be
+placed on the error message. See more about [how to manage focus](https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/docs/accessibility-guide-managing-focus--docs#how-to-manage-focus).
+
+## NYPL Patterns
+
+NYPL will use a formal tone when writing error messages.
+
+### Form Inputs
+
+Error messages applied to form input fields should be prepended with "There was a problem."
+The remainder of the error message should give details about the "problem."
+
+## Resources
+
+- {<Link href="https://webaim.org/techniques/formvalidation/">Usable and Accessible Form Validation and Recovery</Link>}
