@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.0.1 (March 28, 2024)
+
 ### Adds
 
 - Adds the `"editorMode"` option (pencil) to the `Icon` component.
@@ -16,7 +18,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates default heading size to `heading4` on Modal component.
+- Updates default heading size to `heading4` on `Modal` component.
+- Updates mobile styles for the `SocialMediaLinks` component
 
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
@@ -52,10 +55,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `NewsletterSignup` and `SocialMediaLinks` components.
 - Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
 - Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor. Usage with Next.js has been updated.
-
-### Updates
-
-- Updates mobile styles for the `SocialMediaLinks` component
 
 ## 2.1.6 (February 22, 2024)
 
