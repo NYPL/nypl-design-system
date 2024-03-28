@@ -14,6 +14,15 @@ export const changelogData: ChangelogData[] = [
     version: "3.0.0",
     type: "Update",
     affects: ["Styles"],
+    notes: [
+      "Updated the mobile styles so that links are center-aligned in a row (when rendered without labels) and in a column (when rendered with labels)",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
   },
 ];

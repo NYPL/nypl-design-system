@@ -53,6 +53,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `TagSet` component to allow for more properties in the tag data object. The `onClick` function now returns the entire data object in the callback argument instead of just the tag label.
 - Updates the `Link` component to follow Chakra's patterns for usage with application framework routing systems, as well as a general refactor. Usage with Next.js has been updated.
 
+### Updates
+
+- Updates mobile styles for the `SocialMediaLinks` component
+
 ## 2.1.6 (February 22, 2024)
 
 ### Updates
