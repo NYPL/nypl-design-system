@@ -19,10 +19,11 @@ import { changelogData } from "./tableChangelogData";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#title" target="_self">Title</Link>}
+- {<Link href="#title-text" target="_self">Title Text</Link>}
 - {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
 - {<Link href="#row-headers" target="_self">Row Headers</Link>}
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
+- {<Link href="#custom-column-widths" target="_self">Custom Column Widths</Link>}
 - {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
 - {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -68,11 +69,42 @@ Resources:
 - [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
 - [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
 
-## Title
+## Title Text
 
-Use the `titleText` prop to add a title to the table.
+The `titleText` prop can be used to add a visible title above the table and to
+add an appropriate `aria-label` attribute.
 
-<Canvas of={TableStories.Title} />
+**IMPORTANT:** While the `titleText` prop is not required, it is recommended to
+always use this prop for better accessibility.
+
+<Source
+  code={`<Table
+  columnHeaders={columnHeaders}
+  id="title-table"
+  tableData={tableData}
+  titleText="Table with a visible title and an aria-label attribute"
+/>`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.ShowTitleText} />
+
+Use the `showTitleText` prop to control the visibility of the title. When
+`showTitleText` is set to `false`, the `aria-label` attribute will still be
+added.
+
+<Source
+  code={`<Table
+  columnHeaders={columnHeaders}
+  id="aria-label-table"
+  showTitleText={false}
+  tableData={tableData}
+  titleText="Table with only an aria-label"
+/>`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.HideTitleText} />
 
 ## Row Dividers
 
@@ -94,6 +126,46 @@ and `columnHeadersTextColor` props. Note that the colors need to have sufficient
 color contrast.
 
 <Canvas of={TableStories.CustomHeaderColors} />
+
+## Custom Column Widths
+
+Column widths in HTML `<table>` elements can be a bit confusing and
+unpredictable when relying on the default settings. The default settings will
+allow column widths to resize enough to let a table fit fully within a given
+width and with that all of the table content will be visible, but often the
+resizing is unbalanced and text content within the columns becomes unreadable.
+
+Using the `columnStyles` prop, specific `width` and `min-width` values can
+be set for each column in a table. This will allow consuming apps to set column
+widths that make for better UX.
+
+Related to better UX, if the `min-width` values cause a table to exceed the
+width of a parent element, the table will allow for horizontal scrolling.
+Additionally in that same situation, if `useRowHeaders` is true, the first
+column will remain fixed as the subsequent columns scroll beneath it.
+
+<Source
+  code={`const columnStyles = [
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "500px", width: "auto" },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
+];`}
+  language="jsx"
+/>
+
+### Custom Column Styles without Row Headers
+
+<Canvas of={TableStories.CustomColumnStyles} />
+
+### Custom Column Styles with Row Headers
+
+<Canvas of={TableStories.CustomColumnStylesWithRowHeaders} />
+
+### Default Column Styles
+
+<Canvas of={TableStories.DefaultColumnStyles} />
 
 ## JSX Elements
 
