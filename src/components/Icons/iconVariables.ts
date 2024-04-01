@@ -141,6 +141,7 @@ export const iconNamesArray = [
   "decorativeLibraryCard",
   "decorativeShoppingBag",
   "download",
+  "editorMode",
   "errorFilled",
   "errorOutline",
   "fileTypeAudio",

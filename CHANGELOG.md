@@ -12,6 +12,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `DatePicker`, `Select`, `Slider`, and `TextInput` components to reduce the spacing between the field label and the field itself from `"8px"` to `"2px"`.
 
+## 3.0.1 (March 28, 2024)
+
+### Adds
+
+- Adds the `"editorMode"` option (pencil) to the `Icon` component.
+- Updates the `ul` bullet color in the `List` component.
+- Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
+
+### Updates
+
+- Updates default heading size to `heading4` on `Modal` component.
+- Updates mobile styles for the `SocialMediaLinks` component
+
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
 ### Adds
