@@ -17,13 +17,6 @@ export const changelogData: ChangelogData[] = [
     notes: ["Chakra 2.8 update."],
   },
   {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [],
-  },
-  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",
