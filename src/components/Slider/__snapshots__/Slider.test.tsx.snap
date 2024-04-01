@@ -6,7 +6,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   id="defaultRangeSlider-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="defaultRangeSlider-textInput-start"
     id="defaultRangeSlider-label"
   >
@@ -195,7 +195,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   id="errored-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="errored-textInput-start"
     id="errored-label"
   >
@@ -402,7 +402,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   id="required-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="required-textInput-start"
     id="required-label"
   >
@@ -596,7 +596,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   id="disabled-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="disabled-textInput-start"
     id="disabled-label"
   >
@@ -960,7 +960,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
   id="noVisibleValues-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor=""
     id="noVisibleValues-label"
   >
@@ -1202,7 +1202,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
   id="defaultSlider-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="defaultSlider-textInput-end"
     id="defaultSlider-label"
   >
@@ -1342,7 +1342,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
   id="errored-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="errored-textInput-end"
     id="errored-label"
   >
@@ -1491,7 +1491,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
   id="required-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="required-textInput-end"
     id="required-label"
   >
@@ -1635,7 +1635,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
   id="disabled-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="disabled-textInput-end"
     id="disabled-label"
   >
@@ -1901,7 +1901,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
   id="noVisibleValues-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor=""
     id="noVisibleValues-label"
   >
@@ -2095,7 +2095,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
   id="chakra-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="chakra-textInput-end"
     id="chakra-label"
   >
@@ -2236,7 +2236,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
   id="props-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="props-textInput-end"
     id="props-label"
   >

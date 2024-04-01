@@ -6,7 +6,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
   id="basic-form-field"
 >
   <fieldset
-    className="css-138t9o6"
+    className="css-13wylk3"
     id="basic"
   >
     <legend>
@@ -39,7 +39,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="basic-start"
                 id="basic-start-label"
               >
@@ -93,7 +93,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="basic-end"
                 id="basic-end-label"
               >
@@ -142,7 +142,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
   id="no-label-form-field"
 >
   <fieldset
-    className="css-138t9o6"
+    className="css-13wylk3"
     id="no-label"
   >
     <legend>
@@ -175,7 +175,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="no-label-start"
                 id="no-label-start-label"
               >
@@ -229,7 +229,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="no-label-end"
                 id="no-label-end-label"
               >
@@ -278,7 +278,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
   id="custom-format-form-field"
 >
   <fieldset
-    className="css-138t9o6"
+    className="css-13wylk3"
     id="custom-format"
   >
     <legend>
@@ -311,7 +311,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="custom-format-start"
                 id="custom-format-start-label"
               >
@@ -365,7 +365,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="custom-format-end"
                 id="custom-format-end-label"
               >
@@ -414,7 +414,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
   id="invalid-form-field"
 >
   <fieldset
-    className="css-138t9o6"
+    className="css-13wylk3"
     id="invalid"
   >
     <legend>
@@ -447,7 +447,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="invalid-start"
                 id="invalid-start-label"
               >
@@ -519,7 +519,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="invalid-end"
                 id="invalid-end-label"
               >
@@ -595,7 +595,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
   id="disabled-form-field"
 >
   <fieldset
-    className="css-138t9o6"
+    className="css-13wylk3"
     id="disabled"
   >
     <legend>
@@ -628,7 +628,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="disabled-start"
                 id="disabled-start-label"
               >
@@ -682,7 +682,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               readOnly={false}
             >
               <label
-                className="css-163xsah"
+                className="css-1xdhyk6"
                 htmlFor="disabled-end"
                 id="disabled-end-label"
               >
@@ -762,7 +762,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="basic-start"
             id="basic-start-label"
           >
@@ -893,7 +893,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="custom-format-start"
             id="custom-format-start-label"
           >
@@ -962,7 +962,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="invalid-start"
             id="invalid-start-label"
           >
@@ -1049,7 +1049,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="disabled-start"
             id="disabled-start-label"
           >
@@ -1135,7 +1135,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="chakra-start"
             id="chakra-start-label"
           >
@@ -1222,7 +1222,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           readOnly={false}
         >
           <label
-            className="css-163xsah"
+            className="css-1xdhyk6"
             htmlFor="props-start"
             id="props-start-label"
           >

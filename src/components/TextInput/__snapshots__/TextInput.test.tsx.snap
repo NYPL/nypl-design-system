@@ -6,7 +6,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
   id="myTextarea-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextarea"
     id="myTextarea-label"
   >
@@ -37,7 +37,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -73,7 +73,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -109,7 +109,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -168,7 +168,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -221,7 +221,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -275,7 +275,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -311,7 +311,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
   id="myTextInput-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -343,7 +343,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
   id="chakra-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="chakra"
     id="chakra-label"
   >
@@ -376,7 +376,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
   id="props-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="props"
     id="props-label"
   >
@@ -409,7 +409,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
   id="autocomplete-wrapper"
 >
   <label
-    className="css-163xsah"
+    className="css-1xdhyk6"
     htmlFor="autocomplete"
     id="autocomplete-label"
   >

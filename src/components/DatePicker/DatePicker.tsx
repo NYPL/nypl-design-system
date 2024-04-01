@@ -16,7 +16,6 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
-import { labelLegendTextSpecialSpacing } from "../../theme/components/global";
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
@@ -216,27 +215,28 @@ const DatePickerWrapper: React.FC<
     showLabel,
     showRequiredLabel,
     ...rest
-  }) => (
-    <FormField id={`${id}-form-field`} {...rest}>
-      {isDateRange ? (
-        <Fieldset
-          className={className}
-          id={id}
-          isLegendHidden={!showLabel}
-          isRequired={isRequired}
-          legendText={labelText}
-          showRequiredLabel={showRequiredLabel}
-          __css={{
-            legend: labelLegendTextSpecialSpacing,
-          }}
-        >
-          {children}
-        </Fieldset>
-      ) : (
-        children
-      )}
-    </FormField>
-  ),
+  }) => {
+    const styles = useMultiStyleConfig("DatePicker", {});
+    return (
+      <FormField id={`${id}-form-field`} {...rest}>
+        {isDateRange ? (
+          <Fieldset
+            className={className}
+            id={id}
+            isLegendHidden={!showLabel}
+            isRequired={isRequired}
+            legendText={labelText}
+            showRequiredLabel={showRequiredLabel}
+            __css={styles.fieldset}
+          >
+            {children}
+          </Fieldset>
+        ) : (
+          children
+        )}
+      </FormField>
+    );
+  },
   { shouldForwardProp: () => true }
 );
 

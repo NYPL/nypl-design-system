@@ -16,7 +16,6 @@ import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import { getAriaAttrs } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-import { labelLegendTextSpecialSpacing } from "../../theme/components/global";
 
 export const autoCompleteValuesArray = [
   "on",
@@ -394,7 +393,6 @@ export const TextInput: ChakraComponent<
               id={`${id}-label`}
               isRequired={showRequiredLabel && isRequired}
               requiredLabelText={requiredLabelText}
-              __css={labelLegendTextSpecialSpacing}
             >
               {labelText}
             </Label>
