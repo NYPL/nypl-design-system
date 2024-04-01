@@ -10,6 +10,32 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Reduced the spacing between the field label and the field itself.",
+    ],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "2024-02-22",
+    version: "2.1.6",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes the range calendar style for the month and year calendars.",
+      "Fixes minor typo in the Initial Date Values section.",
+    ],
+  },
+  {
     date: "2024-01-04",
     version: "2.1.4",
     type: "Update",

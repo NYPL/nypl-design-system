@@ -1,18 +1,21 @@
-import { baseListStyles, baseUnorderedStyles } from "./list";
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
 
-const StyledList = {
-  baseStyle: ({ textSize = "default" }) => ({
+import { baseListStyles, unorderedStyles } from "./list";
+
+const StyledList = defineStyleConfig({
+  baseStyle: defineStyle(({ textSize = "default" }) => ({
     fontSize:
       textSize === "tag" || textSize === "mini"
         ? `text.${textSize}`
         : textSize === "caption" || textSize === "default"
         ? `desktop.${textSize}`
         : `desktop.body.${textSize}`,
-    ...baseListStyles(false, true),
-    ...baseUnorderedStyles(true),
-  }),
+    ...baseListStyles({ inline: false, noStyling: true }),
+    ...unorderedStyles({ noStyling: true }),
+  })),
   variants: {
-    capped: {
+    capped: defineStyle({
       li: {
         borderStart: "1px solid",
         borderEnd: {
@@ -28,8 +31,8 @@ const StyledList = {
           borderColor: "ui.gray.semi-dark",
         },
       },
-    },
+    }),
   },
-};
+});
 
 export default StyledList;

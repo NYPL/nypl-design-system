@@ -79,9 +79,9 @@ const config: StorybookConfig = {
     });
   },
 
-  docs: {
-    autodocs: true,
-  },
+  // docs: {
+  //   autodocs: true,
+  // },
 };
 
 export default config;

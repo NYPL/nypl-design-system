@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 interface LabelProps {
@@ -22,7 +22,13 @@ interface LabelProps {
 /**
  * A label for form inputs. It should never be used alone.
  */
-export const Label = chakra(
+export const Label: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<LabelProps> &
+      React.RefAttributes<HTMLDivElement & HTMLLabelElement>
+  >,
+  React.PropsWithChildren<LabelProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLLabelElement,
     React.PropsWithChildren<LabelProps>

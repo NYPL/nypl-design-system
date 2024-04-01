@@ -5,7 +5,8 @@ import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
-import Select, { labelPositionsArray } from "./Select";
+import Select, { labelPositionsArray, selectTypesArray } from "./Select";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
@@ -13,38 +14,30 @@ const meta: Meta<typeof Select> = {
   decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
+    className: { control: false },
+    helperText: { control: "text" },
     id: { control: false },
-    isDisabled: {
-      table: { defaultValue: { summary: false } },
-    },
-    isInvalid: {
-      table: { defaultValue: { summary: false } },
-    },
-    isRequired: {
-      table: { defaultValue: { summary: false } },
-    },
+    invalidText: { control: "text" },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
     labelPosition: {
       controls: { type: "select" },
       options: labelPositionsArray,
       table: { defaultValue: { summary: "default" } },
     },
     name: { control: false },
-    key: { table: { disable: true } },
     onChange: { control: false },
+    placeholder: { control: "text" },
     ref: { table: { disable: true } },
-    showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
-    },
-    showLabel: {
-      table: { defaultValue: { summary: true } },
-    },
-    showRequiredLabel: {
-      table: { defaultValue: { summary: true } },
-    },
     selectType: {
       control: false,
+      options: selectTypesArray,
       table: { defaultValue: { summary: "default" } },
     },
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    showRequiredLabel: argsBooleanType(true),
     value: { control: false },
   },
 };

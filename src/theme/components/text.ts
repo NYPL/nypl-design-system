@@ -1,57 +1,18 @@
-interface TextBaseStyle {
-  isBold: boolean;
-  isItalic: boolean;
-  isCapitalized: boolean;
-  isUppercase: boolean;
-  isLowercase: boolean;
-  noSpace: boolean;
-  variant: string;
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+
+interface TextBaseStyle extends Partial<StyleFunctionProps> {
+  isBold?: boolean;
+  isItalic?: boolean;
+  isCapitalized?: boolean;
+  isUppercase?: boolean;
+  isLowercase?: boolean;
+  noSpace?: boolean;
+  variant?: string;
 }
 
-const variants = {
-  default: {},
-  body1: {},
-  body2: {
-    fontSize: "desktop.body.body2",
-  },
-  caption: {
-    fontSize: "desktop.caption",
-    fontWeight: "caption",
-  },
-  overline1: {
-    fontSize: "desktop.overline.overline1",
-    fontWeight: "overline.overline1",
-    lineHeight: 1,
-    textTransform: "uppercase",
-  },
-  overline2: {
-    fontSize: "desktop.overline.overline2",
-    fontWeight: "overline.overline2",
-    lineHeight: 1,
-    textTransform: "uppercase",
-  },
-  subtitle1: {
-    fontSize: "desktop.subtitle.subtitle1",
-    fontWeight: "subtitle.subtitle1",
-    lineHeight: 1.35,
-  },
-  subtitle2: {
-    fontSize: "desktop.subtitle.subtitle2",
-    fontWeight: "subtitle.subtitle2",
-    lineHeight: 1.4,
-  },
-  // Deprecated options
-  tag: {
-    fontSize: "text.tag",
-    fontWeight: "text.tag",
-  },
-  mini: {
-    fontSize: "text.mini",
-    fontWeight: "text.mini",
-  },
-};
-const Text = {
-  baseStyle: ({
+const baseStyle = defineStyle(
+  ({
     isBold,
     isItalic,
     isCapitalized,
@@ -80,8 +41,61 @@ const Text = {
       textTransform: textTransform,
       marginBottom: noSpace ? "0 !important" : null,
     };
-  },
-  variants,
+  }
+);
+
+const variants = {
+  default: defineStyle({}),
+  body1: defineStyle({}),
+  body2: defineStyle({
+    fontSize: "desktop.body.body2",
+  }),
+  caption: defineStyle({
+    fontSize: "desktop.caption",
+    fontWeight: "caption",
+  }),
+  overline1: defineStyle({
+    fontSize: "desktop.overline.overline1",
+    fontWeight: "overline.overline1",
+    lineHeight: 1,
+    textTransform: "uppercase",
+  }),
+  overline2: defineStyle({
+    fontSize: "desktop.overline.overline2",
+    fontWeight: "overline.overline2",
+    lineHeight: 1,
+    textTransform: "uppercase",
+  }),
+  subtitle1: defineStyle({
+    fontSize: {
+      base: "mobile.subtitle.subtitle1",
+      md: "desktop.subtitle.subtitle1",
+    },
+    fontWeight: "subtitle.subtitle1",
+    lineHeight: 1.35,
+  }),
+  subtitle2: defineStyle({
+    fontSize: {
+      base: "mobile.subtitle.subtitle2",
+      md: "desktop.subtitle.subtitle2",
+    },
+    fontWeight: "subtitle.subtitle2",
+    lineHeight: 1.4,
+  }),
+  // Deprecated options
+  tag: defineStyle({
+    fontSize: "text.tag",
+    fontWeight: "text.tag",
+  }),
+  mini: defineStyle({
+    fontSize: "text.mini",
+    fontWeight: "text.mini",
+  }),
 };
+
+const Text = defineStyleConfig({
+  baseStyle,
+  variants,
+});
 
 export default Text;

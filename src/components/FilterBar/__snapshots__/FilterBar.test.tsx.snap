@@ -22,15 +22,15 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
   id="filter-bar-filterBarWithClearAllButton"
 >
   <h2
-    className="chakra-heading css-ejul5c"
+    className="chakra-heading css-1xdhyk6"
   >
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-gpv9hk"
+    className="chakra-stack css-9fzpic"
   >
     <div
-      className="chakra-stack css-ytb711"
+      className="chakra-stack css-sg7sn5"
     >
       <button
         className="chakra-button css-1e643n3"
@@ -67,15 +67,15 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
   id="filter-bar-filterBarWithButtons"
 >
   <h2
-    className="chakra-heading css-ejul5c"
+    className="chakra-heading css-1xdhyk6"
   >
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-gpv9hk"
+    className="chakra-stack css-9fzpic"
   >
     <div
-      className="chakra-stack css-ytb711"
+      className="chakra-stack css-sg7sn5"
     >
       <button
         className="chakra-button css-1xdhyk6"

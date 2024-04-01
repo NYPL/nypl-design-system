@@ -1,5 +1,23 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// root, tablist, tab, tabpanel, and tabpanels are existing keys which are extended but
+// buttonArrows, tablistWrapper, and carouselParent are custom elements
+// in the `Tabs` component.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "root",
+    "tab",
+    "tabpanels",
+    "tabpanel",
+    "tablist",
+    "buttonArrows",
+    "tablistWrapper",
+    "carouselParent",
+  ]);
+
 const tablist = {
   borderColor: "ui.black",
+  width: "max-content",
 };
 const tab = {
   background: "transparent",
@@ -113,33 +131,39 @@ const tabpanels = {
 const carouselParent = {
   position: { base: "absolute", md: "relative" },
   left: { base: "50px", md: "auto" },
-  paddingBottom: { base: "5px", md: "0" },
-  paddingStart: { base: "4px", md: "0" },
-  paddingEnd: "0",
-  paddingTop: { base: "4px", md: "0" },
-  right: { base: "52px", md: "auto" },
-  top: { base: "4px", md: "0" },
-  overflowX: { base: "hidden", md: "visible" },
+  paddingBottom: { base: "5px", md: "4px" },
+  paddingStart: "4px",
+  paddingEnd: "4px",
+  paddingTop: { base: "4px" },
+  right: { base: "52px", md: "4px" },
+  top: { base: "4px" },
+  scrollbarWidth: "none",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
+  overflowY: "hidden",
+  overflowX: "scroll",
 };
 
-const CustomTabs = {
+const CustomTabs = defineMultiStyleConfig({
   // tablist, tab, and tabpanels are existing keys which are extended but
   // buttonArrows, tablistWrapper, and carouselParent are custom elements
   // in the `Tabs` component.
-  parts: ["buttonArrows", "tablistWrapper", "carouselParent"],
-  baseStyle: {
+  baseStyle: definePartsStyle({
+    tabpanel: {},
+    root: {},
+    tabpanels,
     tablist,
     tab,
     // Only display the previous/next arrow buttons on mobile.
     buttonArrows,
     // To better align the mobile arrow buttons with the tablist.
     tablistWrapper,
-    tabpanels,
     carouselParent,
-  },
+  }),
   defaultProps: {
     colorScheme: "ui.black",
   },
-};
+});
 
 export default CustomTabs;

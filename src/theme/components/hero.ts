@@ -1,10 +1,29 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+// import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "bodyText",
+    "content",
+    "heading",
+    "imgWrapper",
+    "interior",
+  ]);
+
 // Used for all "secondary" variants.
-const secondaryBase = {
-  overflowX: "hidden",
-  bgColor: "ui.bg.default",
+const secondaryBase = definePartsStyle({
+  base: {
+    overflowX: "hidden",
+    bgColor: "ui.bg.default",
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+    },
+  },
   content: {
     ...wrapperStyles,
     paddingEnd: "inset.default",
@@ -37,10 +56,7 @@ const secondaryBase = {
     flex: { md: "1 1 50%" },
     order: { base: "3", md: "2" },
   },
-  _dark: {
-    bgColor: "dark.ui.bg.default",
-  },
-};
+});
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
   marginBottom: "0",
@@ -147,17 +163,19 @@ const getLinkColor = (state, mode, foregroundColor, isDarkText) => {
   return finalColor;
 };
 // Variant styling
-const primary = ({ foregroundColor, isDarkText }) => ({
-  alignItems: "center",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexFlow: {
-    base: "column nowrap",
-    md: "row nowrap",
+const primary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    alignItems: "center",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    flexFlow: {
+      base: "column nowrap",
+      md: "row nowrap",
+    },
+    // justifyContent: "center", // Is this needed?
+    // minHeight: "350px", // Is this needed?
   },
-  justifyContent: "center",
-  minHeight: "350px",
   content: {
     bg: "ui.black",
     color: getTextColor("body", "light", foregroundColor, isDarkText),
@@ -191,17 +209,27 @@ const primary = ({ foregroundColor, isDarkText }) => ({
   heading: {
     color: "dark.ui.typography.heading",
   },
-});
+}));
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
 );
-const secondaryLocations = getSecondaryVariantStyles(
-  "section.locations.primary"
+const secondaryLocations = definePartsStyle(
+  getSecondaryVariantStyles("section.locations.primary")
 );
-const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
-const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
-const tertiary = ({ foregroundColor, isDarkText }) => ({
+const secondaryResearch = definePartsStyle(
+  getSecondaryVariantStyles("section.research.primary")
+);
+const secondaryWhatsOn = definePartsStyle(
+  getSecondaryVariantStyles("section.whats-on.primary")
+);
+const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    // Is this needed?
+    p: {
+      marginBottom: "0",
+    },
+  },
   content: {
     ...wrapperStyles,
     color: getTextColor("body", "light", foregroundColor, isDarkText),
@@ -254,19 +282,23 @@ const tertiary = ({ foregroundColor, isDarkText }) => ({
       marginBottom: "0",
     },
   },
-  p: {
-    marginBottom: "0",
+}));
+const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    padding: {
+      base: "inset.wide",
+      md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
+    },
+    position: "relative",
+    a: {
+      color: "inherit",
+      display: "inline-block",
+    },
+    img: screenreaderOnly(),
   },
-});
-const campaign = ({ foregroundColor, isDarkText }) => ({
-  alignItems: "center",
-  display: "flex",
-  justifyContent: "center",
-  padding: {
-    base: "inset.wide",
-    md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
-  },
-  position: "relative",
   content: {
     alignItems: "stretch",
     bg: "ui.black",
@@ -318,11 +350,6 @@ const campaign = ({ foregroundColor, isDarkText }) => ({
   heading: {
     color: "ui.typography.inverse.heading",
   },
-  a: {
-    color: "inherit",
-    display: "inline-block",
-  },
-  img: screenreaderOnly(),
   imgWrapper: {
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -344,8 +371,11 @@ const campaign = ({ foregroundColor, isDarkText }) => ({
       lg: "50%",
     },
   },
-});
-const fiftyFifty = {
+}));
+const fiftyFifty = definePartsStyle({
+  base: {
+    img: screenreaderOnly(),
+  },
   content: {
     ...wrapperStyles,
     alignItems: "stretch",
@@ -364,7 +394,6 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-  img: screenreaderOnly(),
   bodyText: {
     alignSelf: "center",
     maxWidth: { md: "960px" },
@@ -377,11 +406,9 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-};
-const Hero = {
-  baseStyle: {
-    // ...
-  },
+});
+const Hero = defineMultiStyleConfig({
+  baseStyle: {},
   // Available variants:
   variants: {
     primary,
@@ -394,6 +421,6 @@ const Hero = {
     campaign,
     fiftyFifty,
   },
-};
+});
 
 export default Hero;

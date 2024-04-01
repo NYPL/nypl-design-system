@@ -7,13 +7,13 @@ import {
   TabPanel,
   Tabs as ChakraTabs,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-import useCarouselStyles from "../../hooks/useCarouselStyles";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import useScrollTabIntoView from "../../hooks/useScrollTabIntoView";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -26,13 +26,12 @@ export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
-
 export interface TabsProps {
-  /** The index of the tab to display for controlled situations. */
+  /** The index of the tab to display on the initial render. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** The callback function invoked on every tab change event. */
+  /** The callback function invoked after every tab change event. The argument passed to the callback is the index of the tab just selected. */
   onChange?: (index: number) => any;
   /** Array of data to display */
   tabsData?: TabsDataProps[];
@@ -143,7 +142,12 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-export const Tabs = chakra(
+export const Tabs: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TabsProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TabsProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TabsProps>>(
     (props, ref?) => {
       const {
@@ -155,13 +159,8 @@ export const Tabs = chakra(
         useHash = false,
         ...rest
       } = props;
+      const [tabIndex, setTabIndex] = useState(defaultIndex);
       const styles = useMultiStyleConfig("Tabs", {});
-      // Just an estimate of the tab width for the mobile carousel.
-      const initTabWidth = 65;
-      // An estimate for the tab width for larger device widths.
-      const mediumTabWidth = 40;
-      const { isLargerThanSmall, isLargerThanMobile } = useNYPLBreakpoints();
-      const tabWidth = isLargerThanSmall ? initTabWidth : mediumTabWidth;
 
       const { tabs, panels }: any = tabsData
         ? getElementsFromData(tabsData, useHash)
@@ -177,21 +176,24 @@ export const Tabs = chakra(
       // the `tabsData` prop approach. We need to get the right props key value
       // to set the carousel's length.
       const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
-      const { prevSlide, nextSlide, carouselStyle, goToStart } =
-        useCarouselStyles(tabProps?.children?.length, tabWidth);
 
-      React.useEffect(() => {
-        // If we are on larger viewports, reset the carousel so all tabs display.
-        if (isLargerThanMobile) {
-          goToStart();
-        }
-      }, [goToStart, isLargerThanMobile]);
+      const prevTab = () => {
+        const index =
+          tabIndex === 0 ? tabProps.children.length - 1 : tabIndex - 1;
+        setTabIndex(index);
+      };
+
+      const nextTab = () => {
+        const index =
+          tabIndex === tabProps.children.length - 1 ? 0 : tabIndex + 1;
+        setTabIndex(index);
+      };
 
       const previousButton = (
         <Button
           aria-label="Scroll tabs left"
           id={`tabs-previous-${id}`}
-          onClick={prevSlide}
+          onClick={prevTab}
           __css={{
             ...styles.buttonArrows,
             left: "0",
@@ -210,7 +212,7 @@ export const Tabs = chakra(
         <Button
           aria-label="Scroll tabs right"
           id={`tabs-next-${id}`}
-          onClick={nextSlide}
+          onClick={nextTab}
           __css={{
             ...styles.buttonArrows,
             right: "0",
@@ -233,13 +235,21 @@ export const Tabs = chakra(
         );
       }
 
+      const tablistRef = useScrollTabIntoView(tabIndex);
+
       return (
         <ChakraTabs
           defaultIndex={defaultIndex}
           id={id}
           // The following lazy loads each panel whenever it is needed.
           isLazy
-          onChange={onChange}
+          index={tabIndex}
+          onChange={(index) => {
+            if (onChange !== undefined) {
+              onChange(index);
+            }
+            setTabIndex(index);
+          }}
           ref={ref}
           variant="enclosed"
           {...rest}
@@ -253,8 +263,8 @@ export const Tabs = chakra(
             }}
           >
             {previousButton}
-            <Box __css={styles.carouselParent}>
-              <Box {...carouselStyle}>{tabs}</Box>
+            <Box __css={styles.carouselParent} ref={tablistRef}>
+              {tabs}
             </Box>
             {nextButton}
           </Box>

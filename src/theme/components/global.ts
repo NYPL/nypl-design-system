@@ -3,6 +3,16 @@ export { screenreaderOnly, wrapperStyles } from "./globalMixins";
 
 /** Reusable component styles. */
 
+const customFocusColor = (focusColor, focusColorDark) => ({
+  boxShadow: "none",
+  outline: "2px solid",
+  outlineOffset: "2px",
+  outlineColor: focusColor,
+  zIndex: "9999",
+  _dark: {
+    outlineColor: focusColorDark,
+  },
+});
 // Used in `Select` and `TextInput`.
 const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
@@ -92,6 +102,7 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
     marginTop: "xs",
   },
   label: {
+    display: "flex",
     width: isFullWidth ? "100%" : "fit-content",
   },
 });
@@ -113,6 +124,10 @@ const labelLegendText = {
   _dark: {
     color: "dark.ui.typography.heading",
   },
+};
+// Used in form inputs that require nuanced spacing.
+const labelLegendTextSpecialSpacing = {
+  marginBottom: "xxxs",
 };
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {
@@ -148,8 +163,10 @@ export {
   checkboxRadioHelperErrorTextStyle,
   checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
+  customFocusColor,
   defaultElementSizes,
   labelLegendText,
+  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
   textMargin,

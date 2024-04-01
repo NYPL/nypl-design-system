@@ -1,14 +1,23 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
+
 import {
   defaultElementSizes,
+  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
 
-interface SelectBaseStyle {
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["helperText", "inline", "select"]);
+
+interface SelectBaseStyle extends StyleFunctionProps {
   labelPosition: string;
 }
 
-const select = {
+const select = (labelPosition: string) => ({
   backgroundColor: "ui.white",
   borderRadius: "sm",
   borderColor: "ui.border.default",
@@ -18,6 +27,7 @@ const select = {
   paddingEnd: "inset.extrawide",
   paddingBottom: "inset.narrow",
   paddingStart: "inset.default",
+  flex: labelPosition === "inline" ? { md: "1" } : null,
   _hover: {
     borderColor: "ui.border.hover",
   },
@@ -52,35 +62,32 @@ const select = {
       color: "dark.ui.error.primary",
     },
   },
-};
+});
 
-const Select = {
-  parts: ["helperText", "inline", "select"],
-  baseStyle: ({ labelPosition }: SelectBaseStyle) => {
+const Select = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ labelPosition }: SelectBaseStyle) => {
     return {
       inline: {
         display: { md: "flex" },
         gap: { md: "xs" },
         alignItems: { md: "flex-end" },
       },
-      select: {
-        ...select,
-        flex: labelPosition === "inline" ? { md: "1" } : null,
-      },
+      label: labelLegendTextSpecialSpacing,
+      select: select(labelPosition),
     };
-  },
+  }),
   variants: {
-    searchbar: {
+    searchbar: definePartsStyle({
       select: {
         flex: "1 1 20%",
         borderRightColor: { md: "transparent" },
         borderRightRadius: { md: "none" },
       },
-    },
+    }),
   },
   defaultProps: {
     size: "md",
   },
-};
+});
 
 export default Select;

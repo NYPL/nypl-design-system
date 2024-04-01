@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMergeRefs,
@@ -188,7 +189,12 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
  * element. All types will render an accessible `Label` component and an
  * optional `HelperErrorText` component.
  */
-export const TextInput = chakra(
+export const TextInput: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    InputProps & React.RefAttributes<TextInputRefType>
+  >,
+  InputProps
+> = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {

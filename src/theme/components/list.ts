@@ -1,46 +1,31 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
+
 import { textMargin } from "./global";
 
-interface ListBaseStyle {
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["base", "heading"]);
+
+interface ListBaseStyle extends Partial<StyleFunctionProps> {
   inline?: boolean;
-  noStyling: boolean;
+  noStyling?: boolean;
 }
 
-export const baseListStyles = (inline = false, noStyling = false) => ({
+export const baseListStyles = (props: ListBaseStyle = {}) => ({
   // Browser automatically applies margin, so by default we unset it.
-  margin: noStyling ? "0" : "unset",
-  listStyle: noStyling ? "none" : null,
+  margin: props.noStyling ? "0" : "unset",
+  listStyle: props.noStyling ? "none" : null,
   marginInlineStart: "unset",
-  paddingStart: noStyling ? "0" : "l",
-  padding: noStyling ? "0" : null,
-  display: inline ? "flex" : null,
+  paddingStart: props.noStyling ? "0" : "l",
+  padding: props.noStyling ? "0" : null,
+  display: props.inline ? "flex" : null,
   li: {
-    marginEnd: inline ? "xs" : null,
-    listStyleType: inline ? "none" : null,
+    marginEnd: props.inline ? "xs" : null,
+    listStyleType: props.inline ? "none" : null,
     _notFirst: {
-      marginTop: inline ? null : "xxs",
-    },
-  },
-});
-export const baseUnorderedStyles = (noStyling = false) => ({
-  ...textMargin,
-  listStyle: "none",
-  li: {
-    _before: {
-      color: "ui.gray.medium",
-      // \2022 is the CSS Code/unicode for a bullet.
-      content: noStyling ? "unset" : `"\\2022"`,
-      // Needed to add space between the bullet and the text.
-      display: "inline-block",
-      fontWeight: "bold",
-      fontSize: "2",
-      lineHeight: "0.9",
-      marginStart: "-1rem",
-      width: "1rem",
-    },
-    _dark: {
-      _before: {
-        color: "ui.gray.semi-dark",
-      },
+      marginTop: props.inline ? null : "xxs",
     },
   },
 });
@@ -64,7 +49,32 @@ export const baseSectionDescriptionStyles = {
     borderColor: "dark.ui.border.default",
   },
 };
-export const baseDescriptionStyles = {
+// For specific component variants
+export const unorderedStyles = (props: ListBaseStyle = {}) => ({
+  ...textMargin,
+  listStyle: "none",
+  li: {
+    _before: {
+      color: "ui.border.hover",
+      // \2022 is the CSS Code/unicode for a bullet.
+      content: props.noStyling ? "unset" : `"\\2022"`,
+      // Needed to add space between the bullet and the text.
+      display: "inline-block",
+      fontWeight: "bold",
+      fontSize: "2",
+      lineHeight: "0.9",
+      marginStart: "-1rem",
+      width: "1rem",
+    },
+    _dark: {
+      _before: {
+        color: "ui.gray.semi-dark",
+      },
+    },
+  },
+});
+
+export const descriptionStyles = {
   ...baseSectionDescriptionStyles,
   dl: {
     display: "grid",
@@ -97,19 +107,22 @@ export const baseDescriptionStyles = {
   },
 };
 
-const List = {
-  parts: ["heading"],
-  baseStyle: ({ inline, noStyling }: ListBaseStyle) => {
-    return {
-      ...baseListStyles(inline, noStyling),
-      heading: baseHeadingStyles,
-    };
-  },
+const List = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ inline, noStyling }: ListBaseStyle) => ({
+    base: baseListStyles({ inline, noStyling }),
+    heading: baseHeadingStyles,
+  })),
   variants: {
-    ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
-    ol: textMargin,
-    dl: baseDescriptionStyles,
+    ul: definePartsStyle((props) => ({
+      base: unorderedStyles(props),
+    })),
+    ol: definePartsStyle({
+      base: textMargin,
+    }),
+    dl: definePartsStyle({
+      base: descriptionStyles,
+    }),
   },
-};
+});
 
 export default List;

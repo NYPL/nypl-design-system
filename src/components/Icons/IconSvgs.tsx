@@ -32,6 +32,7 @@ import { ReactComponent as decorativeEnvelope } from "../../../icons/svg/decorat
 import { ReactComponent as decorativeLibraryCard } from "../../../icons/svg/decorative-library-card.svg";
 import { ReactComponent as decorativeShoppingBag } from "../../../icons/svg/decorative-shopping-bag.svg";
 import { ReactComponent as download } from "../../../icons/svg/download.svg";
+import { ReactComponent as editorMode } from "../../../icons/svg/editor-mode.svg";
 import { ReactComponent as errorFilled } from "../../../icons/svg/error-filled.svg";
 import { ReactComponent as errorOutline } from "../../../icons/svg/error-outline.svg";
 import { ReactComponent as fileTypeAudio } from "../../../icons/svg/file-type-audio.svg";
@@ -52,6 +53,7 @@ import { ReactComponent as locator } from "../../../icons/svg/locator.svg";
 import { ReactComponent as mapsPlace } from "../../../icons/svg/maps-place.svg";
 import { ReactComponent as minus } from "../../../icons/svg/minus.svg";
 import { ReactComponent as moonCrescent } from "../../../icons/svg/moon-crescent.svg";
+import { ReactComponent as navigationMoreVert } from "../../../icons/svg/navigation-more-vert.svg";
 import { ReactComponent as plus } from "../../../icons/svg/plus.svg";
 import { ReactComponent as search } from "../../../icons/svg/search.svg";
 import { ReactComponent as socialFacebook } from "../../../icons/svg/social-facebook.svg";
@@ -105,6 +107,7 @@ export default {
   decorativeLibraryCard,
   decorativeShoppingBag,
   download,
+  editorMode,
   errorFilled,
   errorOutline,
   fileTypeAudio,
@@ -125,6 +128,7 @@ export default {
   mapsPlace,
   minus,
   moonCrescent,
+  navigationMoreVert,
   plus,
   search,
   socialFacebook,

@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+import { changelogData } from "./labelChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 import * as LabelStories from "./Label.stories";
 import Link from "../Link/Link";
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `2.0.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
@@ -19,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#isrequired-helper-text" target="_self">isRequired helper text</Link>}
 - {<Link href="#requiredlabeltext-to-customize-required-label" target="_self">requiredLabelText to customize required label</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -63,3 +66,7 @@ We also recommend a maximum of two words for this text.
 Note: The parenthesis will be added automatically by the component.
 
 <Canvas of={LabelStories.CustomRequiredText} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

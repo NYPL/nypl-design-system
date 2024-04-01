@@ -1,7 +1,9 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import * as StatusBadgeStories from "./StatusBadge.stories";
+
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import Link from "../Link/Link";
+import { changelogData } from "./statusBadgeChangelogData";
 
 <Meta of={StatusBadgeStories} />
 
@@ -10,14 +12,17 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.18.7`   |
-| Latest            | `2.0.0`    |
+| Latest            | `3.0.0`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#patterns" target="_self">Patterns</Link>}
+- {<Link href="#semantic-type-variants" target="_self">Semantic Type Variants</Link>}
+- {<Link href="#level-variants-deprecated" target="_self">Level Variants (deprecated)</Link>}
+- {<Link href="#labeling-variations" target="_self">Labeling Variations</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -31,23 +36,73 @@ import Link from "../Link/Link";
 
 ## Accessibility
 
-The visual aspect of the `StatusBadge` component displays three different status
-levels through the use of three different colors. It is important to assign
-the appropriate text so that the user can understand the priority level of the
-`StatusBadge`, and not rely just on the color.
+The visual aspect of the `StatusBadge` component is able to displays multiple
+statuses and priorities through the use of different colors, so it is
+recommended to align the usage of the component with the semantic meaning of one
+of the component's variants.
 
-## Patterns
+However, when using the `StatusBadge` component, the implementation should not
+rely on the color alone to convey meaning, as color is not a universal
+experience for everyone. It is important that the meaning of the label aligns
+with the general meaning associated with the semantic colors used in a specific
+variant. In this way, the user will be able to understand the priority of the
+`StatusBadge` and not rely just on the color.
 
-### Higher Barrier
+## Semantic Type Variants
 
-Used in instances where the associated message is the highest barrier. Use
-`"high"` and `"medium"` for these levels.
+The semantic `type` variants align with specific uses. Please refer to the
+purpose of each variant.
 
-<Canvas of={StatusBadgeStories.HigherBarrier} />
+<Canvas of={StatusBadgeStories.TypeVariants} />
 
-### Lower Barrier
+## Level Variants (deprecated)
 
-Used in instances where the associated message is the lower barrier. Use
-`"low"` for this level which is the default.
+The `level` variants have been deprecated in favor of the semantic `type`
+variants. However, for backward compatability, the `level` prop will override
+the `type` prop.
 
-<Canvas of={StatusBadgeStories.LowerBarrier} />
+<Canvas of={StatusBadgeStories.LevelVariants} />
+
+## Labeling Variations
+
+The capitalization of a badge label will not be forced by the component and
+labels will render exactly as they are passed into the component. If an
+all-lowercase string is passed in, the label will render all lowercase. If an
+all-caps string is passed in, the label will render all caps. And so on.
+
+The text case should be dependent on the use case and the final decision should
+ultimately come from Product and UX.
+
+<Canvas of={StatusBadgeStories.LabelingVariations} />
+
+### Icons
+
+You may render an icon within the `StatusBadge` by passing it as a child to the component.
+If you are using an icon, you should still pass text to the badge so that the user can
+understand its meaning.
+
+You will have to pass a `margin-left` or `margin-right` to add space
+between the icon and the text. The use of the design tokens (ie, `xs`) is encouraged.
+
+<Canvas of={StatusBadgeStories.Icons} />
+
+<Source
+  code={`
+// Icon first (add margin-right)
+
+<StatusBadge level="high">
+  <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
+  On-Site Access Only
+</StatusBadge>
+
+// Icon second (add margin-left)
+
+<StatusBadge level="low">
+  Registration Required
+  <Icon color="ui.black" ml="xs" name="actionIdentityFilled" size="medium" />
+</StatusBadge>
+`} language="jsx" />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
