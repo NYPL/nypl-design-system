@@ -144,12 +144,13 @@ const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
 <Banner heading={customH5} {...props} />
 `} language="tsx" />
 
-<Canvas of={BannerStories.CustomBannerHeading} />
+<Canvas of={BannerStories.BannerHeading} />
 
 ## Banner Icon
 
 The default icon can be overridden by using the `icon` prop to pass a
-custom `Icon` component.
+custom `Icon` component. Make sure to set `size="large"` and `marginTop="xxxs"`
+as props to match desired styling.
 
 <Source
   code={`
@@ -168,6 +169,7 @@ custom `Icon` component.
       name="actionLightbulb"
       title="Banner with custom icon"
       size="large"
+      marginTop="xxxs"
     />
   }
   type="informative"

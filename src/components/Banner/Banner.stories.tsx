@@ -195,7 +195,7 @@ export const TypeVariants: Story = {
   ),
 };
 
-export const CustomBannerHeading: Story = {
+export const BannerHeading: Story = {
   render: () => (
     <VStack>
       <Banner
@@ -223,6 +223,18 @@ export const CustomBannerHeading: Story = {
         heading={<Heading level="h5">Custom H5 Heading</Heading>}
         type="positive"
       />
+      <Banner
+        content={
+          <>
+            This example has no heading. Cras mattis consectetur purus sit amet
+            fermentum. Maecenas faucibus mollis interdum. Morbi leo risus, porta
+            ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus
+            et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
+            sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </>
+        }
+        type="warning"
+      />
     </VStack>
   ),
 };
@@ -245,6 +257,7 @@ export const CustomBannerIcon: Story = {
             name="actionLightbulb"
             title="Banner with custom icon"
             size="large"
+            marginTop="xxxs"
           />
         }
         type="informative"
@@ -264,6 +277,7 @@ export const CustomBannerIcon: Story = {
             name="actionLightbulb"
             title="Banner with custom icon"
             size="large"
+            marginTop="xxxs"
           />
         }
         type="positive"
@@ -283,6 +297,7 @@ export const CustomBannerIcon: Story = {
             name="alertWarningOutline"
             title="Banner with custom icon"
             size="large"
+            marginTop="xxxs"
           />
         }
         type="negative"
@@ -298,7 +313,12 @@ export const CustomBannerIcon: Story = {
         }
         heading="Banner with Custom Icon"
         icon={
-          <Icon name="check" title="Banner with custom icon" size="large" />
+          <Icon
+            name="check"
+            title="Banner with custom icon"
+            size="large"
+            marginTop="xxxs"
+          />
         }
       />
     </VStack>
