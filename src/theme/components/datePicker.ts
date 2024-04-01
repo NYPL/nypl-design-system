@@ -12,7 +12,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const DatePicker = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     fieldset: {
-      legend: { ...labelLegendTextSpecialSpacing },
+      legend: labelLegendTextSpecialSpacing,
     },
     subLabels: {
       label: {
