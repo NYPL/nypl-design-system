@@ -298,7 +298,7 @@ export const WithControls: Story = {
     id: "multiselect-group",
     labelText: "Label Text",
     layout: "row",
-    multiSelectWidth: "full",
+    multiSelectWidth: "fitContent",
     showLabel: true,
   },
   render: (args) => <MultiSelectGroupStory {...args} />,

@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
@@ -52,6 +52,10 @@ On screen width under 600px width the `layout` is automatically set to "column"
 and the `multiSelectWidth` to "full". Note: when `layout = "column"` is passed,
 the MultiSelect components will have `isBlockElement` set to `true` by default.
 
+**IMPORTANT**: we do not recommended setting `multiSelectWidth` to `"full"` and
+`layout` to `"row"` at the same time. When the `MultiSelect` components are
+opened, the overlap will cause z-index issues with the selected count button.
+
 <Canvas of={MultiSelectGroupStories.LayoutPatterns} />
 
 ## useMultiSelect hook
@@ -67,11 +71,11 @@ current state of the selection: `selectedItems`. Additionally it returns
 `setSelectedItems` for setting an initial state of `selectedItems` or manipulate
 the `selectedItems` if needed.
 
-Due to it's data structure and functions setup, it is capable to handle a group
+Due to its data structure and functions setup, it is capable to handle a group
 of `MultiSelect` components. Find the full documentation under
 [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
 
-## Passing `MultiSelect` Children
+## Passing MultiSelect Children
 
 In order to optimize rendering `MultiSelect` children and control the
 `isBlockElement` and `multiSelectWidth` props, the `MultiSelectGroup` component
