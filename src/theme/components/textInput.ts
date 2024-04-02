@@ -2,6 +2,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 
 import {
   defaultElementSizes,
+  labelLegendTextSpecialSpacing,
   screenreaderOnly,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
@@ -94,6 +95,7 @@ const TextInput = defineMultiStyleConfig({
       },
     },
     input,
+    label: labelLegendTextSpecialSpacing,
     textarea: {
       ...input,
       lineheight: "1.5",
