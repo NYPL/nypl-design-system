@@ -70,7 +70,7 @@ const otherSubHeaderTextLong = (
 );
 const imageProps = {
   alt: "Image example",
-  src: "//placekitten.com/800/400",
+  src: "//loremflickr.com/800/400/kitten",
 };
 
 const meta: Meta<typeof Hero> = {
@@ -123,7 +123,7 @@ export const WithControls: Story = {
     (args.heroType === "primary" && (
       <Hero
         {...args}
-        backgroundImageSrc="//placekitten.com/2400/800"
+        backgroundImageSrc="//loremflickr.com/2400/800/kitten"
         heading={
           <Heading
             level="h1"
@@ -171,7 +171,7 @@ export const WithControls: Story = {
     (args.heroType === "campaign" && (
       <Hero
         {...args}
-        backgroundImageSrc="//placekitten.com/2400/800"
+        backgroundImageSrc="//loremflickr.com/2400/800/kitten"
         heading={<Heading level="h1" id="1" text="Hero Campaign" />}
         heroType={args.heroType}
         imageProps={args.imageProps}
@@ -184,7 +184,7 @@ export const WithControls: Story = {
         heroType={args.heroType}
         imageProps={{
           ...args.imageProps,
-          src: "//placekitten.com/1200/400",
+          src: "//loremflickr.com/1200/400/kitten",
         }}
         subHeaderText={
           <>
@@ -206,7 +206,7 @@ export const WithControls: Story = {
 export const Primary: Story = {
   render: () => (
     <Hero
-      backgroundImageSrc="//placekitten.com/1600/800"
+      backgroundImageSrc="//loremflickr.com/1600/800/kitten"
       heading={
         <Heading
           id="primary-hero"
@@ -283,7 +283,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           heroType="campaign"
           heading={
             <Heading
@@ -303,7 +303,7 @@ export const Campaign: Story = {
           text="Campaign Hero with Long Text"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           heroType="campaign"
           heading={
             <Heading
@@ -326,7 +326,7 @@ export const CampaignDarkBackgroundImage: Story = {
     <Stack spacing="l">
       <div>
         <Hero
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           heroType="campaign"
           heading={
             <Heading
@@ -401,7 +401,7 @@ export const TextColorStyles: Story = {
           text="Campaign Hero with Default Colors"
         />
         <Hero
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           heroType="campaign"
           heading={
             <Heading
@@ -417,7 +417,7 @@ export const TextColorStyles: Story = {
         <Source
           code={`
 <Hero
-  backgroundImageSrc="//placekitten.com/1600/800"
+  backgroundImageSrc="//loremflickr.com/1600/800/kitten"
   heroType="campaign"
   heading={
     <Heading
@@ -442,7 +442,7 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundColor="ui.status.primary"
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           foregroundColor="ui.error.secondary"
           heroType="campaign"
           heading={
@@ -460,7 +460,7 @@ export const TextColorStyles: Story = {
           code={`
 <Hero
   backgroundColor="ui.status.primary"
-  backgroundImageSrc="//placekitten.com/1600/800"
+  backgroundImageSrc="//loremflickr.com/1600/800/kitten"
   foregroundColor="ui.error.secondary"
   heroType="campaign"
   heading={
@@ -486,7 +486,7 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundColor="ui.status.primary"
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc="//loremflickr.com/1600/800/kitten"
           heroType="campaign"
           heading={
             <Heading
@@ -506,7 +506,7 @@ export const TextColorStyles: Story = {
           code={`
 <Hero
   backgroundColor="ui.status.primary"
-  backgroundImageSrc="//placekitten.com/1600/800"
+  backgroundImageSrc="//loremflickr.com/1600/800/kitten"
   heroType="campaign"
   heading={
     <Heading
