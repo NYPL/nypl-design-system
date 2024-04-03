@@ -215,24 +215,28 @@ const DatePickerWrapper: React.FC<
     showLabel,
     showRequiredLabel,
     ...rest
-  }) => (
-    <FormField id={`${id}-form-field`} {...rest}>
-      {isDateRange ? (
-        <Fieldset
-          className={className}
-          id={id}
-          isLegendHidden={!showLabel}
-          isRequired={isRequired}
-          legendText={labelText}
-          showRequiredLabel={showRequiredLabel}
-        >
-          {children}
-        </Fieldset>
-      ) : (
-        children
-      )}
-    </FormField>
-  ),
+  }) => {
+    const styles = useMultiStyleConfig("DatePicker", {});
+    return (
+      <FormField id={`${id}-form-field`} {...rest}>
+        {isDateRange ? (
+          <Fieldset
+            className={className}
+            id={id}
+            isLegendHidden={!showLabel}
+            isRequired={isRequired}
+            legendText={labelText}
+            showRequiredLabel={showRequiredLabel}
+            __css={styles.fieldset}
+          >
+            {children}
+          </Fieldset>
+        ) : (
+          children
+        )}
+      </FormField>
+    );
+  },
   { shouldForwardProp: () => true }
 );
 
