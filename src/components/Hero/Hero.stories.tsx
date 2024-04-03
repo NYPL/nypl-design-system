@@ -213,14 +213,11 @@ export const Primary: Story = {
           level="h1"
           noSpace
           overline="Hero Example"
-          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
           text="Hero Primary"
         />
       }
       heroType="primary"
-      // foregroundColor="red"
-      // backgroundColor="silver"
-      // isDarkText
     />
   ),
 };
