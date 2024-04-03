@@ -1,9 +1,4 @@
-import {
-  chakra,
-  ChakraComponent,
-  Stack,
-  // useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -35,11 +30,11 @@ export interface MultiSelectGroupProps {
 }
 
 /**
- * `MultiSelectGroup` is a helper wrapper component specific for `MultiSelect`
- * components. The wrapped `MutliSelect` components can be displayed in a
- * column or in a row. The `MultiSelectGroup` component renders all the necessary
- * wrapping and associated text elements, but the child elements
- * _need_ to be `MultiSelect` components from the NYPL Design System.
+ * `MultiSelectGroup` is a wrapper for Reservoir `MultiSelect` components.
+ * It specifies display styles (e.g. whether `MultiSelect`s are rendered in a
+ * column or row) and any associated text (e.g. the group's label). Note,
+ * the `MultiSelectGroup` will not work with non-Reservoir `MultiSelect`s
+ * components or other HTML elements.
  */
 export const MultiSelectGroup: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -77,7 +72,7 @@ export const MultiSelectGroup: ChakraComponent<
           direction={finalLayout}
           id={id}
           ref={ref}
-          rowGap={finalLayout === "row" ? "xs" : "0"}
+          rowGap="xs"
           spacing="xs"
           wrap={layout === "row" ? "wrap" : null}
           sx={{

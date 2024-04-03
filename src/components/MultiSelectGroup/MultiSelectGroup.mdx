@@ -49,42 +49,26 @@ For accessibility information on the `MultiSelect` component, see the
 The width of the MultiSelect components can be passed through the
 `multiSelectWidth` prop, with values of `"fitContent"` or `"full"`.
 On screen width under 600px width the `layout` is automatically set to "column"
-and the `multiSelectWidth` to "full". Note: when `layout = "column"` is passed,
-the MultiSelect components will have `isBlockElement` set to `true` by default.
+and the `multiSelectWidth` to "full". Note: When the screen width is less than
+600px, the `layout` prop is automatically set to `"column"` and the
+`multiSelectWidth` prop is set to `"full"`.
 
-**IMPORTANT**: we do not recommended setting `multiSelectWidth` to `"full"` and
+**IMPORTANT**: It is recommended to not set `multiSelectWidth` to `"full"` and
 `layout` to `"row"` at the same time. When the `MultiSelect` components are
 opened, the overlap will cause z-index issues with the selected count button.
 
 <Canvas of={MultiSelectGroupStories.LayoutPatterns} />
 
-## useMultiSelect hook
-
-`useMultiSelect` is an optional but recommended hook for cases where managing
-the state of the component in the consuming app is less of a concern and general
-ease of use is prefered.
-
-The hook returns an object containing all the props and state needed to handle
-the selectedItems. That includes the functions `onChange`, `onClearAll`,
-`onMixedStateChange` for handling any changes to the selection of items and the
-current state of the selection: `selectedItems`. Additionally it returns
-`setSelectedItems` for setting an initial state of `selectedItems` or manipulate
-the `selectedItems` if needed.
-
-Due to its data structure and functions setup, it is capable to handle a group
-of `MultiSelect` components. Find the full documentation under
-[useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
-
 ## Passing MultiSelect Children
 
-In order to optimize rendering `MultiSelect` children and control the
-`isBlockElement` and `multiSelectWidth` props, the `MultiSelectGroup` component
-accepts `MultiSelect` children through its render prop `renderMultiSelect`
-function. This callback function returns an object argument with two optional
-properties: `isBlockElement` and `multiSelectWidth`.
+In order to control the styling and props passed to children `MultiSelect`
+components, the `MultiSelectGroup` component only accepts `MultiSelect` children
+through its `renderMultiSelect` render prop function.
 
-Both `isBlockElement` and `multiSelectWidth` are passed to the `MultiSelect`
-children.
+This callback prop function returns an object argument with two properties:
+`isBlockElement` and `multiSelectWidth`. The `isBlockElement` argument value
+should be passed to the `isBlockElement` prop, and the `multiSelectWidth`
+argument value should be passed to the `width` prop of the `MultiSelect`.
 
 <Source
   code={`
@@ -119,6 +103,24 @@ children.
 `}
   language="tsx"
 />
+
+## useMultiSelect hook
+
+`useMultiSelect` is an optional but recommended hook for cases where managing
+the state of the component in the consuming app is less of a concern and general
+ease of use is prefered.
+
+The hook returns an object containing all the props and state needed to
+handle the `selectedItems` object. Included are the functions `onChange`,
+`onClearAll`, and `onMixedStateChange` for handling any changes to the
+items that are currently selected. Also included is the `selectItems` object
+to reflect the current state of the items that are currently selected.
+Additionally, the hook returns the `setSelectedItems` function for setting
+an initial state of `selectedItems` or, if needed, to manipulate `selectedItems`.
+
+Due to its data structure and the setup of its functions, the `useMultiSelect`
+hook is capable of handling a group of `MultiSelect` components. Find the full
+documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
 
 ## Changelog
 
