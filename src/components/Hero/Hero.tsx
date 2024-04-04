@@ -62,6 +62,8 @@ export interface HeroProps {
    * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
    * `Hero` type. Note: not all `Hero` variations utilize this prop. */
   imageProps?: HeroImageProps;
+  /** Optional boolean used to toggle the default text color from light to dark.
+   * Set isDarkText to `true` if the backgroundColor is set to a light color. */
   isDarkText?: boolean;
   /** Optional boolean used to toggle the treatment of the background image in
    * the "campaign" variant. If true, the background image will be converted to
