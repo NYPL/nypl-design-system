@@ -105,7 +105,7 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     },
   };
 };
-const getTextColor = (type, mode, foregroundColor, isDarkText) => {
+export const getTextColor = (type, mode, foregroundColor, isDarkText) => {
   const prefix = mode === "dark" ? "dark.ui." : "ui.";
   const colorLight = foregroundColor
     ? foregroundColor
@@ -117,36 +117,18 @@ const getTextColor = (type, mode, foregroundColor, isDarkText) => {
     : isDarkText
     ? `${prefix}typography.inverse.${type}`
     : `${prefix}typography.${type}`;
-  const colorLink = foregroundColor
-    ? foregroundColor
-    : isDarkText
-    ? `ui.link.primary`
-    : `dark.ui.link.primary`;
-  const finalColor =
-    type === "link" ? colorLink : mode === "dark" ? colorDark : colorLight;
+  const finalColor = mode === "dark" ? colorDark : colorLight;
   return finalColor;
 };
-const getLinkColor = (state, mode, foregroundColor, isDarkText) => {
+export const getLinkColor = (state, foregroundColor, isDarkText) => {
   let finalColor;
-  const isDarkMode = mode === "dark" ? true : false;
   switch (state) {
-    default:
-      finalColor = foregroundColor
-        ? foregroundColor
-        : isDarkText
-        ? `var(--nypl-colors-ui-link-primary) !important`
-        : isDarkMode
-        ? `dark.ui.link.primary`
-        : `dark.ui.link.primary`;
-      break;
     case "hover": {
       finalColor = foregroundColor
         ? foregroundColor
         : isDarkText
         ? `var(--nypl-colors-ui-link-secondary) !important`
-        : isDarkMode
-        ? `dark.ui.link.secondary`
-        : `dark.ui.link.secondary`;
+        : `dark.ui.link.secondary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
       break;
     }
     case "visited": {
@@ -154,11 +136,16 @@ const getLinkColor = (state, mode, foregroundColor, isDarkText) => {
         ? foregroundColor
         : isDarkText
         ? `var(--nypl-colors-ui-link-tertiary) !important`
-        : isDarkMode
-        ? `dark.ui.link.tertiary`
-        : `dark.ui.link.tertiary`;
+        : `dark.ui.link.tertiary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
       break;
     }
+    case "default":
+    default:
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-primary) !important`
+        : `dark.ui.link.primary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
   }
   return finalColor;
 };
@@ -208,7 +195,7 @@ const primary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     },
   },
   heading: {
-    color: "dark.ui.typography.heading",
+    color: getTextColor("heading", "dark", foregroundColor, isDarkText),
   },
 }));
 const secondary = getSecondaryVariantStyles();
@@ -239,14 +226,14 @@ const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     px: "inset.default",
     py: { base: "inset.default", xl: "inset.wide" },
     a: {
-      color: getLinkColor("default", "light", foregroundColor, isDarkText),
+      color: getLinkColor("default", foregroundColor, isDarkText),
       _hover: {
-        color: getLinkColor("hover", "light", foregroundColor, isDarkText),
+        color: getLinkColor("hover", foregroundColor, isDarkText),
       },
       _visited: {
-        color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        color: getLinkColor("visited", foregroundColor, isDarkText),
         svg: {
-          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+          fill: getLinkColor("visited", foregroundColor, isDarkText),
         },
       },
     },
@@ -259,14 +246,14 @@ const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     },
     _dark: {
       a: {
-        color: getLinkColor("default", "dark", foregroundColor, isDarkText),
+        color: getLinkColor("default", foregroundColor, isDarkText),
         _hover: {
-          color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
+          color: getLinkColor("hover", foregroundColor, isDarkText),
         },
         _visited: {
-          color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          color: getLinkColor("visited", foregroundColor, isDarkText),
           svg: {
-            fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+            fill: getLinkColor("visited", foregroundColor, isDarkText),
           },
         },
       },
@@ -315,14 +302,14 @@ const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     position: { md: "relative" },
     zIndex: 2,
     a: {
-      color: getLinkColor("default", "light", foregroundColor, isDarkText),
+      color: getLinkColor("default", foregroundColor, isDarkText),
       _hover: {
-        color: getLinkColor("hover", "light", foregroundColor, isDarkText),
+        color: getLinkColor("hover", foregroundColor, isDarkText),
       },
       _visited: {
-        color: getLinkColor("visited", "light", foregroundColor, isDarkText),
+        color: getLinkColor("visited", foregroundColor, isDarkText),
         svg: {
-          fill: getLinkColor("visited", "light", foregroundColor, isDarkText),
+          fill: getLinkColor("visited", foregroundColor, isDarkText),
         },
       },
     },
@@ -332,14 +319,14 @@ const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     _dark: {
       color: getTextColor("body", "dark", foregroundColor, isDarkText),
       a: {
-        color: getLinkColor("default", "dark", foregroundColor, isDarkText),
+        color: getLinkColor("default", foregroundColor, isDarkText),
         _hover: {
-          color: getLinkColor("hover", "dark", foregroundColor, isDarkText),
+          color: getLinkColor("hover", foregroundColor, isDarkText),
         },
         _visited: {
-          color: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+          color: getLinkColor("visited", foregroundColor, isDarkText),
           svg: {
-            fill: getLinkColor("visited", "dark", foregroundColor, isDarkText),
+            fill: getLinkColor("visited", foregroundColor, isDarkText),
           },
         },
       },

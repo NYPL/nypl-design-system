@@ -208,6 +208,7 @@ export const Primary: Story = {
   render: () => (
     <>
       <Hero
+        backgroundColor="ui.white"
         backgroundImageSrc="//loremflickr.com/1600/800/kitten"
         heading={
           <Heading
