@@ -74,7 +74,11 @@ export const MultiSelectGroup: ChakraComponent<
           ref={ref}
           rowGap="xs"
           spacing="xs"
-          wrap={layout === "row" ? "wrap" : null}
+          wrap={
+            layout === "row" && multiSelectWidth === "fitContent"
+              ? "wrap"
+              : null
+          }
           sx={{
             "> div": {
               _notFirst: {
