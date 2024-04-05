@@ -131,18 +131,19 @@ export const WithControls: Story = {
           args.color === "textInverse"
             ? {
                 backgroundColor: "var(--nypl-colors-dark-ui-bg-page)",
-                display: "inline-block",
                 padding: "var(--nypl-space-s)",
               }
-            : { display: "inline-block", padding: "var(--nypl-space-xs)" }
+            : { padding: "var(--nypl-space-xs)" }
         }
       >
         <SocialMediaLinks {...args} />
       </div>
-      <Text size="caption" mt="s">
-        NOTE: background color for textInverse is added for readability in
-        Reservoir. It is not part of the functionality.
-      </Text>
+      {args.color === "textInverse" && (
+        <Text size="caption" mt="s">
+          NOTE: background color for textInverse is added for readability in
+          Reservoir. It is not part of the functionality.
+        </Text>
+      )}
     </div>
   ),
 };
