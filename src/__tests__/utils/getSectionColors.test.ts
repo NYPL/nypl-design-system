@@ -84,7 +84,7 @@ describe("getSectionColors", () => {
     expect(locations).toEqual("dark.section.locations.secondary");
     expect(researchLibraryLpa).toEqual("dark.section.research-library.lpa");
     expect(researchLibrarySchwarzman).toEqual(
-      "dark.section.research-library.schwartzman"
+      "dark.section.research-library.schwarzman"
     );
     expect(whatsOn).toEqual("dark.section.whats-on.secondary");
   });

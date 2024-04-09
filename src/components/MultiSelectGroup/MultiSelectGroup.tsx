@@ -1,13 +1,12 @@
-import { chakra, Stack, useMultiStyleConfig } from "@chakra-ui/react";
+import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
-import MultiSelect, { MultiSelectWidths } from "../MultiSelect/MultiSelect";
+import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface MultiSelectGroupProps {
-  children: React.ReactNode;
   /** Additional className to use. */
   className?: string;
   /** The id of the MultiSelectGroup. */
@@ -18,93 +17,81 @@ export interface MultiSelectGroupProps {
   layout?: LayoutTypes;
   /** Width will be passed on each `MultiSelect` component. */
   multiSelectWidth?: MultiSelectWidths;
+  /** Render prop function used to render MultiSelect with updated props. */
+  renderMultiSelect: ({
+    isBlockElement,
+    multiSelectWidth,
+  }: {
+    isBlockElement?: boolean;
+    multiSelectWidth?: MultiSelectWidths;
+  }) => React.ReactNode;
   /** Is set to `true` by default and determines if the `labelText` is visible on the site. */
   showLabel?: boolean;
 }
 
 /**
- * `MultiSelectGroup` is a wrapper component specific for `MultiSelect` components. The wrapped `MutliSelect` components can be displayed in a
- * column or in a row. The `MultiSelectGroup` component renders all the necessary
- * wrapping and associated text elements, but the child elements
- * _need_ to be `MultiSelect` components from the NYPL Design System.
+ * `MultiSelectGroup` is a wrapper for Reservoir `MultiSelect` components.
+ * It specifies display styles (e.g. whether `MultiSelect`s are rendered in a
+ * column or row) and any associated text (e.g. the group's label). Note,
+ * the `MultiSelectGroup` will not work with non-Reservoir `MultiSelect`s
+ * components or other HTML elements.
  */
-export const MultiSelectGroup: React.FC<any> = chakra(
-  forwardRef<HTMLDivElement, React.PropsWithChildren<MultiSelectGroupProps>>(
-    (props, ref?) => {
-      const {
-        children,
-        className = "",
-        id,
-        labelText,
-        layout = "row",
-        multiSelectWidth = "default",
-        showLabel = true,
-        ...rest
-      } = props;
-      const newChildren: JSX.Element[] = [];
+export const MultiSelectGroup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    MultiSelectGroupProps & React.RefAttributes<HTMLDivElement>
+  >,
+  MultiSelectGroupProps
+> = chakra(
+  forwardRef<HTMLDivElement, MultiSelectGroupProps>((props, ref?) => {
+    const {
+      className = "",
+      id,
+      labelText,
+      layout = "row",
+      multiSelectWidth = "full",
+      showLabel = true,
+      renderMultiSelect,
+      ...rest
+    } = props;
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    const finalLayout = isLargerThanMobile ? layout : "column";
+    const finalWidth = isLargerThanMobile ? multiSelectWidth : "full";
+    const isBlockElement = finalLayout === "column";
 
-      const { isLargerThanMobile } = useNYPLBreakpoints();
-      const finalLayout = isLargerThanMobile ? layout : "column";
-      const finallWidth = isLargerThanMobile ? multiSelectWidth : "full";
-      const isBlockElement = layout === "column" ? true : false;
-      const styles = useMultiStyleConfig("MultiSelectGroup", {
-        width: finallWidth,
-      });
-
-      // Go through the MultiSelect children and update props as needed.
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          if (React.isValidElement(child)) {
-            // @TODO: DXP needs to pass custom MultiSelects that wrap DS Mutliselects - type check deos not allow DXP to use MultiSelectGroup
-            // if (child.type !== MultiSelect) {
-            //   console.warn(
-            //     "NYPL Reservoir MultiSelectGroup: Only MultiSelect components can be children of MultiSelectGroup."
-            //   );
-            //   return;
-            // }
-            if (child.type === MultiSelect) {
-              const props = { isBlockElement, width: multiSelectWidth };
-              newChildren.push(React.cloneElement(child, props));
-            } else {
-              newChildren.push(React.cloneElement(child));
-            }
+    return (
+      <Fieldset
+        id={`multiselect-group-${id}`}
+        legendText={labelText}
+        isLegendHidden={!showLabel}
+        {...rest}
+      >
+        <Stack
+          className={className}
+          columnGap="xs"
+          data-testid={`multiselect-group-${id}`}
+          direction={finalLayout}
+          id={id}
+          ref={ref}
+          rowGap="xs"
+          spacing="xs"
+          wrap={
+            layout === "row" && multiSelectWidth === "fitContent"
+              ? "wrap"
+              : null
           }
-        }
-      );
-
-      return (
-        <Fieldset
-          id={`${id}-multiselect-group`}
-          legendText={labelText}
-          isLegendHidden={!showLabel}
-          __css={styles}
-          {...rest}
-        >
-          <Stack
-            className={className}
-            columnGap="xs"
-            data-testid="multi-select-group"
-            direction={finalLayout}
-            id={id}
-            ref={ref}
-            rowGap={finalLayout === "row" ? "xs" : "0"}
-            spacing="xs"
-            wrap={layout === "row" ? "wrap" : null}
-            sx={{
-              "> div": {
-                _notFirst: {
-                  mx: "0",
-                },
+          sx={{
+            "> div": {
+              _notFirst: {
+                mx: "0",
               },
-            }}
-          >
-            {newChildren}
-          </Stack>
-        </Fieldset>
-      );
-    }
-  )
+            },
+          }}
+        >
+          {renderMultiSelect({ isBlockElement, multiSelectWidth: finalWidth })}
+        </Stack>
+      </Fieldset>
+    );
+  })
 );
 
 export default MultiSelectGroup;
