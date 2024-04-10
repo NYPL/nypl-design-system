@@ -10,6 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `"actionLightbulb"` option to the `Icon` component.
+- Adds the `Banner` component.
 - Adds the `isDarkText` prop to the `Hero` component.
 
 ### Updates
