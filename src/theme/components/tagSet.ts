@@ -141,6 +141,7 @@ const TagSetExplore = defineStyleConfig({
 
 const TagSet = defineStyleConfig({
   baseStyle: defineStyle({
+    alignItems: "center",
     display: "inline-flex",
     flexWrap: "wrap",
     gap: "xs",
