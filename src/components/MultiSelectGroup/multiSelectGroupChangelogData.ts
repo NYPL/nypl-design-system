@@ -13,16 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "2024-04-11",
     version: "3.1.0",
     type: "Update",
-    affects: ["Styles"],
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
     notes: [
-      "Reduced the spacing between the field label and the field itself.",
+      "V2 refactor of the `MultiSelectGroup` component including updating to Chakra 2.8.",
     ],
-  },
-  {
-    date: "2024-03-14",
-    version: "3.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
   },
 ];

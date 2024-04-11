@@ -8,6 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.1.0 (April 11, 2024)
+
+### Adds
+
+- Adds the `"actionLightbulb"` option to the `Icon` component.
+- Adds the `Banner` component.
+- Adds the `MultiSelectGroup` v2 component.
+
+### Updates
+
+- Updates the `DatePicker`, `Select`, `Slider`, and `TextInput` components to reduce the spacing between the field label and the field itself from `"8px"` to `"2px"`.
+
 ## 3.0.1 (March 28, 2024)
 
 ### Adds

@@ -1,0 +1,125 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
+import Link from "../Link/Link";
+import { changelogData } from "./multiSelectGroupChangelogData";
+
+<Meta of={MultiSelectGroupStories} />
+
+# MultiSelectGroup
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.4.0`    |
+| Latest            | `3.1.0`    |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
+- {<Link href="#passing-multiselect-children" target="_self">Passing `MultiSelect` Children</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
+
+## Overview
+
+<Description of={MultiSelectGroupStories} />
+
+## Component Props
+
+<Canvas of={MultiSelectGroupStories.WithControls} />
+
+<ArgTypes of={MultiSelectGroupStories.WithControls} />
+
+## Accessibility
+
+The `MultiSelectGroup` renders a group of `MultiSelect` components that are
+wrapped in a `<fieldset>` element. The `<fieldset>` element renders a `<legend>`
+element that can be visually hidden through the `showLabel` prop. If the
+`<legend>` is hidden an `aria-label` attribute with `labelText` value will be
+rendered instead.
+
+For accessibility information on the `MultiSelect` component, see the
+[MultiSelect Accessibility](../?path=/docs/components-form-elements-multiselect--docs#accessibility) documentation.
+
+## Layout Patterns
+
+The width of the MultiSelect components can be passed through the
+`multiSelectWidth` prop, with values of `"fitContent"` or `"full"`.
+On screen width under 600px width the `layout` is automatically set to "column"
+and the `multiSelectWidth` to "full".
+
+**IMPORTANT**: It is recommended to not set `multiSelectWidth` to `"full"` and
+`layout` to `"row"` at the same time. When the `MultiSelect` components are
+opened, the overlap will cause z-index issues with the selected count button.
+
+<Canvas of={MultiSelectGroupStories.LayoutPatterns} />
+
+## Passing MultiSelect Children
+
+In order to control the styling and props passed to children `MultiSelect`
+components, the `MultiSelectGroup` component only accepts `MultiSelect` children
+through its `renderMultiSelect` render prop function.
+
+This callback prop function returns an object argument with two properties:
+`isBlockElement` and `multiSelectWidth`. The `isBlockElement` argument value
+should be passed to the `isBlockElement` prop, and the `multiSelectWidth`
+argument value should be passed to the `width` prop of the `MultiSelect`.
+
+<Source
+  code={`
+<MultiSelectGroup
+  {...otherArgs}
+  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+    return (
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText="MultiSelect"
+          defaultItemsVisible={defaultItemsVisible}
+          id={multiSelect.id}
+          isBlockElement={isBlockElement}
+          items={multiSelect.items}
+          key={multiSelect.id}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onClear={() => onClear(multiSelect.id)}
+          onMixedStateChange={(e) =>
+            onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            )
+          }
+          selectedItems={selectedItems}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  }}
+/>
+`}
+  language="tsx"
+/>
+
+## useMultiSelect hook
+
+`useMultiSelect` is an optional but recommended hook for cases where managing
+the state of the component in the consuming app is less of a concern and general
+ease of use is prefered.
+
+The hook returns an object containing all the props and state needed to
+handle the `selectedItems` object. Included are the functions `onChange`,
+`onClearAll`, and `onMixedStateChange` for handling any changes to the
+items that are currently selected. Also included is the `selectItems` object
+to reflect the current state of the items that are currently selected.
+Additionally, the hook returns the `setSelectedItems` function for setting
+an initial state of `selectedItems` or, if needed, to manipulate `selectedItems`.
+
+Due to its data structure and the setup of its functions, the `useMultiSelect`
+hook is capable of handling a group of `MultiSelect` components. Find the full
+documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
