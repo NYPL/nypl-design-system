@@ -2,7 +2,7 @@ export {};
 // import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 // import { action } from "@storybook/addon-actions";
 // import type { Meta, StoryObj } from "@storybook/react";
-// 
+//
 // import { useEffect, useState } from "react";
 
 // import FilterBar from "./FilterBar";
