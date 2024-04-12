@@ -13,25 +13,31 @@ interface TagSetFilterProps extends StyleFunctionProps {
   isDismissible: boolean;
 }
 
+const transitionStyles = {
+  transitionDuration: "normal",
+  transitionTimingFunction: "ease-out",
+};
+
 const TagSetFilter = defineMultiStyleConfig({
   baseStyle: definePartsStyle(({ isDismissible }: TagSetFilterProps) => ({
     base: {
-      display: "flex",
       alignItems: "center",
-      justifyContent: "center",
       bg: "ui.bg.default",
       border: "1px solid",
       borderColor: "ui.border.default",
       borderRadius: "pill",
       color: "ui.typography.body",
       cursor: isDismissible ? "pointer" : "auto",
+      display: "flex",
+      fontSize: "desktop.caption",
       height: { base: "32px", md: "22px" },
+      justifyContent: "center",
       minHeight: "22px",
       maxWidth: "200px",
       py: "xxxs",
       paddingLeft: "s",
       paddingRight: isDismissible ? { base: "8px", md: "6px" } : "s",
-      fontSize: "desktop.caption",
+      ...transitionStyles,
       "> span": {
         display: "inline-block",
         overflow: "hidden",
@@ -49,18 +55,12 @@ const TagSetFilter = defineMultiStyleConfig({
         _hover: {
           bg: isDismissible ? "dark.ui.bg.hover" : "dark.ui.bg.default",
           borderColor: isDismissible
-            ? "dark.ui.border.hover"
+            ? "dark.ui.border.active"
             : "dark.ui.border.default",
+          color: isDismissible
+            ? "dark.ui.typography.heading"
+            : "dark.ui.typography.body",
         },
-      },
-    },
-    clearAll: {
-      color: "ui.typography.body",
-      height: { base: "32px", md: "22px" },
-      fontSize: "desktop.caption",
-      minHeight: "22px",
-      _dark: {
-        color: "dark.ui.typography.heading",
       },
     },
   })),
@@ -71,7 +71,7 @@ const TagSetExplore = defineStyleConfig({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    bg: "ui.white",
+    bg: "ui.link.primary-05",
     border: "1px solid",
     borderColor: "ui.link.primary",
     borderRadius: "pill",
@@ -84,7 +84,10 @@ const TagSetExplore = defineStyleConfig({
     py: "xxxs",
     px: "s",
     textDecoration: "underline",
-    transition: "0.3s ease",
+    textDecorationStyle: "dotted",
+    textDecorationThickness: "1px",
+    textUnderlineOffset: "2px",
+    ...transitionStyles,
     _focusWithin: activeFocus(),
     a: {
       border: "0",
@@ -102,19 +105,19 @@ const TagSetExplore = defineStyleConfig({
       fill: "ui.link.primary",
     },
     _hover: {
-      bg: "ui.link.primary",
+      bg: "ui.link.primary-10",
       a: {
-        color: "ui.white",
+        color: "ui.link.secondary",
       },
       svg: {
-        fill: "ui.white",
+        fill: "ui.link.secondary",
       },
       "> span": {
-        color: "ui.white",
+        color: "ui.link.secondary",
       },
     },
     _dark: {
-      bg: "dark.ui.bg.default",
+      bg: "dark.ui.link.primary-05",
       borderColor: "dark.ui.link.primary",
       color: "dark.ui.link.primary",
       a: {
@@ -124,15 +127,15 @@ const TagSetExplore = defineStyleConfig({
         fill: "dark.ui.link.primary",
       },
       _hover: {
-        bg: "dark.ui.link.primary",
+        bg: "dark.ui.link.primary-10",
         a: {
-          color: "ui.gray.xxx-dark",
+          color: "dark.ui.link.secondary",
         },
         svg: {
-          fill: "ui.gray.xxx-dark",
+          fill: "dark.ui.link.secondary",
         },
         "> span": {
-          color: "ui.gray.xxx-dark",
+          color: "dark.ui.link.secondary",
         },
       },
     },

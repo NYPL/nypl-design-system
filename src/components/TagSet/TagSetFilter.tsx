@@ -51,7 +51,10 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
       "ui.gray.x-dark",
       "dark.ui.typography.body"
     );
-    const iconColor = useColorModeValue("ui.black", "dark.ui.typography.body");
+    const iconColor = useColorModeValue(
+      "ui.typography.body",
+      "dark.ui.typography.body"
+    );
 
     return (
       <>
