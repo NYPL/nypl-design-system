@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds docs for `"Visited State Patterns"` to the `Link` component story page.
+
 ## 3.1.0 (April 11, 2024)
 
 ### Adds
