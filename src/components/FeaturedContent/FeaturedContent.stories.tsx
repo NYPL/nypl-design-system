@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
+
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 import SimpleGrid from "../Grid/SimpleGrid";
-
 import FeaturedContent, {
   featuredContentWidthArray,
   featuredContentPositionArray,
@@ -13,7 +12,6 @@ import FeaturedContent, {
 const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

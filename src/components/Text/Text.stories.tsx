@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Text, { textSizesArray } from "./Text";
 import { argsBooleanType } from "../../helpers/storybookUtils";
@@ -7,7 +6,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
@@ -52,7 +50,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=10975-52&t=AEGDRpspvTyuSWSA-4",
     },
-    jest: "Text.test.tsx",
+    test: "Text.test.tsx",
   },
   render: (args) => (
     <>

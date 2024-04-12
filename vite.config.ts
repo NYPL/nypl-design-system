@@ -17,7 +17,7 @@ export default defineConfig({
         titleProp: true,
         // icon: true,
       },
-      include: "**/*.svg?react",
+      include: "**/*.svg",
     }),
     // For Typescript support
     dts(),

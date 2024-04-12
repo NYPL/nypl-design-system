@@ -1,8 +1,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import Icon from "../Icons/Icon";
 
+import Icon from "../Icons/Icon";
 import StatusBadge, {
   statusBadgeLevelArray,
   statusBadgeTypeArray,
@@ -12,7 +11,6 @@ import Table from "../Table/Table";
 const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
   component: StatusBadge,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
@@ -47,7 +45,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
     },
-    jest: "StatusBadge.test.tsx",
+    test: "StatusBadge.test.tsx",
   },
   render: ({ ...args }) => {
     return <StatusBadge {...args}>Registration required</StatusBadge>;

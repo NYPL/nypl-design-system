@@ -1,6 +1,5 @@
 import { Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -60,7 +59,6 @@ const imageProps = {
 const meta: Meta<typeof Hero> = {
   title: "Components/Basic Elements/Hero",
   component: Hero,
-  decorators: [withDesign],
   argTypes: {
     backdropBackgroundColor: { control: false },
     backgroundColor: { control: false },
@@ -182,7 +180,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36817%3A23704",
     },
-    jest: "Hero.test.tsx",
+    test: "Hero.test.tsx",
   },
 };
 

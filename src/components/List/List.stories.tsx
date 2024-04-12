@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -10,7 +9,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
   component: List,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },

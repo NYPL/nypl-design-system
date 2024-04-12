@@ -4,8 +4,8 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   addons: [
-    "storybook-addon-designs",
     "@storybook/addon-a11y",
+    "@storybook/addon-designs",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     // TODO: for future interaction tests
@@ -79,10 +79,6 @@ const config: StorybookConfig = {
       },
     });
   },
-
-  // docs: {
-  //   autodocs: true,
-  // },
 };
 
 export default config;

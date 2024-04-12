@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
@@ -15,7 +14,6 @@ import {
 const meta: Meta<typeof Icon> = {
   title: "Components/Media & Icons/Icon",
   component: Icon,
-  decorators: [withDesign],
   argTypes: {
     align: {
       control: { type: "radio" },

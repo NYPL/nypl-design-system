@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Fieldset from "./Fieldset";
 
@@ -16,7 +15,6 @@ const FieldsetTemplate: Story = {
 const meta: Meta<typeof Fieldset> = {
   title: "Components/Form Elements/Fieldset",
   component: Fieldset,
-  decorators: [withDesign],
   argTypes: {
     id: { control: false },
     className: { control: false },
@@ -45,6 +43,6 @@ export const WithControls: Story = {
     showRequiredLabel: false,
   },
   parameters: {
-    jest: "Fieldset.test.tsx",
+    test: "Fieldset.test.tsx",
   },
 };

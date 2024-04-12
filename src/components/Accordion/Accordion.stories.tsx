@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import { Accordion, AccordionDataProps } from "./Accordion";
@@ -130,7 +129,6 @@ const faqContentData: AccordionDataProps[] = [
 const meta: Meta<typeof Accordion> = {
   title: "Components/Overlays & Switchers/Accordion",
   component: Accordion,
-  decorators: [withDesign],
   argTypes: {
     accordionData: {
       options: ["defaultData", "longTextData", "faqData"],
@@ -169,7 +167,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
-    jest: "Accordion.test.tsx",
+    test: "Accordion.test.tsx",
   },
 };
 

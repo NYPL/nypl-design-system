@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
+import { argsBooleanType } from "../../helpers/storybookUtils";
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
@@ -10,7 +9,6 @@ import Heading from "../Heading/Heading";
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
   component: SearchBar,
-  decorators: [withDesign],
   argTypes: {
     action: { control: false },
     ariaLabel: { control: false },

@@ -1,6 +1,5 @@
 import { HStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Menu, { ListItemsData } from "./Menu";
 import { sectionTypeArray } from "../../helpers/types";
@@ -8,7 +7,6 @@ import { sectionTypeArray } from "../../helpers/types";
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
   component: Menu,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     highlightColor: {

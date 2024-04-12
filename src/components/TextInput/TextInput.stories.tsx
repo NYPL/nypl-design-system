@@ -1,19 +1,17 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import TextInput, {
   autoCompleteValuesArray,
   textInputTypesArray,
 } from "./TextInput";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TextInput> = {
   title: "Components/Form Elements/TextInput",
   component: TextInput,
-  decorators: [withDesign],
   argTypes: {
     autoComplete: {
       control: { type: "select" },
@@ -105,7 +103,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
-    jest: "TextInput.test.tsx",
+    test: "TextInput.test.tsx",
   },
 };
 

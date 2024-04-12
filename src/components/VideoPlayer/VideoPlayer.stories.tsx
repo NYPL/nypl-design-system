@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -8,11 +6,11 @@ import VideoPlayer, {
   VideoPlayerAspectRatiosArray,
   VideoPlayerTypesArray,
 } from "./VideoPlayer";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof VideoPlayer> = {
   title: "Components/Media & Icons/VideoPlayer",
   component: VideoPlayer,
-  decorators: [withDesign],
   argTypes: {
     aspectRatio: {
       controls: { type: "radio" },
@@ -65,7 +63,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=36835-25314&t=AEGDRpspvTyuSWSA-4",
     },
-    jest: "VideoPlayer.test.tsx",
+    test: "VideoPlayer.test.tsx",
   },
   render: (args) => (
     <VideoPlayer
