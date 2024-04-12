@@ -103,7 +103,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
-    test: "TextInput.test.tsx",
+    jest: "TextInput.test.tsx",
   },
 };
 

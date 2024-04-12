@@ -136,7 +136,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=80849%3A174194&mode=dev",
     },
-    test: "NewsletterSignup.test.tsx",
+    jest: "NewsletterSignup.test.tsx",
   },
   render: (args) => <NewsletterSignup {...args} />,
 };

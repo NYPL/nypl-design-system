@@ -118,7 +118,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "",
     },
-    test: "FeedbackBox.test.tsx",
+    jest: "FeedbackBox.test.tsx",
   },
   render: (args) => <FeedbackBoxWithControls {...args} />,
 };

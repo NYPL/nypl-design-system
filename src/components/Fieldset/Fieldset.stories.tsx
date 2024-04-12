@@ -43,6 +43,6 @@ export const WithControls: Story = {
     showRequiredLabel: false,
   },
   parameters: {
-    test: "Fieldset.test.tsx",
+    jest: "Fieldset.test.tsx",
   },
 };

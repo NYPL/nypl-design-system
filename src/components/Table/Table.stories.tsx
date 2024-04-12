@@ -64,7 +64,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=46780%3A27675",
     },
-    test: "Table.test.tsx",
+    jest: "Table.test.tsx",
   },
 };
 

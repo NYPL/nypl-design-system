@@ -45,7 +45,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
     },
-    test: "StatusBadge.test.tsx",
+    jest: "StatusBadge.test.tsx",
   },
   render: ({ ...args }) => {
     return <StatusBadge {...args}>Registration required</StatusBadge>;

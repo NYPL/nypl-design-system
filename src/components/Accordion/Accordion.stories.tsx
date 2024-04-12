@@ -167,7 +167,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
-    test: "Accordion.test.tsx",
+    jest: "Accordion.test.tsx",
   },
 };
 

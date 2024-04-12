@@ -24,6 +24,6 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36818-25303&t=R7gWIzMTzUAGN7Sw-4",
     },
-    test: "HorizontalRule.test.tsx",
+    jest: "HorizontalRule.test.tsx",
   },
 };

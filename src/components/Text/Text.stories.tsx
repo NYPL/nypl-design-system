@@ -50,7 +50,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=10975-52&t=AEGDRpspvTyuSWSA-4",
     },
-    test: "Text.test.tsx",
+    jest: "Text.test.tsx",
   },
   render: (args) => (
     <>

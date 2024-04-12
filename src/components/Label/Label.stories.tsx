@@ -33,7 +33,7 @@ export const WithControls: Story = {
   },
   render: (args: any) => <Label {...args}>{args.text}</Label>,
   parameters: {
-    test: "Label.test.tsx",
+    jest: "Label.test.tsx",
   },
 };
 

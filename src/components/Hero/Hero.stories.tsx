@@ -180,7 +180,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36817%3A23704",
     },
-    test: "Hero.test.tsx",
+    jest: "Hero.test.tsx",
   },
 };
 

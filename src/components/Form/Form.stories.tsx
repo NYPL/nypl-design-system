@@ -53,7 +53,7 @@ export const WithControls: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=10734-2768",
     },
-    test: "Form.test.tsx",
+    jest: "Form.test.tsx",
   },
   render: (args) => (
     <Form {...args} id="form-id">
