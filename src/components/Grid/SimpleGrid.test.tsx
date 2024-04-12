@@ -14,7 +14,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/500/200",
+            src: "//loremflickr.com/500/200/new+york+public+library",
           }}
         >
           <CardHeading level="h2">Card Heading</CardHeading>
@@ -27,7 +27,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/400/220",
+            src: "//loremflickr.com/400/220/new+york+public+library",
           }}
         >
           <CardHeading level="h3">Card Heading</CardHeading>
@@ -40,7 +40,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/400/240",
+            src: "//loremflickr.com/400/240/new+york+public+library",
           }}
         >
           <CardHeading level="h3">Card Heading</CardHeading>

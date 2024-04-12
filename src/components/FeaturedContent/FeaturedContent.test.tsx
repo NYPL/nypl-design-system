@@ -21,7 +21,7 @@ export const textContent = (
 );
 const defaultImageProps = {
   alt: "Image example",
-  src: "//placekitten.com/800/400",
+  src: "//loremflickr.com/800/400/new+york+public+library",
 };
 
 describe("FeaturedContent accessibility tests", () => {
@@ -62,7 +62,7 @@ describe("FeaturedContent", () => {
     ).toBeInTheDocument();
     expect(screen.getByTestId("featuredcontent-bg-image")).toBeInTheDocument();
     expect(screen.getByTestId("featuredcontent-bg-image")).toHaveStyle(
-      "background-image: url(//placekitten.com/800/400);"
+      "background-image: url(//loremflickr.com/800/400/new+york+public+library);"
     );
   });
 
@@ -102,7 +102,7 @@ describe("FeaturedContent", () => {
         isFullWidth={true}
         imageProps={{
           alt: "",
-          src: "//placekitten.com/800/400",
+          src: "//loremflickr.com/800/400/new+york+public+library",
         }}
         textContent={textContent}
       />
@@ -139,7 +139,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//placekitten.com/800/400",
+          src: "//loremflickr.com/800/400/new+york+public+library",
           width: "oneQuarter",
         }}
         textContent={textContent}
@@ -152,7 +152,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//placekitten.com/800/400",
+          src: "//loremflickr.com/800/400/new+york+public+library",
           width: "oneThird",
         }}
         textContent={textContent}
@@ -166,7 +166,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//placekitten.com/800/400",
+          src: "//loremflickr.com/800/400/new+york+public+library",
           width: "twoThirds",
         }}
         textContent={textContent}
@@ -179,7 +179,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//placekitten.com/800/400",
+          src: "//loremflickr.com/800/400/new+york+public+library",
           width: "threeQuarters",
         }}
         textContent={textContent}

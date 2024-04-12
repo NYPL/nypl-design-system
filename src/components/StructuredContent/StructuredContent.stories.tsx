@@ -75,7 +75,7 @@ export const Controls: Story = {
     "imageProps.credit": "Image credit",
     "imageProps.position": "left",
     "imageProps.size": "medium",
-    "imageProps.src": "//placekitten.com/400/300",
+    "imageProps.src": "//loremflickr.com/400/300/new+york+public+library",
   },
   render: (args) => (
     <StructuredContent
@@ -119,7 +119,7 @@ export const WithHTMLStringTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: "//loremflickr.com/400/300/new+york+public+library",
       }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -165,7 +165,7 @@ export const WithHTMLElementTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: "//loremflickr.com/400/300/new+york+public+library",
       }}
       bodyContent={
         <>
@@ -345,7 +345,7 @@ export const WithCustomHeadingsLevels: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: "//loremflickr.com/400/300/new+york+public+library",
       }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -368,7 +368,7 @@ export const ExampleWithTwoComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -432,7 +432,7 @@ export const ExampleWithThreeComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -501,7 +501,7 @@ export const ExampleWithMixedContent: Story = {
           aspectRatio: "original",
           position: "center",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +

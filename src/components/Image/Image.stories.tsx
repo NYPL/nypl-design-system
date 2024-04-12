@@ -87,7 +87,7 @@ const imageRow = (opts: any = {}) => {
         caption={displayValue}
         size={size}
         sizeBasedOn={sizeBasedOn}
-        src="//placekitten.com/400/300"
+        src="//loremflickr.com/400/300/new+york+public+library"
       />
     </Box>
   );
@@ -145,7 +145,7 @@ export const WithControls: Story = {
     imageType: "default",
     size: "medium",
     sizeBasedOn: "width",
-    src: "//placekitten.com/400/300",
+    src: "//loremflickr.com/400/300/new+york+public+library",
   },
   render: (args) => <Image {...args} />,
   parameters: {
@@ -166,7 +166,7 @@ export const FigureAndFigcaption: Story = {
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: "//placekitten.com/400/300",
+    src: "//loremflickr.com/400/300/new+york+public+library",
   },
   argTypes: {
     aspectRatio: { table: { disable: true } },
@@ -206,7 +206,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="fourByThree"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -214,7 +214,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="oneByTwo"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -222,7 +222,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="original"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -235,7 +235,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="sixteenByNine"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -243,7 +243,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="square"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -256,7 +256,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByFour"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -264,7 +264,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="threeByTwo"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -272,7 +272,7 @@ export const AspectRatios: Story = {
         <Image
           alt="Alt text"
           aspectRatio="twoByOne"
-          src="//placekitten.com/400/300"
+          src="//loremflickr.com/400/300/new+york+public+library"
         />
       </Box>
     </VStack>
@@ -287,7 +287,7 @@ export const Types: Story = {
           alt="Alt text"
           aspectRatio="square"
           imageType="default"
-          src="//placekitten.com/400/400"
+          src="//loremflickr.com/400/400/new+york+public+library"
         />
       </Box>
       <Box style={imageBlockStyles}>
@@ -296,7 +296,7 @@ export const Types: Story = {
           alt="Alt text"
           aspectRatio="square"
           imageType="circle"
-          src="//placekitten.com/400/400"
+          src="//loremflickr.com/400/400/new+york+public+library"
         />
       </Box>
     </VStack>
@@ -314,7 +314,7 @@ export const HTMLAttributes: Story = {
         />
         <Image
           alt="Alt text"
-          src="//placekitten.com/400/400"
+          src="//loremflickr.com/400/400/new+york+public+library"
           onLoad={({ target }: any) => {
             console.log("Image 1 loaded and `onLoad` called.");
             console.log(
@@ -334,7 +334,7 @@ export const HTMLAttributes: Story = {
         />
         <Image
           alt="Broken image with bad url"
-          src="//placekitten.com/400/400"
+          src="//loremflickr.com/400/400/new+york+public+library"
           onError={() =>
             console.warn("Image 2 error! Called through `onError`.")
           }
@@ -347,16 +347,56 @@ export const HTMLAttributes: Story = {
 export const LazyLoading: Story = {
   render: () => (
     <SimpleGrid columns={1}>
-      <Image alt="Alt text" isLazy src="//placekitten.com/540/420" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/500/400" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/460/460" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/420/490" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/200/120" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/640/340" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/460/480" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/100/200" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/400/400" />
-      <Image alt="Alt text" isLazy src="//placekitten.com/250/360" />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/540/420/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/500/400/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/460/460/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/420/490/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/200/120/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/640/340/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/460/480/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/100/200/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/400/400/new+york+public+library"
+      />
+      <Image
+        alt="Alt text"
+        isLazy
+        src="//loremflickr.com/250/360/new+york+public+library"
+      />
     </SimpleGrid>
   ),
 };

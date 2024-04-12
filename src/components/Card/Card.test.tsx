@@ -16,7 +16,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          src: "//loremflickr.com/400/200/new+york+public+library",
         }}
       >
         <CardHeading level="h3" id="heading1">
@@ -39,7 +39,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          src: "//loremflickr.com/400/200/new+york+public+library",
         }}
         mainActionLink="http://nypl.org"
       >
@@ -64,7 +64,7 @@ describe("Card", () => {
       id="regularCard"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: "//loremflickr.com/400/200/new+york+public+library",
       }}
       ref={ref}
     >
@@ -85,7 +85,7 @@ describe("Card", () => {
       id="cardWithExtendedStyles"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: "//loremflickr.com/300/400/new+york+public+library",
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -121,7 +121,7 @@ describe("Card", () => {
       id="cardWithNoCTAs"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: "//loremflickr.com/300/400/new+york+public+library",
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -140,7 +140,7 @@ describe("Card", () => {
       id="cardWithNoContent"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: "//loremflickr.com/300/400/new+york+public+library",
       }}
     >
       <CardHeading id="editioncardheading1" level="h2" url="#edition-link">
@@ -189,7 +189,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: "//loremflickr.com/400/200/new+york+public+library",
       }}
       mainActionLink="http://nypl.org"
     >
@@ -209,7 +209,12 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         aspectRatio: "threeByTwo",
-        component: <Image alt="" src="//placekitten.com/400/200" />,
+        component: (
+          <Image
+            alt=""
+            src="//loremflickr.com/400/200/new+york+public+library"
+          />
+        ),
       }}
     >
       <CardHeading level="h3" id="heading1">
@@ -223,7 +228,7 @@ describe("Card", () => {
       id="cardID"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: "//loremflickr.com/400/200/new+york+public+library",
       }}
       isAlignedRightActions
     >
@@ -248,7 +253,7 @@ describe("Card", () => {
       id="chakraProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: "//loremflickr.com/400/200/new+york+public+library",
       }}
       p="s"
       color="ui.error.primary"
@@ -269,7 +274,7 @@ describe("Card", () => {
       id="otherProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: "//loremflickr.com/400/200/new+york+public+library",
       }}
       data-testid="card-testid"
     >

@@ -92,7 +92,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -112,7 +112,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -145,7 +145,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -171,7 +171,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -193,7 +193,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -236,7 +236,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -261,7 +261,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -283,7 +283,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -304,7 +304,7 @@ describe("StructuredContent", () => {
           aspectRatio: "original",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       />
     );
@@ -330,7 +330,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
         />
       )
@@ -349,7 +349,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
         />
       )
@@ -376,7 +376,7 @@ describe("StructuredContent", () => {
             aspectRatio: "original",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
         />
       )
@@ -394,7 +394,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
         />
       )
@@ -421,7 +421,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
           bodyContent={htmlStringBodyContent}
           p="20px"
@@ -442,7 +442,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//placekitten.com/400/300",
+            src: "//loremflickr.com/400/300/new+york+public+library",
           }}
           bodyContent={htmlStringBodyContent}
           data-testid="props"
@@ -474,7 +474,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
         ref={ref}
       />

@@ -56,7 +56,7 @@ export const WithControls: Story = {
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
-    "imageProps.src": "//placekitten.com/600/600",
+    "imageProps.src": "//loremflickr.com/600/600/new+york+public+library",
     "imageProps.width": "default",
     isFullWidth: undefined,
     textContent: undefined,
@@ -125,7 +125,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -148,7 +148,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
     </SimpleGrid>
@@ -176,7 +176,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "start",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -197,7 +197,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
     </SimpleGrid>
@@ -225,7 +225,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneQuarter",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -246,7 +246,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneThird",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -267,7 +267,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -288,7 +288,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "twoThirds",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -309,7 +309,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
     </SimpleGrid>
@@ -336,7 +336,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
       <FeaturedContent
@@ -355,7 +355,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "//loremflickr.com/600/600/new+york+public+library",
         }}
       />
     </SimpleGrid>

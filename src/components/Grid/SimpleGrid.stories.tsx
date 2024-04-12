@@ -52,7 +52,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/220",
+          src: "//loremflickr.com/400/220/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -67,7 +67,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/220",
+          src: "//loremflickr.com/400/220/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -82,7 +82,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/240",
+          src: "//loremflickr.com/400/240/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -97,7 +97,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/260",
+          src: "//loremflickr.com/400/260/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -112,7 +112,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/320",
+          src: "//loremflickr.com/400/320/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -127,7 +127,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/300",
+          src: "//loremflickr.com/400/300/new+york+public+library",
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -158,24 +158,24 @@ export const IconExample: Story = {
 export const ImageExample: Story = {
   render: () => (
     <SimpleGrid columns={6}>
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
     </SimpleGrid>
   ),
 };
@@ -187,7 +187,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/400/200",
+          src: "//loremflickr.com/400/200/new+york+public+library",
         }}
         isBordered
         isCentered
@@ -206,7 +206,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/410/210",
+          src: "//loremflickr.com/410/210/new+york+public+library",
         }}
         isBordered
         isCentered
@@ -225,7 +225,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/320/320",
+          src: "//loremflickr.com/320/320/new+york+public+library",
         }}
         isBordered
         isCentered
