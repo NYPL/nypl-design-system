@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the background colors for the `"noBrand"` variant of the `Button` component.
+
 ## 3.1.0 (April 11, 2024)
 
 ### Adds
