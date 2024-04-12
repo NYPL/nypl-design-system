@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
+    affects: ["Documentation", "Styles"],
     notes: [
       "Updated the styles for the UI colors, text treatment and `Clear all` button.",
+      'Updated the component category to "Content Display."',
     ],
   },
   {
