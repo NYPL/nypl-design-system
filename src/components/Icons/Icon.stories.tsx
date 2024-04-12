@@ -1,8 +1,8 @@
+import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
-import Heading from "../Heading/Heading";
 import Icon from "./Icon";
 import {
   iconAlignArray,
@@ -11,6 +11,8 @@ import {
   iconRotationsArray,
   iconSizesArray,
 } from "./iconVariables";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Text from "../Text/Text";
 
 const meta: Meta<typeof Icon> = {
   title: "Components/Media & Icons/Icon",
@@ -118,9 +120,6 @@ const iconRow = (iconName, opts: any = {}) => {
       key={key}
       style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
     >
-      <Heading level="h4" size="heading6">
-        {displayValue}
-      </Heading>
       <span style={styles}>
         <Icon
           name={iconName}
@@ -129,7 +128,54 @@ const iconRow = (iconName, opts: any = {}) => {
           color={color}
         />
       </span>
+      <Text size="caption">{displayValue}</Text>
     </li>
+  );
+};
+const iconBlock = (iconName, opts: any = {}) => {
+  // We'll use this setup function to render all the icons in a list item.
+  // Some icons display better with a dark background.
+  const styles: any = { display: "block" };
+  const {
+    size = "large",
+    iconRotation = "rotate0",
+    color = "ui.black",
+    displayValue = iconName,
+  } = opts;
+  let key = iconName;
+  if (iconName.indexOf("Negative") !== -1 || color.indexOf("White") !== -1) {
+    styles.backgroundColor = "#000";
+    styles.padding = "1rem";
+  }
+  // The following is just to fix duplicate React key issues.
+  if (iconRotation !== "rotate0") {
+    key += `-${iconRotation}`;
+  }
+  if (color !== "ui.black") {
+    key += `-${color}`;
+  }
+  if (size !== "large") {
+    key += `-${size}`;
+  }
+
+  return (
+    <Box
+      alignItems="center"
+      display="flex"
+      flexBasis="33%"
+      flexDirection="column"
+      key={key}
+    >
+      <span style={styles}>
+        <Icon
+          name={iconName}
+          size={size}
+          iconRotation={iconRotation}
+          color={color}
+        />
+      </span>
+      <Text size="caption">{displayValue}</Text>
+    </Box>
   );
 };
 const icons = [];
@@ -150,15 +196,15 @@ const iconSizesValues = [
 ];
 for (const icon in iconNamesValues) {
   icons.push(
-    iconRow(iconNamesValues[icon], {
+    iconBlock(iconNamesValues[icon], {
       displayValue: iconNamesValues[icon],
-      size: "xxlarge",
+      size: "xlarge",
     })
   );
 }
 for (const iconRotation in iconRotationsValues) {
   rotations.push(
-    iconRow("arrow", {
+    iconBlock("actionLightbulb", {
       displayValue: iconRotationsValues[iconRotation],
       iconRotation: iconRotationsValues[iconRotation],
       size: "xxlarge",
@@ -167,7 +213,7 @@ for (const iconRotation in iconRotationsValues) {
 }
 for (const iconColor in iconColorsValues) {
   colors.push(
-    iconRow("errorFilled", {
+    iconBlock("errorFilled", {
       color: iconColorsValues[iconColor],
       displayValue: iconColorsValues[iconColor],
       size: "xxlarge",
@@ -184,19 +230,20 @@ for (const iconSize in iconSizesValues) {
 }
 
 const allIconsType = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
+const allIconsTypeGrid = (list, columns = 6) => <SimpleGrid columns={columns}>{list}</SimpleGrid>;
 
 // The following are additional Icon example Stories.
 export const Rotations: Story = {
-  render: () => allIconsType(rotations),
+  render: () => allIconsTypeGrid(rotations, 4),
 };
 export const Colors: Story = {
-  render: () => allIconsType(colors),
+  render: () => allIconsTypeGrid(colors),
 };
 export const Sizes: Story = {
   render: () => allIconsType(sizes),
 };
 export const AllIcons: Story = {
-  render: () => allIconsType(icons),
+  render: () => allIconsTypeGrid(icons),
 };
 export const CustomIcons: Story = {
   args: {
