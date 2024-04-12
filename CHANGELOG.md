@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the styles for the UI colors, text treatment and `Clear all` button in the `TagSet` component.
+
 ## 3.1.0 (April 11, 2024)
 
 ### Adds
