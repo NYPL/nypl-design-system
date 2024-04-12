@@ -304,7 +304,7 @@ describe("TagSet Filter", () => {
     });
   });
 
-  it("renders the 'Clear Filters' button when there are more than two tags", () => {
+  it("renders the 'Clear filters' button when there are more than two tags", () => {
     const onClick = jest.fn();
     const tagSetData = [{ id: "red", label: "Red" }];
     const { rerender } = render(
@@ -315,7 +315,7 @@ describe("TagSet Filter", () => {
         type="filter"
       />
     );
-    expect(screen.queryByText("Clear Filters")).not.toBeInTheDocument();
+    expect(screen.queryByText("Clear filters")).not.toBeInTheDocument();
 
     tagSetData.push({ id: "orange", label: "Orange" });
     rerender(
@@ -326,10 +326,10 @@ describe("TagSet Filter", () => {
         type="filter"
       />
     );
-    expect(screen.getByText("Clear Filters")).toBeInTheDocument();
+    expect(screen.getByText("Clear filters")).toBeInTheDocument();
   });
 
-  it("returns 'clearFilters' when the 'Clear Filters' button is clicked", () => {
+  it("returns 'clearFilters' when the 'Clear filters' button is clicked", () => {
     let currentTag = {};
     const onClick = (tagSet) => {
       currentTag = tagSet;
@@ -343,9 +343,9 @@ describe("TagSet Filter", () => {
       />
     );
 
-    screen.getByText("Clear Filters").click();
+    screen.getByText("Clear filters").click();
 
-    expect(currentTag).toEqual({ label: "Clear Filters", id: "clear-filters" });
+    expect(currentTag).toEqual({ label: "Clear filters", id: "clear-filters" });
   });
 
   it("logs a warning when the labels are JSX elements", () => {
