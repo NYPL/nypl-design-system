@@ -52,7 +52,7 @@ const config: StorybookConfig = {
     // Type-check stories during Storybook build.
     check: true,
     // Display the compiled value options.
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       // Do we want to display Chakra props in Storybook? Nope.
       // They are useful but it clutters the Storybook file and the Chakra
