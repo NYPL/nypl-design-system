@@ -89,9 +89,10 @@ export const WithControls: Story = {
   },
 };
 
-const iconRow = (iconName, opts: any = {}) => {
-  // We'll use this setup function to render all the icons in a list item.
-  // Some icons display better with a dark background.
+const iconElement = (iconName, opts: any = {}, type: string = "grid") => {
+  // Use this setup function to render each icon packaged as a list item or
+  // wrapped in a basic div based on its intended usage. Note: some icons
+  // display better with a dark background.
   const styles: any = { display: "block" };
   const {
     size = "large",
@@ -115,7 +116,7 @@ const iconRow = (iconName, opts: any = {}) => {
     key += `-${size}`;
   }
 
-  return (
+  return type === "list" ? (
     <li
       key={key}
       style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
@@ -130,35 +131,7 @@ const iconRow = (iconName, opts: any = {}) => {
       </span>
       <Text size="caption">{displayValue}</Text>
     </li>
-  );
-};
-const iconBlock = (iconName, opts: any = {}) => {
-  // We'll use this setup function to render all the icons in a list item.
-  // Some icons display better with a dark background.
-  const styles: any = { display: "block" };
-  const {
-    size = "large",
-    iconRotation = "rotate0",
-    color = "ui.black",
-    displayValue = iconName,
-  } = opts;
-  let key = iconName;
-  if (iconName.indexOf("Negative") !== -1 || color.indexOf("White") !== -1) {
-    styles.backgroundColor = "#000";
-    styles.padding = "1rem";
-  }
-  // The following is just to fix duplicate React key issues.
-  if (iconRotation !== "rotate0") {
-    key += `-${iconRotation}`;
-  }
-  if (color !== "ui.black") {
-    key += `-${color}`;
-  }
-  if (size !== "large") {
-    key += `-${size}`;
-  }
-
-  return (
+  ) : (
     <Box
       alignItems="center"
       display="flex"
@@ -178,6 +151,7 @@ const iconBlock = (iconName, opts: any = {}) => {
     </Box>
   );
 };
+
 const icons = [];
 const rotations = [];
 const colors = [];
@@ -196,7 +170,7 @@ const iconSizesValues = [
 ];
 for (const icon in iconNamesValues) {
   icons.push(
-    iconBlock(iconNamesValues[icon], {
+    iconElement(iconNamesValues[icon], {
       displayValue: iconNamesValues[icon],
       size: "xlarge",
     })
@@ -204,7 +178,7 @@ for (const icon in iconNamesValues) {
 }
 for (const iconRotation in iconRotationsValues) {
   rotations.push(
-    iconBlock("actionLightbulb", {
+    iconElement("actionLightbulb", {
       displayValue: iconRotationsValues[iconRotation],
       iconRotation: iconRotationsValues[iconRotation],
       size: "xxlarge",
@@ -213,7 +187,7 @@ for (const iconRotation in iconRotationsValues) {
 }
 for (const iconColor in iconColorsValues) {
   colors.push(
-    iconBlock("errorFilled", {
+    iconElement("errorFilled", {
       color: iconColorsValues[iconColor],
       displayValue: iconColorsValues[iconColor],
       size: "xxlarge",
@@ -222,10 +196,14 @@ for (const iconColor in iconColorsValues) {
 }
 for (const iconSize in iconSizesValues) {
   sizes.push(
-    iconRow("actionCheckCircle", {
-      displayValue: iconSizesValues[iconSize].display,
-      size: iconSizesValues[iconSize].size,
-    })
+    iconElement(
+      "actionCheckCircle",
+      {
+        displayValue: iconSizesValues[iconSize].display,
+        size: iconSizesValues[iconSize].size,
+      },
+      "list"
+    )
   );
 }
 
@@ -239,7 +217,7 @@ export const Rotations: Story = {
   render: () => allIconsTypeGrid(rotations, 4),
 };
 export const Colors: Story = {
-  render: () => allIconsTypeGrid(colors),
+  render: () => allIconsTypeGrid(colors, 4),
 };
 export const Sizes: Story = {
   render: () => allIconsType(sizes),
