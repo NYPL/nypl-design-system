@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Styles"],
     notes: [
-      "Updated the styles for the UI colors, text treatment and `Clear all` button.",
+      "Updated the styles for the UI colors, text treatment, and `Clear all` button.",
       'Updated the component category to "Content Display."',
     ],
   },

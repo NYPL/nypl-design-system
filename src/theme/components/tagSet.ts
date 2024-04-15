@@ -3,6 +3,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
 
 import { activeFocus } from "./global";
+import { linkUnderlineStyles } from "./link";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -83,10 +84,8 @@ const TagSetExplore = defineStyleConfig({
     maxWidth: "200px",
     py: "xxxs",
     px: "s",
-    textDecoration: "underline",
-    textDecorationStyle: "dotted",
-    textDecorationThickness: "1px",
     textUnderlineOffset: "2px",
+    ...linkUnderlineStyles,
     ...transitionStyles,
     _focusWithin: activeFocus(),
     a: {
