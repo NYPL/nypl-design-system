@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds docs for `"Visited State Patterns"` to the `Link` component story page.
+
 ### Updates
 
 - Updates the placeholder value for the search field within the `MultiSelect` component.
