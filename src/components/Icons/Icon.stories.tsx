@@ -230,7 +230,9 @@ for (const iconSize in iconSizesValues) {
 }
 
 const allIconsType = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
-const allIconsTypeGrid = (list, columns = 6) => <SimpleGrid columns={columns}>{list}</SimpleGrid>;
+const allIconsTypeGrid = (list, columns = 6) => (
+  <SimpleGrid columns={columns}>{list}</SimpleGrid>
+);
 
 // The following are additional Icon example Stories.
 export const Rotations: Story = {
