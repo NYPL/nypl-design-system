@@ -489,6 +489,8 @@ export const cssVars = {
       dataWhiteColor: checkContrast(4.51),
       dataBgPageColor: checkContrast(4.51),
       dataBgDefaultColor: checkContrast(4.13),
+      notes:
+        'This is the only "warning" light mode color variant that meets WCAG 2.1 contrast standards. Because of that, this is the only "warning" light mode color variant that can be used for text',
       textColor: "ui.black",
     },
   ],
@@ -850,6 +852,7 @@ export const makeColorCard = function (data) {
     dataHeadingColor,
     dataBodyColor,
     name,
+    notes,
     textColor,
   } = data;
   const card = (
@@ -867,6 +870,7 @@ export const makeColorCard = function (data) {
       dataDarkBodyColor={dataBodyColor}
       dataBrandPrimaryColor={dataBrandPrimaryColor}
       dataBrandSecondaryColor={dataBrandSecondaryColor}
+      notes={notes}
       textColor={textColor}
       key={name}
     />
@@ -961,6 +965,8 @@ export interface ColorCardProps extends DataTableProps {
   colorName: string;
   /** The name of the color that the current color is based on. */
   colorSource: string;
+  /** Details on how a color should be used. */
+  notes?: string;
 }
 
 export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
@@ -1280,6 +1286,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
     dataWhiteColor = ["--", "--", "--"],
     dataBrandPrimaryColor,
     dataBrandSecondaryColor,
+    notes,
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -1317,7 +1324,8 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
             m="0"
             color={textColor}
           >
-            {"CSS: var(" + cssVarName + ")"}
+            <span style={{ fontWeight: "bold" }}>CSS:</span>{" "}
+            {`var(${cssVarName})`}
           </Text>
           {colorSource && (
             <Text
@@ -1328,7 +1336,19 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               noSpace
               size="tag"
             >
-              Source: {colorSource}
+              <span style={{ fontWeight: "bold" }}>Source:</span> {colorSource}
+            </Text>
+          )}
+          {notes && (
+            <Text
+              color={textColor}
+              fontWeight="medium"
+              lineHeight="20px"
+              // m="0"
+              noSpace
+              size="tag"
+            >
+              <span style={{ fontWeight: "bold" }}>Notes:</span> {notes}
             </Text>
           )}
         </Box>
