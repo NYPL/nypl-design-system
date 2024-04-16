@@ -7,6 +7,7 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Radio> = {
   title: "Components/Form Elements/Radio",
+  component: Radio,
   argTypes: {
     className: { control: false },
     id: { control: false },
