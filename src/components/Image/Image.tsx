@@ -49,8 +49,11 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   component?: JSX.Element;
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
+  /** Fallback image path. */
+  fallbackSrc?: string;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** Optional value to control the size of the internal `Image` component.
    * Defaults to `ImageSizes.Default`. */
   size?: ImageSizes;
@@ -91,10 +94,13 @@ export interface ImageProps
   component?: JSX.Element | null;
   /** Adding will wrap the image in a <figure> */
   credit?: string;
+  /** Fallback image path. */
+  fallbackSrc?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src?: string;
 }
@@ -146,8 +152,10 @@ export const Image: ChakraComponent<
       className = "",
       component,
       credit,
+      fallbackSrc,
       imageType = "default",
       isLazy = false,
+      onError,
       size = "default",
       sizeBasedOn = "width",
       src,
@@ -168,6 +176,13 @@ export const Image: ChakraComponent<
       size,
       sizeBasedOn,
     });
+    const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+      console.warn(
+        "NYPL Reservoir: `Image` failed to load initial image, using fallback image."
+      );
+      (event.target as any).src = fallbackSrc || "";
+      onError && onError(event);
+    }
     let imageComponent: JSX.Element | null = null;
     let lazyRef = undefined;
     let finalRefs = undefined;
@@ -202,6 +217,7 @@ export const Image: ChakraComponent<
         as="img"
         alt={alt}
         loading={isLazy ? "lazy" : undefined}
+        onError={onImageError}
         {...srcProp}
         __css={{ ...styles.img, ...additionalImageStyles }}
         {...rest}

@@ -23,6 +23,7 @@ import Link from "../Link/Link";
 - {<Link href="#aspect-ratios" target="_self">Aspect Ratios</Link>}
 - {<Link href="#types" target="_self">Types</Link>}
 - {<Link href="#html-attributes" target="_self">HTML Attributes</Link>}
+- {<Link href="#fallback-image" target="_self">Fallback Image</Link>}
 - {<Link href="#lazy-loading" target="_self">Lazy Loading</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -108,6 +109,14 @@ example, there is an (intentional) error with the image's URL. This will trigger
 the `onError` function callback.
 
 <Canvas of={ImageStories.HTMLAttributes} />
+
+## Fallback Image
+
+Use the `fallbackSrc` prop. Internally, the `Image` component will call the
+`img` element's `onerror` attribute with a callback function to load the
+`fallbackSrc` image.
+
+<Canvas of={ImageStories.FallbackImage} />
 
 ## Lazy Loading
 

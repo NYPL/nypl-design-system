@@ -344,6 +344,24 @@ export const HTMLAttributes: Story = {
   ),
 };
 
+export const FallbackImage: Story = {
+  render: () => (
+    <VStack spacing="l">
+      <Heading
+        id="fallback-heading"
+        level="h4"
+        size="heading6"
+        text="Fallback image"
+      />
+      <Image
+        alt="Alt text"
+        src="foobar.jpg"
+        fallbackSrc="https://loremflickr.com/2000/800/new+york+public+library"
+      />
+    </VStack>
+  ),
+};
+
 export const LazyLoading: Story = {
   render: () => (
     <SimpleGrid columns={1}>
