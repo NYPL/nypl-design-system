@@ -182,7 +182,7 @@ export const Image: ChakraComponent<
       );
       (event.target as any).src = fallbackSrc || "";
       onError && onError(event);
-    }
+    };
     let imageComponent: JSX.Element | null = null;
     let lazyRef = undefined;
     let finalRefs = undefined;

@@ -30,7 +30,10 @@ export const heroSecondaryTypes = [
   "secondaryWhatsOn",
 ];
 export interface HeroImageProps
-  extends Pick<ComponentImageProps, "alt" | "fallbackSrc" | "src" | "onError"> {}
+  extends Pick<
+    ComponentImageProps,
+    "alt" | "fallbackSrc" | "src" | "onError"
+  > {}
 export interface HeroProps {
   /**
    * Optional background color for the backdrop only in the `campaign` variant.
@@ -108,7 +111,7 @@ export const Hero: ChakraComponent<
       if (imageProps.src && !imageProps.alt) {
         console.warn(
           `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt"` +
-          ` props was not. This will make the rendered image inaccessible.`
+            ` props was not. This will make the rendered image inaccessible.`
         );
       }
 
@@ -273,13 +276,14 @@ export const Hero: ChakraComponent<
         );
       }
 
-      const imageToRender =
+      const imageToRender = (
         <Image
           alt={imageProps.alt}
           fallbackSrc={imageProps.fallbackSrc}
           onError={imageProps.onError}
           src={imageProps.src}
-        />;
+        />
+      );
 
       const childrenToRender =
         heroType === "campaign" ? (

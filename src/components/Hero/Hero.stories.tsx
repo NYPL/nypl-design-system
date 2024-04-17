@@ -1,7 +1,7 @@
 import { Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import {useState} from "react";
+import { useState } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -374,7 +374,8 @@ export const CampaignBackgroundColors: Story = {
 
 const FallBackExample = () => {
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
-  const fallbackImageSrc = "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
+  const fallbackImageSrc =
+    "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
   // For some reason IIIF image as fallback does not work...
   // Perhaps store the image locally in the app.
   // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
@@ -402,7 +403,7 @@ const FallBackExample = () => {
           fallbackSrc: fallbackImageSrc,
           onError: (_event) => {
             setImageSrc(fallbackImageSrc);
-          }
+          },
         }}
         subHeaderText={otherSubHeaderText}
       />
@@ -411,8 +412,8 @@ const FallBackExample = () => {
 };
 
 export const FallbackCampaignImage: Story = {
-  render: () => <FallBackExample />
-};  
+  render: () => <FallBackExample />,
+};
 
 export const Secondary: Story = {
   name: "Secondary (deprecated)",
