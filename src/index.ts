@@ -29,6 +29,8 @@ export type { AccordionTypes } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
 export { default as AudioPlayer } from "./components/AudioPlayer/AudioPlayer";
 export type { AudioType } from "./components/AudioPlayer/AudioPlayer";
+export { default as Banner } from "./components/Banner/Banner";
+export type { BannerTypes } from "./components/Banner/Banner";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export type { BreadcrumbsTypes } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
@@ -105,12 +107,8 @@ export type {
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";
-/** The code associated with the MultiSelectGroup component will not be exported
- * until the refactor of the v2 version of the MultiSelectGroup component has
- * been completed.
- * */
-// export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
-// export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
+export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
+export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 /** The code associated with the NewsletterSignup component and the
  * NewsletterSignupViewType type will not be exported until the refactor of the
  * component has been completed.

@@ -321,7 +321,7 @@ export const MultiSelect: ChakraComponent<
               labelText={`Search ${buttonText}`}
               isClearable={true}
               isClearableCallback={clearSearchKeyword}
-              placeholder={`Search for options`}
+              placeholder="Search"
               onChange={onChangeSearch}
               showLabel={false}
               showRequiredLabel={false}
