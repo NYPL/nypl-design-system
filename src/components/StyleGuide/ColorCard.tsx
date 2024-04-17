@@ -1344,7 +1344,6 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               color={textColor}
               fontWeight="medium"
               lineHeight="20px"
-              // m="0"
               noSpace
               size="tag"
             >
