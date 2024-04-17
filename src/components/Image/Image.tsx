@@ -49,10 +49,11 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   component?: JSX.Element;
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
-  /** Fallback image path. */
+  /** Fallback image path or URL. */
   fallbackSrc?: string;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  /** Additional action to perform in the `img`'s `onerror` attribute function. */
   onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** Optional value to control the size of the internal `Image` component.
    * Defaults to `ImageSizes.Default`. */
@@ -94,12 +95,13 @@ export interface ImageProps
   component?: JSX.Element | null;
   /** Adding will wrap the image in a <figure> */
   credit?: string;
-  /** Fallback image path. */
+  /** Fallback image path or URL. */
   fallbackSrc?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  /** Additional action to perform in the `img`'s `onerror` attribute function. */
   onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src?: string;
@@ -176,6 +178,7 @@ export const Image: ChakraComponent<
       size,
       sizeBasedOn,
     });
+    // Function that gets called when an image fails to load.
     const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
       console.warn(
         "NYPL Reservoir: `Image` failed to load initial image, using fallback image."

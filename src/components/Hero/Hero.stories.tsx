@@ -377,7 +377,6 @@ const FallBackExample = () => {
   const fallbackImageSrc =
     "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
   // For some reason IIIF image as fallback does not work...
-  // Perhaps store the image locally in the app.
   // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
 
   return (
@@ -393,12 +392,12 @@ const FallBackExample = () => {
         heading={
           <Heading
             level="h1"
-            id="campaign-hero-default-heading"
+            id="campaign-fallback-image"
             text="Hero Campaign"
           />
         }
         imageProps={{
-          alt: "Custom NYPL",
+          alt: "Custom NYPL Image",
           src: imageSrc,
           fallbackSrc: fallbackImageSrc,
           onError: (_event) => {

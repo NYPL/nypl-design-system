@@ -1,17 +1,18 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./imageChangelogData";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as ImageStories from "./Image.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./imageChangelogData";
 
 <Meta of={ImageStories} />
 
 # Image
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.6`    |
-| Latest            | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.6`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -112,11 +113,37 @@ the `onError` function callback.
 
 ## Fallback Image
 
-Use the `fallbackSrc` prop. Internally, the `Image` component will call the
-`img` element's `onerror` attribute with a callback function to load the
-`fallbackSrc` image.
+Sometimes images don't load due to network issues or the image URL is incorrect.
+Set a fallback image source through the `fallbackSrc` prop. Internally, the
+`Image` component will call the `img` element's `onerror` attribute with a
+callback function to load the `fallbackSrc` image. Additionally, a warning will
+be logged to the console when the error occurs and the fallback image is loaded.
+
+If an _additional_ action needs to be performed when the fallback image is
+loaded, pass a callback function to the `onError` prop.
+
+**IMPORTANT**: If a custom image is passed through the `component` prop, then
+`fallbackSrc` and `onError` won't work. It is expected that the custom image
+that is passed implements the `onerror` attribute.
+
+<Source
+  code={`
+<Image
+  alt="Alt text"
+  fallbackSrc="https://loremflickr.com/540/420/cat"
+  onError={(event) => console.log("Fallback image loaded"); }
+  src="https://placekitten.com/540/420"
+/>
+  `}
+  language="jsx"
+/>
 
 <Canvas of={ImageStories.FallbackImage} />
+
+Resources:
+
+- [MDN Image loading errors](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#image_loading_errors)
+- [MDN HTMLElement: error event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/error_event)
 
 ## Lazy Loading
 

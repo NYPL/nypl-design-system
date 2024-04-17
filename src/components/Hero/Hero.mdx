@@ -12,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `3.0.0`    |
+| Latest            | `Prelease` |
 
 ## Table of Contents
 
@@ -20,6 +20,7 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#active-variants" target="_self">Active Variants</Link>}
+- {<Link href="#fallback-campaign-image" target="_self">Fallback Campaign Image</Link>}
 - {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -42,8 +43,8 @@ Under the `"secondary"` hero type, there are four additional subtypes:
 `"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`, and
 `"secondaryWhatsOn"`.
 
-For the variations that use image "alt" and "src" attributes, the `imageProps`
-prop should be used:
+For the variations that use image `alt`, `fallbackSrc`, `onError`, and `src`
+properties, the `imageProps` prop should be used:
 
 <Source
   code={`
@@ -53,6 +54,8 @@ prop should be used:
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
+    fallbackSrc: "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg",
+    onError: (_event) => console.log("Image failed to load") },
     src: "https://placekitten.com/800/400",
   }}
   subHeaderText="Campaign Hero Subheader Text"
@@ -200,17 +203,24 @@ subHeaderText={otherSubHeaderText}
 
 ## Fallback Campaign Image
 
+The `imageProps` prop can be used to set a fallback for the **main** image in
+the `"campaign"` variant. The internal `Image` component will use the `onerror`
+event to load the `fallbackSrc` image.
+
+The `Hero` component does not use the `Image` component, however, for the
+background image. The background image is rendered through the CSS
+`background-image` property. This means that more work is needed to set a
+fallback for the background image.
+
+The following example demonstrates how to set a fallback image for both the main
+image and the background image. Note: this example assumes that both the main
+and background images should be the same.
+
 <Source
   code={`
 const FallBackExample = () => {
-  // Or get image src from external service.
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
   const fallbackImageSrc = "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
-  // For some reason IIIF image as fallback does not work...
-  // Perhaps the better approach is to store the image locally in the app.
-  // This cannot be easily tested in Storybook.
-  // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
-
   return (
     <Hero
       backgroundImageSrc={imageSrc}
@@ -218,12 +228,12 @@ const FallBackExample = () => {
       heading={
         <Heading
           level="h1"
-          id="campaign-hero-default-heading"
+          id="campaign-fallback-image"
           text="Hero Campaign"
         />
       }
       imageProps={{
-        alt: "Custom NYPL",
+        alt: "Custom NYPL Image",
         src: imageSrc,
         fallbackSrc: fallbackImageSrc,
         onError: (_event) => {

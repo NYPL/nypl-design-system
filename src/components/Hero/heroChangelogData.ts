@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prelease",
+    version: "Prelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds docs for `"Visited State Patterns"` to the `Link` component story page.
+- Adds `fallbackSrc` and `onError` props to the `Image` component.
 
 ### Updates
 
