@@ -150,3 +150,25 @@ export const sanitizeStringForAttribute = (str: string) => {
   const sanitizedStr = str.replace(/[^a-z0-9]/gi, "-").toLowerCase();
   return sanitizedStr;
 };
+
+/** Provides a random image to use as a placeholder. */
+// export interface GetPlaceholderImageProps {
+//   size?: "small" | "medium" | "large";
+// }
+export const getPlaceholderImage = (size: string = "medium") => {
+  // const { size = "small" } = props;
+  const imageArray = [
+    "https://images.nypl.org/index.php?id=61705",
+    "https://images.nypl.org/index.php?id=61707",
+    "https://images.nypl.org/index.php?id=swope_243048",
+    "https://images.nypl.org/index.php?id=swope_243025",
+    "https://images.nypl.org/index.php?id=swope_244712",
+    "https://images.nypl.org/index.php?id=1252839",
+    "https://images.nypl.org/index.php?id=1252803",
+  ];
+  const t = size === "small" ? "r" : "w";
+  const finalIndex = Math.floor(Math.random() * imageArray.length);
+  const selectedImage = imageArray[finalIndex];
+  const finalImage = `${selectedImage}&t=${t}`;
+  return finalImage;
+};
