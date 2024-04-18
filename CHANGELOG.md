@@ -11,11 +11,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds docs for `"Visited State Patterns"` to the `Link` component story page.
+- Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
 
 ### Updates
 
 - Updates the placeholder value for the search field within the `MultiSelect` component.
 - Updates the background colors for the `"noBrand"` variant of the `Button` component.
+- Updates the following packages:
+  - Storybook main package and related libraries to `8.0.0`.
+  - `remark-gfm` to `4.0.0`.
+  - `vite` to `5.2.8`, `@vitejs/plugin-react` to `4.2.1`, and `vite-plugin-svgr` to `4.2.0`.
+- Updates how SVGs are imported into `LogoSvgs.tsx` and `IconSvgs.tsx`.
+- Updates Storybook internal link and heading styles and enables the hash heading URL linking.
+
+### Removals
+
+- Removes the following packages: `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
 
 ## 3.1.0 (April 11, 2024)
 
