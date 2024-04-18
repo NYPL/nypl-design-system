@@ -475,7 +475,8 @@ describe("Hero", () => {
 
     expect(onError).toHaveBeenCalled();
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir: `Image` failed to load initial image, using fallback image."
+      "NYPL Reservoir Image: The initial image failed to load in the " +
+        "browser. The fallback image source will now be used."
     );
   });
 

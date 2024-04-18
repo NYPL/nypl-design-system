@@ -54,7 +54,7 @@ properties, the `imageProps` prop should be used:
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
-    fallbackSrc: "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg",
+    fallbackSrc: "https://images.nypl.org/index.php?id=swope_244712&t=w",
     onError: (_event) => console.log("Image failed to load") },
     src: "https://placekitten.com/800/400",
   }}
@@ -218,9 +218,9 @@ and background images should be the same.
 
 <Source
   code={`
-const FallBackExample = () => {
+const CampaignFallBackExample = () => {
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
-  const fallbackImageSrc = "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
+  const fallbackImageSrc = "https://images.nypl.org/index.php?id=swope_244712&t=w";
   return (
     <Hero
       backgroundImageSrc={imageSrc}
@@ -248,7 +248,7 @@ const FallBackExample = () => {
   language="jsx"
 />
 
-<Canvas of={HeroStories.FallbackCampaignImage} />
+<Canvas of={HeroStories.CampaignFallbackImage} />
 
 ## Deprecated Variants
 

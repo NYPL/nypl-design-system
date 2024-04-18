@@ -372,10 +372,10 @@ export const CampaignBackgroundColors: Story = {
   ),
 };
 
-const FallBackExample = () => {
+const CampaignFallBackExample = () => {
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
   const fallbackImageSrc =
-    "https://loremflickr.com/cache/resized/65535_51121136167_40f20af042_z_300_300_nofilter.jpg";
+    "https://images.nypl.org/index.php?id=swope_244712&t=w";
   // For some reason IIIF image as fallback does not work...
   // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
 
@@ -384,7 +384,7 @@ const FallBackExample = () => {
       <Heading
         id="campaign-hero-default"
         size="heading6"
-        text="Campaign Hero with Custom Image component"
+        text="Campaign Hero with fallback image"
       />
       <Hero
         backgroundImageSrc={imageSrc}
@@ -397,7 +397,7 @@ const FallBackExample = () => {
           />
         }
         imageProps={{
-          alt: "Custom NYPL Image",
+          alt: "NYPL Image",
           src: imageSrc,
           fallbackSrc: fallbackImageSrc,
           onError: (_event) => {
@@ -410,8 +410,8 @@ const FallBackExample = () => {
   );
 };
 
-export const FallbackCampaignImage: Story = {
-  render: () => <FallBackExample />,
+export const CampaignFallbackImage: Story = {
+  render: () => <CampaignFallBackExample />,
 };
 
 export const Secondary: Story = {

@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds docs for `"Visited State Patterns"` to the `Link` component story page.
 - Adds `fallbackSrc` and `onError` props to the `Image` component.
+- Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
 
 ### Updates
 

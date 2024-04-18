@@ -181,7 +181,8 @@ export const Image: ChakraComponent<
     // Function that gets called when an image fails to load.
     const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
       console.warn(
-        "NYPL Reservoir: `Image` failed to load initial image, using fallback image."
+        "NYPL Reservoir Image: The initial image failed to load in the " +
+          "browser. The fallback image source will now be used."
       );
       (event.target as any).src = fallbackSrc || "";
       onError && onError(event);
