@@ -1,7 +1,7 @@
+import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
-import Heading from "../Heading/Heading";
 import Icon from "./Icon";
 import {
   iconAlignArray,
@@ -10,6 +10,8 @@ import {
   iconRotationsArray,
   iconSizesArray,
 } from "./iconVariables";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Text from "../Text/Text";
 
 const meta: Meta<typeof Icon> = {
   title: "Components/Media & Icons/Icon",
@@ -85,9 +87,10 @@ export const WithControls: Story = {
   },
 };
 
-const iconRow = (iconName, opts: any = {}) => {
-  // We'll use this setup function to render all the icons in a list item.
-  // Some icons display better with a dark background.
+const iconElement = (iconName, opts: any = {}, type: string = "grid") => {
+  // Use this setup function to render each icon packaged as a list item or
+  // wrapped in a basic div based on its intended usage. Note: some icons
+  // display better with a dark background.
   const styles: any = { display: "block" };
   const {
     size = "large",
@@ -111,14 +114,11 @@ const iconRow = (iconName, opts: any = {}) => {
     key += `-${size}`;
   }
 
-  return (
+  return type === "list" ? (
     <li
       key={key}
       style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
     >
-      <Heading level="h4" size="heading6">
-        {displayValue}
-      </Heading>
       <span style={styles}>
         <Icon
           name={iconName}
@@ -127,9 +127,29 @@ const iconRow = (iconName, opts: any = {}) => {
           color={color}
         />
       </span>
+      <Text size="caption">{displayValue}</Text>
     </li>
+  ) : (
+    <Box
+      alignItems="center"
+      display="flex"
+      flexBasis="33%"
+      flexDirection="column"
+      key={key}
+    >
+      <span style={styles}>
+        <Icon
+          name={iconName}
+          size={size}
+          iconRotation={iconRotation}
+          color={color}
+        />
+      </span>
+      <Text size="caption">{displayValue}</Text>
+    </Box>
   );
 };
+
 const icons = [];
 const rotations = [];
 const colors = [];
@@ -148,15 +168,15 @@ const iconSizesValues = [
 ];
 for (const icon in iconNamesValues) {
   icons.push(
-    iconRow(iconNamesValues[icon], {
+    iconElement(iconNamesValues[icon], {
       displayValue: iconNamesValues[icon],
-      size: "xxlarge",
+      size: "xlarge",
     })
   );
 }
 for (const iconRotation in iconRotationsValues) {
   rotations.push(
-    iconRow("arrow", {
+    iconElement("actionLightbulb", {
       displayValue: iconRotationsValues[iconRotation],
       iconRotation: iconRotationsValues[iconRotation],
       size: "xxlarge",
@@ -165,7 +185,7 @@ for (const iconRotation in iconRotationsValues) {
 }
 for (const iconColor in iconColorsValues) {
   colors.push(
-    iconRow("errorFilled", {
+    iconElement("errorFilled", {
       color: iconColorsValues[iconColor],
       displayValue: iconColorsValues[iconColor],
       size: "xxlarge",
@@ -174,27 +194,34 @@ for (const iconColor in iconColorsValues) {
 }
 for (const iconSize in iconSizesValues) {
   sizes.push(
-    iconRow("actionCheckCircle", {
-      displayValue: iconSizesValues[iconSize].display,
-      size: iconSizesValues[iconSize].size,
-    })
+    iconElement(
+      "actionCheckCircle",
+      {
+        displayValue: iconSizesValues[iconSize].display,
+        size: iconSizesValues[iconSize].size,
+      },
+      "list"
+    )
   );
 }
 
 const allIconsType = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
+const allIconsTypeGrid = (list, columns = 6) => (
+  <SimpleGrid columns={columns}>{list}</SimpleGrid>
+);
 
 // The following are additional Icon example Stories.
 export const Rotations: Story = {
-  render: () => allIconsType(rotations),
+  render: () => allIconsTypeGrid(rotations, 4),
 };
 export const Colors: Story = {
-  render: () => allIconsType(colors),
+  render: () => allIconsTypeGrid(colors, 4),
 };
 export const Sizes: Story = {
   render: () => allIconsType(sizes),
 };
 export const AllIcons: Story = {
-  render: () => allIconsType(icons),
+  render: () => allIconsTypeGrid(icons),
 };
 export const CustomIcons: Story = {
   args: {
