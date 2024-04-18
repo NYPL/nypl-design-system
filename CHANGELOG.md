@@ -26,7 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Removals
 
-- Removes the following packages: `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+- Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
 
 ## 3.1.0 (April 11, 2024)
 
