@@ -1,5 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, waitFor, within } from "@storybook/test";
 import { useState } from "react";
 
 import Heading from "../Heading/Heading";
@@ -72,7 +73,7 @@ export const WithControls: Story = {
     defaultValue: undefined,
     helperText: "Choose wisely.",
     id: "textInput-id",
-    isClearable: false,
+    isClearable: true,
     isClearableCallback: undefined,
     isDisabled: false,
     isInvalid: false,
@@ -104,6 +105,22 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
     jest: "TextInput.test.tsx",
+  },
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.click(textInput);
+    await userEvent.type(textInput, "Hello World");
+
+    await waitFor(() => {
+      expect(textInput).toHaveValue("Hello World");
+    });
+
+    const clearButton = within(canvasElement).getByRole("button");
+    await userEvent.click(clearButton);
+
+    await waitFor(() => {
+      expect(textInput).not.toHaveValue("Hello World");
+    });
   },
 };
 

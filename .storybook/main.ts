@@ -8,8 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-designs",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    // TODO: for future interaction tests
-    // "@storybook/addon-interactions",
+    "@storybook/addon-interactions",
     {
       name: "@storybook/addon-docs",
       options: {

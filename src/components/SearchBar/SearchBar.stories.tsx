@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within } from "@storybook/test";
 import { useState } from "react";
 
-import { argsBooleanType } from "../../helpers/storybookUtils";
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -81,6 +82,9 @@ export const WithControls: Story = {
     return (
       <SearchBar
         {...rest}
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
         selectProps={
           showSelect && {
             labelText: "Select a category",
@@ -103,6 +107,15 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
     jest: ["SearchBar.test.tsx"],
+  },
+  // TODO: Add better tests and expectations for this Story.
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.type(textInput, "Hello World");
+    await userEvent.clear(textInput);
+
+    const select = within(canvasElement).getByLabelText("Select a category");
+    await userEvent.selectOptions(select, "tools");
   },
 };
 
