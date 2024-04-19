@@ -10,10 +10,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds docs for `"Visited State Patterns"` to the `Link` component story page.
 - Adds the `ui.warning.tertiary` color token in order to have a light mode `"warning"` color option that meets the WCAG 2.1 AA color contrast standard.
 
 ### Updates
 
+- Updates the placeholder value for the search field within the `MultiSelect` component.
+- Updates the background colors for the `"noBrand"` variant of the `Button` component.
 - Updates the hex values for the `ui.warning.primary` and `ui.warning.secondary` color tokens.
 - Updates the `Banner` and `StatusBadge` components to use the `ui.warning.tertiary` color for bertter accessibility in the `"warning"` variant.
 
