@@ -122,10 +122,6 @@ be logged to the console when the error occurs and the fallback image is loaded.
 If an _additional_ action needs to be performed when the fallback image is
 loaded, pass a callback function to the `onError` prop.
 
-**IMPORTANT**: If a custom image is passed through the `component` prop, then
-`fallbackSrc` and `onError` won't work. It is expected that the custom image
-that is passed implements the `onerror` attribute.
-
 <Source
   code={`
 <Image
@@ -135,6 +131,33 @@ that is passed implements the `onerror` attribute.
   src="https://placekitten.com/540/420"
 />
   `}
+  language="jsx"
+/>
+
+**IMPORTANT**: If a custom image component, such as the Next.js `Image` component,
+is passed to the `component` prop, then the `fallbackSrc` and `onError` props
+won't work. It is expected that the custom image component that is passed in
+implements the `onError` attribute.
+
+<Source
+  code={`
+import { Image } from "@nypl/design-system-react-components";
+import Image as NextImage from "next/image";
+
+// ...
+
+<Image
+  component={{
+    <NextImage
+      src="https://placekitten.com/540/420"
+      onError={(event) => {
+        // Implement your own fallback event
+        event.target.src =  "https://loremflickr.com/540/420/cat"
+      }}
+    />
+  }} 
+/>
+`}
   language="jsx"
 />
 
