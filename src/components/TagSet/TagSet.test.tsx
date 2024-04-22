@@ -329,7 +329,7 @@ describe("TagSet Filter", () => {
     expect(screen.getByText("Clear filters")).toBeInTheDocument();
   });
 
-  it("returns 'clearFilters' when the 'Clear filters' button is clicked", () => {
+  it("returns correct meta data when the 'Clear filters' button is clicked", () => {
     let currentTag = {};
     const onClick = (tagSet) => {
       currentTag = tagSet;
