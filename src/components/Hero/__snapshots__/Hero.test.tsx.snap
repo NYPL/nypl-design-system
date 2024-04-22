@@ -2,12 +2,12 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-svxhxl"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
+      "backgroundImage": "/**/url("//placekitten.com/1600/800")",
       "bgColor": "ui.bg.default",
     }
   }
@@ -38,7 +38,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-b2u002"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -49,6 +49,11 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -88,6 +93,11 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -127,6 +137,11 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -166,6 +181,11 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -205,6 +225,11 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -233,7 +258,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-14tngpx"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -261,14 +286,14 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-gl44ej"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "_after": {
         "backgroundBlendMode": null,
-        "backgroundImage": "url(//placekitten.com/g/2400/800)",
+        "backgroundImage": "/**/url("//placekitten.com/g/2400/800")",
         "backgroundPosition": "center",
         "backgroundSize": "cover",
         "content": """",
@@ -315,7 +340,12 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("//placekitten.com/800/400")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -344,7 +374,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-b2u002"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -358,7 +388,12 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("//placekitten.com/800/400")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -381,12 +416,12 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-svxhxl"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
+      "backgroundImage": "/**/url("//placekitten.com/1600/800")",
       "bgColor": "ui.bg.default",
     }
   }
@@ -417,12 +452,12 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-svxhxl"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
+      "backgroundImage": "/**/url("//placekitten.com/1600/800")",
       "bgColor": "ui.bg.default",
     }
   }

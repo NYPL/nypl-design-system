@@ -20,6 +20,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the hex values for the `ui.warning.primary` and `ui.warning.secondary` color tokens.
 - Updates the `Banner` and `StatusBadge` components to use the `ui.warning.tertiary` color for bertter accessibility in the `"warning"` variant.
 
+### Fixes
+
+- Adds workaround to `Hero` and `FeaturedContent` to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.
+
 ## 3.1.0 (April 11, 2024)
 
 ### Adds

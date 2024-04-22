@@ -192,7 +192,7 @@ export const Hero: ChakraComponent<
         backgroundImageStyle = backgroundImageSrc
           ? {
               bgColor: defaultBackgroundColor,
-              backgroundImage: `url(${backgroundImageSrc})`,
+              backgroundImage: `/**/url("${backgroundImageSrc}")`,
             }
           : {};
       } else if (heroType === "secondary") {
@@ -224,8 +224,8 @@ export const Hero: ChakraComponent<
                   ? "saturation"
                   : null,
                 backgroundImage: isDarkBackgroundImage
-                  ? `linear-gradient(black, black), url(${backgroundImageSrc})`
-                  : `url(${backgroundImageSrc})`,
+                  ? `/**/linear-gradient(black, black), url("${backgroundImageSrc}")`
+                  : `/**/url("${backgroundImageSrc}")`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 opacity: isDarkBackgroundImage ? "0.4" : "1.0",
@@ -278,7 +278,9 @@ export const Hero: ChakraComponent<
             <Box
               __css={{
                 ...styles.imgWrapper,
-                backgroundImage: `url(${imageProps.src})`,
+              }}
+              style={{
+                backgroundImage: `/**/url("${imageProps.src}")`,
               }}
             >
               <Image alt={imageProps.alt} src={imageProps.src} />
@@ -294,9 +296,11 @@ export const Hero: ChakraComponent<
               <Box
                 __css={{
                   ...styles.imgWrapper,
+                }}
+                style={{
                   backgroundImage:
                     heroType === "fiftyFifty"
-                      ? `url(${imageProps.src})`
+                      ? `/**/url("${imageProps.src}")`
                       : undefined,
                 }}
               >
@@ -316,12 +320,11 @@ export const Hero: ChakraComponent<
         <Box
           data-testid="hero"
           data-responsive-background-image
-          style={backgroundImageSrc ? backgroundImageStyle : undefined}
           ref={ref}
           __css={{
             ...styles.base,
-            ...backgroundImageStyle,
           }}
+          style={backgroundImageSrc ? backgroundImageStyle : undefined}
         >
           <Box
             data-testid="hero-content"

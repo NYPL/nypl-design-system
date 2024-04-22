@@ -105,7 +105,7 @@ export const FeaturedContent: ChakraComponent<
               data-testid="featuredcontent-bg-image"
               __css={{
                 ...styles.imgWrapper,
-                backgroundImage: `url(${imageProps.src})`,
+                backgroundImage: `/**/url(${imageProps.src})`,
               }}
             >
               <FeaturedContentImage
