@@ -210,12 +210,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         aspectRatio: "threeByTwo",
-        component: (
-          <Image
-            alt=""
-            src={getPlaceholderImage("smaller", 0)}
-          />
-        ),
+        component: <Image alt="" src={getPlaceholderImage("smaller", 0)} />,
       }}
     >
       <CardHeading level="h3" id="heading1">

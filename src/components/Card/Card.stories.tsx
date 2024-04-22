@@ -539,12 +539,7 @@ export const CustomImageComponent: Story = {
     <Card
       imageProps={{
         alt: "Alt text",
-        component: (
-          <Image
-            alt="Alt text"
-            src={getPlaceholderImage()}
-          />
-        ),
+        component: <Image alt="Alt text" src={getPlaceholderImage()} />,
       }}
     >
       <CardHeading
