@@ -176,6 +176,7 @@ const text = definePartsStyle(({ buttonSize = "medium" }: any) => ({
         bg: "transparent",
       },
       _hover: {
+        bg: "ui.link.primary-10",
         color: "dark.ui.link.secondary",
       },
     },
@@ -238,10 +239,10 @@ export const callout = definePartsStyle(({ buttonSize = "medium" }: any) => ({
       bg: "brand.secondary",
     },
     _dark: {
-      bg: "brand.primary",
+      bg: "brand.secondary",
       color: "ui.white",
       _hover: {
-        bg: "brand.secondary",
+        bg: "brand.primary",
         color: "ui.white",
       },
     },
@@ -253,13 +254,13 @@ export const noBrand = definePartsStyle(({ buttonSize = "medium" }: any) => ({
     color: "ui.white",
     ...generalSizeValues(buttonSize),
     _hover: {
-      bg: "ui.gray.x-dark",
+      bg: "ui.gray.xx-dark",
     },
     _dark: {
-      bg: "ui.gray.x-dark",
+      bg: "ui.gray.xx-dark",
       color: "ui.white",
       _hover: {
-        bg: "ui.gray.dark",
+        bg: "ui.gray.x-dark",
         color: "ui.white",
       },
     },
