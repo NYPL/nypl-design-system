@@ -344,6 +344,27 @@ export const HTMLAttributes: Story = {
   ),
 };
 
+export const FallbackImage: Story = {
+  render: () => (
+    <>
+      <Heading
+        id="fallback-heading"
+        level="h4"
+        size="heading6"
+        text="Fallback Image Example"
+      />
+      <Image
+        alt="Alt text"
+        fallbackSrc="https://loremflickr.com/2000/800/new+york+public+library"
+        onError={(_event) =>
+          console.error("Error loading image in Storybok example")
+        }
+        src="foobar.jpg"
+      />
+    </>
+  ),
+};
+
 export const LazyLoading: Story = {
   render: () => (
     <SimpleGrid columns={1}>

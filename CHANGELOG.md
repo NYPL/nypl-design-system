@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds docs for `"Visited State Patterns"` to the `Link` component story page.
 - Adds the `ui.warning.tertiary` color token in order to have a light mode `"warning"` color option that meets the WCAG 2.1 AA color contrast standard.
+- Adds `fallbackSrc` and `onError` props to the `Image` component.
+- Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
 
 ### Updates
 
