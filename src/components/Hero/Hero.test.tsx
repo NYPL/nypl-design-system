@@ -96,6 +96,9 @@ describe("Hero", () => {
 
     expect(screen.getByText("Hero Primary")).toBeInTheDocument();
     expect(screen.getByText("Example Subtitle")).toBeInTheDocument();
+    // Due to the bug found in Chakra and the workaround that was implemented,
+    // this test will fail. The `style` attribute is seen in the DOM in a
+    // browser, but not in the test environment and it's not clear why.
     // expect(screen.getByTestId("hero")).toHaveAttribute(
     //   "style",
     //   "background-image: url(https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg);"
