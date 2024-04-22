@@ -28,6 +28,7 @@ import {
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof TemplateAppContainer> = {
   title: "Components/Page Layout/Template",
@@ -269,12 +270,12 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               ]}
             />
             <Hero
-              backgroundImageSrc="//loremflickr.com/g/2400/800/new+york+public+library"
+              backgroundImageSrc={getPlaceholderImage()}
               heroType="campaign"
               heading={<Heading level="h1" id="1" text="Hero Campaign" />}
               imageProps={{
                 alt: "Image example",
-                src: "//loremflickr.com/800/400/new+york+public+library",
+                src: getPlaceholderImage("smaller"),
               }}
               isDarkBackgroundImage
               subHeaderText={otherSubHeaderText}
@@ -347,7 +348,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
                 alt: "Alt text",
                 aspectRatio: "square",
                 size: "default",
-                src: "//loremflickr.com/400/200/new+york+public+library",
+                src: getPlaceholderImage("smaller"),
               }}
               isCentered
             >

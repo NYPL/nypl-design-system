@@ -6,6 +6,7 @@ import Card, { CardHeading, CardContent } from "../Card/Card";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
 import Image from "../Image/Image";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof SimpleGrid> = {
   title: "Components/Page Layout/SimpleGrid",
@@ -52,7 +53,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/220/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -67,7 +68,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/220/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -82,7 +83,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/240/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -97,7 +98,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/260/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -112,7 +113,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/320/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -127,7 +128,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -158,24 +159,24 @@ export const IconExample: Story = {
 export const ImageExample: Story = {
   render: () => (
     <SimpleGrid columns={6}>
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
     </SimpleGrid>
   ),
 };
@@ -187,7 +188,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered
@@ -206,7 +207,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//loremflickr.com/410/210/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered
@@ -225,7 +226,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//loremflickr.com/320/320/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered

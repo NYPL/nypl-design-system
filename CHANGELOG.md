@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates placeholder images to come from `loremflickr.com`, rather than `placekitten.com`.
+- Updates placeholder images on story pages and tests to use the `getPlaceholderImage` utility function which provides NYPL images.
 
 ## 3.1.0 (April 11, 2024)
 

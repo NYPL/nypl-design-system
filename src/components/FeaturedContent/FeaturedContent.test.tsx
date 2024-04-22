@@ -5,6 +5,8 @@ import renderer from "react-test-renderer";
 import FeaturedContent from "./FeaturedContent";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
+import { getPlaceholderImage } from "../../utils/utils";
+
 export const textContent = (
   <div>
     <br />
@@ -21,7 +23,7 @@ export const textContent = (
 );
 const defaultImageProps = {
   alt: "Image example",
-  src: "//loremflickr.com/800/400/new+york+public+library",
+  src: getPlaceholderImage("smaller", 0),
 };
 
 describe("FeaturedContent accessibility tests", () => {
@@ -62,7 +64,7 @@ describe("FeaturedContent", () => {
     ).toBeInTheDocument();
     expect(screen.getByTestId("featuredcontent-bg-image")).toBeInTheDocument();
     expect(screen.getByTestId("featuredcontent-bg-image")).toHaveStyle(
-      "background-image: url(//loremflickr.com/800/400/new+york+public+library);"
+      `background-image: url(${getPlaceholderImage("smaller", 0)});`
     );
   });
 
@@ -102,7 +104,7 @@ describe("FeaturedContent", () => {
         isFullWidth={true}
         imageProps={{
           alt: "",
-          src: "//loremflickr.com/800/400/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
         textContent={textContent}
       />
@@ -139,7 +141,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//loremflickr.com/800/400/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
           width: "oneQuarter",
         }}
         textContent={textContent}
@@ -152,7 +154,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//loremflickr.com/800/400/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
           width: "oneThird",
         }}
         textContent={textContent}
@@ -166,7 +168,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//loremflickr.com/800/400/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
           width: "twoThirds",
         }}
         textContent={textContent}
@@ -179,7 +181,7 @@ it("Renders the UI snapshot correctly", () => {
         isFullWidth={false}
         imageProps={{
           alt: "Image example",
-          src: "//loremflickr.com/800/400/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
           width: "threeQuarters",
         }}
         textContent={textContent}

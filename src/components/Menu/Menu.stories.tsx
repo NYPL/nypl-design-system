@@ -4,6 +4,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Menu, { ListItemsData } from "./Menu";
 import { sectionTypeArray } from "../../helpers/types";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
@@ -102,7 +103,7 @@ const imageListItems: ListItemsData[] = [
     label: "I'm item 1",
     media: {
       type: "image",
-      src: "//loremflickr.com/300/300/new+york+public+library",
+      src: getPlaceholderImage("smaller"),
       alt: "",
     },
     onClick: () => {
@@ -115,7 +116,7 @@ const imageListItems: ListItemsData[] = [
     label: "I'm item 2",
     media: {
       type: "image",
-      src: "//loremflickr.com/300/300/new+york+public+library",
+      src: getPlaceholderImage("smaller"),
       alt: "",
     },
     onClick: () => {
@@ -128,7 +129,7 @@ const imageListItems: ListItemsData[] = [
     label: "I'm item 3",
     media: {
       type: "image",
-      src: "//loremflickr.com/300/300/new+york+public+library",
+      src: getPlaceholderImage("smaller"),
       alt: "",
     },
     onClick: () => {

@@ -9,6 +9,7 @@ import Image from "../Image/Image";
 import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -81,7 +82,7 @@ export const WithControls: Story = {
     "imageProps.isAtEnd": false,
     "imageProps.isLazy": true,
     "imageProps.size": "default",
-    "imageProps.src": "//loremflickr.com/400/300/new+york+public+library",
+    "imageProps.src": getPlaceholderImage("smaller"),
     isAlignedRightActions: false,
     isBordered: false,
     isCentered: false,
@@ -158,7 +159,7 @@ export const ImagePositionColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" id="props-heading1" size="heading4">
@@ -175,7 +176,7 @@ export const ImagePositionColumnCards: Story = {
           aspectRatio: "twoByOne",
           isAtEnd: true,
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" id="props-heading2" size="heading4">
@@ -197,7 +198,7 @@ export const ImagePositionRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
           isLazy: true,
         }}
         isCentered
@@ -218,7 +219,7 @@ export const ImagePositionRowCards: Story = {
           aspectRatio: "twoByOne",
           isAtEnd: true,
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -245,7 +246,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "xxsmall",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -269,7 +270,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "xsmall",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -293,7 +294,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "small",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -317,7 +318,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "medium",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -341,7 +342,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "large",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -364,7 +365,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage(),
         }}
         isCentered
       >
@@ -393,7 +394,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "xxsmall",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -416,7 +417,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "xsmall",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -439,7 +440,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "small",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -462,7 +463,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "medium",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -486,7 +487,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "large",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -510,7 +511,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -541,7 +542,7 @@ export const CustomImageComponent: Story = {
         component: (
           <Image
             alt="Alt text"
-            src="//loremflickr.com/400/400/new+york+public+library"
+            src={getPlaceholderImage()}
           />
         ),
       }}
@@ -578,7 +579,7 @@ export const HeadingAsLink: Story = {
       imageProps={{
         alt: "Alt text",
         aspectRatio: "twoByOne",
-        src: "//loremflickr.com/400/200/new+york+public+library",
+        src: getPlaceholderImage(),
       }}
     >
       <CardHeading
@@ -618,7 +619,7 @@ export const FullClick: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -649,7 +650,7 @@ export const FullClick: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
-          src: "//loremflickr.com/410/210/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -740,7 +741,7 @@ export const CardWithRightSideCardActions: Story = {
         alt: "Alt text",
         aspectRatio: "square",
         size: "medium",
-        src: "//loremflickr.com/400/200/new+york+public+library",
+        src: getPlaceholderImage("smaller"),
       }}
       isAlignedRightActions
       isCentered
@@ -788,7 +789,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -810,7 +811,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/410/210/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -832,7 +833,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/420/220/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -854,7 +855,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/430/230/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -876,7 +877,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/440/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -898,7 +899,7 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/450/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
@@ -927,7 +928,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/400/200/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -952,7 +953,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/410/210/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -977,7 +978,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//loremflickr.com/420/220/new+york+public+library",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"

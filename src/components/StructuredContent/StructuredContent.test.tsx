@@ -5,6 +5,7 @@ import renderer from "react-test-renderer";
 
 import Heading from "../Heading/Heading";
 import StructuredContent from "./StructuredContent";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const htmlStringBodyContent =
   "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
@@ -92,7 +93,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -112,7 +113,7 @@ describe("StructuredContent Accessibility", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -145,7 +146,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -171,7 +172,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -193,7 +194,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -236,7 +237,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -261,7 +262,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -283,7 +284,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -304,7 +305,7 @@ describe("StructuredContent", () => {
           aspectRatio: "original",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
       />
     );
@@ -330,7 +331,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
         />
       )
@@ -349,7 +350,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
         />
       )
@@ -376,7 +377,7 @@ describe("StructuredContent", () => {
             aspectRatio: "original",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
         />
       )
@@ -394,7 +395,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
         />
       )
@@ -421,7 +422,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
           bodyContent={htmlStringBodyContent}
           p="20px"
@@ -442,7 +443,7 @@ describe("StructuredContent", () => {
             credit: "Image credit",
             position: "left",
             size: "medium",
-            src: "//loremflickr.com/400/300/new+york+public+library",
+            src: getPlaceholderImage("smaller", 0),
           }}
           bodyContent={htmlStringBodyContent}
           data-testid="props"
@@ -474,7 +475,7 @@ describe("StructuredContent", () => {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//loremflickr.com/400/300/new+york+public+library",
+          src: getPlaceholderImage("smaller", 0),
         }}
         ref={ref}
       />

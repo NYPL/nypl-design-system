@@ -8,7 +8,6 @@ import Heading from "../Heading/Heading";
 import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Text from "../Text/Text";
-
 import { getPlaceholderImage } from "../../utils/utils";
 
 const secondarySubHeaderText = (
@@ -56,7 +55,7 @@ const otherSubHeaderTextLong = (
 );
 const imageProps = {
   alt: "Image example",
-  src: getPlaceholderImage("small"),
+  src: getPlaceholderImage(),
 };
 
 const meta: Meta<typeof Hero> = {

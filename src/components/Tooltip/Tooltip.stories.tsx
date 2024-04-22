@@ -13,6 +13,7 @@ import Text from "../Text/Text";
 import Toggle from "../Toggle/Toggle";
 import Tooltip from "./Tooltip";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
@@ -114,7 +115,7 @@ export const OnImageComponents: Story = {
             caption="Square"
             aspectRatio="square"
             size="large"
-            src="//loremflickr.com/400/400/new+york+public+library"
+            src={getPlaceholderImage("smaller")}
           />
         </Tooltip>
         <Tooltip content="fourByThree aspect ratio" shouldWrapChildren>
@@ -123,7 +124,7 @@ export const OnImageComponents: Story = {
             caption="Four by Three"
             aspectRatio="fourByThree"
             size="default"
-            src="//loremflickr.com/400/400/new+york+public+library"
+            src={getPlaceholderImage("smaller")}
           />
         </Tooltip>
         <Tooltip content="threeByFour aspect ratio" shouldWrapChildren>
@@ -132,7 +133,7 @@ export const OnImageComponents: Story = {
             caption="Three by Four"
             aspectRatio="threeByFour"
             size="default"
-            src="//loremflickr.com/400/400/new+york+public+library"
+            src={getPlaceholderImage("smaller")}
           />
         </Tooltip>
       </SimpleGrid>
@@ -170,11 +171,7 @@ export const UsingIconContent: Story = {
 
 export const UsingImageContent: Story = {
   render: () => (
-    <Tooltip
-      content={
-        <Image src="//loremflickr.com/300/300/new+york+public+library" alt="" />
-      }
-    >
+    <Tooltip content={<Image src={getPlaceholderImage("smaller")} alt="" />}>
       Hover to see image
     </Tooltip>
   ),

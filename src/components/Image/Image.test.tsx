@@ -3,6 +3,7 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
+import { getPlaceholderImage } from "../../utils/utils";
 
 import Image from "./Image";
 
@@ -44,7 +45,7 @@ describe("Image", () => {
 
   // @TODO - test when it does come into view.
   it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
-    const src = "//loremflickr.com/500/200/new+york+public+library";
+    const src = getPlaceholderImage("smaller", 0);
     const { container } = render(<Image alt="" isLazy src={src} />);
 
     // Mock that the image is not in view through the IntersectionObserver object.

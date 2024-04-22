@@ -152,22 +152,28 @@ export const sanitizeStringForAttribute = (str: string) => {
 };
 
 /** Provides a random image to use as a placeholder. */
-// export interface GetPlaceholderImageProps {
-//   size?: "small" | "medium" | "large";
-// }
-export const getPlaceholderImage = (size: string = "medium") => {
-  // const { size = "small" } = props;
+// @TODO: once a valid larger image source is identified, add a "larger" option
+export type GetPlaceholderImageProps = "smaller" | "default";
+export const getPlaceholderImage = (
+  size: GetPlaceholderImageProps = "default",
+  index: number = undefined
+) => {
   const imageArray = [
-    "https://images.nypl.org/index.php?id=61705",
-    "https://images.nypl.org/index.php?id=61707",
     "https://images.nypl.org/index.php?id=swope_243048",
     "https://images.nypl.org/index.php?id=swope_243025",
     "https://images.nypl.org/index.php?id=swope_244712",
-    "https://images.nypl.org/index.php?id=1252839",
-    "https://images.nypl.org/index.php?id=1252803",
+    "https://images.nypl.org/index.php?id=swope_243017",
+    "https://images.nypl.org/index.php?id=swope_243943",
+    "https://images.nypl.org/index.php?id=swope_244705",
+    "https://images.nypl.org/index.php?id=swope_1026219",
+    "https://images.nypl.org/index.php?id=swope_243070",
+    "https://images.nypl.org/index.php?id=swope_243044",
+    "https://images.nypl.org/index.php?id=ps_prn_cd6_82",
   ];
-  const t = size === "small" ? "r" : "w";
-  const finalIndex = Math.floor(Math.random() * imageArray.length);
+  const t = size === "smaller" ? "r" : "w";
+  const finalIndex = isNaN(index)
+    ? Math.floor(Math.random() * imageArray.length)
+    : index;
   const selectedImage = imageArray[finalIndex];
   const finalImage = `${selectedImage}&t=${t}`;
   return finalImage;
