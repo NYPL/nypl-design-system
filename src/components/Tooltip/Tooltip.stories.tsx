@@ -112,8 +112,8 @@ export const OnImageComponents: Story = {
         <Tooltip content="square aspect ratio" shouldWrapChildren>
           <Image
             alt="Alt text"
-            caption="Square"
             aspectRatio="square"
+            caption="Square"
             size="large"
             src={getPlaceholderImage("smaller")}
           />
@@ -121,8 +121,8 @@ export const OnImageComponents: Story = {
         <Tooltip content="fourByThree aspect ratio" shouldWrapChildren>
           <Image
             alt="Alt text"
-            caption="Four by Three"
             aspectRatio="fourByThree"
+            caption="Four by Three"
             size="default"
             src={getPlaceholderImage("smaller")}
           />
@@ -130,8 +130,8 @@ export const OnImageComponents: Story = {
         <Tooltip content="threeByFour aspect ratio" shouldWrapChildren>
           <Image
             alt="Alt text"
-            caption="Three by Four"
             aspectRatio="threeByFour"
+            caption="Three by Four"
             size="default"
             src={getPlaceholderImage("smaller")}
           />
@@ -156,11 +156,11 @@ export const UsingIconContent: Story = {
     <Tooltip
       content={
         <Icon
+          color="ui.white"
           decorative
           id="icon-id"
           name="search"
           size="xxlarge"
-          color="ui.white"
         />
       }
     >
@@ -171,7 +171,7 @@ export const UsingIconContent: Story = {
 
 export const UsingImageContent: Story = {
   render: () => (
-    <Tooltip content={<Image src={getPlaceholderImage("smaller")} alt="" />}>
+    <Tooltip content={<Image alt="" src={getPlaceholderImage("smaller")} />}>
       Hover to see image
     </Tooltip>
   ),
