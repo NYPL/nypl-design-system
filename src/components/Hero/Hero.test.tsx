@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -452,6 +452,31 @@ describe("Hero", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `isDarkBackgroundImage` prop has been passed, " +
         "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+    );
+  });
+
+  it("logs a warning when the main image fails to load and the fallback image is rendered", () => {
+    const warn = jest.spyOn(console, "warn");
+    const onError = jest.fn();
+
+    render(
+      <Hero
+        heroType="campaign"
+        imageProps={{
+          alt: "Custom NYPL",
+          src: "foo.jpg",
+          fallbackSrc: "//placekitten.com/800/400",
+          onError,
+        }}
+      />
+    );
+
+    fireEvent.error(screen.getByRole("img"));
+
+    expect(onError).toHaveBeenCalled();
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Image: The initial image failed to load in the " +
+        "browser. The fallback image source will now be used."
     );
   });
 

@@ -1,6 +1,7 @@
 import { Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { useState } from "react";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -369,6 +370,48 @@ export const CampaignBackgroundColors: Story = {
       </div>
     </Stack>
   ),
+};
+
+const CampaignFallBackExample = () => {
+  const [imageSrc, setImageSrc] = useState("foobar.jpg");
+  const fallbackImageSrc =
+    "https://images.nypl.org/index.php?id=swope_244712&t=w";
+  // For some reason IIIF image as fallback does not work...
+  // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
+
+  return (
+    <Stack spacing="l">
+      <Heading
+        id="campaign-hero-default"
+        size="heading6"
+        text="Campaign Hero with fallback image"
+      />
+      <Hero
+        backgroundImageSrc={imageSrc}
+        heroType="campaign"
+        heading={
+          <Heading
+            level="h1"
+            id="campaign-fallback-image"
+            text="Hero Campaign"
+          />
+        }
+        imageProps={{
+          alt: "NYPL Image",
+          src: imageSrc,
+          fallbackSrc: fallbackImageSrc,
+          onError: (_event) => {
+            setImageSrc(fallbackImageSrc);
+          },
+        }}
+        subHeaderText={otherSubHeaderText}
+      />
+    </Stack>
+  );
+};
+
+export const CampaignFallbackImage: Story = {
+  render: () => <CampaignFallBackExample />,
 };
 
 export const Secondary: Story = {
