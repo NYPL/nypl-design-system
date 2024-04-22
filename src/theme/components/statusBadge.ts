@@ -70,7 +70,7 @@ export const negative = defineStyle({
 });
 export const warning = defineStyle({
   bgColor: "ui.warning.primary-10",
-  borderColor: "ui.warning.primary",
+  borderColor: "ui.warning.tertiary",
   _dark: {
     bgColor: "dark.ui.warning.primary-10",
     borderColor: "dark.ui.warning.primary",

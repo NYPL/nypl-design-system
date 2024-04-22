@@ -13,10 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Added the `isDarkText` prop.",
       "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
+      "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
     ],
   },
   {
