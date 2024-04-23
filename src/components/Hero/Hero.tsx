@@ -65,6 +65,9 @@ export interface HeroProps {
    * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
    * `Hero` type. Note: not all `Hero` variations utilize this prop. */
   imageProps?: HeroImageProps;
+  /** Optional boolean used to toggle the default text color from light to dark.
+   * Set isDarkText to `true` if the backgroundColor is set to a light color. */
+  isDarkText?: boolean;
   /** Optional boolean used to toggle the treatment of the background image in
    * the "campaign" variant. If true, the background image will be converted to
    * black & white and darkened to 60% black. */
@@ -96,11 +99,16 @@ export const Hero: ChakraComponent<
           alt: "",
           src: "",
         },
+        isDarkText,
         isDarkBackgroundImage = false,
         locationDetails,
         subHeaderText,
       } = props;
-      const styles = useMultiStyleConfig("Hero", { variant: heroType });
+      const styles = useMultiStyleConfig("Hero", {
+        foregroundColor,
+        isDarkText,
+        variant: heroType,
+      });
       const headingStyles = styles.heading;
       // We want to add `Hero`-specific styling to the `Heading` component.
       const finalHeading =
@@ -183,7 +191,7 @@ export const Hero: ChakraComponent<
         primary: useColorModeValue("ui.black", "dark.ui.bg.default"),
         secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
-        campaign: useColorModeValue("dark.ui.bg.default", "dark.ui.bg.default"),
+        campaign: useColorModeValue("ui.black", "dark.ui.bg.default"),
         campaignBackdrop: useColorModeValue(
           "dark.ui.bg.active",
           "dark.ui.bg.active"
@@ -273,6 +281,13 @@ export const Hero: ChakraComponent<
           "NYPL Reservoir Hero: The `foregroundColor`, `backgroundColor`, or " +
             "`backdropBackgroundColor` props have been passed, but the " +
             "`'secondary'` `heroType` variant will not use them."
+        );
+      }
+      if (foregroundColor && isDarkText) {
+        console.warn(
+          "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
+            "have both been passed. Thse props can not be used at the same time, " +
+            "so the `foregroundColor` prop will override the `isDarkText` prop."
         );
       }
 

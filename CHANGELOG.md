@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `ui.warning.tertiary` color token in order to have a light mode `"warning"` color option that meets the WCAG 2.1 AA color contrast standard.
 - Adds `fallbackSrc` and `onError` props to the `Image` component.
 - Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
+- Adds the `isDarkText` prop to the `Hero` component.
 
 ### Updates
 
@@ -36,6 +37,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `DatePicker`, `Select`, `Slider`, and `TextInput` components to reduce the spacing between the field label and the field itself from `"8px"` to `"2px"`.
+- Updates the `Hero` component with conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.
 
 ## 3.0.1 (March 28, 2024)
 

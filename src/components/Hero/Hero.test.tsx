@@ -4,6 +4,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 import Heading from "../Heading/Heading";
 import Hero from "./Hero";
+import { getLinkColor, getTextColor } from "../../theme/components/hero";
 import { getPlaceholderImage } from "../../utils/utils";
 
 export const subHeaderText = (
@@ -456,6 +457,26 @@ describe("Hero", () => {
     );
   });
 
+  it("logs a warning if `foregroundColor` and `isDarkText` props are both passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        foregroundColor="ui.black"
+        heroType="campaign"
+        imageProps={imageProps}
+        isDarkBackgroundImage
+        isDarkText
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
+        "have both been passed. Thse props can not be used at the same time, " +
+        "so the `foregroundColor` prop will override the `isDarkText` prop."
+    );
+  });
+
   it("logs a warning when the main image fails to load and the fallback image is rendered", () => {
     const warn = jest.spyOn(console, "warn");
     const onError = jest.fn();
@@ -676,5 +697,116 @@ describe("Hero", () => {
     );
 
     expect(container.querySelector("div")).toBe(ref.current);
+  });
+});
+describe("Test getTextColor function (hero.ts)", () => {
+  let type, mode, foregroundColor, isDarkText;
+  it("returns foregroundColor", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = "brand.primary";
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+    type = "body";
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+  });
+  it("returns default heading text color", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.inverse.heading"
+    );
+  });
+  it("returns dark heading text color", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.heading"
+    );
+  });
+  it("returns default body text color", () => {
+    type = "body";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.inverse.body"
+    );
+  });
+  it("returns dark body text color", () => {
+    type = "body";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.body"
+    );
+  });
+});
+describe("Test getLinkColor function (hero.ts)", () => {
+  let state, foregroundColor, isDarkText;
+  it("returns foregroundColor", () => {
+    state = "default";
+    foregroundColor = "brand.primary";
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+  });
+  it("returns default link color", () => {
+    state = "default";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.primary"
+    );
+  });
+  it("returns default dark text link color", () => {
+    state = "default";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-primary) !important"
+    );
+  });
+  it("returns hover link color", () => {
+    state = "hover";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.secondary"
+    );
+  });
+  it("returns dark text hover link color", () => {
+    state = "hover";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-secondary) !important"
+    );
+  });
+  it("returns visted link color", () => {
+    state = "visited";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.tertiary"
+    );
+  });
+  it("returns dark text visted link color", () => {
+    state = "visited";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-tertiary) !important"
+    );
   });
 });

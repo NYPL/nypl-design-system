@@ -1,4 +1,5 @@
 import { Stack } from "@chakra-ui/react";
+import { Source } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 import { useState } from "react";
@@ -7,16 +8,16 @@ import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
-import SimpleGrid from "../Grid/SimpleGrid";
+import Link from "../Link/Link";
 import Text from "../Text/Text";
 import { getPlaceholderImage } from "../../utils/utils";
 
 const secondarySubHeaderText = (
   <>
-    Explore our collection of hundreds of online resources and databases. Use
-    our free online content to help with your research, whether it's finding a
-    single article, tracing a family tree, learning a new language, or anything
-    in between.
+    Explore our <Link href="#">collection</Link> of hundreds of online resources
+    and databases. Use our free online content to help with your research,
+    whether it's finding a single article, tracing a family tree, learning a new
+    language, or anything in between.
   </>
 );
 const deprecatedMessage = (
@@ -24,8 +25,15 @@ const deprecatedMessage = (
     This variant has been deprecated.
   </Text>
 );
-const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+const otherSubHeaderText = (
+  <>
+    With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+    <Link href="https://www.nypl.org/locations/snfl/childrens">
+      The New York Public Library
+    </Link>{" "}
+    is an essential part of neighborhoods across the city. Visit us today.
+  </>
+);
 const otherSubHeaderTextLong = (
   <>
     <Heading
@@ -39,12 +47,19 @@ const otherSubHeaderTextLong = (
       Subheading
     </Heading>
     <Text>
-      Donec ullamcorper nulla non metus auctor fringilla. Cras mattis
+      Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
       consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
       augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-      Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta
-      felis euismod semper. Donec sed odio dui. Nullam quis risus eget urna
-      mollis ornare vel eu leo.
+      Aenean lacinia{" "}
+      <Link href="https://google.com" type="external">
+        Google
+      </Link>{" "}
+      bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+      semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+      eu leo.
     </Text>
     <ButtonGroup>
       <Button id="other-button-example-1">Button</Button>
@@ -78,6 +93,7 @@ const meta: Meta<typeof Hero> = {
       control: { type: "boolean" },
       table: { defaultValue: { summary: "false" } },
     },
+    isDarkText: { control: false },
     locationDetails: { control: false },
     subHeaderText: { control: false },
   },
@@ -102,6 +118,7 @@ export const WithControls: Story = {
     "imageProps.alt": "",
     "imageProps.src": "",
     isDarkBackgroundImage: undefined,
+    isDarkText: undefined,
     locationDetails: undefined,
     subHeaderText: undefined,
   },
@@ -191,20 +208,41 @@ export const WithControls: Story = {
 // The following are additional Accordion example Stories.
 export const Primary: Story = {
   render: () => (
-    <Hero
-      backgroundImageSrc={getPlaceholderImage()}
-      heading={
-        <Heading
-          id="primary-hero"
-          level="h1"
-          noSpace
-          overline="Hero Example"
-          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
-          text="Hero Primary"
-        />
-      }
-      heroType="primary"
+    <>
+      <Hero
+        backgroundImageSrc={getPlaceholderImage()}
+        heading={
+          <Heading
+            id="primary-hero"
+            level="h1"
+            noSpace
+            overline="Hero Example"
+            subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+            text="Hero Primary"
+          />
+        }
+        heroType="primary"
+      />
+      <Source
+        code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heading={
+    <Heading
+      id="primary-hero"
+      level="h1"
+      noSpace
+      overline="Hero Example"
+      subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+      text="Hero Primary"
     />
+  }
+  heroType="primary"
+/>
+`}
+        language="jsx"
+      />
+    </>
   ),
 };
 
@@ -215,7 +253,7 @@ export const Tertiary: Story = {
         heading={
           <Heading
             level="h1"
-            id="tertiary-hero-subheading"
+            id="tertiary-hero-subtitle-subheading"
             size="heading2"
             subtitle="This is the subtitle"
             text="Hero Tertiary with Subtitle & Sub-Heading"
@@ -223,6 +261,32 @@ export const Tertiary: Story = {
         }
         heroType="tertiary"
         subHeaderText={otherSubHeaderText}
+      />
+      <Source
+        code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero-subtitle-subheading"
+      size="heading2"
+      subtitle="This is the subtitle"
+      text="Hero Tertiary with Subtitle & Sub-Heading"
+    />
+  }
+  heroType="tertiary"
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+        language="jsx"
       />
       <br />
       <Hero
@@ -237,6 +301,31 @@ export const Tertiary: Story = {
         heroType="tertiary"
         subHeaderText={otherSubHeaderText}
       />
+      <Source
+        code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero-subheading"
+      size="heading2"
+      text="Hero Tertiary with Sub-Heading"
+    />
+  }
+  heroType="tertiary"
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+        language="jsx"
+      />
       <br />
       <Hero
         heading={
@@ -249,6 +338,22 @@ export const Tertiary: Story = {
         }
         heroType="tertiary"
       />
+      <Source
+        code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero"
+      size="heading2"
+      text="Hero Tertiary without Additional Elements"
+    />
+  }
+  heroType="tertiary"
+/>
+`}
+        language="jsx"
+      />
     </>
   ),
 };
@@ -259,6 +364,7 @@ export const Campaign: Story = {
       <div>
         <Heading
           id="campaign-hero-default"
+          level="h4"
           size="heading6"
           text="Campaign Hero at Default Height"
         />
@@ -275,10 +381,40 @@ export const Campaign: Story = {
           imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
+        <Source
+          code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+          language="jsx"
+        />
       </div>
       <div>
         <Heading
           id="campaign-hero-long-text"
+          level="h4"
           size="heading6"
           text="Campaign Hero with Long Text"
         />
@@ -298,6 +434,61 @@ export const Campaign: Story = {
           subHeaderText={otherSubHeaderTextLong}
         />
       </div>
+      <Source
+        code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  subHeaderText={
+    <>
+      <Heading
+        level="h2"
+        size="heading3"
+        subtitle="Lorem Parturient Bibendum Aenean Cras"
+      >
+        Subheading
+      </Heading>
+      <Heading level="h3" noSpace size="heading6">
+        Subheading
+      </Heading>
+      <Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+        <Link href="https://www.nypl.org/locations/snfl/childrens">
+          The New York Public Library
+        </Link>{" "}
+        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
+        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        Aenean lacinia{" "}
+        <Link href="https://google.com" type="external">
+          Google
+        </Link>{" "}
+        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+        eu leo.
+      </Text>
+      <ButtonGroup>
+        <Button id="other-button-example-1">Button</Button>
+        <Button id="other-button-example-2" buttonType="secondary">
+          Button
+        </Button>
+      </ButtonGroup>
+    </>
+  }
+/>
+`}
+        language="jsx"
+      />
     </Stack>
   ),
 };
@@ -320,6 +511,36 @@ export const CampaignDarkBackgroundImage: Story = {
           subHeaderText={otherSubHeaderText}
         />
       </div>
+      <Source
+        code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+        language="jsx"
+      />
     </Stack>
   ),
 };
@@ -329,6 +550,7 @@ export const CampaignBackgroundColors: Story = {
       <div>
         <Heading
           id="campaign-hero-custom-background-color"
+          level="h4"
           size="heading6"
           text="Campaign Hero with backdrop background color"
         />
@@ -345,6 +567,36 @@ export const CampaignBackgroundColors: Story = {
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
         />
+        <Source
+          code={`
+<Hero
+  backdropBackgroundColor="section.research.primary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-long-text-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+          language="jsx"
+        />
       </div>
       <div>
         <Heading
@@ -355,11 +607,10 @@ export const CampaignBackgroundColors: Story = {
         <Hero
           backdropBackgroundColor="section.education.primary"
           backgroundColor="ui.warning.primary"
-          foregroundColor="ui.typgraphy.heading"
+          foregroundColor="ui.typography.heading"
           heroType="campaign"
           heading={
             <Heading
-              color="ui.typgraphy.heading"
               level="h1"
               id="campaign-hero-long-text-heading"
               text="Hero Campaign"
@@ -367,6 +618,174 @@ export const CampaignBackgroundColors: Story = {
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
+        />
+        <Source
+          code={`
+<Hero
+  backdropBackgroundColor="section.education.primary"
+  backgroundColor="ui.warning.primary"
+  foregroundColor="ui.typography.heading"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-long-text-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+          language="jsx"
+        />
+      </div>
+    </Stack>
+  ),
+};
+export const TextColorStyles: Story = {
+  render: () => (
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Default Colors"
+        />
+        <Hero
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-default"
+          size="heading6"
+          text="Campaign Hero with Custom Background and Text Colors"
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+          foregroundColor="ui.error.secondary"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          subHeaderText={otherSubHeaderText}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  foregroundColor="ui.error.secondary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="campaign-hero-long-text"
+          size="heading6"
+          text='Campaign Hero with Custom Background Color and "Dark" Text'
+        />
+        <Hero
+          backgroundColor="ui.status.primary"
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+          heroType="campaign"
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-long-text-heading"
+              overline="Example"
+              subtitle="Donec id elit non mi porta gravida at eget metus."
+              text="Hero Campaign"
+            />
+          }
+          imageProps={imageProps}
+          isDarkBackgroundImage
+          isDarkText
+          subHeaderText={otherSubHeaderTextLong}
+        />
+        <Source
+          code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  isDarkText
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+          language="jsx"
         />
       </div>
     </Stack>
@@ -418,77 +837,14 @@ export const CampaignFallbackImage: Story = {
 export const Secondary: Story = {
   name: "Secondary (deprecated)",
   render: () => (
-    <Hero
-      heading={
-        <Heading
-          level="h1"
-          id="secondary-hero"
-          size="heading2"
-          text="Hero Secondary (deprecated)"
-        />
-      }
-      heroType="secondary"
-      imageProps={imageProps}
-      subHeaderText={
-        <>
-          {secondarySubHeaderText} {deprecatedMessage}
-        </>
-      }
-    />
-  ),
-};
-
-export const FiftyFifty: Story = {
-  name: "FiftyFifty (deprecated)",
-  render: () => (
-    <Stack spacing="l">
-      <div>
-        <Heading
-          id="fiftyfifty-default"
-          overline="Deprecated"
-          text="FiftyFifty Hero at Default Height (deprecated)"
-        />
-        <Hero
-          heroType="fiftyFifty"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {otherSubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="fiftyfifty-long-text"
-          overline="Deprecated"
-          text="FiftyFifty Hero with Long Text (deprecated)"
-        />
-        <Hero
-          heroType="fiftyFifty"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {otherSubHeaderTextLong} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-    </Stack>
-  ),
-};
-export const ColorVariations: Story = {
-  name: "Color Variations for Secondary Hero",
-  render: () => (
-    <SimpleGrid columns={1}>
-      <Heading id="main-secondary-heading" text="secondary" />
+    <>
       <Hero
         heading={
           <Heading
             level="h1"
+            id="secondary-hero"
             size="heading2"
-            id="main-secondary-hero"
-            text="Secondary (deprecated)"
+            text="Hero Secondary (deprecated)"
           />
         }
         heroType="secondary"
@@ -499,78 +855,285 @@ export const ColorVariations: Story = {
           </>
         }
       />
-      <Heading id="books-heading" text="secondaryBooksAndMore" />
-      <Hero
-        heading={
-          <Heading
-            level="h1"
-            size="heading2"
-            id="books-hero"
-            text="Books and More (deprecated)"
-          />
-        }
-        heroType="secondaryBooksAndMore"
-        imageProps={imageProps}
-        subHeaderText={
-          <>
-            {secondarySubHeaderText} {deprecatedMessage}
-          </>
-        }
+      <Source
+        code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="secondary-hero"
+      size="heading2"
+      text="Hero Secondary (deprecated)"
+    />
+  }
+  heroType="secondary"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      Explore our <Link href="#">collection</Link> of hundreds of online resources
+      and databases. Use our free online content to help with your research,
+      whether it's finding a single article, tracing a family tree, learning a new
+      language, or anything in between.
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+        language="jsx"
       />
-      <Heading id="location-heading" text="secondaryLocations" />
-      <Hero
-        heading={
-          <Heading
-            level="h1"
-            size="heading2"
-            id="locations-hero"
-            text="Locations (deprecated)"
-          />
-        }
-        heroType="secondaryLocations"
-        imageProps={imageProps}
-        subHeaderText={
-          <>
-            {secondarySubHeaderText} {deprecatedMessage}
-          </>
-        }
-      />
-      <Heading id="research-heading" text="secondaryResearch" />
-      <Hero
-        heading={
-          <Heading
-            level="h1"
-            size="heading2"
-            id="research-hero"
-            text="Research (deprecated)"
-          />
-        }
-        heroType="secondaryResearch"
-        imageProps={imageProps}
-        subHeaderText={
-          <>
-            {secondarySubHeaderText} {deprecatedMessage}
-          </>
-        }
-      />
-      <Heading id="whats-on-heading" text="secondaryWhatsOn" />
-      <Hero
-        heading={
-          <Heading
-            level="h1"
-            size="heading2"
-            id="whats-on-hero"
-            text="What's On (deprecated)"
-          />
-        }
-        heroType="secondaryWhatsOn"
-        imageProps={imageProps}
-        subHeaderText={
-          <>
-            {secondarySubHeaderText} {deprecatedMessage}
-          </>
-        }
-      />
-    </SimpleGrid>
+    </>
+  ),
+};
+
+export const FiftyFifty: Story = {
+  name: "FiftyFifty (deprecated)",
+  render: () => (
+    <Stack spacing="l">
+      <div>
+        <Heading
+          id="fiftyfifty-default"
+          size="heading6"
+          text="FiftyFifty Hero at Default Height"
+        />
+        <Hero
+          heroType="fiftyFifty"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {otherSubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+        <Source
+          code={`
+<Hero
+  heroType="fiftyFifty"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      Explore our <Link href="#">collection</Link> of hundreds of online resources
+      and databases. Use our free online content to help with your research,
+      whether it's finding a single article, tracing a family tree, learning a new
+      language, or anything in between.
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+          language="jsx"
+        />
+      </div>
+      <div>
+        <Heading
+          id="fiftyfifty-long-text"
+          size="heading6"
+          text="FiftyFifty Hero with Long Text"
+        />
+        <Hero
+          heroType="fiftyFifty"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {otherSubHeaderTextLong} {deprecatedMessage}
+            </>
+          }
+        />
+        <Source
+          code={`
+<Hero
+  heroType="fiftyFifty"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      <Heading
+        level="h2"
+        size="heading3"
+        subtitle="Lorem Parturient Bibendum Aenean Cras"
+      >
+        Subheading
+      </Heading>
+      <Heading level="h3" noSpace size="heading6">
+        Subheading
+      </Heading>
+      <Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+        <Link href="https://www.nypl.org/locations/snfl/childrens">
+          The New York Public Library
+        </Link>{" "}
+        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
+        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        Aenean lacinia{" "}
+        <Link href="https://google.com" type="external">
+          Google
+        </Link>{" "}
+        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+        eu leo.
+      </Text>
+      <ButtonGroup>
+        <Button id="other-button-example-1">Button</Button>
+        <Button id="other-button-example-2" buttonType="secondary">
+          Button
+        </Button>
+      </ButtonGroup>
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+          language="jsx"
+        />
+      </div>
+    </Stack>
+  ),
+};
+export const ColorVariations: Story = {
+  name: "Color Variations for Secondary Hero",
+  render: () => (
+    <Stack mb="l" spacing="l">
+      <div>
+        <Heading
+          id="main-secondary-heading"
+          level="h4"
+          size="heading6"
+          text="secondary"
+        />
+        <Hero
+          heading={
+            <Heading
+              level="h1"
+              size="heading2"
+              id="main-secondary-hero"
+              text="Secondary (deprecated)"
+            />
+          }
+          heroType="secondary"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+      </div>
+      <div>
+        <Heading
+          id="books-heading"
+          level="h4"
+          size="heading6"
+          text="secondaryBooksAndMore"
+        />
+        <Hero
+          heading={
+            <Heading
+              level="h1"
+              size="heading2"
+              id="books-hero"
+              text="Books and More (deprecated)"
+            />
+          }
+          heroType="secondaryBooksAndMore"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+      </div>
+      <div>
+        <Heading
+          id="location-heading"
+          level="h4"
+          size="heading6"
+          text="secondaryLocations"
+        />
+        <Hero
+          heading={
+            <Heading
+              level="h1"
+              size="heading2"
+              id="locations-hero"
+              text="Locations (deprecated)"
+            />
+          }
+          heroType="secondaryLocations"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+      </div>
+      <div>
+        <Heading
+          id="research-heading"
+          level="h4"
+          size="heading6"
+          text="secondaryResearch"
+        />
+        <Hero
+          heading={
+            <Heading
+              level="h1"
+              size="heading2"
+              id="research-hero"
+              text="Research (deprecated)"
+            />
+          }
+          heroType="secondaryResearch"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+      </div>
+      <div>
+        <Heading
+          id="whats-on-heading"
+          level="h4"
+          size="heading6"
+          text="secondaryWhatsOn"
+        />
+        <Hero
+          heading={
+            <Heading
+              level="h1"
+              size="heading2"
+              id="whats-on-hero"
+              text="What's On (deprecated)"
+            />
+          }
+          heroType="secondaryWhatsOn"
+          imageProps={imageProps}
+          subHeaderText={
+            <>
+              {secondarySubHeaderText} {deprecatedMessage}
+            </>
+          }
+        />
+      </div>
+    </Stack>
   ),
 };

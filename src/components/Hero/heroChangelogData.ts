@@ -10,11 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prelease",
-    version: "Prelease",
+    date: "Prerelease",
+    version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
+      "Added the `isDarkText` prop.",
+      "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
       "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
     ],
   },
