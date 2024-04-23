@@ -13,9 +13,12 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
-      "Adds workaround to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.",
+        "Added the `isDarkText` prop.",
+        "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
+        "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
+        "Adds workaround to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.",
     ],
   },
   {

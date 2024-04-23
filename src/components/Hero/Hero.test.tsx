@@ -1,9 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 import Heading from "../Heading/Heading";
 import Hero from "./Hero";
+import { getLinkColor, getTextColor } from "../../theme/components/hero";
+import { getPlaceholderImage } from "../../utils/utils";
 
 export const subHeaderText = (
   <>
@@ -19,7 +21,7 @@ export const otherSubHeaderText =
   "Visit us today.";
 const imageProps = {
   alt: "Image example",
-  src: "//placekitten.com/800/400",
+  src: getPlaceholderImage("smaller", 0),
 };
 
 describe("Hero accessbility tests", () => {
@@ -29,7 +31,7 @@ describe("Hero accessbility tests", () => {
         heroType="primary"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -61,7 +63,7 @@ describe("Hero accessbility tests", () => {
   it("passes for type Campaign", async () => {
     const { container } = render(
       <Hero
-        backgroundImageSrc="//placekitten.com/g/2400/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="campaign"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Campaign" />}
         imageProps={imageProps}
@@ -90,7 +92,7 @@ describe("Hero", () => {
         heroType="primary"
         heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
-        backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
       />
     );
 
@@ -101,7 +103,7 @@ describe("Hero", () => {
     // browser, but not in the test environment and it's not clear why.
     // expect(screen.getByTestId("hero")).toHaveAttribute(
     //   "style",
-    //   "background-image: url(https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg);"
+    //   `background-image: url(${getPlaceholderImage("smaller", 0)});`
     // );
   });
 
@@ -122,7 +124,7 @@ describe("Hero", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "//placekitten.com/800/400"
+      getPlaceholderImage("smaller", 0)
     );
   });
 
@@ -143,7 +145,7 @@ describe("Hero", () => {
   it("renders Campaign Hero", () => {
     render(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="campaign"
         heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
         imageProps={imageProps}
@@ -156,12 +158,12 @@ describe("Hero", () => {
     // @TODO: This test needs to be rewritten to target a pseudo element.
     // expect(screen.getByTestId("hero")).toHaveAttribute(
     //   "style",
-    //   "background-image: url(//placekitten.com/1600/800);"
+    //   `background-image: url(${getPlaceholderImage("smaller", 0)};`
     // );
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "//placekitten.com/800/400"
+      getPlaceholderImage("smaller", 0)
     );
   });
 
@@ -178,7 +180,7 @@ describe("Hero", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "//placekitten.com/800/400"
+      getPlaceholderImage("smaller", 0)
     );
   });
 
@@ -193,7 +195,7 @@ describe("Hero", () => {
             text="Hero with Custom Colors"
           />
         }
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         foregroundColor="#123456"
         backgroundColor="#654321"
       />
@@ -242,7 +244,7 @@ describe("Hero", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="primary"
         imageProps={{ src: imageProps.src }}
       />
@@ -266,7 +268,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="primary"
         heading={heading}
         imageProps={imageProps}
@@ -299,7 +301,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="secondary"
         heading={heading}
         imageProps={imageProps}
@@ -361,7 +363,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
@@ -380,7 +382,7 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
-        backgroundImageSrc="//placekitten.com/g/2400/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="campaign"
         heading={heading}
         imageProps={imageProps}
@@ -413,7 +415,7 @@ describe("Hero", () => {
         heroType="campaign"
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="//placekitten.com/g/2400/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -458,6 +460,51 @@ describe("Hero", () => {
     );
   });
 
+  it("logs a warning if `foregroundColor` and `isDarkText` props are both passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        foregroundColor="ui.black"
+        heroType="campaign"
+        imageProps={imageProps}
+        isDarkBackgroundImage
+        isDarkText
+        subHeaderText={otherSubHeaderText}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
+        "have both been passed. Thse props can not be used at the same time, " +
+        "so the `foregroundColor` prop will override the `isDarkText` prop."
+    );
+  });
+
+  it("logs a warning when the main image fails to load and the fallback image is rendered", () => {
+    const warn = jest.spyOn(console, "warn");
+    const onError = jest.fn();
+
+    render(
+      <Hero
+        heroType="campaign"
+        imageProps={{
+          alt: "Custom NYPL",
+          src: "foo.jpg",
+          fallbackSrc: "//placekitten.com/800/400",
+          onError,
+        }}
+      />
+    );
+
+    fireEvent.error(screen.getByRole("img"));
+
+    expect(onError).toHaveBeenCalled();
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Image: The initial image failed to load in the " +
+        "browser. The fallback image source will now be used."
+    );
+  });
+
   it("renders FiftyFifty Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const { rerender } = render(
@@ -475,7 +522,7 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        backgroundImageSrc="//placekitten.com/g/2400/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="fiftyFifty"
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -494,7 +541,7 @@ describe("Hero", () => {
           heroType="primary"
           heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         />
       )
       .toJSON();
@@ -573,7 +620,7 @@ describe("Hero", () => {
     const campaign = renderer
       .create(
         <Hero
-          backgroundImageSrc="//placekitten.com/g/2400/800"
+          backgroundImageSrc={getPlaceholderImage("smaller", 0)}
           heroType="campaign"
           heading={
             <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
@@ -609,7 +656,7 @@ describe("Hero", () => {
           heroType="primary"
           heading={<Heading level="h1" id="chakra" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc={getPlaceholderImage("smaller", 0)}
           p="20px"
           color="ui.error.primary"
         />
@@ -621,7 +668,7 @@ describe("Hero", () => {
           heroType="primary"
           heading={<Heading level="h1" id="props" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="//placekitten.com/1600/800"
+          backgroundImageSrc={getPlaceholderImage("smaller", 0)}
           data-testid="props"
         />
       )
@@ -644,7 +691,7 @@ describe("Hero", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <Hero
-        backgroundImageSrc="//placekitten.com/1600/800"
+        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="primary"
         heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         ref={ref}
@@ -653,5 +700,116 @@ describe("Hero", () => {
     );
 
     expect(container.querySelector("div")).toBe(ref.current);
+  });
+});
+describe("Test getTextColor function (hero.ts)", () => {
+  let type, mode, foregroundColor, isDarkText;
+  it("returns foregroundColor", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = "brand.primary";
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+    type = "body";
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+  });
+  it("returns default heading text color", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.inverse.heading"
+    );
+  });
+  it("returns dark heading text color", () => {
+    type = "heading";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.heading"
+    );
+  });
+  it("returns default body text color", () => {
+    type = "body";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.inverse.body"
+    );
+  });
+  it("returns dark body text color", () => {
+    type = "body";
+    mode = "light";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getTextColor(type, mode, foregroundColor, isDarkText)).toBe(
+      "ui.typography.body"
+    );
+  });
+});
+describe("Test getLinkColor function (hero.ts)", () => {
+  let state, foregroundColor, isDarkText;
+  it("returns foregroundColor", () => {
+    state = "default";
+    foregroundColor = "brand.primary";
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "brand.primary"
+    );
+  });
+  it("returns default link color", () => {
+    state = "default";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.primary"
+    );
+  });
+  it("returns default dark text link color", () => {
+    state = "default";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-primary) !important"
+    );
+  });
+  it("returns hover link color", () => {
+    state = "hover";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.secondary"
+    );
+  });
+  it("returns dark text hover link color", () => {
+    state = "hover";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-secondary) !important"
+    );
+  });
+  it("returns visted link color", () => {
+    state = "visited";
+    foregroundColor = undefined;
+    isDarkText = false;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "dark.ui.link.tertiary"
+    );
+  });
+  it("returns dark text visted link color", () => {
+    state = "visited";
+    foregroundColor = undefined;
+    isDarkText = true;
+    expect(getLinkColor(state, foregroundColor, isDarkText)).toBe(
+      "var(--nypl-colors-ui-link-tertiary) !important"
+    );
   });
 });

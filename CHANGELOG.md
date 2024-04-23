@@ -12,6 +12,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds docs for `"Visited State Patterns"` to the `Link` component story page.
 - Adds the `ui.warning.tertiary` color token in order to have a light mode `"warning"` color option that meets the WCAG 2.1 AA color contrast standard.
+- Adds `fallbackSrc` and `onError` props to the `Image` component.
+- Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
+- Adds the `isDarkText` prop to the `Hero` component.
 
 ### Updates
 
@@ -19,6 +22,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background colors for the `"noBrand"` variant of the `Button` component.
 - Updates the hex values for the `ui.warning.primary` and `ui.warning.secondary` color tokens.
 - Updates the `Banner` and `StatusBadge` components to use the `ui.warning.tertiary` color for bertter accessibility in the `"warning"` variant.
+- Updates the styles for the UI colors, text treatment and `Clear all` button in the `TagSet` component.
+- Updates the component category for the `TagSet` component to `"Content Display"`.
+- Updates placeholder images on story pages and tests to use the `getPlaceholderImage` utility function which provides NYPL images.
 
 ### Fixes
 
@@ -35,6 +41,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `DatePicker`, `Select`, `Slider`, and `TextInput` components to reduce the spacing between the field label and the field itself from `"8px"` to `"2px"`.
+- Updates the `Hero` component with conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.
 
 ## 3.0.1 (March 28, 2024)
 
