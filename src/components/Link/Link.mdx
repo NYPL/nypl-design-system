@@ -22,6 +22,7 @@ import * as LinkStories from "./Link.stories";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#visited-state-patterns" target="_self">Visited State Patterns</Link>}
 - {<Link href="#all-link-types" target="_self">All Link Types</Link>}
 - {<Link href="#links-with-icons" target="_self">Links With Icons</Link>}
 - {<Link href="#anchor-element-rendering" target="_self">Anchor Element Rendering</Link>}
@@ -73,6 +74,38 @@ Resources:
 - [Yale Usability & Web Accessibility Links](https://usability.yale.edu/web-accessibility/articles/links)
 - [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
 - [IANA: Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+
+## Visited State Patterns
+
+To improve accessibility, the `Link` component by default will render `visited`
+state styles when a link's `href` value matches an entry in a browser's history
+log. In simple terms, a text link will be purple after a user has clicked on it.
+
+The `visited` state styles are most relevant for links within a standard block
+of text, but the `visited` state color change may not be applicable for all
+links. For example, links in main navigation areas (i.e. header or footer) or
+links in a list format may be more effective with standardized styles and
+consistent color throughout.
+
+In cases where the `visited` state styles are not appropriate, the `Link`
+component's `hasVisitedState` prop should be set to `false`. When this is done,
+the `Link` component will not render the default purple `visited` state color
+after a user has clicked on a text link. Rather, the `Link` component will use
+the default NYPL link blue or whatever custom color has been applied to the
+component.
+
+<Source
+  code={`
+<Link
+  hasVisitedState={false}
+  href="https://nypl.org"
+  type="action"
+>
+  NYPL Website
+</Link>
+`}
+  language="jsx"
+/>
 
 ## All Link Types
 

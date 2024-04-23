@@ -18,6 +18,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -79,6 +80,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -140,6 +142,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -201,6 +204,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -262,6 +266,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -323,6 +328,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
         <img
           alt="Image example"
           className="css-0"
+          onError={[Function]}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>

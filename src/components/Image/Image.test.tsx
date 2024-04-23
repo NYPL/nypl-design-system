@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -91,6 +91,28 @@ describe("Image", () => {
       render(<Image src="test.png" alt={tooManyChars} />)
     ).toThrowError(
       "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    );
+  });
+
+  it("logs an error when the image fails to load and calls the onError prop", async () => {
+    const warn = jest.spyOn(console, "warn");
+    const onError = jest.fn();
+
+    render(
+      <Image
+        alt="Alt text"
+        fallbackSrc={getPlaceholderImage()}
+        onError={onError}
+        src="foobar.jpg"
+      />
+    );
+
+    fireEvent.error(screen.getByRole("img"));
+
+    expect(onError).toHaveBeenCalled();
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Image: The initial image failed to load in the " +
+        "browser. The fallback image source will now be used."
     );
   });
 

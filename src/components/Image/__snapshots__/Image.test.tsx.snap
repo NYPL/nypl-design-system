@@ -7,6 +7,7 @@ exports[`Image Renders the UI snapshot correctly 1`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -22,6 +23,7 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
     <img
       alt=""
       className="css-0"
+      onError={[Function]}
       src="test.png"
     />
     <figcaption
@@ -56,6 +58,7 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
     <img
       alt=""
       className="css-0"
+      onError={[Function]}
       src="test.png"
     />
     <figcaption
@@ -90,6 +93,7 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
     <img
       alt=""
       className="css-0"
+      onError={[Function]}
       src="test.png"
     />
     <figcaption
@@ -135,6 +139,7 @@ exports[`Image Renders the UI snapshot correctly 5`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -147,6 +152,7 @@ exports[`Image Renders the UI snapshot correctly 6`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -159,6 +165,7 @@ exports[`Image Renders the UI snapshot correctly 7`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -171,6 +178,7 @@ exports[`Image Renders the UI snapshot correctly 8`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -183,6 +191,7 @@ exports[`Image Renders the UI snapshot correctly 9`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -195,6 +204,7 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -213,6 +223,7 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -233,6 +244,7 @@ exports[`Image Renders the UI snapshot correctly 12`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -247,6 +259,7 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
   <img
     alt=""
     className="css-0"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -265,6 +278,7 @@ exports[`Image Renders the UI snapshot correctly 14`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -285,6 +299,7 @@ exports[`Image Renders the UI snapshot correctly 15`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -305,6 +320,7 @@ exports[`Image Renders the UI snapshot correctly 16`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -325,6 +341,7 @@ exports[`Image Renders the UI snapshot correctly 17`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -345,6 +362,7 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -365,6 +383,7 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
       <img
         alt=""
         className="css-0"
+        onError={[Function]}
         src="test.png"
       />
     </div>
@@ -379,6 +398,7 @@ exports[`Image Renders the UI snapshot correctly 20`] = `
   <img
     alt=""
     className="css-qvgr6z"
+    onError={[Function]}
     src="test.png"
   />
 </div>
@@ -392,6 +412,7 @@ exports[`Image Renders the UI snapshot correctly 21`] = `
     alt=""
     className="css-0"
     data-testid="image"
+    onError={[Function]}
     src="test.png"
   />
 </div>
