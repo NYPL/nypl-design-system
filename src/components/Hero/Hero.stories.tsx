@@ -226,7 +226,7 @@ export const Primary: Story = {
       <Source
         code={`
 <Hero
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heading={
     <Heading
       id="primary-hero"
@@ -384,7 +384,7 @@ export const Campaign: Story = {
         <Source
           code={`
 <Hero
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heroType="campaign"
   heading={
     <Heading
@@ -395,7 +395,7 @@ export const Campaign: Story = {
   }
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   subHeaderText={
     <>
@@ -437,7 +437,7 @@ export const Campaign: Story = {
       <Source
         code={`
 <Hero
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heroType="campaign"
   heading={
     <Heading
@@ -448,7 +448,7 @@ export const Campaign: Story = {
   }
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   subHeaderText={
     <>
@@ -514,7 +514,7 @@ export const CampaignDarkBackgroundImage: Story = {
       <Source
         code={`
 <Hero
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heroType="campaign"
   heading={
     <Heading
@@ -525,7 +525,7 @@ export const CampaignDarkBackgroundImage: Story = {
   }
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={
@@ -581,7 +581,7 @@ export const CampaignBackgroundColors: Story = {
   }
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={
@@ -635,7 +635,7 @@ export const CampaignBackgroundColors: Story = {
   }
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={
@@ -665,7 +665,7 @@ export const TextColorStyles: Story = {
           text="Campaign Hero with Default Colors"
         />
         <Hero
-          backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
           heroType="campaign"
           heading={
             <Heading
@@ -681,7 +681,7 @@ export const TextColorStyles: Story = {
         <Source
           code={`
 <Hero
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heroType="campaign"
   heading={
     <Heading
@@ -706,7 +706,7 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundColor="ui.status.primary"
-          backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
           foregroundColor="ui.error.secondary"
           heroType="campaign"
           heading={
@@ -724,7 +724,7 @@ export const TextColorStyles: Story = {
           code={`
 <Hero
   backgroundColor="ui.status.primary"
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   foregroundColor="ui.error.secondary"
   heroType="campaign"
   heading={
@@ -750,7 +750,7 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundColor="ui.status.primary"
-          backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+          backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
           heroType="campaign"
           heading={
             <Heading
@@ -770,7 +770,7 @@ export const TextColorStyles: Story = {
           code={`
 <Hero
   backgroundColor="ui.status.primary"
-  backgroundImageSrc="//loremflickr.com/1600/800/new+york+public+library"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   heroType="campaign"
   heading={
     <Heading
@@ -869,7 +869,7 @@ export const Secondary: Story = {
   heroType="secondary"
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={
@@ -916,7 +916,7 @@ export const FiftyFifty: Story = {
   heroType="fiftyFifty"
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={
@@ -956,7 +956,7 @@ export const FiftyFifty: Story = {
   heroType="fiftyFifty"
   imageProps={
     alt: "Image example",
-    src: "//loremflickr.com/800/400/new+york+public+library",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
   }
   isDarkBackgroundImage
   subHeaderText={

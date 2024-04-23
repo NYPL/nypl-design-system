@@ -311,11 +311,11 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   }
 >
   <div
-    className="css-1hb2y12"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "bgColor": "dark.ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >

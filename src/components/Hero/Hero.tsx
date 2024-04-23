@@ -191,7 +191,7 @@ export const Hero: ChakraComponent<
         primary: useColorModeValue("ui.black", "dark.ui.bg.default"),
         secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
-        campaign: useColorModeValue("dark.ui.bg.default", "dark.ui.bg.default"),
+        campaign: useColorModeValue("ui.black", "dark.ui.bg.default"),
         campaignBackdrop: useColorModeValue(
           "dark.ui.bg.active",
           "dark.ui.bg.active"
