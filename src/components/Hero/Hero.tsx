@@ -180,7 +180,7 @@ export const Hero: ChakraComponent<
        * into the component file and the related styles for all variants, other
        * than the "secondary" variant, were removed from the theme file. */
       const allDefaultBackgroundColors = {
-        primary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
+        primary: useColorModeValue("ui.black", "dark.ui.bg.default"),
         secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
         campaign: useColorModeValue("dark.ui.bg.default", "dark.ui.bg.default"),
