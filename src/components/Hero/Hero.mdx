@@ -57,14 +57,14 @@ properties, the `imageProps` prop should be used:
 <Source
   code={`
 <Hero
-  backgroundImageSrc="https://placekitten.com/g/2400/800"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_243025&t=w"
   heroType="campaign"
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
     fallbackSrc: "https://images.nypl.org/index.php?id=swope_244712&t=w",
     onError: (_event) => console.log("Image failed to load") },
-    src: "https://placekitten.com/800/400",
+    src: "https://images.nypl.org/index.php?id=swope_243048&t=w",
   }}
   subHeaderText="Campaign Hero Subheader Text"
 />
@@ -140,25 +140,6 @@ be converted to black & white and darkened to 60% black.
 The "backdrop" is what we call the background and that can be set through either
 the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
 the `backgroundImageSrc` will take precedence.
-
-<Source
-  code={`
-backdropBackgroundColor="section.education.primary"
-backgroundColor="ui.warning.primary"
-foregroundColor="ui.typgraphy.heading"
-heading={
-  <Heading 
-    color="ui.typgraphy.heading" 
-    level="h1" 
-    id="campaign-hero" 
-    text="Hero Campaign" 
-  />
-}
-imageProps={imageProps}
-subHeaderText={otherSubHeaderText}
-`}
-  language="jsx"
-/>
 
 <Story of={HeroStories.CampaignBackgroundColors} />
 

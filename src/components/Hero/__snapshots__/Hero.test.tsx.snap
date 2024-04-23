@@ -2,22 +2,22 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-svxhxl"
+  className="css-wf0vcb"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
+      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "bgColor": "ui.black",
     }
   }
 >
   <div
-    className="css-b2u002"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "bgColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >
@@ -57,7 +57,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -97,7 +97,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -137,7 +137,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -177,7 +177,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -217,7 +217,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -266,14 +266,14 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-gl44ej"
+  className="css-s8dbws"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "_after": {
         "backgroundBlendMode": null,
-        "backgroundImage": "url(//placekitten.com/g/2400/800)",
+        "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
         "backgroundPosition": "center",
         "backgroundSize": "cover",
         "content": """",
@@ -320,7 +320,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-13ydskf"
     >
       <div
         className="css-0"
@@ -329,7 +329,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -364,7 +364,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-13ydskf"
     >
       <div
         className="css-0"
@@ -373,7 +373,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
           alt="Image example"
           className="css-0"
           onError={[Function]}
-          src="//placekitten.com/800/400"
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -388,22 +388,22 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-svxhxl"
+  className="css-wf0vcb"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
+      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "bgColor": "ui.black",
     }
   }
 >
   <div
-    className="css-b2u002"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "bgColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >
@@ -424,22 +424,22 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-svxhxl"
+  className="css-wf0vcb"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
+      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "bgColor": "ui.black",
     }
   }
 >
   <div
-    className="css-b2u002"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "bgColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >

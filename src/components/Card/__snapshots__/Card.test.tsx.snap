@@ -15,7 +15,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/400/200"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -65,7 +65,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/300/400"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -165,7 +165,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/300/400"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -211,7 +211,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/300/400"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -392,7 +392,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/400/200"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -447,7 +447,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/400/200"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -509,7 +509,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/400/200"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -560,7 +560,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
         alt="Alt text"
         className="css-0"
         onError={[Function]}
-        src="//placekitten.com/400/200"
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>

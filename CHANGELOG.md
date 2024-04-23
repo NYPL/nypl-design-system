@@ -22,6 +22,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background colors for the `"noBrand"` variant of the `Button` component.
 - Updates the hex values for the `ui.warning.primary` and `ui.warning.secondary` color tokens.
 - Updates the `Banner` and `StatusBadge` components to use the `ui.warning.tertiary` color for bertter accessibility in the `"warning"` variant.
+- Updates the styles for the UI colors, text treatment and `Clear all` button in the `TagSet` component.
+- Updates the component category for the `TagSet` component to `"Content Display"`.
+- Updates placeholder images on story pages and tests to use the `getPlaceholderImage` utility function which provides NYPL images.
 
 ## 3.1.0 (April 11, 2024)
 
