@@ -370,7 +370,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+          backgroundImageSrc={getPlaceholderImage()}
           heroType="campaign"
           heading={
             <Heading
@@ -510,7 +510,10 @@ export const CampaignDarkBackgroundImage: Story = {
               text="Hero Campaign"
             />
           }
-          imageProps={imageProps}
+          imageProps={{
+            alt: "Image example",
+            src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
+          }}
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
         />
@@ -799,9 +802,7 @@ export const TextColorStyles: Story = {
 const CampaignFallBackExample = () => {
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
   const fallbackImageSrc =
-    "https://images.nypl.org/index.php?id=swope_244712&t=w";
-  // For some reason IIIF image as fallback does not work...
-  // const fallbackImageSrc = "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
+    "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
 
   return (
     <Stack spacing="l">

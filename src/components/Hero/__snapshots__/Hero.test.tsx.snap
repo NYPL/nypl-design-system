@@ -2,15 +2,9 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-      "bgColor": "ui.black",
-    }
-  }
 >
   <div
     className="css-24mlj5"
@@ -38,7 +32,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -263,7 +257,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-14tngpx"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -291,49 +285,9 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-0"
+  className="css-x5wp36"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "_after": {
-        "backgroundBlendMode": null,
-        "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-        "backgroundPosition": "center",
-        "backgroundSize": "cover",
-        "content": """",
-        "height": {
-          "base": "100%",
-          "md": "calc(100% - var(--nypl-space-xl))",
-        },
-        "minHeight": "300px",
-        "opacity": "1.0",
-        "paddingBottom": {
-          "base": "0",
-          "md": "xl",
-        },
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      },
-      "_before": {
-        "bgColor": "ui.black",
-        "content": """",
-        "height": {
-          "base": "100%",
-          "md": "calc(100% - var(--nypl-space-xl))",
-        },
-        "minHeight": "300px",
-        "paddingBottom": {
-          "base": "0",
-          "md": "xl",
-        },
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      },
-    }
-  }
 >
   <div
     className="css-24mlj5"
@@ -380,7 +334,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-0"
+  className="css-b2u002"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -423,15 +377,9 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-0"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-      "bgColor": "ui.black",
-    }
-  }
 >
   <div
     className="css-24mlj5"
@@ -459,15 +407,9 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-0"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-      "bgColor": "ui.black",
-    }
-  }
 >
   <div
     className="css-24mlj5"

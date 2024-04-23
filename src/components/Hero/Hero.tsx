@@ -351,8 +351,8 @@ export const Hero: ChakraComponent<
           ref={ref}
           __css={{
             ...styles.base,
+            ...backgroundImageStyle,
           }}
-          style={backgroundImageSrc ? backgroundImageStyle : undefined}
         >
           <Box
             data-testid="hero-content"
