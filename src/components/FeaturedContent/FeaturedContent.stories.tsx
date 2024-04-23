@@ -125,7 +125,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: getPlaceholderImage(),
+          src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
         }}
       />
       <FeaturedContent
@@ -148,7 +148,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: getPlaceholderImage(),
+          src: "https://iiif.nypl.org/iiif/2/5131004/full/!900,900/0/default.jpg",
         }}
       />
     </SimpleGrid>

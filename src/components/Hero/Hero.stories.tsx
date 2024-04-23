@@ -205,12 +205,13 @@ export const WithControls: Story = {
   },
 };
 
+// https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg
 // The following are additional Accordion example Stories.
 export const Primary: Story = {
   render: () => (
     <>
       <Hero
-        backgroundImageSrc={getPlaceholderImage()}
+        backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
         heading={
           <Heading
             id="primary-hero"
@@ -369,7 +370,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc={getPlaceholderImage()}
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           heroType="campaign"
           heading={
             <Heading
@@ -378,7 +379,10 @@ export const Campaign: Story = {
               text="Hero Campaign"
             />
           }
-          imageProps={imageProps}
+          imageProps={{
+            alt: "",
+            src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
+          }}
           subHeaderText={otherSubHeaderText}
         />
         <Source
@@ -497,7 +501,7 @@ export const CampaignDarkBackgroundImage: Story = {
     <Stack spacing="l">
       <div>
         <Hero
-          backgroundImageSrc={getPlaceholderImage()}
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           heroType="campaign"
           heading={
             <Heading

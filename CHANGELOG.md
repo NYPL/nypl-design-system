@@ -26,6 +26,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the component category for the `TagSet` component to `"Content Display"`.
 - Updates placeholder images on story pages and tests to use the `getPlaceholderImage` utility function which provides NYPL images.
 
+### Fixes
+
+- Adds workaround to `Hero` and `FeaturedContent` to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.
+
 ## 3.1.0 (April 11, 2024)
 
 ### Adds

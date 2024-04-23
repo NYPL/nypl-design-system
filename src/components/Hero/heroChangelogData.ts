@@ -15,9 +15,10 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Functionality", "Styles"],
     notes: [
-      "Added the `isDarkText` prop.",
-      "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
-      "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
+        "Added the `isDarkText` prop.",
+        "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
+        "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
+        "Adds workaround to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.",
     ],
   },
   {

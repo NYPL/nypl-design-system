@@ -2,12 +2,12 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-wf0vcb"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
       "bgColor": "ui.black",
     }
   }
@@ -38,7 +38,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-b2u002"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -49,6 +49,11 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -89,6 +94,11 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -129,6 +139,11 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -169,6 +184,11 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -209,6 +229,11 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -238,7 +263,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
 
 exports[`Hero Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-14tngpx"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -266,14 +291,14 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-s8dbws"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
       "_after": {
         "backgroundBlendMode": null,
-        "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+        "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
         "backgroundPosition": "center",
         "backgroundSize": "cover",
         "content": """",
@@ -320,7 +345,12 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     }
   >
     <div
-      className="css-13ydskf"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -350,7 +380,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 
 exports[`Hero Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-b2u002"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
 >
@@ -364,7 +394,12 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
     }
   >
     <div
-      className="css-13ydskf"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -388,12 +423,12 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-wf0vcb"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
       "bgColor": "ui.black",
     }
   }
@@ -424,12 +459,12 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-wf0vcb"
+  className="css-0"
   data-responsive-background-image={true}
   data-testid="hero"
   style={
     {
-      "backgroundImage": "url(https://images.nypl.org/index.php?id=swope_243048&t=r)",
+      "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
       "bgColor": "ui.black",
     }
   }

@@ -9,7 +9,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -71,7 +71,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -133,7 +133,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -195,7 +195,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -257,7 +257,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -319,7 +319,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
     className="css-0"
   >
     <div
-      className="css-13ydskf"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
