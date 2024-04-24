@@ -107,13 +107,16 @@ export const FeaturedContent: ChakraComponent<
                 ...styles.imgWrapper,
                 backgroundImage: `/**/url(${imageProps.src})`,
               }}
+              data-image
             >
               <FeaturedContentImage
                 alt={imageProps.alt}
                 src={imageProps.src ? imageProps.src : undefined}
               />
             </Box>
-            <Box __css={styles.text}>{textContent}</Box>
+            <Box __css={styles.text} data-text>
+              {textContent}
+            </Box>
           </Box>
         </Box>
       );
