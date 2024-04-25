@@ -45,8 +45,9 @@ const statusPrimary = "#F9E08E";
 const statusSecondary = "#FBE7E1";
 const successPrimary = "#077719";
 const successSecondary = "#095212";
-const warningPrimary = "#F0974E";
-const warningSecondary = "#EC7B1F";
+const warningPrimary = "#F88820";
+const warningSecondary = "#E36D17";
+const warningTertiary = "#CD4D05";
 const errorPrimaryDark = "#E1767B";
 const errorSecondaryDark = "#F08F93";
 const linkPrimaryDark = "#79B7EB";
@@ -250,6 +251,7 @@ const colors: Colors = {
       "primary-05": hexToRGB(warningPrimary, 0.05),
       "primary-10": hexToRGB(warningPrimary, 0.1),
       secondary: warningSecondary,
+      tertiary: warningTertiary,
     },
     // Semantic colors
     bg: {
