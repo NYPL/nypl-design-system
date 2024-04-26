@@ -5,6 +5,7 @@ import Card, { CardHeading, CardContent } from "../Card/Card";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
 import Image from "../Image/Image";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof SimpleGrid> = {
   title: "Components/Page Layout/SimpleGrid",
@@ -50,7 +51,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/220",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -65,7 +66,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/220",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -80,7 +81,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/240",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -95,7 +96,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/260",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -110,7 +111,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/320",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -125,7 +126,7 @@ export const WithControls: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/300",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" size="heading6">
@@ -156,24 +157,24 @@ export const IconExample: Story = {
 export const ImageExample: Story = {
   render: () => (
     <SimpleGrid columns={6}>
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
-      <Image src="//placekitten.com/300/300" alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
+      <Image src={getPlaceholderImage("smaller")} alt="" />
     </SimpleGrid>
   ),
 };
@@ -185,7 +186,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered
@@ -204,7 +205,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/410/210",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered
@@ -223,7 +224,7 @@ export const CardExample: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "fourByThree",
-          src: "//placekitten.com/320/320",
+          src: getPlaceholderImage("smaller"),
         }}
         isBordered
         isCentered

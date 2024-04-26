@@ -11,6 +11,7 @@ import { Button } from "../Button/Button";
 import { Icon } from "../Icons/Icon";
 import { Image } from "../Image/Image";
 import { Tooltip, TooltipProps } from "./Tooltip";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const buttonLabel = "Hover me";
 const tooltipContent =
@@ -39,7 +40,9 @@ describe("Tooltip accessibility", () => {
 
   it("passes axe accessibility test with Image content", async () => {
     render(
-      <Tooltip content={<Image src="//placekitten.com/300/300" alt="" />}>
+      <Tooltip
+        content={<Image src={getPlaceholderImage("smaller", 0)} alt="" />}
+      >
         {buttonLabel}
       </Tooltip>
     );

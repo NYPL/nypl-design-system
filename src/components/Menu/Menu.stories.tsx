@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Menu, { ListItemsData } from "./Menu";
 import { sectionTypeArray } from "../../helpers/types";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
@@ -98,7 +99,11 @@ const imageListItems: ListItemsData[] = [
     type: "action",
     id: "item-title-1",
     label: "I'm item 1",
-    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
     onClick: () => {
       console.log("Item Title 1 clicked");
     },
@@ -107,7 +112,11 @@ const imageListItems: ListItemsData[] = [
     type: "action",
     id: "item-title-2",
     label: "I'm item 2",
-    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
     onClick: () => {
       console.log("Item Title 2 clicked");
     },
@@ -116,7 +125,11 @@ const imageListItems: ListItemsData[] = [
     type: "action",
     id: "item-title-3",
     label: "I'm item 3",
-    media: { type: "image", src: "//placekitten.com/300/300", alt: "" },
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
     onClick: () => {
       console.log("Item Title 3 clicked");
     },

@@ -18,20 +18,22 @@ interface CustomLinkStyleProps extends StyleFunctionProps {
   hasVisitedState: boolean;
 }
 
-export const baseLinkStyles = {
-  color: "ui.link.primary",
+export const linkUnderlineStyles = {
   textDecoration: "underline",
   textDecorationStyle: "dotted",
   textDecorationThickness: "1px",
+};
+
+export const baseLinkStyles = {
+  color: "ui.link.primary",
   textUnderlineOffset: "2px",
+  ...linkUnderlineStyles,
   _dark: {
     color: "dark.ui.link.primary",
   },
   _hover: {
     color: "ui.link.secondary",
-    textDecoration: "underline",
-    textDecorationStyle: "dotted",
-    textDecorationThickness: "1px",
+    ...linkUnderlineStyles,
     // The dark mode hover color is not being picked up properly down stream, so
     // it is being explicitly added here.
     _dark: {
