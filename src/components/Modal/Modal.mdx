@@ -25,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#confirm-cancel-variant" target="_self">Confirm/Cancel Variant</Link>}
 - {<Link href="#default-heading-text" target="_self">Default Heading Text</Link>}
 - {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
@@ -222,6 +223,57 @@ export const ModalStory = (args) => {
 <Canvas of={ModalStories.useModalStory} />
 
 <ArgTypes of={ModalStories.useModalStory} />
+
+## Confirm Cancel Variant
+
+The "confirmCancel" `Modal` variant is used when the modal can confirm or revoke the modal's content. Accordingly, there are two buttons
+in the footer instead of the one in the default modal. Each button has its own custom function (`onCancel`, `onConfirm`) that will close the modal.
+The X button in the upper right will call the `onCancel` function.
+
+Notes:
+
+- The `onConfirm`, `onCancel`, `confirmButtonLabel`, and `type` props are required for this variant
+- The `onClose` prop should not be passed when using the `ModalTrigger`– `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally
+- If using `useModal` hook, not the `ModalTrigger`, pass the `onClose` function from the hook to `onCancel` and `onConfirm`
+
+<Source
+  code={`
+// Example for the confirmCancel variant.
+modalProps={{
+  type: "confirmCancel",
+  bodyContent: "The action is happening",
+  cancelButtonLabel: "Cancel action",
+  confirmButtonLabel: "Confirm action",
+  onCancel: () => {
+    console.log("Custom cancel");
+  },
+  onConfirm: () => {
+    console.log("Custom confirm");
+  },
+  headingText: (
+    <Heading
+      level="h3"
+      display="flex"
+      alignItems="center"
+      gap="xs"
+      size="heading5"
+    >
+      <>
+        <Icon
+          color="ui.success.primary"
+          name="actionCheckCircleFilled"
+          size="large"
+        />
+        This is an action
+      </>
+    </Heading>
+  ),
+}}
+`}
+  language="jsx"
+/>
+
+<Canvas of={ModalStories.ConfirmCancelVariant} />
 
 ## Default Heading Text
 

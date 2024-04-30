@@ -119,6 +119,45 @@ describe("ModalTrigger", () => {
     );
   });
 
+  it("renders the confirm/cancel variant", async () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          type: "confirmCancel",
+          bodyContent: "body text",
+          closeButtonLabel: "Cancel Button",
+          confirmButtonLabel: "Confirm Button",
+          headingText: <Heading level="h3">Confirm/Cancel</Heading>,
+          onCancel: () => {
+            console.log("custom cancel");
+          },
+          onConfirm: () => {
+            console.log("custom confirm");
+          },
+        }}
+      />
+    );
+
+    let cancelButton = screen.queryByText("Cancel Button");
+    expect(cancelButton).not.toBeInTheDocument();
+    let confirmButton = screen.queryByText("Confirm Button");
+    expect(confirmButton).not.toBeInTheDocument();
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
+      "Confirm/Cancel"
+    );
+
+    cancelButton = screen.queryByText("Cancel Button");
+    expect(cancelButton).toBeInTheDocument();
+    confirmButton = screen.queryByText("Confirm Button");
+    expect(confirmButton).toBeInTheDocument();
+  });
+
   it("renders default heading with expected size", () => {
     render(
       <ModalTrigger
