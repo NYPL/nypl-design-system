@@ -37,7 +37,6 @@ export const WithControls: Story = {
     buttonText: "Button Text",
     id: "modal-trigger",
     modalProps: {
-      type: "default",
       bodyContent: "body text",
       closeButtonLabel: "Close Button",
       headingText: (
@@ -115,8 +114,11 @@ const ModalStory = () => {
 export const useModalStory: Story = {
   argTypes: {
     type: {
-      control: { type: "default" || "confirmCancel" },
-      description: "Modal variants: default or confirmCancel.",
+      options: ["default", "confirmation"],
+      table: {
+        defaultValue: { summary: "default" },
+      },
+      description: "Modal variants: default or confirmation.",
     },
     buttonText: { table: { disable: true } },
     bodyContent: {
