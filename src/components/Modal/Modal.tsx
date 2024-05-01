@@ -77,7 +77,7 @@ export interface ModalProps {
   modalProps: BaseModalProps;
 }
 
-// Type guard so we can make sure we have a two button `Modal` variant.
+// Type guard for the `Modal` variant.
 export function isDefaultType(type: BaseModalProps["type"]): type is "default" {
   return type === "default";
 }
