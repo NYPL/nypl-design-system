@@ -119,17 +119,17 @@ describe("ModalTrigger", () => {
     );
   });
 
-  it("renders the confirm/cancel variant", async () => {
+  it("renders the confirmation variant", async () => {
     render(
       <ModalTrigger
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "confirmCancel",
+          type: "confirmation",
           bodyContent: "body text",
           closeButtonLabel: "Cancel Button",
           confirmButtonLabel: "Confirm Button",
-          headingText: <Heading level="h3">Confirm/Cancel</Heading>,
+          headingText: <Heading level="h3">Confirmation</Heading>,
           onCancel: () => {
             console.log("custom cancel");
           },
@@ -149,7 +149,7 @@ describe("ModalTrigger", () => {
     openButton.click();
 
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
-      "Confirm/Cancel"
+      "Confirmation"
     );
 
     cancelButton = screen.queryByText("Cancel Button");

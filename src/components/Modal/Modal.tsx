@@ -27,7 +27,7 @@ export interface BaseProps {
   isOpen?: boolean;
 }
 
-export interface ConfirmCancelModalProps {
+export interface ConfirmationModalProps {
   /** The label for the confirm button. */
   confirmButtonLabel?: string;
   /* Function to call when the modal action is canceled. */
@@ -41,7 +41,7 @@ export interface ConfirmCancelModalProps {
   used in the two button variant. */
   onClose?: never;
   /** The `Modal` variant to render. */
-  type: "confirmCancel";
+  type: "confirmation";
 }
 
 export interface DefaultModalProps {
@@ -63,7 +63,7 @@ export interface DefaultModalProps {
 }
 
 // We want either the default one button or the two button props.
-export type ModalTypeProps = ConfirmCancelModalProps | DefaultModalProps;
+export type ModalTypeProps = ConfirmationModalProps | DefaultModalProps;
 // And here combine the special types with the base props.
 export type BaseModalProps = BaseProps & ModalTypeProps;
 
@@ -112,6 +112,15 @@ export const BaseModal: ChakraComponent<
       id,
       headingSize: "heading4",
     });
+
+    if (
+      (!isDefaultType(type) && onClose) ||
+      (isDefaultType(type) && (onCancel || onConfirm))
+    ) {
+      console.warn(
+        "NYPL Reservoir Modal: The `onClose`, `onConfirm`, and `onCancel` props have all been set, but they can not all be used together. Only `onClose` will be used, while `onConfirm` and `onCancel` will be ignored."
+      );
+    }
 
     return (
       <>

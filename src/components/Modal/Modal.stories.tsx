@@ -243,8 +243,8 @@ const defaultHeadingModalProps: BaseModalProps = {
   headingText: "Default Heading",
 };
 
-const confirmCancelProps: BaseModalProps = {
-  type: "confirmCancel",
+const confirmationProps: BaseModalProps = {
+  type: "confirmation",
   bodyContent: <p>The action is happening</p>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",
@@ -257,12 +257,12 @@ const confirmCancelProps: BaseModalProps = {
   headingText: "This is an action",
 };
 
-export const ConfirmCancelVariant: Story = {
+export const ConfirmationVariant: Story = {
   render: () => (
     <ModalTrigger
-      buttonText="Confirm or cancel"
-      id="modal-confirm-cancel"
-      modalProps={confirmCancelProps}
+      buttonText="Confirm"
+      id="modal-confirmation"
+      modalProps={confirmationProps}
     />
   ),
 };
