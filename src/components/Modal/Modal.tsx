@@ -34,14 +34,14 @@ export interface ConfirmationModalProps {
   onCancel: () => void;
   /* Function to call when the modal action is confirmed. */
   onConfirm: () => void;
-  /** The label for the close button. This prop is used for the
-   * "cancel" button in the confirm/cancel variant. */
-  closeButtonLabel?: string;
-  /* Function to call when the modal is closed. This prop is not 
-  used in the two button variant. */
-  onClose?: never;
   /** The `Modal` variant to render. */
   type: "confirmation";
+  /** The label for the close button. This prop is used for the
+   * "cancel" button in the confirmation variant. */
+  closeButtonLabel?: string;
+  /* Function to call when the modal is closed. This prop is not 
+  used in the confirmation variant. */
+  onClose?: never;
 }
 
 export interface DefaultModalProps {
