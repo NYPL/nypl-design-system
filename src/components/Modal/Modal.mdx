@@ -233,8 +233,9 @@ The X button in the upper right will call the `onCancel` function.
 Notes:
 
 - The `onConfirm`, `onCancel`, `confirmButtonLabel`, and `type` props are required for this variant
-- The `onClose` prop should not be passed when using the `ModalTrigger`– `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally
-- If using `useModal` hook, not the `ModalTrigger`, pass the `onClose` function from the hook to `onCancel` and `onConfirm`
+- The `onClose` prop should never be passed with `onConfirm` and `onCancel`
+- When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally
+- When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`
 
 <Source
   code={`
