@@ -217,6 +217,7 @@ export const SearchBar: React.FC<any> = chakra(
         invalidText={invalidText}
         isInvalid={isInvalid}
         ref={ref}
+        sx={{ containerType: "inline-size" }}
         {...rest}
       >
         <Box
