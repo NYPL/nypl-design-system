@@ -15,6 +15,7 @@ describe("Modal Accessibility", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
+          type: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -31,6 +32,7 @@ describe("Modal Accessibility", () => {
     const { result } = renderHook(() => useModal());
     const { onClose, onOpen, Modal } = result.current;
     const modalProps = {
+      type: "default",
       bodyContent: (
         <>
           <Button id="custom-close" onClick={onClose}>
@@ -67,6 +69,7 @@ describe("ModalTrigger", () => {
       buttonText="Button Text"
       id="modal-trigger"
       modalProps={{
+        type: "default",
         bodyContent: "body text",
         closeButtonLabel: "Close Button",
         headingText: "Modal Heading Text",
@@ -101,6 +104,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
+          type: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: <Heading level="h3">Modal Heading Text</Heading>,
@@ -164,6 +168,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
+          type: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -201,6 +206,7 @@ describe("useModal", () => {
   const { result } = renderHook(() => useModal());
   const { onClose, onOpen, Modal } = result.current;
   const modalProps = {
+    type: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>

@@ -50,7 +50,7 @@ export interface DefaultModalProps {
   /* Function to call when the modal is closed. */
   onClose?: () => void;
   /** The `Modal` variant to render. */
-  type?: "default";
+  type: "default";
   /** The label for the confirm button. This prop is not used
    * in the default variant. */
   confirmButtonLabel?: never;
@@ -197,10 +197,6 @@ export const ModalTrigger: ChakraComponent<
 > = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
     ({ buttonText, id, modalProps, ...rest }, ref?) => {
-      // If type prop isn't passed, it needs to be explicitly set to default.
-      if (!modalProps.type) {
-        modalProps.type = "default";
-      }
       const { isOpen, onOpen, onClose } = useDisclosure();
       const onCloseHandler = () => {
         modalProps.onClose && modalProps.onClose();

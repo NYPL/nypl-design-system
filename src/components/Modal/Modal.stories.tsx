@@ -20,7 +20,7 @@ const meta: Meta<typeof ModalTrigger> = {
       description:
         "Props to update the internal `Modal` component. This contains the" +
         "`bodyContent`, `closeButtonLabel`, `confirmButtonLabel`, `headingText`, `isOpen`," +
-        "`onClose`, `onCancel`, and `onConfirm` props",
+        "`onClose`, `onCancel`,`onConfirm`, and `type` props",
     },
   },
 };
@@ -37,6 +37,7 @@ export const WithControls: Story = {
     buttonText: "Button Text",
     id: "modal-trigger",
     modalProps: {
+      type: "default",
       bodyContent: "body text",
       closeButtonLabel: "Close Button",
       headingText: (
@@ -158,6 +159,7 @@ export const useModalStory: Story = {
 };
 
 const scrollModalProps: BaseModalProps = {
+  type: "default",
   bodyContent: (
     <>
       <Heading text="Content Title" />
@@ -235,6 +237,7 @@ const scrollModalProps: BaseModalProps = {
 };
 
 const defaultHeadingModalProps: BaseModalProps = {
+  type: "default",
   bodyContent: (
     <p>
       The heading of this modal is level "h2" and size "heading4", since no
