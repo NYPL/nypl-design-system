@@ -35,7 +35,7 @@ export interface ConfirmationModalProps {
   /* Function to call when the modal action is confirmed. */
   onConfirm: () => void;
   /** The `Modal` variant to render. */
-  type: "confirmation";
+  type?: "confirmation";
   /** The label for the close button. This prop is used for the
    * "cancel" button in the confirmation variant. */
   closeButtonLabel?: string;
@@ -62,7 +62,7 @@ export interface DefaultModalProps {
   onConfirm?: never;
 }
 
-// We want either the default one button or the two button props.
+// We want either the default or the confirmation props.
 export type ModalTypeProps = ConfirmationModalProps | DefaultModalProps;
 // And here combine the special types with the base props.
 export type BaseModalProps = BaseProps & ModalTypeProps;
@@ -96,10 +96,10 @@ export const BaseModal: ChakraComponent<
       confirmButtonLabel = "Confirm",
       onCancel,
       onConfirm,
+      onClose,
       type = "default",
       id,
       isOpen,
-      onClose,
       ...rest
     } = props;
     const xlarge = "xl";
@@ -197,6 +197,10 @@ export const ModalTrigger: ChakraComponent<
 > = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
     ({ buttonText, id, modalProps, ...rest }, ref?) => {
+      // If type prop isn't passed, it needs to be explicitly set to default.
+      if (!modalProps.type) {
+        modalProps.type = "default";
+      }
       const { isOpen, onOpen, onClose } = useDisclosure();
       const onCloseHandler = () => {
         modalProps.onClose && modalProps.onClose();
