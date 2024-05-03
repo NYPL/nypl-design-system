@@ -17,6 +17,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `fallbackSrc` and `onError` props to the `Image` component.
 - Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
 - Adds the `isDarkText` prop to the `Hero` component.
+- Adds the `id` prop to the `Hero`, `HorizontalRule`, `SkeletonLoader`, `TemplateAppContainer`, and `Text` components.
+- Adds the `id` property to the `imageProps` prop object in the `Card` component.
 
 ### Updates
 
