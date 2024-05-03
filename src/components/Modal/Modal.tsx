@@ -83,106 +83,101 @@ export function isDefaultType(type: BaseModalProps["type"]): type is "default" {
 }
 
 export const BaseModal: ChakraComponent<
-  React.ForwardRefExoticComponent<
-    BaseModalProps & React.RefAttributes<HTMLButtonElement>
-  >,
+  React.FunctionComponent<BaseModalProps>,
   BaseModalProps
-> = chakra(
-  forwardRef<HTMLButtonElement, BaseModalProps>((props: BaseModalProps) => {
-    const {
-      bodyContent,
-      closeButtonLabel = "Close",
-      headingText,
-      confirmButtonLabel = "Confirm",
-      onCancel,
-      onConfirm,
-      onClose,
-      type = "default",
-      id,
-      isOpen,
-      ...rest
-    } = props;
-    const xlarge = "xl";
-    const fullSize = "full";
-    const { isLargerThanMobile } = useNYPLBreakpoints();
-    // For larger screens, set the size to xl, otherwise set it to full.
-    const size = isLargerThanMobile ? xlarge : fullSize;
-    const finalTitle = useDSHeading({
-      title: headingText,
-      id,
-      headingSize: "heading4",
-    });
+> = chakra((props: BaseModalProps) => {
+  const {
+    bodyContent,
+    closeButtonLabel = "Close",
+    headingText,
+    confirmButtonLabel = "Confirm",
+    onCancel,
+    onConfirm,
+    onClose,
+    type = "default",
+    id,
+    isOpen,
+    ...rest
+  } = props;
+  const xlarge = "xl";
+  const fullSize = "full";
+  const { isLargerThanMobile } = useNYPLBreakpoints();
+  // For larger screens, set the size to xl, otherwise set it to full.
+  const size = isLargerThanMobile ? xlarge : fullSize;
+  const finalTitle = useDSHeading({
+    title: headingText,
+    id,
+    headingSize: "heading4",
+  });
 
-    if (
-      (!isDefaultType(type) && onClose) ||
-      (isDefaultType(type) && (onCancel || onConfirm))
-    ) {
-      console.warn(
-        "NYPL Reservoir Modal: The `onClose`, `onConfirm`, and `onCancel` props have all been set, but they can not all be used together. Only `onClose` will be used, while `onConfirm` and `onCancel` will be ignored."
-      );
-    }
-
-    return (
-      <>
-        {isDefaultType(type) && (
-          <ChakraModal
-            id={id}
-            isOpen={isOpen}
-            onClose={onClose}
-            scrollBehavior="inside"
-            size={size}
-            {...rest}
-          >
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>{finalTitle}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>{bodyContent}</ModalBody>
-              <ModalFooter>
-                <ButtonGroup>
-                  <Button id="modal-close-btn" onClick={onClose}>
-                    {closeButtonLabel}
-                  </Button>
-                </ButtonGroup>
-              </ModalFooter>
-            </ModalContent>
-          </ChakraModal>
-        )}
-        {!isDefaultType(type) && (
-          <ChakraModal
-            id={id}
-            isOpen={isOpen}
-            onClose={onCancel}
-            scrollBehavior="inside"
-            size={size}
-            {...rest}
-          >
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>{finalTitle}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>{bodyContent}</ModalBody>
-              <ModalFooter>
-                <ButtonGroup>
-                  <Button
-                    buttonType="secondary"
-                    id="modal-cancel-btn"
-                    onClick={onCancel}
-                  >
-                    {closeButtonLabel}
-                  </Button>
-                  <Button id="modal-confirm-btn" onClick={onConfirm}>
-                    {confirmButtonLabel}
-                  </Button>
-                </ButtonGroup>
-              </ModalFooter>
-            </ModalContent>
-          </ChakraModal>
-        )}
-      </>
+  if (
+    (!isDefaultType(type) && onClose) ||
+    (isDefaultType(type) && (onCancel || onConfirm))
+  ) {
+    console.warn(
+      "NYPL Reservoir Modal: The `onClose`, `onConfirm`, and `onCancel` props have all been set, but they can not all be used together. Only `onClose` will be used, while `onConfirm` and `onCancel` will be ignored."
     );
-  })
-);
+  }
+
+  return (
+    <>
+      {isDefaultType(type) ? (
+        <ChakraModal
+          id={id}
+          isOpen={isOpen}
+          onClose={onClose}
+          scrollBehavior="inside"
+          size={size}
+          {...rest}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>{finalTitle}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>{bodyContent}</ModalBody>
+            <ModalFooter>
+              <ButtonGroup>
+                <Button id="modal-close-btn" onClick={onClose}>
+                  {closeButtonLabel}
+                </Button>
+              </ButtonGroup>
+            </ModalFooter>
+          </ModalContent>
+        </ChakraModal>
+      ) : (
+        <ChakraModal
+          id={id}
+          isOpen={isOpen}
+          onClose={onCancel}
+          scrollBehavior="inside"
+          size={size}
+          {...rest}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>{finalTitle}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>{bodyContent}</ModalBody>
+            <ModalFooter>
+              <ButtonGroup>
+                <Button
+                  buttonType="secondary"
+                  id="modal-cancel-btn"
+                  onClick={onCancel}
+                >
+                  {closeButtonLabel}
+                </Button>
+                <Button id="modal-confirm-btn" onClick={onConfirm}>
+                  {confirmButtonLabel}
+                </Button>
+              </ButtonGroup>
+            </ModalFooter>
+          </ModalContent>
+        </ChakraModal>
+      )}
+    </>
+  );
+});
 
 /**
  * The `ModalTrigger` component renders a button that you click to open the

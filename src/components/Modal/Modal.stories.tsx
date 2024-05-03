@@ -111,6 +111,39 @@ const ModalStory = () => {
   );
 };
 
+const ConfirmationModalStory = () => {
+  const { onClose, onOpen, Modal } = useModal();
+  const confirmationModalProps = {
+    type: "confirmation",
+    bodyContent: <p>This is the body content.</p>,
+    closeButtonLabel: "Cancel Button",
+    confirmButtonLabel: "Confirm Button",
+    headingText: "useModal with Confirmation Variant",
+    onCancel: () => {
+      console.log("custom cancel");
+      onClose();
+    },
+    onConfirm: () => {
+      console.log("custom confirm");
+      onClose();
+    },
+  };
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button id="1" onClick={onOpen}>
+          Open Confirmation Modal
+        </Button>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
+          I can open the modal, too
+        </Button>
+      </ButtonGroup>
+      <Modal {...confirmationModalProps} />
+    </>
+  );
+};
+
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
   argTypes: {
@@ -128,7 +161,11 @@ export const useModalStory: Story = {
     },
     closeButtonLabel: {
       control: { type: "text" },
-      description: "The label for the close button.",
+      description: "The label for the close or cancel button.",
+    },
+    confirmButtonLabel: {
+      control: { type: "text" },
+      description: "The label for the confirm button.",
     },
     headingText: {
       control: { type: "text" },
@@ -262,10 +299,14 @@ const confirmationProps: BaseModalProps = {
   headingText: "This is an action",
 };
 
+export const ConfirmationUseModal: Story = {
+  render: () => <ConfirmationModalStory />,
+};
+
 export const ConfirmationVariant: Story = {
   render: () => (
     <ModalTrigger
-      buttonText="Confirm"
+      buttonText="Open confirmation modal"
       id="modal-confirmation"
       modalProps={confirmationProps}
     />

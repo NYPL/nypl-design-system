@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality", "Styles"],
-    notes: ["Adds `Confirmation` variant to the `Modal`."],
+    notes: ["Adds `Confirmation` variant."],
   },
   {
     date: "2024-03-28",

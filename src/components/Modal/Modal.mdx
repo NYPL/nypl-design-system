@@ -223,6 +223,7 @@ export const ModalStory = (args) => {
 ## useModal Component Props
 
 <Canvas of={ModalStories.useModalStory} />
+<Canvas of={ModalStories.ConfirmationUseModal} />
 
 <ArgTypes of={ModalStories.useModalStory} />
 
@@ -230,7 +231,11 @@ export const ModalStory = (args) => {
 
 The "confirmation" `Modal` variant is used when the modal can confirm or revoke the modal's content. Accordingly, there are two buttons
 in the footer instead of the one in the default modal. Each button has its own custom function (`onCancel`, `onConfirm`) that will close the modal.
-The 'X' Close button in the upper right will call the `onCancel` function.
+Additionally, the `onCancel` function will be called when using
+any of the other available methods for closing the modal,
+including clicking the "X" close button in the upper right corner
+of the modal, clicking anywhere outside the modal UI, or using
+the `ESC` button.
 
 Notes:
 
@@ -242,44 +247,46 @@ Notes:
 
 <Source
   code={`
-// Example for the Confirmation variant with ModalTrigger.
+// Example for the Confirmation variant with ModalTrigger. 
   <ModalTrigger
-      buttonText="Confirm"
-      id="modal-confirmation"
-      modalProps={{
-        type: "confirmation",
-        bodyContent: "The action is happening",
-        cancelButtonLabel: "Cancel action",
-        confirmButtonLabel: "Confirm action",
-        onCancel: () => {
-          console.log("Custom cancel");
-        },
-        onConfirm: () => {
-          console.log("Custom confirm");
-        },
-        headingText: (
-          <Heading
-            level="h3"
-            display="flex"
-            alignItems="center"
-            gap="xs"
-            size="heading5"
-          >
-            <>
-              <Icon
-                color="ui.success.primary"
-                name="actionCheckCircleFilled"
-                size="large"
-              />
-              This is an action
-            </>
-          </Heading>
-        ),
-      }}
-    />
+    buttonText="Confirm"
+    id="modal-confirmation"
+    modalProps={{
+      type: "confirmation",
+      bodyContent: "The action is happening",
+      cancelButtonLabel: "Cancel action",
+      confirmButtonLabel: "Confirm action",
+      onCancel: () => {
+        console.log("Custom cancel");
+      },
+      onConfirm: () => {
+        console.log("Custom confirm");
+      },
+      headingText: (
+        <Heading
+          level="h3"
+          display="flex"
+          alignItems="center"
+          gap="xs"
+          size="heading5"
+        >
+          <>
+            <Icon
+              color="ui.success.primary"
+              name="actionCheckCircleFilled"
+              size="large"
+            />
+            This is an action
+          </>
+        </Heading>
+      ),
+    }}
+  />
 `}
   language="jsx"
 />
+
+See console for "Cancel"/"Confirm" messages from their respective buttons.
 
 <Canvas of={ModalStories.ConfirmationVariant} />
 
