@@ -9,9 +9,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Prerelease
 
 ### Adds
+
 - Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
 
 ### Updates
+
+- Updates the `Heading` component to allow more HTML attributes as props.
 - Updates the following packages:
   - Storybook main package and related libraries to `8.0.0`.
   - `remark-gfm` to `4.0.0`.
@@ -22,6 +25,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removals
 
 - Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+
+### Fixes
+
+- Fixes an issue with the `Table` component where it rendered the headings twice until the component loaded and applied the desktop styles. This was done by adding inline responsive styles and removing the use of the `useWindowSize` hook.
 
 ## 3.1.1 (April 25, 2024)
 
