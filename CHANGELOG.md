@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the values for the breakpoints and the associated docs.
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
+- Updates the `Template` component to implement a new responsive grid system.
 
 ## Prerelease
 

@@ -3,10 +3,17 @@ import React, { forwardRef } from "react";
 
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
 
-export interface TemplateProps {}
+export interface TemplateProps {
+  /** Determines whether the legacy grid system and spacing should be used to
+   * render the Template layout. */
+  useLegacyGrid?: boolean;
+}
 export interface TemplateHeaderProps {
   /** Flag to render an HTML header element. True by default. */
   renderHeaderElement?: boolean;
+  /** Determines whether the legacy grid system and spacing should be used to
+   * render the Template layout. */
+  useLegacyGrid?: boolean;
 }
 export interface TemplateFooterProps {
   /** Flag to render an HTML footer element. True by default. */
@@ -16,6 +23,9 @@ export interface TemplateSidebarProps {
   /** Renders the `TemplateContentSidebar` component either on the left or
    * right side of the `TemplateContentPrimary` component. */
   sidebar?: "none" | "left" | "right";
+  /** Determines whether the legacy grid system and spacing should be used to
+   * render the Template layout. */
+  useLegacyGrid?: boolean;
 }
 export interface TemplateContentProps extends TemplateSidebarProps {
   /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
@@ -150,8 +160,14 @@ const TemplateBreakout: React.FC<any> = (
 const TemplateContent: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { children, id = "mainContent", sidebar = "none" } = props;
+  const {
+    children,
+    id = "mainContent",
+    sidebar = "none",
+    useLegacyGrid = true,
+  } = props;
   const styles = useStyleConfig("TemplateContent", {
+    useLegacyGrid,
     variant: sidebar,
   });
   // Manually pass in the `sidebar` prop to the `TemplateContentPrimary` and
@@ -188,7 +204,10 @@ const TemplateContent: React.FC<any> = (
 const TemplateContentTop: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const styles = useStyleConfig("TemplateContentTopBottom", {});
+  const { useLegacyGrid } = props;
+  const styles = useStyleConfig("TemplateContentTopBottom", {
+    useLegacyGrid,
+  });
   return <Box __css={styles}>{props.children}</Box>;
 };
 
@@ -201,7 +220,8 @@ const TemplateContentTop: React.FC<any> = (
 const TemplateContentBottom: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const styles = useStyleConfig("TemplateContentTopBottom", {});
+  const { useLegacyGrid } = props;
+  const styles = useStyleConfig("TemplateContentTopBottom", { useLegacyGrid });
   return <Box __css={styles}>{props.children}</Box>;
 };
 
@@ -216,8 +236,9 @@ const TemplateContentBottom: React.FC<any> = (
 const TemplateContentPrimary: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar } = props;
+  const { sidebar, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentPrimary", {
+    useLegacyGrid,
     variant: sidebar,
   });
   return <Box __css={styles}>{props.children}</Box>;
@@ -237,8 +258,9 @@ const TemplateContentPrimary: React.FC<any> = (
 const TemplateContentSidebar: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar } = props;
+  const { sidebar, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentSidebar", {
+    useLegacyGrid,
     variant: sidebar,
   });
   return <Box __css={styles}>{props.children}</Box>;
@@ -310,22 +332,31 @@ export const TemplateAppContainer: ChakraComponent<
       renderFooterElement = true,
       renderHeaderElement = true,
       renderSkipNavigation = false,
+      useLegacyGrid = true,
       ...rest
     } = props;
     const aboveHeaderElem = aboveHeader && (
       <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
     );
     const contentTopElem = contentTop && (
-      <TemplateContentTop>{contentTop}</TemplateContentTop>
+      <TemplateContentTop useLegacyGrid={useLegacyGrid}>
+        {contentTop}
+      </TemplateContentTop>
     );
     const contentPrimaryElem = contentPrimary && (
-      <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
+      <TemplateContentPrimary useLegacyGrid={useLegacyGrid}>
+        {contentPrimary}
+      </TemplateContentPrimary>
     );
     const contentBottomElem = contentBottom && (
-      <TemplateContentBottom>{contentBottom}</TemplateContentBottom>
+      <TemplateContentBottom useLegacyGrid={useLegacyGrid}>
+        {contentBottom}
+      </TemplateContentBottom>
     );
     const contentSidebarElem = contentSidebar && (
-      <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
+      <TemplateContentSidebar useLegacyGrid={useLegacyGrid}>
+        {contentSidebar}
+      </TemplateContentSidebar>
     );
     return (
       <>
@@ -342,7 +373,11 @@ export const TemplateAppContainer: ChakraComponent<
           </TemplateBreakout>
           {/* Note that setting `sidebar` as a prop here affects the
           TemplateContentSidebar and TemplateContentPrimary components. */}
-          <TemplateContent id={contentId} sidebar={sidebar}>
+          <TemplateContent
+            id={contentId}
+            sidebar={sidebar}
+            useLegacyGrid={useLegacyGrid}
+          >
             {contentTopElem}
 
             {sidebar === "left" && contentSidebarElem}
