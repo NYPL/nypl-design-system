@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-04-25",
+    version: "3.1.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Updated the `warning` variant to use `ui.warning.tertiary`."],
+  },
+  {
     date: "2024-04-11",
     version: "3.1.0",
     type: "Update",
