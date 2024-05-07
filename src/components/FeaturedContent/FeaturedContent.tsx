@@ -100,7 +100,7 @@ export const FeaturedContent: ChakraComponent<
           ref={ref}
           {...rest}
         >
-          <Box __css={styles.wrapper}>
+          <Box __css={styles.wrapper} data-wrapper>
             <Box
               data-testid="featuredcontent-bg-image"
               __css={{

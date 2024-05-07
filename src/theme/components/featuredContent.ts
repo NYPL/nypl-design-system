@@ -2,6 +2,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
+import breakpoints from "../foundations/breakpoints";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -48,7 +49,7 @@ const FeaturedContent = defineMultiStyleConfig({
           img: screenreaderOnly(),
           containerType: "inline-size",
           "@container (min-width: 0px)": {
-            " > div": {
+            "[data-wrapper]": {
               flexDirection: imageAtEnd ? "column-reverse" : "column",
             },
             "[data-image]": {
@@ -56,19 +57,15 @@ const FeaturedContent = defineMultiStyleConfig({
               width: "100%",
             },
           },
-          "@container (min-width: 568px)": {
-            " > div": {
+          [`@container (min-width: ${breakpoints.md})`]: {
+            "[data-wrapper]": {
               flexDirection: imageAtEnd ? "row-reverse" : "row",
+              paddingLeft: full ? "s" : null,
+              paddingRight: full ? "s" : null,
             },
             "[data-image]": {
               height: "auto",
               width: wrapperWidth,
-            },
-          },
-          "@container (min-width: 600px)": {
-            " > div": {
-              paddingLeft: full ? "s" : null,
-              paddingRight: full ? "s" : null,
             },
             "[data-text]": {
               /** The `paddingLeft` attribute is used to adjust the spacing around the
