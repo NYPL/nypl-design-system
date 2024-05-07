@@ -115,7 +115,7 @@ export const BaseModal: ChakraComponent<
     (isDefaultType(type) && (onCancel || onConfirm))
   ) {
     console.warn(
-      "NYPL Reservoir Modal: The `onClose`, `onConfirm`, and `onCancel` props have all been set, but they can not all be used together. Only `onClose` will be used, while `onConfirm` and `onCancel` will be ignored."
+      "NYPL Reservoir Modal: A combination of `onClose`, `onConfirm`, `onCancel`, and `confirmButtonLabel` props have all been set, but they can not all be used together. Either pass the `onClose` (with the default type) or `onCancel`, `onConfirm`, and `confirmButtonLabel` (with the confirmation type)."
     );
   }
 
