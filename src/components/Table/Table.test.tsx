@@ -116,9 +116,12 @@ describe("Table", () => {
       />
     );
 
-    expect(screen.getByText("First Name")).toBeInTheDocument();
-    expect(screen.getByText("Last Name")).toBeInTheDocument();
-    expect(screen.getByText("Nick Name")).toBeInTheDocument();
+    // The `Table` renders two set of headers, but the second set
+    // in the body is hidden on desktop and visible on mobile.
+    // For this test, we only want to check the first set of headers.
+    expect(screen.getAllByText("First Name")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("Last Name")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("Nick Name")[0]).toBeInTheDocument();
   });
 
   it("renders table data", () => {

@@ -90,7 +90,7 @@ const warning = definePartsStyle({
   base: {
     ...baseWarning,
     svg: {
-      fill: "ui.warning.primary",
+      fill: "ui.warning.tertiary",
       _dark: {
         fill: "dark.ui.warning.primary",
       },

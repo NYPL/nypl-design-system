@@ -9,7 +9,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -18,7 +18,8 @@ exports[`Renders the UI snapshot correctly 1`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -70,7 +71,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -79,7 +80,8 @@ exports[`Renders the UI snapshot correctly 2`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -131,7 +133,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -140,7 +142,8 @@ exports[`Renders the UI snapshot correctly 3`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -192,7 +195,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -201,7 +204,8 @@ exports[`Renders the UI snapshot correctly 4`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -253,7 +257,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -262,7 +266,8 @@ exports[`Renders the UI snapshot correctly 5`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -314,7 +319,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
     className="css-0"
   >
     <div
-      className="css-1gt4hjv"
+      className="css-1xwqty0"
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -323,7 +328,8 @@ exports[`Renders the UI snapshot correctly 6`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>

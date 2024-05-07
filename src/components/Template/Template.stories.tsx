@@ -30,6 +30,7 @@ import {
 import TextInput from "../TextInput/TextInput";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof TemplateAppContainer> = {
   title: "Components/Page Layout/Template",
@@ -425,13 +426,14 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               ]}
             />
             <Hero
-              backgroundImageSrc="//placekitten.com/g/2400/800"
+              backgroundImageSrc={getPlaceholderImage()}
               heroType="campaign"
               heading={<Heading level="h1" id="1" text="Hero Campaign" />}
               imageProps={{
                 alt: "Image example",
-                src: "//placekitten.com/800/400",
+                src: getPlaceholderImage("smaller"),
               }}
+              isDarkBackgroundImage
               subHeaderText={otherSubHeaderText}
             />
           </TemplateHeader>
@@ -492,16 +494,13 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               imageProps={{
                 alt: "Alt text",
                 aspectRatio: "square",
-                size: "small",
-                src: "//placekitten.com/400/200",
+                size: "default",
+                src: getPlaceholderImage("smaller"),
               }}
               isCentered
             >
-              <CardHeading size="heading4" id="heading1">
-                Small Animal Image
-              </CardHeading>
-              <CardHeading level="h3" size="heading6" id="heading2">
-                Animal info
+              <CardHeading size="heading4" subtitle="Animal info" id="heading1">
+                Library Image
               </CardHeading>
               <CardContent>
                 Vestibulum id ligula porta felis euismod semper. Nulla vitae

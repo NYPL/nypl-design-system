@@ -8,6 +8,7 @@ import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
+import { getPlaceholderImage } from "../../utils/utils";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -16,7 +17,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller", 0),
         }}
       >
         <CardHeading level="h3" id="heading1">
@@ -39,7 +40,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller", 0),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -64,7 +65,7 @@ describe("Card", () => {
       id="regularCard"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller", 0),
       }}
       ref={ref}
     >
@@ -85,7 +86,7 @@ describe("Card", () => {
       id="cardWithExtendedStyles"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -121,7 +122,7 @@ describe("Card", () => {
       id="cardWithNoCTAs"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -140,7 +141,7 @@ describe("Card", () => {
       id="cardWithNoContent"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2" url="#edition-link">
@@ -189,7 +190,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller", 0),
       }}
       mainActionLink="http://nypl.org"
     >
@@ -209,7 +210,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         aspectRatio: "threeByTwo",
-        component: <Image alt="" src="//placekitten.com/400/200" />,
+        component: <Image alt="" src={getPlaceholderImage("smaller", 0)} />,
       }}
     >
       <CardHeading level="h3" id="heading1">
@@ -223,7 +224,7 @@ describe("Card", () => {
       id="cardID"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller", 0),
       }}
       isAlignedRightActions
     >
@@ -248,7 +249,7 @@ describe("Card", () => {
       id="chakraProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller", 0),
       }}
       p="s"
       color="ui.error.primary"
@@ -269,7 +270,7 @@ describe("Card", () => {
       id="otherProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller", 0),
       }}
       data-testid="card-testid"
     >
