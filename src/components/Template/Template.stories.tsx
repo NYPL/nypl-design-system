@@ -124,7 +124,8 @@ const faqContentData: AccordionDataProps[] = [
   },
 ];
 
-const TemplateSectionLabels = (useLegacyGrid) => {
+// Used to set dynamic labels for content columns.
+const ResponsiveColumnLabels = (useLegacyGrid) => {
   const {
     isLargerThanMobile,
     isLargerThanSmallMobile,
@@ -168,70 +169,6 @@ const TemplateSectionLabels = (useLegacyGrid) => {
   };
 };
 
-const TemplateWithHooks = (args) => {
-  // const {
-  //   isLargerThanMobile,
-  //   isLargerThanSmallMobile,
-  //   isLargerThanLargeMobile,
-  //   isLargerThanSmallTablet,
-  //   isLargerThanLargeTablet,
-  // } = useNYPLBreakpoints();
-  const { useLegacyGrid } = args;
-  let sidebarLabel = TemplateSectionLabels(useLegacyGrid).sidebarLabel;
-  let contentLabel = TemplateSectionLabels(useLegacyGrid).contentLabel;
-  // if (useLegacyGrid) {
-  //   sidebarLabel = "Legacy grid: full width";
-  //   contentLabel = "Legacy grid: full width";
-  //   if (isLargerThanMobile) {
-  //     sidebarLabel = "Legacy grid: 255px fixed";
-  //     contentLabel = "Legacy grid: fills remaing space";
-  //   }
-  // } else {
-  //   sidebarLabel = "Small mobile (full width)";
-  //   contentLabel = "Small mobile (full width)";
-  //   if (isLargerThanSmallMobile) {
-  //     sidebarLabel = "Large mobile (1/2)";
-  //     contentLabel = "Large mobile (1/2)";
-  //   }
-  //   if (isLargerThanLargeMobile) {
-  //     sidebarLabel = "Small tablet (1/3)";
-  //     contentLabel = "Small tablet (2/3)";
-  //   }
-  //   if (isLargerThanSmallTablet) {
-  //     sidebarLabel = "Large tablet (1/4)";
-  //     contentLabel = "Large tablet (3/4)";
-  //   }
-  //   if (isLargerThanLargeTablet) {
-  //     sidebarLabel = "Desktop (1/4)";
-  //     contentLabel = "Desktop (3/4)";
-  //   }
-  // }
-
-  const sidebar = (
-    <Placeholder>
-      <Heading size="heading4" noSpace subtitle={sidebarLabel} text="Sidebar" />
-    </Placeholder>
-  );
-  const content = (
-    <Placeholder>
-      <Heading
-        size="heading4"
-        noSpace
-        subtitle={contentLabel}
-        text="Main Content"
-      />
-    </Placeholder>
-  );
-
-  return (
-    <TemplateAppContainer
-      {...args}
-      contentSidebar={sidebar}
-      contentPrimary={content}
-    />
-  );
-};
-
 /**
  * Main Story for the Template component. This must contains the `args`
  * and `parameters` properties in this object.
@@ -265,7 +202,11 @@ export const WithControls: Story = {
         <Placeholder variant="short">More Content</Placeholder>
       </>
     ),
-    contentSidebar: <Placeholder>Sidebar</Placeholder>,
+    contentSidebar: (
+      <Placeholder>
+        <Heading size="heading4" noSpace text="Sidebar" />
+      </Placeholder>
+    ),
     contentTop: (
       <Placeholder variant="short">
         <Heading size="heading4" noSpace text="Content Top" />
@@ -301,8 +242,31 @@ export const WithControls: Story = {
       table: { defaultValue: { summary: "none" } },
     },
   },
-  // render: (args) => <TemplateAppContainer {...args} />,
-  render: (args) => <TemplateWithHooks {...args} />,
+  render: (args) => (
+    <TemplateAppContainer
+      {...args}
+      contentPrimary={
+        <Placeholder>
+          <Heading
+            size="heading4"
+            noSpace
+            subtitle={ResponsiveColumnLabels(args.useLegacyGrid).contentLabel}
+            text="Main Content"
+          />
+        </Placeholder>
+      }
+      contentSidebar={
+        <Placeholder>
+          <Heading
+            size="heading4"
+            noSpace
+            subtitle={ResponsiveColumnLabels(args.useLegacyGrid).sidebarLabel}
+            text="Sidebar"
+          />
+        </Placeholder>
+      }
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -351,7 +315,7 @@ export const ChildrenComponentProps: Story = {
                 <Heading
                   size="heading4"
                   noSpace
-                  subtitle={TemplateSectionLabels(false).sidebarLabel}
+                  subtitle={ResponsiveColumnLabels(false).sidebarLabel}
                   text="Sidebar"
                 />
               </Placeholder>
@@ -362,7 +326,7 @@ export const ChildrenComponentProps: Story = {
               <Heading
                 size="heading4"
                 noSpace
-                subtitle={TemplateSectionLabels(false).contentLabel}
+                subtitle={ResponsiveColumnLabels(false).contentLabel}
                 text="Main Content"
               />
             </Placeholder>
@@ -373,7 +337,7 @@ export const ChildrenComponentProps: Story = {
                 <Heading
                   size="heading4"
                   noSpace
-                  subtitle={TemplateSectionLabels(false).sidebarLabel}
+                  subtitle={ResponsiveColumnLabels(false).sidebarLabel}
                   text="Sidebar"
                 />
               </Placeholder>
