@@ -26,6 +26,8 @@ export interface SkeletonLoaderProps {
   /** Optional numeric value to control the number of lines for heading
    * placeholder; default value is `1`. */
   headingSize?: number;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional value to control the aspect ratio of the image placeholder;
    * default value is `"square"`. */
   imageAspectRatio?: SkeletonLoaderImageRatios;
@@ -65,6 +67,7 @@ export const SkeletonLoader: ChakraComponent<
         contentSize = 3,
         headingSize = 1,
         imageAspectRatio = "square",
+        id,
         isBordered = false,
         layout = "column",
         showButton = false,
@@ -113,6 +116,7 @@ export const SkeletonLoader: ChakraComponent<
       return (
         <Box
           className={className}
+          id={id}
           ref={ref}
           __css={styles.base}
           style={{ width }}

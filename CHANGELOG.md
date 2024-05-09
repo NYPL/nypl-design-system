@@ -14,9 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `Heading` component to allow more HTML attributes as props.
 - Updates the following packages:
-  - Storybook main package and related libraries to `8.0.0`.
+  - Storybook main package and related libraries to `8.0.8`.
   - `remark-gfm` to `4.0.0`.
   - `vite` to `5.2.8`, `@vitejs/plugin-react` to `4.2.1`, and `vite-plugin-svgr` to `4.2.0`.
 - Updates how SVGs are imported into `LogoSvgs.tsx` and `IconSvgs.tsx`.
@@ -25,6 +24,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removals
 
 - Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+
+## 3.1.2 (May 9, 2024)
+
+### Adds
+
+- Adds the `id` prop to the `Hero`, `HorizontalRule`, `SkeletonLoader`, `TemplateAppContainer`, and `Text` components.
+- Adds the `id` property to the `imageProps` prop object in the `Card` component.
+
+### Updates
+
+- Updates the `Heading` component to allow more HTML attributes as props.
 
 ### Fixes
 
