@@ -4,8 +4,8 @@ import { defineStyle } from "@chakra-ui/system";
  * Grid layout based on https://www.joshwcomeau.com/css/full-bleed/
  */
 
-const responsiveGutters = { base: "1rem", md: "1.5rem", xl: "1rem" };
-const responsiveSpacing = { base: "1rem", md: "1.5rem", xl: "2rem" };
+export const responsiveGutters = { base: "1rem", md: "1.5rem", xl: "1rem" };
+export const responsiveSpacing = { base: "1rem", md: "1.5rem", xl: "2rem" };
 
 const Template = defineStyleConfig({
   baseStyle: defineStyle({

@@ -8,11 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease for Better Breakpoints
 
+### Adds
+
+- Adds and exports `responsiveGutters` and `responsiveSpacing` data objects to make available for consuming apps.
+
 ### Updates
 
 - Updates the values for the breakpoints and the associated docs.
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
-- Updates the `Template` component to implement a new responsive grid system.
+- Updates the `Template` component to implement a responsive 12-column grid system.
 
 ## Prerelease
 

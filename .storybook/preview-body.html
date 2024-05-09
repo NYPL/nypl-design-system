@@ -54,7 +54,7 @@
   }
   /* It is unclear if this style override is necessary. Until this is
   determined, the code will be left in place and simply commented out. */
-  /* 
+  /*
   .sbdocs :where(h1:not(.sb-unstyled h1)),
   .sbdocs :where(h2:not(.sb-unstyled h2)),
   .sbdocs :where(h3:not(.sb-unstyled h3)),
@@ -62,7 +62,7 @@
   .sbdocs :where(h5:not(.sb-unstyled h5)),
   .sbdocs :where(h6:not(.sb-unstyled h6)) {
     color: unset;
-  } 
+  }
   */
   .sbdocs :where(div:not(.sb-anchor, .sb-unstyled, .sb-unstyled div)) {
     color: inherit;
@@ -123,4 +123,41 @@
   .sb-show-main table.storybook-colors-example tbody td:last-of-type {
     border: unset;
   }
+  /* NYPL Table component for Storybook */
+  .ds-table-storybook tr {
+      background-color: transparent !important;
+      border-bottom: 1px solid var(--nypl-colors-ui-border-default) !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-top: 0 !important;
+    }
+    .ds-table-storybook th {
+      border-bottom: 1px solid var(--nypl-colors-ui-border-default) !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-top: 1px solid var(--nypl-colors-ui-border-default) !important;
+      font-size: var(--nypl-fontSizes-desktop-caption);
+      padding-inline: 1rem !important;
+      padding-bottom: 1rem !important;
+      padding-top: 1rem !important;
+      text-transform: none !important;
+    }
+    .ds-table-storybook thead {
+      background-color: var(--nypl-colors-ui-bg-hover);
+      th {
+        font-size: .675rem;
+        text-transform: uppercase !important;
+        padding-bottom: .5rem !important;
+        padding-top: .5rem !important;
+      }
+    }
+    .ds-table-storybook td {
+      border-bottom: 1px solid var(--nypl-colors-ui-border-default) !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      font-size: var(--nypl-fontSizes-desktop-caption);
+      padding-inline: 1rem !important;
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
 </style>

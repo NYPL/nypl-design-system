@@ -1,0 +1,339 @@
+import { Box, Stack } from "@chakra-ui/react";
+import { Meta } from "@storybook/blocks";
+
+import Icon from "../Icons/Icon";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Table from "../Table/Table";
+
+<Meta title="Style Guide/Responsive Grid" />
+
+# Responsive Grid
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#terminology" target="_self">Terminology</Link>}
+  - {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
+  - {<Link href="#breakpoint-ranges" target="_self">Breakpoint Ranges</Link>}
+  - {<Link href="#columns" target="_self">Columns</Link>}
+  - {<Link href="#gutters" target="_self">Gutters</Link>}
+  - {<Link href="#margines" target="_self">Margins</Link>}
+  - {<Link href="#perceived-columns" target="_self">Perceived Columns</Link>}
+- {<Link href="#breakpoint-range-details" target="_self">Breakpoint Range Details</Link>}
+- {<Link href="#breakpoint-range-visual-reference" target="_self">Breakpoint Range Visual Reference</Link>}
+- {<Link href="#best-practices-and-recommendations" target="_self">Best Practices and Recommendations</Link>}
+
+## Overview
+
+Pages should be designed and built using a responsive grid system that
+dynamically adjusts based on the screen size. Using a responsive grid system
+helps to ensure consistent layouts across NYPL website.
+
+The defined breakpoints will determine when default adjustments are applied to
+the responsive grid system.
+
+## Terminology
+
+The following terms are used through the documentation, so it is important to
+understand what they mean.
+
+### Breakpoints & Breakpoint Ranges
+
+A breakpoint defines a specific pixel value within the viewport width spectrum,
+but when we talk about a breakpoint, we often think about it in terms of the
+width range that is covered by the breakpoint (i.e. breakpoint range). With
+that in mind, the NYPL Reservoir Design System will designate four actual
+breakpoints and from that we will define five breakpoint ranges:
+
+#### Breakpoints
+
+- 480px
+- 768px
+- 1024px
+- 1280px
+
+#### Breakpoint Ranges
+
+- Small mobile (base): less than 480px (see Appendix Section I: Small Mobile)
+- Large mobile (s): 480px - 767px (see Appendix Section I: Large Mobile)
+- Small tablet (m): 768px - 1023px (see Appendix Section I: Small Tablet)
+- Large tablet (l): 1024px - 1279px (see Appendix Section I: Large Tablet)
+- Desktop (xl): 1280px and greater (see Appendix Section I: Desktop)
+
+<SimpleGrid>
+
+<div>
+  #### Columns
+
+There are 12 columns in a responsive grid system. Column widths change with the
+size of the grid.
+
+  <Image src="/img/grid-columns.png" alt="Grid columns" mb="l" />
+</div>
+<div>
+  #### Gutters
+
+Gutters are the gaps between the columns. Gutter widths are fixed values (16px,
+24px, etc.) based on breakpoints.
+
+  <Image src="/img/grid-gutters.png" alt="Grid gutters" mb="l" />
+</div>
+<div>
+#### Margins
+
+Grid margins are the outer margins of the grid. They can be the same width as the gutters or greater.
+
+<Image src="/img/grid-margins.png" alt="Grid margin" mb="l" />
+</div>
+
+</SimpleGrid>
+
+#### Perceived Columns
+
+Often, the underlying columns in the 12-column grid system are grouped to create
+"perceived columns."
+
+<SimpleGrid columns={4} mb="l">
+<div>
+##### One
+
+1 group of 12
+
+<Image src="/img/grid-perceived-columns-1.png" alt="One perceived column" />
+</div>
+
+<div>
+##### Two
+
+2 groups of 6
+
+<Image src="/img/grid-perceived-columns-2.png" alt="Two perceived columns" />
+</div>
+
+<div>
+##### Three
+
+3 groups of 4
+
+<Image src="/img/grid-perceived-columns-3.png" alt="Three perceived columns" />
+</div>
+
+<div>
+##### Four
+
+4 groups of 3
+
+<Image src="/img/grid-perceived-columns-4.png" alt="Four perceived columns" />
+</div>
+
+</SimpleGrid>
+
+## Breakpoint Range Details
+
+<Table
+  border="0"
+  columnHeaders={[
+    "Name",
+    "Range (px)",
+    "Columns",
+    "Gutters",
+    "Margins",
+    "Perceived Cols",
+  ]}
+  tableData={[
+    ["Small mobile", "0 - 479", "12", "1rem (16px)", "1rem (16px)", "1"],
+    ["Large mobile", "480 - 767", "12", "1rem (16px)", "1rem (16px)", "1 or 2"],
+    [
+      "Small tablet",
+      "0 768 - 1023",
+      "12",
+      "1.5rem (24px)",
+      "1.5rem (24px)",
+      "1, 2, or 3",
+    ],
+    [
+      "Large tablet",
+      "1024 - 1279",
+      "12",
+      "1.5rem (24px)",
+      "1.5rem (24px)",
+      "1, 2, 3, or 4",
+    ],
+    ["Desktop", "1280+", "12", "2rem (32px)", "1rem (16px)", "1, 2, 3, or 4"],
+  ]}
+  useRowHeaders
+  className="ds-table-storybook"
+/>
+
+### Small Mobile
+
+The small mobile breakpoint range includes viewport widths from 0 - 479px.
+
+The page layout for the small mobile breakpoint range should use one column (1
+group of 12 columns) and the Card component should always use the "column"
+variant (vertical).
+
+- Columns: 12
+- Gutters: 1rem (16px)
+- Margins: 1rem (16px)
+- Perceived Columns: 1
+
+### Large Mobile
+
+The large mobile breakpoint range includes viewport widths from 480 - 767px.
+
+The page layout for the large mobile breakpoint range can use one (1 group of 12
+columns) or two columns (2 groups of 6 columns).
+
+The "row" variant (horizontal) of the Card component should be
+displayed in a single column and the "column" variant (vertical) should be
+displayed using two columns.
+
+- Columns: 12
+- Gutters: 1rem (16px)
+- Margins: 1rem (16px)
+- Perceived Columns: 1 or 2
+
+### Small Tablet
+
+The small tablet breakpoint range includes viewport widths from 768px - 1023px.
+
+The page layout for the small tablet breakpoint range should be presented as one
+(1 group of 12 columns), two (2 groups of 6 columns), or three columns (3 groups
+of 4 columns).
+
+- Columns: 12
+- Gutters: 1.5rem (24px)
+- Margins: 1.5rem (24px)
+- Perceived Columns: 1, 2, or 3
+
+### Large Tablet
+
+The large tablet breakpoint range includes viewport widths from 1024px - 1279px.
+
+The page layout for the large tablet breakpoint range should be presented as one
+(1 group of 12 columns), two (2 groups of 6 columns), three columns (3 groups of
+4 columns), or four columns (4 groups of 3 columns). This is the same
+recommendation as the desktop breakpoint range.
+
+- Columns: 12
+- Gutters: 1.5rem (24px)
+- Margins: 1.5rem (24px)
+- Perceived Columns: 1, 2, 3, or 4
+
+### Desktop
+
+The desktop breakpoint range includes viewports with widths 1280px and greater.
+
+The page layout for the desktop breakpoint range should be presented as one (1
+group of 12 columns), two (2 groups of 6 columns), three columns (3 groups of 4
+columns), or four columns (4 groups of 3 columns). This is the same
+recommendation as the large tablet breakpoint range.
+
+- Columns: 12
+- Gutters: 2rem (32px)
+- Margins: 1rem (16px)
+- Perceived Columns: 1, 2, 3, or 4
+
+## Breakpoint Range Visual Reference
+
+### Small mobile: less than 480px
+
+<div>
+  <Image
+    alt="Small mobile break point range"
+    display="inline-block"
+    mb="s"
+    size="large"
+    sizeBasedOn="height"
+    src="/img/breakpoint-range-mobile-small.png"
+  />
+</div>
+
+### Large mobile: 480px - 767px
+
+<Image
+  alt="Large mobile break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/img/breakpoint-range-mobile-large.png"
+/>
+
+### Small tablet: 768px - 1023px
+
+<Image
+  alt="Small tablet break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/img/breakpoint-range-tablet-small.png"
+/>
+
+### Large tablet: 1024px - 1279px
+
+<Image
+  alt="Large tablet break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/img/breakpoint-range-tablet-large.png"
+/>
+
+### Desktop: 1280px+
+
+<Image
+  alt="Desktop break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/img/breakpoint-range-desktop.png"
+/>
+
+## Best Practices and Recommendations
+
+### General
+
+Columns and gutters scale in a fluid system as the device and viewport increases
+from small to large.
+
+Use white space created by the grid system &ndash; too much dense information can be
+disorienting and overwhelming.
+
+Avoid breaking alignment or slightly oversizing a container to stick out for
+visual interest or to add emphasis
+
+Create relationships and hierarchy between content elements by using the margins
+and gutters in the grid shared by the page layout
+
+Each breakpoint range has a recommended "perceived columns" value. This is the
+recommended number of columns that should be used for a card grid. The card
+variant (row vs. column) will determine how the cards are situated in the card
+grid.
+
+Avoid cramming content into small column widths. Based on the NYPL typography
+recommendations, the width of a text block should be at least 300px. That being
+said, some viewport width edge cases will fall below the 300px width
+recommendation and that is okay.
+
+### Mobile First
+
+Begin designing with the smallest viewport width (one column) for small devices
+like a phone
+
+Complete and optimize the layout for each successive viewport width
+
+Inspect responsive displays in between each breakpoint for how content responds
+across the fluid spectrum
+
+## Figma Reference
+
+For additional information, please refer to the Figma Main file.
+
+- [Breakpoints](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=36835-26738&mode=design&t=vWHiibuF5Yf9Ag1U-11)
