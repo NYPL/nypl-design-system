@@ -1,4 +1,9 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraComponent,
+  chakra,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
@@ -92,7 +97,12 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export const SearchBar: React.FC<any> = chakra(
+export const SearchBar: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    SearchBarProps & React.RefAttributes<HTMLDivElement>
+  >,
+  SearchBarProps
+> = chakra(
   forwardRef<HTMLDivElement, SearchBarProps>((props, ref?) => {
     const {
       action,
