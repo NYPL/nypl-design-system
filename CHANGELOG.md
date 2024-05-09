@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Heading` component to allow more HTML attributes as props.
+
+### Fixes
+
+- Fixes an issue with the `Table` component where it rendered the headings twice until the component loaded and applied the desktop styles. This was done by adding inline responsive styles and removing the use of the `useWindowSize` hook.
+
 ## 3.1.1 (April 25, 2024)
 
 ### Adds
