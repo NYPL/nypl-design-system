@@ -32,7 +32,7 @@ export const heroSecondaryTypes = [
 export interface HeroImageProps
   extends Pick<
     ComponentImageProps,
-    "alt" | "fallbackSrc" | "src" | "onError"
+    "alt" | "fallbackSrc" | "id" | "src" | "onError"
   > {}
 export interface HeroProps {
   /**
@@ -57,6 +57,8 @@ export interface HeroProps {
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Object used to create and render the `Image` component. Note that only
    * `alt`, `component`, and `src` are the available attributes to pass. If
    * `imageProps.alt` is left blank, a warning will be logged to the console and
@@ -95,8 +97,10 @@ export const Hero: ChakraComponent<
         foregroundColor,
         heading,
         heroType,
+        id,
         imageProps = {
           alt: "",
+          id: undefined,
           src: "",
         },
         isDarkText,
@@ -295,6 +299,7 @@ export const Hero: ChakraComponent<
         <Image
           alt={imageProps.alt}
           fallbackSrc={imageProps.fallbackSrc}
+          id={imageProps.id}
           onError={imageProps.onError}
           src={imageProps.src}
         />
@@ -348,6 +353,7 @@ export const Hero: ChakraComponent<
         <Box
           data-testid="hero"
           data-responsive-background-image
+          id={id}
           ref={ref}
           __css={{
             ...styles.base,

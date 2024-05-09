@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
@@ -11,7 +12,6 @@ import {
   ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -79,10 +79,6 @@ export const Table: ChakraComponent<
         useRowHeaders,
       });
 
-      // Based on --nypl-breakpoint-medium
-      const breakpointMedium = 600;
-      const windowDimensions = useWindowSize();
-
       const tableCaption = titleText && (
         <ChakraTableCaption>{titleText}</ChakraTableCaption>
       );
@@ -132,16 +128,14 @@ export const Table: ChakraComponent<
           }
         }
 
-        const cellContent = (key: number, column: string | JSX.Element) => {
-          return windowDimensions.width <= breakpointMedium ? (
-            <>
-              <span>{columnHeaders[key]}</span>
-              <span>{column}</span>
-            </>
-          ) : (
-            column
-          );
-        };
+        const cellContent = (key: number, column: string | JSX.Element) => (
+          <>
+            <Box as="span" display={{ base: "block", md: "none" }}>
+              {columnHeaders[key]}
+            </Box>
+            <span>{column}</span>
+          </>
+        );
 
         return (
           <ChakraTbody>
