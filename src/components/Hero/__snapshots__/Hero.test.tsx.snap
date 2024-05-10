@@ -2,22 +2,16 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-svxhxl"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
-    }
-  }
 >
   <div
-    className="css-puf0z6"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >
@@ -49,6 +43,11 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -56,7 +55,9 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -88,6 +89,11 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -95,7 +101,9 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -127,6 +135,11 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -134,7 +147,9 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -166,6 +181,11 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -173,7 +193,9 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -205,6 +227,11 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
+      style={
+        {
+          "backgroundImage": undefined,
+        }
+      }
     >
       <div
         className="css-0"
@@ -212,7 +239,9 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -238,11 +267,11 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
   data-testid="hero"
 >
   <div
-    className="css-x9wpmn"
+    className="css-14tngpx"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "ui.gray.x-dark",
+        "bgColor": "ui.gray.x-dark",
       }
     }
   >
@@ -261,61 +290,26 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 
 exports[`Hero Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-gl44ej"
+  className="css-x5wp36"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "_after": {
-        "backgroundBlendMode": null,
-        "backgroundImage": "url(//placekitten.com/g/2400/800)",
-        "backgroundPosition": "center",
-        "backgroundSize": "cover",
-        "content": """",
-        "height": {
-          "base": "100%",
-          "md": "calc(100% - var(--nypl-space-xl))",
-        },
-        "minHeight": "300px",
-        "opacity": "1.0",
-        "paddingBottom": {
-          "base": "0",
-          "md": "xl",
-        },
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      },
-      "_before": {
-        "bgColor": "ui.black",
-        "content": """",
-        "height": {
-          "base": "100%",
-          "md": "calc(100% - var(--nypl-space-xl))",
-        },
-        "minHeight": "300px",
-        "paddingBottom": {
-          "base": "0",
-          "md": "xl",
-        },
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      },
-    }
-  }
 >
   <div
-    className="css-r7tfns"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "dark.ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -323,7 +317,9 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -349,16 +345,21 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
   data-testid="hero"
 >
   <div
-    className="css-puf0z6"
+    className="css-b2u002"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "ui.bg.default",
+        "bgColor": "ui.bg.default",
       }
     }
   >
     <div
-      className="css-1gt4hjv"
+      className="css-0"
+      style={
+        {
+          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
+        }
+      }
     >
       <div
         className="css-0"
@@ -366,7 +367,9 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
         <img
           alt="Image example"
           className="css-0"
-          src="//placekitten.com/800/400"
+          id="image-example"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
     </div>
@@ -381,22 +384,16 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
 
 exports[`Hero Renders the UI snapshot correctly 10`] = `
 <div
-  className="css-svxhxl"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
-    }
-  }
 >
   <div
-    className="css-puf0z6"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >
@@ -417,22 +414,16 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 
 exports[`Hero Renders the UI snapshot correctly 11`] = `
 <div
-  className="css-svxhxl"
+  className="css-1wmtxb5"
   data-responsive-background-image={true}
   data-testid="hero"
-  style={
-    {
-      "backgroundImage": "url(//placekitten.com/1600/800)",
-      "bgColor": "ui.bg.default",
-    }
-  }
 >
   <div
-    className="css-puf0z6"
+    className="css-24mlj5"
     data-testid="hero-content"
     style={
       {
-        "defaultBackgroundColor": "ui.bg.default",
+        "bgColor": "ui.black",
       }
     }
   >

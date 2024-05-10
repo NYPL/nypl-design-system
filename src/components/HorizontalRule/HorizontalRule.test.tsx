@@ -14,7 +14,7 @@ describe("HorizontalRule Accessibility", () => {
 
 describe("HorizontalRule", () => {
   it("renders HorizontalRule component", () => {
-    render(<HorizontalRule />);
+    render(<HorizontalRule id="hr-id" />);
     expect(screen.getByRole("separator")).toBeInTheDocument();
   });
 
@@ -54,8 +54,9 @@ describe("HorizontalRule", () => {
 
   it("passes a ref to the hr element", () => {
     const ref = React.createRef<HTMLDivElement & HTMLHRElement>();
-    const { container } = render(<HorizontalRule ref={ref} />);
+    const { container } = render(<HorizontalRule id="hr-id" ref={ref} />);
 
     expect(container.querySelector("hr")).toBe(ref.current);
+    expect(container.querySelector("#hr-id")).toBeInTheDocument();
   });
 });

@@ -8,6 +8,7 @@ import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
+import { getPlaceholderImage } from "../../utils/utils";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -16,7 +17,8 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          id: "img-id",
+          src: getPlaceholderImage("smaller", 0),
         }}
       >
         <CardHeading level="h3" id="heading1">
@@ -39,7 +41,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller", 0),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -64,7 +66,8 @@ describe("Card", () => {
       id="regularCard"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        id: "img-id-regularCard",
+        src: getPlaceholderImage("smaller", 0),
       }}
       ref={ref}
     >
@@ -85,7 +88,8 @@ describe("Card", () => {
       id="cardWithExtendedStyles"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        id: "img-id-cardWithExtendedStyles",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -121,7 +125,8 @@ describe("Card", () => {
       id="cardWithNoCTAs"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        id: "img-id-cardWithNoCTAs",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2">
@@ -140,7 +145,8 @@ describe("Card", () => {
       id="cardWithNoContent"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/300/400",
+        id: "img-id-cardWithNoContent",
+        src: getPlaceholderImage("smaller", 0),
       }}
     >
       <CardHeading id="editioncardheading1" level="h2" url="#edition-link">
@@ -189,7 +195,8 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        id: "img-id-fullclick",
+        src: getPlaceholderImage("smaller", 0),
       }}
       mainActionLink="http://nypl.org"
     >
@@ -209,7 +216,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         aspectRatio: "threeByTwo",
-        component: <Image alt="" src="//placekitten.com/400/200" />,
+        component: <Image alt="" src={getPlaceholderImage("smaller", 0)} />,
       }}
     >
       <CardHeading level="h3" id="heading1">
@@ -223,7 +230,8 @@ describe("Card", () => {
       id="cardID"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        id: "img-id-cardWithRightActions",
+        src: getPlaceholderImage("smaller", 0),
       }}
       isAlignedRightActions
     >
@@ -248,7 +256,8 @@ describe("Card", () => {
       id="chakraProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        id: "img-id-chakraProps",
+        src: getPlaceholderImage("smaller", 0),
       }}
       p="s"
       color="ui.error.primary"
@@ -269,7 +278,8 @@ describe("Card", () => {
       id="otherProps"
       imageProps={{
         alt: "Alt text",
-        src: "//placekitten.com/400/200",
+        id: "img-id-otherProps",
+        src: getPlaceholderImage("smaller", 0),
       }}
       data-testid="card-testid"
     >
@@ -295,6 +305,7 @@ describe("Card", () => {
     expect(container.querySelector("h3")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toHaveAttribute("id", "img-id-regularCard");
     expect(screen.getByText("middle column content")).toBeInTheDocument();
     expect(screen.getByText("Example CTA")).toBeInTheDocument();
   });
@@ -306,6 +317,10 @@ describe("Card", () => {
     expect(container.querySelector("h2")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toHaveAttribute(
+      "id",
+      "img-id-cardWithExtendedStyles"
+    );
     expect(
       screen.getByText(/Published in New York by Random House/i)
     ).toBeInTheDocument();
