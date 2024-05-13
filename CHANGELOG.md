@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes a `Breadcrumbs` snapshot test that was duplicated and now has the appropriate `"locations"` variant.
+
 ## 3.1.2 (May 9, 2024)
 
 ### Adds
