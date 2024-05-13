@@ -5,6 +5,7 @@ import "./styles.scss";
 export {
   Box,
   Center,
+  chakra,
   Circle,
   ColorModeScript,
   cookieStorageManager,
@@ -21,6 +22,7 @@ export {
   useColorMode,
   useColorModeValue,
   useStyleConfig,
+  useMediaQuery,
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
