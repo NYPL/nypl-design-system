@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+
 ## 3.1.2 (May 9, 2024)
 
 ### Adds
