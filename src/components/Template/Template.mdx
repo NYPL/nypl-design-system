@@ -499,25 +499,22 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 
 ## Responsive Grid
 
-The content area of the `Template` component (`TemplateContent`) &ndash; which
-houses `TemplateContentTop`, `TemplateContentPrimary`, `TemplateContentSidebar`,
-and `TemplateContentBottom` &ndash; can be configured to use the legacy layout
-or to employ a responsive 12-column grid system.
-
-Use the `useLegacyGrid` prop to configure the component accordingly.
-
-### Legacy Layout
-
-The legacy layout is not truely a grid system. The sidebar is set with a fixed
-255px width and the primary content area expands and contracts to fill the
-remain space.
+By default, the content area of the `Template` component (`TemplateContent`)
+&ndash; which houses `TemplateContentTop`, `TemplateContentPrimary`,
+`TemplateContentSidebar`, and `TemplateContentBottom` &ndash; will employ a
+responsive 12-column grid system. However, with the `useLegacyGrid` prop, the
+component can be configured to use the legacy layout. For details about using
+the legacy layout in the content area, please refer to the The `Legacy Layout`Wdocs below.
 
 ### Responsive Grid System
 
-The responsive 12-column grid configuration allows the column widths for the
-sidebar and primary content to adjust depending on the current breakpoint.
-Additionally, the column spacing will also adjust based on the current
-breakpoint.
+The responsive 12-column grid layout allows the column widths for the sidebar
+and primary content to adjust depending onthe the current data object
+breakpoint. Additionally, the column spacing will also adjust based on the in
+the object current breakpoint. The values returned match the `Gutters` column
+in the table above. For this configuration, the top content and bottom content
+areas that sit above and below the primary content area and sidebar are styled
+to span the full width of the content area regardless of the breakpoint.
 
 For more detailed documentation about Reservoir's responsive grid system, please
 refer to the [Responsive Grid Style
@@ -558,26 +555,55 @@ Guide](/?path=/docs/style-guide-responsive-grid--docs).
   className="ds-table-storybook"
 />
 
-\* Primary Content width values are only applicable if the sidebar is enabled.
-Otherwise, the width of the primary content area will be set to 100%.
+\* The Primary Content Width values are only applicable if the sidebar is
+enabled. Otherwise, the width of the primary content area will be set to 100%.
+
+#### Responsive Spacing in Consuming Apps
 
 When using the responsive 12-column grid configuration, consuming apps should
-utilize `responsiveGutters` to keep their custom grids in alighment with the
-spacing of the `Template` component.
+utilize the `responsiveGutters` data object to keep their custom grids in
+alighment with the spacing of the `Template` component. The values returned in
+the object match the `Gutters` column in the table above.
 
 <Source
   code={`
-// Import the responsive spacing 
+// Import the data object 
 import { responsiveGutters } from "@nypl/design-system-react-components";
 
 // Use the spacing values
-
 <SimpleGrid spacing={responsiveSpacing}>
   <Item />
   <Item />
   <Item />
 </SimpleGrid>
 `} language="jsx" />
+
+### Legacy Layout
+
+The legacy layout is not truely a grid system. The sidebar is set with a fixed
+255px width and the primary content area expands and contracts to fill the
+remaining space.
+
+Like the responsive 12-column grid layout, the top content and bottom content
+areas are styled to span the full width of the content area regardless of the
+breakpoint.
+
+#### Configuring Legacy Layout in Consuming Apps
+
+To implement the legacy layout when using `TemplateAppContainer` to implement
+the `Template` component, the `useLegacyGrid` prop should be passed as `true` to
+`TemplateAppContainer`.
+
+When using the individual template components (i.e. `Template` and the
+associated children components), the `useLegacyGrid` prop needs to be passed as
+`true` to each of the following components:
+
+- `Template`
+- `TemplateContent`
+- `TemplateContentTop`
+- `TemplateContentPrimary`
+- `TemplateContentSidebar`
+- `TemplateContentBottom`
 
 ## Changelog
 

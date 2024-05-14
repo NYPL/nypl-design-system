@@ -226,7 +226,6 @@ export const WithControls: Story = {
     renderHeaderElement: true,
     renderSkipNavigation: false,
     sidebar: "left",
-    useLegacyGrid: true,
   },
   argTypes: {
     aboveHeader: { control: false },
@@ -240,6 +239,9 @@ export const WithControls: Story = {
     renderSkipNavigation: argsBooleanType(),
     sidebar: {
       table: { defaultValue: { summary: "none" } },
+    },
+    useLegacyGrid: {
+      table: { defaultValue: { summary: "false" } },
     },
   },
   render: (args) => (
@@ -294,7 +296,7 @@ export const ChildrenComponentProps: Story = {
   render: (args) => (
     <>
       <SkipNavigation />
-      <Template useLegacyGrid={false}>
+      <Template>
         <TemplateBreakout>
           <TemplateAboveHeader>
             <Placeholder variant="short">Above Header</Placeholder>

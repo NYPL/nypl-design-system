@@ -164,7 +164,7 @@ const TemplateContent: React.FC<any> = (
     children,
     id = "mainContent",
     sidebar = "none",
-    useLegacyGrid = true,
+    useLegacyGrid,
   } = props;
   const styles = useStyleConfig("TemplateContent", {
     useLegacyGrid,

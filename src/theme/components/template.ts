@@ -35,7 +35,7 @@ const TemplateBreakout = defineStyleConfig({
   }),
 });
 const TemplateContent = defineStyleConfig({
-  baseStyle: defineStyle(({ useLegacyGrid = true }) => ({
+  baseStyle: defineStyle(({ useLegacyGrid = false }) => ({
     /** Set this element to start on the second 1280px grid column. */
     gridColumn: "2",
     /** But this element also contains its own grid system within. */
@@ -54,10 +54,10 @@ const TemplateContent = defineStyleConfig({
   /** If the sidebar is enabled, set two grid columns with the width of the
    * sidebar column fixed at 255px. */
   variants: {
-    left: ({ useLegacyGrid = true }) => ({
+    left: ({ useLegacyGrid = false }) => ({
       gridTemplateColumns: useLegacyGrid ? { md: "255px 1fr" } : undefined,
     }),
-    right: ({ useLegacyGrid = true }) => ({
+    right: ({ useLegacyGrid = false }) => ({
       gridTemplateColumns: useLegacyGrid ? { md: "1fr 255px" } : undefined,
     }),
   },
@@ -89,14 +89,14 @@ const TemplateContentPrimary = defineStyleConfig({
      * - Small tablet:            2/3 width
      * - Large tablet & desktop:  3/4 width
      * */
-    left: ({ useLegacyGrid = true }) => ({
+    left: ({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? { base: "1", md: "2" }
         : { base: "1 / -1", sm: "7 / -1", md: "5 / -1", lg: "4 / -1" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
     }),
-    right: ({ useLegacyGrid = true }) => ({
+    right: ({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? { base: "1", md: "1" }
         : { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
@@ -113,12 +113,12 @@ const TemplateContentSidebar = defineStyleConfig({
      * - Small tablet:            1/3 width
      * - Large tablet & desktop:  1/4 width
      * */
-    left: ({ useLegacyGrid = true }) => ({
+    left: ({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? "1"
         : { base: "1 / -1", sm: "1 / 7", md: "1 / 5", lg: "1 / 4" },
     }),
-    right: ({ useLegacyGrid = true }) => ({
+    right: ({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? { base: "1", md: "2" }
         : { base: "1 / -1", sm: "7 / -1", md: "9 / -1", lg: "10 / -1" },
