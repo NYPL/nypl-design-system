@@ -1,10 +1,11 @@
-import React, { useState, forwardRef, useRef } from "react";
 import {
   Box,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import React, { useState, forwardRef, useRef } from "react";
+
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
