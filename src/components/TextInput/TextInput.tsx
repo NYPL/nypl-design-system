@@ -275,11 +275,11 @@ export const TextInput: ChakraComponent<
       const ariaAttributes = {
         ...getAriaAttrs({
           additionalAriaLabel,
+          additionalHelperTextIds,
           footnote,
           id,
           labelText,
           name: "TextInput",
-          additionalHelperTextIds,
           showLabel,
         }),
         // getAriaAttrs returns an object with the key `aria-describedby`,
