@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.1.3 (May 15, 2024)
+
+### Adds
+
+- Adds new `type` prop to the `Modal` component with `"default"` and `"confirmation"` variants.
+
 ### Fixes
 
 - Fixes the desktop styling flicker in the `ButtonGroup` component.
