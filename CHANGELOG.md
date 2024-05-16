@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes the desktop styling flicker in the `ButtonGroup` component.
+- Fixes the z-index issue in the `MultiSelect` component's selected item button.
 
 ## 3.1.2 (May 9, 2024)
 
