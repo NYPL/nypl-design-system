@@ -10,7 +10,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Fixes
 
+- Fixes the z-index issue in the `MultiSelect` component's selected item button.
+- Fixes the `Checkbox` positioning so it is visible when it is focused in a scrollable container.
 - Fixes a `Breadcrumbs` snapshot test that was duplicated and now has the appropriate `"locations"` variant.
+
+## 3.1.3 (May 15, 2024)
+
+### Adds
+
+- Adds new `type` prop to the `Modal` component with `"default"` and `"confirmation"` variants.
+
+### Fixes
+
+- Fixes the desktop styling flicker in the `ButtonGroup` component.
 
 ## 3.1.2 (May 9, 2024)
 
