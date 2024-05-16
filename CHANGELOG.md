@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes the `Checkbox` positioning so it is visible when it is focused in a scrollable container.
+
 ## 3.1.3 (May 15, 2024)
 
 ### Adds
