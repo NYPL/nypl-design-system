@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Exports `useMediaQuery` and `chakra` from Chakra UI.
+
 ### Fixes
 
 - Fixes the z-index issue in the `MultiSelect` component's selected item button.
