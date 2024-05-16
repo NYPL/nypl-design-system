@@ -5,17 +5,24 @@
 
   margin-bottom: 0;
   padding: var(--nypl-space-s);
+  align-content: center;
   align-items: center;
   border: 4px dashed var(--color-place-holder);
   color: var(--color-place-holder);
   display: flex;
+  flex-direction: column;
   font-size: var(--nypl-fontSizes-desktop-heading-heading3);
   justify-content: center;
   line-height: 1.4;
   padding: 4rem 1rem;
   width: 100%;
-
+  
   &--short {
     padding: 1rem 1rem;
+  }
+  
+  hgroup {
+    color: var(--color-place-holder);
+    text-align: center;
   }
 }

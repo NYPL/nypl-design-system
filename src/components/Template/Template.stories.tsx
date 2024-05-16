@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Accordion, { AccordionDataProps } from "../Accordion/Accordion";
+import Banner from "../Banner/Banner";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
@@ -27,6 +28,7 @@ import {
   TemplateHeader,
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { getPlaceholderImage } from "../../utils/utils";
 
@@ -122,20 +124,76 @@ const faqContentData: AccordionDataProps[] = [
   },
 ];
 
+// Used to set dynamic labels for content columns.
+const ResponsiveColumnLabels = (useLegacyGrid) => {
+  const {
+    isLargerThanMobile,
+    isLargerThanSmallMobile,
+    isLargerThanLargeMobile,
+    isLargerThanSmallTablet,
+    isLargerThanLargeTablet,
+  } = useNYPLBreakpoints();
+  let sidebarLabel;
+  let contentLabel;
+  if (useLegacyGrid) {
+    sidebarLabel = "Legacy grid (full width)";
+    contentLabel = "Legacy grid (full width)";
+    if (isLargerThanMobile) {
+      sidebarLabel = "Legacy grid (255px fixed)";
+      contentLabel = "Legacy grid (fills remaing space)";
+    }
+  } else {
+    sidebarLabel = "Small mobile (full width)";
+    contentLabel = "Small mobile (full width)";
+    if (isLargerThanSmallMobile) {
+      sidebarLabel = "Large mobile (1/2)";
+      contentLabel = "Large mobile (1/2)";
+    }
+    if (isLargerThanLargeMobile) {
+      sidebarLabel = "Small tablet (1/3)";
+      contentLabel = "Small tablet (2/3)";
+    }
+    if (isLargerThanSmallTablet) {
+      sidebarLabel = "Large tablet (1/4)";
+      contentLabel = "Large tablet (3/4)";
+    }
+    if (isLargerThanLargeTablet) {
+      sidebarLabel = "Desktop (1/4)";
+      contentLabel = "Desktop (3/4)";
+    }
+  }
+  return {
+    sidebarLabel,
+    contentLabel,
+  };
+};
+
 /**
  * Main Story for the Template component. This must contains the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
   args: {
-    aboveHeader: <Placeholder variant="short">Above Header</Placeholder>,
+    aboveHeader: (
+      <Placeholder variant="short">
+        <Heading size="heading4" noSpace text="Above Header" />
+      </Placeholder>
+    ),
     breakout: (
       <>
-        <Placeholder variant="short">Breadcrumbs</Placeholder>
-        <Placeholder>Hero</Placeholder>
+        <Placeholder variant="short">
+          <Heading size="heading4" noSpace text="Breadcrumbs" />
+        </Placeholder>
+        <Placeholder>
+          <Heading size="heading4" noSpace text="Hero" />
+        </Placeholder>
       </>
     ),
-    contentBottom: <Placeholder variant="short">Content Bottom</Placeholder>,
+    contentBottom: (
+      <Placeholder variant="short">
+        <Heading size="heading4" noSpace text="Content Bottom" />
+      </Placeholder>
+    ),
     contentId: "mainContent",
     contentPrimary: (
       <>
@@ -143,10 +201,26 @@ export const WithControls: Story = {
         <Placeholder variant="short">More Content</Placeholder>
       </>
     ),
-    contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
-    contentTop: <Placeholder variant="short">Content Top</Placeholder>,
-    footer: <Placeholder>Footer</Placeholder>,
-    header: <Placeholder variant="short">Header</Placeholder>,
+    contentSidebar: (
+      <Placeholder>
+        <Heading size="heading4" noSpace text="Sidebar" />
+      </Placeholder>
+    ),
+    contentTop: (
+      <Placeholder variant="short">
+        <Heading size="heading4" noSpace text="Content Top" />
+      </Placeholder>
+    ),
+    footer: (
+      <Placeholder>
+        <Heading size="heading4" noSpace text="Footer" />
+      </Placeholder>
+    ),
+    header: (
+      <Placeholder variant="short">
+        <Heading size="heading4" noSpace text="Header" />
+      </Placeholder>
+    ),
     renderFooterElement: true,
     renderHeaderElement: true,
     renderSkipNavigation: false,
@@ -165,8 +239,35 @@ export const WithControls: Story = {
     sidebar: {
       table: { defaultValue: { summary: "none" } },
     },
+    useLegacyGrid: {
+      table: { defaultValue: { summary: "false" } },
+    },
   },
-  render: (args) => <TemplateAppContainer {...args} />,
+  render: (args) => (
+    <TemplateAppContainer
+      {...args}
+      contentPrimary={
+        <Placeholder>
+          <Heading
+            size="heading4"
+            noSpace
+            subtitle={ResponsiveColumnLabels(args.useLegacyGrid).contentLabel}
+            text="Main Content"
+          />
+        </Placeholder>
+      }
+      contentSidebar={
+        <Placeholder>
+          <Heading
+            size="heading4"
+            noSpace
+            subtitle={ResponsiveColumnLabels(args.useLegacyGrid).sidebarLabel}
+            text="Sidebar"
+          />
+        </Placeholder>
+      }
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -205,25 +306,45 @@ export const ChildrenComponentProps: Story = {
             <Placeholder>Hero</Placeholder>
           </TemplateHeader>
         </TemplateBreakout>
-        <TemplateContent sidebar={args.sidebar}>
-          <TemplateContentTop>
+        <TemplateContent sidebar={args.sidebar} useLegacyGrid={false}>
+          <TemplateContentTop useLegacyGrid={false}>
             <Placeholder variant="short">Content Top</Placeholder>
           </TemplateContentTop>
           {args.sidebar === "left" && (
-            <TemplateContentSidebar>
-              <Placeholder>Left Sidebar</Placeholder>
+            <TemplateContentSidebar useLegacyGrid={false}>
+              <Placeholder>
+                <Heading
+                  size="heading4"
+                  noSpace
+                  subtitle={ResponsiveColumnLabels(false).sidebarLabel}
+                  text="Sidebar"
+                />
+              </Placeholder>
             </TemplateContentSidebar>
           )}
-          <TemplateContentPrimary>
-            <Placeholder>Main Content</Placeholder>
-            <Placeholder variant="short">More Content</Placeholder>
+          <TemplateContentPrimary useLegacyGrid={false}>
+            <Placeholder>
+              <Heading
+                size="heading4"
+                noSpace
+                subtitle={ResponsiveColumnLabels(false).contentLabel}
+                text="Main Content"
+              />
+            </Placeholder>
           </TemplateContentPrimary>
           {args.sidebar === "right" && (
-            <TemplateContentSidebar>
-              <Placeholder>Right Sidebar</Placeholder>
+            <TemplateContentSidebar useLegacyGrid={false}>
+              <Placeholder>
+                <Heading
+                  size="heading4"
+                  noSpace
+                  subtitle={ResponsiveColumnLabels(false).sidebarLabel}
+                  text="Sidebar"
+                />
+              </Placeholder>
             </TemplateContentSidebar>
           )}
-          <TemplateContentBottom>
+          <TemplateContentBottom useLegacyGrid={false}>
             <Placeholder variant="short">Content Bottom</Placeholder>
           </TemplateContentBottom>
         </TemplateContent>
@@ -282,24 +403,15 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
             />
           </TemplateHeader>
         </TemplateBreakout>
-        <TemplateContent sidebar="right">
-          <TemplateContentTop>
-            <Notification
-              notificationType="announcement"
-              notificationHeading="Announcement Notification"
-              notificationContent={
-                <>
-                  This is an "announcement" Notification with a heading. Cras
-                  mattis consectetur purus sit amet fermentum. Maecenas faucibus
-                  mollis interdum. Morbi leo risus, porta ac consectetur ac,
-                  vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-                  parturient montes, nascetur ridiculus mus. Vivamus sagittis
-                  lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </>
-              }
+        <TemplateContent sidebar="right" useLegacyGrid={false}>
+          <TemplateContentTop useLegacyGrid={false}>
+            <Banner
+              content={<>This is an the top content area!</>}
+              heading="Top Content"
+              type="informative"
             />
           </TemplateContentTop>
-          <TemplateContentPrimary>
+          <TemplateContentPrimary useLegacyGrid={false}>
             <p>This is the main content!</p>
             <Accordion accordionData={faqContentData} />
             <HorizontalRule />
@@ -341,7 +453,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               </FormField>
             </Form>
           </TemplateContentPrimary>
-          <TemplateContentSidebar>
+          <TemplateContentSidebar useLegacyGrid={false}>
             <p>Sidebar information in a `Card` component.</p>
             <Card
               imageProps={{
@@ -361,12 +473,11 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
               </CardContent>
             </Card>
           </TemplateContentSidebar>
-          <TemplateContentBottom>
-            <Notification
-              noMargin
-              notificationHeading="Standard Notification"
-              notificationContent={<>This is an the bottom content area!</>}
-              showIcon={false}
+          <TemplateContentBottom useLegacyGrid={false}>
+            <Banner
+              content={<>This is an the bottom content area!</>}
+              heading="Bottom Content"
+              type="informative"
             />
           </TemplateContentBottom>
         </TemplateContent>
