@@ -133,15 +133,14 @@ const ResponsiveColumnLabels = (useLegacyGrid) => {
     isLargerThanSmallTablet,
     isLargerThanLargeTablet,
   } = useNYPLBreakpoints();
-  // const { useLegacyGrid } = args;
   let sidebarLabel;
   let contentLabel;
   if (useLegacyGrid) {
-    sidebarLabel = "Legacy grid: full width";
-    contentLabel = "Legacy grid: full width";
+    sidebarLabel = "Legacy grid (full width)";
+    contentLabel = "Legacy grid (full width)";
     if (isLargerThanMobile) {
-      sidebarLabel = "Legacy grid: 255px fixed";
-      contentLabel = "Legacy grid: fills remaing space";
+      sidebarLabel = "Legacy grid (255px fixed)";
+      contentLabel = "Legacy grid (fills remaing space)";
     }
   } else {
     sidebarLabel = "Small mobile (full width)";

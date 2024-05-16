@@ -54,12 +54,12 @@ const TemplateContent = defineStyleConfig({
   /** If the sidebar is enabled, set two grid columns with the width of the
    * sidebar column fixed at 255px. */
   variants: {
-    left: ({ useLegacyGrid = false }) => ({
+    left: defineStyle(({ useLegacyGrid = false }) => ({
       gridTemplateColumns: useLegacyGrid ? { md: "255px 1fr" } : undefined,
-    }),
-    right: ({ useLegacyGrid = false }) => ({
+    })),
+    right: defineStyle(({ useLegacyGrid = false }) => ({
       gridTemplateColumns: useLegacyGrid ? { md: "1fr 255px" } : undefined,
-    }),
+    })),
   },
 });
 
@@ -89,18 +89,18 @@ const TemplateContentPrimary = defineStyleConfig({
      * - Small tablet:            2/3 width
      * - Large tablet & desktop:  3/4 width
      * */
-    left: ({ useLegacyGrid = false }) => ({
+    left: defineStyle(({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? { base: "1", md: "2" }
         : { base: "1 / -1", sm: "7 / -1", md: "5 / -1", lg: "4 / -1" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
-    }),
-    right: ({ useLegacyGrid = false }) => ({
+    })),
+    right: defineStyle(({ useLegacyGrid = false }) => ({
       gridColumn: useLegacyGrid
         ? { base: "1", md: "1" }
         : { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
-    }),
+    })),
   },
 });
 const TemplateContentSidebar = defineStyleConfig({

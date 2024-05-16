@@ -15,12 +15,6 @@
   --nypl-breakpoint-medium: 768px;
   --nypl-breakpoint-large: 1024px;
   --nypl-breakpoint-xl: 1280px;
-
-  // Safe Area Environment Vars
-  --sat: env(safe-area-inset-top);
-  --sar: env(safe-area-inset-right);
-  --sab: env(safe-area-inset-bottom);
-  --sal: env(safe-area-inset-left);
 }
 
 $nypl-breakpoint-small: 480px;

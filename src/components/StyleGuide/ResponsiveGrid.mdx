@@ -15,15 +15,13 @@ import Table from "../Table/Table";
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#terminology" target="_self">Terminology</Link>}
-  - {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
-  - {<Link href="#breakpoint-ranges" target="_self">Breakpoint Ranges</Link>}
-  - {<Link href="#columns" target="_self">Columns</Link>}
-  - {<Link href="#gutters" target="_self">Gutters</Link>}
-  - {<Link href="#margines" target="_self">Margins</Link>}
+  - {<Link href="#breakpoints--breakpoint-ranges" target="_self">Breakpoints & Breakpoint Ranges</Link>}
+  - {<Link href="#grid-anatomy" target="_self">Grid Anatomy</Link>}
   - {<Link href="#perceived-columns" target="_self">Perceived Columns</Link>}
 - {<Link href="#breakpoint-range-details" target="_self">Breakpoint Range Details</Link>}
 - {<Link href="#breakpoint-range-visual-reference" target="_self">Breakpoint Range Visual Reference</Link>}
 - {<Link href="#best-practices-and-recommendations" target="_self">Best Practices and Recommendations</Link>}
+- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
 
 ## Overview
 
@@ -62,72 +60,81 @@ breakpoints and from that we will define five breakpoint ranges:
 - Large tablet (l): 1024px - 1279px (see Appendix Section I: Large Tablet)
 - Desktop (xl): 1280px and greater (see Appendix Section I: Desktop)
 
+### Grid Anatomy
+
+The anatomy of a responsive grid is made up of elements that scale in a fluid
+system as the device and viewport increases from small to large.
+
 <SimpleGrid>
+  <div>
+    #### Columns
 
-<div>
-  #### Columns
+    There are 12 columns in a responsive grid system. Column widths change with the
+    size of the grid.
 
-There are 12 columns in a responsive grid system. Column widths change with the
-size of the grid.
+    <Image src="/img/grid-columns.png" alt="Grid columns" mb="l" />
 
-  <Image src="/img/grid-columns.png" alt="Grid columns" mb="l" />
-</div>
-<div>
-  #### Gutters
+  </div>
+  <div>
+    #### Gutters
 
-Gutters are the gaps between the columns. Gutter widths are fixed values (16px,
-24px, etc.) based on breakpoints.
+    Gutters are the gaps between the columns. Gutter widths are fixed values (16px,
+    24px, etc.) based on breakpoints.
 
-  <Image src="/img/grid-gutters.png" alt="Grid gutters" mb="l" />
-</div>
-<div>
-#### Margins
+    <Image src="/img/grid-gutters.png" alt="Grid gutters" mb="l" />
 
-Grid margins are the outer margins of the grid. They can be the same width as the gutters or greater.
+  </div>
+  <div>
+    #### Margins
 
-<Image src="/img/grid-margins.png" alt="Grid margin" mb="l" />
-</div>
+    Grid margins are the outer margins of the grid. They can be the same width as
+    the gutters or greater.
 
+    <Image src="/img/grid-margins.png" alt="Grid margin" mb="l" />
+
+  </div>
 </SimpleGrid>
 
-#### Perceived Columns
+### Perceived Columns
 
 Often, the underlying columns in the 12-column grid system are grouped to create
 "perceived columns."
 
 <SimpleGrid columns={4} mb="l">
-<div>
-##### One
+  <div>
+    #### One
 
-1 group of 12
+    1 group of 12
 
-<Image src="/img/grid-perceived-columns-1.png" alt="One perceived column" />
-</div>
+    <Image
+      src="/img/grid-perceived-columns-1.png"
+      alt="One perceived column" />
 
-<div>
-##### Two
+  </div>
+  <div>
+    #### Two
 
-2 groups of 6
+    2 groups of 6
 
-<Image src="/img/grid-perceived-columns-2.png" alt="Two perceived columns" />
-</div>
+    <Image src="/img/grid-perceived-columns-2.png" alt="Two perceived columns" />
 
-<div>
-##### Three
+  </div>
+  <div>
+    #### Three
 
-3 groups of 4
+    3 groups of 4
 
-<Image src="/img/grid-perceived-columns-3.png" alt="Three perceived columns" />
-</div>
+    <Image src="/img/grid-perceived-columns-3.png" alt="Three perceived columns" />
 
-<div>
-##### Four
+  </div>
+  <div>
+    #### Four
 
-4 groups of 3
+    4 groups of 3
 
-<Image src="/img/grid-perceived-columns-4.png" alt="Four perceived columns" />
-</div>
+    <Image src="/img/grid-perceived-columns-4.png" alt="Four perceived columns" />
 
+  </div>
 </SimpleGrid>
 
 ## Breakpoint Range Details
@@ -147,7 +154,7 @@ Often, the underlying columns in the 12-column grid system are grouped to create
     ["Large mobile", "480 - 767", "12", "1rem (16px)", "1rem (16px)", "1 or 2"],
     [
       "Small tablet",
-      "0 768 - 1023",
+      "768 - 1023",
       "12",
       "1.5rem (24px)",
       "1.5rem (24px)",
@@ -241,16 +248,14 @@ recommendation as the large tablet breakpoint range.
 
 ### Small mobile: less than 480px
 
-<div>
-  <Image
-    alt="Small mobile break point range"
-    display="inline-block"
-    mb="s"
-    size="large"
-    sizeBasedOn="height"
-    src="/img/breakpoint-range-mobile-small.png"
-  />
-</div>
+<Image
+  alt="Small mobile break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/img/breakpoint-range-mobile-small.png"
+/>
 
 ### Large mobile: 480px - 767px
 
@@ -325,12 +330,12 @@ recommendation and that is okay.
 ### Mobile First
 
 Begin designing with the smallest viewport width (one column) for small devices
-like a phone
+like a phone.
 
-Complete and optimize the layout for each successive viewport width
+Complete and optimize the layout for each successive viewport width.
 
 Inspect responsive displays in between each breakpoint for how content responds
-across the fluid spectrum
+across the fluid spectrum.
 
 ## Figma Reference
 

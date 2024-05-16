@@ -504,17 +504,18 @@ By default, the content area of the `Template` component (`TemplateContent`)
 `TemplateContentSidebar`, and `TemplateContentBottom` &ndash; will employ a
 responsive 12-column grid system. However, with the `useLegacyGrid` prop, the
 component can be configured to use the legacy layout. For details about using
-the legacy layout in the content area, please refer to the The `Legacy Layout`Wdocs below.
+the legacy layout in the content area, please refer to the `Legacy Layout` docs
+below.
 
 ### Responsive Grid System
 
 The responsive 12-column grid layout allows the column widths for the sidebar
-and primary content to adjust depending onthe the current data object
-breakpoint. Additionally, the column spacing will also adjust based on the in
-the object current breakpoint. The values returned match the `Gutters` column
-in the table above. For this configuration, the top content and bottom content
-areas that sit above and below the primary content area and sidebar are styled
-to span the full width of the content area regardless of the breakpoint.
+and primary content to adjust depending on the current breakpoint. Additionally,
+the column spacing will also adjust based on the current breakpoint. The values
+returned match the `Gutters` column in the table above. For this configuration,
+the top content and bottom content areas that sit above and below the primary
+content area and sidebar are styled to span the full width of the content area
+regardless of the breakpoint.
 
 For more detailed documentation about Reservoir's responsive grid system, please
 refer to the [Responsive Grid Style
@@ -562,7 +563,7 @@ enabled. Otherwise, the width of the primary content area will be set to 100%.
 
 When using the responsive 12-column grid configuration, consuming apps should
 utilize the `responsiveGutters` data object to keep their custom grids in
-alighment with the spacing of the `Template` component. The values returned in
+alignment with the spacing of the `Template` component. The values returned in
 the object match the `Gutters` column in the table above.
 
 <Source
@@ -571,7 +572,7 @@ the object match the `Gutters` column in the table above.
 import { responsiveGutters } from "@nypl/design-system-react-components";
 
 // Use the spacing values
-<SimpleGrid spacing={responsiveSpacing}>
+<SimpleGrid spacing={responsiveGutters}>
   <Item />
   <Item />
   <Item />
@@ -580,7 +581,7 @@ import { responsiveGutters } from "@nypl/design-system-react-components";
 
 ### Legacy Layout
 
-The legacy layout is not truely a grid system. The sidebar is set with a fixed
+The legacy layout is not truly a grid system. The sidebar is set with a fixed
 255px width and the primary content area expands and contracts to fill the
 remaining space.
 

@@ -8,24 +8,18 @@ export interface TemplateProps {
    * render the Template layout. */
   useLegacyGrid?: boolean;
 }
-export interface TemplateHeaderProps {
+export interface TemplateHeaderProps extends TemplateProps {
   /** Flag to render an HTML header element. True by default. */
   renderHeaderElement?: boolean;
-  /** Determines whether the legacy grid system and spacing should be used to
-   * render the Template layout. */
-  useLegacyGrid?: boolean;
 }
 export interface TemplateFooterProps {
   /** Flag to render an HTML footer element. True by default. */
   renderFooterElement?: boolean;
 }
-export interface TemplateSidebarProps {
+export interface TemplateSidebarProps extends TemplateProps {
   /** Renders the `TemplateContentSidebar` component either on the left or
    * right side of the `TemplateContentPrimary` component. */
   sidebar?: "none" | "left" | "right";
-  /** Determines whether the legacy grid system and spacing should be used to
-   * render the Template layout. */
-  useLegacyGrid?: boolean;
 }
 export interface TemplateContentProps extends TemplateSidebarProps {
   /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
@@ -204,11 +198,11 @@ const TemplateContent: React.FC<any> = (
 const TemplateContentTop: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const { useLegacyGrid } = props;
+  const { children, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentTopBottom", {
     useLegacyGrid,
   });
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box __css={styles}>{children}</Box>;
 };
 
 /**
@@ -220,9 +214,9 @@ const TemplateContentTop: React.FC<any> = (
 const TemplateContentBottom: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const { useLegacyGrid } = props;
+  const { children, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentTopBottom", { useLegacyGrid });
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box __css={styles}>{children}</Box>;
 };
 
 /**
@@ -236,12 +230,12 @@ const TemplateContentBottom: React.FC<any> = (
 const TemplateContentPrimary: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar, useLegacyGrid } = props;
+  const { children, sidebar, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentPrimary", {
     useLegacyGrid,
     variant: sidebar,
   });
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box __css={styles}>{children}</Box>;
 };
 
 /**
@@ -258,12 +252,12 @@ const TemplateContentPrimary: React.FC<any> = (
 const TemplateContentSidebar: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar, useLegacyGrid } = props;
+  const { children, sidebar, useLegacyGrid } = props;
   const styles = useStyleConfig("TemplateContentSidebar", {
     useLegacyGrid,
     variant: sidebar,
   });
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box __css={styles}>{children}</Box>;
 };
 
 /**
@@ -332,7 +326,7 @@ export const TemplateAppContainer: ChakraComponent<
       renderFooterElement = true,
       renderHeaderElement = true,
       renderSkipNavigation = false,
-      useLegacyGrid = true,
+      useLegacyGrid,
       ...rest
     } = props;
     const aboveHeaderElem = aboveHeader && (
