@@ -220,20 +220,32 @@ export const Accordion: ChakraComponent<
 
     const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
-    const [index, setIndex] = useState<number | number[]>(
+    const [expandedPanels, setExpandedPanels] = useState<number[]>(
       isDefaultOpen ? [0] : []
     );
 
     const handleKeyDown = (e) => {
-      // If key clicked is 'esc', collapse expanded accordions
-      if (e.keyCode === 27) setIndex([]);
+      // If the pressed key is 'esc' and the
+      // currently focused panel is expanded,
+      // collapse that panel
+      if (e.keyCode === 27) {
+        const focusedPanel = e.target.dataset.index;
+        const indexOfFocusedPanel = expandedPanels.indexOf(
+          Number(focusedPanel)
+        );
+        if (indexOfFocusedPanel !== -1) {
+          setExpandedPanels(
+            expandedPanels.filter((_, i) => i !== indexOfFocusedPanel)
+          );
+        }
+      }
     };
 
     return (
       <ChakraAccordion
         allowMultiple
-        index={index}
-        onChange={(expandedIdxs) => setIndex(expandedIdxs)}
+        index={expandedPanels}
+        onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
         onKeyDown={handleKeyDown}
         id={id}
         ref={ref}

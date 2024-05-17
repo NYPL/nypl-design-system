@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates default heading size to `heading4` on Modal component.
+- Updates `Accordion` to close when "esc" key is pressed.
 
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 
