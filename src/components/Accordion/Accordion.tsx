@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -220,12 +220,21 @@ export const Accordion: ChakraComponent<
 
     const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
-    const openFirstAccordion = isDefaultOpen ? [0] : undefined;
+    const [index, setIndex] = useState<number | number[]>(
+      isDefaultOpen ? [0] : []
+    );
+
+    const handleKeyDown = (e) => {
+      // If key clicked is 'esc', collapse expanded accordions
+      if (e.keyCode === 27) setIndex([]);
+    };
 
     return (
       <ChakraAccordion
         allowMultiple
-        defaultIndex={openFirstAccordion}
+        index={index}
+        onChange={(expandedIdxs) => setIndex(expandedIdxs)}
+        onKeyDown={handleKeyDown}
         id={id}
         ref={ref}
         {...rest}

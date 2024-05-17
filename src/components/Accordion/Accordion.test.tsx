@@ -159,6 +159,22 @@ describe("Accordion", () => {
     expect(accordionPanelContent).toBeInTheDocument();
   });
 
+  it.only("closes the accordion when the 'esc' key is pressed", async () => {
+    render(<Accordion accordionData={[accordionData[0]]} isDefaultOpen />);
+
+    const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
+    let accordionPanelContent = screen.queryByText(
+      /known in Japan as Tanukichi/i
+    );
+    expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
+    expect(accordionPanelContent).toBeInTheDocument();
+
+    await userEvent.type(accordionLabel, "[Escape]");
+
+    expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
+    expect(accordionPanelContent).not.toBeInTheDocument();
+  });
+
   it("always renders its content when isAlwaysRendered is true", () => {
     render(<Accordion accordionData={[accordionData[0]]} isAlwaysRendered />);
 
