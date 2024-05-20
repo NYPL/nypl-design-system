@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
-import { useMultiStyleConfig } from "@chakra-ui/react";
+import { useStyleConfig } from "@chakra-ui/react";
+import { forwardRef } from "react";
+
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
@@ -50,9 +51,8 @@ const MultiSelectItemsCountButton = forwardRef<
   // Sets the selected items count on the menu button.
   let selectedItemsAriaLabel = `remove ${selectedItemsCount} ${selectedItemsString} selected from ${multiSelectLabelText}`;
 
-  const styles = useMultiStyleConfig("MultiSelectItemsCountButton", {
+  const styles = useStyleConfig("MultiSelectItemsCountButton", {
     isOpen,
-    hasSelectedItems: selectedItemsCount,
   });
 
   return (
@@ -64,7 +64,8 @@ const MultiSelectItemsCountButton = forwardRef<
       data-testid="multi-select-close-button-testid"
       onClick={() => {
         onClear && onClear();
-        // Set focus on the Accordion Button when close the selected items count button.
+        // Set focus on the Accordion Button when close the
+        // selected items count button.
         accordianButtonRef.current?.focus();
       }}
       __css={styles}
