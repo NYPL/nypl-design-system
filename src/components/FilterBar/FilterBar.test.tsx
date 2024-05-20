@@ -94,9 +94,8 @@ const FilterBarTestComponent = ({
         id="multiselect-group"
         key="multiselect-group-key"
         labelText="MultiSelect Group"
-      >
-        {multiSelectItems &&
-          multiSelectItems.map((multiSelect) => (
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelect) => (
             <MultiSelect
               key={multiSelect.id}
               id={multiSelect.id}
@@ -121,8 +120,9 @@ const FilterBarTestComponent = ({
                 onClear(multiSelect.id);
               }}
             />
-          ))}
-      </MultiSelectGroup>
+          ));
+        }}
+      />
     </FilterBar>
   );
 };
@@ -132,24 +132,25 @@ const MultiSelectTestGroup = (multiSelectItems) => (
     labelText="MultiSelectGroup example"
     showLabel={true}
     multiSelectWidth="full"
-  >
-    {multiSelectItems.map((multiSelectItem) => (
-      <MultiSelect
-        key={multiSelectItem.id}
-        id={multiSelectItem.id}
-        items={multiSelectItem.items}
-        isDefaultOpen={false}
-        isSearchable={false}
-        isBlockElement={false}
-        selectedItems={{}}
-        buttonText="MultiSelect"
-        defaultItemsVisible={defaultItemsVisible}
-        onChange={() => null}
-        onMixedStateChange={() => null}
-        onClear={() => "onClear"}
-      />
-    ))}
-  </MultiSelectGroup>
+    renderMultiSelect={() => {
+      return multiSelectItems.map((multiSelectItem) => (
+        <MultiSelect
+          key={multiSelectItem.id}
+          id={multiSelectItem.id}
+          items={multiSelectItem.items}
+          isDefaultOpen={false}
+          isSearchable={false}
+          isBlockElement={false}
+          selectedItems={{}}
+          buttonText="MultiSelect"
+          defaultItemsVisible={defaultItemsVisible}
+          onChange={() => null}
+          onMixedStateChange={() => null}
+          onClear={() => "onClear"}
+        />
+      ));
+    }}
+  />
 );
 describe.skip("FilterBar Accessibility", () => {
   beforeAll(() => {

@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-09",
+    version: "3.1.2",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Extends prop type to allow heading HTML attributes."],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

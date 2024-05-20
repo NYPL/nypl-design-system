@@ -8,7 +8,6 @@ import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
@@ -52,11 +51,8 @@ export const ButtonGroup: ChakraComponent<
         ...rest
       } = props;
       const newChildren: JSX.Element[] = [];
-      const { isLargerThanMobile } = useNYPLBreakpoints();
-      const finalLayout = isLargerThanMobile ? layout : "column";
-      const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
       const styles = useStyleConfig("ButtonGroup", {
-        buttonWidth: finalButtonWidth,
+        buttonWidth: buttonWidth,
       });
 
       React.Children.map(
@@ -86,7 +82,7 @@ export const ButtonGroup: ChakraComponent<
       return (
         <Stack
           className={className}
-          direction={finalLayout}
+          direction={{ base: "column", md: layout }}
           id={id}
           ref={ref}
           // Always set the spacing to "8px".

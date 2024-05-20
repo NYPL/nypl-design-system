@@ -6,7 +6,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
   id="inputID-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     onClick={[Function]}
   >
     <input
@@ -62,7 +62,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
   id="checkbox-checked-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     data-checked=""
     onClick={[Function]}
   >
@@ -132,7 +132,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
   id="checkbox-checked-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     data-checked=""
     onClick={[Function]}
   >
@@ -222,7 +222,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   id="checkbox-required-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     onClick={[Function]}
   >
     <input
@@ -278,7 +278,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
   id="checkbox-invalid-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     data-invalid=""
     onClick={[Function]}
   >
@@ -337,7 +337,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   id="checkbox-disabled-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     data-disabled=""
     onClick={[Function]}
   >
@@ -396,7 +396,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   id="jsxLabel-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     onClick={[Function]}
   >
     <input
@@ -465,7 +465,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   id="checkbox-chakra-wrapper"
 >
   <label
-    className="chakra-checkbox css-cnetlc"
+    className="chakra-checkbox css-1t0bvx9"
     onClick={[Function]}
   >
     <input
@@ -522,7 +522,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
   id="checkbox-props-wrapper"
 >
   <label
-    className="chakra-checkbox css-19e67wo"
+    className="chakra-checkbox css-1xdhyk6"
     onClick={[Function]}
   >
     <input

@@ -15,10 +15,11 @@ describe("SkeletonLoader Accessibility", () => {
 describe("SkeletonLoader", () => {
   it("renders default layout", () => {
     const { container } = render(
-      <SkeletonLoader className="skeleton-loader" />
+      <SkeletonLoader className="skeleton-loader" id="skeleton" />
     );
 
     expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+    expect(container.querySelector("#skeleton")).toBeInTheDocument();
   });
 
   it("renders in the column or row layout", () => {

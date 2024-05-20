@@ -51,7 +51,10 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
       "ui.gray.x-dark",
       "dark.ui.typography.body"
     );
-    const iconColor = useColorModeValue("ui.black", "dark.ui.typography.body");
+    const iconColor = useColorModeValue(
+      "ui.typography.body",
+      "dark.ui.typography.body"
+    );
 
     return (
       <>
@@ -108,15 +111,15 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
         {tagSetData.length > 1 && isDismissible ? (
           <Button
-            buttonType="link"
+            buttonType="text"
             data-testid="filter-clear-all"
             id={`ts-filter-clear-all-${id}`}
             onClick={() =>
-              finalOnClick({ id: "clear-filters", label: "Clear Filters" })
+              finalOnClick({ id: "clear-filters", label: "Clear filters" })
             }
-            __css={styles.clearAll}
+            size="small"
           >
-            Clear Filters
+            Clear filters
           </Button>
         ) : null}
       </>

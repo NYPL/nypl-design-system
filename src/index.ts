@@ -5,6 +5,7 @@ import "./styles.scss";
 export {
   Box,
   Center,
+  chakra,
   Circle,
   ColorModeScript,
   cookieStorageManager,
@@ -21,6 +22,7 @@ export {
   useColorMode,
   useColorModeValue,
   useStyleConfig,
+  useMediaQuery,
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
@@ -29,6 +31,8 @@ export type { AccordionTypes } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
 export { default as AudioPlayer } from "./components/AudioPlayer/AudioPlayer";
 export type { AudioType } from "./components/AudioPlayer/AudioPlayer";
+export { default as Banner } from "./components/Banner/Banner";
+export type { BannerTypes } from "./components/Banner/Banner";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export type { BreadcrumbsTypes } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
@@ -100,17 +104,18 @@ export type {
   DividerItem,
 } from "./components/Menu/Menu";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
+export type {
+  BaseModalProps,
+  ConfirmationModalProps,
+  DefaultModalProps,
+} from "./components/Modal/Modal";
 export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
 export type {
   MultiSelectItem,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelect";
-/** The code associated with the MultiSelectGroup component will not be exported
- * until the refactor of the v2 version of the MultiSelectGroup component has
- * been completed.
- * */
-// export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
-// export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
+export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
+export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 /** The code associated with the NewsletterSignup component and the
  * NewsletterSignupViewType type will not be exported until the refactor of the
  * component has been completed.

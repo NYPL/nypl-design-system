@@ -48,7 +48,7 @@ export const sectionColorsDataMap = {
     secondary: null,
   },
   researchLibrarySchwarzman: {
-    primary: "section.research-library.schwartzman",
+    primary: "section.research-library.schwarzman",
     secondary: null,
   },
   whatsOn: {
