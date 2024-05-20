@@ -159,7 +159,7 @@ describe("Accordion", () => {
     expect(accordionPanelContent).toBeInTheDocument();
   });
 
-  it.only("closes the accordion when the 'esc' key is pressed", async () => {
+  it("closes the accordion when the 'esc' key is pressed", async () => {
     render(<Accordion accordionData={[accordionData[0]]} isDefaultOpen />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
