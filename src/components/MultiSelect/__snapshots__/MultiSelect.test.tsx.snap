@@ -8,6 +8,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
   <div
     className="chakra-accordion css-1xdhyk6"
     id="multi-select-accordion-multiselect-test-id"
+    onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
@@ -551,6 +552,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
   <div
     className="chakra-accordion css-1xdhyk6"
     id="multi-select-accordion-multiselect-test-id"
+    onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
@@ -1094,6 +1096,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
   <div
     className="chakra-accordion css-1xdhyk6"
     id="multi-select-accordion-multiselect-test-id"
+    onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
@@ -1724,6 +1727,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
   <div
     className="chakra-accordion css-1xdhyk6"
     id="multi-select-accordion-multiselect-test-id"
+    onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
