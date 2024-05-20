@@ -225,19 +225,15 @@ export const Accordion: ChakraComponent<
     );
 
     const handleKeyDown = (e) => {
-      // If the pressed key is 'esc' and the
-      // currently focused panel is expanded,
-      // collapse that panel
+      // If the 'esc' key is pressed,
       if (e.keyCode === 27) {
-        const focusedPanel = e.target.dataset.index;
-        const indexOfFocusedPanel = expandedPanels.indexOf(
-          Number(focusedPanel)
+        const focusedPanelIndex = Number(e.target.dataset.index);
+        // collapse the currently focused panel.
+        // (Nothing will happen if the currently
+        // focused panel is already collapsed.)
+        setExpandedPanels(
+          expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
-        if (indexOfFocusedPanel !== -1) {
-          setExpandedPanels(
-            expandedPanels.filter((_, i) => i !== indexOfFocusedPanel)
-          );
-        }
       }
     };
 
