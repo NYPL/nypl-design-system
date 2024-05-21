@@ -1,8 +1,9 @@
+import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
-import { VStack } from "@chakra-ui/react";
+import Link from "../Link/Link";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Heading> = {
@@ -421,9 +422,31 @@ export const Links: Story = {
         url="http://apple.com"
         urlClass="special-link"
       />
+      <Heading
+        id="heading-with-link-url"
+        level="h2"
+        noSpace
+        url="http://apple.com"
+        urlClass="special-link"
+      >
+        Heading with URL Props
+      </Heading>
+      <Heading id="heading-with-anchor" level="h2">
+        <a href="#hello">Link</a>
+      </Heading>
+      <Heading id="heading-with-DS-link" level="h2">
+        <Link href="#hello">Link</Link>
+      </Heading>
       <Heading id="heading-with-link-child" level="h2">
         <>
           Heading with a Word <a href="#hello">Link</a>
+        </>
+      </Heading>
+      <Heading id="heading-with-DS-link-child" level="h2">
+        <>
+          <span>Some text </span>
+          <Link href="#hello">Link</Link>
+          <span> more text</span>
         </>
       </Heading>
     </VStack>
