@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -220,12 +220,29 @@ export const Accordion: ChakraComponent<
 
     const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
-    const openFirstAccordion = isDefaultOpen ? [0] : undefined;
+    const [expandedPanels, setExpandedPanels] = useState<number[]>(
+      isDefaultOpen ? [0] : []
+    );
+
+    const handleKeyDown = (e) => {
+      // If the 'esc' key is pressed,
+      if (e.keyCode === 27) {
+        const focusedPanelIndex = Number(e.target.dataset.index);
+        // collapse the currently focused panel.
+        // (Nothing will happen if the currently
+        // focused panel is already collapsed.)
+        setExpandedPanels(
+          expandedPanels.filter((i) => i !== focusedPanelIndex)
+        );
+      }
+    };
 
     return (
       <ChakraAccordion
         allowMultiple
-        defaultIndex={openFirstAccordion}
+        index={expandedPanels}
+        onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
+        onKeyDown={handleKeyDown}
         id={id}
         ref={ref}
         {...rest}
