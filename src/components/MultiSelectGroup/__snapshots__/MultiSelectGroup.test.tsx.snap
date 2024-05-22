@@ -20,6 +20,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-colors"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -292,6 +293,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-pets"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -723,6 +725,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-tools"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1171,6 +1174,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-colors"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1443,6 +1447,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-pets"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1874,6 +1879,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-tools"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
