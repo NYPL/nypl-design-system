@@ -1,14 +1,15 @@
-import React, { useState, forwardRef, useRef } from "react";
 import {
   Box,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import React, { useState, forwardRef, useRef } from "react";
+
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
-import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import Checkbox from "./../Checkbox/Checkbox";
+import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import MultiSelectItemsCountButton from "./MultiSelectItemsCountButton";
 import TextInput from "../TextInput/TextInput";
 
@@ -30,7 +31,8 @@ export interface SelectedItems {
 export interface MultiSelectProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
-  /** The number of items that will be visible in the list when the component first loads. */
+  /** The number of items that will be visible in the list when the component
+   * first loads. */
   defaultItemsVisible?: number;
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
@@ -40,9 +42,8 @@ export interface MultiSelectProps {
   onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** An ID string that other components can cross reference for accessibility purposes. */
   id: string;
-  /** Boolean value used to control how the MultiSelect component will render within the page
-   * and interact with other DOM elements.
-   * The default value is false. */
+  /** Boolean value used to control how the MultiSelect component will render
+   * within the page and interact with other DOM elements. The default value is false. */
   isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
@@ -51,7 +52,8 @@ export interface MultiSelectProps {
   isSearchable?: boolean;
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
-  /** listOverflow is a property indicating how the list should handle overflow, with options limited to either "scroll" or "expand." */
+  /** listOverflow is a property indicating how the list should handle overflow,
+   * with options limited to either "scroll" or "expand." */
   listOverflow?: MultiSelectListOverflowTypes;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
@@ -60,11 +62,11 @@ export interface MultiSelectProps {
 }
 
 /**
-  The MultiSelect component is a customizable form input that supports multiple configurations,
-  including search functionality, checkbox options, and hierarchical structure,
-  with a parent checkbox toggling all children and dynamic styling through Chakra UI.
-*/
-
+ * The MultiSelect component is a customizable form input that supports multiple
+ * configurations, including search functionality, checkbox options, and
+ * hierarchical structure, with a parent checkbox toggling all children and
+ * dynamic styling through Chakra UI.
+ */
 export const MultiSelect: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<MultiSelectProps> &
@@ -91,7 +93,8 @@ export const MultiSelect: ChakraComponent<
         ...rest
       } = props;
 
-      // Create a ref to hold a reference to the accordian button, enabling us to programmatically focus it.
+      // Create a ref to hold a reference to the accordian button, enabling us
+      // to programmatically focus it.
       const accordianButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
@@ -135,8 +138,9 @@ export const MultiSelect: ChakraComponent<
         return false;
       };
 
-      // isAllChecked defines the isChecked status of parent checkboxes. If all child items are selected, it will turn true, otherwise it returns false.
-      // This prop is only passed to parent options.
+      // isAllChecked defines the isChecked status of parent checkboxes. If
+      // all child items are selected, it will turn true, otherwise it returns
+      // false. This prop is only passed to parent options.
       const isAllChecked = (
         multiSelectId: string,
         item: MultiSelectItem
@@ -152,7 +156,8 @@ export const MultiSelect: ChakraComponent<
         return false;
       };
 
-      // isInteterminate will return true if some child items of the parent item are selected. This prop is only passed to parent options.
+      // isInteterminate will return true if some child items of the parent
+      // item are selected. This prop is only passed to parent options.
       const isIndeterminate = (
         multiSelectId: string,
         item: MultiSelectItem
@@ -213,10 +218,9 @@ export const MultiSelect: ChakraComponent<
       };
       /** If the TextInput is cleard using the "x" button,
        * display the default options list depending on the isExpandable boolean
-       * (isExpandable is taking an account the listOverflow type and the state of
-       * the ExpandToggleButton if applicable)
+       * (isExpandable is taking an account the listOverflow type and the state
+       * of the ExpandToggleButton if applicable)
        */
-
       const clearSearchKeyword = () => {
         isExpandable ? setItemsList(defaultItemsList) : setItemsList(items);
       };

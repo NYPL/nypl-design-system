@@ -81,7 +81,7 @@ const MultiSelect = defineMultiStyleConfig({
         position: "relative",
         width: width === "full" ? "100%" : { base: "100%", md: "fit-content" },
         overflow: "hidden",
-        zIndex: 1,
+        zIndex: 10000,
         div: {
           overflow: "hidden",
           textOverflow: "ellipsis",
@@ -114,7 +114,7 @@ const MultiSelect = defineMultiStyleConfig({
         borderTopWidth: "1px",
         marginTop: "-1px",
         position: isBlockElement ? null : "absolute",
-        zIndex: 2,
+        zIndex: 10001,
         ...multiSelectWidths[width],
       },
       ".chakra-accordion__panel": {
