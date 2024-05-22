@@ -8,10 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
 ### Updates
 
 - Exports `useMediaQuery` and `chakra` from Chakra UI.
 - Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
 - Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
 
 ### Fixes
