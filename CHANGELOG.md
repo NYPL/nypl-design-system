@@ -15,6 +15,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Exports `useMediaQuery` and `chakra` from Chakra UI.
+- Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
 - Updates the following packages:
   - Storybook main package and related libraries to `8.0.8`.
   - `remark-gfm` to `4.0.0`.
