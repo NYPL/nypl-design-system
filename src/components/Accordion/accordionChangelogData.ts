@@ -14,7 +14,18 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Accessibility", "Functionality"],
-    notes: ["Adds logic to close accordion when 'esc' key is pressed"],
+    notes: [
+      "Adds logic to close accordion when element within panel is focused and 'esc' key is pressed",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Adds logic to close accordion when accordion button is focused and 'esc' key is pressed",
+    ],
   },
   {
     date: "2024-03-14",

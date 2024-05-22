@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Exports `useMediaQuery` and `chakra` from Chakra UI.
 - Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
 
 ### Fixes
 
