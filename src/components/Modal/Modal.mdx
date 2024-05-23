@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./modalChangelogData";
 
 import * as ModalStories from "./Modal.stories";
 import { ModalTrigger, useModal } from "./Modal";
@@ -11,7 +13,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `2.0.0`    |
+| Latest            | `3.1.3`    |
 
 ## Table of Contents
 
@@ -23,7 +25,11 @@ import Link from "../Link/Link";
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#confirmation-variant" target="_self">Confirmation Modal Variant</Link>}
+- {<Link href="#default-heading-text" target="_self">Default Heading Text</Link>}
+- {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -119,9 +125,27 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
+    type: "default",
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
-    headingText: "Modal Heading Text",
+    headingText: (
+      <Heading
+        level="h3"
+        display="flex"
+        alignItems="center"
+        gap="xs"
+        size="heading5"
+      >
+        <>
+          <Icon
+            color="ui.success.primary"
+            name="actionCheckCircleFilled"
+            size="large"
+          />
+          Modal Heading Text
+        </>
+      </Heading>
+    ),
     onClose: () => {
       console.log("custom close");
     },
@@ -155,6 +179,7 @@ import { useModal } from "@nypl/design-system-react-components";
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
+    type: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -198,6 +223,120 @@ export const ModalStory = (args) => {
 ## useModal Component Props
 
 <Canvas of={ModalStories.useModalStory} />
+<Canvas of={ModalStories.ConfirmationUseModal} />
+
+<ArgTypes of={ModalStories.useModalStory} />
+
+## Confirmation Variant
+
+The "confirmation" `Modal` variant is used when the modal can confirm or revoke the modal's content. Accordingly, there are two buttons
+in the footer instead of the one in the default modal. Each button has its own custom function (`onCancel`, `onConfirm`) that will close the modal.
+Additionally, the `onCancel` function will be called when using
+any of the other available methods for closing the modal,
+including clicking the "X" close button in the upper right corner
+of the modal, clicking anywhere outside the modal UI, or using
+the `ESC` button.
+
+Notes:
+
+- The `onConfirm`, `onCancel`, `confirmButtonLabel`, and `type` props are required for this variant.
+- The `onClose` prop should never be passed with `onConfirm` and `onCancel`.
+- When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally.
+- When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`:
+  for example, `onCancel: () => { onClose(); }`.
+
+<Source
+  code={`
+// Example for the Confirmation variant with ModalTrigger. 
+  <ModalTrigger
+    buttonText="Confirm"
+    id="modal-confirmation"
+    modalProps={{
+      type: "confirmation",
+      bodyContent: "The action is happening",
+      cancelButtonLabel: "Cancel action",
+      confirmButtonLabel: "Confirm action",
+      onCancel: () => {
+        console.log("Custom cancel");
+      },
+      onConfirm: () => {
+        console.log("Custom confirm");
+      },
+      headingText: (
+        <Heading
+          level="h3"
+          display="flex"
+          alignItems="center"
+          gap="xs"
+          size="heading5"
+        >
+          <>
+            <Icon
+              color="ui.success.primary"
+              name="actionCheckCircleFilled"
+              size="large"
+            />
+            This is an action
+          </>
+        </Heading>
+      ),
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+See console for "Cancel"/"Confirm" messages from their respective buttons.
+
+<Canvas of={ModalStories.ConfirmationVariant} />
+
+## Default Heading Text
+
+By default, the `Modal` component will render a DS level `h2` and size
+`heading4` `Heading` component when a string is passed to the `headingText`
+prop.
+
+<Canvas of={ModalStories.DefaultHeading} />
+
+## Custom Heading Text
+
+However, a custom heading can be
+passed to the `headingText` property. This can be useful when you want to add
+additional elements to the heading, such as an icon, or to set the level to
+something other than an `h2`.
+
+In the following example, the heading is an `h3` `Heading` component with an
+additional icon.
+
+<Source
+  code={`
+// Example for the ModalTrigger component.
+modalProps={{
+  type: "default",
+  bodyContent: "body text",
+  closeButtonLabel: "Close Button",
+  headingText: (
+    <Heading
+      level="h3"
+      display="flex"
+      alignItems="center"
+      gap="xs"
+      size="heading5"
+    >
+      <>
+        <Icon
+          color="ui.success.primary"
+          name="actionCheckCircleFilled"
+          size="large"
+        />
+        Modal Heading Text
+      </>
+    </Heading>
+  ),
+}}
+`}
+  language="jsx"
+/>
 
 ## Content Window Scrolling
 
@@ -206,3 +345,8 @@ scroll while the `Modal`'s header and footer still stay static. Check the
 example below with a lot of content inside the `Modal`.
 
 <Canvas of={ModalStories.ContentWindowScrolling} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
+```

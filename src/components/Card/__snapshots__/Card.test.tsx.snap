@@ -14,7 +14,9 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/400/200"
+        id="img-id-regularCard"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -22,7 +24,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
@@ -63,7 +65,9 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/300/400"
+        id="img-id-cardWithExtendedStyles"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -71,7 +75,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
@@ -94,7 +98,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -103,7 +107,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -162,7 +166,9 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/300/400"
+        id="img-id-cardWithNoCTAs"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -170,7 +176,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
@@ -207,7 +213,9 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/300/400"
+        id="img-id-cardWithNoContent"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -215,12 +223,12 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -233,7 +241,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -242,7 +250,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -296,12 +304,12 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="editioncardheading1"
       layout="column"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -319,7 +327,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       className="css-1xdhyk6"
     >
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -328,7 +336,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         Read Online
       </a>
       <a
-        className="css-1xdhyk6"
+        className="chakra-link css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -375,7 +383,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="chakra-linkbox css-113b4ge"
+  className="chakra-linkbox css-2zg2m0"
   id="fullclick"
 >
   <div
@@ -387,7 +395,9 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/400/200"
+        id="img-id-fullclick"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -395,12 +405,12 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
       <a
-        className="chakra-linkbox__overlay css-kvj8dg"
+        className="chakra-linkbox__overlay css-1hnz6hu"
         href="http://nypl.org"
       >
         The Card Heading
@@ -441,7 +451,9 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/400/200"
+        id="img-id-cardWithRightActions"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -449,7 +461,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1u8qly9"
       id="heading1"
       layout="column"
     >
@@ -502,7 +514,9 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/400/200"
+        id="img-id-chakraProps"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -510,7 +524,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1ss7kwh"
+      className="chakra-heading css-1dti2w"
       id="heading1"
       layout="column"
     >
@@ -552,7 +566,9 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
       <img
         alt="Alt text"
         className="css-0"
-        src="//placekitten.com/400/200"
+        id="img-id-otherProps"
+        onError={[Function]}
+        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
     </div>
   </div>
@@ -560,7 +576,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-1ss7kwh"
+      className="chakra-heading css-1dti2w"
       id="heading1"
       layout="column"
     >

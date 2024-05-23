@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   LinkBox as ChakraLinkBox,
   LinkOverlay as ChakraLinkOverlay,
   useMultiStyleConfig,
@@ -86,6 +87,7 @@ function CardImage(
     caption,
     component,
     credit,
+    id,
     isAtEnd,
     isCentered,
     isLazy,
@@ -109,6 +111,7 @@ function CardImage(
         caption={caption}
         component={component}
         credit={credit}
+        id={id}
         isLazy={isLazy}
         size={size}
         src={src}
@@ -118,21 +121,23 @@ function CardImage(
 }
 
 // CardHeading child-component
-export const CardHeading = chakra(Heading);
+export const CardHeading: React.FC<any> = chakra(Heading);
 
 // CardContent child-component
-export const CardContent = chakra((props: React.PropsWithChildren<{}>) => {
-  const { children, ...rest } = props;
-  const styles = useStyleConfig("CardContent");
-  return children ? (
-    <Box __css={styles} {...rest}>
-      {children}
-    </Box>
-  ) : null;
-});
+export const CardContent: React.FC<React.PropsWithChildren<any>> = chakra(
+  (props: React.PropsWithChildren<{}>) => {
+    const { children, ...rest } = props;
+    const styles = useStyleConfig("CardContent");
+    return children ? (
+      <Box __css={styles} {...rest}>
+        {children}
+      </Box>
+    ) : null;
+  }
+);
 
 // CardActions child-component
-export const CardActions = chakra(
+export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
   (props: React.PropsWithChildren<CardActionsProps>) => {
     const { bottomBorder, children, isCentered, layout, topBorder, ...rest } =
       props;
@@ -156,7 +161,7 @@ export const CardActions = chakra(
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-const CardWrapper = chakra(
+const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
     ({ className, children, id, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
@@ -170,7 +175,7 @@ const CardWrapper = chakra(
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box id={id} className={className} ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )
@@ -195,7 +200,12 @@ function CardLinkOverlay({
   );
 }
 
-export const Card = chakra(
+export const Card: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<CardProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  CardProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardProps>>(
     (props, ref?) => {
       const {
@@ -210,6 +220,7 @@ export const Card = chakra(
           caption: undefined,
           component: undefined,
           credit: undefined,
+          id: undefined,
           isAtEnd: false,
           isLazy: false,
           size: "default",
@@ -242,7 +253,7 @@ export const Card = chakra(
       backgroundColor && (customColors["backgroundColor"] = backgroundColor);
       foregroundColor && (customColors["color"] = foregroundColor);
 
-      const styles = useMultiStyleConfig("Card", {
+      const styles = useMultiStyleConfig("ReservoirCard", {
         hasImage,
         imageIsAtEnd: imageProps.isAtEnd,
         isAlignedRightActions,
@@ -310,7 +321,7 @@ export const Card = chakra(
           mainActionLink={mainActionLink}
           ref={ref}
           styles={{
-            ...styles,
+            ...styles.base,
             ...customColors,
           }}
           {...rest}
@@ -322,6 +333,7 @@ export const Card = chakra(
               caption={imageProps.caption}
               component={imageProps.component}
               credit={imageProps.credit}
+              id={imageProps.id}
               isAtEnd={imageProps.isAtEnd}
               isLazy={imageProps.isLazy}
               layout={layout}

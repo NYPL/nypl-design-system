@@ -12,8 +12,22 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: ["Fixes the z-index value in the small selected items button."],
+  },
+  {
+    date: "2024-04-25",
+    version: "3.1.1",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Updated the placeholder value for the search field."],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
     type: "Update",
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
-    notes: ["Refactors the `MultiSelect` component."],
+    notes: ["Chakra 2.8 update.", "Refactors the `MultiSelect` component."],
   },
 ];

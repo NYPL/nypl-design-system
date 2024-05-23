@@ -13,7 +13,17 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility"],
-    notes: ["Added the ariaLabel and buttonInteractionRef prop."],
+    affects: ["Accessibility", "Functionality"],
+    notes: ["Adds logic to close accordion when 'esc' key is pressed"],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Added the ariaLabel and buttonInteractionRef prop.",
+    ],
   },
 ];

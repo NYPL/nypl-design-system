@@ -2,6 +2,7 @@ import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
 import {
   Box,
   chakra,
+  ChakraComponent,
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -48,8 +49,12 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   component?: JSX.Element;
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
+  /** Fallback image path or URL. */
+  fallbackSrc?: string;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  /** Additional action to perform in the `img`'s `onerror` attribute function. */
+  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** Optional value to control the size of the internal `Image` component.
    * Defaults to `ImageSizes.Default`. */
   size?: ImageSizes;
@@ -65,7 +70,7 @@ interface ImageWrapperProps {
   className?: string;
   /** Optional value to control the aspect ratio of the card image; default
    * value is `"original"` */
-  aspectRatio?: ImageRatios;
+  ratio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
   /** Sets the image size based on the width or height. Width by default. */
@@ -81,16 +86,23 @@ export interface ImageProps
   additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
   alt?: string;
+  /** Optional value to control the aspect ratio of the card image; default
+   * value is `"original"` */
+  aspectRatio?: ImageRatios;
   /** Adding will wrap the image in a <figure> */
   caption?: string;
   /** Custom image component */
   component?: JSX.Element | null;
   /** Adding will wrap the image in a <figure> */
   credit?: string;
+  /** Fallback image path or URL. */
+  fallbackSrc?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
+  /** Additional action to perform in the `img`'s `onerror` attribute function. */
+  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src?: string;
 }
@@ -101,20 +113,20 @@ const ImageWrapper = chakra(
       additionalWrapperStyles = {},
       className = "",
       children,
-      aspectRatio = "original",
+      ratio = "original",
       size = "default",
       sizeBasedOn = "width",
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("CustomImageWrapper", {
-      ratio: aspectRatio,
+    const styles = useMultiStyleConfig("ReservoirImageWrapper", {
+      ratio,
       size,
       sizeBasedOn,
     });
     return (
       <Box
         className={`the-wrap ${className}`}
-        __css={{ ...styles, ...additionalWrapperStyles }}
+        __css={{ ...styles.base, ...additionalWrapperStyles }}
         {...rest}
       >
         <Box className="the-crop" __css={styles.crop}>
@@ -125,7 +137,12 @@ const ImageWrapper = chakra(
   }
 );
 
-export const Image = chakra(
+export const Image: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    ImageProps & React.RefAttributes<HTMLDivElement>
+  >,
+  ImageProps
+> = chakra(
   forwardRef<HTMLDivElement, ImageProps>((props, ref?) => {
     const {
       additionalFigureStyles = {},
@@ -137,8 +154,10 @@ export const Image = chakra(
       className = "",
       component,
       credit,
+      fallbackSrc,
       imageType = "default",
       isLazy = false,
+      onError,
       size = "default",
       sizeBasedOn = "width",
       src,
@@ -153,12 +172,21 @@ export const Image = chakra(
       skip: supportsLazyLoading,
     });
     const useImageWrapper = aspectRatio !== "original";
-    const styles = useMultiStyleConfig("CustomImage", {
+    const styles = useMultiStyleConfig("ReservoirImage", {
       variant: imageType,
       ratio: aspectRatio,
       size,
       sizeBasedOn,
     });
+    // Function that gets called when an image fails to load.
+    const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+      console.warn(
+        "NYPL Reservoir Image: The initial image failed to load in the " +
+          "browser. The fallback image source will now be used."
+      );
+      (event.target as any).src = fallbackSrc || "";
+      onError && onError(event);
+    };
     let imageComponent: JSX.Element | null = null;
     let lazyRef = undefined;
     let finalRefs = undefined;
@@ -193,6 +221,7 @@ export const Image = chakra(
         as="img"
         alt={alt}
         loading={isLazy ? "lazy" : undefined}
+        onError={onImageError}
         {...srcProp}
         __css={{ ...styles.img, ...additionalImageStyles }}
         {...rest}
@@ -201,7 +230,7 @@ export const Image = chakra(
     const finalImage = useImageWrapper ? (
       <ImageWrapper
         additionalWrapperStyles={additionalWrapperStyles}
-        aspectRatio={aspectRatio}
+        ratio={aspectRatio}
         className={className}
         size={size}
         sizeBasedOn={sizeBasedOn}

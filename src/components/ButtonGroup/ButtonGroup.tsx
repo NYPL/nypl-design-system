@@ -1,9 +1,13 @@
-import { chakra, Stack, useStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  ChakraComponent,
+  Stack,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
@@ -28,7 +32,13 @@ const noop = () => {};
  * to row or column and the width of internal `Button` components can be set to
  * the parent's full width or the `Button`'s content width
  */
-export const ButtonGroup = chakra(
+export const ButtonGroup: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ButtonGroupProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<ButtonGroupProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<ButtonGroupProps>>(
     (props, ref?) => {
       const {
@@ -41,11 +51,8 @@ export const ButtonGroup = chakra(
         ...rest
       } = props;
       const newChildren: JSX.Element[] = [];
-      const { isLargerThanMobile } = useNYPLBreakpoints();
-      const finalLayout = isLargerThanMobile ? layout : "column";
-      const finalButtonWidth = isLargerThanMobile ? buttonWidth : "full";
       const styles = useStyleConfig("ButtonGroup", {
-        buttonWidth: finalButtonWidth,
+        buttonWidth: buttonWidth,
       });
 
       React.Children.map(
@@ -75,7 +82,7 @@ export const ButtonGroup = chakra(
       return (
         <Stack
           className={className}
-          direction={finalLayout}
+          direction={{ base: "column", md: layout }}
           id={id}
           ref={ref}
           // Always set the spacing to "8px".

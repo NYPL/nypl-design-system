@@ -1,10 +1,29 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+// import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "bodyText",
+    "content",
+    "heading",
+    "imgWrapper",
+    "interior",
+  ]);
+
 // Used for all "secondary" variants.
-const secondaryBase = {
-  overflowX: "hidden",
-  bgColor: "ui.bg.default",
+const secondaryBase = definePartsStyle({
+  base: {
+    overflowX: "hidden",
+    bgColor: "ui.bg.default",
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+    },
+  },
   content: {
     ...wrapperStyles,
     paddingEnd: "inset.default",
@@ -37,10 +56,7 @@ const secondaryBase = {
     flex: { md: "1 1 50%" },
     order: { base: "3", md: "2" },
   },
-  _dark: {
-    bgColor: "dark.ui.bg.default",
-  },
-};
+});
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
   marginBottom: "0",
@@ -89,21 +105,68 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     },
   };
 };
+export const getTextColor = (type, mode, foregroundColor, isDarkText) => {
+  const prefix = mode === "dark" ? "dark.ui." : "ui.";
+  const colorLight = foregroundColor
+    ? foregroundColor
+    : isDarkText
+    ? `${prefix}typography.${type}`
+    : `${prefix}typography.inverse.${type}`;
+  const colorDark = foregroundColor
+    ? foregroundColor
+    : isDarkText
+    ? `${prefix}typography.inverse.${type}`
+    : `${prefix}typography.${type}`;
+  const finalColor = mode === "dark" ? colorDark : colorLight;
+  return finalColor;
+};
+export const getLinkColor = (state, foregroundColor, isDarkText) => {
+  let finalColor;
+  switch (state) {
+    case "hover": {
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-secondary) !important`
+        : `dark.ui.link.secondary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
+      break;
+    }
+    case "visited": {
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-tertiary) !important`
+        : `dark.ui.link.tertiary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
+      break;
+    }
+    case "default":
+    default:
+      finalColor = foregroundColor
+        ? foregroundColor
+        : isDarkText
+        ? `var(--nypl-colors-ui-link-primary) !important`
+        : `dark.ui.link.primary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
+  }
+  return finalColor;
+};
 // Variant styling
-const primary = {
-  alignItems: "center",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexFlow: {
-    base: "column nowrap",
-    md: "row nowrap",
+const primary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    alignItems: "center",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    flexFlow: {
+      base: "column nowrap",
+      md: "row nowrap",
+    },
+    justifyContent: "center",
+    minHeight: "352px",
+    p: "l",
   },
-  justifyContent: "center",
-  minHeight: "350px",
   content: {
     bg: "ui.black",
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     flex: {
       base: "0 0 100%",
       md: "0 0 60%",
@@ -120,39 +183,84 @@ const primary = {
     bodyText: {
       marginBottom: "0",
     },
-    // h1: { color: "ui.typography.inverse.heading" },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
       bgColor: "dark.ui.bg.default",
-      color: "dark.ui.typography.body",
+      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
-    color: "dark.ui.typography.heading",
+    color: getTextColor("heading", "dark", foregroundColor, isDarkText),
   },
-};
+}));
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
 );
-const secondaryLocations = getSecondaryVariantStyles(
-  "section.locations.primary"
+const secondaryLocations = definePartsStyle(
+  getSecondaryVariantStyles("section.locations.primary")
 );
-const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
-const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
-const tertiary = {
+const secondaryResearch = definePartsStyle(
+  getSecondaryVariantStyles("section.research.primary")
+);
+const secondaryWhatsOn = definePartsStyle(
+  getSecondaryVariantStyles("section.whats-on.primary")
+);
+const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    // Is this needed?
+    p: {
+      marginBottom: "0",
+    },
+  },
   content: {
     ...wrapperStyles,
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     display: "flex",
     flexFlow: "column nowrap",
     px: "inset.default",
     py: { base: "inset.default", xl: "inset.wide" },
+    a: {
+      color: getLinkColor("default", foregroundColor, isDarkText),
+      _hover: {
+        color: getLinkColor("hover", foregroundColor, isDarkText),
+      },
+      _visited: {
+        color: getLinkColor("visited", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", foregroundColor, isDarkText),
+        },
+      },
+    },
     p: {
       marginBottom: "0",
       marginTop: { base: "xxs", xl: "xs" },
     },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
-      p: { color: "dark.ui.typography.body" },
+      a: {
+        color: getLinkColor("default", foregroundColor, isDarkText),
+        _hover: {
+          color: getLinkColor("hover", foregroundColor, isDarkText),
+        },
+        _visited: {
+          color: getLinkColor("visited", foregroundColor, isDarkText),
+          svg: {
+            fill: getLinkColor("visited", foregroundColor, isDarkText),
+          },
+        },
+      },
+      p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
@@ -162,23 +270,27 @@ const tertiary = {
       marginBottom: "0",
     },
   },
-  p: {
-    marginBottom: "0",
+}));
+const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
+  base: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    padding: {
+      base: "inset.wide",
+      md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
+    },
+    position: "relative",
+    a: {
+      color: "inherit",
+      display: "inline-block",
+    },
+    img: screenreaderOnly(),
   },
-};
-const campaign = {
-  alignItems: "center",
-  display: "flex",
-  justifyContent: "center",
-  padding: {
-    base: "inset.wide",
-    md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
-  },
-  position: "relative",
   content: {
     alignItems: "stretch",
     bg: "ui.black",
-    color: "ui.typography.inverse.body",
+    color: getTextColor("body", "light", foregroundColor, isDarkText),
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -189,18 +301,43 @@ const campaign = {
     maxWidth: { md: "1248px" },
     position: { md: "relative" },
     zIndex: 2,
+    a: {
+      color: getLinkColor("default", foregroundColor, isDarkText),
+      _hover: {
+        color: getLinkColor("hover", foregroundColor, isDarkText),
+      },
+      _visited: {
+        color: getLinkColor("visited", foregroundColor, isDarkText),
+        svg: {
+          fill: getLinkColor("visited", foregroundColor, isDarkText),
+        },
+      },
+    },
+    ".chakra-heading": {
+      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    },
     _dark: {
-      color: "dark.ui.typography.body",
+      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+      a: {
+        color: getLinkColor("default", foregroundColor, isDarkText),
+        _hover: {
+          color: getLinkColor("hover", foregroundColor, isDarkText),
+        },
+        _visited: {
+          color: getLinkColor("visited", foregroundColor, isDarkText),
+          svg: {
+            fill: getLinkColor("visited", foregroundColor, isDarkText),
+          },
+        },
+      },
+      ".chakra-heading": {
+        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+      },
     },
   },
   heading: {
-    color: "dark.ui.typography.heading",
+    color: "ui.typography.inverse.heading",
   },
-  a: {
-    color: "inherit",
-    display: "inline-block",
-  },
-  img: screenreaderOnly(),
   imgWrapper: {
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -222,8 +359,11 @@ const campaign = {
       lg: "50%",
     },
   },
-};
-const fiftyFifty = {
+}));
+const fiftyFifty = definePartsStyle({
+  base: {
+    img: screenreaderOnly(),
+  },
   content: {
     ...wrapperStyles,
     alignItems: "stretch",
@@ -242,7 +382,6 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-  img: screenreaderOnly(),
   bodyText: {
     alignSelf: "center",
     maxWidth: { md: "960px" },
@@ -255,11 +394,9 @@ const fiftyFifty = {
       lg: "50%",
     },
   },
-};
-const Hero = {
-  baseStyle: {
-    // ...
-  },
+});
+const Hero = defineMultiStyleConfig({
+  baseStyle: {},
   // Available variants:
   variants: {
     primary,
@@ -272,6 +409,6 @@ const Hero = {
     campaign,
     fiftyFifty,
   },
-};
+});
 
 export default Hero;

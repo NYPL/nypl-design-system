@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import * as HorizontalRuleStories from "./HorizontalRule.stories";
 import Link from "../Link/Link";
+import { changelogData } from "./horizontalRuleChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Meta of={HorizontalRuleStories} />
 
@@ -10,13 +12,14 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.0`   |
-| Latest            | `1.5.0`    |
+| Latest            | `3.1.2`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -44,3 +47,7 @@ Resources:
 
 - [MDN hr: The Thematic Break (Horizontal Rule) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
 - [Not Your Typical Horizontal Rules](https://www.sarasoueidan.com/blog/horizontal-rules/#)
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

@@ -1,4 +1,10 @@
-import { As, Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  As,
+  Box,
+  chakra,
+  ChakraComponent,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import useDSHeading from "../../hooks/useDSHeading";
@@ -27,6 +33,8 @@ export interface ListProps {
   listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
+  /** Show dividers between rows for the description list variant. */
+  showRowDividers?: boolean;
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in. This title only applies to
    * to Description Lists and will render above the list. */
@@ -40,7 +48,13 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Description` list type.
  */
-export const List = chakra(
+export const List: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<ListProps> &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
+  >,
+  React.PropsWithChildren<ListProps>
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     React.PropsWithChildren<ListProps>
@@ -52,13 +66,15 @@ export const List = chakra(
       inline = false,
       listItems,
       noStyling = false,
+      showRowDividers = true,
       title,
       type = "ul",
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("List", {
+    const styles = useMultiStyleConfig("ReservoirList", {
       inline,
       noStyling,
+      showRowDividers,
       variant: type,
     });
     const finalTitle = useDSHeading({
@@ -100,7 +116,7 @@ export const List = chakra(
         return null;
       }
       if (listType === "ol" || listType === "ul") {
-        return listItems.map((item, i) => <li key={i}>{item}</li>);
+        return listItems.map((item: any, i) => <li key={i}>{item}</li>);
       } else if (listType === "dl") {
         return (listItems as DescriptionProps[]).map((item, i) => [
           <dt key={`${i}-term`}>{item.term}</dt>,
@@ -142,7 +158,7 @@ export const List = chakra(
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {listChildrenElms(type)}
@@ -156,7 +172,7 @@ export const List = chakra(
           id={id}
           className={className}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           {...rest}
         >
           {finalTitle}

@@ -10,7 +10,8 @@ import MultiSelect, {
 } from "./MultiSelect";
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { Stack } from "@chakra-ui/react";
+import { HStack, Stack } from "@chakra-ui/react";
+import Button from "../Button/Button";
 
 const withItems = [
   {
@@ -205,60 +206,36 @@ const meta: Meta<typeof MultiSelect> = {
   component: MultiSelect,
   decorators: [withDesign],
   argTypes: {
-    buttonText: {
-      description: "The button text rendered within the MultiSelect.",
-      table: { default: "" },
-    },
     defaultItemsVisible: {
-      description:
-        "The number of items that will be visible in the list when the component first loads.",
       table: { defaultValue: { summary: 5 } },
     },
     id: {
       control: false,
-      description:
-        "An ID string that other components can cross reference for accessibility purposes.",
     },
     isBlockElement: {
-      description:
-        "Controls how the component will render within the page and interact with other DOM elements.",
       table: { defaultValue: { summary: false } },
     },
     isDefaultOpen: {
-      description: "Set the default open or closed state of the Multiselect.",
       table: { defaultValue: { summary: false } },
     },
     isSearchable: {
-      description: "Enables the internal search functionality.",
       table: { defaultValue: { summary: false } },
     },
-    items: {
-      control: false,
-      description:
-        "The items to be rendered in the Multiselect as checkbox options.",
-    },
     listOverflow: {
-      description:
-        "Value used to view the all items for the MultiSelect component",
       control: "radio",
       options: multiSelectListOverflowArray,
       table: { defaultValue: { summary: "scroll" } },
     },
-    onChange: {
-      description:
-        "The action to perform on the checkbox's onChange function. <br /> `onChange`: `(event: React.ChangeEvent<HTMLInputElement>) => void` <br /> ",
-    },
+    onChange: { control: false },
     onMixedStateChange: {
-      description:
-        "The action to perform for a mixed state checkbox (parent checkbox). <br /> `onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;`",
+      control: false,
     },
     selectedItems: {
       control: false,
-      description:
-        "The selected items state (items that were checked by user).",
     },
     width: {
-      description: "Value used to set the width for the MultiSelect component",
+      description:
+        'Value used to set the width for the MultiSelect component. \n\n `"full"` `"fitContent"`',
       control: "radio",
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "full" } },
@@ -300,7 +277,7 @@ export const visibleListItems: Story = {
         <div>
           <Heading level="h3" size="heading6" text="Default" />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-1"
             isBlockElement
             items={withItems}
             listOverflow="expand"
@@ -310,7 +287,7 @@ export const visibleListItems: Story = {
           <Heading level="h3" size="heading6" text="Custom" />
           <MultiSelectStory
             defaultItemsVisible={8}
-            id="multi-select-id"
+            id="multi-select-id-2"
             isBlockElement
             items={withItems}
             listOverflow="expand"
@@ -323,7 +300,7 @@ export const visibleListItems: Story = {
             text="Default with Nested Items"
           />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-3"
             isBlockElement
             items={withChildrenItems}
             listOverflow="expand"
@@ -337,7 +314,7 @@ export const visibleListItems: Story = {
 export const nestedListItems: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-4"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -349,7 +326,7 @@ export const nestedListItems: Story = {
 export const disabledListItems: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-5"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -361,7 +338,7 @@ export const disabledListItems: Story = {
 export const disabledListItemsAllChildren: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-6"
       isBlockElement
       isDefaultOpen={false}
       isSearchable={false}
@@ -373,7 +350,7 @@ export const disabledListItemsAllChildren: Story = {
 export const searchInputField: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-7"
       isBlockElement
       isDefaultOpen={false}
       isSearchable
@@ -392,13 +369,13 @@ export const isBlockElement: Story = {
           <Stack align="left" spacing="s">
             <Stack align="left">
               <MultiSelectStory
-                id="multi-select-id"
+                id="multi-select-id-8"
                 isBlockElement
                 items={withItems}
                 listOverflow="expand"
               />
               <MultiSelectStory
-                id="multi-select-id"
+                id="multi-select-id-9"
                 isBlockElement
                 items={withItems}
                 listOverflow="expand"
@@ -420,9 +397,9 @@ export const isBlockElement: Story = {
           />
           <Stack align="left" spacing="s">
             <Stack direction="row" width="100%" alignContent="stretch">
-              <MultiSelectStory id="multi-select-id" items={withItems} />
-              <MultiSelectStory id="multi-select-id" items={withItems} />
-              <MultiSelectStory id="multi-select-id" items={withItems} />
+              <MultiSelectStory id="multi-select-id-10" items={withItems} />
+              <MultiSelectStory id="multi-select-id-11" items={withItems} />
+              <MultiSelectStory id="multi-select-id-12" items={withItems} />
             </Stack>
             <Text>
               Maecenas sed diam eget risus varius blandit sit amet non magna.
@@ -460,7 +437,7 @@ export const width: Story = {
             text="full (default configuration)"
           />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-13"
             isBlockElement
             items={withItems}
           />
@@ -468,7 +445,7 @@ export const width: Story = {
         <div>
           <Heading level="h3" size="heading6" text="fitContent" />
           <MultiSelectStory
-            id="multi-select-id"
+            id="multi-select-id-14"
             isBlockElement
             items={withItems}
             width="fitContent"
@@ -482,12 +459,16 @@ export const width: Story = {
 export const defaultOpenState: Story = {
   render: () => (
     <MultiSelectStory
-      id="multi-select-id"
+      id="multi-select-id-15"
       isBlockElement
       isDefaultOpen={true}
       items={withChildrenItems}
     />
   ),
+};
+
+export const InAGroup: Story = {
+  render: () => <MultiSelecGroupStory items={withItems} />,
 };
 
 const MultiSelectWithControlsStory = (args) => {
@@ -511,7 +492,6 @@ const MultiSelectWithControlsStory = (args) => {
   return (
     <MultiSelect
       {...args}
-      helperText="multi-select-helper-text"
       selectedItems={selectedItems}
       onChange={(e) => {
         onChange(e.target.id, multiSelectId);
@@ -559,7 +539,6 @@ const MultiSelectStory = ({
     <MultiSelect
       buttonText="MultiSelect"
       defaultItemsVisible={defaultItemsVisible}
-      helperText="multi-select-helper-text"
       id={id}
       isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}
@@ -581,5 +560,90 @@ const MultiSelectStory = ({
         setActionName("onClear");
       }}
     />
+  );
+};
+
+// TODO: Replace with MultiSelectGroup once that component is done.
+const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
+  // Example with custom hook useMultiSelect.
+  const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
+    useMultiSelect();
+
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = useState("");
+
+  useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action(actionName)(selectedItems);
+    }
+    if (actionName === "onClear") {
+      action(actionName)(selectedItems);
+    }
+  }, [actionName, selectedItems]);
+
+  return (
+    <HStack minHeight="300px" alignItems="baseline">
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-1"
+        isBlockElement
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-1");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-1", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-1");
+          setActionName("onClear");
+        }}
+      />
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-2"
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-2");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-2", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-2");
+          setActionName("onClear");
+        }}
+      />
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="ms-group-3"
+        items={items}
+        selectedItems={selectedItems}
+        width="fitContent"
+        onChange={(e) => {
+          onChange(e.target.id, "ms-group-3");
+          setActionName("onChange");
+        }}
+        onMixedStateChange={(e) => {
+          onMixedStateChange(e.target.id, "ms-group-3", items);
+          setActionName("onMixedStateChange");
+        }}
+        onClear={() => {
+          onClear("ms-group-3");
+          setActionName("onClear");
+        }}
+      />
+      <Button id="clear-all" onClick={() => onClearAll()}>
+        Clear All
+      </Button>
+    </HStack>
   );
 };

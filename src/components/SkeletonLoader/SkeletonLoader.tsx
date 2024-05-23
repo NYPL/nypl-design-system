@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Skeleton as ChakraSkeleton,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -25,6 +26,8 @@ export interface SkeletonLoaderProps {
   /** Optional numeric value to control the number of lines for heading
    * placeholder; default value is `1`. */
   headingSize?: number;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional value to control the aspect ratio of the image placeholder;
    * default value is `"square"`. */
   imageAspectRatio?: SkeletonLoaderImageRatios;
@@ -51,7 +54,12 @@ export interface SkeletonLoaderProps {
  * The `SkeletonLoader` component renders a placeholder to be used while
  * dynamic content is loading.
  */
-export const SkeletonLoader = chakra(
+export const SkeletonLoader: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    SkeletonLoaderProps & React.RefAttributes<HTMLDivElement>
+  >,
+  SkeletonLoaderProps
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkeletonLoaderProps>>(
     (props, ref?) => {
       const {
@@ -59,6 +67,7 @@ export const SkeletonLoader = chakra(
         contentSize = 3,
         headingSize = 1,
         imageAspectRatio = "square",
+        id,
         isBordered = false,
         layout = "column",
         showButton = false,
@@ -90,7 +99,11 @@ export const SkeletonLoader = chakra(
           const marginBottomValue =
             i === size - 1 && type === "content" ? "0" : undefined;
           return (
-            <ChakraSkeleton key={`${type}-${i}`} width={width}>
+            <ChakraSkeleton
+              key={`${type}-${i}`}
+              width={width}
+              sx={styles.loader}
+            >
               <Box
                 __css={styles[type]}
                 style={{ marginBottom: marginBottomValue }}
@@ -103,13 +116,14 @@ export const SkeletonLoader = chakra(
       return (
         <Box
           className={className}
+          id={id}
           ref={ref}
-          __css={styles}
+          __css={styles.base}
           style={{ width }}
           {...rest}
         >
           {showImage && (
-            <ChakraSkeleton>
+            <ChakraSkeleton sx={styles.loader}>
               <Box __css={{ ...styles.element, ...styles.image }} />
             </ChakraSkeleton>
           )}
@@ -126,7 +140,7 @@ export const SkeletonLoader = chakra(
             )}
             {showButton && (
               <Box __css={{ ...styles.section, ...styles.button }}>
-                <ChakraSkeleton borderRadius="16px">
+                <ChakraSkeleton borderRadius="16px" sx={styles.loader}>
                   <Box __css={styles.button} />
                 </ChakraSkeleton>
               </Box>

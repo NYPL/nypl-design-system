@@ -10,15 +10,16 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
 import AudioPlayer from "./components/audioPlayer";
+import Banner from "./components/banner";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
-import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CheckboxGroup from "./components/checkboxGroup";
-import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
+import CustomSlider from "./components/slider";
+import CustomTable from "./components/customTable";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
 import FeaturedContent from "./components/featuredContent";
@@ -33,25 +34,28 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import Logo from "./components/logo";
+import Menu from "./components/menu";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
 import MultiSelectItemsCountButton from "./components/multiSelectItemsCountButton";
 import NewsletterSignup from "./components/newsletterSignup";
-import NotificationStyles from "./components/notification";
+import Notification from "./components/notification";
+import NotificationContent from "./components/notificationContent";
+import NotificationHeading from "./components/notificationHeading";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
+import ReservoirCard from "./components/card";
+import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
 import SearchBar from "./components/searchBar";
-import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import SkeletonLoader from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
-import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import StyledList from "./components/styledList";
 import SocialMediaLinks from "./components/socialmedialinks";
 import Tabs from "./components/tabs";
-import CustomTable from "./components/customTable";
 import TagSetStyles from "./components/tagSet";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
@@ -94,15 +98,13 @@ const theme: any = {
     Accordion,
     AlphabetFilter,
     AudioPlayer,
-    Breadcrumb,
-    Button,
+    Banner,
+    CustomBreadcrumb: Breadcrumb,
+    CustomButton: Button,
     ButtonGroup,
-    ...Card,
     Checkbox,
     CheckboxGroup,
     ComponentWrapper,
-    CustomImage,
-    CustomImageWrapper,
     CustomSelect,
     DatePicker,
     FeedbackBox,
@@ -113,23 +115,28 @@ const theme: any = {
     HelperErrorText,
     Hero,
     HorizontalRule,
-    Icon,
     Label,
     Link,
-    List,
+    ReservoirList: List,
     Logo,
+    Menu,
     Modal,
     MultiSelect,
     MultiSelectItemsCountButton,
-    ...NotificationStyles,
+    Notification,
+    NotificationContent,
+    NotificationHeading,
     NewsletterSignup,
     Pagination,
     ProgressIndicator,
     Radio,
     RadioGroup,
     RadioWrapper,
+    ...ReservoirCard,
+    ReservoirIcon: Icon,
+    ReservoirImage,
+    ReservoirImageWrapper,
     SearchBar,
-    Skeleton,
     SkeletonLoader,
     SkipNavigation,
     CustomSlider,

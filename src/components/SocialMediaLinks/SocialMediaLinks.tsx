@@ -1,4 +1,4 @@
-import { chakra, useStyleConfig } from "@chakra-ui/react";
+import { ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
@@ -39,7 +39,8 @@ export interface SocialMediaLinksProps {
   color?: ColorType;
   /** ID that other components can cross-reference for accessibility purposes. */
   id?: string;
-  /** Optional desktop layout. Smaller viewports are always in a column. */
+  /** Optional desktop layout. Smaller viewports are always in a column if there are labels and
+   * in a row if there are no labels. */
   layout?: LayoutTypes;
   /** Optional array of social media platform types, urls, and label texts. */
   linksData?: SocialMediaLinkDataProps[];
@@ -88,7 +89,13 @@ function getLinksData(platforms: SocialMediaLinkDataProps[]) {
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  */
-export const SocialMediaLinks = chakra(
+export const SocialMediaLinks: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    SocialMediaLinksProps &
+      React.RefAttributes<HTMLDivElement & HTMLUListElement & HTMLOListElement>
+  >,
+  SocialMediaLinksProps
+> = chakra(
   forwardRef<
     HTMLDivElement & HTMLUListElement & HTMLOListElement,
     SocialMediaLinksProps
@@ -105,21 +112,23 @@ export const SocialMediaLinks = chakra(
       ...rest
     } = props;
 
-    // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
-    const styles = useStyleConfig("SocialMediaLinks", {
-      variant: borders,
-      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
-      color,
-      layout,
-    });
-
     let labelsOn = showLabels;
+
     if (labelsOn && borders === "circular") {
       labelsOn = false;
       console.error(
         "NYPL Reservoir SocialMediaLinks: 'showLabels' is set to true, but labels can not be shown with a circular border."
       );
     }
+
+    // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
+    const styles = useStyleConfig("SocialMediaLinks", {
+      variant: borders,
+      color,
+      labelsOn,
+      layout,
+      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
+    });
 
     // If linksData has values, use them, else use the entire list of platforms.
     const socialMediaDataArray = linksData

@@ -1,9 +1,12 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig, ChakraComponent } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
 
-export interface TemplateProps {}
+export interface TemplateProps {
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
+}
 export interface TemplateHeaderProps {
   /** Flag to render an HTML header element. True by default. */
   renderHeaderElement?: boolean;
@@ -47,6 +50,8 @@ export interface TemplateAppContainerProps
   footer?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateHeader` component section. */
   header?: React.ReactElement;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Render the `SkipNavigation` component or not. False by default. */
   renderSkipNavigation?: boolean;
 }
@@ -55,12 +60,17 @@ export interface TemplateAppContainerProps
  * The main top-level parent component that wraps all template-related
  * components.
  */
-const Template = chakra(
+const Template: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
     (props, ref?) => {
       const styles = useStyleConfig("Template", {});
       return (
-        <Box ref={ref} __css={styles} {...props}>
+        <Box id={props.id} ref={ref} __css={styles} {...props}>
           {props.children}
         </Box>
       );
@@ -76,7 +86,9 @@ const Template = chakra(
  * `role="complementary"` attribute. These elements should *not* be rendered
  * in the `header` HTML section since that's an accessibility violation.
  */
-const TemplateAboveHeader = (props: React.PropsWithChildren<TemplateProps>) => {
+const TemplateAboveHeader: React.FC<any> = (
+  props: React.PropsWithChildren<TemplateProps>
+) => {
   const styles = useStyleConfig("TemplateBreakout", {});
   return <Box __css={styles}>{props.children}</Box>;
 };
@@ -88,7 +100,7 @@ const TemplateAboveHeader = (props: React.PropsWithChildren<TemplateProps>) => {
  * set `renderFooterElement` to `false`. Otherwise, the parent wrapper will
  * render an HTML `<header>` element.
  */
-const TemplateHeader = ({
+const TemplateHeader: React.FC<any> = ({
   children,
   renderHeaderElement = true,
 }: React.PropsWithChildren<TemplateHeaderProps>) => {
@@ -123,7 +135,9 @@ const TemplateHeader = ({
  * render its children from edge to edge and is most useful for the headers,
  * `Breadcrumbs`, and `Hero` components or other banner-like components.
  */
-const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
+const TemplateBreakout: React.FC<any> = (
+  props: React.PropsWithChildren<TemplateProps>
+) => {
   const styles = useStyleConfig("TemplateBreakout", {});
   return <Box __css={styles}>{props.children}</Box>;
 };
@@ -138,7 +152,7 @@ const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
  * and `TemplateContentSidebar` must be ordered correctly as children elements
  * for the appropriate styles to take effect.
  */
-const TemplateContent = (
+const TemplateContent: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
   const { children, id = "mainContent", sidebar = "none" } = props;
@@ -176,7 +190,9 @@ const TemplateContent = (
  * This renders content in the main width of the container and will always render
  * above the primary component and the sidebar component (if any).
  */
-const TemplateContentTop = (props: React.PropsWithChildren<TemplateProps>) => {
+const TemplateContentTop: React.FC<any> = (
+  props: React.PropsWithChildren<TemplateProps>
+) => {
   const styles = useStyleConfig("TemplateContentTopBottom", {});
   return <Box __css={styles}>{props.children}</Box>;
 };
@@ -187,7 +203,7 @@ const TemplateContentTop = (props: React.PropsWithChildren<TemplateProps>) => {
  * This renders content in the main width of the container and should always
  * render below the primary component and the sidebar component (if any).
  */
-const TemplateContentBottom = (
+const TemplateContentBottom: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
   const styles = useStyleConfig("TemplateContentTopBottom", {});
@@ -202,7 +218,7 @@ const TemplateContentBottom = (
  * prop is used in the `TemplateContent` component, there is no need to pass
  * the `sidebar` prop to this component -- `TemplateContent` will handle it.
  */
-const TemplateContentPrimary = (
+const TemplateContentPrimary: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
   const { sidebar } = props;
@@ -223,7 +239,7 @@ const TemplateContentPrimary = (
  * component, there is no need to pass the `sidebar` prop to this component --
  * `TemplateContent` will handle it.
  */
-const TemplateContentSidebar = (
+const TemplateContentSidebar: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
   const { sidebar } = props;
@@ -239,7 +255,7 @@ const TemplateContentSidebar = (
  * width of the page. If an HTML `<footer>` element is already passed in a
  * custom component, set `renderFooterElement` to `false`.
  */
-const TemplateFooter = ({
+const TemplateFooter: React.FC<any> = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
@@ -274,7 +290,13 @@ const TemplateFooter = ({
  * be rendered. For example, if you want to render content in the
  * `TemplateContentPrimary` section, then pass it as a prop to `contentPrimary`.
  */
-export const TemplateAppContainer = chakra(
+export const TemplateAppContainer: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateAppContainerProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateAppContainerProps>
+> = chakra(
   forwardRef<
     HTMLDivElement,
     React.PropsWithChildren<TemplateAppContainerProps>
@@ -289,6 +311,7 @@ export const TemplateAppContainer = chakra(
       contentTop,
       footer,
       header,
+      id,
       sidebar = "none",
       renderFooterElement = true,
       renderHeaderElement = true,
@@ -313,7 +336,7 @@ export const TemplateAppContainer = chakra(
     return (
       <>
         {renderSkipNavigation ? <SkipNavigation /> : null}
-        <Template ref={ref} {...rest}>
+        <Template id={id} ref={ref} {...rest}>
           <TemplateBreakout>
             {aboveHeaderElem}
             {(header || breakout) && (

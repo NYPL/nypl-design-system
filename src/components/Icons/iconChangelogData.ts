@@ -10,6 +10,27 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-04-11",
+    version: "3.1.0",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the actionLightbulb icon."],
+  },
+  {
+    date: "2024-03-28",
+    version: "3.0.1",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the editorMode (pencil) icon."],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
     date: "2024-02-05",
     version: "2.1.5",
     type: "Update",
@@ -17,7 +38,7 @@ export const changelogData: ChangelogData[] = [
     notes: ["Added the navigationMoreVert (vertical ellipsis) icon."],
   },
   {
-    date: "2024-01-04",
+    date: "2024-01-24",
     version: "2.1.4",
     type: "Update",
     affects: ["Documentation", "Functionality"],

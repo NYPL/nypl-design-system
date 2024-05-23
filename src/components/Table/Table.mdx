@@ -2,6 +2,8 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TableStories from "./Table.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./tableChangelogData";
 
 <Meta of={TableStories} />
 
@@ -10,7 +12,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `2.0.0`    |
+| Latest            | `3.1.2`    |
 
 ## Table of Contents
 
@@ -23,6 +25,7 @@ import Link from "../Link/Link";
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
 - {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
 - {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
@@ -143,3 +146,7 @@ still functional.
 
 To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
 Story and change the viewport in the Storybook toolbar at the top of the page.
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

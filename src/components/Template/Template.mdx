@@ -1,4 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./templateChangelogData";
 
 import * as TemplateStories from "./Template.stories";
 import {
@@ -23,16 +25,17 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `1.7.0`    |
+| Latest            | `3.1.2`    |
 
 ## Table of Contents
 
-- {<Link href="#templateappcontainer-overview">TemplateAppContainer Overview</Link>}
-- {<Link href="#templateappcontainer-component-props">TemplateAppContainer Component Props</Link>}
-- {<Link href="#templateappcontainer-accessibility">TemplateAppContainer Accessibility</Link>}
-- {<Link href="#template-children-overview">Template Children Overview</Link>}
-- {<Link href="#template-children-component-props">Template Children Component Props</Link>}
-- {<Link href="#full-example-with-template-children-components">Full Example with Template Children Components</Link>}
+- {<Link href="#templateappcontainer-overview" target="_self">TemplateAppContainer Overview</Link>}
+- {<Link href="#templateappcontainer-component-props" target="_self">TemplateAppContainer Component Props</Link>}
+- {<Link href="#templateappcontainer-accessibility" target="_self">TemplateAppContainer Accessibility</Link>}
+- {<Link href="#template-children-overview" target="_self">Template Children Overview</Link>}
+- {<Link href="#template-children-component-props" target="_self">Template Children Component Props</Link>}
+- {<Link href="#full-example-with-template-children-components" target="_self">Full Example with Template Children Components</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## TemplateAppContainer Overview
 
@@ -491,3 +494,7 @@ export const otherSubHeaderText =
 This is best viewed in the Storybook "Canvas" and not "Docs" section.
 
 <Canvas of={TemplateStories.FullExampleWithTemplateChildrenComponents} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

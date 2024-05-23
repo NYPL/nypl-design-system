@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMergeRefs,
@@ -102,7 +103,8 @@ export const TextInputFormats = {
 // Only used internally in `TextInput` and `SearchBar`.
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
-export interface InputProps {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
   additionalAriaLabel?: string;
   /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
@@ -188,12 +190,18 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
  * element. All types will render an accessible `Label` component and an
  * optional `HelperErrorText` component.
  */
-export const TextInput = chakra(
+export const TextInput: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    InputProps & React.RefAttributes<TextInputRefType>
+  >,
+  InputProps
+> = chakra(
   forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
         additionalAriaLabel,
         additionalHelperTextIds,
+        ["aria-describedby"]: ariaDescribedby,
         autoComplete,
         className,
         defaultValue,
@@ -264,15 +272,20 @@ export const TextInput = chakra(
         );
       }
 
-      const ariaAttributes = getAriaAttrs({
-        additionalAriaLabel,
-        footnote,
-        id,
-        labelText,
-        name: "TextInput",
-        additionalHelperTextIds,
-        showLabel,
-      });
+      const ariaAttributes = {
+        ...getAriaAttrs({
+          additionalAriaLabel,
+          additionalHelperTextIds,
+          footnote,
+          id,
+          labelText,
+          name: "TextInput",
+          showLabel,
+        }),
+        // getAriaAttrs returns an object with the key `aria-describedby`,
+        // but if we need to override it, we can do so here.
+        ...(ariaDescribedby ? { "aria-describedby": ariaDescribedby } : {}),
+      };
 
       const onClearClick = () => {
         setFinalValue("");

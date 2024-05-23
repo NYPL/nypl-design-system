@@ -9,6 +9,7 @@ import Image from "../Image/Image";
 import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -56,7 +57,7 @@ const meta: Meta<typeof Card> = {
       options: layoutTypesArray,
       table: { defaultValue: { summary: "column" } },
     },
-  },
+  } as any,
 };
 
 export default meta;
@@ -72,19 +73,23 @@ export const WithControls: Story = {
     className: undefined,
     foregroundColor: undefined,
     id: "card-id",
+    imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.aspectRatio": "square",
+    "imageProps.caption": undefined,
     "imageProps.component": undefined,
+    "imageProps.credit": undefined,
     "imageProps.isAtEnd": false,
     "imageProps.isLazy": true,
     "imageProps.size": "default",
-    "imageProps.src": "//placekitten.com/400/300",
+    "imageProps.src": getPlaceholderImage("smaller"),
     isAlignedRightActions: false,
     isBordered: false,
     isCentered: false,
     layout: "row",
     mainActionLink: undefined,
-  },
+    styles: undefined,
+  } as any,
   render: (args) => (
     <Card
       backgroundColor={args.backgroundColor}
@@ -154,7 +159,7 @@ export const ImagePositionColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" id="props-heading1" size="heading4">
@@ -171,7 +176,7 @@ export const ImagePositionColumnCards: Story = {
           aspectRatio: "twoByOne",
           isAtEnd: true,
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading level="h3" id="props-heading2" size="heading4">
@@ -193,7 +198,7 @@ export const ImagePositionRowCards: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
           isLazy: true,
         }}
         isCentered
@@ -214,7 +219,7 @@ export const ImagePositionRowCards: Story = {
           aspectRatio: "twoByOne",
           isAtEnd: true,
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -241,7 +246,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "xxsmall",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -265,7 +270,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "xsmall",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -289,7 +294,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "small",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -313,7 +318,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "medium",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -337,7 +342,7 @@ export const ImageSizeColumnCards: Story = {
           aspectRatio: "square",
           isLazy: true,
           size: "large",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
       >
@@ -360,7 +365,7 @@ export const ImageSizeColumnCards: Story = {
           alt: "Alt text",
           aspectRatio: "square",
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage(),
         }}
         isCentered
       >
@@ -389,7 +394,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "xxsmall",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -412,7 +417,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "xsmall",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -435,7 +440,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "small",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -458,7 +463,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "medium",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -482,7 +487,7 @@ export const ImageSizeRowCards: Story = {
           aspectRatio: "twoByOne",
           isLazy: true,
           size: "large",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -506,7 +511,7 @@ export const ImageSizeRowCards: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -534,7 +539,7 @@ export const CustomImageComponent: Story = {
     <Card
       imageProps={{
         alt: "Alt text",
-        component: <Image src="//placekitten.com/400/400" alt="Alt text" />,
+        component: <Image alt="Alt text" src={getPlaceholderImage()} />,
       }}
     >
       <CardHeading
@@ -569,7 +574,7 @@ export const HeadingAsLink: Story = {
       imageProps={{
         alt: "Alt text",
         aspectRatio: "twoByOne",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage(),
       }}
     >
       <CardHeading
@@ -609,7 +614,7 @@ export const FullClick: Story = {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -640,7 +645,7 @@ export const FullClick: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isAtEnd: true,
-          src: "//placekitten.com/410/210",
+          src: getPlaceholderImage("smaller"),
         }}
         mainActionLink="http://nypl.org"
       >
@@ -731,7 +736,7 @@ export const CardWithRightSideCardActions: Story = {
         alt: "Alt text",
         aspectRatio: "square",
         size: "medium",
-        src: "//placekitten.com/400/200",
+        src: getPlaceholderImage("smaller"),
       }}
       isAlignedRightActions
       isCentered
@@ -779,14 +784,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid1-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -801,14 +806,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/410/210",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid2-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -823,14 +828,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/420/220",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid3-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -845,14 +850,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/430/230",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid4-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -867,14 +872,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/440/200",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid5-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -889,14 +894,14 @@ export const GridExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/450/200",
+          src: getPlaceholderImage("smaller"),
         }}
       >
         <CardHeading
           level="h3"
           id="grid6-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -918,7 +923,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/400/200",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -927,7 +932,7 @@ export const StackExample: Story = {
           level="h3"
           id="stack1-heading1"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -943,7 +948,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/410/210",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -952,7 +957,7 @@ export const StackExample: Story = {
           level="h3"
           id="stack2-heading2"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading
@@ -968,7 +973,7 @@ export const StackExample: Story = {
           alt: "Alt text",
           aspectRatio: "twoByOne",
           isLazy: true,
-          src: "//placekitten.com/420/220",
+          src: getPlaceholderImage("smaller"),
         }}
         isCentered
         layout="row"
@@ -977,7 +982,7 @@ export const StackExample: Story = {
           level="h3"
           id="stack3-heading3"
           noSpace
-          overline="Cats"
+          overline="New York Public Library"
           size="heading5"
         >
           Card Heading

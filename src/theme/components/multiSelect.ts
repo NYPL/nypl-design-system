@@ -1,3 +1,17 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "base",
+    "accordionStyles",
+    "buttonTextLabel",
+    "menuChildren",
+    "menuSearchInputBox",
+    "viewAllButton",
+  ]);
+
 export const multiSelectWidths = {
   fitContent: {
     width: {
@@ -8,7 +22,7 @@ export const multiSelectWidths = {
       md: "175px",
     },
     maxWidth: {
-      md: "200px",
+      md: "360px",
     },
   },
   full: {
@@ -16,16 +30,11 @@ export const multiSelectWidths = {
   },
 };
 
-const MultiSelect = {
-  parts: [
-    "accordionStyles",
-    "buttonTextLabel",
-    "menuChildren",
-    "menuSearchInputBox",
-    "viewAllButton",
-  ],
-  baseStyle: ({ isBlockElement, width = "full" }) => ({
-    position: "relative",
+const MultiSelect = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isBlockElement, width = "full" }) => ({
+    base: {
+      position: "relative",
+    },
     menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
@@ -72,7 +81,7 @@ const MultiSelect = {
         position: "relative",
         width: width === "full" ? "100%" : { base: "100%", md: "fit-content" },
         overflow: "hidden",
-        zIndex: 1,
+        zIndex: 10000,
         div: {
           overflow: "hidden",
           textOverflow: "ellipsis",
@@ -101,10 +110,11 @@ const MultiSelect = {
       },
       ".chakra-collapse": {
         bgColor: "ui.bg.page",
+        overflow: "unset !important",
         borderTopWidth: "1px",
         marginTop: "-1px",
         position: isBlockElement ? null : "absolute",
-        zIndex: 2,
+        zIndex: 10001,
         ...multiSelectWidths[width],
       },
       ".chakra-accordion__panel": {
@@ -114,7 +124,7 @@ const MultiSelect = {
         },
       },
     },
-  }),
-};
+  })),
+});
 
 export default MultiSelect;

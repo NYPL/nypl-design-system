@@ -1,4 +1,11 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+  Story,
+} from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as HeroStories from "./Hero.stories";
@@ -12,7 +19,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `2.1.3`    |
+| Latest            | `3.1.2`    |
 
 ## Table of Contents
 
@@ -20,6 +27,8 @@ import Link from "../Link/Link";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#active-variants" target="_self">Active Variants</Link>}
+- {<Link href="#text-colors" target="_self">Text Colors</Link>}
+- {<Link href="#fallback-campaign-image" target="_self">Fallback Campaign Image</Link>}
 - {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -42,18 +51,20 @@ Under the `"secondary"` hero type, there are four additional subtypes:
 `"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`, and
 `"secondaryWhatsOn"`.
 
-For the variations that use image "alt" and "src" attributes, the `imageProps`
-prop should be used:
+For the variations that use image `alt`, `fallbackSrc`, `onError`, and `src`
+properties, the `imageProps` prop should be used:
 
 <Source
   code={`
 <Hero
-  backgroundImageSrc="https://placekitten.com/g/2400/800"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_243025&t=w"
   heroType="campaign"
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
-    src: "https://placekitten.com/800/400",
+    fallbackSrc: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+    onError: (_event) => console.log("Image failed to load") },
+    src: "https://images.nypl.org/index.php?id=swope_243048&t=w",
   }}
   subHeaderText="Campaign Hero Subheader Text"
 />
@@ -89,15 +100,7 @@ The `"primary"` hero type can be used with the `backgroundColor`, `backgroundIma
 `foregroundColor`, `heading`, `locationDetails`, and `subHeaderText` props. The
 minimum props that should be used are `backgroundImageSrc` and `heading`.
 
-<Source
-  code={`
-backgroundImageSrc="https://placekitten.com/1600/800"
-heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.Primary} />
+<Story of={HeroStories.Primary} />
 
 ### Tertiary
 
@@ -105,21 +108,7 @@ The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundCo
 `heading`, and `subHeaderText` props. The minimum prop to use is the `heading`
 prop.
 
-<Source
-  code={`
-heading={
-  <Heading
-    level="h1"
-    id="tertiary-hero"
-    text="Hero Tertiary with Sub-Header"
-  />
-}
-subHeaderText={otherSubHeaderText}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.Tertiary} />
+<Story of={HeroStories.Tertiary} />
 
 ### Campaign
 
@@ -136,19 +125,7 @@ foreground.
 To modify the foreground, the `backgroundColor`, `foregroundColor`, `imageProps`
 props should be used.
 
-<Source
-  code={`
-backgroundImageSrc="https://placekitten.com/g/2400/800"
-heading={
-  <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
-}
-imageProps={imageProps}
-subHeaderText={otherSubHeaderText}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.Campaign} />
+<Story of={HeroStories.Campaign} />
 
 #### isDarkBackgroundImage
 
@@ -156,20 +133,7 @@ The `isDarkBackgroundImage` prop can be used in the `"campaign"` hero to toggle
 the visual treatment of the background image. If true, the background image will
 be converted to black & white and darkened to 60% black.
 
-<Source
-  code={`
-backgroundImageSrc="https://placekitten.com/g/2400/800"
-heading={
-  <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
-}
-imageProps={imageProps}
-isDarkBackgroundImage
-subHeaderText={otherSubHeaderText}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.CampaignDarkBackgroundImage} />
+<Story of={HeroStories.CampaignDarkBackgroundImage} />
 
 #### backdropBackgroundColor
 
@@ -177,26 +141,67 @@ The "backdrop" is what we call the background and that can be set through either
 the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
 the `backgroundImageSrc` will take precedence.
 
+<Story of={HeroStories.CampaignBackgroundColors} />
+
+## Text Colors
+
+By default, the `Hero` component renders a dark background color with light
+text. This color treatment can be overridden using a combination of the
+`backgroundColor`, `foregroundColor` and `isDarkText` props.
+
+**NOTE:** The `foregroundColor` prop will override the `isDarkText` prop, so they
+should not be used at the same time.
+
+<Story of={HeroStories.TextColorStyles} />
+
+## Fallback Campaign Image
+
+The `imageProps` prop can be used to set a fallback for the **main** image in
+the `"campaign"` variant. The internal `Image` component will use the `onerror`
+event to load the `fallbackSrc` image.
+
+The `Hero` component does not use the `Image` component, however, for the
+background image. The background image is rendered through the CSS
+`background-image` property. This means that more work is needed to set a
+fallback for the background image.
+
+The following example demonstrates how to set a fallback image for both the main
+image and the background image. Note: this example assumes that both the main
+and background images should be the same.
+
 <Source
   code={`
-backdropBackgroundColor="section.education.primary"
-backgroundColor="ui.warning.primary"
-foregroundColor="ui.typgraphy.heading"
-heading={
-  <Heading 
-    color="ui.typgraphy.heading" 
-    level="h1" 
-    id="campaign-hero" 
-    text="Hero Campaign" 
-  />
-}
-imageProps={imageProps}
-subHeaderText={otherSubHeaderText}
+const CampaignFallBackExample = () => {
+  const [imageSrc, setImageSrc] = useState("foobar.jpg");
+  const fallbackImageSrc = "https://images.nypl.org/index.php?id=swope_244712&t=w";
+  return (
+    <Hero
+      backgroundImageSrc={imageSrc}
+      heroType="campaign"
+      heading={
+        <Heading
+          level="h1"
+          id="campaign-fallback-image"
+          text="Hero Campaign"
+        />
+      }
+      imageProps={{
+        alt: "Custom NYPL Image",
+        src: imageSrc,
+        fallbackSrc: fallbackImageSrc,
+        onError: (_event) => {
+          setImageSrc(fallbackImageSrc);
+        }
+      }}
+      subHeaderText={otherSubHeaderText}
+    />
+  );
+};
 `}
   language="jsx"
 />
 
-<Canvas of={HeroStories.CampaignBackgroundColors} />
+<Canvas of={HeroStories.CampaignFallbackImage} />
 
 ## Deprecated Variants
 
@@ -208,18 +213,7 @@ variant will be removed from the DS in a future release.
 The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
 `subHeaderText` props.
 
-<Source
-  code={`
-heading={
-  <Heading level="h1" id="secondary-hero" text="Hero Secondary" />
-}
-imageProps={imageProps}
-subHeaderText={secondarySubHeaderText}
-`}
-  language="jsx"
-/>
-
-<Canvas of={HeroStories.Secondary} />
+<Story of={HeroStories.Secondary} />
 
 ### FiftyFifty
 
@@ -230,15 +224,10 @@ The `"fiftyFifty"` hero type can be used with the `backgroundColor`,
 `foregroundColor`, `heading`, `imageProps`, and `subHeaderText` props. The
 minimum props to use are `imageProps` and `subHeaderText`.
 
-<Source
-  code={`
-imageProps={imageProps}
-subHeaderText={otherSubHeaderText}
-`}
-  language="jsx"
-/>
+**NOTE:** The layout offered in the `fiftyFifty` variant has been replaced by
+the [FeaturedContent](../?path=/docs/components-basic-elements-featuredcontent--docs) component.
 
-<Canvas of={HeroStories.FiftyFifty} />
+<Story of={HeroStories.FiftyFifty} />
 
 ## Color Variations for Secondary Hero
 
@@ -259,7 +248,7 @@ and `"secondaryWhatsOn"`.
   language="jsx"
 />
 
-<Canvas of={HeroStories.ColorVariations} />
+<Story of={HeroStories.ColorVariations} />
 
 ## Changelog
 

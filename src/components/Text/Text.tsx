@@ -1,4 +1,9 @@
-import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
+import {
+  Text as ChakraText,
+  chakra,
+  useStyleConfig,
+  ChakraComponent,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 export const textSizesArray = [
@@ -18,6 +23,8 @@ export type TextSizes = typeof textSizesArray[number];
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
   className?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
@@ -36,12 +43,18 @@ export interface TextProps {
   size?: TextSizes;
 }
 
-export const Text = chakra(
+export const Text: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TextProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TextProps>
+> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TextProps>>(
     (props, ref?) => {
       const {
         children,
         className = "",
+        id,
         isBold,
         isItalic,
         isCapitalized,
@@ -118,6 +131,7 @@ export const Text = chakra(
       return (
         <ChakraText
           className={className}
+          id={id}
           ref={ref}
           role={role}
           sx={styles}

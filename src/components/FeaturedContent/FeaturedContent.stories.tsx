@@ -4,11 +4,11 @@ import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 import SimpleGrid from "../Grid/SimpleGrid";
-
 import FeaturedContent, {
   featuredContentWidthArray,
   featuredContentPositionArray,
 } from "./FeaturedContent";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
@@ -20,7 +20,7 @@ const meta: Meta<typeof FeaturedContent> = {
     isFullWidth: {
       table: { defaultValue: { summary: false } },
     },
-    imageProps: { disable: false },
+    imageProps: { disable: true },
     "imageProps.alt": {
       control: { type: "text" },
       table: { defaultValue: { summary: "" } },
@@ -53,16 +53,25 @@ export const WithControls: Story = {
   args: {
     className: undefined,
     id: "FeaturedContent-id",
-    isFullWidth: false,
-    textContent: undefined,
+    imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
+    "imageProps.src": getPlaceholderImage(),
     "imageProps.width": "default",
-    "imageProps.src": "//placekitten.com/600/600",
+    isFullWidth: undefined,
+    textContent: undefined,
   },
   render: (args) => (
     <FeaturedContent
-      {...args}
+      // {...args}
+      id={args["id"]}
+      imageProps={{
+        alt: args["imageProps.alt"],
+        position: args["imageProps.position"],
+        src: args["imageProps.src"],
+        width: args["imageProps.width"],
+      }}
+      isFullWidth={args["isFullWidth"]}
       textContent={
         <div>
           <Heading level="h2" overline="Featured">
@@ -76,12 +85,6 @@ export const WithControls: Story = {
           <Button id="test"> Discover more </Button>
         </div>
       }
-      imageProps={{
-        alt: args["imageProps.alt"],
-        width: args["imageProps.width"],
-        position: args["imageProps.position"],
-        src: args["imageProps.src"],
-      }}
     />
   ),
   parameters: {
@@ -122,7 +125,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
         }}
       />
       <FeaturedContent
@@ -145,7 +148,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "https://iiif.nypl.org/iiif/2/5131004/full/!900,900/0/default.jpg",
         }}
       />
     </SimpleGrid>
@@ -173,7 +176,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "start",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -194,7 +197,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>
@@ -222,7 +225,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneQuarter",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -243,7 +246,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneThird",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -264,7 +267,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -285,7 +288,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "twoThirds",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -306,7 +309,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>
@@ -333,7 +336,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -352,7 +355,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>

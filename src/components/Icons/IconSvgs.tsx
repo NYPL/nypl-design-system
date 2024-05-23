@@ -11,6 +11,7 @@ import { ReactComponent as actionHome } from "../../../icons/svg/action-home.svg
 import { ReactComponent as actionIdentity } from "../../../icons/svg/action-identity.svg";
 import { ReactComponent as actionIdentityFilled } from "../../../icons/svg/action-identity-filled.svg";
 import { ReactComponent as actionLaunch } from "../../../icons/svg/action-launch.svg";
+import { ReactComponent as actionLightbulb } from "../../../icons/svg/action-lightbulb.svg";
 import { ReactComponent as actionLockClosed } from "../../../icons/svg/action-lock-closed.svg";
 import { ReactComponent as actionPayment } from "../../../icons/svg/action-payment.svg";
 import { ReactComponent as actionPower } from "../../../icons/svg/action-power.svg";
@@ -32,6 +33,7 @@ import { ReactComponent as decorativeEnvelope } from "../../../icons/svg/decorat
 import { ReactComponent as decorativeLibraryCard } from "../../../icons/svg/decorative-library-card.svg";
 import { ReactComponent as decorativeShoppingBag } from "../../../icons/svg/decorative-shopping-bag.svg";
 import { ReactComponent as download } from "../../../icons/svg/download.svg";
+import { ReactComponent as editorMode } from "../../../icons/svg/editor-mode.svg";
 import { ReactComponent as errorFilled } from "../../../icons/svg/error-filled.svg";
 import { ReactComponent as errorOutline } from "../../../icons/svg/error-outline.svg";
 import { ReactComponent as fileTypeAudio } from "../../../icons/svg/file-type-audio.svg";
@@ -85,6 +87,7 @@ export default {
   actionIdentity,
   actionIdentityFilled,
   actionLaunch,
+  actionLightbulb,
   actionLockClosed,
   actionPayment,
   actionPower,
@@ -106,6 +109,7 @@ export default {
   decorativeLibraryCard,
   decorativeShoppingBag,
   download,
+  editorMode,
   errorFilled,
   errorOutline,
   fileTypeAudio,

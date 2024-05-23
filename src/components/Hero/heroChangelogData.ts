@@ -10,6 +10,32 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-09",
+    version: "3.1.2",
+    type: "Update",
+    affects: ["Functionality", "Accessibility"],
+    notes: ["Adds `id` prop."],
+  },
+  {
+    date: "2024-04-25",
+    version: "3.1.1",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Added the `isDarkText` prop.",
+      "Added conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.",
+      "Added the `fallbackSrc` and `onError` properties to the `imageProps` prop for the internal `Image` component.",
+      "Adds workaround to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.",
+    ],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
     date: "2023-12-07",
     version: "2.1.3",
     type: "Update",

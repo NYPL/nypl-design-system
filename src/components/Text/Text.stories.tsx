@@ -2,19 +2,22 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
 import Text, { textSizesArray } from "./Text";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
   decorators: [withDesign],
   argTypes: {
+    children: { table: { disable: true } },
     className: { control: false },
-    isBold: { table: { defaultValue: { summary: false } } },
-    isItalic: { table: { defaultValue: { summary: false } } },
-    isCapitalized: { table: { defaultValue: { summary: false } } },
-    isUppercase: { table: { defaultValue: { summary: false } } },
-    isLowercase: { table: { defaultValue: { summary: false } } },
-    noSpace: { table: { defaultValue: { summary: false } } },
+    isBold: argsBooleanType(),
+    isItalic: argsBooleanType(),
+    isCapitalized: argsBooleanType(),
+    isUppercase: argsBooleanType(),
+    isLowercase: argsBooleanType(),
+    noSpace: argsBooleanType(),
+    role: { control: false },
     size: {
       control: {
         type: "select",
@@ -35,13 +38,14 @@ type Story = StoryObj<typeof Text>;
 export const WithControls: Story = {
   args: {
     className: undefined,
-    size: "default",
     isBold: false,
     isItalic: false,
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,
     noSpace: false,
+    role: undefined,
+    size: "default",
   },
   parameters: {
     design: {

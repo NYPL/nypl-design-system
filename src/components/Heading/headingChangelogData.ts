@@ -10,6 +10,30 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-09",
+    version: "3.1.2",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Extends prop type to allow heading HTML attributes."],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Chakra 2.8 update.",
+      "Updates the component's theme file to use native Chakra responsive styles of the font sizes and removed the conditional logic that handled that previously.",
+    ],
+  },
+  {
+    date: "2024-02-22",
+    version: "2.1.6",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: ['Fixed the desktop font size for the "heading5" variant.'],
+  },
+  {
     date: "2024-02-05",
     version: "2.1.5",
     type: "Update",
@@ -24,7 +48,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Updated the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
+      'Updates the `font-weight` to "regular" for the `subtitle1` and `subtitle2` text styles.',
     ],
   },
   {

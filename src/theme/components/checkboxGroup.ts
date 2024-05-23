@@ -1,10 +1,13 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { checkboxRadioGroupStyles } from "./global";
 
-const CheckboxGroup = {
-  parts: ["helperErrorText", "stack"],
-  baseStyle: ({ isFullWidth = false }) => ({
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["helperErrorText"]);
+
+const CheckboxGroup = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ isFullWidth = false }) => ({
     ...checkboxRadioGroupStyles(isFullWidth),
-  }),
-};
+  })),
+});
 
 export default CheckboxGroup;

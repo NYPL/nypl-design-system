@@ -1,5 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, waitFor, within } from "@storybook/test";
 import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 
@@ -8,6 +9,7 @@ import TextInput, {
   autoCompleteValuesArray,
   textInputTypesArray,
 } from "./TextInput";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TextInput> = {
   title: "Components/Form Elements/TextInput",
@@ -17,19 +19,33 @@ const meta: Meta<typeof TextInput> = {
     autoComplete: {
       control: { type: "select" },
       options: autoCompleteValuesArray,
+      table: { defaultValue: { summary: "off" } },
     },
+    className: { control: false },
+    defaultValue: { control: false },
+    helperText: { control: "text" },
     id: { control: false },
-    isClearable: { table: { defaultValue: { summary: false } } },
-    isDisabled: { table: { defaultValue: { summary: false } } },
-    isInvalid: { table: { defaultValue: { summary: false } } },
-    isRequired: { table: { defaultValue: { summary: false } } },
+    invalidText: { control: "text" },
+    isClearable: argsBooleanType(),
+    isClearableCallback: { control: false },
+    isDisabled: argsBooleanType(),
+    isInvalid: argsBooleanType(),
+    isRequired: argsBooleanType(),
+    labelText: { control: "text" },
+    max: { control: "number" },
+    min: { control: "number" },
+    name: { control: false },
     key: { table: { disable: true } },
     onChange: { control: false },
+    onClick: { control: false },
+    onFocus: { control: false },
+    pattern: { control: "text" },
+    placeholder: { control: "text" },
     ref: { table: { disable: true } },
-    requiredLabelText: { table: { defaultValue: { summary: true } } },
-    showHelperInvalidText: { table: { defaultValue: { summary: true } } },
-    showLabel: { table: { defaultValue: { summary: true } } },
-    showRequiredLabel: { table: { defaultValue: { summary: true } } },
+    requiredLabelText: argsBooleanType(true),
+    showHelperInvalidText: argsBooleanType(true),
+    showLabel: argsBooleanType(true),
+    showRequiredLabel: argsBooleanType(true),
     step: { table: { defaultValue: { summary: 1 } } },
     textInputType: {
       control: false,
@@ -59,7 +75,7 @@ export const WithControls: Story = {
     defaultValue: undefined,
     helperText: "Choose wisely.",
     id: "textInput-id",
-    isClearable: false,
+    isClearable: true,
     isClearableCallback: undefined,
     isDisabled: false,
     isInvalid: false,
@@ -91,6 +107,22 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
     jest: "TextInput.test.tsx",
+  },
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.click(textInput);
+    await userEvent.type(textInput, "Hello World");
+
+    await waitFor(() => {
+      expect(textInput).toHaveValue("Hello World");
+    });
+
+    const clearButton = within(canvasElement).getByRole("button");
+    await userEvent.click(clearButton);
+
+    await waitFor(() => {
+      expect(textInput).not.toHaveValue("Hello World");
+    });
   },
 };
 

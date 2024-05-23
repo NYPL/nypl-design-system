@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
@@ -8,9 +9,9 @@ import {
   Th as ChakraTh,
   Tr as ChakraTr,
   useMultiStyleConfig,
+  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -44,7 +45,12 @@ export interface TableProps {
  * Basic `Table` component used to organize and display tabular data in
  * rows and columns.
  */
-export const Table = chakra(
+export const Table: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TableProps> & React.RefAttributes<HTMLTableElement>
+  >,
+  React.PropsWithChildren<TableProps>
+> = chakra(
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {
@@ -72,10 +78,6 @@ export const Table = chakra(
         showRowDividers,
         useRowHeaders,
       });
-
-      // Based on --nypl-breakpoint-medium
-      const breakpointMedium = 600;
-      const windowDimensions = useWindowSize();
 
       const tableCaption = titleText && (
         <ChakraTableCaption>{titleText}</ChakraTableCaption>
@@ -126,16 +128,14 @@ export const Table = chakra(
           }
         }
 
-        const cellContent = (key: number, column: string | JSX.Element) => {
-          return windowDimensions.width <= breakpointMedium ? (
-            <>
-              <span>{columnHeaders[key]}</span>
-              <span>{column}</span>
-            </>
-          ) : (
-            column
-          );
-        };
+        const cellContent = (key: number, column: string | JSX.Element) => (
+          <>
+            <Box as="span" display={{ base: "block", md: "none" }}>
+              {columnHeaders[key]}
+            </Box>
+            <span>{column}</span>
+          </>
+        );
 
         return (
           <ChakraTbody>
@@ -178,9 +178,11 @@ export const Table = chakra(
           sx={styles}
           {...rest}
         >
-          {tableCaption}
-          {columnHeadersElems}
-          {tableBodyElems()}
+          <>
+            {tableCaption}
+            {columnHeadersElems}
+            {tableBodyElems()}
+          </>
         </ChakraTable>
       );
     }

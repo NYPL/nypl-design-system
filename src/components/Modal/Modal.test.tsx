@@ -5,6 +5,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
 import { ModalTrigger, useModal } from "./Modal";
 
 describe("Modal Accessibility", () => {
@@ -14,6 +15,7 @@ describe("Modal Accessibility", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
+          type: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -30,6 +32,7 @@ describe("Modal Accessibility", () => {
     const { result } = renderHook(() => useModal());
     const { onClose, onOpen, Modal } = result.current;
     const modalProps = {
+      type: "default",
       bodyContent: (
         <>
           <Button id="custom-close" onClick={onClose}>
@@ -66,6 +69,7 @@ describe("ModalTrigger", () => {
       buttonText="Button Text"
       id="modal-trigger"
       modalProps={{
+        type: "default",
         bodyContent: "body text",
         closeButtonLabel: "Close Button",
         headingText: "Modal Heading Text",
@@ -90,7 +94,98 @@ describe("ModalTrigger", () => {
 
     expect(openButton).toBeInTheDocument();
     expect(screen.queryByText("Close Button")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
     expect(screen.queryByText("Modal Heading Text")).toBeInTheDocument();
+  });
+
+  it("renders a custom heading", () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          type: "default",
+          bodyContent: "body text",
+          closeButtonLabel: "Close Button",
+          headingText: <Heading level="h3">Modal Heading Text</Heading>,
+          onClose: () => {
+            console.log("custom close");
+          },
+        }}
+      />
+    );
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
+      "Modal Heading Text"
+    );
+  });
+
+  it("renders the confirmation variant", async () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          type: "confirmation",
+          bodyContent: "body text",
+          closeButtonLabel: "Cancel Button",
+          confirmButtonLabel: "Confirm Button",
+          headingText: <Heading level="h3">Confirmation</Heading>,
+          onCancel: () => {
+            console.log("custom cancel");
+          },
+          onConfirm: () => {
+            console.log("custom confirm");
+          },
+        }}
+      />
+    );
+
+    let cancelButton = screen.queryByText("Cancel Button");
+    expect(cancelButton).not.toBeInTheDocument();
+    let confirmButton = screen.queryByText("Confirm Button");
+    expect(confirmButton).not.toBeInTheDocument();
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
+      "Confirmation"
+    );
+
+    cancelButton = screen.queryByText("Cancel Button");
+    expect(cancelButton).toBeInTheDocument();
+    confirmButton = screen.queryByText("Confirm Button");
+    expect(confirmButton).toBeInTheDocument();
+  });
+
+  it("renders default heading with expected size", () => {
+    render(
+      <ModalTrigger
+        buttonText="Button Text"
+        id="modal-trigger"
+        modalProps={{
+          type: "default",
+          bodyContent: "body text",
+          closeButtonLabel: "Close Button",
+          headingText: "Modal Heading Text",
+          onClose: () => {
+            console.log("custom close");
+          },
+        }}
+      />
+    );
+
+    const openButton = screen.getByText("Button Text");
+    openButton.click();
+
+    expect(screen.getByRole("heading", { level: 2 })).toHaveStyle(
+      //var(--nypl-fontSizes-mobile-heading-heading4) = 1.5em
+      "font-size: 1.5em"
+    );
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -111,6 +206,7 @@ describe("useModal", () => {
   const { result } = renderHook(() => useModal());
   const { onClose, onOpen, Modal } = result.current;
   const modalProps = {
+    type: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>

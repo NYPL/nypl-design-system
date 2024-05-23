@@ -5,6 +5,7 @@ import renderer from "react-test-renderer";
 
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import SimpleGrid from "./SimpleGrid";
+import { getPlaceholderImage } from "../../utils/utils";
 
 describe("Grid Accessibility", () => {
   it("passes axe accessibility test with children components", async () => {
@@ -14,7 +15,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/500/200",
+            src: getPlaceholderImage("smaller", 0),
           }}
         >
           <CardHeading level="h2">Card Heading</CardHeading>
@@ -27,7 +28,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/400/220",
+            src: getPlaceholderImage("smaller", 0),
           }}
         >
           <CardHeading level="h3">Card Heading</CardHeading>
@@ -40,7 +41,7 @@ describe("Grid Accessibility", () => {
           imageProps={{
             alt: "Alt text",
             aspectRatio: "twoByOne",
-            src: "//placekitten.com/400/240",
+            src: getPlaceholderImage("smaller", 0),
           }}
         >
           <CardHeading level="h3">Card Heading</CardHeading>

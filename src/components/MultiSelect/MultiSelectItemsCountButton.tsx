@@ -1,10 +1,11 @@
-import React, { forwardRef } from "react";
-import { useMultiStyleConfig } from "@chakra-ui/react";
+import { useStyleConfig } from "@chakra-ui/react";
+import { forwardRef } from "react";
+
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-import { SelectedItems } from "./MultiSelect";
 
 export interface MultiSelectItemsCountButtonProps {
+  /** An ID string that other components can cross reference for accessibility purposes. */
   id: string;
   /** The id of the MultiSelect using this button. */
   multiSelectId: string;
@@ -13,11 +14,14 @@ export interface MultiSelectItemsCountButtonProps {
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
   /** The selected items state (items that were checked by user). */
-  selectedItems: SelectedItems;
+  selectedItemsString: string;
+  /** The number of selected items. */
+  selectedItemsCount: number;
   /** The callback function for the menu toggle. */
   onMenuToggle?: () => void;
-  /** The action to perform for clear/reset button of MultiSelect. */
+  /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
+  /** The action to perform for key down event. */
   onKeyDown?: () => void;
   /** Ref to the Accordion Button element. */
   accordianButtonRef: any;
@@ -40,48 +44,43 @@ const MultiSelectItemsCountButton = forwardRef<
     multiSelectLabelText,
     accordianButtonRef,
     onClear,
-    selectedItems,
+    selectedItemsString,
+    selectedItemsCount,
   } = props;
 
   // Sets the selected items count on the menu button.
-  let getSelectedItemsCount;
-  let selectedItemsAriaLabel;
-  if (selectedItems[multiSelectId]?.items.length > 0) {
-    getSelectedItemsCount = `${selectedItems[multiSelectId].items.length}`;
-    const itemPlural = getSelectedItemsCount === "1" ? "" : "s";
-    selectedItemsAriaLabel = `remove ${getSelectedItemsCount} item${itemPlural} selected from ${multiSelectLabelText}`;
-  }
+  let selectedItemsAriaLabel = `remove ${selectedItemsCount} ${selectedItemsString} selected from ${multiSelectLabelText}`;
 
-  const styles = useMultiStyleConfig("MultiSelectItemsCountButton", {
+  const styles = useStyleConfig("MultiSelectItemsCountButton", {
     isOpen,
-    hasSelectedItems: getSelectedItemsCount,
   });
 
-  return getSelectedItemsCount ? (
+  return (
     <Button
-      id="multi-select-button"
+      id={`ms-count-button-${multiSelectId}`}
       buttonType="pill"
       size="small"
       aria-label={selectedItemsAriaLabel}
       data-testid="multi-select-close-button-testid"
       onClick={() => {
-        onClear();
-        // Set focus on the Accordion Button when close the selected items count button.
+        onClear && onClear();
+        // Set focus on the Accordion Button when close the
+        // selected items count button.
         accordianButtonRef.current?.focus();
       }}
       __css={styles}
     >
-      {getSelectedItemsCount}
+      {selectedItemsCount}
       <Icon
         align="right"
-        id={`ms-${multiSelectId}-selected-items-count-icon`}
+        id={`ms-count-icon-${multiSelectId}`}
         marginLeft="xs"
         name="close"
         size="xsmall"
         title="Remove selected items"
       />
     </Button>
-  ) : null;
+  );
 });
 
 export default MultiSelectItemsCountButton;

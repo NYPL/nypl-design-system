@@ -1,8 +1,10 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Heading as ChakraHeading,
   useMultiStyleConfig,
+  HeadingProps as ChakraHeadingProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -40,7 +42,7 @@ export const headingLevelsArray = [
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
-export interface HeadingProps {
+export interface HeadingProps extends ChakraHeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional ID that other components can cross reference for accessibility
@@ -93,9 +95,13 @@ const getMappedLevel = (level = "two") => {
   return levelMap[level] || "h2";
 };
 
-// TODO: As part of Phase 2 of the typography updates, make sure to update the
-// default value for `level` to be "h2" instead of "two"
-export const Heading = chakra(
+export const Heading: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<HeadingProps> &
+      React.RefAttributes<HTMLHeadingElement>
+  >,
+  React.PropsWithChildren<HeadingProps>
+> = chakra(
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {
@@ -169,38 +175,26 @@ export const Heading = chakra(
         contentToRender
       );
 
-      /** *********************************************************************
-       * The new heading component provide overline and subtitle elements and
-       * the font size for those elements is based on the level of the heading
-       * component. The conditions below determine the styles that should be
-       * used for the overline and subtitle elements.
-       * *********************************************************************/
-
-      /** The new heading styles use a number with the variant style to indicate
-       * which style should be used. For example, heading1, heading2, and so on.
-       * If that number is set, we'll need it later. Let's grab the last
-       * character in string now, so we can use later in the code. In fact,
-       * let's grab that character and type it as an integer. */
-      const sizeIndex = parseInt(variant.at(-1));
-
-      /** This is the heading size index that acts as a separator between the
-       * smaller and larger sizing styles of the overline and subtitle elements.
-       * This demarcation is purely based on design and aesthetics. */
-      const overlineSubtitleSizeDemarcation = 2;
-
-      /** Set the size of the overline based on the heading size index. */
-      const overlineSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? "overline1"
-          : "overline2"
-        : undefined;
-
-      /** Set the size of the subtitle based on the heading size index. */
-      const subtitleSize = !isNaN(sizeIndex)
-        ? sizeIndex <= overlineSubtitleSizeDemarcation
-          ? "subtitle1"
-          : "subtitle2"
-        : undefined;
+      /** The sizes of the overline and subtitle elements are based on the
+       * current heading variant. The heading variants that reqwuire the larger
+       * text styles are listed in the usesLargerTextSizes array. If the name of
+       * the current heading variant is included in that array, then the size
+       * prop of the overline and subtitle elements will be set to "overline1"
+       * and "subtitle1" respectively.
+       */
+      const usesLargerTextSizes = [
+        "display1",
+        "heading1",
+        "heading2",
+        "h1",
+        "h2",
+      ];
+      const overlineSize = usesLargerTextSizes.includes(variant)
+        ? "overline1"
+        : "overline2";
+      const subtitleSize = usesLargerTextSizes.includes(variant)
+        ? "subtitle1"
+        : "subtitle2";
 
       /** The styles that should be applied to the outer-most wrapper of the
        * Heading component. */
@@ -213,10 +207,10 @@ export const Heading = chakra(
       const headingStyles =
         overline || subtitle
           ? {
-              ...styles,
+              ...styles.base,
             }
           : {
-              ...styles,
+              ...styles.base,
               ...wrapperStyles,
             };
 

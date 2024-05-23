@@ -1,7 +1,11 @@
 import { defaultElementSizes } from "./global";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 
-const AlphabetFilter = {
-  baseStyle: {
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["button"]);
+
+const AlphabetFilter = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     button: {
       minWidth: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
       height: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
@@ -25,7 +29,7 @@ const AlphabetFilter = {
         cursor: "not-allowed",
       },
     },
-  },
-};
+  }),
+});
 
 export default AlphabetFilter;

@@ -1,5 +1,6 @@
 import {
   chakra,
+  ChakraComponent,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
@@ -61,23 +62,28 @@ function CheckboxIcon(props: CheckboxIconProps) {
   // before passing all the props to the `Icon` component.
   const { isIndeterminate, isChecked, ...rest } = props;
 
-  return (
+  return isChecked || isIndeterminate ? (
     <Icon viewBox="0 0 24 24" {...rest}>
       <path
         fill="currentColor"
         d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
       />
     </Icon>
-  );
+  ) : null;
 }
 
-export const Checkbox = chakra(
+export const Checkbox: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    CheckboxProps & React.RefAttributes<HTMLInputElement>
+  >,
+  CheckboxProps
+> = chakra(
   forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,
-      invalidText,
       helperText,
       id,
+      invalidText,
       isChecked,
       isDisabled = false,
       isIndeterminate = false,
@@ -136,10 +142,9 @@ export const Checkbox = chakra(
                 onChange,
               }
             : {
-                defaultIsChecked: false,
+                defaultChecked: false,
               })}
-          alignItems="flex-start"
-          __css={styles}
+          __css={styles.base}
           {...ariaAttributes}
         >
           {showLabel && labelText}

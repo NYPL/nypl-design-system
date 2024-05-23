@@ -1,5 +1,8 @@
-const MultiSelectItemsCountButton = {
-  baseStyle: ({ isOpen = false }) => ({
+import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle } from "@chakra-ui/system";
+
+const MultiSelectItemsCountButton = defineStyleConfig({
+  baseStyle: defineStyle(({ isOpen = false }) => ({
     alignItems: "center",
     backgroundColor: "ui.gray.light-cool",
     border: "1px",
@@ -15,6 +18,12 @@ const MultiSelectItemsCountButton = {
     top: { base: "12px", md: "10px" },
     width: "46px",
     zIndex: 10000,
+    py: "xxxs",
+    _focus: {
+      // Give the count button a higher index so it can be
+      // activated when it is focused.
+      zIndex: "10001 !important",
+    },
     _hover: {
       borderColor: isOpen ? "ui.gray.xx-dark" : "ui.border.hover",
     },
@@ -33,7 +42,7 @@ const MultiSelectItemsCountButton = {
         borderColor: isOpen ? "ui.white" : "dark.ui.border.hover",
       },
     },
-  }),
-};
+  })),
+});
 
 export default MultiSelectItemsCountButton;

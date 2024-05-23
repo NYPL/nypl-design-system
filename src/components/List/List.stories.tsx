@@ -5,6 +5,7 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import List, { listTypesArray } from "./List";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
@@ -14,9 +15,11 @@ const meta: Meta<typeof List> = {
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
-    inline: { table: { defaultValue: { summary: false } } },
+    inline: argsBooleanType(),
     listItems: { control: false },
-    noStyling: { table: { defaultValue: { summary: false } } },
+    noStyling: argsBooleanType(),
+    showRowDividers: argsBooleanType(true),
+    title: { control: { type: "text" } },
     type: {
       control: { type: "radio" },
       options: listTypesArray,
@@ -123,6 +126,7 @@ export const WithControls: Story = {
     inline: false,
     listItems: undefined,
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
     type: "ul",
   },
@@ -150,10 +154,12 @@ export const DescriptionList: Story = {
   args: {
     id: "nypl-list2",
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
   },
   argTypes: {
     inline: { control: false },
+    showRowDividers: { control: { type: "boolean" } },
     noStyling: { control: false },
     type: { control: false },
   },

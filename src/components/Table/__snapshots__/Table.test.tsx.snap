@@ -4,14 +4,12 @@ exports[`Table renders the UI snapshot correctly 1`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="basic"
-  role="table"
 >
   <thead
     className="css-0"
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -62,13 +60,13 @@ exports[`Table renders the UI snapshot correctly 1`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -77,9 +75,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -88,9 +87,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -99,9 +99,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -110,9 +111,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -121,9 +123,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -132,9 +135,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -144,13 +148,13 @@ exports[`Table renders the UI snapshot correctly 1`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -159,9 +163,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -170,9 +175,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -181,9 +187,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -192,9 +199,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -203,9 +211,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -214,9 +223,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -226,13 +236,13 @@ exports[`Table renders the UI snapshot correctly 1`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -241,9 +251,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -252,9 +263,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -263,9 +275,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -274,9 +287,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -285,9 +299,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -296,9 +311,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -308,13 +324,13 @@ exports[`Table renders the UI snapshot correctly 1`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -323,9 +339,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -334,9 +351,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -345,9 +363,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -356,9 +375,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -367,9 +387,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -378,9 +399,10 @@ exports[`Table renders the UI snapshot correctly 1`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -396,7 +418,6 @@ exports[`Table renders the UI snapshot correctly 2`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="withCaption"
-  role="table"
 >
   <caption
     className="css-18i7bby"
@@ -408,7 +429,6 @@ exports[`Table renders the UI snapshot correctly 2`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -459,190 +479,354 @@ exports[`Table renders the UI snapshot correctly 2`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tom
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Nook
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tanukichi
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Main Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Isabelle
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        -
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Shizue
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Walnut Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        K.K.
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Slider
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Totakeke
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Niper Place
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        98765
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Sonny
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Resetti
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Risetto san
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Village Road
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        09873
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -653,7 +837,6 @@ exports[`Table renders the UI snapshot correctly 3`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="withHeaders"
-  role="table"
 >
   <caption
     className="css-18i7bby"
@@ -665,7 +848,6 @@ exports[`Table renders the UI snapshot correctly 3`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -716,13 +898,13 @@ exports[`Table renders the UI snapshot correctly 3`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -731,9 +913,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -742,9 +925,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -753,9 +937,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -764,9 +949,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -775,9 +961,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -786,9 +973,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -798,13 +986,13 @@ exports[`Table renders the UI snapshot correctly 3`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -813,9 +1001,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -824,9 +1013,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -835,9 +1025,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -846,9 +1037,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -857,9 +1049,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -868,9 +1061,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -880,13 +1074,13 @@ exports[`Table renders the UI snapshot correctly 3`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -895,9 +1089,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -906,9 +1101,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -917,9 +1113,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -928,9 +1125,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -939,9 +1137,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -950,9 +1149,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -962,13 +1162,13 @@ exports[`Table renders the UI snapshot correctly 3`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -977,9 +1177,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -988,9 +1189,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -999,9 +1201,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -1010,9 +1213,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -1021,9 +1225,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -1032,9 +1237,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -1050,7 +1256,6 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="withHeaders"
-  role="table"
 >
   <caption
     className="css-18i7bby"
@@ -1062,7 +1267,6 @@ exports[`Table renders the UI snapshot correctly 4`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -1113,190 +1317,358 @@ exports[`Table renders the UI snapshot correctly 4`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        Tom
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Nook
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tanukichi
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Main Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        Isabelle
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        -
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Shizue
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Walnut Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        K.K.
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Slider
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Totakeke
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Niper Place
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        98765
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        Sonny
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Resetti
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Risetto san
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Village Road
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        09873
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1307,7 +1679,6 @@ exports[`Table renders the UI snapshot correctly 5`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="withHeaders"
-  role="table"
 >
   <caption
     className="css-18i7bby"
@@ -1319,7 +1690,6 @@ exports[`Table renders the UI snapshot correctly 5`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-1adspbs"
@@ -1370,13 +1740,14 @@ exports[`Table renders the UI snapshot correctly 5`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -1385,9 +1756,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -1396,9 +1768,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -1407,9 +1780,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -1418,9 +1792,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -1429,9 +1804,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -1440,9 +1816,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -1452,13 +1829,14 @@ exports[`Table renders the UI snapshot correctly 5`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -1467,9 +1845,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -1478,9 +1857,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -1489,9 +1869,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -1500,9 +1881,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -1511,9 +1893,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -1522,9 +1905,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -1534,13 +1918,14 @@ exports[`Table renders the UI snapshot correctly 5`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -1549,9 +1934,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -1560,9 +1946,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -1571,9 +1958,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -1582,9 +1970,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -1593,9 +1982,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -1604,9 +1994,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -1616,13 +2007,14 @@ exports[`Table renders the UI snapshot correctly 5`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
         scope="row"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -1631,9 +2023,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </th>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -1642,9 +2035,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -1653,9 +2047,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -1664,9 +2059,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -1675,9 +2071,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -1686,9 +2083,10 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -1704,14 +2102,12 @@ exports[`Table renders the UI snapshot correctly 6`] = `
 <table
   className="chakra-table css-kle7zy"
   id="chakra"
-  role="table"
 >
   <thead
     className="css-0"
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -1762,190 +2158,354 @@ exports[`Table renders the UI snapshot correctly 6`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tom
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Nook
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tanukichi
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Tanukichi
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Main Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Main Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Isabelle
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        -
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Shizue
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Shizue
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Walnut Street
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Walnut Street
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        23458
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          23458
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        K.K.
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Slider
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Totakeke
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Totakeke
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Niper Place
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Niper Place
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        98765
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          98765
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Sonny
+        <span
+          className="css-dsyim5"
+        >
+          First Name
+        </span>
+        <span>
+          Sonny
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Resetti
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Resetti
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Risetto san
+        <span
+          className="css-dsyim5"
+        >
+          Nick Name
+        </span>
+        <span>
+          Risetto san
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        Village Road
+        <span
+          className="css-dsyim5"
+        >
+          Address1
+        </span>
+        <span>
+          Village Road
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        New York
+        <span
+          className="css-dsyim5"
+        >
+          City
+        </span>
+        <span>
+          New York
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        09873
+        <span
+          className="css-dsyim5"
+        >
+          Zipcode
+        </span>
+        <span>
+          09873
+        </span>
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        NY
+        <span
+          className="css-dsyim5"
+        >
+          State
+        </span>
+        <span>
+          NY
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1957,14 +2517,12 @@ exports[`Table renders the UI snapshot correctly 7`] = `
   className="chakra-table css-1xdhyk6"
   data-testid="props"
   id="props"
-  role="table"
 >
   <thead
     className="css-0"
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -2015,13 +2573,13 @@ exports[`Table renders the UI snapshot correctly 7`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -2030,9 +2588,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -2041,9 +2600,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -2052,9 +2612,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -2063,9 +2624,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -2074,9 +2636,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -2085,9 +2648,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -2097,13 +2661,13 @@ exports[`Table renders the UI snapshot correctly 7`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -2112,9 +2676,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -2123,9 +2688,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -2134,9 +2700,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -2145,9 +2712,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -2156,9 +2724,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -2167,9 +2736,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -2179,13 +2749,13 @@ exports[`Table renders the UI snapshot correctly 7`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -2194,9 +2764,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -2205,9 +2776,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -2216,9 +2788,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -2227,9 +2800,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -2238,9 +2812,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -2249,9 +2824,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -2261,13 +2837,13 @@ exports[`Table renders the UI snapshot correctly 7`] = `
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           First Name
         </span>
         <span>
@@ -2276,9 +2852,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Last Name
         </span>
         <span>
@@ -2287,9 +2864,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Nick Name
         </span>
         <span>
@@ -2298,9 +2876,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Address1
         </span>
         <span>
@@ -2309,9 +2888,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           City
         </span>
         <span>
@@ -2320,9 +2900,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           Zipcode
         </span>
         <span>
@@ -2331,9 +2912,10 @@ exports[`Table renders the UI snapshot correctly 7`] = `
       </td>
       <td
         className="css-0"
-        role="gridcell"
       >
-        <span>
+        <span
+          className="css-dsyim5"
+        >
           State
         </span>
         <span>
@@ -2349,14 +2931,12 @@ exports[`Table renders the UI snapshot correctly 8`] = `
 <table
   className="chakra-table css-1xdhyk6"
   id="jsx-example"
-  role="table"
 >
   <thead
     className="css-0"
   >
     <tr
       className="css-0"
-      role="row"
     >
       <th
         className="css-0"
@@ -2383,95 +2963,145 @@ exports[`Table renders the UI snapshot correctly 8`] = `
   >
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Tom
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Nook
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        <div
-          className="css-0"
+        <span
+          className="css-dsyim5"
         >
-          <img
-            alt="Tom Nook"
+          First Name
+        </span>
+        <span>
+          Tom
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Nook
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        >
+          Avatar
+        </span>
+        <span>
+          <div
             className="css-0"
-            src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-          />
-        </div>
+          >
+            <img
+              alt="Tom Nook"
+              className="css-0"
+              onError={[Function]}
+              src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+            />
+          </div>
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        Isabelle
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        -
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        <div
-          className="css-0"
+        <span
+          className="css-dsyim5"
         >
-          <img
-            alt="Isabelle"
+          First Name
+        </span>
+        <span>
+          Isabelle
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          -
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        />
+        <span>
+          <div
             className="css-0"
-            src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-          />
-        </div>
+          >
+            <img
+              alt="Isabelle"
+              className="css-0"
+              onError={[Function]}
+              src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+            />
+          </div>
+        </span>
       </td>
     </tr>
     <tr
       className="css-0"
-      role="row"
     >
       <td
         className="css-0"
-        role="gridcell"
       >
-        K.K.
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        Slider
-      </td>
-      <td
-        className="css-0"
-        role="gridcell"
-      >
-        <div
-          className="css-0"
+        <span
+          className="css-dsyim5"
         >
-          <img
-            alt="K.K Slider"
+          First Name
+        </span>
+        <span>
+          K.K.
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        >
+          Last Name
+        </span>
+        <span>
+          Slider
+        </span>
+      </td>
+      <td
+        className="css-0"
+      >
+        <span
+          className="css-dsyim5"
+        />
+        <span>
+          <div
             className="css-0"
-            src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-          />
-        </div>
+          >
+            <img
+              alt="K.K Slider"
+              className="css-0"
+              onError={[Function]}
+              src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+            />
+          </div>
+        </span>
       </td>
     </tr>
   </tbody>

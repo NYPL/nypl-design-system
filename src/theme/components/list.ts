@@ -1,34 +1,63 @@
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
+
 import { textMargin } from "./global";
 
-interface ListBaseStyle {
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["base", "heading"]);
+
+interface ListBaseStyle extends Partial<StyleFunctionProps> {
   inline?: boolean;
-  noStyling: boolean;
+  noStyling?: boolean;
 }
 
-export const baseListStyles = (inline = false, noStyling = false) => ({
+export const baseListStyles = (props: ListBaseStyle = {}) => ({
   // Browser automatically applies margin, so by default we unset it.
-  margin: noStyling ? "0" : "unset",
-  listStyle: noStyling ? "none" : null,
+  margin: props.noStyling ? "0" : "unset",
+  listStyle: props.noStyling ? "none" : null,
   marginInlineStart: "unset",
-  paddingStart: noStyling ? "0" : "l",
-  padding: noStyling ? "0" : null,
-  display: inline ? "flex" : null,
+  paddingStart: props.noStyling ? "0" : "l",
+  padding: props.noStyling ? "0" : null,
+  display: props.inline ? "flex" : null,
   li: {
-    marginEnd: inline ? "xs" : null,
-    listStyleType: inline ? "none" : null,
+    marginEnd: props.inline ? "xs" : null,
+    listStyleType: props.inline ? "none" : null,
     _notFirst: {
-      marginTop: inline ? null : "xxs",
+      marginTop: props.inline ? null : "xxs",
     },
   },
 });
-export const baseUnorderedStyles = (noStyling = false) => ({
+
+const baseHeadingStyles = (showRowDividers = true) => ({
+  borderTop: showRowDividers ? "3px solid" : "none",
+  borderColor: "ui.border.default",
+  margin: "0",
+  padding: "var(--nypl-space-xs) 0 0",
+  _dark: {
+    borderColor: "dark.ui.border.default",
+  },
+});
+
+export const baseSectionDescriptionStyles = (showRowDividers = true) => ({
+  borderBottom: showRowDividers ? "1px solid" : "none",
+  borderColor: "ui.border.default",
+  paddingStart: "0",
+  h2: baseHeadingStyles(showRowDividers),
+  _dark: {
+    borderColor: "dark.ui.border.default",
+  },
+});
+// For specific component variants
+export const unorderedStyles = (props: ListBaseStyle = {}) => ({
   ...textMargin,
   listStyle: "none",
   li: {
     _before: {
-      color: "ui.gray.medium",
+      color: "ui.border.hover",
       // \2022 is the CSS Code/unicode for a bullet.
-      content: noStyling ? "unset" : `"\\2022"`,
+      content: props.noStyling ? "unset" : `"\\2022"`,
       // Needed to add space between the bullet and the text.
       display: "inline-block",
       fontWeight: "bold",
@@ -45,27 +74,8 @@ export const baseUnorderedStyles = (noStyling = false) => ({
   },
 });
 
-const baseHeadingStyles = {
-  borderTop: "3px solid",
-  borderColor: "ui.border.default",
-  margin: "0",
-  padding: "var(--nypl-space-xs) 0 0",
-  _dark: {
-    borderColor: "dark.ui.border.default",
-  },
-};
-
-export const baseSectionDescriptionStyles = {
-  borderBottom: "1px solid",
-  borderColor: "ui.border.default",
-  paddingStart: "0",
-  h2: baseHeadingStyles,
-  _dark: {
-    borderColor: "dark.ui.border.default",
-  },
-};
-export const baseDescriptionStyles = {
-  ...baseSectionDescriptionStyles,
+export const descriptionStyles = (showRowDividers = true) => ({
+  ...baseSectionDescriptionStyles(showRowDividers),
   dl: {
     display: "grid",
     gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
@@ -73,7 +83,7 @@ export const baseDescriptionStyles = {
     margin: "var(--nypl-space-xs) 0 0",
   },
   dt: {
-    borderTop: "1px solid",
+    borderTop: showRowDividers ? "1px solid" : "none",
     borderColor: "ui.border.default",
     color: "ui.typography.heading",
     fontWeight: "label.default",
@@ -88,28 +98,32 @@ export const baseDescriptionStyles = {
   dd: {
     margin: "0",
     paddingBottom: "s",
-    borderTop: { base: "none", md: "1px solid" },
+    borderTop: { base: "none", md: showRowDividers ? "1px solid" : "none" },
     borderColor: { md: "ui.border.default" },
     paddingTop: { md: "s" },
     _dark: {
       borderColor: { md: "dark.ui.border.default" },
     },
   },
-};
+});
 
-const List = {
-  parts: ["heading"],
-  baseStyle: ({ inline, noStyling }: ListBaseStyle) => {
-    return {
-      ...baseListStyles(inline, noStyling),
-      heading: baseHeadingStyles,
-    };
-  },
+const List = defineMultiStyleConfig({
+  baseStyle: definePartsStyle(({ inline, noStyling }: ListBaseStyle) => ({
+    base: baseListStyles({ inline, noStyling }),
+    heading: baseHeadingStyles(),
+  })),
   variants: {
-    ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
-    ol: textMargin,
-    dl: baseDescriptionStyles,
+    ul: definePartsStyle((props) => ({
+      base: unorderedStyles(props),
+    })),
+    ol: definePartsStyle({
+      base: textMargin,
+    }),
+    dl: ({ showRowDividers }) =>
+      definePartsStyle({
+        base: descriptionStyles(showRowDividers),
+      }),
   },
-};
+});
 
 export default List;

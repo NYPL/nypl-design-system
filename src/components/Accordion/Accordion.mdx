@@ -1,8 +1,8 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as AccordionStories from "./Accordion.stories";
 import Link from "../Link/Link";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./accordionChangelogData";
 
 <Meta of={AccordionStories} />
@@ -116,7 +116,9 @@ const accordionData = [
   - The global `ariaLabel` prop can set a general value that will be applied to
     all accordions within an accordion group.
   - The `ariaLabel` key available within the `accordionData` array entries can set
-    a unnique value for each accordion within an accordion group.
+    a unique value for each accordion within an accordion group.
+- If the user presses the 'esc' key and focus is on an open accordion panel,
+  that panel will close.
 
 Resources:
 
