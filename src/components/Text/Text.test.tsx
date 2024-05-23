@@ -102,9 +102,18 @@ describe("Text", () => {
     );
   });
 
+  it("passes a ref to the div wrapper element", () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Text ref={ref}>Animal Crossing is all that!</Text>
+    );
+
+    expect(container.querySelectorAll("p")[0]).toBe(ref.current);
+  });
+
   it("renders the UI snapshot correctly", () => {
     const defaultText = renderer
-      .create(<Text>Animal Crossing is all that!</Text>)
+      .create(<Text id="default-text">Animal Crossing is all that!</Text>)
       .toJSON();
     const body1 = renderer
       .create(<Text size="body1">Animal Crossing is all that!</Text>)
@@ -135,7 +144,11 @@ describe("Text", () => {
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(<Text data-testid="props">Animal Crossing is all that!</Text>)
+      .create(
+        <Text data-testid="props" id="html-id">
+          Animal Crossing is all that!
+        </Text>
+      )
       .toJSON();
 
     expect(defaultText).toMatchSnapshot();
@@ -148,14 +161,5 @@ describe("Text", () => {
     expect(overline2).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
-  });
-
-  it("passes a ref to the div wrapper element", () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(
-      <Text ref={ref}>Animal Crossing is all that!</Text>
-    );
-
-    expect(container.querySelectorAll("p")[0]).toBe(ref.current);
   });
 });

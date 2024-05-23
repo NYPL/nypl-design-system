@@ -5,6 +5,7 @@ import "./styles.scss";
 export {
   Box,
   Center,
+  chakra,
   Circle,
   ColorModeScript,
   cookieStorageManager,
@@ -21,6 +22,7 @@ export {
   useColorMode,
   useColorModeValue,
   useStyleConfig,
+  useMediaQuery,
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
@@ -102,6 +104,11 @@ export type {
   DividerItem,
 } from "./components/Menu/Menu";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
+export type {
+  BaseModalProps,
+  ConfirmationModalProps,
+  DefaultModalProps,
+} from "./components/Modal/Modal";
 export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
 export type {
   MultiSelectItem,
