@@ -134,7 +134,11 @@ const baseStyle = definePartsStyle({
   // Style object for the Checkbox's helper text
   helperErrorText: checkboxRadioHelperErrorTextStyle,
   icon: baseStyleIcon,
-  base: checkboxRadioHoverStyles,
+  base: {
+    alignItems: "flex-start",
+    position: "relative",
+    ...checkboxRadioHoverStyles,
+  },
   control: baseStyleControl,
   label: baseStyleLabel,
 });

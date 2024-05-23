@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates the internal `TextInput` component's aria-describedby value to include the `SearchBar`'s helper text ID.",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",
