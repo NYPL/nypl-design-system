@@ -239,11 +239,11 @@ export const Accordion: ChakraComponent<
           focusedPanelIndex = Number(
             e.target.closest("[role='region']").id.split("-").pop()
           );
-
-          setExpandedPanels(
-            expandedPanels.filter((i) => i !== focusedPanelIndex)
-          );
         }
+
+        setExpandedPanels(
+          expandedPanels.filter((i) => i !== focusedPanelIndex)
+        );
       }
     };
 

@@ -160,19 +160,17 @@ describe("Accordion", () => {
   });
 
   it("closes the accordion when the 'esc' key is pressed", async () => {
-    render(<Accordion accordionData={[accordionData[0]]} isDefaultOpen />);
+    render(<Accordion accordionData={[accordionData[0]]} />);
 
-    const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
-    let accordionPanelContent = screen.queryByText(
-      /known in Japan as Tanukichi/i
-    );
-    expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
-    expect(accordionPanelContent).toBeInTheDocument();
+    const accordionButton = screen.getByRole("button");
 
-    await userEvent.type(accordionLabel, "[Escape]");
+    await userEvent.click(accordionButton);
 
-    expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
-    expect(accordionPanelContent).not.toBeInTheDocument();
+    expect(accordionButton.getAttribute("aria-expanded")).toEqual("true");
+
+    await userEvent.keyboard("[Escape]");
+
+    expect(accordionButton).toHaveAttribute("aria-expanded", "false");
   });
 
   it("always renders its content when isAlwaysRendered is true", () => {
