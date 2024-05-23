@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.1.4 (May 23, 2024)
+
 ### Adds
 
 - Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
