@@ -4,6 +4,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -65,6 +66,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -126,6 +128,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
 <div
   className="chakra-accordion css-1t0bvx9"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -188,6 +191,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
   className="chakra-accordion css-1xdhyk6"
   data-testid="testid"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -249,6 +253,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -310,6 +315,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
@@ -371,6 +377,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   id="accordian"
+  onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"

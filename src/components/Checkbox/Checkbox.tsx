@@ -144,7 +144,6 @@ export const Checkbox: ChakraComponent<
             : {
                 defaultChecked: false,
               })}
-          alignItems="flex-start"
           __css={styles.base}
           {...ariaAttributes}
         >

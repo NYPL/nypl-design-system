@@ -8,6 +8,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.1.4 (May 23, 2024)
+
+### Adds
+
+- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Updates
+
+- Exports `useMediaQuery` and `chakra` from Chakra UI.
+- Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+
+### Fixes
+
+- Fixes the z-index issue in the `MultiSelect` component's selected item button.
+- Fixes the `Checkbox` positioning so it is visible when it is focused in a scrollable container.
+- Fixes a `Breadcrumbs` snapshot test that was duplicated and now has the appropriate `"locations"` variant.
+
 ## 3.1.3 (May 15, 2024)
 
 ### Adds
