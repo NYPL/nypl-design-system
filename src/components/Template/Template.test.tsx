@@ -105,6 +105,7 @@ describe("TemplateAppContainer component", () => {
       <TemplateAppContainer
         aboveHeader={aboveHeader}
         header={header}
+        id="template-id"
         breakout={breakout}
         sidebar={sidebar}
         contentTop={contentTop}
@@ -114,6 +115,7 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(container.querySelector("#template-id")).toBeInTheDocument();
     expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
   });
 

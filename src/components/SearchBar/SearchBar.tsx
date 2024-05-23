@@ -166,6 +166,7 @@ export const SearchBar: React.FC<any> = chakra(
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
+        aria-describedby={footnote ? `${id}-helperText` : undefined}
         className="textInput"
         defaultValue={textInputProps?.defaultValue}
         id={textInputProps?.id || `searchbar-textinput-${id}`}

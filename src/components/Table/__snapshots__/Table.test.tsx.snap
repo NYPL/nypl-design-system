@@ -81,7 +81,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -91,7 +93,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -101,7 +105,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -111,7 +117,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -121,7 +129,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -131,7 +141,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -141,7 +153,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -155,7 +169,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -165,7 +181,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -175,7 +193,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -185,7 +205,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -195,7 +217,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -205,7 +229,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -215,7 +241,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -229,7 +257,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -239,7 +269,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -249,7 +281,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -259,7 +293,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -269,7 +305,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -279,7 +317,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -289,7 +329,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -303,7 +345,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -313,7 +357,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -323,7 +369,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -333,7 +381,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -343,7 +393,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -353,7 +405,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -363,7 +417,9 @@ exports[`Table renders the UI snapshot correctly 1`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -463,115 +519,86 @@ exports[`Table renders the UI snapshot correctly 2`] = `
         <td
           className="css-0"
         >
-          Tom
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Tom
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Nook
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Nook
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Tanukichi
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Tanukichi
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Main Street
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Main Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          23458
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
-        </td>
-      </tr>
-      <tr
-        className="css-0"
-      >
-        <td
-          className="css-0"
-        >
-          Isabelle
-        </td>
-        <td
-          className="css-0"
-        >
-          -
-        </td>
-        <td
-          className="css-0"
-        >
-          Shizue
-        </td>
-        <td
-          className="css-0"
-        >
-          Walnut Street
-        </td>
-        <td
-          className="css-0"
-        >
-          New York
-        </td>
-        <td
-          className="css-0"
-        >
-          23458
-        </td>
-        <td
-          className="css-0"
-        >
-          NY
-        </td>
-      </tr>
-      <tr
-        className="css-0"
-      >
-        <td
-          className="css-0"
-        >
-          K.K.
-        </td>
-        <td
-          className="css-0"
-        >
-          Slider
-        </td>
-        <td
-          className="css-0"
-        >
-          Totakeke
-        </td>
-        <td
-          className="css-0"
-        >
-          Niper Place
-        </td>
-        <td
-          className="css-0"
-        >
-          New York
-        </td>
-        <td
-          className="css-0"
-        >
-          98765
-        </td>
-        <td
-          className="css-0"
-        >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
       <tr
@@ -580,37 +607,262 @@ exports[`Table renders the UI snapshot correctly 2`] = `
         <td
           className="css-0"
         >
-          Sonny
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Isabelle
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Resetti
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            -
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Risetto san
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Shizue
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Village Road
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Walnut Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          09873
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            K.K.
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Slider
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Totakeke
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Niper Place
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            98765
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Sonny
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Resetti
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Risetto san
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Village Road
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            09873
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
     </tbody>
@@ -705,7 +957,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -715,7 +969,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -725,7 +981,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -735,7 +993,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -745,7 +1005,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -755,7 +1017,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -765,7 +1029,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -779,7 +1045,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -789,7 +1057,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -799,7 +1069,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -809,7 +1081,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -819,7 +1093,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -829,7 +1105,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -839,7 +1117,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -853,7 +1133,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -863,7 +1145,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -873,7 +1157,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -883,7 +1169,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -893,7 +1181,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -903,7 +1193,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -913,7 +1205,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -927,7 +1221,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -937,7 +1233,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -947,7 +1245,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -957,7 +1257,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -967,7 +1269,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -977,7 +1281,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -987,7 +1293,9 @@ exports[`Table renders the UI snapshot correctly 3`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -1088,37 +1396,86 @@ exports[`Table renders the UI snapshot correctly 4`] = `
           className="css-0"
           scope="row"
         >
-          Tom
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Tom
+          </span>
         </th>
         <td
           className="css-0"
         >
-          Nook
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Nook
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Tanukichi
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Tanukichi
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Main Street
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Main Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          23458
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
       <tr
@@ -1128,37 +1485,86 @@ exports[`Table renders the UI snapshot correctly 4`] = `
           className="css-0"
           scope="row"
         >
-          Isabelle
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Isabelle
+          </span>
         </th>
         <td
           className="css-0"
         >
-          -
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            -
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Shizue
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Shizue
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Walnut Street
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Walnut Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          23458
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
       <tr
@@ -1168,37 +1574,86 @@ exports[`Table renders the UI snapshot correctly 4`] = `
           className="css-0"
           scope="row"
         >
-          K.K.
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            K.K.
+          </span>
         </th>
         <td
           className="css-0"
         >
-          Slider
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Slider
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Totakeke
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Totakeke
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Niper Place
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Niper Place
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          98765
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            98765
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
       <tr
@@ -1208,37 +1663,86 @@ exports[`Table renders the UI snapshot correctly 4`] = `
           className="css-0"
           scope="row"
         >
-          Sonny
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Sonny
+          </span>
         </th>
         <td
           className="css-0"
         >
-          Resetti
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Resetti
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Risetto san
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Risetto san
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Village Road
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Village Road
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          09873
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            09873
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
     </tbody>
@@ -1334,7 +1838,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
           className="css-0"
           scope="row"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -1344,7 +1850,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -1354,7 +1862,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -1364,7 +1874,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -1374,7 +1886,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -1384,7 +1898,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -1394,7 +1910,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -1409,7 +1927,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
           className="css-0"
           scope="row"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -1419,7 +1939,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -1429,7 +1951,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -1439,7 +1963,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -1449,7 +1975,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -1459,7 +1987,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -1469,7 +1999,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -1484,7 +2016,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
           className="css-0"
           scope="row"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -1494,7 +2028,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -1504,7 +2040,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -1514,7 +2052,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -1524,7 +2064,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -1534,7 +2076,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -1544,7 +2088,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -1559,7 +2105,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
           className="css-0"
           scope="row"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -1569,7 +2117,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -1579,7 +2129,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -1589,7 +2141,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -1599,7 +2153,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -1609,7 +2165,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -1619,7 +2177,9 @@ exports[`Table renders the UI snapshot correctly 5`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -1713,115 +2273,86 @@ exports[`Table renders the UI snapshot correctly 6`] = `
         <td
           className="css-0"
         >
-          Tom
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Tom
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Nook
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Nook
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Tanukichi
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Tanukichi
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Main Street
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Main Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          23458
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
-        </td>
-      </tr>
-      <tr
-        className="css-0"
-      >
-        <td
-          className="css-0"
-        >
-          Isabelle
-        </td>
-        <td
-          className="css-0"
-        >
-          -
-        </td>
-        <td
-          className="css-0"
-        >
-          Shizue
-        </td>
-        <td
-          className="css-0"
-        >
-          Walnut Street
-        </td>
-        <td
-          className="css-0"
-        >
-          New York
-        </td>
-        <td
-          className="css-0"
-        >
-          23458
-        </td>
-        <td
-          className="css-0"
-        >
-          NY
-        </td>
-      </tr>
-      <tr
-        className="css-0"
-      >
-        <td
-          className="css-0"
-        >
-          K.K.
-        </td>
-        <td
-          className="css-0"
-        >
-          Slider
-        </td>
-        <td
-          className="css-0"
-        >
-          Totakeke
-        </td>
-        <td
-          className="css-0"
-        >
-          Niper Place
-        </td>
-        <td
-          className="css-0"
-        >
-          New York
-        </td>
-        <td
-          className="css-0"
-        >
-          98765
-        </td>
-        <td
-          className="css-0"
-        >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
       <tr
@@ -1830,37 +2361,262 @@ exports[`Table renders the UI snapshot correctly 6`] = `
         <td
           className="css-0"
         >
-          Sonny
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Isabelle
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Resetti
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            -
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Risetto san
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Shizue
+          </span>
         </td>
         <td
           className="css-0"
         >
-          Village Road
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Walnut Street
+          </span>
         </td>
         <td
           className="css-0"
         >
-          New York
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
         </td>
         <td
           className="css-0"
         >
-          09873
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
         </td>
         <td
           className="css-0"
         >
-          NY
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            K.K.
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Slider
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Totakeke
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Niper Place
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            98765
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Sonny
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Resetti
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Risetto san
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Village Road
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            09873
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
         </td>
       </tr>
     </tbody>
@@ -1950,7 +2706,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -1960,7 +2718,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -1970,7 +2730,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -1980,7 +2742,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -1990,7 +2754,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -2000,7 +2766,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -2010,7 +2778,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -2024,7 +2794,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -2034,7 +2806,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -2044,7 +2818,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -2054,7 +2830,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -2064,7 +2842,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -2074,7 +2854,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -2084,7 +2866,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -2098,7 +2882,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -2108,7 +2894,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -2118,7 +2906,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -2128,7 +2918,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -2138,7 +2930,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -2148,7 +2942,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -2158,7 +2954,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -2172,7 +2970,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             First Name
           </span>
           <span>
@@ -2182,7 +2982,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Last Name
           </span>
           <span>
@@ -2192,7 +2994,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Nick Name
           </span>
           <span>
@@ -2202,7 +3006,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Address1
           </span>
           <span>
@@ -2212,7 +3018,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             City
           </span>
           <span>
@@ -2222,7 +3030,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             Zipcode
           </span>
           <span>
@@ -2232,7 +3042,9 @@ exports[`Table renders the UI snapshot correctly 7`] = `
         <td
           className="css-0"
         >
-          <span>
+          <span
+            className="css-dsyim5"
+          >
             State
           </span>
           <span>
@@ -2302,25 +3114,47 @@ exports[`Table renders the UI snapshot correctly 8`] = `
         <td
           className="css-0"
         >
-          Tom
-        </td>
-        <td
-          className="css-0"
-        >
-          Nook
-        </td>
-        <td
-          className="css-0"
-        >
-          <div
-            className="css-0"
+          <span
+            className="css-dsyim5"
           >
-            <img
-              alt="Tom Nook"
+            First Name
+          </span>
+          <span>
+            Tom
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Nook
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Avatar
+          </span>
+          <span>
+            <div
               className="css-0"
-              src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-            />
-          </div>
+            >
+              <img
+                alt="Tom Nook"
+                className="css-0"
+                onError={[Function]}
+                src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+              />
+            </div>
+          </span>
         </td>
       </tr>
       <tr
@@ -2329,25 +3163,45 @@ exports[`Table renders the UI snapshot correctly 8`] = `
         <td
           className="css-0"
         >
-          Isabelle
-        </td>
-        <td
-          className="css-0"
-        >
-          -
-        </td>
-        <td
-          className="css-0"
-        >
-          <div
-            className="css-0"
+          <span
+            className="css-dsyim5"
           >
-            <img
-              alt="Isabelle"
+            First Name
+          </span>
+          <span>
+            Isabelle
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            -
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          />
+          <span>
+            <div
               className="css-0"
-              src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-            />
-          </div>
+            >
+              <img
+                alt="Isabelle"
+                className="css-0"
+                onError={[Function]}
+                src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+              />
+            </div>
+          </span>
         </td>
       </tr>
       <tr
@@ -2356,25 +3210,45 @@ exports[`Table renders the UI snapshot correctly 8`] = `
         <td
           className="css-0"
         >
-          K.K.
-        </td>
-        <td
-          className="css-0"
-        >
-          Slider
-        </td>
-        <td
-          className="css-0"
-        >
-          <div
-            className="css-0"
+          <span
+            className="css-dsyim5"
           >
-            <img
-              alt="K.K Slider"
+            First Name
+          </span>
+          <span>
+            K.K.
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Slider
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          />
+          <span>
+            <div
               className="css-0"
-              src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-            />
-          </div>
+            >
+              <img
+                alt="K.K Slider"
+                className="css-0"
+                onError={[Function]}
+                src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+              />
+            </div>
+          </span>
         </td>
       </tr>
     </tbody>
