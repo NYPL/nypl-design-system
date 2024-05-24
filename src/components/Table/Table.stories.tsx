@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Table from "./Table";
+import { Stack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Table> = {
   title: "Components/Page Layout/Table",
@@ -199,15 +201,64 @@ export const CustomColumnStyles: Story = {
 export const CustomColumnStylesWithRowHeaders: Story = {
   name: "Custom Column Widths with Row Headers",
   render: () => (
-    <Table
-      columnHeaders={columnHeadersAlt}
-      columnStyles={columnStyles}
-      id="columnWidth-table-without-row-headers"
-      showTitleText={false}
-      tableData={tableDataAlt}
-      titleText="Table with custom column styles and row headers"
-      useRowHeaders
-    />
+    <Stack spacing="xl">
+      <div>
+        <Heading level="h4">Row Headers</Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnStyles={columnStyles}
+          id="columnWidth-table-without-row-headers"
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with custom column styles and row headers"
+          useRowHeaders
+        />
+      </div>
+      <div>
+        <Heading level="h4">Row Headers and Row Dividers</Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnStyles={columnStyles}
+          id="columnWidth-table-without-row-headers"
+          showRowDividers
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with custom column styles and row headers"
+          useRowHeaders
+        />
+      </div>
+      <div>
+        <Heading level="h4">Row Headers and Custom Header BG Color</Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnHeadersBackgroundColor="ui.error.secondary"
+          columnHeadersTextColor="ui.white"
+          columnStyles={columnStyles}
+          id="columnWidth-table-without-row-headers"
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with custom column styles and row headers"
+          useRowHeaders
+        />
+      </div>
+      <div>
+        <Heading level="h4">
+          Row Headers, Custom Header BG Color, and Row Dividers
+        </Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnHeadersBackgroundColor="ui.success.secondary"
+          columnHeadersTextColor="ui.white"
+          columnStyles={columnStyles}
+          id="columnWidth-table-without-row-headers"
+          showRowDividers
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with custom column styles and row headers"
+          useRowHeaders
+        />
+      </div>
+    </Stack>
   ),
 };
 

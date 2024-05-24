@@ -192,6 +192,7 @@ export const Table: ChakraComponent<
       const wapperStyles = {
         overflow: "auto",
         maxWidth: "100%",
+        /** Show shadow to scroll */
         background:
           "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
         backgroundRepeat: "no-repeat",

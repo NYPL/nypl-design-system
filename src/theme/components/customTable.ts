@@ -9,22 +9,27 @@ interface BaseStyleProps {
 
 const CellBorderColorStyles = () => {
   const colorValues = useColorModeValue(
-    { base: "ui.gray.light-cool", md: "ui.border.default" },
+    // { base: "ui.gray.light-cool", md: "ui.border.default" },
+    "ui.gray.semi-medium",
     { base: "ui.gray.xx-dark", md: "dark.ui.border.default" }
   );
   return colorValues;
 };
 export const fixedColumnStyles = (
-  columnHeadersBackgroundColor,
+  // columnHeadersBackgroundColor,
   useRowHeaders = false
 ) => ({
-  backgroundColor: useRowHeaders
-    ? columnHeadersBackgroundColor
-      ? columnHeadersBackgroundColor
-      : "ui.bg.default"
-    : undefined,
+  // backgroundColor: useRowHeaders ? "ui.gray.x-light-cool" : "null",
+  // backgroundColor: useRowHeaders
+  //   ? columnHeadersBackgroundColor
+  //     ? columnHeadersBackgroundColor
+  //     : "ui.gray.x-light-cool"
+  //   : "null",
   borderRight: useRowHeaders
-    ? { base: undefined, md: "1px solid var(--nypl-colors-ui-border-default)" }
+    ? {
+        base: undefined,
+        md: "1px solid var(--nypl-colors-ui-gray-semi-medium)",
+      }
     : undefined,
   left: useRowHeaders ? "0" : undefined,
   paddingLeft: useRowHeaders ? { base: "0", md: "s" } : undefined,
@@ -90,14 +95,17 @@ export const baseCellStyles = (
       : "none",
   },
   _last: {
-    paddingEnd: showRowDividers ? { base: "0", md: "s" } : "0",
+    paddingEnd:
+      showRowDividers || columnHeadersBackgroundColor
+        ? { base: "0", md: "s" }
+        : "0",
     borderBottom: showRowDividers ? "1px solid" : "none",
     borderColor: CellBorderColorStyles(),
   },
   "> span": {
     flexBasis: "50%",
     paddingBottom: { base: "s", md: "0" },
-    paddingEnd: showRowDividers ? "s" : "0",
+    // paddingEnd: showRowDividers ? "s" : "0",
     paddingTop: { base: "s", md: "0" },
     _first: {
       bg: columnHeadersBackgroundColor
@@ -134,14 +142,20 @@ export const baseTHStyles = (
   color: columnHeadersTextColor
     ? columnHeadersTextColor
     : "ui.typography.heading",
-  fontWeight: "medium",
-  textTransform: "capitalize",
+  fontWeight: "bold",
+  fontSize: "desktop.caption.caption1",
+  textTransform: "uppercase",
   _first: {
     paddingStart:
       showRowDividers || columnHeadersBackgroundColor
         ? { base: "0", md: "s" }
         : { base: "0", md: undefined },
-    ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
+    ...fixedColumnStyles(useRowHeaders),
+    // ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
+    /** Shadow for fixed first column */
+    // boxShadow: useRowHeaders
+    //   ? ".25rem 1rem  1rem  rgba( 0, 0, 0, 0.25 )"
+    //   : undefined,
   },
   _dark: {
     color: columnHeadersTextColor
@@ -163,9 +177,7 @@ export const baseTDStyles = (
   ),
   _first: {
     paddingStart:
-      showRowDividers && !useRowHeaders
-        ? { base: "0", md: "s" }
-        : columnHeadersBackgroundColor && !useRowHeaders
+      showRowDividers || columnHeadersBackgroundColor
         ? { base: "0", md: "s" }
         : { base: "0", md: useRowHeaders ? "s" : undefined },
   },
@@ -173,12 +185,11 @@ export const baseTDStyles = (
     borderBottom: showRowDividers
       ? { base: 0, md: "1px solid" }
       : { base: 0, md: undefined },
-    borderColor: CellBorderColorStyles(),
-    paddingEnd: showRowDividers
-      ? { base: "0", md: "s" }
-      : columnHeadersBackgroundColor && !useRowHeaders
-      ? { base: "0", md: "s" }
-      : 0,
+    borderColor: `${CellBorderColorStyles()} !important`,
+    paddingEnd:
+      showRowDividers || columnHeadersBackgroundColor
+        ? { base: "0", md: "s" }
+        : 0,
   },
 });
 export const baseStyle = ({
@@ -197,10 +208,23 @@ export const baseStyle = ({
   tbody: {
     th: {
       backgroundColor: useRowHeaders
-        ? { base: "ui.gray.x-light-cool", md: "unset" }
-        : undefined,
+        ? {
+            base: "ui.gray.x-light-cool",
+            md: columnHeadersBackgroundColor
+              ? "ui.gray.xx-light-cool"
+              : "ui.white",
+          }
+        : // {
+          //   base: "ui.gray.x-light-cool",
+          //   md: hexToRGB("var(--nypl-colors-ui-gray-semi-medium)", 0.05),
+          // }
+          undefined,
       color: "ui.typography.heading",
+      fontWeight: "medium",
+      fontSize: "desktop.body.body1",
+      textTransform: "capitalize",
       verticalAlign: "top",
+      // ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
       _dark: {
         backgroundColor: useRowHeaders
           ? { base: "dark.ui.bg.default", md: "unset" }
@@ -214,6 +238,13 @@ export const baseStyle = ({
   },
   thead: {
     display: { base: "none", md: "table-header-group" },
+    th: {
+      _first: {
+        backgroundColor: columnHeadersBackgroundColor
+          ? columnHeadersBackgroundColor
+          : "ui.white",
+      },
+    },
   },
   tr: baseTRStyles(
     columnHeadersBackgroundColor,
