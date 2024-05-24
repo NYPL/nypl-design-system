@@ -244,6 +244,10 @@ export const Accordion: ChakraComponent<
         setExpandedPanels(
           expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
+
+        if (accordionData[0].buttonInteractionRef) {
+          accordionData[0].buttonInteractionRef.current.focus();
+        }
       }
     };
 

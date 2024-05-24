@@ -151,7 +151,7 @@ describe("Accordion", () => {
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
     let accordionPanelContent = screen.queryByText(
-      /known in Japan as Tanukichi/i
+      /operates the village store/i
     );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
     // The panel's content should not be in the DOM unless the Accordion is open.
@@ -159,7 +159,7 @@ describe("Accordion", () => {
 
     userEvent.click(accordionLabel);
 
-    accordionPanelContent = screen.queryByText(/known in Japan as Tanukichi/i);
+    accordionPanelContent = screen.queryByText(/operates the village store/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
     expect(accordionPanelContent).toBeInTheDocument();
   });
@@ -199,7 +199,7 @@ describe("Accordion", () => {
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
     let accordionPanelContent = screen.queryByText(
-      /known in Japan as Tanukichi/i
+      /operates the village store/i
     );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
     expect(accordionPanelContent).toBeInTheDocument();
