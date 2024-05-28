@@ -73,11 +73,10 @@ export const FilterBarInline: ChakraComponent<
       } = props;
 
       const { isLargerThanMobile } = useNYPLBreapoints();
-      const finalLayout = isLargerThanMobile ? layout : "column";
       const finalWidth = isLargerThanMobile
-        ? layout === "column"
-          ? "full"
-          : "fitContent"
+        ? layout === "row"
+          ? "fitContent"
+          : "full"
         : "full";
 
       return (
@@ -89,22 +88,27 @@ export const FilterBarInline: ChakraComponent<
           {...rest}
         >
           <Stack
-            alignItems={finalLayout === "row" ? "flex-end" : null}
+            alignItems={{
+              base: null,
+              md: layout === "row" ? "flex-end" : null,
+            }}
             columnGap="l"
-            direction={finalLayout}
-            rowGap="s"
+            direction={{ base: "column", md: layout }}
             spacing="0"
-            wrap={finalLayout === "row" ? "wrap" : null}
+            wrap={{
+              base: null,
+              md: layout === "row" ? "wrap" : null,
+            }}
           >
             {renderChildren({
-              layout: finalLayout,
+              layout: layout,
               width: finalWidth,
               isBlockElement: layout === "column",
             })}
             {(onSubmit || onClear) && (
               <ButtonGroup
                 layout={layout}
-                buttonWidth={layout === "column" ? "full" : "default"}
+                buttonWidth={layout === "row" ? "default" : "full"}
               >
                 {onSubmit && (
                   <Button
