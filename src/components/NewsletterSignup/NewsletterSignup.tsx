@@ -18,7 +18,6 @@ import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
 import useDSHeading from "../../hooks/useDSHeading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
-import { SectionTypes } from "../../helpers/types";
 
 interface NewsletterSignupProps {
   /** Additional class name to add. */
@@ -40,10 +39,9 @@ interface NewsletterSignupProps {
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight. The default is set to "blogs" as it uses the
-   * "ui.border.deafult" color.
+  /** Value to determine the section color highlight.
    */
-  newsletterSignupType?: SectionTypes;
+  highlightColor?: HighlightColorTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
   /** A handler function that will be called when the text input changes. */
@@ -59,6 +57,19 @@ interface NewsletterSignupProps {
   /** Used to specify what is displayed in the component form/feedback area. */
   view?: NewsletterSignupViewType;
 }
+
+export type HighlightColorTypes =
+  | "section.blogs.secondary"
+  | "section.books-and-more.primary"
+  | "brand.primary"
+  | "section.connect.primary"
+  | "section.education.primary"
+  | "section.locations.primary"
+  | "section.research.primary"
+  | "section.research-library.lpa"
+  | "section.research-library.schomburg"
+  | "section.research-library.schwartzman"
+  | "section.whats-on.primary";
 
 export type NewsletterSignupViewType =
   | "form"
@@ -96,7 +107,7 @@ export const NewsletterSignup: ChakraComponent<
         formHelperText,
         id,
         isInvalidEmail = false,
-        newsletterSignupType = "blogs",
+        highlightColor = "section.blogs.secondary",
         onChange,
         onSubmit,
         privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
@@ -109,7 +120,7 @@ export const NewsletterSignup: ChakraComponent<
     ) => {
       const { isLargerThanMobile } = useNYPLBreakpoints();
       const styles = useMultiStyleConfig("NewsletterSignup", {
-        newsletterSignupType,
+        highlightColor,
       });
       const iconColor = useColorModeValue(null, "dark.ui.typography.body");
       const errorColor = useColorModeValue(

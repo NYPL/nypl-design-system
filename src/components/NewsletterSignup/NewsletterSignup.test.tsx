@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import NewsletterSignup from "./NewsletterSignup";
-import { sectionColorsDataMap } from "../../helpers/types";
 
 // If you want to see what's happening, insert below render()
 // screen.debug();
@@ -431,32 +430,4 @@ describe.skip("NewsletterSignup Snapshots", () => {
       .toJSON();
     expect(view).toMatchSnapshot();
   });
-
-  describe("Renders each color for each newsletterSignupType correctly", () => {
-    // The newsletterSignupType values are determined by the types contained in
-    // the sectionColorsDataMap. So it is safe to use the map directly.
-    Object.keys(sectionColorsDataMap).map((section) => {
-      it(
-        "Renders " +
-          section +
-          " color band with " +
-          sectionColorsDataMap[section].primary,
-        () => {
-          const view = renderer
-            .create(
-              <NewsletterSignup
-                onSubmit={onSubmit}
-                onChange={onChange}
-                valueEmail={valueEmail}
-                newsletterSignupType={section}
-                confirmationHeading="Thank you for signing up!"
-                confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
-              />
-            )
-            .toJSON();
-          expect(view).toMatchSnapshot();
-        }
-      );
-    });
-  }); // Close colors snapshots
 }); // Close snapshots

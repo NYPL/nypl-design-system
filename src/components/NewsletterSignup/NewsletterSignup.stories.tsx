@@ -4,7 +4,6 @@ import { Box, VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
-import { sectionTypeArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
@@ -49,12 +48,24 @@ const meta: Meta<typeof NewsletterSignup> = {
       control: "text",
     },
     id: { control: false },
-    newsletterSignupType: {
+    highlightColor: {
       control: "select",
-      options: sectionTypeArray,
+      options: [
+        "section.blogs.secondary",
+        "section.books-and-more.primary",
+        "brand.primary",
+        "section.connect.primary",
+        "section.education.primary",
+        "section.locations.primary",
+        "section.research.primary",
+        "section.research-library.lpa",
+        "section.research-library.schomburg",
+        "section.research-library.schwartzman",
+        "section.whats-on.primary",
+      ],
       table: {
         defaultValue: {
-          summary: "whatsOn",
+          summary: "section.blogs.secondary",
         },
       },
     },
@@ -119,7 +130,7 @@ export const WithControls: Story = {
     formHelperText: undefined,
     id: undefined,
     isInvalidEmail: false,
-    newsletterSignupType: undefined,
+    highlightColor: undefined,
     onChange: (event) => {
       action("onChange")(event.target.value);
     },

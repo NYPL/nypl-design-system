@@ -1,9 +1,9 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
-import { HighlightColorType } from "../../components/NewsletterSignup/NewsletterSignup";
+import { HighlightColorTypes } from "../../components/NewsletterSignup/NewsletterSignup";
 
 interface NewsLetterStyleProps extends StyleFunctionProps {
-  highlightColor?: HighlightColorType;
+  highlightColor: HighlightColorTypes;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
