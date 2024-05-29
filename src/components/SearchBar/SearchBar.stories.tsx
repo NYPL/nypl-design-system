@@ -86,6 +86,7 @@ export const WithControls: Story = {
         {...rest}
         onSubmit={(e) => {
           e.preventDefault();
+          console.log("Submitted!");
         }}
         selectProps={
           showSelect && {
@@ -110,7 +111,6 @@ export const WithControls: Story = {
     },
     jest: ["SearchBar.test.tsx"],
   },
-  // TODO: Add better tests and expectations for this Story.
   play: async ({ canvasElement }) => {
     const textInput = within(canvasElement).getByRole("textbox");
     await userEvent.type(textInput, "Hello World");
@@ -118,6 +118,12 @@ export const WithControls: Story = {
 
     const select = within(canvasElement).getByLabelText("Select a category");
     await userEvent.selectOptions(select, "tools");
+
+    await userEvent.type(textInput, "Hello World");
+    await userEvent.keyboard("{Enter}");
+
+    const searchButton = within(canvasElement).getByRole("button");
+    await userEvent.click(searchButton);
   },
 };
 
