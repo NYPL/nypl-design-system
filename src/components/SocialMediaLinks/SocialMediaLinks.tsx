@@ -3,7 +3,6 @@ import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
-import { socialMediaDataMap } from "./SocialMediaLinksUtils";
 import React, { forwardRef } from "react";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
@@ -15,19 +14,27 @@ export type ColorType = typeof colorTypeArray[number];
 export const sizeTypeArray = ["small", "medium", "large"] as const;
 export type SizeType = typeof sizeTypeArray[number];
 
-// This list of allowed types is defined in the SocialMediaDataMap found in SocialMediaLinksUtils.ts and extracted here.
-export const socialMediaLinkTypeArray = socialMediaDataMap.map(
-  ({ type }) => type
-);
-export type SocialMediaLinkType = typeof socialMediaLinkTypeArray[number];
+const socialMediaIconMap = {
+  blog: "fileTypeGenericDoc",
+  facebook: "socialFacebook",
+  instagram: "socialInstagram",
+  pinterest: "socialPinterest",
+  soundcloud: "socialSoundCloud",
+  tiktok: "socialTikTok",
+  tumblr: "socialTumblr",
+  twitter: "socialTwitter",
+  youtube: "socialYoutube",
+};
+export const socialMediaTypeArray = Object.keys(socialMediaIconMap);
+type SocialMediaLinkType = typeof socialMediaTypeArray[number];
 
 export interface SocialMediaLinkDataProps {
   /** Optional override for default platform name */
-  labelText?: string;
+  labelText: string;
   /** Required. Must be one of socialMediaLinkTypeArray */
   type: SocialMediaLinkType;
   /** Optional override for default social media url */
-  url?: string;
+  url: string;
 }
 
 export interface SocialMediaLinksProps {
@@ -43,47 +50,12 @@ export interface SocialMediaLinksProps {
    * in a row if there are no labels. */
   layout?: LayoutTypes;
   /** Optional array of social media platform types, urls, and label texts. */
-  linksData?: SocialMediaLinkDataProps[];
+  linksData: SocialMediaLinkDataProps[];
   /** Optional true/false to display names of platforms along with icons.
    *  NOTE: Labels will NOT be shown with a circular border */
   showLabels?: boolean;
   /** Optional size: small, medium, or large. */
   size?: SizeType;
-}
-
-/* Accepts an array containing one or more data objects, each representing a social media platform and optional
- * overrides for the label and/or URL.
- *
- * @returns an array of data objects for each requested platform type that includes type, iconName, labelText and
- * url. The labelText and url props will include any values supplied to override the defaults.
- */
-function getLinksData(platforms: SocialMediaLinkDataProps[]) {
-  let allData = [];
-  platforms.forEach((myPlatform) => {
-    // Get the dataset for this platform.
-    let thisPlatformArray = socialMediaDataMap.filter(
-      (socialMediaSlice) => socialMediaSlice.type === myPlatform.type
-    );
-
-    // The filter function returns an array of objects, so let's just get the objects out of the array.
-    let thisPlatformData = thisPlatformArray[0];
-
-    // If a url value exists in myPlatform use it, else use the default.
-    let newUrl = myPlatform.url ?? thisPlatformData.url;
-
-    // If a labelText value exists in myPlatform use it, else use the default.
-    let newLabelText = myPlatform.labelText ?? thisPlatformData.labelText;
-
-    let thisObj = {
-      type: thisPlatformData.type,
-      iconName: thisPlatformData.iconName,
-      labelText: newLabelText,
-      url: newUrl,
-    };
-    allData.push(thisObj);
-  }); // end forEach
-
-  return allData;
 }
 
 /**
@@ -121,25 +93,17 @@ export const SocialMediaLinks: ChakraComponent<
       );
     }
 
-    // Turns out you can pass whatever props you want to this thing in order to do logic in the theme.
     const styles = useStyleConfig("SocialMediaLinks", {
       variant: borders,
       color,
       labelsOn,
       layout,
-      size, // Shortcut: if the key and variable names are the same, you can just pass the variable.
+      size,
     });
 
-    // If linksData has values, use them, else use the entire list of platforms.
-    const socialMediaDataArray = linksData
-      ? getLinksData(linksData)
-      : socialMediaDataMap;
-
     // Loop through the platform data array and build an array of links.
-    const thisLinksData = [];
-    socialMediaDataArray.forEach((modifiedPlatform) => {
-      // The size prop for the Icon component does not exactly match the convention for SocialMediaLinks size prop.
-      // So let's set the correct Icon size.
+    const LinksDataComponents = linksData.map((modifiedPlatform) => {
+      // Adjust Icon size to match the convention for SocialMediaLinks size prop.
       let iconSize: IconSizes = "medium";
       switch (size) {
         case "medium":
@@ -149,18 +113,19 @@ export const SocialMediaLinks: ChakraComponent<
           iconSize = "xlarge";
           break;
       }
+      const iconName = socialMediaIconMap[modifiedPlatform.type];
 
-      const linkData = (
+      return (
         <Link
           href={modifiedPlatform.url}
           key={modifiedPlatform.type}
-          screenreaderOnlyText={!labelsOn ? modifiedPlatform.labelText : null} // If labels are on, this is redundant, so turn it off
+          screenreaderOnlyText={!labelsOn ? modifiedPlatform.labelText : null}
           rel="nofollow noopener noreferrer"
           target="_blank"
         >
           <div className={"platLink"}>
             <Icon
-              name={modifiedPlatform.iconName}
+              name={iconName}
               size={iconSize}
               title={modifiedPlatform.labelText}
             />
@@ -168,14 +133,12 @@ export const SocialMediaLinks: ChakraComponent<
           </div>
         </Link>
       );
-
-      thisLinksData.push(linkData);
-    }); // end socialMediaDataArray foreach
+    });
 
     return (
       <List
         type="ul"
-        listItems={thisLinksData}
+        listItems={LinksDataComponents}
         inline={layout === "row"}
         noStyling={true}
         className={className}

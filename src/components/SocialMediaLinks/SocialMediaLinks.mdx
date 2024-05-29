@@ -1,5 +1,4 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { GetTableData } from "./SocialMediaLinksUtils";
 import Table from "../Table/Table";
 import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
 import Link from "../Link/Link";
@@ -46,11 +45,8 @@ to view the sample `linksData` code.
 
 ### Available Social Media Types & Their Default Values
 
-The `linksData` prop accepts an array of objects. Each object may be composed of three values: `type`, `labelText`,
-and `url`. Of these, only `type` is required, determining which of the allowed social media icons will be displayed.
-Each type has a default value for its label text and url. See table below for allowed types and default values.
-If values are set for `labelText` and/or `url` in the `linksData` array, those values will override the defaults.
-For example:
+The `linksData` prop accepts an array of objects. Each item ahs the properties: `type`, `labelText`,
+and `url`. For example:
 
 <Source
   code={`
@@ -64,16 +60,6 @@ const myLinksData = [
 `}
   language="tsx"
 />
-
-<Canvas withSource="none">
-  <Table
-    columnHeaders={["Type", "Label Text", "URL", "Icon Name*"]}
-    tableData={GetTableData()}
-    showRowDividers={true}
-  />
-</Canvas>
-
-\* `Icon Name` is not a prop. It is returned automatically by the component. Its value is shown here for transparency.
 
 ## Accessibility
 
@@ -119,10 +105,6 @@ Also, for any viewport less than or equal to the "md" breakpoint, links will be 
 ### Label Variations
 
 <Canvas of={SocialMediaLinksStories.LabelVariations} sourceState={"none"} />
-
-### Without linksData Prop (Default)
-
-<Canvas of={SocialMediaLinksStories.noLinksData} sourceState={"none"} />
 
 ## Responsive Design
 
