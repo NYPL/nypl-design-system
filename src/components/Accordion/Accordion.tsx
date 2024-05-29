@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -224,6 +224,14 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
+    const buttonRefs = useRef(accordionData.map(() => React.createRef()));
+
+    const updatedAccordionData = accordionData.map((content, i) => {
+      if (content.buttonInteractionRef) return content;
+
+      return { ...content, buttonInteractionRef: buttonRefs[i] };
+    });
+
     const handleKeyDown = (e) => {
       // If the 'esc' key is pressed, find the panel the
       // user is focused on or within, and remove it as
@@ -245,6 +253,8 @@ export const Accordion: ChakraComponent<
           expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
 
+        // Bring focus back to the button if something inside was
+        // focused on and the 'esc' was clicked
         if (accordionData[0].buttonInteractionRef) {
           accordionData[0].buttonInteractionRef.current.focus();
         }
@@ -262,7 +272,7 @@ export const Accordion: ChakraComponent<
         {...rest}
       >
         {getElementsFromData(
-          accordionData,
+          updatedAccordionData,
           ariaLabel,
           id,
           isAlwaysRendered,
