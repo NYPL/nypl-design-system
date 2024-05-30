@@ -96,6 +96,7 @@ export const WithControls: Story = {
           }
         }
         textInputProps={{
+          isClearable: true,
           labelText: "Item Search",
           name: "textInputName",
           placeholder: "Item Search",
@@ -116,13 +117,17 @@ export const WithControls: Story = {
     await userEvent.type(textInput, "Hello World");
     await userEvent.clear(textInput);
 
+    await userEvent.type(textInput, "Clearing this text");
+    const clearButton = within(canvasElement).getAllByRole("button")[0];
+    await userEvent.click(clearButton);
+
     const select = within(canvasElement).getByLabelText("Select a category");
     await userEvent.selectOptions(select, "tools");
 
     await userEvent.type(textInput, "Hello World");
     await userEvent.keyboard("{Enter}");
 
-    const searchButton = within(canvasElement).getByRole("button");
+    const searchButton = within(canvasElement).getAllByRole("button")[1];
     await userEvent.click(searchButton);
   },
 };
