@@ -230,6 +230,17 @@ describe("List", () => {
         />
       )
       .toJSON();
+    const descriptionWithoutDividers = renderer
+      .create(
+        <List
+          id="description"
+          type="dl"
+          title="Animal Crossing Fish"
+          showRowDividers={false}
+          listItems={fishDescriptions}
+        />
+      )
+      .toJSON();
     const withChakraPropsUnordered = renderer
       .create(
         <List
@@ -275,6 +286,7 @@ describe("List", () => {
     expect(ordered).toMatchSnapshot();
     expect(orderedNoStyling).toMatchSnapshot();
     expect(description).toMatchSnapshot();
+    expect(descriptionWithoutDividers).toMatchSnapshot();
     expect(withChakraPropsUnordered).toMatchSnapshot();
     expect(withOtherPropsUnordered).toMatchSnapshot();
     expect(withChakraPropsDescription).toMatchSnapshot();

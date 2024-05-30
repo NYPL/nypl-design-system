@@ -116,10 +116,10 @@ const StructuredContent = defineMultiStyleConfig({
           ...textMargin,
         },
         // For section, h2 in the definition list.
-        section: baseSectionDescriptionStyles,
-        dl: descriptionStyles.dl,
-        dt: descriptionStyles.dt,
-        dd: descriptionStyles.dd,
+        section: baseSectionDescriptionStyles(),
+        dl: descriptionStyles().dl,
+        dt: descriptionStyles().dt,
+        dd: descriptionStyles().dd,
         table: {
           width: "100%",
           th: {

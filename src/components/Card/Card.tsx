@@ -87,6 +87,7 @@ function CardImage(
     caption,
     component,
     credit,
+    id,
     isAtEnd,
     isCentered,
     isLazy,
@@ -110,6 +111,7 @@ function CardImage(
         caption={caption}
         component={component}
         credit={credit}
+        id={id}
         isLazy={isLazy}
         size={size}
         src={src}
@@ -218,6 +220,7 @@ export const Card: ChakraComponent<
           caption: undefined,
           component: undefined,
           credit: undefined,
+          id: undefined,
           isAtEnd: false,
           isLazy: false,
           size: "default",
@@ -330,6 +333,7 @@ export const Card: ChakraComponent<
               caption={imageProps.caption}
               component={imageProps.component}
               credit={imageProps.credit}
+              id={imageProps.id}
               isAtEnd={imageProps.isAtEnd}
               isLazy={imageProps.isLazy}
               layout={layout}

@@ -14,6 +14,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-regularCard"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -64,6 +65,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-cardWithExtendedStyles"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -164,6 +166,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-cardWithNoCTAs"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -210,6 +213,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-cardWithNoContent"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -391,6 +395,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-fullclick"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -446,6 +451,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-cardWithRightActions"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -508,6 +514,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-chakraProps"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
@@ -559,6 +566,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
       <img
         alt="Alt text"
         className="css-0"
+        id="img-id-otherProps"
         onError={[Function]}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
