@@ -1,6 +1,7 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
+import breakpoints from "../foundations/breakpoints";
 import { baseLinkStyles } from "./link";
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -88,10 +89,6 @@ const ReservoirCard = defineMultiStyleConfig({
       const layoutStyles = isRow
         ? {
             display: "flex",
-            flexFlow: {
-              base: "column nowrap",
-              md: "row",
-            },
             maxWidth: "100%",
             textAlign: "left",
             alignItems: isCentered ? "center" : null,
@@ -121,6 +118,44 @@ const ReservoirCard = defineMultiStyleConfig({
       }
       return {
         base: {
+          containerType: "inline-size",
+          "@container (min-width: 0px)": {
+            "[data-wrapper]": {
+              flexFlow: isRow ? "column nowrap" : null,
+            },
+            "[data-actions]": {
+              flexShrink: isAlignedRightActions ? "0" : null,
+              marginStart: "0",
+              marginTop: "xs",
+              maxWidth: "100%",
+            },
+            "[data-body]": {
+              width: "100%",
+            },
+          },
+          [`@container (min-width: ${breakpoints.sm})`]: {
+            "[data-body]": {
+              flexBasis: isRow ? "100%" : null,
+            },
+          },
+          [`@container (min-width: ${breakpoints.md})`]: {
+            "[data-wrapper]": {
+              flexFlow: isRow ? "row" : null,
+            },
+            "[data-actions]": {
+              flexShrink: "0",
+              marginStart: "m",
+              marginTop: "0",
+              maxWidth: "180px",
+            },
+            "[data-body]": {
+              display: "block",
+              flexFlow: "row nowrap",
+              width: "auto",
+            },
+          },
+        },
+        wrapper: {
           alignItems: "flex-start",
           display: "flex",
           flexFlow: "column wrap",
@@ -129,19 +164,11 @@ const ReservoirCard = defineMultiStyleConfig({
           ...layoutStyles,
         },
         actions: {
-          flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
-          marginStart: { base: "0", md: "m" },
-          marginTop: { base: "xs", md: "0" },
-          maxWidth: { base: "100%", md: "180px" },
           width: "100%",
         },
         body: {
-          display: { md: "block" },
-          flexBasis: { sm: isRow ? "100%" : null },
-          flexFlow: { md: "row nowrap" },
           margin: bodyMargin,
           padding: bodyPadding,
-          width: { base: "100%", md: "auto" },
         },
         heading: {
           marginBottom: "xs",

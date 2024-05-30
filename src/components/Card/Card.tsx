@@ -315,44 +315,48 @@ export const Card: ChakraComponent<
       );
 
       return (
-        <CardWrapper
-          id={id}
-          className={className}
-          mainActionLink={mainActionLink}
-          ref={ref}
-          styles={{
-            ...styles.base,
-            ...customColors,
-          }}
-          {...rest}
-        >
-          {hasImage && (
-            <CardImage
-              alt={imageProps.alt}
-              aspectRatio={finalImageAspectRatio}
-              caption={imageProps.caption}
-              component={imageProps.component}
-              credit={imageProps.credit}
-              id={imageProps.id}
-              isAtEnd={imageProps.isAtEnd}
-              isLazy={imageProps.isLazy}
-              layout={layout}
-              size={imageProps.size}
-              src={imageProps.src ? imageProps.src : undefined}
-            />
-          )}
-          <Box className="card-body" __css={styles.body}>
-            {cardContents}
-          </Box>
-          {cardRightContents.length ? (
-            <Box
-              className="card-right"
-              __css={{ ...styles.body, ...styles.actions }}
-            >
-              {cardRightContents}
+        <Box __css={styles.base}>
+          <CardWrapper
+            id={id}
+            className={className}
+            mainActionLink={mainActionLink}
+            ref={ref}
+            styles={{
+              ...styles.wrapper,
+              ...customColors,
+            }}
+            data-wrapper
+            {...rest}
+          >
+            {hasImage && (
+              <CardImage
+                alt={imageProps.alt}
+                aspectRatio={finalImageAspectRatio}
+                caption={imageProps.caption}
+                component={imageProps.component}
+                credit={imageProps.credit}
+                id={imageProps.id}
+                isAtEnd={imageProps.isAtEnd}
+                isLazy={imageProps.isLazy}
+                layout={layout}
+                size={imageProps.size}
+                src={imageProps.src ? imageProps.src : undefined}
+              />
+            )}
+            <Box className="card-body" __css={styles.body} data-body>
+              {cardContents}
             </Box>
-          ) : null}
-        </CardWrapper>
+            {cardRightContents.length ? (
+              <Box
+                className="card-right"
+                __css={{ ...styles.body, ...styles.actions }}
+                data-actions
+              >
+                {cardRightContents}
+              </Box>
+            ) : null}
+          </CardWrapper>
+        </Box>
       );
     }
   )
