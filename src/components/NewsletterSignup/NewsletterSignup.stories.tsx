@@ -25,21 +25,9 @@ const meta: Meta<typeof NewsletterSignup> = {
     },
     descriptionText: {
       control: "text",
-      table: {
-        defaultValue: {
-          summary:
-            "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
-            "exhibitions, and collections.",
-        },
-      },
     },
     errorHeading: {
       control: "text",
-      table: {
-        defaultValue: {
-          summary: "Oops! Something went wrong.",
-        },
-      },
     },
     errorText: {
       control: "text",
@@ -51,6 +39,7 @@ const meta: Meta<typeof NewsletterSignup> = {
     highlightColor: {
       control: "select",
       options: [
+        "ui.gray.medium",
         "section.blogs.secondary",
         "section.books-and-more.primary",
         "brand.primary",
@@ -65,7 +54,7 @@ const meta: Meta<typeof NewsletterSignup> = {
       ],
       table: {
         defaultValue: {
-          summary: "section.blogs.secondary",
+          summary: "ui.gray.medium",
         },
       },
     },
@@ -81,19 +70,7 @@ const meta: Meta<typeof NewsletterSignup> = {
       },
     },
     title: {
-      control: false,
-      mapping: {
-        default: (
-          <Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />
-        ),
-      },
-      table: {
-        control: "text",
-        defaultValue: {
-          summary:
-            '<Heading noSpace size="heading3" text="Sign Up for Our Newsletter" />',
-        },
-      },
+      control: "text",
     },
     valueEmail: { control: false },
     view: {
@@ -111,21 +88,21 @@ const meta: Meta<typeof NewsletterSignup> = {
 export default meta;
 type Story = StoryObj<typeof NewsletterSignup>;
 
-const defaultConfirmationHeading = "Thank you for signing up!";
-const defaultConfirmationText =
-  "You can update your email subscription preferences at any time using the links at the bottom of the email.";
+// Declare required props to be used in all stories
+const title = "Sign Up for Our Newsletter";
+const descriptionText =
+  "Stay connected with the latest research news from NYPL, including information about our events, programs, " +
+  "exhibitions, and collections.";
+const confirmationHeading = "Thank you for signing up!";
+const errorHeading = "Oops! Something went wrong.";
 
-/**
- * Main Story for the NewsletterSignup component. This must contains the `args`
- * and `parameters` properties in this object.
- */
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationHeading: defaultConfirmationHeading,
-    confirmationText: defaultConfirmationText,
-    descriptionText: undefined,
-    errorHeading: undefined,
+    confirmationHeading: confirmationHeading,
+    confirmationText: undefined,
+    descriptionText: descriptionText,
+    errorHeading: errorHeading,
     errorText: undefined,
     formHelperText: undefined,
     id: undefined,
@@ -139,7 +116,7 @@ export const WithControls: Story = {
       action("onSubmit")(event.target[0].value);
     },
     privacyPolicyLink: undefined,
-    title: undefined,
+    title: title,
     valueEmail: undefined,
     view: undefined,
   },
@@ -150,7 +127,40 @@ export const WithControls: Story = {
     },
     jest: "NewsletterSignup.test.tsx",
   },
-  render: (args) => <NewsletterSignup {...args} />,
+  render: ({ title, descriptionText, errorText, ...rest }) => {
+    // Workaround for Storybook title control
+    function createHeading(title: string) {
+      const text = title.match(/(?<=text=")(?:..*)(?=")/gm)[0];
+      return <Heading noSpace size="heading3" text={text} />;
+    }
+    function createText(text: string) {
+      return <Box dangerouslySetInnerHTML={{ __html: text }} />;
+    }
+    const finalTitle =
+      typeof title === "string" && title.match(/^<..*\/>$/gm)
+        ? createHeading(title)
+        : title;
+
+    const finalDescriptionText =
+      typeof descriptionText === "string" &&
+      descriptionText.match(/((<)(..*)(?=\/)(..*)(?=>))|((<)(?=\/)(.)(?=>))/gm)
+        ? createText(descriptionText)
+        : descriptionText;
+
+    const finalErrorText =
+      typeof errorText === "string" &&
+      errorText.match(/((<)(..*)(?=\/)(..*)(?=>))|((<)(?=\/)(.)(?=>))/gm)
+        ? createText(errorText)
+        : errorText;
+    return (
+      <NewsletterSignup
+        title={finalTitle}
+        descriptionText={finalDescriptionText}
+        errorText={finalErrorText}
+        {...rest}
+      />
+    );
+  },
 };
 /* Counter to allow the interactive example to show different states uponn submit*/
 let counter = 0;
@@ -194,8 +204,10 @@ function NewsletterSignupOnSubmitExampleComponent() {
       valueEmail={inputVal}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      confirmationHeading={defaultConfirmationHeading}
-      confirmationText={defaultConfirmationText}
+      confirmationHeading={confirmationHeading}
+      descriptionText={descriptionText}
+      errorHeading={errorHeading}
+      title={title}
     />
   );
 }
@@ -210,6 +222,8 @@ export const DescriptionUsingJSXElements: Story = {
     <NewsletterSignup
       id="jsx-description-text"
       view="form"
+      title={title}
+      errorHeading={errorHeading}
       onChange={() => {}}
       onSubmit={() => {}}
       descriptionText={
@@ -218,8 +232,7 @@ export const DescriptionUsingJSXElements: Story = {
           to have a <Link href="https://corgiorgy.com/">nested link</Link>
         </Text>
       }
-      confirmationHeading={defaultConfirmationHeading}
-      confirmationText={defaultConfirmationText}
+      confirmationHeading={confirmationHeading}
     />
   ),
 };
@@ -232,18 +245,20 @@ export const CustomHeadings: Story = {
         view="form"
         onChange={() => {}}
         onSubmit={() => {}}
-        title="Custom string heading"
-        confirmationHeading={defaultConfirmationHeading}
-        confirmationText={defaultConfirmationText}
+        title="String heading"
+        confirmationHeading={confirmationHeading}
+        errorHeading={errorHeading}
+        descriptionText={descriptionText}
       />
       <NewsletterSignup
-        id="custom-heading"
+        id="custom-element-heading"
         view="form"
+        confirmationHeading={confirmationHeading}
+        errorHeading={errorHeading}
         onChange={() => {}}
         onSubmit={() => {}}
         title={<Heading level="h4" text="Custom h4 DS Heading" />}
-        confirmationHeading={defaultConfirmationHeading}
-        confirmationText={defaultConfirmationText}
+        descriptionText={descriptionText}
       />
     </VStack>
   ),
@@ -262,8 +277,10 @@ export const ComponentStates: Story = {
           view="form"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading={defaultConfirmationHeading}
-          confirmationText={defaultConfirmationText}
+          confirmationHeading={confirmationHeading}
+          title={title}
+          descriptionText={descriptionText}
+          errorHeading={errorHeading}
         />
       </Box>
       <Box>
@@ -275,8 +292,10 @@ export const ComponentStates: Story = {
           view="submitting"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading={defaultConfirmationHeading}
-          confirmationText={defaultConfirmationText}
+          confirmationHeading={confirmationHeading}
+          title={title}
+          descriptionText={descriptionText}
+          errorHeading={errorHeading}
         />
       </Box>
       <Box>
@@ -288,34 +307,65 @@ export const ComponentStates: Story = {
           view="confirmation"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading={defaultConfirmationHeading}
-          confirmationText={defaultConfirmationText}
+          confirmationHeading={confirmationHeading}
+          confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+          title={title}
+          descriptionText={descriptionText}
+          errorHeading={errorHeading}
         />
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Default Error View
+          Confirmation View with Custom Element Confirmation Message
+        </Heading>
+        <NewsletterSignup
+          id="confirmation-view"
+          view="confirmation"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          confirmationHeading={confirmationHeading}
+          confirmationText={
+            <Text noSpace size="body2">
+              You are now receiving our Newsletter. Find out more about
+              <Link href="https://www.nypl.org/spotlight/live">
+                upcoming Live from NYPL events
+              </Link>
+              .
+            </Text>
+          }
+          descriptionText={descriptionText}
+          title={title}
+          errorHeading={errorHeading}
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Error View
         </Heading>
         <NewsletterSignup
           id="error-view"
           view="error"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading={defaultConfirmationHeading}
-          confirmationText={defaultConfirmationText}
+          confirmationHeading={confirmationHeading}
+          title={title}
+          descriptionText={descriptionText}
+          errorHeading={errorHeading}
+          errorText="Please refresh this page and try again."
         />
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Error View with Custom Error Message
+          Error View with Custom Element Error Message
         </Heading>
         <NewsletterSignup
           id="error-view"
           view="error"
           onChange={() => {}}
           onSubmit={() => {}}
-          confirmationHeading={defaultConfirmationHeading}
-          confirmationText={defaultConfirmationText}
+          confirmationHeading={confirmationHeading}
+          descriptionText={descriptionText}
+          title={title}
           errorHeading="An error has occurred."
           errorText={
             <Text noSpace size="body2">

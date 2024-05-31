@@ -59,8 +59,8 @@ const NewsletterSignup = defineMultiStyleConfig({
       gap: { base: "s", lg: "xs" },
     },
     button: {
-      // The button must align w/ the input field, but using {align-items: center} doesn't quite work due to the input field not being the literal v-center.
-      marginTop: { base: null, lg: "31px" },
+      // Align Button with Input field
+      marginTop: { base: null, lg: "25px" },
       height: "40px",
     },
   })),
