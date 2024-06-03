@@ -16,6 +16,7 @@ const meta: Meta<typeof List> = {
     inline: argsBooleanType(),
     listItems: { control: false },
     noStyling: argsBooleanType(),
+    showRowDividers: argsBooleanType(true),
     title: { control: { type: "text" } },
     type: {
       control: { type: "radio" },
@@ -123,6 +124,7 @@ export const WithControls: Story = {
     inline: false,
     listItems: undefined,
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
     type: "ul",
   },
@@ -150,10 +152,12 @@ export const DescriptionList: Story = {
   args: {
     id: "nypl-list2",
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
   },
   argTypes: {
     inline: { control: false },
+    showRowDividers: { control: { type: "boolean" } },
     noStyling: { control: false },
     type: { control: false },
   },

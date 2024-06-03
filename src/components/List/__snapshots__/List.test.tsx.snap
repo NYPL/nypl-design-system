@@ -111,6 +111,36 @@ exports[`List Renders the UI snapshot correctly 5`] = `
 `;
 
 exports[`List Renders the UI snapshot correctly 6`] = `
+<section
+  className="css-1xdhyk6"
+  id="description"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="description-heading"
+  >
+    Animal Crossing Fish
+  </h2>
+  <dl>
+    <dt>
+      Mahi-mahi
+    </dt>
+    <dd>
+      <p>
+        The mahi-mahi is an ocean fish known...
+      </p>
+    </dd>
+    <dt>
+      Golden trout
+    </dt>
+    <dd>
+      The golden trout is a beautifully colored fish...
+    </dd>
+  </dl>
+</section>
+`;
+
+exports[`List Renders the UI snapshot correctly 7`] = `
 <ul
   className="css-kle7zy"
   id="chakra"
@@ -130,7 +160,7 @@ exports[`List Renders the UI snapshot correctly 6`] = `
 </ul>
 `;
 
-exports[`List Renders the UI snapshot correctly 7`] = `
+exports[`List Renders the UI snapshot correctly 8`] = `
 <ul
   className="css-1xdhyk6"
   data-testid="other"
@@ -151,7 +181,7 @@ exports[`List Renders the UI snapshot correctly 7`] = `
 </ul>
 `;
 
-exports[`List Renders the UI snapshot correctly 8`] = `
+exports[`List Renders the UI snapshot correctly 9`] = `
 <section
   className="css-kle7zy"
   id="chakra"
@@ -181,7 +211,7 @@ exports[`List Renders the UI snapshot correctly 8`] = `
 </section>
 `;
 
-exports[`List Renders the UI snapshot correctly 9`] = `
+exports[`List Renders the UI snapshot correctly 10`] = `
 <section
   className="css-1xdhyk6"
   data-testid="other"
