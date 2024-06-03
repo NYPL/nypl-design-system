@@ -90,7 +90,7 @@ Modal title: Confirm reservation cancellation
 
 Modal description: Your upcoming reservation will be cancelled.
 
-Action buttons: [Cancel] [Confirm]
+Action button: [Confirm]
 
 ## Accessibility
 
@@ -110,6 +110,14 @@ In addition to having a cancel button, users should be able to exit a modal by p
 ### Resources
 
 https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+
+## Using the modal: useModal vs. ModalTrigger
+
+`ModalTrigger` is a component that contains both the "trigger", or the button that opens the modal, and the modal itself. When you use `ModalTrigger`,
+you pass only the modal props and the button text, and the `ModalTrigger` calls the `onClose` and `onOpen` functions internally.
+
+Or, you can call `useModal()`. `useModal()` returns the Modal component, the `onClose` function, and the `onOpen` function, giving you the responsibility to
+pass `onOpen` and `onClose` to your custom open and close functions.
 
 ## ModalTrigger
 
