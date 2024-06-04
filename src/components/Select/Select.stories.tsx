@@ -87,9 +87,6 @@ export const WithControls: Story = {
     const screen = within(canvasElement);
     const select = screen.getByRole("combobox");
     await userEvent.selectOptions(select, "green");
-
-    await userEvent.click(screen.getByRole("combobox"));
-    userEvent.keyboard("{ArrowDown}{ArrowDown}{Enter}");
   },
 };
 
