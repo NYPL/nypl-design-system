@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import * as React from "react";
+import { createRef } from "react";
 import renderer from "react-test-renderer";
 
 import Breadcrumbs from "./Breadcrumbs";
@@ -92,7 +92,7 @@ describe("Breadcrumbs", () => {
   it("passes a ref to the nav wrapper element", () => {
     // It's okay to use this type even though the rendered element is
     // a `nav` since Chakra internally generates the necessary DOM.
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(
       <Breadcrumbs breadcrumbsData={breadcrumbsData} ref={ref} />
     );
@@ -130,7 +130,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
+          breadcrumbsType="locations"
           id="breadcrumbs-test"
         />
       )

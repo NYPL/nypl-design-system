@@ -1,7 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createRef, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
@@ -11,7 +10,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
   component: Select,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
