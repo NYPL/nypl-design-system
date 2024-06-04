@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
 import Select, { labelPositionsArray, selectTypesArray } from "./Select";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { userEvent, within } from "@storybook/test";
 
 const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
@@ -81,6 +82,14 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
     jest: ["Select.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+    const select = screen.getByRole("combobox");
+    await userEvent.selectOptions(select, "green");
+
+    await userEvent.click(screen.getByRole("combobox"));
+    userEvent.keyboard("{ArrowDown}{ArrowDown}{Enter}");
   },
 };
 
