@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
@@ -14,7 +13,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
   component: Card,
-  decorators: [withDesign],
   argTypes: {
     backgroundColor: { control: { type: "color" } },
     className: { control: false },

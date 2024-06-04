@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import SkipNavigation from "./SkipNavigation";
@@ -7,7 +6,6 @@ import SkipNavigation from "./SkipNavigation";
 const meta: Meta<typeof SkipNavigation> = {
   title: "Components/Navigation/SkipNavigation",
   component: SkipNavigation,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -9,7 +8,6 @@ import Toggle, { toggleSizesArray } from "./Toggle";
 const meta: Meta<typeof Toggle> = {
   title: "Components/Form Elements/Toggle",
   component: Toggle,
-  decorators: [withDesign],
   argTypes: {
     defaultChecked: { control: false },
     id: { control: false },

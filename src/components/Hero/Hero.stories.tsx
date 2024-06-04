@@ -1,7 +1,5 @@
 import { Stack } from "@chakra-ui/react";
-import { Source } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 import { useState } from "react";
 
 import Button from "../Button/Button";
@@ -77,7 +75,6 @@ const imageProps = {
 const meta: Meta<typeof Hero> = {
   title: "Components/Basic Elements/Hero",
   component: Hero,
-  decorators: [withDesign],
   argTypes: {
     backdropBackgroundColor: { control: false },
     backgroundColor: { control: false },
@@ -209,41 +206,20 @@ export const WithControls: Story = {
 // The following are additional Accordion example Stories.
 export const Primary: Story = {
   render: () => (
-    <>
-      <Hero
-        backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-        heading={
-          <Heading
-            id="primary-hero"
-            level="h1"
-            noSpace
-            overline="Hero Example"
-            subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
-            text="Hero Primary"
-          />
-        }
-        heroType="primary"
-      />
-      <Source
-        code={`
-<Hero
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heading={
-    <Heading
-      id="primary-hero"
-      level="h1"
-      noSpace
-      overline="Hero Example"
-      subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
-      text="Hero Primary"
+    <Hero
+      backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+      heading={
+        <Heading
+          id="primary-hero"
+          level="h1"
+          noSpace
+          overline="Hero Example"
+          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+          text="Hero Primary"
+        />
+      }
+      heroType="primary"
     />
-  }
-  heroType="primary"
-/>
-`}
-        language="jsx"
-      />
-    </>
   ),
 };
 
@@ -263,32 +239,6 @@ export const Tertiary: Story = {
         heroType="tertiary"
         subHeaderText={otherSubHeaderText}
       />
-      <Source
-        code={`
-<Hero
-  heading={
-    <Heading
-      level="h1"
-      id="tertiary-hero-subtitle-subheading"
-      size="heading2"
-      subtitle="This is the subtitle"
-      text="Hero Tertiary with Subtitle & Sub-Heading"
-    />
-  }
-  heroType="tertiary"
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-        language="jsx"
-      />
       <br />
       <Hero
         heading={
@@ -302,31 +252,6 @@ export const Tertiary: Story = {
         heroType="tertiary"
         subHeaderText={otherSubHeaderText}
       />
-      <Source
-        code={`
-<Hero
-  heading={
-    <Heading
-      level="h1"
-      id="tertiary-hero-subheading"
-      size="heading2"
-      text="Hero Tertiary with Sub-Heading"
-    />
-  }
-  heroType="tertiary"
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-        language="jsx"
-      />
       <br />
       <Hero
         heading={
@@ -338,22 +263,6 @@ export const Tertiary: Story = {
           />
         }
         heroType="tertiary"
-      />
-      <Source
-        code={`
-<Hero
-  heading={
-    <Heading
-      level="h1"
-      id="tertiary-hero"
-      size="heading2"
-      text="Hero Tertiary without Additional Elements"
-    />
-  }
-  heroType="tertiary"
-/>
-`}
-        language="jsx"
       />
     </>
   ),
@@ -385,35 +294,6 @@ export const Campaign: Story = {
           }}
           subHeaderText={otherSubHeaderText}
         />
-        <Source
-          code={`
-<Hero
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-          language="jsx"
-        />
       </div>
       <div>
         <Heading
@@ -438,117 +318,28 @@ export const Campaign: Story = {
           subHeaderText={otherSubHeaderTextLong}
         />
       </div>
-      <Source
-        code={`
-<Hero
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  subHeaderText={
-    <>
-      <Heading
-        level="h2"
-        size="heading3"
-        subtitle="Lorem Parturient Bibendum Aenean Cras"
-      >
-        Subheading
-      </Heading>
-      <Heading level="h3" noSpace size="heading6">
-        Subheading
-      </Heading>
-      <Text>
-        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
-        <Link href="https://www.nypl.org/locations/snfl/childrens">
-          The New York Public Library
-        </Link>{" "}
-        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
-        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-        Aenean lacinia{" "}
-        <Link href="https://google.com" type="external">
-          Google
-        </Link>{" "}
-        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
-        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
-        eu leo.
-      </Text>
-      <ButtonGroup>
-        <Button id="other-button-example-1">Button</Button>
-        <Button id="other-button-example-2" buttonType="secondary">
-          Button
-        </Button>
-      </ButtonGroup>
-    </>
-  }
-/>
-`}
-        language="jsx"
-      />
     </Stack>
   ),
 };
 export const CampaignDarkBackgroundImage: Story = {
   render: () => (
-    <Stack spacing="l">
-      <div>
-        <Hero
-          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-          heroType="campaign"
-          heading={
-            <Heading
-              level="h1"
-              id="campaign-hero-default-heading"
-              text="Hero Campaign"
-            />
-          }
-          imageProps={{
-            alt: "Image example",
-            src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
-          }}
-          isDarkBackgroundImage
-          subHeaderText={otherSubHeaderText}
+    <Hero
+      backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+      heroType="campaign"
+      heading={
+        <Heading
+          level="h1"
+          id="campaign-hero-default-heading"
+          text="Hero Campaign"
         />
-      </div>
-      <Source
-        code={`
-<Hero
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
+      }
+      imageProps={{
+        alt: "Image example",
+        src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
+      }}
+      isDarkBackgroundImage
+      subHeaderText={otherSubHeaderText}
     />
-  }
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-        language="jsx"
-      />
-    </Stack>
   ),
 };
 export const CampaignBackgroundColors: Story = {
@@ -574,36 +365,6 @@ export const CampaignBackgroundColors: Story = {
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
         />
-        <Source
-          code={`
-<Hero
-  backdropBackgroundColor="section.research.primary"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-long-text-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-          language="jsx"
-        />
       </div>
       <div>
         <Heading
@@ -625,38 +386,6 @@ export const CampaignBackgroundColors: Story = {
           }
           imageProps={imageProps}
           subHeaderText={otherSubHeaderTextLong}
-        />
-        <Source
-          code={`
-<Hero
-  backdropBackgroundColor="section.education.primary"
-  backgroundColor="ui.warning.primary"
-  foregroundColor="ui.typography.heading"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-long-text-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-      <Link href="https://www.nypl.org/locations/snfl/childrens">
-        The New York Public Library
-      </Link>{" "}
-      is an essential part of neighborhoods across the city. Visit us today.
-    </>
-  }
-/>
-`}
-          language="jsx"
         />
       </div>
     </Stack>
@@ -685,25 +414,6 @@ export const TextColorStyles: Story = {
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
         />
-        <Source
-          code={`
-<Hero
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={imageProps}
-  isDarkBackgroundImage
-  subHeaderText={otherSubHeaderText}
-/>
-`}
-          language="jsx"
-        />
       </div>
       <div>
         <Heading
@@ -726,27 +436,6 @@ export const TextColorStyles: Story = {
           imageProps={imageProps}
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
-        />
-        <Source
-          code={`
-<Hero
-  backgroundColor="ui.status.primary"
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  foregroundColor="ui.error.secondary"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={imageProps}
-  isDarkBackgroundImage
-  subHeaderText={otherSubHeaderText}
-/>
-`}
-          language="jsx"
         />
       </div>
       <div>
@@ -772,27 +461,6 @@ export const TextColorStyles: Story = {
           isDarkBackgroundImage
           isDarkText
           subHeaderText={otherSubHeaderTextLong}
-        />
-        <Source
-          code={`
-<Hero
-  backgroundColor="ui.status.primary"
-  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
-  heading={
-    <Heading
-      level="h1"
-      id="campaign-hero-default-heading"
-      text="Hero Campaign"
-    />
-  }
-  imageProps={imageProps}
-  isDarkBackgroundImage
-  isDarkText
-  subHeaderText={otherSubHeaderText}
-/>
-`}
-          language="jsx"
         />
       </div>
     </Stack>
@@ -842,57 +510,23 @@ export const CampaignFallbackImage: Story = {
 export const Secondary: Story = {
   name: "Secondary (deprecated)",
   render: () => (
-    <>
-      <Hero
-        heading={
-          <Heading
-            level="h1"
-            id="secondary-hero"
-            size="heading2"
-            text="Hero Secondary (deprecated)"
-          />
-        }
-        heroType="secondary"
-        imageProps={imageProps}
-        subHeaderText={
-          <>
-            {secondarySubHeaderText} {deprecatedMessage}
-          </>
-        }
-      />
-      <Source
-        code={`
-<Hero
-  heading={
-    <Heading
-      level="h1"
-      id="secondary-hero"
-      size="heading2"
-      text="Hero Secondary (deprecated)"
+    <Hero
+      heading={
+        <Heading
+          level="h1"
+          id="secondary-hero"
+          size="heading2"
+          text="Hero Secondary (deprecated)"
+        />
+      }
+      heroType="secondary"
+      imageProps={imageProps}
+      subHeaderText={
+        <>
+          {secondarySubHeaderText} {deprecatedMessage}
+        </>
+      }
     />
-  }
-  heroType="secondary"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      Explore our <Link href="#">collection</Link> of hundreds of online resources
-      and databases. Use our free online content to help with your research,
-      whether it's finding a single article, tracing a family tree, learning a new
-      language, or anything in between.
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-        language="jsx"
-      />
-    </>
   ),
 };
 
@@ -915,30 +549,6 @@ export const FiftyFifty: Story = {
             </>
           }
         />
-        <Source
-          code={`
-<Hero
-  heroType="fiftyFifty"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      Explore our <Link href="#">collection</Link> of hundreds of online resources
-      and databases. Use our free online content to help with your research,
-      whether it's finding a single article, tracing a family tree, learning a new
-      language, or anything in between.
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-          language="jsx"
-        />
       </div>
       <div>
         <Heading
@@ -954,57 +564,6 @@ export const FiftyFifty: Story = {
               {otherSubHeaderTextLong} {deprecatedMessage}
             </>
           }
-        />
-        <Source
-          code={`
-<Hero
-  heroType="fiftyFifty"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      <Heading
-        level="h2"
-        size="heading3"
-        subtitle="Lorem Parturient Bibendum Aenean Cras"
-      >
-        Subheading
-      </Heading>
-      <Heading level="h3" noSpace size="heading6">
-        Subheading
-      </Heading>
-      <Text>
-        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
-        <Link href="https://www.nypl.org/locations/snfl/childrens">
-          The New York Public Library
-        </Link>{" "}
-        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
-        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-        Aenean lacinia{" "}
-        <Link href="https://google.com" type="external">
-          Google
-        </Link>{" "}
-        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
-        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
-        eu leo.
-      </Text>
-      <ButtonGroup>
-        <Button id="other-button-example-1">Button</Button>
-        <Button id="other-button-example-2" buttonType="secondary">
-          Button
-        </Button>
-      </ButtonGroup>
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-          language="jsx"
         />
       </div>
     </Stack>
