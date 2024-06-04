@@ -32,9 +32,9 @@ interface FilterBarInlineProps {
     layout,
     width,
   }: {
+    isBlockElement?: boolean;
     layout?: LayoutTypes;
     width?: MultiSelectWidths;
-    isBlockElement: boolean;
   }) => React.ReactNode;
   /** The selected items state (items that were checked by user). */
   selectedItems?: FilterBarItemsType;
@@ -101,9 +101,9 @@ export const FilterBarInline: ChakraComponent<
             }}
           >
             {renderChildren({
+              isBlockElement: layout === "column",
               layout: layout,
               width: finalWidth,
-              isBlockElement: layout === "column",
             })}
             {(onSubmit || onClear) && (
               <ButtonGroup

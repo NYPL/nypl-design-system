@@ -8,7 +8,7 @@ import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import { useState } from "react";
 import { layoutTypesArray } from "../../helpers/types";
-import useMultiSelect from "../../hooks/useMultiSelect";
+import useFilterBar from "../../hooks/useFilterBar";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 import TextInput from "../TextInput/TextInput";
 
@@ -129,7 +129,7 @@ export const MultipleChildren: Story = {
 
 const FilterBarStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useMultiSelect();
+    useFilterBar();
   const selectedFilterItems = [selectedItems];
   return (
     <FilterBarInline
@@ -180,7 +180,7 @@ const FilterBarStory = (args) => {
 
 const FilterBarLayoutStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useMultiSelect();
+    useFilterBar();
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [selectedCheckbox2, setSelectedCheckbox2] = useState([]);
   const selectedFilterItems = [selectedItems];
@@ -837,7 +837,7 @@ const FilterBarLayoutStory = () => {
 
 const FilterBarRowContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useMultiSelect();
+    useFilterBar();
   const containerBgColor = useColorModeValue(
     "ui.bg.default",
     "dark.ui.bg.default"
@@ -981,7 +981,7 @@ const FilterBarRowContainerStory = () => {
 
 const FilterBarColumnContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useMultiSelect();
+    useFilterBar();
   const selectedFilterItems = [selectedItems];
   return (
     <VStack align="stretch" spacing="l">
@@ -1120,7 +1120,7 @@ const FilterBarColumnContainerStory = () => {
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useMultiSelect();
+    useFilterBar();
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
   const selectedFilterItems = [selectedItems, selectedCheckbox, textValue];
@@ -1129,6 +1129,69 @@ const FilterBarChildrenStory = (args) => {
     setSelectedCheckbox([]);
     setTextValue("");
   };
+
+  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+    return (
+      shortMultiSelectItems &&
+      shortMultiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderFilterComponents = ({ layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="multiselect-group"
+          labelText="MultiSelect Group"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect}
+        />
+        <CheckboxGroup
+          id="checkbox-example"
+          labelText="Checkbox Group"
+          name="checkboxExample"
+          layout={layout}
+          value={selectedCheckbox}
+          onChange={(e) => {
+            setSelectedCheckbox(e);
+          }}
+        >
+          <Checkbox id="checkbox-1" value="1" labelText="Checkbox 1" />
+          <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
+        </CheckboxGroup>
+        <TextInput
+          id="textinput-example"
+          isClearable
+          isClearableCallback={() => setTextValue("")}
+          labelText="What is your favorite color?"
+          onChange={(e) => setTextValue(e.target.value)}
+          placeholder="i.e. blue, green, etc."
+          value={textValue}
+        />
+      </>
+    );
+  };
+
   return (
     <FilterBarInline
       id={args.id}
@@ -1137,65 +1200,7 @@ const FilterBarChildrenStory = (args) => {
       onClear={onClearFilterBar}
       onSubmit={() => console.log(selectedFilterItems)}
       selectedItems={selectedFilterItems}
-      renderChildren={({ layout, width }) => {
-        return (
-          <>
-            <MultiSelectGroup
-              id="multiselect-group"
-              labelText="MultiSelect Group"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  shortMultiSelectItems &&
-                  shortMultiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      buttonText={multiSelect.name}
-                      key={multiSelect.id}
-                      id={multiSelect.id}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      isBlockElement={isBlockElement}
-                      onChange={(e) => onChange(e.target.id, multiSelect.id)}
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          multiSelect.id,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(multiSelect.id)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-            <CheckboxGroup
-              id="checkbox-example"
-              labelText="Checkbox Group"
-              name="checkboxExample"
-              layout={layout}
-              value={selectedCheckbox}
-              onChange={(e) => {
-                setSelectedCheckbox(e);
-              }}
-            >
-              <Checkbox id="checkbox-1" value="1" labelText="Checkbox 1" />
-              <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
-            </CheckboxGroup>
-            <TextInput
-              id="textinput-example"
-              isClearable
-              isClearableCallback={() => setTextValue("")}
-              labelText="What is your favorite color?"
-              onChange={(e) => setTextValue(e.target.value)}
-              placeholder="i.e. blue, green, etc."
-              value={textValue}
-            />
-          </>
-        );
-      }}
+      renderChildren={renderFilterComponents}
     />
   );
 };
