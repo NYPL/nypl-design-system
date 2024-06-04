@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import AlphabetFilter from "./AlphabetFilter";
 import Heading from "../Heading/Heading";
@@ -9,7 +8,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof AlphabetFilter> = {
   title: "Components/Navigation/AlphabetFilter",
   component: AlphabetFilter,
-  decorators: [withDesign],
   argTypes: {
     activeLetters: { control: false },
     className: { control: false },

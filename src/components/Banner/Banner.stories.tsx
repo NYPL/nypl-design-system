@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Banner, {
   bannerBgColorsArray,
@@ -18,7 +17,6 @@ import Text from "../Text/Text";
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
   component: Banner,
-  decorators: [withDesign],
   argTypes: {
     ariaLabel: { control: { type: "text" } },
     backgroundColor: {
