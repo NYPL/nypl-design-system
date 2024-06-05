@@ -31,22 +31,28 @@ import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
 <Canvas of={SocialMediaLinksStories.WithControls} />
 
-Passing an array of social media objects to the `linksData` prop allows you to control which social media types are
-displayed, the order they appear, the specific URL used in the link, and the text used for the label of each.
-Of these, only the `type` value is required. The other two props, `labelText` and `url` are optional and will display
-a default value if left undeclared. Order is determined by the order of the array. You may also pass
-_no_ `linksData` prop and the component will return all available social media links with their default values. See [an
-example](#heading-nodata) at the bottom of this document.
-
-Labels are exposed in this example to demonstrate that the text is changed for the middle icon. Click "Show Code," above,
-to view the sample `linksData` code.
-
 <ArgTypes of={SocialMediaLinksStories.WithControls} />
 
-### Available Social Media Types & Their Default Values
+### Expected data structure for linkData and available Social Media Link Types
 
-The `linksData` prop accepts an array of objects. Each item ahs the properties: `type`, `labelText`,
-and `url`. For example:
+The `linksData` prop accepts an array of objects. Each item requires the properties: `type`, `labelText`,
+and `url`. The `type` property relates to the icon type rendered on page.
+
+<Source
+  code={`
+interface SocialMediaLinkDataProps {
+  type: SocialMediaLinkType;
+  labelText: string;
+  url: string;
+}
+
+type SocialMediaLinkType = | "blog" | "facebook" | "instagram" | "pinterest"
+| "soundcloud" | "tiktok" | "tumblr" | "twitter" | "youtube";
+`}
+language="ts"
+/>
+
+For example:
 
 <Source
   code={`

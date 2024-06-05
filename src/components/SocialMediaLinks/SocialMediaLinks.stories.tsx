@@ -17,20 +17,58 @@ const meta: Meta<typeof SocialMediaLinks> = {
   decorators: [withDesign],
   argTypes: {
     borders: {
-      table: { disable: true },
+      description: 'Optional border  \n\n `"none"` `"circular"` `"straight"`',
+      control: { type: "radio" },
+      options: borderTypeArray,
+      table: {
+        disable: false,
+        defaultValue: { summary: "none" },
+      },
     },
-    className: { table: { disable: true } },
+    className: {
+      control: true,
+      table: {
+        disable: false,
+      },
+    },
     color: {
-      table: { disable: true },
+      control: { type: "radio" },
+      options: colorTypeArray,
+      table: {
+        disable: false,
+        defaultValue: { summary: "textDefault" },
+      },
     },
-    id: { table: { disable: true } },
+    id: {
+      control: true,
+      table: {
+        disable: false,
+      },
+    },
     layout: {
-      table: { disable: true },
+      control: { type: "radio" },
+      options: layoutTypesArray,
+      table: {
+        disable: false,
+        defaultValue: { summary: "row" },
+      },
     },
-    linksData: { table: { disable: true } },
-    showLabels: { table: { disable: true } },
+    linksData: { table: { disable: false } },
+    showLabels: {
+      description:
+        'Optional prop to display names of platforms along with icons. NOTE: Can not be chosen in combination with a circular border \n\n `"boolean"`',
+      table: {
+        disable: false,
+        defaultValue: { summary: false },
+      },
+    },
     size: {
-      table: { disable: true },
+      control: { type: "radio" },
+      options: sizeTypeArray,
+      table: {
+        disable: false,
+        defaultValue: { summary: "small" },
+      },
     },
   },
   parameters: {
@@ -74,84 +112,37 @@ export const WithControls: Story = {
     showLabels: true,
     size: "small",
   },
-  argTypes: {
-    borders: {
-      control: { type: "radio" },
-      options: borderTypeArray,
-      table: {
-        disable: false,
-        defaultValue: { summary: "none" },
-      },
-    },
-    className: {
-      control: true,
-      table: {
-        disable: false,
-      },
-    },
-    color: {
-      description:
-        "Any of three optional values that will change the color of the svg and label text (if any).",
-      control: { type: "radio" },
-      // @todo the table will not display these options.
-      options: colorTypeArray,
-      table: {
-        disable: false,
-        defaultValue: { summary: "textDefault" },
-      },
-    },
-    id: {
-      control: true,
-      table: {
-        disable: false,
-      },
-    },
-    layout: {
-      control: { type: "radio" },
-      options: layoutTypesArray,
-      table: {
-        disable: false,
-        defaultValue: { summary: "row" },
-      },
-    },
-    linksData: { table: { disable: false } },
-    showLabels: {
-      table: {
-        disable: false,
-        defaultValue: { summary: false },
-      },
-    },
-    size: {
-      control: { type: "radio" },
-      options: sizeTypeArray,
-      table: {
-        disable: false,
-        defaultValue: { summary: "small" },
-      },
-    },
-  },
-  render: (args) => (
-    <div>
-      <div
-        style={
-          args.color === "textInverse"
-            ? {
-                backgroundColor: "var(--nypl-colors-dark-ui-bg-page)",
-                padding: "var(--nypl-space-s)",
-              }
-            : { padding: "var(--nypl-space-xs)" }
-        }
-      >
-        <SocialMediaLinks {...args} />
+  render: ({ borders, showLabels, color, ...rest }) => {
+    const finalShowLabels = borders === "circular" ? false : showLabels;
+    return (
+      <div>
+        <div
+          style={
+            color === "textInverse"
+              ? {
+                  backgroundColor: "var(--nypl-colors-dark-ui-bg-page)",
+                  padding: "var(--nypl-space-s)",
+                }
+              : { padding: "var(--nypl-space-xs)" }
+          }
+        >
+          <SocialMediaLinks
+            // Hack to satisfy storybook control options AND component prop type
+            showLabels={finalShowLabels as false}
+            borders={borders}
+            color={color}
+            {...rest}
+          />
+        </div>
+        {color === "textInverse" && (
+          <Text size="caption" mt="s">
+            NOTE: background color for textInverse is added for readability in
+            Reservoir. It is not part of the functionality.
+          </Text>
+        )}
       </div>
-      {args.color === "textInverse" && (
-        <Text size="caption" mt="s">
-          NOTE: background color for textInverse is added for readability in
-          Reservoir. It is not part of the functionality.
-        </Text>
-      )}
-    </div>
-  ),
+    );
+  },
 };
 
 export const LayoutVariations: Story = {

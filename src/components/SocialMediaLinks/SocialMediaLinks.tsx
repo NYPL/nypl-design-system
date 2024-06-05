@@ -1,7 +1,7 @@
 import { ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
-import Icon, { IconSizes } from "../Icons/Icon";
+import Icon, { IconNames, IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
 import React, { forwardRef } from "react";
 
@@ -24,22 +24,26 @@ const socialMediaIconMap = {
   tumblr: "socialTumblr",
   twitter: "socialTwitter",
   youtube: "socialYoutube",
-};
-export const socialMediaTypeArray = Object.keys(socialMediaIconMap);
-type SocialMediaLinkType = typeof socialMediaTypeArray[number];
+} as const;
+type SocialMediaLinkType = keyof typeof socialMediaIconMap;
+
+// Verify that SocialMediaIconNames is a subset of IconNames
+type SocialMediaIconNames = typeof socialMediaIconMap[SocialMediaLinkType];
+type VerifyIconNames = SocialMediaIconNames extends IconNames ? true : false;
+// TYPE SAFETY: verified will throw an error if a value has been added to socialMediaIconMap that is not a IconName
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const verified: VerifyIconNames = true;
 
 export interface SocialMediaLinkDataProps {
-  /** Optional override for default platform name */
+  /** Required. Label rendered on page is showLabel is true  */
   labelText: string;
   /** Required. Must be one of socialMediaLinkTypeArray */
   type: SocialMediaLinkType;
-  /** Optional override for default social media url */
+  /** Required. Url to link to the platform */
   url: string;
 }
 
-export interface SocialMediaLinksProps {
-  /** Optional border: straight, circular or none. */
-  borders?: BorderType;
+interface CommonSocialMediaLinksProps {
   /** Optional className you can add in addition to "social-media-links." */
   className?: string;
   /** Any of three optional values that will change the color of the svg and label text (if any). */
@@ -49,17 +53,23 @@ export interface SocialMediaLinksProps {
   /** Optional desktop layout. Smaller viewports are always in a column if there are labels and
    * in a row if there are no labels. */
   layout?: LayoutTypes;
-  /** Optional array of social media platform types, urls, and label texts. */
+  /** Required. Array of social media platform types, urls, and label texts. */
   linksData: SocialMediaLinkDataProps[];
-  /** Optional true/false to display names of platforms along with icons.
-   *  NOTE: Labels will NOT be shown with a circular border */
-  showLabels?: boolean;
   /** Optional size: small, medium, or large. */
   size?: SizeType;
 }
 
+type ConditionalSocialMediaLinksProps =
+  | { showLabels?: true; borders?: Exclude<BorderType, "circular"> }
+  | { showLabels?: false; borders?: BorderType };
+
+export type SocialMediaLinksProps = CommonSocialMediaLinksProps &
+  ConditionalSocialMediaLinksProps;
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
+ * The data passed to the `linksData` prop controls which social media types are displayed,
+ * the order they appear, the url they link to, and the text used for the label of each.
+ * Order is determined by the order of the array.
  */
 export const SocialMediaLinks: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -83,20 +93,10 @@ export const SocialMediaLinks: ChakraComponent<
       size = "small",
       ...rest
     } = props;
-
-    let labelsOn = showLabels;
-
-    if (labelsOn && borders === "circular") {
-      labelsOn = false;
-      console.error(
-        "NYPL Reservoir SocialMediaLinks: 'showLabels' is set to true, but labels can not be shown with a circular border."
-      );
-    }
-
     const styles = useStyleConfig("SocialMediaLinks", {
       variant: borders,
       color,
-      labelsOn,
+      showLabels,
       layout,
       size,
     });
@@ -113,13 +113,14 @@ export const SocialMediaLinks: ChakraComponent<
           iconSize = "xlarge";
           break;
       }
+      // Set the icon name for the platform type
       const iconName = socialMediaIconMap[modifiedPlatform.type];
 
       return (
         <Link
           href={modifiedPlatform.url}
           key={modifiedPlatform.type}
-          screenreaderOnlyText={!labelsOn ? modifiedPlatform.labelText : null}
+          screenreaderOnlyText={!showLabels ? modifiedPlatform.labelText : null}
           rel="nofollow noopener noreferrer"
           target="_blank"
         >
@@ -129,7 +130,7 @@ export const SocialMediaLinks: ChakraComponent<
               size={iconSize}
               title={modifiedPlatform.labelText}
             />
-            {labelsOn ? <span>{modifiedPlatform.labelText}</span> : null}
+            {showLabels ? <span>{modifiedPlatform.labelText}</span> : null}
           </div>
         </Link>
       );
