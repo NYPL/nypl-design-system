@@ -3,7 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
-import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
+import NewsletterSignup, {
+  NewsletterSignupViewType,
+  highlightColorTypesArray,
+} from "./NewsletterSignup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
@@ -38,20 +41,7 @@ const meta: Meta<typeof NewsletterSignup> = {
     id: { control: false },
     highlightColor: {
       control: "select",
-      options: [
-        "ui.gray.medium",
-        "section.blogs.secondary",
-        "section.books-and-more.primary",
-        "brand.primary",
-        "section.connect.primary",
-        "section.education.primary",
-        "section.locations.primary",
-        "section.research.primary",
-        "section.research-library.lpa",
-        "section.research-library.schomburg",
-        "section.research-library.schwartzman",
-        "section.whats-on.primary",
-      ],
+      options: highlightColorTypesArray,
       table: {
         defaultValue: {
           summary: "ui.gray.medium",
@@ -70,7 +60,7 @@ const meta: Meta<typeof NewsletterSignup> = {
       },
     },
     title: {
-      control: "text",
+      control: false,
     },
     valueEmail: { control: false },
     view: {
@@ -99,10 +89,10 @@ const errorHeading = "Oops! Something went wrong.";
 export const WithControls: Story = {
   args: {
     className: undefined,
-    confirmationHeading: confirmationHeading,
+    confirmationHeading,
     confirmationText: undefined,
-    descriptionText: descriptionText,
-    errorHeading: errorHeading,
+    descriptionText,
+    errorHeading,
     errorText: undefined,
     formHelperText: undefined,
     id: undefined,
@@ -127,40 +117,7 @@ export const WithControls: Story = {
     },
     jest: "NewsletterSignup.test.tsx",
   },
-  render: ({ title, descriptionText, errorText, ...rest }) => {
-    // Workaround for Storybook title control
-    function createHeading(title: string) {
-      const text = title.match(/(?<=text=")(?:..*)(?=")/gm)[0];
-      return <Heading noSpace size="heading3" text={text} />;
-    }
-    function createText(text: string) {
-      return <Box dangerouslySetInnerHTML={{ __html: text }} />;
-    }
-    const finalTitle =
-      typeof title === "string" && title.match(/^<..*\/>$/gm)
-        ? createHeading(title)
-        : title;
-
-    const finalDescriptionText =
-      typeof descriptionText === "string" &&
-      descriptionText.match(/((<)(..*)(?=\/)(..*)(?=>))|((<)(?=\/)(.)(?=>))/gm)
-        ? createText(descriptionText)
-        : descriptionText;
-
-    const finalErrorText =
-      typeof errorText === "string" &&
-      errorText.match(/((<)(..*)(?=\/)(..*)(?=>))|((<)(?=\/)(.)(?=>))/gm)
-        ? createText(errorText)
-        : errorText;
-    return (
-      <NewsletterSignup
-        title={finalTitle}
-        descriptionText={finalDescriptionText}
-        errorText={finalErrorText}
-        {...rest}
-      />
-    );
-  },
+  render: (args) => <NewsletterSignup {...args} />,
 };
 /* Counter to allow the interactive example to show different states uponn submit*/
 let counter = 0;

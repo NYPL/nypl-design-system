@@ -45,9 +45,9 @@ interface NewsletterSignupProps {
   /** A handler function that will be called when the text input changes. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Gives option to remove the default Privacy Link if a custom one is provided
-   * NOTE: A Privaly Policy link should always be included.
+   * NOTE: A Privacy Policy link should always be included.
    */
-  showDefaultPrivacyLink?: boolean;
+  showPrivacyLink?: boolean;
   /** Link to the relevant privacy policy page. */
   privacyPolicyLink?: string;
   /** Sets the text for a `Heading` component, or
@@ -60,19 +60,21 @@ interface NewsletterSignupProps {
   view?: NewsletterSignupViewType;
 }
 
-export type HighlightColorTypes =
-  | "ui.gray.medium"
-  | "section.blogs.secondary"
-  | "section.books-and-more.primary"
-  | "brand.primary"
-  | "section.connect.primary"
-  | "section.education.primary"
-  | "section.locations.primary"
-  | "section.research.primary"
-  | "section.research-library.lpa"
-  | "section.research-library.schomburg"
-  | "section.research-library.schwartzman"
-  | "section.whats-on.primary";
+export const highlightColorTypesArray = [
+  "ui.gray.medium",
+  "section.blogs.secondary",
+  "section.books-and-more.primary",
+  "brand.primary",
+  "section.connect.primary",
+  "section.education.primary",
+  "section.locations.primary",
+  "section.research.primary",
+  "section.research-library.lpa",
+  "section.research-library.schomburg",
+  "section.research-library.schwartzman",
+  "section.whats-on.primary",
+] as const;
+export type HighlightColorTypes = typeof highlightColorTypesArray[number];
 
 export type NewsletterSignupViewType =
   | "form"
@@ -106,7 +108,7 @@ export const NewsletterSignup: ChakraComponent<
         highlightColor = "ui.gray.medium",
         onChange,
         onSubmit,
-        showDefaultPrivacyLink = true,
+        showPrivacyLink = true,
         privacyPolicyLink = "https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
         valueEmail,
         title,
@@ -145,11 +147,7 @@ export const NewsletterSignup: ChakraComponent<
           __css={styles}
           {...rest}
         >
-          <VStack
-            __css={styles.pitch}
-            alignItems="flex-start"
-            className="newsletter-signup-appeal"
-          >
+          <VStack __css={styles.pitch} className="newsletter-signup-appeal">
             {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
@@ -160,7 +158,7 @@ export const NewsletterSignup: ChakraComponent<
                 descriptionText
               )
             ) : null}
-            {showDefaultPrivacyLink && (
+            {showPrivacyLink && (
               <Link
                 href={privacyPolicyLink}
                 type="external"
