@@ -2,7 +2,6 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
-import { withDesign } from "storybook-addon-designs";
 import NewsletterSignup, {
   NewsletterSignupViewType,
   highlightColorTypesArray,
@@ -14,7 +13,6 @@ import Text from "../Text/Text";
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
   component: NewsletterSignup,
-  decorators: [withDesign],
   parameters: {
     jest: ["NewsletterSignup.test.tsx"],
   },
