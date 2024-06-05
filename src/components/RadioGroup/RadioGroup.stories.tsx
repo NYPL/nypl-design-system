@@ -81,13 +81,19 @@ export const Controls: Story = {
 
     expect(screen.getByRole("radiogroup")).toBeInTheDocument();
 
+    expect(screen.getByLabelText("Radio 4")).toBeChecked();
+
     await userEvent.click(screen.getByLabelText("Radio 3"));
     await userEvent.click(screen.getByLabelText("Radio 2"));
     await userEvent.click(screen.getByLabelText("Radio 5"));
+    expect(screen.getByLabelText("Radio 5")).toBeChecked();
+
     await userEvent.keyboard("{arrowdown}");
     await userEvent.keyboard("{arrowleft}");
     await userEvent.keyboard("{arrowup}");
     await userEvent.keyboard("{arrowright}");
+    await userEvent.keyboard("{arrowdown}");
+    expect(screen.getByLabelText("Radio 2")).toBeChecked();
   },
 };
 
