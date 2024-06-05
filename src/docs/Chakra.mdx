@@ -150,13 +150,13 @@ in the `/src/index.ts` file. Note that not _all_ Chakra components are re-export
 because we want to limit what developers should use in consuming applications.
 They include:
 
-- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
+`Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
 
-Note: These components are harder to have snapshot tests for because, internally,
+**Note**: These components are harder to have snapshot tests for because, internally,
 these components autogenerate ids and class names on every new render. We can't
 override them so snapshot tests will fail.
 
-Update: Newer Chakra UI versions have mostly fixed this issue. Still, since
+**Update**: Newer Chakra UI versions have mostly fixed this issue. Still, since
 Chakra components have already been tested, we don't necessarily want or need
 to test them ourselves.
 

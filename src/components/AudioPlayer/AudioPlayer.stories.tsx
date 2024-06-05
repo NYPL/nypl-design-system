@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import AudioPlayer from "./AudioPlayer";
 import Heading from "../Heading/Heading";
@@ -7,7 +6,6 @@ import Heading from "../Heading/Heading";
 const meta: Meta<typeof AudioPlayer> = {
   title: "Components/Media & Icons/AudioPlayer",
   component: AudioPlayer,
-  decorators: [withDesign],
   argTypes: {
     audioType: {
       control: { type: "radio" },

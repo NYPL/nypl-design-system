@@ -1,6 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import ButtonGroup, { buttonGroupWidthsArray } from "./ButtonGroup";
@@ -9,7 +8,6 @@ import Heading from "../Heading/Heading";
 const meta: Meta<typeof ButtonGroup> = {
   title: "Components/Form Elements/ButtonGroup",
   component: ButtonGroup,
-  decorators: [withDesign],
   argTypes: {
     buttonWidth: {
       control: { type: "radio" },

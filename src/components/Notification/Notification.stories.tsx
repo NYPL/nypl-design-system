@@ -1,6 +1,4 @@
-// import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
@@ -11,7 +9,6 @@ import Heading from "../Heading/Heading";
 const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
   component: Notification,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     dismissible: {

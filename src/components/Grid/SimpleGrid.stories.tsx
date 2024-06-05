@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid, { gridGapsArray } from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";
@@ -11,7 +10,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof SimpleGrid> = {
   title: "Components/Page Layout/SimpleGrid",
   component: SimpleGrid,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     columns: {

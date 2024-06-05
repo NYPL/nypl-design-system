@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Tabs, { TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 import { argsBooleanType } from "../../helpers/storybookUtils";
@@ -74,7 +73,6 @@ const extraACData = [
 const meta: Meta<typeof Tabs> = {
   title: "Components/Overlays & Switchers/Tabs",
   component: Tabs,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     defaultIndex: {

@@ -1,6 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import Image, {
@@ -16,7 +15,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof Image> = {
   title: "Components/Media & Icons/Image",
   component: Image,
-  decorators: [withDesign],
   argTypes: {
     additionalFigureStyles: { control: false },
     additionalImageStyles: { control: false },
