@@ -1,7 +1,6 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Checkbox from "./Checkbox";
 
@@ -13,7 +12,6 @@ const argsBooleanType = (defaultValue = false) => ({
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Form Elements/Checkbox",
   component: Checkbox,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     helperText: { control: { type: "text" } },

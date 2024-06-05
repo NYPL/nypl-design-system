@@ -1,7 +1,6 @@
 import { Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import * as React from "react";
-import { withDesign } from "storybook-addon-designs";
+import { useState } from "react";
 
 import { Button } from "../Button/Button";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
@@ -12,7 +11,6 @@ import { layoutTypesArray } from "../../helpers/types";
 const meta: Meta<typeof CheckboxGroup> = {
   title: "Components/Form Elements/CheckboxGroup",
   component: CheckboxGroup,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     defaultValue: { control: false },
@@ -221,9 +219,9 @@ export const LabelsUsingJSXElements: Story = {
   ),
 };
 
-// Set up CheckboxGoup with indeterminate state option using React.useState
+// Set up CheckboxGoup with indeterminate state option using useState
 function IndeterminateCheckboxExample() {
-  const [checkedItems, setCheckedItems] = React.useState([false, false]);
+  const [checkedItems, setCheckedItems] = useState([false, false]);
   const allChecked = checkedItems.every(Boolean);
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
@@ -258,9 +256,9 @@ export const IndeterminateExample: Story = {
   render: () => <IndeterminateCheckboxExample />,
 };
 
-// Set up CheckboxGoup with progremmatically set selections using React.useState
+// Set up CheckboxGoup with progremmatically set selections using useState
 function CheckboxGroupValuesUpdateExample() {
-  const [value, setValue] = React.useState([]);
+  const [value, setValue] = useState([]);
   const onClick1 = () => {
     setValue(["art", "science", "math"]);
   };

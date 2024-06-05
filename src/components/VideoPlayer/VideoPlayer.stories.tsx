@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -8,11 +6,11 @@ import VideoPlayer, {
   VideoPlayerAspectRatiosArray,
   VideoPlayerTypesArray,
 } from "./VideoPlayer";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof VideoPlayer> = {
   title: "Components/Media & Icons/VideoPlayer",
   component: VideoPlayer,
-  decorators: [withDesign],
   argTypes: {
     aspectRatio: {
       controls: { type: "radio" },
