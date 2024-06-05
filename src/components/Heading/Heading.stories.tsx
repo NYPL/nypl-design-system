@@ -413,38 +413,38 @@ export const Links: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Heading
-        id="heading-with-link-url"
-        level="h2"
+        id="heading-with-text-url-values"
+        level="h3"
         noSpace
-        text="Heading with URL Props"
+        text="Heading with `url` and `text` props"
         url="http://apple.com"
         urlClass="special-link"
       />
       <Heading
         id="heading-with-link-url"
-        level="h2"
+        level="h3"
         noSpace
         url="http://apple.com"
         urlClass="special-link"
       >
-        Heading with URL Props
+        Heading with `url` prop value
       </Heading>
-      <Heading id="heading-with-anchor" level="h2">
-        <a href="#hello">Link</a>
+      <Heading id="heading-with-anchor" level="h3">
+        <a href="#hello">Link from HTML anchor element</a>
       </Heading>
-      <Heading id="heading-with-DS-link" level="h2">
-        <Link href="#hello">Link</Link>
+      <Heading id="heading-with-DS-link" level="h3">
+        <Link href="#hello">Link using DS `Link` component</Link>
       </Heading>
-      <Heading id="heading-with-link-child" level="h2">
+      <Heading id="heading-with-link-child" level="h3">
         <>
-          Heading with a Word <a href="#hello">Link</a>
+          Loose text heading with a word <a href="#hello">Link</a>
         </>
       </Heading>
-      <Heading id="heading-with-DS-link-child" level="h2">
+      <Heading id="heading-with-DS-link-child" level="h3">
         <>
-          <span>Some text </span>
+          <span>Text wrapped in a span </span>
           <Link href="#hello">Link</Link>
-          <span> more text</span>
+          <span> Not a recommended pattern</span>
         </>
       </Heading>
     </VStack>
