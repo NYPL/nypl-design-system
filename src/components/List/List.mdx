@@ -12,7 +12,7 @@ import { changelogData } from "./listChangelogData";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `3.0.1`    |
+| Latest            | `3.1.4`    |
 
 ## Table of Contents
 
@@ -60,6 +60,10 @@ may still use this name. In the Reservoir Design System, we will use the
 To render a description list, pass in `"dl"` to the `type` prop. The optional
 `title` prop will now render above the description list element. This type of
 list renders `dt` and `dd` elements.
+
+By default, the `"dl"` description list will render row dividers between each
+`dt`/`dd` pair. To remove the row dividers, pass `false` to the
+`showRowDividers` prop.
 
 <Source
   code={`

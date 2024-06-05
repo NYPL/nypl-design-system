@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -10,7 +9,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
   component: List,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
@@ -18,6 +16,7 @@ const meta: Meta<typeof List> = {
     inline: argsBooleanType(),
     listItems: { control: false },
     noStyling: argsBooleanType(),
+    showRowDividers: argsBooleanType(true),
     title: { control: { type: "text" } },
     type: {
       control: { type: "radio" },
@@ -125,6 +124,7 @@ export const WithControls: Story = {
     inline: false,
     listItems: undefined,
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
     type: "ul",
   },
@@ -152,10 +152,12 @@ export const DescriptionList: Story = {
   args: {
     id: "nypl-list2",
     noStyling: false,
+    showRowDividers: true,
     title: "Middle-Earth Peoples",
   },
   argTypes: {
     inline: { control: false },
+    showRowDividers: { control: { type: "boolean" } },
     noStyling: { control: false },
     type: { control: false },
   },

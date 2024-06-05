@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Text, { textSizesArray } from "./Text";
 import { argsBooleanType } from "../../helpers/storybookUtils";
@@ -7,7 +6,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },

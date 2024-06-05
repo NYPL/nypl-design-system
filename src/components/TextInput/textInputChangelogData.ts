@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: ["Updates how aria-describedby is set."],
+  },
+  {
     date: "2024-04-11",
     version: "3.1.0",
     type: "Update",

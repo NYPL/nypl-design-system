@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within } from "@storybook/test";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
@@ -11,7 +10,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
   component: SearchBar,
-  decorators: [withDesign],
   argTypes: {
     action: { control: false },
     ariaLabel: { control: false },

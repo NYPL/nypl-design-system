@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
 import Link from "../Link/Link";
@@ -9,7 +8,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
   component: Heading,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
