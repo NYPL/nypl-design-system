@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
+- Adds refined `NewsletterSignup` component with updated props
 
 ## 3.1.4 (May 23, 2024)
 

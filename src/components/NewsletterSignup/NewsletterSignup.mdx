@@ -9,10 +9,10 @@ import { changelogData } from "./newsletterSignupChangelogData";
 
 # NewsletterSignup
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `2.1.0`    |
-| Prerelease        | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `2.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -24,6 +24,7 @@ import { changelogData } from "./newsletterSignupChangelogData";
 - {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
 - {<Link href="#interactive-example-with-onchange-and-onsubmit" target="_self">Interactive Example with onChange and onSubmit</Link>}
 - {<Link href="#component-states" target="_self">Component States</Link>}
+- {<Link href="#component-color-styles-using-highlight-color" target="_self">Component color styles using Highlight Color</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -202,6 +203,16 @@ function NewsletterSignupOnSubmitExampleComponent() {
 ## Component States
 
 <Canvas of={NewsletterSignupStories.ComponentStates} />
+
+## Component color styles using Highlight Color
+
+The `highlightColor` prop accepts a `string` value of a color defined in the `HighlightColorTypes`.
+`HighlightColorTypes` is a selection of Design System's `NYPL Section Colors` and offers a way to
+integrate the section color of a particular page into the `NewsletterSignup` component.
+
+For example:
+
+<Canvas of={NewsletterSignupStories.HightlightColors} />
 
 ## Changelog
 

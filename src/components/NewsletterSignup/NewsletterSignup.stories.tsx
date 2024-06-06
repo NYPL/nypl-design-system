@@ -41,6 +41,15 @@ const meta: Meta<typeof NewsletterSignup> = {
       control: "select",
       options: highlightColorTypesArray,
       table: {
+        type: {
+          /** Overrides the imported type from the component file */
+          summary: "HighlightColorTypes",
+          /**  Makes the type in the description column
+           a cute dropdown list of all options */
+          detail: `${highlightColorTypesArray
+            .map((color) => `${color}\n`)
+            .join("")}`,
+        },
         defaultValue: {
           summary: "ui.gray.medium",
         },
@@ -331,6 +340,45 @@ export const ComponentStates: Story = {
               .
             </Text>
           }
+        />
+      </Box>
+    </VStack>
+  ),
+};
+
+export const HightlightColors: Story = {
+  render: () => (
+    <VStack align="stretch" spacing="l">
+      <Box>
+        <Heading level="h3" size="heading6">
+          Education
+        </Heading>
+        <NewsletterSignup
+          id="highlight-color-education"
+          view="form"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          title="Education Newsletter"
+          highlightColor="section.education.primary"
+          confirmationHeading={confirmationHeading}
+          errorHeading={errorHeading}
+          descriptionText={descriptionText}
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Research Library Schomburg
+        </Heading>
+        <NewsletterSignup
+          id="highlight-color-schomburg"
+          view="form"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          title="Schomburg Newsletter"
+          highlightColor="section.research-library.schomburg"
+          confirmationHeading={confirmationHeading}
+          errorHeading={errorHeading}
+          descriptionText={descriptionText}
         />
       </Box>
     </VStack>
