@@ -1,6 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs, { breadcrumbTypeArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
@@ -26,7 +25,6 @@ const breadcrumbsLongTextData = [
 const meta: Meta<typeof Breadcrumbs> = {
   title: "Components/Navigation/Breadcrumbs",
   component: Breadcrumbs,
-  decorators: [withDesign],
   argTypes: {
     breadcrumbsData: { control: false },
     breadcrumbsType: {

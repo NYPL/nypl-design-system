@@ -26,7 +26,7 @@ export type ButtonSizes = typeof buttonSizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
 interface ButtonProps {
-  /** The button variation to render based on the `ButtonTypes` type.*/
+  /** The button variation to render based on the `ButtonTypes` type. */
   buttonType?: ButtonTypes;
   /** Additional className to use. */
   className?: string;

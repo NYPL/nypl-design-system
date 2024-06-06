@@ -1,7 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Pagination from "./Pagination";
@@ -12,7 +11,6 @@ const hrefProps = getStorybookHrefProps(10);
 const meta: Meta<typeof Pagination> = {
   title: "Components/Navigation/Pagination",
   component: Pagination,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     currentPage: { control: false },

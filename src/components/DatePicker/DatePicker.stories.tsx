@@ -1,16 +1,14 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import Heading from "../Heading/Heading";
 
 import DatePicker, { datePickerTypesArray } from "./DatePicker";
+import Heading from "../Heading/Heading";
 
 const currentYear = new Date().getFullYear();
 
 const meta: Meta<typeof DatePicker> = {
   title: "Components/Form Elements/DatePicker",
   component: DatePicker,
-  decorators: [withDesign],
   parameters: {
     design: {
       type: "figma",
