@@ -1,6 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import StyledList, { textSizesArray } from "./StyledList";
@@ -8,7 +7,6 @@ import StyledList, { textSizesArray } from "./StyledList";
 const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
   component: StyledList,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },

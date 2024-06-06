@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import HelperErrorText from "./HelperErrorText";
 import Link from "../Link/Link";
@@ -9,7 +8,6 @@ import TextInput from "../TextInput/TextInput";
 const meta: Meta<typeof HelperErrorText> = {
   title: "Components/Content Display/HelperErrorText",
   component: HelperErrorText,
-  decorators: [withDesign],
   argTypes: {
     ariaAtomic: {
       control: false,
