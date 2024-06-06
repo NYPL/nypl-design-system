@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import FeedbackBox, { feedbackBoxViewTypeArray } from "./FeedbackBox";
 import Heading from "../Heading/Heading";
@@ -10,7 +9,6 @@ import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 const meta: Meta<typeof FeedbackBox> = {
   title: "Components/Form Elements/FeedbackBox",
   component: FeedbackBox,
-  decorators: [withDesign],
   parameters: {
     jest: ["FeedbackBox.test.tsx"],
   },

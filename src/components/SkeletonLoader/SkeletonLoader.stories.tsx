@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid from "../Grid/SimpleGrid";
 import SkeletonLoader, {
@@ -10,7 +9,6 @@ import { layoutTypesArray } from "../../helpers/types";
 const meta: Meta<typeof SkeletonLoader> = {
   title: "Components/Feedback/SkeletonLoader",
   component: SkeletonLoader,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     contentSize: { table: { defaultValue: { summary: "3" } } },

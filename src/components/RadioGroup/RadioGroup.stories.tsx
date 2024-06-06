@@ -1,9 +1,8 @@
 import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createRef } from "react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
+import { argsBooleanType } from "../../helpers/storybookUtils";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Form from "../Form/Form";
@@ -15,7 +14,6 @@ import Heading from "../Heading/Heading";
 const meta: Meta<typeof RadioGroup> = {
   title: "Components/Form Elements/RadioGroup",
   component: RadioGroup,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
