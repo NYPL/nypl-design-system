@@ -85,13 +85,13 @@ It’s OK to ask a question in a modal description to confirm if a user wants to
 However, even when a question is used in a modal description, distinct button action labels should be used to show that
 a user has control over what happens next.
 
-### Example text
+### Example text (for a `confirmation` modal)
 
 Modal title: Confirm reservation cancellation
 
 Modal description: Your upcoming reservation will be cancelled.
 
-Action button: [Confirm]
+Action button: [Cancel] [Confirm]
 
 ## Accessibility
 
@@ -184,7 +184,7 @@ create and render your own button.**
 <Source
   code={`
 import { useModal } from "@nypl/design-system-react-components";
-// ...
+// useModal example with default props
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
@@ -248,15 +248,15 @@ the `ESC` button.
 
 Notes:
 
-- The `onConfirm`, `onCancel`, `confirmButtonLabel`, and `type` props are required for this variant.
-- The `onClose` prop should never be passed with `onConfirm` and `onCancel`.
+- The `onConfirm`, `onCancel`, and `confirmButtonLabel` props are required for this variant.
+- The `onClose` modal prop should NOT be passed.
 - When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally.
 - When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`:
   for example, `onCancel: () => { onClose(); }`.
 
 <Source
   code={`
-// Example for the Confirmation variant with ModalTrigger. 
+// ModalTrigger example with confirmation props
   <ModalTrigger
     buttonText="Confirm"
     id="modal-confirmation"
@@ -267,9 +267,11 @@ Notes:
       confirmButtonLabel: "Confirm action",
       onCancel: () => {
         console.log("Custom cancel");
+        // Calls onClose internally.
       },
       onConfirm: () => {
         console.log("Custom confirm");
+        // Calls onClose internally.
       },
       headingText: (
         <Heading
