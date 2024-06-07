@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
+import { userEvent, within, expect } from "@storybook/test";
 import { useState } from "react";
 
 import SearchBar from "./SearchBar";
@@ -114,13 +114,18 @@ export const WithControls: Story = {
     const textInput = within(canvasElement).getByRole("textbox");
     await userEvent.type(textInput, "Hello World");
     await userEvent.clear(textInput);
+    expect(textInput).toHaveValue("");
 
     await userEvent.type(textInput, "Clearing this text");
+    expect(textInput).toHaveValue("Clearing this text");
     const clearButton = within(canvasElement).getAllByRole("button")[0];
     await userEvent.click(clearButton);
+    expect(textInput).toHaveValue("");
 
     const select = within(canvasElement).getByLabelText("Select a category");
-    await userEvent.selectOptions(select, "tools");
+    await userEvent.selectOptions(select, "fossils");
+    expect(select).toHaveValue("fossils");
+    expect(select).not.toHaveValue("songs");
 
     await userEvent.type(textInput, "Hello World");
     await userEvent.keyboard("{Enter}");
