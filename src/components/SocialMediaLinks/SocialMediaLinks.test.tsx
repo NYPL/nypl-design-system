@@ -7,12 +7,12 @@ import SocialMediaLinks, { SocialMediaLinkDataProps } from "./SocialMediaLinks";
 const dataArray: SocialMediaLinkDataProps[] = [
   {
     labelText: "Teachers Blog",
-    type: "blog",
+    type: "fileTypeGenericDoc",
     url: "https://www.nypl.org/blog/all?channel=732",
   },
   {
     labelText: "Teens Instagram",
-    type: "instagram",
+    type: "socialInstagram",
     url: "https://www.instagram.com/nyplteens/?hl=en",
   },
 ];
@@ -109,12 +109,12 @@ describe("SocialMediaLinks", () => {
         linksData={[
           {
             labelText: "Alt Twitter",
-            type: "twitter",
+            type: "socialTwitter",
             url: "https://twitter.com/elsewhere",
           },
           {
             labelText: "NYPL Facebook",
-            type: "facebook",
+            type: "socialFacebook",
             url: "https://facebook.com/nypl",
           },
         ]}

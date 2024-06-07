@@ -72,6 +72,10 @@ const config: StorybookConfig = {
         //   return true;
         // }
 
+        /** This is a bit of a "hack" but it tells Storybook that the prop
+         * is defined in a DS component. If we define it, then display it
+         * in the `ArgTypes` table in a component Storybook document page.
+         */
         return prop.parent ? !/node_modules/.test(prop.parent.fileName) : false;
       },
     },

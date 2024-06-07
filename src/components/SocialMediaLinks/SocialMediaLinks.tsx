@@ -1,7 +1,7 @@
 import { ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
-import Icon, { IconNames, IconSizes } from "../Icons/Icon";
+import Icon, { IconNames as DsIconNames, IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
 import React, { forwardRef } from "react";
 
@@ -14,22 +14,19 @@ export type ColorType = typeof colorTypeArray[number];
 export const sizeTypeArray = ["small", "medium", "large"] as const;
 export type SizeType = typeof sizeTypeArray[number];
 
-const socialMediaIconMap = {
-  blog: "fileTypeGenericDoc",
-  facebook: "socialFacebook",
-  instagram: "socialInstagram",
-  pinterest: "socialPinterest",
-  soundcloud: "socialSoundCloud",
-  tiktok: "socialTikTok",
-  tumblr: "socialTumblr",
-  twitter: "socialTwitter",
-  youtube: "socialYoutube",
-} as const;
-type SocialMediaLinkType = keyof typeof socialMediaIconMap;
+type IconNames =
+  | "fileTypeGenericDoc"
+  | "socialFacebook"
+  | "socialInstagram"
+  | "socialPinterest"
+  | "socialSoundCloud"
+  | "socialTikTok"
+  | "socialTumblr"
+  | "socialTwitter"
+  | "socialYoutube";
 
 // Verify that SocialMediaIconNames is a subset of IconNames
-type SocialMediaIconNames = typeof socialMediaIconMap[SocialMediaLinkType];
-type VerifyIconNames = SocialMediaIconNames extends IconNames ? true : false;
+type VerifyIconNames = IconNames extends DsIconNames ? true : false;
 // TYPE SAFETY: verified will throw an error if a value has been added to socialMediaIconMap that is not a IconName
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const verified: VerifyIconNames = true;
@@ -38,7 +35,7 @@ export interface SocialMediaLinkDataProps {
   /** Required. Label rendered on page is showLabel is true  */
   labelText: string;
   /** Required. Must be one of socialMediaLinkTypeArray */
-  type: SocialMediaLinkType;
+  type: IconNames;
   /** Required. Url to link to the platform */
   url: string;
 }
@@ -113,8 +110,6 @@ export const SocialMediaLinks: ChakraComponent<
           iconSize = "xlarge";
           break;
       }
-      // Set the icon name for the platform type
-      const iconName = socialMediaIconMap[modifiedPlatform.type];
 
       return (
         <Link
@@ -126,7 +121,7 @@ export const SocialMediaLinks: ChakraComponent<
         >
           <div className={"platLink"}>
             <Icon
-              name={iconName}
+              name={modifiedPlatform.type}
               size={iconSize}
               title={modifiedPlatform.labelText}
             />

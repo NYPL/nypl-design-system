@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SocialMediaLinks, {
+  SocialMediaLinkDataProps,
   borderTypeArray,
   colorTypeArray,
   sizeTypeArray,
@@ -10,6 +11,24 @@ import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 import { Source } from "@storybook/blocks";
+
+const exampleLinkData: SocialMediaLinkDataProps[] = [
+  {
+    type: "socialFacebook",
+    labelText: "Facebook",
+    url: "https://facebook.com/nypl",
+  },
+  {
+    type: "socialTwitter",
+    labelText: "Twitter",
+    url: "https://twitter.com/nypl",
+  },
+  {
+    type: "socialInstagram",
+    labelText: "Instagram",
+    url: "https://instagram.com/nypl",
+  },
+];
 
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
@@ -92,23 +111,7 @@ export const WithControls: Story = {
     className: undefined,
     id: undefined,
     layout: "row",
-    linksData: [
-      {
-        type: "facebook",
-        labelText: "Facebook",
-        url: "https://facebook.com/nypl",
-      },
-      {
-        type: "twitter",
-        labelText: "Twitter",
-        url: "https://twitter.com/nypl",
-      },
-      {
-        type: "instagram",
-        labelText: "Instagram",
-        url: "https://instagram.com/nypl",
-      },
-    ],
+    linksData: exampleLinkData,
     showLabels: true,
     size: "small",
   },
@@ -155,26 +158,7 @@ export const LayoutVariations: Story = {
           size="heading6"
           text="Row (Default)"
         />
-        <SocialMediaLinks
-          layout="row"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks layout="row" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks layout="row" />'} />
       </Box>
       <Box>
@@ -184,26 +168,7 @@ export const LayoutVariations: Story = {
           size="heading6"
           text="Column"
         />
-        <SocialMediaLinks
-          layout="column"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks layout="column" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks layout="column" />'} />
       </Box>
     </VStack>
@@ -220,26 +185,7 @@ export const SizeVariations: Story = {
           size="heading6"
           text="Small (Default)"
         />
-        <SocialMediaLinks
-          size="small"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks size="small" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks size="small" />'} />
       </Box>
       <Box>
@@ -249,26 +195,7 @@ export const SizeVariations: Story = {
           size="heading6"
           text="Medium"
         />
-        <SocialMediaLinks
-          size="medium"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks size="medium" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks size="medium" />'} />
       </Box>
       <Box>
@@ -278,26 +205,7 @@ export const SizeVariations: Story = {
           size="heading6"
           text="Large"
         />
-        <SocialMediaLinks
-          size="large"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks size="large" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks size="large" />'} />
       </Box>
     </VStack>
@@ -320,26 +228,7 @@ const ColorVariationsStory = () => {
           size="heading6"
           text="Site Default"
         />
-        <SocialMediaLinks
-          color="textDefault"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks color="textDefault" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks color="textDefault" />'} />
       </Box>
       <Box>
@@ -349,26 +238,7 @@ const ColorVariationsStory = () => {
           size="heading6"
           text="Link"
         />
-        <SocialMediaLinks
-          color="link"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks color="link" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks color="link" />'} />
       </Box>
       <Box>
@@ -379,26 +249,7 @@ const ColorVariationsStory = () => {
           text="textInverse"
         />
         <Box bgColor="dark.ui.bg.page" p="s">
-          <SocialMediaLinks
-            color="textInverse"
-            linksData={[
-              {
-                type: "facebook",
-                labelText: "Facebook",
-                url: "https://facebook.com/nypl",
-              },
-              {
-                type: "twitter",
-                labelText: "Twitter",
-                url: "https://twitter.com/nypl",
-              },
-              {
-                type: "instagram",
-                labelText: "Instagram",
-                url: "https://instagram.com/nypl",
-              },
-            ]}
-          />
+          <SocialMediaLinks color="textInverse" linksData={exampleLinkData} />
         </Box>
         <Text size="caption" mt="s">
           NOTE: background color for textInverse is added for readability in
@@ -424,26 +275,7 @@ export const BorderVariations: Story = {
           size="heading6"
           text="None (Default)"
         />
-        <SocialMediaLinks
-          borders="none"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks borders="none" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks borders="none" />'} />
       </Box>
       <Box>
@@ -453,26 +285,7 @@ export const BorderVariations: Story = {
           size="heading6"
           text="Straight"
         />
-        <SocialMediaLinks
-          borders="straight"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks borders="straight" linksData={exampleLinkData} />
         <Source code={'<SocialMediaLinks borders="straight" />'} />
       </Box>
       <Box>
@@ -482,26 +295,7 @@ export const BorderVariations: Story = {
           size="heading6"
           text="Circular"
         />
-        <SocialMediaLinks
-          borders="circular"
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks borders="circular" linksData={exampleLinkData} />
         <Text size={"caption"} mt="s">
           NOTE: labels are disallowed with circular borders.
         </Text>
@@ -521,50 +315,12 @@ export const LabelVariations: Story = {
           size="heading6"
           text="False (Default)"
         />
-        <SocialMediaLinks
-          showLabels={false}
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks showLabels={false} linksData={exampleLinkData} />
         <Source code="<SocialMediaLinks showLabels={false} />" />
       </Box>
       <Box>
         <Heading id="heading-labels" level="h4" size="heading6" text="True" />
-        <SocialMediaLinks
-          showLabels={true}
-          linksData={[
-            {
-              type: "facebook",
-              labelText: "Facebook",
-              url: "https://facebook.com/nypl",
-            },
-            {
-              type: "twitter",
-              labelText: "Twitter",
-              url: "https://twitter.com/nypl",
-            },
-            {
-              type: "instagram",
-              labelText: "Instagram",
-              url: "https://instagram.com/nypl",
-            },
-          ]}
-        />
+        <SocialMediaLinks showLabels={true} linksData={exampleLinkData} />
         <Source code="<SocialMediaLinks showLabels={true} />" />
       </Box>
     </VStack>

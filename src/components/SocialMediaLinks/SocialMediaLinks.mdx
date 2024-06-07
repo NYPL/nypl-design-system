@@ -41,13 +41,21 @@ and `url`. The `type` property relates to the icon type rendered on page.
 <Source
   code={`
 interface SocialMediaLinkDataProps {
-  type: SocialMediaLinkType;
+  type: IconNames;
   labelText: string;
   url: string;
 }
 
-type SocialMediaLinkType = | "blog" | "facebook" | "instagram" | "pinterest"
-| "soundcloud" | "tiktok" | "tumblr" | "twitter" | "youtube";
+type IconNames =
+| "fileTypeGenericDoc"
+| "socialFacebook"
+| "socialInstagram"
+| "socialPinterest"
+| "socialSoundCloud"
+| "socialTikTok"
+| "socialTumblr"
+| "socialTwitter"
+| "socialYoutube"
 `}
 language="ts"
 />
@@ -57,9 +65,9 @@ For example:
 <Source
   code={`
 const myLinksData = [
-  { type: "twitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
-  { type: "instagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
-  { type: "facebook", labelText: "NYPL Educators", url: "https://www.facebook.com/NYPLEducators"},
+  { type: "socialTwitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
+  { type: "socialInstagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
+  { type: "socialFacebook", labelText: "NYPL Educators", url: "https://www.facebook.com/NYPLEducators"},
 ];
 // ...
 <SocialMediaLinks linksData=myLinksData />
