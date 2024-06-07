@@ -5,7 +5,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
   className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -152,7 +152,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
   className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -270,7 +270,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -385,7 +385,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
   className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -495,7 +495,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
   className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -636,7 +636,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
   className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -782,7 +782,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
   className="chakra-stack css-1f0wxn3"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
@@ -924,7 +924,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
   className="chakra-stack css-8g8ihq"
 >
   <div
-    className="chakra-stack newsletter-signup-appeal css-tl3ftk"
+    className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
