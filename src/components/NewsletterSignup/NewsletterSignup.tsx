@@ -147,7 +147,11 @@ export const NewsletterSignup: ChakraComponent<
           __css={styles}
           {...rest}
         >
-          <VStack __css={styles.pitch} className="newsletter-signup-appeal">
+          <VStack
+            __css={styles.pitch}
+            className="newsletter-signup-appeal"
+            alignItems="flex-start"
+          >
             {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (

@@ -83,7 +83,7 @@ _NOTE: This is applicable for all component props accepting HTML/JSX elements._
 The `title` prop accepts either a `string` or a `Element`. If a `string` is passed
 it will render the `Newsletter`'s heading as an `h2` with the size set to `heading3`.
 If the `h2` does not fit into the page's heading hierarchy or the heading size needs
-to be customized, an `Element` can be passed instead.
+to be customized, a custom `Heading` element can be passed instead.
 
 In the following example, the heading is an `h4` defined as:
 
@@ -210,7 +210,18 @@ The `highlightColor` prop accepts a `string` value of a color defined in the `Hi
 `HighlightColorTypes` is a selection of Design System's `NYPL Section Colors` and offers a way to
 integrate the section color of a particular page into the `NewsletterSignup` component.
 
-For example:
+<Source
+  code={`
+function NewsletterSignupHighlightColorExampleComponent() {
+  return (
+    <NewsletterSignup
+      highlightColor="section.education.primary"
+      {...other Args}
+    />
+  );
+} `}
+  language="jsx"
+/>
 
 <Canvas of={NewsletterSignupStories.HightlightColors} />
 

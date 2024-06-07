@@ -14,7 +14,6 @@ const NewsletterSignup = defineMultiStyleConfig({
     borderWidth: { base: "0px 1px 1px 1px", md: "1px 1px 1px 0px" },
     width: "100%",
     pitch: {
-      alignItems: "flex-start",
       bg: "ui.bg.default",
       borderLeftColor: {
         md: highlightColor,

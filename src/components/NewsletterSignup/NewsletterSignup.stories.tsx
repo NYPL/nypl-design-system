@@ -348,40 +348,17 @@ export const ComponentStates: Story = {
 
 export const HightlightColors: Story = {
   render: () => (
-    <VStack align="stretch" spacing="l">
-      <Box>
-        <Heading level="h3" size="heading6">
-          Education
-        </Heading>
-        <NewsletterSignup
-          id="highlight-color-education"
-          view="form"
-          onChange={() => {}}
-          onSubmit={() => {}}
-          title="Education Newsletter"
-          highlightColor="section.education.primary"
-          confirmationHeading={confirmationHeading}
-          errorHeading={errorHeading}
-          descriptionText={descriptionText}
-        />
-      </Box>
-      <Box>
-        <Heading level="h3" size="heading6">
-          Research Library Schomburg
-        </Heading>
-        <NewsletterSignup
-          id="highlight-color-schomburg"
-          view="form"
-          onChange={() => {}}
-          onSubmit={() => {}}
-          title="Schomburg Newsletter"
-          highlightColor="section.research-library.schomburg"
-          confirmationHeading={confirmationHeading}
-          errorHeading={errorHeading}
-          descriptionText={descriptionText}
-        />
-      </Box>
-    </VStack>
+    <NewsletterSignup
+      id="highlight-color-education"
+      view="form"
+      onChange={() => {}}
+      onSubmit={() => {}}
+      title="Education Newsletter Color"
+      highlightColor="section.education.primary"
+      confirmationHeading={confirmationHeading}
+      errorHeading={errorHeading}
+      descriptionText={descriptionText}
+    />
   ),
 };
 
