@@ -23,8 +23,9 @@ jobs:
       - name: Tag
         id: autotagger
         uses: butlerlogic/action-autotag@stable
-        with:
+        env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
           strategy: package
           tag_prefix: v
 
