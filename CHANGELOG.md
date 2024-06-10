@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`.
+
 ### Updates
 
 - Updates how links are styled within the `Heading` component.
