@@ -260,6 +260,10 @@ cannot be used. Instead, use a `Link` or HTML `anchor` element to wrap the text
 that should be linked. Note that the non-linked text should be passed as a text
 node and not wrapped in span or other elements.
 
+This treatment allows for individual words within the full heading text to be
+set as a link, however, this is not a recommended pattern. While this treatment
+is possible with the `Heading` component, this pattern SHOULD NOT be used.
+
 <Canvas of={HeadingStories.Links} />
 
 ## Changelog

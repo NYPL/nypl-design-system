@@ -429,18 +429,18 @@ export const Links: Story = {
       >
         Heading with `url` prop value
       </Heading>
-      <Heading id="heading-with-anchor" level="h3">
+      <Heading id="heading-with-anchor" level="h3" noSpace>
         <a href="#hello">Link from HTML anchor element</a>
       </Heading>
-      <Heading id="heading-with-DS-link" level="h3">
+      <Heading id="heading-with-DS-link" level="h3" noSpace>
         <Link href="#hello">Link using DS `Link` component</Link>
       </Heading>
-      <Heading id="heading-with-link-child" level="h3">
+      <Heading id="heading-with-link-child" level="h3" noSpace>
         <>
-          Loose text heading with a word <a href="#hello">Link</a>
+          Not acceptable. Do not use. <a href="#hello">Link</a>
         </>
       </Heading>
-      <Heading id="heading-with-DS-link-child" level="h3">
+      <Heading id="heading-with-DS-link-child" level="h3" noSpace>
         <>
           <span>Text wrapped in a span </span>
           <Link href="#hello">Link</Link>
