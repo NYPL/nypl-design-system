@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Logo from "./Logo";
 import Heading from "../Heading/Heading";
@@ -11,7 +10,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
   component: Logo,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },

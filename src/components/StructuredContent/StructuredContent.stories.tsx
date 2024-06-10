@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import StructuredContent from "./StructuredContent";
@@ -9,7 +8,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

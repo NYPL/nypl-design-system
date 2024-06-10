@@ -13,6 +13,13 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
+    affects: ["Styles"],
+    notes: ["Adds interaction tests for the Controls story."],
+  },
+  {
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "Update",
     affects: ["Accessibility"],
     notes: [
       "Updates the internal `TextInput` component's aria-describedby value to include the `SearchBar`'s helper text ID.",
