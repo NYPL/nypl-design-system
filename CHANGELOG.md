@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`.
+
 ## 3.1.5 (June 6, 2024)
 
 ### Adds
