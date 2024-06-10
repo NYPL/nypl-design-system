@@ -21,6 +21,7 @@ import Link from "../Link/Link";
 - {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
 - {<Link href="#best-practices" target="_self">Best Practices</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#using-the-modal-usemodal-vs-modaltrigger" target="_self">Usage</Link>}
 - {<Link href="#modaltrigger" target="_self">ModalTrigger</Link>}
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
@@ -84,13 +85,13 @@ It’s OK to ask a question in a modal description to confirm if a user wants to
 However, even when a question is used in a modal description, distinct button action labels should be used to show that
 a user has control over what happens next.
 
-### Example text
+### Example text (for a `confirmation` modal)
 
 Modal title: Confirm reservation cancellation
 
 Modal description: Your upcoming reservation will be cancelled.
 
-Action buttons: [Cancel] [Confirm]
+Action button: [Cancel] [Confirm]
 
 ## Accessibility
 
@@ -110,6 +111,14 @@ In addition to having a cancel button, users should be able to exit a modal by p
 ### Resources
 
 https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+
+## Using the modal: useModal vs. ModalTrigger
+
+`ModalTrigger` is a component that contains both the "trigger", or the button that opens the modal, and the modal itself. When you use `ModalTrigger`,
+you pass only the modal props and the button text, and the `ModalTrigger` calls the `onClose` and `onOpen` functions internally.
+
+Or, you can call `useModal()`. `useModal()` returns the Modal component, the `onClose` function, and the `onOpen` function, giving you the responsibility to
+pass `onOpen` and `onClose` to your custom open and close functions.
 
 ## ModalTrigger
 
@@ -175,7 +184,7 @@ create and render your own button.**
 <Source
   code={`
 import { useModal } from "@nypl/design-system-react-components";
-// ...
+// useModal example with default props
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
@@ -239,28 +248,30 @@ the `ESC` button.
 
 Notes:
 
-- The `onConfirm`, `onCancel`, `confirmButtonLabel`, and `type` props are required for this variant.
-- The `onClose` prop should never be passed with `onConfirm` and `onCancel`.
+- The `onConfirm`, `onCancel`, and `confirmButtonLabel` props are required for this variant.
+- The `onClose` modal prop should NOT be passed.
 - When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally.
 - When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`:
   for example, `onCancel: () => { onClose(); }`.
 
 <Source
   code={`
-// Example for the Confirmation variant with ModalTrigger. 
+// ModalTrigger example with confirmation props
   <ModalTrigger
     buttonText="Confirm"
     id="modal-confirmation"
     modalProps={{
       type: "confirmation",
       bodyContent: "The action is happening",
-      cancelButtonLabel: "Cancel action",
+      closeButtonLabel: "Cancel action",
       confirmButtonLabel: "Confirm action",
       onCancel: () => {
         console.log("Custom cancel");
+        // Calls onClose internally.
       },
       onConfirm: () => {
         console.log("Custom confirm");
+        // Calls onClose internally.
       },
       headingText: (
         <Heading

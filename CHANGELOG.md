@@ -17,6 +17,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
+- Adds Storybook interaction tests for `Select`.
+- Adds Storybook interaction tests for `RadioGroup`.
 
 ### Updates
 
