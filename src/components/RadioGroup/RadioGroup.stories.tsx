@@ -1,8 +1,8 @@
 import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 import { createRef } from "react";
 
-import { argsBooleanType } from "../../helpers/storybookUtils";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Form from "../Form/Form";
@@ -10,6 +10,7 @@ import Radio from "../Radio/Radio";
 import RadioGroup from "./RadioGroup";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Heading from "../Heading/Heading";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Components/Form Elements/RadioGroup",
@@ -74,6 +75,25 @@ export const Controls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A742",
     },
     jest: ["RadioGroup.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+
+    expect(screen.getByRole("radiogroup")).toBeInTheDocument();
+
+    expect(screen.getByLabelText("Radio 4")).toBeChecked();
+
+    await userEvent.click(screen.getByLabelText("Radio 3"));
+    await userEvent.click(screen.getByLabelText("Radio 2"));
+    await userEvent.click(screen.getByLabelText("Radio 5"));
+    expect(screen.getByLabelText("Radio 5")).toBeChecked();
+
+    await userEvent.keyboard("{arrowdown}");
+    await userEvent.keyboard("{arrowleft}");
+    await userEvent.keyboard("{arrowup}");
+    await userEvent.keyboard("{arrowright}");
+    await userEvent.keyboard("{arrowdown}");
+    expect(screen.getByLabelText("Radio 2")).toBeChecked();
   },
 };
 
