@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds Storybook interaction tests for `Searchbar`.
 
+### Updates
+
+- Updates base font stack to only `system-ui` and `sans-serif`.
+
 ## 3.1.5 (June 6, 2024)
 
 ### Adds
