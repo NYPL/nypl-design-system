@@ -2,11 +2,10 @@ import { axe } from "jest-axe";
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
-
 import FilterBarInline from "./FilterBarInline";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
-import useFilterBar from "../../hooks/useFilterBar";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const multiSelectItems = [
   {
@@ -67,7 +66,7 @@ const FilterBarTestComponent = ({
   onSubmit,
 }: FilterBarTestComponentProps) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   return (
     <FilterBarInline
       id={id}

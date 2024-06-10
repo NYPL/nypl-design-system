@@ -8,7 +8,7 @@ import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import { useState } from "react";
 import { layoutTypesArray } from "../../helpers/types";
-import useFilterBar from "../../hooks/useFilterBar";
+import useMultiSelect from "../../hooks/useMultiSelect";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 import TextInput from "../TextInput/TextInput";
 
@@ -129,7 +129,7 @@ export const MultipleChildren: Story = {
 
 const FilterBarStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   const selectedFilterItems = [selectedItems];
   return (
     <FilterBarInline
@@ -180,7 +180,7 @@ const FilterBarStory = (args) => {
 
 const FilterBarLayoutStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [selectedCheckbox2, setSelectedCheckbox2] = useState([]);
   const selectedFilterItems = [selectedItems];
@@ -837,7 +837,7 @@ const FilterBarLayoutStory = () => {
 
 const FilterBarRowContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   const containerBgColor = useColorModeValue(
     "ui.bg.default",
     "dark.ui.bg.default"
@@ -981,7 +981,7 @@ const FilterBarRowContainerStory = () => {
 
 const FilterBarColumnContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   const selectedFilterItems = [selectedItems];
   return (
     <VStack align="stretch" spacing="l">
@@ -1120,7 +1120,7 @@ const FilterBarColumnContainerStory = () => {
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
-    useFilterBar();
+    useMultiSelect();
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
   const selectedFilterItems = [selectedItems, selectedCheckbox, textValue];

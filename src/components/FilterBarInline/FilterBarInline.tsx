@@ -94,6 +94,7 @@ export const FilterBarInline: ChakraComponent<
             }}
             columnGap="l"
             direction={{ base: "column", md: layout }}
+            rowGap="s"
             spacing="0"
             wrap={{
               base: null,
