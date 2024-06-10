@@ -12,7 +12,7 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-1xwhkhn"
+    className="chakra-stack css-ucbec2"
   >
     <fieldset
       className="css-1xdhyk6"
@@ -1181,7 +1181,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-1xwhkhn"
+    className="chakra-stack css-ucbec2"
   >
     <fieldset
       className="css-1xdhyk6"
@@ -2362,7 +2362,7 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-1xwhkhn"
+    className="chakra-stack css-ucbec2"
   >
     <fieldset
       className="css-1xdhyk6"
@@ -3543,7 +3543,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
     FilterBar
   </h2>
   <div
-    className="chakra-stack css-1xwhkhn"
+    className="chakra-stack css-ucbec2"
   >
     <fieldset
       className="css-1xdhyk6"

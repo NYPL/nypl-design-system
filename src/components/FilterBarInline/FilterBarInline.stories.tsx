@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import FilterBarInline from "./FilterBarInline";
 import MultiSelect from "../MultiSelect/MultiSelect";
@@ -66,7 +65,6 @@ shortMultiSelectItems.pop();
 const meta: Meta<typeof FilterBarInline> = {
   title: "Components/Form Elements/FilterBarInline",
   component: FilterBarInline,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
