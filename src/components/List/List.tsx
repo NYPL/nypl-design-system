@@ -33,6 +33,8 @@ export interface ListProps {
   listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
+  /** Show dividers between rows for the description list variant. */
+  showRowDividers?: boolean;
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in. This title only applies to
    * to Description Lists and will render above the list. */
@@ -64,6 +66,7 @@ export const List: ChakraComponent<
       inline = false,
       listItems,
       noStyling = false,
+      showRowDividers = true,
       title,
       type = "ul",
       ...rest
@@ -71,6 +74,7 @@ export const List: ChakraComponent<
     const styles = useMultiStyleConfig("ReservoirList", {
       inline,
       noStyling,
+      showRowDividers,
       variant: type,
     });
     const finalTitle = useDSHeading({

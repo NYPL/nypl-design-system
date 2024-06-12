@@ -4,6 +4,7 @@ import {
   ChakraComponent,
   Heading as ChakraHeading,
   useMultiStyleConfig,
+  HeadingProps as ChakraHeadingProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -41,7 +42,7 @@ export const headingLevelsArray = [
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
-export interface HeadingProps {
+export interface HeadingProps extends ChakraHeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional ID that other components can cross reference for accessibility

@@ -9,6 +9,8 @@ export interface HorizontalRuleProps {
   align?: "left" | "right";
   /** ClassName you can add in addition to `horizontal-rule` */
   className?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
 }
 
 export const HorizontalRule: ChakraComponent<
@@ -20,7 +22,7 @@ export const HorizontalRule: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement & HTMLHRElement, HorizontalRuleProps>(
     (props, ref?) => {
-      const { align, className, ...rest } = props;
+      const { align, className, id, ...rest } = props;
       const styles = useStyleConfig("HorizontalRule", { align });
 
       const finalStyles = {
@@ -33,6 +35,7 @@ export const HorizontalRule: ChakraComponent<
         <Box
           as="hr"
           className={className}
+          id={id}
           ref={ref}
           __css={finalStyles}
           {...rest}

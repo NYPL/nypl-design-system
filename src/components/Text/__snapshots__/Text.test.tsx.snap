@@ -3,6 +3,7 @@
 exports[`Text renders the UI snapshot correctly 1`] = `
 <p
   className="chakra-text css-1xdhyk6"
+  id="default-text"
 >
   Animal Crossing is all that!
 </p>
@@ -76,6 +77,7 @@ exports[`Text renders the UI snapshot correctly 10`] = `
 <p
   className="chakra-text css-1xdhyk6"
   data-testid="props"
+  id="html-id"
 >
   Animal Crossing is all that!
 </p>
