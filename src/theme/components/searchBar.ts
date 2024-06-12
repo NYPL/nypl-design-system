@@ -6,23 +6,24 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const SearchBar = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     display: "flex",
-    marginBottom: {
-      base: "xs",
-      md: "auto",
+    "@container (min-width: 0px)": {
+      "&": { marginBottom: "xs", flexFlow: "column nowrap" },
+      " > select": { marginBottom: "-1px" },
     },
-    flexFlow: {
-      base: "column nowrap",
-      md: "row nowrap",
+    "@container (min-width: 568px)": {
+      "&": { marginBottom: "auto", flexFlow: "row nowrap" },
+      " > select": {
+        marginBottom: "0",
+        maxWidth: "255px",
+        marginRight: "-1px",
+      },
     },
     ".textInput": {
       flexGrow: "1",
     },
     select: {
       flexShrink: "0",
-      marginBottom: { base: "-1px", md: "0" },
-      maxWidth: { base: undefined, md: "255px" },
       textOverflow: "ellipsis",
-      marginRight: { base: undefined, md: "-1px" },
       _hover: {
         zIndex: "10",
         "+ .chakra-select__icon-wrapper": {

@@ -228,6 +228,7 @@ export const SearchBar: ChakraComponent<
         invalidText={invalidText}
         isInvalid={isInvalid}
         ref={ref}
+        sx={{ containerType: "inline-size" }}
         {...rest}
       >
         <Box
