@@ -3,7 +3,10 @@ import { defineStyle } from "@chakra-ui/system";
 
 const ButtonGroup = defineStyleConfig({
   baseStyle: defineStyle(({ buttonWidth }) => ({
-    width: buttonWidth === "default" ? "fit-content" : "100%",
+    width: {
+      base: "100%",
+      md: buttonWidth === "default" ? "fit-content" : "100%",
+    },
     button: {
       flexGrow: buttonWidth === "default" ? undefined : "1",
     },

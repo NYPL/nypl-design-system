@@ -3,6 +3,7 @@
 //import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 import { defineStyleConfig, StyleFunctionProps } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
+import { defaultElementSizes } from "./global";
 
 function getPadding(size) {
   let paddingSize = "xs"; // 8px / .5rem
@@ -42,76 +43,90 @@ function getColor(color) {
 
 const SocialMediaLinks = defineStyleConfig({
   // The base styles for each part
-  baseStyle: defineStyle({
-    // ul styles should not specifically be identified as ul:
-    display: "flex",
-    alignItems: "flex-start",
-    gap: "s", // 1rem / 16px
-    width: { base: "100%", md: "unset" },
-    marginBottom: "unset",
-    li: {
-      marginInlineEnd: "0",
-      marginTop: "0",
-      width: { base: "100%", md: "unset" },
-      _notFirst: {
-        marginTop: "0",
-      },
-    },
-    a: {
+  baseStyle: defineStyle((props: StyleFunctionProps) => {
+    const { labelsOn, layout } = props;
+    return {
+      // ul styles should not specifically be identified as ul:
       display: "flex",
-      justifyContent: "center",
-      alignContent: "center",
+      alignItems: "flex-start",
+      flexDirection: { base: labelsOn ? "column" : "row", md: layout },
+      justifyContent: { base: "center", md: "unset" },
       flexWrap: "wrap",
-      minWidth: { base: "44px", md: "unset" },
-      minHeight: { base: "44px", md: "unset" },
-      fontStyle: "normal",
-      fontSize: "desktop.body.body2",
-      textDecoration: "none",
-      color: "ui.typography.heading",
-      _hover: {
-        color: "ui.typography.heading",
-        textDecoration: "underline 1px dotted",
+      gap: { base: "0", md: "s" },
+      marginBottom: "unset",
+      li: {
+        marginInlineEnd: "0",
+        marginTop: "0",
+        width: { base: labelsOn ? "100%" : "unset", md: "unset" },
+        _notFirst: {
+          marginTop: "0",
+        },
       },
-      _visited: {
+      a: {
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        flexWrap: "wrap",
+        minWidth: { base: defaultElementSizes.mobileFieldHeight, md: "unset" },
+        minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "unset" },
+        fontStyle: "normal",
+        fontSize: "desktop.body.body2",
+        textDecoration: "none",
         color: "ui.typography.heading",
-      },
-      _dark: {
-        color: "dark.ui.typography.heading",
         _hover: {
-          color: "dark.ui.typography.heading",
+          color: "ui.typography.heading",
+          textDecoration: "underline 1px dotted",
         },
         _visited: {
+          color: "ui.typography.heading",
+        },
+        _dark: {
           color: "dark.ui.typography.heading",
+          _hover: {
+            color: "dark.ui.typography.heading",
+          },
+          _visited: {
+            color: "dark.ui.typography.heading",
+          },
         },
       },
-    },
-    div: {
-      display: "flex",
-      alignItems: "center",
-      gap: "xs", // .5rem / 8px
-      alignSelf: "stretch",
-      justifyContent: "center",
-      width: "fit-content",
-      height: "fit-content",
-    },
-    svg: {
-      fill: "ui.typography.heading",
-      _dark: {
-        fill: "dark.ui.typography.heading",
+      div: {
+        display: "flex",
+        alignItems: "center",
+        gap: "xs", // .5rem / 8px
+        alignSelf: "stretch",
+        justifyContent: "center",
+        width: "fit-content",
+        height: "fit-content",
       },
-    },
+      svg: {
+        fill: "ui.typography.heading",
+        _dark: {
+          fill: "dark.ui.typography.heading",
+        },
+      },
+    };
   }),
   // The variants are based on border values
   variants: {
     // Each variant is a function that returns an object with styles for that variant.
     straight(props: StyleFunctionProps) {
-      const { color, layout } = props;
+      const { color, labelsOn } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: { base: "column", md: layout },
         gap: "xs", // Borders require the gap to reduce from 1rem to .5rem / 8px.
         a: {
           color: theseColors.ltColor,
+          ".platLink": {
+            minHeight: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+            minWidth: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+          },
           _hover: {
             color: theseColors.ltColor,
           },
@@ -135,6 +150,7 @@ const SocialMediaLinks = defineStyleConfig({
           borderWidth: "1px",
           borderStyle: "solid",
           borderColor: theseColors.ltColor,
+          width: labelsOn ? "100%" : "unset",
           _dark: {
             borderColor: theseColors.dkColor,
           },
@@ -149,13 +165,22 @@ const SocialMediaLinks = defineStyleConfig({
       };
     },
     circular(props: StyleFunctionProps) {
-      const { color, size, layout } = props;
+      const { color, size } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: { base: "column", md: layout },
         gap: "xs",
         a: {
           color: theseColors.ltColor,
+          ".platLink": {
+            minHeight: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+            minWidth: {
+              base: defaultElementSizes.mobileFieldHeight,
+              md: "0",
+            },
+          },
           _hover: {
             color: theseColors.ltColor,
           },
@@ -192,10 +217,9 @@ const SocialMediaLinks = defineStyleConfig({
     },
     // Variant 3
     none(props: StyleFunctionProps) {
-      const { color, layout } = props;
+      const { color } = props;
       let theseColors = getColor(color);
       return {
-        flexDirection: { base: "column", md: layout },
         a: {
           color: theseColors.ltColor,
           _hover: {

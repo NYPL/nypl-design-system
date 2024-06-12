@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 import { useState } from "react";
 
 import Button from "../Button/Button";
@@ -10,9 +9,8 @@ import { TagSetFilterDataProps } from "./TagSetFilter";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof TagSet> = {
-  title: "Components/Form Elements/TagSet",
+  title: "Components/Content Display/TagSet",
   component: TagSet,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

@@ -10,10 +10,10 @@ import Link from "../Link/Link";
 
 # Modal
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.1.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `3.1.3`    |
 
 ## Table of Contents
 
@@ -21,10 +21,12 @@ import Link from "../Link/Link";
 - {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
 - {<Link href="#best-practices" target="_self">Best Practices</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#using-the-modal-usemodal-vs-modaltrigger" target="_self">Usage</Link>}
 - {<Link href="#modaltrigger" target="_self">ModalTrigger</Link>}
 - {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
 - {<Link href="#usemodal" target="_self">useModal</Link>}
 - {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
+- {<Link href="#confirmation-variant" target="_self">Confirmation Modal Variant</Link>}
 - {<Link href="#default-heading-text" target="_self">Default Heading Text</Link>}
 - {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
 - {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
@@ -83,13 +85,13 @@ It’s OK to ask a question in a modal description to confirm if a user wants to
 However, even when a question is used in a modal description, distinct button action labels should be used to show that
 a user has control over what happens next.
 
-### Example text
+### Example text (for a `confirmation` modal)
 
 Modal title: Confirm reservation cancellation
 
 Modal description: Your upcoming reservation will be cancelled.
 
-Action buttons: [Cancel] [Confirm]
+Action button: [Cancel] [Confirm]
 
 ## Accessibility
 
@@ -110,6 +112,14 @@ In addition to having a cancel button, users should be able to exit a modal by p
 
 https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
 
+## Using the modal: useModal vs. ModalTrigger
+
+`ModalTrigger` is a component that contains both the "trigger", or the button that opens the modal, and the modal itself. When you use `ModalTrigger`,
+you pass only the modal props and the button text, and the `ModalTrigger` calls the `onClose` and `onOpen` functions internally.
+
+Or, you can call `useModal()`. `useModal()` returns the Modal component, the `onClose` function, and the `onOpen` function, giving you the responsibility to
+pass `onOpen` and `onClose` to your custom open and close functions.
+
 ## ModalTrigger
 
 <Description of={ModalTrigger} />
@@ -124,6 +134,7 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
+    type: "default",
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
     headingText: (
@@ -173,10 +184,11 @@ create and render your own button.**
 <Source
   code={`
 import { useModal } from "@nypl/design-system-react-components";
-// ...
+// useModal example with default props
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
+    type: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -220,13 +232,80 @@ export const ModalStory = (args) => {
 ## useModal Component Props
 
 <Canvas of={ModalStories.useModalStory} />
+<Canvas of={ModalStories.ConfirmationUseModal} />
 
 <ArgTypes of={ModalStories.useModalStory} />
 
+## Confirmation Variant
+
+The "confirmation" `Modal` variant is used when the modal can confirm or revoke the modal's content. Accordingly, there are two buttons
+in the footer instead of the one in the default modal. Each button has its own custom function (`onCancel`, `onConfirm`) that will close the modal.
+Additionally, the `onCancel` function will be called when using
+any of the other available methods for closing the modal,
+including clicking the "X" close button in the upper right corner
+of the modal, clicking anywhere outside the modal UI, or using
+the `ESC` button.
+
+Notes:
+
+- The `onConfirm`, `onCancel`, and `confirmButtonLabel` props are required for this variant.
+- The `onClose` modal prop should NOT be passed.
+- When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally.
+- When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`:
+  for example, `onCancel: () => { onClose(); }`.
+
+<Source
+  code={`
+// ModalTrigger example with confirmation props
+  <ModalTrigger
+    buttonText="Confirm"
+    id="modal-confirmation"
+    modalProps={{
+      type: "confirmation",
+      bodyContent: "The action is happening",
+      closeButtonLabel: "Cancel action",
+      confirmButtonLabel: "Confirm action",
+      onCancel: () => {
+        console.log("Custom cancel");
+        // Calls onClose internally.
+      },
+      onConfirm: () => {
+        console.log("Custom confirm");
+        // Calls onClose internally.
+      },
+      headingText: (
+        <Heading
+          level="h3"
+          display="flex"
+          alignItems="center"
+          gap="xs"
+          size="heading5"
+        >
+          <>
+            <Icon
+              color="ui.success.primary"
+              name="actionCheckCircleFilled"
+              size="large"
+            />
+            This is an action
+          </>
+        </Heading>
+      ),
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+See console for "Cancel"/"Confirm" messages from their respective buttons.
+
+<Canvas of={ModalStories.ConfirmationVariant} />
+
 ## Default Heading Text
 
-By default, the `Modal` component will render a DS level `h2` and size `h4` `Heading` component when
-a string is passed to the `headingText` prop.
+By default, the `Modal` component will render a DS level `h2` and size
+`heading4` `Heading` component when a string is passed to the `headingText`
+prop.
 
 <Canvas of={ModalStories.DefaultHeading} />
 
@@ -244,6 +323,7 @@ additional icon.
   code={`
 // Example for the ModalTrigger component.
 modalProps={{
+  type: "default",
   bodyContent: "body text",
   closeButtonLabel: "Close Button",
   headingText: (
@@ -280,3 +360,4 @@ example below with a lot of content inside the `Modal`.
 ## Changelog
 
 <ComponentChangelogTable changelogData={changelogData} />
+```

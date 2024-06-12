@@ -1,19 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
+
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 import SimpleGrid from "../Grid/SimpleGrid";
-
 import FeaturedContent, {
   featuredContentWidthArray,
   featuredContentPositionArray,
 } from "./FeaturedContent";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
@@ -56,7 +55,7 @@ export const WithControls: Story = {
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
-    "imageProps.src": "//placekitten.com/600/600",
+    "imageProps.src": getPlaceholderImage(),
     "imageProps.width": "default",
     isFullWidth: undefined,
     textContent: undefined,
@@ -125,7 +124,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
         }}
       />
       <FeaturedContent
@@ -148,7 +147,7 @@ export const LayoutVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: "https://iiif.nypl.org/iiif/2/5131004/full/!900,900/0/default.jpg",
         }}
       />
     </SimpleGrid>
@@ -176,7 +175,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "start",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -197,7 +196,7 @@ export const ImagePositionVariations: Story = {
           alt: "Alt text",
           width: "default",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>
@@ -225,7 +224,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneQuarter",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -246,7 +245,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneThird",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -267,7 +266,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -288,7 +287,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "twoThirds",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -309,7 +308,7 @@ export const imageWidthVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>
@@ -336,7 +335,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "threeQuarters",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
       <FeaturedContent
@@ -355,7 +354,7 @@ export const textContentVariations: Story = {
           alt: "Alt text",
           width: "oneHalf",
           position: "end",
-          src: "//placekitten.com/600/600",
+          src: getPlaceholderImage(),
         }}
       />
     </SimpleGrid>

@@ -4,12 +4,11 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   addons: [
-    "storybook-addon-designs",
     "@storybook/addon-a11y",
+    "@storybook/addon-designs",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    // TODO: for future interaction tests
-    // "@storybook/addon-interactions",
+    "@storybook/addon-interactions",
     {
       name: "@storybook/addon-docs",
       options: {
@@ -52,6 +51,7 @@ const config: StorybookConfig = {
     // Type-check stories during Storybook build.
     check: true,
     // Display the compiled value options.
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       // Do we want to display Chakra props in Storybook? Nope.
       // They are useful but it clutters the Storybook file and the Chakra
@@ -70,6 +70,7 @@ const config: StorybookConfig = {
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
       // Customize the Vite config here:
+      assetsInclude: ["/sb-preview/runtime.js"],
       resolve: {
         alias: {
           // This is to get @storybook/addon-jest working:
@@ -78,10 +79,6 @@ const config: StorybookConfig = {
       },
     });
   },
-
-  // docs: {
-  //   autodocs: true,
-  // },
 };
 
 export default config;

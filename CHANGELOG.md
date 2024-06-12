@@ -10,13 +10,126 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `"editorMode"` option (pencil) to the `Icon` component.
-- Updates the `ul` bullet color in the `List` component.
-- Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
+- Adds Storybook interaction tests for `Searchbar`.
 
 ### Updates
 
-- Updates default heading size to `heading4` on Modal component.
+- Updates how links are styled within the `Heading` component.
+
+## 3.1.5 (June 6, 2024)
+
+### Adds
+
+- Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
+- Adds Storybook interaction tests for `Select`.
+- Adds Storybook interaction tests for `RadioGroup`.
+
+### Updates
+
+- Updates the following packages:
+  - Storybook main package and related libraries to `8.0.8`.
+  - `remark-gfm` to `4.0.0`.
+  - `vite` to `5.2.8`, `@vitejs/plugin-react` to `4.2.1`, and `vite-plugin-svgr` to `4.2.0`.
+- Updates how SVGs are imported into `LogoSvgs.tsx` and `IconSvgs.tsx`.
+- Updates Storybook internal link and heading styles and enables the hash heading URL linking.
+
+### Removals
+
+- Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+
+### Updates
+
+- Exports `useMediaQuery` and `chakra` from Chakra UI.
+- Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+
+## 3.1.4 (May 23, 2024)
+
+### Adds
+
+- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Fixes
+
+- Fixes the z-index issue in the `MultiSelect` component's selected item button.
+- Fixes the `Checkbox` positioning so it is visible when it is focused in a scrollable container.
+- Fixes a `Breadcrumbs` snapshot test that was duplicated and now has the appropriate `"locations"` variant.
+
+## 3.1.3 (May 15, 2024)
+
+### Adds
+
+- Adds new `type` prop to the `Modal` component with `"default"` and `"confirmation"` variants.
+
+### Fixes
+
+- Fixes the desktop styling flicker in the `ButtonGroup` component.
+
+## 3.1.2 (May 9, 2024)
+
+### Adds
+
+- Adds the `id` prop to the `Hero`, `HorizontalRule`, `SkeletonLoader`, `TemplateAppContainer`, and `Text` components.
+- Adds the `id` property to the `imageProps` prop object in the `Card` component.
+
+### Updates
+
+- Updates the `Heading` component to allow more HTML attributes as props.
+
+### Fixes
+
+- Fixes an issue with the `Table` component where it rendered the headings twice until the component loaded and applied the desktop styles. This was done by adding inline responsive styles and removing the use of the `useWindowSize` hook.
+
+## 3.1.1 (April 25, 2024)
+
+### Adds
+
+- Adds docs for `"Visited State Patterns"` to the `Link` component story page.
+- Adds the `ui.warning.tertiary` color token in order to have a light mode `"warning"` color option that meets the WCAG 2.1 AA color contrast standard.
+- Adds `fallbackSrc` and `onError` props to the `Image` component.
+- Adds the `fallbackSrc` and `onError` properties to the `imageProps` prop for the `Hero` component.
+- Adds the `isDarkText` prop to the `Hero` component.
+
+### Updates
+
+- Updates the placeholder value for the search field within the `MultiSelect` component.
+- Updates the background colors for the `"noBrand"` variant of the `Button` component.
+- Updates the hex values for the `ui.warning.primary` and `ui.warning.secondary` color tokens.
+- Updates the `Banner` and `StatusBadge` components to use the `ui.warning.tertiary` color for bertter accessibility in the `"warning"` variant.
+- Updates the styles for the UI colors, text treatment and `Clear all` button in the `TagSet` component.
+- Updates the component category for the `TagSet` component to `"Content Display"`.
+- Updates placeholder images on story pages and tests to use the `getPlaceholderImage` utility function which provides NYPL images.
+
+### Fixes
+
+- Adds workaround to `Hero` and `FeaturedContent` to fix Chakra bug that causes certain image URLs to not render through the `background-image` CSS property.
+
+## 3.1.0 (April 11, 2024)
+
+### Adds
+
+- Adds the `"actionLightbulb"` option to the `Icon` component.
+- Adds the `Banner` component.
+- Adds the `MultiSelectGroup` v2 component.
+
+### Updates
+
+- Updates the `DatePicker`, `Select`, `Slider`, and `TextInput` components to reduce the spacing between the field label and the field itself from `"8px"` to `"2px"`.
+- Updates the `Hero` component with conditional logic to handle how the `foregroundColor` and `isDarkText` props are used.
+
+## 3.0.1 (March 28, 2024)
+
+### Adds
+
+- Adds the `"editorMode"` option (pencil) to the `Icon` component.
+- Updates the `ul` bullet color in the `List` component.
+- Adds the `Errors` page to the `Accessibility Guide` section of Storybook.
+- Adds the `@storyook/addon-interactions` addon to Storybook and `@storybook/test` for writing interaction tests.
+
+### Updates
+
+- Updates default heading size to `heading4` on `Modal` component.
+- Updates mobile styles for the `SocialMediaLinks` component
 
 ## 3.0.0 (March 14, 2024) React 18 / Chakra 2.8
 

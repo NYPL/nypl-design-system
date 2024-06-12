@@ -234,7 +234,7 @@ export const cssVars = {
     },
     {
       colorSource: "brand.secondary",
-      name: "section.research-library.schwartzman",
+      name: "section.research-library.schwarzman",
       dataBlackColor: colorContrastData.brand.secondary.dataBlackColor,
       dataWhiteColor: colorContrastData.brand.secondary.dataWhiteColor,
       textColor: colorContrastData.brand.secondary.textColor,
@@ -469,18 +469,28 @@ export const cssVars = {
     },
     {
       name: "ui.warning.primary",
-      dataBlackColor: checkContrast(9.24),
-      dataWhiteColor: checkContrast(2.27),
-      dataBgPageColor: checkContrast(2.27),
-      dataBgDefaultColor: checkContrast(2.08),
+      dataBlackColor: checkContrast(8.53),
+      dataWhiteColor: checkContrast(2.46),
+      dataBgPageColor: checkContrast(2.46),
+      dataBgDefaultColor: checkContrast(2.26),
       textColor: "ui.black",
     },
     {
       name: "ui.warning.secondary",
-      dataBlackColor: checkContrast(7.42),
-      dataWhiteColor: checkContrast(2.83),
-      dataBgPageColor: checkContrast(2.83),
-      dataBgDefaultColor: checkContrast(2.6),
+      dataBlackColor: checkContrast(6.47),
+      dataWhiteColor: checkContrast(3.25),
+      dataBgPageColor: checkContrast(3.25),
+      dataBgDefaultColor: checkContrast(2.98),
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.warning.tertiary",
+      dataBlackColor: checkContrast(4.56),
+      dataWhiteColor: checkContrast(4.51),
+      dataBgPageColor: checkContrast(4.51),
+      dataBgDefaultColor: checkContrast(4.13),
+      notes:
+        'This is the only "warning" light mode color variant that meets WCAG 2.1 contrast standards. Because of that, this is the only "warning" light mode color variant that can be used for text',
       textColor: "ui.black",
     },
   ],
@@ -842,6 +852,7 @@ export const makeColorCard = function (data) {
     dataHeadingColor,
     dataBodyColor,
     name,
+    notes,
     textColor,
   } = data;
   const card = (
@@ -859,6 +870,7 @@ export const makeColorCard = function (data) {
       dataDarkBodyColor={dataBodyColor}
       dataBrandPrimaryColor={dataBrandPrimaryColor}
       dataBrandSecondaryColor={dataBrandSecondaryColor}
+      notes={notes}
       textColor={textColor}
       key={name}
     />
@@ -953,6 +965,8 @@ export interface ColorCardProps extends DataTableProps {
   colorName: string;
   /** The name of the color that the current color is based on. */
   colorSource: string;
+  /** Details on how a color should be used. */
+  notes?: string;
 }
 
 export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
@@ -1272,6 +1286,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
     dataWhiteColor = ["--", "--", "--"],
     dataBrandPrimaryColor,
     dataBrandSecondaryColor,
+    notes,
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -1309,7 +1324,8 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
             m="0"
             color={textColor}
           >
-            {"CSS: var(" + cssVarName + ")"}
+            <span style={{ fontWeight: "bold" }}>CSS:</span>{" "}
+            {`var(${cssVarName})`}
           </Text>
           {colorSource && (
             <Text
@@ -1320,7 +1336,18 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               noSpace
               size="tag"
             >
-              Source: {colorSource}
+              <span style={{ fontWeight: "bold" }}>Source:</span> {colorSource}
+            </Text>
+          )}
+          {notes && (
+            <Text
+              color={textColor}
+              fontWeight="medium"
+              lineHeight="20px"
+              noSpace
+              size="tag"
+            >
+              <span style={{ fontWeight: "bold" }}>Notes:</span> {notes}
             </Text>
           )}
         </Box>

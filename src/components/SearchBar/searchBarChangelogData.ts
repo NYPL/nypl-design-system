@@ -10,18 +10,27 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Adds interaction tests for the Controls story."],
+  },
+  {
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Updates the internal `TextInput` component's aria-describedby value to include the `SearchBar`'s helper text ID.",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",
     affects: ["Styles"],
     notes: ["Chakra 2.8 update."],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [],
   },
   {
     date: "2023-12-07",

@@ -23,6 +23,8 @@ export type TextSizes = typeof textSizesArray[number];
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
   className?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
@@ -52,6 +54,7 @@ export const Text: ChakraComponent<
       const {
         children,
         className = "",
+        id,
         isBold,
         isItalic,
         isCapitalized,
@@ -128,6 +131,7 @@ export const Text: ChakraComponent<
       return (
         <ChakraText
           className={className}
+          id={id}
           ref={ref}
           role={role}
           sx={styles}

@@ -1,14 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import StructuredContent from "./StructuredContent";
+import { getPlaceholderImage } from "../../utils/utils";
 
 const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
@@ -75,7 +74,7 @@ export const Controls: Story = {
     "imageProps.credit": "Image credit",
     "imageProps.position": "left",
     "imageProps.size": "medium",
-    "imageProps.src": "//placekitten.com/400/300",
+    "imageProps.src": getPlaceholderImage(),
   },
   render: (args) => (
     <StructuredContent
@@ -119,7 +118,7 @@ export const WithHTMLStringTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: getPlaceholderImage("smaller"),
       }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -165,7 +164,7 @@ export const WithHTMLElementTextContent: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: getPlaceholderImage("smaller"),
       }}
       bodyContent={
         <>
@@ -345,7 +344,7 @@ export const WithCustomHeadingsLevels: Story = {
         credit: "Image credit",
         position: "left",
         size: "medium",
-        src: "//placekitten.com/400/300",
+        src: getPlaceholderImage("smaller"),
       }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -368,7 +367,7 @@ export const ExampleWithTwoComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: getPlaceholderImage("smaller"),
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -432,7 +431,7 @@ export const ExampleWithThreeComponents: Story = {
           credit: "Image credit",
           position: "left",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: getPlaceholderImage("smaller"),
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
@@ -501,7 +500,7 @@ export const ExampleWithMixedContent: Story = {
           aspectRatio: "original",
           position: "center",
           size: "medium",
-          src: "//placekitten.com/400/300",
+          src: getPlaceholderImage(),
         }}
         bodyContent={
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +

@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button, {
   buttonElementTypeArray,
@@ -15,7 +14,6 @@ import Table from "../Table/Table";
 const meta: Meta<typeof Button> = {
   title: "Components/Form Elements/Button",
   component: Button,
-  decorators: [withDesign],
   argTypes: {
     buttonText: {
       description: "**Only used for Storybook – ** Set the button label text.",

@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within, expect } from "@storybook/test";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
   component: SearchBar,
-  decorators: [withDesign],
   argTypes: {
     action: { control: false },
     ariaLabel: { control: false },
@@ -83,6 +82,10 @@ export const WithControls: Story = {
     return (
       <SearchBar
         {...rest}
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("Submitted!");
+        }}
         selectProps={
           showSelect && {
             labelText: "Select a category",
@@ -91,6 +94,7 @@ export const WithControls: Story = {
           }
         }
         textInputProps={{
+          isClearable: true,
           labelText: "Item Search",
           name: "textInputName",
           placeholder: "Item Search",
@@ -105,6 +109,29 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
     jest: ["SearchBar.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+    await userEvent.type(textInput, "Hello World");
+    await userEvent.clear(textInput);
+    expect(textInput).toHaveValue("");
+
+    await userEvent.type(textInput, "Clearing this text");
+    expect(textInput).toHaveValue("Clearing this text");
+    const clearButton = within(canvasElement).getAllByRole("button")[0];
+    await userEvent.click(clearButton);
+    expect(textInput).toHaveValue("");
+
+    const select = within(canvasElement).getByLabelText("Select a category");
+    await userEvent.selectOptions(select, "fossils");
+    expect(select).toHaveValue("fossils");
+    expect(select).not.toHaveValue("songs");
+
+    await userEvent.type(textInput, "Hello World");
+    await userEvent.keyboard("{Enter}");
+
+    const searchButton = within(canvasElement).getAllByRole("button")[1];
+    await userEvent.click(searchButton);
   },
 };
 

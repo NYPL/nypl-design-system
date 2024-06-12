@@ -19,6 +19,11 @@ const MultiSelectItemsCountButton = defineStyleConfig({
     width: "46px",
     zIndex: 10000,
     py: "xxxs",
+    _focus: {
+      // Give the count button a higher index so it can be
+      // activated when it is focused.
+      zIndex: "10001 !important",
+    },
     _hover: {
       borderColor: isOpen ? "ui.gray.xx-dark" : "ui.border.hover",
     },

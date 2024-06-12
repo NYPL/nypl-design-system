@@ -20,6 +20,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="basic-helperText"
           aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"
@@ -234,6 +235,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="withSelect-helperText"
           aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"
@@ -408,6 +410,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="withClearButton-helperText"
           aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"
@@ -1020,6 +1023,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="chakra-helperText"
           aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"
@@ -1116,6 +1120,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         className="css-79elbk"
       >
         <input
+          aria-describedby="props-helperText"
           aria-label="Item Search"
           autoComplete={null}
           className="chakra-input css-0"

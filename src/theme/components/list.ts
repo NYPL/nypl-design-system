@@ -30,25 +30,25 @@ export const baseListStyles = (props: ListBaseStyle = {}) => ({
   },
 });
 
-const baseHeadingStyles = {
-  borderTop: "3px solid",
+const baseHeadingStyles = (showRowDividers = true) => ({
+  borderTop: showRowDividers ? "3px solid" : "none",
   borderColor: "ui.border.default",
   margin: "0",
   padding: "var(--nypl-space-xs) 0 0",
   _dark: {
     borderColor: "dark.ui.border.default",
   },
-};
+});
 
-export const baseSectionDescriptionStyles = {
-  borderBottom: "1px solid",
+export const baseSectionDescriptionStyles = (showRowDividers = true) => ({
+  borderBottom: showRowDividers ? "1px solid" : "none",
   borderColor: "ui.border.default",
   paddingStart: "0",
-  h2: baseHeadingStyles,
+  h2: baseHeadingStyles(showRowDividers),
   _dark: {
     borderColor: "dark.ui.border.default",
   },
-};
+});
 // For specific component variants
 export const unorderedStyles = (props: ListBaseStyle = {}) => ({
   ...textMargin,
@@ -74,8 +74,8 @@ export const unorderedStyles = (props: ListBaseStyle = {}) => ({
   },
 });
 
-export const descriptionStyles = {
-  ...baseSectionDescriptionStyles,
+export const descriptionStyles = (showRowDividers = true) => ({
+  ...baseSectionDescriptionStyles(showRowDividers),
   dl: {
     display: "grid",
     gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
@@ -83,7 +83,7 @@ export const descriptionStyles = {
     margin: "var(--nypl-space-xs) 0 0",
   },
   dt: {
-    borderTop: "1px solid",
+    borderTop: showRowDividers ? "1px solid" : "none",
     borderColor: "ui.border.default",
     color: "ui.typography.heading",
     fontWeight: "label.default",
@@ -98,19 +98,19 @@ export const descriptionStyles = {
   dd: {
     margin: "0",
     paddingBottom: "s",
-    borderTop: { base: "none", md: "1px solid" },
+    borderTop: { base: "none", md: showRowDividers ? "1px solid" : "none" },
     borderColor: { md: "ui.border.default" },
     paddingTop: { md: "s" },
     _dark: {
       borderColor: { md: "dark.ui.border.default" },
     },
   },
-};
+});
 
 const List = defineMultiStyleConfig({
   baseStyle: definePartsStyle(({ inline, noStyling }: ListBaseStyle) => ({
     base: baseListStyles({ inline, noStyling }),
-    heading: baseHeadingStyles,
+    heading: baseHeadingStyles(),
   })),
   variants: {
     ul: definePartsStyle((props) => ({
@@ -119,9 +119,10 @@ const List = defineMultiStyleConfig({
     ol: definePartsStyle({
       base: textMargin,
     }),
-    dl: definePartsStyle({
-      base: descriptionStyles,
-    }),
+    dl: ({ showRowDividers }) =>
+      definePartsStyle({
+        base: descriptionStyles(showRowDividers),
+      }),
   },
 });
 

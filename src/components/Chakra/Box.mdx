@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
@@ -24,11 +24,12 @@ guide on the Chakra UI site.
 In the following example, the padding, background color, and text color are
 updated with the `p`, `bg`, and `color` props respectively.
 
-<Canvas>
-  <Box p="s" bg="brand.primary" color="ui.white">
-    This text is inside a `Box` component.
-  </Box>
-</Canvas>
+{
+
+<Box p="s" mb="s" bg="brand.primary" color="ui.white">
+  This text is inside a `Box` component.
+</Box>
+}
 
 ## With VideoPlayer Component Example
 
@@ -36,12 +37,13 @@ In this example, the props added to the `Box` component are `borderWidth`,
 `padding`, `borderRadius`, and `overflow` to create a wrapper around the
 `VideoPlayer` component.
 
-<Canvas>
-  <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
-    <VideoPlayer
-      videoId="nm-dD2tx6bk"
-      videoType="youtube"
-      aspectRatio="sixteenByNine"
-    />
-  </Box>
-</Canvas>
+{
+
+<Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
+  <VideoPlayer
+    videoId="nm-dD2tx6bk"
+    videoType="youtube"
+    aspectRatio="sixteenByNine"
+  />
+</Box>
+}

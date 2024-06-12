@@ -40,6 +40,15 @@ describe("Heading", () => {
     expect(screen.getByText("Heading 2")).toBeInTheDocument();
   });
 
+  it("allows HTML heading attributes as props", () => {
+    render(
+      <Heading id="h1" tabIndex={0}>
+        Heading 2
+      </Heading>
+    );
+    expect(screen.getByRole("heading")).toHaveAttribute("tabindex", "0");
+  });
+
   it("renders the default level two if no `level` prop is passed", () => {
     render(<Heading id="h2">Heading 2</Heading>);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();

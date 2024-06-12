@@ -10,8 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "3.0.0",
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "New Feature",
+    affects: ["Styles"],
+    notes: [
+      "Adds `showRowDividers` prop to show/hide dividers between rows only for the description list variant.",
+    ],
+  },
+  {
+    date: "2024-03-28",
+    version: "3.0.1",
     type: "Update",
     affects: ["Styles", "Accessibility"],
     notes: ["List <ul> bullet color updated."],
