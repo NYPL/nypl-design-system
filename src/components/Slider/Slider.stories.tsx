@@ -1,7 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import Form, { FormRow, FormField } from "../Form/Form";
@@ -13,7 +12,6 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Slider> = {
   title: "Components/Form Elements/Slider",
   component: Slider,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     defaultValue: {

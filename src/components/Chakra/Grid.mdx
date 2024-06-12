@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react";
-import { Canvas, Meta, Source } from "@storybook/blocks";
+import { Meta, Source } from "@storybook/blocks";
 
 <Meta title="Components/Chakra Exports/Layout/Grid" />
 
@@ -23,20 +23,21 @@ Details about available props and related child components can be found on the
 [Grid component](https://chakra-ui.com/docs/layout/grid) page on the Chakra UI
 site.
 
-<Canvas>
-  <Grid templateColumns="repeat(5, 1fr)" gap="grid.default">
-    <Box w="100%" h="20" bg="brand.primary" />
-    <Box w="100%" h="20" bg="brand.secondary" />
-    <Box w="100%" h="20" bg="brand.primary" />
-    <Box w="100%" h="20" bg="brand.secondary" />
-    <Box w="100%" h="20" bg="brand.primary" />
-    <Box w="100%" h="20" bg="brand.secondary" />
-    <Box w="100%" h="20" bg="brand.primary" />
-    <Box w="100%" h="20" bg="brand.secondary" />
-    <Box w="100%" h="20" bg="brand.primary" />
-    <Box w="100%" h="20" bg="brand.secondary" />
-  </Grid>
-</Canvas>
+{
+
+<Grid templateColumns="repeat(5, 1fr)" gap="grid.default" mb="s">
+  <Box w="100%" h="20" bg="brand.primary" />
+  <Box w="100%" h="20" bg="brand.secondary" />
+  <Box w="100%" h="20" bg="brand.primary" />
+  <Box w="100%" h="20" bg="brand.secondary" />
+  <Box w="100%" h="20" bg="brand.primary" />
+  <Box w="100%" h="20" bg="brand.secondary" />
+  <Box w="100%" h="20" bg="brand.primary" />
+  <Box w="100%" h="20" bg="brand.secondary" />
+  <Box w="100%" h="20" bg="brand.primary" />
+  <Box w="100%" h="20" bg="brand.secondary" />
+</Grid>
+}
 
 ## Complex Layouts with Grid Child Components
 
@@ -46,19 +47,20 @@ pass the `colSpan` prop to the `GridItem` component to span across columns and
 also pass the `rowSpan` component to span across rows. You also need to specify
 the `templateColumns` and `templateRows`.
 
-<Canvas>
-  <Grid
-    height="200px"
-    templateRows="repeat(2, 1fr)"
-    templateColumns="repeat(5, 1fr)"
-    gap="grid.default"
-  >
-    <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
-    <GridItem colSpan={2} bg="ui.success.primary" />
-    <GridItem colSpan={2} bg="ui.success.secondary" />
-    <GridItem colSpan={4} bg="ui.link.secondary" />
-  </Grid>
-</Canvas>
+{
+
+<Grid
+  height="200px"
+  templateRows="repeat(2, 1fr)"
+  templateColumns="repeat(5, 1fr)"
+  gap="grid.default"
+>
+  <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
+  <GridItem colSpan={2} bg="ui.success.primary" />
+  <GridItem colSpan={2} bg="ui.success.secondary" />
+  <GridItem colSpan={4} bg="ui.link.secondary" />
+</Grid>
+}
 
 <Source
   code={`

@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
@@ -18,7 +17,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
   component: Tooltip,
-  decorators: [withDesign],
   argTypes: {
     children: { control: false },
     className: { control: false },

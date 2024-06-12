@@ -187,13 +187,11 @@ const variants = {
 
 const Heading = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ isCapitalized, isUppercase, isLowercase, noSpace, url }) => ({
+    ({ isCapitalized, isUppercase, isLowercase, noSpace }) => ({
       base: {
-        // This is to help target custom anchor elements
-        // passed as children to the Heading component.
-        a: {
+        "a:only-child": {
           ...baseLinkStyles,
-          textDecoration: url ? "none" : "underline",
+          textDecoration: "none",
         },
         color: "ui.typography.heading",
         margin: "0",

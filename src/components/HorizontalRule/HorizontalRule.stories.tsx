@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
 
 const meta: Meta<typeof HorizontalRule> = {
   title: "Components/Page Layout/HorizontalRule",
   component: HorizontalRule,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
   },
