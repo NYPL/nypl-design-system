@@ -12,6 +12,15 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
+    type: "New Feature",
+    affects: ["Functionality"],
+    notes: [
+      "Adds `closeOnBlur` prop which, when set to true, closes the component if it loses focus.",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
     type: "Bug Fix",
     affects: ["Styles"],
     notes: ["Fixes the z-index value in the small selected items button."],

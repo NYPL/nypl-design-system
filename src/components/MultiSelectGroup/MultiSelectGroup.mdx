@@ -21,6 +21,7 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
 - {<Link href="#passing-multiselect-children" target="_self">Passing `MultiSelect` Children</Link>}
+- {<Link href="#close-on-blur-state" target="_self">Close on Blur State</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -101,6 +102,14 @@ argument value should be passed to the `width` prop of the `MultiSelect`.
 `}
   language="tsx"
 />
+
+## Close on Blur State
+
+When `closeOnBlur` is set to `true`, the `MultiSelect` accordion will close when
+focus leaves the component (the user clicks outside). In the case of a `MultiSelectGroup`,
+this means only one accordion will be open at a time.
+
+<Canvas of={MultiSelectGroupStories.closeOnBlurState} />
 
 ## useMultiSelect hook
 

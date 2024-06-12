@@ -4,7 +4,7 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
@@ -31,6 +31,9 @@ export interface SelectedItems {
 export interface MultiSelectProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
+  /** Determines whether the component will toggle to the closed state
+   * when it loses focus. The default value is false. */
+  closeOnBlur?: boolean;
   /** The number of items that will be visible in the list when the component
    * first loads. */
   defaultItemsVisible?: number;
@@ -85,6 +88,7 @@ export const MultiSelect: ChakraComponent<
         items,
         listOverflow = "scroll",
         buttonText,
+        closeOnBlur = false,
         onChange,
         onClear,
         onMixedStateChange,
@@ -93,12 +97,38 @@ export const MultiSelect: ChakraComponent<
         ...rest
       } = props;
 
+      const [userClickedOutside, setUserClickedOutside] =
+        useState<boolean>(false);
+
       // Create a ref to hold a reference to the accordian button, enabling us
       // to programmatically focus it.
       const accordionButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
+      const containerRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
+
+      const handleClick = (event) => {
+        if (
+          containerRef.current &&
+          !containerRef.current.contains(event.target)
+        ) {
+          setUserClickedOutside(true);
+        } else {
+          setUserClickedOutside(false);
+        }
+      };
+
+      useEffect(() => {
+        if (closeOnBlur) {
+          document.addEventListener("mousedown", handleClick);
+
+          return () => {
+            document.removeEventListener("mousedown", handleClick);
+          };
+        }
+      }, [closeOnBlur]);
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
@@ -358,7 +388,7 @@ export const MultiSelect: ChakraComponent<
       );
 
       return (
-        <Box id={id} __css={styles.base} {...rest}>
+        <Box id={id} __css={styles.base} {...rest} ref={containerRef}>
           <Accordion
             accordionData={[
               {
@@ -373,6 +403,7 @@ export const MultiSelect: ChakraComponent<
             id={`multi-select-accordion-${id}`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
+            userClickedOutside={userClickedOutside}
             panelMaxHeight={listHeight}
             sx={{
               ...styles.accordionStyles,

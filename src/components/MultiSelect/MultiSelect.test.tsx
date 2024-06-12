@@ -1,5 +1,5 @@
 import { axe } from "jest-axe";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
@@ -263,7 +263,32 @@ describe("MultiSelect", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("closes the multiselect when the 'esc' key is pressed", async () => {
+  it("should close the multiselect when the component loses focus, if `closeOnBlur` is true", async () => {
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        buttonText="Multiselect button text"
+        closeOnBlur={true}
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        isDefaultOpen={true}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+
+    const multiSelectButton = screen.getByRole("button");
+    expect(multiSelectButton.getAttribute("aria-expanded")).toEqual("true");
+
+    await userEvent.click(document.body);
+
+    await waitFor(() =>
+      expect(multiSelectButton).toHaveAttribute("aria-expanded", "false")
+    );
+  });
+
+  it("should close the multiselect when the 'esc' key is pressed", async () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
