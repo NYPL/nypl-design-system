@@ -10,6 +10,7 @@ import { layoutTypesArray } from "../../helpers/types";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 import TextInput from "../TextInput/TextInput";
+import Heading from "../Heading/Heading";
 
 const multiSelectItems = [
   {
@@ -110,6 +111,9 @@ export const WithControls: Story = {
 };
 
 // The following are additional FilterBar example Stories.
+export const FilterBarInlineHeading: Story = {
+  render: () => <FilterBarInlineHeadingStory />,
+};
 export const LayoutPatterns: Story = {
   render: () => <FilterBarLayoutStory />,
 };
@@ -129,6 +133,47 @@ const FilterBarStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
     useMultiSelect();
   const selectedFilterItems = [selectedItems];
+
+  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+    return (
+      multiSelectItems &&
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderFilterComponents = ({ layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="multiselect-group"
+          labelText="MultiSelect Group"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect}
+        />
+      </>
+    );
+  };
+
   return (
     <FilterBarInline
       id={args.id}
@@ -137,42 +182,67 @@ const FilterBarStory = (args) => {
       onClear={onClearAll}
       onSubmit={() => console.log(selectedItems)}
       selectedItems={selectedFilterItems}
-      renderChildren={({ layout, width }) => {
-        return (
-          <MultiSelectGroup
-            id="multiselect-group"
-            labelText="MultiSelect Group"
-            layout={layout}
-            multiSelectWidth={width}
-            renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-              return (
-                multiSelectItems &&
-                multiSelectItems.map((multiSelect) => (
-                  <MultiSelect
-                    buttonText={multiSelect.name}
-                    key={multiSelect.id}
-                    id={multiSelect.id}
-                    items={multiSelect.items}
-                    selectedItems={selectedItems}
-                    isBlockElement={isBlockElement}
-                    onChange={(e) => onChange(e.target.id, multiSelect.id)}
-                    onMixedStateChange={(e) => {
-                      return onMixedStateChange(
-                        e.target.id,
-                        multiSelect.id,
-                        multiSelect.items
-                      );
-                    }}
-                    onClear={() => onClear(multiSelect.id)}
-                    width={multiSelectWidth}
-                  />
-                ))
-              );
-            }}
-          />
-        );
-      }}
+      renderChildren={renderFilterComponents}
     />
+  );
+};
+
+const FilterBarInlineHeadingStory = () => {
+  const { onChange, onMixedStateChange, selectedItems, onClear } =
+    useMultiSelect();
+
+  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+    return (
+      multiSelectItems &&
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderFilterComponents = ({ layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="multiselect-group"
+          labelText="MultiSelect Group"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect}
+        />
+      </>
+    );
+  };
+
+  return (
+    <VStack align="left">
+      <FilterBarInline
+        heading={<Heading level="h3">Custom H3 Heading</Heading>}
+        renderChildren={renderFilterComponents}
+      />
+      <FilterBarInline
+        heading={<Heading level="h5">Custom H5 Heading</Heading>}
+        renderChildren={renderFilterComponents}
+      />
+      <FilterBarInline renderChildren={renderFilterComponents} />
+    </VStack>
   );
 };
 

@@ -4,12 +4,16 @@ import React, { forwardRef } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import { LayoutTypes } from "../../helpers/types";
-import { MultiSelectWidths, SelectedItems } from "../MultiSelect/MultiSelect";
-import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
+import {
+  MultiSelectWidths,
+  SelectedItems as MultiSelectItems,
+} from "../MultiSelect/MultiSelect";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import Heading, { HeadingSizes } from "../Heading/Heading";
 
 export type FilterBarItemsType =
-  | (boolean | number | number[] | string | string[] | SelectedItems)[];
+  | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
 interface FilterBarInlineProps {
   /** The className of the FilterBarInline. */
@@ -72,18 +76,31 @@ export const FilterBarInline: ChakraComponent<
         ...rest
       } = props;
 
-      const { isLargerThanMobile } = useNYPLBreapoints();
-      const finalWidth = isLargerThanMobile
-        ? layout === "row"
-          ? "fitContent"
-          : "full"
+      const { isLargerThanMobile } = useNYPLBreakpoints();
+      const finalWidth = !isLargerThanMobile
+        ? "full"
+        : layout === "row"
+        ? "fitContent"
         : "full";
+
+      const generalHeadingProps = {
+        size: "heading5" as HeadingSizes,
+      };
+      // If `heading is a string, then we want the default heading,
+      // otherwise, use whatever the user passed in.
+      const finalHeading = heading ? (
+        typeof heading === "string" ? (
+          <Heading level="h2" text={heading} {...generalHeadingProps} />
+        ) : (
+          React.cloneElement(heading, generalHeadingProps)
+        )
+      ) : null;
 
       return (
         <ComponentWrapper
           className={className}
           id={`filter-bar-inline-${id}`}
-          headingText={heading}
+          headingText={finalHeading}
           ref={ref}
           {...rest}
         >

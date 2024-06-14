@@ -18,11 +18,11 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#filterbarinline-heading" target="_self">FilterBarInline Heading</Link>}
 - {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
 - {<Link href="#ui-containers" target="_self">UI Containers</Link>}
 - {<Link href="#passing-children" target="_self">Passing Children</Link>}
 - {<Link href="#controlling-state-using-selecteditems-onclear-and-onsubmit-props" target="_self">Controlling State Using selectedItems, onClear, and onSubmit Props</Link>}
-- {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -54,6 +54,30 @@ components:
 - [TextInput](../?path=/docs/components-form-elements-textinput--docs#accessibility)
 - [Toggle](../?path=/docs/components-form-elements-toggle--docs#accessibility)
 
+## FilterBarInline Heading
+
+The `FilterBarInline` component can be rendered with and without a heading. By
+default, when a string is passed to the `heading` prop, the
+`FilterBarInline` component will render an `h2` element sized as a `heading5`
+heading. If this causes accessibility issues in your app, you can set a custom
+heading by passing in a DS `Heading` component.
+
+In the following examples, the `FilterBarInline` component will render custom `h3`
+and `h5` elements. Note that no matter what heading level is set, the size will
+always be set to `heading5` internally by the `FilterBarInline` component.
+
+<Source
+  code={`
+
+const customH3 = <Heading level="h3">Custom H3 Heading</Heading>;
+const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
+
+<FilterBarInline heading={customH3} {...props} />
+<FilterBarInline heading={customH5} {...props} />
+`} language="tsx" />
+
+<Canvas of={FilterBarInlineStories.FilterBarInlineHeading} />
+
 ## Layout Patterns
 
 The display of the `FilterBarInline` child components can be set to a `"row"` or a
@@ -66,6 +90,10 @@ will be set to `"full"`.
 
 **Note:** `CheckboxGroup`, `MultiSelectGroup`, and `RadioGroup` `layout` prop will
 match the value of the `layout` set for the `FilterBarInline` component.
+
+Refer to the <Link href="#passing-children" target="_self">Passing Children</Link>
+section for more information on how these prop value are passed in the
+`renderChildren` prop.
 
 <Canvas of={FilterBarInlineStories.LayoutPatterns} />
 
@@ -82,8 +110,6 @@ be required for the UI container element.
 UI container similar to what is used in these example.
 
 ### Row Layout
-
-<Canvas of={FilterBarInlineStories.UIContainers} />
 
 <Source
   code={`
@@ -128,9 +154,9 @@ const containerBgColor = useColorModeValue(
   language="jsx"
 />
 
-### Column Layout
+<Canvas of={FilterBarInlineStories.UIContainers} />
 
-<Canvas of={FilterBarInlineStories.ColumnLayout} />
+### Column Layout
 
 <Source
   code={`
@@ -176,6 +202,8 @@ const containerBgColor = useColorModeValue(
   language="jsx"
 />
 
+<Canvas of={FilterBarInlineStories.ColumnLayout} />
+
 ## Passing Children
 
 <Canvas of={FilterBarInlineStories.MultipleChildren} />
@@ -196,7 +224,24 @@ This callback prop function returns an object argument with three properties:
 - The `width` argument value should be passed to the `multiSelectWidth` prop of
   `MultiSelectGroup` children and the `width` prop of `MultiSelect` children.
 
+Here is an example of the shape of `FilterBarInline`:
+
+<Source
+  code={`
+<FilterBarInline
+  id="..."
+  heading="..."
+  renderChildren={({ isBlockElement, layout, width }) => {
+    return (...)
+  }}
+/>
+`}
+  language="jsx"
+/>
+
 ## Controlling State Using selectedItems, onClear, and onSubmit Props
+
+### selectedItems
 
 The `FilterBarInline` component does not store its state internally. It expects
 a `selectedItems` prop whose value is an array of selected values of the filter
@@ -206,6 +251,11 @@ To control each of the child form elements, you must pass the appropriate
 `onChange` and `value` props to them. Find documentation on how to do this on each
 individual component page.
 
+`useMultiSelect` is an optional but recommended hook for cases where managing
+the state of the component in the consuming app is less of a concern and general
+ease of use is prefered. Find the full documentation under
+[useMultiSelect](../?path=/docs/hooks-usemultiselect--docs)
+
 <Source
   code={`
 const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } = useMultiSelect();
@@ -214,6 +264,8 @@ const [textValue, setTextValue] = useState("");
 const selectedFilterItems = [selectedItems, selectedCheckbox, textValue];`}
   language="jsx"
 />
+
+### onClear
 
 The `Clear all filters` button will only be visible when the `onClear` prop is
 passed. The `Apply filters` button will only be visible when the `onSubmit` prop is
@@ -229,6 +281,8 @@ const onClearFilterBar = () => {
 };`}
   language="jsx"
 />
+
+### onSubmit
 
 It is expected that the `onSubmit` handler will read the current values from the
 child form elements (the filters) and update the associated search results list
@@ -325,24 +379,6 @@ return (
 ); `}
   language="jsx"
 />
-
-## useMultiSelect hook
-
-`useMultiSelect` is an optional but recommended hook for cases where managing
-the state of the component in the consuming app is less of a concern and general
-ease of use is prefered.
-
-The hook returns an object containing all the props and state needed to
-handle the `selectedItems` object. Included are the functions `onChange`,
-`onClearAll`, and `onMixedStateChange` for handling any changes to the
-items that are currently selected. Also included is the `selectItems` object
-to reflect the current state of the items that are currently selected.
-Additionally, the hook returns the `setSelectedItems` function for setting
-an initial state of `selectedItems` or, if needed, to manipulate `selectedItems`.
-
-Due to its data structure and the setup of its functions, the `useMultiSelect`
-hook is capable of handling a group of `MultiSelect` components. Find the full
-documentation under [useMultiSelect](../?path=/docs/hooks-usemultiselect--docs).
 
 ## Changelog
 
