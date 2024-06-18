@@ -1,5 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 import { useState } from "react";
 
 import Heading from "../Heading/Heading";
@@ -89,6 +90,25 @@ export const WithControls: Story = {
     },
     jest: ["Slider.test.tsx"],
   },
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+    const textInput = screen.getByRole("spinbutton");
+
+    expect(screen.getByRole("slider")).toHaveAttribute("aria-valuenow", "50");
+    expect(textInput).toHaveValue(50);
+
+    await userEvent.clear(textInput);
+    await userEvent.type(textInput, "75");
+
+    expect(screen.getByRole("slider")).toHaveAttribute("aria-valuenow", "75");
+    expect(textInput).toHaveValue(75);
+
+    await userEvent.clear(textInput);
+    await userEvent.type(textInput, "145");
+
+    expect(screen.getByRole("slider")).toHaveAttribute("aria-valuenow", "100");
+    expect(textInput).toHaveValue(100);
+  },
 };
 
 export const RangeSliderWithControls: Story = {
@@ -125,6 +145,40 @@ export const RangeSliderWithControls: Story = {
     },
   },
   render: (args) => <Slider {...args} />,
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+
+    const textInputs = screen.getAllByRole("spinbutton");
+    const sliders = screen.getAllByRole("slider");
+    expect(sliders).toHaveLength(2);
+    expect(textInputs[0]).toHaveValue(25);
+    expect(textInputs[1]).toHaveValue(75);
+    expect(sliders[0]).toHaveAttribute("aria-valuenow", "25");
+    expect(sliders[1]).toHaveAttribute("aria-valuenow", "75");
+
+    await userEvent.clear(textInputs[0]);
+    await userEvent.clear(textInputs[1]);
+    await userEvent.type(textInputs[0], "80");
+    await userEvent.type(textInputs[1], "20");
+    expect(screen.getAllByRole("spinbutton")[0]).toHaveAttribute(
+      "aria-invalid",
+      "true"
+    );
+    expect(screen.getAllByRole("spinbutton")[1]).toHaveAttribute(
+      "aria-invalid",
+      "true"
+    );
+    expect(screen.getByText(/Oh no this is an error/)).toBeInTheDocument();
+
+    await userEvent.clear(textInputs[0]);
+    await userEvent.clear(textInputs[1]);
+    await userEvent.type(textInputs[0], "34");
+    await userEvent.type(textInputs[1], "65");
+    expect(textInputs[0]).toHaveValue(34);
+    expect(textInputs[1]).toHaveValue(65);
+    expect(sliders[0]).toHaveAttribute("aria-valuenow", "34");
+    expect(sliders[1]).toHaveAttribute("aria-valuenow", "65");
+  },
 };
 
 export const SingleSliderStates: Story = {
