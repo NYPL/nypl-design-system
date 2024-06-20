@@ -17,6 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates base font stack to only `system-ui` and `sans-serif`.
 - Updates how links are styled within the `Heading` component.
 
+### Fixes
+
+- Fixes broken Github Action for release tags.
+
 ## 3.1.5 (June 6, 2024)
 
 ### Adds
