@@ -178,6 +178,19 @@ export const RangeSliderWithControls: Story = {
     expect(textInputs[1]).toHaveValue(65);
     expect(sliders[0]).toHaveAttribute("aria-valuenow", "34");
     expect(sliders[1]).toHaveAttribute("aria-valuenow", "65");
+
+    await userEvent.click(textInputs[0]);
+    await userEvent.tab();
+    expect(sliders[0]).toHaveFocus();
+    await userEvent.keyboard("{ArrowRight}");
+    await userEvent.keyboard("{ArrowRight}");
+    expect(sliders[0]).toHaveAttribute("aria-valuenow", "36");
+
+    await userEvent.tab();
+    expect(sliders[1]).toHaveFocus();
+    await userEvent.keyboard("{ArrowRight}");
+    await userEvent.keyboard("{ArrowRight}");
+    expect(sliders[1]).toHaveAttribute("aria-valuenow", "67");
   },
 };
 
