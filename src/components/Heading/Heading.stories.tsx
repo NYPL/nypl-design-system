@@ -1,7 +1,8 @@
+import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
-import { VStack } from "@chakra-ui/react";
+import Link from "../Link/Link";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Heading> = {
@@ -412,16 +413,38 @@ export const Links: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Heading
-        id="heading-with-link-url"
-        level="h2"
+        id="heading-with-text-url-values"
+        level="h3"
         noSpace
-        text="Heading with URL Props"
+        text="Heading with `url` and `text` props"
         url="http://apple.com"
         urlClass="special-link"
       />
-      <Heading id="heading-with-link-child" level="h2">
+      <Heading
+        id="heading-with-link-url"
+        level="h3"
+        noSpace
+        url="http://apple.com"
+        urlClass="special-link"
+      >
+        Heading with `url` prop value
+      </Heading>
+      <Heading id="heading-with-anchor" level="h3" noSpace>
+        <a href="#hello">Link from HTML anchor element</a>
+      </Heading>
+      <Heading id="heading-with-DS-link" level="h3" noSpace>
+        <Link href="#hello">Link using DS `Link` component</Link>
+      </Heading>
+      <Heading id="heading-with-link-child" level="h3" noSpace>
         <>
-          Heading with a Word <a href="#hello">Link</a>
+          Not acceptable. Do not use. <a href="#hello">Link</a>
+        </>
+      </Heading>
+      <Heading id="heading-with-DS-link-child" level="h3" noSpace>
+        <>
+          <span>Text wrapped in a span </span>
+          <Link href="#hello">Link</Link>
+          <span> Not a recommended pattern</span>
         </>
       </Heading>
     </VStack>

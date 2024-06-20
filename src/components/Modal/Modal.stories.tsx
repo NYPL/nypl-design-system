@@ -20,7 +20,7 @@ const meta: Meta<typeof ModalTrigger> = {
       description:
         "Props to update the internal `Modal` component. This contains the" +
         "`bodyContent`, `closeButtonLabel`, `confirmButtonLabel`, `headingText`, `isOpen`," +
-        "`onClose`, `onCancel`,`onConfirm`, and `type` props",
+        "`onClose`, or `onCancel` and `onConfirm`, and `type` props",
     },
   },
 };
@@ -161,7 +161,8 @@ export const useModalStory: Story = {
     },
     closeButtonLabel: {
       control: { type: "text" },
-      description: "The label for the close or cancel button.",
+      description:
+        "The label for the close button OR the label for the cancel button in the confirmation variant.",
     },
     confirmButtonLabel: {
       control: { type: "text" },
@@ -179,15 +180,18 @@ export const useModalStory: Story = {
     },
     onClose: {
       control: false,
-      description: "Function to call when the modal is closed.",
+      description:
+        "Function to call when the modal is closed. Do not pass this prop with the confirmation variant.",
     },
     onConfirm: {
       control: false,
-      description: "Function to call when the modal action is confirmed.",
+      description:
+        "Function to call when the modal action is confirmed. Do not pass this prop with the default variant.",
     },
     onCancel: {
       control: false,
-      description: "Function to call when the modal action is canceled.",
+      description:
+        "Function to call when the modal action is canceled. Do not pass this prop with the default variant.",
     },
     modalProps: { table: { disable: true } },
   },
