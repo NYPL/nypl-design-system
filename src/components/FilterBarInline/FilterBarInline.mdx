@@ -406,6 +406,11 @@ return (
 
 <Canvas of={FilterBarInlineStories.TagSetExample} />
 
+The following code is one example of how the `FilterBarInline` component can
+be used with the `TagSet` component. Consuming apps can modify this to fit their
+use case by ensuring the `tagSetData` is updated with changes to filter items and
+vice versa.
+
 <Source
   code={`
 const [tagSetData, setTagSetData] = useState<TagSetFilterDataProps[]>([]);
