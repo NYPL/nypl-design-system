@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates base font stack to only `system-ui` and `sans-serif`.
 - Updates how links are styled within the `Heading` component.
 
 ### Fixes
