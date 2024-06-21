@@ -8,17 +8,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 3.1.6 (June 20, 2024)
-
 ### Adds
 
-- Adds Storybook interaction tests for the `SearchBar` component.
-- Adds Storybook interaction tests for the `Select` component.
-- Adds Storybook interaction tests for the `Radiogroup` component.
+- Adds Storybook interaction tests for `CheckboxGroup` component.
 
 ### Updates
 
 - Updates base font stack to only `system-ui` and `sans-serif`.
+
+## 3.1.6 (June 20, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`, `Select`, and `Radiogroup` components.
+
+### Updates
+
 - Updates how links are styled within the `Heading` component.
 
 ### Fixes
