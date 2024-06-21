@@ -10,7 +10,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds Storybook interaction tests for `Searchbar` and `DatePicker` components.
+- Adds Storybook interaction tests for `CheckboxGroup` and `DatePicker` components.
+
+### Updates
+
+- Updates base font stack to only `system-ui` and `sans-serif`.
+
+## 3.1.6 (June 20, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`, `Select`, and `Radiogroup` components.
 
 ### Updates
 
