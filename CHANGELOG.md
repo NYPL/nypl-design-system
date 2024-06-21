@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds Storybook interaction tests for `CheckboxGroup` component.
+- Adds Storybook interaction tests for `CheckboxGroup` and `DatePicker` components.
 
 ### Updates
 
