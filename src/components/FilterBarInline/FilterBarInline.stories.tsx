@@ -5,12 +5,14 @@ import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { layoutTypesArray } from "../../helpers/types";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 import TextInput from "../TextInput/TextInput";
 import Heading from "../Heading/Heading";
+import TagSet from "../TagSet/TagSet";
+import { TagSetFilterDataProps } from "../TagSet/TagSetFilter";
 
 const multiSelectItems = [
   {
@@ -77,11 +79,11 @@ const meta: Meta<typeof FilterBarInline> = {
     },
     onClear: {
       description:
-        "Function to clear all selectedItems - available through hook",
+        "Function to clear all selectedItems - needs to be provided by consuming app",
     },
     onSubmit: {
       description:
-        "Function to handle submit of all selectedItems - needs to be provided from consuming app",
+        "Function to handle submit of all selectedItems - needs to be provided by consuming app",
     },
     selectedItems: { control: false },
   },
@@ -128,6 +130,9 @@ export const ColumnLayout: Story = {
 export const MultipleChildren: Story = {
   render: () => <FilterBarChildrenStory />,
 };
+export const TagSetExample: Story = {
+  render: () => <FilterBarTagSetStory />,
+};
 
 const FilterBarStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -162,15 +167,13 @@ const FilterBarStory = (args) => {
 
   const renderFilterComponents = ({ layout, width }) => {
     return (
-      <>
-        <MultiSelectGroup
-          id="multiselect-group"
-          labelText="MultiSelect Group"
-          layout={layout}
-          multiSelectWidth={width}
-          renderMultiSelect={renderMultiSelect}
-        />
-      </>
+      <MultiSelectGroup
+        id="multiselect-group"
+        labelText="MultiSelect Group"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect}
+      />
     );
   };
 
@@ -219,15 +222,13 @@ const FilterBarInlineHeadingStory = () => {
 
   const renderFilterComponents = ({ layout, width }) => {
     return (
-      <>
-        <MultiSelectGroup
-          id="multiselect-group"
-          labelText="MultiSelect Group"
-          layout={layout}
-          multiSelectWidth={width}
-          renderMultiSelect={renderMultiSelect}
-        />
-      </>
+      <MultiSelectGroup
+        id="multiselect-group"
+        labelText="MultiSelect Group"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect}
+      />
     );
   };
 
@@ -1191,7 +1192,16 @@ const FilterBarChildrenStory = (args) => {
     useMultiSelect();
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
-  const selectedFilterItems = [selectedItems, selectedCheckbox, textValue];
+  const [selectedFilterItems, setSelectedFilterItems] = useState([
+    selectedItems,
+    selectedCheckbox,
+    textValue,
+  ]);
+
+  useEffect(() => {
+    setSelectedFilterItems([selectedItems, selectedCheckbox, textValue]);
+  }, [selectedItems, selectedCheckbox, textValue]);
+
   const onClearFilterBar = () => {
     onClearAll();
     setSelectedCheckbox([]);
@@ -1270,5 +1280,99 @@ const FilterBarChildrenStory = (args) => {
       selectedItems={selectedFilterItems}
       renderChildren={renderFilterComponents}
     />
+  );
+};
+
+const FilterBarTagSetStory = () => {
+  const [selectedCheckbox, setSelectedCheckbox] = useState([]);
+  const [textValue, setTextValue] = useState("");
+  const [selectedFilterItems, setSelectedFilterItems] = useState([
+    selectedCheckbox,
+    textValue,
+  ]);
+
+  useEffect(() => {
+    setSelectedFilterItems([selectedCheckbox, textValue]);
+  }, [selectedCheckbox, textValue]);
+
+  const [tagSetData, setTagSetData] = useState<TagSetFilterDataProps[]>([]);
+  useEffect(() => {
+    const newTags = [];
+    for (let item of selectedFilterItems[0]) {
+      newTags.push({
+        id: `tag-${item}`,
+        label: item,
+      });
+    }
+    if (selectedFilterItems[1] !== "")
+      newTags.push({ id: "tag-color", label: selectedFilterItems[1] });
+
+    setTagSetData(newTags);
+  }, [selectedFilterItems]);
+
+  const handleOnClick = (tag) => {
+    if (tag.id === "clear-filters") {
+      setSelectedCheckbox([]);
+      setTextValue("");
+      setTagSetData([]);
+      return;
+    }
+    setSelectedCheckbox((checkboxes) =>
+      checkboxes.filter((checkbox) => {
+        return `tag-${checkbox}` !== tag.id;
+      })
+    );
+    if (tag.id === "tag-color") {
+      setTextValue("");
+    }
+    setTagSetData((prevTagSetData) =>
+      prevTagSetData.filter((tag) => {
+        return tag.id !== tag.id;
+      })
+    );
+  };
+
+  const renderFilterComponents = ({ layout }) => {
+    return (
+      <>
+        <CheckboxGroup
+          id="checkbox-example"
+          labelText="Checkbox Group"
+          name="checkboxExample"
+          layout={layout}
+          value={selectedCheckbox}
+          onChange={(e) => setSelectedCheckbox(e)}
+        >
+          <Checkbox id="checkbox-1" value="1" labelText="Checkbox 1" />
+          <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
+        </CheckboxGroup>
+        <TextInput
+          id="textinput-example"
+          isClearable
+          isClearableCallback={() => setTextValue("")}
+          labelText="What is your favorite color?"
+          onChange={(e) => setTextValue(e.target.value)}
+          placeholder="i.e. blue, green, etc."
+          value={textValue}
+        />
+      </>
+    );
+  };
+
+  return (
+    <>
+      <FilterBarInline
+        id="filterbar-with-tagset"
+        selectedItems={selectedFilterItems}
+        renderChildren={renderFilterComponents}
+      />
+      <TagSet
+        id="tagSet-id-filter"
+        isDismissible
+        onClick={handleOnClick}
+        tagSetData={tagSetData}
+        type="filter"
+      />
+    </>
   );
 };

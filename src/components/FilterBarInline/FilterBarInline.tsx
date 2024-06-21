@@ -44,16 +44,6 @@ interface FilterBarInlineProps {
   selectedItems?: FilterBarItemsType;
 }
 
-/**
- * `FilterBarInline` is a wrapper component for filter components and individual form input components.
- * The DS considers the following components as filter components: `CheckboxGroup`, `MultiSelectGroup`,
- * `RadioGroup`, `Checkbox`, `DatePicker`, `MultiSelect`, `Radio`, `Select`, `Slider`, `TextInput`, and `Toggle`.
- *
- * The wrapped components/component groups can be displayed in a column or
- * in a row layout. `FilterBarInline` can render additional `Clear All` and a `Apply Filters` buttons. The two
- * _optional_ buttons are controlled by the `onClear` or `onSubmit` props respectively.
- */
-
 export const FilterBarInline: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<FilterBarInlineProps> &
