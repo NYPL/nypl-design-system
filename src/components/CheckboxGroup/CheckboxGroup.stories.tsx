@@ -1,7 +1,7 @@
 import { Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import * as React from "react";
-import { withDesign } from "storybook-addon-designs";
+import { expect, userEvent, within } from "@storybook/test";
+import { useState } from "react";
 
 import { Button } from "../Button/Button";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
@@ -12,7 +12,6 @@ import { layoutTypesArray } from "../../helpers/types";
 const meta: Meta<typeof CheckboxGroup> = {
   title: "Components/Form Elements/CheckboxGroup",
   component: CheckboxGroup,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     defaultValue: { control: false },
@@ -86,10 +85,33 @@ export const WithControls: Story = {
       <Checkbox id="checkbox-5" value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+
+    expect(screen.getByText("Standard Checkbox Group")).toBeInTheDocument();
+    expect(screen.getByText(/This is the helper text/)).toBeInTheDocument();
+
+    const checkbox2 = screen.getByLabelText("Checkbox 2");
+    const checkbox4 = screen.getByLabelText("Checkbox 4");
+    const checkbox5 = screen.getByLabelText("Checkbox 5");
+
+    expect(checkbox2).not.toBeChecked();
+    expect(checkbox4).not.toBeChecked();
+
+    await userEvent.click(checkbox2);
+    await userEvent.click(checkbox4);
+    expect(checkbox2).toBeChecked();
+    expect(checkbox4).toBeChecked();
+
+    await userEvent.keyboard("{Tab}");
+    expect(checkbox5).toHaveFocus();
+
+    await userEvent.click(checkbox4);
+    expect(checkbox4).not.toBeChecked();
+  },
 };
 
 // The following are additional Checkbox example Stories.
-
 export const Layout: Story = {
   render: () => (
     <VStack align="left" spacing="l">
@@ -221,9 +243,9 @@ export const LabelsUsingJSXElements: Story = {
   ),
 };
 
-// Set up CheckboxGoup with indeterminate state option using React.useState
+// Set up CheckboxGoup with indeterminate state option using useState
 function IndeterminateCheckboxExample() {
-  const [checkedItems, setCheckedItems] = React.useState([false, false]);
+  const [checkedItems, setCheckedItems] = useState([false, false]);
   const allChecked = checkedItems.every(Boolean);
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
@@ -258,9 +280,9 @@ export const IndeterminateExample: Story = {
   render: () => <IndeterminateCheckboxExample />,
 };
 
-// Set up CheckboxGoup with progremmatically set selections using React.useState
+// Set up CheckboxGoup with progremmatically set selections using useState
 function CheckboxGroupValuesUpdateExample() {
-  const [value, setValue] = React.useState([]);
+  const [value, setValue] = useState([]);
   const onClick1 = () => {
     setValue(["art", "science", "math"]);
   };
