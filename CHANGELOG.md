@@ -10,7 +10,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
 - Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, and `Slider` components.
 - Adds `closeOnBlur` prop to `MultiSelect` component which, when set to true, closes the component if it loses focus.
 
