@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -224,13 +224,12 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
-    const buttonRefs = useRef(accordionData.map(() => React.createRef()));
-
-    const updatedAccordionData = accordionData.map((content, i) => {
-      if (content.buttonInteractionRef) return content;
-
-      return { ...content, buttonInteractionRef: buttonRefs[i] };
-    });
+    // If the accordionData doesn't already contain refs for the panel
+    // buttons, add them now.
+    const updatedAccordionData = accordionData.map((item) => ({
+      ...item,
+      buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
+    }));
 
     const handleKeyDown = (e) => {
       // If the 'esc' key is pressed, find the panel the
@@ -253,10 +252,12 @@ export const Accordion: ChakraComponent<
           expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
 
-        // Bring focus back to the button if something inside was
-        // focused on and the 'esc' was clicked
-        if (accordionData[0].buttonInteractionRef) {
-          accordionData[0].buttonInteractionRef.current.focus();
+        // If something *inside* the accordion was in focus and 'esc' was clicked,
+        // return focus to the accordion panel
+        if (updatedAccordionData[focusedPanelIndex].buttonInteractionRef) {
+          updatedAccordionData[
+            focusedPanelIndex
+          ].buttonInteractionRef.current.focus();
         }
       }
     };
