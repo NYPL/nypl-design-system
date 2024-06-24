@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { userEvent, expect, screen } from "@storybook/test";
 
 import FeedbackBox, { feedbackBoxViewTypeArray } from "./FeedbackBox";
 import Heading from "../Heading/Heading";
@@ -119,6 +120,27 @@ export const WithControls: Story = {
       url: "",
     },
     jest: "FeedbackBox.test.tsx",
+  },
+  play: async () => {
+    expect(
+      screen.queryByRole("textbox", { name: /comment/i })
+    ).not.toBeInTheDocument();
+    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    await userEvent.click(button);
+    expect(
+      screen.getByRole("textbox", { name: /comment/i })
+    ).toBeInTheDocument();
+    const submit = screen.getByRole("button", { name: "Submit" });
+    await userEvent.click(submit);
+    expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
+    await userEvent.type(
+      screen.getByRole("textbox", { name: /comment/i }),
+      "Hello"
+    );
+    await userEvent.click(submit);
+    expect(
+      screen.getByText(/thank you for submitting your feedback/i)
+    ).toBeInTheDocument();
   },
   render: (args) => <FeedbackBoxWithControls {...args} />,
 };
