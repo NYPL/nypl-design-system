@@ -2,7 +2,6 @@ import { VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import MultiSelect, {
   multiSelectWidthsArray,
@@ -322,7 +321,6 @@ const MultiSelectGroupLayoutStory = () => {
 const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

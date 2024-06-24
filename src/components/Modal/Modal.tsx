@@ -244,7 +244,7 @@ export const ModalTrigger: ChakraComponent<
 /**
  * This hook function can be used to render the `Modal` component with a custom
  * open button(s) and optional custom close button(s). You must render your own
- * button and pass the appropriate `onOpen` and ` handler for the modal to open.
+ * button and pass the appropriate `onOpen` and `onClose` handler for the modal to open.
  */
 export function useModal(): any {
   const { isOpen, onClose, onOpen } = useDisclosure();

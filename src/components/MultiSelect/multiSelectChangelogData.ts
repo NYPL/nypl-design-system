@@ -19,8 +19,8 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-05-23",
+    version: "3.1.4",
     type: "Bug Fix",
     affects: ["Styles"],
     notes: ["Fixes the z-index value in the small selected items button."],

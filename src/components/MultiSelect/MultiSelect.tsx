@@ -109,12 +109,19 @@ export const MultiSelect: ChakraComponent<
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
 
-      const handleClick = (event) => {
+      const handleEvent = (e) => {
         if (
-          containerRef.current &&
-          !containerRef.current.contains(event.target)
+          e.type === "mousedown" ||
+          (e.type === "keydown" && e.code === "Enter")
         ) {
-          setUserClickedOutside(true);
+          if (
+            containerRef.current &&
+            !containerRef.current.contains(e.target)
+          ) {
+            setUserClickedOutside(true);
+          } else {
+            setUserClickedOutside(false);
+          }
         } else {
           setUserClickedOutside(false);
         }
@@ -122,10 +129,12 @@ export const MultiSelect: ChakraComponent<
 
       useEffect(() => {
         if (closeOnBlur) {
-          document.addEventListener("mousedown", handleClick);
+          document.addEventListener("keydown", handleEvent);
+          document.addEventListener("mousedown", handleEvent);
 
           return () => {
-            document.removeEventListener("mousedown", handleClick);
+            document.removeEventListener("keydown", handleEvent);
+            document.removeEventListener("mousedown", handleEvent);
           };
         }
       }, [closeOnBlur]);

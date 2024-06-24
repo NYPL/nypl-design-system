@@ -1,6 +1,5 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
@@ -19,7 +18,6 @@ import TextInput from "../TextInput/TextInput";
 const meta: Meta<typeof Form> = {
   title: "Components/Form Elements/Form",
   component: Form,
-  decorators: [withDesign],
   argTypes: {
     action: { control: false },
     id: { control: false },

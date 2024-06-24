@@ -1,7 +1,8 @@
+import { HStack, Stack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
+
 import Heading from "../Heading/Heading";
 import MultiSelect, {
   multiSelectWidthsArray,
@@ -10,7 +11,6 @@ import MultiSelect, {
 } from "./MultiSelect";
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { HStack, Stack } from "@chakra-ui/react";
 import Button from "../Button/Button";
 
 const withItems = [
@@ -204,7 +204,6 @@ const withDisabledAllChildrenItems = [
 const meta: Meta<typeof MultiSelect> = {
   title: "Components/Form Elements/MultiSelect",
   component: MultiSelect,
-  decorators: [withDesign],
   argTypes: {
     defaultItemsVisible: {
       table: { defaultValue: { summary: 5 } },
@@ -253,7 +252,7 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     id: "multi-select-id",
-    closeOnBlur: true,
+    closeOnBlur: false,
     isBlockElement: true,
     isDefaultOpen: false,
     isSearchable: false,
