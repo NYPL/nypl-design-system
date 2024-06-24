@@ -74,6 +74,14 @@ const whatsOn = defineStyle({
     bg: "dark.section.whats-on.secondary",
   },
 });
+const digitalCollections = defineStyle({
+  bg: "ui.gray.light-cool",
+  color: "ui.black",
+  _dark: {
+    bg: "ui.gray.xx-dark",
+    color: "ui.white",
+  },
+});
 
 const Breadcrumb = defineStyleConfig({
   baseStyle: defineStyle({
@@ -151,6 +159,7 @@ const Breadcrumb = defineStyleConfig({
     locations,
     research,
     whatsOn,
+    digitalCollections,
   },
 });
 

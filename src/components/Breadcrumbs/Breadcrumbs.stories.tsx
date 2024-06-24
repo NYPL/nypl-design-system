@@ -132,6 +132,15 @@ export const ColorVariations: Story = {
           breadcrumbsType="whatsOn"
         />
       </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Digital Collections
+        </Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="digitalCollections"
+        />
+      </Box>
     </VStack>
   ),
 };

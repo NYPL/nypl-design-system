@@ -21,6 +21,7 @@ export const breadcrumbTypeArray = [
   "locations",
   "research",
   "whatsOn",
+  "digitalCollections",
 ] as const;
 export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
