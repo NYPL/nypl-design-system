@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import ProgressIndicator, {
   progressIndicatorSizesArray,
@@ -11,7 +10,6 @@ import SimpleGrid from "../Grid/SimpleGrid";
 const meta: Meta<typeof ProgressIndicator> = {
   title: "Components/Feedback/ProgressIndicator",
   component: ProgressIndicator,
-  decorators: [withDesign],
   argTypes: {
     darkMode: {
       control: false,

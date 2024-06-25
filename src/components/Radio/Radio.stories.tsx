@@ -1,15 +1,13 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Heading from "../Heading/Heading";
 import Radio from "./Radio";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof Radio> = {
   title: "Components/Form Elements/Radio",
   component: Radio,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

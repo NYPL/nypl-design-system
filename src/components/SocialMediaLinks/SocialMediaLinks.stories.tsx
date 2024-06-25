@@ -1,16 +1,16 @@
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Source } from "@storybook/blocks";
+
 import SocialMediaLinks, {
   SocialMediaLinkDataProps,
   borderTypeArray,
   colorTypeArray,
   sizeTypeArray,
 } from "./SocialMediaLinks";
-import { withDesign } from "storybook-addon-designs";
 import { layoutTypesArray } from "../../helpers/types";
-import { Box, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
-import { Source } from "@storybook/blocks";
 
 const exampleLinkData: SocialMediaLinkDataProps[] = [
   {
@@ -33,7 +33,6 @@ const exampleLinkData: SocialMediaLinkDataProps[] = [
 const meta: Meta<typeof SocialMediaLinks> = {
   title: "Components/Navigation/SocialMediaLinks",
   component: SocialMediaLinks,
-  decorators: [withDesign],
   argTypes: {
     borders: {
       description: 'Optional border  \n\n `"none"` `"circular"` `"straight"`',
