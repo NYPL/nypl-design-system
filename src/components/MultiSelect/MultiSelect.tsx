@@ -110,10 +110,8 @@ export const MultiSelect: ChakraComponent<
         useRef<HTMLButtonElement>();
 
       const handleEvent = (e) => {
-        if (
-          e.type === "mousedown" ||
-          (e.type === "keydown" && e.code === "Enter")
-        ) {
+        // Handles when user clicks outside of the container
+        if (e.type === "mousedown") {
           if (
             containerRef.current &&
             !containerRef.current.contains(e.target)
@@ -122,18 +120,23 @@ export const MultiSelect: ChakraComponent<
           } else {
             setUserClickedOutside(false);
           }
-        } else {
-          setUserClickedOutside(false);
+        }
+
+        // Handles when user tabs outside of the container
+        if (e.type === "blur") {
+          if (!e.currentTarget.contains(e.relatedTarget)) {
+            setUserClickedOutside(true);
+          } else {
+            setUserClickedOutside(false);
+          }
         }
       };
 
       useEffect(() => {
         if (closeOnBlur) {
-          document.addEventListener("keydown", handleEvent);
           document.addEventListener("mousedown", handleEvent);
 
           return () => {
-            document.removeEventListener("keydown", handleEvent);
             document.removeEventListener("mousedown", handleEvent);
           };
         }
@@ -397,7 +400,14 @@ export const MultiSelect: ChakraComponent<
       );
 
       return (
-        <Box id={id} __css={styles.base} {...rest} ref={containerRef}>
+        <Box
+          id={id}
+          __css={styles.base}
+          {...rest}
+          ref={containerRef}
+          onBlur={closeOnBlur && handleEvent}
+          onClick={() => setUserClickedOutside(false)}
+        >
           <Accordion
             accordionData={[
               {
