@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within, expect } from "@storybook/test";
 
 import DatePicker, { datePickerTypesArray } from "./DatePicker";
 import Heading from "../Heading/Heading";
@@ -94,6 +95,75 @@ export const WithControls: Story = {
     showRequiredLabel: true,
   },
   render: (args) => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const textInput = within(canvasElement).getByRole("textbox");
+
+    expect(textInput).toHaveValue("2024-01-01");
+
+    await userEvent.clear(textInput);
+    await userEvent.type(textInput, "2024-05-20");
+    // A short wait for the calendar popup to "catch up".
+    await setTimeout(() => {}, 500);
+    expect(textInput).toHaveValue("2024-05-20");
+    expect(
+      within(canvasElement).queryAllByText("May 2024")[0]
+    ).toBeInTheDocument();
+
+    const previousMonth = within(canvasElement).getByRole("button", {
+      name: "Previous Month",
+    });
+    const nextMonth = within(canvasElement).getByRole("button", {
+      name: "Next Month",
+    });
+
+    await userEvent.click(previousMonth);
+    expect(
+      within(canvasElement).queryByText("May 2024")
+    ).not.toBeInTheDocument();
+    expect(
+      within(canvasElement).queryAllByText("April 2024")[0]
+    ).toBeInTheDocument();
+
+    await userEvent.click(nextMonth);
+    await userEvent.click(nextMonth);
+    expect(
+      within(canvasElement).queryByText("April 2024")
+    ).not.toBeInTheDocument();
+    expect(
+      within(canvasElement).queryAllByText("June 2024")[0]
+    ).toBeInTheDocument();
+
+    await userEvent.click(within(canvasElement).getByText("15"));
+    expect(textInput).toHaveValue("2024-06-15");
+
+    await userEvent.click(textInput);
+    // June does not have 31 days, so the date should be set to
+    // May 31st.
+    await userEvent.click(within(canvasElement).getByText("31"));
+    expect(textInput).toHaveValue("2024-05-31");
+    await userEvent.click(textInput);
+    // A short wait for the calendar popup to "catch up".
+    await setTimeout(() => {}, 500);
+    expect(
+      within(canvasElement).queryAllByText("May 2024")[0]
+    ).toBeInTheDocument();
+
+    // Now try keyboard navigation
+    await userEvent.keyboard("{tab}");
+    expect(within(canvasElement).getByText("31")).toHaveFocus();
+
+    await userEvent.keyboard("{arrowleft}");
+    await userEvent.keyboard("{arrowleft}");
+    await userEvent.keyboard("{arrowleft}");
+
+    expect(
+      within(canvasElement).getByLabelText("Choose Tuesday, May 28th, 2024")
+    ).toHaveFocus();
+    await userEvent.keyboard("{enter}");
+
+    expect(textInput).toHaveValue("2024-05-28");
+    expect(textInput).toHaveFocus();
+  },
 };
 
 // The following are additional DatePicker example Stories.

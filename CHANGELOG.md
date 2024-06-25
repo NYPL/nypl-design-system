@@ -10,19 +10,36 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
-
-## 3.1.4 (May 23, 2024)
-
-### Adds
-
-- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, and `Slider` components.
 
 ### Updates
 
-- Exports `useMediaQuery` and `chakra` from Chakra UI.
-- Updates `Accordion` to close focused panel when "esc" key is pressed.
-- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+- Updates base font stack to only `system-ui` and `sans-serif`.
+
+## 3.1.6 (June 20, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`, `Select`, and `Radiogroup` components.
+
+### Updates
+
+- Updates how links are styled within the `Heading` component.
+
+### Fixes
+
+- Fixes broken Github Action for release tags.
+
+## 3.1.5 (June 6, 2024)
+
+### Adds
+
+- Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
+- Adds Storybook interaction tests for `Select`.
+- Adds Storybook interaction tests for `RadioGroup`.
+
+### Updates
+
 - Updates the following packages:
   - Storybook main package and related libraries to `8.0.8`.
   - `remark-gfm` to `4.0.0`.
@@ -33,6 +50,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removals
 
 - Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+
+### Updates
+
+- Exports `useMediaQuery` and `chakra` from Chakra UI.
+- Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+- Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
+
+## 3.1.4 (May 23, 2024)
+
+### Adds
+
+- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
 
 ### Fixes
 

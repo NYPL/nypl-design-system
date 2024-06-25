@@ -12,7 +12,7 @@ import { changelogData } from "./headingChangelogData";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `3.1.2`    |
+| Latest            | `3.1.6`    |
 
 ## Table of Contents
 
@@ -248,8 +248,21 @@ composed heading lockup.
 
 ## Heading with Links
 
-When the `url` prop is passed to `Heading`, a child `<a>` element is created and
-the heading text becomes an active link.
+The recommended pattern to make headings linkable is to use the `url` prop. This
+will create a child `<a>` element within the heading element. Alternatively, you
+can pass a DS `Link` component, a custom `Link` component, or an HTML `anchor`
+element as the **only child** of the `Heading` component.
+
+**Important**: Linked headings should have the link color but not be underlined.
+
+If only a specific portion of the heading should be linked, then the `url` prop
+cannot be used. Instead, use a `Link` or HTML `anchor` element to wrap the text
+that should be linked. Note that the non-linked text should be passed as a text
+node and not wrapped in span or other elements.
+
+This treatment allows for individual words within the full heading text to be
+set as a link, however, this is not a recommended pattern. While this treatment
+is possible with the `Heading` component, this pattern SHOULD NOT be used.
 
 <Canvas of={HeadingStories.Links} />
 
