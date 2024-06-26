@@ -22,9 +22,10 @@ jobs:
       # the tag will match the package.json version (eg. v1.0.0)
       - name: Tag
         id: autotagger
-        uses: butlerlogic/action-autotag@stable
-        with:
+        uses: butlerlogic/action-autotag@1.1.2
+        env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
           strategy: package
           tag_prefix: v
 

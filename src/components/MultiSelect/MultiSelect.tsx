@@ -4,7 +4,7 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { useState, forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
@@ -95,7 +95,7 @@ export const MultiSelect: ChakraComponent<
 
       // Create a ref to hold a reference to the accordian button, enabling us
       // to programmatically focus it.
-      const accordianButtonRef: React.RefObject<HTMLDivElement> =
+      const accordionButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
@@ -364,7 +364,7 @@ export const MultiSelect: ChakraComponent<
               {
                 accordionType: "default",
                 // Pass the ref for interaction with the accordion button.
-                buttonInteractionRef: accordianButtonRef,
+                buttonInteractionRef: accordionButtonRef,
                 label: accordionLabel,
                 panel: accordionPanel,
               },
@@ -387,7 +387,7 @@ export const MultiSelect: ChakraComponent<
               selectedItemsString={selectedItemsString}
               selectedItemsCount={selectedItemsCount}
               onClear={onClear}
-              accordianButtonRef={accordianButtonRef}
+              accordionButtonRef={accordionButtonRef}
             />
           )}
         </Box>

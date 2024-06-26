@@ -95,6 +95,9 @@ Accordion:
   - Use the `aria-controls` attribute to associate the control with the panel.
 - The open and close icons are decorative (`aria-hidden` is `true`).
 - Visible focus goes around full button and full button is clickable.
+- Because the `MultiSelect` utilizes the `Accordion`, the same functionality applies when
+  the user presses the 'esc' key and focus is on an open panel: that panel will close and
+  focus will return to the panel's button.
 
 Checkbox:
 

@@ -1,5 +1,6 @@
 import { Flex, Spacer, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 import { useState } from "react";
 
 import { Button } from "../Button/Button";
@@ -84,10 +85,33 @@ export const WithControls: Story = {
       <Checkbox id="checkbox-5" value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+
+    expect(screen.getByText("Standard Checkbox Group")).toBeInTheDocument();
+    expect(screen.getByText(/This is the helper text/)).toBeInTheDocument();
+
+    const checkbox2 = screen.getByLabelText("Checkbox 2");
+    const checkbox4 = screen.getByLabelText("Checkbox 4");
+    const checkbox5 = screen.getByLabelText("Checkbox 5");
+
+    expect(checkbox2).not.toBeChecked();
+    expect(checkbox4).not.toBeChecked();
+
+    await userEvent.click(checkbox2);
+    await userEvent.click(checkbox4);
+    expect(checkbox2).toBeChecked();
+    expect(checkbox4).toBeChecked();
+
+    await userEvent.keyboard("{Tab}");
+    expect(checkbox5).toHaveFocus();
+
+    await userEvent.click(checkbox4);
+    expect(checkbox4).not.toBeChecked();
+  },
 };
 
 // The following are additional Checkbox example Stories.
-
 export const Layout: Story = {
   render: () => (
     <VStack align="left" spacing="l">
