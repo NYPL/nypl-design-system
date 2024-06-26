@@ -15,6 +15,7 @@ interface CardBaseStyleProps extends StyleFunctionProps {
   isCentered: boolean;
   layout: string;
   mainActionLink: boolean;
+  imageSize: keyof typeof imageSizes;
 }
 interface BodyPaddingProps extends Partial<StyleFunctionProps> {
   hasImage: boolean;
@@ -41,6 +42,17 @@ const imageSizes = {
   small: { flex: { md: "0 0 165px" } },
   medium: { flex: { md: "0 0 225px" } },
   large: { flex: { md: "0 0 360px" } },
+};
+
+const imageSizesMinWidth0 = {
+  xxsmall: { flex: "0 0 100%", width: "100%" },
+};
+const imageSizesMinWidth600 = {
+  xxsmall: { flex: "0 0 64px", width: "100%" },
+  xsmall: { flex: "0 0 96px" },
+  small: { flex: "0 0 165px" },
+  medium: { flex: "0 0 225px" },
+  large: { flex: "0 0 360px" },
 };
 // This is complicated and can be refactored later...
 const getBodyPaddingStyles = ({
@@ -84,6 +96,7 @@ const ReservoirCard = defineMultiStyleConfig({
       isCentered,
       layout,
       mainActionLink,
+      imageSize,
     }: CardBaseStyleProps) => {
       const isRow = layout === "row";
       const layoutStyles = isRow
@@ -116,6 +129,8 @@ const ReservoirCard = defineMultiStyleConfig({
           bodyMargin = "0";
         }
       }
+      // These sizes are only for the "row" layout.
+      // const imageSize = size ? imageSizes[size] : {};
       return {
         base: {
           containerType: "inline-size",
@@ -131,6 +146,12 @@ const ReservoirCard = defineMultiStyleConfig({
             },
             "[data-body]": {
               width: "100%",
+            },
+            "[data-image]": {
+              maxWidth: "100%",
+              margin: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
+              width: "100%",
+              ...imageSizesMinWidth0[imageSize],
             },
           },
           [`@container (min-width: ${breakpoints.sm})`]: {
@@ -152,6 +173,15 @@ const ReservoirCard = defineMultiStyleConfig({
               display: "block",
               flexFlow: "row nowrap",
               width: "auto",
+            },
+            "[data-image]": {
+              maxWidth: "50%",
+              flex: "0 0 225px",
+              margin: imageIsAtEnd
+                ? "0 0 0 var(--nypl-space-m)"
+                : "0 var(--nypl-space-m) 0 0",
+              width: null,
+              ...imageSizesMinWidth600[imageSize],
             },
           },
         },
@@ -242,25 +272,13 @@ const CardContent = defineStyleConfig({
 
 const CardImage = defineStyleConfig({
   baseStyle: defineStyle(
-    ({ imageIsAtEnd, isCentered, layout, size }: CardImageBaseStyleProps) => {
-      // These sizes are only for the "row" layout.
-      const imageSize = size ? imageSizes[size] : {};
+    ({ imageIsAtEnd, isCentered, layout }: CardImageBaseStyleProps) => {
       const layoutStyles =
         layout === "row"
           ? {
-              flex: { md: "0 0 225px" },
-              maxWidth: { base: "100%", md: "50%" },
               textAlign: "left",
               alignItems: isCentered ? "center" : null,
-              margin: {
-                base: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
-                md: imageIsAtEnd
-                  ? "0 0 0 var(--nypl-space-m)"
-                  : "0 var(--nypl-space-m) 0 0",
-              },
-              width: { base: "100%", md: null },
               marginBottom: ["xs", "xs"],
-              ...imageSize,
             }
           : {
               marginBottom: "xs",
