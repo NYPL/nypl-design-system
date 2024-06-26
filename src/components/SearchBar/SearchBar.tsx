@@ -141,13 +141,6 @@ export const SearchBar: ChakraComponent<
       isRequired ? "(Required)" : ""
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
-    const searchBarButtonStyles = {
-      borderLeftRadius: "none",
-      borderRightRadius: { base: "none", md: "sm" },
-      lineHeight: "1.70",
-      marginBottom: "auto",
-      maxWidth: { base: "unset", md: "80px" },
-    };
 
     if (!id) {
       console.warn(
@@ -204,7 +197,8 @@ export const SearchBar: ChakraComponent<
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
-        sx={searchBarButtonStyles}
+        sx={styles.button}
+        data-button
       >
         <Icon
           align="left"
