@@ -79,7 +79,28 @@ const digitalCollections = defineStyle({
   color: "ui.black",
   _dark: {
     bg: "ui.gray.xx-dark",
-    color: "ui.white",
+  },
+  a: {
+    _hover: {
+      color: "ui.gray.xx-dark",
+    },
+    _dark: {
+      _hover: {
+        color: "ui.white",
+      },
+    },
+  },
+  "li:last-child": {
+    ".chakra-breadcrumb__link": {
+      _hover: {
+        color: "ui.gray.xx-dark",
+      },
+      _dark: {
+        _hover: {
+          color: "ui.white",
+        },
+      },
+    },
   },
 });
 
