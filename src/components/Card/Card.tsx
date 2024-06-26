@@ -104,7 +104,7 @@ function CardImage(
   });
 
   return (
-    <Box __css={styles}>
+    <Box __css={styles} data-image>
       <Image
         alt={alt}
         aspectRatio={aspectRatio}
@@ -261,6 +261,7 @@ export const Card: ChakraComponent<
         isCentered,
         layout,
         mainActionLink,
+        imageSize: imageProps.size,
       });
 
       React.Children.map(
