@@ -109,8 +109,8 @@ export const MultiSelect: ChakraComponent<
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
 
-      const handleEvent = (e) => {
-        // Handles when user clicks outside of the container
+      // Tells `Accordion` to close if open when user clicks outside of the container
+      const handleClickOutside = (e) => {
         if (e.type === "mousedown") {
           if (
             containerRef.current &&
@@ -121,8 +121,10 @@ export const MultiSelect: ChakraComponent<
             setUserClickedOutside(false);
           }
         }
+      };
 
-        // Handles when user tabs outside of the container
+      // Tells `Accordion` to close if open when user tabs outside of the container
+      const handleTabOutside = (e) => {
         if (e.type === "blur") {
           if (!e.currentTarget.contains(e.relatedTarget)) {
             setUserClickedOutside(true);
@@ -134,10 +136,10 @@ export const MultiSelect: ChakraComponent<
 
       useEffect(() => {
         if (closeOnBlur) {
-          document.addEventListener("mousedown", handleEvent);
+          document.addEventListener("mousedown", handleClickOutside);
 
           return () => {
-            document.removeEventListener("mousedown", handleEvent);
+            document.removeEventListener("mousedown", handleClickOutside);
           };
         }
       }, [closeOnBlur]);
@@ -405,7 +407,7 @@ export const MultiSelect: ChakraComponent<
           __css={styles.base}
           {...rest}
           ref={containerRef}
-          onBlur={closeOnBlur && handleEvent}
+          onBlur={closeOnBlur && handleTabOutside}
           onClick={() => setUserClickedOutside(false)}
         >
           <Accordion
