@@ -27,7 +27,7 @@ type IconNames =
 
 // Verify that SocialMediaIconNames is a subset of IconNames
 type VerifyIconNames = IconNames extends DsIconNames ? true : false;
-// TYPE SAFETY: verified will throw an error if a value has been added to socialMediaIconMap that is not a IconName
+// TYPE SAFETY: verified will throw an error if a value has been added to IconNames that is not a Design System IconName
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const verified: VerifyIconNames = true;
 
@@ -40,7 +40,7 @@ export interface SocialMediaLinkDataProps {
   url: string;
 }
 
-interface CommonSocialMediaLinksProps {
+interface BaseSocialMediaLinksProps {
   /** Optional className you can add in addition to "social-media-links." */
   className?: string;
   /** Any of three optional values that will change the color of the svg and label text (if any). */
@@ -60,13 +60,12 @@ type ConditionalSocialMediaLinksProps =
   | { showLabels?: true; borders?: Exclude<BorderType, "circular"> }
   | { showLabels?: false; borders?: BorderType };
 
-export type SocialMediaLinksProps = CommonSocialMediaLinksProps &
+export type SocialMediaLinksProps = BaseSocialMediaLinksProps &
   ConditionalSocialMediaLinksProps;
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
  * The data passed to the `linksData` prop controls which social media types are displayed,
  * the order they appear, the url they link to, and the text used for the label of each.
- * Order is determined by the order of the array.
  */
 export const SocialMediaLinks: ChakraComponent<
   React.ForwardRefExoticComponent<

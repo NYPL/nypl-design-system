@@ -1,6 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Source } from "@storybook/blocks";
 
 import SocialMediaLinks, {
   SocialMediaLinkDataProps,
@@ -12,6 +11,53 @@ import { layoutTypesArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
 
+const exampleAllLinkData: SocialMediaLinkDataProps[] = [
+  {
+    type: "fileTypeGenericDoc",
+    labelText: "NYPL Blog",
+    url: "https://nypl.org/blog",
+  },
+  {
+    type: "socialFacebook",
+    labelText: "Facebook",
+    url: "https://facebook.com/nypl",
+  },
+  {
+    type: "socialInstagram",
+    labelText: "Instagram",
+    url: "https://instagram.com/nypl",
+  },
+  {
+    type: "socialPinterest",
+    labelText: "Pinterest",
+    url: "https://pinterest.com/nypl",
+  },
+  {
+    type: "socialSoundCloud",
+    labelText: "SoundCloud",
+    url: "https://soundcloud.com/nypl",
+  },
+  {
+    type: "socialTikTok",
+    labelText: "TikTok",
+    url: "https://tiktok.com/@nypl",
+  },
+  {
+    type: "socialTumblr",
+    labelText: "Tumblr",
+    url: "https://nypl.tumblr.com",
+  },
+  {
+    type: "socialTwitter",
+    labelText: "Twitter",
+    url: "https://twitter.com/nypl",
+  },
+  {
+    type: "socialYoutube",
+    labelText: "YouTube",
+    url: "https://youtube.com/newyorkpubliclibrary",
+  },
+];
 const exampleLinkData: SocialMediaLinkDataProps[] = [
   {
     type: "socialFacebook",
@@ -27,6 +73,34 @@ const exampleLinkData: SocialMediaLinkDataProps[] = [
     type: "socialInstagram",
     labelText: "Instagram",
     url: "https://instagram.com/nypl",
+  },
+];
+
+const exampleTwoLinkData: SocialMediaLinkDataProps[] = [
+  {
+    type: "socialPinterest",
+    labelText: "Pinterest",
+    url: "https://pinterest.com/nypl",
+  },
+  {
+    type: "socialSoundCloud",
+    labelText: "SoundCloud",
+    url: "https://soundcloud.com/nypl",
+  },
+  {
+    type: "socialTumblr",
+    labelText: "Tumblr",
+    url: "https://nypl.tumblr.com",
+  },
+  {
+    type: "socialTwitter",
+    labelText: "Twitter",
+    url: "https://twitter.com/nypl",
+  },
+  {
+    type: "socialYoutube",
+    labelText: "YouTube",
+    url: "https://youtube.com/newyorkpubliclibrary",
   },
 ];
 
@@ -147,6 +221,12 @@ export const WithControls: Story = {
   },
 };
 
+export const AllOptionsVariations: Story = {
+  render: () => (
+    <SocialMediaLinks layout="row" linksData={exampleAllLinkData} />
+  ),
+};
+
 export const LayoutVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
@@ -157,8 +237,7 @@ export const LayoutVariations: Story = {
           size="heading6"
           text="Row (Default)"
         />
-        <SocialMediaLinks layout="row" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks layout="row" />'} />
+        <SocialMediaLinks layout="row" linksData={exampleTwoLinkData} />
       </Box>
       <Box>
         <Heading
@@ -167,8 +246,7 @@ export const LayoutVariations: Story = {
           size="heading6"
           text="Column"
         />
-        <SocialMediaLinks layout="column" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks layout="column" />'} />
+        <SocialMediaLinks layout="column" linksData={exampleTwoLinkData} />
       </Box>
     </VStack>
   ),
@@ -185,7 +263,6 @@ export const SizeVariations: Story = {
           text="Small (Default)"
         />
         <SocialMediaLinks size="small" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks size="small" />'} />
       </Box>
       <Box>
         <Heading
@@ -195,7 +272,6 @@ export const SizeVariations: Story = {
           text="Medium"
         />
         <SocialMediaLinks size="medium" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks size="medium" />'} />
       </Box>
       <Box>
         <Heading
@@ -205,20 +281,13 @@ export const SizeVariations: Story = {
           text="Large"
         />
         <SocialMediaLinks size="large" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks size="large" />'} />
       </Box>
     </VStack>
   ),
 };
 
-// Making a component just for practice
-const ColorVariationsStory = () => {
-  /*
-  // Now I could put logic in here like below, which I could not do w/o
-  // this being a component.
-  const bg = useColorModeValue("ui.white", "ui.black");
-*/
-  return (
+export const ColorVariations: Story = {
+  render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
         <Heading
@@ -227,8 +296,7 @@ const ColorVariationsStory = () => {
           size="heading6"
           text="Site Default"
         />
-        <SocialMediaLinks color="textDefault" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks color="textDefault" />'} />
+        <SocialMediaLinks color="textDefault" linksData={exampleTwoLinkData} />
       </Box>
       <Box>
         <Heading
@@ -237,8 +305,7 @@ const ColorVariationsStory = () => {
           size="heading6"
           text="Link"
         />
-        <SocialMediaLinks color="link" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks color="link" />'} />
+        <SocialMediaLinks color="link" linksData={exampleTwoLinkData} />
       </Box>
       <Box>
         <Heading
@@ -248,20 +315,18 @@ const ColorVariationsStory = () => {
           text="textInverse"
         />
         <Box bgColor="dark.ui.bg.page" p="s">
-          <SocialMediaLinks color="textInverse" linksData={exampleLinkData} />
+          <SocialMediaLinks
+            color="textInverse"
+            linksData={exampleTwoLinkData}
+          />
         </Box>
         <Text size="caption" mt="s">
           NOTE: background color for textInverse is added for readability in
           Reservoir. It is not part of the functionality.
         </Text>
-        <Source code={'<SocialMediaLinks color="textInverse" />'} />
       </Box>
     </VStack>
-  );
-};
-// Gotta export the component we made above
-export const ColorVariations: Story = {
-  render: () => <ColorVariationsStory />,
+  ),
 };
 
 export const BorderVariations: Story = {
@@ -275,7 +340,6 @@ export const BorderVariations: Story = {
           text="None (Default)"
         />
         <SocialMediaLinks borders="none" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks borders="none" />'} />
       </Box>
       <Box>
         <Heading
@@ -285,7 +349,6 @@ export const BorderVariations: Story = {
           text="Straight"
         />
         <SocialMediaLinks borders="straight" linksData={exampleLinkData} />
-        <Source code={'<SocialMediaLinks borders="straight" />'} />
       </Box>
       <Box>
         <Heading
@@ -298,7 +361,6 @@ export const BorderVariations: Story = {
         <Text size={"caption"} mt="s">
           NOTE: labels are disallowed with circular borders.
         </Text>
-        <Source code={'<SocialMediaLinks borders="circular" />'} />
       </Box>
     </VStack>
   ),
@@ -314,13 +376,11 @@ export const LabelVariations: Story = {
           size="heading6"
           text="False (Default)"
         />
-        <SocialMediaLinks showLabels={false} linksData={exampleLinkData} />
-        <Source code="<SocialMediaLinks showLabels={false} />" />
+        <SocialMediaLinks showLabels={false} linksData={exampleTwoLinkData} />
       </Box>
       <Box>
         <Heading id="heading-labels" level="h4" size="heading6" text="True" />
-        <SocialMediaLinks showLabels={true} linksData={exampleLinkData} />
-        <Source code="<SocialMediaLinks showLabels={true} />" />
+        <SocialMediaLinks showLabels={true} linksData={exampleTwoLinkData} />
       </Box>
     </VStack>
   ),
