@@ -24,7 +24,7 @@ export interface MultiSelectItemsCountButtonProps {
   /** The action to perform for key down event. */
   onKeyDown?: () => void;
   /** Ref to the Accordion Button element. */
-  accordianButtonRef: any;
+  accordionButtonRef: any;
 }
 
 /**
@@ -42,7 +42,7 @@ const MultiSelectItemsCountButton = forwardRef<
     isOpen,
     multiSelectId,
     multiSelectLabelText,
-    accordianButtonRef,
+    accordionButtonRef,
     onClear,
     selectedItemsString,
     selectedItemsCount,
@@ -66,7 +66,7 @@ const MultiSelectItemsCountButton = forwardRef<
         onClear && onClear();
         // Set focus on the Accordion Button when close the
         // selected items count button.
-        accordianButtonRef.current?.focus();
+        accordionButtonRef.current?.focus();
       }}
       __css={styles}
     >
