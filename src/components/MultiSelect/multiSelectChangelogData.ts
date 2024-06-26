@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "New Feature",
+    affects: ["Functionality"],
+    notes: [
+      "Adds `closeOnBlur` prop which, when set to true, closes the component if it loses focus.",
+    ],
+  },
+  {
     date: "2024-05-23",
     version: "3.1.4",
     type: "Bug Fix",

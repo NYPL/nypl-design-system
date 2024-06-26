@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -39,6 +39,10 @@ export interface AccordionProps {
    * within accordion panel is greater than height set by panelMaxHeight, a
    * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
+  /** For internal use only. This value toggles the accordion closed if the
+   * MultiSelect's `closeOnBlur` prop is true and the user clicks outside the
+   * component. */
+  userClickedOutside?: boolean;
 }
 
 /**
@@ -215,6 +219,7 @@ export const Accordion: ChakraComponent<
       isDefaultOpen = false,
       isAlwaysRendered = false,
       panelMaxHeight,
+      userClickedOutside,
       ...rest
     } = props;
 
@@ -261,6 +266,12 @@ export const Accordion: ChakraComponent<
         }
       }
     };
+
+    useEffect(() => {
+      if (userClickedOutside) {
+        setExpandedPanels([]);
+      }
+    }, [userClickedOutside]);
 
     return (
       <ChakraAccordion
