@@ -211,6 +211,9 @@ const meta: Meta<typeof MultiSelect> = {
     id: {
       control: false,
     },
+    closeOnBlur: {
+      table: { defaultValue: { summary: false } },
+    },
     isBlockElement: {
       table: { defaultValue: { summary: false } },
     },
@@ -249,6 +252,7 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     id: "multi-select-id",
+    closeOnBlur: false,
     isBlockElement: true,
     isDefaultOpen: false,
     isSearchable: false,
@@ -466,8 +470,19 @@ export const defaultOpenState: Story = {
   ),
 };
 
+export const closeOnBlurState: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-15"
+      closeOnBlur={true}
+      isBlockElement
+      items={withChildrenItems}
+    />
+  ),
+};
+
 export const InAGroup: Story = {
-  render: () => <MultiSelecGroupStory items={withItems} />,
+  render: () => <MultiSelectGroupStory items={withItems} />,
 };
 
 const MultiSelectWithControlsStory = (args) => {
@@ -510,6 +525,7 @@ const MultiSelectWithControlsStory = (args) => {
 
 const MultiSelectStory = ({
   id,
+  closeOnBlur = false,
   isBlockElement = false,
   isSearchable = false,
   isDefaultOpen,
@@ -537,6 +553,7 @@ const MultiSelectStory = ({
   return (
     <MultiSelect
       buttonText="MultiSelect"
+      closeOnBlur={closeOnBlur}
       defaultItemsVisible={defaultItemsVisible}
       id={id}
       isBlockElement={isBlockElement}
@@ -563,7 +580,7 @@ const MultiSelectStory = ({
 };
 
 // TODO: Replace with MultiSelectGroup once that component is done.
-const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
+const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useMultiSelect();

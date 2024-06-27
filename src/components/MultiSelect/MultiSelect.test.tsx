@@ -1,5 +1,5 @@
 import { axe } from "jest-axe";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
@@ -261,6 +261,59 @@ describe.skip("MultiSelect", () => {
     expect(
       screen.queryByTestId("multi-select-close-button-testid")
     ).not.toBeInTheDocument();
+  });
+
+  it("should close the multiselect when the component loses focus, if `closeOnBlur` is true", async () => {
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        buttonText="Multiselect button text"
+        closeOnBlur={true}
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        isDefaultOpen={true}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+
+    const multiSelectButton = screen.getByRole("button");
+    expect(multiSelectButton.getAttribute("aria-expanded")).toEqual("true");
+
+    await userEvent.click(document.body);
+
+    await waitFor(() =>
+      expect(multiSelectButton).toHaveAttribute("aria-expanded", "false")
+    );
+  });
+
+  it("should close the multiselect when the 'esc' key is pressed", async () => {
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        buttonText="Multiselect button text"
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        isDefaultOpen={true}
+        isSearchable={false}
+        isBlockElement={false}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+
+    const multiSelectButton = screen.getByRole("button");
+    const multiSelectCheckbox = screen.getByRole("checkbox", { name: /dogs/i });
+
+    expect(multiSelectButton.getAttribute("aria-expanded")).toEqual("true");
+
+    await userEvent.click(multiSelectCheckbox);
+
+    await userEvent.keyboard("[Escape]");
+
+    expect(multiSelectButton).toHaveAttribute("aria-expanded", "false");
   });
 
   it("should allow user to toggle menu by clicking menu button or use the 'Enter'/'Spacebar' key", () => {
