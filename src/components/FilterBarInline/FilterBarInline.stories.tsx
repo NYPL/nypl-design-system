@@ -160,6 +160,7 @@ const FilterBarStory = (args) => {
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
+          closeOnBlur
         />
       ))
     );
