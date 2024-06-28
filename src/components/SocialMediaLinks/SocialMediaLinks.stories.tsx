@@ -13,64 +13,64 @@ import Text from "../Text/Text";
 
 const exampleAllLinkData: SocialMediaLinkDataProps[] = [
   {
-    type: "fileTypeGenericDoc",
+    icon: "fileTypeGenericDoc",
     labelText: "NYPL Blog",
     url: "https://nypl.org/blog",
   },
   {
-    type: "socialFacebook",
+    icon: "socialFacebook",
     labelText: "Facebook",
     url: "https://facebook.com/nypl",
   },
   {
-    type: "socialInstagram",
+    icon: "socialInstagram",
     labelText: "Instagram",
     url: "https://instagram.com/nypl",
   },
   {
-    type: "socialPinterest",
+    icon: "socialPinterest",
     labelText: "Pinterest",
     url: "https://pinterest.com/nypl",
   },
   {
-    type: "socialSoundCloud",
+    icon: "socialSoundCloud",
     labelText: "SoundCloud",
     url: "https://soundcloud.com/nypl",
   },
   {
-    type: "socialTikTok",
+    icon: "socialTikTok",
     labelText: "TikTok",
     url: "https://tiktok.com/@nypl",
   },
   {
-    type: "socialTumblr",
+    icon: "socialTumblr",
     labelText: "Tumblr",
     url: "https://nypl.tumblr.com",
   },
   {
-    type: "socialTwitter",
+    icon: "socialTwitter",
     labelText: "Twitter",
     url: "https://twitter.com/nypl",
   },
   {
-    type: "socialYoutube",
+    icon: "socialYoutube",
     labelText: "YouTube",
     url: "https://youtube.com/newyorkpubliclibrary",
   },
 ];
 const exampleLinkData: SocialMediaLinkDataProps[] = [
   {
-    type: "socialFacebook",
+    icon: "socialFacebook",
     labelText: "Facebook",
     url: "https://facebook.com/nypl",
   },
   {
-    type: "socialTwitter",
+    icon: "socialTwitter",
     labelText: "Twitter",
     url: "https://twitter.com/nypl",
   },
   {
-    type: "socialInstagram",
+    icon: "socialInstagram",
     labelText: "Instagram",
     url: "https://instagram.com/nypl",
   },
@@ -78,27 +78,27 @@ const exampleLinkData: SocialMediaLinkDataProps[] = [
 
 const exampleTwoLinkData: SocialMediaLinkDataProps[] = [
   {
-    type: "socialPinterest",
+    icon: "socialPinterest",
     labelText: "Pinterest",
     url: "https://pinterest.com/nypl",
   },
   {
-    type: "socialSoundCloud",
+    icon: "socialSoundCloud",
     labelText: "SoundCloud",
     url: "https://soundcloud.com/nypl",
   },
   {
-    type: "socialTumblr",
+    icon: "socialTumblr",
     labelText: "Tumblr",
     url: "https://nypl.tumblr.com",
   },
   {
-    type: "socialTwitter",
+    icon: "socialTwitter",
     labelText: "Twitter",
     url: "https://twitter.com/nypl",
   },
   {
-    type: "socialYoutube",
+    icon: "socialYoutube",
     labelText: "YouTube",
     url: "https://youtube.com/newyorkpubliclibrary",
   },

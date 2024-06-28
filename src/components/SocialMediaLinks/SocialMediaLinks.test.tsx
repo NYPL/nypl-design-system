@@ -7,12 +7,12 @@ import SocialMediaLinks, { SocialMediaLinkDataProps } from "./SocialMediaLinks";
 const dataArray: SocialMediaLinkDataProps[] = [
   {
     labelText: "Teachers Blog",
-    type: "fileTypeGenericDoc",
+    icon: "fileTypeGenericDoc",
     url: "https://www.nypl.org/blog/all?channel=732",
   },
   {
     labelText: "Teens Instagram",
-    type: "socialInstagram",
+    icon: "socialInstagram",
     url: "https://www.instagram.com/nyplteens/?hl=en",
   },
 ];
@@ -102,19 +102,19 @@ describe("SocialMediaLinks", () => {
     expect(screen.getByTitle("Teens Instagram")).toBeInTheDocument();
   });
 
-  it("Renders selected types", () => {
+  it("Renders selected icon", () => {
     render(
       <SocialMediaLinks
         layout={"column"}
         linksData={[
           {
             labelText: "Alt Twitter",
-            type: "socialTwitter",
+            icon: "socialTwitter",
             url: "https://twitter.com/elsewhere",
           },
           {
             labelText: "NYPL Facebook",
-            type: "socialFacebook",
+            icon: "socialFacebook",
             url: "https://facebook.com/nypl",
           },
         ]}

@@ -34,8 +34,8 @@ const verified: VerifyIconNames = true;
 export interface SocialMediaLinkDataProps {
   /** Required. Label rendered on page is showLabel is true  */
   labelText: string;
-  /** Required. Must be one of socialMediaLinkTypeArray */
-  type: IconNames;
+  /** Required. Should match the social media paltform that it's linking to */
+  icon: IconNames;
   /** Required. Url to link to the platform */
   url: string;
 }
@@ -64,7 +64,7 @@ export type SocialMediaLinksProps = BaseSocialMediaLinksProps &
   ConditionalSocialMediaLinksProps;
 /**
  * The SocialMediaLinks component renders a list of links for accessing social media sites.
- * The data passed to the `linksData` prop controls which social media types are displayed,
+ * The data passed to the `linksData` prop controls which social media icons are displayed,
  * the order they appear, the url they link to, and the text used for the label of each.
  */
 export const SocialMediaLinks: ChakraComponent<
@@ -113,14 +113,14 @@ export const SocialMediaLinks: ChakraComponent<
       return (
         <Link
           href={modifiedPlatform.url}
-          key={modifiedPlatform.type}
+          key={modifiedPlatform.icon}
           screenreaderOnlyText={!showLabels ? modifiedPlatform.labelText : null}
           rel="nofollow noopener noreferrer"
           target="_blank"
         >
           <div className={"platLink"}>
             <Icon
-              name={modifiedPlatform.type}
+              name={modifiedPlatform.icon}
               size={iconSize}
               title={modifiedPlatform.labelText}
             />
