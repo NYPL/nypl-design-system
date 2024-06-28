@@ -17,11 +17,11 @@ export const breadcrumbTypeArray = [
   "booksAndMore",
   "brand",
   "connect",
+  "digitalCollections",
   "education",
   "locations",
   "research",
   "whatsOn",
-  "digitalCollections",
 ] as const;
 export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
