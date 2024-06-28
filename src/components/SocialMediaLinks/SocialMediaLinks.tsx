@@ -34,7 +34,7 @@ const verified: VerifyIconNames = true;
 export interface SocialMediaLinkDataProps {
   /** Required. Label rendered on page is showLabel is true  */
   labelText: string;
-  /** Required. Should match the social media paltform that it's linking to */
+  /** Required. Should match the social media platform that it's linking to */
   icon: IconNames;
   /** Required. Url to link to the platform */
   url: string;
