@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -39,6 +39,10 @@ export interface AccordionProps {
    * within accordion panel is greater than height set by panelMaxHeight, a
    * scrollbar will appear for accordion panel. */
   panelMaxHeight?: string;
+  /** For internal use only. This value toggles the accordion closed if the
+   * MultiSelect's `closeOnBlur` prop is true and the user clicks outside the
+   * component. */
+  userClickedOutside?: boolean;
 }
 
 /**
@@ -215,6 +219,7 @@ export const Accordion: ChakraComponent<
       isDefaultOpen = false,
       isAlwaysRendered = false,
       panelMaxHeight,
+      userClickedOutside,
       ...rest
     } = props;
 
@@ -224,18 +229,49 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
+    // If the accordionData doesn't already contain refs for the panel
+    // buttons, add them now.
+    const updatedAccordionData = accordionData.map((item) => ({
+      ...item,
+      buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
+    }));
+
     const handleKeyDown = (e) => {
-      // If the 'esc' key is pressed,
-      if (e.keyCode === 27) {
-        const focusedPanelIndex = Number(e.target.dataset.index);
-        // collapse the currently focused panel.
-        // (Nothing will happen if the currently
-        // focused panel is already collapsed.)
+      // If the 'esc' key is pressed, find the panel the
+      // user is focused on or within, and remove it as
+      // an expanded panel. (Nothing will happen if the
+      // panel is already collapsed.)
+      if (e.code === "Escape") {
+        let focusedPanelIndex;
+        if (e.target.dataset.index) {
+          // If the user is focused on an accordion button...
+          focusedPanelIndex = Number(e.target.dataset.index);
+        } else {
+          // If the user is focused on an element within the panel...
+          focusedPanelIndex = Number(
+            e.target.closest("[role='region']").id.split("-").pop()
+          );
+        }
+
         setExpandedPanels(
           expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
+
+        // If something *inside* the accordion was in focus and 'esc' was clicked,
+        // return focus to the accordion panel
+        if (updatedAccordionData[focusedPanelIndex].buttonInteractionRef) {
+          updatedAccordionData[
+            focusedPanelIndex
+          ].buttonInteractionRef.current.focus();
+        }
       }
     };
+
+    useEffect(() => {
+      if (userClickedOutside) {
+        setExpandedPanels([]);
+      }
+    }, [userClickedOutside]);
 
     return (
       <ChakraAccordion
@@ -248,7 +284,7 @@ export const Accordion: ChakraComponent<
         {...rest}
       >
         {getElementsFromData(
-          accordionData,
+          updatedAccordionData,
           ariaLabel,
           id,
           isAlwaysRendered,

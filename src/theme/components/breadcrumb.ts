@@ -50,6 +50,36 @@ const connect = defineStyle({
     bg: "dark.section.connect.secondary",
   },
 });
+const digitalCollections = defineStyle({
+  bg: "ui.gray.light-cool",
+  color: "ui.black",
+  _dark: {
+    bg: "ui.gray.xx-dark",
+  },
+  a: {
+    _hover: {
+      color: "ui.gray.xx-dark",
+    },
+    _dark: {
+      _hover: {
+        color: "ui.white",
+      },
+    },
+    _focus: customFocusColor("ui.black", "dark.ui.typography.body"),
+  },
+  "li:last-child": {
+    ".chakra-breadcrumb__link": {
+      _hover: {
+        color: "ui.gray.xx-dark",
+      },
+      _dark: {
+        _hover: {
+          color: "ui.white",
+        },
+      },
+    },
+  },
+});
 const education = defineStyle({
   bg: "section.education.secondary",
   _dark: {
@@ -147,6 +177,7 @@ const Breadcrumb = defineStyleConfig({
     booksAndMore,
     brand,
     connect,
+    digitalCollections,
     education,
     locations,
     research,
