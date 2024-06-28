@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, and `Slider` components.
+- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, `Slider`, and `FeedbackBox` components.
 - Adds `digitalCollections` color variant to `Breadcrumbs` component.
 - Adds `closeOnBlur` prop to `MultiSelect` component which, when set to true, closes the component if it loses focus.
 
