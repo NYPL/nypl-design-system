@@ -21,8 +21,8 @@ const meta: Meta<typeof Checkbox> = {
     labelText: { control: { type: "text" } },
     name: { control: { type: "text" } },
     onChange: { control: false },
-    showHelperInvalidText: argsBooleanType(true),
-    showLabel: argsBooleanType(true),
+    showHelperInvalidText: argsBooleanType("true"),
+    showLabel: argsBooleanType("true"),
     value: { control: { type: "text" } },
   },
 };
