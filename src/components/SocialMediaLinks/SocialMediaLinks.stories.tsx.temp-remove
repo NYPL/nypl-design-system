@@ -111,7 +111,7 @@ export const WithControls: Story = {
     showLabels: {
       table: {
         disable: false,
-        defaultValue: { summary: false },
+        defaultValue: { summary: "false" },
       },
     },
     size: {

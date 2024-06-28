@@ -44,7 +44,7 @@ const meta: Meta<typeof TextInput> = {
     showHelperInvalidText: argsBooleanType(true),
     showLabel: argsBooleanType(true),
     showRequiredLabel: argsBooleanType(true),
-    step: { table: { defaultValue: { summary: 1 } } },
+    step: { table: { defaultValue: { summary: "1" } } },
     textInputType: {
       control: false,
       table: { defaultValue: { summary: "default" } },

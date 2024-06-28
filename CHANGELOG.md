@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates base font stack to only `system-ui` and `sans-serif`.
 - Updates `Accordion` to close focused panel when "esc" key is pressed.
 - Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
+- Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
 
 ## 3.1.6 (June 20, 2024)
 
