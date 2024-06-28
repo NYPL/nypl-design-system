@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { userEvent, expect, screen } from "@storybook/test";
 
 import FeedbackBox, { feedbackBoxViewTypeArray } from "./FeedbackBox";
 import Heading from "../Heading/Heading";
@@ -102,14 +103,14 @@ export const WithControls: Story = {
     hiddenFields: undefined,
     id: "feedbackBox-id",
     isInvalidComment: false,
-    isInvalidEmail: false,
+    isInvalidEmail: true,
     isOpen: undefined,
     notificationText: undefined,
     onClose: undefined,
     onOpen: undefined,
     onSubmit: undefined,
-    showCategoryField: false,
-    showEmailField: false,
+    showCategoryField: true,
+    showEmailField: true,
     title: "Help and Feedback",
     view: "form",
   },
@@ -119,6 +120,42 @@ export const WithControls: Story = {
       url: "",
     },
     jest: "FeedbackBox.test.tsx",
+  },
+  play: async () => {
+    expect(
+      screen.queryByRole("textbox", { name: /comment/i })
+    ).not.toBeInTheDocument();
+    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    await userEvent.click(button);
+    expect(screen.getByLabelText("Correction")).not.toBeChecked();
+    await userEvent.click(screen.getByLabelText("Correction"));
+    expect(screen.getByLabelText("Correction")).toBeChecked();
+    expect(
+      screen.getByRole("textbox", { name: /comment/i })
+    ).toBeInTheDocument();
+    const submit = screen.getByRole("button", { name: "Submit" });
+    await userEvent.click(submit);
+    expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
+    await userEvent.type(
+      screen.getByRole("textbox", { name: /comment/i }),
+      "Hello"
+    );
+    await userEvent.type(
+      screen.getByRole("textbox", { name: /email/i }),
+      "not valid"
+    );
+    expect(
+      screen.getByText(/please enter a valid email address/i)
+    ).toBeInTheDocument();
+    await userEvent.clear(screen.getByRole("textbox", { name: /email/i }));
+    await userEvent.type(
+      screen.getByRole("textbox", { name: /email/i }),
+      "a@b.com"
+    );
+    await userEvent.click(submit);
+    expect(
+      screen.getByText(/thank you for submitting your feedback/i)
+    ).toBeInTheDocument();
   },
   render: (args) => <FeedbackBoxWithControls {...args} />,
 };

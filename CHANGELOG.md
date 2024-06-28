@@ -10,7 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, and `Slider` components.
+- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, `Slider`, and `FeedbackBox` components.
+- Adds `digitalCollections` color variant to `Breadcrumbs` component.
 - Adds `closeOnBlur` prop to `MultiSelect` component which, when set to true, closes the component if it loses focus.
 
 ### Updates
@@ -28,6 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates how links are styled within the `Heading` component.
+- Updates `jest` related npm packages for security patches.
 
 ### Fixes
 
