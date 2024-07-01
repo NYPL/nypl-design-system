@@ -109,7 +109,7 @@ export const MultiSelect: ChakraComponent<
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
 
-      // // Tells `Accordion` to close if open when user clicks outside of the container
+      // Tells `Accordion` to close if open when user clicks outside of the container
       const handleClickOutside = (e) => {
         if (e.type === "mousedown") {
           const multiSelect = containerRef.current;
@@ -314,7 +314,6 @@ export const MultiSelect: ChakraComponent<
               key={item.id}
               labelText={item.name}
               name={item.name}
-              // tabIndex={0}
               {...(onMixedStateChange !== undefined
                 ? {
                     isChecked: isAllChecked(id, item),
@@ -338,7 +337,6 @@ export const MultiSelect: ChakraComponent<
                 isDisabled={childItem.isDisabled}
                 isChecked={isChecked(id, childItem.id)}
                 onChange={onChange}
-                // tabIndex={0}
                 __css={styles.menuChildren}
               />
             )),
@@ -353,7 +351,6 @@ export const MultiSelect: ChakraComponent<
               isChecked={isChecked(id, item.id)}
               onChange={onChange}
               key={item.id}
-              // tabIndex={0}
             />,
           ];
         }
@@ -415,7 +412,6 @@ export const MultiSelect: ChakraComponent<
           __css={styles.base}
           {...rest}
           ref={containerRef}
-          // onBlur={closeOnBlur && handleTabOutside}
           onClick={() => setUserClickedOutside(false)}
         >
           <Accordion
