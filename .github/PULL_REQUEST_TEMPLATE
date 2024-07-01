@@ -18,6 +18,7 @@ Fixes JIRA ticket xxx
 
 ### Accessibility Checklist
 
+- [ ] Checked Storybook's "Accessibility" tab for color contrast and other issues.
 - [ ] The feature works with keyboard inputs including tabbing back and forward and pressing space, enter, arrow, and esc keys.
 - [ ] For hidden text or when `aria-live` is used, a screenreader was used to verify the text is read.
 - [ ] For features that involve UI updates and focusing on DOM `ref`s, focus management was reviewed.
