@@ -12,6 +12,15 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Functionality"],
+    notes: [
+      "Fixes bug where clicking a checkbox closes the component when `closeOnBlur` is true.",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
     type: "New Feature",
     affects: ["Functionality"],
     notes: [
