@@ -2,7 +2,7 @@ export {};
 // import { Box, useColorModeValue, VStack } from "@chakra-ui/react";
 // import { action } from "@storybook/addon-actions";
 // import type { Meta, StoryObj } from "@storybook/react";
-// import { withDesign } from "storybook-addon-designs";
+//
 // import { useEffect, useState } from "react";
 
 // import FilterBar from "./FilterBar";
@@ -81,7 +81,6 @@ export {};
 //   // the `title` attribute below.
 //   // title: "Components/Form Elements/FilterBar",
 //   component: FilterBar,
-//   decorators: [withDesign],
 //   argTypes: {
 //     children: { table: { disable: true } },
 //     id: { control: false },

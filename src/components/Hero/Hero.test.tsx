@@ -21,6 +21,7 @@ export const otherSubHeaderText =
   "Visit us today.";
 const imageProps = {
   alt: "Image example",
+  id: "image-example",
   src: getPlaceholderImage("smaller", 0),
 };
 
@@ -30,6 +31,7 @@ describe("Hero accessbility tests", () => {
       <Hero
         heroType="primary"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Primary" />}
+        id="primary-hero"
         subHeaderText="Example Subtitle"
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
       />
@@ -687,19 +689,21 @@ describe("Hero", () => {
     expect(withOtherProps).toMatchSnapshot();
   });
 
-  it("passes a ref to the div wrapper element", () => {
+  it("passes a ref and id to the div wrapper element", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         heroType="primary"
         heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
+        id="hero-id"
         ref={ref}
         subHeaderText="Example Subtitle"
       />
     );
 
     expect(container.querySelector("div")).toBe(ref.current);
+    expect(container.querySelector("#hero-id")).toBeInTheDocument();
   });
 });
 describe("Test getTextColor function (hero.ts)", () => {

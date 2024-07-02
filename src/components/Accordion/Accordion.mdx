@@ -12,7 +12,7 @@ import { changelogData } from "./accordionChangelogData";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `3.0.0`    |
+| Latest            | `3.1.4`    |
 
 ## Table of Contents
 
@@ -116,7 +116,9 @@ const accordionData = [
   - The global `ariaLabel` prop can set a general value that will be applied to
     all accordions within an accordion group.
   - The `ariaLabel` key available within the `accordionData` array entries can set
-    a unnique value for each accordion within an accordion group.
+    a unique value for each accordion within an accordion group.
+- If the user presses the 'esc' key and focus is on an open accordion panel,
+  that panel will close and focus will return to the accordion's button.
 
 Resources:
 

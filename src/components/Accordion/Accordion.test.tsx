@@ -83,8 +83,13 @@ export const accordionData = [
     label: "Tom Nook",
     panel: (
       <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
-        in the Animal Crossing series who operates the village store.
+        Tom Nook,
+        <b>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          known in <a href="#">Japan</a> as Tanukichi
+        </b>
+        , is a fictional character in the Animal Crossing series who operates
+        the village store.
       </p>
     ),
   },
@@ -146,7 +151,7 @@ describe("Accordion", () => {
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
     let accordionPanelContent = screen.queryByText(
-      /known in Japan as Tanukichi/i
+      /operates the village store/i
     );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
     // The panel's content should not be in the DOM unless the Accordion is open.
@@ -154,9 +159,39 @@ describe("Accordion", () => {
 
     userEvent.click(accordionLabel);
 
-    accordionPanelContent = screen.queryByText(/known in Japan as Tanukichi/i);
+    accordionPanelContent = screen.queryByText(/operates the village store/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
     expect(accordionPanelContent).toBeInTheDocument();
+  });
+
+  it("closes the accordion when the button is in focus and the 'esc' key is pressed", async () => {
+    render(<Accordion accordionData={[accordionData[0]]} />);
+
+    const accordionButton = screen.getByRole("button");
+
+    await userEvent.click(accordionButton);
+
+    expect(accordionButton.getAttribute("aria-expanded")).toEqual("true");
+
+    await userEvent.keyboard("[Escape]");
+
+    expect(accordionButton).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("closes the accordion when an element in the panel is focused and the 'esc' key is pressed", async () => {
+    render(<Accordion accordionData={[accordionData[0]]} />);
+
+    const accordionButton = screen.getByRole("button");
+
+    await userEvent.click(accordionButton);
+
+    expect(accordionButton.getAttribute("aria-expanded")).toEqual("true");
+
+    const linkInPanel = screen.getByRole("link");
+
+    await userEvent.type(linkInPanel, "[Escape]");
+
+    expect(accordionButton).toHaveAttribute("aria-expanded", "false");
   });
 
   it("always renders its content when isAlwaysRendered is true", () => {
@@ -164,7 +199,7 @@ describe("Accordion", () => {
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
     let accordionPanelContent = screen.queryByText(
-      /known in Japan as Tanukichi/i
+      /operates the village store/i
     );
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
     expect(accordionPanelContent).toBeInTheDocument();
@@ -207,6 +242,29 @@ describe("Accordion", () => {
     userEvent.click(accordion1);
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion2).toHaveAttribute("aria-expanded", "true");
+    expect(accordion3).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("closes only the focused accordion when there are multiple accordions and the 'esc' key is pressed", async () => {
+    render(<Accordion accordionData={accordionData} />);
+
+    const accordion1 = screen.getByRole("button", { name: "Tom Nook" });
+    const accordion3 = screen.getByRole("button", { name: "K.K. Slider" });
+
+    expect(accordion1).toHaveAttribute("aria-expanded", "false");
+    expect(accordion3).toHaveAttribute("aria-expanded", "false");
+
+    userEvent.click(accordion1);
+    userEvent.click(accordion3);
+
+    expect(accordion1).toHaveAttribute("aria-expanded", "true");
+    expect(accordion3).toHaveAttribute("aria-expanded", "true");
+
+    const linkInPanel1 = screen.getByRole("link");
+
+    userEvent.type(linkInPanel1, "[Escape]");
+
+    expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");
   });
 

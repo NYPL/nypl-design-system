@@ -17,6 +17,13 @@ export const changelogData: ChangelogData[] = [
     notes: ["Implemented responsive 12-column grid system."],
   },
   {
+    date: "2024-05-09",
+    version: "3.1.2",
+    type: "Update",
+    affects: ["Functionality", "Accessibility"],
+    notes: ["Adds `id` prop."],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

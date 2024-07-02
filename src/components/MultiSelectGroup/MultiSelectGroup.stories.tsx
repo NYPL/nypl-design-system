@@ -2,7 +2,6 @@ import { VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import MultiSelect, {
   multiSelectWidthsArray,
@@ -84,6 +83,63 @@ const MultiSelectGroupStory = (args) => {
           multiSelectItems.map((multiSelect) => (
             <MultiSelect
               buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              id={multiSelect.id}
+              isBlockElement={isBlockElement}
+              items={multiSelect.items}
+              key={multiSelect.id}
+              onChange={(e) => {
+                onChange(e.target.id, multiSelect.id);
+                setActionName("onChange");
+              }}
+              onMixedStateChange={(e) => {
+                onMixedStateChange(
+                  e.target.id,
+                  multiSelect.id,
+                  multiSelect.items
+                );
+                setActionName("onMixedStateChange");
+              }}
+              onClear={() => {
+                onClear(multiSelect.id);
+                setActionName("onClear");
+              }}
+              selectedItems={selectedItems}
+              width={multiSelectWidth}
+            />
+          ))
+        );
+      }}
+    />
+  );
+};
+
+const MultiSelectGroupWithCloseOnBlurStory = (args) => {
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
+
+  // Hack to get storybook's action tab to log state change when selectedItems state changes.
+  const [actionName, setActionName] = useState("");
+
+  useEffect(() => {
+    if (Object.keys(selectedItems).length !== 0) {
+      action(actionName)(selectedItems);
+    }
+    if (actionName === "onClear") {
+      action(actionName)(selectedItems);
+    }
+  }, [actionName, selectedItems]);
+
+  return (
+    <MultiSelectGroup
+      {...args}
+      renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+        return (
+          multiSelectItems &&
+          multiSelectItems.map((multiSelect) => (
+            <MultiSelect
+              buttonText="MultiSelect"
+              closeOnBlur
               defaultItemsVisible={defaultItemsVisible}
               id={multiSelect.id}
               isBlockElement={isBlockElement}
@@ -265,7 +321,6 @@ const MultiSelectGroupLayoutStory = () => {
 const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },
@@ -309,6 +364,15 @@ export const WithControls: Story = {
     },
     jest: ["MultiSelectGroup.test.tsx"],
   },
+};
+
+export const closeOnBlurState: Story = {
+  render: () => (
+    <MultiSelectGroupWithCloseOnBlurStory
+      id="multiselect-group"
+      labelText="Label Text"
+    />
+  ),
 };
 
 // The following are additional MultiSelectGroup example Stories.

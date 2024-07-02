@@ -20,6 +20,88 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, `Slider`, and `FeedbackBox` components.
+- Adds `digitalCollections` color variant to `Breadcrumbs` component.
+- Adds `closeOnBlur` prop to `MultiSelect` component which, when set to true, closes the component if it loses focus.
+
+### Updates
+
+- Updates base font stack to only `system-ui` and `sans-serif`.
+- Updates `Accordion` to close focused panel when "esc" key is pressed.
+- Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
+
+## 3.1.6 (June 20, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for `Searchbar`, `Select`, and `Radiogroup` components.
+
+### Updates
+
+- Updates how links are styled within the `Heading` component.
+- Updates `jest` related npm packages for security patches.
+
+### Fixes
+
+- Fixes broken Github Action for release tags.
+
+## 3.1.5 (June 6, 2024)
+
+### Adds
+
+- Adds the following npm packages: `jest-transformer-svg`, `@storybook/addon-designs`, and `@storybook/test`.
+- Adds Storybook interaction tests for `Select`.
+- Adds Storybook interaction tests for `RadioGroup`.
+
+### Updates
+
+- Updates the following packages:
+  - Storybook main package and related libraries to `8.0.8`.
+  - `remark-gfm` to `4.0.0`.
+  - `vite` to `5.2.8`, `@vitejs/plugin-react` to `4.2.1`, and `vite-plugin-svgr` to `4.2.0`.
+- Updates how SVGs are imported into `LogoSvgs.tsx` and `IconSvgs.tsx`.
+- Updates Storybook internal link and heading styles and enables the hash heading URL linking.
+
+### Removals
+
+- Removes the following packages: `downshift`, `tough-cookie`, `@storybook/testing-library`, `storybook-addon-designs`, and `@svgr/webpack`.
+
+### Updates
+
+- Exports `useMediaQuery` and `chakra` from Chakra UI.
+- Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
+
+## 3.1.4 (May 23, 2024)
+
+### Adds
+
+- Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Fixes
+
+- Fixes the z-index issue in the `MultiSelect` component's selected item button.
+- Fixes the `Checkbox` positioning so it is visible when it is focused in a scrollable container.
+- Fixes a `Breadcrumbs` snapshot test that was duplicated and now has the appropriate `"locations"` variant.
+
+## 3.1.3 (May 15, 2024)
+
+### Adds
+
+- Adds new `type` prop to the `Modal` component with `"default"` and `"confirmation"` variants.
+
+### Fixes
+
+- Fixes the desktop styling flicker in the `ButtonGroup` component.
+
+## 3.1.2 (May 9, 2024)
+
+### Adds
+
+- Adds the `id` prop to the `Hero`, `HorizontalRule`, `SkeletonLoader`, `TemplateAppContainer`, and `Text` components.
+- Adds the `id` property to the `imageProps` prop object in the `Card` component.
+
 ### Updates
 
 - Updates the `Heading` component to allow more HTML attributes as props.

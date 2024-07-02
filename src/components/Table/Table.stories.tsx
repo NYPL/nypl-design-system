@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Image from "../Image/Image";
 import Table from "./Table";
@@ -7,7 +6,6 @@ import Table from "./Table";
 const meta: Meta<typeof Table> = {
   title: "Components/Page Layout/Table",
   component: Table,
-  decorators: [withDesign],
   argTypes: {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },

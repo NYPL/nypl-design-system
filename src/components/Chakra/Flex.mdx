@@ -1,5 +1,5 @@
 import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
-import { Canvas, Meta, Source } from "@storybook/blocks";
+import { Meta, Source } from "@storybook/blocks";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -24,44 +24,46 @@ entire width of the container.
 Details about available props and related child components can be found on the
 [Flex component](https://chakra-ui.com/docs/layout/flex) page on the Chakra UI site.
 
-<Canvas>
-  <Flex alignItems="baseline">
-    <Box w="20" h="20" bg="brand.primary" />
-    <Box w="20" h="20" bg="brand.secondary" />
-    <Box w="20" h="20" bg="brand.primary" />
-    <Box w="20" h="20" bg="brand.secondary" />
-    <Box w="20" h="20" bg="brand.primary" />
-  </Flex>
-</Canvas>
+{
+
+<Flex alignItems="baseline" mb="s">
+  <Box w="20" h="20" bg="brand.primary" />
+  <Box w="20" h="20" bg="brand.secondary" />
+  <Box w="20" h="20" bg="brand.primary" />
+  <Box w="20" h="20" bg="brand.secondary" />
+  <Box w="20" h="20" bg="brand.primary" />
+</Flex>
+}
 
 ## Examples
 
 Use the `justify` prop to move the children around.
 
-<Canvas>
-  <VStack align="stretch">
-    <div>
-      <p>`justify` set to "center"</p>
-      <Flex alignItems="baseline" justify="center">
-        <Box w="20" h="20" bg="brand.primary" />
-        <Box w="20" h="20" bg="brand.secondary" />
-        <Box w="20" h="20" bg="brand.primary" />
-        <Box w="20" h="20" bg="brand.secondary" />
-        <Box w="20" h="20" bg="brand.primary" />
-      </Flex>
-    </div>
-    <div>
-      <p>`justify` set to "space-between"</p>
-      <Flex alignItems="baseline" justify="space-between">
-        <Box w="20" h="20" bg="brand.primary" />
-        <Box w="20" h="20" bg="brand.secondary" />
-        <Box w="20" h="20" bg="brand.primary" />
-        <Box w="20" h="20" bg="brand.secondary" />
-        <Box w="20" h="20" bg="brand.primary" />
-      </Flex>
-    </div>
-  </VStack>
-</Canvas>
+{
+
+<VStack align="stretch">
+  <div>
+    <p>`justify` set to "center"</p>
+    <Flex alignItems="baseline" justify="center">
+      <Box w="20" h="20" bg="brand.primary" />
+      <Box w="20" h="20" bg="brand.secondary" />
+      <Box w="20" h="20" bg="brand.primary" />
+      <Box w="20" h="20" bg="brand.secondary" />
+      <Box w="20" h="20" bg="brand.primary" />
+    </Flex>
+  </div>
+  <div>
+    <p>`justify` set to "space-between"</p>
+    <Flex alignItems="baseline" justify="space-between">
+      <Box w="20" h="20" bg="brand.primary" />
+      <Box w="20" h="20" bg="brand.secondary" />
+      <Box w="20" h="20" bg="brand.primary" />
+      <Box w="20" h="20" bg="brand.secondary" />
+      <Box w="20" h="20" bg="brand.primary" />
+    </Flex>
+  </div>
+</VStack>
+}
 
 ## With Spacer
 
@@ -70,17 +72,18 @@ left and the second aligns right. Add the `Spacer` component between the childre
 This is similar to setting `justify="space-between"` on the `Flex` parent but
 the `Spacer` component is more flexible for most situations.
 
-<Canvas>
-  <Flex alignItems="baseline">
-    <Heading id="row-heading" level="h3">
-      Heading
-    </Heading>
-    <Spacer />
-    <Link href="#viewmore" type="forwards">
-      View more
-    </Link>
-  </Flex>
-</Canvas>
+{
+
+<Flex alignItems="baseline">
+  <Heading id="row-heading" level="h3">
+    Heading
+  </Heading>
+  <Spacer />
+  <Link href="#viewmore" type="forwards">
+    View more
+  </Link>
+</Flex>
+}
 
 <Source
   code={`

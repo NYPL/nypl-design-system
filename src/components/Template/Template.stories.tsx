@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
 
 import Accordion, { AccordionDataProps } from "../Accordion/Accordion";
 import Banner from "../Banner/Banner";
@@ -35,7 +34,6 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof TemplateAppContainer> = {
   title: "Components/Page Layout/Template",
   component: TemplateAppContainer,
-  decorators: [withDesign],
 };
 
 export default meta;

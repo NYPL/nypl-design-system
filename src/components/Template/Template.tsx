@@ -4,6 +4,8 @@ import React, { forwardRef } from "react";
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
 
 export interface TemplateProps {
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Determines whether the legacy grid system and spacing should be used to
    * render the Template layout. */
   useLegacyGrid?: boolean;
@@ -51,6 +53,8 @@ export interface TemplateAppContainerProps
   footer?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateHeader` component section. */
   header?: React.ReactElement;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Render the `SkipNavigation` component or not. False by default. */
   renderSkipNavigation?: boolean;
 }
@@ -69,7 +73,7 @@ const Template: ChakraComponent<
     (props, ref?) => {
       const styles = useStyleConfig("Template", {});
       return (
-        <Box ref={ref} __css={styles} {...props}>
+        <Box id={props.id} ref={ref} __css={styles} {...props}>
           {props.children}
         </Box>
       );
@@ -322,6 +326,7 @@ export const TemplateAppContainer: ChakraComponent<
       contentTop,
       footer,
       header,
+      id,
       sidebar = "none",
       renderFooterElement = true,
       renderHeaderElement = true,
@@ -355,7 +360,7 @@ export const TemplateAppContainer: ChakraComponent<
     return (
       <>
         {renderSkipNavigation ? <SkipNavigation /> : null}
-        <Template ref={ref} {...rest}>
+        <Template id={id} ref={ref} {...rest}>
           <TemplateBreakout>
             {aboveHeaderElem}
             {(header || breakout) && (

@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-05-23",
+    version: "3.1.4",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Adds logic to close accordion when accordion button is focused and 'esc' key is pressed",
+      "Adds logic to close accordion when element within panel is focused and 'esc' key is pressed",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",
