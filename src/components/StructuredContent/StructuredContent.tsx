@@ -72,7 +72,7 @@ const StructuredContentImage: React.FC<any> = chakra((props: ImageProps) => {
  * The `StructuredContent` component that displays a heading, callout content,
  * an image, and body content. All are optional except for body content.
  */
-const StructuredContent: ChakraComponent<
+export const StructuredContent: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<StructuredContentProps> &
       React.RefAttributes<HTMLDivElement>

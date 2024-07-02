@@ -72,8 +72,8 @@ const fontWeightValues = {
 
 const typography: Typography = {
   fonts: {
-    body: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-    heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+    body: "system-ui, sans-serif",
+    heading: "system-ui, sans-serif",
   },
   fontSizes: {
     // generic tokens

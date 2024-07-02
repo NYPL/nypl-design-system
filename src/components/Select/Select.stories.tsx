@@ -1,17 +1,16 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createRef, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
 import Select, { labelPositionsArray, selectTypesArray } from "./Select";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { expect, userEvent, within } from "@storybook/test";
 
 const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
   component: Select,
-  decorators: [withDesign],
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
@@ -83,6 +82,23 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
     jest: ["Select.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    const screen = within(canvasElement);
+    const select = screen.getByRole("combobox");
+
+    await userEvent.selectOptions(select, "green");
+    expect(
+      (screen.getByText("Green") as HTMLOptionElement).selected
+    ).toBeTruthy();
+
+    await userEvent.selectOptions(select, "black");
+    expect(
+      (screen.getByText("Black") as HTMLOptionElement).selected
+    ).toBeTruthy();
+    expect(
+      (screen.getByText("Green") as HTMLOptionElement).selected
+    ).toBeFalsy();
   },
 };
 
