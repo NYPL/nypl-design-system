@@ -10,8 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-06-20",
+    version: "3.1.6",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Updates the styles for links within the heading."],
+  },
+  {
+    date: "2024-05-09",
+    version: "3.1.2",
     type: "Update",
     affects: ["Functionality"],
     notes: ["Extends prop type to allow heading HTML attributes."],

@@ -16,10 +16,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="colors"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-colors"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -116,7 +119,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="red-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -169,7 +172,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="blue-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -222,7 +225,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="yellow-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -288,10 +291,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="pets"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-pets"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -388,7 +394,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="cat-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -441,7 +447,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="dog-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -494,7 +500,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="corgy-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -547,7 +553,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="german-sheperd-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -600,7 +606,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="afghan-hound-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -653,7 +659,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="rat-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -719,10 +725,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="tools"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-tools"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -819,7 +828,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="hammer-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -872,7 +881,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="skrewdriver-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -925,7 +934,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="slottet-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -978,7 +987,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="phillips-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -1031,7 +1040,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="allen-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -1084,7 +1093,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       id="whisk-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1167,10 +1176,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="colors"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-colors"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1267,7 +1279,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="red-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1320,7 +1332,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="blue-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1373,7 +1385,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="yellow-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1439,10 +1451,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="pets"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-pets"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1539,7 +1554,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="cat-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1592,7 +1607,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="dog-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1645,7 +1660,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="corgy-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -1698,7 +1713,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="german-sheperd-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -1751,7 +1766,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="afghan-hound-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -1804,7 +1819,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="rat-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -1870,10 +1885,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="tools"
+      onBlur={false}
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
         id="multi-select-accordion-tools"
+        onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
@@ -1970,7 +1988,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="hammer-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -2023,7 +2041,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="skrewdriver-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input
@@ -2076,7 +2094,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="slottet-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -2129,7 +2147,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="phillips-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -2182,7 +2200,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="allen-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-1n8aert"
+                        className="chakra-checkbox css-vbxw2k"
                         onClick={[Function]}
                       >
                         <input
@@ -2235,7 +2253,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       id="whisk-wrapper"
                     >
                       <label
-                        className="chakra-checkbox css-19e67wo"
+                        className="chakra-checkbox css-1xdhyk6"
                         onClick={[Function]}
                       >
                         <input

@@ -1,8 +1,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import Icon from "../Icons/Icon";
 
+import Icon from "../Icons/Icon";
 import StatusBadge, {
   statusBadgeLevelArray,
   statusBadgeTypeArray,
@@ -12,7 +11,6 @@ import Table from "../Table/Table";
 const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
   component: StatusBadge,
-  decorators: [withDesign],
   argTypes: {
     className: { control: false },
     id: { control: false },

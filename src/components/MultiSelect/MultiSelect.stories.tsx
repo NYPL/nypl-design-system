@@ -1,7 +1,8 @@
+import { HStack, Stack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
-import { withDesign } from "storybook-addon-designs";
+
 import Heading from "../Heading/Heading";
 import MultiSelect, {
   multiSelectWidthsArray,
@@ -10,7 +11,6 @@ import MultiSelect, {
 } from "./MultiSelect";
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
-import { HStack, Stack } from "@chakra-ui/react";
 import Button from "../Button/Button";
 
 const withItems = [
@@ -204,13 +204,15 @@ const withDisabledAllChildrenItems = [
 const meta: Meta<typeof MultiSelect> = {
   title: "Components/Form Elements/MultiSelect",
   component: MultiSelect,
-  decorators: [withDesign],
   argTypes: {
     defaultItemsVisible: {
       table: { defaultValue: { summary: 5 } },
     },
     id: {
       control: false,
+    },
+    closeOnBlur: {
+      table: { defaultValue: { summary: false } },
     },
     isBlockElement: {
       table: { defaultValue: { summary: false } },
@@ -250,6 +252,7 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     id: "multi-select-id",
+    closeOnBlur: false,
     isBlockElement: true,
     isDefaultOpen: false,
     isSearchable: false,
@@ -467,8 +470,19 @@ export const defaultOpenState: Story = {
   ),
 };
 
+export const closeOnBlurState: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-15"
+      closeOnBlur={true}
+      isBlockElement
+      items={withChildrenItems}
+    />
+  ),
+};
+
 export const InAGroup: Story = {
-  render: () => <MultiSelecGroupStory items={withItems} />,
+  render: () => <MultiSelectGroupStory items={withItems} />,
 };
 
 const MultiSelectWithControlsStory = (args) => {
@@ -511,6 +525,7 @@ const MultiSelectWithControlsStory = (args) => {
 
 const MultiSelectStory = ({
   id,
+  closeOnBlur = false,
   isBlockElement = false,
   isSearchable = false,
   isDefaultOpen,
@@ -538,6 +553,7 @@ const MultiSelectStory = ({
   return (
     <MultiSelect
       buttonText="MultiSelect"
+      closeOnBlur={closeOnBlur}
       defaultItemsVisible={defaultItemsVisible}
       id={id}
       isBlockElement={isBlockElement}
@@ -564,7 +580,7 @@ const MultiSelectStory = ({
 };
 
 // TODO: Replace with MultiSelectGroup once that component is done.
-const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
+const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useMultiSelect();

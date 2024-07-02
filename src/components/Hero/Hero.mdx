@@ -19,7 +19,7 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `3.1.1`    |
+| Latest            | `3.1.2`    |
 
 ## Table of Contents
 
@@ -102,6 +102,26 @@ minimum props that should be used are `backgroundImageSrc` and `heading`.
 
 <Story of={HeroStories.Primary} />
 
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heading={
+    <Heading
+      id="primary-hero"
+      level="h1"
+      noSpace
+      overline="Hero Example"
+      subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+      text="Hero Primary"
+    />
+  }
+  heroType="primary"
+/>
+`}
+  language="jsx"
+/>
+
 ### Tertiary
 
 The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundColor`,
@@ -109,6 +129,74 @@ The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundCo
 prop.
 
 <Story of={HeroStories.Tertiary} />
+
+<Source
+  code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero-subtitle-subheading"
+      size="heading2"
+      subtitle="This is the subtitle"
+      text="Hero Tertiary with Subtitle & Sub-Heading"
+    />
+  }
+  heroType="tertiary"
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero-subheading"
+      size="heading2"
+      text="Hero Tertiary with Sub-Heading"
+    />
+  }
+  heroType="tertiary"
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="tertiary-hero"
+      size="heading2"
+      text="Hero Tertiary without Additional Elements"
+    />
+  }
+  heroType="tertiary"
+/>
+`}
+  language="jsx"
+/>
 
 ### Campaign
 
@@ -127,6 +215,90 @@ props should be used.
 
 <Story of={HeroStories.Campaign} />
 
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  subHeaderText={
+    <>
+      <Heading
+        level="h2"
+        size="heading3"
+        subtitle="Lorem Parturient Bibendum Aenean Cras"
+      >
+        Subheading
+      </Heading>
+      <Heading level="h3" noSpace size="heading6">
+        Subheading
+      </Heading>
+      <Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+        <Link href="https://www.nypl.org/locations/snfl/childrens">
+          The New York Public Library
+        </Link>{" "}
+        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
+        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        Aenean lacinia{" "}
+        <Link href="https://google.com" type="external">
+          Google
+        </Link>{" "}
+        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+        eu leo.
+      </Text>
+      <ButtonGroup>
+        <Button id="other-button-example-1">Button</Button>
+        <Button id="other-button-example-2" buttonType="secondary">
+          Button
+        </Button>
+      </ButtonGroup>
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
 #### isDarkBackgroundImage
 
 The `isDarkBackgroundImage` prop can be used in the `"campaign"` hero to toggle
@@ -135,6 +307,37 @@ be converted to black & white and darkened to 60% black.
 
 <Story of={HeroStories.CampaignDarkBackgroundImage} />
 
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+
 #### backdropBackgroundColor
 
 The "backdrop" is what we call the background and that can be set through either
@@ -142,6 +345,69 @@ the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
 the `backgroundImageSrc` will take precedence.
 
 <Story of={HeroStories.CampaignBackgroundColors} />
+
+<Source
+  code={`
+<Hero
+  backdropBackgroundColor="section.research.primary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-long-text-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  backdropBackgroundColor="section.education.primary"
+  backgroundColor="ui.warning.primary"
+  foregroundColor="ui.typography.heading"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-long-text-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
+      <Link href="https://www.nypl.org/locations/snfl/childrens">
+        The New York Public Library
+      </Link>{" "}
+      is an essential part of neighborhoods across the city. Visit us today.
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
 
 ## Text Colors
 
@@ -153,6 +419,70 @@ text. This color treatment can be overridden using a combination of the
 should not be used at the same time.
 
 <Story of={HeroStories.TextColorStyles} />
+
+{" "}
+
+<Source
+  code={`
+<Hero
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  foregroundColor="ui.error.secondary"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  backgroundColor="ui.status.primary"
+  backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
+  heroType="campaign"
+  heading={
+    <Heading
+      level="h1"
+      id="campaign-hero-default-heading"
+      text="Hero Campaign"
+    />
+  }
+  imageProps={imageProps}
+  isDarkBackgroundImage
+  isDarkText
+  subHeaderText={otherSubHeaderText}
+/>
+`}
+  language="jsx"
+/>
 
 ## Fallback Campaign Image
 
@@ -215,6 +545,39 @@ The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
 
 <Story of={HeroStories.Secondary} />
 
+<Source
+  code={`
+<Hero
+  heading={
+    <Heading
+      level="h1"
+      id="secondary-hero"
+      size="heading2"
+      text="Hero Secondary (deprecated)"
+    />
+  }
+  heroType="secondary"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      Explore our <Link href="#">collection</Link> of hundreds of online resources
+      and databases. Use our free online content to help with your research,
+      whether it's finding a single article, tracing a family tree, learning a new
+      language, or anything in between.
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+
 ### FiftyFifty
 
 This `"fiftyFifty"` variant of the `Hero` component has been deprecated. This
@@ -228,6 +591,82 @@ minimum props to use are `imageProps` and `subHeaderText`.
 the [FeaturedContent](../?path=/docs/components-basic-elements-featuredcontent--docs) component.
 
 <Story of={HeroStories.FiftyFifty} />
+
+<Source
+  code={`
+<Hero
+  heroType="fiftyFifty"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      Explore our <Link href="#">collection</Link> of hundreds of online resources
+      and databases. Use our free online content to help with your research,
+      whether it's finding a single article, tracing a family tree, learning a new
+      language, or anything in between.
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+<Hero
+  heroType="fiftyFifty"
+  imageProps={
+    alt: "Image example",
+    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+  }
+  isDarkBackgroundImage
+  subHeaderText={
+    <>
+      <Heading
+        level="h2"
+        size="heading3"
+        subtitle="Lorem Parturient Bibendum Aenean Cras"
+      >
+        Subheading
+      </Heading>
+      <Heading level="h3" noSpace size="heading6">
+        Subheading
+      </Heading>
+      <Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
+        <Link href="https://www.nypl.org/locations/snfl/childrens">
+          The New York Public Library
+        </Link>{" "}
+        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
+        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        Aenean lacinia{" "}
+        <Link href="https://google.com" type="external">
+          Google
+        </Link>{" "}
+        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
+        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
+        eu leo.
+      </Text>
+      <ButtonGroup>
+        <Button id="other-button-example-1">Button</Button>
+        <Button id="other-button-example-2" buttonType="secondary">
+          Button
+        </Button>
+      </ButtonGroup>
+      <Text mt="s" noSpace>
+        This variant has been deprecated.
+      </Text>
+    </>
+  }
+/>
+`}
+  language="jsx"
+/>
 
 ## Color Variations for Secondary Hero
 

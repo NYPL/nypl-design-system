@@ -17,6 +17,7 @@ describe("Card Accessibility", () => {
         id="cardID"
         imageProps={{
           alt: "Alt text",
+          id: "img-id",
           src: getPlaceholderImage("smaller", 0),
         }}
       >
@@ -65,6 +66,7 @@ describe("Card", () => {
       id="regularCard"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-regularCard",
         src: getPlaceholderImage("smaller", 0),
       }}
       ref={ref}
@@ -86,6 +88,7 @@ describe("Card", () => {
       id="cardWithExtendedStyles"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-cardWithExtendedStyles",
         src: getPlaceholderImage("smaller", 0),
       }}
     >
@@ -122,6 +125,7 @@ describe("Card", () => {
       id="cardWithNoCTAs"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-cardWithNoCTAs",
         src: getPlaceholderImage("smaller", 0),
       }}
     >
@@ -141,6 +145,7 @@ describe("Card", () => {
       id="cardWithNoContent"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-cardWithNoContent",
         src: getPlaceholderImage("smaller", 0),
       }}
     >
@@ -190,6 +195,7 @@ describe("Card", () => {
       id="fullclick"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-fullclick",
         src: getPlaceholderImage("smaller", 0),
       }}
       mainActionLink="http://nypl.org"
@@ -224,6 +230,7 @@ describe("Card", () => {
       id="cardID"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-cardWithRightActions",
         src: getPlaceholderImage("smaller", 0),
       }}
       isAlignedRightActions
@@ -249,6 +256,7 @@ describe("Card", () => {
       id="chakraProps"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-chakraProps",
         src: getPlaceholderImage("smaller", 0),
       }}
       p="s"
@@ -270,6 +278,7 @@ describe("Card", () => {
       id="otherProps"
       imageProps={{
         alt: "Alt text",
+        id: "img-id-otherProps",
         src: getPlaceholderImage("smaller", 0),
       }}
       data-testid="card-testid"
@@ -296,6 +305,7 @@ describe("Card", () => {
     expect(container.querySelector("h3")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toHaveAttribute("id", "img-id-regularCard");
     expect(screen.getByText("middle column content")).toBeInTheDocument();
     expect(screen.getByText("Example CTA")).toBeInTheDocument();
   });
@@ -307,6 +317,10 @@ describe("Card", () => {
     expect(container.querySelector("h2")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toHaveAttribute(
+      "id",
+      "img-id-cardWithExtendedStyles"
+    );
     expect(
       screen.getByText(/Published in New York by Random House/i)
     ).toBeInTheDocument();

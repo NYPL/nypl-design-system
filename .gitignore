@@ -11,3 +11,4 @@ dist
 .eslintcache
 coverage
 .idea
+.jest-test-results.json
