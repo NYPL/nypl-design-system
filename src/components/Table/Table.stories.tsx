@@ -189,6 +189,7 @@ export const CustomColumnStyles: Story = {
       columnHeaders={columnHeadersAlt}
       columnStyles={columnStyles}
       id="columnWidth-table"
+      isScrollable
       showTitleText={false}
       tableData={tableDataAlt}
       titleText="Table with custom column styles"

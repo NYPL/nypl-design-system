@@ -33,6 +33,8 @@ export interface TableProps {
   columnStyles?: object[];
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** If true, horizontal scrolling will be enabled for the table content.  */
+  isScrollable?: boolean;
   /** If true, a border will be displayed between each row in the `Table`
    * component. The default value is false. */
   showRowDividers?: boolean;
@@ -67,6 +69,7 @@ export const Table: ChakraComponent<
         columnHeadersTextColor,
         columnStyles = [],
         id,
+        isScrollable = false,
         showRowDividers = false,
         showTitleText = true,
         tableData,
@@ -190,7 +193,7 @@ export const Table: ChakraComponent<
       }
 
       const wapperStyles = {
-        overflow: "auto",
+        overflow: isScrollable ? "auto" : "hidden",
         maxWidth: "100%",
         /** Show shadow to scroll */
         background:
@@ -204,11 +207,12 @@ export const Table: ChakraComponent<
 
       return (
         <TableContainer
+          aria-label={titleText ? titleText : undefined}
+          overflow={isScrollable ? "auto" : "hidden"}
           role="region"
-          style={wapperStyles}
+          style={isScrollable ? wapperStyles : undefined}
           tabIndex={0}
           whiteSpace="wrap"
-          aria-label={titleText ? titleText : undefined}
         >
           <ChakraTable
             className={className}
