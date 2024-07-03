@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `FilterBarPopup` compoonent.
+
 ## 3.1.7 (July 3, 2024)
 
 ### Adds
