@@ -17,6 +17,7 @@ export const breadcrumbTypeArray = [
   "booksAndMore",
   "brand",
   "connect",
+  "digitalCollections",
   "education",
   "locations",
   "research",

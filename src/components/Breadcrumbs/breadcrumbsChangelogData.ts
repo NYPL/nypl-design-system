@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-07-03",
+    version: "3.1.7",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Adds `digitalCollections` color variant."],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

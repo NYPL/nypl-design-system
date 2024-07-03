@@ -8,17 +8,29 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.1.7 (July 3, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, and `Slider` components.
+- Adds `digitalCollections` color variant to the `Breadcrumbs` component.
+- Adds `closeOnBlur` prop to the `MultiSelect` component which, when set to true, closes the component if it loses focus.
+
+### Updates
+
+- Updates base font stack to only `system-ui` and `sans-serif`.
+- Updates the `Accordion` component to close panel when element within panel is focused and "esc" key is pressed.
+
 ## 3.1.6 (June 20, 2024)
 
 ### Adds
 
-- Adds Storybook interaction tests for the `SearchBar` component.
-- Adds Storybook interaction tests for the `Select` component.
-- Adds Storybook interaction tests for the `Radiogroup` component.
+- Adds Storybook interaction tests for `Searchbar`, `Select`, and `Radiogroup` components.
 
 ### Updates
 
 - Updates how links are styled within the `Heading` component.
+- Updates `jest` related npm packages for security patches.
 
 ### Fixes
 
@@ -48,7 +60,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Exports `useMediaQuery` and `chakra` from Chakra UI.
-- Updates `Accordion` to close focused panel when "esc" key is pressed.
 - Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
 
 ## 3.1.4 (May 23, 2024)
@@ -56,6 +67,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Updates
+
+- Updates the `Accordion` component to close focused panel when "esc" key is pressed.
 
 ### Fixes
 
