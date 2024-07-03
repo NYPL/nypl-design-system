@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterBar renders the UI snapshots correctly 1`] = `
+exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 <div
   className="css-1u8qly9"
   id="filter-bar-inline-defaultFilterBarNoButtons-wrapper"
@@ -28,6 +28,7 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
         <div
           className="css-1xdhyk6"
           id="colors"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -301,6 +302,7 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
         <div
           className="css-1xdhyk6"
           id="pets"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -733,6 +735,7 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
         <div
           className="css-1xdhyk6"
           id="tools"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -1168,7 +1171,7 @@ exports[`FilterBar renders the UI snapshots correctly 1`] = `
 </div>
 `;
 
-exports[`FilterBar renders the UI snapshots correctly 2`] = `
+exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
 <div
   className="css-1u8qly9"
   id="filter-bar-inline-filterBarWithClearAllButton-wrapper"
@@ -1196,6 +1199,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="colors"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -1469,6 +1473,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="pets"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -1901,6 +1906,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
         <div
           className="css-1xdhyk6"
           id="tools"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -2348,7 +2354,7 @@ exports[`FilterBar renders the UI snapshots correctly 2`] = `
 </div>
 `;
 
-exports[`FilterBar renders the UI snapshots correctly 3`] = `
+exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
 <div
   className="css-1u8qly9"
   id="filter-bar-inline-filterBarWithSubmitAllButton-wrapper"
@@ -2376,6 +2382,7 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="colors"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -2649,6 +2656,7 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="pets"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -3081,6 +3089,7 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
         <div
           className="css-1xdhyk6"
           id="tools"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -3528,7 +3537,7 @@ exports[`FilterBar renders the UI snapshots correctly 3`] = `
 </div>
 `;
 
-exports[`FilterBar renders the UI snapshots correctly 4`] = `
+exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
 <div
   className="css-1u8qly9"
   id="filter-bar-inline-filterBarWithButtons-wrapper"
@@ -3556,6 +3565,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
         <div
           className="css-1xdhyk6"
           id="colors"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -3829,6 +3839,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
         <div
           className="css-1xdhyk6"
           id="pets"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"
@@ -4261,6 +4272,7 @@ exports[`FilterBar renders the UI snapshots correctly 4`] = `
         <div
           className="css-1xdhyk6"
           id="tools"
+          onClick={[Function]}
         >
           <div
             className="chakra-accordion css-1xdhyk6"

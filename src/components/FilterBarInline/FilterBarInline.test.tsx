@@ -148,7 +148,7 @@ const MultiSelectTestGroup = ({ multiSelectItems }) => {
     />
   );
 };
-describe("FilterBar Accessibility", () => {
+describe("FilterBarInline Accessibility", () => {
   beforeAll(() => {
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
@@ -169,7 +169,7 @@ describe("FilterBar Accessibility", () => {
   });
 });
 
-describe("FilterBar", () => {
+describe("FilterBarInline", () => {
   beforeAll(() => {
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
