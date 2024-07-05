@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `FilterBarInline` component.
+- Adds refined `NewsletterSignup` component with updated props.
 
 ## 3.1.7 (July 3, 2024)
 
