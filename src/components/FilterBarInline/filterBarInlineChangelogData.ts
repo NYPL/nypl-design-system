@@ -10,20 +10,10 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "2024-07-03",
-    version: "3.1.7",
-    type: "Update",
-    affects: ["Documentation"],
-    notes: ["Adds interaction tests for the Controls story."],
-  },
-  {
-    date: "2024-03-14",
-    version: "3.0.0",
-    type: "Update",
-    affects: ["Styles", "Functionality"],
-    notes: [
-      "Removes console warning for children elements that are not `Checkbox` components.",
-      "Chakra 2.8 update.",
-    ],
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "New Feature",
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
+    notes: ["Adds FilterBarInline component."],
   },
 ];
