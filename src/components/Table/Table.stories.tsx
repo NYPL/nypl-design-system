@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Table from "./Table";
+import { argsBooleanType } from "../../helpers/storybookUtils";
 import { Stack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Table> = {
@@ -13,7 +14,14 @@ const meta: Meta<typeof Table> = {
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: { control: { type: "color" } },
     id: { control: false },
+    isScrollable: { ...argsBooleanType(), defaultValue: { summary: "false" } },
+    showRowDividers: {
+      ...argsBooleanType(),
+      defaultValue: { summary: "false" },
+    },
+    showTitleText: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     tableData: { control: false },
+    useRowHeaders: { ...argsBooleanType(), defaultValue: { summary: "false" } },
   },
 };
 
@@ -106,8 +114,11 @@ export const WithControls: Story = {
     columnHeaders,
     columnHeadersBackgroundColor: undefined,
     columnHeadersTextColor: undefined,
+    columnStyles: undefined,
     id: undefined,
+    isScrollable: false,
     showRowDividers: false,
+    showTitleText: false,
     tableData,
     titleText: undefined,
     useRowHeaders: false,
@@ -207,6 +218,7 @@ export const CustomColumnStylesWithRowHeaders: Story = {
           columnHeaders={columnHeadersAlt}
           columnStyles={columnStyles}
           id="columnWidth-table-without-row-headers"
+          isScrollable
           showTitleText={false}
           tableData={tableDataAlt}
           titleText="Table with custom column styles and row headers"
@@ -219,6 +231,7 @@ export const CustomColumnStylesWithRowHeaders: Story = {
           columnHeaders={columnHeadersAlt}
           columnStyles={columnStyles}
           id="columnWidth-table-without-row-headers"
+          isScrollable
           showRowDividers
           showTitleText={false}
           tableData={tableDataAlt}
@@ -234,6 +247,7 @@ export const CustomColumnStylesWithRowHeaders: Story = {
           columnHeadersTextColor="ui.white"
           columnStyles={columnStyles}
           id="columnWidth-table-without-row-headers"
+          isScrollable
           showTitleText={false}
           tableData={tableDataAlt}
           titleText="Table with custom column styles and row headers"
@@ -250,6 +264,7 @@ export const CustomColumnStylesWithRowHeaders: Story = {
           columnHeadersTextColor="ui.white"
           columnStyles={columnStyles}
           id="columnWidth-table-without-row-headers"
+          isScrollable
           showRowDividers
           showTitleText={false}
           tableData={tableDataAlt}

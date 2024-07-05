@@ -87,6 +87,7 @@ export const Table: ChakraComponent<
       const styles = useMultiStyleConfig("CustomTable", {
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
+        isScrollable,
         showRowDividers,
         useRowHeaders,
       });
@@ -192,28 +193,36 @@ export const Table: ChakraComponent<
         }
       }
 
-      const wapperStyles = {
-        overflow: isScrollable ? "auto" : "hidden",
-        maxWidth: "100%",
-        /** Show shadow to scroll */
-        background:
-          "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "white",
-        backgroundSize: "40px 100%, 40px 100%, 14px 100%, 14px 100%",
-        backgroundPosition: "0 0, 100%, 0 0, 100%",
-        backgroundAttachment: "local, local, scroll, scroll",
-      };
+      const wapperStyles = isScrollable
+        ? {
+            overflow: isScrollable ? "auto" : "hidden",
+            maxWidth: "100%",
+            /** Show shadow to scroll */
+            background:
+              "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "white",
+            backgroundSize: "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+            backgroundPosition: "0 0, 100%, 0 0, 100%",
+            backgroundAttachment: "local, local, scroll, scroll",
+          }
+        : undefined;
+
+      const wrapperProps = isScrollable
+        ? {
+            ariaLabel: titleText ? { titleText } : undefined,
+            overflow: "auto",
+            role: "region",
+            tabIndex: 0,
+            whiteSpace: "wrap",
+          }
+        : {
+            overflow: "hidden",
+            whiteSpace: "wrap",
+          };
 
       return (
-        <TableContainer
-          aria-label={titleText ? titleText : undefined}
-          overflow={isScrollable ? "auto" : "hidden"}
-          role="region"
-          style={isScrollable ? wapperStyles : undefined}
-          tabIndex={0}
-          whiteSpace="wrap"
-        >
+        <TableContainer {...wrapperProps} {...wapperStyles}>
           <ChakraTable
             className={className}
             id={id}
