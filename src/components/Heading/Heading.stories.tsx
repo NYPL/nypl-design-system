@@ -19,7 +19,7 @@ const meta: Meta<typeof Heading> = {
       options: headingLevelsArray,
       table: { defaultValue: { summary: "h2" } },
     },
-    noSpace: { table: { defaultValue: { summary: false } } },
+    noSpace: { table: { defaultValue: { summary: "false" } } },
     overline: { control: { type: "text" } },
     size: {
       control: { type: "select" },

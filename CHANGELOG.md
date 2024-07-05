@@ -12,6 +12,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `FilterBarInline` component.
 - Adds refined `NewsletterSignup` component with updated props.
+- Adds refined `SocialMediaLinks` component with updated props.
+
+### Updates
+
+- Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
 
 ## 3.1.7 (July 3, 2024)
 
