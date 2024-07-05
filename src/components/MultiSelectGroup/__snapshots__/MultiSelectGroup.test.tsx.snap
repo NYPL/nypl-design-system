@@ -16,6 +16,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="colors"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
@@ -289,6 +290,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="pets"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
@@ -721,6 +723,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     <div
       className="css-1xdhyk6"
       id="tools"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
@@ -1170,6 +1173,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="colors"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
@@ -1443,6 +1447,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="pets"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
@@ -1875,6 +1880,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     <div
       className="css-1xdhyk6"
       id="tools"
+      onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"

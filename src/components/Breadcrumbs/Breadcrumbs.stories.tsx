@@ -98,6 +98,15 @@ export const ColorVariations: Story = {
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
+          Digital Collections
+        </Heading>
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="digitalCollections"
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
           Education
         </Heading>
         <Breadcrumbs
