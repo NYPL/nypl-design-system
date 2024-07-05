@@ -118,7 +118,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
       },
     },
     className: {
-      control: true,
       table: {
         disable: false,
       },
@@ -132,7 +131,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
       },
     },
     id: {
-      control: true,
       table: {
         disable: false,
       },
@@ -151,7 +149,7 @@ const meta: Meta<typeof SocialMediaLinks> = {
         'Optional prop to display names of platforms along with icons. NOTE: Can not be chosen in combination with a circular border \n\n `"boolean"`',
       table: {
         disable: false,
-        defaultValue: { summary: false },
+        defaultValue: { summary: "false" },
       },
     },
     size: {
