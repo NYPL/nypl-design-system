@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import FilterBarPopup from "./FilterBarPopup";
-import MultiSelect from "../MultiSelect/MultiSelect";
-import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
+import { Box, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
-import { useEffect, useState } from "react";
-import useMultiSelect from "../../hooks/useMultiSelect";
-import { Box, VStack } from "@chakra-ui/react";
-import TextInput from "../TextInput/TextInput";
+import FilterBarPopup from "./FilterBarPopup";
 import Heading from "../Heading/Heading";
-import TagSet from "../TagSet/TagSet";
-import { TagSetFilterDataProps } from "../TagSet/TagSetFilter";
+import MultiSelect from "../MultiSelect/MultiSelect";
+import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
+import TextInput from "../TextInput/TextInput";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
 const multiSelectItems = [
   {
@@ -116,8 +114,8 @@ export const FilterBarPopupHeading: Story = {
 export const MultipleChildren: Story = {
   render: () => <FilterBarChildrenStory />,
 };
-export const TagSetExample: Story = {
-  render: () => <FilterBarTagSetStory />,
+export const TotalResultsExample: Story = {
+  render: () => <FilterBarTotalResultsStory />,
 };
 
 const FilterBarPopupStory = (args) => {
@@ -331,9 +329,10 @@ const FilterBarChildrenStory = (args) => {
   );
 };
 
-const FilterBarTagSetStory = () => {
+const FilterBarTotalResultsStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
+  const [totalResults, setTotalResults] = useState(100);
   const [selectedFilterItems, setSelectedFilterItems] = useState([
     selectedCheckbox,
     textValue,
@@ -343,41 +342,14 @@ const FilterBarTagSetStory = () => {
     setSelectedFilterItems([selectedCheckbox, textValue]);
   }, [selectedCheckbox, textValue]);
 
-  const [tagSetData, setTagSetData] = useState<TagSetFilterDataProps[]>([]);
-  useEffect(() => {
-    const newTags = [];
-    for (let item of selectedFilterItems[0]) {
-      newTags.push({
-        id: `tag-${item}`,
-        label: item,
-      });
-    }
-    if (selectedFilterItems[1] !== "")
-      newTags.push({ id: "tag-color", label: selectedFilterItems[1] });
+  const setRandomTotalNumber = () => {
+    setTotalResults(Math.floor(Math.random() * 100));
+  };
 
-    setTagSetData(newTags);
-  }, [selectedFilterItems]);
-
-  const handleOnClick = (tag) => {
-    if (tag.id === "clear-filters") {
-      setSelectedCheckbox([]);
-      setTextValue("");
-      setTagSetData([]);
-      return;
-    }
-    setSelectedCheckbox((checkboxes) =>
-      checkboxes.filter((checkbox) => {
-        return `tag-${checkbox}` !== tag.id;
-      })
-    );
-    if (tag.id === "tag-color") {
-      setTextValue("");
-    }
-    setTagSetData((prevTagSetData) =>
-      prevTagSetData.filter((tag) => {
-        return tag.id !== tag.id;
-      })
-    );
+  const clearFilters = () => {
+    setTotalResults(100);
+    setTextValue("");
+    setSelectedCheckbox([]);
   };
 
   const renderFilterComponents = ({ layout }) => {
@@ -389,7 +361,10 @@ const FilterBarTagSetStory = () => {
           name="checkboxExample"
           layout={layout}
           value={selectedCheckbox}
-          onChange={(e) => setSelectedCheckbox(e)}
+          onChange={(e) => {
+            setSelectedCheckbox(e);
+            setRandomTotalNumber();
+          }}
         >
           <Checkbox id="checkbox-1" value="1" labelText="Checkbox 1" />
           <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
@@ -399,7 +374,10 @@ const FilterBarTagSetStory = () => {
           isClearable
           isClearableCallback={() => setTextValue("")}
           labelText="What is your favorite color?"
-          onChange={(e) => setTextValue(e.target.value)}
+          onChange={(e) => {
+            setTextValue(e.target.value);
+            setRandomTotalNumber();
+          }}
           placeholder="i.e. blue, green, etc."
           value={textValue}
         />
@@ -411,15 +389,10 @@ const FilterBarTagSetStory = () => {
     <>
       <FilterBarPopup
         id="filterbar-with-tagset"
+        onClear={clearFilters}
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}
-      />
-      <TagSet
-        id="tagSet-id-filter"
-        isDismissible
-        onClick={handleOnClick}
-        tagSetData={tagSetData}
-        type="filter"
+        totalResults={totalResults}
       />
     </>
   );

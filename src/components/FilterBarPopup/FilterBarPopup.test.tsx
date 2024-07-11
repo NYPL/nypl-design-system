@@ -189,7 +189,7 @@ describe("FilterBarPopup", () => {
       screen.getByRole("button", { name: /show filters/i })
     ).toBeInTheDocument();
   });
-  it("should open the filter modal whene `Show filters` button is clicked", async () => {
+  it("should open the filter modal when `Show filters` button is clicked", async () => {
     render(<FilterBarTestComponent id="filter-bar-test-5" />);
     expect(
       screen.getByRole("button", { name: /show filters/i })

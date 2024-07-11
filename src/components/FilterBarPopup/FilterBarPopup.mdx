@@ -20,6 +20,8 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#filterbarpopup-heading" target="_self">FilterBarPopup Heading</Link>}
 - {<Link href="#controlling-state-using-selecteditems-onclear-and-onsubmit-props" target="_self">Controlling State Using selectedItems, onClear, and onSubmit Props</Link>}
+- {<Link href="#totalresults-example" target="_self">totalResults example</Link>}
+- {<Link href="#usefilterbarpopup-hook" target="_self">useFilterBarPopup hook</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -40,7 +42,7 @@ to the results list. If the consuming app is not using the above, then `FilterBa
 can render additional `Clear All` and a `Apply Filters` buttons. The two _optional_
 buttons are controlled by the `onClear` or `onSubmit` props respectively.
 
-Related component: [FilterBarPopup](../?path=/docs/components-form-elements-FilterBarPopup--docs)
+Related component: [FilterBarInline](../?path=/docs/components-form-elements-FilterBarInline--docs)
 
 ## Component Props
 
@@ -272,6 +274,47 @@ return (
     renderChildren={renderFilterComponents}
   />
 ); `}
+  language="jsx"
+/>
+
+## totalResults example
+
+The `totalResults` prop should be used if the consuming app is utilizing real-time filtering.
+If the `totalResults` prop is passed, its value will be used as part of the button's label text
+(ex. "Show 72 results" where 72 is the value of the totalResults prop). This value should be updated
+as filter options are selected or changed.
+
+The example below is not fully functioning and is meant to show how the totalResults prop is shown to
+users in the "Show results" button.
+
+<Canvas of={FilterBarPopupStories.TotalResultsExample} />
+
+<Source
+  code={`
+const [selectedCheckbox, setSelectedCheckbox] = useState([]);
+const [textValue, setTextValue] = useState("");
+const [totalResults, setTotalResults] = useState(100);
+const [selectedFilterItems, setSelectedFilterItems] = useState([
+  selectedCheckbox,
+  textValue,
+]);
+
+const updateTotalResults = () => {
+// function to update totalResults value on filter change
+};
+
+...
+
+<FilterBarPopup
+  id="..."
+  heading="..."
+  onClear={...}
+  renderChildren={({ isBlockElement, layout, width }) => {
+    return (...)
+  }}
+  totalResults={totalResults}
+/>
+`}
   language="jsx"
 />
 

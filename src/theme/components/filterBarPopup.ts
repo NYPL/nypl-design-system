@@ -1,6 +1,17 @@
-const FilterBarPopup = {
-  parts: ["modalBody", "modalHeader", "modalFooter", "modalCloseButton"],
-  baseStyle: () => ({
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+
+// This function creates a set of function that helps us
+// create multipart component styles.
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    "modalBody",
+    "modalHeader",
+    "modalFooter",
+    "modalCloseButton",
+  ]);
+
+const FilterBarPopup = defineMultiStyleConfig({
+  baseStyle: definePartsStyle({
     width: "full",
     modalBody: {
       _dark: {
@@ -32,6 +43,6 @@ const FilterBarPopup = {
       mt: "8px",
     },
   }),
-};
+});
 
 export default FilterBarPopup;

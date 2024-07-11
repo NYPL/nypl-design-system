@@ -145,16 +145,20 @@ export const FilterBarPopup: ChakraComponent<
                 </Stack>
               </ModalBody>
               <ModalFooter
-                sx={onSubmit || onClear ? styles.modalFooter : undefined}
+                sx={
+                  onSubmit || onClear || totalResults
+                    ? styles.modalFooter
+                    : undefined
+                }
               >
-                {(onSubmit || onClear) && (
+                {(onSubmit || onClear || totalResults) && (
                   <ButtonGroup layout="column" buttonWidth="full">
-                    {onSubmit && (
+                    {(onSubmit || totalResults) && (
                       <Button
                         id={`filter-bar-${id}-see-results`}
                         buttonType="primary"
                         type="submit"
-                        onClick={onSubmitAndClose}
+                        onClick={onSubmit ? onSubmitAndClose : finalOnClose}
                       >
                         {`Show ${totalResults ?? ""} results`}
                       </Button>

@@ -61,10 +61,10 @@ export {
 } from "./components/FeedbackBox/FeedbackBox";
 export type { FeedbackBoxViewType } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
-// The code associated with the FilterBar component will not be exported until
-// the refactor of the v2 version of the FilterBar component has been completed.
-// export { default as FilterBar } from "./components/FilterBar/FilterBar";
-export { default as FilterBarPopup } from "./components/FilterBarPopup/FilterBarPopup";
+export {
+  default as FilterBarPopup,
+  useFilterBarPopup,
+} from "./components/FilterBarPopup/FilterBarPopup";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export type { HeadingSizes, HeadingLevels } from "./components/Heading/Heading";
@@ -184,10 +184,6 @@ export { default as Toggle } from "./components/Toggle/Toggle";
 export type { ToggleSizes } from "./components/Toggle/Toggle";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
-/** The useFilterBar hooks will not be exported until the refactor of the v2
- * versions of the FilterBar component has been completed.
- * */
-// export { default as useFilterBar } from "./hooks/useFilterBar";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
