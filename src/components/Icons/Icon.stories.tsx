@@ -29,7 +29,7 @@ const meta: Meta<typeof Icon> = {
       options: iconColorsArray,
       table: { defaultValue: { summary: "ui.black" } },
     },
-    decorative: argsBooleanType(true),
+    decorative: argsBooleanType("true"),
     iconRotation: {
       control: { type: "radio" },
       options: iconRotationsArray,

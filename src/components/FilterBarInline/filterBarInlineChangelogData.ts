@@ -12,24 +12,8 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "Update",
-    affects: ["Functionality"],
-    notes: ["Refined the component with updated props."],
-  },
-  {
-    date: "2024-03-28",
-    version: "3.0.1",
-    type: "Update",
-    affects: ["Styles"],
-    notes: [
-      "Updated the mobile styles so that links are center-aligned in a row (when rendered without labels) and in a column (when rendered with labels)",
-    ],
-  },
-  {
-    date: "2024-03-14",
-    version: "3.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    type: "New Feature",
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
+    notes: ["Adds FilterBarInline component."],
   },
 ];

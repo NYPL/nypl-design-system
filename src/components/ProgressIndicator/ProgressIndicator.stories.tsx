@@ -21,10 +21,10 @@ const meta: Meta<typeof ProgressIndicator> = {
       table: { defaultValue: { summary: "linear" } },
     },
     isIndeterminate: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     showLabel: {
-      table: { defaultValue: { summary: true } },
+      table: { defaultValue: { summary: "true" } },
     },
     size: {
       controls: { type: "select" },
@@ -32,7 +32,7 @@ const meta: Meta<typeof ProgressIndicator> = {
       table: { defaultValue: { summary: "default" } },
     },
     value: {
-      table: { defaultValue: { summary: 0 } },
+      table: { defaultValue: { summary: "0" } },
     },
   },
 };

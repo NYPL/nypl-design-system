@@ -159,7 +159,7 @@ export const WithControls: Story = {
     contentTop: { control: false },
     footer: { control: false },
     header: { control: false },
-    renderSkipNavigation: argsBooleanType(),
+    renderSkipNavigation: argsBooleanType("true"),
     sidebar: {
       table: { defaultValue: { summary: "none" } },
     },
