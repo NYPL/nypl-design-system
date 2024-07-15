@@ -61,9 +61,7 @@ export {
 } from "./components/FeedbackBox/FeedbackBox";
 export type { FeedbackBoxViewType } from "./components/FeedbackBox/FeedbackBox";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
-// The code associated with the FilterBar component will not be exported until
-// the refactor of the v2 version of the FilterBar component has been completed.
-// export { default as FilterBar } from "./components/FilterBar/FilterBar";
+export { default as FilterBarInline } from "./components/FilterBarInline/FilterBarInline";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export type { HeadingSizes, HeadingLevels } from "./components/Heading/Heading";
@@ -116,12 +114,8 @@ export type {
 } from "./components/MultiSelect/MultiSelect";
 export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
-/** The code associated with the NewsletterSignup component and the
- * NewsletterSignupViewType type will not be exported until the refactor of the
- * component has been completed.
- * */
-// export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
-// export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
+export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
+export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
 export { default as Notification } from "./components/Notification/Notification";
 export type { NotificationTypes } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
@@ -141,10 +135,7 @@ export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonL
 export type { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
-/** The code associated with the SocialMediaLinks component will not be exported
- * until the refactor of the component has been completed.
- * */
-// export { default as SocialMediaLinks } from "./components/SocialMediaLinks/SocialMediaLinks";
+export { default as SocialMediaLinks } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type { StatusBadgeTypes } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
