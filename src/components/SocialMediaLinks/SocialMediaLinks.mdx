@@ -68,13 +68,18 @@ For example:
 
 <Source
   code={`
-const myLinksData = [
+import {
+  SocialMediaLinks,
+  SocialMediaLinkDataProps,
+} from "@nypl/design-system-react-components";
+ 
+const myLinksData: SocialMediaLinkDataProps = [
   { icon: "socialTwitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
   { icon: "socialInstagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
   { icon: "socialFacebook", labelText: "NYPL Educators", url: "https://www.facebook.com/NYPLEducators"},
 ];
-// ...
-<SocialMediaLinks linksData=myLinksData />
+ 
+<SocialMediaLinks linksData={myLinksData} />
 `}
   language="tsx"
 />
