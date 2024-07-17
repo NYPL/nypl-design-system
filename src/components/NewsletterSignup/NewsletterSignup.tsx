@@ -131,6 +131,9 @@ export const NewsletterSignup: ChakraComponent<
         title,
         id,
         headingSize: "heading3",
+        additionalStyles: {
+          marginBottom: 0,
+        },
       });
 
       // Manage focus to ensure accessibility when confirmation or error message is rendered.
