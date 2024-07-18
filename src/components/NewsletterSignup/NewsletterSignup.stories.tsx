@@ -233,7 +233,22 @@ export const ComponentStates: Story = {
     <VStack align="stretch" spacing="l">
       <Box>
         <Heading level="h3" size="heading6">
-          Invalid Email
+          Form View (default)
+        </Heading>
+        <NewsletterSignup
+          id="form-view"
+          view="form"
+          onChange={() => {}}
+          onSubmit={() => {}}
+          confirmationHeading={confirmationHeading}
+          title={title}
+          descriptionText={descriptionText}
+          errorHeading={errorHeading}
+        />
+      </Box>
+      <Box>
+        <Heading level="h3" size="heading6">
+          Form View with Invalid Email
         </Heading>
         <NewsletterSignup
           id="invalid-email"
@@ -249,7 +264,7 @@ export const ComponentStates: Story = {
       </Box>
       <Box>
         <Heading level="h3" size="heading6">
-          Submitting View / Disabled
+          Submitting View (disabled inputs)
         </Heading>
         <NewsletterSignup
           id="submitting-view"
