@@ -21,6 +21,11 @@ const meta: Meta<typeof Table> = {
     },
     showTitleText: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     tableData: { control: false },
+    useColumnStyles: {
+      control: { type: "boolean" },
+      description:
+        "**Only used for Storybook** – Apply custom column styles and use alternate table data",
+    },
     useRowHeaders: { ...argsBooleanType(), defaultValue: { summary: "false" } },
   },
 };
@@ -121,10 +126,17 @@ export const WithControls: Story = {
     showTitleText: false,
     tableData,
     titleText: undefined,
+    useColumnStyles: false,
     useRowHeaders: false,
   },
-  // render: (args) => <Table {...args} __css={tableStyles}></Table>,
-  render: (args) => <Table {...args}></Table>,
+  render: (args: any) => (
+    <Table
+      {...args}
+      columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
+      columnStyles={args.useColumnStyles ? columnStyles : undefined}
+      tableData={args.useColumnStyles ? tableDataAlt : tableData}
+    ></Table>
+  ),
   parameters: {
     design: {
       type: "figma",
