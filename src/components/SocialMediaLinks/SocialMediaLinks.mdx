@@ -1,0 +1,140 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+import Table from "../Table/Table";
+import * as SocialMediaLinksStories from "./SocialMediaLinks.stories";
+import Link from "../Link/Link";
+import { changelogData } from "./socialMediaLinksChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+
+<Meta of={SocialMediaLinksStories} />
+
+# SocialMediaLinks
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `2.0.0`      |
+| Latest            | `Prerelease` |
+
+## Table of Contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#with-controls" target="_self">With Controls</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#variations" target="_self">Variations</Link>}
+- {<Link href="#responsive-design" target="_self">Responsive Design</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
+
+## Overview
+
+<Description of={SocialMediaLinksStories} />
+
+## With Controls
+
+<Canvas of={SocialMediaLinksStories.WithControls} />
+
+<ArgTypes of={SocialMediaLinksStories.WithControls} />
+
+### Expected data structure for linkData and available Social Media Link Icons
+
+The `linksData` prop accepts an array of objects. Each item requires the properties: `icon`, `labelText`,
+and `url`. The `icon` property relates to the icon rendered on page.
+
+<Source
+  code={`
+interface SocialMediaLinkDataProps {
+  icon: IconNames;
+  labelText: string;
+  url: string;
+}
+
+type IconNames =
+| "fileTypeGenericDoc"
+| "socialFacebook"
+| "socialInstagram"
+| "socialPinterest"
+| "socialSoundCloud"
+| "socialTikTok"
+| "socialTumblr"
+| "socialTwitter"
+| "socialYoutube"
+`}
+language="ts"
+/>
+
+All available icons:
+
+<Canvas of={SocialMediaLinksStories.AllOptionsVariations} />
+
+For example:
+
+<Source
+  code={`
+import {
+  SocialMediaLinks,
+  SocialMediaLinkDataProps,
+} from "@nypl/design-system-react-components";
+ 
+const myLinksData: SocialMediaLinkDataProps[] = [
+  { icon: "socialTwitter", labelText: "NYPL Educators", url: "https://twitter.com/NYPLEducators"},
+  { icon: "socialInstagram", labelText: "NYPL Educators", url: "https://www.instagram.com/nypleducators"},
+  { icon: "socialFacebook", labelText: "NYPL Educators", url: "https://www.facebook.com/NYPLEducators"},
+];
+ 
+<SocialMediaLinks linksData={myLinksData} />
+`}
+  language="tsx"
+/>
+
+## Accessibility
+
+Internally, links are organized in a `ul` list element using the
+[List](/?path=/docs/components-typography-styles-list--docs),
+[Link](/?path=/docs/components-navigation-link--docs), and
+[Icon](/?path=/docs/components-media-icons-icon--docs) components.
+
+If the `showLabels` prop is set to `false` the labels are still visible to screen reader software.
+
+### Resources
+
+- [Deque University Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
+- [W3C SVG icons](https://design-system.w3.org/styles/svg-icons.html)
+- [Accessible SVG icons](https://css-tricks.com/accessible-svg-icons/)
+
+## Variations
+
+The below variations can be combined in any way EXCEPT ONE. You may _NOT_ combine circular borders with labels.
+
+### Layout Variations
+
+**NOTE:** This layout prop is effectively limited to desktop views. For any viewport less than or equal to
+the "md" breakpoint (currently 600px), links _with labels_ will stack vertically and those _without labels_
+will align horizontally automatically.
+
+Also, for any viewport less than or equal to the "md" breakpoint, links will be center-aligned.
+
+<Canvas of={SocialMediaLinksStories.LayoutVariations} />
+
+### Size Variations
+
+<Canvas of={SocialMediaLinksStories.SizeVariations} />
+
+### Color Variations
+
+<Canvas of={SocialMediaLinksStories.ColorVariations} />
+
+### Border Variations
+
+<Canvas of={SocialMediaLinksStories.BorderVariations} />
+
+### Label Variations
+
+<Canvas of={SocialMediaLinksStories.LabelVariations} />
+
+## Responsive Design
+
+- For any viewport less than or equal to the "md" breakpoint (currently 600px),
+  links _with labels_ will stack vertically and those _without labels_ will align horizontally automatically.
+- The minimum height is `44px` and the minumum width is `44px` regardless of the `size` prop value.
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
