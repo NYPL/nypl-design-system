@@ -54,6 +54,7 @@ export type {
 export { default as Button } from "./components/Button/Button";
 export type {
   ButtonElementType,
+  ButtonProps,
   ButtonSizes,
   ButtonTypes,
 } from "./components/Button/Button";
@@ -97,6 +98,10 @@ export type {
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export type { FieldsetProps } from "./components/Fieldset/Fieldset";
 export { default as FilterBarInline } from "./components/FilterBarInline/FilterBarInline";
+export type {
+  FilterBarItemsType,
+  FilterBarInlineProps,
+} from "./components/FilterBarInline/FilterBarInline";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export type { FormProps } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
@@ -179,7 +184,11 @@ export type {
 export { default as MultiSelectGroup } from "./components/MultiSelectGroup/MultiSelectGroup";
 export type { MultiSelectGroupProps } from "./components/MultiSelectGroup/MultiSelectGroup";
 export { default as NewsletterSignup } from "./components/NewsletterSignup/NewsletterSignup";
-export type { NewsletterSignupViewType } from "./components/NewsletterSignup/NewsletterSignup";
+export type {
+  HighlightColorTypes,
+  NewsletterSignupProps,
+  NewsletterSignupViewType,
+} from "./components/NewsletterSignup/NewsletterSignup";
 export { default as Notification } from "./components/Notification/Notification";
 export type {
   NotificationProps,

@@ -17,7 +17,7 @@ import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-interface NewsletterSignupProps {
+export interface NewsletterSignupProps {
   /** Additional class name to add. */
   className?: string;
   /** Text displayed next to the confirmation icon after a successful email submission */
