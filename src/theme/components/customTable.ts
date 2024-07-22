@@ -27,10 +27,7 @@ export const fixedColumnStyles = (
   //     : "ui.gray.x-light-cool"
   //   : "null",
   borderRight: useRowHeaders
-    ? {
-        base: undefined,
-        md: "1px solid var(--nypl-colors-ui-gray-semi-medium)",
-      }
+    ? "1px solid var(--nypl-colors-ui-gray-semi-medium)"
     : undefined,
   left: useRowHeaders
     ? isScrollable
@@ -226,7 +223,9 @@ export const baseTDStyles = (
   },
   _last: {
     borderBottom: showRowDividers
-      ? { base: 0, md: "1px solid" }
+      ? isScrollable
+        ? "1px solid"
+        : { base: 0, md: "1px solid" }
       : { base: 0, md: undefined },
     borderColor: `${CellBorderColorStyles()} !important`,
     // paddingEnd:
