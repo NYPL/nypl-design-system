@@ -105,6 +105,18 @@ export const Table: ChakraComponent<
                   key={key}
                   scope="col"
                   sx={{ ...customColors, ...columnStyles[key] }}
+                  // sx={
+                  //   isScrollable
+                  //     ? { ...customColors, ...columnStyles[key] }
+                  //     : {
+                  //         base: { ...customColors, fontSize: "34px" },
+                  //         md: {
+                  //           ...customColors,
+                  //           ...columnStyles[key],
+                  //           bgColor: "red",
+                  //         },
+                  //       }
+                  // }
                 >
                   {child}
                 </ChakraTh>
@@ -147,7 +159,10 @@ export const Table: ChakraComponent<
 
         const cellContent = (key: number, column: string | JSX.Element) => (
           <>
-            <Box as="span" display={{ base: "block", md: "none" }}>
+            <Box
+              as="span"
+              display={isScrollable ? "none" : { base: "block", md: "none" }}
+            >
               {columnHeaders[key]}
             </Box>
             <span>{column}</span>
@@ -160,15 +175,28 @@ export const Table: ChakraComponent<
               <ChakraTr key={index}>
                 {row.map((column, key) =>
                   key === 0 && useRowHeaders ? (
+                    // row header cell
                     <ChakraTh
                       scope="row"
                       key={key}
-                      sx={{ ...columnStyles[key] }}
+                      sx={
+                        isScrollable
+                          ? columnStyles[key]
+                          : { base: undefined, md: columnStyles[key] }
+                      }
                     >
                       {cellContent(key, column)}
                     </ChakraTh>
                   ) : (
-                    <ChakraTd key={key} sx={{ ...columnStyles[key] }}>
+                    // standard cell
+                    <ChakraTd
+                      key={key}
+                      sx={
+                        isScrollable
+                          ? columnStyles[key]
+                          : { base: undefined, md: columnStyles[key] }
+                      }
+                    >
                       {cellContent(key, column)}
                     </ChakraTd>
                   )

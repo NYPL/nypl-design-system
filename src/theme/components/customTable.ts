@@ -3,6 +3,7 @@ import { useColorModeValue } from "@chakra-ui/react";
 interface BaseStyleProps {
   columnHeadersBackgroundColor?: string;
   columnHeadersTextColor?: string;
+  isScrollable?: boolean;
   showRowDividers?: boolean;
   useRowHeaders?: boolean;
 }
@@ -16,10 +17,10 @@ const CellBorderColorStyles = () => {
   return colorValues;
 };
 export const fixedColumnStyles = (
-  // columnHeadersBackgroundColor,
+  isScrollable = false,
   useRowHeaders = false
 ) => ({
-  // backgroundColor: useRowHeaders ? "ui.gray.x-light-cool" : "null",
+  backgroundColor: useRowHeaders ? "ui.gray.x-light-cool" : "null",
   // backgroundColor: useRowHeaders
   //   ? columnHeadersBackgroundColor
   //     ? columnHeadersBackgroundColor
@@ -31,8 +32,16 @@ export const fixedColumnStyles = (
         md: "1px solid var(--nypl-colors-ui-gray-semi-medium)",
       }
     : undefined,
-  left: useRowHeaders ? "0" : undefined,
-  paddingLeft: useRowHeaders ? { base: "0", md: "s" } : undefined,
+  left: useRowHeaders
+    ? isScrollable
+      ? { base: undefined, md: "0" }
+      : undefined
+    : undefined,
+  // paddingLeft: useRowHeaders
+  //   ? isScrollable
+  //     ? { base: "0", md: "s" }
+  //     : undefined
+  //   : undefined,
   position: useRowHeaders ? "sticky" : undefined,
   zIndex: "5",
   _dark: {
@@ -45,22 +54,27 @@ export const fixedColumnStyles = (
 
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
+  isScrollable = false,
   showRowDividers = false,
   useRowHeaders = false
 ) => ({
-  borderBottom: { base: "2px solid", md: 0 },
+  borderBottom: isScrollable ? "0" : { base: "2px solid", md: "0" },
   borderColor: "ui.gray.medium",
-  display: { base: "block", md: "table-row" },
+  display: isScrollable ? "table-row" : { base: "block", md: "table-row" },
   paddingBottom:
     showRowDividers || columnHeadersBackgroundColor
       ? 0
+      : isScrollable
+      ? "0"
       : { base: "s", md: "0" },
   paddingTop:
     showRowDividers || columnHeadersBackgroundColor || useRowHeaders
       ? 0
+      : isScrollable
+      ? "0"
       : { base: "s", md: "0" },
   _first: {
-    borderTop: { base: "2px solid", md: "0" },
+    borderTop: isScrollable ? "0" : { base: "2px solid", md: "0" },
     borderColor: "ui.gray.medium",
   },
   _dark: {
@@ -70,43 +84,56 @@ export const baseTRStyles = (
 export const baseCellStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  showRowDividers = false,
-  useRowHeaders = false
+  isScrollable = false,
+  showRowDividers = false
+  // useRowHeaders = false
 ) => ({
   border: showRowDividers ? undefined : "none",
   borderBottom: showRowDividers ? "1px solid" : "0",
   borderColor: CellBorderColorStyles(),
-  display: { base: "flex", md: "table-cell" },
+  display: isScrollable ? undefined : { base: "flex", md: "table-cell" },
   fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
   gap: "s",
   letterSpacing: "0",
   lineHeight: 1.5,
-  paddingBottom: { base: "0", md: "s" },
-  paddingStart: { base: "0", md: "s" },
-  paddingEnd: { base: "0", md: "s" },
-  paddingTop: { base: "0", md: "s" },
+  paddingBottom: isScrollable ? "s" : { base: "0", md: "s" },
+  // paddingStart: isScrollable ? "s" : { base: "0", md: "s" },
+  // paddingEnd: isScrollable ? "s" : { base: "0", md: "s" },
+  paddingStart: "s",
+  paddingEnd: "s",
+  paddingTop: isScrollable ? "s" : { base: "0", md: "s" },
   _first: {
-    paddingStart: showRowDividers ? { base: "0", md: "s" } : "0",
+    // paddingStart: showRowDividers
+    //   ? isScrollable
+    //     ? "s"
+    //     : { base: "0", md: "s" }
+    //   : "0",
     borderBottom: showRowDividers
-      ? {
-          base: "1px solid var(--nypl-colors-ui-light-cool)",
-          md: "1px solid var(--nypl-colors-ui-gray-medium)",
-        }
+      ? isScrollable
+        ? "1px solid var(--nypl-colors-ui-gray-medium)"
+        : {
+            base: "1px solid var(--nypl-colors-ui-light-cool)",
+            md: "1px solid var(--nypl-colors-ui-gray-medium)",
+          }
       : "none",
   },
   _last: {
-    paddingEnd:
-      showRowDividers || columnHeadersBackgroundColor
-        ? { base: "0", md: "s" }
-        : "0",
+    // paddingEnd:
+    //   showRowDividers || columnHeadersBackgroundColor
+    //     ? isScrollable
+    //       ? "s"
+    //       : { base: "0", md: "s" }
+    //     : "0",
+    // paddingEnd:
     borderBottom: showRowDividers ? "1px solid" : "none",
     borderColor: CellBorderColorStyles(),
   },
   "> span": {
     flexBasis: "50%",
-    paddingBottom: { base: "s", md: "0" },
+    // bgColor: isScrollable ? "pink" : "lime", // FOR TESTING
+    paddingBottom: isScrollable ? undefined : { base: "s", md: "0" },
     // paddingEnd: showRowDividers ? "s" : "0",
-    paddingTop: { base: "s", md: "0" },
+    paddingTop: isScrollable ? undefined : { base: "s", md: "0" },
     _first: {
       bg: columnHeadersBackgroundColor
         ? columnHeadersBackgroundColor
@@ -115,29 +142,39 @@ export const baseCellStyles = (
         ? columnHeadersTextColor
         : "ui.typography.heading",
       fontWeight: "medium",
-      paddingStart:
-        columnHeadersBackgroundColor || showRowDividers || useRowHeaders
-          ? "s"
-          : undefined,
+      // paddingEnd: isScrollable
+      //   ? undefined
+      //   : columnHeadersBackgroundColor || showRowDividers || useRowHeaders
+      //   ? "s"
+      //   : undefined,
       _dark: {
         color: columnHeadersTextColor
           ? columnHeadersTextColor
           : "dark.ui.typography.heading",
       },
     },
+    _last: {
+      // paddingStart: isScrollable
+      //   ? undefined
+      //   : columnHeadersBackgroundColor || showRowDividers || useRowHeaders
+      //   ? "s"
+      //   : undefined,
+    },
   },
 });
 export const baseTHStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
+  isScrollable = false,
   showRowDividers = false,
   useRowHeaders = false
 ) => ({
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers,
-    useRowHeaders
+    isScrollable,
+    showRowDividers
+    // useRowHeaders
   ),
   color: columnHeadersTextColor
     ? columnHeadersTextColor
@@ -146,11 +183,11 @@ export const baseTHStyles = (
   fontSize: "desktop.caption.caption1",
   textTransform: "uppercase",
   _first: {
-    paddingStart:
-      showRowDividers || columnHeadersBackgroundColor
-        ? { base: "0", md: "s" }
-        : { base: "0", md: undefined },
-    ...fixedColumnStyles(useRowHeaders),
+    // paddingStart:
+    //   showRowDividers || columnHeadersBackgroundColor
+    //     ? { base: "0", md: "s" }
+    //     : { base: "0", md: undefined },
+    ...fixedColumnStyles(isScrollable, useRowHeaders),
     // ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
     /** Shadow for fixed first column */
     // boxShadow: useRowHeaders
@@ -166,35 +203,42 @@ export const baseTHStyles = (
 export const baseTDStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  showRowDividers = false,
-  useRowHeaders = false
+  isScrollable = false,
+  showRowDividers = false
+  // useRowHeaders = false
 ) => ({
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers,
-    useRowHeaders
+    isScrollable,
+    showRowDividers
+    // useRowHeaders
   ),
   _first: {
-    paddingStart:
-      showRowDividers || columnHeadersBackgroundColor
-        ? { base: "0", md: "s" }
-        : { base: "0", md: useRowHeaders ? "s" : undefined },
+    // paddingStart:
+    //   showRowDividers || columnHeadersBackgroundColor
+    //     ? isScrollable
+    //       ? "s"
+    //       : { base: "0", md: "s" }
+    //     : isScrollable
+    //     ? "s"
+    //     : { base: "0", md: useRowHeaders ? "s" : undefined },
   },
   _last: {
     borderBottom: showRowDividers
       ? { base: 0, md: "1px solid" }
       : { base: 0, md: undefined },
     borderColor: `${CellBorderColorStyles()} !important`,
-    paddingEnd:
-      showRowDividers || columnHeadersBackgroundColor
-        ? { base: "0", md: "s" }
-        : 0,
+    // paddingEnd:
+    //   showRowDividers || columnHeadersBackgroundColor
+    //     ? { base: "0", md: "s" }
+    //     : 0,
   },
 });
 export const baseStyle = ({
   columnHeadersBackgroundColor,
   columnHeadersTextColor,
+  isScrollable,
   showRowDividers,
   useRowHeaders,
 }: BaseStyleProps) => ({
@@ -208,12 +252,14 @@ export const baseStyle = ({
   tbody: {
     th: {
       backgroundColor: useRowHeaders
-        ? {
-            base: "ui.gray.x-light-cool",
-            md: columnHeadersBackgroundColor
-              ? "ui.gray.xx-light-cool"
-              : "ui.white",
-          }
+        ? isScrollable
+          ? "ui.gray.xx-light-cool"
+          : {
+              base: "ui.gray.x-light-cool",
+              md: columnHeadersBackgroundColor
+                ? "ui.gray.xx-light-cool"
+                : "ui.white",
+            }
         : // {
           //   base: "ui.gray.x-light-cool",
           //   md: hexToRGB("var(--nypl-colors-ui-gray-semi-medium)", 0.05),
@@ -221,7 +267,7 @@ export const baseStyle = ({
           undefined,
       color: "ui.typography.heading",
       fontWeight: "medium",
-      fontSize: "desktop.body.body1",
+      fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
       textTransform: "capitalize",
       verticalAlign: "top",
       // ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
@@ -237,31 +283,38 @@ export const baseStyle = ({
     },
   },
   thead: {
-    display: { base: "none", md: "table-header-group" },
+    display: isScrollable
+      ? undefined
+      : { base: "none", md: "table-header-group" },
     th: {
       _first: {
         backgroundColor: columnHeadersBackgroundColor
           ? columnHeadersBackgroundColor
+          : useRowHeaders
+          ? "ui.gray.x-light-cool"
           : "ui.white",
       },
     },
   },
   tr: baseTRStyles(
     columnHeadersBackgroundColor,
+    isScrollable,
     showRowDividers,
     useRowHeaders
   ),
   th: baseTHStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
+    isScrollable,
     showRowDividers,
     useRowHeaders
   ),
   td: baseTDStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    showRowDividers,
-    useRowHeaders
+    isScrollable,
+    showRowDividers
+    // useRowHeaders
   ),
   caption: {
     captionSide: "top",
