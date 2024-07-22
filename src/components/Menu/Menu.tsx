@@ -22,7 +22,7 @@ export interface MenuProps {
   /** Optional ID string that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string used to identify and highlight an item when the menu opens. The value should
-   * match the id associated with one of the items. If not passed, selectedItem will just be the first item. */
+   * match the id associated with one of the items. */
   selectedItem?: string;
   /** Optional boolean value, toggles whether the label of the menu will display the text of the selected item. labelText is required for the aria-label either way. */
   showSelectionAsLabel?: boolean;
