@@ -109,6 +109,24 @@ describe("Menu allows selection", () => {
     fireEvent.click(openButton);
     expect(button1).toHaveAttribute("data-testid", "selected-item");
   });
+
+  it("displays selected item as label", () => {
+    render(
+      <Menu
+        showSelectionAsLabel
+        labelText={"Menu"}
+        listItemsData={defaultListItems}
+      />
+    );
+    const openButton = screen.getByText("Menu");
+    fireEvent.click(openButton);
+    const button1 = screen.getByText("I'm item 1").closest("button");
+    fireEvent.click(button1);
+    fireEvent.mouseDown(document.body);
+    fireEvent.click(openButton);
+    expect(button1).toHaveAttribute("data-testid", "selected-item");
+    expect(screen.getAllByText("I'm item 1")).toHaveLength(2);
+  });
 });
 
 describe("Menu logs errors when props are incorrect or missing", () => {
