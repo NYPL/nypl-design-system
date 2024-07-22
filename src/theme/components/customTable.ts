@@ -27,7 +27,12 @@ export const fixedColumnStyles = (
   //     : "ui.gray.x-light-cool"
   //   : "null",
   borderRight: useRowHeaders
-    ? "1px solid var(--nypl-colors-ui-gray-semi-medium)"
+    ? isScrollable
+      ? "1px solid var(--nypl-colors-ui-gray-semi-medium)"
+      : {
+          base: undefined,
+          md: "1px solid var(--nypl-colors-ui-gray-semi-medium)",
+        }
     : undefined,
   left: useRowHeaders
     ? isScrollable
