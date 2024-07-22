@@ -21,6 +21,10 @@ const meta: Meta<typeof Menu> = {
       options: ["left", "right"],
       table: { defaultValue: { summary: "left" } },
     },
+    showSelectionAsLabel: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "false" },
+    },
     listItemsData: { control: false },
     selectedItem: { description: "Set item id to be selected on open." },
     showBorder: {
@@ -401,6 +405,24 @@ export const MenuTypes: Story = {
   parameters: {
     docs: {
       story: { height: "170px" },
+    },
+  },
+};
+
+export const MenuLabel: Story = {
+  render: () => (
+    <HStack>
+      <Menu labelText={"This is my label"} listItemsData={defaultListItems} />
+      <Menu
+        showSelectionAsLabel
+        labelText={"Selected item will be my label"}
+        listItemsData={defaultListItems}
+      />
+    </HStack>
+  ),
+  parameters: {
+    docs: {
+      story: { height: "200px" },
     },
   },
 };
