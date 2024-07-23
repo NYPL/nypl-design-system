@@ -9,10 +9,10 @@ import { changelogData } from "./menuChangelogData";
 
 # Menu
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.0.0`    |
-| Latest            | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `Prerelease` |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -62,10 +62,10 @@ Use the icon type when there is limited space such as a table or on mobile.
 
 ## Menu Label
 
-The default label of the menu will be `labelText`. With `showSelectionAsLabel` enabled, the user's selected item will then display as the menu's label. This is useful when the user's choice
-should be displayed after selection, like choosing sort/filter criteria.
+The default label of the menu will be `labelText`. With `showSelectionAsLabel` enabled, the selected item will then display as the menu's label. This is useful when the choice
+should be displayed after selection, like choosing sort/filter criteria, or if an option needs to be selected and displayed when the page first loads.
 
-NOTE: `labelText` is still required even if `showSelectionAsLabel` is true, because it is used as the `aria-label`, and displayed initially before the user selects an item.
+NOTE: `labelText` is still required even if `showSelectionAsLabel` is true, because it is used as the `aria-label`, and displayed initially before the user selects an item, if `selectedItem` is not set.
 
 <Canvas of={MenuStories.MenuLabel} />
 

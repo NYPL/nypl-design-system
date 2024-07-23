@@ -418,6 +418,12 @@ export const MenuLabel: Story = {
         labelText={"Selected item will be my label"}
         listItemsData={defaultListItems}
       />
+      <Menu
+        showSelectionAsLabel
+        selectedItem="item-title-1"
+        labelText={"Already selected item is my label"}
+        listItemsData={defaultListItems}
+      />
     </HStack>
   ),
   parameters: {

@@ -105,7 +105,6 @@ describe("Menu allows selection", () => {
     fireEvent.click(openButton);
     const button1 = screen.getByText("I'm item 1").closest("button");
     fireEvent.click(button1);
-    fireEvent.mouseDown(document.body);
     fireEvent.click(openButton);
     expect(button1).toHaveAttribute("data-testid", "selected-item");
   });
@@ -122,10 +121,25 @@ describe("Menu allows selection", () => {
     fireEvent.click(openButton);
     const button1 = screen.getByText("I'm item 1").closest("button");
     fireEvent.click(button1);
-    fireEvent.mouseDown(document.body);
     fireEvent.click(openButton);
     expect(button1).toHaveAttribute("data-testid", "selected-item");
     expect(screen.getAllByText("I'm item 1")).toHaveLength(2);
+  });
+
+  it("displays selected item as label with pre-selected item", () => {
+    render(
+      <Menu
+        showSelectionAsLabel
+        selectedItem="item-title-1"
+        labelText={"Menu"}
+        listItemsData={defaultListItems}
+      />
+    );
+    const openButton = screen.getAllByText("I'm item 1")[0];
+    fireEvent.click(openButton);
+    expect(
+      screen.getAllByText("I'm item 1")[1].closest("button")
+    ).toHaveAttribute("data-testid", "selected-item");
   });
 });
 
