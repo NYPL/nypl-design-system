@@ -6,7 +6,7 @@ import Link from "../Link/Link";
 
 const breadcrumbsData = [
   { url: "#", text: "Parent" },
-  { url: "#", text: "Child" },
+  { url: "#", text: "Child", link: Link },
   { url: "#", text: "Grandchild" },
 ];
 
