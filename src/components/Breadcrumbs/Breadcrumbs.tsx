@@ -1,10 +1,10 @@
 import {
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   chakra,
   useStyleConfig,
   ChakraComponent,
+  BreadcrumbLink,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -27,6 +27,7 @@ export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
+  link?: any;
 }
 
 export interface BreadcrumbProps {
@@ -61,6 +62,7 @@ const tooltipWrapperOrText = (
       : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
+      as={breadcrumbsData.link}
       href={breadcrumbsData.url}
       aria-current={isCurrentPage ? "page" : undefined}
     >

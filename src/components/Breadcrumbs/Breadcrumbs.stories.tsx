@@ -3,10 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Breadcrumbs, { breadcrumbTypeArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
 
 const breadcrumbsData = [
   { url: "#", text: "Parent" },
-  { url: "#", text: "Child" },
+  { url: "#", text: "Child", link: Link },
   { url: "#", text: "Grandchild" },
 ];
 const breadcrumbsLongTextData = [
