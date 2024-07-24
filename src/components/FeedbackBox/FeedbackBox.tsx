@@ -35,7 +35,7 @@ export const feedbackBoxViewTypeArray = [
 ] as const;
 export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
 
-interface FeedbackBoxProps {
+export interface FeedbackBoxProps {
   /** Additional class name to add. */
   className?: string;
   /** Used to add additional information to the default confirmation message in

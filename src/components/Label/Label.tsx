@@ -1,7 +1,7 @@
 import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-interface LabelProps {
+export interface LabelProps {
   /** Additional CSS class name to render in the `label` element. */
   className?: string;
   /** The id of the html element that this `Label` is describing. */

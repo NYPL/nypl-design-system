@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-interface FieldsetProps {
+export interface FieldsetProps {
   /** Additional class name to add. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
