@@ -12,15 +12,8 @@ export const changelogData: ChangelogData[] = [
   {
     date: "2024-07-25",
     version: "3.2.0",
-    type: "Update",
-    affects: ["Functionality"],
-    notes: ["Exports the `LabelProps` interface."],
-  },
-  {
-    date: "2024-03-14",
-    version: "3.0.0",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Chakra 2.8 update."],
+    type: "New Feature",
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
+    notes: ["Adds FilterBarInline component."],
   },
 ];

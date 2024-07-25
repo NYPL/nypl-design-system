@@ -34,9 +34,9 @@ const meta: Meta<typeof Select> = {
       options: selectTypesArray,
       table: { defaultValue: { summary: "default" } },
     },
-    showHelperInvalidText: argsBooleanType(true),
-    showLabel: argsBooleanType(true),
-    showRequiredLabel: argsBooleanType(true),
+    showHelperInvalidText: argsBooleanType("true"),
+    showLabel: argsBooleanType("true"),
+    showRequiredLabel: argsBooleanType("true"),
     value: { control: false },
   },
 };

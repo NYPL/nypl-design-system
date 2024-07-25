@@ -70,7 +70,7 @@ export const bannerHighlightColorsArray = [
 ] as const;
 export type BannerHighlightColors = typeof bannerHighlightColorsArray[number];
 
-interface BannerProps {
+export interface BannerProps {
   /** Label used to describe the `Banner`'s aside HTML element. */
   ariaLabel?: string;
   /** Used to set the color of the background for the full component.

@@ -29,16 +29,16 @@ const meta: Meta<typeof DatePicker> = {
     },
     id: { control: false },
     isDateRange: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isDisabled: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isInvalid: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isRequired: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     key: { table: { disable: true } },
     labelText: {
@@ -50,13 +50,13 @@ const meta: Meta<typeof DatePicker> = {
     ref: { table: { disable: true } },
     refTo: { control: false },
     showHelperInvalidText: {
-      table: { defaultValue: { summary: true } },
+      table: { defaultValue: { summary: "true" } },
     },
     showLabel: {
-      table: { defaultValue: { summary: true } },
+      table: { defaultValue: { summary: "true" } },
     },
     showRequiredLabel: {
-      table: { defaultValue: { summary: true } },
+      table: { defaultValue: { summary: "true" } },
     },
   },
 };
