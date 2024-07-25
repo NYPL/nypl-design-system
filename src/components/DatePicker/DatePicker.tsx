@@ -67,7 +67,7 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
 
 // Interface used by the internal DS `TextInput` component as a custom
 // component for the ReactDatePicker plugin component. Internal use only.
-interface CustomTextInputProps extends Partial<InputProps> {
+export interface CustomTextInputProps extends Partial<InputProps> {
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
