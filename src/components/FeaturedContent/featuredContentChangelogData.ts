@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "3.2.0",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Exports the `FeaturedContentWidthType` and `FeaturedContentPositionType` types and the `FeaturedContentImageProps` interface."],
+    notes: [
+      "Exports the `FeaturedContentWidthType` and `FeaturedContentPositionType` types and the `FeaturedContentImageProps` interface.",
+    ],
   },
   {
     date: "2024-04-25",
