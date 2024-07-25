@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-07-25",
+    version: "3.2.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Exports the `FeaturedContentWidthType` and `FeaturedContentPositionType` types and the `FeaturedContentImageProps` interface."],
+  },
+  {
     date: "2024-04-25",
     version: "3.1.1",
     type: "Update",

@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-07-25",
+    version: "3.2.0",
     type: "New Feature",
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
     notes: ["Adds FilterBarInline component."],
