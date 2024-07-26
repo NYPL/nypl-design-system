@@ -2,11 +2,10 @@ import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Breadcrumbs, { breadcrumbTypeArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
-import Link from "../Link/Link";
 
 const breadcrumbsData = [
   { url: "#", text: "Parent" },
-  { url: "#", text: "Child", link: Link },
+  { url: "#", text: "Child" },
   { url: "#", text: "Grandchild" },
 ];
 
@@ -34,7 +33,7 @@ const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,
   argTypes: {
     breadcrumbsData: { control: false },
-    customLinkComponent: { control: false },
+    customLink: { control: false },
     breadcrumbsType: {
       table: { defaultValue: { summary: "whatsOn" } },
       control: {
@@ -59,7 +58,7 @@ export const WithControls: Story = {
     breadcrumbsData,
     breadcrumbsType: "whatsOn",
     className: undefined,
-    customLinkComponent: undefined,
+    customLink: undefined,
     id: "breadcrumbs-id",
   },
   parameters: {
