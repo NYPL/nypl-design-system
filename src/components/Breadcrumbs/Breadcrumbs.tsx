@@ -27,7 +27,7 @@ export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
-  link?: any;
+  linkProps?: any;
 }
 
 export interface BreadcrumbProps {
@@ -39,6 +39,8 @@ export interface BreadcrumbProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
+  customLink?: any;
 }
 
 const breadcrumbTextLength = 40;
@@ -50,6 +52,7 @@ const breadcrumbTextLength = 40;
 const tooltipWrapperOrText = (
   breadcrumbsData: BreadcrumbsDataProps,
   breadcrumbsID,
+  customLink,
   renderIcon = false,
   isCurrentPage = false
 ) => {
@@ -62,9 +65,10 @@ const tooltipWrapperOrText = (
       : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
-      as={breadcrumbsData.link}
+      as={customLink}
       href={breadcrumbsData.url}
       aria-current={isCurrentPage ? "page" : undefined}
+      {...breadcrumbsData.linkProps}
     >
       {renderIcon && (
         <Icon
