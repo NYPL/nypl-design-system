@@ -241,9 +241,9 @@ export const Banner: ChakraComponent<
         {...rest}
       >
         {finalIcon}
-        <Box maxWidth="800px">
+        <Box maxWidth="800px" >
           {heading && finalHeading}
-          {content}
+          {typeof content === "string" ? (<Box dangerouslySetInnerHTML={{__html: content}} />) :(<>{content}</>)}
         </Box>
         {isDismissible && dismissibleButton}
       </Box>
