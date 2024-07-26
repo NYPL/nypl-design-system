@@ -210,7 +210,7 @@ export const Menu: ChakraComponent<
       const getButton = (isOpen) => (
         <MenuButton
           sx={styles.menuButton}
-          aria-label={showLabel ? "" : labelText}
+          aria-label={selected ? `${labelText}: ${selected.label}` : labelText}
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
           {showLabel && (

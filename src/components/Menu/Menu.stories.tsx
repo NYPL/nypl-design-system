@@ -68,6 +68,33 @@ const defaultListItems: ListItemsData[] = [
   },
 ];
 
+const labelListItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "ascending",
+    label: "Ascending",
+    onClick: () => {
+      console.log("Ascending clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "descending",
+    label: "Descending",
+    onClick: () => {
+      console.log("Descending clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "alphabetical",
+    label: "Alphabetical",
+    onClick: () => {
+      console.log("Alphabetical clicked");
+    },
+  },
+];
+
 const iconListItems: ListItemsData[] = [
   {
     type: "action",
@@ -412,17 +439,17 @@ export const MenuTypes: Story = {
 export const MenuLabel: Story = {
   render: () => (
     <HStack>
-      <Menu labelText={"This is my label"} listItemsData={defaultListItems} />
+      <Menu labelText={"Sort By"} listItemsData={labelListItems} />
       <Menu
         showSelectionAsLabel
-        labelText={"Selected item will be my label"}
-        listItemsData={defaultListItems}
+        labelText={"Sort By"}
+        listItemsData={labelListItems}
       />
       <Menu
         showSelectionAsLabel
-        selectedItem="item-title-1"
-        labelText={"Already selected item is my label"}
-        listItemsData={defaultListItems}
+        selectedItem="ascending"
+        labelText={"Sort By"}
+        listItemsData={labelListItems}
       />
     </HStack>
   ),

@@ -65,7 +65,9 @@ Use the icon type when there is limited space such as a table or on mobile.
 The default label of the menu will be `labelText`. With `showSelectionAsLabel` enabled, the selected item will then display as the menu's label. This is useful when the choice
 should be displayed after selection, like choosing sort/filter criteria, or if an option needs to be selected and displayed when the page first loads.
 
-NOTE: `labelText` is still required even if `showSelectionAsLabel` is true, because it is used as the `aria-label`, and displayed initially before the user selects an item, if `selectedItem` is not set.
+`labelText` is still required even if `showSelectionAsLabel` is true, because it is used for the `aria-label`.
+
+**IMPORTANT:** A Menu with `showSelectionAsLabel` enabled should be accompanied by nearby directions ("Sort By", "Select theme", etc.) so that the function of the menu is clear.
 
 <Canvas of={MenuStories.MenuLabel} />
 

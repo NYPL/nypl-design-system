@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality", "Styles"],
-    notes: ["Adds new `showSelectionAsLabel` prop."],
+    notes: ["Adds new `showSelectionAsLabel` prop, updates `aria-label`s."],
   },
   {
     date: "2024-03-14",
