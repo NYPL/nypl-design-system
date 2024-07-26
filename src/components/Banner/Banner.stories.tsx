@@ -396,3 +396,12 @@ export const Dismissible: Story = {
     />
   ),
 };
+export const StringContentWithHTML: Story = {
+  render: () => (
+    <Banner
+      content={"<p>HTML content passed as a <em>string</em> is rendered as <strong>HTML</strong>, useful in cases where HTML content is stored in an environment variable.</p>"}
+      heading="String content with HTML"
+      type="neutral"
+    />
+  ),
+};

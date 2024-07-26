@@ -243,6 +243,8 @@ export const Banner: ChakraComponent<
         {finalIcon}
         <Box maxWidth="800px">
           {heading && finalHeading}
+          {/* Render string content as div with dangerouslySetInnerHTML prop in case HTML is passed in as string
+            (e.g. notification HTML stored in an environment variable. */}
           {typeof content === "string" ? (
             <Box dangerouslySetInnerHTML={{ __html: content }} />
           ) : (
