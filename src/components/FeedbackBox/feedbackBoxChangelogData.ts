@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-07-25",
+    version: "3.2.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Exports the `FeedbackBoxProps` interface."],
+  },
+  {
     date: "2024-07-03",
     version: "3.1.7",
     type: "Update",

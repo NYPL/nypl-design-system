@@ -61,7 +61,7 @@ const config: StorybookConfig = {
       propFilter: (prop) => {
         /** @Info: The following code would allow for typescript `type`
          * declarations to also show up in the  argTypes table of storybook
-         * (The manuall workaround in the argTypl like on MultiSelect `with` or
+         * (The manual workaround in the argTypl like on MultiSelect `with` or
          * SocilaMediaLinks `borders` would be redundant)
          */
         // if (
