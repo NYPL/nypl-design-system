@@ -139,7 +139,10 @@ const FilterBarStory = (args) => {
     useMultiSelect();
   const selectedFilterItems = [selectedItems];
 
-  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
     return (
       multiSelectItems &&
       multiSelectItems.map((multiSelect) => (
@@ -147,9 +150,9 @@ const FilterBarStory = (args) => {
           buttonText={multiSelect.name}
           key={multiSelect.id}
           id={multiSelect.id}
+          isBlockElement={isBlockElement}
           items={multiSelect.items}
           selectedItems={selectedItems}
-          isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
             return onMixedStateChange(
@@ -160,20 +163,20 @@ const FilterBarStory = (args) => {
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
-          closeOnBlur
+          closeOnBlur={closeOnBlur}
         />
       ))
     );
   };
 
-  const renderFilterComponents = ({ layout, width }) => {
+  const renderFilterComponents = ({ closeOnBlur, layout, width }) => {
     return (
       <MultiSelectGroup
         id="multiselect-group"
         labelText="MultiSelect Group"
         layout={layout}
         multiSelectWidth={width}
-        renderMultiSelect={renderMultiSelect}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
       />
     );
   };
@@ -195,17 +198,21 @@ const FilterBarInlineHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
     useMultiSelect();
 
-  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
     return (
       multiSelectItems &&
       multiSelectItems.map((multiSelect) => (
         <MultiSelect
           buttonText={multiSelect.name}
+          closeOnBlur={closeOnBlur}
           key={multiSelect.id}
           id={multiSelect.id}
+          isBlockElement={isBlockElement}
           items={multiSelect.items}
           selectedItems={selectedItems}
-          isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
             return onMixedStateChange(
@@ -221,14 +228,14 @@ const FilterBarInlineHeadingStory = () => {
     );
   };
 
-  const renderFilterComponents = ({ layout, width }) => {
+  const renderFilterComponents = ({ closeOnBlur, layout, width }) => {
     return (
       <MultiSelectGroup
         id="multiselect-group"
         labelText="MultiSelect Group"
         layout={layout}
         multiSelectWidth={width}
-        renderMultiSelect={renderMultiSelect}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
       />
     );
   };
@@ -254,138 +261,233 @@ const FilterBarLayoutStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [selectedCheckbox2, setSelectedCheckbox2] = useState([]);
   const selectedFilterItems = [selectedItems];
+
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
+    return (
+      multiSelectItems &&
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          closeOnBlur={closeOnBlur}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderRowDefaultFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="row"
+        labelText="Row (default)"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderColumnFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="column"
+        labelText="Column"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderRowClearFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="row-clear-all"
+        labelText="Row with Clear All button"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderColumnClearFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="column-clear-all"
+        labelText="Column with Clear All"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderRowSubmitFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="row-submit-button"
+        labelText="Row with Submit Button"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderColumnSubmitFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="column-submit-button"
+        labelText="Column with Submit Button"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderRowAllFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="row-all-buttons"
+        labelText="Row with Clear All and Submit Buttons"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderColumnAllFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="column-all-buttons"
+        labelText="Column with Clear All and Submit Buttons"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderMultiGroupsFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="group-one"
+          labelText="Group One"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+        <MultiSelectGroup
+          id="group-two"
+          labelText="Group Two"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+      </>
+    );
+  };
+
+  const renderCheckboxFilter = ({ layout }) => {
+    return (
+      <>
+        <CheckboxGroup
+          id="checkbox-1"
+          labelText="Boroughs"
+          name="checkboxExample"
+          layout={layout}
+          value={selectedCheckbox}
+          onChange={(e) => {
+            setSelectedCheckbox(e);
+          }}
+        >
+          <Checkbox id="checkbox-1" value="Bronx" labelText="Bronx" />
+          <Checkbox id="checkbox-2" value="Manhattan" labelText="Manhattan" />
+          <Checkbox
+            id="checkbox-2"
+            value="Staten Island"
+            labelText="Staten Island"
+          />
+        </CheckboxGroup>
+        <CheckboxGroup
+          id="checkbox-2"
+          labelText="Accessibility"
+          name="checkboxExample"
+          layout={layout}
+          value={selectedCheckbox2}
+          onChange={(e) => {
+            setSelectedCheckbox2(e);
+          }}
+        >
+          <Checkbox
+            id="checkbox-1"
+            value="Fully Accessible"
+            labelText="Fully Accessible"
+          />
+          <Checkbox
+            id="checkbox-2"
+            value="Partially Accessible"
+            labelText="Partially Accessible"
+          />
+          <Checkbox
+            id="checkbox-2"
+            value="Not Accessible"
+            labelText="Not Accessible"
+          />
+        </CheckboxGroup>
+      </>
+    );
+  };
   return (
     <VStack align="stretch" spacing="l">
       <FilterBarInline
         id="row-filter-bar"
         heading="Row (default)"
         selectedItems={selectedFilterItems}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="row"
-              labelText="Row (default)"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={multiSelect.id}
-                      id={multiSelect.id}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) => onChange(e.target.id, multiSelect.id)}
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          multiSelect.id,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(multiSelect.id)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderRowDefaultFilter}
       />
       <FilterBarInline
         id="column-filter-bar"
         heading="Column"
         layout="column"
         selectedItems={selectedFilterItems}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="column"
-              labelText="Column"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={`${multiSelect.id}-1`}
-                      id={`${multiSelect.id}-1`}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) =>
-                        onChange(e.target.id, `${multiSelect.id}-1`)
-                      }
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          `${multiSelect.id}-1`,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(`${multiSelect.id}-1`)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderColumnFilter}
       />
       <FilterBarInline
         id="row-with-clear-all-button"
         heading="Row Clear All Button"
         selectedItems={selectedFilterItems}
         onClear={onClearAll}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="row-clear-all"
-              labelText="Row with Clear All button"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  shortMultiSelectItems &&
-                  shortMultiSelectItems.map((multiSelect) => {
-                    return (
-                      <MultiSelect
-                        key={`${multiSelect.id}-3`}
-                        id={`${multiSelect.id}-3`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-3`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-3`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-3`)}
-                        width={multiSelectWidth}
-                      />
-                    );
-                  })
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderRowClearFilter}
       />
       <FilterBarInline
         id="column-with-clear-all-button"
@@ -393,90 +495,14 @@ const FilterBarLayoutStory = () => {
         selectedItems={selectedFilterItems}
         layout="column"
         onClear={onClearAll}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="column-clear-all"
-              labelText="Column with Clear All"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={`${multiSelect.id}-2`}
-                      id={`${multiSelect.id}-2`}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) =>
-                        onChange(e.target.id, `${multiSelect.id}-2`)
-                      }
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          `${multiSelect.id}-2`,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(`${multiSelect.id}-2`)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderColumnClearFilter}
       />
       <FilterBarInline
         id="row-with-submit-button"
         heading="Row with Submit button"
         selectedItems={selectedFilterItems}
         onSubmit={() => null}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="row-submit-button"
-              labelText="Row with Submit Button"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  shortMultiSelectItems &&
-                  shortMultiSelectItems.map((multiSelect) => {
-                    return (
-                      <MultiSelect
-                        key={`${multiSelect.id}-4`}
-                        id={`${multiSelect.id}-4`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-4`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-4`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-4`)}
-                        width={multiSelectWidth}
-                      />
-                    );
-                  })
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderRowSubmitFilter}
       />
       <FilterBarInline
         id="column-with-submit-button"
@@ -484,90 +510,15 @@ const FilterBarLayoutStory = () => {
         selectedItems={selectedFilterItems}
         layout="column"
         onSubmit={() => null}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="column-submit-button"
-              labelText="Column with Submit Button"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={`${multiSelect.id}-5`}
-                      id={`${multiSelect.id}-5`}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) =>
-                        onChange(e.target.id, `${multiSelect.id}-5`)
-                      }
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          `${multiSelect.id}-5`,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(`${multiSelect.id}-5`)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderColumnSubmitFilter}
       />
-
       <FilterBarInline
         id="row-with-buttons"
         heading="Row with Clear All and Submit butttons"
         selectedItems={selectedFilterItems}
         onClear={onClearAll}
         onSubmit={() => null}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="row-all-buttons"
-              labelText="Row with Clear All and Submit Buttons"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={`${multiSelect.id}-6`}
-                      id={`${multiSelect.id}-6`}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) =>
-                        onChange(e.target.id, `${multiSelect.id}-6`)
-                      }
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          `${multiSelect.id}-6`,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(`${multiSelect.id}-6`)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderRowAllFilter}
       />
       <FilterBarInline
         id="column-with-buttons"
@@ -576,44 +527,7 @@ const FilterBarLayoutStory = () => {
         layout="column"
         onClear={onClearAll}
         onSubmit={() => null}
-        renderChildren={({ layout, width }) => {
-          return (
-            <MultiSelectGroup
-              showLabel={false}
-              id="column-all-buttons"
-              labelText="Column with Clear All and Submit Buttons"
-              layout={layout}
-              multiSelectWidth={width}
-              renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                return (
-                  multiSelectItems &&
-                  multiSelectItems.map((multiSelect) => (
-                    <MultiSelect
-                      key={`${multiSelect.id}-7`}
-                      id={`${multiSelect.id}-7`}
-                      buttonText={multiSelect.name}
-                      isBlockElement={isBlockElement}
-                      items={multiSelect.items}
-                      selectedItems={selectedItems}
-                      onChange={(e) =>
-                        onChange(e.target.id, `${multiSelect.id}-7`)
-                      }
-                      onMixedStateChange={(e) => {
-                        return onMixedStateChange(
-                          e.target.id,
-                          `${multiSelect.id}-6`,
-                          multiSelect.items
-                        );
-                      }}
-                      onClear={() => onClear(`${multiSelect.id}-7`)}
-                      width={multiSelectWidth}
-                    />
-                  ))
-                );
-              }}
-            />
-          );
-        }}
+        renderChildren={renderColumnAllFilter}
       />
       <FilterBarInline
         id="column-multiple-multiselect-groups"
@@ -621,156 +535,14 @@ const FilterBarLayoutStory = () => {
         selectedItems={selectedFilterItems}
         onClear={onClearAll}
         layout="column"
-        renderChildren={({ layout, width }) => {
-          return (
-            <>
-              <MultiSelectGroup
-                id="group-one"
-                labelText="Group One"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    multiSelectItems &&
-                    multiSelectItems.map((multiSelect) => (
-                      <MultiSelect
-                        key={`${multiSelect.id}-8`}
-                        id={`${multiSelect.id}-8`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-8`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-8`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-8`)}
-                        width={multiSelectWidth}
-                      />
-                    ))
-                  );
-                }}
-              />
-              <MultiSelectGroup
-                id="group-two"
-                labelText="Group Two"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    multiSelectItems &&
-                    multiSelectItems.map((multiSelect) => (
-                      <MultiSelect
-                        key={`${multiSelect.id}-9`}
-                        id={`${multiSelect.id}-9`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-9`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-9`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-9`)}
-                        width={multiSelectWidth}
-                      />
-                    ))
-                  );
-                }}
-              />
-            </>
-          );
-        }}
+        renderChildren={renderMultiGroupsFilter}
       />
       <FilterBarInline
         id="row-multiple-multiselect-groups"
         heading="Row with multiple MultiselectGroups"
         selectedItems={selectedFilterItems}
         onClear={onClearAll}
-        renderChildren={({ layout, width }) => {
-          return (
-            <>
-              <MultiSelectGroup
-                id="group-one"
-                labelText="Group One"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    multiSelectItems &&
-                    multiSelectItems.map((multiSelect) => (
-                      <MultiSelect
-                        key={`${multiSelect.id}-14`}
-                        id={`${multiSelect.id}-14`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-14`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-14`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-14`)}
-                        width={multiSelectWidth}
-                      />
-                    ))
-                  );
-                }}
-              />
-              <MultiSelectGroup
-                id="group-two"
-                labelText="Group Two"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    multiSelectItems &&
-                    multiSelectItems.map((multiSelect) => (
-                      <MultiSelect
-                        key={`${multiSelect.id}-15`}
-                        id={`${multiSelect.id}-15`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-15`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-15`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-15`)}
-                        width={multiSelectWidth}
-                      />
-                    ))
-                  );
-                }}
-              />
-            </>
-          );
-        }}
+        renderChildren={renderMultiGroupsFilter}
       />
       <FilterBarInline
         id="column-multiple-checkbox-groups-buttons"
@@ -782,60 +554,7 @@ const FilterBarLayoutStory = () => {
         }}
         onSubmit={() => null}
         layout="column"
-        renderChildren={({ layout }) => {
-          return (
-            <>
-              <CheckboxGroup
-                id="checkbox-1"
-                labelText="Boroughs"
-                name="checkboxExample"
-                layout={layout}
-                value={selectedCheckbox}
-                onChange={(e) => {
-                  setSelectedCheckbox(e);
-                }}
-              >
-                <Checkbox id="checkbox-1" value="Bronx" labelText="Bronx" />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Manhattan"
-                  labelText="Manhattan"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Staten Island"
-                  labelText="Staten Island"
-                />
-              </CheckboxGroup>
-              <CheckboxGroup
-                id="checkbox-2"
-                labelText="Accessibility"
-                name="checkboxExample"
-                layout={layout}
-                value={selectedCheckbox2}
-                onChange={(e) => {
-                  setSelectedCheckbox2(e);
-                }}
-              >
-                <Checkbox
-                  id="checkbox-1"
-                  value="Fully Accessible"
-                  labelText="Fully Accessible"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Partially Accessible"
-                  labelText="Partially Accessible"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Not Accessible"
-                  labelText="Not Accessible"
-                />
-              </CheckboxGroup>
-            </>
-          );
-        }}
+        renderChildren={renderCheckboxFilter}
       />
       <FilterBarInline
         id="row-multiple-checkbox-groups-buttons"
@@ -846,60 +565,7 @@ const FilterBarLayoutStory = () => {
           setSelectedCheckbox2([]);
         }}
         onSubmit={() => null}
-        renderChildren={({ layout }) => {
-          return (
-            <>
-              <CheckboxGroup
-                id="checkbox-1"
-                labelText="Boroughs"
-                name="checkboxExample"
-                layout={layout}
-                value={selectedCheckbox}
-                onChange={(e) => {
-                  setSelectedCheckbox(e);
-                }}
-              >
-                <Checkbox id="checkbox-1" value="Bronx" labelText="Bronx" />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Manhattan"
-                  labelText="Manhattan"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Staten Island"
-                  labelText="Staten Island"
-                />
-              </CheckboxGroup>
-              <CheckboxGroup
-                id="checkbox-2"
-                labelText="Accessibility"
-                name="checkboxExample"
-                layout={layout}
-                value={selectedCheckbox2}
-                onChange={(e) => {
-                  setSelectedCheckbox2(e);
-                }}
-              >
-                <Checkbox
-                  id="checkbox-1"
-                  value="Fully Accessible"
-                  labelText="Fully Accessible"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Partially Accessible"
-                  labelText="Partially Accessible"
-                />
-                <Checkbox
-                  id="checkbox-2"
-                  value="Not Accessible"
-                  labelText="Not Accessible"
-                />
-              </CheckboxGroup>
-            </>
-          );
-        }}
+        renderChildren={renderCheckboxFilter}
       />
     </VStack>
   );
@@ -913,6 +579,102 @@ const FilterBarRowContainerStory = () => {
     "dark.ui.bg.default"
   );
   const selectedFilterItems = [selectedItems];
+
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
+    return (
+      multiSelectItems &&
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          closeOnBlur={closeOnBlur}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderShortMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
+    return (
+      shortMultiSelectItems &&
+      shortMultiSelectItems.map((multiSelect) => {
+        return (
+          <MultiSelect
+            buttonText={multiSelect.name}
+            closeOnBlur={closeOnBlur}
+            key={multiSelect.id}
+            id={multiSelect.id}
+            items={multiSelect.items}
+            selectedItems={selectedItems}
+            isBlockElement={isBlockElement}
+            onChange={(e) => onChange(e.target.id, multiSelect.id)}
+            onMixedStateChange={(e) => {
+              return onMixedStateChange(
+                e.target.id,
+                multiSelect.id,
+                multiSelect.items
+              );
+            }}
+            onClear={() => onClear(multiSelect.id)}
+            width={multiSelectWidth}
+          />
+        );
+      })
+    );
+  };
+
+  const renderRowAllFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="row-all-buttons"
+        labelText="Row with Clear All and Submit Buttons"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderShortMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderMultiGroupsFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="group-one"
+          labelText="Group One"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+        <MultiSelectGroup
+          id="group-two"
+          labelText="Group Two"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+      </>
+    );
+  };
   return (
     <VStack align="stretch" spacing="l">
       <Box bg={containerBgColor} p="inset.wide">
@@ -922,46 +684,7 @@ const FilterBarRowContainerStory = () => {
           selectedItems={selectedFilterItems}
           onClear={onClearAll}
           onSubmit={() => null}
-          renderChildren={({ layout, width }) => {
-            return (
-              <MultiSelectGroup
-                showLabel={false}
-                id="row-all-buttons"
-                labelText="Submit Button"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    shortMultiSelectItems &&
-                    shortMultiSelectItems.map((multiSelect) => {
-                      return (
-                        <MultiSelect
-                          key={`${multiSelect.id}-6`}
-                          id={`${multiSelect.id}-6`}
-                          buttonText={multiSelect.name}
-                          isBlockElement={isBlockElement}
-                          items={multiSelect.items}
-                          selectedItems={selectedItems}
-                          onChange={(e) =>
-                            onChange(e.target.id, `${multiSelect.id}-6`)
-                          }
-                          onMixedStateChange={(e) => {
-                            return onMixedStateChange(
-                              e.target.id,
-                              `${multiSelect.id}-6`,
-                              multiSelect.items
-                            );
-                          }}
-                          onClear={() => onClear(`${multiSelect.id}-6`)}
-                          width={multiSelectWidth}
-                        />
-                      );
-                    })
-                  );
-                }}
-              />
-            );
-          }}
+          renderChildren={renderRowAllFilter}
         />
       </Box>
       <Box bg={containerBgColor} p="inset.wide">
@@ -971,78 +694,7 @@ const FilterBarRowContainerStory = () => {
           selectedItems={selectedFilterItems}
           onClear={onClearAll}
           onSubmit={() => null}
-          renderChildren={({ layout, width }) => {
-            return (
-              <>
-                <MultiSelectGroup
-                  id="group-one"
-                  labelText="Group One"
-                  layout={layout}
-                  multiSelectWidth={width}
-                  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                    return (
-                      multiSelectItems &&
-                      multiSelectItems.map((multiSelect) => (
-                        <MultiSelect
-                          key={`${multiSelect.id}-17`}
-                          id={`${multiSelect.id}-17`}
-                          buttonText={multiSelect.name}
-                          isBlockElement={isBlockElement}
-                          items={multiSelect.items}
-                          selectedItems={selectedItems}
-                          onChange={(e) =>
-                            onChange(e.target.id, `${multiSelect.id}-17`)
-                          }
-                          onMixedStateChange={(e) => {
-                            return onMixedStateChange(
-                              e.target.id,
-                              `${multiSelect.id}-17`,
-                              multiSelect.items
-                            );
-                          }}
-                          onClear={() => onClear(`${multiSelect.id}-17`)}
-                          width={multiSelectWidth}
-                        />
-                      ))
-                    );
-                  }}
-                />
-                <MultiSelectGroup
-                  id="group-two"
-                  labelText="Group Two"
-                  layout={layout}
-                  multiSelectWidth={width}
-                  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                    return (
-                      multiSelectItems &&
-                      multiSelectItems.map((multiSelect) => (
-                        <MultiSelect
-                          key={`${multiSelect.id}-18`}
-                          id={`${multiSelect.id}-18`}
-                          buttonText={multiSelect.name}
-                          isBlockElement={isBlockElement}
-                          items={multiSelect.items}
-                          selectedItems={selectedItems}
-                          onChange={(e) =>
-                            onChange(e.target.id, `${multiSelect.id}-18`)
-                          }
-                          onMixedStateChange={(e) => {
-                            return onMixedStateChange(
-                              e.target.id,
-                              `${multiSelect.id}-18`,
-                              multiSelect.items
-                            );
-                          }}
-                          onClear={() => onClear(`${multiSelect.id}-18`)}
-                          width={multiSelectWidth}
-                        />
-                      ))
-                    );
-                  }}
-                />
-              </>
-            );
-          }}
+          renderChildren={renderMultiGroupsFilter}
         />
       </Box>
     </VStack>
@@ -1053,6 +705,71 @@ const FilterBarColumnContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
     useMultiSelect();
   const selectedFilterItems = [selectedItems];
+
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
+    return (
+      multiSelectItems &&
+      multiSelectItems.map((multiSelect) => (
+        <MultiSelect
+          buttonText={multiSelect.name}
+          closeOnBlur={closeOnBlur}
+          key={multiSelect.id}
+          id={multiSelect.id}
+          items={multiSelect.items}
+          selectedItems={selectedItems}
+          isBlockElement={isBlockElement}
+          onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onMixedStateChange={(e) => {
+            return onMixedStateChange(
+              e.target.id,
+              multiSelect.id,
+              multiSelect.items
+            );
+          }}
+          onClear={() => onClear(multiSelect.id)}
+          width={multiSelectWidth}
+        />
+      ))
+    );
+  };
+
+  const renderColumnAllFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <MultiSelectGroup
+        showLabel={false}
+        id="column-all-buttons"
+        labelText="Column with Clear All and Submit Button"
+        layout={layout}
+        multiSelectWidth={width}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+      />
+    );
+  };
+
+  const renderMultiGroupsFilter = ({ closeOnBlur, layout, width }) => {
+    return (
+      <>
+        <MultiSelectGroup
+          id="group-one"
+          labelText="Group One"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+        <MultiSelectGroup
+          id="group-two"
+          labelText="Group Two"
+          layout={layout}
+          multiSelectWidth={width}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
+        />
+      </>
+    );
+  };
+
   return (
     <VStack align="stretch" spacing="l">
       <Box bg="ui.bg.default" p="inset.default" width="255px">
@@ -1063,43 +780,7 @@ const FilterBarColumnContainerStory = () => {
           onClear={onClearAll}
           onSubmit={() => null}
           layout="column"
-          renderChildren={({ layout, width }) => {
-            return (
-              <MultiSelectGroup
-                id="column-all-buttons"
-                labelText="Column with Clear All and Submit Button"
-                layout={layout}
-                multiSelectWidth={width}
-                renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                  return (
-                    multiSelectItems &&
-                    multiSelectItems.map((multiSelect) => (
-                      <MultiSelect
-                        key={`${multiSelect.id}-7`}
-                        id={`${multiSelect.id}-7`}
-                        buttonText={multiSelect.name}
-                        isBlockElement={isBlockElement}
-                        items={multiSelect.items}
-                        selectedItems={selectedItems}
-                        onChange={(e) =>
-                          onChange(e.target.id, `${multiSelect.id}-7`)
-                        }
-                        onMixedStateChange={(e) => {
-                          return onMixedStateChange(
-                            e.target.id,
-                            `${multiSelect.id}-7`,
-                            multiSelect.items
-                          );
-                        }}
-                        onClear={() => onClear(`${multiSelect.id}-7`)}
-                        width={multiSelectWidth}
-                      />
-                    ))
-                  );
-                }}
-              />
-            );
-          }}
+          renderChildren={renderColumnAllFilter}
         />
       </Box>
       <Box bg="ui.bg.default" p="inset.default" width="255px">
@@ -1110,78 +791,7 @@ const FilterBarColumnContainerStory = () => {
           onClear={onClearAll}
           onSubmit={() => null}
           layout="column"
-          renderChildren={({ layout, width }) => {
-            return (
-              <>
-                <MultiSelectGroup
-                  id="group-one"
-                  labelText="Group One"
-                  layout={layout}
-                  multiSelectWidth={width}
-                  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                    return (
-                      multiSelectItems &&
-                      multiSelectItems.map((multiSelect) => (
-                        <MultiSelect
-                          key={`${multiSelect.id}-11`}
-                          id={`${multiSelect.id}-11`}
-                          buttonText={multiSelect.name}
-                          isBlockElement={isBlockElement}
-                          items={multiSelect.items}
-                          selectedItems={selectedItems}
-                          onChange={(e) =>
-                            onChange(e.target.id, `${multiSelect.id}-11`)
-                          }
-                          onMixedStateChange={(e) => {
-                            return onMixedStateChange(
-                              e.target.id,
-                              `${multiSelect.id}-11`,
-                              multiSelect.items
-                            );
-                          }}
-                          onClear={() => onClear(`${multiSelect.id}-11`)}
-                          width={multiSelectWidth}
-                        />
-                      ))
-                    );
-                  }}
-                />
-                <MultiSelectGroup
-                  id="group-two"
-                  labelText="Group Two"
-                  layout={layout}
-                  multiSelectWidth={width}
-                  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-                    return (
-                      multiSelectItems &&
-                      multiSelectItems.map((multiSelect) => (
-                        <MultiSelect
-                          key={`${multiSelect.id}-12`}
-                          id={`${multiSelect.id}-12`}
-                          buttonText={multiSelect.name}
-                          isBlockElement={isBlockElement}
-                          items={multiSelect.items}
-                          selectedItems={selectedItems}
-                          onChange={(e) =>
-                            onChange(e.target.id, `${multiSelect.id}-12`)
-                          }
-                          onMixedStateChange={(e) => {
-                            return onMixedStateChange(
-                              e.target.id,
-                              `${multiSelect.id}-12`,
-                              multiSelect.items
-                            );
-                          }}
-                          onClear={() => onClear(`${multiSelect.id}-12`)}
-                          width={multiSelectWidth}
-                        />
-                      ))
-                    );
-                  }}
-                />
-              </>
-            );
-          }}
+          renderChildren={renderMultiGroupsFilter}
         />
       </Box>
     </VStack>
@@ -1209,18 +819,23 @@ const FilterBarChildrenStory = (args) => {
     setTextValue("");
   };
 
-  const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+  const renderMultiSelect = (
+    closeOnBlur,
+    { isBlockElement, multiSelectWidth }
+  ) => {
     return (
       shortMultiSelectItems &&
       shortMultiSelectItems.map((multiSelect) => (
         <MultiSelect
           buttonText={multiSelect.name}
-          key={multiSelect.id}
+          closeOnBlur={closeOnBlur}
           id={multiSelect.id}
-          items={multiSelect.items}
-          selectedItems={selectedItems}
           isBlockElement={isBlockElement}
+          items={multiSelect.items}
+          key={multiSelect.id}
+          selectedItems={selectedItems}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
+          onClear={() => onClear(multiSelect.id)}
           onMixedStateChange={(e) => {
             return onMixedStateChange(
               e.target.id,
@@ -1228,14 +843,13 @@ const FilterBarChildrenStory = (args) => {
               multiSelect.items
             );
           }}
-          onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
         />
       ))
     );
   };
 
-  const renderFilterComponents = ({ layout, width }) => {
+  const renderFilterComponents = ({ closeOnBlur, layout, width }) => {
     return (
       <>
         <MultiSelectGroup
@@ -1243,7 +857,7 @@ const FilterBarChildrenStory = (args) => {
           labelText="MultiSelect Group"
           layout={layout}
           multiSelectWidth={width}
-          renderMultiSelect={renderMultiSelect}
+          renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
         />
         <CheckboxGroup
           id="checkbox-example"
