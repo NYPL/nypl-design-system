@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.2.0 (July 25, 2024)
+
 ### Adds
 
 - Adds the `FilterBarInline` component.
@@ -18,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
 - Updates `Menu` component with new `showSelectionAsLabel` prop and `aria-label` behavior.
+- Updates the `Banner`, `Button`, `ButtonGroup`, `DatePicker`, `FeaturedContent`, `FeedbackBox`, `Fieldset`, `HelperErrorText`, `Label`, `SkipNavigation`, and `StyledList` components to export all types and prop interfaces.
 
 ## 3.1.7 (July 3, 2024)
 
