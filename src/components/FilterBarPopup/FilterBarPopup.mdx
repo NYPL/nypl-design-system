@@ -37,10 +37,13 @@ The wrapped components/component groups can be displayed in a column or in a row
 layout.
 
 It is recommended to use real-time filtering in conjunction with the `totalResults`
-prop to update the `Show results` button with the total number of results associated
-to the results list. If the consuming app is not using the above, then `FilterBarPopup`
-can render additional `Clear All` and a `Apply Filters` buttons. The two _optional_
-buttons are controlled by the `onClear` or `onSubmit` props respectively.
+prop to update the `Show X results` button with X being the total number of results
+associated to the results list.
+
+If the consuming app is not using the above, then `FilterBarPopup` will render the
+`Show results` button and can render an _optional_ `Clear all filters`
+button which is controlled by the `onClear` prop. The `Show results` button will
+call the `onSubmit` function if passed and close the modal.
 
 Related component: [FilterBarInline](../?path=/docs/components-form-elements-FilterBarInline--docs)
 

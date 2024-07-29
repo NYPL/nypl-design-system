@@ -18,15 +18,10 @@ import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import { LayoutTypes } from "../../helpers/types";
-import {
-  MultiSelectWidths,
-  SelectedItems as MultiSelectItems,
-} from "../MultiSelect/MultiSelect";
+import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
+import { FilterBarItemsType } from "../FilterBarInline/FilterBarInline";
 
-export type FilterBarItemsType =
-  | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
-
-interface FilterBarPopupProps {
+export interface FilterBarPopupProps {
   /** The className of the FilterBarInline. */
   className?: string;
   /** Optional string value used to set the text for a `Heading` component, or
@@ -151,31 +146,27 @@ export const FilterBarPopup: ChakraComponent<
                     : undefined
                 }
               >
-                {(onSubmit || onClear || totalResults) && (
-                  <ButtonGroup layout="column" buttonWidth="full">
-                    {(onSubmit || totalResults) && (
-                      <Button
-                        id={`filter-bar-${id}-see-results`}
-                        buttonType="primary"
-                        type="submit"
-                        onClick={onSubmit ? onSubmitAndClose : finalOnClose}
-                      >
-                        {`Show ${totalResults ?? ""} results`}
-                      </Button>
-                    )}
-                    {onClear && (
-                      <Button
-                        id={`filter-bar-${id}-clear`}
-                        buttonType="text"
-                        type="reset"
-                        onClick={onClear}
-                        textAlign="center"
-                      >
-                        Clear all filters
-                      </Button>
-                    )}
-                  </ButtonGroup>
-                )}
+                <ButtonGroup layout="column" buttonWidth="full">
+                  <Button
+                    id={`filter-bar-${id}-see-results`}
+                    buttonType="primary"
+                    type="submit"
+                    onClick={onSubmit ? onSubmitAndClose : finalOnClose}
+                  >
+                    {`Show ${totalResults ?? ""} results`}
+                  </Button>
+                  {onClear && (
+                    <Button
+                      id={`filter-bar-${id}-clear`}
+                      buttonType="text"
+                      type="reset"
+                      onClick={onClear}
+                      textAlign="center"
+                    >
+                      Clear all filters
+                    </Button>
+                  )}
+                </ButtonGroup>
               </ModalFooter>
             </ModalContent>
           </Modal>
