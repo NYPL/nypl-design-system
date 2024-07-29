@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import { createRef } from "react";
 import renderer from "react-test-renderer";
-//import Link from "../Link/Link";
+import Link from "../Link/Link";
 
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -97,18 +97,33 @@ describe("Breadcrumbs", () => {
     );
   });
 
-  it.todo("replaces BreadcrumbsLink when customLink is passed", () => {
-    // render(<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsData} />);
-    // const customLink = screen.getAllByRole("link")[1].parentElement;
-    // console.log(customLink);
-    // expect(customLink.firstChild).toHaveClass("chakra-link");
-    // render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
-    // const link = screen.getAllByRole("link")[1].parentElement;
-    // expect(link.firstChild).not.toHaveClass("chakra-link");
-    // expect(link.firstChild).toHaveClass("chakra-breadcrumb__link");
+  it("replaces BreadcrumbsLink when customLink is passed", () => {
+    render(
+      <Breadcrumbs
+        customLink={Link}
+        breadcrumbsData={breadcrumbsDataLinkProps}
+      />
+    );
+    expect(screen.getByText("string1").closest("a")).toHaveClass("chakra-link");
   });
 
-  it.todo("passes linkProps to specified breadcrumbs", () => {});
+  it("does not replace BreadcrumbsLink when no custom link is passed", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsDataLinkProps} />);
+    expect(screen.getByText("string1").closest("a")).toHaveClass(
+      "chakra-breadcrumb__link"
+    );
+    expect(screen.getByText("string1").closest("a")).not.toHaveClass(
+      "chakra-link"
+    );
+  });
+
+  it("passes linkProps to specified breadcrumbs", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsDataLinkProps} />);
+    expect(screen.getByText("string1").closest("a")).toHaveAttribute(
+      "target",
+      "_top"
+    );
+  });
 
   it("passes a ref to the nav wrapper element", () => {
     // It's okay to use this type even though the rendered element is
