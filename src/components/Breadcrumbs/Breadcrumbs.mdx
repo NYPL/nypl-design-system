@@ -72,6 +72,25 @@ the truncated page title.
 
 ## Custom Link and Link Props
 
+The `customLink` prop allows apps with internal routers (Next.js, for example) to pass their custom link component into Breadcrumbs so the links can use client-side routing.
+To maximize these benefits, the `linkProps` prop on `breadcrumbsData` allows accompanying custom props on a link-by-link basis.
+
+<Source
+  code={`
+  // Example with Next.js Link and associated props.
+const breadcrumbsData = [
+  { url: "#", text: "Parent", linkProps: { replace: true, scroll: false }}
+  { url: "#", text: "Child", , linkProps: { replace: true }}
+  { url: "#", text: "Grandchild" },
+];
+// ...
+<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsData} />
+`}
+  language="tsx"
+/>
+
+Below story uses the DS `Link` component.
+
 <Canvas of={BreadcrumbsStories.CustomLink} />
 
 ## Color Variations
