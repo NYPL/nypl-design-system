@@ -65,7 +65,7 @@ const tooltipWrapperOrText = (
       : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
-      as={customLink}
+      as={customLink || BreadcrumbLink}
       href={breadcrumbsData.url}
       aria-current={isCurrentPage ? "page" : undefined}
       {...breadcrumbsData.linkProps}
@@ -102,7 +102,8 @@ const tooltipWrapperOrText = (
 
 const getElementsFromData = (
   data: BreadcrumbsDataProps[],
-  breadcrumbsID?: string
+  breadcrumbsID?: string,
+  customLink?: any
 ) => {
   if (!data?.length) {
     return null;
@@ -120,6 +121,7 @@ const getElementsFromData = (
         {tooltipWrapperOrText(
           breadcrumbsData,
           breadcrumbsID,
+          customLink,
           renderIcon,
           isCurrentPage
         )}
@@ -147,6 +149,7 @@ export const Breadcrumbs: ChakraComponent<
       breadcrumbsData,
       breadcrumbsType = "whatsOn",
       className,
+      customLink,
       id,
       ...rest
     } = props;
