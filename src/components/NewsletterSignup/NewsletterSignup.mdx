@@ -9,10 +9,10 @@ import { changelogData } from "./newsletterSignupChangelogData";
 
 # NewsletterSignup
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `2.1.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `2.1.0`    |
+| Latest            | `3.2.0`    |
 
 ## Table of Contents
 
@@ -201,6 +201,13 @@ function NewsletterSignupOnSubmitExampleComponent() {
 <Canvas of={NewsletterSignupStories.NewsletterSignupOnSubmitExample} />
 
 ## Component States
+
+The display state can be controlled by setting the `view` prop to one of the following values:
+
+- `form` (default)
+- `submitting`
+- `confirmation`
+- `error`
 
 <Canvas of={NewsletterSignupStories.ComponentStates} />
 

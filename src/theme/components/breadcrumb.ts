@@ -79,6 +79,12 @@ const digitalCollections = defineStyle({
       },
     },
   },
+  svg: {
+    fill: "ui.black",
+    _dark: {
+      fill: "ui.white",
+    },
+  },
 });
 const education = defineStyle({
   bg: "section.education.secondary",

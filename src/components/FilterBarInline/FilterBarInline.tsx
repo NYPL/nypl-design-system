@@ -15,7 +15,7 @@ import Heading, { HeadingSizes } from "../Heading/Heading";
 export type FilterBarItemsType =
   | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
-interface FilterBarInlineProps {
+export interface FilterBarInlineProps {
   /** The className of the FilterBarInline. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
