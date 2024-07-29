@@ -2,7 +2,7 @@ import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Breadcrumbs, { breadcrumbTypeArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
-import { Link as CLink } from "../Link/Link";
+import Link from "../Link/Link";
 
 const breadcrumbsData = [
   { url: "#", text: "Parent" },
@@ -77,10 +77,7 @@ export const LongText: Story = {
 };
 export const CustomLink: Story = {
   render: () => (
-    <Breadcrumbs
-      customLink={CLink}
-      breadcrumbsData={linkPropsBreadcrumbsData}
-    />
+    <Breadcrumbs customLink={Link} breadcrumbsData={linkPropsBreadcrumbsData} />
   ),
 };
 export const ColorVariations: Story = {
@@ -93,7 +90,7 @@ export const ColorVariations: Story = {
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="blogs"
-          customLink={CLink}
+          customLink={Link}
         />
       </Box>
       <Box>
