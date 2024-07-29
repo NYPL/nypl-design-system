@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import { createRef } from "react";
 import renderer from "react-test-renderer";
+//import Link from "../Link/Link";
 
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -88,6 +89,19 @@ describe("Breadcrumbs", () => {
       /Great-Grandchild with the Longest Name.../
     );
   });
+
+  it.todo("replaces BreadcrumbsLink when customLink is passed", () => {
+    // render(<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsData} />);
+    // const customLink = screen.getAllByRole("link")[1].parentElement;
+    // console.log(customLink);
+    // expect(customLink.firstChild).toHaveClass("chakra-link");
+    // render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+    // const link = screen.getAllByRole("link")[1].parentElement;
+    // expect(link.firstChild).not.toHaveClass("chakra-link");
+    // expect(link.firstChild).toHaveClass("chakra-breadcrumb__link");
+  });
+
+  it.todo("passes linkProps to specified breadcrumbs", () => {});
 
   it("passes a ref to the nav wrapper element", () => {
     // It's okay to use this type even though the rendered element is
