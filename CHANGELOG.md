@@ -11,7 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Searchbar` component with `<span>` around button text.
 - Updates Banner component to allow for HTML content in the `content` prop when passed as a string.
-- Adds `customLink` and `linkProps` to `Breadcrumbs` component.
+- Updates `Breadcrumbs` component props to include `customLink` and `linkProps`.
 
 ## 3.2.0 (July 25, 2024)
 
@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
+- Updates the `Banner`, `Button`, `ButtonGroup`, `DatePicker`, `FeaturedContent`, `FeedbackBox`, `Fieldset`, `HelperErrorText`, `Label`, `SkipNavigation`, and `StyledList` components to export all types and prop interfaces.
 
 ## 3.1.7 (July 3, 2024)
 
