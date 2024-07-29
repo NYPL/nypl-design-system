@@ -14,9 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: [
-      "Adds `customLinkComponent` and `linkProps` props to allow clientside routing.",
-    ],
+    notes: ["Adds `customLink` and `linkProps` props."],
   },
   {
     date: "2024-07-03",
