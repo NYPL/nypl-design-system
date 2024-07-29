@@ -74,6 +74,8 @@ the truncated page title.
 The `customLink` prop allows apps with internal routers (Next.js, for example) to pass their custom link component into Breadcrumbs so the links can use client-side routing.
 To maximize these benefits, the `linkProps` prop on `breadcrumbsData` allows accompanying custom props on a link-by-link basis.
 
+Note: assigning a value for `href` in `linkProps` will override the `url` prop, so avoid this.
+
 <Source
   code={`
   // Example with Next.js Link and associated props.
