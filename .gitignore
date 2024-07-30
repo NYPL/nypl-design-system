@@ -7,8 +7,9 @@ dependencyGraph.json
 .DS_Store
 lib
 dist
-.vscode
+.vscode/*
 .eslintcache
 coverage
 .idea
 .jest-test-results.json
+.vscode
