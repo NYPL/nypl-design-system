@@ -212,7 +212,7 @@ export const SearchBar: ChakraComponent<
           name="search"
           size="small"
         />
-        Search
+        <span id="searchtext">Search</span>
       </Button>
     );
     // If a custom input element was passed, use that element
