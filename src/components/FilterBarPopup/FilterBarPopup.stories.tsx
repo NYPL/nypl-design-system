@@ -228,7 +228,7 @@ const FilterBarPopupHeadingStory = () => {
         heading={<Heading level="h5">Custom H5 Heading</Heading>}
         renderChildren={renderFilterComponents}
       />
-      <Box>No Heading</Box>
+      <Box>Default heading</Box>
       <FilterBarPopup renderChildren={renderFilterComponents} />
     </VStack>
   );
