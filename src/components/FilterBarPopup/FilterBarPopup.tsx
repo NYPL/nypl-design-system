@@ -69,7 +69,7 @@ export const FilterBarPopup: ChakraComponent<
         children,
         id,
         isOpen,
-        heading,
+        heading = "Filters",
         onClear,
         onSubmit,
         onOpen,
@@ -139,13 +139,7 @@ export const FilterBarPopup: ChakraComponent<
                   })}
                 </Stack>
               </ModalBody>
-              <ModalFooter
-                sx={
-                  onSubmit || onClear || totalResults
-                    ? styles.modalFooter
-                    : undefined
-                }
-              >
+              <ModalFooter sx={styles.modalFooter}>
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
                     id={`filter-bar-${id}-see-results`}

@@ -33,8 +33,7 @@ input components. The DS considers the following components as filter components
 `CheckboxGroup`, `MultiSelectGroup`,`RadioGroup`, `Checkbox`, `DatePicker`,
 `MultiSelect`, `Radio`, `Select`, `Slider`, `TextInput`, and `Toggle`.
 
-The wrapped components/component groups can be displayed in a column or in a row
-layout.
+The wrapped components/component groups can be displayed in a column layout.
 
 It is recommended to use real-time filtering in conjunction with the `totalResults`
 prop to update the `Show X results` button with X being the total number of results
@@ -74,11 +73,12 @@ components:
 
 ## FilterBarPopup Heading
 
-The `FilterBarPopup` component can be rendered with and without a heading. By
-default, when a string is passed to the `heading` prop, the
-`FilterBarPopup` component will render an `h2` element sized as a `heading5`
-heading. If this causes accessibility issues in your app, you can set a custom
-heading by passing in a DS `Heading` component.
+The `FilterBarPopup` component will always render a heading using the default
+"Filters" label value. The default label value can be overridden using the
+`heading` prop. By default, when a string is passed to the `heading` prop, the
+`FilterBarPopup` component will render an `h2` element sized as an `heading5`
+heading. If this causes accessibility issues in your app, you can set a
+custom heading by passing in a DS `Heading` component.
 
 In the following examples, the `FilterBarPopup` component will render custom `h3`
 and `h5` elements. Note that no matter what heading level is set, the size will
@@ -167,10 +167,14 @@ useEffect(() => {
 
 ### onClear
 
-The `Clear all filters` button will only be visible when the `onClear` prop is
-passed. The `Apply filters` button will only be visible when the `onSubmit` prop is
-passed. Consuming apps are responsible for handling the logic and subsequent UI
-updates expected when the `onSubmit` and `onClear` handlers are called.
+The `Clear all filters` button will only be visible when the `onClear` prop is passed.
+
+The `onClear` handler will be called when the `Clear all filters` button is clicked.
+
+It is expected that the `onClear` handler will clear all of the current values from the
+child form elements and restore the associated search results list to an unfiltered
+state. Consuming apps are responsible for handling the logic and subsequent UI
+updates expected when the `onClear` handler is called.
 
 <Source
   code={`
@@ -184,13 +188,12 @@ const onClearFilterBar = () => {
 
 ### onSubmit
 
+The `onSubmit` handler will be called when the `Show results` button is clicked.
+
 It is expected that the `onSubmit` handler will read the current values from the
 child form elements (the filters) and update the associated search results list
-based on those values.
-
-It is expected that the `onClear` handler will clear all of the current values
-from the child form elements and restore the associated search results list to an
-unfiltered state.
+based on those values. Consuming apps are responsible for handling the logic
+and subsequent UI updates expected when the `onSubmit` handler is called.
 
 To have better readability of the code it is recommended to separate nested render
 prop functions:
@@ -282,13 +285,14 @@ return (
 
 ## totalResults example
 
-The `totalResults` prop should be used if the consuming app is utilizing real-time filtering.
-If the `totalResults` prop is passed, its value will be used as part of the button's label text
-(ex. "Show 72 results" where 72 is the value of the totalResults prop). This value should be updated
-as filter options are selected or changed.
+The `totalResults` prop should be used if the consuming app is utilizing real-time
+filtering. If the `totalResults` prop is passed, its value will be used as part of
+the label text for the `Show results` button (ex. "Show 72 results" where 72 is the
+value of the totalResults prop). This value should be updated as filter options are
+selected or changed.
 
-The example below is not fully functioning and is meant to show how the totalResults prop is shown to
-users in the "Show results" button.
+The example below is not fully functioning and is meant to show how the `totalResults`
+prop is shown to users in the `Show results` button.
 
 <Canvas of={FilterBarPopupStories.TotalResultsExample} />
 
