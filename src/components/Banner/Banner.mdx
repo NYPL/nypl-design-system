@@ -239,6 +239,16 @@ renders once.
 
 HTML content passed as a string is rendered as HTML, useful in cases where HTML content is stored in an environment variable or from other sources where the content is stored as strings.
 
+<Source
+  code={`
+<Banner
+  heading="Standard Banner with HTML content passed as string"
+  content="<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
+/>
+`}
+  language="tsx"
+/>
+
 <Canvas of={BannerStories.StringContentWithHTML} />
 
 ## Changelog

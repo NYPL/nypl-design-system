@@ -400,7 +400,7 @@ export const StringContentWithHTML: Story = {
   render: () => (
     <Banner
       content={
-        "<p>HTML content passed as a <em>string</em> is rendered as <strong>HTML</strong>, useful in cases where HTML content is stored in an environment variable.</p>"
+        "<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
       }
       heading="String content with HTML"
       type="neutral"
