@@ -18,7 +18,7 @@ export const bannerTypesArray = [
   "recommendation",
   "warning",
 ] as const;
-export type BannerTypes = (typeof bannerTypesArray)[number];
+export type BannerTypes = typeof bannerTypesArray[number];
 export const bannerBgColorsArray = [
   "brand.primary-05",
   "section.blogs.primary-05",
@@ -43,7 +43,7 @@ export const bannerBgColorsArray = [
   "dark.section.research-library.schwarzman-05",
   "dark.section.whats-on.primary-05",
 ] as const;
-export type BannerBgColors = (typeof bannerBgColorsArray)[number];
+export type BannerBgColors = typeof bannerBgColorsArray[number];
 export const bannerHighlightColorsArray = [
   "brand.primary",
   "section.blogs.primary",
@@ -68,7 +68,7 @@ export const bannerHighlightColorsArray = [
   "dark.section.research-library-schwarzman.primary",
   "dark.section.whats-on.primary",
 ] as const;
-export type BannerHighlightColors = (typeof bannerHighlightColorsArray)[number];
+export type BannerHighlightColors = typeof bannerHighlightColorsArray[number];
 
 export interface BannerProps {
   /** Label used to describe the `Banner`'s aside HTML element. */
