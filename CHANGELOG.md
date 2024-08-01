@@ -9,7 +9,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Prerelease
 
 ### Updates
+
 - Updates `Breadcrumbs` component props to include `customLink` and `linkProps`.
+- Updates Banner component to allow for HTML content in the `content` prop when passed as a string.
+
 
 ## 3.2.0 (July 25, 2024)
 
